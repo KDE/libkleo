@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(libkleo)
 
-if(${CMAKE_SOURCE_DIR} STREQUAL ${libkleo_SOURCE_DIR})
-# ECM setup
 find_package(ECM 5.16.0 CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 set(LIBRARY_NAMELINK)
@@ -76,12 +74,5 @@ install(FILES
 )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
-else()
-ecm_setup_version(${KDEPIM_LIB_VERSION} VARIABLE_PREFIX LIBKLEO
-                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfigVersion.cmake"
-                        SOVERSION 5
-)
-endif()
 
 add_subdirectory(src)
