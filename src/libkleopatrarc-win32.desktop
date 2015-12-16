@@ -3,6 +3,12 @@ extensions-openpgp=tar
 extensions-cms=tar.gz,tgz
 id=tar
 Name=TAR (PGP®-compatible)
+Name[nl]=TAR (PGP®-compatible)
+Name[pt]=TAR (compatível com o PGP®)
+Name[pt_BR]=TAR (compatível com PGP®)
+Name[sv]=TAR (fungerar med PGP®)
+Name[uk]=TAR (сумісні з PGP®)
+Name[x-test]=xxTAR (PGP®-compatible)xx
 pack-command-openpgp=0|%I/gpgtar --openpgp --skip-crypto --output - --encrypt -T- --null --
 pack-command-cms=0|%I/gpgtar --cms --skip-crypto --output - --encrypt -T- --null --
 unpack-command-openpgp=%I/gpgtar --openpgp --skip-crypto --set-filename %f --decrypt -- -
@@ -13,6 +19,12 @@ file-patterns=sha1sum.txt
 output-file=sha1sum.txt
 id=sha1sum
 Name=sha1sum
+Name[nl]=sha1sum
+Name[pt]=sha1sum
+Name[pt_BR]=sha1sum
+Name[sv]=SHA1-summa
+Name[uk]=sha1sum
+Name[x-test]=xxsha1sumxx
 create-command=0|%I/sha1sum -0 -
 verify-command=%I/sha1sum -c
 
@@ -21,6 +33,12 @@ file-patterns=sha256sum.txt
 output-file=sha256sum.txt
 id=sha256sum
 Name=sha256sum
+Name[nl]=sha256sum
+Name[pt]=sha256sum
+Name[pt_BR]=sha256sum
+Name[sv]=SHA256-summa
+Name[uk]=sha256sum
+Name[x-test]=xxsha256sumxx
 create-command=0|%I/sha256sum -0 -
 verify-command=%I/sha256sum -c
 
@@ -29,12 +47,24 @@ file-patterns=md5sum.txt
 output-file=md5sum.txt
 id=md5sum
 Name=md5sum
+Name[nl]=md5sum
+Name[pt]=md5sum
+Name[pt_BR]=md5sum
+Name[sv]=MD5-summa
+Name[uk]=md5sum
+Name[x-test]=xxmd5sumxx
 create-command=0|%I/md5sum -0 -
 verify-command=%I/md5sum -c
 
 [Key Filter #0]
 was-validated=false
 Name=Not Validated Key
+Name[nl]=Geen gevalideerde sleutel
+Name[pt]=Chave Não Validada
+Name[pt_BR]=Chave não validada
+Name[sv]=Nyckeln har inte validerats
+Name[uk]=Неперевірений ключ
+Name[x-test]=xxNot Validated Keyxx
 
 [Key Filter #1]
 was-validated=true
@@ -42,17 +72,35 @@ is-expired=true
 is-revoked=false
 foreground-color=255,0,0
 Name=Expired Key
+Name[nl]=Verlopen sleutel
+Name[pt]=Chave Expirada
+Name[pt_BR]=Chave expirada
+Name[sv]=Utgången nyckel
+Name[uk]=Застарілий ключ
+Name[x-test]=xxExpired Keyxx
 
 [Key Filter #2]
 was-validated=true
 is-revoked=true
 Name=Revoked Key
+Name[nl]=Ingetrokken sleutel
+Name[pt]=Chave Revogada
+Name[pt_BR]=Chave revogada
+Name[sv]=Återkallad nyckel
+Name[uk]=Анульований ключ
+Name[x-test]=xxRevoked Keyxx
 
 [Key Filter #3]
 was-validated=true
 is-root-certificate=true
 is-validity=ultimate
 Name=Trusted Root Certificate
+Name[nl]=Vertrouwd hoofdcertificaat
+Name[pt]=Certificado de Raiz Fidedigno
+Name[pt_BR]=Certificado raiz confiável
+Name[sv]=Pålitligt rotcertifikat
+Name[uk]=Кореневий сертифікат з довірою
+Name[x-test]=xxTrusted Root Certificatexx
 background-color=95,135,255
 font-bold=true
 
@@ -62,18 +110,42 @@ was-validated=true
 is-root-certificate=true
 is-not-validity=ultimate
 Name=Not Trusted Root Certificate
+Name[nl]=Niet vertrouwd hoofdcertificaat
+Name[pt]=Certificado de Raiz Não Fidedigno
+Name[pt_BR]=Certificado raiz não confiável
+Name[sv]=Opålitligt rotcertifikat
+Name[uk]=Кореневий сертифікат без довіри
+Name[x-test]=xxNot Trusted Root Certificatexx
 
 [Key Filter #5]
 was-validated=true
 is-qualified=true
 font-bold=true
 Name=Keys for Qualified Signatures
+Name[nl]=Sleutels voor gekwalificeerde ondertekeningen
+Name[pt]=Chaves para as Assinaturas Qualificadas
+Name[pt_BR]=Chaves para assinaturas qualificadas
+Name[sv]=Nycklar för kvalificerade signaturer
+Name[uk]=Ключі підписів обмеженого використання
+Name[x-test]=xxKeys for Qualified Signaturesxx
 
 [Key Filter #6]
 was-validated=true
 Name=Other Keys
+Name[nl]=Andere sleutels
+Name[pt]=Outras 'Cache'
+Name[pt_BR]=Outras chaves
+Name[sv]=Andra nycklar
+Name[uk]=Інші ключі
+Name[x-test]=xxOther Keysxx
 
 [Key Filter #7]
 is-cardkey=true
 Name=Smartcard Key
+Name[nl]=Smartcard-sleutel
+Name[pt]=Chave do 'Smartcard'
+Name[pt_BR]=Chave do Smartcard
+Name[sv]=Smartkortsnyckel
+Name[uk]=Ключ картки пам’яті
+Name[x-test]=xxSmartcard Keyxx
 icon=smartcard
