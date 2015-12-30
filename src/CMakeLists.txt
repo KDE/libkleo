@@ -211,7 +211,6 @@ ecm_generate_pri_file(BASE_NAME Libkleo
 )
 
 
-if(${CMAKE_SOURCE_DIR} STREQUAL ${libkleo_SOURCE_DIR})
 install(FILES
     ${libkleo_CamelCase_HEADERS}
     ${libkeo_Camelcaseui_HEADERS}
@@ -230,8 +229,6 @@ install(FILES
 install(FILES
     ${PRI_FILENAME}
     DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
-
-endif()
 
 
 if ( WIN32 )
