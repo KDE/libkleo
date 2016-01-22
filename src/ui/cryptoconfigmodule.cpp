@@ -40,7 +40,6 @@
 #include <klineedit.h>
 #include <KLocalizedString>
 #include "kleo_ui_debug.h"
-#include <kiconloader.h>
 #include <qicon.h>
 #include <QDialogButtonBox>
 
@@ -358,7 +357,7 @@ Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
     }
 
     QLabel *l = new QLabel(widget);
-    l->setPixmap(loadIcon(iconName).pixmap(KIconLoader::SizeMedium, KIconLoader::SizeMedium));
+    l->setPixmap(loadIcon(iconName).pixmap(32, 32));
     glay->addWidget(l, startRow, 0, endRow - startRow + 1, 1, Qt::AlignTop);
 }
 

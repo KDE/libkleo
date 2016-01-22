@@ -36,7 +36,6 @@
 
 #include <KLocalizedString>
 #include <qdebug.h>
-#include <kiconloader.h>
 #include <kconfig.h>
 #include <QIcon>
 

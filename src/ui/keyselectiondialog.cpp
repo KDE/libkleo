@@ -51,7 +51,6 @@
 
 // KDE
 #include <KLocalizedString>
-#include <kiconloader.h>
 #include <kwindowsystem.h>
 #include <kconfig.h>
 #include <kmessagebox.h>
@@ -226,7 +225,7 @@ int ColumnStrategy::width(int col, const QFontMetrics &fm) const
         for (unsigned int i = 0; i < 16; ++i) {
             maxWidth = qMax(fm.width(QLatin1Char(hexchars[i])), maxWidth);
         }
-        return 8 * maxWidth + 2 * KIconLoader::SizeSmall;
+        return 8 * maxWidth + 2 * 16 /* KIconLoader::SizeSmall */;
     }
     return Kleo::KeyListView::ColumnStrategy::width(col, fm);
 }
@@ -498,10 +497,8 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
 
     if (qApp) {
         QSize dialogSize(sizeHint());
-        int iconSize = IconSize(KIconLoader::Desktop);
-        int miniSize = IconSize(KIconLoader::Small);
-        KWindowSystem::setIcons(winId(), qApp->windowIcon().pixmap(iconSize, iconSize),
-                                qApp->windowIcon().pixmap(miniSize, miniSize));
+        KWindowSystem::setIcons(winId(), qApp->windowIcon().pixmap(32, 32),
+                                qApp->windowIcon().pixmap(16, 16));
 
         KConfigGroup dialogConfig(KSharedConfig::openConfig(), "Key Selection Dialog");
         dialogSize = dialogConfig.readEntry("Dialog size", dialogSize);

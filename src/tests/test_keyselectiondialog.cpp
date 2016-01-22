@@ -33,7 +33,6 @@
 #include <gpgme++/key.h>
 
 #include <KAboutData>
-#include <kiconloader.h>
 #include <QDebug>
 
 #include <vector>
@@ -52,8 +51,6 @@ int main(int argc, char **argv)
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
-
-    KIconLoader::global()->addAppDir("libkleopatra");
 
     Kleo::KeySelectionDialog dlg("Kleo::KeySelectionDialog Test",
                                  "Please select a key:",

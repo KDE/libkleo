@@ -59,7 +59,6 @@
 
 // KDE
 #include <KLocalizedString>
-#include <kiconloader.h>
 #include <QDialog>
 #include <kmessagebox.h>
 #include <qpushbutton.h>

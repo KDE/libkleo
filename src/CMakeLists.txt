@@ -112,7 +112,6 @@ set(kleo_LIB_LIBS PUBLIC KF5::QGpgme PRIVATE Qt5::Widgets
                                              KF5::Completion
                                              KF5::ConfigCore
                                              KF5::CoreAddons
-                                             KF5::IconThemes
                                              KF5::WindowSystem
                                              KF5::WidgetsAddons)
 if (WIN32)
