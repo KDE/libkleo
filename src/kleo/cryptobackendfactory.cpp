@@ -40,9 +40,7 @@
 #include "backends/kpgp/gpg1backend.h"
 #endif
 
-#ifndef KDEPIM_ONLY_KLEO
-# include "backends/chiasmus/chiasmusbackend.h"
-#endif
+#include "backends/chiasmus/chiasmusbackend.h"
 
 #include <kconfig.h>
 #include <KLocalizedString>
@@ -58,10 +56,7 @@
 Kleo::CryptoBackendFactory *Kleo::CryptoBackendFactory::mSelf = 0;
 
 static const char *const availableProtocols[] = {
-#ifndef KDEPIM_ONLY_KLEO
-    "Chiasmus",
-#endif
-    "OpenPGP", "SMIME",
+    "Chiasmus", "OpenPGP", "SMIME",
 };
 static const unsigned int numAvailableProtocols = sizeof availableProtocols / sizeof * availableProtocols;
 
@@ -78,9 +73,7 @@ Kleo::CryptoBackendFactory::CryptoBackendFactory()
     mBackendList.push_back(new PGP6Backend());
     mBackendList.push_back(new GPG1Backend());
 #endif
-#ifndef KDEPIM_ONLY_KLEO
     mBackendList.push_back(new ChiasmusBackend());
-#endif
     scanForBackends();
     readConfig();
 
@@ -246,9 +239,7 @@ static const char *defaultBackend(const char *proto)
     } defaults[] = {
         { "OpenPGP", "gpgme" },
         { "SMIME", "gpgme" },
-#ifndef KDEPIM_ONLY_KLEO
         { "Chiasmus", "chiasmus" },
-#endif
     };
     for (unsigned int i = 0; i < sizeof defaults / sizeof * defaults; ++i)
         if (qstricmp(proto, defaults[i].proto) == 0) {

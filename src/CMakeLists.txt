@@ -2,10 +2,6 @@
 # target_include_directories does not handle empty include paths
 include_directories(${GPGME_INCLUDES})
 
-if (KDEPIM_ONLY_KLEO)
-  add_definitions( -DKDEPIM_ONLY_KLEO )
-endif ()
-
 add_definitions(-DTRANSLATION_DOMAIN=\"libkleopatra\")
 
 #add_definitions( -DQT_NO_CAST_FROM_ASCII )
