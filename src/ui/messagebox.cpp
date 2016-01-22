@@ -48,7 +48,6 @@
 #include <KLocalizedString>
 #include <QSaveFile>
 #include <kguiitem.h>
-#include <ktextedit.h>
 
 #include <qtextstream.h>
 

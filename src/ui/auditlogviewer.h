@@ -22,12 +22,18 @@
 #define AUDITLOGVIEWER_H
 
 #include <QDialog>
+
+#ifdef HAVE_PIMTEXTEDIT
 #include "kpimtextedit/richtexteditorwidget.h"
 
 namespace KPIMTextEdit
 {
 class RichTextEditorWidget;
 }
+#else
+
+class QTextEdit;
+#endif // HAVE_PIMTEXTEDIT
 
 namespace Kleo
 {
@@ -53,7 +59,11 @@ private:
     void readConfig();
 
     QString m_log;
+#ifdef HAVE_PIMTEXTEDIT
     KPIMTextEdit::RichTextEditorWidget *m_textEdit;
+#else
+    QTextEdit *m_textEdit;
+#endif
 };
 
 }

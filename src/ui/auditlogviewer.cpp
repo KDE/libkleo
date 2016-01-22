@@ -19,7 +19,11 @@
 */
 #include "auditlogviewer.h"
 
-#include "kpimtextedit/richtexteditor.h"
+#ifdef HAVE_PIMTEXTEDIT
+# include "kpimtextedit/richtexteditor.h"
+#else
+# include <QTextEdit>
+#endif
 #include <QSaveFile>
 #include <QFileDialog>
 #include <KConfigGroup>
@@ -37,7 +41,11 @@ using namespace Kleo::Private;
 AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     : QDialog(parent),
       m_log(/* sic */),
+#ifdef HAVE_PIMTEXTEDIT
       m_textEdit(new KPIMTextEdit::RichTextEditorWidget(this))
+#else
+      m_textEdit(new QTextEdit(this))
+#endif
 {
     setWindowTitle(i18n("View GnuPG Audit Log"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -120,9 +128,15 @@ void AuditLogViewer::slotSaveAs()
 
 void AuditLogViewer::slotCopyClip()
 {
+#ifdef HAVE_PIMTEXTEDIT
     m_textEdit->editor()->selectAll();
     m_textEdit->editor()->copy();
     m_textEdit->editor()->textCursor().clearSelection();
+#else
+    m_textEdit->selectAll();
+    m_textEdit->copy();
+    m_textEdit->textCursor().clearSelection();
+#endif
 }
 
 void AuditLogViewer::readConfig()

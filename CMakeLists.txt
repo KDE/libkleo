@@ -35,7 +35,12 @@ find_package(KF5IconThemes ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5WindowSystem ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5CoreAddons ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Gpgmepp ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
-find_package(KF5PimTextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG REQUIRED)
+find_package(KF5PimTextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
+set_package_properties(KF5PimTextEdit PROPERTIES DESCRIPTION
+                       "A textedit with PIM-specific features."
+                       URL "https://projects.kde.org/projects/kde/pim/kpimtextedit"
+                       TYPE OPTIONAL PURPOSE "Improved audit log viewer.")
+
 ecm_setup_version(${LIBKLEO_LIB_VERSION} VARIABLE_PREFIX LIBKLEO
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfigVersion.cmake"

@@ -116,7 +116,6 @@ set(kleo_LIB_LIBS PUBLIC KF5::QGpgme PRIVATE Qt5::Widgets
                                              KF5::Completion
                                              KF5::ConfigCore
                                              KF5::CoreAddons
-                                             KF5::PimTextEdit
                                              KF5::IconThemes
                                              KF5::WindowSystem
                                              KF5::WidgetsAddons)
@@ -124,6 +123,11 @@ if (WIN32)
   set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PUBLIC KF5::Gpgmepp)
 else()
   set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PUBLIC KF5::Gpgmepp-pthread)
+endif()
+
+if (KF5PimTextEdit_FOUND)
+  add_definitions(-DHAVE_PIMTEXTEDIT)
+  set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PUBLIC KF5::PimTextEdit)
 endif()
 
 add_library(KF5Libkleo ${kleo_LIB_SRCS})
