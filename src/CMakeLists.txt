@@ -122,7 +122,7 @@ endif()
 
 if (KF5PimTextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
-  set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PUBLIC KF5::PimTextEdit)
+  set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PRIVATE KF5::PimTextEdit)
 endif()
 
 add_library(KF5Libkleo ${kleo_LIB_SRCS})
