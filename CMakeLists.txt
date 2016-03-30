@@ -35,6 +35,12 @@ find_package(KF5WindowSystem ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5CoreAddons ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Gpgmepp ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5PimTextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
+
+find_package(Boost 1.34.0)
+set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "http://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")
+
+
+
 set_package_properties(KF5PimTextEdit PROPERTIES DESCRIPTION
                        "A textedit with PIM-specific features."
                        URL "https://projects.kde.org/projects/kde/pim/kpimtextedit"
