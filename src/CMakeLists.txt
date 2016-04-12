@@ -15,67 +15,16 @@ string(REPLACE "-pedantic" "" FOO "${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS "${FOO}")
 
 add_subdirectory( pics )
-add_subdirectory( backends )
 if (BUILD_TESTING)
    add_subdirectory( tests )
 endif()
 
 ########### next target ###############
-set(libkleo_backend_qgpgme_SRCS
-    backends/qgpgme/gnupgprocessbase.cpp
-    backends/qgpgme/qgpgmeprogresstokenmapper.cpp
-    backends/qgpgme/qgpgmebackend.cpp
-    backends/qgpgme/threadedjobmixin.cpp
-    backends/qgpgme/qgpgmekeylistjob.cpp
-    backends/qgpgme/qgpgmelistallkeysjob.cpp
-    backends/qgpgme/qgpgmekeygenerationjob.cpp
-    backends/qgpgme/qgpgmeimportjob.cpp
-    backends/qgpgme/qgpgmeimportfromkeyserverjob.cpp
-    backends/qgpgme/qgpgmeexportjob.cpp
-    backends/qgpgme/qgpgmesecretkeyexportjob.cpp
-    backends/qgpgme/qgpgmechangeexpiryjob.cpp
-    backends/qgpgme/qgpgmechangeownertrustjob.cpp
-    backends/qgpgme/qgpgmechangepasswdjob.cpp
-    backends/qgpgme/qgpgmedownloadjob.cpp
-    backends/qgpgme/qgpgmedeletejob.cpp
-    backends/qgpgme/qgpgmeencryptjob.cpp
-    backends/qgpgme/qgpgmedecryptjob.cpp
-    backends/qgpgme/qgpgmesignjob.cpp
-    backends/qgpgme/qgpgmesignkeyjob.cpp
-    backends/qgpgme/qgpgmeadduseridjob.cpp
-    backends/qgpgme/qgpgmeverifydetachedjob.cpp
-    backends/qgpgme/qgpgmeverifyopaquejob.cpp
-    backends/qgpgme/qgpgmesignencryptjob.cpp
-    backends/qgpgme/qgpgmedecryptverifyjob.cpp
-    backends/qgpgme/qgpgmecryptoconfig.cpp
-    backends/qgpgme/qgpgmenewcryptoconfig.cpp
-    backends/qgpgme/qgpgmerefreshkeysjob.cpp
-    backends/qgpgme/qgpgmekeyformailboxjob.cpp
-    )
-ecm_qt_declare_logging_category(libkleo_backend_qgpgme_SRCS HEADER gpgme_backend_debug.h IDENTIFIER GPGPME_BACKEND_LOG CATEGORY_NAME org.kde.pim.gpgme_backend)
-
-set(libkleo_backend_chiasmus_SRCS
-    backends/chiasmus/config_data.c
-    backends/chiasmus/obtainkeysjob.cpp
-    backends/chiasmus/symcryptrunprocessbase.cpp
-    backends/chiasmus/chiasmusjob.cpp
-    backends/chiasmus/chiasmuslibrary.cpp
-    backends/chiasmus/chiasmusbackend.cpp
-    )
-
-
 set(libkleo_core_SRCS
    kleo/checksumdefinition.cpp
-   kleo/cryptobackend.cpp
-   kleo/cryptobackendfactory.cpp
    kleo/enum.cpp
    kleo/exception.cpp
    kleo/dn.cpp
-   kleo/job.cpp
-   kleo/multideletejob.cpp
-   kleo/hierarchicalkeylistjob.cpp
-   kleo/defaultkeyfilter.cpp
-   kleo/defaultkeygenerationjob.cpp
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
    models/keycache.cpp
@@ -117,25 +66,16 @@ ki18n_wrap_ui(libkleo_ui_common_SRCS
     ui/directoryserviceswidget.ui
 )
 
-set(kleo_LIB_SRCS ${libkleo_core_SRCS} ${libkleo_backend_chiasmus_SRCS}
-                                       ${libkleo_ui_SRCS}
-                                       ${libkleo_ui_common_SRCS}
-                                       ${libkleo_backend_qgpgme_SRCS})
+set(kleo_LIB_SRCS ${libkleo_core_SRCS} ${libkleo_ui_SRCS}
+                                       ${libkleo_ui_common_SRCS})
 
-set(kleo_LIB_LIBS PUBLIC KF5::QGpgme PRIVATE Qt5::Widgets
-                                             KF5::I18n
-                                             KF5::Completion
-                                             KF5::ConfigCore
-                                             KF5::CoreAddons
-                                             KF5::WindowSystem
-                                             KF5::WidgetsAddons
-                                             KF5::Codecs
-                                             KF5::ItemModels)
-if (WIN32)
-  set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PUBLIC KF5::Gpgmepp)
-else()
-  set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PUBLIC KF5::Gpgmepp-pthread)
-endif()
+set(kleo_LIB_LIBS PUBLIC QGpgme Gpgmepp PRIVATE Qt5::Widgets
+                                                KF5::I18n
+                                                KF5::Completion
+                                                KF5::ConfigCore
+                                                KF5::CoreAddons
+                                                KF5::WindowSystem
+                                                KF5::WidgetsAddons)
 
 if (KF5PimTextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
@@ -169,44 +109,15 @@ target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTA
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
   HEADER_NAMES
-  AbstractImportJob
-  AddUserIDJob
-  ChangeExpiryJob
-  ChangeOwnerTrustJob
-  ChangePasswdJob
-  ChecksumDefinition
-  CryptoBackend
-  CryptoBackendFactory
-  CryptoConfig
-  DecryptJob
-  DecryptVerifyJob
-  DefaultKeyFilter
-  DefaultKeyGenerationJob
-  DeleteJob
-  Dn
-  EncryptJob
   Enum
+  Stl_Util
+  Dn
   Exception
-  ExportJob
-  ImportFromKeyserverJob
-  ImportJob
-  Job
   KeyFilter
+  ChecksumDefinition
   KeyFilterManager
-  KeyForMailboxJob
-  KeyGenerationJob
-  KeyListJob
-  ListAllKeysJob
-  MultiDeleteJob
   OidMap
   Predicates
-  SignEncryptJob
-  SignJob
-  SignKeyJob
-  SpecialJob
-  Stl_Util
-  VerifyDetachedJob
-  VerifyOpaqueJob
   REQUIRED_HEADERS libkleo_HEADERS
   PREFIX Libkleo
   RELATIVE kleo

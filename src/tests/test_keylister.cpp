@@ -31,8 +31,8 @@
 
 #include "test_keylister.h"
 
-#include "libkleo/keylistjob.h"
-#include "libkleo/cryptobackendfactory.h"
+#include <qgpgme/keylistjob.h>
+#include <qgpgme/qgpgmebackend.h>
 
 #include <gpgme++/keylistresult.h>
 #include <gpgme++/key.h>
@@ -123,7 +123,7 @@ void CertListView::slotResult(const GpgME::KeyListResult &result)
 void CertListView::slotStart()
 {
     qDebug() << "CertListView::slotStart()";
-    Kleo::KeyListJob *job = Kleo::CryptoBackendFactory::instance()->smime()->keyListJob(false);
+    QGpgME::KeyListJob *job = QGpgME::smime()->keyListJob(false);
     assert(job);
     QObject::connect(job, SIGNAL(nextKey(GpgME::Key)),
                      this, SLOT(slotAddKey(GpgME::Key)));

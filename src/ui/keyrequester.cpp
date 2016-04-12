@@ -49,13 +49,13 @@
 
 #include "keyselectiondialog.h"
 
-#include "libkleo/keylistjob.h"
 #include "libkleo/dn.h"
-#include "libkleo/cryptobackendfactory.h"
 
 // gpgme++
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
+#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/keylistjob.h>
 
 // KDE
 #include <KLocalizedString>
@@ -73,6 +73,8 @@
 #include <QHBoxLayout>
 
 #include <assert.h>
+
+using namespace QGpgME;
 
 Kleo::KeyRequester::KeyRequester(unsigned int allowedKeys, bool multipleKeys,
                                  QWidget *parent)
@@ -415,10 +417,10 @@ void Kleo::KeyRequester::setAllowedKeys(unsigned int keyUsage)
     mSMIMEBackend = 0;
 
     if (mKeyUsage & KeySelectionDialog::OpenPGPKeys) {
-        mOpenPGPBackend = Kleo::CryptoBackendFactory::instance()->openpgp();
+        mOpenPGPBackend = openpgp();
     }
     if (mKeyUsage & KeySelectionDialog::SMIMEKeys) {
-        mSMIMEBackend = Kleo::CryptoBackendFactory::instance()->smime();
+        mSMIMEBackend = smime();
     }
 
     if (mOpenPGPBackend && !mSMIMEBackend) {

@@ -38,7 +38,7 @@
 
 #include "progressbar.h"
 
-#include "libkleo/job.h"
+#include <qgpgme/job.h>
 
 #include <KLocalizedString>
 
@@ -46,7 +46,7 @@
 
 #include <assert.h>
 
-Kleo::ProgressDialog::ProgressDialog(Job *job, const QString &baseText,
+Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText,
                                      QWidget *creator, Qt::WindowFlags f)
     : QProgressDialog(creator, f), mBaseText(baseText)
 {
@@ -60,9 +60,9 @@ Kleo::ProgressDialog::ProgressDialog(Job *job, const QString &baseText,
     setModal(false);
     setRange(0, 0);   // activate busy indicator
 
-    connect(job, &Job::progress, this, &ProgressDialog::slotProgress);
-    connect(job, &Job::done, this, &ProgressDialog::slotDone);
-    connect(this, &QProgressDialog::canceled, job, &Job::slotCancel);
+    connect(job, &QGpgME::Job::progress, this, &ProgressDialog::slotProgress);
+    connect(job, &QGpgME::Job::done, this, &ProgressDialog::slotDone);
+    connect(this, &QProgressDialog::canceled, job, &QGpgME::Job::slotCancel);
 
     QTimer::singleShot(minimumDuration(), this, &ProgressDialog::forceShow);
 }

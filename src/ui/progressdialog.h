@@ -39,10 +39,10 @@
 #ifndef QT_NO_PROGRESSDIALOG
 
 #include <QString>
+
+#include <qgpgme/job.h>
 namespace Kleo
 {
-
-class Job;
 
 /**
    @short A progress dialog for Kleo::Jobs
@@ -51,7 +51,7 @@ class KLEO_EXPORT ProgressDialog : public QProgressDialog
 {
     Q_OBJECT
 public:
-    ProgressDialog(Job *job, const QString &baseText,
+    ProgressDialog(QGpgME::Job *job, const QString &baseText,
                    QWidget *widget = Q_NULLPTR, Qt::WindowFlags f = 0);
     ~ProgressDialog();
 

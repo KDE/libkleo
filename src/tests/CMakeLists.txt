@@ -10,7 +10,6 @@ endmacro()
 
 add_kleo_test(test_kdhorizontalline.cpp)
 add_kleo_test(test_jobs.cpp)
-add_kleo_test(test_gnupgprocessbase.cpp)
 add_kleo_test(test_cryptoconfig.cpp)
 add_kleo_test(test_keyselectiondialog.cpp)
 add_kleo_test(test_keygen.cpp)

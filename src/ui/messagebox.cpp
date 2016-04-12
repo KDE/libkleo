@@ -35,10 +35,10 @@
 
 #include <QDebug>
 #include "kleo_ui_debug.h"
-#include "libkleo/job.h"
 
 #include <gpgme++/signingresult.h>
 #include <gpgme++/encryptionresult.h>
+#include <qgpgme/job.h>
 
 #include <QFileDialog>
 
@@ -57,6 +57,7 @@
 using namespace Kleo;
 using namespace Kleo::Private;
 using namespace GpgME;
+using namespace QGpgME;
 
 // static
 void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &caption)
@@ -221,7 +222,7 @@ void MessageBox::error(QWidget *parent, const SigningResult &sresult, const Encr
 }
 
 // static
-bool MessageBox::showAuditLogButton(const Kleo::Job *job)
+bool MessageBox::showAuditLogButton(const QGpgME::Job *job)
 {
     if (!job) {
         qCDebug(KLEO_UI_LOG) << "not showing audit log button (no job instance)";

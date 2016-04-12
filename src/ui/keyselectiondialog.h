@@ -38,9 +38,9 @@
 #define __KLEO_UI_KEYSELECTIONDIALOG_H__
 
 #include "kleo_export.h"
-#include "libkleo/cryptobackend.h"
 
 #include <gpgme++/key.h>
+#include <qgpgme/qgpgmebackend.h>
 
 #include <QDialog>
 
@@ -178,7 +178,7 @@ private:
     void connectSignals();
     void disconnectSignals();
 
-    void startKeyListJobForBackend(const Kleo::CryptoBackend::Protocol *, const std::vector<GpgME::Key> &, bool);
+    void startKeyListJobForBackend(const QGpgME::Protocol *, const std::vector<GpgME::Key> &, bool);
     void startValidatingKeyListing();
 
     void init(bool, bool, const QString &, const QString &);
@@ -186,8 +186,8 @@ private:
 private:
     QVBoxLayout *mTopLayout;
     Kleo::KeyListView *mKeyListView;
-    const Kleo::CryptoBackend::Protocol *mOpenPGPBackend;
-    const Kleo::CryptoBackend::Protocol *mSMIMEBackend;
+    const QGpgME::Protocol *mOpenPGPBackend;
+    const QGpgME::Protocol *mSMIMEBackend;
     QCheckBox *mRememberCB;
     std::vector<GpgME::Key> mSelectedKeys, mKeysToCheck;
     unsigned int mKeyUsage;
