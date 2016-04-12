@@ -36,12 +36,14 @@
 #include <kpagedialog.h>
 #include <QList>
 
+namespace QGpgME
+{
+class CryptoConfig;
+} // namespace QGpgME
+
 namespace Kleo
 {
-
-class CryptoConfig;
 class CryptoConfigComponentGUI;
-
 struct ParsedKeyserver {
     QString url;
     QVector< QPair<QString, QString> > options;
@@ -59,8 +61,8 @@ class KLEO_EXPORT CryptoConfigModule : public KPageWidget
     Q_OBJECT
 public:
     enum Layout { TabbedLayout, IconListLayout, LinearizedLayout };
-    explicit CryptoConfigModule(Kleo::CryptoConfig *config, QWidget *parent = Q_NULLPTR);
-    explicit CryptoConfigModule(Kleo::CryptoConfig *config, Layout layout, QWidget *parent = Q_NULLPTR);
+    explicit CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent = Q_NULLPTR);
+    explicit CryptoConfigModule(QGpgME::CryptoConfig *config, Layout layout, QWidget *parent = Q_NULLPTR);
 
     bool hasError() const;
 
@@ -76,7 +78,7 @@ private:
     void init(Layout layout);
 
 private:
-    Kleo::CryptoConfig *mConfig;
+    QGpgME::CryptoConfig *mConfig;
     QList<CryptoConfigComponentGUI *> mComponentGUIs;
 };
 

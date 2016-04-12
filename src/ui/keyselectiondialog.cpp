@@ -40,14 +40,15 @@
 #include "progressdialog.h"
 
 #include "libkleo/dn.h"
-#include "libkleo/keylistjob.h"
-#include "libkleo/cryptobackendfactory.h"
 #include <QDebug>
 #include "kleo_ui_debug.h"
 
 // gpgme++
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
+
+#include <qgpgme/keylistjob.h>
+#include <qgpgme/qgpgmebackend.h>
 
 // KDE
 #include <KLocalizedString>
@@ -400,10 +401,10 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     buttonBox->addButton(user2Button, QDialogButtonBox::ActionRole);
 
     if (mKeyUsage & OpenPGPKeys) {
-        mOpenPGPBackend = Kleo::CryptoBackendFactory::instance()->openpgp();
+        mOpenPGPBackend = QGpgME::openpgp();
     }
     if (mKeyUsage & SMIMEKeys) {
-        mSMIMEBackend = Kleo::CryptoBackendFactory::instance()->smime();
+        mSMIMEBackend = QGpgME::smime();
     }
 
     mCheckSelectionTimer = new QTimer(this);
@@ -654,21 +655,21 @@ struct ExtractFingerprint {
 };
 }
 
-void Kleo::KeySelectionDialog::startKeyListJobForBackend(const CryptoBackend::Protocol *backend, const std::vector<GpgME::Key> &keys, bool validate)
+void Kleo::KeySelectionDialog::startKeyListJobForBackend(const QGpgME::Protocol *backend, const std::vector<GpgME::Key> &keys, bool validate)
 {
     assert(backend);
-    KeyListJob *job = backend->keyListJob(false, false, validate);    // local, w/o sigs, validation as givem
+    QGpgME::KeyListJob *job = backend->keyListJob(false, false, validate);    // local, w/o sigs, validation as givem
     if (!job) {
         return;
     }
 
-    connect(job, &KeyListJob::result,
+    connect(job, &QGpgME::KeyListJob::result,
             this, &KeySelectionDialog::slotKeyListResult);
     if (validate)
-        connect(job, &KeyListJob::nextKey,
+        connect(job, &QGpgME::KeyListJob::nextKey,
                 mKeyListView, &KeyListView::slotRefreshKey);
     else
-        connect(job, &KeyListJob::nextKey,
+        connect(job, &QGpgME::KeyListJob::nextKey,
                 mKeyListView, &KeyListView::slotAddKey);
 
     QStringList fprs;

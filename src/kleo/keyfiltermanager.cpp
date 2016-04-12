@@ -33,11 +33,11 @@
 #include "keyfiltermanager.h"
 #include "kconfigbasedkeyfilter.h"
 
-#include "cryptobackendfactory.h"
 #include "stl_util.h"
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include <KSharedConfig>
 #include <KLocalizedString>
 #include <QIcon>
 #include <QDebug>
@@ -230,13 +230,12 @@ void KeyFilterManager::reload()
     d->clear();
 
     d->filters = defaultFilters();
+    KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
 
-    if (KConfig *config = CryptoBackendFactory::instance()->configObject()) {
-        const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
-        for (QStringList::const_iterator it = groups.begin(); it != groups.end(); ++it) {
-            const KConfigGroup cfg(config, *it);
-            d->filters.push_back(shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
-        }
+    const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
+    for (QStringList::const_iterator it = groups.begin(); it != groups.end(); ++it) {
+        const KConfigGroup cfg(config, *it);
+        d->filters.push_back(shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
     }
     std::stable_sort(d->filters.begin(), d->filters.end(), ByDecreasingSpecificity());
     qDebug() << "final filter count is" << d->filters.size();

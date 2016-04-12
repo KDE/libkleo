@@ -33,7 +33,6 @@
 #include "checksumdefinition.h"
 
 #include "exception.h"
-#include "cryptobackendfactory.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -381,20 +380,19 @@ std::vector< shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDef
 std::vector< shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDefinitions(QStringList &errors)
 {
     std::vector< shared_ptr<ChecksumDefinition> > result;
-    if (KConfig *config = CryptoBackendFactory::instance()->configObject()) {
-        const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Checksum Definition #")));
-        result.reserve(groups.size());
-        Q_FOREACH (const QString &group, groups)
-            try {
-                const shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
-                result.push_back(ad);
-            } catch (const std::exception &e) {
-                qDebug() << e.what();
-                errors.push_back(QString::fromLocal8Bit(e.what()));
-            } catch (...) {
-                errors.push_back(i18n("Caught unknown exception in group %1", group));
-            }
-    }
+    KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
+    const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Checksum Definition #")));
+    result.reserve(groups.size());
+    Q_FOREACH (const QString &group, groups)
+        try {
+            const shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
+            result.push_back(ad);
+        } catch (const std::exception &e) {
+            qDebug() << e.what();
+            errors.push_back(QString::fromLocal8Bit(e.what()));
+        } catch (...) {
+            errors.push_back(i18n("Caught unknown exception in group %1", group));
+        }
     return result;
 }
 

@@ -35,7 +35,7 @@
 #include "kdhorizontalline.h"
 #include "filenamerequester.h"
 
-#include "libkleo/cryptoconfig.h"
+#include <qgpgme/cryptoconfig.h>
 
 #include <klineedit.h>
 #include <KLocalizedString>
@@ -87,7 +87,7 @@ inline QIcon loadIcon(const QString &s)
     return QIcon::fromTheme(ss.replace(QRegExp(QLatin1String("[^a-zA-Z0-9_]")), QStringLiteral("-")));
 }
 
-static unsigned int num_components_with_options(const Kleo::CryptoConfig *config)
+static unsigned int num_components_with_options(const QGpgME::CryptoConfig *config)
 {
     if (!config) {
         return 0;
@@ -95,14 +95,14 @@ static unsigned int num_components_with_options(const Kleo::CryptoConfig *config
     const QStringList components = config->componentList();
     unsigned int result = 0;
     for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it)
-        if (const Kleo::CryptoConfigComponent *const comp = config->component(*it))
+        if (const QGpgME::CryptoConfigComponent *const comp = config->component(*it))
             if (!comp->groupList().empty()) {
                 ++result;
             }
     return result;
 }
 
-static KPageView::FaceType determineJanusFace(const Kleo::CryptoConfig *config, Kleo::CryptoConfigModule::Layout layout, bool &ok)
+static KPageView::FaceType determineJanusFace(const QGpgME::CryptoConfig *config, Kleo::CryptoConfigModule::Layout layout, bool &ok)
 {
     ok = true;
     if (num_components_with_options(config) < 2) {
@@ -115,13 +115,13 @@ static KPageView::FaceType determineJanusFace(const Kleo::CryptoConfig *config, 
         /* else */                                       KPageView::List;
 }
 
-Kleo::CryptoConfigModule::CryptoConfigModule(Kleo::CryptoConfig *config, QWidget *parent)
+Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent)
     : KPageWidget(parent), mConfig(config)
 {
     init(IconListLayout);
 }
 
-Kleo::CryptoConfigModule::CryptoConfigModule(Kleo::CryptoConfig *config, Layout layout, QWidget *parent)
+Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, Layout layout, QWidget *parent)
     : KPageWidget(parent), mConfig(config)
 {
     init(layout);
@@ -133,7 +133,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
         l->setMargin(0);
     }
 
-    Kleo::CryptoConfig *const config = mConfig;
+    QGpgME::CryptoConfig *const config = mConfig;
 
     bool configOK = false;
     const KPageView::FaceType type = determineJanusFace(config, layout, configOK);
@@ -162,7 +162,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
     const QStringList components = config->componentList();
     for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it) {
         //qCDebug(KLEO_UI_LOG) <<"Component" << (*it).toLocal8Bit() <<":";
-        Kleo::CryptoConfigComponent *comp = config->component(*it);
+        QGpgME::CryptoConfigComponent *comp = config->component(*it);
         Q_ASSERT(comp);
         if (comp->groupList().empty()) {
             continue;
@@ -268,7 +268,7 @@ void Kleo::CryptoConfigModule::cancel()
 ////
 
 Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
-    CryptoConfigModule *module, Kleo::CryptoConfigComponent *component,
+    CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component,
     QWidget *parent)
     : QWidget(parent),
       mComponent(component)
@@ -278,7 +278,7 @@ Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
     if (groups.size() > 1) {
         glay->setColumnMinimumWidth(0, KDHorizontalLine::indentHint());
         for (QStringList::const_iterator it = groups.begin(), end = groups.end(); it != end; ++it) {
-            Kleo::CryptoConfigGroup *group = mComponent->group(*it);
+            QGpgME::CryptoConfigGroup *group = mComponent->group(*it);
             Q_ASSERT(group);
             if (!group) {
                 continue;
@@ -326,16 +326,16 @@ void Kleo::CryptoConfigComponentGUI::defaults()
 ////
 
 Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
-    CryptoConfigModule *module, Kleo::CryptoConfigGroup *group,
+    CryptoConfigModule *module, QGpgME::CryptoConfigGroup *group,
     QGridLayout *glay, QWidget *widget)
     : QObject(module), mGroup(group)
 {
     const int startRow = glay->rowCount();
     const QStringList entries = mGroup->entryList();
     for (QStringList::const_iterator it = entries.begin(), end = entries.end(); it != end; ++it) {
-        Kleo::CryptoConfigEntry *entry = group->entry(*it);
+        QGpgME::CryptoConfigEntry *entry = group->entry(*it);
         Q_ASSERT(entry);
-        if (entry->level() > CryptoConfigEntry::Level_Advanced) {
+        if (entry->level() > QGpgME::CryptoConfigEntry::Level_Advanced) {
             qCDebug(KLEO_UI_LOG) << "entry" << *it << "too advanced, skipping";
             continue;
         }
@@ -392,12 +392,12 @@ void Kleo::CryptoConfigGroupGUI::defaults()
 
 ////
 
-typedef CryptoConfigEntryGUI *(*constructor)(CryptoConfigModule *, Kleo::CryptoConfigEntry *, const QString &, QGridLayout *, QWidget *);
+typedef CryptoConfigEntryGUI *(*constructor)(CryptoConfigModule *, QGpgME::CryptoConfigEntry *, const QString &, QGridLayout *, QWidget *);
 
 namespace
 {
 template <typename T_Widget>
-CryptoConfigEntryGUI *_create(CryptoConfigModule *m, Kleo::CryptoConfigEntry *e, const QString &n, QGridLayout *l, QWidget *p)
+CryptoConfigEntryGUI *_create(CryptoConfigModule *m, QGpgME::CryptoConfigEntry *e, const QString &n, QGridLayout *l, QWidget *p)
 {
     return new T_Widget(m, e, n, l, p);
 }
@@ -412,7 +412,7 @@ static const struct WidgetsByEntryName {
 };
 static const unsigned int numWidgetsByEntryName = sizeof widgetsByEntryName / sizeof * widgetsByEntryName;
 
-static const constructor listWidgets[CryptoConfigEntry::NumArgType] = {
+static const constructor listWidgets[QGpgME::CryptoConfigEntry::NumArgType] = {
     // None: A list of options with no arguments (e.g. -v -v -v) is shown as a spinbox
     &_create<CryptoConfigEntrySpinBox>,
     0, // String
@@ -425,7 +425,7 @@ static const constructor listWidgets[CryptoConfigEntry::NumArgType] = {
     0, // DirPath
 };
 
-static const constructor scalarWidgets[CryptoConfigEntry::NumArgType] = {
+static const constructor scalarWidgets[QGpgME::CryptoConfigEntry::NumArgType] = {
     &_create<CryptoConfigEntryCheckBox>, // None
     &_create<CryptoConfigEntryLineEdit>, // String
     &_create<CryptoConfigEntrySpinBox>,  // Int
@@ -436,7 +436,7 @@ static const constructor scalarWidgets[CryptoConfigEntry::NumArgType] = {
     &_create<CryptoConfigEntryDirPath>,  // DirPath
 };
 
-CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoConfigModule *module, Kleo::CryptoConfigEntry *entry, const QString &entryName, QGridLayout *glay, QWidget *widget)
+CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry, const QString &entryName, QGridLayout *glay, QWidget *widget)
 {
     assert(entry);
 
@@ -449,7 +449,7 @@ CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoCo
 
     // none found, so look up by type:
     const unsigned int argType = entry->argType();
-    assert(argType < CryptoConfigEntry::NumArgType);
+    assert(argType < QGpgME::CryptoConfigEntry::NumArgType);
     if (entry->isList())
         if (const constructor create = listWidgets[argType]) {
             return create(module, entry, entryName, glay, widget);
@@ -469,7 +469,7 @@ CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoCo
 
 Kleo::CryptoConfigEntryGUI::CryptoConfigEntryGUI(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry,
+    QGpgME::CryptoConfigEntry *entry,
     const QString &entryName)
     : QObject(module), mEntry(entry), mName(entryName), mChanged(false)
 {
@@ -504,7 +504,7 @@ void Kleo::CryptoConfigEntryGUI::resetToDefault()
 
 Kleo::CryptoConfigEntryLineEdit::CryptoConfigEntryLineEdit(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry, const QString &entryName,
+    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
@@ -546,7 +546,7 @@ static const struct {
 };
 static const unsigned int numDebugLevels = sizeof debugLevels / sizeof * debugLevels;
 
-Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModule *module, Kleo::CryptoConfigEntry *entry,
+Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry,
         const QString &entryName, QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName),
       mComboBox(new QComboBox(widget))
@@ -595,7 +595,7 @@ void Kleo::CryptoConfigEntryDebugLevel::doLoad()
 
 Kleo::CryptoConfigEntryPath::CryptoConfigEntryPath(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry, const QString &entryName,
+    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName),
       mFileNameRequester(0)
@@ -639,7 +639,7 @@ void Kleo::CryptoConfigEntryPath::doLoad()
 
 Kleo::CryptoConfigEntryDirPath::CryptoConfigEntryDirPath(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry, const QString &entryName,
+    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName),
       mFileNameRequester(0)
@@ -679,17 +679,17 @@ void Kleo::CryptoConfigEntryDirPath::doLoad()
 
 Kleo::CryptoConfigEntrySpinBox::CryptoConfigEntrySpinBox(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry, const QString &entryName,
+    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
 
-    if (entry->argType() == Kleo::CryptoConfigEntry::ArgType_None && entry->isList()) {
+    if (entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None && entry->isList()) {
         mKind = ListOfNone;
-    } else if (entry->argType() == Kleo::CryptoConfigEntry::ArgType_UInt) {
+    } else if (entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt) {
         mKind = UInt;
     } else {
-        Q_ASSERT(entry->argType() == Kleo::CryptoConfigEntry::ArgType_Int);
+        Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int);
         mKind = Int;
     }
 
@@ -748,7 +748,7 @@ void Kleo::CryptoConfigEntrySpinBox::doLoad()
 
 Kleo::CryptoConfigEntryCheckBox::CryptoConfigEntryCheckBox(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry, const QString &entryName,
+    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
@@ -775,7 +775,7 @@ void Kleo::CryptoConfigEntryCheckBox::doLoad()
 
 Kleo::CryptoConfigEntryLDAPURL::CryptoConfigEntryLDAPURL(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry,
+    QGpgME::CryptoConfigEntry *entry,
     const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
@@ -865,7 +865,7 @@ void Kleo::CryptoConfigEntryLDAPURL::setURLList(const QList<QUrl> &urlList)
 
 Kleo::CryptoConfigEntryKeyserver::CryptoConfigEntryKeyserver(
     CryptoConfigModule *module,
-    Kleo::CryptoConfigEntry *entry,
+    QGpgME::CryptoConfigEntry *entry,
     const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)

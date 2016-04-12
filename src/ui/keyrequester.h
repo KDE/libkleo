@@ -49,7 +49,8 @@
 #define __KLEO_UI_KEYREQUESTER_H__
 
 #include "kleo_export.h"
-#include "libkleo/cryptobackend.h"
+
+#include <qgpgme/qgpgmebackend.h>
 
 #include <QWidget>
 #include <QLabel>
@@ -142,8 +143,8 @@ private Q_SLOTS:
     void slotEraseButtonClicked();
 
 private:
-    const CryptoBackend::Protocol *mOpenPGPBackend;
-    const CryptoBackend::Protocol *mSMIMEBackend;
+    const QGpgME::Protocol *mOpenPGPBackend;
+    const QGpgME::Protocol *mSMIMEBackend;
     QLabel *mLabel;
     QPushButton *mEraseButton;
     QPushButton *mDialogButton;

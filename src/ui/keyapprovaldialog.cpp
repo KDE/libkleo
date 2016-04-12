@@ -38,7 +38,6 @@
 
 #include "keyrequester.h"
 
-#include "libkleo/cryptobackend.h"
 #include <qpushbutton.h>
 #include <KLocalizedString>
 #include <kseparator.h>
@@ -52,6 +51,7 @@
 #include <QGridLayout>
 
 #include <gpgme++/key.h>
+#include <qgpgme/qgpgmebackend.h>
 
 #include <assert.h>
 #include <QApplication>

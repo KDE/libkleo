@@ -31,9 +31,9 @@
 
 #include "test_keygen.h"
 
-#include "libkleo/keylistjob.h"
-#include "libkleo/keygenerationjob.h"
-#include "libkleo/cryptobackendfactory.h"
+#include <qgpgme/keylistjob.h>
+#include <qgpgme/keygenerationjob.h>
+#include <qgpgme/qgpgmebackend.h>
 #include "ui/progressdialog.h"
 
 #include <gpgme++/keygenerationresult.h>
@@ -120,18 +120,18 @@ void KeyGenerator::slotStartKeyGeneration()
         }
     params += "</GnupgKeyParms>\n";
 
-    const Kleo::CryptoBackend::Protocol *proto = 0;
+    const QGpgME::Protocol *proto = 0;
     if (protocol) {
-        proto = !strcmp(protocol, "openpgp") ? Kleo::CryptoBackendFactory::instance()->openpgp() : Kleo::CryptoBackendFactory::instance()->smime();
+        proto = !strcmp(protocol, "openpgp") ? QGpgME::openpgp() : QGpgME::smime();
     }
     if (!proto) {
-        proto = Kleo::CryptoBackendFactory::instance()->smime();
+        proto = QGpgME::smime();
     }
     assert(proto);
 
     qDebug() << "Using protocol" << proto->name();
 
-    Kleo::KeyGenerationJob *job = proto->keyGenerationJob();
+    QGpgME::KeyGenerationJob *job = proto->keyGenerationJob();
     assert(job);
 
     connect(job, SIGNAL(result(GpgME::KeyGenerationResult,QByteArray)),

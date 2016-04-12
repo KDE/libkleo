@@ -38,7 +38,7 @@
 #include <KGuiItem>
 #include <QVBoxLayout>
 
-Kleo::CryptoConfigDialog::CryptoConfigDialog(Kleo::CryptoConfig *config, QWidget *parent)
+Kleo::CryptoConfigDialog::CryptoConfigDialog(QGpgME::CryptoConfig *config, QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18n("Configure GnuPG Backend"));

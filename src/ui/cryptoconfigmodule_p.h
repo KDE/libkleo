@@ -50,13 +50,16 @@ namespace Kleo
 class FileNameRequester;
 }
 
-namespace Kleo
+namespace QGpgME
 {
-
 class CryptoConfig;
 class CryptoConfigComponent;
 class CryptoConfigGroup;
 class CryptoConfigEntry;
+} // namespace QGpgME
+
+namespace Kleo
+{
 class CryptoConfigComponentGUI;
 class CryptoConfigGroupGUI;
 class CryptoConfigEntryGUI;
@@ -69,7 +72,7 @@ class CryptoConfigComponentGUI : public QWidget
     Q_OBJECT
 
 public:
-    CryptoConfigComponentGUI(CryptoConfigModule *module, Kleo::CryptoConfigComponent *component,
+    CryptoConfigComponentGUI(CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component,
                              QWidget *parent = Q_NULLPTR);
 
     bool save();
@@ -77,7 +80,7 @@ public:
     void defaults();
 
 private:
-    Kleo::CryptoConfigComponent *mComponent;
+    QGpgME::CryptoConfigComponent *mComponent;
     QList<CryptoConfigGroupGUI *> mGroupGUIs;
 };
 
@@ -89,7 +92,7 @@ class CryptoConfigGroupGUI : public QObject
     Q_OBJECT
 
 public:
-    CryptoConfigGroupGUI(CryptoConfigModule *module, Kleo::CryptoConfigGroup *group,
+    CryptoConfigGroupGUI(CryptoConfigModule *module, QGpgME::CryptoConfigGroup *group,
                          QGridLayout *layout, QWidget *parent = Q_NULLPTR);
 
     bool save();
@@ -97,7 +100,7 @@ public:
     void defaults();
 
 private:
-    Kleo::CryptoConfigGroup *mGroup;
+    QGpgME::CryptoConfigGroup *mGroup;
     QList<CryptoConfigEntryGUI *> mEntryGUIs;
 };
 
@@ -110,7 +113,7 @@ class CryptoConfigEntryGUIFactory
 public:
     static CryptoConfigEntryGUI *createEntryGUI(
         CryptoConfigModule *module,
-        Kleo::CryptoConfigEntry *entry, const QString &entryName,
+        QGpgME::CryptoConfigEntry *entry, const QString &entryName,
         QGridLayout *layout, QWidget *widget);
 };
 
@@ -122,7 +125,7 @@ class CryptoConfigEntryGUI : public QObject
     Q_OBJECT
 public:
     CryptoConfigEntryGUI(CryptoConfigModule *module,
-                         Kleo::CryptoConfigEntry *entry,
+                         QGpgME::CryptoConfigEntry *entry,
                          const QString &entryName);
 
     void load()
@@ -158,7 +161,7 @@ protected:
     virtual void doSave() = 0;
     virtual void doLoad() = 0;
 
-    Kleo::CryptoConfigEntry *mEntry;
+    QGpgME::CryptoConfigEntry *mEntry;
     QString mName;
     bool mChanged;
 };
@@ -172,7 +175,7 @@ class CryptoConfigEntryLineEdit : public CryptoConfigEntryGUI
 
 public:
     CryptoConfigEntryLineEdit(CryptoConfigModule *module,
-                              Kleo::CryptoConfigEntry *entry,
+                              QGpgME::CryptoConfigEntry *entry,
                               const QString &entryName,
                               QGridLayout *layout,
                               QWidget *parent = Q_NULLPTR);
@@ -190,7 +193,7 @@ class CryptoConfigEntryDebugLevel : public CryptoConfigEntryGUI
 {
     Q_OBJECT
 public:
-    CryptoConfigEntryDebugLevel(CryptoConfigModule *module, Kleo::CryptoConfigEntry *entry,
+    CryptoConfigEntryDebugLevel(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry,
                                 const QString &entryName, QGridLayout *layout, QWidget *parent = Q_NULLPTR);
 
     void doSave() Q_DECL_OVERRIDE;
@@ -208,7 +211,7 @@ class CryptoConfigEntryPath : public CryptoConfigEntryGUI
 
 public:
     CryptoConfigEntryPath(CryptoConfigModule *module,
-                          Kleo::CryptoConfigEntry *entry,
+                          QGpgME::CryptoConfigEntry *entry,
                           const QString &entryName,
                           QGridLayout *layout,
                           QWidget *parent = Q_NULLPTR);
@@ -228,7 +231,7 @@ class CryptoConfigEntryDirPath : public CryptoConfigEntryGUI
 
 public:
     CryptoConfigEntryDirPath(CryptoConfigModule *module,
-                             Kleo::CryptoConfigEntry *entry,
+                             QGpgME::CryptoConfigEntry *entry,
                              const QString &entryName,
                              QGridLayout *layout,
                              QWidget *parent = Q_NULLPTR);
@@ -248,7 +251,7 @@ class CryptoConfigEntrySpinBox : public CryptoConfigEntryGUI
 
 public:
     CryptoConfigEntrySpinBox(CryptoConfigModule *module,
-                             Kleo::CryptoConfigEntry *entry,
+                             QGpgME::CryptoConfigEntry *entry,
                              const QString &entryName,
                              QGridLayout *layout,
                              QWidget *parent = Q_NULLPTR);
@@ -268,7 +271,7 @@ class CryptoConfigEntryCheckBox : public CryptoConfigEntryGUI
 
 public:
     CryptoConfigEntryCheckBox(CryptoConfigModule *module,
-                              Kleo::CryptoConfigEntry *entry,
+                              QGpgME::CryptoConfigEntry *entry,
                               const QString &entryName,
                               QGridLayout *layout,
                               QWidget *parent = Q_NULLPTR);
@@ -287,7 +290,7 @@ class CryptoConfigEntryLDAPURL : public CryptoConfigEntryGUI
 
 public:
     CryptoConfigEntryLDAPURL(CryptoConfigModule *module,
-                             Kleo::CryptoConfigEntry *entry,
+                             QGpgME::CryptoConfigEntry *entry,
                              const QString &entryName,
                              QGridLayout *layout,
                              QWidget *parent = Q_NULLPTR);
@@ -311,7 +314,7 @@ class CryptoConfigEntryKeyserver : public CryptoConfigEntryGUI
 
 public:
     CryptoConfigEntryKeyserver(CryptoConfigModule *module,
-                               Kleo::CryptoConfigEntry *entry,
+                               QGpgME::CryptoConfigEntry *entry,
                                const QString &entryName,
                                QGridLayout *layout,
                                QWidget *parent = Q_NULLPTR);

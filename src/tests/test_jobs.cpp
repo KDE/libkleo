@@ -29,9 +29,9 @@
     your version.
 */
 
-#include "libkleo/cryptobackendfactory.h"
-#include "libkleo/signjob.h"
-#include "libkleo/keylistjob.h"
+#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/signjob.h>
+#include <qgpgme/keylistjob.h>
 
 #include <gpgme++/key.h>
 #include <gpgme++/signingresult.h>
@@ -50,14 +50,14 @@ static const char *protocol = 0;
 
 static void testSign()
 {
-    const Kleo::CryptoBackend::Protocol *proto = !strcmp(protocol, "openpgp") ? Kleo::CryptoBackendFactory::instance()->openpgp() : Kleo::CryptoBackendFactory::instance()->smime();
+    const QGpgME::Protocol *proto = !strcmp(protocol, "openpgp") ? QGpgME::openpgp() : QGpgME::smime();
     assert(proto);
 
     qDebug() << "Using protocol" << proto->name();
 
     std::vector<GpgME::Key> signingKeys;
 
-    std::unique_ptr<Kleo::KeyListJob> listJob(proto->keyListJob(false, false, true));     // use validating keylisting
+    std::unique_ptr<QGpgME::KeyListJob> listJob(proto->keyListJob(false, false, true));     // use validating keylisting
     if (listJob.get()) {
         // ##### Adjust this to your own identity
         listJob->exec(QStringList(QStringLiteral("kloecker@kde.org")), true /*secret*/, signingKeys);
@@ -66,7 +66,7 @@ static void testSign()
         assert(0);   // job failed
     }
 
-    Kleo::SignJob *job = proto->signJob(true, true);
+    QGpgME::SignJob *job = proto->signJob(true, true);
 
     QByteArray plainText = "Hallo Leute\n"; // like gpgme's t-sign.c
     qDebug() << "plainText=" << plainText;

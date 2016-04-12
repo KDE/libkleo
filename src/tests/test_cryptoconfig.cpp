@@ -29,13 +29,13 @@
     your version.
 */
 
-#include "backends/qgpgme/qgpgmecryptoconfig.h"
-#include "backends/qgpgme/qgpgmenewcryptoconfig.h"
+#include <qgpgme/qgpgmenewcryptoconfig.h>
 
 #include <QCoreApplication>
 #include <iostream>
 
 using namespace std;
+using namespace QGpgME;
 
 #include <gpgme++/global.h>
 #include <gpgme++/error.h>
@@ -50,20 +50,10 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    const bool newCryptoConfig = argc == 2 && qstrcmp(argv[1], "--new") == 0;
-    if (newCryptoConfig) {
-        argc = 1;    // hide from KDE
-    }
-
     QCoreApplication::setApplicationName(QStringLiteral("test_cryptoconfig"));
     QCoreApplication app(argc, argv);
 
-    Kleo::CryptoConfig *config = 0;
-    if (newCryptoConfig) {
-        config = new QGpgMENewCryptoConfig;
-    } else {
-        config = new QGpgMECryptoConfig;
-    }
+    QGpgME::CryptoConfig *config = new QGpgMENewCryptoConfig;
 
     // Dynamic querying of the options
     cout << "Components:" << endl;
@@ -71,51 +61,51 @@ int main(int argc, char **argv)
 
     for (QStringList::Iterator compit = components.begin(); compit != components.end(); ++compit) {
         cout << "Component " << (*compit).toLocal8Bit().constData() << ":" << endl;
-        const Kleo::CryptoConfigComponent *comp = config->component(*compit);
+        const QGpgME::CryptoConfigComponent *comp = config->component(*compit);
         assert(comp);
         QStringList groups = comp->groupList();
         for (QStringList::Iterator groupit = groups.begin(); groupit != groups.end(); ++groupit) {
-            const Kleo::CryptoConfigGroup *group = comp->group(*groupit);
+            const QGpgME::CryptoConfigGroup *group = comp->group(*groupit);
             assert(group);
             cout << " Group " << (*groupit).toLocal8Bit().constData() << ": descr=\"" << group->description().toLocal8Bit().constData() << "\""
                  << " level=" << group->level() << endl;
             QStringList entries = group->entryList();
             for (QStringList::Iterator entryit = entries.begin(); entryit != entries.end(); ++entryit) {
-                const Kleo::CryptoConfigEntry *entry = group->entry(*entryit);
+                const QGpgME::CryptoConfigEntry *entry = group->entry(*entryit);
                 assert(entry);
                 cout << "  Entry " << (*entryit).toLocal8Bit().constData() << ":"
                      << " descr=\"" << entry->description().toLocal8Bit().constData() << "\""
                      << " " << (entry->isSet() ? "is set" : "is not set");
                 if (!entry->isList())
                     switch (entry->argType()) {
-                    case Kleo::CryptoConfigEntry::ArgType_None:
+                    case QGpgME::CryptoConfigEntry::ArgType_None:
                         break;
-                    case Kleo::CryptoConfigEntry::ArgType_Int:
+                    case QGpgME::CryptoConfigEntry::ArgType_Int:
                         cout << " int value=" << entry->intValue();
                         break;
-                    case Kleo::CryptoConfigEntry::ArgType_UInt:
+                    case QGpgME::CryptoConfigEntry::ArgType_UInt:
                         cout << " uint value=" << entry->uintValue();
                         break;
-                    case Kleo::CryptoConfigEntry::ArgType_LDAPURL:
-                    case Kleo::CryptoConfigEntry::ArgType_Path:
+                    case QGpgME::CryptoConfigEntry::ArgType_LDAPURL:
+                    case QGpgME::CryptoConfigEntry::ArgType_Path:
                     // fallthrough
-                    case Kleo::CryptoConfigEntry::ArgType_DirPath:
+                    case QGpgME::CryptoConfigEntry::ArgType_DirPath:
                     // fallthrough
-                    case Kleo::CryptoConfigEntry::ArgType_String:
+                    case QGpgME::CryptoConfigEntry::ArgType_String:
 
                         cout << " string value=" << entry->stringValue().toLocal8Bit().constData();
                         break;
-                    case Kleo::CryptoConfigEntry::NumArgType:
+                    case QGpgME::CryptoConfigEntry::NumArgType:
                         // just metadata and should never actually occur in the switch
                         break;
                     }
                 else { // lists
                     switch (entry->argType()) {
-                    case Kleo::CryptoConfigEntry::ArgType_None: {
+                    case QGpgME::CryptoConfigEntry::ArgType_None: {
                         cout << " set " << entry->numberOfTimesSet() << " times";
                         break;
                     }
-                    case Kleo::CryptoConfigEntry::ArgType_Int: {
+                    case QGpgME::CryptoConfigEntry::ArgType_Int: {
                         // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this assert is wrong:
                         // assert( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
                         std::vector<int> lst = entry->intValueList();
@@ -126,7 +116,7 @@ int main(int argc, char **argv)
                         cout << " int values=" << str.toLocal8Bit().constData();
                         break;
                     }
-                    case Kleo::CryptoConfigEntry::ArgType_UInt: {
+                    case QGpgME::CryptoConfigEntry::ArgType_UInt: {
                         // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this assert is wrong:
                         // assert( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
                         std::vector<uint> lst = entry->uintValueList();
@@ -137,7 +127,7 @@ int main(int argc, char **argv)
                         cout << " uint values=" << str.toLocal8Bit().constData();
                         break;
                     }
-                    case Kleo::CryptoConfigEntry::ArgType_LDAPURL: {
+                    case QGpgME::CryptoConfigEntry::ArgType_LDAPURL: {
                         // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this assert is wrong:
                         // assert( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
                         QList<QUrl> urls = entry->urlValueList();
@@ -148,14 +138,14 @@ int main(int argc, char **argv)
                         cout << endl;
                     }
                     // fallthrough
-                    case Kleo::CryptoConfigEntry::ArgType_Path:
+                    case QGpgME::CryptoConfigEntry::ArgType_Path:
                     // fallthrough
-                    case Kleo::CryptoConfigEntry::ArgType_DirPath:
+                    case QGpgME::CryptoConfigEntry::ArgType_DirPath:
                     // fallthrough
-                    case Kleo::CryptoConfigEntry::ArgType_String:
+                    case QGpgME::CryptoConfigEntry::ArgType_String:
                     // fallthrough string value lists were removed from
                     // gpgconf in 2008
-                    case Kleo::CryptoConfigEntry::NumArgType:
+                    case QGpgME::CryptoConfigEntry::NumArgType:
                         // just metadata and should never actually occur in the switch
                         break;
                     }
@@ -170,9 +160,9 @@ int main(int argc, char **argv)
         // Static querying of a single boolean option
         static const char s_groupName[] = "Monitor";
         static const char s_entryName[] = "quiet";
-        Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_None);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
             bool val = entry->boolValue();
             cout << "quiet option initially: " << (val ? "is set" : "is not set") << endl;
 
@@ -184,9 +174,9 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check new value
-            Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
             assert(entry);
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_None);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
             cout << "quiet option now: " << (val ? "is set" : "is not set") << endl;
             assert(entry->boolValue() == !val);
 
@@ -220,9 +210,9 @@ int main(int argc, char **argv)
         // Static querying and setting of a single int option
         static const char s_groupName[] = "LDAP";
         static const char s_entryName[] = "ldaptimeout";
-        Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_UInt);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
             uint val = entry->uintValue();
             cout << "LDAP timeout initially: " << val << " seconds." << endl;
 
@@ -237,9 +227,9 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check new value
-            Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
             assert(entry);
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_UInt);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
             cout << "LDAP timeout now: " << entry->uintValue() << " seconds." << endl;
             assert(entry->uintValue() == 101);
 
@@ -273,9 +263,9 @@ int main(int argc, char **argv)
         // Static querying and setting of a single string option
         static const char s_groupName[] = "Debug";
         static const char s_entryName[] = "log-file";
-        Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_Path);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
             QString val = entry->stringValue();
             cout << "Log-file initially: " << val.toLocal8Bit().constData() << endl;
 
@@ -291,9 +281,9 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check new value
-            Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
             assert(entry);
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_Path);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
             cout << "Log-file now: " << entry->stringValue().toLocal8Bit().constData() << endl;
             assert(entry->stringValue() == QStringLiteral("/tmp/test:%e5ä"));     // (or even with %e5 decoded)
 
@@ -321,9 +311,9 @@ int main(int argc, char **argv)
         // Static querying and setting of the LDAP URL list option
         static const char s_groupName[] = "LDAP";
         static const char s_entryName[] = "LDAP Server";
-        Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_LDAPURL);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
             assert(entry->isList());
             QList<QUrl> val = entry->urlValueList();
             cout << "URL list initially: ";
@@ -351,9 +341,9 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check new value
-            Kleo::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
             assert(entry);
-            assert(entry->argType() == Kleo::CryptoConfigEntry::ArgType_LDAPURL);
+            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
             assert(entry->isList());
             // Get QUrl form
             QList<QUrl> newlst = entry->urlValueList();
