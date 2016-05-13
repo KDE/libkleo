@@ -50,7 +50,7 @@
 
 #include "kleo_export.h"
 
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 
 #include <QWidget>
 #include <QLabel>

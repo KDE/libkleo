@@ -32,7 +32,7 @@
 #include "test_keylister.h"
 
 #include <qgpgme/keylistjob.h>
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 
 #include <gpgme++/keylistresult.h>
 #include <gpgme++/key.h>

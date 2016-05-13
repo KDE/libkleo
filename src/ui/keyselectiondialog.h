@@ -40,7 +40,7 @@
 #include "kleo_export.h"
 
 #include <gpgme++/key.h>
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 
 #include <QDialog>
 

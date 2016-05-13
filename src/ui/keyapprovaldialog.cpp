@@ -51,7 +51,7 @@
 #include <QGridLayout>
 
 #include <gpgme++/key.h>
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 
 #include <assert.h>
 #include <QApplication>

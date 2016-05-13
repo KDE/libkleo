@@ -48,7 +48,7 @@
 #include <gpgme++/keylistresult.h>
 
 #include <qgpgme/keylistjob.h>
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 
 // KDE
 #include <KLocalizedString>

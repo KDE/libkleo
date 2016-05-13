@@ -29,7 +29,7 @@
     your version.
 */
 
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 #include <qgpgme/signjob.h>
 #include <qgpgme/keylistjob.h>
 
