@@ -54,7 +54,7 @@
 // gpgme++
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 #include <qgpgme/keylistjob.h>
 
 // KDE

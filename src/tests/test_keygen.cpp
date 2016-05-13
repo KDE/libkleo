@@ -33,7 +33,7 @@
 
 #include <qgpgme/keylistjob.h>
 #include <qgpgme/keygenerationjob.h>
-#include <qgpgme/qgpgmebackend.h>
+#include <qgpgme/protocol.h>
 #include "ui/progressdialog.h"
 
 #include <gpgme++/keygenerationresult.h>
