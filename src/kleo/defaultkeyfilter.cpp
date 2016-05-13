@@ -108,7 +108,8 @@ public:
 };
 
 DefaultKeyFilter::DefaultKeyFilter()
-    : KeyFilter()
+    : KeyFilter(),
+      d_ptr(new Private())
 {
 }
 
