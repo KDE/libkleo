@@ -32,6 +32,7 @@
 
 #include "keyfiltermanager.h"
 #include "kconfigbasedkeyfilter.h"
+#include "defaultkeyfilter.h"
 
 #include "cryptobackendfactory.h"
 #include "stl_util.h"
@@ -74,66 +75,66 @@ public:
     /* upgrade to public */ using QAbstractListModel::reset;
 };
 
-class AllCertificatesKeyFilter : public KeyFilterImplBase
+class AllCertificatesKeyFilter : public DefaultKeyFilter
 {
 public:
     AllCertificatesKeyFilter()
-        : KeyFilterImplBase()
+        : DefaultKeyFilter()
     {
-        mSpecificity = UINT_MAX; // overly high for ordering
-        mName = i18n("All Certificates");
-        mId = QStringLiteral("all-certificates");
-        mMatchContexts = Filtering;
+        setSpecificity(UINT_MAX); // overly high for ordering
+        setName(i18n("All Certificates"));
+        setId(QStringLiteral("all-certificates"));
+        setMatchContexts(Filtering);
     }
 };
 
-class MyCertificatesKeyFilter : public KeyFilterImplBase
+class MyCertificatesKeyFilter : public DefaultKeyFilter
 {
 public:
     MyCertificatesKeyFilter()
-        : KeyFilterImplBase()
+        : DefaultKeyFilter()
     {
-        mHasSecret = Set;
-        mSpecificity = UINT_MAX - 1; // overly high for ordering
+        setHasSecret(Set);
+        setSpecificity(UINT_MAX - 1); // overly high for ordering
 
-        mName = i18n("My Certificates");
-        mId = QStringLiteral("my-certificates");
-        mMatchContexts = AnyMatchContext;
-        mBold = true;
+        setName(i18n("My Certificates"));
+        setId(QStringLiteral("my-certificates"));
+        setMatchContexts(AnyMatchContext);
+        setBold(true);
     }
 };
 
-class TrustedCertificatesKeyFilter : public KeyFilterImplBase
+class TrustedCertificatesKeyFilter : public DefaultKeyFilter
 {
 public:
     TrustedCertificatesKeyFilter()
-        : KeyFilterImplBase()
+        : DefaultKeyFilter()
     {
-        mRevoked = NotSet;
-        mValidity = IsAtLeast;
-        mValidityReferenceLevel = UserID::Marginal; // Full?
-        mSpecificity = UINT_MAX - 2; // overly high for ordering
+        setRevoked(NotSet);
+        setValidity(IsAtLeast);
+        setValidityReferenceLevel(UserID::Marginal); // Full?
+        setSpecificity(UINT_MAX - 2); // overly high for ordering
 
-        mName = i18n("Trusted Certificates");
-        mId = QStringLiteral("trusted-certificates");
-        mMatchContexts = Filtering;
+        setName(i18n("Trusted Certificates"));
+        setId(QStringLiteral("trusted-certificates"));
+        setMatchContexts(Filtering);
     }
 };
 
-class OtherCertificatesKeyFilter : public KeyFilterImplBase
+class OtherCertificatesKeyFilter : public DefaultKeyFilter
 {
 public:
     OtherCertificatesKeyFilter()
-        : KeyFilterImplBase()
+        : DefaultKeyFilter()
     {
-        mHasSecret = NotSet;
-        mValidity = IsAtMost;
-        mValidityReferenceLevel = UserID::Never;
-        mSpecificity = UINT_MAX - 3; // overly high for ordering
+        setHasSecret(NotSet);
+        setValidity(IsAtMost);
+        setValidityReferenceLevel(UserID::Never);
+        setSpecificity(UINT_MAX - 3); // overly high for ordering
 
-        mName = i18n("Other Certificates");
-        mId = QStringLiteral("other-certificates");
-        mMatchContexts = Filtering;
+        setName(i18n("Other Certificates"));
+        setId(QStringLiteral("other-certificates"));
+        setMatchContexts(Filtering);
     }
 };
 }

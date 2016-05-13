@@ -33,103 +33,14 @@
 #ifndef __KLEO_KCONFIGBASEDKEYFILTER_H__
 #define __KLEO_KCONFIGBASEDKEYFILTER_H__
 
-#include "keyfilter.h"
-
-#include <QFont>
-#include <QString>
-#include <QColor>
-
-#include <gpgme++/key.h>
+#include "defaultkeyfilter.h"
 
 class KConfigGroup;
 
 namespace Kleo
 {
 
-class KeyFilterImplBase : public KeyFilter
-{
-public:
-    KeyFilterImplBase();
-    ~KeyFilterImplBase();
-
-    bool matches(const GpgME::Key &key, MatchContexts ctx) const Q_DECL_OVERRIDE;
-
-    unsigned int specificity() const Q_DECL_OVERRIDE
-    {
-        return mSpecificity;
-    }
-    QString id() const Q_DECL_OVERRIDE
-    {
-        return mId;
-    }
-    MatchContexts availableMatchContexts() const Q_DECL_OVERRIDE
-    {
-        return mMatchContexts;
-    }
-
-    QColor fgColor() const Q_DECL_OVERRIDE
-    {
-        return mFgColor;
-    }
-    QColor bgColor() const Q_DECL_OVERRIDE
-    {
-        return mBgColor;
-    }
-    FontDescription  fontDesription() const Q_DECL_OVERRIDE;
-    QString name() const Q_DECL_OVERRIDE
-    {
-        return mName;
-    }
-    QString icon() const Q_DECL_OVERRIDE
-    {
-        return mIcon;
-    }
-
-protected:
-    QColor mFgColor, mBgColor;
-    QString mName;
-    QString mIcon;
-    QString mId;
-    MatchContexts mMatchContexts;
-    unsigned int mSpecificity;
-    bool mItalic;
-    bool mBold;
-    bool mStrikeOut;
-    bool mUseFullFont;
-    QFont mFont;
-
-    enum TriState {
-        DoesNotMatter = 0,
-        Set = 1,
-        NotSet = 2
-    };
-    TriState mRevoked;
-    TriState mExpired;
-    TriState mDisabled;
-    TriState mRoot;
-    TriState mCanEncrypt;
-    TriState mCanSign;
-    TriState mCanCertify;
-    TriState mCanAuthenticate;
-    TriState mQualified;
-    TriState mCardKey;
-    TriState mHasSecret;
-    TriState mIsOpenPGP;
-    TriState mWasValidated;
-    enum LevelState {
-        LevelDoesNotMatter = 0,
-        Is = 1,
-        IsNot = 2,
-        IsAtLeast = 3,
-        IsAtMost = 4
-    };
-    LevelState mOwnerTrust;
-    GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel;
-    LevelState mValidity;
-    GpgME::UserID::Validity mValidityReferenceLevel;
-};
-
-class KConfigBasedKeyFilter : public KeyFilterImplBase
+class KConfigBasedKeyFilter : public DefaultKeyFilter
 {
 public:
     explicit KConfigBasedKeyFilter(const KConfigGroup &group);

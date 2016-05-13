@@ -155,75 +155,44 @@ static UserID::Validity map2Validity(const QString &s)
     return ownerTrustAndValidityMap[0].validity;
 }
 
-KeyFilterImplBase::KeyFilterImplBase()
-    : KeyFilter(),
-      mMatchContexts(AnyMatchContext),
-      mSpecificity(0),
-      mItalic(false),
-      mBold(false),
-      mStrikeOut(false),
-      mUseFullFont(false),
-      mRevoked(DoesNotMatter),
-      mExpired(DoesNotMatter),
-      mDisabled(DoesNotMatter),
-      mRoot(DoesNotMatter),
-      mCanEncrypt(DoesNotMatter),
-      mCanSign(DoesNotMatter),
-      mCanCertify(DoesNotMatter),
-      mCanAuthenticate(DoesNotMatter),
-      mQualified(DoesNotMatter),
-      mCardKey(DoesNotMatter),
-      mHasSecret(DoesNotMatter),
-      mIsOpenPGP(DoesNotMatter),
-      mWasValidated(DoesNotMatter),
-      mOwnerTrust(LevelDoesNotMatter),
-      mOwnerTrustReferenceLevel(Key::Unknown),
-      mValidity(LevelDoesNotMatter),
-      mValidityReferenceLevel(UserID::Unknown)
-{
-
-}
-
-KeyFilterImplBase::~KeyFilterImplBase() {}
-
 KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
-    : KeyFilterImplBase()
+    : DefaultKeyFilter()
 {
-    mFgColor = config.readEntry<QColor>("foreground-color", QColor());
-    mBgColor = config.readEntry<QColor>("background-color", QColor());
-    mName = config.readEntry("Name", config.name());
-    mIcon = config.readEntry("icon");
-    mId = config.readEntry("id", config.name());
+    setFgColor(config.readEntry<QColor>("foreground-color", QColor()));
+    setBgColor(config.readEntry<QColor>("background-color", QColor()));
+    setName(config.readEntry("Name", config.name()));
+    setIcon(config.readEntry("icon"));
+    setId(config.readEntry("id", config.name()));
     if (config.hasKey("font")) {
-        mUseFullFont = true;
-        mFont = config.readEntry("font");
+        setUseFullFont(true);
+        setFont(config.readEntry("font"));
     } else {
-        mUseFullFont = false;
-        mItalic = config.readEntry("font-italic", false);
-        mBold = config.readEntry("font-bold", false);
+        setUseFullFont(false);
+        setItalic(config.readEntry("font-italic", false));
+        setBold(config.readEntry("font-bold", false));
     }
-    mStrikeOut = config.readEntry("font-strikeout", false);
+    setStrikeOut(config.readEntry("font-strikeout", false));
 #ifdef SET
 #undef SET
 #endif
 #define SET(member,key) \
     if ( config.hasKey( key ) ) { \
-        member = config.readEntry( key, false ) ? Set : NotSet ; \
-        ++mSpecificity; \
+        set##member(config.readEntry( key, false ) ? Set : NotSet); \
+        setSpecificity(specificity() + 1); \
     }
-    SET(mRevoked, "is-revoked");
-    SET(mExpired, "is-expired");
-    SET(mDisabled, "is-disabled");
-    SET(mRoot, "is-root-certificate");
-    SET(mCanEncrypt, "can-encrypt");
-    SET(mCanSign, "can-sign");
-    SET(mCanCertify, "can-certify");
-    SET(mCanAuthenticate, "can-authenticate");
-    SET(mQualified, "is-qualified");
-    SET(mCardKey, "is-cardkey");
-    SET(mHasSecret, "has-secret-key");
-    SET(mIsOpenPGP, "is-openpgp-key");
-    SET(mWasValidated, "was-validated");
+    SET(Revoked, "is-revoked");
+    SET(Expired, "is-expired");
+    SET(Disabled, "is-disabled");
+    SET(Root, "is-root-certificate");
+    SET(CanEncrypt, "can-encrypt");
+    SET(CanSign, "can-sign");
+    SET(CanCertify, "can-certify");
+    SET(CanAuthenticate, "can-authenticate");
+    SET(Qualified, "is-qualified");
+    SET(CardKey, "is-cardkey");
+    SET(HasSecret, "has-secret-key");
+    SET(IsOpenPGP, "is-openpgp-key");
+    SET(WasValidated, "was-validated");
 #undef SET
     static const struct {
         const char *prefix;
@@ -237,18 +206,18 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
     for (unsigned int i = 0; i < sizeof prefixMap / sizeof * prefixMap; ++i) {
         const QString key = QLatin1String(prefixMap[i].prefix) + QLatin1String("ownertrust");
         if (config.hasKey(key)) {
-            mOwnerTrust = prefixMap[i].state;
-            mOwnerTrustReferenceLevel = map2OwnerTrust(config.readEntry(key, QString()));
-            ++mSpecificity;
+            setOwnerTrust(prefixMap[i].state);
+            setOwnerTrustReferenceLevel(map2OwnerTrust(config.readEntry(key, QString())));
+            setSpecificity(specificity() + 1);
             break;
         }
     }
     for (unsigned int i = 0; i < sizeof prefixMap / sizeof * prefixMap; ++i) {
         const QString key = QLatin1String(prefixMap[i].prefix) + QLatin1String("validity");
         if (config.hasKey(key)) {
-            mValidity = prefixMap[i].state;
-            mValidityReferenceLevel = map2Validity(config.readEntry(key, QString()));
-            ++mSpecificity;
+            setValidity(prefixMap[i].state);
+            setValidityReferenceLevel(map2Validity(config.readEntry(key, QString())));
+            setSpecificity(specificity() + 1);
             break;
         }
     }
@@ -261,16 +230,16 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         { "filtering", Filtering },
     };
     const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(QRegExp(QLatin1String("[^a-zA-Z0-9_-!]+")), QString::SkipEmptyParts);
-    mMatchContexts = NoMatchContext;
-    Q_FOREACH (const QString &ctx, contexts) {
+    setMatchContexts(NoMatchContext);
+    Q_FOREACH(const QString & ctx, contexts) {
         bool found = false;
         for (unsigned int i = 0; i < sizeof matchMap / sizeof * matchMap; ++i)
             if (ctx == QLatin1String(matchMap[i].key)) {
-                mMatchContexts |= matchMap[i].context;
+                setMatchContexts(availableMatchContexts() |= matchMap[i].context);
                 found = true;
                 break;
             } else if (ctx.startsWith(QLatin1Char('!')) && ctx.mid(1) == QLatin1String(matchMap[i].key)) {
-                mMatchContexts &= ~matchMap[i].context;
+                setMatchContexts(availableMatchContexts() &= matchMap[i].context);
                 found = true;
                 break;
             }
@@ -278,116 +247,9 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
             qWarning() << QStringLiteral("KConfigBasedKeyFilter: found unknown match context '%1' in group '%2'").arg(ctx).arg(config.name());
         }
     }
-    if (mMatchContexts == NoMatchContext) {
+    if (availableMatchContexts() == NoMatchContext) {
         qWarning() << QStringLiteral("KConfigBasedKeyFilter: match context in group '%1' evaluates to NoMatchContext, "
                                      "replaced by AnyMatchContext").arg(config.name());
-        mMatchContexts = AnyMatchContext;
-    }
-}
-
-static bool is_card_key(const Key &key)
-{
-    const std::vector<Subkey> sks = key.subkeys();
-    return std::find_if(sks.begin(), sks.end(),
-                        mem_fn(&Subkey::isCardKey)) != sks.end();
-}
-
-bool KeyFilterImplBase::matches(const Key &key, MatchContexts contexts) const
-{
-    if (!(mMatchContexts & contexts)) {
-        return false;
-    }
-#ifdef MATCH
-#undef MATCH
-#endif
-#define MATCH(member,method) \
-    if ( member != DoesNotMatter && key.method() != bool( member == Set ) ) \
-        return false
-#define IS_MATCH(what) MATCH( m##what, is##what )
-#define CAN_MATCH(what) MATCH( mCan##what, can##what )
-    IS_MATCH(Revoked);
-    IS_MATCH(Expired);
-    IS_MATCH(Disabled);
-    IS_MATCH(Root);
-    CAN_MATCH(Encrypt);
-    CAN_MATCH(Sign);
-    CAN_MATCH(Certify);
-    CAN_MATCH(Authenticate);
-    IS_MATCH(Qualified);
-    if (mCardKey != DoesNotMatter)
-        if ((mCardKey == Set    && !is_card_key(key)) ||
-                (mCardKey == NotSet &&  is_card_key(key))) {
-            return false;
-        }
-    MATCH(mHasSecret, hasSecret);
-#undef MATCH
-    if (mIsOpenPGP != DoesNotMatter &&
-            bool(key.protocol() == GpgME::OpenPGP) != bool(mIsOpenPGP == Set)) {
-        return false;
-    }
-    if (mWasValidated != DoesNotMatter &&
-            bool(key.keyListMode() & GpgME::Validate) != bool(mWasValidated == Set)) {
-        return false;
-    }
-    switch (mOwnerTrust) {
-    default:
-    case LevelDoesNotMatter:
-        break;
-    case Is:
-        if (key.ownerTrust() != mOwnerTrustReferenceLevel) {
-            return false;
-        }
-        break;
-    case IsNot:
-        if (key.ownerTrust() == mOwnerTrustReferenceLevel) {
-            return false;
-        }
-        break;
-    case IsAtLeast:
-        if ((int)key.ownerTrust() < (int)mOwnerTrustReferenceLevel) {
-            return false;
-        }
-        break;
-    case IsAtMost:
-        if ((int)key.ownerTrust() > (int)mOwnerTrustReferenceLevel) {
-            return false;
-        }
-        break;
-    }
-    const UserID uid = key.userID(0);
-    switch (mValidity) {
-    default:
-    case LevelDoesNotMatter:
-        break;
-    case Is:
-        if (uid.validity() != mValidityReferenceLevel) {
-            return false;
-        }
-        break;
-    case IsNot:
-        if (uid.validity() == mValidityReferenceLevel) {
-            return false;
-        }
-        break;
-    case IsAtLeast:
-        if ((int)uid.validity() < (int)mValidityReferenceLevel) {
-            return false;
-        }
-        break;
-    case IsAtMost:
-        if ((int)uid.validity() > (int)mValidityReferenceLevel) {
-            return false;
-        }
-        break;
-    }
-    return true;
-}
-
-KeyFilter::FontDescription KeyFilterImplBase::fontDesription() const
-{
-    if (mUseFullFont) {
-        return FontDescription::create(mFont, mBold, mItalic, mStrikeOut);
-    } else {
-        return FontDescription::create(mBold, mItalic, mStrikeOut);
+        setMatchContexts(AnyMatchContext);
     }
 }
