@@ -132,6 +132,19 @@ public:
     virtual SignKeyJob           *signKeyJob() const;
     virtual AddUserIDJob         *addUserIDJob() const;
     virtual SpecialJob           *specialJob(const char *type, const QMap<QString, QVariant> &args) const = 0;
+    /** A key locate job.
+     *
+     * This tries to find a key in local
+     * and remote sources, if the key was remote it is imported
+     * by GnuPG. Same as KeyListJob but intended to be used
+     * to locate keys automatically. This ends up calling --locate-keys.
+     *
+     * Only available for OpenPGP
+     *
+     * Results are validated. As if keyListJob was called
+     * with both includeSigs and validate options.
+     */
+    virtual KeyListJob *locateKeysJob() const = 0;
 };
 
 }

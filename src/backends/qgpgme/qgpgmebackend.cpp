@@ -372,6 +372,15 @@ public:
         return new Kleo::QGpgMEAddUserIDJob(context);
     }
 
+    Kleo::KeyListJob *locateKeysJob() const Q_DECL_OVERRIDE
+    {
+        GpgME::Context *context = GpgME::Context::createForProtocol(mProtocol);
+        if (!context) {
+            return Q_NULLPTR;
+        }
+        context->setKeyListMode(GpgME::Extern | GpgME::Local | GpgME::Signatures | GpgME::Validate);
+        return new Kleo::QGpgMEKeyListJob(context);
+    }
 };
 
 }

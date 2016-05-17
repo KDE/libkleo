@@ -644,6 +644,11 @@ public:
 
         return 0;
     }
+
+    Kleo::KeyListJob *locateKeysJob() const Q_DECL_OVERRIDE
+    {
+        return 0;
+    }
 };
 
 Kleo::ChiasmusBackend *Kleo::ChiasmusBackend::self = 0;
