@@ -45,6 +45,21 @@ QGpgMEKeyForMailboxJob::QGpgMEKeyForMailboxJob(Context *context)
 
 QGpgMEKeyForMailboxJob::~QGpgMEKeyForMailboxJob() {}
 
+static bool keyIsOk(const Key k)
+{
+    return !k.isExpired() && !k.isRevoked() && !k.isInvalid() && !k.isDisabled();
+}
+
+static bool uidIsOk(const UserID uid)
+{
+    return keyIsOk(uid.parent()) && !uid.isRevoked() && !uid.isInvalid();
+}
+
+static bool subkeyIsOk(const Subkey s)
+{
+    return !s.isRevoked() && !s.isInvalid() && !s.isDisabled();
+}
+
 static QGpgMEKeyForMailboxJob::result_type do_work(Context *ctx, const QString &mailbox, bool canEncrypt)
 {
     /* Do a Keylisting. */
@@ -58,8 +73,11 @@ static QGpgMEKeyForMailboxJob::result_type do_work(Context *ctx, const QString &
         return make_tuple(result, Key(), UserID(), QString(), Error());
     }
 
-    Key kCandidate;
-    UserID uidCandidate;
+    // This should ideally be decided by GnuPG and this Job changed
+    // to just call the according API in GpgME
+    // See: https://bugs.gnupg.org/gnupg/issue2359
+    Key keyC;
+    UserID uidC;
     Q_FOREACH (const Key k, keys) {
         if (canEncrypt && !k.canEncrypt()) {
             continue;
@@ -67,46 +85,36 @@ static QGpgMEKeyForMailboxJob::result_type do_work(Context *ctx, const QString &
         /* First get the uid that matches the mailbox */
         Q_FOREACH (const UserID u, k.userIDs()) {
             if (QString::fromUtf8(u.email()).toLower() == mailbox.toLower()) {
-                if (uidCandidate.isNull() ||
-                    (kCandidate.isExpired() && !k.isExpired()) ||
-                    (kCandidate.isRevoked() && !k.isRevoked()) ||
-                    (kCandidate.isInvalid() && !k.isInvalid()) ||
-                    (kCandidate.isDisabled() && !k.isDisabled()) ||
-                    (uidCandidate.isRevoked() && !u.isRevoked()) ||
-                    (uidCandidate.isInvalid() && !u.isInvalid()) ||
-                    uidCandidate.validity() < u.validity()) {
+                if (uidC.isNull()) {
+                    keyC = k;
+                    uidC = u;
+                } else if ((!uidIsOk(uidC) && uidIsOk(u)) || uidC.validity() < u.validity()) {
                     /* Validity of the new key is better. */
-                    uidCandidate = u;
-                    kCandidate = k;
-                } else if (uidCandidate.validity() == u.validity() &&
-                           !k.isExpired() && !k.isRevoked() &&
-                           !k.isInvalid() && !k.isDisabled() &&
-                           !u.isRevoked() && !u.isInvalid()) {
+                    uidC = u;
+                    keyC = k;
+                } else if (uidC.validity() == u.validity() && uidIsOk(u)) {
                     /* Both are the same check which one is newer. */
                     time_t oldTime = 0;
-                    Q_FOREACH (const Subkey s, kCandidate.subkeys()) {
-                        if ((canEncrypt && s.canEncrypt()) && !s.isExpired() && !s.isRevoked() &&
-                            !s.isDisabled() && !s.isInvalid()) {
+                    Q_FOREACH (const Subkey s, keyC.subkeys()) {
+                        if ((canEncrypt && s.canEncrypt()) && subkeyIsOk(s)) {
                             oldTime = s.creationTime();
                         }
                     }
                     time_t newTime = 0;
                     Q_FOREACH (const Subkey s, k.subkeys()) {
-                        if ((canEncrypt && s.canEncrypt()) && !s.isExpired() &&
-                            !s.isRevoked() && !s.isDisabled() &&
-                            !s.isInvalid()) {
+                        if ((canEncrypt && s.canEncrypt()) && subkeyIsOk(s)) {
                             newTime = s.creationTime();
                         }
                     }
                     if (newTime > oldTime) {
-                        uidCandidate = u;
-                        kCandidate = k;
+                        uidC = u;
+                        keyC = k;
                     }
                 }
             }
         }
     }
-    return make_tuple(result, kCandidate, uidCandidate, QString(), Error());
+    return make_tuple(result, keyC, uidC, QString(), Error());
 }
 
 Error QGpgMEKeyForMailboxJob::start(const QString &mailbox, bool canEncrypt)
