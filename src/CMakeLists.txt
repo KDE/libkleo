@@ -50,6 +50,7 @@ set(libkleo_backend_qgpgme_SRCS
     backends/qgpgme/qgpgmecryptoconfig.cpp
     backends/qgpgme/qgpgmenewcryptoconfig.cpp
     backends/qgpgme/qgpgmerefreshkeysjob.cpp
+    backends/qgpgme/qgpgmekeyformailboxjob.cpp
     )
 ecm_qt_declare_logging_category(libkleo_backend_qgpgme_SRCS HEADER gpgme_backend_debug.h IDENTIFIER GPGPME_BACKEND_LOG CATEGORY_NAME log_gpgme_backend)
 
@@ -191,6 +192,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   Predicates
   AbstractImportJob
   DefaultKeyFilter
+  KeyForMailboxJob
   REQUIRED_HEADERS libkleo_HEADERS
   PREFIX Libkleo
   RELATIVE kleo

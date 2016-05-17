@@ -60,6 +60,7 @@ class ChangeOwnerTrustJob;
 class ChangePasswdJob;
 class AddUserIDJob;
 class SpecialJob;
+class KeyForMailboxJob;
 }
 
 class QString;
@@ -145,6 +146,8 @@ public:
      * with both includeSigs and validate options.
      */
     virtual KeyListJob *locateKeysJob() const = 0;
+    /** Find the best key to use for a mailbox. */
+    virtual KeyForMailboxJob *keyForMailboxJob() const = 0;
 };
 
 }

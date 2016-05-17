@@ -57,6 +57,7 @@
 #include "qgpgmechangeownertrustjob.h"
 #include "qgpgmechangepasswdjob.h"
 #include "qgpgmeadduseridjob.h"
+#include "qgpgmekeyformailboxjob.h"
 
 #include <gpgme++/error.h>
 #include <gpgme++/engineinfo.h>
@@ -380,6 +381,15 @@ public:
         }
         context->setKeyListMode(GpgME::Extern | GpgME::Local | GpgME::Signatures | GpgME::Validate);
         return new Kleo::QGpgMEKeyListJob(context);
+    }
+
+    Kleo::KeyForMailboxJob *keyForMailboxJob() const Q_DECL_OVERRIDE
+    {
+        GpgME::Context *context = GpgME::Context::createForProtocol(mProtocol);
+        if (!context) {
+            return Q_NULLPTR;
+        }
+        return new Kleo::QGpgMEKeyForMailboxJob(context);
     }
 };
 

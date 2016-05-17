@@ -54,6 +54,7 @@
 #include "refreshkeysjob.h"
 #include "adduseridjob.h"
 #include "specialjob.h"
+#include "keyformailboxjob.h"
 
 #include <gpgme++/error.h>
 
@@ -126,6 +127,7 @@ make_job_subclass(DeleteJob)
 make_job_subclass(RefreshKeysJob)
 make_job_subclass(AddUserIDJob)
 make_job_subclass(SpecialJob)
+make_job_subclass(KeyForMailboxJob)
 
 #undef make_job_subclass
 
@@ -154,3 +156,4 @@ make_job_subclass(SpecialJob)
 #include "moc_refreshkeysjob.cpp"
 #include "moc_adduseridjob.cpp"
 #include "moc_specialjob.cpp"
+#include "moc_keyformailboxjob.cpp"

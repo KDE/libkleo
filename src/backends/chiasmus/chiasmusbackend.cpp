@@ -649,6 +649,11 @@ public:
     {
         return 0;
     }
+
+    Kleo::KeyForMailboxJob *keyForMailboxJob() const Q_DECL_OVERRIDE
+    {
+        return 0;
+    }
 };
 
 Kleo::ChiasmusBackend *Kleo::ChiasmusBackend::self = 0;
