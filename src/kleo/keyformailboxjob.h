@@ -65,7 +65,7 @@ namespace Kleo
    KeyListJob will schedule it's own destruction by calling
    QObject::deleteLater().
 */
-class KeyForMailboxJob: public Job
+class KLEO_EXPORT KeyForMailboxJob: public Job
 {
     Q_OBJECT
 protected:
