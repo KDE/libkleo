@@ -327,7 +327,8 @@ static bool start_command(QProcess *p, const char *functionName,
         assert(!"Should not happen");
 
     case ChecksumDefinition::CommandLine:
-        qDebug("[%p] Starting %s %s", p, qPrintable(cmd), qPrintable(args.join(QStringLiteral(" "))));
+        qDebug("[%p] Starting %s %s",
+               (void *)p, qPrintable(cmd), qPrintable(args.join(QStringLiteral(" "))));
         p->start(cmd, args, QIODevice::ReadOnly);
         return true;
 
@@ -425,4 +426,3 @@ void ChecksumDefinition::setDefaultChecksumDefinition(const shared_ptr<ChecksumD
     group.writeEntry(CHECKSUM_DEFINITION_ID_ENTRY, checksumDefinition->id());
     group.sync();
 }
-
