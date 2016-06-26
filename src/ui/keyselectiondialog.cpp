@@ -83,13 +83,19 @@
 #include <KConfigGroup>
 #include <QDialogButtonBox>
 
-static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage)
+static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString *statusString = Q_NULLPTR)
 {
+    auto setStatusString = [statusString](const QString &status) {
+        if (statusString) {
+            *statusString = status;
+        }
+    };
 
     if (keyUsage & Kleo::KeySelectionDialog::ValidKeys) {
         if (key.isInvalid()) {
             if (key.keyListMode() & GpgME::Validate) {
                 qCDebug(KLEO_UI_LOG) << "key is invalid";
+                setStatusString(i18n("The key is not valid."));
                 return false;
             } else {
                 qCDebug(KLEO_UI_LOG) << "key is invalid - ignoring";
@@ -97,12 +103,15 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage)
         }
         if (key.isExpired()) {
             qCDebug(KLEO_UI_LOG) << "key is expired";
+            setStatusString(i18n("The key is expired."));
             return false;
         } else if (key.isRevoked()) {
             qCDebug(KLEO_UI_LOG) << "key is revoked";
+            setStatusString(i18n("The key is revoked."));
             return false;
         } else if (key.isDisabled()) {
             qCDebug(KLEO_UI_LOG) << "key is disabled";
+            setStatusString(i18n("The key is disabled."));
             return false;
         }
     }
@@ -110,21 +119,25 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage)
     if (keyUsage & Kleo::KeySelectionDialog::EncryptionKeys &&
             !key.canEncrypt()) {
         qCDebug(KLEO_UI_LOG) << "key can't encrypt";
+        setStatusString(i18n("The key is not designated for encryption."));
         return false;
     }
     if (keyUsage & Kleo::KeySelectionDialog::SigningKeys &&
             !key.canSign()) {
         qCDebug(KLEO_UI_LOG) << "key can't sign";
+        setStatusString(i18n("The key is not designated for signing."));
         return false;
     }
     if (keyUsage & Kleo::KeySelectionDialog::CertificationKeys &&
             !key.canCertify()) {
         qCDebug(KLEO_UI_LOG) << "key can't certify";
+        setStatusString(i18n("The key is not designated for certifying."));
         return false;
     }
     if (keyUsage & Kleo::KeySelectionDialog::AuthenticationKeys &&
             !key.canAuthenticate()) {
         qCDebug(KLEO_UI_LOG) << "key can't authenticate";
+        setStatusString(i18n("The key is not designated for authentication."));
         return false;
     }
 
@@ -132,6 +145,7 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage)
             !(keyUsage & Kleo::KeySelectionDialog::PublicKeys) &&
             !key.hasSecret()) {
         qCDebug(KLEO_UI_LOG) << "key isn't secret";
+        setStatusString(i18n("The key is not secret."));
         return false;
     }
 
@@ -146,11 +160,13 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage)
                 return true;
             }
         qCDebug(KLEO_UI_LOG) << "key has no UIDs with validity >= Marginal";
+        setStatusString(i18n("The key is not trusted enough."));
         return false;
     }
     // X.509 keys are always trusted, else they won't be the keybox.
     // PENDING(marc) check that this ^ is correct
 
+    setStatusString(i18n("The key can be used."));
     return true;
 }
 
@@ -262,24 +278,33 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
     const GpgME::Subkey subkey = key.subkey(0);
     const QString expiry = subkey.neverExpires() ? i18n("never") : time_t2string(subkey.expirationTime());
     const QString creation = time_t2string(subkey.creationTime());
-    if (key.protocol() == GpgME::OpenPGP)
-        return i18n("OpenPGP key for %1\n"
-                    "Created: %2\n"
-                    "Expiry: %3\n"
-                    "Fingerprint: %4",
-                    uid ? QString::fromUtf8(uid) : i18n("unknown"),
-                    creation, expiry,
-                    fpr ? QString::fromLatin1(fpr) : i18n("unknown"));
-    else
-        return i18n("S/MIME key for %1\n"
-                    "Created: %2\n"
-                    "Expiry: %3\n"
-                    "Fingerprint: %4\n"
-                    "Issuer: %5",
-                    uid ? Kleo::DN(uid).prettyDN() : i18n("unknown"),
-                    creation, expiry,
-                    fpr ? QString::fromLatin1(fpr) : i18n("unknown"),
-                    issuer ? Kleo::DN(issuer).prettyDN() : i18n("unknown"));
+    QString keyStatusString;
+    if (!checkKeyUsage(key, mKeyUsage, &keyStatusString)) {
+        // Show the status in bold if there is a problem
+        keyStatusString = QLatin1String("<b>") % keyStatusString % QLatin1String("</b>");
+    }
+
+    QString html = QStringLiteral("<qt><p style=\"style='white-space:pre'\">");
+    if (key.protocol() == GpgME::OpenPGP) {
+        html += i18n("OpenPGP key for <b>%1</b>", uid ? QString::fromUtf8(uid) : i18n("unknown"));
+    } else {
+        html += i18n("S/MIME key for <b>%1</b>", uid ? Kleo::DN(uid).prettyDN() : i18n("unknown"));
+    }
+    html += QStringLiteral("</p><table>");
+
+    const auto addRow = [&html](const QString &name, const QString &value) {
+        html += QStringLiteral("<tr><td align=\"right\"><b>%1: </b></td><td>%2</td></tr>").arg(name, value);
+    };
+    addRow(i18nc("Key creation date", "Created"), creation);
+    addRow(i18nc("Key Expiration date", "Expiry"), expiry);
+    addRow(i18nc("Key fingerprint", "Fingerprint"), fpr ? QString::fromLatin1(fpr) : i18n("unknown"));
+    if (key.protocol() != GpgME::OpenPGP) {
+        addRow(i18nc("Key issuer", "Issuer"), issuer ? Kleo::DN(issuer).prettyDN() : i18n("unknown"));
+    }
+    addRow(i18nc("Key status", "Status"), keyStatusString);
+    html += QStringLiteral("</table></qt>");
+
+    return html;
 }
 
 QIcon ColumnStrategy::icon(const GpgME::Key &key, int col) const
