@@ -37,6 +37,8 @@
 #include "cryptobackendfactory.h"
 #include "stl_util.h"
 
+#include "libkleo_debug.h"
+
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <KLocalizedString>
@@ -240,7 +242,7 @@ void KeyFilterManager::reload()
         }
     }
     std::stable_sort(d->filters.begin(), d->filters.end(), ByDecreasingSpecificity());
-    qDebug() << "final filter count is" << d->filters.size();
+    qCDebug(LIBKLEO_LOG) << "final filter count is" << d->filters.size();
 }
 
 QAbstractItemModel *KeyFilterManager::model() const

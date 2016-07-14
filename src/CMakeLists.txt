@@ -78,6 +78,7 @@ set(libkleo_core_SRCS
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
    )
+ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME log_libkleo)
 
 set(libkleo_ui_common_SRCS
    ui/dnattributeorderconfigwidget.cpp

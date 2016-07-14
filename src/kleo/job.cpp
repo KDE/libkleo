@@ -56,6 +56,8 @@
 #include "specialjob.h"
 #include "keyformailboxjob.h"
 
+#include "libkleo_debug.h"
+
 #include <gpgme++/error.h>
 
 #include <QCoreApplication>
@@ -78,18 +80,18 @@ Kleo::Job::~Job()
 
 void Kleo::Job::showErrorDialog(QWidget *, const QString &) const
 {
-    qDebug() << "Kleo::Job::showErrorDialog() should be reimplemented in Kleo::Job subclasses!";
+    qCDebug(LIBKLEO_LOG) << "Kleo::Job::showErrorDialog() should be reimplemented in Kleo::Job subclasses!";
 }
 
 QString Kleo::Job::auditLogAsHtml() const
 {
-    qDebug() << "Kleo::Job::auditLogAsHtml() should be reimplemented in Kleo::Job subclasses!";
+    qCDebug(LIBKLEO_LOG) << "Kleo::Job::auditLogAsHtml() should be reimplemented in Kleo::Job subclasses!";
     return QString();
 }
 
 GpgME::Error Kleo::Job::auditLogError() const
 {
-    qDebug() << "Kleo::Job::auditLogError() should be reimplemented in Kleo::Job subclasses!";
+    qCDebug(LIBKLEO_LOG) << "Kleo::Job::auditLogError() should be reimplemented in Kleo::Job subclasses!";
     return GpgME::Error::fromCode(GPG_ERR_NOT_IMPLEMENTED);
 }
 

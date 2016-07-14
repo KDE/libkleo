@@ -35,6 +35,8 @@
 #include "exception.h"
 #include "cryptobackendfactory.h"
 
+#include "libkleo_debug.h"
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KConfig>
@@ -71,7 +73,7 @@ QString ChecksumDefinition::installPath()
         if (QCoreApplication::instance()) {
             *ip = QCoreApplication::applicationDirPath();
         } else {
-            qWarning() << "checksumdefinition.cpp: installPath() called before QCoreApplication was constructed";
+            qCWarning(LIBKLEO_LOG) << "checksumdefinition.cpp: installPath() called before QCoreApplication was constructed";
         }
     }
     return *ip;
@@ -170,7 +172,7 @@ static void parse_command(QString cmdline, const QString &id, const QString &whi
     if (errors == KShell::FoundMeta) {
         throw ChecksumDefinitionError(id, i18n("'%1' too complex (would need shell)", whichCommand));
     }
-    qDebug() << "ChecksumDefinition[" << id << ']' << l;
+    qCDebug(LIBKLEO_LOG) << "ChecksumDefinition[" << id << ']' << l;
     if (l.empty()) {
         throw ChecksumDefinitionError(id, i18n("'%1' entry is empty/missing", whichCommand));
     }
@@ -193,13 +195,13 @@ static void parse_command(QString cmdline, const QString &id, const QString &whi
     }
     switch (*method) {
     case ChecksumDefinition::CommandLine:
-        qDebug() << "ChecksumDefinition[" << id << ']' << *command << *prefix << FILE_PLACEHOLDER << *suffix;
+        qCDebug(LIBKLEO_LOG) << "ChecksumDefinition[" << id << ']' << *command << *prefix << FILE_PLACEHOLDER << *suffix;
         break;
     case ChecksumDefinition::NewlineSeparatedInputFile:
-        qDebug() << "ChecksumDefinition[" << id << ']' << "find | " << *command << *prefix;
+        qCDebug(LIBKLEO_LOG) << "ChecksumDefinition[" << id << ']' << "find | " << *command << *prefix;
         break;
     case ChecksumDefinition::NullSeparatedInputFile:
-        qDebug() << "ChecksumDefinition[" << id << ']' << "find -print0 | " << *command << *prefix;
+        qCDebug(LIBKLEO_LOG) << "ChecksumDefinition[" << id << ']' << "find -print0 | " << *command << *prefix;
         break;
     case ChecksumDefinition::NumArgumentPassingMethods:
         assert(!"Should not happen");
@@ -317,7 +319,7 @@ static bool start_command(QProcess *p, const char *functionName,
                           const QStringList &files, ChecksumDefinition::ArgumentPassingMethod method)
 {
     if (!p) {
-        qWarning() << functionName << ": process == NULL";
+        qCWarning(LIBKLEO_LOG) << functionName << ": process == NULL";
         return false;
     }
 
@@ -327,13 +329,13 @@ static bool start_command(QProcess *p, const char *functionName,
         assert(!"Should not happen");
 
     case ChecksumDefinition::CommandLine:
-        qDebug("[%p] Starting %s %s",
-               (void *)p, qPrintable(cmd), qPrintable(args.join(QStringLiteral(" "))));
+        qCDebug(LIBKLEO_LOG) << "Starting: " << cmd << " " << args.join(QStringLiteral(" "));
         p->start(cmd, args, QIODevice::ReadOnly);
         return true;
 
     case ChecksumDefinition::NewlineSeparatedInputFile:
     case ChecksumDefinition::NullSeparatedInputFile:
+        qCDebug(LIBKLEO_LOG) << "Starting: " << cmd << " " << args.join(QStringLiteral(" "));
         p->start(cmd, args, QIODevice::ReadWrite);
         if (!p->waitForStarted()) {
             return false;
@@ -390,7 +392,7 @@ std::vector< shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDef
                 const shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
                 result.push_back(ad);
             } catch (const std::exception &e) {
-                qDebug() << e.what();
+                qCDebug(LIBKLEO_LOG) << e.what();
                 errors.push_back(QString::fromLocal8Bit(e.what()));
             } catch (...) {
                 errors.push_back(i18n("Caught unknown exception in group %1", group));
