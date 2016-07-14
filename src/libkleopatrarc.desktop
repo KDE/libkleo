@@ -112,7 +112,7 @@ pack-command=0|tar cfj - -T- --null
 unpack-command=tar xfj -
 
 [Checksum Definition #1]
-file-patterns=sha1sum.txt
+file-patterns=sha1sum.txt,.*\.sha1
 output-file=sha1sum.txt
 id=sha1sum
 Name=sha1sum
@@ -148,7 +148,7 @@ create-command=0|xargs -0 sha1sum --
 verify-command=sha1sum -c --
 
 [Checksum Definition #2]
-file-patterns=md5sum.txt
+file-patterns=md5sum.txt,.*\.md5
 output-file=md5sum.txt
 id=md5sum
 Name=md5sum
