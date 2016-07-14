@@ -183,6 +183,42 @@ Name[zh_CN]=md5sum
 create-command=0|xargs -0 md5sum --
 verify-command=md5sum -c --
 
+[Checksum Definition #3]
+file-patterns=sha256sum.txt,.*\.sha256,.*\.sha2
+output-file=sha256sum.txt
+id=sha256sum
+Name=sha256sum
+Name[ast]=sha256
+Name[ca]=sha256sum
+Name[ca@valencia]=sha256sum
+Name[cs]=sha256sum
+Name[de]=sha256sum
+Name[en_GB]=sha256sum
+Name[es]=sha256sum
+Name[fi]=sha256sum
+Name[fr]=sha256sum
+Name[gl]=sha256sum
+Name[it]=sha256sum
+Name[nb]=sha256sum
+Name[nl]=sha256sum
+Name[nn]=sha256sum
+Name[pl]=sha256sum
+Name[pt]=sha256sum
+Name[pt_BR]=sha256sum
+Name[ru]=sha256sum
+Name[sk]=sha256sum
+Name[sl]=sha256sum
+Name[sr]=СХА‑256 сума
+Name[sr@ijekavian]=СХА‑256 сума
+Name[sr@ijekavianlatin]=SHA‑256 suma
+Name[sr@latin]=SHA‑256 suma
+Name[sv]=SHA256-summa
+Name[uk]=sha256sum
+Name[x-test]=xxsha256sumxx
+Name[zh_CN]=sha256sum
+create-command=0|xargs -0 sha256sum --
+verify-command=sha256sum -c --
+
 [Key Filter #0]
 was-validated=false
 Name=Not Validated Key
