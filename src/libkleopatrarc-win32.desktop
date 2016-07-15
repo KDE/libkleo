@@ -37,7 +37,7 @@ unpack-command-openpgp=%I/gpgtar --openpgp --skip-crypto --set-filename %f --dec
 unpack-command-cms=%I/gpgtar --cms --skip-crypto --set-filename %f --decrypt -- -
 
 [Checksum Definition #0]
-file-patterns=sha1sum.txt,.*\.sha1
+file-patterns=sha1sum.txt,.*\\\\.sha1
 output-file=sha1sum.txt
 id=sha1sum
 Name=sha1sum
@@ -73,7 +73,7 @@ create-command=0|%I/sha1sum -0 -
 verify-command=%I/sha1sum -c
 
 [Checksum Definition #1]
-file-patterns=sha256sum.txt,.*\.sha256,.*\.sha2
+file-patterns=sha256sum.txt,.*\\\\.sha256,.*\\\\.sha2
 output-file=sha256sum.txt
 id=sha256sum
 Name=sha256sum
@@ -108,7 +108,7 @@ create-command=0|%I/sha256sum -0 -
 verify-command=%I/sha256sum -c
 
 [Checksum Definition #2]
-file-patterns=md5sum.txt,.*\.md5
+file-patterns=md5sum.txt,.*\\\\.md5
 output-file=md5sum.txt
 id=md5sum
 Name=md5sum
