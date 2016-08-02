@@ -77,6 +77,15 @@ set(libkleo_core_SRCS
    kleo/defaultkeyfilter.cpp
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
+   models/keycache.cpp
+   models/keylistmodel.cpp
+   models/keylistsortfilterproxymodel.cpp
+   models/keyrearrangecolumnsproxymodel.cpp
+   models/modeltest.cpp
+   models/subkeylistmodel.cpp
+   models/useridlistmodel.cpp
+   utils/filesystemwatcher.cpp
+   utils/formatting.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME log_libkleo)
 
@@ -116,7 +125,9 @@ set(kleo_LIB_LIBS PUBLIC KF5::QGpgme PRIVATE Qt5::Widgets
                                              KF5::ConfigCore
                                              KF5::CoreAddons
                                              KF5::WindowSystem
-                                             KF5::WidgetsAddons)
+                                             KF5::WidgetsAddons
+                                             KF5::Codecs
+                                             KF5::ItemModels)
 if (WIN32)
   set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PUBLIC KF5::Gpgmepp)
 else()
@@ -199,7 +210,30 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   RELATIVE kleo
 )
 
-ecm_generate_headers(libkeo_Camelcaseui_HEADERS
+ecm_generate_headers(libkleo_CamelCase_models_HEADERS
+  HEADER_NAMES
+  KeyCache
+  KeyListModel
+  KeyListModelInterface
+  KeyListSortFilterProxyModel
+  KeyRearrangeColumnsProxyModel
+  SubkeyListModel
+  UserIDListModel
+  REQUIRED_HEADERS libkleo_models_HEADERS
+  PREFIX Libkleo
+  RELATIVE models
+)
+
+ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
+  HEADER_NAMES
+  FileSystemWatcher
+  Formatting
+  REQUIRED_HEADERS libkleo_utils_HEADERS
+  PREFIX Libkleo
+  RELATIVE utils
+)
+
+ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   HEADER_NAMES
   ProgressDialog
   KeyApprovalDialog
@@ -212,7 +246,7 @@ ecm_generate_headers(libkeo_Camelcaseui_HEADERS
   CryptoConfigModule
   DirectoryServicesWidget
   DNAttributeOrderConfigWidget
-  REQUIRED_HEADERS libkeo_ui_HEADERS
+  REQUIRED_HEADERS libkleo_ui_HEADERS
   PREFIX Libkleo
   RELATIVE ui
 )
@@ -225,7 +259,9 @@ ecm_generate_pri_file(BASE_NAME Libkleo
 
 install(FILES
     ${libkleo_CamelCase_HEADERS}
-    ${libkeo_Camelcaseui_HEADERS}
+    ${libkleo_CamelCase_models_HEADERS}
+    ${libkleo_CamelCase_utils_HEADERS}
+    ${libkleo_CamelCase_ui_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/Libkleo
     COMPONENT Devel
 )
@@ -234,7 +270,9 @@ install(FILES
     ${libkleo_HEADERS}
     ${CMAKE_CURRENT_BINARY_DIR}/kleo_export.h
     ${libkleo_HEADERS}
-    ${libkeo_ui_HEADERS}
+    ${libkleo_models_HEADERS}
+    ${libkleo_utils_HEADERS}
+    ${libkleo_ui_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/libkleo
     COMPONENT Devel
 )
