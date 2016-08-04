@@ -203,7 +203,7 @@ QString Formatting::prettyEMail(const char *email_, const char *id)
 {
     QString email, name, comment;
     if (email_ && KEmailAddress::splitAddress(QString::fromUtf8(email_),
-                                              email, name, comment)) {
+                                              name, email, comment) == KEmailAddress::AddressOk) {
         return email;
     } else {
         return DN(id)[QStringLiteral("EMAIL")].trimmed();
