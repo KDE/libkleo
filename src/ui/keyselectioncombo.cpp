@@ -165,11 +165,10 @@ public:
                 name = dn[QStringLiteral("CN")];
                 email = dn[QStringLiteral("EMAIL")];
             }
-            return i18nc("Name <email> (type, created: date, 0xkeyID)", "%1 (%2, created: %3, %4)",
+            return i18nc("Name <email> (type, created: date)", "%1 (%2, created: %3)",
                          email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email),
                          key.protocol() == GpgME::OpenPGP ? i18n("OpenPGP") : i18n("S/MIME"),
-                         Kleo::Formatting::creationDateString(key),
-                         Kleo::Formatting::prettyKeyID(key.shortKeyID()));
+                         Kleo::Formatting::creationDateString(key));
         }
         case Qt::DecorationRole:
             return Kleo::Formatting::iconForUid(key.userID(0));
