@@ -216,19 +216,25 @@ KeySelectionCombo::KeySelectionCombo(QWidget* parent)
     : QComboBox(parent)
     , d(new KeySelectionComboPrivate(this))
 {
-    setEnabled(false);
-
     d->cache = Kleo::KeyCache::mutableInstance();
-    connect(d->cache.get(), &Kleo::KeyCache::keyListingDone,
-            this, [this]() {
-                qDebug() << "Key listing done";
-                d->model->useKeyCache(true, true);
-                setEnabled(true);
-                setCurrentIndex(0);
-            });
-    d->cache->startKeyListing();
-
     d->model = Kleo::AbstractKeyListModel::createFlatKeyListModel(this);
+
+    if (!d->cache->initialized()) {
+        setEnabled(false);
+        connect(d->cache.get(), &Kleo::KeyCache::keyListingDone,
+                this, [this]() {
+                    qDebug() << "Key listing done";
+                    setEnabled(true);
+                    // Set useKeyCache ensures that the cache is populated
+                    // so this can be a blocking call if the cache is not initalized
+                    d->model->useKeyCache(true, true);
+                    setCurrentIndex(0);
+                });
+        d->cache->startKeyListing();
+    } else {
+        d->model->useKeyCache(true, true);
+    }
+
     d->sortFilterProxy = new Kleo::KeyListSortFilterProxyModel(this);
     d->sortFilterProxy->setSourceModel(d->model);
 
