@@ -182,6 +182,10 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     const QRegExp rx = filterRegExp();
     const QModelIndex nameIndex = sourceModel()->index(source_row, PrettyName, source_parent);
 
+    const KeyListModelInterface *const klm = dynamic_cast<KeyListModelInterface *>(sourceModel());
+    Q_ASSERT(klm);
+    const Key key = klm->key(nameIndex);
+
     if (col) {
         const QModelIndex colIdx = sourceModel()->index(source_row, col, source_parent);
         const QString content = colIdx.data(role).toString();
@@ -189,26 +193,21 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
             return false;
         }
     } else {
-        // By default match name and email
-        const QString name = nameIndex.data(role).toString();
-
-        const QModelIndex emailIndex = sourceModel()->index(source_row, PrettyEMail, source_parent);
-        const QString email = emailIndex.data(role).toString();
-
-        if (!name.contains(rx) && !email.contains(rx)) {
-            return false;
+        // By default match name and email of any UID
+        Q_FOREACH(const auto uid, key.userIDs()) {
+            const auto name = QString::fromUtf8(uid.name());
+            const auto email = QString::fromUtf8(uid.email());
+            if (name.contains(rx) || email.contains(rx)) {
+                return true;
+            }
         }
+        return false;
     }
 
     //
     // 2. Check that key filters match (if any are defined)
     //
     if (d->keyFilter) {   // avoid artifacts when no filters are defined
-
-        const KeyListModelInterface *const klm = dynamic_cast<KeyListModelInterface *>(sourceModel());
-        assert(klm);
-        const Key key = klm->key(nameIndex);
-
         return d->keyFilter->matches(key, KeyFilter::Filtering);
     }
 
