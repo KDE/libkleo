@@ -297,9 +297,9 @@ void KeyCache::addFileSystemWatcher(const shared_ptr<FileSystemWatcher> &watcher
 
 void KeyCache::Private::refreshJobDone(const KeyListResult &result)
 {
-    Q_EMIT q->keyListingDone(result);
     q->enableFileSystemWatcher(true);
     m_initalized = true;
+    Q_EMIT q->keyListingDone(result);
 }
 
 const Key &KeyCache::findByFingerprint(const char *fpr) const

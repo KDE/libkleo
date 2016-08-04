@@ -108,6 +108,7 @@ set(libkleo_ui_SRCS    # make this a separate lib.
     ui/keyselectiondialog.cpp
     ui/keyrequester.cpp
     ui/keyapprovaldialog.cpp
+    ui/keyselectioncombo.cpp
     )
 
 ki18n_wrap_ui(libkleo_ui_common_SRCS
@@ -238,6 +239,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   ProgressDialog
   KeyApprovalDialog
   KeySelectionDialog
+  KeySelectionCombo
   FileNameRequester
   KeyRequester
   MessageBox
