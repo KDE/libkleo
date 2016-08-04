@@ -197,11 +197,10 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
         Q_FOREACH(const auto uid, key.userIDs()) {
             const auto name = QString::fromUtf8(uid.name());
             const auto email = QString::fromUtf8(uid.email());
-            if (name.contains(rx) || email.contains(rx)) {
-                return true;
+            if (!name.contains(rx) && !email.contains(rx)) {
+                return false;
             }
         }
-        return false;
     }
 
     //
