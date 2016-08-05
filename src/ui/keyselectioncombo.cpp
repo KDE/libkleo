@@ -31,6 +31,8 @@
 
 #include <QSortFilterProxyModel>
 #include <QVector>
+#include <QTimer>
+#include <QLineEdit>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -79,6 +81,27 @@ public:
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         mBackItems.push_back(new CustomItem{ icon, text, data });
         endInsertRows();
+    }
+
+    void removeCustomItem(const QVariant &data)
+    {
+        for (int i = 0; i < mFrontItems.count(); ++i) {
+            if (mFrontItems[i]->data == data) {
+                beginRemoveRows(QModelIndex(), i, i);
+                delete mFrontItems.takeAt(i);
+                endRemoveRows();
+                return;
+            }
+        }
+        for (int i = 0; i < mBackItems.count(); ++i) {
+            if (mBackItems[i]->data == data) {
+                const int index = mFrontItems.count() + rowCount() + i;
+                beginRemoveRows(QModelIndex(), index, index);
+                delete mBackItems.takeAt(i);
+                endRemoveRows();
+                return;
+            }
+        }
     }
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE
@@ -132,6 +155,10 @@ public:
 
     QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE
     {
+        if (!index.isValid()) {
+            return QVariant();
+        }
+
         if (isCustomItem(index.row())) {
             Q_ASSERT(!mFrontItems.isEmpty() || !mBackItems.isEmpty());
             CustomItem *ci = static_cast<CustomItem*>(index.internalPointer());
@@ -194,7 +221,8 @@ class KeySelectionComboPrivate
 {
 public:
     KeySelectionComboPrivate(KeySelectionCombo *parent)
-        : q(parent)
+        : wasEnabled(true)
+        , q(parent)
     {
     }
 
@@ -202,6 +230,8 @@ public:
     Kleo::KeyListSortFilterProxyModel *sortFilterProxy;
     ProxyModel *proxyModel;
     boost::shared_ptr<Kleo::KeyCache> cache;
+    QString defaultKey;
+    bool wasEnabled;
 
 private:
     KeySelectionCombo * const q;
@@ -216,24 +246,7 @@ KeySelectionCombo::KeySelectionCombo(QWidget* parent)
     : QComboBox(parent)
     , d(new KeySelectionComboPrivate(this))
 {
-    d->cache = Kleo::KeyCache::mutableInstance();
     d->model = Kleo::AbstractKeyListModel::createFlatKeyListModel(this);
-
-    if (!d->cache->initialized()) {
-        setEnabled(false);
-        connect(d->cache.get(), &Kleo::KeyCache::keyListingDone,
-                this, [this]() {
-                    qDebug() << "Key listing done";
-                    setEnabled(true);
-                    // Set useKeyCache ensures that the cache is populated
-                    // so this can be a blocking call if the cache is not initalized
-                    d->model->useKeyCache(true, true);
-                    setCurrentIndex(0);
-                });
-        d->cache->startKeyListing();
-    } else {
-        d->model->useKeyCache(true, true);
-    }
 
     d->sortFilterProxy = new Kleo::KeyListSortFilterProxyModel(this);
     d->sortFilterProxy->setSourceModel(d->model);
@@ -250,6 +263,10 @@ KeySelectionCombo::KeySelectionCombo(QWidget* parent)
                     Q_EMIT currentKeyChanged(currentKey());
                 }
             });
+
+    d->cache = Kleo::KeyCache::mutableInstance();
+
+    QTimer::singleShot(0, this, &KeySelectionCombo::init);
 }
 
 KeySelectionCombo::~KeySelectionCombo()
@@ -257,9 +274,57 @@ KeySelectionCombo::~KeySelectionCombo()
     delete d;
 }
 
+void KeySelectionCombo::init()
+{
+    connect(d->cache.get(), &Kleo::KeyCache::keyListingDone,
+            this, [this]() {
+                qDebug() << "Key listing done";
+                // Set useKeyCache ensures that the cache is populated
+                // so this can be a blocking call if the cache is not initalized
+                d->model->useKeyCache(true, true);
+                d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
+                setEnabled(d->wasEnabled);
+                bool match = false;
+                for (int i = 0; i < count(); ++i) {
+                    const GpgME::Key key = itemData(i, Kleo::AbstractKeyListModel::KeyRole).value<GpgME::Key>();
+                    if (d->defaultKey == key.primaryFingerprint()) {
+                        setCurrentIndex(i);
+                        match = true;
+                        break;
+                    }
+                }
+                if (!match) {
+                    setCurrentIndex(0);
+                }
+                Q_EMIT keyListingFinished();
+            });
+
+    if (!d->cache->initialized()) {
+        refreshKeys();
+    } else {
+        d->model->useKeyCache(true, true);
+    }
+}
+
+
 void KeySelectionCombo::setKeyFilter(const boost::shared_ptr<const KeyFilter> &kf)
 {
     d->sortFilterProxy->setKeyFilter(kf);
+}
+
+boost::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
+{
+    return d->sortFilterProxy->keyFilter();
+}
+
+void KeySelectionCombo::setIdFilter(const QString &id)
+{
+    d->sortFilterProxy->setFilterRegExp(id);
+}
+
+QString KeySelectionCombo::idFilter() const
+{
+    return d->sortFilterProxy->filterRegExp().pattern();
 }
 
 GpgME::Key Kleo::KeySelectionCombo::currentKey() const
@@ -275,6 +340,17 @@ void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
     }
 }
 
+void KeySelectionCombo::refreshKeys()
+{
+    d->wasEnabled = isEnabled();
+    setEnabled(false);
+    const bool wasBlocked = blockSignals(true);
+    prependCustomItem(QIcon(), i18n("Loading keys ..."), QStringLiteral("-libkleo-loading-keys"));
+    setCurrentIndex(0);
+    blockSignals(wasBlocked);
+    d->cache->startKeyListing();
+}
+
 void KeySelectionCombo::appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data)
 {
     d->proxyModel->appendItem(icon, text, data);
@@ -285,6 +361,14 @@ void KeySelectionCombo::prependCustomItem(const QIcon &icon, const QString &text
     d->proxyModel->prependItem(icon, text, data);
 }
 
+void Kleo::KeySelectionCombo::setDefaultKey(const QString &fingerprint)
+{
+    d->defaultKey = fingerprint;
+}
 
+QString Kleo::KeySelectionCombo::defaultKey() const
+{
+    return d->defaultKey;
+}
 
 #include "keyselectioncombo.moc"

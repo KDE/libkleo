@@ -47,9 +47,18 @@ public:
     virtual ~KeySelectionCombo();
 
     void setKeyFilter(const boost::shared_ptr<const KeyFilter> &kf);
+    boost::shared_ptr<const KeyFilter> keyFilter() const;
+
+    void setIdFilter(const QString &id);
+    QString idFilter() const;
+
+    void refreshKeys();
 
     GpgME::Key currentKey() const;
     void setCurrentKey(const GpgME::Key &key);
+
+    void setDefaultKey(const QString &fingerprint);
+    QString defaultKey() const;
 
     void prependCustomItem(const QIcon &icon, const QString &text, const QVariant &data);
     void appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data);
@@ -57,6 +66,10 @@ public:
 Q_SIGNALS:
     void customItemSelected(const QVariant &data);
     void currentKeyChanged(const GpgME::Key &key);
+    void keyListingFinished();
+
+protected:
+    virtual void init();
 
 private:
     KeySelectionComboPrivate * const d;
