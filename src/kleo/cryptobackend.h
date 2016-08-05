@@ -35,6 +35,8 @@
 
 #include <QString>
 
+#include <kleo_export.h>
+
 namespace Kleo
 {
 class CryptoConfig;
@@ -70,7 +72,7 @@ template <typename T_Key, typename T_Value> class QMap;
 namespace Kleo
 {
 
-class CryptoBackend
+class KLEO_EXPORT CryptoBackend
 {
 public:
     class Protocol;
@@ -100,7 +102,7 @@ public:
     virtual const char *enumerateProtocols(int i) const = 0;
 };
 
-class CryptoBackend::Protocol
+class KLEO_EXPORT CryptoBackend::Protocol
 {
 public:
     virtual ~Protocol() {}

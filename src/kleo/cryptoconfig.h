@@ -43,13 +43,15 @@
 
 /* Start reading this file from the bottom up :) */
 
+#include <kleo_export.h>
+
 namespace Kleo
 {
 
 /**
  * Description of a single option
  */
-class CryptoConfigEntry
+class KLEO_EXPORT CryptoConfigEntry
 {
 
 public:
@@ -251,7 +253,7 @@ public:
 /**
  * Group containing a set of config options
  */
-class CryptoConfigGroup
+class KLEO_EXPORT CryptoConfigGroup
 {
 
 public:
@@ -300,7 +302,7 @@ public:
 /**
  * Crypto config for one component (e.g. gpg-agent, dirmngr etc.)
  */
-class CryptoConfigComponent
+class KLEO_EXPORT CryptoConfigComponent
 {
 
 public:
@@ -340,7 +342,7 @@ public:
 /**
  * Main interface to crypto configuration.
  */
-class CryptoConfig
+class KLEO_EXPORT CryptoConfig
 {
 
 public:

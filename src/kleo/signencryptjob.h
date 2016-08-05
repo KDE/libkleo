@@ -69,7 +69,7 @@ namespace Kleo
    After result() is emitted, the SignEncryptJob will schedule it's
    own destruction by calling QObject::deleteLater().
 */
-class SignEncryptJob : public Job
+class KLEO_EXPORT SignEncryptJob : public Job
 {
     Q_OBJECT
 protected:

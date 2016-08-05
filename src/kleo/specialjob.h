@@ -64,7 +64,7 @@ namespace Kleo
    through the read-only result property, the latter of which needs
    to be defined in each SpecialJob subclass.
 */
-class SpecialJob : public Job
+class KLEO_EXPORT SpecialJob : public Job
 {
     Q_OBJECT
 protected:

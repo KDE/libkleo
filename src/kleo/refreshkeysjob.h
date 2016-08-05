@@ -61,7 +61,7 @@ namespace Kleo
    After result() is emitted, the KeyListJob will schedule it's own
    destruction by calling QObject::deleteLater().
 */
-class RefreshKeysJob : public Job
+class KLEO_EXPORT RefreshKeysJob : public Job
 {
     Q_OBJECT
 protected:

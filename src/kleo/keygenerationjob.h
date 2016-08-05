@@ -37,6 +37,8 @@
 
 #include <QtCore/QByteArray>
 
+#include <kleo_export.h>
+
 namespace GpgME
 {
 class Error;
@@ -59,7 +61,7 @@ namespace Kleo
    After result() is emitted, the KeyGenerationJob will schedule it's own
    destruction by calling QObject::deleteLater().
 */
-class KeyGenerationJob : public Job
+class KLEO_EXPORT KeyGenerationJob : public Job
 {
     Q_OBJECT
 protected:

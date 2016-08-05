@@ -37,6 +37,8 @@
 
 #include <algorithm>
 
+#include <kleo_export.h>
+
 namespace GpgME
 {
 class Key;
@@ -53,7 +55,7 @@ namespace Kleo
    @short An abstract base class key filters
 
 */
-class KeyFilter
+class KLEO_EXPORT KeyFilter
 {
 public:
     virtual ~KeyFilter() {}

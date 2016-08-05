@@ -40,7 +40,7 @@ class KConfigGroup;
 namespace Kleo
 {
 
-class KConfigBasedKeyFilter : public DefaultKeyFilter
+class KLEO_EXPORT KConfigBasedKeyFilter : public DefaultKeyFilter
 {
 public:
     explicit KConfigBasedKeyFilter(const KConfigGroup &group);

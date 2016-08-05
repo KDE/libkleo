@@ -44,7 +44,7 @@ class ImportResult;
 namespace Kleo
 {
 
-class AbstractImportJob : public Job
+class KLEO_EXPORT AbstractImportJob : public Job
 {
     Q_OBJECT
 protected:

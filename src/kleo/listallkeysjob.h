@@ -64,7 +64,7 @@ namespace Kleo
    This is potentially much faster than a KeyListJob with empty
    pattern.
 */
-class ListAllKeysJob : public Job
+class KLEO_EXPORT ListAllKeysJob : public Job
 {
     Q_OBJECT
 protected:

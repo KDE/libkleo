@@ -23,6 +23,8 @@
 
 #include <QDialog>
 
+#include <kleo_export.h>
+
 #ifdef HAVE_PIMTEXTEDIT
 #include "kpimtextedit/richtexteditorwidget.h"
 
@@ -40,7 +42,7 @@ namespace Kleo
 namespace Private
 {
 
-class AuditLogViewer : public QDialog
+class KLEO_EXPORT AuditLogViewer : public QDialog
 {
     Q_OBJECT
 public:

@@ -59,7 +59,7 @@ namespace Kleo
    After result() is emitted, the ImportJob will schedule it's own
    destruction by calling QObject::deleteLater().
 */
-class ImportJob : public AbstractImportJob
+class KLEO_EXPORT ImportJob : public AbstractImportJob
 {
     Q_OBJECT
 protected:

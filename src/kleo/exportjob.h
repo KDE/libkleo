@@ -60,7 +60,7 @@ namespace Kleo
    After result() is emitted, the ExportJob will schedule it's own
    destruction by calling QObject::deleteLater().
 */
-class ExportJob : public Job
+class KLEO_EXPORT ExportJob : public Job
 {
     Q_OBJECT
 protected:

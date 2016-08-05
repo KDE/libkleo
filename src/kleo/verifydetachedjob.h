@@ -62,7 +62,7 @@ namespace Kleo
    After result() is emitted, the VerifyDetachedJob will schedule
    it's own destruction by calling QObject::deleteLater().
 */
-class VerifyDetachedJob : public Job
+class KLEO_EXPORT VerifyDetachedJob : public Job
 {
     Q_OBJECT
 protected:

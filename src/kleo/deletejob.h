@@ -57,7 +57,7 @@ namespace Kleo
    After result() is emitted, the DeleteJob will schedule it's own
    destruction by calling QObject::deleteLater().
 */
-class DeleteJob : public Job
+class KLEO_EXPORT DeleteJob : public Job
 {
     Q_OBJECT
 protected:
