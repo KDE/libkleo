@@ -86,6 +86,7 @@ set(libkleo_core_SRCS
    models/useridlistmodel.cpp
    utils/filesystemwatcher.cpp
    utils/formatting.cpp
+   utils/classify
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME log_libkleo)
 
@@ -229,6 +230,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   HEADER_NAMES
   FileSystemWatcher
   Formatting
+  Classify
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
