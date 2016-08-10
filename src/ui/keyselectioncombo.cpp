@@ -284,6 +284,11 @@ void KeySelectionCombo::init()
                 d->model->useKeyCache(true, true);
                 d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
                 setEnabled(d->wasEnabled);
+                Q_EMIT keyListingFinished();
+            });
+
+    connect(this, &KeySelectionCombo::keyListingFinished,
+            this, [this]() {
                 bool match = false;
                 for (int i = 0; i < count(); ++i) {
                     const GpgME::Key key = itemData(i, Kleo::AbstractKeyListModel::KeyRole).value<GpgME::Key>();
@@ -296,13 +301,13 @@ void KeySelectionCombo::init()
                 if (!match) {
                     setCurrentIndex(0);
                 }
-                Q_EMIT keyListingFinished();
             });
 
     if (!d->cache->initialized()) {
         refreshKeys();
     } else {
         d->model->useKeyCache(true, true);
+        Q_EMIT keyListingFinished();
     }
 }
 
