@@ -36,6 +36,7 @@
 #include "job.h"
 
 #include <gpgme++/global.h>
+#include <gpgme++/context.h>
 
 #include <boost/shared_ptr.hpp>
 
@@ -119,6 +120,21 @@ public:
     */
     virtual void setOutputIsBase64Encoded(bool) = 0;
 
+    /** Like start but with an additional argument for EncryptionFlags for
+     * more flexibility. */
+    virtual void start(const std::vector<GpgME::Key> &signers,
+                       const std::vector<GpgME::Key> &recipients,
+                       const boost::shared_ptr<QIODevice> &plainText,
+                       const boost::shared_ptr<QIODevice> &cipherText = boost::shared_ptr<QIODevice>(),
+                       const GpgME::Context::EncryptionFlags flags = GpgME::Context::None) = 0;
+
+    /** Like exec but with an additional argument for EncryptionFlags for
+     * more flexibility. */
+    virtual std::pair<GpgME::SigningResult, GpgME::EncryptionResult>
+    exec(const std::vector<GpgME::Key> &signers,
+         const std::vector<GpgME::Key> &recipients,
+         const QByteArray &plainText,
+         const GpgME::Context::EncryptionFlags flags, QByteArray &cipherText) = 0;
 Q_SIGNALS:
     void result(const GpgME::SigningResult &signingresult,
                 const GpgME::EncryptionResult &encryptionresult,

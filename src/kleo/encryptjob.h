@@ -39,6 +39,8 @@
 
 #include <vector>
 
+#include <gpgme++/context.h>
+
 class QByteArray;
 class QIODevice;
 
@@ -110,6 +112,18 @@ public:
     */
     virtual void setOutputIsBase64Encoded(bool) = 0;
 
+    /** Like start but with an additional argument for EncryptionFlags for
+     * more flexibility. */
+    virtual void start(const std::vector<GpgME::Key> &recipients,
+                       const boost::shared_ptr<QIODevice> &plainText,
+                       const boost::shared_ptr<QIODevice> &cipherText = boost::shared_ptr<QIODevice>(),
+                       const GpgME::Context::EncryptionFlags flags = GpgME::Context::None) = 0;
+
+    /** Like exec but with an additional argument for EncryptionFlags for
+     * more flexibility. */
+    virtual GpgME::EncryptionResult exec(const std::vector<GpgME::Key> &recipients,
+                                         const QByteArray &plainText,
+                                         const GpgME::Context::EncryptionFlags flags, QByteArray &cipherText) = 0;
 Q_SIGNALS:
     void result(const GpgME::EncryptionResult &result, const QByteArray &cipherText, const QString &auditLogAsHtml = QString(), const GpgME::Error &auditLogError = GpgME::Error());
 };

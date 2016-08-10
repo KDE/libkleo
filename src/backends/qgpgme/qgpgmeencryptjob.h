@@ -73,6 +73,16 @@ public:
     GpgME::EncryptionResult exec(const std::vector<GpgME::Key> &recipients,
                                  const QByteArray &plainText, bool alwaysTrust,
                                  QByteArray &cipherText) Q_DECL_OVERRIDE;
+    /* from EncryptJob */
+    void start(const std::vector<GpgME::Key> &recipients,
+               const boost::shared_ptr<QIODevice> &plainText,
+               const boost::shared_ptr<QIODevice> &cipherText,
+               const GpgME::Context::EncryptionFlags flags) Q_DECL_OVERRIDE;
+
+    /* from EncryptJob */
+    GpgME::EncryptionResult exec(const std::vector<GpgME::Key> &recipients,
+                                 const QByteArray &plainText, const GpgME::Context::EncryptionFlags flags,
+                                 QByteArray &cipherText) Q_DECL_OVERRIDE;
 
     /*! \reimp from Job */
     void showErrorDialog(QWidget *parent, const QString &caption) const Q_DECL_OVERRIDE;
