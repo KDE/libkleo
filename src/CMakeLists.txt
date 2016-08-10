@@ -75,6 +75,7 @@ set(libkleo_core_SRCS
    kleo/multideletejob.cpp
    kleo/hierarchicalkeylistjob.cpp
    kleo/defaultkeyfilter.cpp
+   kleo/defaultkeygenerationjob.cpp
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
    models/keycache.cpp
@@ -207,6 +208,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   AbstractImportJob
   DefaultKeyFilter
   KeyForMailboxJob
+  DefaultKeyGenerationJob
   REQUIRED_HEADERS libkleo_HEADERS
   PREFIX Libkleo
   RELATIVE kleo
