@@ -73,7 +73,7 @@
 using namespace GpgME;
 using namespace Kleo;
 
-Q_DECLARE_METATYPE(GpgME::Key);
+Q_DECLARE_METATYPE(GpgME::Key)
 
 /****************************************************************************
 **
