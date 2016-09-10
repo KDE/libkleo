@@ -169,14 +169,12 @@ target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTA
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
   HEADER_NAMES
-  DecryptJob
   CryptoBackendFactory
   Enum
   CryptoBackend
   ChangeOwnerTrustJob
   Stl_Util
   CryptoConfig
-  CryptoBackend
   SignKeyJob
   DecryptVerifyJob
   VerifyOpaqueJob
