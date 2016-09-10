@@ -273,7 +273,6 @@ install(FILES
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kleo_export.h
     ${libkleo_HEADERS}
-    ${libkleo_HEADERS}
     ${libkleo_models_HEADERS}
     ${libkleo_ui_HEADERS}
     ${libkleo_utils_HEADERS}
