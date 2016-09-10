@@ -169,44 +169,44 @@ target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTA
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
   HEADER_NAMES
-  CryptoBackendFactory
-  Enum
-  CryptoBackend
-  ChangeOwnerTrustJob
-  Stl_Util
-  CryptoConfig
-  SignKeyJob
-  DecryptVerifyJob
-  VerifyOpaqueJob
-  SpecialJob
-  SignJob
-  Dn
-  ImportJob
-  Exception
-  KeyFilter
-  KeyListJob
-  ExportJob
-  SignEncryptJob
-  ChecksumDefinition
-  KeyFilterManager
-  EncryptJob
-  VerifyDetachedJob
-  ImportFromKeyserverJob
+  AbstractImportJob
   AddUserIDJob
   ChangeExpiryJob
+  ChangeOwnerTrustJob
   ChangePasswdJob
-  MultiDeleteJob
-  DeleteJob
+  ChecksumDefinition
+  CryptoBackend
+  CryptoBackendFactory
+  CryptoConfig
   DecryptJob
-  KeyGenerationJob
-  Job
-  OidMap
-  ListAllKeysJob
-  Predicates
-  AbstractImportJob
+  DecryptVerifyJob
   DefaultKeyFilter
-  KeyForMailboxJob
   DefaultKeyGenerationJob
+  DeleteJob
+  Dn
+  EncryptJob
+  Enum
+  Exception
+  ExportJob
+  ImportFromKeyserverJob
+  ImportJob
+  Job
+  KeyFilter
+  KeyFilterManager
+  KeyForMailboxJob
+  KeyGenerationJob
+  KeyListJob
+  ListAllKeysJob
+  MultiDeleteJob
+  OidMap
+  Predicates
+  SignEncryptJob
+  SignJob
+  SignKeyJob
+  SpecialJob
+  Stl_Util
+  VerifyDetachedJob
+  VerifyOpaqueJob
   REQUIRED_HEADERS libkleo_HEADERS
   PREFIX Libkleo
   RELATIVE kleo
@@ -228,9 +228,9 @@ ecm_generate_headers(libkleo_CamelCase_models_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   HEADER_NAMES
+  Classify
   FileSystemWatcher
   Formatting
-  Classify
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
@@ -238,18 +238,18 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   HEADER_NAMES
-  ProgressDialog
-  KeyApprovalDialog
-  KeySelectionDialog
-  KeySelectionCombo
-  FileNameRequester
-  KeyRequester
-  MessageBox
-  KDHorizontalLine
   CryptoConfigDialog
   CryptoConfigModule
-  DirectoryServicesWidget
   DNAttributeOrderConfigWidget
+  DirectoryServicesWidget
+  FileNameRequester
+  KDHorizontalLine
+  KeyApprovalDialog
+  KeyRequester
+  KeySelectionCombo
+  KeySelectionDialog
+  MessageBox
+  ProgressDialog
   REQUIRED_HEADERS libkleo_ui_HEADERS
   PREFIX Libkleo
   RELATIVE ui
@@ -264,19 +264,19 @@ ecm_generate_pri_file(BASE_NAME Libkleo
 install(FILES
     ${libkleo_CamelCase_HEADERS}
     ${libkleo_CamelCase_models_HEADERS}
-    ${libkleo_CamelCase_utils_HEADERS}
     ${libkleo_CamelCase_ui_HEADERS}
+    ${libkleo_CamelCase_utils_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/Libkleo
     COMPONENT Devel
 )
 
 install(FILES
-    ${libkleo_HEADERS}
     ${CMAKE_CURRENT_BINARY_DIR}/kleo_export.h
     ${libkleo_HEADERS}
+    ${libkleo_HEADERS}
     ${libkleo_models_HEADERS}
-    ${libkleo_utils_HEADERS}
     ${libkleo_ui_HEADERS}
+    ${libkleo_utils_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/libkleo
     COMPONENT Devel
 )
