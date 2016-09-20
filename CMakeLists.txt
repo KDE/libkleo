@@ -86,5 +86,5 @@ install(FILES
 
 
 add_subdirectory(src)
-install( FILES libkleo.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+install( FILES libkleo.renamecategories libkleo.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

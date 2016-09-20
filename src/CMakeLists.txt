@@ -52,7 +52,7 @@ set(libkleo_backend_qgpgme_SRCS
     backends/qgpgme/qgpgmerefreshkeysjob.cpp
     backends/qgpgme/qgpgmekeyformailboxjob.cpp
     )
-ecm_qt_declare_logging_category(libkleo_backend_qgpgme_SRCS HEADER gpgme_backend_debug.h IDENTIFIER GPGPME_BACKEND_LOG CATEGORY_NAME log_gpgme_backend)
+ecm_qt_declare_logging_category(libkleo_backend_qgpgme_SRCS HEADER gpgme_backend_debug.h IDENTIFIER GPGPME_BACKEND_LOG CATEGORY_NAME org.kde.pim.gpgme_backend)
 
 set(libkleo_backend_chiasmus_SRCS
     backends/chiasmus/config_data.c
@@ -89,7 +89,7 @@ set(libkleo_core_SRCS
    utils/formatting.cpp
    utils/classify
    )
-ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME log_libkleo)
+ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo)
 
 set(libkleo_ui_common_SRCS
    ui/dnattributeorderconfigwidget.cpp
@@ -103,7 +103,7 @@ set(libkleo_ui_common_SRCS
    ui/progressdialog.cpp
    ui/auditlogviewer.cpp
    )
-ecm_qt_declare_logging_category(libkleo_ui_common_SRCS HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME log_kleo_ui)
+ecm_qt_declare_logging_category(libkleo_ui_common_SRCS HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui)
 
 set(libkleo_ui_SRCS    # make this a separate lib.
     ui/keylistview.cpp
