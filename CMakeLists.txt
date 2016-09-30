@@ -19,7 +19,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 
-set(PIM_VERSION "5.3.44")
+set(PIM_VERSION "5.3.45")
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.6.0")
 set(GPGMEPP_LIB_VERSION "5.3.40")

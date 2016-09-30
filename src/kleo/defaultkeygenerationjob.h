@@ -41,6 +41,15 @@ public:
     explicit DefaultKeyGenerationJob(QObject *parent = Q_NULLPTR);
     ~DefaultKeyGenerationJob();
 
+    /**
+     * Set key passphrase
+     *
+     * Use this method to specify custom passphrase, including an empty
+     * one. If no passphrase (not even empty) is specified, gpg me will
+     * automatically prompt for passphrase using Pinentry dialog.
+     */
+    void setPassphrase(const QString &passphrase);
+
     GpgME::Error start(const QString &email, const QString &name);
 
     QString auditLogAsHtml() const Q_DECL_OVERRIDE;

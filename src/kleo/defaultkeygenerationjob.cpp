@@ -40,6 +40,7 @@ public:
         }
     }
 
+    QString passphrase;
     QPointer<KeyGenerationJob> job;
 };
 }
@@ -73,19 +74,31 @@ void DefaultKeyGenerationJob::slotCancel()
     }
 }
 
+void DefaultKeyGenerationJob::setPassphrase(const QString &passphrase)
+{
+    // null QString = ask for passphrase
+    // empty QString = empty passphrase
+    // non-empty QString = passphrase
+    d->passphrase = passphrase.isNull() ? QLatin1String("") : passphrase;
+}
+
 GpgME::Error DefaultKeyGenerationJob::start(const QString &email, const QString &name)
 {
+    const QString passphrase = d->passphrase.isNull() ? QStringLiteral("%ask-passphrase") :
+                               d->passphrase.isEmpty() ? QStringLiteral("%no-protection") :
+                                                         d->passphrase;
+
     const QString args = QStringLiteral("<GnupgKeyParms format=\"internal\">\n"
-                                        "%ask-passphrase\n"
+                                        "%1\n"
                                         "key-type:      RSA\n"
                                         "key-length:    2048\n"
                                         "key-usage:     sign\n"
                                         "subkey-type:   RSA\n"
                                         "subkey-length: 2048\n"
                                         "subkey-usage:  encrypt\n"
-                                        "name-email:    %1\n"
-                                        "name-real:     %2\n"
-                                        "</GnupgKeyParms>").arg(email, name);
+                                        "name-email:    %2\n"
+                                        "name-real:     %3\n"
+                                        "</GnupgKeyParms>").arg(passphrase, email, name);
 
     d->job = CryptoBackendFactory::instance()->openpgp()->keyGenerationJob();
     d->job->installEventFilter(this);
