@@ -56,6 +56,7 @@ public:
 
     GpgME::Key currentKey() const;
     void setCurrentKey(const GpgME::Key &key);
+    void setCurrentKey(const QString &fingerprint);
 
     void setDefaultKey(const QString &fingerprint);
     QString defaultKey() const;

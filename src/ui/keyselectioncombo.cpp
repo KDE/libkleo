@@ -95,7 +95,7 @@ public:
         }
         for (int i = 0; i < mBackItems.count(); ++i) {
             if (mBackItems[i]->data == data) {
-                const int index = mFrontItems.count() + rowCount() + i;
+                const int index = mFrontItems.count() + QSortFilterProxyModel::rowCount() + i;
                 beginRemoveRows(QModelIndex(), index, index);
                 delete mBackItems.takeAt(i);
                 endRemoveRows();
@@ -257,10 +257,12 @@ KeySelectionCombo::KeySelectionCombo(QWidget* parent)
     setModel(d->proxyModel);
     connect(this, static_cast<void(KeySelectionCombo::*)(int)>(&KeySelectionCombo::currentIndexChanged),
             this, [this](int row) {
-                if (d->proxyModel->isCustomItem(row)) {
-                    Q_EMIT customItemSelected(d->proxyModel->index(row, 0).data(Qt::UserRole));
-                } else {
-                    Q_EMIT currentKeyChanged(currentKey());
+                if (row >= 0 && row < d->proxyModel->rowCount()) {
+                    if (d->proxyModel->isCustomItem(row)) {
+                        Q_EMIT customItemSelected(d->proxyModel->index(row, 0).data(Qt::UserRole));
+                    } else {
+                        Q_EMIT currentKeyChanged(currentKey());
+                    }
                 }
             });
 
@@ -289,18 +291,7 @@ void KeySelectionCombo::init()
 
     connect(this, &KeySelectionCombo::keyListingFinished,
             this, [this]() {
-                bool match = false;
-                for (int i = 0; i < count(); ++i) {
-                    const GpgME::Key key = itemData(i, Kleo::AbstractKeyListModel::KeyRole).value<GpgME::Key>();
-                    if (d->defaultKey == key.primaryFingerprint()) {
-                        setCurrentIndex(i);
-                        match = true;
-                        break;
-                    }
-                }
-                if (!match) {
-                    setCurrentIndex(0);
-                }
+                setCurrentKey(d->defaultKey);
             });
 
     if (!d->cache->initialized()) {
@@ -315,6 +306,7 @@ void KeySelectionCombo::init()
 void KeySelectionCombo::setKeyFilter(const boost::shared_ptr<const KeyFilter> &kf)
 {
     d->sortFilterProxy->setKeyFilter(kf);
+    setCurrentKey(d->defaultKey);
 }
 
 boost::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
@@ -325,6 +317,7 @@ boost::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
 void KeySelectionCombo::setIdFilter(const QString &id)
 {
     d->sortFilterProxy->setFilterRegExp(id);
+    setCurrentKey(d->defaultKey);
 }
 
 QString KeySelectionCombo::idFilter() const
@@ -343,6 +336,19 @@ void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
     if (idx > -1) {
         setCurrentIndex(idx);
     }
+}
+
+void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
+{
+    for (int i = 0; i < d->proxyModel->rowCount(); ++i) {
+        const auto idx = d->proxyModel->index(i, 0, QModelIndex());
+        const auto key = d->proxyModel->data(idx, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+        if (!key.isNull() && fingerprint == key.primaryFingerprint()) {
+            setCurrentIndex(i);
+            return;
+        }
+    }
+    setCurrentIndex(0);
 }
 
 void KeySelectionCombo::refreshKeys()
