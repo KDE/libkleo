@@ -86,16 +86,16 @@ GpgME::Error DefaultKeyGenerationJob::start(const QString &email, const QString 
 {
     const QString passphrase = d->passphrase.isNull() ? QStringLiteral("%ask-passphrase") :
                                d->passphrase.isEmpty() ? QStringLiteral("%no-protection") :
-                                                         d->passphrase;
+                                                         QStringLiteral("passphrase:    %1").arg(d->passphrase);
 
     const QString args = QStringLiteral("<GnupgKeyParms format=\"internal\">\n"
-                                        "%1\n"
                                         "key-type:      RSA\n"
                                         "key-length:    2048\n"
                                         "key-usage:     sign\n"
                                         "subkey-type:   RSA\n"
                                         "subkey-length: 2048\n"
                                         "subkey-usage:  encrypt\n"
+                                        "%1\n"
                                         "name-email:    %2\n"
                                         "name-real:     %3\n"
                                         "</GnupgKeyParms>").arg(passphrase, email, name);
