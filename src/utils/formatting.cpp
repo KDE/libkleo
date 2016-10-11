@@ -46,6 +46,8 @@
 #include <QLocale>
 #include <QIcon>
 
+#include <cassert>
+
 using namespace GpgME;
 using namespace Kleo;
 

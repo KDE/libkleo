@@ -51,7 +51,6 @@
 #include <QCoreApplication>
 #include <QRegularExpression>
 
-#include <boost/shared_ptr.hpp>
 #include <KSharedConfig>
 #include <QStandardPaths>
 
@@ -60,7 +59,6 @@
 #endif
 
 using namespace Kleo;
-using namespace boost;
 
 static QMutex installPathMutex;
 Q_GLOBAL_STATIC(QString, _installPath)
@@ -139,9 +137,9 @@ static QString try_extensions(const QString &path)
 static void parse_command(QString cmdline, const QString &id, const QString &whichCommand,
                           QString *command, QStringList *prefix, QStringList *suffix, ChecksumDefinition::ArgumentPassingMethod *method)
 {
-    assert(prefix);
-    assert(suffix);
-    assert(method);
+    Q_ASSERT(prefix);
+    Q_ASSERT(suffix);
+    Q_ASSERT(method);
 
     KShell::Errors errors;
     QStringList l;
@@ -203,7 +201,7 @@ static void parse_command(QString cmdline, const QString &id, const QString &whi
         qCDebug(LIBKLEO_LOG) << "ChecksumDefinition[" << id << ']' << "find -print0 | " << *command << *prefix;
         break;
     case ChecksumDefinition::NumArgumentPassingMethods:
-        assert(!"Should not happen");
+        Q_ASSERT(!"Should not happen");
         break;
     }
 }
@@ -325,7 +323,7 @@ static bool start_command(QProcess *p, const char *functionName,
     switch (method) {
 
     case ChecksumDefinition::NumArgumentPassingMethods:
-        assert(!"Should not happen");
+        Q_ASSERT(!"Should not happen");
 
     case ChecksumDefinition::CommandLine:
         qCDebug(LIBKLEO_LOG) << "Starting: " << cmd << " " << args.join(QStringLiteral(" "));
@@ -373,22 +371,22 @@ bool ChecksumDefinition::startVerifyCommand(QProcess *p, const QStringList &file
 }
 
 // static
-std::vector< shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDefinitions()
+std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDefinitions()
 {
     QStringList errors;
     return getChecksumDefinitions(errors);
 }
 
 // static
-std::vector< shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDefinitions(QStringList &errors)
+std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDefinitions(QStringList &errors)
 {
-    std::vector< shared_ptr<ChecksumDefinition> > result;
+    std::vector< std::shared_ptr<ChecksumDefinition> > result;
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Checksum Definition #")));
     result.reserve(groups.size());
     Q_FOREACH (const QString &group, groups)
         try {
-            const shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
+            const std::shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
             result.push_back(ad);
         } catch (const std::exception &e) {
             qDebug() << e.what();
@@ -400,24 +398,24 @@ std::vector< shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDef
 }
 
 // static
-shared_ptr<ChecksumDefinition> ChecksumDefinition::getDefaultChecksumDefinition(const std::vector< shared_ptr<ChecksumDefinition> > &checksumDefinitions)
+std::shared_ptr<ChecksumDefinition> ChecksumDefinition::getDefaultChecksumDefinition(const std::vector< std::shared_ptr<ChecksumDefinition> > &checksumDefinitions)
 {
     const KConfigGroup group(KSharedConfig::openConfig(), "ChecksumOperations");
     const QString checksumDefinitionId = group.readEntry(CHECKSUM_DEFINITION_ID_ENTRY);
     if (!checksumDefinitionId.isEmpty())
-        Q_FOREACH (const shared_ptr<ChecksumDefinition> &cd, checksumDefinitions)
+        Q_FOREACH (const std::shared_ptr<ChecksumDefinition> &cd, checksumDefinitions)
             if (cd && cd->id() == checksumDefinitionId) {
                 return cd;
             }
     if (!checksumDefinitions.empty()) {
         return checksumDefinitions.front();
     } else {
-        return shared_ptr<ChecksumDefinition>();
+        return std::shared_ptr<ChecksumDefinition>();
     }
 }
 
 // static
-void ChecksumDefinition::setDefaultChecksumDefinition(const shared_ptr<ChecksumDefinition> &checksumDefinition)
+void ChecksumDefinition::setDefaultChecksumDefinition(const std::shared_ptr<ChecksumDefinition> &checksumDefinition)
 {
     if (!checksumDefinition) {
         return;

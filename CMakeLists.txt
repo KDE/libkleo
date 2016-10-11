@@ -19,7 +19,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 
-set(PIM_VERSION "5.3.45")
+set(PIM_VERSION "5.3.46")
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.6.0")
 set(KDEPIMTEXTEDIT_VERSION "5.3.40")
@@ -36,7 +36,8 @@ find_package(KF5Codecs ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5ItemModels ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5PimTextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
 
-find_package(Gpgmepp 1.7.0)
+set(GPGMEPP_LIB_VERSION "1.7.1")
+find_package(Gpgmepp ${GPGMEPP_LIB_VERSION})
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "http://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
 
 find_package(Boost 1.34.0)

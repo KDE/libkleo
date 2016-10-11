@@ -38,14 +38,10 @@
 #include <QString>
 #include <QStringList>
 
+#include <memory>
 #include <vector>
 
 class QProcess;
-
-namespace boost
-{
-template <typename T> class shared_ptr;
-}
 
 namespace Kleo
 {
@@ -101,11 +97,11 @@ public:
     static QString installPath();
     static void setInstallPath(const QString &ip);
 
-    static std::vector< boost::shared_ptr<ChecksumDefinition> > getChecksumDefinitions();
-    static std::vector< boost::shared_ptr<ChecksumDefinition> > getChecksumDefinitions(QStringList &errors);
+    static std::vector< std::shared_ptr<ChecksumDefinition> > getChecksumDefinitions();
+    static std::vector< std::shared_ptr<ChecksumDefinition> > getChecksumDefinitions(QStringList &errors);
 
-    static boost::shared_ptr<ChecksumDefinition> getDefaultChecksumDefinition(const std::vector< boost::shared_ptr<ChecksumDefinition> > &available);
-    static void setDefaultChecksumDefinition(const boost::shared_ptr<ChecksumDefinition> &checksumDefinition);
+    static std::shared_ptr<ChecksumDefinition> getDefaultChecksumDefinition(const std::vector< std::shared_ptr<ChecksumDefinition> > &available);
+    static void setDefaultChecksumDefinition(const std::shared_ptr<ChecksumDefinition> &checksumDefinition);
 
 protected:
     void setCreateCommandArgumentPassingMethod(ArgumentPassingMethod method)

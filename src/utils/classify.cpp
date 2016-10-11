@@ -53,6 +53,7 @@
 # include <ext/algorithm>
 #endif
 
+#include <cassert>
 #include <functional>
 
 using namespace boost;
@@ -425,7 +426,7 @@ bool Kleo::isChecksumFile(const QString &file)
         return false;
     }
     if (!initialized) {
-        Q_FOREACH (const shared_ptr<ChecksumDefinition> &cd, ChecksumDefinition::getChecksumDefinitions()) {
+        Q_FOREACH (const std::shared_ptr<ChecksumDefinition> &cd, ChecksumDefinition::getChecksumDefinitions()) {
             if (cd) {
                 Q_FOREACH (const QString &pattern, cd->patterns()) {
 #ifdef Q_OS_WIN

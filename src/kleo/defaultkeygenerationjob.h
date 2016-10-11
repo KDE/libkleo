@@ -19,7 +19,7 @@
 #ifndef LIBKLEO_DEFAULTKEYGENERATION_H
 #define LIBKLEO_DEFAULTKEYGENERATION_H
 
-#include "job.h"
+#include <qgpgme/job.h>
 
 #include <kleo_export.h>
 
@@ -34,7 +34,7 @@ namespace Kleo {
  *
  * @since 5.4
  */
-class KLEO_EXPORT DefaultKeyGenerationJob : public Job
+class KLEO_EXPORT DefaultKeyGenerationJob : public QGpgME::Job
 {
     Q_OBJECT
 public:

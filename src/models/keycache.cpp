@@ -37,10 +37,7 @@
 
 #include "kleo/predicates.h"
 #include "kleo/stl_util.h"
-#include "kleo/cryptobackendfactory.h"
 #include "kleo/dn.h"
-#include "kleo/keylistjob.h"
-#include "kleo/listallkeysjob.h"
 #include "utils/filesystemwatcher.h"
 
 #include <gpgme++/error.h>
@@ -48,6 +45,9 @@
 #include <gpgme++/decryptionresult.h>
 #include <gpgme++/verificationresult.h>
 #include <gpgme++/keylistresult.h>
+
+#include <qgpgme/protocol.h>
+#include <qgpgme/listallkeysjob.h>
 
 #include <gpg-error.h>
 
@@ -952,7 +952,7 @@ class KeyCache::RefreshKeysJob::Private
 public:
     Private(KeyCache *cache, RefreshKeysJob *qq);
     void doStart();
-    Error startKeyListing(const char *protocol);
+    Error startKeyListing(GpgME::Protocol protocol);
     void listAllKeysJobDone(const KeyListResult &res, const std::vector<Key> &nextKeys)
     {
         std::vector<Key> keys;
@@ -1025,8 +1025,8 @@ void KeyCache::RefreshKeysJob::cancel()
 void KeyCache::RefreshKeysJob::Private::doStart()
 {
     assert(m_jobsPending == 0);
-    m_mergedResult.mergeWith(KeyListResult(startKeyListing("openpgp")));
-    m_mergedResult.mergeWith(KeyListResult(startKeyListing("smime")));
+    m_mergedResult.mergeWith(KeyListResult(startKeyListing(GpgME::OpenPGP)));
+    m_mergedResult.mergeWith(KeyListResult(startKeyListing(GpgME::CMS)));
 
     if (m_jobsPending != 0) {
         return;
@@ -1049,13 +1049,13 @@ void KeyCache::RefreshKeysJob::Private::updateKeyCache()
     m_cache->refresh(m_keys);
 }
 
-Error KeyCache::RefreshKeysJob::Private::startKeyListing(const char *backend)
+Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
 {
-    const Kleo::CryptoBackend::Protocol *const protocol = Kleo::CryptoBackendFactory::instance()->protocol(backend);
+    const auto * const protocol = (proto == GpgME::OpenPGP) ? QGpgME::openpgp() : QGpgME::smime();
     if (!protocol) {
         return Error();
     }
-    Kleo::ListAllKeysJob *const job = protocol->listAllKeysJob(/*includeSigs*/false, /*validate*/true);
+    QGpgME::ListAllKeysJob *const job = protocol->listAllKeysJob(/*includeSigs*/false, /*validate*/true);
     if (!job) {
         return Error();
     }
@@ -1063,7 +1063,7 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(const char *backend)
             q, SLOT(listAllKeysJobDone(GpgME::KeyListResult,std::vector<GpgME::Key>)));
 
     connect(q, &RefreshKeysJob::canceled,
-            job, &Job::slotCancel);
+            job, &QGpgME::Job::slotCancel);
 
     const Error error = job->start(true);
 

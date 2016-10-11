@@ -22,9 +22,11 @@ endif()
 ########### next target ###############
 set(libkleo_core_SRCS
    kleo/checksumdefinition.cpp
+   kleo/defaultkeyfilter.cpp
+   kleo/defaultkeygenerationjob.cpp
+   kleo/dn.cpp
    kleo/enum.cpp
    kleo/exception.cpp
-   kleo/dn.cpp
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
    models/keycache.cpp
@@ -36,7 +38,7 @@ set(libkleo_core_SRCS
    models/useridlistmodel.cpp
    utils/filesystemwatcher.cpp
    utils/formatting.cpp
-   utils/classify
+   utils/classify.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo)
 
@@ -75,7 +77,9 @@ set(kleo_LIB_LIBS PUBLIC QGpgme Gpgmepp PRIVATE Qt5::Widgets
                                                 KF5::ConfigCore
                                                 KF5::CoreAddons
                                                 KF5::WindowSystem
-                                                KF5::WidgetsAddons)
+                                                KF5::WidgetsAddons
+                                                KF5::ItemModels
+                                                KF5::Codecs)
 
 if (KF5PimTextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
@@ -109,15 +113,18 @@ target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTA
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
   HEADER_NAMES
-  Enum
-  Stl_Util
-  Dn
-  Exception
-  KeyFilter
   ChecksumDefinition
+  DefaultKeyFilter
+  DefaultKeyGenerationJob
+  Dn
+  Enum
+  Exception
+  KConfigBasedKeyFilter
+  KeyFilter
   KeyFilterManager
   OidMap
   Predicates
+  Stl_Util
   REQUIRED_HEADERS libkleo_HEADERS
   PREFIX Libkleo
   RELATIVE kleo

@@ -17,8 +17,9 @@
 */
 
 #include "defaultkeygenerationjob.h"
-#include "kleo/cryptobackendfactory.h"
-#include "kleo/keygenerationjob.h"
+
+#include <qgpgme/protocol.h>
+#include <qgpgme/keygenerationjob.h>
 
 #include <QPointer>
 #include <QEvent>
@@ -41,7 +42,7 @@ public:
     }
 
     QString passphrase;
-    QPointer<KeyGenerationJob> job;
+    QPointer<QGpgME::KeyGenerationJob> job;
 };
 }
 
@@ -100,13 +101,13 @@ GpgME::Error DefaultKeyGenerationJob::start(const QString &email, const QString 
                                         "name-real:     %3\n"
                                         "</GnupgKeyParms>").arg(passphrase, email, name);
 
-    d->job = CryptoBackendFactory::instance()->openpgp()->keyGenerationJob();
+    d->job = QGpgME::openpgp()->keyGenerationJob();
     d->job->installEventFilter(this);
-    connect(d->job.data(), &KeyGenerationJob::result,
+    connect(d->job.data(), &QGpgME::KeyGenerationJob::result,
             this, &DefaultKeyGenerationJob::result);
-    connect(d->job.data(), &KeyGenerationJob::done,
+    connect(d->job.data(), &QGpgME::KeyGenerationJob::done,
             this, &DefaultKeyGenerationJob::done);
-    connect(d->job.data(), &KeyGenerationJob::done,
+    connect(d->job.data(), &QGpgME::KeyGenerationJob::done,
             this, &QObject::deleteLater);
     return d->job->start(args);
 }

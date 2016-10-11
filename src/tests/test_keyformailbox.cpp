@@ -29,9 +29,8 @@
     your version.
 */
 
-#include "libkleo/cryptobackendfactory.h"
-#include "libkleo/keyformailboxjob.h"
-#include "libkleo/keylistjob.h"
+#include <qgpgme/protocol.h>
+#include <qgpgme/keyformailboxjob.h>
 
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
@@ -46,8 +45,8 @@ int main(int argc, char **argv)
         mailbox = QString::fromLocal8Bit(argv[1]);
     }
 
-    const Kleo::CryptoBackend::Protocol *proto = Kleo::CryptoBackendFactory::instance()->openpgp();
-    Kleo::KeyForMailboxJob *job = proto->keyForMailboxJob();
+    const auto proto = QGpgME::openpgp();
+    auto *job = proto->keyForMailboxJob();
     GpgME::Key k;
     GpgME::UserID uid;
     job->exec(mailbox, true, k, uid);

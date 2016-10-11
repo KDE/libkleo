@@ -19,7 +19,6 @@
 #include "keyselectioncombo.h"
 #include <kleo_ui_debug.h>
 
-#include "kleo/cryptobackendfactory.h"
 #include "kleo/dn.h"
 #include "models/keylistmodel.h"
 #include "models/keylistsortfilterproxymodel.h"
