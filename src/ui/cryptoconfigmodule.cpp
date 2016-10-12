@@ -61,7 +61,6 @@
 #include <QComboBox>
 #include <QGroupBox>
 
-#include <cassert>
 #include <memory>
 
 using namespace Kleo;
@@ -205,7 +204,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
             } else { // small (800x600, 640x480) desktop
                 dialogHeight = 400;
             }
-            assert(scrollArea->widget());
+            Q_ASSERT(scrollArea->widget());
             if (type != Tabbed) {
                 scrollArea->setMinimumHeight(qMin(compGUISize.height(), dialogHeight));
             }
@@ -438,7 +437,7 @@ static const constructor scalarWidgets[QGpgME::CryptoConfigEntry::NumArgType] = 
 
 CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry, const QString &entryName, QGridLayout *glay, QWidget *widget)
 {
-    assert(entry);
+    Q_ASSERT(entry);
 
     // try to lookup by path:
     const QString path = entry->path();
@@ -449,7 +448,7 @@ CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoCo
 
     // none found, so look up by type:
     const unsigned int argType = entry->argType();
-    assert(argType < QGpgME::CryptoConfigEntry::NumArgType);
+    Q_ASSERT(argType < QGpgME::CryptoConfigEntry::NumArgType);
     if (entry->isList())
         if (const constructor create = listWidgets[argType]) {
             return create(module, entry, entryName, glay, widget);

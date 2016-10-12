@@ -46,7 +46,6 @@
 #include <QLocale>
 #include <QIcon>
 
-#include <cassert>
 
 using namespace GpgME;
 using namespace Kleo;
@@ -514,7 +513,7 @@ QString Formatting::ownerTrustShort(Key::OwnerTrust trust)
     case Key::Ultimate:  return i18nc("ultimate trust", "ultimate");
     case Key::Undefined: return i18nc("undefined trust", "undefined");
     default:
-        assert(!"unexpected owner trust value");
+        Q_ASSERT(!"unexpected owner trust value");
         break;
     }
     return QString();
@@ -602,7 +601,7 @@ namespace
 static QString keyToString(const Key &key)
 {
 
-    assert(!key.isNull());
+    Q_ASSERT(!key.isNull());
 
     const QString email = Formatting::prettyEMail(key);
     const QString name = Formatting::prettyName(key);

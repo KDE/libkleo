@@ -78,7 +78,6 @@
 #include <iterator>
 
 #include <string.h>
-#include <assert.h>
 #include <qscrollbar.h>
 #include <KSharedConfig>
 #include <KConfigGroup>
@@ -660,7 +659,7 @@ void Kleo::KeySelectionDialog::slotStartCertificateManager(const QString &query)
 #define __KLEO_UI_SHOW_KEY_LIST_ERROR_H__
 static void showKeyListError(QWidget *parent, const GpgME::Error &err)
 {
-    assert(err);
+    Q_ASSERT(err);
     const QString msg = i18n("<qt><p>An error occurred while fetching "
                              "the keys from the backend:</p>"
                              "<p><b>%1</b></p></qt>",
@@ -682,7 +681,7 @@ struct ExtractFingerprint {
 
 void Kleo::KeySelectionDialog::startKeyListJobForBackend(const QGpgME::Protocol *backend, const std::vector<GpgME::Key> &keys, bool validate)
 {
-    assert(backend);
+    Q_ASSERT(backend);
     QGpgME::KeyListJob *job = backend->keyListJob(false, false, validate);    // local, w/o sigs, validation as givem
     if (!job) {
         return;
@@ -838,15 +837,15 @@ void Kleo::KeySelectionDialog::startValidatingKeyListing()
         }
 
     if (!openpgp.empty()) {
-        assert(mOpenPGPBackend);
+        Q_ASSERT(mOpenPGPBackend);
         startKeyListJobForBackend(mOpenPGPBackend, openpgp, true /*validate*/);
     }
     if (!smime.empty()) {
-        assert(mSMIMEBackend);
+        Q_ASSERT(mSMIMEBackend);
         startKeyListJobForBackend(mSMIMEBackend, smime, true /*validate*/);
     }
 
-    assert(mListJobCount > 0);
+    Q_ASSERT(mListJobCount > 0);
 }
 
 bool Kleo::KeySelectionDialog::rememberSelection() const
@@ -945,8 +944,8 @@ void Kleo::KeySelectionDialog::slotFilter()
 
 void Kleo::KeySelectionDialog::filterByKeyID(const QString &keyID)
 {
-    assert(keyID.length() <= 8);
-    assert(!keyID.isEmpty());   // regexp in slotFilter should prevent these
+    Q_ASSERT(keyID.length() <= 8);
+    Q_ASSERT(!keyID.isEmpty());   // regexp in slotFilter should prevent these
     if (keyID.isEmpty()) {
         showAllItems();
     } else
@@ -971,7 +970,7 @@ static bool anyUIDMatches(const Kleo::KeyListViewItem *item, QRegExp &rx)
 
 void Kleo::KeySelectionDialog::filterByKeyIDOrUID(const QString &str)
 {
-    assert(!str.isEmpty());
+    Q_ASSERT(!str.isEmpty());
 
     // match beginnings of words:
     QRegExp rx(QLatin1String("\\b") + QRegExp::escape(str), Qt::CaseInsensitive);
@@ -984,7 +983,7 @@ void Kleo::KeySelectionDialog::filterByKeyIDOrUID(const QString &str)
 
 void Kleo::KeySelectionDialog::filterByUID(const QString &str)
 {
-    assert(!str.isEmpty());
+    Q_ASSERT(!str.isEmpty());
 
     // match beginnings of words:
     QRegExp rx(QLatin1String("\\b") + QRegExp::escape(str), Qt::CaseInsensitive);

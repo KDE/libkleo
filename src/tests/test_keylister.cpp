@@ -45,7 +45,6 @@
 #include <QStringList>
 #include <QTimer>
 
-#include <assert.h>
 #include <QApplication>
 #include <KLocalizedString>
 #include <QCommandLineParser>
@@ -124,7 +123,7 @@ void CertListView::slotStart()
 {
     qDebug() << "CertListView::slotStart()";
     QGpgME::KeyListJob *job = QGpgME::smime()->keyListJob(false);
-    assert(job);
+    Q_ASSERT(job);
     QObject::connect(job, SIGNAL(nextKey(GpgME::Key)),
                      this, SLOT(slotAddKey(GpgME::Key)));
     QObject::connect(job, SIGNAL(result(GpgME::KeyListResult)),

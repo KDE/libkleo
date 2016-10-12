@@ -44,13 +44,12 @@
 
 #include <QTimer>
 
-#include <assert.h>
 
 Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText,
                                      QWidget *creator, Qt::WindowFlags f)
     : QProgressDialog(creator, f), mBaseText(baseText)
 {
-    assert(job);
+    Q_ASSERT(job);
     setBar(new ProgressBar(this/*, "replacement progressbar in Kleo::ProgressDialog"*/));
 
     setMinimumDuration(2000 /*ms*/);

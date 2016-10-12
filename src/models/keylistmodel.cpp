@@ -63,7 +63,6 @@
 #include <map>
 #include <set>
 #include <iterator>
-#include <cassert>
 
 using namespace GpgME;
 using namespace Kleo;
@@ -480,7 +479,7 @@ FlatKeyListModel::~FlatKeyListModel() {}
 
 Key FlatKeyListModel::doMapToKey(const QModelIndex &idx) const
 {
-    assert(idx.isValid());
+    Q_ASSERT(idx.isValid());
     if (static_cast<unsigned>(idx.row()) < mKeysByFingerprint.size() && idx.column() < NumColumns) {
         return mKeysByFingerprint[ idx.row() ];
     } else {
@@ -490,7 +489,7 @@ Key FlatKeyListModel::doMapToKey(const QModelIndex &idx) const
 
 QModelIndex FlatKeyListModel::doMapFromKey(const Key &key, int col) const
 {
-    assert(!key.isNull());
+    Q_ASSERT(!key.isNull());
     const std::vector<Key>::const_iterator it
         = std::lower_bound(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
                            key, _detail::ByFingerprint<std::less>());
@@ -503,7 +502,7 @@ QModelIndex FlatKeyListModel::doMapFromKey(const Key &key, int col) const
 
 QList<QModelIndex> FlatKeyListModel::doAddKeys(const std::vector<Key> &keys)
 {
-    assert(std::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
+    Q_ASSERT(std::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
 
     if (keys.empty()) {
         return QList<QModelIndex>();
@@ -684,7 +683,7 @@ QModelIndex HierarchicalKeyListModel::doMapFromKey(const Key &key, int col) cons
 void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Key &key)
 {
 
-    assert(issuer_fpr); assert(*issuer_fpr); assert(!key.isNull());
+    Q_ASSERT(issuer_fpr); Q_ASSERT(*issuer_fpr); Q_ASSERT(!key.isNull());
 
     std::vector<Key> &subjects = mKeysByExistingParent[issuer_fpr];
 
@@ -699,7 +698,7 @@ void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Ke
     } else {
         // doesn't exist -> insert
         const std::vector<Key>::const_iterator pos = qBinaryFind(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
-        assert(pos != mKeysByFingerprint.end());
+        Q_ASSERT(pos != mKeysByFingerprint.end());
         beginInsertRows(index(*pos), row, row);
         subjects.insert(it, key);
         endInsertRows();
@@ -709,7 +708,7 @@ void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Ke
 void HierarchicalKeyListModel::addKeyWithoutParent(const char *issuer_fpr, const Key &key)
 {
 
-    assert(issuer_fpr); assert(*issuer_fpr); assert(!key.isNull());
+    Q_ASSERT(issuer_fpr); Q_ASSERT(*issuer_fpr); Q_ASSERT(!key.isNull());
 
     std::vector<Key> &subjects = mKeysByNonExistingParent[issuer_fpr];
 
@@ -773,7 +772,7 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
     order.reserve(keys.size());
     topological_sort(graph, std::back_inserter(order));
 
-    assert(order.size() == keys.size());
+    Q_ASSERT(order.size() == keys.size());
 
     std::vector<Key> result;
     result.reserve(keys.size());
@@ -785,7 +784,7 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
 
 QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &keys)
 {
-    assert(std::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
+    Q_ASSERT(std::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
 
     if (keys.empty()) {
         return QList<QModelIndex>();
@@ -827,11 +826,11 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
 
             Q_FOREACH (const Key &k, children) {
                 last = qBinaryFind(last, mTopLevels.end(), k, _detail::ByFingerprint<std::less>());
-                assert(last != mTopLevels.end());
+                Q_ASSERT(last != mTopLevels.end());
                 const int row = std::distance(mTopLevels.begin(), last);
 
                 lastFP = qBinaryFind(lastFP, mKeysByFingerprint.end(), k, _detail::ByFingerprint<std::less>());
-                assert(lastFP != mKeysByFingerprint.end());
+                Q_ASSERT(lastFP != mKeysByFingerprint.end());
 
                 Q_EMIT rowAboutToBeMoved(QModelIndex(), row);
                 beginRemoveRows(QModelIndex(), row, row);
@@ -916,9 +915,9 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
     const std::vector<Key>::iterator it = qBinaryFind(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
                                           key, _detail::ByFingerprint<std::less>());
 
-    assert(it != mKeysByFingerprint.end());
-    assert(mKeysByNonExistingParent.find(fpr) == mKeysByNonExistingParent.end());
-    assert(mKeysByExistingParent.find(fpr) == mKeysByExistingParent.end());
+    Q_ASSERT(it != mKeysByFingerprint.end());
+    Q_ASSERT(mKeysByNonExistingParent.find(fpr) == mKeysByNonExistingParent.end());
+    Q_ASSERT(mKeysByExistingParent.find(fpr) == mKeysByExistingParent.end());
 
     beginRemoveRows(parent(idx), idx.row(), idx.row());
     mKeysByFingerprint.erase(it);

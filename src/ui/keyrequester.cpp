@@ -72,7 +72,6 @@
 
 #include <QHBoxLayout>
 
-#include <assert.h>
 
 using namespace QGpgME;
 
@@ -243,7 +242,7 @@ void Kleo::KeyRequester::updateKeys()
 #define __KLEO_UI_SHOW_KEY_LIST_ERROR_H__
 static void showKeyListError(QWidget *parent, const GpgME::Error &err)
 {
-    assert(err);
+    Q_ASSERT(err);
     const QString msg = i18n("<qt><p>An error occurred while fetching "
                              "the keys from the backend:</p>"
                              "<p><b>%1</b></p></qt>",

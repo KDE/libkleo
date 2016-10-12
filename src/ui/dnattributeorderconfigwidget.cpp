@@ -46,7 +46,6 @@
 #include <QTreeWidget>
 #include <QHeaderView>
 
-#include <cassert>
 
 class Kleo::DNAttributeOrderConfigWidget::Private
 {
@@ -78,7 +77,7 @@ static void prepare(QTreeWidget *lv)
 Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapper *mapper, QWidget *parent, Qt::WindowFlags f)
     : QWidget(parent, f), d(new Private)
 {
-    assert(mapper);
+    Q_ASSERT(mapper);
     d->mapper = mapper;
 
     QGridLayout *glay = new QGridLayout(this);

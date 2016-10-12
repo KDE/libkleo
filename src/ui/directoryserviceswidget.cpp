@@ -47,7 +47,6 @@
 #include <vector>
 
 #include <climits>
-#include <cassert>
 #include <algorithm>
 #include <functional>
 
@@ -417,18 +416,18 @@ private:
             if (m_schemes & protocols[i].base) {
                 cb->addItem(i18n(protocols[i].label), QLatin1String(protocols[i].label));
             }
-        assert(cb->count() > 0);
+        Q_ASSERT(cb->count() > 0);
         return cb;
     }
     void setSchemeEditorData(QComboBox *cb, const QString &scheme) const
     {
-        assert(cb);
+        Q_ASSERT(cb);
         cb->setCurrentIndex(cb->findData(scheme, Qt::UserRole, Qt::MatchFixedString));
     }
     void setSchemeModelData(const QComboBox *cb, QAbstractItemModel *model, const QModelIndex &idx) const
     {
-        assert(cb);
-        assert(model);
+        Q_ASSERT(cb);
+        Q_ASSERT(model);
         model->setData(idx, cb->itemData(cb->currentIndex()));
     }
 
@@ -440,13 +439,13 @@ private:
     }
     void setPortEditorData(QSpinBox *sb, unsigned short port) const
     {
-        assert(sb);
+        Q_ASSERT(sb);
         sb->setValue(port);
     }
     void setPortModelData(const QSpinBox *sb, QAbstractItemModel *model, const QModelIndex &idx) const
     {
-        assert(sb);
-        assert(model);
+        Q_ASSERT(sb);
+        Q_ASSERT(model);
         model->setData(idx, sb->value());
     }
 
@@ -497,7 +496,7 @@ private:
             } else if (protocols & X509Protocol) {
                 slotNewX509Clicked();
             } else {
-                assert(!"This should not happen.");
+                Q_ASSERT(!"This should not happen.");
             }
         else {
             edit(model.duplicateRow(row));
@@ -530,7 +529,7 @@ private:
     void slotShowUserAndPasswordToggled(bool on)
     {
         QHeaderView *const hv = ui.treeView->header();
-        assert(hv);
+        Q_ASSERT(hv);
         hv->setSectionHidden(Model::UserName, !on);
         hv->setSectionHidden(Model::Password, !on);
     }
@@ -699,7 +698,7 @@ void DirectoryServicesWidget::clear()
 void DirectoryServicesWidget::Private::showHideColumns()
 {
     QHeaderView *const hv = ui.treeView->header();
-    assert(hv);
+    Q_ASSERT(hv);
     // don't show 'scheme' column when only accepting X509Protocol (###?)
     hv->setSectionHidden(Model::Scheme,  protocols == X509Protocol);
     // hide the scheme selection columns for if only one scheme is allowed anyway:

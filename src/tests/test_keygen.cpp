@@ -47,7 +47,6 @@
 #include <QLabel>
 #include <QGridLayout>
 
-#include <assert.h>
 #include <QApplication>
 #include <KLocalizedString>
 #include <QCommandLineParser>
@@ -127,12 +126,12 @@ void KeyGenerator::slotStartKeyGeneration()
     if (!proto) {
         proto = QGpgME::smime();
     }
-    assert(proto);
+    Q_ASSERT(proto);
 
     qDebug() << "Using protocol" << proto->name();
 
     QGpgME::KeyGenerationJob *job = proto->keyGenerationJob();
-    assert(job);
+    Q_ASSERT(job);
 
     connect(job, SIGNAL(result(GpgME::KeyGenerationResult,QByteArray)),
             SLOT(slotResult(GpgME::KeyGenerationResult,QByteArray)));

@@ -41,7 +41,6 @@ using namespace QGpgME;
 #include <gpgme++/error.h>
 
 #include <stdlib.h>
-#include <assert.h>
 
 int main(int argc, char **argv)
 {
@@ -62,17 +61,17 @@ int main(int argc, char **argv)
     for (QStringList::Iterator compit = components.begin(); compit != components.end(); ++compit) {
         cout << "Component " << (*compit).toLocal8Bit().constData() << ":" << endl;
         const QGpgME::CryptoConfigComponent *comp = config->component(*compit);
-        assert(comp);
+        Q_ASSERT(comp);
         QStringList groups = comp->groupList();
         for (QStringList::Iterator groupit = groups.begin(); groupit != groups.end(); ++groupit) {
             const QGpgME::CryptoConfigGroup *group = comp->group(*groupit);
-            assert(group);
+            Q_ASSERT(group);
             cout << " Group " << (*groupit).toLocal8Bit().constData() << ": descr=\"" << group->description().toLocal8Bit().constData() << "\""
                  << " level=" << group->level() << endl;
             QStringList entries = group->entryList();
             for (QStringList::Iterator entryit = entries.begin(); entryit != entries.end(); ++entryit) {
                 const QGpgME::CryptoConfigEntry *entry = group->entry(*entryit);
-                assert(entry);
+                Q_ASSERT(entry);
                 cout << "  Entry " << (*entryit).toLocal8Bit().constData() << ":"
                      << " descr=\"" << entry->description().toLocal8Bit().constData() << "\""
                      << " " << (entry->isSet() ? "is set" : "is not set");
@@ -106,8 +105,8 @@ int main(int argc, char **argv)
                         break;
                     }
                     case QGpgME::CryptoConfigEntry::ArgType_Int: {
-                        // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this assert is wrong:
-                        // assert( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
+                        // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this Q_ASSERT is wrong:
+                        // Q_ASSERT( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
                         std::vector<int> lst = entry->intValueList();
                         QString str;
                         for (std::vector<int>::const_iterator it = lst.begin(); it != lst.end(); ++it) {
@@ -117,8 +116,8 @@ int main(int argc, char **argv)
                         break;
                     }
                     case QGpgME::CryptoConfigEntry::ArgType_UInt: {
-                        // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this assert is wrong:
-                        // assert( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
+                        // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this Q_ASSERT is wrong:
+                        // Q_ASSERT( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
                         std::vector<uint> lst = entry->uintValueList();
                         QString str;
                         for (std::vector<uint>::const_iterator it = lst.begin(); it != lst.end(); ++it) {
@@ -128,8 +127,8 @@ int main(int argc, char **argv)
                         break;
                     }
                     case QGpgME::CryptoConfigEntry::ArgType_LDAPURL: {
-                        // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this assert is wrong:
-                        // assert( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
+                        // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this Q_ASSERT is wrong:
+                        // Q_ASSERT( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
                         QList<QUrl> urls = entry->urlValueList();
                         cout << " url values ";
                         Q_FOREACH (const QUrl &url, urls) {
@@ -162,12 +161,12 @@ int main(int argc, char **argv)
         static const char s_entryName[] = "quiet";
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
             bool val = entry->boolValue();
             cout << "quiet option initially: " << (val ? "is set" : "is not set") << endl;
 
             entry->setBoolValue(!val);
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             // Clear cached values!
@@ -175,29 +174,29 @@ int main(int argc, char **argv)
 
             // Check new value
             QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            assert(entry);
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
+            Q_ASSERT(entry);
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
             cout << "quiet option now: " << (val ? "is set" : "is not set") << endl;
-            assert(entry->boolValue() == !val);
+            Q_ASSERT(entry->boolValue() == !val);
 
             // Set to default
             entry->resetToDefault();
-            assert(entry->boolValue() == false);   // that's the default
-            assert(entry->isDirty());
-            assert(!entry->isSet());
+            Q_ASSERT(entry->boolValue() == false);   // that's the default
+            Q_ASSERT(entry->isDirty());
+            Q_ASSERT(!entry->isSet());
             config->sync(true);
             config->clear();
 
             // Check value
             entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            assert(!entry->isDirty());
-            assert(!entry->isSet());
+            Q_ASSERT(!entry->isDirty());
+            Q_ASSERT(!entry->isSet());
             cout << "quiet option reset to default: " << (entry->boolValue() ? "is set" : "is not set") << endl;
-            assert(entry->boolValue() == false);
+            Q_ASSERT(entry->boolValue() == false);
 
             // Reset old value
             entry->setBoolValue(val);
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             cout << "quiet option reset to initial: " << (val ? "is set" : "is not set") << endl;
@@ -212,7 +211,7 @@ int main(int argc, char **argv)
         static const char s_entryName[] = "ldaptimeout";
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
             uint val = entry->uintValue();
             cout << "LDAP timeout initially: " << val << " seconds." << endl;
 
@@ -220,7 +219,7 @@ int main(int argc, char **argv)
             //system( "echo 'ldaptimeout:0:101' | gpgconf --change-options dirmngr" );
             // Now let's do it with the C++ API instead
             entry->setUIntValue(101);
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             // Clear cached values!
@@ -228,29 +227,29 @@ int main(int argc, char **argv)
 
             // Check new value
             QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            assert(entry);
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
+            Q_ASSERT(entry);
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
             cout << "LDAP timeout now: " << entry->uintValue() << " seconds." << endl;
-            assert(entry->uintValue() == 101);
+            Q_ASSERT(entry->uintValue() == 101);
 
             // Set to default
             entry->resetToDefault();
-            assert(entry->uintValue() == 100);
-            assert(entry->isDirty());
-            assert(!entry->isSet());
+            Q_ASSERT(entry->uintValue() == 100);
+            Q_ASSERT(entry->isDirty());
+            Q_ASSERT(!entry->isSet());
             config->sync(true);
             config->clear();
 
             // Check value
             entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            assert(!entry->isDirty());
-            assert(!entry->isSet());
+            Q_ASSERT(!entry->isDirty());
+            Q_ASSERT(!entry->isSet());
             cout << "LDAP timeout reset to default, " << entry->uintValue() << " seconds." << endl;
-            assert(entry->uintValue() == 100);
+            Q_ASSERT(entry->uintValue() == 100);
 
             // Reset old value
             entry->setUIntValue(val);
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             cout << "LDAP timeout reset to initial " << val << " seconds." << endl;
@@ -265,13 +264,13 @@ int main(int argc, char **argv)
         static const char s_entryName[] = "log-file";
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
             QString val = entry->stringValue();
             cout << "Log-file initially: " << val.toLocal8Bit().constData() << endl;
 
             // Test setting the option, sync'ing, then querying again
             entry->setStringValue(QStringLiteral("/tmp/test:%e5ä"));
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             // Let's see how it prints it
@@ -282,10 +281,10 @@ int main(int argc, char **argv)
 
             // Check new value
             QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            assert(entry);
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
+            Q_ASSERT(entry);
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
             cout << "Log-file now: " << entry->stringValue().toLocal8Bit().constData() << endl;
-            assert(entry->stringValue() == QStringLiteral("/tmp/test:%e5ä"));     // (or even with %e5 decoded)
+            Q_ASSERT(entry->stringValue() == QStringLiteral("/tmp/test:%e5ä"));     // (or even with %e5 decoded)
 
             // Reset old value
 #if 0
@@ -298,7 +297,7 @@ int main(int argc, char **argv)
             system(sys.data());
 #endif
             entry->setStringValue(val);
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             cout << "Log-file reset to initial " << val.toLocal8Bit().constData() << endl;
@@ -313,8 +312,8 @@ int main(int argc, char **argv)
         static const char s_entryName[] = "LDAP Server";
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
-            assert(entry->isList());
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
+            Q_ASSERT(entry->isList());
             QList<QUrl> val = entry->urlValueList();
             cout << "URL list initially: ";
             Q_FOREACH (const QUrl &url, val) {
@@ -328,10 +327,10 @@ int main(int argc, char **argv)
             lst << QUrl(QStringLiteral("ldap://foo:389?a:b c"));
             lst << QUrl(QStringLiteral("ldap://server:389?a=b,c=DE"));   // the query contains a literal ','
             //cout << " trying to set: " << lst.toStringList().join(", ").local8Bit() << endl;
-            assert(lst[0].query() == "b");
-            assert(lst[1].query() == "a:b c");   // see, the space got _not_escaped
+            Q_ASSERT(lst[0].query() == "b");
+            Q_ASSERT(lst[1].query() == "a:b c");   // see, the space got _not_escaped
             entry->setURLValueList(lst);
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             // Let's see how it prints it
@@ -342,9 +341,9 @@ int main(int argc, char **argv)
 
             // Check new value
             QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            assert(entry);
-            assert(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
-            assert(entry->isList());
+            Q_ASSERT(entry);
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
+            Q_ASSERT(entry->isList());
             // Get QUrl form
             QList<QUrl> newlst = entry->urlValueList();
             cout << "URL list now: ";
@@ -352,14 +351,14 @@ int main(int argc, char **argv)
                 cout << url.toString().toLocal8Bit().constData() << endl;
             }
             cout << endl;
-            assert(newlst.count() == 3);
-            assert(newlst[0].url() == lst[0].url());
-            assert(newlst[1].url() == lst[1].url());
-            assert(newlst[2].url() == lst[2].url());
+            Q_ASSERT(newlst.count() == 3);
+            Q_ASSERT(newlst[0].url() == lst[0].url());
+            Q_ASSERT(newlst[1].url() == lst[1].url());
+            Q_ASSERT(newlst[2].url() == lst[2].url());
 
             // Reset old value
             entry->setURLValueList(val);
-            assert(entry->isDirty());
+            Q_ASSERT(entry->isDirty());
             config->sync(true);
 
             cout << "URL list reset to initial: ";

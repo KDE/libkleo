@@ -31,7 +31,6 @@
 #include "keyrearrangecolumnsproxymodel.h"
 
 #include <gpgme++/key.h>
-#include <cassert>
 
 using namespace Kleo;
 using namespace GpgME;
@@ -46,7 +45,7 @@ KeyRearrangeColumnsProxyModel::KeyRearrangeColumnsProxyModel(QObject *parent) :
 KeyListModelInterface *KeyRearrangeColumnsProxyModel::klm() const
 {
     KeyListModelInterface *ret = dynamic_cast<KeyListModelInterface *>(sourceModel());
-    assert(ret);
+    Q_ASSERT(ret);
     return ret;
 }
 

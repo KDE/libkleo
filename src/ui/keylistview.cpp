@@ -45,7 +45,6 @@
 #include <vector>
 #include <map>
 
-#include <assert.h>
 #include <QKeyEvent>
 
 static const int updateDelayMilliSecs = 500;
@@ -123,7 +122,7 @@ Kleo::KeyListView::~KeyListView()
     // a valid listView() pointing to us anymore, and their dtors try to
     // unregister from us.
     clear();
-    assert(d->itemMap.size() == 0);
+    Q_ASSERT(d->itemMap.size() == 0);
     // need to delete the tooltip ourselves, as ~QToolTip isn't virtual :o
     delete d;
     delete mColumnStrategy; mColumnStrategy = 0;
@@ -225,7 +224,7 @@ void Kleo::KeyListView::deregisterItem(const KeyListViewItem *item)
     if (it == d->itemMap.end()) {
         return;
     }
-    // This assert triggers, though it shouldn't. Print some more
+    // This Q_ASSERT triggers, though it shouldn't. Print some more
     // information when it happens.
     //Q_ASSERT( it->second == item );
     if (it->second != item) {
@@ -283,7 +282,7 @@ void Kleo::KeyListView::scatterGathered(KeyListViewItem *start)
         item = item->nextSibling();
 
         scatterGathered(Kleo::lvi_cast<Kleo::KeyListViewItem>(cur->child(0)));
-        assert(cur->childCount() == 0);
+        Q_ASSERT(cur->childCount() == 0);
 
         // ### todo: optimize by suppressing removing/adding the item to the itemMap...
         if (cur->parent()) {

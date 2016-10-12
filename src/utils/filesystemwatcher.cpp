@@ -42,7 +42,6 @@
 #include <QDir>
 
 #include <set>
-#include <cassert>
 
 using namespace Kleo;
 
@@ -225,14 +224,14 @@ void FileSystemWatcher::setEnabled(bool enable)
         return;
     }
     if (enable) {
-        assert(!d->m_watcher);
+        Q_ASSERT(!d->m_watcher);
         d->m_watcher = new QFileSystemWatcher;
         if (!d->m_paths.empty()) {
             d->m_watcher->addPaths(d->m_paths);
         }
         d->connectWatcher();
     } else {
-        assert(d->m_watcher);
+        Q_ASSERT(d->m_watcher);
         delete d->m_watcher;
         d->m_watcher = 0;
     }
@@ -249,7 +248,7 @@ FileSystemWatcher::~FileSystemWatcher()
 
 void FileSystemWatcher::setDelay(int ms)
 {
-    assert(ms >= 0);
+    Q_ASSERT(ms >= 0);
     d->m_timer.setInterval(ms);
 }
 

@@ -79,7 +79,6 @@ const char * auditlog =
 
 #include <QDebug>
 
-#include <assert.h>
 #include <QApplication>
 #include <KLocalizedString>
 #include <QCommandLineParser>

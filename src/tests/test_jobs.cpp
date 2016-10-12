@@ -38,7 +38,6 @@
 #include <gpgme++/keylistresult.h>
 
 #include <QDebug>
-#include <assert.h>
 #include <KAboutData>
 
 #include <memory>
@@ -51,7 +50,7 @@ static const char *protocol = 0;
 static void testSign()
 {
     const QGpgME::Protocol *proto = !strcmp(protocol, "openpgp") ? QGpgME::openpgp() : QGpgME::smime();
-    assert(proto);
+    Q_ASSERT(proto);
 
     qDebug() << "Using protocol" << proto->name();
 
@@ -61,9 +60,9 @@ static void testSign()
     if (listJob.get()) {
         // ##### Adjust this to your own identity
         listJob->exec(QStringList(QStringLiteral("kloecker@kde.org")), true /*secret*/, signingKeys);
-        assert(!signingKeys.empty());
+        Q_ASSERT(!signingKeys.empty());
     } else {
-        assert(0);   // job failed
+        Q_ASSERT(0);   // job failed
     }
 
     QGpgME::SignJob *job = proto->signJob(true, true);

@@ -40,7 +40,6 @@
 
 #include <gpgme++/key.h>
 
-#include <cassert>
 
 using namespace Kleo;
 using namespace GpgME;

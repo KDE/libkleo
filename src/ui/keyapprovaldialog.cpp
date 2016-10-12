@@ -53,7 +53,6 @@
 #include <gpgme++/key.h>
 #include <qgpgme/protocol.h>
 
-#include <assert.h>
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
@@ -119,7 +118,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
     connect(buttonBox, &QDialogButtonBox::accepted, this, &KeyApprovalDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &KeyApprovalDialog::reject);
     okButton->setDefault(true);
-    assert(!recipients.empty());
+    Q_ASSERT(!recipients.empty());
 
     QFrame *page = new QFrame(this);
     mainLayout->addWidget(page);
@@ -197,8 +196,8 @@ std::vector<GpgME::Key> Kleo::KeyApprovalDialog::senderKeys() const
 
 std::vector<Kleo::KeyApprovalDialog::Item> Kleo::KeyApprovalDialog::items() const
 {
-    assert(d->requesters.size() == static_cast<unsigned int>(d->addresses.size()));
-    assert(d->requesters.size() == d->preferences.size());
+    Q_ASSERT(d->requesters.size() == static_cast<unsigned int>(d->addresses.size()));
+    Q_ASSERT(d->requesters.size() == d->preferences.size());
 
     std::vector<Item> result;
     result.reserve(d->requesters.size());

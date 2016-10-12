@@ -47,7 +47,6 @@
 #include <gpgme++/data.h>
 #include <qgpgme/dataprovider.h>
 
-#include <cassert>
 #include <iterator>
 #include <functional>
 
@@ -196,7 +195,7 @@ static unsigned int classifyExtension(const QFileInfo fi)
 
 unsigned int Kleo::classify(const QString &filename)
 {
-    assert(std::is_sorted(std::begin(classifications), std::end(classifications), ByExtension<std::less>()));
+    Q_ASSERT(std::is_sorted(std::begin(classifications), std::end(classifications), ByExtension<std::less>()));
 
     const QFileInfo fi(filename);
 
@@ -236,7 +235,7 @@ unsigned int Kleo::classify(const QString &filename)
 
 static unsigned int classifyContentInteral(const QByteArray &data)
 {
-    assert(std::is_sorted(std::begin(content_classifications), std::end(content_classifications), ByContent<std::less>(100)));
+    Q_ASSERT(std::is_sorted(std::begin(content_classifications), std::end(content_classifications), ByContent<std::less>(100)));
 
     static const char beginString[] = "-----BEGIN ";
     static const QByteArrayMatcher beginMatcher(beginString);
