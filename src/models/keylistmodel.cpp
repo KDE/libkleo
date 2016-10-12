@@ -54,7 +54,6 @@
 #include <gpgme++/key.h>
 
 #ifndef Q_MOC_RUN // QTBUG-22829
-#include <boost/bind.hpp>
 #include <boost/graph/topological_sort.hpp>
 #include <boost/graph/adjacency_list.hpp>
 #endif
@@ -65,10 +64,6 @@
 #include <set>
 #include <iterator>
 #include <cassert>
-
-#ifdef __GLIBCXX__
-#include <ext/algorithm> // for is_sorted
-#endif
 
 using namespace GpgME;
 using namespace Kleo;
@@ -193,7 +188,9 @@ std::vector<Key> AbstractKeyListModel::keys(const QList<QModelIndex> &indexes) c
     result.reserve(indexes.size());
     std::transform(indexes.begin(), indexes.end(),
                    std::back_inserter(result),
-                   boost::bind(&AbstractKeyListModel::key, this, _1));
+                   [this](const QModelIndex &idx) {
+                       return this->key(idx);
+                   });
     result.erase(std::unique(result.begin(), result.end(), _detail::ByFingerprint<std::equal_to>()), result.end());
     return result;
 }
@@ -210,11 +207,12 @@ QModelIndex AbstractKeyListModel::index(const Key &key, int col) const
 QList<QModelIndex> AbstractKeyListModel::indexes(const std::vector<Key> &keys) const
 {
     QList<QModelIndex> result;
+    result.reserve(keys.size());
     std::transform(keys.begin(), keys.end(),
                    std::back_inserter(result),
-                   // if some compilers are complaining about ambiguous overloads, use this line instead:
-                   //bind( static_cast<QModelIndex(AbstractKeyListModel::*)(const Key&,int)const>( &AbstractKeyListModel::index ), this, _1, 0 ) );
-                   boost::bind(&AbstractKeyListModel::index, this, _1, 0));
+                   [this](const Key &key) {
+                       return this->index(key);
+                   });
     return result;
 }
 
@@ -246,7 +244,7 @@ QList<QModelIndex> AbstractKeyListModel::addKeys(const std::vector<Key> &keys)
     sorted.reserve(keys.size());
     std::remove_copy_if(keys.begin(), keys.end(),
                         std::back_inserter(sorted),
-                        boost::bind(&Key::isNull, _1));
+                        std::mem_fn(&Key::isNull));
     std::sort(sorted.begin(), sorted.end(), _detail::ByFingerprint<std::less>());
     return doAddKeys(sorted);
 }
@@ -505,9 +503,8 @@ QModelIndex FlatKeyListModel::doMapFromKey(const Key &key, int col) const
 
 QList<QModelIndex> FlatKeyListModel::doAddKeys(const std::vector<Key> &keys)
 {
-#ifdef __GLIBCXX__
-    assert(__gnu_cxx::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
-#endif
+    assert(std::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
+
     if (keys.empty()) {
         return QList<QModelIndex>();
     }
@@ -788,9 +785,8 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
 
 QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &keys)
 {
-#ifdef __GLIBCXX__
-    assert(__gnu_cxx::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
-#endif
+    assert(std::is_sorted(keys.begin(), keys.end(), _detail::ByFingerprint<std::less>()));
+
     if (keys.empty()) {
         return QList<QModelIndex>();
     }

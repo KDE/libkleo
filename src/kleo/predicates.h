@@ -33,17 +33,13 @@
 #ifndef __KLEOPATRA_MODELS_PREDICATES_H__
 #define __KLEOPATRA_MODELS_PREDICATES_H__
 
-#include <libkleo/stl_util.h>
-
-#include <string>
-
 #include <gpgme++/key.h>
 
-#include <boost/bind.hpp>
-
+#include <string>
 #include <cstring>
 #include <algorithm>
 #include <iterator>
+#include <functional>
 
 namespace Kleo
 {
@@ -143,55 +139,70 @@ T union_by_fpr_dirty(const T &t1, const T &t2)
 template <typename T>
 void grep_protocol(T &t, GpgME::Protocol proto)
 {
-    t.erase(std::remove_if(t.begin(), t.end(), boost::bind(&GpgME::Key::protocol, _1) != proto), t.end());
+    t.erase(std::remove_if(t.begin(), t.end(),
+                           [proto](const GpgME::Key &key) {
+                               return key.protocol() != proto;
+                           }), t.end());
 }
 
 template <typename T>
 bool any_protocol(const T &t, GpgME::Protocol proto)
 {
-    return kdtools::any(t, boost::bind(&GpgME::Key::protocol, _1) == proto);
+    return std::any_of(t.cbegin(), t.cend(),
+                       [proto](const GpgME::Key &key) {
+                           return key.protocol() == proto;
+                       });
 }
 
 template <typename T>
 bool all_protocol(const T &t, GpgME::Protocol proto)
 {
-    return kdtools::all(t, boost::bind(&GpgME::Key::protocol, _1) == proto);
+    return std::all_of(t.cbegin(), t.cend(), 
+                       [proto](const GpgME::Key &key) {
+                         return key.protocol() == proto;
+                       });
 }
 
 template <typename T>
 bool none_of_protocol(const T &t, GpgME::Protocol proto)
 {
-    return kdtools::none_of(t, boost::bind(&GpgME::Key::protocol, _1) == proto);
+    return std::none_of(t.cbegin(), t.cend(),
+                        [proto](const GpgME::Key &key) {
+                            return key.protocol() == proto;
+                        });
 }
 
 template <typename T>
 void grep_secret(T &t)
 {
-    t.erase(std::remove_if(t.begin(), t.end(), boost::mem_fn(&GpgME::Key::hasSecret)), t.end());
+    t.erase(std::remove_if(t.begin(), t.end(), std::mem_fn(&GpgME::Key::hasSecret)), t.end());
 }
 
 template <typename T>
 bool any_secret(const T &t)
 {
-    return kdtools::any(t, boost::mem_fn(&GpgME::Key::hasSecret));
+    return std::any_of(t.cbegin(), t.cend(), std::mem_fn(&GpgME::Key::hasSecret));
 }
 
 template <typename T>
 bool all_secret(const T &t)
 {
-    return kdtools::all(t, boost::mem_fn(&GpgME::Key::hasSecret));
+    return std::all_of(t.cbegin(), t.cend(), std::mem_fn(&GpgME::Key::hasSecret));
 }
 
 template <typename T>
 bool none_of_secret(const T &t)
 {
-    return kdtools::none_of(t, boost::mem_fn(&GpgME::Key::hasSecret));
+    return std::none_of(t.cbegin(), t.cend(), std::mem_fn(&GpgME::Key::hasSecret));
 }
 
 template <typename T>
 void grep_can_encrypt(T &t)
 {
-    t.erase(std::remove_if(t.begin(), t.end(), !boost::bind(&GpgME::Key::canEncrypt, _1)), t.end());
+    t.erase(std::remove_if(t.begin(), t.end(),
+                           [](const GpgME::Key &key) {
+                               return !key.canEncrypt();
+                           }), t.end());
 }
 
 }

@@ -228,7 +228,7 @@ public:
     Kleo::AbstractKeyListModel *model;
     Kleo::KeyListSortFilterProxyModel *sortFilterProxy;
     ProxyModel *proxyModel;
-    boost::shared_ptr<Kleo::KeyCache> cache;
+    std::shared_ptr<Kleo::KeyCache> cache;
     QString defaultKey;
     bool wasEnabled;
 
@@ -302,13 +302,13 @@ void KeySelectionCombo::init()
 }
 
 
-void KeySelectionCombo::setKeyFilter(const boost::shared_ptr<const KeyFilter> &kf)
+void KeySelectionCombo::setKeyFilter(const std::shared_ptr<const KeyFilter> &kf)
 {
     d->sortFilterProxy->setKeyFilter(kf);
     setCurrentKey(d->defaultKey);
 }
 
-boost::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
+std::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
 {
     return d->sortFilterProxy->keyFilter();
 }

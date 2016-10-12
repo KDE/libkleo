@@ -86,7 +86,7 @@ public:
     QColor bgColor() const Q_DECL_OVERRIDE;
     void setBgColor(const QColor &value) const;
 
-    FontDescription  fontDesription() const Q_DECL_OVERRIDE;
+    FontDescription  fontDescription() const Q_DECL_OVERRIDE;
     QString name() const Q_DECL_OVERRIDE;
     void setName(const QString &value) const;
     QString icon() const Q_DECL_OVERRIDE;

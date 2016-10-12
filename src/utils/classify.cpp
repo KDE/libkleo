@@ -44,19 +44,13 @@
 #include <QMap>
 #include <QRegularExpression>
 
-#include <boost/range.hpp>
-
 #include <gpgme++/data.h>
 #include <qgpgme/dataprovider.h>
 
-#ifdef __GLIBCXX__
-# include <ext/algorithm>
-#endif
-
 #include <cassert>
+#include <iterator>
 #include <functional>
 
-using namespace boost;
 using namespace Kleo::Class;
 
 namespace
@@ -188,23 +182,21 @@ unsigned int Kleo::classify(const QStringList &fileNames)
 
 static unsigned int classifyExtension(const QFileInfo fi)
 {
-    const _classification *const it = qBinaryFind(begin(classifications), end(classifications),
+    const _classification *const it = qBinaryFind(std::begin(classifications), std::end(classifications),
                                       fi.suffix().toLatin1().constData(),
                                       ByExtension<std::less>());
-    if (it != end(classifications))
+    if (it != std::end(classifications))
         if (!(it->classification & ExamineContentHint)) {
             return it->classification;
         }
 
-    return it == end(classifications) ? defaultClassification
+    return it == std::end(classifications) ? defaultClassification
                                         : it->classification;
 }
 
 unsigned int Kleo::classify(const QString &filename)
 {
-#ifdef __GLIBCXX__
-    assert(__gnu_cxx::is_sorted(begin(classifications), end(classifications), ByExtension<std::less>()));
-#endif
+    assert(std::is_sorted(std::begin(classifications), std::end(classifications), ByExtension<std::less>()));
 
     const QFileInfo fi(filename);
 
@@ -244,9 +236,7 @@ unsigned int Kleo::classify(const QString &filename)
 
 static unsigned int classifyContentInteral(const QByteArray &data)
 {
-#ifdef __GLIBCXX__
-    assert(__gnu_cxx::is_sorted(begin(content_classifications), end(content_classifications), ByContent<std::less>(100)));
-#endif
+    assert(std::is_sorted(std::begin(content_classifications), std::end(content_classifications), ByContent<std::less>(100)));
 
     static const char beginString[] = "-----BEGIN ";
     static const QByteArrayMatcher beginMatcher(beginString);
@@ -267,10 +257,10 @@ static unsigned int classifyContentInteral(const QByteArray &data)
     }
 
     const _content_classification *const cit
-        = qBinaryFind(begin(content_classifications), end(content_classifications),
+        = qBinaryFind(std::begin(content_classifications), std::end(content_classifications),
                       data.data() + pos, ByContent<std::less>(epos - pos));
 
-    if (cit != end(content_classifications)) {
+    if (cit != std::end(content_classifications)) {
         return cit->classification | (pgp ? OpenPGP : CMS);
     }
     return defaultClassification;
@@ -366,7 +356,7 @@ QString Kleo::findSignedData(const QString &signatureFileName)
 QStringList Kleo::findSignatures(const QString &signedDataFileName)
 {
     QStringList result;
-    for (unsigned int i = 0, end = size(classifications); i < end; ++i)
+    for (unsigned int i = 0, end = sizeof(classifications) / sizeof(_classification); i < end; ++i)
         if (classifications[i].classification & DetachedSignature) {
             const QString candiate = signedDataFileName + QLatin1Char('.') + QLatin1String(classifications[i].extension);
             if (QFile::exists(candiate)) {
@@ -384,9 +374,9 @@ QString Kleo::outputFileName(const QString &inputFileName)
 {
     const QFileInfo fi(inputFileName);
 
-    if (qBinaryFind(begin(classifications), end(classifications),
+    if (qBinaryFind(std::begin(classifications), std::end(classifications),
                     fi.suffix().toLatin1().constData(),
-                    ByExtension<std::less>()) == end(classifications)) {
+                    ByExtension<std::less>()) == std::end(classifications)) {
         return inputFileName + QLatin1String(".out");
     } else {
         return chopped(inputFileName, 4);

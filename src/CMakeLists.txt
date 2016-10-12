@@ -10,9 +10,6 @@ add_definitions(-DTRANSLATION_DOMAIN=\"libkleopatra\")
 kde_enable_exceptions()
 
 add_definitions( -DGPGMEPP_ERR_SOURCE_DEFAULT=13 ) # 13 is GPG_ERR_SOURCE_KLEO, even if gpg-error's too old to know about
-#parts of Boost don't build with the gcc pedantic option, so remove that option
-string(REPLACE "-pedantic" "" FOO "${CMAKE_CXX_FLAGS}")
-set(CMAKE_CXX_FLAGS "${FOO}")
 
 add_subdirectory( pics )
 if (BUILD_TESTING)
@@ -108,7 +105,7 @@ install(TARGETS
 
 
 
-target_include_directories(KF5Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src;${libkleo_BINARY_DIR}/src;${Boost_INCLUDE_DIR}>")
+target_include_directories(KF5Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src;${libkleo_BINARY_DIR}/src>")
 target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/Libkleo/;${KDE_INSTALL_INCLUDEDIR_KF5}/libkleo>")
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS

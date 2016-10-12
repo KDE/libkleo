@@ -44,8 +44,6 @@
 #include <QMenu>
 #include <QAction>
 
-#include <boost/bind.hpp>
-
 #include <vector>
 
 #include <climits>
@@ -54,7 +52,6 @@
 #include <functional>
 
 using namespace Kleo;
-using namespace boost;
 
 namespace
 {
@@ -144,20 +141,6 @@ static QRect calculate_geometry(const QRect &cell, const QSize &sizeHint)
     return QRect(cell.left(), cell.top() - (height - cell.height()) / 2,
                  cell.width(), height);
 }
-
-struct QUrl_compare : std::binary_function<QUrl, QUrl, bool> {
-    bool operator()(const QUrl &lhs, const QUrl &rhs) const
-    {
-        return QString::compare(display_scheme(lhs), display_scheme(rhs), Qt::CaseInsensitive) == 0
-               && QString::compare(display_host(lhs), display_host(rhs), Qt::CaseInsensitive) == 0
-               && lhs.port() == rhs.port()
-               && lhs.userName() == rhs.userName()
-               // ... ignore password...
-               && (!is_ldap_scheme(lhs)
-                   || lhs.query()
-                   == rhs.query());
-    }
-};
 
 class Model : public QAbstractTableModel
 {
@@ -339,7 +322,17 @@ private:
     std::vector<Item>::iterator findExistingUrl(const QUrl &url)
     {
         return std::find_if(m_items.begin(), m_items.end(),
-                            boost::bind(QUrl_compare(), url, boost::bind(&Item::url, _1)));
+                            [&url](const Item &item) {
+                                const QUrl &lhs = url;
+                                const QUrl &rhs = item.url;
+                                return QString::compare(display_scheme(lhs), display_scheme(rhs), Qt::CaseInsensitive) == 0
+                                    && QString::compare(display_host(lhs), display_host(rhs), Qt::CaseInsensitive) == 0
+                                    && lhs.port() == rhs.port()
+                                    && lhs.userName() == rhs.userName()
+                                    // ... ignore password...
+                                    && (!is_ldap_scheme(lhs)
+                                        || lhs.query() == rhs.query());
+                            });
     }
 };
 

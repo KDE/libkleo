@@ -41,13 +41,10 @@
 #include <QTimer>
 #include <QDir>
 
-#include <boost/bind.hpp>
-
 #include <set>
 #include <cassert>
 
 using namespace Kleo;
-using namespace boost;
 
 class FileSystemWatcher::Private
 {
@@ -126,15 +123,21 @@ static QStringList list_dir_absolute(const QString &path, const QStringList &bla
     QStringList entries = dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot);
     QStringList::iterator end =
         std::remove_if(entries.begin(), entries.end(),
-                       boost::bind(is_blacklisted, _1, cref(blacklist)));
+                       [&blacklist](const QString &entry) {
+                           return is_blacklisted(entry, blacklist);
+                       });
     if (!whitelist.empty())
         end = std::remove_if(entries.begin(), end,
-                             !boost::bind(is_whitelisted, _1, cref(whitelist)));
+                             [&whitelist](const QString &entry) {
+                                 return !is_whitelisted(entry, whitelist);
+                             });
     entries.erase(end, entries.end());
-    kdtools::sort(entries);
+    std::sort(entries.begin(), entries.end());
 
     std::transform(entries.begin(), entries.end(), entries.begin(),
-                   boost::bind(&QDir::absoluteFilePath, &dir, _1));
+                   [&dir](const QString &entry) {
+                       return dir.absoluteFilePath(entry);
+                   });
 
     return entries;
 }
@@ -261,7 +264,9 @@ void FileSystemWatcher::blacklistFiles(const QStringList &paths)
     QStringList blacklisted;
     d->m_paths.erase(kdtools::separate_if(d->m_paths.begin(), d->m_paths.end(),
                                           std::back_inserter(blacklisted), d->m_paths.begin(),
-                                          boost::bind(is_blacklisted, _1, cref(d->m_blacklist))).second, d->m_paths.end());
+                                          [this](const QString &path) {
+                                              return is_blacklisted(path, d->m_blacklist);
+                                          }).second, d->m_paths.end());
     if (d->m_watcher && !blacklisted.empty()) {
         d->m_watcher->removePaths(blacklisted);
     }

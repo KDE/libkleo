@@ -44,7 +44,6 @@ find_package(Boost 1.34.0)
 set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "http://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")
 
 
-
 set_package_properties(KF5PimTextEdit PROPERTIES DESCRIPTION
                        "A textedit with PIM-specific features."
                        URL "https://projects.kde.org/projects/kde/pim/kpimtextedit"

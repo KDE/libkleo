@@ -51,15 +51,12 @@
 #include <QAbstractListModel>
 #include <QModelIndex>
 
-#include <boost/bind.hpp>
-#include <boost/iterator/filter_iterator.hpp>
-
 #include <algorithm>
 #include <vector>
 #include <climits>
+#include <functional>
 
 using namespace Kleo;
-using namespace boost;
 using namespace GpgME;
 
 namespace
@@ -141,14 +138,14 @@ public:
 };
 }
 
-static std::vector< shared_ptr<KeyFilter> > defaultFilters()
+static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
 {
-    std::vector<shared_ptr<KeyFilter> > result;
+    std::vector<std::shared_ptr<KeyFilter> > result;
     result.reserve(3);
-    result.push_back(shared_ptr<KeyFilter>(new MyCertificatesKeyFilter));
-    result.push_back(shared_ptr<KeyFilter>(new TrustedCertificatesKeyFilter));
-    result.push_back(shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
-    result.push_back(shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new MyCertificatesKeyFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new TrustedCertificatesKeyFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
     return result;
 }
 
@@ -162,7 +159,7 @@ public:
         model.reset();
     }
 
-    std::vector< shared_ptr<KeyFilter> > filters;
+    std::vector<std::shared_ptr<KeyFilter>> filters;
     Model model;
 };
 
@@ -196,32 +193,35 @@ KeyFilterManager *KeyFilterManager::instance()
     return mSelf;
 }
 
-const shared_ptr<KeyFilter> &KeyFilterManager::filterMatching(const Key &key, KeyFilter::MatchContexts contexts) const
+const std::shared_ptr<KeyFilter> &KeyFilterManager::filterMatching(const Key &key, KeyFilter::MatchContexts contexts) const
 {
-    const std::vector< shared_ptr<KeyFilter> >::const_iterator it
-        = std::find_if(d->filters.begin(), d->filters.end(),
-                       bind(&KeyFilter::matches, _1, cref(key), contexts));
-    if (it != d->filters.end()) {
+    const auto it = std::find_if(d->filters.cbegin(), d->filters.cend(),
+                                 [&key, contexts](const std::shared_ptr<KeyFilter> &filter) {
+                                     return filter->matches(key, contexts);
+                                 });
+    if (it != d->filters.cend()) {
         return *it;
     }
-    static const shared_ptr<KeyFilter> null;
+    static const std::shared_ptr<KeyFilter> null;
     return null;
 }
 
-std::vector< shared_ptr<KeyFilter> > KeyFilterManager::filtersMatching(const Key &key, KeyFilter::MatchContexts contexts) const
+std::vector<std::shared_ptr<KeyFilter>> KeyFilterManager::filtersMatching(const Key &key, KeyFilter::MatchContexts contexts) const
 {
-    std::vector< shared_ptr<KeyFilter> > result;
+    std::vector<std::shared_ptr<KeyFilter>> result;
     result.reserve(d->filters.size());
     std::remove_copy_if(d->filters.begin(), d->filters.end(),
                         std::back_inserter(result),
-                        !bind(&KeyFilter::matches, _1, cref(key), contexts));
+                        [&key, contexts](const std::shared_ptr<KeyFilter> &filter) {
+                            return !filter->matches(key, contexts);
+                        });
     return result;
 }
 
 namespace
 {
-struct ByDecreasingSpecificity : std::binary_function<shared_ptr<KeyFilter>, shared_ptr<KeyFilter>, bool> {
-    bool operator()(const shared_ptr<KeyFilter> &lhs, const shared_ptr<KeyFilter> &rhs) const
+struct ByDecreasingSpecificity : std::binary_function<std::shared_ptr<KeyFilter>, std::shared_ptr<KeyFilter>, bool> {
+    bool operator()(const std::shared_ptr<KeyFilter> &lhs, const std::shared_ptr<KeyFilter> &rhs) const
     {
         return lhs->specificity() > rhs->specificity();
     }
@@ -238,7 +238,7 @@ void KeyFilterManager::reload()
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
     for (QStringList::const_iterator it = groups.begin(); it != groups.end(); ++it) {
         const KConfigGroup cfg(config, *it);
-        d->filters.push_back(shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
+        d->filters.push_back(std::shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
     }
     std::stable_sort(d->filters.begin(), d->filters.end(), ByDecreasingSpecificity());
     qCDebug(LIBKLEO_LOG) << "final filter count is" << d->filters.size();
@@ -249,39 +249,36 @@ QAbstractItemModel *KeyFilterManager::model() const
     return &d->model;
 }
 
-const shared_ptr<KeyFilter> &KeyFilterManager::keyFilterByID(const QString &id) const
+const std::shared_ptr<KeyFilter> &KeyFilterManager::keyFilterByID(const QString &id) const
 {
-    const std::vector< shared_ptr<KeyFilter> >::const_iterator it
-        = std::find_if(d->filters.begin(), d->filters.end(),
-                       bind(&KeyFilter::id, _1) == id);
+    const auto it = std::find_if(d->filters.begin(), d->filters.end(),
+                                 [id](const std::shared_ptr<KeyFilter> &filter) {
+                                    return filter->id() == id;
+                                 });
     if (it != d->filters.end()) {
         return *it;
     }
-    static const shared_ptr<KeyFilter> null;
+    static const std::shared_ptr<KeyFilter> null;
     return null;
 }
 
-const shared_ptr<KeyFilter> &KeyFilterManager::fromModelIndex(const QModelIndex &idx) const
+const std::shared_ptr<KeyFilter> &KeyFilterManager::fromModelIndex(const QModelIndex &idx) const
 {
     if (!idx.isValid() || idx.model() != &d->model || idx.row() < 0 ||
             static_cast<unsigned>(idx.row()) >= d->filters.size()) {
-        static const shared_ptr<KeyFilter> null;
+        static const std::shared_ptr<KeyFilter> null;
         return null;
     }
     return d->filters[idx.row()];
 }
 
-QModelIndex KeyFilterManager::toModelIndex(const shared_ptr<KeyFilter> &kf) const
+QModelIndex KeyFilterManager::toModelIndex(const std::shared_ptr<KeyFilter> &kf) const
 {
     if (!kf) {
         return QModelIndex();
     }
-    const std::pair <
-    std::vector<shared_ptr<KeyFilter> >::const_iterator,
-        std::vector<shared_ptr<KeyFilter> >::const_iterator
-        > pair = std::equal_range(d->filters.begin(), d->filters.end(), kf, ByDecreasingSpecificity());
-    const std::vector<shared_ptr<KeyFilter> >::const_iterator it
-        = std::find(pair.first, pair.second, kf);
+    const auto pair = std::equal_range(d->filters.cbegin(), d->filters.cend(), kf, ByDecreasingSpecificity());
+    const auto it = std::find(pair.first, pair.second, kf);
     if (it != pair.second) {
         return d->model.index(it - d->filters.begin());
     } else {
@@ -309,45 +306,41 @@ QVariant Model::data(const QModelIndex &idx, int role) const
     }
 }
 
-namespace
-{
-template <typename C, typename P1, typename P2>
-typename C::const_iterator find_if_and(const C &c, P1 p1, P2 p2)
-{
-    return std::find_if(boost::make_filter_iterator(p1, boost::begin(c), boost::end(c)),
-                        boost::make_filter_iterator(p1, boost::end(c), boost::end(c)),
-                        p2).base();
-}
-}
-
 QFont KeyFilterManager::font(const Key &key, const QFont &baseFont) const
 {
-    return kdtools::accumulate_transform_if(d->filters, mem_fn(&KeyFilter::fontDesription),
-                                            bind(&KeyFilter::matches, _1, key, KeyFilter::Appearance),
-                                            KeyFilter::FontDescription(),
-                                            bind(&KeyFilter::FontDescription::resolve, _1, _2)).font(baseFont);
+    return kdtools::accumulate_if(d->filters.begin(), d->filters.end(),
+                                  [&key](const std::shared_ptr<KeyFilter> &filter) {
+                                      return filter->matches(key, KeyFilter::Appearance);
+                                  },
+                                  KeyFilter::FontDescription(),
+                                  [](const KeyFilter::FontDescription &lhs,
+                                     const std::shared_ptr<KeyFilter> &rhs) {
+                                      return lhs.resolve(rhs->fontDescription());
+                                  }).font(baseFont);
 }
 
-static QColor get_color(const std::vector< shared_ptr<KeyFilter> > &filters, const Key &key, QColor(KeyFilter::*fun)() const)
+static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QColor(KeyFilter::*fun)() const)
 {
-    const std::vector< shared_ptr<KeyFilter> >::const_iterator it
-        = find_if_and(filters,
-                      bind(&KeyFilter::matches, _1, key, KeyFilter::Appearance),
-                      bind(&QColor::isValid, bind(fun, _1)));
-    if (it == filters.end()) {
+    const auto it = std::find_if(filters.cbegin(), filters.cend(),
+                                 [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
+                                    return filter->matches(key, KeyFilter::Appearance)
+                                    && !(filter.get()->*fun)().isValid();
+                                 });
+    if (it == filters.cend()) {
         return QColor();
     } else {
         return (it->get()->*fun)();
     }
 }
 
-static QString get_string(const std::vector< shared_ptr<KeyFilter> > &filters, const Key &key, QString(KeyFilter::*fun)() const)
+static QString get_string(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QString(KeyFilter::*fun)() const)
 {
-    const std::vector< shared_ptr<KeyFilter> >::const_iterator it
-        = find_if_and(filters,
-                      bind(&KeyFilter::matches, _1, key, KeyFilter::Appearance),
-                      !bind(&QString::isEmpty, bind(fun, _1)));
-    if (it == filters.end()) {
+    const auto it = std::find_if(filters.cbegin(), filters.cend(),
+                                 [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
+                                     return filter->matches(key, KeyFilter::Appearance)
+                                            && !(filter.get()->*fun)().isEmpty();
+                                 });
+    if (it == filters.cend()) {
         return QString();
     } else {
         return (*it)->icon();

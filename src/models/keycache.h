@@ -39,8 +39,7 @@
 
 #include <gpgme++/global.h>
 
-#include <boost/shared_ptr.hpp>
-
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -72,8 +71,8 @@ class KLEO_EXPORT KeyCache : public QObject
 protected:
     explicit KeyCache();
 public:
-    static boost::shared_ptr<const KeyCache> instance();
-    static boost::shared_ptr<KeyCache> mutableInstance();
+    static std::shared_ptr<const KeyCache> instance();
+    static std::shared_ptr<KeyCache> mutableInstance();
 
     ~KeyCache();
 
@@ -85,7 +84,7 @@ public:
     void remove(const GpgME::Key &key);
     void remove(const std::vector<GpgME::Key> &keys);
 
-    void addFileSystemWatcher(const boost::shared_ptr<FileSystemWatcher> &watcher);
+    void addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &watcher);
 
     void enableFileSystemWatcher(bool enable);
 

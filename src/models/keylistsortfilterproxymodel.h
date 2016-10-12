@@ -38,7 +38,7 @@
 
 #include <kleo_export.h>
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace GpgME
 {
@@ -82,8 +82,8 @@ public:
     explicit KeyListSortFilterProxyModel(QObject *parent = Q_NULLPTR);
     ~KeyListSortFilterProxyModel();
 
-    boost::shared_ptr<const KeyFilter> keyFilter() const;
-    void setKeyFilter(const boost::shared_ptr<const KeyFilter> &kf);
+    std::shared_ptr<const KeyFilter> keyFilter() const;
+    void setKeyFilter(const std::shared_ptr<const KeyFilter> &kf);
 
     KeyListSortFilterProxyModel *clone() const Q_DECL_OVERRIDE;
 

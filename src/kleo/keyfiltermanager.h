@@ -36,10 +36,9 @@
 #include "kleo_export.h"
 #include <QObject>
 
-#include <boost/shared_ptr.hpp>
-
 #include <libkleo/keyfilter.h>
 
+#include <memory>
 #include <vector>
 
 namespace GpgME
@@ -66,14 +65,14 @@ protected:
 public:
     static KeyFilterManager *instance();
 
-    const boost::shared_ptr<KeyFilter> &filterMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;
-    std::vector< boost::shared_ptr<KeyFilter> > filtersMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;
+    const std::shared_ptr<KeyFilter> &filterMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;
+    std::vector<std::shared_ptr<KeyFilter>> filtersMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;
 
     QAbstractItemModel *model() const;
 
-    const boost::shared_ptr<KeyFilter> &keyFilterByID(const QString &id) const;
-    const boost::shared_ptr<KeyFilter> &fromModelIndex(const QModelIndex &mi) const;
-    QModelIndex toModelIndex(const boost::shared_ptr<KeyFilter> &kf) const;
+    const std::shared_ptr<KeyFilter> &keyFilterByID(const QString &id) const;
+    const std::shared_ptr<KeyFilter> &fromModelIndex(const QModelIndex &mi) const;
+    QModelIndex toModelIndex(const std::shared_ptr<KeyFilter> &kf) const;
 
     void reload();
 

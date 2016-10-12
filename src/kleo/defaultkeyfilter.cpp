@@ -206,7 +206,7 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     return true;
 }
 
-KeyFilter::FontDescription DefaultKeyFilter::fontDesription() const
+KeyFilter::FontDescription DefaultKeyFilter::fontDescription() const
 {
     if (d_ptr->mUseFullFont) {
         return FontDescription::create(font(), bold(), italic(), strikeOut());

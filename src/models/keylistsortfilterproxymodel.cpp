@@ -40,12 +40,9 @@
 
 #include <gpgme++/key.h>
 
-#include <boost/bind.hpp>
-
 #include <cassert>
 
 using namespace Kleo;
-using namespace boost;
 using namespace GpgME;
 
 AbstractKeyListSortFilterProxyModel::AbstractKeyListSortFilterProxyModel(QObject *p)
@@ -88,9 +85,12 @@ std::vector<Key> AbstractKeyListSortFilterProxyModel::keys(const QList<QModelInd
         return std::vector<Key>();
     }
     QList<QModelIndex> mapped;
+    mapped.reserve(indexes.size());
     std::transform(indexes.begin(), indexes.end(),
                    std::back_inserter(mapped),
-                   boost::bind(&QAbstractProxyModel::mapToSource, this, _1));
+                   [this](const QModelIndex &idx) {
+                       return mapToSource(idx);
+                   });
     return klmi->keys(mapped);
 }
 
@@ -108,9 +108,12 @@ QList<QModelIndex> AbstractKeyListSortFilterProxyModel::indexes(const std::vecto
     if (const KeyListModelInterface *const klmi = dynamic_cast<KeyListModelInterface *>(sourceModel())) {
         const QList<QModelIndex> source = klmi->indexes(keys);
         QList<QModelIndex> mapped;
+        mapped.reserve(source.size());
         std::transform(source.begin(), source.end(),
                        std::back_inserter(mapped),
-                       boost::bind(&QAbstractProxyModel::mapFromSource, this, _1));
+                       [this](const QModelIndex &idx) {
+                           return mapFromSource(idx);
+                       });
         return mapped;
     } else {
         return QList<QModelIndex>();
@@ -126,7 +129,7 @@ public:
     ~Private() {}
 
 private:
-    shared_ptr<const KeyFilter> keyFilter;
+    std::shared_ptr<const KeyFilter> keyFilter;
 };
 
 KeyListSortFilterProxyModel::KeyListSortFilterProxyModel(QObject *p)
@@ -148,12 +151,12 @@ KeyListSortFilterProxyModel *KeyListSortFilterProxyModel::clone() const
     return new KeyListSortFilterProxyModel(*this);
 }
 
-shared_ptr<const KeyFilter> KeyListSortFilterProxyModel::keyFilter() const
+std::shared_ptr<const KeyFilter> KeyListSortFilterProxyModel::keyFilter() const
 {
     return d->keyFilter;
 }
 
-void KeyListSortFilterProxyModel::setKeyFilter(const shared_ptr<const KeyFilter> &kf)
+void KeyListSortFilterProxyModel::setKeyFilter(const std::shared_ptr<const KeyFilter> &kf)
 {
     if (kf == d->keyFilter) {
         return;

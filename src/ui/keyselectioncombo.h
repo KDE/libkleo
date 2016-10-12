@@ -26,7 +26,7 @@
 #include <kleo_export.h>
 #include <libkleo/enum.h>
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace GpgME
 {
@@ -46,8 +46,8 @@ public:
     explicit KeySelectionCombo(QWidget *parent = Q_NULLPTR);
     virtual ~KeySelectionCombo();
 
-    void setKeyFilter(const boost::shared_ptr<const KeyFilter> &kf);
-    boost::shared_ptr<const KeyFilter> keyFilter() const;
+    void setKeyFilter(const std::shared_ptr<const KeyFilter> &kf);
+    std::shared_ptr<const KeyFilter> keyFilter() const;
 
     void setIdFilter(const QString &id);
     QString idFilter() const;

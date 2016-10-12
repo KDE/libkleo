@@ -40,14 +40,11 @@
 #include <QVariant>
 #include <QDate>
 
-#include <boost/bind.hpp>
-
 #include <algorithm>
 #include <iterator>
 
 using namespace GpgME;
 using namespace Kleo;
-using namespace boost;
 
 class SubkeyListModel::Private
 {
@@ -116,7 +113,9 @@ std::vector<Subkey> SubkeyListModel::subkeys(const QList<QModelIndex> &indexes) 
     result.reserve(indexes.size());
     std::transform(indexes.begin(), indexes.end(),
                    std::back_inserter(result),
-                   boost::bind(&SubkeyListModel::subkey, this, _1));
+                   [this](const QModelIndex &idx) {
+                       return subkey(idx);
+                   });
     return result;
 }
 
@@ -133,12 +132,13 @@ QModelIndex SubkeyListModel::index(const Subkey &subkey, int col) const
 QList<QModelIndex> SubkeyListModel::indexes(const std::vector<Subkey> &subkeys) const
 {
     QList<QModelIndex> result;
+    result.reserve(subkeys.size());
     // O(N*M), but who cares...?
     std::transform(subkeys.begin(), subkeys.end(),
                    std::back_inserter(result),
-                   // if some compilers are complaining about ambiguous overloads, use this line instead:
-                   //bind( static_cast<QModelIndex(SubKeyListModel::*)(const Subkey&,int)const>( &SubkeyListModel::index ), this, _1, 0 ) );
-                   boost::bind(&SubkeyListModel::index, this, _1, 0));
+                   [this](const Subkey &key) {
+                       return index(key);
+                   });
     return result;
 }
 

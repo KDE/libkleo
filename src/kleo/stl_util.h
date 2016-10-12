@@ -22,12 +22,6 @@
 #ifndef __KDTOOLSCORE_STL_UTIL_H__
 #define __KDTOOLSCORE_STL_UTIL_H__
 
-#include <boost/range.hpp>
-#include <boost/iterator/filter_iterator.hpp>
-#include <boost/iterator/transform_iterator.hpp>
-#include <boost/call_traits.hpp>
-#include <boost/version.hpp>
-
 #include <algorithm>
 #include <numeric>
 #include <utility>
@@ -36,60 +30,38 @@
 
 namespace kdtools
 {
+template<typename _Iterator, typename UnaryPredicate>
+struct filter_iterator
+{
+    using value_type = typename std::iterator_traits<_Iterator>::value_type;
+    using reference = typename std::iterator_traits<_Iterator>::reference;
+    using pointer = typename std::iterator_traits<_Iterator>::pointer;
+    using difference_type = typename std::iterator_traits<_Iterator>::difference_type;
 
-struct nodelete {
-    template <typename T>
-    void operator()(const T *) const {}
+    filter_iterator(UnaryPredicate pred, _Iterator it, _Iterator last) : it(it), last(last), pred(pred) {}
+    template<typename _OtherIter>
+    filter_iterator(const filter_iterator<_OtherIter, UnaryPredicate> &other) : it(other.it), last(other.last), pred(other.pred) {}
+    filter_iterator &operator++() { while (it != last && !pred(*(++it))){} return *this; }
+    filter_iterator operator++(int) { auto retval = *this; while(it != last && !pred(++it)){} return retval; }
+    bool operator==(filter_iterator other) const { return it == other.it; }
+    bool operator!=(filter_iterator other) const { return it != other.it; }
+    typename _Iterator::reference operator*() const { return *it; }
+private:
+    _Iterator it, last;
+    UnaryPredicate pred;
 };
 
-struct identity {
-    template <typename T>
-    T *operator()(T *t) const
-    {
-        return t;
-    }
-    template <typename T>
-    const T *operator()(const T *t) const
-    {
-        return t;
-    }
-    template <typename T>
-    T &operator()(T &t) const
-    {
-        return t;
-    }
-    template <typename T>
-    const T &operator()(const T &t) const
-    {
-        return t;
-    }
-};
-
-template <typename Pair>
-struct select1st;
-
-template <typename U, typename V>
-struct select1st< std::pair<U, V> >
-    : std::unary_function<std::pair<U, V>, U> {
-    typename boost::call_traits<U>::param_type
-    operator()(const std::pair<U, V> &pair) const
-    {
-        return pair.first;
-    }
-};
-
-template <typename Pair>
-struct select2nd;
-
-template <typename U, typename V>
-struct select2nd< std::pair<U, V> >
-    : std::unary_function<std::pair<U, V>, V> {
-    typename boost::call_traits<V>::param_type
-    operator()(const std::pair<U, V> &pair) const
-    {
-        return pair.second;
-    }
-};
+template<typename _Iterator, typename UnaryPredicate>
+filter_iterator<typename std::decay<_Iterator>::type,
+                UnaryPredicate>
+make_filter_iterator(UnaryPredicate &&pred, _Iterator &&it, _Iterator &&last)
+{
+    return filter_iterator<typename std::decay<_Iterator>::type, 
+                           UnaryPredicate>(
+                std::forward<UnaryPredicate>(pred),
+                std::forward<_Iterator>(it),
+                std::forward<_Iterator>(last));
+}
 
 template <typename InputIterator, typename OutputIterator, typename UnaryPredicate>
 OutputIterator copy_if(InputIterator first, InputIterator last, OutputIterator dest, UnaryPredicate pred)
@@ -105,178 +77,103 @@ OutputIterator copy_if(InputIterator first, InputIterator last, OutputIterator d
 }
 
 template <typename OutputIterator, typename InputIterator, typename UnaryFunction, typename UnaryPredicate>
-OutputIterator transform_if(InputIterator first, InputIterator last, OutputIterator dest, UnaryPredicate pred, UnaryFunction filter)
+void transform_if(InputIterator first, InputIterator last, OutputIterator dest, UnaryPredicate pred, UnaryFunction filter)
 {
-    return std::transform(boost::make_filter_iterator(filter, first, last),
-                          boost::make_filter_iterator(filter, last,  last),
-                          dest, pred);
-}
-
-template <typename InputIterator, typename OutputIterator>
-OutputIterator copy_1st(InputIterator first, InputIterator last, OutputIterator dest)
-{
-    return std::copy(boost::make_transform_iterator(first, select1st<typename std::iterator_traits<InputIterator>::value_type>()),
-                     boost::make_transform_iterator(last,  select1st<typename std::iterator_traits<InputIterator>::value_type>()),
-                     dest);
-}
-
-template <typename InputIterator, typename OutputIterator>
-OutputIterator copy_2nd(InputIterator first, InputIterator last, OutputIterator dest)
-{
-    return std::copy(boost::make_transform_iterator(first, select2nd<typename std::iterator_traits<InputIterator>::value_type>()),
-                     boost::make_transform_iterator(last,  select2nd<typename std::iterator_traits<InputIterator>::value_type>()),
-                     dest);
+    for (; first != last; ++first) {
+        if (filter(*first)) {
+            *dest++ = pred(*first);
+        }
+    }
 }
 
 template <typename InputIterator, typename OutputIterator, typename Predicate>
 OutputIterator copy_1st_if(InputIterator first, InputIterator last, OutputIterator dest, Predicate pred)
 {
-    return kdtools::copy_if(boost::make_transform_iterator(first, select1st<typename std::iterator_traits<InputIterator>::value_type>()),
-                            boost::make_transform_iterator(last,  select1st<typename std::iterator_traits<InputIterator>::value_type>()),
-                            dest, pred);
+    const auto trans = [](typename std::iterator_traits<InputIterator>::reference v) {
+                            return std::get<0>(v);
+                       };
+    kdtools::transform_if(first, last, dest, trans,
+                          [&pred, &trans](typename std::iterator_traits<InputIterator>::reference v) {
+                            return pred(trans(v));
+                          });
+    return dest;
 }
 
 template <typename InputIterator, typename OutputIterator, typename Predicate>
 OutputIterator copy_2nd_if(InputIterator first, InputIterator last, OutputIterator dest, Predicate pred)
 {
-    return kdtools::copy_if(boost::make_transform_iterator(first, select2nd<typename std::iterator_traits<InputIterator>::value_type>()),
-                            boost::make_transform_iterator(last,  select2nd<typename std::iterator_traits<InputIterator>::value_type>()),
-                            dest, pred);
+    const auto trans = [](typename std::iterator_traits<InputIterator>::reference v) {
+                            return std::get<1>(v);
+                       };
+    kdtools::transform_if(first, last, dest, trans,
+                          [&pred, &trans](typename std::iterator_traits<InputIterator>::reference v) {
+                            return pred(trans(v));
+                          });
+    return dest;
 }
+
 
 template <typename OutputIterator, typename InputIterator, typename UnaryFunction>
 OutputIterator transform_1st(InputIterator first, InputIterator last, OutputIterator dest, UnaryFunction func)
 {
-    return std::transform(boost::make_transform_iterator(first, select1st<typename std::iterator_traits<InputIterator>::value_type>()),
-                          boost::make_transform_iterator(last,  select1st<typename std::iterator_traits<InputIterator>::value_type>()),
-                          dest, func);
+    return std::transform(first, last, dest,
+                          [func](typename std::iterator_traits<InputIterator>::reference v) {
+                              return func(std::get<0>(v));
+                          });
 }
 
 template <typename OutputIterator, typename InputIterator, typename UnaryFunction>
 OutputIterator transform_2nd(InputIterator first, InputIterator last, OutputIterator dest, UnaryFunction func)
 {
-    return std::transform(boost::make_transform_iterator(first, select2nd<typename std::iterator_traits<InputIterator>::value_type>()),
-                          boost::make_transform_iterator(last,  select2nd<typename std::iterator_traits<InputIterator>::value_type>()),
-                          dest, func);
+    return std::transform(first, last, dest,
+                          [func](typename std::iterator_traits<InputIterator>::reference v) {
+                              return func(std::get<1>(v));
+                          });
 }
 
 template <typename Value, typename InputIterator, typename UnaryPredicate>
 Value accumulate_if(InputIterator first, InputIterator last, UnaryPredicate filter, const Value &value = Value())
 {
-    return std::accumulate(boost::make_filter_iterator(filter, first, last),
-                           boost::make_filter_iterator(filter, last,  last), value);
+    return std::accumulate(make_filter_iterator(filter, first, last),
+                           make_filter_iterator(filter, last,  last), value);
 }
 
 template <typename Value, typename InputIterator, typename UnaryPredicate, typename BinaryOperation>
 Value accumulate_if(InputIterator first, InputIterator last, UnaryPredicate filter, const Value &value, BinaryOperation op)
 {
-    return std::accumulate(boost::make_filter_iterator(filter, first, last),
-                           boost::make_filter_iterator(filter, last,  last), value, op);
+    return std::accumulate(make_filter_iterator(filter, first, last),
+                           make_filter_iterator(filter, last,  last), value, op);
 }
 
 template <typename Value, typename InputIterator, typename UnaryFunction>
 Value accumulate_transform(InputIterator first, InputIterator last, UnaryFunction map, const Value &value = Value())
 {
-    return std::accumulate(boost::make_transform_iterator(first, map),
-                           boost::make_transform_iterator(last, map), value);
+    return std::accumulate(first, last, value,
+                           [map](Value lhs,
+                                 typename std::iterator_traits<InputIterator>::reference rhs)
+                           {
+                               return lhs + map(rhs);
+                           });
 }
 
 template <typename Value, typename InputIterator, typename UnaryFunction, typename BinaryOperation>
 Value accumulate_transform(InputIterator first, InputIterator last, UnaryFunction map, const Value &value, BinaryOperation op)
 {
-    return std::accumulate(boost::make_transform_iterator(first, map),
-                           boost::make_transform_iterator(last, map), value, op);
-}
-
-template <typename Value, typename InputIterator, typename UnaryFunction, typename UnaryPredicate>
-Value accumulate_transform_if(InputIterator first, InputIterator last, UnaryFunction map, UnaryPredicate pred, const Value &value = Value())
-{
-    return std::accumulate(boost::make_transform_iterator(first, map),
-                           boost::make_transform_iterator(last, map), value);
+    return std::accumulate(first, last, value,
+                           [map, op](typename InputIterator::reference lhs,
+                                     typename InputIterator::reference rhs) {
+                               return op(map(lhs), map(rhs));
+                           });
 }
 
 template <typename Value, typename InputIterator, typename UnaryFunction, typename UnaryPredicate, typename BinaryOperation>
 Value accumulate_transform_if(InputIterator first, InputIterator last, UnaryFunction map, UnaryPredicate filter, const Value &value, BinaryOperation op)
 {
-    return std::accumulate(boost::make_transform_iterator(boost::make_filter_iterator(filter, first, last), map),
-                           boost::make_transform_iterator(boost::make_filter_iterator(filter, last, last), map), value, op);
+    return accumulate_transform(make_filter_iterator(filter, first, last),
+                                make_filter_iterator(filter, last, last),
+                                map, value, op);
 }
 
-template <typename InputIterator, typename OutputIterator1, typename OutputIterator2, typename UnaryPredicate>
-std::pair<OutputIterator1, OutputIterator2> separate_if(InputIterator first, InputIterator last, OutputIterator1 dest1, OutputIterator2 dest2, UnaryPredicate pred)
-{
-    while (first != last) {
-        if (pred(*first)) {
-            *dest1 = *first;
-            ++dest1;
-        } else {
-            *dest2 = *first;
-            ++dest2;
-        }
-        ++first;
-    }
-    return std::make_pair(dest1, dest2);
-}
-
-template <typename InputIterator>
-bool any(InputIterator first, InputIterator last)
-{
-    while (first != last)
-        if (*first) {
-            return true;
-        } else {
-            ++first;
-        }
-    return false;
-}
-
-template <typename InputIterator, typename UnaryPredicate>
-bool any(InputIterator first, InputIterator last, UnaryPredicate pred)
-{
-    while (first != last)
-        if (pred(*first)) {
-            return true;
-        } else {
-            ++first;
-        }
-    return false;
-}
-
-template <typename InputIterator>
-bool all(InputIterator first, InputIterator last)
-{
-    while (first != last)
-        if (*first) {
-            ++first;
-        } else {
-            return false;
-        }
-    return true;
-}
-
-template <typename InputIterator, typename UnaryPredicate>
-bool all(InputIterator first, InputIterator last, UnaryPredicate pred)
-{
-    while (first != last)
-        if (pred(*first)) {
-            ++first;
-        } else {
-            return false;
-        }
-    return true;
-}
-
-template <typename InputIterator>
-bool none_of(InputIterator first, InputIterator last)
-{
-    return !any(first, last);
-}
-
-template <typename InputIterator, typename UnaryPredicate>
-bool none_of(InputIterator first, InputIterator last, UnaryPredicate pred)
-{
-    return !any(first, last, pred);
-}
 
 template <typename InputIterator, typename BinaryOperation>
 BinaryOperation for_each_adjacent_pair(InputIterator first, InputIterator last, BinaryOperation op)
@@ -294,12 +191,21 @@ BinaryOperation for_each_adjacent_pair(InputIterator first, InputIterator last, 
     return op;
 }
 
-template <typename ForwardIterator, typename UnaryPredicate, typename UnaryFunction>
-UnaryFunction for_each_if(ForwardIterator first, ForwardIterator last, UnaryPredicate pred, UnaryFunction func)
+
+template <typename InputIterator, typename OutputIterator1, typename OutputIterator2, typename UnaryPredicate>
+std::pair<OutputIterator1, OutputIterator2> separate_if(InputIterator first, InputIterator last, OutputIterator1 dest1, OutputIterator2 dest2, UnaryPredicate pred)
 {
-    return std::for_each(boost::make_filter_iterator(pred, first, last),
-                         boost::make_filter_iterator(pred, last, last),
-                         func);
+    while (first != last) {
+        if (pred(*first)) {
+            *dest1 = *first;
+            ++dest1;
+        } else {
+            *dest2 = *first;
+            ++dest2;
+        }
+        ++first;
+    }
+    return std::make_pair(dest1, dest2);
 }
 
 //@{
@@ -361,269 +267,6 @@ bool set_intersects(ForwardIterator first1,  ForwardIterator last1,
 }
 
 //@{
-/*! Versions of std algorithms that take ranges */
-
-template <typename C, typename V>
-typename boost::range_iterator<C>::type
-find(C &c, const V &v)
-{
-    return std::find(boost::begin(c), boost::end(c), v);
-}
-
-#if BOOST_VERSION < 103500
-template <typename C, typename V>
-typename boost::range_const_iterator<C>::type
-find(const C &c, const V &v)
-{
-    return std::find(boost::begin(c), boost::end(c), v);
-}
-#endif
-
-template <typename C, typename P>
-typename boost::range_iterator<C>::type
-find_if(C &c, P p)
-{
-    return std::find_if(boost::begin(c), boost::end(c), p);
-}
-
-#if BOOST_VERSION < 103500
-template <typename C, typename P>
-typename boost::range_const_iterator<C>::type
-find_if(const C &c, P p)
-{
-    return std::find_if(boost::begin(c), boost::end(c), p);
-}
-#endif
-
-template <typename C, typename V>
-bool contains(const C &c, const V &v)
-{
-    return find(c, v) != boost::end(c);
-}
-
-template <typename C, typename P>
-bool contains_if(const C &c, P p)
-{
-    return find_if(c, p) != boost::end(c);
-}
-
-template <typename C, typename V>
-bool binary_search(const C &c, const V &v)
-{
-    return std::binary_search(boost::begin(c), boost::end(c), v);
-}
-
-template <typename C, typename V>
-size_t count(const C &c, const V &v)
-{
-    return std::count(boost::begin(c), boost::end(c), v);
-}
-
-template <typename C, typename P>
-size_t count_if(const C &c, P p)
-{
-    return std::count_if(boost::begin(c), boost::end(c), p);
-}
-
-template <typename O, typename I, typename P>
-O transform(const I &i, P p)
-{
-    O o;
-    std::transform(boost::begin(i), boost::end(i),
-                   std::back_inserter(o), p);
-    return o;
-}
-
-template <typename I, typename OutputIterator, typename P>
-OutputIterator transform(const I &i, OutputIterator out, P p)
-{
-    return std::transform(boost::begin(i), boost::end(i), out, p);
-}
-
-template <typename O, typename I, typename P, typename F>
-O transform_if(const I &i, P p, F f)
-{
-    O o;
-    transform_if(boost::begin(i), boost::end(i),
-                 std::back_inserter(o), p, f);
-    return o;
-}
-
-template <typename V, typename I, typename F>
-V accumulate_if(const I &i, F f, V v = V())
-{
-    return accumulate_if(boost::begin(i), boost::end(i), f, v);
-}
-
-template <typename V, typename I, typename F, typename B>
-V accumulate_if(const I &i, F f, V v, B b)
-{
-    return accumulate_if(boost::begin(i), boost::end(i), f, v, b);
-}
-
-template <typename V, typename I, typename F>
-V accumulate_transform(const I &i, F f, V v = V())
-{
-    return accumulate_transform(boost::begin(i), boost::end(i), f, v);
-}
-
-template <typename V, typename I, typename F, typename B>
-V accumulate_transform(const I &i, F f, V v, B b)
-{
-    return accumulate_transform(boost::begin(i), boost::end(i), f, v, b);
-}
-
-template <typename V, typename I, typename F, typename P>
-V accumulate_transform_if(const I &i, F f, P p, V v = V())
-{
-    return accumulate_transform_if(boost::begin(i), boost::end(i), f, p, v);
-}
-
-template <typename V, typename I, typename F, typename P, typename B>
-V accumulate_transform_if(const I &i, F f, P p, V v, B b)
-{
-    return accumulate_transform_if(boost::begin(i), boost::end(i), f, p, v, b);
-}
-
-template <typename O, typename I>
-O copy(const I &i)
-{
-    O o;
-    std::copy(boost::begin(i), boost::end(i), std::back_inserter(o));
-    return o;
-}
-
-template <typename O, typename I, typename P>
-O copy_if(const I &i, P p)
-{
-    O o;
-    kdtools::copy_if(boost::begin(i), boost::end(i), std::back_inserter(o), p);
-    return o;
-}
-
-template <typename I, typename P>
-P for_each(const I &i, P p)
-{
-    return std::for_each(boost::begin(i), boost::end(i), p);
-}
-
-template <typename I, typename P>
-P for_each(I &i, P p)
-{
-    return std::for_each(boost::begin(i), boost::end(i), p);
-}
-
-template <typename C1, typename C2>
-bool equal(const C1 &c1, const C2 &c2)
-{
-    return boost::size(c1) == boost::size(c2)
-           && std::equal(boost::begin(c1), boost::end(c1),
-                         boost::begin(c2));
-}
-
-template <typename C1, typename C2, typename P>
-bool equal(const C1 &c1, const C2 &c2, P p)
-{
-    return boost::size(c1) == boost::size(c2)
-           && std::equal(boost::begin(c1), boost::end(c1),
-                         boost::begin(c2), p);
-}
-
-template <typename C, typename O1, typename O2, typename P>
-std::pair<O1, O2> separate_if(const C &c, O1 o1, O2 o2, P p)
-{
-    return separate_if(boost::begin(c), boost::end(c), o1, o2, p);
-}
-
-//@}
-
-template <typename C>
-bool any(const C &c)
-{
-    return any(boost::begin(c), boost::end(c));
-}
-
-template <typename C, typename P>
-bool any(const C &c, P p)
-{
-    return any(boost::begin(c), boost::end(c), p);
-}
-
-template <typename C>
-bool all(const C &c)
-{
-    return all(boost::begin(c), boost::end(c));
-}
-
-template <typename C, typename P>
-bool all(const C &c, P p)
-{
-    return all(boost::begin(c), boost::end(c), p);
-}
-
-template <typename C>
-bool none_of(const C &c)
-{
-    return none_of(boost::begin(c), boost::end(c));
-}
-
-template <typename C, typename P>
-bool none_of(const C &c, P p)
-{
-    return kdtools::none_of(boost::begin(c), boost::end(c), p);
-}
-
-template <typename C, typename B>
-B for_each_adjacent_pair(const C &c, B b)
-{
-    return for_each_adjacent_pair(boost::begin(c), boost::end(c), b);
-}
-
-template <typename C, typename B>
-B for_each_adjacent_pair(C &c, B b)
-{
-    return for_each_adjacent_pair(boost::begin(c), boost::end(c), b);
-}
-
-template <typename C, typename P, typename F>
-P for_each_if(const C &c, P p, F f)
-{
-    return for_each_if(boost::begin(c), boost::end(c), p, f);
-}
-
-template <typename C, typename P, typename F>
-P for_each_if(C &c, P p, F f)
-{
-    return for_each_if(boost::begin(c), boost::end(c), p, f);
-}
-
-template <typename C>
-void sort(C &c)
-{
-    return std::sort(boost::begin(c), boost::end(c));
-}
-
-template <typename C, typename P>
-void sort(C &c, P p)
-{
-    return std::sort(boost::begin(c), boost::end(c), p);
-}
-
-template <typename C>
-C sorted(const C &c)
-{
-    C copy(c);
-    kdtools::sort(copy);
-    return copy;
-}
-
-template <typename C, typename P>
-C sorted(const C &c, P p)
-{
-    C copy(c);
-    kdtools::sort(copy, p);
-    return copy;
-}
 
 }
 

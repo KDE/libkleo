@@ -111,7 +111,7 @@ public:
         Private *d;
     };
 
-    virtual FontDescription fontDesription() const = 0;
+    virtual FontDescription fontDescription() const = 0;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KeyFilter::MatchContexts)
