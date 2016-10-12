@@ -123,15 +123,15 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapp
         const char *icon;
         int row, col;
         const char *tooltip;
-        const char *slot;
+        void(DNAttributeOrderConfigWidget::*slot)();
         bool autorepeat;
     } navButtons[] = {
-        { "go-top",    0, 1, I18N_NOOP("Move to top"),    SLOT(slotDoubleUpButtonClicked()), false },
-        { "go-up",    1, 1, I18N_NOOP("Move one up"),    SLOT(slotUpButtonClicked()), true },
-        { "go-previous",  2, 0, I18N_NOOP("Remove from current attribute order"), SLOT(slotLeftButtonClicked()), false },
-        { "go-next", 2, 2, I18N_NOOP("Add to current attribute order"), SLOT(slotRightButtonClicked()), false },
-        { "go-down",  3, 1, I18N_NOOP("Move one down"),  SLOT(slotDownButtonClicked()), true },
-        { "go-bottom",  4, 1, I18N_NOOP("Move to bottom"), SLOT(slotDoubleDownButtonClicked()), false }
+        { "go-top",    0, 1, I18N_NOOP("Move to top"),   &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked, false },
+        { "go-up",    1, 1, I18N_NOOP("Move one up"),    &DNAttributeOrderConfigWidget::slotUpButtonClicked, true },
+        { "go-previous",  2, 0, I18N_NOOP("Remove from current attribute order"), &DNAttributeOrderConfigWidget::slotLeftButtonClicked, false },
+        { "go-next", 2, 2, I18N_NOOP("Add to current attribute order"), &DNAttributeOrderConfigWidget::slotRightButtonClicked, false },
+        { "go-down",  3, 1, I18N_NOOP("Move one down"),  &DNAttributeOrderConfigWidget::slotDownButtonClicked, true },
+        { "go-bottom",  4, 1, I18N_NOOP("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false }
     };
 
     for (unsigned int i = 0; i < sizeof navButtons / sizeof * navButtons; ++i) {
@@ -141,7 +141,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapp
         tb->setToolTip(i18n(navButtons[i].tooltip));
         xlay->addWidget(tb, navButtons[i].row, navButtons[i].col);
         tb->setAutoRepeat(navButtons[i].autorepeat);
-        connect(tb, SIGNAL(clicked()), navButtons[i].slot);
+        connect(tb, &QToolButton::clicked, this, navButtons[i].slot);
     }
 
     glay->addLayout(xlay, row, 1);

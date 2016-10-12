@@ -561,7 +561,8 @@ Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModul
         label->setEnabled(false);
         mComboBox->setEnabled(false);
     } else {
-        connect(mComboBox, SIGNAL(currentIndexChanged(int)), SLOT(slotChanged()));
+        connect(mComboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                this, &CryptoConfigEntryDebugLevel::slotChanged);
     }
 
     const int row = glay->rowCount();
@@ -615,8 +616,7 @@ Kleo::CryptoConfigEntryPath::CryptoConfigEntryPath(
         }
     } else {
         if (mFileNameRequester)
-            connect(mFileNameRequester, &FileNameRequester::fileNameChanged,
-                    this, &CryptoConfigEntryPath::slotChanged);
+            connect(mFileNameRequester, &FileNameRequester::fileNameChanged, this, &CryptoConfigEntryPath::slotChanged);
     }
 }
 
@@ -659,8 +659,7 @@ Kleo::CryptoConfigEntryDirPath::CryptoConfigEntryDirPath(
         }
     } else {
         if (mFileNameRequester)
-            connect(mFileNameRequester, &FileNameRequester::fileNameChanged,
-                    this, &CryptoConfigEntryDirPath::slotChanged);
+            connect(mFileNameRequester, &FileNameRequester::fileNameChanged, this, &CryptoConfigEntryDirPath::slotChanged);
     }
 }
 
@@ -817,8 +816,7 @@ void prepareURLCfgDialog(QDialog *dialog, DirectoryServicesWidget *dirserv, bool
 
         QPushButton *defaultsBtn = buttonBox->button(QDialogButtonBox::RestoreDefaults);
 
-        QObject::connect(defaultsBtn, &QPushButton::clicked, dirserv,
-                         &DirectoryServicesWidget::clear);
+        QObject::connect(defaultsBtn, &QPushButton::clicked, dirserv, &DirectoryServicesWidget::clear);
         QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
     }
 

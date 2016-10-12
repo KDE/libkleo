@@ -471,12 +471,9 @@ public:
         ui.treeView->setModel(&model);
         ui.treeView->setItemDelegate(&delegate);
 
-        connect(&model, &QAbstractItemModel::dataChanged,
-                q, &DirectoryServicesWidget::changed);
-        connect(&model, &QAbstractItemModel::rowsInserted,
-                q, &DirectoryServicesWidget::changed);
-        connect(&model, &QAbstractItemModel::rowsRemoved,
-                q, &DirectoryServicesWidget::changed);
+        connect(&model, &QAbstractItemModel::dataChanged, q, &DirectoryServicesWidget::changed);
+        connect(&model, &QAbstractItemModel::rowsInserted, q, &DirectoryServicesWidget::changed);
+        connect(&model, &QAbstractItemModel::rowsRemoved, q, &DirectoryServicesWidget::changed);
         connect(ui.treeView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 q, SLOT(slotSelectionChanged()));
 

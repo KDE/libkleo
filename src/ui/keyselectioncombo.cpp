@@ -254,16 +254,7 @@ KeySelectionCombo::KeySelectionCombo(QWidget* parent)
     d->proxyModel->setSourceModel(d->sortFilterProxy);
 
     setModel(d->proxyModel);
-    connect(this, static_cast<void(KeySelectionCombo::*)(int)>(&KeySelectionCombo::currentIndexChanged),
-            this, [this](int row) {
-                if (row >= 0 && row < d->proxyModel->rowCount()) {
-                    if (d->proxyModel->isCustomItem(row)) {
-                        Q_EMIT customItemSelected(d->proxyModel->index(row, 0).data(Qt::UserRole));
-                    } else {
-                        Q_EMIT currentKeyChanged(currentKey());
-                    }
-                }
-            });
+    connect(this, static_cast<void(KeySelectionCombo::*)(int)>(&KeySelectionCombo::currentIndexChanged), this, [this](int row) { if (row >= 0 && row < d->proxyModel->rowCount()) { if (d->proxyModel->isCustomItem(row)) { Q_EMIT customItemSelected(d->proxyModel->index(row, 0).data(Qt::UserRole)); } else { Q_EMIT currentKeyChanged(currentKey()); } } });
 
     d->cache = Kleo::KeyCache::mutableInstance();
 
@@ -279,19 +270,16 @@ void KeySelectionCombo::init()
 {
     connect(d->cache.get(), &Kleo::KeyCache::keyListingDone,
             this, [this]() {
-                qDebug() << "Key listing done";
-                // Set useKeyCache ensures that the cache is populated
-                // so this can be a blocking call if the cache is not initalized
-                d->model->useKeyCache(true, true);
-                d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
-                setEnabled(d->wasEnabled);
-                Q_EMIT keyListingFinished();
+                    // Set useKeyCache ensures that the cache is populated
+                    // so this can be a blocking call if the cache is not initalized 
+                    qDebug() << "Key listing done"; 
+                    d->model->useKeyCache(true, true);
+                    d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
+                    setEnabled(d->wasEnabled);
+                    Q_EMIT keyListingFinished(); 
             });
 
-    connect(this, &KeySelectionCombo::keyListingFinished,
-            this, [this]() {
-                setCurrentKey(d->defaultKey);
-            });
+    connect(this, &KeySelectionCombo::keyListingFinished, this, [this]() { setCurrentKey(d->defaultKey); });
 
     if (!d->cache->initialized()) {
         refreshKeys();

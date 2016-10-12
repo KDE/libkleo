@@ -124,10 +124,8 @@ void CertListView::slotStart()
     qDebug() << "CertListView::slotStart()";
     QGpgME::KeyListJob *job = QGpgME::smime()->keyListJob(false);
     Q_ASSERT(job);
-    QObject::connect(job, SIGNAL(nextKey(GpgME::Key)),
-                     this, SLOT(slotAddKey(GpgME::Key)));
-    QObject::connect(job, SIGNAL(result(GpgME::KeyListResult)),
-                     this, SLOT(slotResult(GpgME::KeyListResult)));
+    QObject::connect(job, &QGpgME::KeyListJob::nextKey, this, &CertListView::slotAddKey);
+    QObject::connect(job, &QGpgME::KeyListJob::result, this, &CertListView::slotResult);
 #if 0
     QStringList l;
     l << "Marc";
@@ -153,7 +151,7 @@ int main(int argc, char **argv)
     CertListView *clv = new CertListView;
     clv->show();
 
-    QTimer::singleShot(5000, clv, SLOT(slotStart()));
+    QTimer::singleShot(5000, clv, &CertListView::slotStart);
 
     return app.exec();
 }

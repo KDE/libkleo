@@ -964,12 +964,7 @@ void AbstractKeyListModel::useKeyCache(bool value, bool secretOnly)
     } else {
         setKeys(std::vector<Key>());
     }
-    connect(KeyCache::instance().get(), &KeyCache::keysMayHaveChanged,
-            this, [this] {
-            if (d->m_useKeyCache) {
-                setKeys(d->m_secretOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys());
-            }
-        });
+    connect(KeyCache::instance().get(), &KeyCache::keysMayHaveChanged, this, [this] { if (d->m_useKeyCache) { setKeys(d->m_secretOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys()); } });
 }
 
 // static

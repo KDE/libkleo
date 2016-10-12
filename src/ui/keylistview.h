@@ -170,6 +170,7 @@ public:
 
     KeyListViewItem *itemByFingerprint(const QByteArray &) const;
 
+public:
     using QTreeWidget::selectionChanged; // for below, but moc doesn't like it to be in the Q_SIGNALS: section
 Q_SIGNALS:
     void doubleClicked(Kleo::KeyListViewItem *, int);

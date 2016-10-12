@@ -133,8 +133,7 @@ void KeyGenerator::slotStartKeyGeneration()
     QGpgME::KeyGenerationJob *job = proto->keyGenerationJob();
     Q_ASSERT(job);
 
-    connect(job, SIGNAL(result(GpgME::KeyGenerationResult,QByteArray)),
-            SLOT(slotResult(GpgME::KeyGenerationResult,QByteArray)));
+    connect(job, &QGpgME::KeyGenerationJob::result, this, &KeyGenerator::slotResult);
 
     const GpgME::Error err = job->start(params);
     if (err) {

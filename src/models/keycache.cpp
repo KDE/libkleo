@@ -90,7 +90,7 @@ class KeyCache::Private
 public:
     explicit Private(KeyCache *qq) : q(qq), m_refreshInterval(1), m_initalized(false)
     {
-        connect(&m_autoKeyListingTimer, SIGNAL(timeout()), q, SLOT(startKeyListing()));
+        connect(&m_autoKeyListingTimer, &QTimer::timeout, q, [this]() { q->startKeyListing(); });
         updateAutoKeyListingTimer();
     }
 
@@ -255,7 +255,10 @@ void KeyCache::reload(GpgME::Protocol /*proto*/)
 
     enableFileSystemWatcher(false);
     d->m_refreshJob = new RefreshKeysJob(this);
-    connect(d->m_refreshJob, SIGNAL(done(GpgME::KeyListResult)), this, SLOT(refreshJobDone(GpgME::KeyListResult)));
+    connect(d->m_refreshJob, &RefreshKeysJob::done,
+            this, [this](const GpgME::KeyListResult &r) {
+                d->refreshJobDone(r);
+            });
     d->m_refreshJob->start();
 }
 
@@ -273,10 +276,10 @@ void KeyCache::addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &wa
         return;
     }
     d->m_fsWatchers.push_back(watcher);
-    connect(watcher.get(), SIGNAL(directoryChanged(QString)),
-            this, SLOT(startKeyListing()));
-    connect(watcher.get(), SIGNAL(fileChanged(QString)),
-            this, SLOT(startKeyListing()));
+    connect(watcher.get(), &FileSystemWatcher::directoryChanged,
+            this, [this]() { startKeyListing(); });
+    connect(watcher.get(), &FileSystemWatcher::fileChanged,
+            this, [this]() { startKeyListing(); });
 
     watcher->setEnabled(d->m_refreshJob == 0);
 }
@@ -1004,7 +1007,7 @@ KeyCache::RefreshKeysJob::~RefreshKeysJob() {}
 
 void KeyCache::RefreshKeysJob::start()
 {
-    QTimer::singleShot(0, this, SLOT(doStart()));
+    QTimer::singleShot(0, this, [this](){ d->doStart(); });
 }
 
 void KeyCache::RefreshKeysJob::cancel()
@@ -1049,11 +1052,12 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
     if (!job) {
         return Error();
     }
-    connect(job, SIGNAL(result(GpgME::KeyListResult,std::vector<GpgME::Key>)),
-            q, SLOT(listAllKeysJobDone(GpgME::KeyListResult,std::vector<GpgME::Key>)));
+    connect(job, &QGpgME::ListAllKeysJob::result,
+            q, [this](const GpgME::KeyListResult &res, const std::vector<GpgME::Key> &keys) {
+                listAllKeysJobDone(res, keys);
+            });
 
-    connect(q, &RefreshKeysJob::canceled,
-            job, &QGpgME::Job::slotCancel);
+    connect(q, &RefreshKeysJob::canceled, job, &QGpgME::Job::slotCancel);
 
     const Error error = job->start(true);
 

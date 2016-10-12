@@ -455,8 +455,7 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     QPushButton *const searchExternalPB =
         new QPushButton(i18n("Search for &External Certificates"), page);
     mTopLayout->addWidget(searchExternalPB, 0, Qt::AlignLeft);
-    connect(searchExternalPB, &QAbstractButton::clicked,
-            this, &KeySelectionDialog::slotStartSearchForExternalCertificates);
+    connect(searchExternalPB, &QAbstractButton::clicked, this, &KeySelectionDialog::slotStartSearchForExternalCertificates);
     if (initialQuery.isEmpty()) {
         searchExternalPB->hide();
     }
@@ -475,8 +474,8 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     hlay->addWidget(le, 1);
     le->setFocus();
 
-    connect(le, SIGNAL(textChanged(QString)),
-            this, SLOT(slotSearch(QString)));
+    connect(le, &QLineEdit::textChanged,
+            this, static_cast<void(KeySelectionDialog::*)(const QString &)>(&KeySelectionDialog::slotSearch));
     connect(mStartSearchTimer, &QTimer::timeout, this, &KeySelectionDialog::slotFilter);
 
     mKeyListView = new KeyListView(new ColumnStrategy(mKeyUsage), 0, page);
@@ -500,21 +499,17 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
                  "</p></qt>"));
     }
 
-    connect(mCheckSelectionTimer, SIGNAL(timeout()),
-            SLOT(slotCheckSelection()));
+    connect(mCheckSelectionTimer, &QTimer::timeout,
+            this, static_cast<void(KeySelectionDialog::*)()>(&KeySelectionDialog::slotCheckSelection));
     connectSignals();
 
-    connect(mKeyListView,
-            SIGNAL(doubleClicked(Kleo::KeyListViewItem*,int)),
-            SLOT(slotTryOk()));
-    connect(mKeyListView,
-            &KeyListView::contextMenu,
-            this, &KeySelectionDialog::slotRMB);
+    connect(mKeyListView, &Kleo::KeyListView::doubleClicked, this, &KeySelectionDialog::slotTryOk);
+    connect(mKeyListView, &KeyListView::contextMenu, this, &KeySelectionDialog::slotRMB);
 
     user1Button->setText(i18n("&Reread Keys"));
     user2Button->setText(i18n("&Start Certificate Manager"));
     connect(user1Button, &QPushButton::clicked, this, &KeySelectionDialog::slotRereadKeys);
-    connect(user2Button, SIGNAL(clicked()), this, SLOT(slotStartCertificateManager()));
+    connect(user2Button, &QPushButton::clicked, this, [this]() { slotStartCertificateManager(); });
     connect(mOkButton, &QPushButton::clicked, this, &KeySelectionDialog::slotOk);
     connect(buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &KeySelectionDialog::slotCancel);
     slotRereadKeys();
@@ -547,11 +542,10 @@ Kleo::KeySelectionDialog::~KeySelectionDialog()
 void Kleo::KeySelectionDialog::connectSignals()
 {
     if (mKeyListView->isMultiSelection())
-        connect(mKeyListView, &QTreeWidget::itemSelectionChanged,
-                this, &KeySelectionDialog::slotSelectionChanged);
+        connect(mKeyListView, &QTreeWidget::itemSelectionChanged, this, &KeySelectionDialog::slotSelectionChanged);
     else
-        connect(mKeyListView, SIGNAL(selectionChanged(Kleo::KeyListViewItem*)),
-                SLOT(slotCheckSelection(Kleo::KeyListViewItem*)));
+        connect(mKeyListView, static_cast<void(KeyListView::*)(KeyListViewItem*)>(&KeyListView::selectionChanged),
+                this, static_cast<void(KeySelectionDialog::*)(KeyListViewItem*)>(&KeySelectionDialog::slotCheckSelection));
 }
 
 void Kleo::KeySelectionDialog::disconnectSignals()
@@ -560,8 +554,8 @@ void Kleo::KeySelectionDialog::disconnectSignals()
         disconnect(mKeyListView, &QTreeWidget::itemSelectionChanged,
                    this, &KeySelectionDialog::slotSelectionChanged);
     else
-        disconnect(mKeyListView, SIGNAL(selectionChanged(Kleo::KeyListViewItem*)),
-                   this, SLOT(slotCheckSelection(Kleo::KeyListViewItem*)));
+        disconnect(mKeyListView, static_cast<void(KeyListView::*)(KeyListViewItem*)>(&KeyListView::selectionChanged),
+                   this, static_cast<void(KeySelectionDialog::*)(KeyListViewItem*)>(&KeySelectionDialog::slotCheckSelection));
 }
 
 const GpgME::Key &Kleo::KeySelectionDialog::selectedKey() const
@@ -687,14 +681,11 @@ void Kleo::KeySelectionDialog::startKeyListJobForBackend(const QGpgME::Protocol 
         return;
     }
 
-    connect(job, &QGpgME::KeyListJob::result,
-            this, &KeySelectionDialog::slotKeyListResult);
+    connect(job, &QGpgME::KeyListJob::result, this, &KeySelectionDialog::slotKeyListResult);
     if (validate)
-        connect(job, &QGpgME::KeyListJob::nextKey,
-                mKeyListView, &KeyListView::slotRefreshKey);
+        connect(job, &QGpgME::KeyListJob::nextKey, mKeyListView, &KeyListView::slotRefreshKey);
     else
-        connect(job, &QGpgME::KeyListJob::nextKey,
-                mKeyListView, &KeyListView::slotAddKey);
+        connect(job, &QGpgME::KeyListJob::nextKey, mKeyListView, &KeyListView::slotAddKey);
 
     QStringList fprs;
     std::transform(keys.begin(), keys.end(), std::back_inserter(fprs), ExtractFingerprint());
@@ -862,7 +853,7 @@ void Kleo::KeySelectionDialog::slotRMB(Kleo::KeyListViewItem *item, const QPoint
     mCurrentContextMenuItem = item;
 
     QMenu menu;
-    menu.addAction(i18n("Recheck Key"), this, SLOT(slotRecheckKey()));
+    menu.addAction(i18n("Recheck Key"), this, &KeySelectionDialog::slotRecheckKey);
     menu.exec(p);
 }
 

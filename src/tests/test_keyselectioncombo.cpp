@@ -66,14 +66,8 @@ int main(int argc, char **argv)
     combo.setKeyFilter(filter);
 
     combo.prependCustomItem(QIcon(), i18n("No key"), QStringLiteral("no-key"));
-    QObject::connect(&combo, &Kleo::KeySelectionCombo::currentKeyChanged,
-                     [](const GpgME::Key &key) {
-                         qDebug() << "Current key changed:" << key.keyID();
-                     });
-    QObject::connect(&combo, &Kleo::KeySelectionCombo::customItemSelected,
-                     [](const QVariant &data) {
-                         qDebug() << "Custom item selected:" << data.toString();
-                     });
+    QObject::connect(&combo, &Kleo::KeySelectionCombo::currentKeyChanged, [](const GpgME::Key &key) { qDebug() << "Current key changed:" << key.keyID(); });
+    QObject::connect(&combo, &Kleo::KeySelectionCombo::customItemSelected, [](const QVariant &data) { qDebug() << "Custom item selected:" << data.toString(); });
 
     window.show();
 

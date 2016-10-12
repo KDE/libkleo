@@ -155,8 +155,6 @@ private:
 
     class Private;
     QScopedPointer<Private> const d;
-
-    Q_PRIVATE_SLOT(d, void refreshJobDone(GpgME::KeyListResult))
 };
 
 }
