@@ -41,8 +41,8 @@ struct filter_iterator
     filter_iterator(UnaryPredicate pred, _Iterator it, _Iterator last) : it(it), last(last), pred(pred) {}
     template<typename _OtherIter>
     filter_iterator(const filter_iterator<_OtherIter, UnaryPredicate> &other) : it(other.it), last(other.last), pred(other.pred) {}
-    filter_iterator &operator++() { while (it != last && !pred(*(++it))){} return *this; }
-    filter_iterator operator++(int) { auto retval = *this; while(it != last && !pred(++it)){} return retval; }
+    filter_iterator &operator++() { while (++it != last && !pred(*it)){} return *this; }
+    filter_iterator operator++(int) { auto retval = *this; while(++it != last && !pred(*it)){} return retval; }
     bool operator==(filter_iterator other) const { return it == other.it; }
     bool operator!=(filter_iterator other) const { return it != other.it; }
     typename _Iterator::reference operator*() const { return *it; }
