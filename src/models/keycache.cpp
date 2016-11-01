@@ -94,6 +94,13 @@ public:
         updateAutoKeyListingTimer();
     }
 
+    ~Private()
+    {
+        if (m_refreshJob) {
+            m_refreshJob->cancel();
+        }
+    }
+
     template < template <template <typename U> class Op> class Comp>
     std::vector<Key>::const_iterator find(const std::vector<Key> &keys, const char *key) const
     {
@@ -963,30 +970,39 @@ public:
     void emitDone(const KeyListResult &result);
     void updateKeyCache();
 
-    KeyCache *m_cache;
-    uint m_jobsPending;
+    QPointer<KeyCache> m_cache;
+    QVector<QGpgME::ListAllKeysJob*> m_jobsPending;
     std::vector<Key> m_keys;
     KeyListResult m_mergedResult;
+    bool m_canceled;
 
 private:
     void jobDone(const KeyListResult &res);
 };
 
-KeyCache::RefreshKeysJob::Private::Private(KeyCache *cache, RefreshKeysJob *qq) : q(qq), m_cache(cache), m_jobsPending(0)
+KeyCache::RefreshKeysJob::Private::Private(KeyCache *cache, RefreshKeysJob *qq)
+    : q(qq)
+    , m_cache(cache)
+    , m_canceled(false)
 {
     Q_ASSERT(m_cache);
 }
 
 void KeyCache::RefreshKeysJob::Private::jobDone(const KeyListResult &result)
 {
+    if (m_canceled) {
+        q->deleteLater();
+        return;
+    }
+
     QObject *const sender = q->sender();
     if (sender) {
         sender->disconnect(q);
     }
-    Q_ASSERT(m_jobsPending > 0);
-    --m_jobsPending;
+    Q_ASSERT(m_jobsPending.size() > 0);
+    m_jobsPending.removeOne(qobject_cast<QGpgME::ListAllKeysJob*>(sender));
     m_mergedResult.mergeWith(result);
-    if (m_jobsPending > 0) {
+    if (m_jobsPending.size() > 0) {
         return;
     }
     updateKeyCache();
@@ -1012,16 +1028,24 @@ void KeyCache::RefreshKeysJob::start()
 
 void KeyCache::RefreshKeysJob::cancel()
 {
+    d->m_canceled = true;
+    std::for_each(d->m_jobsPending.begin(), d->m_jobsPending.end(),
+                  std::mem_fn(&QGpgME::ListAllKeysJob::slotCancel));
     Q_EMIT canceled();
 }
 
 void KeyCache::RefreshKeysJob::Private::doStart()
 {
-    Q_ASSERT(m_jobsPending == 0);
+    if (m_canceled) {
+        q->deleteLater();
+        return;
+    }
+
+    Q_ASSERT(m_jobsPending.size() == 0);
     m_mergedResult.mergeWith(KeyListResult(startKeyListing(GpgME::OpenPGP)));
     m_mergedResult.mergeWith(KeyListResult(startKeyListing(GpgME::CMS)));
 
-    if (m_jobsPending != 0) {
+    if (m_jobsPending.size() != 0) {
         return;
     }
 
@@ -1031,6 +1055,11 @@ void KeyCache::RefreshKeysJob::Private::doStart()
 
 void KeyCache::RefreshKeysJob::Private::updateKeyCache()
 {
+    if (!m_cache || m_canceled) {
+        q->deleteLater();
+        return;
+    }
+
     std::vector<Key> cachedKeys = m_cache->initialized() ? m_cache->keys() : std::vector<Key>();
     std::sort(cachedKeys.begin(), cachedKeys.end(), _detail::ByFingerprint<std::less>());
     std::vector<Key> keysToRemove;
@@ -1062,7 +1091,7 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
     const Error error = job->start(true);
 
     if (!error && !error.isCanceled()) {
-        ++m_jobsPending;
+        m_jobsPending.push_back(job);
     }
     return error;
 }
