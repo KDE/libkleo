@@ -262,7 +262,7 @@ void KeyCache::reload(GpgME::Protocol /*proto*/)
 
     enableFileSystemWatcher(false);
     d->m_refreshJob = new RefreshKeysJob(this);
-    connect(d->m_refreshJob, &RefreshKeysJob::done,
+    connect(d->m_refreshJob.data(), &RefreshKeysJob::done,
             this, [this](const GpgME::KeyListResult &r) {
                 d->refreshJobDone(r);
             });
@@ -708,7 +708,7 @@ void KeyCache::remove(const Key &key)
     Q_EMIT aboutToRemove(key);
 
     {
-        const auto range = std::equal_range(d->by.fpr.cbegin(), d->by.fpr.cend(), fpr,
+        const auto range = std::equal_range(d->by.fpr.begin(), d->by.fpr.end(), fpr,
                                             _detail::ByFingerprint<std::less>());
         d->by.fpr.erase(range.first, range.second);
     }
@@ -734,7 +734,7 @@ void KeyCache::remove(const Key &key)
     }
 
     if (const char *chainid = key.chainID()) {
-        const auto range = std::equal_range(d->by.chainid.cbegin(), d->by.chainid.cend(), chainid,
+        const auto range = std::equal_range(d->by.chainid.begin(), d->by.chainid.end(), chainid,
                                             _detail::ByChainID<std::less>());
         const auto range2 = std::equal_range(range.first, range.second, fpr, _detail::ByFingerprint<std::less>());
         d->by.chainid.erase(range2.first, range2.second);
@@ -751,7 +751,7 @@ void KeyCache::remove(const Key &key)
 
     Q_FOREACH (const Subkey &subkey, key.subkeys()) {
         if (const char *keyid = subkey.keyID()) {
-            const auto range = std::equal_range(d->by.subkeyid.cbegin(), d->by.subkeyid.cend(), keyid,
+            const auto range = std::equal_range(d->by.subkeyid.begin(), d->by.subkeyid.end(), keyid,
                                                 _detail::ByKeyID<std::less>());
             const auto range2 = std::equal_range(range.first, range.second, fpr, _detail::ByKeyID<std::less>());
             d->by.subkeyid.erase(range2.first, range2.second);
