@@ -364,13 +364,13 @@ template <typename Base>
 class TableModelMixin : public Base
 {
 public:
-    explicit TableModelMixin(QObject *p = Q_NULLPTR) : Base(p) {}
+    explicit TableModelMixin(QObject *p = nullptr) : Base(p) {}
     ~TableModelMixin() {}
 
     using Base::index;
     QModelIndex index(int row, int column, const QModelIndex &pidx = QModelIndex()) const Q_DECL_OVERRIDE
     {
-        return this->hasIndex(row, column, pidx) ? this->createIndex(row, column, Q_NULLPTR) : QModelIndex();
+        return this->hasIndex(row, column, pidx) ? this->createIndex(row, column, nullptr) : QModelIndex();
     }
 
 private:
@@ -393,7 +393,7 @@ class FlatKeyListModel
 {
     Q_OBJECT
 public:
-    explicit FlatKeyListModel(QObject *parent = Q_NULLPTR);
+    explicit FlatKeyListModel(QObject *parent = nullptr);
     ~FlatKeyListModel();
 
     int rowCount(const QModelIndex &pidx) const Q_DECL_OVERRIDE
@@ -418,7 +418,7 @@ class HierarchicalKeyListModel : public AbstractKeyListModel
 {
     Q_OBJECT
 public:
-    explicit HierarchicalKeyListModel(QObject *parent = Q_NULLPTR);
+    explicit HierarchicalKeyListModel(QObject *parent = nullptr);
     ~HierarchicalKeyListModel();
 
     int rowCount(const QModelIndex &pidx) const Q_DECL_OVERRIDE;

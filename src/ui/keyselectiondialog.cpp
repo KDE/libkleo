@@ -83,7 +83,7 @@
 #include <KConfigGroup>
 #include <QDialogButtonBox>
 
-static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString *statusString = Q_NULLPTR)
+static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString *statusString = nullptr)
 {
     auto setStatusString = [statusString](const QString &status) {
         if (statusString) {

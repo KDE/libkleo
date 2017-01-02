@@ -52,7 +52,7 @@ private:
         QVariant data;
     };
 public:
-    ProxyModel(QObject *parent = Q_NULLPTR)
+    ProxyModel(QObject *parent = nullptr)
         : QSortFilterProxyModel(parent)
     {
     }
