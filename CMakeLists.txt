@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.0)
+set(PIM_VERSION "5.4.40")
 
-project(libkleo)
+project(libkleo VERSION ${PIM_VERSION})
 
 set(KF5_VERSION "5.28.0")
 find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
@@ -21,7 +22,6 @@ include(ECMAddTests)
 include(ECMCoverageOption)
 
 
-set(PIM_VERSION "5.4.40")
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.6.0")
 set(KDEPIMTEXTEDIT_VERSION "5.4.40")
@@ -50,7 +50,7 @@ set_package_properties(KF5PimTextEdit PROPERTIES DESCRIPTION
                        URL "https://projects.kde.org/projects/kde/pim/kpimtextedit"
                        TYPE OPTIONAL PURPOSE "Improved audit log viewer.")
 
-ecm_setup_version(${LIBKLEO_LIB_VERSION} VARIABLE_PREFIX LIBKLEO
+ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfigVersion.cmake"
                         SOVERSION 5
