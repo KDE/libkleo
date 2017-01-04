@@ -326,13 +326,13 @@ static bool start_command(QProcess *p, const char *functionName,
         Q_ASSERT(!"Should not happen");
 
     case ChecksumDefinition::CommandLine:
-        qCDebug(LIBKLEO_LOG) << "Starting: " << cmd << " " << args.join(QStringLiteral(" "));
+        qCDebug(LIBKLEO_LOG) << "Starting: " << cmd << " " << args.join(QLatin1Char(' '));
         p->start(cmd, args, QIODevice::ReadOnly);
         return true;
 
     case ChecksumDefinition::NewlineSeparatedInputFile:
     case ChecksumDefinition::NullSeparatedInputFile:
-        qCDebug(LIBKLEO_LOG) << "Starting: " << cmd << " " << args.join(QStringLiteral(" "));
+        qCDebug(LIBKLEO_LOG) << "Starting: " << cmd << " " << args.join(QLatin1Char(' '));
         p->start(cmd, args, QIODevice::ReadWrite);
         if (!p->waitForStarted()) {
             return false;

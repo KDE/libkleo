@@ -682,7 +682,7 @@ QString Formatting::importMetaData(const Import &import, const QStringList &ids)
     } else
         return result + QLatin1Char('\n') +
                i18n("This certificate was imported from the following sources:") + QLatin1Char('\n') +
-               ids.join(QStringLiteral("\n"));
+               ids.join(QLatin1Char('\n'));
 }
 
 QString Formatting::importMetaData(const Import &import)
@@ -718,7 +718,7 @@ QString Formatting::importMetaData(const Import &import)
 
     return results.empty()
            ? i18n("The import contained no new data for this certificate. It is unchanged.")
-           : results.join(QStringLiteral("\n"));
+           : results.join(QLatin1Char('\n'));
 }
 
 //
