@@ -397,7 +397,7 @@ const char *Kleo::outputFileExtension(unsigned int classification, bool usePGPFi
         if ((classifications[i].classification & classification) == classification) {
             return classifications[i].extension;
         }
-    return 0;
+    return nullptr;
 }
 
 bool Kleo::isFingerprint(const QString &fpr)

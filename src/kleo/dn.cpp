@@ -117,13 +117,13 @@ trim_trailing_spaces(char *string)
 {
     char *p, *mark;
 
-    for (mark = NULL, p = string; *p; p++) {
+    for (mark = nullptr, p = string; *p; p++) {
         if (isspace(*p)) {
             if (!mark) {
                 mark = p;
             }
         } else {
-            mark = NULL;
+            mark = nullptr;
         }
     }
     if (mark) {
@@ -147,11 +147,11 @@ parse_dn_part(DnPair *array, const unsigned char *string)
     for (s = string + 1; *s && *s != '='; s++)
         ;
     if (!*s) {
-        return NULL;    /* error */
+        return nullptr;    /* error */
     }
     n = s - string;
     if (!n) {
-        return NULL;    /* empty key */
+        return nullptr;    /* empty key */
     }
     p = (char *)malloc(n + 1);
 
@@ -176,7 +176,7 @@ parse_dn_part(DnPair *array, const unsigned char *string)
         }
         n = s - string;
         if (!n || (n & 1)) {
-            return NULL;    /* empty or odd number of digits */
+            return nullptr;    /* empty or odd number of digits */
         }
         n /= 2;
         array->value = p = (char *)malloc(n + 1);
@@ -199,10 +199,10 @@ parse_dn_part(DnPair *array, const unsigned char *string)
                     s++;
                     n++;
                 } else {
-                    return NULL;    /* invalid escape sequence */
+                    return nullptr;    /* invalid escape sequence */
                 }
             } else if (*s == '\"') {
-                return NULL;    /* invalid encoding */
+                return nullptr;    /* invalid encoding */
             } else if (*s == ',' || *s == '=' || *s == '+'
                        || *s == '<' || *s == '>' || *s == '#' || *s == ';') {
                 break;
@@ -250,7 +250,7 @@ parse_dn(const unsigned char *string)
             break;    /* ready */
         }
 
-        DnPair pair = { 0, 0 };
+        DnPair pair = { nullptr, nullptr };
         string = parse_dn_part(&pair, string);
         if (!string) {
             goto failure;
@@ -548,11 +548,11 @@ Kleo::DNAttributeMapper::DNAttributeMapper()
 
 Kleo::DNAttributeMapper::~DNAttributeMapper()
 {
-    mSelf = 0;
-    delete d; d = 0;
+    mSelf = nullptr;
+    delete d; d = nullptr;
 }
 
-Kleo::DNAttributeMapper *Kleo::DNAttributeMapper::mSelf = 0;
+Kleo::DNAttributeMapper *Kleo::DNAttributeMapper::mSelf = nullptr;
 
 const Kleo::DNAttributeMapper *Kleo::DNAttributeMapper::instance()
 {

@@ -164,7 +164,7 @@ void Kleo::DNAttributeOrderConfigWidget::load()
     const QStringList order = d->mapper->attributeOrder();
 
     // fill the RHS listview:
-    QTreeWidgetItem *last = 0;
+    QTreeWidgetItem *last = nullptr;
     for (QStringList::const_iterator it = order.begin(); it != order.end(); ++it) {
         const QString attr = (*it).toUpper();
         if (attr == QLatin1String("_X_")) {

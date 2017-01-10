@@ -52,7 +52,7 @@ static const int updateDelayMilliSecs = 500;
 class Q_DECL_HIDDEN Kleo::KeyListView::Private
 {
 public:
-    Private() : updateTimer(0) {}
+    Private() : updateTimer(nullptr) {}
 
     std::vector<GpgME::Key> keyBuffer;
     QTimer *updateTimer;
@@ -125,8 +125,8 @@ Kleo::KeyListView::~KeyListView()
     Q_ASSERT(d->itemMap.size() == 0);
     // need to delete the tooltip ourselves, as ~QToolTip isn't virtual :o
     delete d;
-    delete mColumnStrategy; mColumnStrategy = 0;
-    delete mDisplayStrategy; mDisplayStrategy = 0;
+    delete mColumnStrategy; mColumnStrategy = nullptr;
+    delete mDisplayStrategy; mDisplayStrategy = nullptr;
 }
 
 void Kleo::KeyListView::takeItem(QTreeWidgetItem *qlvi)
@@ -242,7 +242,7 @@ void Kleo::KeyListView::doHierarchicalInsert(const GpgME::Key &key)
     if (fpr.isEmpty()) {
         return;
     }
-    KeyListViewItem *item = 0;
+    KeyListViewItem *item = nullptr;
     if (!key.isRoot())
         if (KeyListViewItem *parent = itemByFingerprint(key.chainID())) {
             item = new KeyListViewItem(parent, key);
@@ -297,11 +297,11 @@ void Kleo::KeyListView::scatterGathered(KeyListViewItem *start)
 Kleo::KeyListViewItem *Kleo::KeyListView::itemByFingerprint(const QByteArray &s) const
 {
     if (s.isEmpty()) {
-        return 0;
+        return nullptr;
     }
     const std::map<QByteArray, KeyListViewItem *>::const_iterator it = d->itemMap.find(s);
     if (it == d->itemMap.end()) {
-        return 0;
+        return nullptr;
     }
     return it->second;
 }
@@ -415,11 +415,11 @@ void Kleo::KeyListViewItem::setKey(const GpgME::Key &key)
 
     // the ColumnStrategy operations might be very slow, so cache their
     // result here, where we're non-const :)
-    const Kleo::KeyListView::ColumnStrategy *cs = lv ? lv->columnStrategy() : 0;
+    const Kleo::KeyListView::ColumnStrategy *cs = lv ? lv->columnStrategy() : nullptr;
     if (!cs) {
         return;
     }
-    const KeyListView::DisplayStrategy *ds = lv ? lv->displayStrategy() : 0;
+    const KeyListView::DisplayStrategy *ds = lv ? lv->displayStrategy() : nullptr;
     const int numCols = lv ? lv->columnCount() : 0;
     for (int i = 0; i < numCols; ++i) {
         setText(i, cs->text(key, i));
@@ -541,7 +541,7 @@ Kleo::KeyListViewItem *Kleo::KeyListView::selectedItem() const
 {
     QList<KeyListViewItem *> selection = selectedItems();
     if (selection.size() == 0) {
-        return 0;
+        return nullptr;
     }
     return selection.first();
 }

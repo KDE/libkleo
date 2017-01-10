@@ -263,7 +263,7 @@ void MessageBox::make(QWidget *parent, QMessageBox::Icon icon, const QString &te
         KGuiItem::assign(box->button(QDialogButtonBox::No), KGuiItem(i18n("&Show Audit Log")));
     }
 
-    if (QDialogButtonBox::No == KMessageBox::createKMessageBox(dialog, box, icon, text, QStringList(), QString(), 0, options)) {
-        auditLog(0, job);
+    if (QDialogButtonBox::No == KMessageBox::createKMessageBox(dialog, box, icon, text, QStringList(), QString(), nullptr, options)) {
+        auditLog(nullptr, job);
     }
 }

@@ -352,12 +352,12 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
         QWidget *parent,
         bool modal)
     : QDialog(parent),
-      mOpenPGPBackend(0),
-      mSMIMEBackend(0),
-      mRememberCB(0),
+      mOpenPGPBackend(nullptr),
+      mSMIMEBackend(nullptr),
+      mRememberCB(nullptr),
       mSelectedKeys(selectedKeys),
       mKeyUsage(keyUsage),
-      mCurrentContextMenuItem(0)
+      mCurrentContextMenuItem(nullptr)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -374,14 +374,14 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
         QWidget *parent,
         bool modal)
     : QDialog(parent),
-      mOpenPGPBackend(0),
-      mSMIMEBackend(0),
-      mRememberCB(0),
+      mOpenPGPBackend(nullptr),
+      mSMIMEBackend(nullptr),
+      mRememberCB(nullptr),
       mSelectedKeys(selectedKeys),
       mKeyUsage(keyUsage),
       mSearchText(initialQuery),
       mInitialQuery(initialQuery),
-      mCurrentContextMenuItem(0)
+      mCurrentContextMenuItem(nullptr)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -397,13 +397,13 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
         QWidget *parent,
         bool modal)
     : QDialog(parent),
-      mOpenPGPBackend(0),
-      mSMIMEBackend(0),
-      mRememberCB(0),
+      mOpenPGPBackend(nullptr),
+      mSMIMEBackend(nullptr),
+      mRememberCB(nullptr),
       mKeyUsage(keyUsage),
       mSearchText(initialQuery),
       mInitialQuery(initialQuery),
-      mCurrentContextMenuItem(0)
+      mCurrentContextMenuItem(nullptr)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -478,7 +478,7 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
             this, static_cast<void(KeySelectionDialog::*)(const QString &)>(&KeySelectionDialog::slotSearch));
     connect(mStartSearchTimer, &QTimer::timeout, this, &KeySelectionDialog::slotFilter);
 
-    mKeyListView = new KeyListView(new ColumnStrategy(mKeyUsage), 0, page);
+    mKeyListView = new KeyListView(new ColumnStrategy(mKeyUsage), nullptr, page);
     mKeyListView->setObjectName(QStringLiteral("mKeyListView"));
     mKeyListView->header()->stretchLastSection();
     mKeyListView->setRootIsDecorated(true);

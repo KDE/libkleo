@@ -72,7 +72,7 @@ public:
 
 FileSystemWatcher::Private::Private(FileSystemWatcher *qq, const QStringList &paths)
     : q(qq),
-      m_watcher(0),
+      m_watcher(nullptr),
       m_paths(paths)
 {
     m_timer.setSingleShot(true);
@@ -233,13 +233,13 @@ void FileSystemWatcher::setEnabled(bool enable)
     } else {
         Q_ASSERT(d->m_watcher);
         delete d->m_watcher;
-        d->m_watcher = 0;
+        d->m_watcher = nullptr;
     }
 }
 
 bool FileSystemWatcher::isEnabled() const
 {
-    return d->m_watcher != 0;
+    return d->m_watcher != nullptr;
 }
 
 FileSystemWatcher::~FileSystemWatcher()

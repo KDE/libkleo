@@ -64,7 +64,7 @@ static const char *const keyParams[] = {
 };
 static const int numKeyParams = sizeof keyParams / sizeof * keyParams;
 
-static const char *protocol = 0;
+static const char *protocol = nullptr;
 
 KeyGenerator::KeyGenerator(QWidget *parent)
     : QDialog(parent)
@@ -119,7 +119,7 @@ void KeyGenerator::slotStartKeyGeneration()
         }
     params += "</GnupgKeyParms>\n";
 
-    const QGpgME::Protocol *proto = 0;
+    const QGpgME::Protocol *proto = nullptr;
     if (protocol) {
         proto = !strcmp(protocol, "openpgp") ? QGpgME::openpgp() : QGpgME::smime();
     }
@@ -177,7 +177,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    KeyGenerator *keygen = new KeyGenerator(0);
+    KeyGenerator *keygen = new KeyGenerator(nullptr);
     keygen->setObjectName(QStringLiteral("KeyGenerator top-level"));
     keygen->show();
 

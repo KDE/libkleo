@@ -78,24 +78,24 @@ using namespace QGpgME;
 Kleo::KeyRequester::KeyRequester(unsigned int allowedKeys, bool multipleKeys,
                                  QWidget *parent)
     : QWidget(parent),
-      mOpenPGPBackend(0),
-      mSMIMEBackend(0),
+      mOpenPGPBackend(nullptr),
+      mSMIMEBackend(nullptr),
       mMulti(multipleKeys),
       mKeyUsage(allowedKeys),
       mJobs(0),
-      d(0)
+      d(nullptr)
 {
     init();
 }
 
 Kleo::KeyRequester::KeyRequester(QWidget *parent)
     : QWidget(parent),
-      mOpenPGPBackend(0),
-      mSMIMEBackend(0),
+      mOpenPGPBackend(nullptr),
+      mSMIMEBackend(nullptr),
       mMulti(false),
       mKeyUsage(0),
       mJobs(0),
-      d(0)
+      d(nullptr)
 {
     init();
 }
@@ -412,8 +412,8 @@ unsigned int Kleo::KeyRequester::allowedKeys() const
 void Kleo::KeyRequester::setAllowedKeys(unsigned int keyUsage)
 {
     mKeyUsage = keyUsage;
-    mOpenPGPBackend = 0;
-    mSMIMEBackend = 0;
+    mOpenPGPBackend = nullptr;
+    mSMIMEBackend = nullptr;
 
     if (mKeyUsage & KeySelectionDialog::OpenPGPKeys) {
         mOpenPGPBackend = openpgp();
@@ -476,12 +476,12 @@ Kleo::EncryptionKeyRequester::EncryptionKeyRequester(bool multi, unsigned int pr
         QWidget *parent,
         bool onlyTrusted, bool onlyValid)
     : KeyRequester(encryptionKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid), multi,
-                   parent), d(0)
+                   parent), d(nullptr)
 {
 }
 
 Kleo::EncryptionKeyRequester::EncryptionKeyRequester(QWidget *parent)
-    : KeyRequester(0, false, parent), d(0)
+    : KeyRequester(0, false, parent), d(nullptr)
 {
 }
 
@@ -496,12 +496,12 @@ Kleo::SigningKeyRequester::SigningKeyRequester(bool multi, unsigned int proto,
         QWidget *parent,
         bool onlyTrusted, bool onlyValid)
     : KeyRequester(signingKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid), multi,
-                   parent), d(0)
+                   parent), d(nullptr)
 {
 }
 
 Kleo::SigningKeyRequester::SigningKeyRequester(QWidget *parent)
-    : KeyRequester(0, false, parent), d(0)
+    : KeyRequester(0, false, parent), d(nullptr)
 {
 }
 

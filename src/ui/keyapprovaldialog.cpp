@@ -95,7 +95,7 @@ static QStringList preferencesStrings()
 class Q_DECL_HIDDEN Kleo::KeyApprovalDialog::Private
 {
 public:
-    Private() : selfRequester(0), prefsChanged(false) {}
+    Private() : selfRequester(nullptr), prefsChanged(false) {}
 
     Kleo::KeyRequester *selfRequester;
     QStringList addresses;

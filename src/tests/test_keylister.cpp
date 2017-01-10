@@ -96,7 +96,7 @@ QString TestColumnStrategy::text(const GpgME::Key &key, int col) const
 }
 
 CertListView::CertListView(QWidget *parent, Qt::WindowFlags f)
-    : Kleo::KeyListView(new TestColumnStrategy(), 0, parent, f)
+    : Kleo::KeyListView(new TestColumnStrategy(), nullptr, parent, f)
 {
     setHierarchical(true);
     setRootIsDecorated(true);

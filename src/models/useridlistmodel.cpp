@@ -71,7 +71,7 @@ public:
     }
 
     // The root item
-    explicit UIDModelItem() : mParentItem(0)
+    explicit UIDModelItem() : mParentItem(nullptr)
     {
         mItemData << i18n("ID")
                   << i18n("Name")
@@ -154,7 +154,7 @@ private:
 };
 
 UserIDListModel::UserIDListModel(QObject *p)
-    : QAbstractItemModel(p), mRootItem(0)
+    : QAbstractItemModel(p), mRootItem(nullptr)
 {
 }
 

@@ -409,7 +409,7 @@ private:
     QWidget *createSchemeWidget(QWidget *parent) const
     {
         if (!m_schemes) {
-            return 0;
+            return nullptr;
         }
         QComboBox *cb = new QComboBox(parent);
         for (unsigned int i = 0; i < numProtocols; ++i)
@@ -554,7 +554,7 @@ private:
             ui.newTB->setMenu(&ui.newMenu);
             ui.newTB->setPopupMode(QToolButton::MenuButtonPopup);
         } else {
-            ui.newTB->setMenu(0);
+            ui.newTB->setMenu(nullptr);
             ui.newTB->setPopupMode(QToolButton::DelayedPopup);
             ui.newTB->setEnabled(x509 || pgp);
         }

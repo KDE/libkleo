@@ -74,7 +74,7 @@ const char *Kleo::cryptoMessageFormatToString(Kleo::CryptoMessageFormat f)
         if (f == cryptoMessageFormats[i].format) {
             return cryptoMessageFormats[i].configName;
         }
-    return 0;
+    return nullptr;
 }
 
 QStringList Kleo::cryptoMessageFormatsToStringList(unsigned int f)
@@ -124,7 +124,7 @@ const char *Kleo::encryptionPreferenceToString(EncryptionPreference pref)
 {
     switch (pref) {
     case UnknownPreference:
-        return 0;
+        return nullptr;
     case NeverEncrypt:
         return "never";
     case AlwaysEncrypt:
@@ -136,7 +136,7 @@ const char *Kleo::encryptionPreferenceToString(EncryptionPreference pref)
     case AskWheneverPossible:
         return "askWhenPossible";
     }
-    return 0; // keep the compiler happy
+    return nullptr; // keep the compiler happy
 }
 
 Kleo::EncryptionPreference Kleo::stringToEncryptionPreference(const QString &str)
@@ -181,7 +181,7 @@ const char *Kleo::signingPreferenceToString(SigningPreference pref)
 {
     switch (pref) {
     case UnknownSigningPreference:
-        return 0;
+        return nullptr;
     case NeverSign:
         return "never";
     case AlwaysSign:
@@ -193,7 +193,7 @@ const char *Kleo::signingPreferenceToString(SigningPreference pref)
     case AskSigningWheneverPossible:
         return "askWhenPossible";
     }
-    return 0; // keep the compiler happy
+    return nullptr; // keep the compiler happy
 }
 
 Kleo::SigningPreference Kleo::stringToSigningPreference(const QString &str)

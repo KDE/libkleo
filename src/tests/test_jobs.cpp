@@ -45,7 +45,7 @@
 #include <KLocalizedString>
 #include <QCommandLineParser>
 
-static const char *protocol = 0;
+static const char *protocol = nullptr;
 
 static void testSign()
 {

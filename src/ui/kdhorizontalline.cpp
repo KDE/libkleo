@@ -161,12 +161,12 @@ void KDHorizontalLine::paintEvent(QPaintEvent *e)
             }
         }
         QRect r(x, 0, tw, h);
-        int va = style()->styleHint(QStyle::SH_GroupBox_TextLabelVerticalAlignment, 0, this);
+        int va = style()->styleHint(QStyle::SH_GroupBox_TextLabelVerticalAlignment, nullptr, this);
         if (va & Qt::AlignTop) {
             r.translate(0, fm.descent());
         }
-        const QColor pen((QRgb) style()->styleHint(QStyle::SH_GroupBox_TextLabelColor, 0, this));
-        if (!style()->styleHint(QStyle::SH_UnderlineShortcut, 0, this)) {
+        const QColor pen((QRgb) style()->styleHint(QStyle::SH_GroupBox_TextLabelColor, nullptr, this));
+        if (!style()->styleHint(QStyle::SH_UnderlineShortcut, nullptr, this)) {
             va |= Qt::TextHideMnemonic;
         }
         style()->drawItemText(&paint, r, Qt::TextShowMnemonic | Qt::AlignHCenter | va, palette(),

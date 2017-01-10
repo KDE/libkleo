@@ -666,7 +666,7 @@ QModelIndex HierarchicalKeyListModel::doMapFromKey(const Key &key, int col) cons
         if (it != mKeysByExistingParent.end()) {
             v = &it->second;
         } else {
-            issuer_fpr = 0;    // force internalPointer to zero for toplevels
+            issuer_fpr = nullptr;    // force internalPointer to zero for toplevels
         }
     }
 

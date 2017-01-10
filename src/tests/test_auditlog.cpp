@@ -96,7 +96,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    Kleo::MessageBox::auditLog(NULL, QString::fromLatin1(auditlog), QStringLiteral("Test"));
+    Kleo::MessageBox::auditLog(nullptr, QString::fromLatin1(auditlog), QStringLiteral("Test"));
 
     return app.exec();
 }

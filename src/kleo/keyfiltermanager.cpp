@@ -67,7 +67,7 @@ class Model : public QAbstractListModel
     KeyFilterManager::Private *m_keyFilterManagerPrivate;
 public:
     explicit Model(KeyFilterManager::Private *p)
-        : QAbstractListModel(0), m_keyFilterManagerPrivate(p) {}
+        : QAbstractListModel(nullptr), m_keyFilterManagerPrivate(p) {}
 
     int rowCount(const QModelIndex &) const Q_DECL_OVERRIDE;
     QVariant data(const QModelIndex &idx, int role) const Q_DECL_OVERRIDE;
@@ -163,7 +163,7 @@ public:
     Model model;
 };
 
-KeyFilterManager *KeyFilterManager::mSelf = 0;
+KeyFilterManager *KeyFilterManager::mSelf = nullptr;
 
 KeyFilterManager::KeyFilterManager(QObject *parent)
     : QObject(parent), d(new Private)
@@ -178,11 +178,11 @@ KeyFilterManager::KeyFilterManager(QObject *parent)
 
 KeyFilterManager::~KeyFilterManager()
 {
-    mSelf = 0;
+    mSelf = nullptr;
     if (d) {
         d->clear();
     }
-    delete d; d = 0;
+    delete d; d = nullptr;
 }
 
 KeyFilterManager *KeyFilterManager::instance()

@@ -139,8 +139,8 @@ void Kleo::CryptoConfigModule::init(Layout layout)
 
     setFaceType(type);
 
-    QVBoxLayout *vlay = 0;
-    QWidget *vbox = 0;
+    QVBoxLayout *vlay = nullptr;
+    QWidget *vbox = nullptr;
 
     if (type == Plain) {
         QWidget *w = new QWidget(this);
@@ -414,14 +414,14 @@ static const unsigned int numWidgetsByEntryName = sizeof widgetsByEntryName / si
 static const constructor listWidgets[QGpgME::CryptoConfigEntry::NumArgType] = {
     // None: A list of options with no arguments (e.g. -v -v -v) is shown as a spinbox
     &_create<CryptoConfigEntrySpinBox>,
-    0, // String
+    nullptr, // String
     // Int/UInt: Let people type list of numbers (1,2,3....). Untested.
     &_create<CryptoConfigEntryLineEdit>,
     &_create<CryptoConfigEntryLineEdit>,
-    0, // Path
-    0, // Formerly URL
+    nullptr, // Path
+    nullptr, // Formerly URL
     &_create<CryptoConfigEntryLDAPURL>,
-    0, // DirPath
+    nullptr, // DirPath
 };
 
 static const constructor scalarWidgets[QGpgME::CryptoConfigEntry::NumArgType] = {
@@ -430,8 +430,8 @@ static const constructor scalarWidgets[QGpgME::CryptoConfigEntry::NumArgType] = 
     &_create<CryptoConfigEntrySpinBox>,  // Int
     &_create<CryptoConfigEntrySpinBox>,  // UInt
     &_create<CryptoConfigEntryPath>,     // Path
-    0,                                   // Formerly URL
-    0,                                   // LDAPURL
+    nullptr,                                   // Formerly URL
+    nullptr,                                   // LDAPURL
     &_create<CryptoConfigEntryDirPath>,  // DirPath
 };
 
@@ -461,7 +461,7 @@ CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoCo
         qCWarning(KLEO_UI_LOG) << "No widget implemented for type" << entry->argType();
     }
 
-    return 0;
+    return nullptr;
 }
 
 ////
@@ -598,7 +598,7 @@ Kleo::CryptoConfigEntryPath::CryptoConfigEntryPath(
     QGpgME::CryptoConfigEntry *entry, const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName),
-      mFileNameRequester(0)
+      mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
     QWidget *req;
@@ -641,7 +641,7 @@ Kleo::CryptoConfigEntryDirPath::CryptoConfigEntryDirPath(
     QGpgME::CryptoConfigEntry *entry, const QString &entryName,
     QGridLayout *glay, QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName),
-      mFileNameRequester(0)
+      mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
     QWidget *req;
