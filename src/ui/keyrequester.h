@@ -77,9 +77,9 @@ class KLEO_EXPORT KeyRequester : public QWidget
     Q_OBJECT
 public:
     explicit KeyRequester(unsigned int allowedKeys, bool multipleKeys = false,
-                          QWidget *parent = Q_NULLPTR);
+                          QWidget *parent = nullptr);
     // Constructor for Qt Designer
-    explicit KeyRequester(QWidget *parent = Q_NULLPTR);
+    explicit KeyRequester(QWidget *parent = nullptr);
     ~KeyRequester();
 
     const GpgME::Key &key() const;
@@ -173,7 +173,7 @@ public:
      */
     explicit EncryptionKeyRequester(bool multipleKeys = false,
                                     unsigned int proto = AllProtocols,
-                                    QWidget *parent = Q_NULLPTR,
+                                    QWidget *parent = nullptr,
                                     bool onlyTrusted = true,
                                     bool onlyValid = true);
     /**
@@ -207,7 +207,7 @@ public:
      */
     explicit SigningKeyRequester(bool multipleKeys = false,
                                  unsigned int proto = AllProtocols,
-                                 QWidget *parent = Q_NULLPTR,
+                                 QWidget *parent = nullptr,
                                  bool onlyTrusted = true, bool onlyValid = true);
     /**
      * Constructor for Qt designer

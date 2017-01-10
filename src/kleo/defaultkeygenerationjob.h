@@ -38,7 +38,7 @@ class KLEO_EXPORT DefaultKeyGenerationJob : public QGpgME::Job
 {
     Q_OBJECT
 public:
-    explicit DefaultKeyGenerationJob(QObject *parent = Q_NULLPTR);
+    explicit DefaultKeyGenerationJob(QObject *parent = nullptr);
     ~DefaultKeyGenerationJob();
 
     /**

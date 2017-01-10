@@ -53,11 +53,11 @@ class KLEO_EXPORT AbstractKeyListModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    explicit AbstractKeyListModel(QObject *parent = Q_NULLPTR);
+    explicit AbstractKeyListModel(QObject *parent = nullptr);
     ~AbstractKeyListModel();
 
-    static AbstractKeyListModel *createFlatKeyListModel(QObject *parent = Q_NULLPTR);
-    static AbstractKeyListModel *createHierarchicalKeyListModel(QObject *parent = Q_NULLPTR);
+    static AbstractKeyListModel *createFlatKeyListModel(QObject *parent = nullptr);
+    static AbstractKeyListModel *createHierarchicalKeyListModel(QObject *parent = nullptr);
 
     GpgME::Key key(const QModelIndex &idx) const Q_DECL_OVERRIDE;
     std::vector<GpgME::Key> keys(const QList<QModelIndex> &indexes) const Q_DECL_OVERRIDE;

@@ -48,7 +48,7 @@ class KLEO_EXPORT UserIDListModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    explicit UserIDListModel(QObject *parent = Q_NULLPTR);
+    explicit UserIDListModel(QObject *parent = nullptr);
     ~UserIDListModel();
 
     GpgME::Key key() const;

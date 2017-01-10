@@ -70,7 +70,7 @@ public:
 
     KeyApprovalDialog(const std::vector<Item> &recipients,
                       const std::vector<GpgME::Key> &sender,
-                      QWidget *parent = Q_NULLPTR);
+                      QWidget *parent = nullptr);
     ~KeyApprovalDialog();
 
     std::vector<Item> items() const;

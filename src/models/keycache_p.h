@@ -48,7 +48,7 @@ class KeyCache::RefreshKeysJob : public QObject
     Q_OBJECT
 public:
 
-    explicit RefreshKeysJob(KeyCache *cache, QObject *parent = Q_NULLPTR);
+    explicit RefreshKeysJob(KeyCache *cache, QObject *parent = nullptr);
     ~RefreshKeysJob();
 
     void start();

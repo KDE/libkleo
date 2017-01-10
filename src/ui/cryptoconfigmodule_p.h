@@ -73,7 +73,7 @@ class CryptoConfigComponentGUI : public QWidget
 
 public:
     CryptoConfigComponentGUI(CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component,
-                             QWidget *parent = Q_NULLPTR);
+                             QWidget *parent = nullptr);
 
     bool save();
     void load();
@@ -93,7 +93,7 @@ class CryptoConfigGroupGUI : public QObject
 
 public:
     CryptoConfigGroupGUI(CryptoConfigModule *module, QGpgME::CryptoConfigGroup *group,
-                         QGridLayout *layout, QWidget *parent = Q_NULLPTR);
+                         QGridLayout *layout, QWidget *parent = nullptr);
 
     bool save();
     void load();
@@ -178,7 +178,7 @@ public:
                               QGpgME::CryptoConfigEntry *entry,
                               const QString &entryName,
                               QGridLayout *layout,
-                              QWidget *parent = Q_NULLPTR);
+                              QWidget *parent = nullptr);
 
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
@@ -194,7 +194,7 @@ class CryptoConfigEntryDebugLevel : public CryptoConfigEntryGUI
     Q_OBJECT
 public:
     CryptoConfigEntryDebugLevel(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry,
-                                const QString &entryName, QGridLayout *layout, QWidget *parent = Q_NULLPTR);
+                                const QString &entryName, QGridLayout *layout, QWidget *parent = nullptr);
 
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
@@ -214,7 +214,7 @@ public:
                           QGpgME::CryptoConfigEntry *entry,
                           const QString &entryName,
                           QGridLayout *layout,
-                          QWidget *parent = Q_NULLPTR);
+                          QWidget *parent = nullptr);
 
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
@@ -234,7 +234,7 @@ public:
                              QGpgME::CryptoConfigEntry *entry,
                              const QString &entryName,
                              QGridLayout *layout,
-                             QWidget *parent = Q_NULLPTR);
+                             QWidget *parent = nullptr);
 
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
@@ -254,7 +254,7 @@ public:
                              QGpgME::CryptoConfigEntry *entry,
                              const QString &entryName,
                              QGridLayout *layout,
-                             QWidget *parent = Q_NULLPTR);
+                             QWidget *parent = nullptr);
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
 private:
@@ -274,7 +274,7 @@ public:
                               QGpgME::CryptoConfigEntry *entry,
                               const QString &entryName,
                               QGridLayout *layout,
-                              QWidget *parent = Q_NULLPTR);
+                              QWidget *parent = nullptr);
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
 private:
@@ -293,7 +293,7 @@ public:
                              QGpgME::CryptoConfigEntry *entry,
                              const QString &entryName,
                              QGridLayout *layout,
-                             QWidget *parent = Q_NULLPTR);
+                             QWidget *parent = nullptr);
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
 private Q_SLOTS:
@@ -317,7 +317,7 @@ public:
                                QGpgME::CryptoConfigEntry *entry,
                                const QString &entryName,
                                QGridLayout *layout,
-                               QWidget *parent = Q_NULLPTR);
+                               QWidget *parent = nullptr);
     void doSave() Q_DECL_OVERRIDE;
     void doLoad() Q_DECL_OVERRIDE;
 private Q_SLOTS:

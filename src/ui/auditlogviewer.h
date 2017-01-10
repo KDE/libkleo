@@ -46,7 +46,7 @@ class KLEO_EXPORT AuditLogViewer : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AuditLogViewer(const QString &log, QWidget *parent = Q_NULLPTR);
+    explicit AuditLogViewer(const QString &log, QWidget *parent = nullptr);
 
     ~AuditLogViewer();
 

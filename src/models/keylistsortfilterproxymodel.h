@@ -57,7 +57,7 @@ class KLEO_EXPORT AbstractKeyListSortFilterProxyModel : public QSortFilterProxyM
 protected:
     AbstractKeyListSortFilterProxyModel(const AbstractKeyListSortFilterProxyModel &);
 public:
-    explicit AbstractKeyListSortFilterProxyModel(QObject *parent = Q_NULLPTR);
+    explicit AbstractKeyListSortFilterProxyModel(QObject *parent = nullptr);
     ~AbstractKeyListSortFilterProxyModel();
 
     virtual AbstractKeyListSortFilterProxyModel *clone() const = 0;
@@ -79,7 +79,7 @@ class KLEO_EXPORT KeyListSortFilterProxyModel : public AbstractKeyListSortFilter
 protected:
     KeyListSortFilterProxyModel(const KeyListSortFilterProxyModel &);
 public:
-    explicit KeyListSortFilterProxyModel(QObject *parent = Q_NULLPTR);
+    explicit KeyListSortFilterProxyModel(QObject *parent = nullptr);
     ~KeyListSortFilterProxyModel();
 
     std::shared_ptr<const KeyFilter> keyFilter() const;

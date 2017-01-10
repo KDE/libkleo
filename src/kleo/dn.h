@@ -66,7 +66,7 @@ public:
 
     void setAttributeOrder(const QStringList &order);
 
-    DNAttributeOrderConfigWidget *configWidget(QWidget *parent = Q_NULLPTR) const;
+    DNAttributeOrderConfigWidget *configWidget(QWidget *parent = nullptr) const;
 
 private:
     class Private;

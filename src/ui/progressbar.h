@@ -47,7 +47,7 @@ class KLEO_EXPORT ProgressBar : public QProgressBar
 {
     Q_OBJECT
 public:
-    explicit ProgressBar(QWidget *parent = Q_NULLPTR);
+    explicit ProgressBar(QWidget *parent = nullptr);
 
 public Q_SLOTS:
     void slotProgress(const QString &message, int type, int current, int total);

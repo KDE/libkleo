@@ -61,8 +61,8 @@ class KLEO_EXPORT CryptoConfigModule : public KPageWidget
     Q_OBJECT
 public:
     enum Layout { TabbedLayout, IconListLayout, LinearizedLayout };
-    explicit CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent = Q_NULLPTR);
-    explicit CryptoConfigModule(QGpgME::CryptoConfig *config, Layout layout, QWidget *parent = Q_NULLPTR);
+    explicit CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent = nullptr);
+    explicit CryptoConfigModule(QGpgME::CryptoConfig *config, Layout layout, QWidget *parent = nullptr);
 
     bool hasError() const;
 
