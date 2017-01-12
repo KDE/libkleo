@@ -1081,10 +1081,29 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
     if (!job) {
         return Error();
     }
+
+#if 0
+    aheinecke: 2017.01.12:
+
+    For unkown reasons the new style connect fails at runtime
+    over library borders into QGpgME from the GpgME repo
+    when cross compiled for Windows and default arguments
+    are used in the Signal.
+
+    This was tested with gcc 4.9 (Mingw 3.0.2) and we could not
+    find an explanation for this. So until this is fixed or we understand
+    the problem we need to use the old style connect for QGpgME signals.
+
+    The new style connect of the canceled signal right below
+    works fine.
+
     connect(job, &QGpgME::ListAllKeysJob::result,
             q, [this](const GpgME::KeyListResult &res, const std::vector<GpgME::Key> &keys) {
                 listAllKeysJobDone(res, keys);
             });
+#endif
+    connect(job, SIGNAL(result(GpgME::KeyListResult,std::vector<GpgME::Key>)),
+            q, SLOT(listAllKeysJobDone(GpgME::KeyListResult,std::vector<GpgME::Key>)));
 
     connect(q, &RefreshKeysJob::canceled, job, &QGpgME::Job::slotCancel);
 
