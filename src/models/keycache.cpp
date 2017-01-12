@@ -1123,6 +1123,7 @@ bool KeyCache::initialized() const
 void KeyCache::Private::ensureCachePopulated() const
 {
     if (!m_initalized) {
+        q->startKeyListing();
         QEventLoop loop;
         loop.connect(q, &KeyCache::keyListingDone,
                      &loop, &QEventLoop::quit);
