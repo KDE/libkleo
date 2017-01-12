@@ -3,6 +3,7 @@
 
     This file is part of Kleopatra, the KDE keymanager
     Copyright (c) 2007,2008 Klarälvdalens Datakonsult AB
+                  2018 Intevation GmbH
 
     Kleopatra is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -40,6 +41,7 @@
 #include "kleo/dn.h"
 #include "utils/filesystemwatcher.h"
 
+#include <gpgme++/gpgmepp_version.h>
 #include <gpgme++/error.h>
 #include <gpgme++/key.h>
 #include <gpgme++/decryptionresult.h>
@@ -48,6 +50,7 @@
 
 #include <qgpgme/protocol.h>
 #include <qgpgme/listallkeysjob.h>
+#include <qgpgme/cryptoconfig.h>
 
 #include <gpg-error.h>
 
@@ -195,6 +198,52 @@ public:
 
     void ensureCachePopulated() const;
 
+    void updateGroupCache() {
+
+#if GPGMEPP_VERSION < 0x10900 // 1.9.0
+        // In GPGME before 1.9.0 string lists are
+        // broken from cryptoconfig.
+        return;
+#else
+        // Update Group Keys
+        // this is a quick thing as it only involves reading the config
+        // so no need for a job.
+
+        // According to Werner Koch groups are more of a hack to solve
+        // a valid usecase (e.g. several keys defined for an internal mailing list)
+        // that won't make it in the proper keylist interface. And using gpgconf
+        // was the suggested way to support groups.
+        auto conf = QGpgME::cryptoConfig();
+        if (!conf) {
+            return;
+        }
+
+        auto entry = conf->entry(QStringLiteral("gpg"),
+                                 QStringLiteral("Configuration"),
+                                 QStringLiteral("group"));
+        if (!entry) {
+            return;
+        }
+        QMap <QString, std::vector <Key> > groups;
+        for (const auto &value: entry->stringValueList()) {
+            const auto split = value.split(QLatin1Char('='));
+            if (split.size() != 2) {
+                qCDebug (LIBKLEO_LOG) << "Ignoring invalid group config:" << value;
+                continue;
+            }
+            const auto name = split[0];
+            const auto key = q->findByFingerprint(split[1].toLatin1().constData());
+            if (key.isNull()) {
+                qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << split[1] << "in group" << name;
+                continue;
+            }
+            auto vec = groups.value(name);
+            vec.push_back(key);
+        }
+        m_groups = groups;
+#endif
+    }
+
 private:
     QPointer<RefreshKeysJob> m_refreshJob;
     std::vector<std::shared_ptr<FileSystemWatcher> > m_fsWatchers;
@@ -208,6 +257,7 @@ private:
     } by;
     bool m_initalized;
     bool m_pgpOnly;
+    QMap <QString, std::vector<Key> > m_groups;
 };
 
 std::shared_ptr<const KeyCache> KeyCache::instance()
@@ -295,6 +345,7 @@ void KeyCache::Private::refreshJobDone(const KeyListResult &result)
 {
     q->enableFileSystemWatcher(true);
     m_initalized = true;
+    updateGroupCache();
     Q_EMIT q->keyListingDone(result);
 }
 
@@ -1137,6 +1188,82 @@ void KeyCache::Private::ensureCachePopulated() const
 bool KeyCache::pgpOnly() const
 {
     return d->m_pgpOnly;
+}
+
+static bool keyIsOk(const Key k)
+{
+    return !k.isExpired() && !k.isRevoked() && !k.isInvalid() && !k.isDisabled();
+}
+
+static bool uidIsOk(const UserID uid)
+{
+    return keyIsOk(uid.parent()) && !uid.isRevoked() && !uid.isInvalid();
+}
+
+static bool subkeyIsOk(const Subkey s)
+{
+    return !s.isRevoked() && !s.isInvalid() && !s.isDisabled();
+}
+
+std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto,
+                                                    bool needSign, bool needEncrypt)
+{
+    d->ensureCachePopulated();
+    std::vector<GpgME::Key> ret;
+    if (!addr) {
+        return ret;
+    }
+    Key keyC;
+    UserID uidC;
+    for (const Key &k: findByEMailAddress(addr)) {
+        if (proto != Protocol::UnknownProtocol && k.protocol() != proto) {
+            continue;
+        }
+        if (needEncrypt && !k.canEncrypt()) {
+            continue;
+        }
+        if (needSign && !k.canSign()) {
+            continue;
+        }
+        /* First get the uid that matches the mailbox */
+        for (const UserID &u: k.userIDs()) {
+            if (QString::fromUtf8(u.email()).toLower() != QString::fromUtf8(addr).toLower()) {
+                if (uidC.isNull()) {
+                    keyC = k;
+                    uidC = u;
+                } else if ((!uidIsOk(uidC) && uidIsOk(u)) || uidC.validity() < u.validity()) {
+                    /* Validity of the new key is better. */
+                    uidC = u;
+                    keyC = k;
+                } else if (uidC.validity() == u.validity() && uidIsOk(u)) {
+                    /* Both are the same check which one is newer. */
+                    time_t oldTime = 0;
+                    for (const Subkey s: keyC.subkeys()) {
+                        if ((needEncrypt && s.canEncrypt()) && subkeyIsOk(s)) {
+                            oldTime = s.creationTime();
+                        }
+                    }
+                    time_t newTime = 0;
+                    for (const Subkey s: k.subkeys()) {
+                        if ((needSign && s.canEncrypt()) && subkeyIsOk(s)) {
+                            newTime = s.creationTime();
+                        }
+                    }
+                    if (newTime > oldTime) {
+                        uidC = u;
+                        keyC = k;
+                    }
+                }
+            }
+        }
+    }
+    ret.push_back(keyC);
+    return ret;
+}
+
+std::vector<GpgME::Key> KeyCache::getGroupKeys(const QString &groupName) const
+{
+    return d->m_groups.value(groupName);
 }
 
 #include "moc_keycache_p.cpp"

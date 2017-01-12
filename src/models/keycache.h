@@ -100,6 +100,23 @@ public:
     std::vector<GpgME::Key> findByEMailAddress(const char *email) const;
     std::vector<GpgME::Key> findByEMailAddress(const std::string &email) const;
 
+    /** Look through the cache and search for the best key for a mailbox taking
+     * groups into account.
+     *
+     * The best key is the key with a UID for the provided mailbox that
+     * has the highest validity and a subkey that is capable for the given
+     * usage.
+     * If more then one key have a UID with the same validity
+     * the most recently created key is taken.
+     *
+     * The return value is a list because of groups. A group is
+     * a gnupg config entry that allows a user to configure multiple
+     * keys for a single mailbox. Only supported for OpenPGP currently.
+     *
+     * @returns only the "best" key for the mailbox, or a list if it is a group. */
+    std::vector<GpgME::Key> findBestByMailBox(const char *addr, GpgME::Protocol proto,
+                                              bool needSign, bool needEncrypt);
+
     const GpgME::Key &findByShortKeyID(const char *id) const;
     const GpgME::Key &findByShortKeyID(const std::string &id) const;
 
@@ -115,6 +132,11 @@ public:
 
     std::vector<GpgME::Key> findSigningKeysByMailbox(const QString &mb) const;
     std::vector<GpgME::Key> findEncryptionKeysByMailbox(const QString &mb) const;
+
+    /** Check for group keys.
+     *
+     * @returns A list of keys configured for groupName. Empty if no group cached.*/
+    std::vector<GpgME::Key> getGroupKeys(const QString &groupName) const;
 
     enum Option {
         NoOption = 0,
