@@ -62,6 +62,7 @@ private:
     class Private;
     friend class Private;
     Private * const d;
+    Q_PRIVATE_SLOT(d, void listAllKeysJobDone(GpgME::KeyListResult, std::vector<GpgME::Key>))
 };
 }
 
