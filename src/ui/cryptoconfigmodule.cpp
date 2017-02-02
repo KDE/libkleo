@@ -538,11 +538,11 @@ static const struct {
     const char *label;
     const char *name;
 } debugLevels[] = {
-    { I18N_NOOP("0 - None (no debugging at all)"),               "none"     },
-    { I18N_NOOP("1 - Basic (some basic debug messages)"),        "basic"    },
-    { I18N_NOOP("2 - Advanced (more verbose debug messages)"),   "advanced" },
-    { I18N_NOOP("3 - Expert (even more detailed messages)"),     "expert"   },
-    { I18N_NOOP("4 - Guru (all of the debug messages you can get)"), "guru" },
+    { I18N_NOOP("0 - None"), "none"},
+    { I18N_NOOP("1 - Basic"), "basic"},
+    { I18N_NOOP("2 - Verbose"), "advanced"},
+    { I18N_NOOP("3 - More Verbose"), "expert"},
+    { I18N_NOOP("4 - All"), "guru"},
 };
 static const unsigned int numDebugLevels = sizeof debugLevels / sizeof * debugLevels;
 
@@ -854,7 +854,7 @@ void Kleo::CryptoConfigEntryLDAPURL::setURLList(const QList<QUrl> &urlList)
 {
     mURLList = urlList;
     if (mURLList.isEmpty()) {
-        mLabel->setText(i18n("No server configured yet"));
+        mLabel->setText(i18n("None configured"));
     } else {
         mLabel->setText(i18np("1 server configured", "%1 servers configured", mURLList.count()));
     }
