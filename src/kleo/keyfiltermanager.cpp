@@ -111,11 +111,28 @@ public:
     {
         setRevoked(NotSet);
         setValidity(IsAtLeast);
-        setValidityReferenceLevel(UserID::Marginal); // Full?
+        setValidityReferenceLevel(UserID::Marginal);
         setSpecificity(UINT_MAX - 2); // overly high for ordering
 
         setName(i18n("Trusted Certificates"));
         setId(QStringLiteral("trusted-certificates"));
+        setMatchContexts(Filtering);
+    }
+};
+
+class FullCertificatesKeyFilter : public DefaultKeyFilter
+{
+public:
+    FullCertificatesKeyFilter()
+        : DefaultKeyFilter()
+    {
+        setRevoked(NotSet);
+        setValidity(IsAtLeast);
+        setValidityReferenceLevel(UserID::Full);
+        setSpecificity(UINT_MAX - 3);
+
+        setName(i18n("Fully Trusted Certificates"));
+        setId(QStringLiteral("full-certificates"));
         setMatchContexts(Filtering);
     }
 };
@@ -129,7 +146,7 @@ public:
         setHasSecret(NotSet);
         setValidity(IsAtMost);
         setValidityReferenceLevel(UserID::Never);
-        setSpecificity(UINT_MAX - 3); // overly high for ordering
+        setSpecificity(UINT_MAX - 4); // overly high for ordering
 
         setName(i18n("Other Certificates"));
         setId(QStringLiteral("other-certificates"));
@@ -141,9 +158,10 @@ public:
 static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
 {
     std::vector<std::shared_ptr<KeyFilter> > result;
-    result.reserve(3);
+    result.reserve(5);
     result.push_back(std::shared_ptr<KeyFilter>(new MyCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new TrustedCertificatesKeyFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new FullCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
     return result;
