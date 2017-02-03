@@ -31,10 +31,16 @@
 */
 
 #include "enum.h"
+#include "libkleo_debug.h"
+#include "models/keycache.h"
 #include <KLocalizedString>
+
+#include <gpgme++/key.h>
+#include <gpgme++/tofuinfo.h>
 
 #include <QString>
 #include <QStringList>
+#include <QEventLoop>
 
 static const struct {
     Kleo::CryptoMessageFormat format;
@@ -232,4 +238,98 @@ QString Kleo::signingPreferenceToLabel(SigningPreference pref)
     default:
         return i18nc("no specific preference", "<none>");
     }
+}
+
+Kleo::TrustLevel Kleo::trustLevel(const GpgME::Key &key)
+{
+    TrustLevel maxTl = Level0;
+    for (int i = 0, c = key.numUserIDs(); i < c; ++i) {
+        const auto tl = trustLevel(key.userID(i));
+        maxTl = qMax(maxTl, tl);
+        if (maxTl == Level4) {
+            break;
+        }
+    }
+
+    return maxTl;
+}
+
+namespace {
+
+bool hasTrustedSignature(const GpgME::UserID &uid)
+{
+    // lazily intialized cache
+    static std::shared_ptr<const Kleo::KeyCache> keyCache;
+    if (!keyCache) {
+        keyCache = Kleo::KeyCache::instance();
+    }
+    if (!keyCache->initialized()) {
+        QEventLoop el;
+        QObject::connect(keyCache.get(), &Kleo::KeyCache::keyListingDone,
+                         &el, &QEventLoop::quit);
+        el.exec();
+    }
+
+    const auto signatures = uid.signatures();
+    std::vector<std::string> sigKeyIDs;
+    std::transform(signatures.cbegin(), signatures.cend(),
+                   std::back_inserter(sigKeyIDs),
+                   std::bind(&GpgME::UserID::Signature::signerKeyID, std::placeholders::_1));
+
+    const auto keys = keyCache->findByKeyIDOrFingerprint(sigKeyIDs);
+    return std::any_of(keys.cbegin(), keys.cend(),
+                       [](const GpgME::Key &key) {
+                           return key.ownerTrust() == GpgME::Key::Ultimate;
+                       });
+}
+
+}
+
+Kleo::TrustLevel Kleo::trustLevel(const GpgME::UserID &uid)
+{
+    // Modelled after https://wiki.gnupg.org/EasyGpg2016/AutomatedEncryption,
+    // but modified to cover all cases, unlike the pseudocode in the document.
+    //
+    // TODO: Check whether the key comes from a trusted source (Cert/PKA/DANE/WKD)
+
+    switch (uid.validity()) {
+    case GpgME::UserID::Unknown:
+    case GpgME::UserID::Undefined:
+    case GpgME::UserID::Never:
+        // Not enough trust -> level 0
+        return Level0;
+
+    case GpgME::UserID::Marginal:
+        // Marginal trust without TOFU data means the key is still trusted
+        // through the Web of Trust -> level 2
+        if (uid.tofuInfo().isNull()) {
+            return Level2;
+        }
+        // Marginal trust with TOFU, level will depend on TOFU history
+        switch (uid.tofuInfo().validity()) {
+        case GpgME::TofuInfo::ValidityUnknown:
+        case GpgME::TofuInfo::Conflict:
+        case GpgME::TofuInfo::NoHistory:
+            // Marginal trust, but not enough history -> level 0
+            return Level0;
+        case GpgME::TofuInfo::LittleHistory:
+            // Marginal trust, but too little history -> level 1
+            return Level1;
+        case GpgME::TofuInfo::BasicHistory:
+        case GpgME::TofuInfo::LargeHistory:
+            // Marginal trust and enough history -> level 2
+            return Level2;
+        }
+
+    case GpgME::UserID::Full:
+        // Full trust, trust level depends whether the UserID is signed with
+        // at least one key with Ultimate ownertrust.
+        return hasTrustedSignature(uid) ? Level4 : Level3;
+
+    case GpgME::UserID::Ultimate:
+        // Ultimate trust -> leve 4
+        return Level4;
+    }
+
+    Q_UNREACHABLE();
 }
