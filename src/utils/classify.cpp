@@ -173,7 +173,7 @@ unsigned int Kleo::classify(const QStringList &fileNames)
         return 0;
     }
     unsigned int result = classify(fileNames.front());
-    Q_FOREACH (const QString &fileName, fileNames) {
+    for (const QString &fileName : fileNames) {
         result &= classify(fileName);
     }
     return result;

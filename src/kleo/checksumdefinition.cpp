@@ -304,7 +304,7 @@ QStringList ChecksumDefinition::verifyCommandArguments(const QStringList &files)
 static QByteArray make_input(const QStringList &files, char sep)
 {
     QByteArray result;
-    Q_FOREACH (const QString &file, files) {
+    for (const QString &file : files) {
         result += QFile::encodeName(file);
         result += sep;
     }
@@ -384,7 +384,7 @@ std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecks
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Checksum Definition #")));
     result.reserve(groups.size());
-    Q_FOREACH (const QString &group, groups)
+    for (const QString &group : groups)
         try {
             const std::shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
             result.push_back(ad);

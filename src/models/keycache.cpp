@@ -761,7 +761,7 @@ void KeyCache::remove(const Key &key)
 
 void KeyCache::remove(const std::vector<Key> &keys)
 {
-    Q_FOREACH (const Key &key, keys) {
+    for (const Key &key : keys) {
         remove(key);
     }
 }
@@ -849,7 +849,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     pairs.reserve(sorted.size());
     Q_FOREACH (const Key &key, sorted) {
         const std::vector<std::string> emails = ::emails(key);
-        Q_FOREACH (const std::string &e, emails) {
+        for (const std::string &e : emails) {
             pairs.push_back(std::make_pair(e, key));
         }
     }

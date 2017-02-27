@@ -129,9 +129,9 @@ int main(int argc, char **argv)
                     case QGpgME::CryptoConfigEntry::ArgType_LDAPURL: {
                         // (marc) if an entry isn't optional, you have to unset it for the default to take effect, so this Q_ASSERT is wrong:
                         // Q_ASSERT( entry->isOptional() ); // empty lists must be allowed (see https://www.intevation.de/roundup/aegypten/issue121)
-                        QList<QUrl> urls = entry->urlValueList();
+                        const QList<QUrl> urls = entry->urlValueList();
                         cout << " url values ";
-                        Q_FOREACH (const QUrl &url, urls) {
+                        for (const QUrl &url : urls) {
                             cout << url.toString().toLocal8Bit().constData() << " ";
                         }
                         cout << endl;

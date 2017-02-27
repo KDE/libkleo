@@ -57,7 +57,8 @@ Key KeyRearrangeColumnsProxyModel::key(const QModelIndex &idx) const
 std::vector<GpgME::Key> KeyRearrangeColumnsProxyModel::keys(const QList<QModelIndex> &idxs) const
 {
     QList<QModelIndex> srcIdxs;
-    Q_FOREACH (const QModelIndex idx, idxs) {
+    srcIdxs.reserve(idxs.count());
+    for (const QModelIndex idx : idxs) {
         srcIdxs << mapToSource(idx);
     }
     return klm()->keys(srcIdxs);
@@ -73,7 +74,8 @@ QList<QModelIndex> KeyRearrangeColumnsProxyModel::indexes(const std::vector<GpgM
 {
     QList<QModelIndex> myIdxs;
     const QList <QModelIndex> srcIdxs = klm()->indexes(keys);
-    Q_FOREACH (const QModelIndex idx, srcIdxs) {
+    myIdxs.reserve(srcIdxs.count());
+    for (const QModelIndex idx : srcIdxs) {
         myIdxs << mapFromSource(idx);
     }
     return myIdxs;

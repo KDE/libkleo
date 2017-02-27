@@ -651,7 +651,7 @@ DirectoryServicesWidget::Protocols DirectoryServicesWidget::readOnlyProtocols() 
 
 void DirectoryServicesWidget::addOpenPGPServices(const QList<QUrl> &urls)
 {
-    Q_FOREACH (const QUrl &url, urls) {
+    for (const QUrl &url : urls) {
         d->model.addOpenPGPService(url);
     }
 }
@@ -668,7 +668,7 @@ QList<QUrl> DirectoryServicesWidget::openPGPServices() const
 
 void DirectoryServicesWidget::addX509Services(const QList<QUrl> &urls)
 {
-    Q_FOREACH (const QUrl &url, urls) {
+    for (const QUrl &url : urls) {
         d->model.addX509Service(url);
     }
 }

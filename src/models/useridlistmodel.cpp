@@ -282,7 +282,7 @@ QVariant UserIDListModel::data(const QModelIndex &index, int role) const
 
 QVector<UserID> UserIDListModel::userIDs (const QModelIndexList &indexs) const {
     QVector<GpgME::UserID> ret;
-    Q_FOREACH (const QModelIndex &idx, indexs) {
+    for (const QModelIndex &idx : indexs) {
         if (!idx.isValid()) {
             continue;
         }
@@ -296,7 +296,7 @@ QVector<UserID> UserIDListModel::userIDs (const QModelIndexList &indexs) const {
 
 QVector<UserID::Signature> UserIDListModel::signatures (const QModelIndexList &indexs) const {
     QVector<GpgME::UserID::Signature> ret;
-    Q_FOREACH (const QModelIndex &idx, indexs) {
+    for (const QModelIndex &idx : indexs) {
         if (!idx.isValid()) {
             continue;
         }

@@ -81,7 +81,7 @@ FileSystemWatcher::Private::Private(FileSystemWatcher *qq, const QStringList &pa
 
 static bool is_matching(const QString &file, const QStringList &list)
 {
-    Q_FOREACH (const QString &entry, list)
+    for (const QString &entry : list)
         if (QRegExp(entry, Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(file)) {
             return true;
         }
@@ -285,7 +285,7 @@ static QStringList resolve(const QStringList &paths, const QStringList &blacklis
         return QStringList();
     }
     QStringList result;
-    Q_FOREACH (const QString &path, paths)
+    for (const QString &path : paths)
         if (QDir(path).exists()) {
             result += list_dir_absolute(path, blacklist, whitelist);
         }
@@ -318,7 +318,7 @@ void FileSystemWatcher::removePaths(const QStringList &paths)
     if (paths.empty()) {
         return;
     }
-    Q_FOREACH (const QString &i, paths) {
+    for (const QString &i : paths) {
         d->m_paths.removeAll(i);
     }
     if (d->m_watcher) {
