@@ -314,9 +314,9 @@ int main(int argc, char **argv)
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
             Q_ASSERT(entry->isList());
-            QList<QUrl> val = entry->urlValueList();
+            const QList<QUrl> val = entry->urlValueList();
             cout << "URL list initially: ";
-            Q_FOREACH (const QUrl &url, val) {
+            for (const QUrl &url : val) {
                 cout << url.toString().toLocal8Bit().constData() << ", ";
             }
             cout << endl;
@@ -345,9 +345,9 @@ int main(int argc, char **argv)
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
             Q_ASSERT(entry->isList());
             // Get QUrl form
-            QList<QUrl> newlst = entry->urlValueList();
+            const QList<QUrl> newlst = entry->urlValueList();
             cout << "URL list now: ";
-            Q_FOREACH (const QUrl &url, newlst) {
+            for (const QUrl &url : newlst) {
                 cout << url.toString().toLocal8Bit().constData() << endl;
             }
             cout << endl;
