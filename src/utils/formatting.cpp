@@ -750,7 +750,7 @@ QString Formatting::usageString(const Subkey &sub)
 
 QString Formatting::summaryLine(const Key &key)
 {
-    return keyToString(key) + QStringLiteral(" ") +
+    return keyToString(key) + QLatin1Char(' ') +
            i18nc("First arg is the Key Protocol OpenPGP or S/MIME, second arg is the creation date.",
                  "(%1 - created: %2)", displayName(key.protocol()) ,
                  Formatting::creationDateString(key));
