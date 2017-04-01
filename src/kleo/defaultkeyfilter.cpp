@@ -33,6 +33,7 @@
 
 #include "defaultkeyfilter.h"
 
+#include <functional>
 #include <memory>
 
 using namespace GpgME;
