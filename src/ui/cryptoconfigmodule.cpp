@@ -62,6 +62,7 @@
 #include <QGroupBox>
 
 #include <memory>
+#include <limits>
 
 using namespace Kleo;
 
@@ -702,9 +703,8 @@ Kleo::CryptoConfigEntrySpinBox::CryptoConfigEntrySpinBox(
         label->setEnabled(false);
         mNumInput->setEnabled(false);
     } else {
-        if (mKind == UInt || mKind == ListOfNone) {
-            mNumInput->setMinimum(0);
-        }
+        mNumInput->setMinimum(mKind == Int ? std::numeric_limits<int>::min() : 0);
+        mNumInput->setMaximum(std::numeric_limits<int>::max());
         connect(mNumInput, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &CryptoConfigEntrySpinBox::slotChanged);
     }
 }
