@@ -296,16 +296,16 @@ QString Formatting::toolTip(const Key &key, int flags)
     if (flags & Validity) {
         if (key.protocol() == OpenPGP || (key.keyListMode() & Validate))
             if (key.isRevoked()) {
-                result += make_red(i18n("This certificate has been revoked."));
+                result = make_red(i18n("This certificate has been revoked."));
             } else if (key.isExpired()) {
-                result += make_red(i18n("This certificate has expired."));
+                result = make_red(i18n("This certificate has expired."));
             } else if (key.isDisabled()) {
-                result += i18n("This certificate has been disabled locally.");
+                result = i18n("This certificate has been disabled locally.");
             } else {
-                result += i18n("This certificate is currently valid.");
+                result = i18n("This certificate is currently valid.");
             }
         else {
-            result += i18n("The validity of this certificate cannot be checked at the moment.");
+            result = i18n("The validity of this certificate cannot be checked at the moment.");
         }
     }
     if (flags == Validity) {
