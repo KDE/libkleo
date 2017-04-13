@@ -61,6 +61,7 @@ add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 remove_definitions( -DQT_NO_CAST_FROM_BYTEARRAY )
 remove_definitions( -DQT_NO_CAST_FROM_ASCII )
 remove_definitions( -DQT_NO_CAST_TO_ASCII )
+add_definitions( -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT )
 
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Libkleo")
