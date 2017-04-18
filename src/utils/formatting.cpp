@@ -253,19 +253,19 @@ QString format_keyusage(const Key &key)
     QStringList capabilities;
     if (key.canReallySign()) {
         if (key.isQualified()) {
-            capabilities.push_back(i18n("Signing EMails and Files (Qualified)"));
+            capabilities.push_back(i18n("Signing (Qualified)"));
         } else {
-            capabilities.push_back(i18n("Signing EMails and Files"));
+            capabilities.push_back(i18n("Signing"));
         }
     }
     if (key.canEncrypt()) {
-        capabilities.push_back(i18n("Encrypting EMails and Files"));
+        capabilities.push_back(i18n("Encryption"));
     }
     if (key.canCertify()) {
-        capabilities.push_back(i18n("Certifying other Certificates"));
+        capabilities.push_back(i18n("Certifying Identities"));
     }
     if (key.canAuthenticate()) {
-        capabilities.push_back(i18n("Authenticate against Servers"));
+        capabilities.push_back(i18n("SSH Authentication"));
     }
     return capabilities.join(QStringLiteral(", "));
 }
@@ -296,16 +296,26 @@ QString Formatting::toolTip(const Key &key, int flags)
     if (flags & Validity) {
         if (key.protocol() == OpenPGP || (key.keyListMode() & Validate))
             if (key.isRevoked()) {
-                result = make_red(i18n("This certificate has been revoked."));
+                result = make_red(i18n("Revoked"));
             } else if (key.isExpired()) {
-                result = make_red(i18n("This certificate has expired."));
+                result = make_red(i18n("Expired"));
             } else if (key.isDisabled()) {
-                result = i18n("This certificate has been disabled locally.");
+                result = i18n("Disabled");
             } else {
-                result = i18n("This certificate is currently valid.");
+                unsigned int fullyTrusted = 0;
+                for (const auto &uid: key.userIDs()) {
+                    if (uid.validity() >= UserID::Validity::Full) {
+                        fullyTrusted++;
+                    }
+                }
+                if (fullyTrusted == key.numUserIDs()) {
+                    result = i18n("All identities are certified.");
+                } else {
+                    result = i18np("1 identity is not certified.", "%1 identities are not certified.", key.numUserIDs() - fullyTrusted);
+                }
             }
         else {
-            result = i18n("The validity of this certificate cannot be checked at the moment.");
+            result = i18n("The validity cannot be checked at the moment.");
         }
     }
     if (flags == Validity) {
@@ -333,16 +343,20 @@ QString Formatting::toolTip(const Key &key, int flags)
                     result += format_row(i18n("a.k.a."), prettyUserID(*it));
                 }
     }
-    if (flags & ExpiryDates)
-        result += format_row(i18n("Validity"),
-                             subkey.neverExpires()
-                             ? i18n("from %1 until forever", time_t2string(subkey.creationTime()))
-                             : i18n("from %1 through %2", time_t2string(subkey.creationTime()), time_t2string(subkey.expirationTime())));
+    if (flags & ExpiryDates) {
+        result += format_row(i18n("Created"), time_t2string(subkey.creationTime()));
+
+        if (key.isExpired()) {
+            result += format_row(i18n("Expired"), time_t2string(subkey.expirationTime()));
+        } else if (!subkey.neverExpires()) {
+            result += format_row(i18n("Expires"), time_t2string(subkey.expirationTime()));
+        }
+    }
     if (flags & CertificateType) {
-        result += format_row(i18n("Certificate type"), format_keytype(key));
+        result += format_row(i18n("Type"), format_keytype(key));
     }
     if (flags & CertificateUsage) {
-        result += format_row(i18n("Certificate usage"), format_keyusage(key));
+        result += format_row(i18n("Usage"), format_keyusage(key));
     }
     if (flags & KeyID) {
         result += format_row(i18n("Key-ID"), QString::fromLatin1(key.shortKeyID()));
