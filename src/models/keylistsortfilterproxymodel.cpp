@@ -195,12 +195,11 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
             return false;
         }
     } else {
-        // By default match name and email of any UID
+        // By default match against the full uid data (name / email / comment / dn)
         bool match = false;
-        Q_FOREACH(const auto uid, key.userIDs()) {
-            const auto name = QString::fromUtf8(uid.name());
-            const auto email = QString::fromUtf8(uid.email());
-            if (name.contains(rx) || email.contains(rx)) {
+        for (const auto &uid: key.userIDs()) {
+            const auto id = QString::fromUtf8(uid.id());
+            if (id.contains(rx)) {
                 match = true;
                 break;
             }
