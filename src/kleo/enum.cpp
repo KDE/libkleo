@@ -42,6 +42,8 @@
 #include <QStringList>
 #include <QEventLoop>
 
+#include <functional>
+
 static const struct {
     Kleo::CryptoMessageFormat format;
     const char *displayName;
