@@ -3,7 +3,8 @@
 
     This file is part of libkleopatra, the KDE keymanagement library
     Copyright (c) 2004 Klarälvdalens Datakonsult AB
-                  2016 Intevation GmbH
+    2016 by Bundesamt für Sicherheit in der Informationstechnik
+    Software engineering by Intevation GmbH
 
     Libkleopatra is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
