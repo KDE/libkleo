@@ -180,10 +180,10 @@ void FileSystemWatcher::Private::onTimeout()
 
     Q_EMIT q->triggered();
 
-    Q_FOREACH (const QString &i, dirs) {
+    for (const QString &i : qAsConst(dirs)) {
         Q_EMIT q->directoryChanged(i);
     }
-    Q_FOREACH (const QString &i, files) {
+    for (const QString &i : qAsConst(files)) {
         Q_EMIT q->fileChanged(i);
     }
 }

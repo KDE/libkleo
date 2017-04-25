@@ -237,7 +237,7 @@ KeyCache::~KeyCache() {}
 
 void KeyCache::enableFileSystemWatcher(bool enable)
 {
-    Q_FOREACH (const auto &i, d->m_fsWatchers) {
+    for (const auto &i : qAsConst(d->m_fsWatchers)) {
         i->setEnabled(enable);
     }
 }

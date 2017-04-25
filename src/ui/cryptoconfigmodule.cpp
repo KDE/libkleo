@@ -919,7 +919,7 @@ QString Kleo::assembleKeyserver(const ParsedKeyserver &keyserver)
     }
     QString result = keyserver.url;
     typedef QPair<QString, QString> Pair;
-    Q_FOREACH (const Pair &pair, keyserver.options)
+    for (const Pair &pair : qAsConst(keyserver.options))
         if (pair.second.isNull()) {
             result += QLatin1Char(' ') + pair.first;
         } else {
