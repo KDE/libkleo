@@ -36,6 +36,9 @@
 #include <gpgme++/key.h>
 #include <gpgme++/importresult.h>
 
+#include <QGpgME/CryptoConfig>
+#include <QGpgME/Protocol>
+
 #include <KLocalizedString>
 #include <KEmailAddress>
 
@@ -310,8 +313,12 @@ QString Formatting::toolTip(const Key &key, int flags)
                 }
                 if (fullyTrusted == key.numUserIDs()) {
                     result = i18n("All identities are certified.");
+                    const auto compliance = complianceStringForKey(key);
+                    if (!compliance.isEmpty()) {
+                        result += QStringLiteral("<br>") + compliance;
+                    }
                 } else {
-                    result = i18np("1 identity is not certified.", "%1 identities are not certified.", key.numUserIDs() - fullyTrusted);
+                    result = i18np("One identity is not certified.", "%1 identities are not certified.", key.numUserIDs() - fullyTrusted);
                 }
             }
         else {
@@ -803,4 +810,46 @@ QString Formatting::validity(const UserID &uid)
         default:
             return i18n("There is no indication that this certificate belongs to this recipient.");
     }
+}
+
+QString Formatting::complianceMode()
+{
+    const QGpgME::CryptoConfig *const config = QGpgME::cryptoConfig();
+    if (!config) {
+        return QString();
+    }
+    const QGpgME::CryptoConfigEntry *const entry = config->entry(QStringLiteral("gpg"), QStringLiteral("Configuration"), QStringLiteral("compliance"));
+
+    if (!entry || entry->stringValue() == QStringLiteral("gnupg")) {
+        return QString();
+    }
+    return entry->stringValue();
+}
+
+QString Formatting::complianceStringForKey(const GpgME::Key &key)
+{
+    // There will likely be more in the future for other institutions
+    // for now we only have DE-VS
+    if (complianceMode() == QStringLiteral("de-vs")) {
+        bool compliant = false;
+        for (const auto &sub: key.subkeys()) {
+            if (sub.isExpired() || sub.isRevoked()) {
+                // Ignore old subkeys
+                continue;
+            }
+            if (!sub.isDeVs()) {
+                compliant = false;
+                break;
+            }
+            compliant = true;
+        }
+        if (compliant) {
+            return i18nc("VS-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant with that..",
+                         "May be used for VS-compliant communication.");
+        } else {
+            return i18nc("VS-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant to that..",
+                         "May <b>not</b> be used for VS-compliant communication.");
+        }
+    }
+    return QString();
 }

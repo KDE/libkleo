@@ -132,6 +132,13 @@ KLEO_EXPORT QString usageString(const GpgME::Subkey &subkey);
 KLEO_EXPORT QString summaryLine(const GpgME::Key &key);
 
 KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
+
+/* The compliance mode of the gnupg system. Empty if compliance
+ * mode is not set. */
+KLEO_EXPORT QString complianceMode();
+
+/* A sentence if the key confirms to the current compliance mode */
+KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
 }
 }
 
