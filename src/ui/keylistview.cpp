@@ -102,7 +102,7 @@ Kleo::KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const Displ
     for (int col = 0; !columnStrategy->title(col).isEmpty(); ++col) {
         headerItem()->setText(col, columnStrategy->title(col));
         header()->resizeSection(col, columnStrategy->width(col, fm));
-        header()->setResizeMode(col, columnStrategy->resizeMode(col));
+        header()->setSectionResizeMode(col, columnStrategy->resizeMode(col));
     }
 
     setAllColumnsShowFocus(true);

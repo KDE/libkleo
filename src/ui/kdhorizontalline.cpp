@@ -171,7 +171,7 @@ void KDHorizontalLine::paintEvent(QPaintEvent *e)
         }
         style()->drawItemText(&paint, r, Qt::TextShowMnemonic | Qt::AlignHCenter | va, palette(),
                               isEnabled(), mTitle);
-        paint.setClipRegion(e->region().subtract(r));     // clip everything but title
+        paint.setClipRegion(e->region().subtracted(r));     // clip everything but title
     }
     drawFrame(&paint);
 }
