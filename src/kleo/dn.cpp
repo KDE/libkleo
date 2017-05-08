@@ -565,7 +565,7 @@ const Kleo::DNAttributeMapper *Kleo::DNAttributeMapper::instance()
 QString Kleo::DNAttributeMapper::name2label(const QString &s) const
 {
     const std::map<const char *, const char *, ltstr>::const_iterator it
-        = d->map.find(s.trimmed().toUpper().toLatin1());
+        = d->map.find(s.trimmed().toUpper().toLatin1().constData());
     if (it == d->map.end()) {
         return QString();
     }
