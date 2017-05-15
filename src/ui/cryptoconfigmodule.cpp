@@ -335,10 +335,6 @@ Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
     for (QStringList::const_iterator it = entries.begin(), end = entries.end(); it != end; ++it) {
         QGpgME::CryptoConfigEntry *entry = group->entry(*it);
         Q_ASSERT(entry);
-        if (entry->level() > QGpgME::CryptoConfigEntry::Level_Advanced) {
-            qCDebug(KLEO_UI_LOG) << "entry" << *it << "too advanced, skipping";
-            continue;
-        }
         CryptoConfigEntryGUI *entryGUI =
             CryptoConfigEntryGUIFactory::createEntryGUI(module, entry, *it, glay, widget);
         if (entryGUI) {
@@ -479,8 +475,10 @@ Kleo::CryptoConfigEntryGUI::CryptoConfigEntryGUI(
 QString Kleo::CryptoConfigEntryGUI::description() const
 {
     QString descr = mEntry->description();
-    if (descr.isEmpty()) { // shouldn't happen
-        return QStringLiteral("<%1>").arg(mName);
+    if (descr.isEmpty()) { // happens for expert options
+        // String does not need to be translated because the options itself
+        // are also not translated
+        return QStringLiteral("\"%1\"").arg(mName);
     }
     if (i18nc("Translate this to 'yes' or 'no' (use the English words!) "
               "depending on whether your language uses "
