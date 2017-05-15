@@ -2,7 +2,8 @@
     directoryserviceswidget.cpp
 
     This file is part of Kleopatra, the KDE keymanager
-    Copyright (c) 2001,2002,2004 Klar�vdalens Datakonsult AB
+    Copyright (c) 2001,2002,2004 Klarävdalens Datakonsult AB
+    Copyright (c) 2017 Bundesamnt für Sicherheit in der Informationstechnik
 
     Kleopatra is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -34,6 +35,8 @@
 
 #include "ui_directoryserviceswidget.h"
 
+#include "kleo_ui_debug.h"
+
 #include <KLocalizedString>
 
 #include <QItemDelegate>
@@ -50,6 +53,8 @@
 #include <algorithm>
 #include <functional>
 
+#include <gpgme++/engineinfo.h>
+
 using namespace Kleo;
 
 namespace
@@ -65,9 +70,14 @@ static QUrl defaultX509Service()
 static QUrl defaultOpenPGPService()
 {
     QUrl url;
-    url.setScheme(QStringLiteral("hkp"));
-    url.setHost(QStringLiteral("keys.gnupg.net"));
-    return url;
+    if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() < "2.1.16") {
+        url.setScheme(QStringLiteral("hkp"));
+        url.setHost(QStringLiteral("keys.gnupg.net"));
+    } else {
+        url.setScheme(QStringLiteral("hkps"));
+        url.setHost(QStringLiteral("hkps.pool.sks-keyservers.net"));
+    }
+   return url;
 }
 
 static bool is_ldap_scheme(const QUrl &url)
@@ -129,11 +139,6 @@ static unsigned short display_port(const QUrl &url)
     }
 }
 
-static bool is_default_port(const QUrl &url)
-{
-    return display_port(url) == default_port(display_scheme(url));
-}
-
 static QRect calculate_geometry(const QRect &cell, const QSize &sizeHint)
 {
     const int height = qMax(cell.height(), sizeHint.height());
@@ -141,6 +146,11 @@ static QRect calculate_geometry(const QRect &cell, const QSize &sizeHint)
                  cell.width(), height);
 }
 
+/* The Model contains a bit historic cruft because in the past it was
+ * thought to be a good idea to combine openPGP and X509 in a single
+ * table although while you can have multiple X509 Keyservers there can
+ * only be one OpenPGP Keyserver. So the OpenPGP Keyserver is now a
+ * single lineedit. */
 class Model : public QAbstractTableModel
 {
     Q_OBJECT
@@ -148,23 +158,10 @@ public:
     explicit Model(QObject *parent = nullptr)
         : QAbstractTableModel(parent),
           m_items(),
-          m_openPGPReadOnly(false),
           m_x509ReadOnly(false),
-          m_schemes(DirectoryServicesWidget::AllSchemes)
+          m_schemes(DirectoryServicesWidget::LDAP)
     {
 
-    }
-
-    void setOpenPGPReadOnly(bool ro)
-    {
-        if (ro == m_openPGPReadOnly) {
-            return;
-        }
-        m_openPGPReadOnly = ro;
-        for (unsigned int row = 0, end = rowCount(); row != end; ++row)
-            if (isOpenPGPService(row)) {
-                Q_EMIT dataChanged(index(row, 0), index(row, NumColumns));
-            }
     }
 
     void setX509ReadOnly(bool ro)
@@ -173,36 +170,24 @@ public:
             return;
         }
         m_x509ReadOnly = ro;
-        for (unsigned int row = 0, end = rowCount(); row != end; ++row)
-            if (isX509Service(row)) {
-                Q_EMIT dataChanged(index(row, 0), index(row, NumColumns));
-            }
+        for (unsigned int row = 0, end = rowCount(); row != end; ++row) {
+            Q_EMIT dataChanged(index(row, 0), index(row, NumColumns));
+        }
     }
 
-    QModelIndex addOpenPGPService(const QUrl &url, bool force = false)
-    {
-        return addService(url, false, true, force);
-    }
     QModelIndex addX509Service(const QUrl &url, bool force = false)
     {
-        return addService(url, true, false, force);
-    }
-    QModelIndex addService(const QUrl &url, bool x509, bool pgp, bool force)
-    {
-        const std::vector<Item>::iterator it = force ? m_items.end() : findExistingUrl(url);
+        const auto it = force ? m_items.end() : findExistingUrl(url);
         unsigned int row;
         if (it != m_items.end()) {
             // existing item:
-            it->x509 |= x509;
-            it->pgp  |= pgp;
             row = it - m_items.begin();
-            Q_EMIT dataChanged(index(row, std::min(X509, OpenPGP)), index(row, std::max(X509, OpenPGP)));
+            Q_EMIT dataChanged(index(row, 0), index(row, NumColumns));
         } else {
             // append new item
-            const Item item = { url, x509, pgp };
             row = m_items.size();
             beginInsertRows(QModelIndex(), row, row);
-            m_items.push_back(item);
+            m_items.push_back(url);
             endInsertRows();
         }
         return index(row, firstEditableColumn(row));
@@ -212,34 +197,17 @@ public:
     {
         return m_items.size();
     }
-    bool isOpenPGPService(unsigned int row) const
-    {
-        return row < m_items.size() && m_items[row].pgp;
-    }
-    bool    isX509Service(unsigned int row) const
-    {
-        return row < m_items.size() && m_items[row].x509 && isLdapRow(row);
-    }
     QUrl          service(unsigned int row) const
     {
-        return row < m_items.size() ?  m_items[row].url : QUrl();
-    }
-
-    bool isReadOnlyRow(unsigned int row) const
-    {
-        return (isX509Service(row) && m_x509ReadOnly)
-               || (isOpenPGPService(row) && m_openPGPReadOnly);
+        return row < m_items.size() ?  m_items[row] : QUrl();
     }
 
     enum Columns {
-        Scheme,
         Host,
         Port,
         BaseDN,
         UserName,
         Password,
-        X509,
-        OpenPGP,
 
         NumColumns
     };
@@ -252,9 +220,6 @@ public:
 
         beginInsertRows(QModelIndex(), row + 1, row + 1);
         m_items.insert(m_items.begin() + row + 1, m_items[row]);
-        if (m_items[row].pgp) {
-            m_items[row + 1].pgp = false;    // enforce pgp exclusivitiy
-        }
         endInsertRows();
         return index(row + 1, 0);
     }
@@ -297,7 +262,6 @@ public:
 
 private:
     bool doSetData(unsigned int row, unsigned int column, const QVariant &value, int role);
-    void setExclusivePgpFlag(unsigned int row);
 
     static QString toolTipForColumn(int column);
     bool isLdapRow(unsigned int row) const;
@@ -307,23 +271,17 @@ private:
     }
 
 private:
-    struct Item {
-        QUrl url;
-        bool x509 : 1;
-        bool pgp  : 1;
-    };
-    std::vector<Item> m_items;
-    bool m_openPGPReadOnly : 1;
+    std::vector<QUrl> m_items;
     bool m_x509ReadOnly    : 1;
     DirectoryServicesWidget::Schemes m_schemes;
 
 private:
-    std::vector<Item>::iterator findExistingUrl(const QUrl &url)
+    std::vector<QUrl>::iterator findExistingUrl(const QUrl &url)
     {
         return std::find_if(m_items.begin(), m_items.end(),
-                            [&url](const Item &item) {
+                            [&url](const QUrl &item) {
                                 const QUrl &lhs = url;
-                                const QUrl &rhs = item.url;
+                                const QUrl &rhs = item;
                                 return QString::compare(display_scheme(lhs), display_scheme(rhs), Qt::CaseInsensitive) == 0
                                     && QString::compare(display_host(lhs), display_host(rhs), Qt::CaseInsensitive) == 0
                                     && lhs.port() == rhs.port()
@@ -341,7 +299,7 @@ class Delegate : public QItemDelegate
 public:
     explicit Delegate(QObject *parent = nullptr)
         : QItemDelegate(parent),
-          m_schemes(DirectoryServicesWidget::AllSchemes)
+          m_schemes(DirectoryServicesWidget::LDAP)
     {
 
     }
@@ -358,8 +316,6 @@ public:
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &idx) const Q_DECL_OVERRIDE
     {
         switch (idx.column()) {
-        case Model::Scheme:
-            return createSchemeWidget(parent);
         case Model::Port:
             return createPortWidget(parent);
         }
@@ -369,9 +325,6 @@ public:
     void setEditorData(QWidget *editor, const QModelIndex &idx) const Q_DECL_OVERRIDE
     {
         switch (idx.column()) {
-        case Model::Scheme:
-            setSchemeEditorData(qobject_cast<QComboBox *>(editor), idx.data(Qt::EditRole).toString());
-            break;
         case Model::Port:
             setPortEditorData(qobject_cast<QSpinBox *>(editor), idx.data(Qt::EditRole).toInt());
             break;
@@ -384,9 +337,6 @@ public:
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &idx) const Q_DECL_OVERRIDE
     {
         switch (idx.column()) {
-        case Model::Scheme:
-            setSchemeModelData(qobject_cast<QComboBox *>(editor), model, idx);
-            break;
         case Model::Port:
             setPortModelData(qobject_cast<QSpinBox *>(editor), model, idx);
             break;
@@ -398,7 +348,7 @@ public:
 
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE
     {
-        if (index.column() == Model::Scheme || index.column() == Model::Port) {
+        if (index.column() == Model::Port) {
             editor->setGeometry(calculate_geometry(option.rect, editor->sizeHint()));
         } else {
             QItemDelegate::updateEditorGeometry(editor, option, index);
@@ -406,31 +356,6 @@ public:
     }
 
 private:
-    QWidget *createSchemeWidget(QWidget *parent) const
-    {
-        if (!m_schemes) {
-            return nullptr;
-        }
-        QComboBox *cb = new QComboBox(parent);
-        for (unsigned int i = 0; i < numProtocols; ++i)
-            if (m_schemes & protocols[i].base) {
-                cb->addItem(i18n(protocols[i].label), QLatin1String(protocols[i].label));
-            }
-        Q_ASSERT(cb->count() > 0);
-        return cb;
-    }
-    void setSchemeEditorData(QComboBox *cb, const QString &scheme) const
-    {
-        Q_ASSERT(cb);
-        cb->setCurrentIndex(cb->findData(scheme, Qt::UserRole, Qt::MatchFixedString));
-    }
-    void setSchemeModelData(const QComboBox *cb, QAbstractItemModel *model, const QModelIndex &idx) const
-    {
-        Q_ASSERT(cb);
-        Q_ASSERT(model);
-        model->setData(idx, cb->itemData(cb->currentIndex()));
-    }
-
     QWidget *createPortWidget(QWidget *parent) const
     {
         QSpinBox *sb = new QSpinBox(parent);
@@ -471,34 +396,19 @@ public:
         ui.treeView->setModel(&model);
         ui.treeView->setItemDelegate(&delegate);
 
+        ui.pgpKeyserver->setPlaceholderText(defaultOpenPGPService().toString());
+
         connect(&model, &QAbstractItemModel::dataChanged, q, &DirectoryServicesWidget::changed);
         connect(&model, &QAbstractItemModel::rowsInserted, q, &DirectoryServicesWidget::changed);
         connect(&model, &QAbstractItemModel::rowsRemoved, q, &DirectoryServicesWidget::changed);
         connect(ui.treeView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 q, SLOT(slotSelectionChanged()));
+        connect(ui.pgpKeyserver, &QLineEdit::textChanged, q, &DirectoryServicesWidget::changed);
 
         slotShowUserAndPasswordToggled(false);
     }
 
 private:
-    void slotNewClicked()
-    {
-        int row = selectedRow();
-        if (row < 0) {
-            row = currentRow();
-        }
-        if (row < 0 || model.isReadOnlyRow(row))
-            if (protocols & OpenPGPProtocol) {
-                slotNewOpenPGPClicked();
-            } else if (protocols & X509Protocol) {
-                slotNewX509Clicked();
-            } else {
-                Q_ASSERT(!"This should not happen.");
-            }
-        else {
-            edit(model.duplicateRow(row));
-        }
-    }
     void edit(const QModelIndex &index)
     {
         if (index.isValid()) {
@@ -510,10 +420,6 @@ private:
     void slotNewX509Clicked()
     {
         edit(model.addX509Service(defaultX509Service(), true));
-    }
-    void slotNewOpenPGPClicked()
-    {
-        edit(model.addOpenPGPService(defaultOpenPGPService(), true));
     }
     void slotDeleteClicked()
     {
@@ -542,24 +448,14 @@ private:
         return idx.isValid() ? idx.row() : -1;
     }
 
-    void showHideColumns();
-
     void enableDisableActions()
     {
         const bool x509 = (protocols & X509Protocol) && !(readOnlyProtocols & X509Protocol);
         const bool pgp  = (protocols & OpenPGPProtocol) && !(readOnlyProtocols & OpenPGPProtocol);
-        ui.newX509Action.setEnabled(x509);
-        ui.newOpenPGPAction.setEnabled(pgp);
-        if (x509 && pgp) {
-            ui.newTB->setMenu(&ui.newMenu);
-            ui.newTB->setPopupMode(QToolButton::MenuButtonPopup);
-        } else {
-            ui.newTB->setMenu(nullptr);
-            ui.newTB->setPopupMode(QToolButton::DelayedPopup);
-            ui.newTB->setEnabled(x509 || pgp);
-        }
+        ui.newTB->setEnabled(x509);
+        ui.pgpKeyserver->setEnabled(pgp);
         const int row = selectedRow();
-        ui.deleteTB->setEnabled(row >= 0 && !model.isReadOnlyRow(row));
+        ui.deleteTB->setEnabled(row >= 0 && !(readOnlyProtocols & X509Protocol));
     }
 
 private:
@@ -568,29 +464,11 @@ private:
     Model model;
     Delegate delegate;
     struct UI : Ui_DirectoryServicesWidget {
-        QAction newX509Action;
-        QAction newOpenPGPAction;
-        QMenu newMenu;
 
         explicit UI(DirectoryServicesWidget *q)
-            : Ui_DirectoryServicesWidget(),
-              newX509Action(i18nc("New X.509 Directory Server", "X.509"), q),
-              newOpenPGPAction(i18nc("New OpenPGP Directory Server", "OpenPGP"), q),
-              newMenu(q)
+            : Ui_DirectoryServicesWidget()
         {
-            newX509Action.setObjectName(QStringLiteral("newX509Action"));
-            newOpenPGPAction.setObjectName(QStringLiteral("newOpenPGPAction"));
-            newMenu.setObjectName(QStringLiteral("newMenu"));
-
             setupUi(q);
-
-            connect(&newX509Action, SIGNAL(triggered()), q, SLOT(slotNewX509Clicked()));
-            connect(&newOpenPGPAction, SIGNAL(triggered()), q, SLOT(slotNewOpenPGPClicked()));
-
-            newMenu.addAction(&newX509Action);
-            newMenu.addAction(&newOpenPGPAction);
-
-            newTB->setMenu(&newMenu);
         }
 
     } ui;
@@ -610,7 +488,6 @@ DirectoryServicesWidget::~DirectoryServicesWidget()
 void DirectoryServicesWidget::setAllowedSchemes(Schemes schemes)
 {
     d->delegate.setAllowedSchemes(schemes);
-    d->showHideColumns();
 }
 
 DirectoryServicesWidget::Schemes DirectoryServicesWidget::allowedSchemes() const
@@ -624,7 +501,6 @@ void DirectoryServicesWidget::setAllowedProtocols(Protocols protocols)
         return;
     }
     d->protocols = protocols;
-    d->showHideColumns();
     d->enableDisableActions();
 }
 
@@ -639,7 +515,6 @@ void DirectoryServicesWidget::setReadOnlyProtocols(Protocols protocols)
         return;
     }
     d->readOnlyProtocols = protocols;
-    d->model.setOpenPGPReadOnly(protocols & OpenPGPProtocol);
     d->model.setX509ReadOnly(protocols & X509Protocol);
     d->enableDisableActions();
 }
@@ -651,18 +526,25 @@ DirectoryServicesWidget::Protocols DirectoryServicesWidget::readOnlyProtocols() 
 
 void DirectoryServicesWidget::addOpenPGPServices(const QList<QUrl> &urls)
 {
-    for (const QUrl &url : urls) {
-        d->model.addOpenPGPService(url);
+    if (urls.size() > 1) {
+        qCWarning(KLEO_UI_LOG) << "More then one PGP Server, Ignoring all others.";
+    }
+    if (urls.size()) {
+        d->ui.pgpKeyserver->setText(urls[0].toString());
     }
 }
 
 QList<QUrl> DirectoryServicesWidget::openPGPServices() const
 {
     QList<QUrl> result;
-    for (unsigned int i = 0, end = d->model.numServices(); i != end; ++i)
-        if (d->model.isOpenPGPService(i)) {
-            result.push_back(d->model.service(i));
-        }
+    const QString pgpStr = d->ui.pgpKeyserver->text();
+    if (pgpStr.contains(QStringLiteral("://"))) {
+        // Maybe validate here? Otoh maybe gnupg adds support for more schemes
+        // then we know about in the future.
+        result.push_back(QUrl::fromUserInput(pgpStr));
+    } else if (!pgpStr.isEmpty()) {
+        result.push_back(QUrl::fromUserInput(QStringLiteral("hkp://") + pgpStr));
+    }
     return result;
 }
 
@@ -676,10 +558,9 @@ void DirectoryServicesWidget::addX509Services(const QList<QUrl> &urls)
 QList<QUrl> DirectoryServicesWidget::x509Services() const
 {
     QList<QUrl> result;
-    for (unsigned int i = 0, end = d->model.numServices(); i != end; ++i)
-        if (d->model.isX509Service(i)) {
-            result.push_back(d->model.service(i));
-        }
+    for (unsigned int i = 0, end = d->model.numServices(); i != end; ++i) {
+        result.push_back(d->model.service(i));
+    }
     return result;
 }
 
@@ -689,18 +570,8 @@ void DirectoryServicesWidget::clear()
         return;
     }
     d->model.clear();
+    d->ui.pgpKeyserver->setText(QString());
     Q_EMIT changed();
-}
-
-void DirectoryServicesWidget::Private::showHideColumns()
-{
-    QHeaderView *const hv = ui.treeView->header();
-    Q_ASSERT(hv);
-    // don't show 'scheme' column when only accepting X509Protocol (###?)
-    hv->setSectionHidden(Model::Scheme,  protocols == X509Protocol);
-    // hide the scheme selection columns for if only one scheme is allowed anyway:
-    hv->setSectionHidden(Model::X509,    protocols != AllProtocols);
-    hv->setSectionHidden(Model::OpenPGP, protocols != AllProtocols);
 }
 
 //
@@ -714,14 +585,11 @@ QVariant Model::headerData(int section, Qt::Orientation orientation, int role) c
             return toolTipForColumn(section);
         } else if (role == Qt::DisplayRole)
             switch (section) {
-            case Scheme:   return i18n("Scheme");
             case Host:     return i18n("Server Name");
             case Port:     return i18n("Server Port");
             case BaseDN:   return i18n("Base DN");
             case UserName: return i18n("User Name");
             case Password: return i18n("Password");
-            case X509:     return i18n("X.509");
-            case OpenPGP:  return i18n("OpenPGP");
             default:       return QVariant();
             }
         else {
@@ -739,7 +607,7 @@ QVariant Model::data(const QModelIndex &index, int role) const
         switch (role) {
         case Qt::ToolTipRole: {
             const QString tt = toolTipForColumn(index.column());
-            if (!isReadOnlyRow(index.row())) {
+            if (!m_x509ReadOnly) {
                 return tt;
             } else
                 return tt.isEmpty()
@@ -750,33 +618,20 @@ QVariant Model::data(const QModelIndex &index, int role) const
         case Qt::DisplayRole:
         case Qt::EditRole:
             switch (index.column()) {
-            case Scheme:
-                return display_scheme(m_items[row].url);
             case Host:
-                return display_host(m_items[row].url);
+                return display_host(m_items[row]);
             case Port:
-                return display_port(m_items[row].url);
+                return display_port(m_items[row]);
             case BaseDN:
                 if (isLdapRow(row)) {
-                    return m_items[row].url.query();
+                    return m_items[row].query();
                 } else {
                     return QVariant();
                 }
             case UserName:
-                return m_items[row].url.userName();
+                return m_items[row].userName();
             case Password:
-                return m_items[row].url.password();
-            case X509:
-            case OpenPGP:
-            default:
-                return QVariant();
-            }
-        case Qt::CheckStateRole:
-            switch (index.column()) {
-            case X509:
-                return m_items[row].x509 && isLdapRow(row) ? Qt::Checked : Qt::Unchecked;
-            case OpenPGP:
-                return m_items[row].pgp  ? Qt::Checked : Qt::Unchecked;
+                return m_items[row].password();
             default:
                 return QVariant();
             }
@@ -789,62 +644,37 @@ bool Model::isLdapRow(unsigned int row) const
     if (row >= m_items.size()) {
         return false;
     }
-    return is_ldap_scheme(m_items[row].url);
+    return is_ldap_scheme(m_items[row]);
 }
 
 Qt::ItemFlags Model::flags(const QModelIndex &index) const
 {
     const unsigned int row = index.row();
     Qt::ItemFlags flags = QAbstractTableModel::flags(index);
-    if (isReadOnlyRow(row)) {
+    if (m_x509ReadOnly) {
         flags &= ~Qt::ItemIsSelectable;
     }
     if (index.isValid() && row < m_items.size())
         switch (index.column()) {
-        case Scheme:
-            switch (m_schemes) {
-            default:
-                if (!isReadOnlyRow(row)) {
-                    return flags | Qt::ItemIsEditable;
-                }
-            // else fall through
-            case DirectoryServicesWidget::HKP:
-            case DirectoryServicesWidget::HTTP:
-            case DirectoryServicesWidget::FTP:
-            case DirectoryServicesWidget::LDAP:
-                // only one scheme allowed -> no editing possible
-                return flags & ~(Qt::ItemIsEditable | Qt::ItemIsEnabled);
-            }
         case Host:
         case Port:
-            if (isReadOnlyRow(row)) {
+            if (m_x509ReadOnly) {
                 return flags & ~(Qt::ItemIsEditable | Qt::ItemIsEnabled);
             } else {
                 return flags | Qt::ItemIsEditable;
             }
         case BaseDN:
-            if (isLdapRow(row) && !isReadOnlyRow(row)) {
+            if (isLdapRow(row) && !m_x509ReadOnly) {
                 return flags | Qt::ItemIsEditable;
             } else {
                 return flags & ~(Qt::ItemIsEditable | Qt::ItemIsEnabled);
             }
         case UserName:
         case Password:
-            if (isReadOnlyRow(row)) {
+            if (m_x509ReadOnly) {
                 return flags & ~(Qt::ItemIsEditable | Qt::ItemIsEnabled);
             } else {
                 return flags | Qt::ItemIsEditable;
-            }
-        case X509:
-            if (!isLdapRow(row)) {
-                return flags & ~(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
-            }
-        // fall through
-        case OpenPGP:
-            if (isReadOnlyRow(row)) {
-                return flags & ~(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
-            } else {
-                return flags | Qt::ItemIsUserCheckable;
             }
         }
     return flags;
@@ -856,7 +686,7 @@ bool Model::setData(const QModelIndex &idx, const QVariant &value, int role)
     if (!idx.isValid() || row >= m_items.size()) {
         return false;
     }
-    if (isReadOnlyRow(row)) {
+    if (m_x509ReadOnly) {
         return false;
     }
     if (!doSetData(row, idx.column(), value, role)) {
@@ -870,83 +700,42 @@ bool Model::doSetData(unsigned int row, unsigned int column, const QVariant &val
 {
     if (role == Qt::EditRole)
         switch (column) {
-        case Scheme:
-            if (is_default_port(m_items[row].url)) {
-                // drag the port along with scheme changes
-                m_items[row].url.setPort(-1);
-                const QModelIndex changed = index(row, Port);
-                Q_EMIT dataChanged(changed, changed);
-            }
-            m_items[row].url.setScheme(value.toString());
-            return true;
         case Host:
-            if (display_host(m_items[row].url) != m_items[row].url.host()) {
-                m_items[row].url.setScheme(display_scheme(m_items[row].url));
+            if (display_host(m_items[row]) != m_items[row].host()) {
+                m_items[row].setScheme(display_scheme(m_items[row]));
             }
-            m_items[row].url.setHost(value.toString());
+            m_items[row].setHost(value.toString());
             return true;
         case Port:
-            if (value.toUInt() == default_port(display_scheme(m_items[row].url))) {
-                m_items[row].url.setPort(-1);
+            if (value.toUInt() == default_port(display_scheme(m_items[row]))) {
+                m_items[row].setPort(-1);
             } else {
-                m_items[row].url.setPort(value.toUInt());
+                m_items[row].setPort(value.toUInt());
             }
             return true;
         case BaseDN:
             if (value.toString().isEmpty()) {
-                m_items[row].url.setPath(QString());
-                m_items[row].url.setQuery(QString());
+                m_items[row].setPath(QString());
+                m_items[row].setQuery(QString());
             } else {
-                m_items[row].url.setQuery(value.toString());
+                m_items[row].setQuery(value.toString());
             }
             return true;
         case UserName:
-            m_items[row].url.setUserName(value.toString());
+            m_items[row].setUserName(value.toString());
             return true;
         case Password:
-            m_items[row].url.setPassword(value.toString());
+            m_items[row].setPassword(value.toString());
             return true;
-        }
-    if (role == Qt::CheckStateRole)
-        switch (column) {
-        case X509:
-            m_items[row].x509 = value.toInt() == Qt::Checked;
-            return true;
-        case OpenPGP: {
-            const bool on = value.toInt() == Qt::Checked;
-            if (on) {
-                setExclusivePgpFlag(row);
-            } else {
-                m_items[row].pgp = false;
-            }
-        }
-        return true;
         }
     return false;
 }
 
-void Model::setExclusivePgpFlag(unsigned int row)
-{
-    if (row >= m_items.size() || m_items[row].pgp) {
-        return;
-    }
-    m_items[row].pgp = true; // dataChanged() for this one is supposed to be emitted by the caller
-    for (unsigned int i = 0, end = m_items.size(); i < end; ++i)
-        if (i != row)
-            if (m_items[i].pgp) {
-                m_items[i].pgp = false;
-                const QModelIndex changed = index(i, OpenPGP);
-                Q_EMIT dataChanged(changed, changed);
-                break;
-            }
-}
 
 // static
 QString Model::toolTipForColumn(int column)
 {
     switch (column) {
-    case Scheme:   return i18n("Select the access scheme (scheme) that the "
-                                   "directory service is available through.");
     case Host:     return i18n("Enter the name or IP address of the server "
                                    "hosting the directory service.");
     case Port:     return i18n("<b>(Optional, the default is fine in most cases)</b> "
@@ -961,10 +750,6 @@ QString Model::toolTipForColumn(int column)
                                    "Enter your password here, if needed. "
                                    "Note that the password will be saved in the clear "
                                    "in a config file in your home directory.");
-    case X509:     return i18n("Check this column if this directory service is "
-                                   "providing S/MIME (X.509) certificates.");
-    case OpenPGP:  return i18n("Check this column if this directory service is "
-                                   "providing OpenPGP certificates.");
     default:
         return QString();
     }
