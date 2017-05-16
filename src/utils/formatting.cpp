@@ -49,6 +49,11 @@
 #include <QLocale>
 #include <QIcon>
 
+#include <gpgme++/gpgmepp_version.h>
+#if GPGMEPP_VERSION >= 0x10900
+# define GPGME_HAS_KEY_IS_DEVS
+#endif
+
 
 using namespace GpgME;
 using namespace Kleo;
@@ -828,6 +833,7 @@ QString Formatting::complianceMode()
 
 QString Formatting::complianceStringForKey(const GpgME::Key &key)
 {
+#ifdef GPGME_HAS_KEY_IS_DEVS
     // There will likely be more in the future for other institutions
     // for now we only have DE-VS
     if (complianceMode() == QStringLiteral("de-vs")) {
@@ -851,5 +857,8 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
                          "May <b>not</b> be used for VS-compliant communication.");
         }
     }
+#else
+    Q_UNUSED(key);
+#endif
     return QString();
 }
