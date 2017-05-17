@@ -33,6 +33,9 @@
 #include "enum.h"
 #include "libkleo_debug.h"
 #include "models/keycache.h"
+
+#include <functional>
+
 #include <KLocalizedString>
 
 #include <gpgme++/key.h>
