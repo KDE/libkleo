@@ -403,7 +403,7 @@ std::shared_ptr<ChecksumDefinition> ChecksumDefinition::getDefaultChecksumDefini
     const KConfigGroup group(KSharedConfig::openConfig(), "ChecksumOperations");
     const QString checksumDefinitionId = group.readEntry(CHECKSUM_DEFINITION_ID_ENTRY);
     if (!checksumDefinitionId.isEmpty())
-        Q_FOREACH (const std::shared_ptr<ChecksumDefinition> &cd, checksumDefinitions)
+        for (const std::shared_ptr<ChecksumDefinition> &cd : checksumDefinitions)
             if (cd && cd->id() == checksumDefinitionId) {
                 return cd;
             }

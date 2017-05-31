@@ -928,7 +928,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     by_subkeyid.swap(d->by.subkeyid);
     by_chainid.swap(d->by.chainid);
 
-    Q_FOREACH (const Key &key, sorted) {
+    for (const Key &key : qAsConst(sorted)) {
         Q_EMIT added(key);
     }
 

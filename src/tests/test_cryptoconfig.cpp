@@ -362,7 +362,7 @@ int main(int argc, char **argv)
             config->sync(true);
 
             cout << "URL list reset to initial: ";
-            Q_FOREACH (const QUrl &url, newlst) {
+            for (const QUrl &url : qAsConst(newlst)) {
                 cout << url.toString().toLocal8Bit().constData() << ", ";
             }
             cout << endl;
