@@ -59,7 +59,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 ########### Targets ###########
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 remove_definitions( -DQT_NO_CAST_FROM_ASCII )
-add_definitions( -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT )
+add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Libkleo")
