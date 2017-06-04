@@ -47,13 +47,13 @@ class KLEO_EXPORT KeyRearrangeColumnsProxyModel: public KRearrangeColumnsProxyMo
 public:
     explicit KeyRearrangeColumnsProxyModel(QObject *parent = nullptr);
 
-    GpgME::Key key(const QModelIndex &idx) const Q_DECL_OVERRIDE;
-    std::vector<GpgME::Key> keys(const QList<QModelIndex> &idxs) const Q_DECL_OVERRIDE;
+    GpgME::Key key(const QModelIndex &idx) const override;
+    std::vector<GpgME::Key> keys(const QList<QModelIndex> &idxs) const override;
 
     using KRearrangeColumnsProxyModel::index;
 
-    QModelIndex index(const GpgME::Key &key) const Q_DECL_OVERRIDE;
-    QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const Q_DECL_OVERRIDE;
+    QModelIndex index(const GpgME::Key &key) const override;
+    QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const override;
 private:
     KeyListModelInterface *klm() const;
 };

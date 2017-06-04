@@ -295,17 +295,17 @@ public:
     ~TableModelMixin() {}
 
     using Base::index;
-    QModelIndex index(int row, int column, const QModelIndex &pidx = QModelIndex()) const Q_DECL_OVERRIDE
+    QModelIndex index(int row, int column, const QModelIndex &pidx = QModelIndex()) const override
     {
         return this->hasIndex(row, column, pidx) ? this->createIndex(row, column, nullptr) : QModelIndex();
     }
 
 private:
-    QModelIndex parent(const QModelIndex &) const Q_DECL_OVERRIDE
+    QModelIndex parent(const QModelIndex &) const override
     {
         return QModelIndex();
     }
-    bool hasChildren(const QModelIndex &pidx) const Q_DECL_OVERRIDE
+    bool hasChildren(const QModelIndex &pidx) const override
     {
         return (pidx.model() == this || !pidx.isValid()) && this->rowCount(pidx) > 0 && this->columnCount(pidx) > 0;
     }
@@ -323,17 +323,17 @@ public:
     explicit FlatKeyListModel(QObject *parent = nullptr);
     ~FlatKeyListModel();
 
-    int rowCount(const QModelIndex &pidx) const Q_DECL_OVERRIDE
+    int rowCount(const QModelIndex &pidx) const override
     {
         return pidx.isValid() ? 0 : mKeysByFingerprint.size();
     }
 
 private:
-    Key doMapToKey(const QModelIndex &index) const Q_DECL_OVERRIDE;
-    QModelIndex doMapFromKey(const Key &key, int col) const Q_DECL_OVERRIDE;
-    QList<QModelIndex> doAddKeys(const std::vector<Key> &keys) Q_DECL_OVERRIDE;
-    void doRemoveKey(const Key &key) Q_DECL_OVERRIDE;
-    void doClear() Q_DECL_OVERRIDE {
+    Key doMapToKey(const QModelIndex &index) const override;
+    QModelIndex doMapFromKey(const Key &key, int col) const override;
+    QList<QModelIndex> doAddKeys(const std::vector<Key> &keys) override;
+    void doRemoveKey(const Key &key) override;
+    void doClear() override {
         mKeysByFingerprint.clear();
     }
 
@@ -348,22 +348,22 @@ public:
     explicit HierarchicalKeyListModel(QObject *parent = nullptr);
     ~HierarchicalKeyListModel();
 
-    int rowCount(const QModelIndex &pidx) const Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex &pidx) const override;
     using AbstractKeyListModel::index;
-    QModelIndex index(int row, int col, const QModelIndex &pidx) const Q_DECL_OVERRIDE;
-    QModelIndex parent(const QModelIndex &idx) const Q_DECL_OVERRIDE;
+    QModelIndex index(int row, int col, const QModelIndex &pidx) const override;
+    QModelIndex parent(const QModelIndex &idx) const override;
 
-    bool hasChildren(const QModelIndex &pidx) const Q_DECL_OVERRIDE
+    bool hasChildren(const QModelIndex &pidx) const override
     {
         return rowCount(pidx) > 0;
     }
 
 private:
-    Key doMapToKey(const QModelIndex &index) const Q_DECL_OVERRIDE;
-    QModelIndex doMapFromKey(const Key &key, int col) const Q_DECL_OVERRIDE;
-    QList<QModelIndex> doAddKeys(const std::vector<Key> &keys) Q_DECL_OVERRIDE;
-    void doRemoveKey(const Key &key) Q_DECL_OVERRIDE;
-    void doClear() Q_DECL_OVERRIDE {
+    Key doMapToKey(const QModelIndex &index) const override;
+    QModelIndex doMapFromKey(const Key &key, int col) const override;
+    QList<QModelIndex> doAddKeys(const std::vector<Key> &keys) override;
+    void doRemoveKey(const Key &key) override;
+    void doClear() override {
         mTopLevels.clear();
         mKeysByFingerprint.clear();
         mKeysByExistingParent.clear();

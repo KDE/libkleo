@@ -62,8 +62,8 @@ public:
     /*! \reimp to hard-code the frame shape */
     void setFrameStyle(int style);
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
-    QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
     QSizePolicy sizePolicy() const;
 
     static int indentHint();
@@ -72,7 +72,7 @@ public Q_SLOTS:
     virtual void setTitle(const QString &title);
 
 protected:
-    void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *) override;
 
 private:
     void calculateFrame();

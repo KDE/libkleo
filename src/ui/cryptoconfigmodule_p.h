@@ -180,8 +180,8 @@ public:
                               QGridLayout *layout,
                               QWidget *parent = nullptr);
 
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private:
     KLineEdit *mLineEdit;
 };
@@ -196,8 +196,8 @@ public:
     CryptoConfigEntryDebugLevel(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry,
                                 const QString &entryName, QGridLayout *layout, QWidget *parent = nullptr);
 
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private:
     QComboBox *mComboBox;
 };
@@ -216,8 +216,8 @@ public:
                           QGridLayout *layout,
                           QWidget *parent = nullptr);
 
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private:
     Kleo::FileNameRequester *mFileNameRequester;
 };
@@ -236,8 +236,8 @@ public:
                              QGridLayout *layout,
                              QWidget *parent = nullptr);
 
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private:
     Kleo::FileNameRequester *mFileNameRequester;
 };
@@ -255,8 +255,8 @@ public:
                              const QString &entryName,
                              QGridLayout *layout,
                              QWidget *parent = nullptr);
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private:
     enum { Int, UInt, ListOfNone } mKind;
     QSpinBox *mNumInput;
@@ -275,8 +275,8 @@ public:
                               const QString &entryName,
                               QGridLayout *layout,
                               QWidget *parent = nullptr);
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private:
     QCheckBox *mCheckBox;
 };
@@ -294,8 +294,8 @@ public:
                              const QString &entryName,
                              QGridLayout *layout,
                              QWidget *parent = nullptr);
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private Q_SLOTS:
     void slotOpenDialog();
 private:
@@ -318,8 +318,8 @@ public:
                                const QString &entryName,
                                QGridLayout *layout,
                                QWidget *parent = nullptr);
-    void doSave() Q_DECL_OVERRIDE;
-    void doLoad() Q_DECL_OVERRIDE;
+    void doSave() override;
+    void doLoad() override;
 private Q_SLOTS:
     void slotOpenDialog();
 private:

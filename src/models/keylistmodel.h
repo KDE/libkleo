@@ -59,16 +59,16 @@ public:
     static AbstractKeyListModel *createFlatKeyListModel(QObject *parent = nullptr);
     static AbstractKeyListModel *createHierarchicalKeyListModel(QObject *parent = nullptr);
 
-    GpgME::Key key(const QModelIndex &idx) const Q_DECL_OVERRIDE;
-    std::vector<GpgME::Key> keys(const QList<QModelIndex> &indexes) const Q_DECL_OVERRIDE;
+    GpgME::Key key(const QModelIndex &idx) const override;
+    std::vector<GpgME::Key> keys(const QList<QModelIndex> &indexes) const override;
 
     using QAbstractItemModel::index;
-    QModelIndex index(const GpgME::Key &key) const Q_DECL_OVERRIDE
+    QModelIndex index(const GpgME::Key &key) const override
     {
         return index(key, 0);
     }
     QModelIndex index(const GpgME::Key &key, int col) const;
-    QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const Q_DECL_OVERRIDE;
+    QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const override;
 
 Q_SIGNALS:
     void rowAboutToBeMoved(const QModelIndex &old_parent, int old_row);
@@ -84,9 +84,9 @@ public Q_SLOTS:
     void clear();
 
 public:
-    int columnCount(const QModelIndex &pidx) const Q_DECL_OVERRIDE;
-    QVariant headerData(int section, Qt::Orientation o, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex &pidx) const override;
+    QVariant headerData(int section, Qt::Orientation o, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
      * defines which information is displayed in tooltips

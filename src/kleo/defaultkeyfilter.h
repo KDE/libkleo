@@ -72,25 +72,25 @@ public:
         IsAtMost = 4
     };
 
-    bool matches(const GpgME::Key &key, MatchContexts ctx) const Q_DECL_OVERRIDE;
+    bool matches(const GpgME::Key &key, MatchContexts ctx) const override;
 
-    unsigned int specificity() const Q_DECL_OVERRIDE;
+    unsigned int specificity() const override;
     void setSpecificity(unsigned int value) const;
-    QString id() const Q_DECL_OVERRIDE;
+    QString id() const override;
     void setId(const QString &value) const;
-    KeyFilter::MatchContexts availableMatchContexts() const Q_DECL_OVERRIDE;
+    KeyFilter::MatchContexts availableMatchContexts() const override;
     void setMatchContexts(KeyFilter::MatchContexts value) const;
 
-    QColor fgColor() const Q_DECL_OVERRIDE;
+    QColor fgColor() const override;
     void setFgColor(const QColor &value) const;
 
-    QColor bgColor() const Q_DECL_OVERRIDE;
+    QColor bgColor() const override;
     void setBgColor(const QColor &value) const;
 
-    FontDescription  fontDescription() const Q_DECL_OVERRIDE;
-    QString name() const Q_DECL_OVERRIDE;
+    FontDescription  fontDescription() const override;
+    QString name() const override;
     void setName(const QString &value) const;
-    QString icon() const Q_DECL_OVERRIDE;
+    QString icon() const override;
     void setIcon(const QString &value) const;
     QFont font() const;
     void setFont(const QFont &value) const;

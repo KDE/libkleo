@@ -194,12 +194,12 @@ class ColumnStrategy : public Kleo::KeyListView::ColumnStrategy
 public:
     ColumnStrategy(unsigned int keyUsage);
 
-    QString title(int col) const Q_DECL_OVERRIDE;
-    int width(int col, const QFontMetrics &fm) const Q_DECL_OVERRIDE;
+    QString title(int col) const override;
+    int width(int col, const QFontMetrics &fm) const override;
 
-    QString text(const GpgME::Key &key, int col) const Q_DECL_OVERRIDE;
-    QString toolTip(const GpgME::Key &key, int col) const Q_DECL_OVERRIDE;
-    QIcon icon(const GpgME::Key &key, int col) const Q_DECL_OVERRIDE;
+    QString text(const GpgME::Key &key, int col) const override;
+    QString toolTip(const GpgME::Key &key, int col) const override;
+    QIcon icon(const GpgME::Key &key, int col) const override;
 
 private:
     const QIcon mKeyGoodPix, mKeyBadPix, mKeyUnknownPix, mKeyValidPix;

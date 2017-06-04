@@ -94,7 +94,7 @@ public:
     /*! \reimp for covariant return */
     KeyListViewItem *nextSibling() const;
     /*! \reimp */
-    bool operator<(const QTreeWidgetItem &other) const Q_DECL_OVERRIDE;
+    bool operator<(const QTreeWidgetItem &other) const override;
     /*! \reimp */
     void takeItem(QTreeWidgetItem *item);
 
@@ -179,7 +179,7 @@ Q_SIGNALS:
     void contextMenu(Kleo::KeyListViewItem *, const QPoint &);
 
 protected:
-    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *event) override;
 
 public Q_SLOTS:
     virtual void slotAddKey(const GpgME::Key &key);

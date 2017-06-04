@@ -103,12 +103,12 @@ public:
         }
     }
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override
     {
         return mFrontItems.count() + QSortFilterProxyModel::rowCount(parent) + mBackItems.count();
     }
 
-    QModelIndex mapToSource(const QModelIndex &index) const Q_DECL_OVERRIDE
+    QModelIndex mapToSource(const QModelIndex &index) const override
     {
         if (!isCustomItem(index.row())) {
             const int row = index.row() - mFrontItems.count();
@@ -119,13 +119,13 @@ public:
         }
     }
 
-    QModelIndex mapFromSource(const QModelIndex &source_index) const Q_DECL_OVERRIDE
+    QModelIndex mapFromSource(const QModelIndex &source_index) const override
     {
         const QModelIndex idx = QSortFilterProxyModel::mapFromSource(source_index);
         return createIndex(mFrontItems.count() + idx.row(), idx.column(), idx.internalPointer());
     }
 
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
     {
         if (row < 0 || row >= rowCount()) {
             return QModelIndex();
@@ -140,19 +140,19 @@ public:
         }
     }
 
-    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE
+    Qt::ItemFlags flags(const QModelIndex &index) const override
     {
         Q_UNUSED(index);
         return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
     }
 
-    QModelIndex parent(const QModelIndex &) const Q_DECL_OVERRIDE
+    QModelIndex parent(const QModelIndex &) const override
     {
         // Flat list
         return QModelIndex();
     }
 
-    QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE
+    QVariant data(const QModelIndex &index, int role) const override
     {
         if (!index.isValid()) {
             return QVariant();

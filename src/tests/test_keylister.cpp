@@ -55,9 +55,9 @@ class TestColumnStrategy : public Kleo::KeyListView::ColumnStrategy
 {
 public:
     ~TestColumnStrategy() {}
-    QString title(int col) const Q_DECL_OVERRIDE;
-    QString toolTip(const GpgME::Key &key, int col) const Q_DECL_OVERRIDE;
-    QString text(const GpgME::Key &key, int col) const Q_DECL_OVERRIDE;
+    QString title(int col) const override;
+    QString toolTip(const GpgME::Key &key, int col) const override;
+    QString text(const GpgME::Key &key, int col) const override;
 };
 
 QString TestColumnStrategy::title(int col) const

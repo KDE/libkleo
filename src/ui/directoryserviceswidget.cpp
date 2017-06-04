@@ -245,20 +245,20 @@ public:
         endRemoveRows();
     }
 
-    int columnCount(const QModelIndex & = QModelIndex()) const Q_DECL_OVERRIDE
+    int columnCount(const QModelIndex & = QModelIndex()) const override
     {
         return NumColumns;
     }
-    int rowCount(const QModelIndex & = QModelIndex()) const Q_DECL_OVERRIDE
+    int rowCount(const QModelIndex & = QModelIndex()) const override
     {
         return m_items.size();
     }
 
-    QVariant data(const QModelIndex &idx, int role) const Q_DECL_OVERRIDE;
-    QVariant headerData(int section, Qt::Orientation o, int role) const Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex &idx, int role) const override;
+    QVariant headerData(int section, Qt::Orientation o, int role) const override;
 
-    Qt::ItemFlags flags(const QModelIndex &idx) const Q_DECL_OVERRIDE;
-    bool setData(const QModelIndex &idx, const QVariant &value, int role) Q_DECL_OVERRIDE;
+    Qt::ItemFlags flags(const QModelIndex &idx) const override;
+    bool setData(const QModelIndex &idx, const QVariant &value, int role) override;
 
 private:
     bool doSetData(unsigned int row, unsigned int column, const QVariant &value, int role);
@@ -313,7 +313,7 @@ public:
         return m_schemes;
     }
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &idx) const Q_DECL_OVERRIDE
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &idx) const override
     {
         switch (idx.column()) {
         case Model::Port:
@@ -322,7 +322,7 @@ public:
         return QItemDelegate::createEditor(parent, option, idx);
     }
 
-    void setEditorData(QWidget *editor, const QModelIndex &idx) const Q_DECL_OVERRIDE
+    void setEditorData(QWidget *editor, const QModelIndex &idx) const override
     {
         switch (idx.column()) {
         case Model::Port:
@@ -334,7 +334,7 @@ public:
         }
     }
 
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &idx) const Q_DECL_OVERRIDE
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &idx) const override
     {
         switch (idx.column()) {
         case Model::Port:
@@ -346,7 +346,7 @@ public:
         }
     }
 
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         if (index.column() == Model::Port) {
             editor->setGeometry(calculate_geometry(option.rect, editor->sizeHint()));

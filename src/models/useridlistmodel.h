@@ -61,13 +61,13 @@ public Q_SLOTS:
     void setKey(const GpgME::Key &key);
 
 public:
-    int columnCount(const QModelIndex &pindex = QModelIndex()) const Q_DECL_OVERRIDE;
-    int rowCount(const QModelIndex &pindex = QModelIndex()) const Q_DECL_OVERRIDE;
-    QVariant headerData(int section, Qt::Orientation o, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex &pindex = QModelIndex()) const override;
+    int rowCount(const QModelIndex &pindex = QModelIndex()) const override;
+    QVariant headerData(int section, Qt::Orientation o, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    QModelIndex index(int row, int col, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
-    QModelIndex parent(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QModelIndex index(int row, int col, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex parent(const QModelIndex &index) const override;
 
 private:
     GpgME::Key mKey;
