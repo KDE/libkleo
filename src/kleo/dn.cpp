@@ -298,6 +298,9 @@ static QString dn_escape(const QString &s)
         case ';':
             result += QLatin1Char('\\');
         // fall through
+#if QT_VERSION >= QT_VERSION_CHECK(5,8,0)
+        Q_FALLTHROUGH();
+#endif
         default:
             result += ch;
         }
