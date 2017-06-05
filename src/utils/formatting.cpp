@@ -592,6 +592,9 @@ QString Formatting::validityShort(const UserID::Signature &sig)
                 return i18nc("good/valid signature", "good");
             }
         }
+#if QT_VERSION >= QT_VERSION_CHECK(5,8,0)
+        Q_FALLTHROUGH();
+#endif
     // fall through:
     case UserID::Signature::GeneralError:
         return i18n("invalid");
