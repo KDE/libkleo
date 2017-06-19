@@ -208,7 +208,7 @@ private:
 
 static QString iconPath(const QString &name)
 {
-    return QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkleopatra/pics/" + name + ".png");
+    return QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkleopatra/pics/") + name + QStringLiteral(".png"));
 }
 
 ColumnStrategy::ColumnStrategy(unsigned int keyUsage)

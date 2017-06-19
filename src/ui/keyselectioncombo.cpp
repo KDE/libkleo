@@ -185,8 +185,8 @@ public:
             QString name, email;
 
             if (key.protocol() == GpgME::OpenPGP) {
-                name = userID.name();
-                email = userID.email();
+                name = QString::fromUtf8(userID.name());
+                email = QString::fromUtf8(userID.email());
             } else {
                 const Kleo::DN dn(userID.id());
                 name = dn[QStringLiteral("CN")];
@@ -330,7 +330,7 @@ void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
     for (int i = 0; i < d->proxyModel->rowCount(); ++i) {
         const auto idx = d->proxyModel->index(i, 0, QModelIndex());
         const auto key = d->proxyModel->data(idx, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
-        if (!key.isNull() && fingerprint == key.primaryFingerprint()) {
+        if (!key.isNull() && fingerprint == QString::fromLatin1(key.primaryFingerprint())) {
             setCurrentIndex(i);
             return;
         }

@@ -402,7 +402,7 @@ const char *Kleo::outputFileExtension(unsigned int classification, bool usePGPFi
 
 bool Kleo::isFingerprint(const QString &fpr)
 {
-    static QRegularExpression fprRegex("[0-9a-fA-F]{40}");
+    static QRegularExpression fprRegex(QStringLiteral("[0-9a-fA-F]{40}"));
     return fprRegex.match(fpr).hasMatch();
 }
 

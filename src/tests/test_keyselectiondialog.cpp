@@ -52,8 +52,8 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    Kleo::KeySelectionDialog dlg("Kleo::KeySelectionDialog Test",
-                                 "Please select a key:",
+    Kleo::KeySelectionDialog dlg(QStringLiteral("Kleo::KeySelectionDialog Test"),
+                                 QStringLiteral("Please select a key:"),
                                  std::vector<GpgME::Key>(),
                                  Kleo::KeySelectionDialog::AllKeys, true, true);
 

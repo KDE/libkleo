@@ -70,7 +70,7 @@ KeyGenerator::KeyGenerator(QWidget *parent)
     : QDialog(parent)
 {
     setModal(true);
-    setWindowTitle("KeyGenerationJob test");
+    setWindowTitle(QStringLiteral("KeyGenerationJob test"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -80,7 +80,7 @@ KeyGenerator::KeyGenerator(QWidget *parent)
     buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &KeyGenerator::reject);
     user1Button->setDefault(true);
-    KGuiItem::assign(user1Button, KGuiItem("Create"));
+    KGuiItem::assign(user1Button, KGuiItem(QStringLiteral("Create")));
 
     QWidget *w = new QWidget(this);
     mainLayout->addWidget(w);
@@ -91,16 +91,16 @@ KeyGenerator::KeyGenerator(QWidget *parent)
     int row = -1;
 
     ++row;
-    glay->addWidget(new QLabel("<GnupgKeyParms format=\"internal\">", w),
+    glay->addWidget(new QLabel(QStringLiteral("<GnupgKeyParms format=\"internal\">"), w),
                     row, 0, 1, 2);
     for (int i = 0; i < numKeyParams; ++i) {
         ++row;
-        glay->addWidget(new QLabel(keyParams[i], w), row, 0);
+        glay->addWidget(new QLabel(QString::fromLatin1(keyParams[i]), w), row, 0);
         glay->addWidget(mLineEdits[i] = new QLineEdit(w), row, 1);
     }
 
     ++row;
-    glay->addWidget(new QLabel("</GnupgKeyParms>", w), row, 0, 1, 2);
+    glay->addWidget(new QLabel(QStringLiteral("</GnupgKeyParms>"), w), row, 0, 1, 2);
     ++row;
     glay->setRowStretch(row, 1);
     glay->setColumnStretch(1, 1);
@@ -112,12 +112,12 @@ KeyGenerator::~KeyGenerator() {}
 
 void KeyGenerator::slotStartKeyGeneration()
 {
-    QString params = "<GnupgKeyParms format=\"internal\">\n";
+    QString params = QStringLiteral("<GnupgKeyParms format=\"internal\">\n");
     for (int i = 0; i < numKeyParams; ++i)
         if (mLineEdits[i] && !mLineEdits[i]->text().trimmed().isEmpty()) {
-            params += keyParams[i] + (": " + mLineEdits[i]->text().trimmed()) + '\n';
+            params += QString::fromLatin1(keyParams[i]) + (QStringLiteral(": ") + mLineEdits[i]->text().trimmed()) + QLatin1Char('\n');
         }
-    params += "</GnupgKeyParms>\n";
+    params += QStringLiteral("</GnupgKeyParms>\n");
 
     const QGpgME::Protocol *proto = nullptr;
     if (protocol) {
@@ -141,15 +141,15 @@ void KeyGenerator::slotStartKeyGeneration()
     }
 #ifndef LIBKLEO_NO_PROGRESSDIALOG
     else {
-        (void)new Kleo::ProgressDialog(job, "Generating key", this);
+        (void)new Kleo::ProgressDialog(job, QStringLiteral("Generating key"), this);
     }
 #endif
 }
 
 void KeyGenerator::showError(const GpgME::Error &err)
 {
-    KMessageBox::error(this, "Could not start key generation: " + QString::fromLocal8Bit(err.asString()),
-                       "Key Generation Error");
+    KMessageBox::error(this, QStringLiteral("Could not start key generation: %1").arg(QString::fromLocal8Bit(err.asString())),
+                       QStringLiteral("Key Generation Error"));
 }
 
 void KeyGenerator::slotResult(const GpgME::KeyGenerationResult &res, const QByteArray &keyData)
@@ -157,8 +157,8 @@ void KeyGenerator::slotResult(const GpgME::KeyGenerationResult &res, const QByte
     if (res.error()) {
         showError(res.error());
     } else
-        KMessageBox::information(this, QString("Key generated successfully, %1 bytes long").arg(keyData.size()),
-                                 "Key Generation Finished");
+        KMessageBox::information(this, QStringLiteral("Key generated successfully, %1 bytes long").arg(keyData.size()),
+                                 QStringLiteral("Key Generation Finished"));
 }
 
 int main(int argc, char **argv)

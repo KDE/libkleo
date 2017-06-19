@@ -63,33 +63,33 @@ public:
 QString TestColumnStrategy::title(int col) const
 {
     switch (col) {
-    case 0: return "Subject";
-    case 1: return "EMail";
-    case 2: return "Issuer";
-    case 3: return "Serial";
-    case 4: return "Protocol";
-    case 5: return "Validity";
+    case 0: return QStringLiteral("Subject");
+    case 1: return QStringLiteral("EMail");
+    case 2: return QStringLiteral("Issuer");
+    case 3: return QStringLiteral("Serial");
+    case 4: return QStringLiteral("Protocol");
+    case 5: return QStringLiteral("Validity");
     default: return QString();
     }
 }
 
 QString TestColumnStrategy::toolTip(const GpgME::Key &key, int) const
 {
-    return "Fingerprint: " + QString::fromUtf8(key.primaryFingerprint());
+    return QStringLiteral("Fingerprint: ") + QString::fromUtf8(key.primaryFingerprint());
 }
 
 QString TestColumnStrategy::text(const GpgME::Key &key, int col) const
 {
     if (key.isNull()) {
-        return "<null>";
+        return QStringLiteral("<null>");
     }
     switch (col) {
     case 0: return QString::fromUtf8(key.userID(0).id());
     case 1: return QString::fromUtf8(key.userID(0).email());
     case 2: return QString::fromUtf8(key.issuerName());
-    case 3: return key.issuerSerial();
-    case 4: return key.protocolAsString();
-    case 5: return QChar(key.userID(0).validityAsString());
+    case 3: return QString::fromLatin1(key.issuerSerial());
+    case 4: return QString::fromLatin1(key.protocolAsString());
+    case 5: return QString(QLatin1Char(key.userID(0).validityAsString()));
     default: return QString();
     }
 }
@@ -108,14 +108,14 @@ void CertListView::slotResult(const GpgME::KeyListResult &result)
 {
     qDebug() << "CertListView::slotResult()";
     if (result.isNull()) {
-        QMessageBox::information(this, "Key Listing Result", "KeyListResult is null!");
+        QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("KeyListResult is null!"));
     } else if (result.error())
-        QMessageBox::critical(this, "Key Listing Result",
-                              QString("KeyListResult Error: %1").arg(result.error().asString()));
+        QMessageBox::critical(this, QStringLiteral("Key Listing Result"),
+                              QStringLiteral("KeyListResult Error: %1").arg(QString::fromLatin1(result.error().asString())));
     else if (result.isTruncated()) {
-        QMessageBox::information(this, "Key Listing Result", "KeyListResult is truncated!");
+        QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("KeyListResult is truncated!"));
     } else {
-        QMessageBox::information(this, "Key Listing Result", "Key listing successful");
+        QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("Key listing successful"));
     }
 }
 

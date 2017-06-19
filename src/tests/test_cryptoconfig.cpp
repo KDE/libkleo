@@ -157,8 +157,8 @@ int main(int argc, char **argv)
 
     {
         // Static querying of a single boolean option
-        static const char s_groupName[] = "Monitor";
-        static const char s_entryName[] = "quiet";
+        static const QString s_groupName = QStringLiteral("Monitor");
+        static const QString s_entryName = QStringLiteral("quiet");
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
@@ -201,14 +201,14 @@ int main(int argc, char **argv)
 
             cout << "quiet option reset to initial: " << (val ? "is set" : "is not set") << endl;
         } else {
-            cout << "Entry 'dirmngr/" << s_groupName << "/" << s_entryName << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
     {
         // Static querying and setting of a single int option
-        static const char s_groupName[] = "LDAP";
-        static const char s_entryName[] = "ldaptimeout";
+        static const QString s_groupName = QStringLiteral("LDAP");
+        static const QString s_entryName = QStringLiteral("ldaptimeout");
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
@@ -254,14 +254,14 @@ int main(int argc, char **argv)
 
             cout << "LDAP timeout reset to initial " << val << " seconds." << endl;
         } else {
-            cout << "Entry 'dirmngr/" << s_groupName << "/" << s_entryName << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
     {
         // Static querying and setting of a single string option
-        static const char s_groupName[] = "Debug";
-        static const char s_entryName[] = "log-file";
+        static const QString s_groupName = QStringLiteral("Debug");
+        static const QString s_entryName = QStringLiteral("log-file");
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
@@ -302,14 +302,14 @@ int main(int argc, char **argv)
 
             cout << "Log-file reset to initial " << val.toLocal8Bit().constData() << endl;
         } else {
-            cout << "Entry 'dirmngr/" << s_groupName << "/" << s_entryName << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
     {
         // Static querying and setting of the LDAP URL list option
-        static const char s_groupName[] = "LDAP";
-        static const char s_entryName[] = "LDAP Server";
+        static const QString s_groupName = QStringLiteral("LDAP");
+        static const QString s_entryName = QStringLiteral("LDAP Server");
         QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
@@ -327,8 +327,8 @@ int main(int argc, char **argv)
             lst << QUrl(QStringLiteral("ldap://foo:389?a:b c"));
             lst << QUrl(QStringLiteral("ldap://server:389?a=b,c=DE"));   // the query contains a literal ','
             //cout << " trying to set: " << lst.toStringList().join(", ").local8Bit() << endl;
-            Q_ASSERT(lst[0].query() == "b");
-            Q_ASSERT(lst[1].query() == "a:b c");   // see, the space got _not_escaped
+            Q_ASSERT(lst[0].query() == QStringLiteral("b"));
+            Q_ASSERT(lst[1].query() == QStringLiteral("a:b c"));   // see, the space got _not_escaped
             entry->setURLValueList(lst);
             Q_ASSERT(entry->isDirty());
             config->sync(true);
@@ -367,7 +367,7 @@ int main(int argc, char **argv)
             }
             cout << endl;
         } else {
-            cout << "Entry 'dirmngr/" << s_groupName << "/" << s_entryName << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
