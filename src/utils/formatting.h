@@ -137,6 +137,9 @@ KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
  * mode is not set. */
 KLEO_EXPORT QString complianceMode();
 
+/* Is the given key in compliance with CO_DE_VS?  */
+KLEO_EXPORT bool isKeyDeVs(const GpgME::Key &key);
+
 /* A sentence if the key confirms to the current compliance mode */
 KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
 }

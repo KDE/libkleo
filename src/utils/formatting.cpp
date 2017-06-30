@@ -1,4 +1,5 @@
-/* -*- mode: c++; c-basic-offset:4 -*-
+/* -*- mode: c++; c-basic-offset: 4; indent-tabs-mode: nil; -*-
+
     utils/formatting.cpp
 
     This file is part of Kleopatra, the KDE keymanager
@@ -834,25 +835,30 @@ QString Formatting::complianceMode()
     return entry->stringValue();
 }
 
-QString Formatting::complianceStringForKey(const GpgME::Key &key)
+bool Formatting::isKeyDeVs(const GpgME::Key &key)
 {
 #ifdef GPGME_HAS_KEY_IS_DEVS
+    for (const auto &sub: key.subkeys()) {
+        if (sub.isExpired() || sub.isRevoked()) {
+            // Ignore old subkeys
+            continue;
+        }
+        if (!sub.isDeVs()) {
+            return false;
+        }
+    }
+    return true;
+#else
+    return false;
+#endif
+}
+
+QString Formatting::complianceStringForKey(const GpgME::Key &key)
+{
     // There will likely be more in the future for other institutions
     // for now we only have DE-VS
     if (complianceMode() == QStringLiteral("de-vs")) {
-        bool compliant = false;
-        for (const auto &sub: key.subkeys()) {
-            if (sub.isExpired() || sub.isRevoked()) {
-                // Ignore old subkeys
-                continue;
-            }
-            if (!sub.isDeVs()) {
-                compliant = false;
-                break;
-            }
-            compliant = true;
-        }
-        if (compliant) {
+        if (isKeyDeVs(key)) {
             return i18nc("VS-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant with that..",
                          "May be used for VS-compliant communication.");
         } else {
@@ -860,8 +866,5 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
                          "May <b>not</b> be used for VS-compliant communication.");
         }
     }
-#else
-    Q_UNUSED(key);
-#endif
     return QString();
 }
