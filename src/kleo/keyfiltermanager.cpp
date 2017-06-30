@@ -37,6 +37,7 @@
 #include "stl_util.h"
 
 #include "libkleo_debug.h"
+#include "utils/formatting.h"
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -153,6 +154,59 @@ public:
         setMatchContexts(Filtering);
     }
 };
+
+/* This filter selects only VS-compliant keys if Kleopatra is used in
+ * CO_DE_VS mode.  */
+class DeVsCompliantKeyFilter : public DefaultKeyFilter
+{
+public:
+    DeVsCompliantKeyFilter()
+        : DefaultKeyFilter()
+    {
+        setName(i18n("VS-compliant Certificates"));
+        setId(QStringLiteral("vs-compliant-certificates"));
+        setSpecificity(UINT_MAX - 5); // overly high for ordering
+    }
+    bool matches (const Key &key, MatchContexts contexts) const override
+    {
+        return (contexts & Filtering) && Formatting::isKeyDeVs(key);
+    }
+};
+
+/* This filter gives valid keys (i.e. those where all UIDs are at
+ * least fully valid) a light green background if Kleopatra is used in
+ * CO_DE_VS mode.  */
+class KeyValidAppearanceFilter : public DefaultKeyFilter
+{
+public:
+    KeyValidAppearanceFilter()
+        : DefaultKeyFilter()
+    {
+        setBgColor(QColor("lightgreen"));
+    }
+    bool matches (const Key &key, MatchContexts contexts) const override
+    {
+        return (contexts & Appearance) && Formatting::uidsHaveFullValidity(key);
+    }
+};
+
+/* This filter gives invalid keys (i.e. those where not all UIDs are
+ * at least fully valid) a light red background if Kleopatra is used
+ * in CO_DE_VS mode.  */
+class KeyNotValidAppearanceFilter : public DefaultKeyFilter
+{
+public:
+    KeyNotValidAppearanceFilter()
+        : DefaultKeyFilter()
+    {
+        setBgColor(QColor("lightpink"));
+    }
+    bool matches (const Key &key, MatchContexts contexts) const override
+    {
+        return (contexts & Appearance) && !Formatting::uidsHaveFullValidity(key);
+    }
+};
+
 }
 
 static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
@@ -164,12 +218,20 @@ static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
     result.push_back(std::shared_ptr<KeyFilter>(new FullCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
+    if (Formatting::complianceMode() == QStringLiteral("de-vs")) {
+        result.push_back(std::shared_ptr<KeyFilter>(new DeVsCompliantKeyFilter));
+    }
     return result;
 }
 
 static std::vector<std::shared_ptr<KeyFilter>> defaultAppearanceFilters()
 {
     std::vector<std::shared_ptr<KeyFilter> > result;
+    if (Formatting::complianceMode() == QStringLiteral("de-vs")) {
+        result.reserve(2);
+        result.push_back(std::shared_ptr<KeyFilter>(new KeyValidAppearanceFilter));
+        result.push_back(std::shared_ptr<KeyFilter>(new KeyNotValidAppearanceFilter));
+    }
     return result;
 }
 
