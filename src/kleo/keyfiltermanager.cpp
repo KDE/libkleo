@@ -324,17 +324,22 @@ QVariant Model::data(const QModelIndex &idx, int role) const
     }
 }
 
-QFont KeyFilterManager::font(const Key &key, const QFont &baseFont) const
+static KeyFilter::FontDescription get_fontdescription(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, const KeyFilter::FontDescription &initial)
 {
-    return kdtools::accumulate_if(d->filters.begin(), d->filters.end(),
+    return kdtools::accumulate_if(filters.begin(), filters.end(),
                                   [&key](const std::shared_ptr<KeyFilter> &filter) {
                                       return filter->matches(key, KeyFilter::Appearance);
                                   },
-                                  KeyFilter::FontDescription(),
+                                  initial,
                                   [](const KeyFilter::FontDescription &lhs,
                                      const std::shared_ptr<KeyFilter> &rhs) {
                                       return lhs.resolve(rhs->fontDescription());
-                                  }).font(baseFont);
+                                  });
+}
+
+QFont KeyFilterManager::font(const Key &key, const QFont &baseFont) const
+{
+    return get_fontdescription(d->filters, key, KeyFilter::FontDescription()).font(baseFont);
 }
 
 static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QColor(KeyFilter::*fun)() const)
