@@ -342,7 +342,7 @@ static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, 
     const auto it = std::find_if(filters.cbegin(), filters.cend(),
                                  [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
                                     return filter->matches(key, KeyFilter::Appearance)
-                                    && !(filter.get()->*fun)().isValid();
+                                    && (filter.get()->*fun)().isValid();
                                  });
     if (it == filters.cend()) {
         return QColor();
