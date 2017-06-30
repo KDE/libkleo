@@ -167,17 +167,25 @@ static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
     return result;
 }
 
+static std::vector<std::shared_ptr<KeyFilter>> defaultAppearanceFilters()
+{
+    std::vector<std::shared_ptr<KeyFilter> > result;
+    return result;
+}
+
 class KeyFilterManager::Private
 {
 public:
-    Private() : filters(), model(this) {}
+    Private() : filters(), appearanceFilters(), model(this) {}
     void clear()
     {
         filters.clear();
+        appearanceFilters.clear();
         model.reset();
     }
 
     std::vector<std::shared_ptr<KeyFilter>> filters;
+    std::vector<std::shared_ptr<KeyFilter>> appearanceFilters;
     Model model;
 };
 
@@ -251,6 +259,7 @@ void KeyFilterManager::reload()
     d->clear();
 
     d->filters = defaultFilters();
+    d->appearanceFilters = defaultAppearanceFilters();
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
 
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
@@ -339,7 +348,12 @@ static KeyFilter::FontDescription get_fontdescription(const std::vector<std::sha
 
 QFont KeyFilterManager::font(const Key &key, const QFont &baseFont) const
 {
-    return get_fontdescription(d->filters, key, KeyFilter::FontDescription()).font(baseFont);
+    KeyFilter::FontDescription fd;
+
+    fd = get_fontdescription(d->appearanceFilters, key, KeyFilter::FontDescription());
+    fd = get_fontdescription(d->filters, key, fd);
+
+    return fd.font(baseFont);
 }
 
 static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QColor(KeyFilter::*fun)() const)
@@ -372,17 +386,34 @@ static QString get_string(const std::vector<std::shared_ptr<KeyFilter>> &filters
 
 QColor KeyFilterManager::bgColor(const Key &key) const
 {
-    return get_color(d->filters, key, &KeyFilter::bgColor);
+    QColor color;
+
+    color = get_color(d->appearanceFilters, key, &KeyFilter::bgColor);
+    if (!color.isValid()) {
+        color = get_color(d->filters, key, &KeyFilter::bgColor);
+    }
+    return color;
 }
 
 QColor KeyFilterManager::fgColor(const Key &key) const
 {
-    return get_color(d->filters, key, &KeyFilter::fgColor);
+    QColor color;
+
+    color = get_color(d->appearanceFilters, key, &KeyFilter::fgColor);
+    if (!color.isValid()) {
+        color = get_color(d->filters, key, &KeyFilter::fgColor);
+    }
+    return color;
 }
 
 QIcon KeyFilterManager::icon(const Key &key) const
 {
-    const QString icon = get_string(d->filters, key, &KeyFilter::icon);
+    QString icon;
+
+    icon = get_string(d->appearanceFilters, key, &KeyFilter::icon);
+    if (icon.isEmpty()) {
+        icon = get_string(d->filters, key, &KeyFilter::icon);
+    }
     return icon.isEmpty() ? QIcon() : QIcon::fromTheme(icon);
 }
 
