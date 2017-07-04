@@ -781,8 +781,10 @@ QString Formatting::usageString(const Subkey &sub)
 QString Formatting::summaryLine(const Key &key)
 {
     return keyToString(key) + QLatin1Char(' ') +
-           i18nc("First arg is the Key Protocol OpenPGP or S/MIME, second arg is the creation date.",
-                 "(%1 - created: %2)", displayName(key.protocol()) ,
+           i18nc("(validity, protocol, creation date)",
+                 "(%1, %2, created: %3)",
+		 Formatting::complianceStringShort(key),
+		 displayName(key.protocol()),
                  Formatting::creationDateString(key));
 }
 
@@ -877,4 +879,19 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
         }
     }
     return QString();
+}
+
+QString Formatting::complianceStringShort(const GpgME::Key &key)
+{
+    if (Formatting::uidsHaveFullValidity(key)) {
+        if (complianceMode() == QStringLiteral("de-vs")
+            && Formatting::isKeyDeVs(key)) {
+            return QStringLiteral("★ ") +
+                i18nc("VS-conforming is a German standard for restricted documents for which special restrictions about algorithms apply.  The string states that a key is compliant with that.",
+                      "VS-compliant");
+        }
+        return i18nc("As in all user IDs are valid.", "certified");
+    }
+
+    return i18nc("As in not all user IDs are valid.", "not certified");
 }

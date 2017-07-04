@@ -192,8 +192,9 @@ public:
                 name = dn[QStringLiteral("CN")];
                 email = dn[QStringLiteral("EMAIL")];
             }
-            return i18nc("Name <email> (type, created: date)", "%1 (%2, created: %3)",
+            return i18nc("Name <email> (validity, type, created: date)", "%1 (%2, %3, created: %4)",
                          email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email),
+                         Kleo::Formatting::complianceStringShort(key),
                          key.protocol() == GpgME::OpenPGP ? i18n("OpenPGP") : i18n("S/MIME"),
                          Kleo::Formatting::creationDateString(key));
         }

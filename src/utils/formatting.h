@@ -145,6 +145,11 @@ KLEO_EXPORT bool isKeyDeVs(const GpgME::Key &key);
 
 /* A sentence if the key confirms to the current compliance mode */
 KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
+
+/* A single word for use in keylists to describe the validity of the
+ * given key, including any conformance statements relevant to the
+ * current conformance mode.  */
+KLEO_EXPORT QString complianceStringShort(const GpgME::Key &key);
 }
 }
 
