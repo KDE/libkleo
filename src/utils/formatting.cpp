@@ -868,7 +868,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     // There will likely be more in the future for other institutions
     // for now we only have DE-VS
     if (complianceMode() == QStringLiteral("de-vs")) {
-        if (isKeyDeVs(key)) {
+        if (uidsHaveFullValidity(key) && isKeyDeVs(key)) {
             return i18nc("VS-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant with that..",
                          "May be used for VS-compliant communication.");
         } else {
