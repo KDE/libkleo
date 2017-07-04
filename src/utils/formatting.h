@@ -133,6 +133,9 @@ KLEO_EXPORT QString summaryLine(const GpgME::Key &key);
 
 KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
 
+/* Is the key valid i.e. are all uids fully trusted?  */
+KLEO_EXPORT bool uidsHaveFullValidity(const GpgME::Key &key);
+
 /* The compliance mode of the gnupg system. Empty if compliance
  * mode is not set. */
 KLEO_EXPORT QString complianceMode();

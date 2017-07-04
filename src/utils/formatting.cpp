@@ -821,6 +821,16 @@ QString Formatting::validity(const UserID &uid)
     }
 }
 
+bool Formatting::uidsHaveFullValidity(const GpgME::Key &key)
+{
+    for (const auto &uid: key.userIDs()) {
+        if (uid.validity() < UserID::Validity::Full) {
+            return false;
+        }
+    }
+    return true;
+}
+
 QString Formatting::complianceMode()
 {
     const QGpgME::CryptoConfig *const config = QGpgME::cryptoConfig();
