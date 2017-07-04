@@ -195,6 +195,7 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
             switch (section) {
             case PrettyName:       return i18n("Name");
             case PrettyEMail:      return i18n("E-Mail");
+            case Validity:         return i18n("Validity");
             case ValidFrom:        return i18n("Valid From");
             case ValidUntil:       return i18n("Valid Until");
             case TechnicalDetails: return i18n("Details");
@@ -246,6 +247,8 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
             } else {
                 return QVariant();
             }
+	case Validity:
+	    return Formatting::complianceStringShort(key);
         case ValidFrom:
             if (role == Qt::EditRole) {
                 return Formatting::creationDate(key);

@@ -72,6 +72,7 @@ public:
         SerialNumber,
 #endif
 
+        Validity,
         NumColumns,
         Icon = PrettyName // which column shall the icon be displayed in?
     };
