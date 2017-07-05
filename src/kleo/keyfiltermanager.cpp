@@ -382,16 +382,28 @@ int Model::rowCount(const QModelIndex &) const
 
 QVariant Model::data(const QModelIndex &idx, int role) const
 {
-    if ((role != Qt::DisplayRole && role != Qt::EditRole &&
-            role != Qt::ToolTipRole && role != Qt::DecorationRole) ||
-            !idx.isValid() || idx.model() != this ||
-            idx.row() < 0 || static_cast<unsigned>(idx.row()) >  m_keyFilterManagerPrivate->filters.size()) {
+    if (!idx.isValid()
+        || idx.model() != this
+        || idx.row() < 0
+        || static_cast<unsigned>(idx.row()) >  m_keyFilterManagerPrivate->filters.size()) {
         return QVariant();
     }
-    if (role == Qt::DecorationRole) {
-        return m_keyFilterManagerPrivate->filters[idx.row()]->icon();
-    } else {
-        return m_keyFilterManagerPrivate->filters[idx.row()]->name();
+
+    const auto filter = m_keyFilterManagerPrivate->filters[idx.row()];
+    switch (role) {
+    case Qt::DecorationRole:
+        return filter->icon();
+
+    case Qt::DisplayRole:
+    case Qt::EditRole:
+    case Qt::ToolTipRole:  /* Most useless tooltip ever.  */
+        return filter->name();
+
+    case Qt::UserRole:
+        return filter->id();
+
+    default:
+        return QVariant();
     }
 }
 
