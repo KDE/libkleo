@@ -173,6 +173,24 @@ public:
     }
 };
 
+/* This filter selects only invalid keys (i.e. those where not all
+ * UIDs are at least fully valid).  */
+class KeyNotValidFilter : public DefaultKeyFilter
+{
+public:
+    KeyNotValidFilter()
+        : DefaultKeyFilter()
+    {
+        setName(i18n("Not validated Certificates"));
+        setId(QStringLiteral("not-validated-certificates"));
+        setSpecificity(UINT_MAX - 6); // overly high for ordering
+    }
+    bool matches (const Key &key, MatchContexts contexts) const override
+    {
+        return (contexts & Filtering) && !Formatting::uidsHaveFullValidity(key);
+    }
+};
+
 /* This filter gives valid keys (i.e. those where all UIDs are at
  * least fully valid) a light green background if Kleopatra is used in
  * CO_DE_VS mode.  */
@@ -212,12 +230,13 @@ public:
 static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
 {
     std::vector<std::shared_ptr<KeyFilter> > result;
-    result.reserve(5);
+    result.reserve(6);
     result.push_back(std::shared_ptr<KeyFilter>(new MyCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new TrustedCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new FullCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new KeyNotValidFilter));
     if (Formatting::complianceMode() == QStringLiteral("de-vs")) {
         result.push_back(std::shared_ptr<KeyFilter>(new DeVsCompliantKeyFilter));
     }
