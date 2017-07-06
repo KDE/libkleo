@@ -540,7 +540,7 @@ Kleo::KeyListViewItem *Kleo::KeyListView::firstChild() const
 Kleo::KeyListViewItem *Kleo::KeyListView::selectedItem() const
 {
     QList<KeyListViewItem *> selection = selectedItems();
-    if (selection.size() == 0) {
+    if (selection.isEmpty()) {
         return nullptr;
     }
     return selection.first();
