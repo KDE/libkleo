@@ -40,6 +40,7 @@
 #include <klineedit.h>
 #include <KLocalizedString>
 #include "kleo_ui_debug.h"
+#include <utils/formatting.h>
 #include <qicon.h>
 #include <QDialogButtonBox>
 
@@ -330,11 +331,17 @@ Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
     QGridLayout *glay, QWidget *widget)
     : QObject(module), mGroup(group)
 {
+    const bool de_vs = Kleo::Formatting::complianceMode() == QStringLiteral("de-vs");
     const int startRow = glay->rowCount();
     const QStringList entries = mGroup->entryList();
     for (QStringList::const_iterator it = entries.begin(), end = entries.end(); it != end; ++it) {
         QGpgME::CryptoConfigEntry *entry = group->entry(*it);
         Q_ASSERT(entry);
+        /* Skip "dangerous" options if we are running in CO_DE_VS.  */
+        if (de_vs && entry->level() > QGpgME::CryptoConfigEntry::Level_Advanced) {
+            qCDebug(KLEO_UI_LOG) << "entry" << *it << "too advanced, skipping";
+            continue;
+        }
         CryptoConfigEntryGUI *entryGUI =
             CryptoConfigEntryGUIFactory::createEntryGUI(module, entry, *it, glay, widget);
         if (entryGUI) {
