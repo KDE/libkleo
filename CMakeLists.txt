@@ -40,6 +40,8 @@ find_package(KF5PimTextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
 set(GPGMEPP_LIB_VERSION "1.7.1")
 find_package(Gpgmepp ${GPGMEPP_LIB_VERSION})
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "http://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
+find_package(QGpgme ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
+
 
 find_package(Boost 1.34.0)
 set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "http://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")
