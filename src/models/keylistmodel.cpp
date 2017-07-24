@@ -247,8 +247,8 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
             } else {
                 return QVariant();
             }
-	case Validity:
-	    return Formatting::complianceStringShort(key);
+        case Validity:
+            return Formatting::complianceStringShort(key);
         case ValidFrom:
             if (role == Qt::EditRole) {
                 return Formatting::creationDate(key);
