@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-set(PIM_VERSION "5.5.81")
+set(PIM_VERSION "5.5.90")
 
 project(libkleo VERSION ${PIM_VERSION})
 
