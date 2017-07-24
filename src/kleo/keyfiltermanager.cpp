@@ -200,7 +200,10 @@ public:
     KeyValidAppearanceFilter()
         : DefaultKeyFilter()
     {
-        setBgColor(QColor("lightgreen"));
+        // Ideally this would come from KColorScheme but we want to
+        // avoid a dependency against kconfigwidgets. So we take
+        // the color for positive background from breeze.
+        setBgColor(QColor(0xD5, 0xFA,  0xE2));
     }
     bool matches (const Key &key, MatchContexts contexts) const override
     {
@@ -217,7 +220,10 @@ public:
     KeyNotValidAppearanceFilter()
         : DefaultKeyFilter()
     {
-        setBgColor(QColor("lightpink"));
+        // Ideally this would come from KColorScheme but we want to
+        // avoid a dependency against kconfigwidgets. So we take
+        // the color for negative background from breeze.
+        setBgColor(QColor(0xFA, 0xE9, 0xEB));
     }
     bool matches (const Key &key, MatchContexts contexts) const override
     {
