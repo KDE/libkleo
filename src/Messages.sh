@@ -1,3 +1,4 @@
 #! /bin/sh
 $EXTRACTRC */*.ui >> rc.cpp || exit 11
-$XGETTEXT *.cpp kleo/*.cpp kleo/*.h ui/*.cpp ui/*.h -o $podir/libkleopatra.pot
+$XGETTEXT `find . -name \*.cc -o -name \*.cpp -o -name \*.h | grep -v '/tests/' | grep -v '/autotests/'` -o $podir/libkleopatra.pot
+rm -f rc.cpp
