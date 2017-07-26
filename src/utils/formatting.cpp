@@ -871,11 +871,11 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     // for now we only have DE-VS
     if (complianceMode() == QStringLiteral("de-vs")) {
         if (uidsHaveFullValidity(key) && isKeyDeVs(key)) {
-            return i18nc("VS-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant with that..",
-                         "May be used for VS-compliant communication.");
+            return i18nc("VS-NfD conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant with that..",
+                         "May be used for VS-NfD-compliant communication.");
         } else {
-            return i18nc("VS-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant to that..",
-                         "May <b>not</b> be used for VS-compliant communication.");
+            return i18nc("VS-NfD-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant to that..",
+                         "May <b>not</b> be used for VS-NfD-compliant communication.");
         }
     }
     return QString();
@@ -887,8 +887,8 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
         if (complianceMode() == QStringLiteral("de-vs")
             && Formatting::isKeyDeVs(key)) {
             return QStringLiteral("★ ") +
-                i18nc("VS-conforming is a German standard for restricted documents for which special restrictions about algorithms apply.  The string states that a key is compliant with that.",
-                      "VS-compliant");
+                i18nc("VS-NfD-conforming is a German standard for restricted documents for which special restrictions about algorithms apply.  The string states that a key is compliant with that.",
+                      "VS-NfD-compliant");
         }
         return i18nc("As in all user IDs are valid.", "certified");
     }

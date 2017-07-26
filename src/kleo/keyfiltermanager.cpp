@@ -155,7 +155,7 @@ public:
     }
 };
 
-/* This filter selects only VS-compliant keys if Kleopatra is used in
+/* This filter selects only VS-NfD-compliant keys if Kleopatra is used in
  * CO_DE_VS mode.  */
 class DeVsCompliantKeyFilter : public DefaultKeyFilter
 {
@@ -163,7 +163,7 @@ public:
     DeVsCompliantKeyFilter()
         : DefaultKeyFilter()
     {
-        setName(i18n("VS-compliant Certificates"));
+        setName(i18n("VS-NfD-compliant Certificates"));
         setId(QStringLiteral("vs-compliant-certificates"));
         setSpecificity(UINT_MAX - 5); // overly high for ordering
     }
