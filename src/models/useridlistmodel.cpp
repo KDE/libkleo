@@ -75,7 +75,7 @@ public:
     {
         mItemData << i18n("ID")
                   << i18n("Name")
-                  << i18n("EMail")
+                  << i18n("E-Mail")
                   << i18n("Valid From")
                   << i18n("Valid Until")
                   << i18n("Status");
