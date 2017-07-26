@@ -194,10 +194,10 @@ public:
 /* This filter gives valid keys (i.e. those where all UIDs are at
  * least fully valid) a light green background if Kleopatra is used in
  * CO_DE_VS mode.  */
-class KeyValidAppearanceFilter : public DefaultKeyFilter
+class KeyDeVSValidAppearanceFilter : public DefaultKeyFilter
 {
 public:
-    KeyValidAppearanceFilter()
+    KeyDeVSValidAppearanceFilter()
         : DefaultKeyFilter()
     {
         // Ideally this would come from KColorScheme but we want to
@@ -207,17 +207,17 @@ public:
     }
     bool matches (const Key &key, MatchContexts contexts) const override
     {
-        return (contexts & Appearance) && Formatting::uidsHaveFullValidity(key);
+        return (contexts & Appearance) && Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key);
     }
 };
 
 /* This filter gives invalid keys (i.e. those where not all UIDs are
  * at least fully valid) a light red background if Kleopatra is used
  * in CO_DE_VS mode.  */
-class KeyNotValidAppearanceFilter : public DefaultKeyFilter
+class KeyNotDeVSValidAppearanceFilter : public DefaultKeyFilter
 {
 public:
-    KeyNotValidAppearanceFilter()
+    KeyNotDeVSValidAppearanceFilter()
         : DefaultKeyFilter()
     {
         // Ideally this would come from KColorScheme but we want to
@@ -227,7 +227,7 @@ public:
     }
     bool matches (const Key &key, MatchContexts contexts) const override
     {
-        return (contexts & Appearance) && !Formatting::uidsHaveFullValidity(key);
+        return (contexts & Appearance) && (!Formatting::uidsHaveFullValidity(key) || !Formatting::isKeyDeVs(key));
     }
 };
 
@@ -254,8 +254,8 @@ static std::vector<std::shared_ptr<KeyFilter>> defaultAppearanceFilters()
     std::vector<std::shared_ptr<KeyFilter> > result;
     if (Formatting::complianceMode() == QStringLiteral("de-vs")) {
         result.reserve(2);
-        result.push_back(std::shared_ptr<KeyFilter>(new KeyValidAppearanceFilter));
-        result.push_back(std::shared_ptr<KeyFilter>(new KeyNotValidAppearanceFilter));
+        result.push_back(std::shared_ptr<KeyFilter>(new KeyDeVSValidAppearanceFilter));
+        result.push_back(std::shared_ptr<KeyFilter>(new KeyNotDeVSValidAppearanceFilter));
     }
     return result;
 }
