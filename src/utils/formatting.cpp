@@ -271,7 +271,7 @@ QString format_keyusage(const Key &key)
         capabilities.push_back(i18n("Encryption"));
     }
     if (key.canCertify()) {
-        capabilities.push_back(i18n("Certifying Identities"));
+        capabilities.push_back(i18n("Certifying User-IDs"));
     }
     if (key.canAuthenticate()) {
         capabilities.push_back(i18n("SSH Authentication"));
@@ -318,13 +318,13 @@ QString Formatting::toolTip(const Key &key, int flags)
                     }
                 }
                 if (fullyTrusted == key.numUserIDs()) {
-                    result = i18n("All identities are certified.");
+                    result = i18n("All User-IDs are certified.");
                     const auto compliance = complianceStringForKey(key);
                     if (!compliance.isEmpty()) {
                         result += QStringLiteral("<br>") + compliance;
                     }
                 } else {
-                    result = i18np("One identity is not certified.", "%1 identities are not certified.", key.numUserIDs() - fullyTrusted);
+                    result = i18np("One User-ID is not certified.", "%1 User-IDs are not certified.", key.numUserIDs() - fullyTrusted);
                 }
             }
         else {
