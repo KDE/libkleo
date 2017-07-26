@@ -379,7 +379,7 @@ QString Formatting::toolTip(const Key &key, int flags)
     }
     if (flags & OwnerTrust) {
         if (key.protocol() == OpenPGP) {
-            result += format_row(i18n("Ownertrust"), ownerTrustShort(key));
+            result += format_row(i18n("Certification trust"), ownerTrustShort(key));
         } else if (key.isRoot()) {
             result += format_row(i18n("Trusted issuer?"),
                                  key.userID(0).validity() == UserID::Ultimate ? i18n("Yes") :
