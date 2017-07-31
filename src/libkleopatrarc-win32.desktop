@@ -41,6 +41,46 @@ unpack-command-openpgp=%I/gpgtar --openpgp --skip-crypto --set-filename %f --dec
 unpack-command-cms=%I/gpgtar --cms --skip-crypto --set-filename %f --decrypt -- -
 
 [Checksum Definition #0]
+file-patterns=sha256sum.txt,.*\\\\.sha256,.*\\\\.sha2
+output-file=sha256sum.txt
+id=sha256sum
+Name=sha256sum
+Name[ca]=sha256sum
+Name[ca@valencia]=sha256sum
+Name[cs]=sha256sum
+Name[da]=sha256sum
+Name[de]=sha256sum
+Name[en_GB]=sha256sum
+Name[es]=sha256sum
+Name[et]=sha256sum
+Name[fi]=sha256sum
+Name[fr]=sha256sum
+Name[gl]=sha256sum
+Name[ia]=sha256sum
+Name[it]=sha256sum
+Name[ja]=sha256sum
+Name[nb]=sha256sum
+Name[nl]=sha256sum
+Name[pl]=sha256sum
+Name[pt]=sha256sum
+Name[pt_BR]=sha256sum
+Name[ru]=sha256sum
+Name[sk]=sha256sum
+Name[sl]=sha256sum
+Name[sr]=СХА‑256 сума
+Name[sr@ijekavian]=СХА‑256 сума
+Name[sr@ijekavianlatin]=SHA‑256 suma
+Name[sr@latin]=SHA‑256 suma
+Name[sv]=SHA256-summa
+Name[tr]=sha256sum
+Name[uk]=sha256sum
+Name[x-test]=xxsha256sumxx
+Name[zh_CN]=sha256sum
+create-command=0|%I/sha256sum -0 -
+verify-command=%I/sha256sum -c
+
+
+[Checksum Definition #1]
 file-patterns=sha1sum.txt,.*\\\\.sha1
 output-file=sha1sum.txt
 id=sha1sum
@@ -79,45 +119,6 @@ Name[x-test]=xxsha1sumxx
 Name[zh_CN]=sha1sum
 create-command=0|%I/sha1sum -0 -
 verify-command=%I/sha1sum -c
-
-[Checksum Definition #1]
-file-patterns=sha256sum.txt,.*\\\\.sha256,.*\\\\.sha2
-output-file=sha256sum.txt
-id=sha256sum
-Name=sha256sum
-Name[ca]=sha256sum
-Name[ca@valencia]=sha256sum
-Name[cs]=sha256sum
-Name[da]=sha256sum
-Name[de]=sha256sum
-Name[en_GB]=sha256sum
-Name[es]=sha256sum
-Name[et]=sha256sum
-Name[fi]=sha256sum
-Name[fr]=sha256sum
-Name[gl]=sha256sum
-Name[ia]=sha256sum
-Name[it]=sha256sum
-Name[ja]=sha256sum
-Name[nb]=sha256sum
-Name[nl]=sha256sum
-Name[pl]=sha256sum
-Name[pt]=sha256sum
-Name[pt_BR]=sha256sum
-Name[ru]=sha256sum
-Name[sk]=sha256sum
-Name[sl]=sha256sum
-Name[sr]=СХА‑256 сума
-Name[sr@ijekavian]=СХА‑256 сума
-Name[sr@ijekavianlatin]=SHA‑256 suma
-Name[sr@latin]=SHA‑256 suma
-Name[sv]=SHA256-summa
-Name[tr]=sha256sum
-Name[uk]=sha256sum
-Name[x-test]=xxsha256sumxx
-Name[zh_CN]=sha256sum
-create-command=0|%I/sha256sum -0 -
-verify-command=%I/sha256sum -c
 
 [Checksum Definition #2]
 file-patterns=md5sum.txt,.*\\\\.md5
