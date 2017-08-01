@@ -255,7 +255,16 @@ KeySelectionCombo::KeySelectionCombo(QWidget* parent)
     d->proxyModel->setSourceModel(d->sortFilterProxy);
 
     setModel(d->proxyModel);
-    connect(this, static_cast<void(KeySelectionCombo::*)(int)>(&KeySelectionCombo::currentIndexChanged), this, [this](int row) { if (row >= 0 && row < d->proxyModel->rowCount()) { if (d->proxyModel->isCustomItem(row)) { Q_EMIT customItemSelected(d->proxyModel->index(row, 0).data(Qt::UserRole)); } else { Q_EMIT currentKeyChanged(currentKey()); } } });
+    connect(this, static_cast<void(KeySelectionCombo::*)(int)>(&KeySelectionCombo::currentIndexChanged),
+            this, [this](int row) {
+                if (row >= 0 && row < d->proxyModel->rowCount()) {
+                    if (d->proxyModel->isCustomItem(row)) {
+                        Q_EMIT customItemSelected(d->proxyModel->index(row, 0).data(Qt::UserRole));
+                    } else {
+                        Q_EMIT currentKeyChanged(currentKey());
+                    }
+                }
+            });
 
     d->cache = Kleo::KeyCache::mutableInstance();
 
