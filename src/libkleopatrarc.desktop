@@ -203,6 +203,12 @@ file-patterns=sha512sum.txt,.*\\\\.sha1
 output-file=sha512sum.txt
 id=sha512sum
 Name=sha512sum
+Name[ca]=sha512sum
+Name[nl]=sha512sum
+Name[pt]=sha512sum
+Name[sv]=SHA512-summa
+Name[uk]=sha512sum
+Name[x-test]=xxsha512sumxx
 create-command=0|xargs -0 sha512sum --
 verify-command=sha512sum -c --
 
