@@ -55,7 +55,7 @@ public:
     Private() : updateTimer(nullptr) {}
 
     std::vector<GpgME::Key> keyBuffer;
-    QTimer *updateTimer;
+    QTimer *updateTimer = nullptr;
     std::map<QByteArray, KeyListViewItem *> itemMap;
 };
 

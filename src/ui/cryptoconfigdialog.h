@@ -66,8 +66,8 @@ public Q_SLOTS:
     void slotChanged();
 
 private:
-    CryptoConfigModule *mMainWidget;
-    QDialogButtonBox *mButtonBox;
+    CryptoConfigModule *mMainWidget = nullptr;
+    QDialogButtonBox *mButtonBox = nullptr;
 };
 
 }

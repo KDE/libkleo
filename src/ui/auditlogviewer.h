@@ -62,9 +62,9 @@ private:
 
     QString m_log;
 #ifdef HAVE_PIMTEXTEDIT
-    KPIMTextEdit::RichTextEditorWidget *m_textEdit;
+    KPIMTextEdit::RichTextEditorWidget *m_textEdit = nullptr;
 #else
-    QTextEdit *m_textEdit;
+    QTextEdit *m_textEdit = nullptr;
 #endif
 };
 

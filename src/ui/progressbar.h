@@ -71,7 +71,7 @@ private:
     void fixup(bool);
 
 private:
-    QTimer *mBusyTimer;
+    QTimer *mBusyTimer = nullptr;
     int mRealProgress;
 };
 }

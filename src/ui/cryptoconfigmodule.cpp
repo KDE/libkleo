@@ -607,7 +607,7 @@ Kleo::CryptoConfigEntryPath::CryptoConfigEntryPath(
       mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
-    QWidget *req;
+    QWidget *req = nullptr;
     req = mFileNameRequester = new FileNameRequester(widget);
     mFileNameRequester->setExistingOnly(false);
     mFileNameRequester->setFilter(QDir::Files);
@@ -650,7 +650,7 @@ Kleo::CryptoConfigEntryDirPath::CryptoConfigEntryDirPath(
       mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
-    QWidget *req;
+    QWidget *req = nullptr;
     req = mFileNameRequester = new FileNameRequester(widget);
     mFileNameRequester->setExistingOnly(false);
     mFileNameRequester->setFilter(QDir::Dirs);

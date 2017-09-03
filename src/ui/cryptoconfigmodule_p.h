@@ -80,7 +80,7 @@ public:
     void defaults();
 
 private:
-    QGpgME::CryptoConfigComponent *mComponent;
+    QGpgME::CryptoConfigComponent *mComponent = nullptr;
     QList<CryptoConfigGroupGUI *> mGroupGUIs;
 };
 
@@ -100,7 +100,7 @@ public:
     void defaults();
 
 private:
-    QGpgME::CryptoConfigGroup *mGroup;
+    QGpgME::CryptoConfigGroup *mGroup = nullptr;
     QList<CryptoConfigEntryGUI *> mEntryGUIs;
 };
 
@@ -161,9 +161,9 @@ protected:
     virtual void doSave() = 0;
     virtual void doLoad() = 0;
 
-    QGpgME::CryptoConfigEntry *mEntry;
+    QGpgME::CryptoConfigEntry *mEntry = nullptr;
     QString mName;
-    bool mChanged;
+    bool mChanged = false;
 };
 
 /**
@@ -183,7 +183,7 @@ public:
     void doSave() override;
     void doLoad() override;
 private:
-    KLineEdit *mLineEdit;
+    KLineEdit *mLineEdit = nullptr;
 };
 
 /**
@@ -199,7 +199,7 @@ public:
     void doSave() override;
     void doLoad() override;
 private:
-    QComboBox *mComboBox;
+    QComboBox *mComboBox = nullptr;
 };
 
 /**
@@ -219,7 +219,7 @@ public:
     void doSave() override;
     void doLoad() override;
 private:
-    Kleo::FileNameRequester *mFileNameRequester;
+    Kleo::FileNameRequester *mFileNameRequester = nullptr;
 };
 
 /**
@@ -239,7 +239,7 @@ public:
     void doSave() override;
     void doLoad() override;
 private:
-    Kleo::FileNameRequester *mFileNameRequester;
+    Kleo::FileNameRequester *mFileNameRequester = nullptr;
 };
 
 /**
@@ -259,7 +259,7 @@ public:
     void doLoad() override;
 private:
     enum { Int, UInt, ListOfNone } mKind;
-    QSpinBox *mNumInput;
+    QSpinBox *mNumInput = nullptr;
 };
 
 /**
@@ -278,7 +278,7 @@ public:
     void doSave() override;
     void doLoad() override;
 private:
-    QCheckBox *mCheckBox;
+    QCheckBox *mCheckBox = nullptr;
 };
 
 /**
@@ -300,8 +300,8 @@ private Q_SLOTS:
     void slotOpenDialog();
 private:
     void setURLList(const QList<QUrl> &urlList);
-    QLabel *mLabel;
-    QPushButton *mPushButton;
+    QLabel *mLabel = nullptr;
+    QPushButton *mPushButton = nullptr;
     QList<QUrl> mURLList;
 };
 
@@ -323,8 +323,8 @@ public:
 private Q_SLOTS:
     void slotOpenDialog();
 private:
-    QLabel *mLabel;
-    QPushButton *mPushButton;
+    QLabel *mLabel = nullptr;
+    QPushButton *mPushButton = nullptr;
     ParsedKeyserver mParsedKeyserver;
 };
 }

@@ -226,12 +226,12 @@ public:
     {
     }
 
-    Kleo::AbstractKeyListModel *model;
-    Kleo::KeyListSortFilterProxyModel *sortFilterProxy;
-    ProxyModel *proxyModel;
+    Kleo::AbstractKeyListModel *model = nullptr;
+    Kleo::KeyListSortFilterProxyModel *sortFilterProxy = nullptr;
+    ProxyModel *proxyModel = nullptr;
     std::shared_ptr<Kleo::KeyCache> cache;
     QString defaultKey;
-    bool wasEnabled;
+    bool wasEnabled = false;
 
 private:
     KeySelectionCombo * const q;

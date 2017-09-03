@@ -184,21 +184,21 @@ private:
     void init(bool, bool, const QString &, const QString &);
 
 private:
-    QVBoxLayout *mTopLayout;
-    Kleo::KeyListView *mKeyListView;
+    QVBoxLayout *mTopLayout = nullptr;
+    Kleo::KeyListView *mKeyListView = nullptr;
     const QGpgME::Protocol *mOpenPGPBackend;
     const QGpgME::Protocol *mSMIMEBackend;
-    QCheckBox *mRememberCB;
+    QCheckBox *mRememberCB = nullptr;
     std::vector<GpgME::Key> mSelectedKeys, mKeysToCheck;
     unsigned int mKeyUsage;
-    QTimer *mCheckSelectionTimer;
-    QTimer *mStartSearchTimer;
+    QTimer *mCheckSelectionTimer = nullptr;
+    QTimer *mStartSearchTimer = nullptr;
     // cross-eventloop temporaries:
     QString mSearchText;
     const QString mInitialQuery;
-    Kleo::KeyListViewItem *mCurrentContextMenuItem;
+    Kleo::KeyListViewItem *mCurrentContextMenuItem = nullptr;
     int mTruncated, mListJobCount, mSavedOffsetY;
-    QPushButton *mOkButton;
+    QPushButton *mOkButton = nullptr;
 };
 
 }

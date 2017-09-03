@@ -62,7 +62,7 @@ public:
 
     void connectWatcher();
 
-    QFileSystemWatcher *m_watcher;
+    QFileSystemWatcher *m_watcher = nullptr;
     QTimer m_timer;
     std::set<QString> m_seenPaths;
     std::set<QString> m_cachedDirectories;

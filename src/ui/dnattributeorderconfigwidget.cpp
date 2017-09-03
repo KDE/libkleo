@@ -53,16 +53,16 @@ public:
     enum { UUp = 0, Up = 1, Left = 2, Right = 3, Down = 4, DDown = 5 };
 
 #ifndef QT_NO_TREEWIDGET
-    QTreeWidget *availableLV;
-    QTreeWidget *currentLV;
+    QTreeWidget *availableLV = nullptr;
+    QTreeWidget *currentLV = nullptr;
 #endif
     QToolButton *navTB[6];
 
 #ifndef QT_NO_TREEWIDGET
-    QTreeWidgetItem *placeHolderItem;
+    QTreeWidgetItem *placeHolderItem = nullptr;
 #endif
 
-    Kleo::DNAttributeMapper *mapper;
+    Kleo::DNAttributeMapper *mapper = nullptr;
 };
 
 #ifndef QT_NO_TREEWIDGET

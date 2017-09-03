@@ -148,7 +148,7 @@ public:
 private:
     QList<UIDModelItem*> mChildItems;
     QList<QVariant> mItemData;
-    UIDModelItem *mParentItem;
+    UIDModelItem *mParentItem = nullptr;
     UserID::Signature mSig;
     UserID mUid;
 };
@@ -204,7 +204,7 @@ int UserIDListModel::columnCount(const QModelIndex &parent) const
 
 int UserIDListModel::rowCount(const QModelIndex &parent) const
 {
-    UIDModelItem *parentItem;
+    UIDModelItem *parentItem = nullptr;
     if (parent.column() > 0 || !mRootItem) {
         return 0;
     }
@@ -224,7 +224,7 @@ QModelIndex UserIDListModel::index(int row, int column, const QModelIndex &paren
         return QModelIndex();
     }
 
-    UIDModelItem *parentItem;
+    UIDModelItem *parentItem = nullptr;
 
     if (!parent.isValid()) {
         parentItem = mRootItem;

@@ -58,7 +58,7 @@ private Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
 
 private:
-    Kleo::GnuPGProcessBase *mProcess;
+    Kleo::GnuPGProcessBase *mProcess = nullptr;
     QString mLastStdout, mLastStderr, mLastStatus;
 };
 

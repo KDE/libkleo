@@ -78,7 +78,7 @@ private:
     void init(Layout layout);
 
 private:
-    QGpgME::CryptoConfig *mConfig;
+    QGpgME::CryptoConfig *mConfig = nullptr;
     QList<CryptoConfigComponentGUI *> mComponentGUIs;
 };
 

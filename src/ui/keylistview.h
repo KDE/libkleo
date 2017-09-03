@@ -215,9 +215,9 @@ private:
     void deregisterItem(const KeyListViewItem *);
 
 private:
-    const ColumnStrategy *mColumnStrategy;
-    const DisplayStrategy *mDisplayStrategy;
-    bool mHierarchical;
+    const ColumnStrategy *mColumnStrategy = nullptr;
+    const DisplayStrategy *mDisplayStrategy = nullptr;
+    bool mHierarchical = false;
 
     class Private;
     Private *const d;

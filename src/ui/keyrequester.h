@@ -145,9 +145,9 @@ private Q_SLOTS:
 private:
     const QGpgME::Protocol *mOpenPGPBackend;
     const QGpgME::Protocol *mSMIMEBackend;
-    QLabel *mLabel;
-    QPushButton *mEraseButton;
-    QPushButton *mDialogButton;
+    QLabel *mLabel = nullptr;
+    QPushButton *mEraseButton = nullptr;
+    QPushButton *mDialogButton = nullptr;
     QString mDialogCaption, mDialogMessage, mInitialQuery;
     bool mMulti;
     unsigned int mKeyUsage;

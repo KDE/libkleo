@@ -71,7 +71,7 @@ public:
 
 private:
     GpgME::Key mKey;
-    UIDModelItem *mRootItem;
+    UIDModelItem *mRootItem = nullptr;
 };
 
 }
