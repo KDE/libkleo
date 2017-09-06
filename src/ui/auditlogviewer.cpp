@@ -64,10 +64,9 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     m_textEdit->setObjectName(QStringLiteral("m_textEdit"));
     m_textEdit->setReadOnly(true);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(m_textEdit);
     mainLayout->addWidget(buttonBox);
-    setLayout(mainLayout);
 
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
