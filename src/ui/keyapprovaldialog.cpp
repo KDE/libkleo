@@ -95,13 +95,13 @@ static QStringList preferencesStrings()
 class Q_DECL_HIDDEN Kleo::KeyApprovalDialog::Private
 {
 public:
-    Private() : selfRequester(nullptr), prefsChanged(false) {}
+    Private() {}
 
-    Kleo::KeyRequester *selfRequester;
+    Kleo::KeyRequester *selfRequester = nullptr;
     QStringList addresses;
     std::vector<Kleo::KeyRequester *> requesters;
     std::vector<QComboBox *> preferences;
-    bool prefsChanged;
+    bool prefsChanged = false;
 };
 
 Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,

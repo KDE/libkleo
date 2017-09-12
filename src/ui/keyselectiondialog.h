@@ -186,8 +186,8 @@ private:
 private:
     QVBoxLayout *mTopLayout = nullptr;
     Kleo::KeyListView *mKeyListView = nullptr;
-    const QGpgME::Protocol *mOpenPGPBackend;
-    const QGpgME::Protocol *mSMIMEBackend;
+    const QGpgME::Protocol *mOpenPGPBackend = nullptr;
+    const QGpgME::Protocol *mSMIMEBackend = nullptr;
     QCheckBox *mRememberCB = nullptr;
     std::vector<GpgME::Key> mSelectedKeys, mKeysToCheck;
     unsigned int mKeyUsage;

@@ -143,8 +143,8 @@ private Q_SLOTS:
     void slotEraseButtonClicked();
 
 private:
-    const QGpgME::Protocol *mOpenPGPBackend;
-    const QGpgME::Protocol *mSMIMEBackend;
+    const QGpgME::Protocol *mOpenPGPBackend = nullptr;
+    const QGpgME::Protocol *mSMIMEBackend = nullptr;
     QLabel *mLabel = nullptr;
     QPushButton *mEraseButton = nullptr;
     QPushButton *mDialogButton = nullptr;
