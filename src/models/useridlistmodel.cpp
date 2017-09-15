@@ -39,7 +39,6 @@
 #include <KLocalizedString>
 
 #include <QVariant>
-#include <QDate>
 
 using namespace GpgME;
 using namespace Kleo;

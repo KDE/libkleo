@@ -31,10 +31,8 @@
 #include <QSortFilterProxyModel>
 #include <QVector>
 #include <QTimer>
-#include <QLineEdit>
 
 #include <KLocalizedString>
-#include <KMessageBox>
 
 Q_DECLARE_METATYPE(GpgME::Key)
 

@@ -44,7 +44,6 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <QIcon>
-#include <QDebug>
 
 #include <QCoreApplication>
 #include <QRegularExpression>

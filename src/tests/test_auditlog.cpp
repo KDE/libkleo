@@ -78,7 +78,6 @@ const char * auditlog =
 
 #include <KAboutData>
 
-#include <QDebug>
 
 #include <QApplication>
 #include <KLocalizedString>

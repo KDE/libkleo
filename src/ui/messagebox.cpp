@@ -33,20 +33,17 @@
 #include "messagebox.h"
 #include "auditlogviewer.h"
 
-#include <QDebug>
 #include "kleo_ui_debug.h"
 
 #include <gpgme++/signingresult.h>
 #include <gpgme++/encryptionresult.h>
 #include <qgpgme/job.h>
 
-#include <QFileDialog>
 
 #include <QPushButton>
 #include <qdialog.h>
 #include <qdialogbuttonbox.h>
 #include <KLocalizedString>
-#include <QSaveFile>
 #include <kguiitem.h>
 
 #include <qtextstream.h>

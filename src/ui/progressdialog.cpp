@@ -31,7 +31,6 @@
 */
 
 #include "progressdialog.h"
-#include <QDebug>
 #include "kleo_ui_debug.h"
 
 #ifndef QT_NO_PROGRESSDIALOG

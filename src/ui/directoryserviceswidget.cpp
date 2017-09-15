@@ -42,10 +42,7 @@
 #include <QItemDelegate>
 #include <QAbstractTableModel>
 #include <QSpinBox>
-#include <QComboBox>
 #include <QHeaderView>
-#include <QMenu>
-#include <QAction>
 
 #include <vector>
 

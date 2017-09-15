@@ -40,7 +40,6 @@
 #include "progressdialog.h"
 
 #include "libkleo/dn.h"
-#include <QDebug>
 #include "kleo_ui_debug.h"
 
 // gpgme++
