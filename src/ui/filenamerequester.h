@@ -73,7 +73,6 @@ private:
 private:
     class Private;
     Private *d;
-    Q_PRIVATE_SLOT(d, void slotButtonClicked())
 };
 
 }

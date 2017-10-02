@@ -76,7 +76,7 @@ FileSystemWatcher::Private::Private(FileSystemWatcher *qq, const QStringList &pa
       m_paths(paths)
 {
     m_timer.setSingleShot(true);
-    connect(&m_timer, SIGNAL(timeout()), q, SLOT(onTimeout()));
+    connect(&m_timer, &QTimer::timeout, q, [this]() { onTimeout(); });
 }
 
 static bool is_matching(const QString &file, const QStringList &list)
@@ -202,8 +202,8 @@ void FileSystemWatcher::Private::connectWatcher()
     if (!m_watcher) {
         return;
     }
-    connect(m_watcher, SIGNAL(directoryChanged(QString)), q, SLOT(onDirectoryChanged(QString)));
-    connect(m_watcher, SIGNAL(fileChanged(QString)), q, SLOT(onFileChanged(QString)));
+    connect(m_watcher, &QFileSystemWatcher::directoryChanged, q, [this](const QString &str) { onDirectoryChanged(str); });
+    connect(m_watcher, &QFileSystemWatcher::fileChanged, q, [this](const QString &str) { onFileChanged(str); });
 }
 
 FileSystemWatcher::FileSystemWatcher(QObject *p)

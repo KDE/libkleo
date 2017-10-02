@@ -398,8 +398,8 @@ public:
         connect(&model, &QAbstractItemModel::dataChanged, q, &DirectoryServicesWidget::changed);
         connect(&model, &QAbstractItemModel::rowsInserted, q, &DirectoryServicesWidget::changed);
         connect(&model, &QAbstractItemModel::rowsRemoved, q, &DirectoryServicesWidget::changed);
-        connect(ui.treeView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                q, SLOT(slotSelectionChanged()));
+        connect(ui.treeView->selectionModel(), &QItemSelectionModel::selectionChanged,
+                q, [this]() { slotSelectionChanged(); });
         connect(ui.pgpKeyserver, &QLineEdit::textChanged, q, &DirectoryServicesWidget::changed);
 
         slotShowUserAndPasswordToggled(false);

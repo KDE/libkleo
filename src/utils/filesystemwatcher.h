@@ -76,9 +76,6 @@ Q_SIGNALS:
 private:
     class Private;
     QScopedPointer<Private> const d;
-    Q_PRIVATE_SLOT(d, void onFileChanged(QString))
-    Q_PRIVATE_SLOT(d, void onDirectoryChanged(QString))
-    Q_PRIVATE_SLOT(d, void onTimeout())
 };
 }
 
