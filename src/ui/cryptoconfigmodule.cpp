@@ -607,22 +607,18 @@ Kleo::CryptoConfigEntryPath::CryptoConfigEntryPath(
       mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
-    QWidget *req = nullptr;
-    req = mFileNameRequester = new FileNameRequester(widget);
+    mFileNameRequester = new FileNameRequester(widget);
     mFileNameRequester->setExistingOnly(false);
     mFileNameRequester->setFilter(QDir::Files);
     QLabel *label = new QLabel(description(), widget);
-    label->setBuddy(req);
+    label->setBuddy(mFileNameRequester);
     glay->addWidget(label, row, 1);
-    glay->addWidget(req, row, 2);
+    glay->addWidget(mFileNameRequester, row, 2);
     if (entry->isReadOnly()) {
         label->setEnabled(false);
-        if (mFileNameRequester) {
-            mFileNameRequester->setEnabled(false);
-        }
+        mFileNameRequester->setEnabled(false);
     } else {
-        if (mFileNameRequester)
-            connect(mFileNameRequester, &FileNameRequester::fileNameChanged, this, &CryptoConfigEntryPath::slotChanged);
+        connect(mFileNameRequester, &FileNameRequester::fileNameChanged, this, &CryptoConfigEntryPath::slotChanged);
     }
 }
 
@@ -650,22 +646,18 @@ Kleo::CryptoConfigEntryDirPath::CryptoConfigEntryDirPath(
       mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
-    QWidget *req = nullptr;
-    req = mFileNameRequester = new FileNameRequester(widget);
+    mFileNameRequester = new FileNameRequester(widget);
     mFileNameRequester->setExistingOnly(false);
     mFileNameRequester->setFilter(QDir::Dirs);
     QLabel *label = new QLabel(description(), widget);
-    label->setBuddy(req);
+    label->setBuddy(mFileNameRequester);
     glay->addWidget(label, row, 1);
-    glay->addWidget(req, row, 2);
+    glay->addWidget(mFileNameRequester, row, 2);
     if (entry->isReadOnly()) {
         label->setEnabled(false);
-        if (mFileNameRequester) {
-            mFileNameRequester->setEnabled(false);
-        }
+        mFileNameRequester->setEnabled(false);
     } else {
-        if (mFileNameRequester)
-            connect(mFileNameRequester, &FileNameRequester::fileNameChanged, this, &CryptoConfigEntryDirPath::slotChanged);
+        connect(mFileNameRequester, &FileNameRequester::fileNameChanged, this, &CryptoConfigEntryDirPath::slotChanged);
     }
 }
 

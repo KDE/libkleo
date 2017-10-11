@@ -201,8 +201,6 @@ public:
         default:
             return QSortFilterProxyModel::data(index, role);
         }
-
-        return QVariant();
     }
 
 private:

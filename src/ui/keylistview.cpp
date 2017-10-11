@@ -419,7 +419,7 @@ void Kleo::KeyListViewItem::setKey(const GpgME::Key &key)
     if (!cs) {
         return;
     }
-    const KeyListView::DisplayStrategy *ds = lv ? lv->displayStrategy() : nullptr;
+    const KeyListView::DisplayStrategy *ds = lv->displayStrategy();
     const int numCols = lv ? lv->columnCount() : 0;
     for (int i = 0; i < numCols; ++i) {
         setText(i, cs->text(key, i));
