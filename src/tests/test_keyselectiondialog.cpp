@@ -46,8 +46,6 @@ int main(int argc, char **argv)
     KAboutData aboutData(QStringLiteral("test_keyselectiondialog"), i18n("KeySelectionDialog Test"), QStringLiteral("0.1"));
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
-    parser.addVersionOption();
-    parser.addHelpOption();
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
