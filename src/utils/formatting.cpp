@@ -236,11 +236,11 @@ static QString protect_whitespace(QString s)
 template <typename T_arg>
 QString format_row(const QString &field, const T_arg &arg)
 {
-    return QStringLiteral("<tr><th>%1:</th><td>%2</td></tr>").arg(protect_whitespace(field)).arg(arg);
+    return QStringLiteral("<tr><th>%1:</th><td>%2</td></tr>").arg(protect_whitespace(field), arg);
 }
 QString format_row(const QString &field, const QString &arg)
 {
-    return QStringLiteral("<tr><th>%1:</th><td>%2</td></tr>").arg(protect_whitespace(field)).arg(arg.toHtmlEscaped());
+    return QStringLiteral("<tr><th>%1:</th><td>%2</td></tr>").arg(protect_whitespace(field), arg.toHtmlEscaped());
 }
 QString format_row(const QString &field, const char *arg)
 {

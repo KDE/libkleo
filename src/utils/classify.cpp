@@ -179,7 +179,7 @@ unsigned int Kleo::classify(const QStringList &fileNames)
     return result;
 }
 
-static unsigned int classifyExtension(const QFileInfo fi)
+static unsigned int classifyExtension(const QFileInfo &fi)
 {
     const _classification *const it = qBinaryFind(std::begin(classifications), std::end(classifications),
                                       fi.suffix().toLatin1().constData(),
