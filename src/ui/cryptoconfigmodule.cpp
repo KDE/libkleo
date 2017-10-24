@@ -805,7 +805,7 @@ void Kleo::CryptoConfigEntryLDAPURL::doSave()
 
 void prepareURLCfgDialog(QDialog *dialog, DirectoryServicesWidget *dirserv, bool readOnly)
 {
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok, dialog);
 
     if (!readOnly) {
         buttonBox->addButton(QDialogButtonBox::Cancel);
