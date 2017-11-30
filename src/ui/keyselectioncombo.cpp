@@ -278,7 +278,6 @@ void KeySelectionCombo::init()
             this, [this]() {
                     // Set useKeyCache ensures that the cache is populated
                     // so this can be a blocking call if the cache is not initalized 
-                    qDebug() << "Key listing done"; 
                     d->model->useKeyCache(true, true);
                     d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
                     setEnabled(d->wasEnabled);
