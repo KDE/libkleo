@@ -113,6 +113,7 @@ KLEO_EXPORT QString ownerTrustShort(GpgME::Key::OwnerTrust trust);
 KLEO_EXPORT QString validityShort(const GpgME::Subkey &subkey);
 KLEO_EXPORT QString validityShort(const GpgME::UserID &uid);
 KLEO_EXPORT QString validityShort(const GpgME::UserID::Signature &sig);
+KLEO_EXPORT QIcon   validityIcon(const GpgME::UserID::Signature &sig);
 /* A sentence about the validity of the UserID */
 KLEO_EXPORT QString validity(const GpgME::UserID &uid);
 

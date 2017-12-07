@@ -39,6 +39,7 @@
 #include <KLocalizedString>
 
 #include <QVariant>
+#include <QIcon>
 
 using namespace GpgME;
 using namespace Kleo;
@@ -119,6 +120,22 @@ public:
     QVariant data(int column) const
     {
         return mItemData.value(column);
+    }
+
+    QVariant toolTip(int column) const
+    {
+        if (column == 5 /*Status*/) {
+            return i18n("class %1", mSig.certClass());
+        }
+        return mItemData.value(column);
+    }
+
+    QVariant icon(int column) const
+    {
+        if (!mSig.isNull() && column == 5 /*Status*/) {
+            return Formatting::validityIcon(mSig);
+        }
+        return QVariant();
     }
 
     int row() const
@@ -270,11 +287,20 @@ QVariant UserIDListModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    if (role != Qt::DisplayRole && role != Qt::EditRole && role != Qt::ToolTipRole) {
+    if (role != Qt::DisplayRole && role != Qt::EditRole && role != Qt::ToolTipRole &&
+        role != Qt::DecorationRole) {
         return QVariant();
     }
 
     UIDModelItem *item = static_cast<UIDModelItem*>(index.internalPointer());
+
+    if (role == Qt::ToolTipRole) {
+        return item->toolTip(index.column());
+    }
+
+    if (role == Qt::DecorationRole) {
+        return item->icon(index.column());
+    }
 
     return item->data(index.column());
 }

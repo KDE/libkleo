@@ -49,6 +49,7 @@
 #include <QTextDocument> // for Qt::escape
 #include <QLocale>
 #include <QIcon>
+#include <QColor>
 
 #include <gpgme++/gpgmepp_version.h>
 #if GPGMEPP_VERSION > 0x10900
@@ -587,10 +588,17 @@ QString Formatting::validityShort(const UserID::Signature &sig)
     switch (sig.status()) {
     case UserID::Signature::NoError:
         if (!sig.isInvalid()) {
-            if (sig.certClass() > 0) {
+            /* See RFC 4880 Section 5.2.1 */
+            switch (sig.certClass()) {
+            case 0x10: /* Generic */
+            case 0x11: /* Persona */
+            case 0x12: /* Casual */
+            case 0x13: /* Positive */
+                return i18n("valid");
+            case 0x30:
+                return i18n("revoked");
+            default:
                 return i18n("class %1", sig.certClass());
-            } else {
-                return i18nc("good/valid signature", "good");
             }
         }
         Q_FALLTHROUGH();
@@ -600,9 +608,43 @@ QString Formatting::validityShort(const UserID::Signature &sig)
     case UserID::Signature::SigExpired:   return i18n("expired");
     case UserID::Signature::KeyExpired:   return i18n("certificate expired");
     case UserID::Signature::BadSignature: return i18nc("fake/invalid signature", "bad");
-    case UserID::Signature::NoPublicKey:  return QString();
+    case UserID::Signature::NoPublicKey:  return i18n("no public key");
     }
     return QString();
+}
+
+QIcon Formatting::validityIcon(const UserID::Signature &sig)
+{
+    switch (sig.status()) {
+    case UserID::Signature::NoError:
+        if (!sig.isInvalid()) {
+            /* See RFC 4880 Section 5.2.1 */
+            switch (sig.certClass()) {
+            case 0x10: /* Generic */
+            case 0x11: /* Persona */
+            case 0x12: /* Casual */
+            case 0x13: /* Positive */
+                return QIcon::fromTheme(QStringLiteral("emblem-success"));
+            case 0x30:
+                return QIcon::fromTheme(QStringLiteral("emblem-error"));
+            default:
+                return QIcon();
+            }
+        }
+        Q_FALLTHROUGH();
+        // fall through:
+    case UserID::Signature::BadSignature:
+    case UserID::Signature::GeneralError:
+        return QIcon::fromTheme(QStringLiteral("emblem-error"));
+    case UserID::Signature::SigExpired:
+    case UserID::Signature::KeyExpired:
+        return QIcon::fromTheme(QStringLiteral("emblem-information"));
+    case UserID::Signature::NoPublicKey:
+        return QIcon::fromTheme(QStringLiteral("emblem-question"));
+    default:
+        // should not happen
+        return QIcon();
+    }
 }
 
 QString Formatting::formatKeyLink(const Key &key)
