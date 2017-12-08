@@ -223,7 +223,7 @@ unsigned int Kleo::classify(const QString &filename)
     /* More reliable */
     const unsigned int contentClass = classifyContent(file.read(4096));
     if (contentClass != defaultClassification) {
-        qCDebug(LIBKLEO_LOG) << "Classified based on content.";
+        qCDebug(LIBKLEO_LOG) << "Classified based on content as:" << contentClass;
         return contentClass;
     }
 
