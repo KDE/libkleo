@@ -81,3 +81,15 @@ QList<QModelIndex> KeyRearrangeColumnsProxyModel::indexes(const std::vector<GpgM
     }
     return myIdxs;
 }
+
+void KeyRearrangeColumnsProxyModel::sort(int column, Qt::SortOrder order)
+{
+    const auto fakeIdx = createIndex(0, column);
+    if (!fakeIdx.isValid()) {
+        // Empty model?
+        KRearrangeColumnsProxyModel::sort(column, order);
+        return;
+    }
+    const auto remappedIdx = mapToSource(fakeIdx);
+    KRearrangeColumnsProxyModel::sort(remappedIdx.column(), order);
+}
