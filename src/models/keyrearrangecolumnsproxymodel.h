@@ -54,6 +54,8 @@ public:
 
     QModelIndex index(const GpgME::Key &key) const override;
     QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const override;
+
+    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 private:
     KeyListModelInterface *klm() const;
 };

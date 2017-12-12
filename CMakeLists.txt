@@ -25,7 +25,11 @@ include(ECMCoverageOption)
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.8.0")
+<<<<<<< HEAD
 set(KDEPIMTEXTEDIT_VERSION "5.7.40")
+=======
+set(KDEPIMTEXTEDIT_VERSION "5.7.0")
+>>>>>>> Applications/17.12
 
 find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
 find_package(KF5I18n ${KF5_VERSION} CONFIG REQUIRED)
