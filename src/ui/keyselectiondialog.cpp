@@ -877,7 +877,7 @@ void Kleo::KeySelectionDialog::slotOk()
     if (mCheckSelectionTimer->isActive()) {
         slotCheckSelection();
     }
-#if 0 //LAurent I don't understand why we returns here.
+#if 0 //Laurent I don't understand why we returns here.
     // button could be disabled again after checking the selected key1
     if (!mSelectedKeys.empty() && checkKeyUsage(mSelectedKeys, mKeyUsage)) {
         return;
