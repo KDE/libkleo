@@ -87,7 +87,7 @@ class KeyCache::Private
     friend class ::Kleo::KeyCache;
     KeyCache *const q;
 public:
-    explicit Private(KeyCache *qq) : q(qq), m_refreshInterval(1), m_initalized(false)
+    explicit Private(KeyCache *qq) : q(qq), m_refreshInterval(1), m_initalized(false), m_pgpOnly(true)
     {
         connect(&m_autoKeyListingTimer, &QTimer::timeout, q, [this]() { q->startKeyListing(); });
         updateAutoKeyListingTimer();
@@ -207,6 +207,7 @@ private:
         std::vector<Subkey> subkeyid;
     } by;
     bool m_initalized;
+    bool m_pgpOnly;
 };
 
 std::shared_ptr<const KeyCache> KeyCache::instance()
@@ -928,6 +929,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     by_chainid.swap(d->by.chainid);
 
     for (const Key &key : qAsConst(sorted)) {
+        d->m_pgpOnly &= key.protocol() == GpgME::OpenPGP;
         Q_EMIT added(key);
     }
 
@@ -1130,6 +1132,11 @@ void KeyCache::Private::ensureCachePopulated() const
         loop.exec();
         qCDebug(LIBKLEO_LOG) << "Keycache available.";
     }
+}
+
+bool KeyCache::pgpOnly() const
+{
+    return d->m_pgpOnly;
 }
 
 #include "moc_keycache_p.cpp"

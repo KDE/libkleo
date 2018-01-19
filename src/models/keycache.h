@@ -134,6 +134,9 @@ public:
     /** Check if at least one keylisting was finished. */
     bool initialized() const;
 
+    /** Check if all keys have OpenPGP Protocol. */
+    bool pgpOnly() const;
+
 public Q_SLOTS:
     void clear();
     void startKeyListing(GpgME::Protocol proto = GpgME::UnknownProtocol)
