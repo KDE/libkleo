@@ -228,6 +228,7 @@ public:
     std::shared_ptr<Kleo::KeyCache> cache;
     QString defaultKey;
     bool wasEnabled = false;
+    bool secretOnly;
 
 private:
     KeySelectionCombo * const q;
@@ -237,12 +238,16 @@ private:
 
 using namespace Kleo;
 
-
 KeySelectionCombo::KeySelectionCombo(QWidget* parent)
+    : KeySelectionCombo(true, parent)
+{}
+
+KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
     : QComboBox(parent)
     , d(new KeySelectionComboPrivate(this))
 {
     d->model = Kleo::AbstractKeyListModel::createFlatKeyListModel(this);
+    d->secretOnly = secretOnly;
 
     d->sortFilterProxy = new Kleo::KeyListSortFilterProxyModel(this);
     d->sortFilterProxy->setSourceModel(d->model);
@@ -278,7 +283,7 @@ void KeySelectionCombo::init()
             this, [this]() {
                     // Set useKeyCache ensures that the cache is populated
                     // so this can be a blocking call if the cache is not initalized 
-                    d->model->useKeyCache(true, true);
+                    d->model->useKeyCache(true, d->secretOnly);
                     d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
                     setEnabled(d->wasEnabled);
                     Q_EMIT keyListingFinished(); 
@@ -289,7 +294,7 @@ void KeySelectionCombo::init()
     if (!d->cache->initialized()) {
         refreshKeys();
     } else {
-        d->model->useKeyCache(true, true);
+        d->model->useKeyCache(true, d->secretOnly);
         Q_EMIT keyListingFinished();
     }
 }
