@@ -372,6 +372,7 @@ void KeySelectionCombo::prependCustomItem(const QIcon &icon, const QString &text
 void Kleo::KeySelectionCombo::setDefaultKey(const QString &fingerprint)
 {
     d->defaultKey = fingerprint;
+    setCurrentKey(d->defaultKey);
 }
 
 QString Kleo::KeySelectionCombo::defaultKey() const
