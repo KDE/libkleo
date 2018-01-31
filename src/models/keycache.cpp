@@ -721,6 +721,11 @@ std::vector<Key> KeyCache::findIssuers(std::vector<Key>::const_iterator first, s
 
 static std::string email(const UserID &uid)
 {
+    // Prefer the gnupg normalized one
+    const std::string addr = uid.addrSpec();
+    if (!addr.empty()) {
+        return addr;
+    }
     const std::string email = uid.email();
     if (email.empty()) {
         return DN(uid.id())[QStringLiteral("EMAIL")].trimmed().toUtf8().constData();
