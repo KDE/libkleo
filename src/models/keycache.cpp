@@ -1212,12 +1212,20 @@ static bool subkeyIsOk(const Subkey s)
 }
 
 std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto,
-                                                    bool needSign, bool needEncrypt)
+                                                    bool needSign, bool needEncrypt) const
 {
     d->ensureCachePopulated();
     std::vector<GpgME::Key> ret;
     if (!addr) {
         return ret;
+    }
+    if (proto == Protocol::OpenPGP) {
+        // Groups take precendece over autmatic keys. We return all here
+        // so if a group key for example is expired we can show that.
+        ret = getGroupKeys(addr);
+        if (!ret.empty()) {
+            return ret;
+        }
     }
     Key keyC;
     UserID uidC;
@@ -1233,32 +1241,47 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
         }
         /* First get the uid that matches the mailbox */
         for (const UserID &u: k.userIDs()) {
-            if (QString::fromUtf8(u.email()).toLower() != QString::fromUtf8(addr).toLower()) {
-                if (uidC.isNull()) {
-                    keyC = k;
+            if (QString::fromStdString(u.addrSpec()).toLower() != QString::fromUtf8(addr).toLower()) {
+                continue;
+            }
+            if (uidC.isNull()) {
+                keyC = k;
+                uidC = u;
+            } else if ((!uidIsOk(uidC) && uidIsOk(u)) || uidC.validity() < u.validity()) {
+                /* Validity of the new key is better. */
+                uidC = u;
+                keyC = k;
+            } else if (uidC.validity() == u.validity() && uidIsOk(u)) {
+                /* Both are the same check which one is newer. */
+                time_t oldTime = 0;
+                for (const Subkey s: keyC.subkeys()) {
+                    if (!subkeyIsOk(s)) {
+                        continue;
+                    }
+                    if (needSign && s.canSign()) {
+                        oldTime = s.creationTime();
+                    } else if (needEncrypt && s.canEncrypt()) {
+                        oldTime = s.creationTime();
+                    } else if (s.canSign() || s.canEncrypt()) {
+                        oldTime = s.creationTime();
+                    }
+                }
+                time_t newTime = 0;
+                for (const Subkey s: k.subkeys()) {
+                    if (!subkeyIsOk(s)) {
+                        continue;
+                    }
+                    if (needSign && s.canSign()) {
+                        newTime = s.creationTime();
+                    } else if (needEncrypt && s.canEncrypt()) {
+                        newTime = s.creationTime();
+                    } else if (s.canSign() || s.canEncrypt()) {
+                        newTime = s.creationTime();
+                    }
+                }
+                if (newTime > oldTime) {
                     uidC = u;
-                } else if ((!uidIsOk(uidC) && uidIsOk(u)) || uidC.validity() < u.validity()) {
-                    /* Validity of the new key is better. */
-                    uidC = u;
                     keyC = k;
-                } else if (uidC.validity() == u.validity() && uidIsOk(u)) {
-                    /* Both are the same check which one is newer. */
-                    time_t oldTime = 0;
-                    for (const Subkey s: keyC.subkeys()) {
-                        if ((needEncrypt && s.canEncrypt()) && subkeyIsOk(s)) {
-                            oldTime = s.creationTime();
-                        }
-                    }
-                    time_t newTime = 0;
-                    for (const Subkey s: k.subkeys()) {
-                        if ((needSign && s.canEncrypt()) && subkeyIsOk(s)) {
-                            newTime = s.creationTime();
-                        }
-                    }
-                    if (newTime > oldTime) {
-                        uidC = u;
-                        keyC = k;
-                    }
                 }
             }
         }
