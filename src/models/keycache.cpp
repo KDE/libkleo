@@ -224,7 +224,8 @@ public:
         if (!entry) {
             return;
         }
-        QMap <QString, std::vector <Key> > groups;
+
+        m_groups.clear();
         for (const auto &value: entry->stringValueList()) {
             const auto split = value.split(QLatin1Char('='));
             if (split.size() != 2) {
@@ -237,10 +238,10 @@ public:
                 qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << split[1] << "in group" << name;
                 continue;
             }
-            auto vec = groups.value(name);
+            auto vec = m_groups.value(name);
             vec.push_back(key);
+            m_groups.insert(name, vec);
         }
-        m_groups = groups;
 #endif
     }
 
