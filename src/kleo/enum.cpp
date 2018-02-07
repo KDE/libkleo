@@ -72,6 +72,16 @@ static const struct {
         I18N_NOOP("S/MIME Opaque"),
         "s/mime opaque"
     },
+    {
+        Kleo::AnySMIME,
+        I18N_NOOP("Any S/MIME"),
+        "any s/mime"
+    },
+    {
+        Kleo::AnyOpenPGP,
+        I18N_NOOP("Any OpenPGP"),
+        "any openpgp"
+    },
 };
 static const unsigned int numCryptoMessageFormats
     = sizeof cryptoMessageFormats / sizeof * cryptoMessageFormats;

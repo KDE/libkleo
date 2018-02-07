@@ -26,6 +26,7 @@ set(libkleo_core_SRCS
    kleo/exception.cpp
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
+   kleo/keyresolver.cpp
    models/keycache.cpp
    models/keylistmodel.cpp
    models/keylistsortfilterproxymodel.cpp
@@ -58,6 +59,7 @@ set(libkleo_ui_SRCS    # make this a separate lib.
     ui/keyselectiondialog.cpp
     ui/keyrequester.cpp
     ui/keyapprovaldialog.cpp
+    ui/newkeyapprovaldialog.cpp
     ui/keyselectioncombo.cpp
     )
 
@@ -119,6 +121,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   KConfigBasedKeyFilter
   KeyFilter
   KeyFilterManager
+  KeyResolver
   OidMap
   Predicates
   Stl_Util
@@ -160,6 +163,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   FileNameRequester
   KDHorizontalLine
   KeyApprovalDialog
+  NewKeyApprovalDialog
   KeyRequester
   KeySelectionCombo
   KeySelectionDialog
