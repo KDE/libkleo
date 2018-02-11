@@ -44,7 +44,7 @@ class KLEO_EXPORT KeySelectionCombo : public QComboBox
 
 public:
     explicit KeySelectionCombo(QWidget *parent = nullptr);
-    virtual ~KeySelectionCombo();
+    ~KeySelectionCombo() override;
 
     void setKeyFilter(const std::shared_ptr<const KeyFilter> &kf);
     std::shared_ptr<const KeyFilter> keyFilter() const;
