@@ -161,7 +161,7 @@ void KeyListSortFilterProxyModel::setKeyFilter(const std::shared_ptr<const KeyFi
         return;
     }
     d->keyFilter = kf;
-    invalidateFilter();
+    invalidate();
 }
 
 bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
