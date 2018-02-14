@@ -38,7 +38,6 @@ Q_DECLARE_METATYPE(GpgME::Key)
 
 namespace
 {
-
 class ProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -59,6 +58,44 @@ public:
     {
         qDeleteAll(mFrontItems);
         qDeleteAll(mBackItems);
+    }
+
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
+    {
+        const auto leftKey =  sourceModel()->data(left, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+        const auto rightKey = sourceModel()->data(right, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+        if (leftKey.isNull()) {
+            return false;
+        }
+        if (rightKey.isNull()) {
+            return true;
+        }
+        // As we display UID(0) this is ok. We probably need a get Best UID at some point.
+        const auto lUid = leftKey.userID(0);
+        const auto rUid = rightKey.userID(0);
+        if (lUid.validity() == rUid.validity()) {
+            /* Both are the same check which one is newer. */
+            time_t oldTime = 0;
+            for (const GpgME::Subkey s: leftKey.subkeys()) {
+                if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
+                    continue;
+                }
+                if (s.creationTime() > oldTime) {
+                    oldTime= s.creationTime();
+                }
+            }
+            time_t newTime = 0;
+            for (const GpgME::Subkey s: rightKey.subkeys()) {
+                if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
+                    continue;
+                }
+                if (s.creationTime() > newTime) {
+                    newTime = s.creationTime();
+                }
+            }
+            return newTime < oldTime;
+        }
+        return lUid.validity() > rUid.validity();
     }
 
     bool isCustomItem(const int row) const
@@ -303,6 +340,7 @@ void KeySelectionCombo::init()
 void KeySelectionCombo::setKeyFilter(const std::shared_ptr<const KeyFilter> &kf)
 {
     d->sortFilterProxy->setKeyFilter(kf);
+    d->proxyModel->sort(0);
     setCurrentKey(d->defaultKey);
 }
 
