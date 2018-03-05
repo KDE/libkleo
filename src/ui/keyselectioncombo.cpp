@@ -73,6 +73,17 @@ public:
         // As we display UID(0) this is ok. We probably need a get Best UID at some point.
         const auto lUid = leftKey.userID(0);
         const auto rUid = rightKey.userID(0);
+        if (lUid.isNull()) {
+            return false;
+        }
+        if (rUid.isNull()) {
+            return true;
+        }
+        int cmp = strcmp (lUid.id(), rUid.id());
+        if (cmp) {
+            return cmp < 0;
+        }
+
         if (lUid.validity() == rUid.validity()) {
             /* Both are the same check which one is newer. */
             time_t oldTime = 0;
@@ -227,12 +238,20 @@ public:
                 name = dn[QStringLiteral("CN")];
                 email = dn[QStringLiteral("EMAIL")];
             }
-            return i18nc("Name <email> (validity, type, created: date)", "%1 (%2, %3, created: %4)",
+            return i18nc("Name <email> (validity, type, created: date)", "%1 (%2, %3 created: %4)",
                          email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email),
                          Kleo::Formatting::complianceStringShort(key),
-                         key.protocol() == GpgME::OpenPGP ? i18n("OpenPGP") : i18n("S/MIME"),
+                         Kleo::KeyCache::instance()->pgpOnly() ? QString() :
+                            key.protocol() == GpgME::OpenPGP ? i18n("OpenPGP") + QLatin1Char(',') : i18n("S/MIME") + QLatin1Char(','),
                          Kleo::Formatting::creationDateString(key));
         }
+        case Qt::ToolTipRole:
+            return Kleo::Formatting::toolTip(key, Kleo::Formatting::Validity |
+                                                  Kleo::Formatting::Issuer |
+                                                  Kleo::Formatting::Subject |
+                                                  Kleo::Formatting::Fingerprint |
+                                                  Kleo::Formatting::ExpiryDates |
+                                                  Kleo::Formatting::UserIDs);
         case Qt::DecorationRole:
             return Kleo::Formatting::iconForUid(key.userID(0));
         default:
@@ -323,7 +342,7 @@ void KeySelectionCombo::init()
                     d->model->useKeyCache(true, d->secretOnly);
                     d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
                     setEnabled(d->wasEnabled);
-                    Q_EMIT keyListingFinished(); 
+                    Q_EMIT keyListingFinished();
             });
 
     connect(this, &KeySelectionCombo::keyListingFinished, this, [this]() { setCurrentKey(d->defaultKey); });
@@ -334,6 +353,10 @@ void KeySelectionCombo::init()
         d->model->useKeyCache(true, d->secretOnly);
         Q_EMIT keyListingFinished();
     }
+
+    connect(this, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this] () {
+            setToolTip(currentData(Qt::ToolTipRole).toString());
+        });
 }
 
 
@@ -371,6 +394,7 @@ void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
     if (idx > -1) {
         setCurrentIndex(idx);
     }
+    setToolTip(currentData(Qt::ToolTipRole).toString());
 }
 
 void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
@@ -380,10 +404,12 @@ void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
         const auto key = d->proxyModel->data(idx, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
         if (!key.isNull() && fingerprint == QString::fromLatin1(key.primaryFingerprint())) {
             setCurrentIndex(i);
+            setToolTip(currentData(Qt::ToolTipRole).toString());
             return;
         }
     }
     setCurrentIndex(0);
+    setToolTip(currentData(Qt::ToolTipRole).toString());
 }
 
 void KeySelectionCombo::refreshKeys()
