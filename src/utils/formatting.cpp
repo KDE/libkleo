@@ -258,6 +258,19 @@ QString format_keytype(const Key &key)
     }
 }
 
+QString format_subkeytype(const Subkey &subkey)
+{
+    const auto algo = subkey.publicKeyAlgorithm();
+
+    if (algo == Subkey::AlgoECC ||
+        algo == Subkey::AlgoECDSA ||
+        algo == Subkey::AlgoECDH ||
+        algo == Subkey::AlgoEDDSA) {
+        return QString::fromStdString(subkey.algoName());
+    }
+    return i18n("%1-bit %2", subkey.length(), QLatin1String(subkey.publicKeyAlgorithmAsString()));
+}
+
 QString format_keyusage(const Key &key)
 {
     QStringList capabilities;
@@ -275,6 +288,28 @@ QString format_keyusage(const Key &key)
         capabilities.push_back(i18n("Certifying User-IDs"));
     }
     if (key.canAuthenticate()) {
+        capabilities.push_back(i18n("SSH Authentication"));
+    }
+    return capabilities.join(QStringLiteral(", "));
+}
+
+QString format_subkeyusage(const Subkey &subkey)
+{
+    QStringList capabilities;
+    if (subkey.canSign()) {
+        if (subkey.isQualified()) {
+            capabilities.push_back(i18n("Signing (Qualified)"));
+        } else {
+            capabilities.push_back(i18n("Signing"));
+        }
+    }
+    if (subkey.canEncrypt()) {
+        capabilities.push_back(i18n("Encryption"));
+    }
+    if (subkey.canCertify()) {
+        capabilities.push_back(i18n("Certifying User-IDs"));
+    }
+    if (subkey.canAuthenticate()) {
         capabilities.push_back(i18n("SSH Authentication"));
     }
     return capabilities.join(QStringLiteral(", "));
@@ -393,6 +428,40 @@ QString Formatting::toolTip(const Key &key, int flags)
             result += format_row(i18n("Stored"), i18nc("stored...", "on SmartCard with serial no. %1", QString::fromUtf8(card)));
         } else {
             result += format_row(i18n("Stored"), i18nc("stored...", "on this computer"));
+        }
+    }
+    if (flags & Subkeys) {
+        for (const auto &sub: key.subkeys()) {
+            result += QLatin1String("<hr/>");
+            result += format_row(i18n("Subkey"), sub.fingerprint());
+            if (sub.isRevoked()) {
+                format_row(i18n("Status"), i18n("Revoked"));
+            } else if (sub.isExpired()) {
+                format_row(i18n("Status"), i18n("Expired"));
+            }
+            if (flags & ExpiryDates) {
+                result += format_row(i18n("Created"), time_t2string(sub.creationTime()));
+
+                if (key.isExpired()) {
+                    result += format_row(i18n("Expired"), time_t2string(sub.expirationTime()));
+                } else if (!subkey.neverExpires()) {
+                    result += format_row(i18n("Expires"), time_t2string(sub.expirationTime()));
+                }
+            }
+
+            if (flags & CertificateType) {
+                result += format_row(i18n("Type"), format_subkeytype(sub));
+            }
+            if (flags & CertificateUsage) {
+                result += format_row(i18n("Usage"), format_subkeyusage(sub));
+            }
+            if (flags & StorageLocation) {
+                if (const char *card = sub.cardSerialNumber()) {
+                    result += format_row(i18n("Stored"), i18nc("stored...", "on SmartCard with serial no. %1", QString::fromUtf8(card)));
+                } else {
+                    result += format_row(i18n("Stored"), i18nc("stored...", "on this computer"));
+                }
+            }
         }
     }
     result += QLatin1String("</table>");

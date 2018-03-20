@@ -83,8 +83,9 @@ enum ToolTipOption {
     Fingerprint      = 0x200,
     UserIDs          = 0x400,
     OwnerTrust       = 0x800,
+    Subkeys          = 0x1000,
 
-    AllOptions = 0xfff
+    AllOptions = 0xffff
 };
 
 KLEO_EXPORT QString toolTip(const GpgME::Key &key, int opts);
