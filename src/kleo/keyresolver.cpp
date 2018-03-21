@@ -308,7 +308,7 @@ public:
     void selectFormats()
     {
         // Check if we can find a single common specific format that works
-        if (mFormat != AutoFormat) {
+        if (mFormat != AutoFormat && mFormat != AnyOpenPGP && mFormat != AnySMIME) {
             reduceToSingle(mFormat);
         }
 
