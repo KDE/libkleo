@@ -435,9 +435,9 @@ QString Formatting::toolTip(const Key &key, int flags)
             result += QLatin1String("<hr/>");
             result += format_row(i18n("Subkey"), sub.fingerprint());
             if (sub.isRevoked()) {
-                format_row(i18n("Status"), i18n("Revoked"));
+                result += format_row(i18n("Status"), i18n("Revoked"));
             } else if (sub.isExpired()) {
-                format_row(i18n("Status"), i18n("Expired"));
+                result += format_row(i18n("Status"), i18n("Expired"));
             }
             if (flags & ExpiryDates) {
                 result += format_row(i18n("Created"), time_t2string(sub.creationTime()));
