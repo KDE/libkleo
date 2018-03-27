@@ -158,8 +158,8 @@ public:
     {
         if (!isCustomItem(index.row())) {
             const int row = index.row() - mFrontItems.count();
-            const QModelIndex idx = createIndex(row, index.column(), index.internalPointer());
-            return QSortFilterProxyModel::mapToSource(idx);
+
+            return sourceModel()->index(row, index.column());
         } else {
             return QModelIndex();
         }
