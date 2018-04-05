@@ -1236,7 +1236,7 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
         if (needEncrypt && !k.canEncrypt()) {
             continue;
         }
-        if (needSign && !k.canSign()) {
+        if (needSign && (!k.canSign() || !k.hasSecret())) {
             continue;
         }
         /* First get the uid that matches the mailbox */
