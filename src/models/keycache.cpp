@@ -339,7 +339,7 @@ void KeyCache::addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &wa
     connect(watcher.get(), &FileSystemWatcher::fileChanged,
             this, [this]() { startKeyListing(); });
 
-    watcher->setEnabled(d->m_refreshJob == nullptr);
+    watcher->setEnabled(d->m_refreshJob.isNull());
 }
 
 void KeyCache::Private::refreshJobDone(const KeyListResult &result)

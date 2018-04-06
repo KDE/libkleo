@@ -536,7 +536,7 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     // Check if we need the user to select different keys.
     bool needsUser = false;
     if (!pgpOnly && !cmsOnly) {
-        for (const auto unresolved: d->mUnresolvedPGP) {
+        for (const auto &unresolved: d->mUnresolvedPGP) {
             if (d->mUnresolvedCMS.contains(unresolved)) {
                 // We have at least one unresolvable key.
                 needsUser = true;
@@ -606,7 +606,7 @@ void KeyResolver::setOverrideKeys(const QMap<CryptoMessageFormat, QMap<QString, 
 {
     QMap<QString, QStringList> normalizedOverrides;
     for (const auto fmt: overrides.keys()) {
-        for (const auto addr: overrides[fmt].keys()) {
+        for (const auto &addr: overrides[fmt].keys()) {
             const auto normalized = QString::fromUtf8(
                     GpgME::UserID::addrSpecFromString (addr.toUtf8().constData()).c_str());
             const auto fingerprints = overrides[fmt][addr];

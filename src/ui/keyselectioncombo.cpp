@@ -54,7 +54,7 @@ public:
     {
     }
 
-    ~ProxyModel()
+    ~ProxyModel() override
     {
         qDeleteAll(mFrontItems);
         qDeleteAll(mBackItems);
@@ -87,7 +87,7 @@ public:
         if (lUid.validity() == rUid.validity()) {
             /* Both are the same check which one is newer. */
             time_t oldTime = 0;
-            for (const GpgME::Subkey s: leftKey.subkeys()) {
+            for (const GpgME::Subkey &s: leftKey.subkeys()) {
                 if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
                     continue;
                 }
@@ -96,7 +96,7 @@ public:
                 }
             }
             time_t newTime = 0;
-            for (const GpgME::Subkey s: rightKey.subkeys()) {
+            for (const GpgME::Subkey &s: rightKey.subkeys()) {
                 if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
                     continue;
                 }

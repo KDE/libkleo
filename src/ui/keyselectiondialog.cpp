@@ -255,7 +255,6 @@ QString ColumnStrategy::text(const GpgME::Key &key, int col) const
             return xi18n("<placeholder>unknown</placeholder>");
         }
     }
-    break;
     case 1: {
         const char *uid = key.userID(0).id();
         if (key.protocol() == GpgME::OpenPGP) {
@@ -264,7 +263,6 @@ QString ColumnStrategy::text(const GpgME::Key &key, int col) const
             return Kleo::DN(uid).prettyDN();
         }
     }
-    break;
     default: return QString();
     }
 }
