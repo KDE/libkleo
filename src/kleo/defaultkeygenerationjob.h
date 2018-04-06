@@ -39,7 +39,7 @@ class KLEO_EXPORT DefaultKeyGenerationJob : public QGpgME::Job
     Q_OBJECT
 public:
     explicit DefaultKeyGenerationJob(QObject *parent = nullptr);
-    ~DefaultKeyGenerationJob();
+    ~DefaultKeyGenerationJob() override;
 
     /**
      * Set key passphrase

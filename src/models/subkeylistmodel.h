@@ -52,7 +52,7 @@ class KLEO_EXPORT SubkeyListModel : public QAbstractTableModel
     Q_OBJECT
 public:
     explicit SubkeyListModel(QObject *parent = nullptr);
-    ~SubkeyListModel();
+    ~SubkeyListModel() override;
 
     GpgME::Key key() const;
 

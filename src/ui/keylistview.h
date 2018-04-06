@@ -74,7 +74,7 @@ public:
     KeyListViewItem(KeyListView *parent, KeyListViewItem *after, const GpgME::Key &key);
     KeyListViewItem(KeyListViewItem *parent, const GpgME::Key &key);
     KeyListViewItem(KeyListViewItem *parent, KeyListViewItem *after, const GpgME::Key &key);
-    ~KeyListViewItem();
+    ~KeyListViewItem() override;
 
     void setKey(const GpgME::Key &key);
     const GpgME::Key &key() const

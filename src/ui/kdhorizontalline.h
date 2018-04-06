@@ -52,7 +52,7 @@ class KLEO_EXPORT KDHorizontalLine : public QFrame
 public:
     explicit KDHorizontalLine(QWidget *parent = nullptr, const char *name = nullptr,  Qt::WindowFlags f = 0);
     explicit KDHorizontalLine(const QString &title, QWidget *parent = nullptr, const char *name = nullptr,  Qt::WindowFlags f = 0);
-    ~KDHorizontalLine();
+    ~KDHorizontalLine() override;
 
     QString title() const
     {

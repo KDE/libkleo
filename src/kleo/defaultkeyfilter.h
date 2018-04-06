@@ -54,7 +54,7 @@ class KLEO_EXPORT DefaultKeyFilter : public KeyFilter
 {
 public:
     DefaultKeyFilter();
-    ~DefaultKeyFilter();
+    ~DefaultKeyFilter() override;
 
     /** Used for bool checks */
     enum TriState {

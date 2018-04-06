@@ -58,7 +58,7 @@ protected:
     AbstractKeyListSortFilterProxyModel(const AbstractKeyListSortFilterProxyModel &);
 public:
     explicit AbstractKeyListSortFilterProxyModel(QObject *parent = nullptr);
-    ~AbstractKeyListSortFilterProxyModel();
+    ~AbstractKeyListSortFilterProxyModel() override;
 
     virtual AbstractKeyListSortFilterProxyModel *clone() const = 0;
 

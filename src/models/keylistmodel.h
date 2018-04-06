@@ -54,7 +54,7 @@ class KLEO_EXPORT AbstractKeyListModel : public QAbstractItemModel
     Q_OBJECT
 public:
     explicit AbstractKeyListModel(QObject *parent = nullptr);
-    ~AbstractKeyListModel();
+    ~AbstractKeyListModel() override;
 
     static AbstractKeyListModel *createFlatKeyListModel(QObject *parent = nullptr);
     static AbstractKeyListModel *createHierarchicalKeyListModel(QObject *parent = nullptr);

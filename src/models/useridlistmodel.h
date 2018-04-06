@@ -49,7 +49,7 @@ class KLEO_EXPORT UserIDListModel : public QAbstractItemModel
     Q_OBJECT
 public:
     explicit UserIDListModel(QObject *parent = nullptr);
-    ~UserIDListModel();
+    ~UserIDListModel() override;
 
     GpgME::Key key() const;
 
