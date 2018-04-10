@@ -284,6 +284,7 @@ public:
     std::shared_ptr<Kleo::KeyCache> cache;
     QString defaultKey;
     bool wasEnabled = false;
+    bool useWasEnabled = false;
     bool secretOnly;
 
 private:
@@ -341,7 +342,19 @@ void KeySelectionCombo::init()
                     // so this can be a blocking call if the cache is not initalized 
                     d->model->useKeyCache(true, d->secretOnly);
                     d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
-                    setEnabled(d->wasEnabled);
+
+                    // We use the useWasEnabled state variable to decide if we should
+                    // change the enable / disable state based on the keylist done signal.
+                    // If we triggered the refresh useWasEnabled is true and we want to
+                    // enable / disable again after our refresh, as the refresh disabled it.
+                    //
+                    // But if a keyListingDone signal comes from just a generic refresh
+                    // triggered by someone else we don't want to change the enable / disable
+                    // state.
+                    if (d->useWasEnabled) {
+                        setEnabled(d->wasEnabled);
+                        d->useWasEnabled = false;
+                    }
                     Q_EMIT keyListingFinished();
             });
 
@@ -415,6 +428,7 @@ void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
 void KeySelectionCombo::refreshKeys()
 {
     d->wasEnabled = isEnabled();
+    d->useWasEnabled = true;
     setEnabled(false);
     const bool wasBlocked = blockSignals(true);
     prependCustomItem(QIcon(), i18n("Loading keys ..."), QStringLiteral("-libkleo-loading-keys"));
