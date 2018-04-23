@@ -480,15 +480,18 @@ public:
     void updateOkButton()
     {
         static QString origOkText = mOkButton->text();
+        bool isGenerate = false;
         // Check if generate is selected.
         for (auto combo: mAllCombos) {
             auto act = combo->currentData(Qt::UserRole).toInt();
             if (act == GenerateKey) {
                 mOkButton->setText(i18n("Generate"));
-                return;
+                isGenerate = true;
             }
         }
-        mOkButton->setText(origOkText);
+        if (!isGenerate) {
+            mOkButton->setText(origOkText);
+        }
 
         const auto conf = QGpgME::cryptoConfig();
         const auto entry = conf->entry(QStringLiteral("gpg"),
