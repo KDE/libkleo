@@ -527,7 +527,7 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     }
     bool pgpOnly = d->mUnresolvedPGP.empty() && (!d->mSign || d->mSigKeys.contains(AnyOpenPGP));
 
-    if (d->mFormat & AnySMIME && (d->mFormat != AutoFormat && pgpOnly)) {
+    if (d->mFormat & AnySMIME && !(d->mFormat == AutoFormat && pgpOnly)) {
         d->resolveSign(GpgME::CMS);
         d->resolveEnc(GpgME::CMS);
     }
