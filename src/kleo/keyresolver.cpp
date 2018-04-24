@@ -40,6 +40,7 @@
 #include "libkleo_debug.h"
 #include "keyresolver.h"
 #include "models/keycache.h"
+#include "utils/formatting.h"
 
 #include "ui/newkeyapprovaldialog.h"
 
@@ -51,28 +52,21 @@ namespace {
 
 static inline bool ValidEncryptionKey(const GpgME::Key &key)
 {
-    if (key.isRevoked() || key.isExpired() || key.isDisabled() || !key.canEncrypt()) {
+    if (key.isNull() || key.isRevoked() || key.isExpired() ||
+        key.isDisabled() || !key.canEncrypt()) {
         return false;
     }
     return true;
 }
 
-static inline bool ValidEncryptionKeyForValidity(const GpgME::Key &key, const QString &address,
-                                                 int minimumValidity)
+static inline bool ValidSigningKey(const GpgME::Key &key)
 {
-    if (!ValidEncryptionKey(key)) {
+    if (key.isNull() || key.isRevoked() || key.isExpired() ||
+        key.isDisabled() || !key.canSign() || !key.hasSecret()) {
         return false;
     }
-    for (const auto &uid: key.userIDs()) {
-        if (uid.addrSpec() == address.toStdString()) {
-            if (uid.validity() >= minimumValidity) {
-                return true;
-            }
-        }
-    }
-    return false;
+    return true;
 }
-
 } // namespace
 
 class KeyResolver::Private
@@ -83,12 +77,55 @@ public:
             mAllowMixed(allowMixed),
             mCache(KeyCache::instance()),
             mDialogWindowFlags(Qt::WindowFlags()),
-            mMinimumValidty(GpgME::UserID::Marginal)
+            mMinimumValidity(GpgME::UserID::Marginal),
+            mCompliance(Formatting::complianceMode())
     {
     }
 
     ~Private()
     {
+    }
+
+    bool isAcceptableSigningKey(const GpgME::Key &key)
+    {
+        if (!ValidSigningKey(key)) {
+            return false;
+        }
+        if (mCompliance == QStringLiteral("de-vs")) {
+            if (!Formatting::isKeyDeVs(key)) {
+                qCDebug(LIBKLEO_LOG) << "Rejected sig key" << key.primaryFingerprint()
+                                     << "because it is not de-vs compliant.";
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool isAcceptableEncryptionKey(const GpgME::Key &key, const QString &address = QString())
+    {
+        if (!ValidEncryptionKey(key)) {
+            return false;
+        }
+
+        if (mCompliance == QStringLiteral("de-vs")) {
+            if (!Formatting::isKeyDeVs(key)) {
+                qCDebug(LIBKLEO_LOG) << "Rejected enc key" << key.primaryFingerprint()
+                                     << "because it is not de-vs compliant.";
+                return false;
+            }
+        }
+
+        if (address.isEmpty()) {
+            return true;
+        }
+        for (const auto &uid: key.userIDs()) {
+            if (uid.addrSpec() == address.toStdString()) {
+                if (uid.validity() >= mMinimumValidity) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     void addRecpients (const QStringList &addresses, bool hidden)
@@ -190,6 +227,17 @@ public:
         }
         const auto keys = mCache->findBestByMailBox(mSender.toUtf8().constData(),
                                                     proto, true, false);
+        for (const auto &key: keys) {
+            if (key.isNull()) {
+                continue;
+            }
+            if (!isAcceptableSigningKey(key)) {
+                qCDebug(LIBKLEO_LOG) << "Unacceptable signing key" << key.primaryFingerprint()
+                                     << "for" << mSender;
+                return;
+            }
+        }
+
         if (!keys.empty() && !keys[0].isNull()) {
             mSigKeys.insert(fmt, keys);
         }
@@ -226,11 +274,29 @@ public:
                 continue;
             }
             if (keys.size() == 1) {
-                // Otherwise we have a group key and don't need to
-                // check.
-                if (!ValidEncryptionKeyForValidity(keys[0], addr, mMinimumValidty)) {
-                    qCDebug(LIBKLEO_LOG) << "key for: " << addr << keys[0].primaryFingerprint() <<
-                        "has not enough validity";
+                if (!isAcceptableEncryptionKey(keys[0], addr)) {
+                    qCDebug(LIBKLEO_LOG) << "key for: " << addr << keys[0].primaryFingerprint()
+                                         << "has not enough validity";
+                    continue;
+                }
+            } else {
+                // If we have one unacceptable group key we reject the
+                // whole group to avoid the situation where one key is
+                // skipped or the operation fails.
+                //
+                // We are in Autoresolve land here. In the GUI we
+                // will also show unacceptable group keys so that the
+                // user can see which key is not acceptable.
+                bool unacceptable = false;
+                for (const auto &key: keys) {
+                    if (!isAcceptableEncryptionKey(key)) {
+                        qCDebug(LIBKLEO_LOG) << "group key for: " << addr << keys[0].primaryFingerprint()
+                                             << "has not enough validity";
+                        unacceptable = true;
+                        break;
+                    }
+                }
+                if (unacceptable) {
                     continue;
                 }
             }
@@ -475,6 +541,9 @@ public:
                 if (!(*targetMap)[fmt].contains(addr)) {
                     (*targetMap)[fmt].insert(addr, std::vector<GpgME::Key>());
                 }
+                qCDebug (LIBKLEO_LOG) << "Adding" << addr << "for" << cryptoMessageFormatToString (fmt)
+                                      << "fpr:" << key.primaryFingerprint();
+
                 (*targetMap)[fmt][addr].push_back(key);
             }
         }
@@ -506,7 +575,8 @@ public:
     std::shared_ptr<const KeyCache> mCache;
     std::shared_ptr<NewKeyApprovalDialog> mDialog;
     Qt::WindowFlags mDialogWindowFlags;
-    int mMinimumValidty;
+    int mMinimumValidity;
+    QString mCompliance;
 };
 
 void KeyResolver::start(bool showApproval, QWidget *parentWidget)
@@ -648,5 +718,5 @@ void KeyResolver::setDialogWindowFlags(Qt::WindowFlags flags)
 
 void KeyResolver::setMinimumValidity(int validity)
 {
-    d->mMinimumValidty = validity;
+    d->mMinimumValidity = validity;
 }
