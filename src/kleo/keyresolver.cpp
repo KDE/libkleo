@@ -623,6 +623,17 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     }
 
     if (!needsUser && !showApproval) {
+        if (pgpOnly) {
+            d->mSigKeys.remove(AnySMIME);
+            d->mEncKeys.remove(AnySMIME);
+            d->mBccKeys.remove(AnySMIME);
+        }
+        if (cmsOnly) {
+            d->mSigKeys.remove(AnyOpenPGP);
+            d->mEncKeys.remove(AnyOpenPGP);
+            d->mBccKeys.remove(AnyOpenPGP);
+        }
+
         d->selectFormats();
         qCDebug(LIBKLEO_LOG) << "Automatic key resolution done.";
         Q_EMIT keysResolved(true, false);
