@@ -524,8 +524,6 @@ public:
             }
         }
 
-        qCDebug(LIBKLEO_LOG) << "Compliance check returned:" << de_vs;
-
         mOkButton->setIcon(QIcon::fromTheme(de_vs
                     ? "security-high"
                     : "security-medium"));
