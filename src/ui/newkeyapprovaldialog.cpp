@@ -493,12 +493,7 @@ public:
             mOkButton->setText(origOkText);
         }
 
-        const auto conf = QGpgME::cryptoConfig();
-        const auto entry = conf->entry(QStringLiteral("gpg"),
-                QStringLiteral("Configuration"),
-                QStringLiteral("compliance"));
-
-        if (!entry || entry->stringValue() != QStringLiteral("de-vs")) {
+        if (Formatting::complianceMode() != QStringLiteral("de-vs")) {
             return;
         }
 
