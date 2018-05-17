@@ -96,7 +96,7 @@ FileNameRequester::Private::Private(FileNameRequester *qq)
 #ifndef QT_NO_DIRMODEL
     lineedit.setCompleter(&completer);
 #endif
-    lineedit.setClearButtonShown(true);
+    lineedit.setClearButtonEnabled(true);
     hlay.setMargin(0);
     hlay.addWidget(&lineedit);
     hlay.addWidget(&button);
