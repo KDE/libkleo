@@ -278,6 +278,44 @@ public:
     {
     }
 
+    /* Selects the first key with a UID addrSpec that matches
+     * the mPerfectMatchMbox variable.
+     *
+     * The idea here is that if there are keys like:
+     *
+     * tom-store@abc.com
+     * susi-store@abc.com
+     * store@abc.com
+     *
+     * And the user wants to send a mail to "store@abc.com"
+     * the filter should still show tom and susi (because they
+     * both are part of store) but the key for "store" should
+     * be preselected.
+     *
+     * Returns true if one was selected. False otherwise. */
+    bool selectPerfectIdMatch() const
+    {
+        if (mPerfectMatchMbox.isEmpty()) {
+            return false;
+        }
+
+        for (int i = 0; i < proxyModel->rowCount(); ++i) {
+            const auto idx = proxyModel->index(i, 0, QModelIndex());
+            const auto key = proxyModel->data(idx, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+            if (key.isNull()) {
+                // WTF?
+                continue;
+            }
+            for (const auto &uid: key.userIDs()) {
+                if (QString::fromStdString(uid.addrSpec()) == mPerfectMatchMbox) {
+                    q->setCurrentIndex(i);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     Kleo::AbstractKeyListModel *model = nullptr;
     Kleo::KeyListSortFilterProxyModel *sortFilterProxy = nullptr;
     ProxyModel *proxyModel = nullptr;
@@ -286,6 +324,7 @@ public:
     bool wasEnabled = false;
     bool useWasEnabled = false;
     bool secretOnly;
+    QString mPerfectMatchMbox;
 
 private:
     KeySelectionCombo * const q;
@@ -388,6 +427,7 @@ std::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
 void KeySelectionCombo::setIdFilter(const QString &id)
 {
     d->sortFilterProxy->setFilterRegExp(id);
+    d->mPerfectMatchMbox = id;
     setCurrentKey(d->defaultKey);
 }
 
@@ -406,6 +446,8 @@ void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
     const int idx = findData(QVariant::fromValue(key), Kleo::KeyListModelInterface::KeyRole, Qt::MatchExactly);
     if (idx > -1) {
         setCurrentIndex(idx);
+    } else {
+        d->selectPerfectIdMatch();
     }
     setToolTip(currentData(Qt::ToolTipRole).toString());
 }
@@ -421,7 +463,9 @@ void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
             return;
         }
     }
-    setCurrentIndex(0);
+    if (!d->selectPerfectIdMatch()) {
+        setCurrentIndex(0);
+    }
     setToolTip(currentData(Qt::ToolTipRole).toString());
 }
 
