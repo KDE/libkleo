@@ -44,7 +44,7 @@ class CertListView : public Kleo::KeyListView
 {
     Q_OBJECT
 public:
-    explicit CertListView(QWidget *parent = nullptr, Qt::WindowFlags f = 0);
+    explicit CertListView(QWidget *parent = nullptr, Qt::WindowFlags f = {});
     ~CertListView();
 
 public Q_SLOTS:
