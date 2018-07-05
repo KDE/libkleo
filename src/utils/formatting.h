@@ -70,6 +70,9 @@ KLEO_EXPORT QString prettyEMail(const GpgME::Key &key);
 KLEO_EXPORT QString prettyEMail(const GpgME::UserID &uid);
 KLEO_EXPORT QString prettyEMail(const GpgME::UserID::Signature &sig);
 
+/* Formats a fingerprint or keyid into groups of four */
+KLEO_EXPORT QString prettyID(const char *id);
+
 enum ToolTipOption {
     KeyID            = 0x001,
     Validity         = 0x002,

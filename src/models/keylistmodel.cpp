@@ -200,6 +200,7 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
             case ValidUntil:       return i18n("Valid Until");
             case TechnicalDetails: return i18n("Details");
             case ShortKeyID:       return i18n("Key-ID");
+            case KeyID:            return i18n("Key-ID");
             case NumColumns:;
             }
     return QVariant();
@@ -265,6 +266,8 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
             return Formatting::type(key);
         case ShortKeyID:
             return QString::fromLatin1(key.shortKeyID());
+        case KeyID:
+            return Formatting::prettyID(key.keyID());
         case Summary:
             return Formatting::summaryLine(key);
         case NumColumns:
@@ -273,7 +276,7 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
     } else if (role == Qt::ToolTipRole) {
         return Formatting::toolTip(key, toolTipOptions());
     } else if (role == Qt::FontRole) {
-        return KeyFilterManager::instance()->font(key, (column == ShortKeyID) ? QFont(QStringLiteral("courier")) : QFont());
+        return KeyFilterManager::instance()->font(key, (column == ShortKeyID || column == KeyID) ? QFont(QStringLiteral("monospace")) : QFont());
     } else if (role == Qt::DecorationRole) {
         return column == Icon ? returnIfValid(KeyFilterManager::instance()->icon(key)) : QVariant();
     } else if (role == Qt::BackgroundRole) {

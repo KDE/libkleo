@@ -50,6 +50,7 @@
 #include <QLocale>
 #include <QIcon>
 #include <QColor>
+#include <QRegularExpression>
 
 #include <gpgme++/gpgmepp_version.h>
 #if GPGMEPP_VERSION > 0x10900
@@ -1003,4 +1004,12 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
     }
 
     return i18nc("As in not all user IDs are valid.", "not certified");
+}
+
+QString Formatting::prettyID(const char *id)
+{
+    if (!id) {
+        return QString();
+    }
+    return QString::fromLatin1(id).toUpper().replace(QRegularExpression("(....)"), "\\1 ").trimmed();
 }

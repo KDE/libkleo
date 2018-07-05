@@ -62,6 +62,7 @@ public:
         TechnicalDetails,
         /* OpenPGP only, really */
         ShortKeyID,
+        KeyID,
         Summary, // Short summary line
 #if 0
         Fingerprint,
