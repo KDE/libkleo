@@ -156,7 +156,7 @@ private Q_SLOTS:
     void slotSelectionChanged();
     void slotCheckSelection()
     {
-        slotCheckSelection(0);
+        slotCheckSelection(nullptr);
     }
     void slotCheckSelection(Kleo::KeyListViewItem *);
     void slotRMB(Kleo::KeyListViewItem *, const QPoint &);
