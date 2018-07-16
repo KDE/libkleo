@@ -167,7 +167,7 @@ public:
             return;
         }
         m_x509ReadOnly = ro;
-        for (unsigned int row = 0, end = rowCount(); row != end; ++row) {
+        for (int row = 0, end = rowCount(); row != end; ++row) {
             Q_EMIT dataChanged(index(row, 0), index(row, NumColumns));
         }
     }

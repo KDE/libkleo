@@ -711,10 +711,8 @@ QIcon Formatting::validityIcon(const UserID::Signature &sig)
         return QIcon::fromTheme(QStringLiteral("emblem-information"));
     case UserID::Signature::NoPublicKey:
         return QIcon::fromTheme(QStringLiteral("emblem-question"));
-    default:
-        // should not happen
-        return QIcon();
     }
+    return QIcon();
 }
 
 QString Formatting::formatKeyLink(const Key &key)

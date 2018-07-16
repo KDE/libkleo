@@ -169,12 +169,12 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
         }
         break;
     case IsAtLeast:
-        if ((int)key.ownerTrust() < (int)d_ptr->mOwnerTrustReferenceLevel) {
+        if (static_cast<int>(key.ownerTrust()) < static_cast<int>(d_ptr->mOwnerTrustReferenceLevel)) {
             return false;
         }
         break;
     case IsAtMost:
-        if ((int)key.ownerTrust() > (int)d_ptr->mOwnerTrustReferenceLevel) {
+        if (static_cast<int>(key.ownerTrust()) > static_cast<int>(d_ptr->mOwnerTrustReferenceLevel)) {
             return false;
         }
         break;
@@ -195,12 +195,12 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
         }
         break;
     case IsAtLeast:
-        if ((int)uid.validity() < (int)d_ptr->mValidityReferenceLevel) {
+        if (static_cast<int>(uid.validity()) < static_cast<int>(d_ptr->mValidityReferenceLevel)) {
             return false;
         }
         break;
     case IsAtMost:
-        if ((int)uid.validity() > (int)d_ptr->mValidityReferenceLevel) {
+        if (static_cast<int>(uid.validity()) > static_cast<int>(d_ptr->mValidityReferenceLevel)) {
             return false;
         }
         break;

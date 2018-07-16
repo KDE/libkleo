@@ -1254,7 +1254,7 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
             } else if (uidC.validity() == u.validity() && uidIsOk(u)) {
                 /* Both are the same check which one is newer. */
                 time_t oldTime = 0;
-                for (const Subkey s: keyC.subkeys()) {
+                for (const Subkey &s: keyC.subkeys()) {
                     if (!subkeyIsOk(s)) {
                         continue;
                     }
@@ -1267,7 +1267,7 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
                     }
                 }
                 time_t newTime = 0;
-                for (const Subkey s: k.subkeys()) {
+                for (const Subkey &s: k.subkeys()) {
                     if (!subkeyIsOk(s)) {
                         continue;
                     }

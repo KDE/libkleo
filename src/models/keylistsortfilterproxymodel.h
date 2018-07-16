@@ -80,7 +80,7 @@ protected:
     KeyListSortFilterProxyModel(const KeyListSortFilterProxyModel &);
 public:
     explicit KeyListSortFilterProxyModel(QObject *parent = nullptr);
-    ~KeyListSortFilterProxyModel();
+    ~KeyListSortFilterProxyModel() override;
 
     std::shared_ptr<const KeyFilter> keyFilter() const;
     void setKeyFilter(const std::shared_ptr<const KeyFilter> &kf);

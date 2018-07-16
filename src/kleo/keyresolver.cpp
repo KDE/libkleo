@@ -177,9 +177,9 @@ public:
                 // Skip overrides for the wrong format
                 continue;
             }
-            for (const auto addr: mOverrides[fmt].keys()) {
+            for (const auto &addr: mOverrides[fmt].keys()) {
                 // For all adress overrides of this format.
-                for (const auto fprOrId: mOverrides[fmt][addr]) {
+                for (const auto &fprOrId: mOverrides[fmt][addr]) {
                     // For all the keys configured for this address.
                     const auto key = mCache->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());
                     if (key.isNull()) {

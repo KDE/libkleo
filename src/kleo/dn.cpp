@@ -286,7 +286,7 @@ parse_dn(const QString &dn)
 static QString dn_escape(const QString &s)
 {
     QString result;
-    for (unsigned int i = 0, end = s.length(); i != end; ++i) {
+    for (int i = 0, end = s.length(); i != end; ++i) {
         const QChar ch = s[i];
         switch (ch.unicode()) {
         case ',':
