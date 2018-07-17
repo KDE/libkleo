@@ -466,9 +466,9 @@ public:
                     if (!resolvedRecp.contains(addr) || !resolvedRecp[addr].size()) {
                         resolvedRecp.insert(addr, map[addr]);
                     } else {
-                        for (const auto &k: map[addr]) {
-                            resolvedRecp[addr].push_back(k);
-                        }
+                        qCDebug(LIBKLEO_LOG) << "Replacing resolved keys for" << addr
+                                             << "with keys from new format.";
+                        resolvedRecp[addr] = map[addr];
                     }
                 }
             }
