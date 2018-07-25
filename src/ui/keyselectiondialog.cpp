@@ -238,7 +238,7 @@ int ColumnStrategy::width(int col, const QFontMetrics &fm) const
         static const char hexchars[] = "0123456789ABCDEF";
         int maxWidth = 0;
         for (unsigned int i = 0; i < 16; ++i) {
-            maxWidth = qMax(fm.width(QLatin1Char(hexchars[i])), maxWidth);
+            maxWidth = qMax(fm.boundingRect(QLatin1Char(hexchars[i])).width(), maxWidth);
         }
         return 8 * maxWidth + 2 * 16 /* KIconLoader::SizeSmall */;
     }

@@ -133,7 +133,7 @@ QSize KDHorizontalLine::sizeHint() const
 QSize KDHorizontalLine::minimumSizeHint() const
 {
     const int w = fontMetrics().width(mTitle, mLenVisible) +
-                  fontMetrics().width(QLatin1Char(' '));
+                  fontMetrics().boundingRect(QLatin1Char(' ')).width();
     const int h = fontMetrics().height();
     return QSize(qMax(w, indentHint()), h).expandedTo(qApp->globalStrut());
 }
