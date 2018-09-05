@@ -127,7 +127,7 @@ public:
         hLay->addWidget(mFilterBtn, 0);
 
         // Assume that combos start out with a filter
-        mFilterBtn->setIcon(QIcon::fromTheme("kt-remove-filters"));
+        mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
         mFilterBtn->setToolTip(i18n("Remove Filter"));
 
         // FIXME: This is ugly to enforce but otherwise the
@@ -140,11 +140,11 @@ public:
             if (curFilter.isEmpty()) {
                 mCombo->setIdFilter(mLastIdFilter);
                 mLastIdFilter = QString();
-                mFilterBtn->setIcon(QIcon::fromTheme("kt-remove-filters"));
+                mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
                 mFilterBtn->setToolTip(i18n("Remove Filter"));
             } else {
                 mLastIdFilter = curFilter;
-                mFilterBtn->setIcon(QIcon::fromTheme("kt-add-filters"));
+                mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-add-filters")));
                 mFilterBtn->setToolTip(i18n("Add Filter"));
                 mCombo->setIdFilter(QString());
             }
@@ -292,7 +292,7 @@ public:
     {
         mLastError = result.error();
         if (!mLastError || mLastError.isCanceled()) {
-            combo->setDefaultKey(result.fingerprint());
+            combo->setDefaultKey(QString::fromLatin1(result.fingerprint()));
             connect (combo, &KeySelectionCombo::keyListingFinished, q, [this, job] () {
                     mRunningJobs.removeAll(job);
                 });
@@ -305,7 +305,7 @@ public:
     void checkAccepted()
     {
         if (mLastError || mLastError.isCanceled()) {
-            KMessageBox::error(q, mLastError.asString(), i18n("Operation Failed"));
+            KMessageBox::error(q, QString::fromLocal8Bit(mLastError.asString()), i18n("Operation Failed"));
             mRunningJobs.clear();
             return;
         }
@@ -358,7 +358,7 @@ public:
         auto combo = new KeySelectionCombo();
         combo->setKeyFilter(mCurSigFilter);
         if (!key.isNull()) {
-            combo->setDefaultKey(key.primaryFingerprint());
+            combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
         }
         if (key.isNull() && mProto != GpgME::CMS) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
@@ -425,7 +425,7 @@ public:
             auto combo = new KeySelectionCombo(false);
             combo->setKeyFilter(mCurEncFilter);
             if (!key.isNull()) {
-                combo->setDefaultKey(key.primaryFingerprint());
+                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
             }
 
             if (mSender == addr && key.isNull()) {
@@ -520,8 +520,8 @@ public:
         }
 
         mOkButton->setIcon(QIcon::fromTheme(de_vs
-                    ? "security-high"
-                    : "security-medium"));
+                    ? QStringLiteral("security-high")
+                    : QStringLiteral("security-medium")));
         mOkButton->setStyleSheet(QStringLiteral("background-color: ") + (de_vs
                     ? QStringLiteral("#D5FAE2")  // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name()
                     : QStringLiteral("#FAE9EB"))); //KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name()));

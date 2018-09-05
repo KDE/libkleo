@@ -93,7 +93,7 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     QCommandLineParser parser;
-    parser.setApplicationDescription("Test KeyResolver class");
+    parser.setApplicationDescription(QStringLiteral("Test KeyResolver class"));
     parser.addHelpOption();
     parser.addPositionalArgument(QStringLiteral("recipients"),
                                   QStringLiteral("Recipients to resolve"),
@@ -135,13 +135,13 @@ int main(int argc, char **argv)
         parser.showHelp(1);
     }
 
-    KeyResolver resolver(true, !parser.isSet("encrypt"));
+    KeyResolver resolver(true, !parser.isSet(QStringLiteral("encrypt")));
     resolver.setRecipients(recps);
-    resolver.setSender(parser.value("sender"));
+    resolver.setSender(parser.value(QStringLiteral("sender")));
 
     QMap <CryptoMessageFormat, QMap <QString, QStringList> > overrides;
 
-    for (const QString &oride: parser.values("overrides")) {
+    for (const QString &oride: parser.values(QStringLiteral("overrides"))) {
         const QStringList split = oride.split(QLatin1Char(':'));
         CryptoMessageFormat fmt = AutoFormat;
         if (split.size() < 2 || split.size() > 3) {
@@ -150,19 +150,19 @@ int main(int argc, char **argv)
 
         if (split.size() == 3) {
             const QString fmtStr = split[2].toLower();
-            if (fmtStr == "inlineopenpgp") {
+            if (fmtStr == QLatin1String("inlineopenpgp")) {
                 fmt = InlineOpenPGPFormat;
-            } else if (fmtStr == "openpgpmime") {
+            } else if (fmtStr == QLatin1String("openpgpmime")) {
                 fmt = OpenPGPMIMEFormat;
-            } else if (fmtStr == "smime") {
+            } else if (fmtStr == QLatin1String("smime")) {
                 fmt = SMIMEFormat;
-            } else if (fmtStr == "smimeopaque") {
+            } else if (fmtStr == QLatin1String("smimeopaque")) {
                 fmt = SMIMEOpaqueFormat;
-            } else if (fmtStr == "anyopenpgp") {
+            } else if (fmtStr == QLatin1String("anyopenpgp")) {
                 fmt = AnyOpenPGP;
-            } else if (fmtStr == "anysmime") {
+            } else if (fmtStr == QLatin1String("anysmime")) {
                 fmt = AnySMIME;
-            } else if (fmtStr == "auto") {
+            } else if (fmtStr == QLatin1String("auto")) {
                 fmt = AutoFormat;
             } else {
                 parser.showHelp(1);
@@ -180,7 +180,7 @@ int main(int argc, char **argv)
     QObject::connect (&resolver, &KeyResolver::keysResolved, recp, &SignalRecipient::keysResolved);
 
     QTimer::singleShot(1000, [&parser, &resolver]() {
-        resolver.start(parser.isSet("approval"));
+        resolver.start(parser.isSet(QStringLiteral("approval")));
     });
 
     app.exec();

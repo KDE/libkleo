@@ -1009,5 +1009,5 @@ QString Formatting::prettyID(const char *id)
     if (!id) {
         return QString();
     }
-    return QString::fromLatin1(id).toUpper().replace(QRegularExpression("(....)"), "\\1 ").trimmed();
+    return QString::fromLatin1(id).toUpper().replace(QRegularExpression(QStringLiteral("(....)")), QStringLiteral("\\1 ")).trimmed();
 }
