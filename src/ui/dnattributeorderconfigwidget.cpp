@@ -31,7 +31,7 @@
  */
 
 #include "dnattributeorderconfigwidget.h"
-
+#include "libkleo_debug.h"
 #include "libkleo/dn.h"
 
 #include <KLocalizedString>
@@ -219,7 +219,7 @@ void Kleo::DNAttributeOrderConfigWidget::save() const
 
 void Kleo::DNAttributeOrderConfigWidget::defaults()
 {
-    qDebug() << "Sorry, not implemented: Kleo::DNAttributeOrderConfigWidget::defaults()";
+     qCDebug (LIBKLEO_LOG) << "Sorry, not implemented: Kleo::DNAttributeOrderConfigWidget::defaults()";
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotAvailableSelectionChanged(QTreeWidgetItem *item)
