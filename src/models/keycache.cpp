@@ -1143,7 +1143,7 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
 #if 0
     aheinecke: 2017.01.12:
 
-    For unkown reasons the new style connect fails at runtime
+    For unknown reasons the new style connect fails at runtime
     over library borders into QGpgME from the GpgME repo
     when cross compiled for Windows and default arguments
     are used in the Signal.

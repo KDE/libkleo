@@ -65,7 +65,7 @@ namespace Kleo
  * the newest subkey is used.
  *
  * The KeyResolver also supports groups so the number of
- * encryption keys / hidden encryption keys does not neccessarily
+ * encryption keys / hidden encryption keys does not necessarily
  * need to match the amount of sender addresses. For this reason
  * maps are used heavily to map:
  *

@@ -378,7 +378,7 @@ void KeySelectionCombo::init()
     connect(d->cache.get(), &Kleo::KeyCache::keyListingDone,
             this, [this]() {
                     // Set useKeyCache ensures that the cache is populated
-                    // so this can be a blocking call if the cache is not initalized 
+                    // so this can be a blocking call if the cache is not initialized 
                     d->model->useKeyCache(true, d->secretOnly);
                     d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
 

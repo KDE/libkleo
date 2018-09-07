@@ -79,7 +79,7 @@ public:
      * @param senderAddr: The address of the sender, this may be used if singing is not
      *                    specified to identify a recpient for which "Generate Key" should
      *                    be offered.
-     * @param allowMixed: Wether or not the dialog should allow mixed CMS / PGP key selection.
+     * @param allowMixed: Whether or not the dialog should allow mixed CMS / PGP key selection.
      * @param proto: A specific preselected protocol. If Protocol is unknown it will allow
      *               both (depending on allowMixed) S/MIME and OpenPGP.
      * @param parent: The parent widget.

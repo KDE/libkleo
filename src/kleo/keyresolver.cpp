@@ -134,7 +134,7 @@ public:
             return;
         }
 
-        // Internally we work with normalized addresses. Normalisation
+        // Internally we work with normalized addresses. Normalization
         // matches the gnupg one.
         for (const auto &addr :addresses) {
             // PGP Uids are defined to be UTF-8 (RFC 4880 §5.11)
@@ -178,7 +178,7 @@ public:
                 continue;
             }
             for (const auto &addr: mOverrides[fmt].keys()) {
-                // For all adress overrides of this format.
+                // For all address overrides of this format.
                 for (const auto &fprOrId: mOverrides[fmt][addr]) {
                     // For all the keys configured for this address.
                     const auto key = mCache->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());

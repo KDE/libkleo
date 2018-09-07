@@ -16,8 +16,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef LIBKLEO_DEFAULTKEYGENERATION_H
-#define LIBKLEO_DEFAULTKEYGENERATION_H
+#ifndef LIBKLEO_DEFAULTKEYGENERATIONJOB_H
+#define LIBKLEO_DEFAULTKEYGENERATIONJOB_H
 
 #include <qgpgme/job.h>
 
