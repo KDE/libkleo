@@ -172,7 +172,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
         cb->addItems(prefs);
         glay->addWidget(cb, row, 1);
         cb->setCurrentIndex(pref2cb(it->pref));
-        connect(cb, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &KeyApprovalDialog::slotPrefsChanged);
+        connect(cb, QOverload<int>::of(&QComboBox::activated), this, &KeyApprovalDialog::slotPrefsChanged);
         d->preferences.push_back(cb);
     }
 
