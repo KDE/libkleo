@@ -20,7 +20,7 @@ include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
-include(ECMCoverageOption)
+
 
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
