@@ -12,7 +12,7 @@ include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMGeneratePriFile)
-include(CMakePackageConfigHelpers)
+
 include(ECMSetupVersion)
 include(FeatureSummary)
 include(KDEInstallDirs)
