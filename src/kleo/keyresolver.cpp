@@ -173,7 +173,7 @@ public:
         }
         for (CryptoMessageFormat fmt: mOverrides.keys()) {
             // Iterate over the crypto message formats
-            if (mFormat != AutoFormat && mFormat != fmt) {
+            if (mFormat != AutoFormat && mFormat != fmt && fmt != AutoFormat) {
                 // Skip overrides for the wrong format
                 continue;
             }
@@ -201,11 +201,21 @@ public:
                         continue;
                     }
 
-                    auto recpMap = targetMap->value(fmt);
+                    CryptoMessageFormat resolvedFmt = fmt;
+                    if (fmt == AutoFormat) {
+                        // Take the format from the key.
+                        if (key.protocol() == GpgME::OpenPGP) {
+                            resolvedFmt = AnyOpenPGP;
+                        } else {
+                            resolvedFmt = AnySMIME;
+                        }
+                    }
+
+                    auto recpMap = targetMap->value(resolvedFmt);
                     auto keys = recpMap.value(addr);
                     keys.push_back(key);
                     recpMap.insert(addr, keys);
-                    targetMap->insert(fmt, recpMap);
+                    targetMap->insert(resolvedFmt, recpMap);
 
                     // Now we can remove it from our unresolved lists.
                     if (key.protocol() == GpgME::OpenPGP) {
@@ -213,6 +223,7 @@ public:
                     } else {
                         mUnresolvedCMS.removeAll(addr);
                     }
+                    qCDebug(LIBKLEO_LOG) << "Override" << addr << cryptoMessageFormatToString (fmt) << fprOrId;
                 }
             }
         }
