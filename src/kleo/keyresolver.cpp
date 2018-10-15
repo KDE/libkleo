@@ -77,6 +77,7 @@ public:
             mAllowMixed(allowMixed),
             mCache(KeyCache::instance()),
             mDialogWindowFlags(Qt::WindowFlags()),
+            mPreferredProtocol(GpgME::UnknownProtocol),
             mMinimumValidity(GpgME::UserID::Marginal),
             mCompliance(Formatting::complianceMode())
     {
@@ -493,7 +494,7 @@ public:
         // Start with the protocol for which every keys could be found.
         GpgME::Protocol presetProtocol = pgpOnly ? GpgME::OpenPGP :
                                          cmsOnly ? GpgME::CMS :
-                                         GpgME::UnknownProtocol;
+                                         mPreferredProtocol;
 
         mDialog = std::shared_ptr<NewKeyApprovalDialog>(new NewKeyApprovalDialog(resolvedSig,
                                                                                  resolvedRecp,
@@ -586,6 +587,7 @@ public:
     std::shared_ptr<const KeyCache> mCache;
     std::shared_ptr<NewKeyApprovalDialog> mDialog;
     Qt::WindowFlags mDialogWindowFlags;
+    GpgME::Protocol mPreferredProtocol;
     int mMinimumValidity;
     QString mCompliance;
 };
@@ -736,6 +738,11 @@ void KeyResolver::enableNagging(bool value)
 void KeyResolver::setDialogWindowFlags(Qt::WindowFlags flags)
 {
     d->mDialogWindowFlags = flags;
+}
+
+void KeyResolver::setPreferredProtocol(GpgME::Protocol proto)
+{
+    d->mPreferredProtocol = proto;
 }
 
 void KeyResolver::setMinimumValidity(int validity)

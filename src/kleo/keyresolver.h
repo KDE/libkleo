@@ -224,6 +224,13 @@ public:
      */
     void setDialogWindowFlags(Qt::WindowFlags flags);
 
+    /**
+     * Set the protocol that is preferred to be displayed first when
+     * it is not clear from the keys. E.g. if both OpenPGP and S/MIME
+     * can be resolved.
+     */
+    void setPreferredProtocol(GpgME::Protocol proto);
+
 Q_SIGNALS:
     /**
      * Emitted when key resolution finished.
