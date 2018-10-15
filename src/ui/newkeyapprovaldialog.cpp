@@ -376,6 +376,9 @@ public:
         connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
             updateOkButton();
         });
+        connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
+            updateOkButton();
+        });
 
         return new ComboWidget(combo);
     }
@@ -443,7 +446,10 @@ public:
             }
 
             connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
-                    updateOkButton();
+                updateOkButton();
+            });
+            connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
+                updateOkButton();
             });
 
             mEncCombos << combo;
@@ -483,6 +489,7 @@ public:
     {
         static QString origOkText = mOkButton->text();
         bool isGenerate = false;
+        bool isAllIgnored = true;
         // Check if generate is selected.
         for (auto combo: mAllCombos) {
             auto act = combo->currentData(Qt::UserRole).toInt();
@@ -490,7 +497,13 @@ public:
                 mOkButton->setText(i18n("Generate"));
                 isGenerate = true;
             }
+            if (act != IgnoreKey) {
+                isAllIgnored = false;
+            }
         }
+
+        mOkButton->setEnabled(!isAllIgnored);
+
         if (!isGenerate) {
             mOkButton->setText(origOkText);
         }
