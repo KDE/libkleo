@@ -273,7 +273,7 @@ public:
         const auto &addr = combo->property("address").toString();
         auto job = new QGpgME::DefaultKeyGenerationJob(q);
         auto progress = new Kleo::ProgressDialog(job, i18n("Generating key for '%1'...", addr) + QStringLiteral("\n\n") +
-                                                 i18n("This can take serveral minutes."), q);
+                                                 i18n("This can take several minutes."), q);
         progress->setWindowFlags(progress->windowFlags() & ~Qt::WindowContextHelpButtonHint);
         progress->setWindowTitle(i18n("Key generation"));
         progress->setModal(true);

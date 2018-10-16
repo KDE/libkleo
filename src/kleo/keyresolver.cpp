@@ -190,7 +190,7 @@ public:
                     }
 
                     // Now add it to the resolved keys and remove it from our list
-                    // of unsresolved keys.
+                    // of unresolved keys.
                     QMap<CryptoMessageFormat, QMap <QString, std::vector<GpgME::Key> > > *targetMap;
                     if (mRecipients.contains(addr)) {
                         targetMap = &mEncKeys;
@@ -453,10 +453,10 @@ public:
         QStringList unresolvedRecp;
 
         if (mEncrypt) {
-            // Use all unresolved recpients.
+            // Use all unresolved recipients.
             if (!cmsOnly && !pgpOnly) {
                 if (mFormat & AutoFormat) {
-                    // In Auto Format we can now remove recpients that could
+                    // In Auto Format we can now remove recipients that could
                     // be resolved either through CMS or PGP
                     for (const auto &addr: mUnresolvedPGP) {
                         if (mUnresolvedCMS.contains(addr)) {
@@ -583,7 +583,7 @@ public:
     bool mEncrypt, mSign, mNag;
     bool mAllowMixed;
     // The cache is needed as a member variable to avoid rebuilding
-    // it beteween calls if we are the only user.
+    // it between calls if we are the only user.
     std::shared_ptr<const KeyCache> mCache;
     std::shared_ptr<NewKeyApprovalDialog> mDialog;
     Qt::WindowFlags mDialogWindowFlags;
@@ -629,7 +629,7 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
         if (d->mSign) {
             // So every recipient could be resolved through
             // a combination of PGP and S/MIME do we also
-            // have signining keys for both?
+            // have signing keys for both?
             needsUser |= !(d->mSigKeys.contains(AnyOpenPGP) &&
                            d->mSigKeys.contains(AnySMIME));
         }

@@ -1220,7 +1220,7 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
         return ret;
     }
     if (proto == Protocol::OpenPGP) {
-        // Groups take precendece over autmatic keys. We return all here
+        // Groups take precedence over automatic keys. We return all here
         // so if a group key for example is expired we can show that.
         ret = getGroupKeys(QString::fromUtf8(addr));
         if (!ret.empty()) {

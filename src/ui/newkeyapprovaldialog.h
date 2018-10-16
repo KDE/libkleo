@@ -48,10 +48,10 @@ namespace Kleo
  * This class is intended to replace the old KeyApprovalDialog with a new
  * and simpler interface.
  *
- * Resolved recipients in this API means a recpient could be resolved
- * to a single useful key. An unresolved recipient is a recpient for
+ * Resolved recipients in this API means a recipient could be resolved
+ * to a single useful key. An unresolved recipient is a recipient for
  * whom no key could be found. Import / Search will be offered for such
- * a recpient. Multiple keys for signing / recpient can come e.g. from
+ * a recipient. Multiple keys for signing / recipient can come e.g. from
  * group configuration or Addressbook / Identity configuration.
  *
  * The Dialog uses the Level System for validity display and shows an
@@ -67,17 +67,17 @@ public:
      * @param resolvedSignignKeys: A map of signing addresses and Keys. Usually the
      *                             map would contain a single element and a single key
      *                             but configuration may allow more.
-     * @param resolvedRecp: A map of a recpient address and the keys for that address. Multiple
+     * @param resolvedRecp: A map of a recipient address and the keys for that address. Multiple
      *                      keys could for example be configured through Address book or GnuPG
      *                      Groups.
      * @param unresolvedSigKeys: A list of signing addresses for which no key was found. Should
-     *                           usually be only one. If resolved and unresovled sig keys are
+     *                           usually be only one. If resolved and unresolved sig keys are
      *                           empty it is assumed signing was not selected.
      * @param unresolvedRecp: A list of encryption target addresses if both unresolved and
      *                        resolved recipients are empty it is assumed no encryption should
      *                        take place.
      * @param senderAddr: The address of the sender, this may be used if singing is not
-     *                    specified to identify a recpient for which "Generate Key" should
+     *                    specified to identify a recipient for which "Generate Key" should
      *                    be offered.
      * @param allowMixed: Whether or not the dialog should allow mixed CMS / PGP key selection.
      * @param proto: A specific preselected protocol. If Protocol is unknown it will allow

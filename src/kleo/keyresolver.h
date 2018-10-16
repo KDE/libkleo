@@ -60,7 +60,7 @@ namespace Kleo
  * match the format provided in the constructor.
  *
  * If no override key is provided for an address the key
- * with a uid that maches the address and has the highest
+ * with a uid that matches the address and has the highest
  * validity is used. If both keys have the same validity
  * the newest subkey is used.
  *
@@ -145,7 +145,7 @@ public:
     void setHiddenRecipients(const QStringList &addresses);
 
     /**
-     * Set up possible override keys for recpients / sender
+     * Set up possible override keys for recipients / sender
      * addresses. The keys for the fingerprints are looked
      * up and used when found. Does not interact with the user.
      *
@@ -202,7 +202,7 @@ public:
     QMap <CryptoMessageFormat, std::vector<GpgME::Key> > signingKeys() const;
 
     /**
-     * Starts the key resolving proceure. Emits keysResolved on success or
+     * Starts the key resolving procedure. Emits keysResolved on success or
      * error.
      *
      * @param showApproval: If set to true a dialog listing the keys

@@ -204,11 +204,11 @@ unsigned int Kleo::classify(const QString &filename)
     }
 
     QFile file(filename);
-    /* The least reliable but always availabe classification */
+    /* The least reliable but always available classification */
     const unsigned int extClass = classifyExtension(fi);
     if (!GpgME::hasFeature(0, GpgME::BinaryAndFineGrainedIdentify) &&
         !(extClass & ExamineContentHint)) {
-        /* GpgME's identfiy and our internal Classify were so incomplete
+        /* GpgME's identify and our internal Classify were so incomplete
          * before BinaryAndFineGrainedIdentify that we are better of
          * to just use the file extension if ExamineContentHint is not set. */
         qCDebug(LIBKLEO_LOG) << "Classified based only on extension.";

@@ -97,13 +97,13 @@ public:
 
     QString fingerprint() const;
     /** Set the key by fingerprint. Starts a background KeyListJob to
-        retrive the complete GpgME::Key object
+        retrieve the complete GpgME::Key object
     */
     void setFingerprint(const QString &fingerprint);
 
     QStringList fingerprints() const;
     /** Set the keys by fingerprint. Starts a background KeyListJob to
-        retrive the complete GpgME::Key objects
+        retrieve the complete GpgME::Key objects
     */
     void setFingerprints(const QStringList &fingerprints);
 

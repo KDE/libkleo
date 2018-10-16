@@ -49,7 +49,7 @@
 namespace Kleo
 {
 
-/** Default implemation of key filter class. */
+/** Default implementation of key filter class. */
 class KLEO_EXPORT DefaultKeyFilter : public KeyFilter
 {
 public:

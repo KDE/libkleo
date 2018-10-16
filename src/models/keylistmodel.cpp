@@ -784,7 +784,7 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
         {
             addKeyWithParent(issuer_fpr, key);
         } else
-            // parent does't exist yet...
+            // parent doesn't exist yet...
         {
             addKeyWithoutParent(issuer_fpr, key);
         }
