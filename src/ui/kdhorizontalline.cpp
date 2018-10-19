@@ -8,9 +8,8 @@
 ** This file is part of the KD Tools library.
 **
 ** This file may be distributed and/or modified under the terms of the
-** GNU General Public License version 2 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.
+** GNU General Public License as published by the Free Software Foundation;
+** either version 2 of the License, or (at your option) any later version.
 **
 ** Licensees holding valid commercial KD Tools licenses may use this file in
 ** accordance with the KD Tools Commercial License Agreement provided with
