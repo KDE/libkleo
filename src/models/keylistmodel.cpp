@@ -38,7 +38,7 @@
 #include "utils/formatting.h"
 
 #ifdef KLEO_MODEL_TEST
-# include "modeltest.h"
+# include <QAbstractItemModelTester>
 #endif
 
 #include <Libkleo/KeyFilterManager>
@@ -905,7 +905,7 @@ AbstractKeyListModel *AbstractKeyListModel::createFlatKeyListModel(QObject *p)
 {
     AbstractKeyListModel *const m = new FlatKeyListModel(p);
 #ifdef KLEO_MODEL_TEST
-    new ModelTest(m, p);
+    new QAbstractItemModelTester(m, p);
 #endif
     return m;
 }
@@ -915,7 +915,7 @@ AbstractKeyListModel *AbstractKeyListModel::createHierarchicalKeyListModel(QObje
 {
     AbstractKeyListModel *const m = new HierarchicalKeyListModel(p);
 #ifdef KLEO_MODEL_TEST
-    new ModelTest(m, p);
+    new QAbstractItemModelTester(m, p);
 #endif
     return m;
 }
