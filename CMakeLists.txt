@@ -63,7 +63,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII )
-add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
+
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
