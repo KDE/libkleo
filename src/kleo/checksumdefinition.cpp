@@ -401,7 +401,8 @@ std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecks
 std::shared_ptr<ChecksumDefinition> ChecksumDefinition::getDefaultChecksumDefinition(const std::vector< std::shared_ptr<ChecksumDefinition> > &checksumDefinitions)
 {
     const KConfigGroup group(KSharedConfig::openConfig(), "ChecksumOperations");
-    const QString checksumDefinitionId = group.readEntry(CHECKSUM_DEFINITION_ID_ENTRY);
+    const QString checksumDefinitionId = group.readEntry(CHECKSUM_DEFINITION_ID_ENTRY, QStringLiteral("sha256sum"));
+
     if (!checksumDefinitionId.isEmpty())
         for (const std::shared_ptr<ChecksumDefinition> &cd : checksumDefinitions)
             if (cd && cd->id() == checksumDefinitionId) {
