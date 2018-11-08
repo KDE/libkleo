@@ -1000,6 +1000,9 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
         }
         return i18nc("As in all user IDs are valid.", "certified");
     }
+    if (key.isExpired()) {
+        return i18n("expired");
+    }
 
     return i18nc("As in not all user IDs are valid.", "not certified");
 }
