@@ -192,6 +192,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
     SET(HasSecret, "has-secret-key");
     SET(IsOpenPGP, "is-openpgp-key");
     SET(WasValidated, "was-validated");
+    SET(IsDeVs, "is-de-vs");
 #undef SET
     static const struct {
         const char *prefix;

@@ -685,3 +685,18 @@ Name[uk]=Сертифікати X509
 Name[x-test]=xxX509 Certificatesxx
 Name[zh_CN]=X509 证书
 Name[zh_TW]=X509 憑證
+
+# Filters that filter for is-de-vs
+# are only shown in compliance mode
+# de-vs
+[Key Filter #10]
+is-de-vs=true
+Name=VS-NfD Compliant
+Name[de]=VS-NfD Konform
+background-color=213,250,226
+
+[Key Filter #11]
+is-de-vs=false
+Name=Not VS-NfD Compliant
+Name[de]=Nicht VS-NfD Konform
+background-color=250,233,235

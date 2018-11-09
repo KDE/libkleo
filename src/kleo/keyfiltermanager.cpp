@@ -154,24 +154,6 @@ public:
     }
 };
 
-/* This filter selects only VS-NfD-compliant keys if Kleopatra is used in
- * CO_DE_VS mode.  */
-class DeVsCompliantKeyFilter : public DefaultKeyFilter
-{
-public:
-    DeVsCompliantKeyFilter()
-        : DefaultKeyFilter()
-    {
-        setName(i18n("VS-NfD-compliant Certificates"));
-        setId(QStringLiteral("vs-compliant-certificates"));
-        setSpecificity(UINT_MAX - 5); // overly high for ordering
-    }
-    bool matches (const Key &key, MatchContexts contexts) const override
-    {
-        return (contexts & Filtering) && Formatting::isKeyDeVs(key);
-    }
-};
-
 /* This filter selects only invalid keys (i.e. those where not all
  * UIDs are at least fully valid).  */
 class KeyNotValidFilter : public DefaultKeyFilter
@@ -190,46 +172,6 @@ public:
     }
 };
 
-/* This filter gives valid keys (i.e. those where all UIDs are at
- * least fully valid) a light green background if Kleopatra is used in
- * CO_DE_VS mode.  */
-class KeyDeVSValidAppearanceFilter : public DefaultKeyFilter
-{
-public:
-    KeyDeVSValidAppearanceFilter()
-        : DefaultKeyFilter()
-    {
-        // Ideally this would come from KColorScheme but we want to
-        // avoid a dependency against kconfigwidgets. So we take
-        // the color for positive background from breeze.
-        setBgColor(QColor(0xD5, 0xFA,  0xE2));
-    }
-    bool matches (const Key &key, MatchContexts contexts) const override
-    {
-        return (contexts & Appearance) && Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key);
-    }
-};
-
-/* This filter gives invalid keys (i.e. those where not all UIDs are
- * at least fully valid) a light red background if Kleopatra is used
- * in CO_DE_VS mode.  */
-class KeyNotDeVSValidAppearanceFilter : public DefaultKeyFilter
-{
-public:
-    KeyNotDeVSValidAppearanceFilter()
-        : DefaultKeyFilter()
-    {
-        // Ideally this would come from KColorScheme but we want to
-        // avoid a dependency against kconfigwidgets. So we take
-        // the color for negative background from breeze.
-        setBgColor(QColor(0xFA, 0xE9, 0xEB));
-    }
-    bool matches (const Key &key, MatchContexts contexts) const override
-    {
-        return (contexts & Appearance) && (!Formatting::uidsHaveFullValidity(key) || !Formatting::isKeyDeVs(key));
-    }
-};
-
 }
 
 static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
@@ -242,20 +184,6 @@ static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
     result.push_back(std::shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new KeyNotValidFilter));
-    if (Formatting::complianceMode() == QStringLiteral("de-vs")) {
-        result.push_back(std::shared_ptr<KeyFilter>(new DeVsCompliantKeyFilter));
-    }
-    return result;
-}
-
-static std::vector<std::shared_ptr<KeyFilter>> defaultAppearanceFilters()
-{
-    std::vector<std::shared_ptr<KeyFilter> > result;
-    if (Formatting::complianceMode() == QStringLiteral("de-vs")) {
-        result.reserve(2);
-        result.push_back(std::shared_ptr<KeyFilter>(new KeyDeVSValidAppearanceFilter));
-        result.push_back(std::shared_ptr<KeyFilter>(new KeyNotDeVSValidAppearanceFilter));
-    }
     return result;
 }
 
@@ -345,12 +273,16 @@ void KeyFilterManager::reload()
     d->clear();
 
     d->filters = defaultFilters();
-    d->appearanceFilters = defaultAppearanceFilters();
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
 
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
+    bool ignoreDeVs = Formatting::complianceMode() != QStringLiteral("de-vs");
     for (QStringList::const_iterator it = groups.begin(); it != groups.end(); ++it) {
         const KConfigGroup cfg(config, *it);
+        if (cfg.hasKey("is-de-vs") && ignoreDeVs) {
+            /* Don't show de-vs filters in other compliance modes */
+            continue;
+        }
         d->filters.push_back(std::shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
     }
     std::stable_sort(d->filters.begin(), d->filters.end(), ByDecreasingSpecificity());

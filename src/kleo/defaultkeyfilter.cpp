@@ -34,6 +34,8 @@
 
 #include "defaultkeyfilter.h"
 
+#include "utils/formatting.h"
+
 #include <functional>
 #include <memory>
 
@@ -101,6 +103,7 @@ public:
     TriState mHasSecret;
     TriState mIsOpenPGP;
     TriState mWasValidated;
+    TriState mIsDeVs;
 
     LevelState mOwnerTrust;
     GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel;
@@ -152,6 +155,10 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     }
     if (d_ptr->mWasValidated != DoesNotMatter &&
             bool(key.keyListMode() & GpgME::Validate) != bool(d_ptr->mWasValidated == Set)) {
+        return false;
+    }
+    if (d_ptr->mIsDeVs != DoesNotMatter &&
+            bool(Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d_ptr->mIsDeVs == Set)) {
         return false;
     }
     switch (d_ptr->mOwnerTrust) {
@@ -362,6 +369,11 @@ void DefaultKeyFilter::setValidityReferenceLevel(GpgME::UserID::Validity value) 
     d_ptr->mValidityReferenceLevel = value;
 }
 
+void DefaultKeyFilter::setIsDeVs(DefaultKeyFilter::TriState value) const
+{
+    d_ptr->mIsDeVs = value;
+}
+
 QColor DefaultKeyFilter::fgColor() const
 {
     return d_ptr->mFgColor;
@@ -505,4 +517,9 @@ DefaultKeyFilter::LevelState DefaultKeyFilter::validity() const
 GpgME::UserID::Validity DefaultKeyFilter::validityReferenceLevel() const
 {
     return d_ptr->mValidityReferenceLevel;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::isDeVS() const
+{
+    return d_ptr->mIsDeVs;
 }
