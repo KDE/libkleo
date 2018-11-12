@@ -73,6 +73,7 @@ public:
         mHasSecret(DoesNotMatter),
         mIsOpenPGP(DoesNotMatter),
         mWasValidated(DoesNotMatter),
+        mIsDeVs(DoesNotMatter),
         mOwnerTrust(LevelDoesNotMatter),
         mOwnerTrustReferenceLevel(Key::Unknown),
         mValidity(LevelDoesNotMatter),
