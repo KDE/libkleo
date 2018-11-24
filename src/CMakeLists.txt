@@ -31,7 +31,6 @@ set(libkleo_core_SRCS
    models/keylistmodel.cpp
    models/keylistsortfilterproxymodel.cpp
    models/keyrearrangecolumnsproxymodel.cpp
-   models/modeltest.cpp
    models/subkeylistmodel.cpp
    models/useridlistmodel.cpp
    utils/filesystemwatcher.cpp
