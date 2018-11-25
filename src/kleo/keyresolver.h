@@ -149,7 +149,7 @@ public:
      * addresses. The keys for the fingerprints are looked
      * up and used when found. Does not interact with the user.
      *
-     * @param overrides: A map of <cryptomessageformat> -> (<address> <fingerprints>)
+     * @param overrides: A map of \<cryptomessageformat\> -> (\<address\> \<fingerprints\>)
     */
     void setOverrideKeys(const QMap<CryptoMessageFormat, QMap<QString, QStringList> > &overrides);
 
@@ -172,7 +172,7 @@ public:
      *
      * The default value is marginal
      *
-     * @param value: int representation of a GpgME::UserID::Validity.
+     * @param validity int representation of a GpgME::UserID::Validity.
      */
     void setMinimumValidity(int validity);
 

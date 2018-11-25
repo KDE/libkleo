@@ -202,6 +202,7 @@ public:
      * @param multipleKeys whether multiple keys can be selected
      *
      * @param proto the allowed protocols, OpenPGP and/or SMIME
+     * @param parent the parent widget
      * @param onlyTrusted only show trusted keys
      * @param onlyValid only show valid keys
      */

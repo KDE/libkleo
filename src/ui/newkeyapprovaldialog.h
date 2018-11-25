@@ -80,9 +80,11 @@ public:
      *                    specified to identify a recipient for which "Generate Key" should
      *                    be offered.
      * @param allowMixed: Whether or not the dialog should allow mixed CMS / PGP key selection.
-     * @param proto: A specific preselected protocol. If Protocol is unknown it will allow
+     * @param forcedProtocol: A specific forced protocol.
+     * @param presetProtocol: A specific preselected protocol. If Protocol is unknown it will allow
      *               both (depending on allowMixed) S/MIME and OpenPGP.
      * @param parent: The parent widget.
+     * @param f: The Qt window flags.
      */
     explicit NewKeyApprovalDialog(const QMap<QString, std::vector<GpgME::Key> > &resolvedSigningKeys,
                                   const QMap<QString, std::vector<GpgME::Key> > &resolvedRecp,
