@@ -64,7 +64,7 @@ class KLEO_EXPORT NewKeyApprovalDialog : public QDialog
 public:
     /** @brief Create a new Key Approval Dialog.
      *
-     * @param resolvedSignignKeys: A map of signing addresses and Keys. Usually the
+     * @param resolvedSigningKeys: A map of signing addresses and Keys. Usually the
      *                             map would contain a single element and a single key
      *                             but configuration may allow more.
      * @param resolvedRecp: A map of a recipient address and the keys for that address. Multiple
