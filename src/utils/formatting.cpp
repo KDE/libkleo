@@ -933,12 +933,21 @@ QString Formatting::validity(const UserID &uid)
 
 bool Formatting::uidsHaveFullValidity(const GpgME::Key &key)
 {
+    bool oneValid = false;
     for (const auto &uid: key.userIDs()) {
+        if (uid.isRevoked()) {
+            /* Skip revoked uids */
+            continue;
+        }
         if (uid.validity() < UserID::Validity::Full) {
             return false;
         }
+        /* Only return true if we have found at least one
+         * valid uid. E.g. if all uids are revoked we do
+         * not want to return true here. */
+        oneValid = true;
     }
-    return true;
+    return oneValid;
 }
 
 QString Formatting::complianceMode()
