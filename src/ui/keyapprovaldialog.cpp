@@ -124,7 +124,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
     mainLayout->addWidget(page);
     mainLayout->addWidget(buttonBox);
     QVBoxLayout *vlay = new QVBoxLayout(page);
-    vlay->setMargin(0);
+    vlay->setContentsMargins(0, 0, 0, 0);
 
     vlay->addWidget(new QLabel(i18n("The following keys will be used for encryption:"), page));
 

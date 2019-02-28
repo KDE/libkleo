@@ -97,7 +97,7 @@ FileNameRequester::Private::Private(FileNameRequester *qq)
     lineedit.setCompleter(&completer);
 #endif
     lineedit.setClearButtonEnabled(true);
-    hlay.setMargin(0);
+    hlay.setContentsMargins(0, 0, 0, 0);
     hlay.addWidget(&lineedit);
     hlay.addWidget(&button);
 

@@ -435,7 +435,7 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     mainLayout->addWidget(buttonBox);
 
     mTopLayout = new QVBoxLayout(page);
-    mTopLayout->setMargin(0);
+    mTopLayout->setContentsMargins(0, 0, 0, 0);
 
     if (!text.isEmpty()) {
         QLabel *textLabel = new QLabel(text, page);

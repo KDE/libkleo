@@ -211,7 +211,7 @@ public:
         mScrollArea->setWidgetResizable(true);
         mScrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
         mScrollArea->setFrameStyle(QFrame::NoFrame);
-        mScrollLayout->setMargin(0);
+        mScrollLayout->setContentsMargins(0, 0, 0, 0);
 
         q->setWindowTitle(i18n("Security approval"));
 

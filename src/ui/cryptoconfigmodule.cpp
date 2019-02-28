@@ -132,7 +132,7 @@ Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, Layou
 void Kleo::CryptoConfigModule::init(Layout layout)
 {
     if (QLayout *l = this->layout()) {
-        l->setMargin(0);
+        l->setContentsMargins(0, 0, 0, 0);
     }
 
     QGpgME::CryptoConfig *const config = mConfig;
@@ -148,7 +148,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
     if (type == Plain) {
         QWidget *w = new QWidget(this);
         QVBoxLayout *l = new QVBoxLayout(w);
-        l->setMargin(0);
+        l->setContentsMargins(0, 0, 0, 0);
         QScrollArea *s = new QScrollArea(w);
         s->setFrameStyle(QFrame::NoFrame);
         s->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
@@ -156,7 +156,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
         l->addWidget(s);
         vbox = new QWidget(s->viewport());
         vlay = new QVBoxLayout(vbox);
-        vlay->setMargin(0);
+        vlay->setContentsMargins(0, 0, 0, 0);
         s->setWidget(vbox);
         addPage(w, configOK ? QString() : i18n("GpgConf Error"));
     }
@@ -182,7 +182,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
         } else {
             vbox = new QWidget(this);
             vlay = new QVBoxLayout(vbox);
-            vlay->setMargin(0);
+            vlay->setContentsMargins(0, 0, 0, 0);
             KPageWidgetItem *pageItem = new KPageWidgetItem(vbox, comp->description());
             if (type != Tabbed) {
                 pageItem->setIcon(loadIcon(comp->iconName()));
