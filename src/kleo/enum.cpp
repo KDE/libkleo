@@ -333,7 +333,7 @@ Kleo::TrustLevel Kleo::trustLevel(const GpgME::UserID &uid)
             // Marginal trust and enough history -> level 2
             return Level2;
         }
-
+        return Level2; // Not reached, but avoids fallthrough warnings
     case GpgME::UserID::Full:
         // Full trust, trust level depends whether the UserID is signed with
         // at least one key with Ultimate ownertrust.
