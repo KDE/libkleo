@@ -38,8 +38,8 @@ Name[uk]=TAR (сумісні з PGP®)
 Name[x-test]=xxTAR (PGP®-compatible)xx
 Name[zh_CN]=TAR(PGP® 兼容)
 Name[zh_TW]=TAR (相容 PGP®)
-pack-command-openpgp=0|tar cf - -T- --null
-pack-command-cms=0|tar cfz - -T- --null
+pack-command-openpgp=0|tar cf - --null -T-
+pack-command-cms=0|tar cfz - --null -T-
 unpack-command-openpgp=tar xf -
 unpack-command-cms=tar xfz -
 
@@ -122,7 +122,7 @@ Name[uk]=TAR (зі стисканням bzip2)
 Name[x-test]=xxTAR (with bzip2 compression)xx
 Name[zh_CN]=TAR(bzip2 压缩)
 Name[zh_TW]=TAR (藉由 bzip2 壓縮)
-pack-command=0|tar cfj - -T- --null
+pack-command=0|tar cfj - --null -T-
 unpack-command=tar xfj -
 
 [Checksum Definition #0]
