@@ -430,7 +430,7 @@ bool Kleo::isChecksumFile(const QString &file)
     }
 
     const QString fileName = fi.fileName();
-    Q_FOREACH (const QRegExp &pattern, patterns) {
+    for (const QRegExp &pattern : qAsConst(patterns)) {
         if (pattern.exactMatch(fileName)) {
             return true;
         }
