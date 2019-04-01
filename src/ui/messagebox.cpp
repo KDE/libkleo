@@ -41,12 +41,12 @@
 
 
 #include <QPushButton>
-#include <qdialog.h>
-#include <qdialogbuttonbox.h>
+#include <QDialog>
+#include <QDialogButtonBox>
 #include <KLocalizedString>
 #include <kguiitem.h>
 
-#include <qtextstream.h>
+#include <QTextStream>
 
 #include <gpg-error.h>
 #include <KSharedConfig>

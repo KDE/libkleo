@@ -34,7 +34,7 @@
 
 #include <QDialog>
 
-#include <qbytearray.h>
+#include <QByteArray>
 
 namespace GpgME
 {

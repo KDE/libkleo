@@ -38,7 +38,7 @@
 
 #include "keyrequester.h"
 
-#include <qpushbutton.h>
+#include <QPushButton>
 #include <KLocalizedString>
 #include <kseparator.h>
 

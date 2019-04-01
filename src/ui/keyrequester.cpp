@@ -61,7 +61,7 @@
 #include <KLocalizedString>
 #include <QDialog>
 #include <kmessagebox.h>
-#include <qpushbutton.h>
+#include <QPushButton>
 
 // Qt
 #include <QApplication>

@@ -33,7 +33,7 @@
 #ifndef __KLEO_TESTS_GNUPGVIEWER_H__
 #define __KLEO_TESTS_GNUPGVIEWER_H__
 
-#include <qtextedit.h>
+#include <QTextEdit>
 #include <QString>
 #include <QProcess>
 namespace Kleo

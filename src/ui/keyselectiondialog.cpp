@@ -54,9 +54,9 @@
 #include <kwindowsystem.h>
 #include <kconfig.h>
 #include <kmessagebox.h>
-#include <qpushbutton.h>
+#include <QPushButton>
 #include <kconfiggroup.h>
-#include <qmenu.h>
+#include <QMenu>
 #include <QLineEdit>
 
 // Qt
@@ -77,7 +77,7 @@
 #include <iterator>
 
 #include <string.h>
-#include <qscrollbar.h>
+#include <QScrollBar>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <QDialogButtonBox>

@@ -42,7 +42,7 @@
 #include <KLocalizedString>
 #include "kleo_ui_debug.h"
 #include <utils/formatting.h>
-#include <qicon.h>
+#include <QIcon>
 #include <QDialogButtonBox>
 
 #include <QSpinBox>
