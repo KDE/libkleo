@@ -52,6 +52,8 @@
 #include <QColor>
 #include <QRegularExpression>
 
+#include "models/keycache.h"
+
 #include <gpgme++/gpgmepp_version.h>
 #if GPGMEPP_VERSION > 0x10900
 # define GPGME_HAS_KEY_IS_DEVS
@@ -678,7 +680,22 @@ QString Formatting::validityShort(const UserID::Signature &sig)
     case UserID::Signature::SigExpired:   return i18n("expired");
     case UserID::Signature::KeyExpired:   return i18n("certificate expired");
     case UserID::Signature::BadSignature: return i18nc("fake/invalid signature", "bad");
-    case UserID::Signature::NoPublicKey:  return i18n("no public key");
+    case UserID::Signature::NoPublicKey: {
+            /* GnuPG returns the same error for no public key as for expired
+             * or revoked certificates. */
+            const auto key = KeyCache::instance()->findByKeyIDOrFingerprint (sig.signerKeyID());
+            if (key.isNull()) {
+                return i18n("no public key");
+            } else if (key.isExpired()) {
+                return i18n("key expired");
+            } else if (key.isRevoked()) {
+                return i18n("key revoked");
+            } else if (key.isDisabled()) {
+                return i18n("key disabled");
+            }
+            /* can't happen */
+            return "unknwon";
+        }
     }
     return QString();
 }
