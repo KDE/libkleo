@@ -1196,17 +1196,17 @@ bool KeyCache::pgpOnly() const
     return d->m_pgpOnly;
 }
 
-static bool keyIsOk(const Key k)
+static bool keyIsOk(const Key &k)
 {
     return !k.isExpired() && !k.isRevoked() && !k.isInvalid() && !k.isDisabled();
 }
 
-static bool uidIsOk(const UserID uid)
+static bool uidIsOk(const UserID &uid)
 {
     return keyIsOk(uid.parent()) && !uid.isRevoked() && !uid.isInvalid();
 }
 
-static bool subkeyIsOk(const Subkey s)
+static bool subkeyIsOk(const Subkey &s)
 {
     return !s.isRevoked() && !s.isInvalid() && !s.isDisabled();
 }

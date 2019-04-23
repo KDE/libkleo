@@ -43,10 +43,10 @@ void dumpKeys(const QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::
 {
     for (const CryptoMessageFormat fmt: fmtMap.keys()) {
         qDebug () << "Format:" << cryptoMessageFormatToLabel(fmt) << fmt;
-        for (const auto mbox: fmtMap[fmt].keys()) {
+        for (const auto &mbox: fmtMap[fmt].keys()) {
             qDebug() << "Address:" << mbox;
             qDebug() << "Keys:";
-            for (const auto key: fmtMap[fmt][mbox]) {
+            for (const auto &key: fmtMap[fmt][mbox]) {
                 qDebug () << key.primaryFingerprint();
             }
         }
@@ -58,7 +58,7 @@ void dumpSigKeys(const QMap <CryptoMessageFormat, std::vector<GpgME::Key> > &fmt
     for (const CryptoMessageFormat fmt: fmtMap.keys()) {
         qDebug () << "Format:" << cryptoMessageFormatToLabel(fmt) << fmt;
         qDebug() << "Keys:";
-        for (const auto key: fmtMap[fmt]) {
+        for (const auto &key: fmtMap[fmt]) {
             qDebug () << key.primaryFingerprint();
         }
     }

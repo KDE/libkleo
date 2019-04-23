@@ -255,7 +255,7 @@ public:
         }
     }
 
-    void setSigningKeys(const std::vector<GpgME::Key> keys)
+    void setSigningKeys(const std::vector<GpgME::Key> &keys)
     {
         if (mSign) {
             for (const auto &key: keys) {
