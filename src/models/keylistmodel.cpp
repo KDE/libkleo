@@ -198,9 +198,15 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
             case Validity:         return i18n("User-IDs");
             case ValidFrom:        return i18n("Valid From");
             case ValidUntil:       return i18n("Valid Until");
-            case TechnicalDetails: return i18n("Details");
+            case TechnicalDetails: return i18n("Protocol");
             case ShortKeyID:       return i18n("Key-ID");
             case KeyID:            return i18n("Key-ID");
+            case Fingerprint:      return i18n("Fingerprint");
+            case Issuer:           return i18n("Issuer");
+            case SerialNumber:     return i18n("Serial Number");
+            case Origin:           return i18n("Origin");
+            case LastUpdate:       return i18n("Last Update");
+            case OwnerTrust:       return i18n("Certification Trust");
             case NumColumns:;
             }
     return QVariant();
@@ -270,13 +276,25 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
             return Formatting::prettyID(key.keyID());
         case Summary:
             return Formatting::summaryLine(key);
+        case Fingerprint:
+            return Formatting::prettyID(key.primaryFingerprint());
+        case Issuer:
+            return QString::fromUtf8(key.issuerName());
+        case Origin:
+            return Formatting::origin(key.origin());
+        case LastUpdate:
+            return Formatting::dateString(key.lastUpdate());
+        case SerialNumber:
+            return QString::fromUtf8(key.issuerSerial());
+        case OwnerTrust:
+            return Formatting::ownerTrustShort(key.ownerTrust());
         case NumColumns:
             break;
         }
     } else if (role == Qt::ToolTipRole) {
         return Formatting::toolTip(key, toolTipOptions());
     } else if (role == Qt::FontRole) {
-        return KeyFilterManager::instance()->font(key, (column == ShortKeyID || column == KeyID) ? QFont(QStringLiteral("monospace")) : QFont());
+        return KeyFilterManager::instance()->font(key, (column == ShortKeyID || column == KeyID || column == Fingerprint) ? QFont(QStringLiteral("monospace")) : QFont());
     } else if (role == Qt::DecorationRole) {
         return column == Icon ? returnIfValid(KeyFilterManager::instance()->icon(key)) : QVariant();
     } else if (role == Qt::BackgroundRole) {

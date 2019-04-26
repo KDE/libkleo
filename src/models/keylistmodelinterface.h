@@ -60,21 +60,21 @@ public:
         ValidFrom,
         ValidUntil,
         TechnicalDetails,
-        /* OpenPGP only, really */
         ShortKeyID,
         KeyID,
-        Summary, // Short summary line
-#if 0
         Fingerprint,
-        LongKeyID,
-        /* X509 only, really */
         Issuer,
-        Subject,
         SerialNumber,
+        OwnerTrust,
+        Origin,
+        LastUpdate,
+#if 0
+        LongKeyID,
 #endif
 
         Validity,
         NumColumns,
+        Summary, // Short summary line
         Icon = PrettyName // which column shall the icon be displayed in?
     };
 

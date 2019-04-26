@@ -503,6 +503,11 @@ QDate expiration_date(const T &tee)
 }
 }
 
+QString Formatting::dateString(time_t t)
+{
+    return date2string(time_t2date(t));
+}
+
 QString Formatting::expirationDateString(const Key &key)
 {
     return expiration_date_string(key.subkey(0));
@@ -1029,4 +1034,26 @@ QString Formatting::prettyID(const char *id)
         return QString();
     }
     return QString::fromLatin1(id).toUpper().replace(QRegularExpression(QStringLiteral("(....)")), QStringLiteral("\\1 ")).trimmed();
+}
+
+QString Formatting::origin(int o)
+{
+    switch (o) {
+        case Key::OriginKS:
+            return i18n("Keyserver");
+        case Key::OriginDane:
+            return QStringLiteral("DANE");
+        case Key::OriginWKD:
+            return QStringLiteral("WKD");
+        case Key::OriginURL:
+            return QStringLiteral("URL");
+        case Key::OriginFile:
+            return i18n("File import");
+        case Key::OriginSelf:
+            return i18n("Generated");
+        case Key::OriginOther:
+        case Key::OriginUnknown:
+        default:
+          return i18n("Unknown");
+    }
 }

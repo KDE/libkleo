@@ -107,6 +107,9 @@ KLEO_EXPORT QDate creationDate(const GpgME::Key &key);
 KLEO_EXPORT QDate creationDate(const GpgME::Subkey &subkey);
 KLEO_EXPORT QDate creationDate(const GpgME::UserID::Signature &sig);
 
+/* Convert a GPGME style time to a localized string */
+KLEO_EXPORT QString dateString(time_t t);
+
 KLEO_EXPORT QString displayName(GpgME::Protocol prot);
 KLEO_EXPORT QString type(const GpgME::Key &key);
 KLEO_EXPORT QString type(const GpgME::Subkey &subkey);
@@ -155,6 +158,9 @@ KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
  * given key, including any conformance statements relevant to the
  * current conformance mode.  */
 KLEO_EXPORT QString complianceStringShort(const GpgME::Key &key);
+
+/* The origin of the key mapped to a localized string */
+KLEO_EXPORT QString origin(int o);
 }
 }
 
