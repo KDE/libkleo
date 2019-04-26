@@ -41,7 +41,6 @@
 #include "kleo/dn.h"
 #include "utils/filesystemwatcher.h"
 
-#include <gpgme++/gpgmepp_version.h>
 #include <gpgme++/error.h>
 #include <gpgme++/key.h>
 #include <gpgme++/decryptionresult.h>
@@ -199,12 +198,6 @@ public:
     void ensureCachePopulated() const;
 
     void updateGroupCache() {
-
-#if GPGMEPP_VERSION < 0x10900 // 1.9.0
-        // In GPGME before 1.9.0 string lists are
-        // broken from cryptoconfig.
-        return;
-#else
         // Update Group Keys
         // this is a quick thing as it only involves reading the config
         // so no need for a job.
@@ -242,7 +235,6 @@ public:
             vec.push_back(key);
             m_groups.insert(name, vec);
         }
-#endif
     }
 
 private:

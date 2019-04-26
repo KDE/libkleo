@@ -54,12 +54,6 @@
 
 #include "models/keycache.h"
 
-#include <gpgme++/gpgmepp_version.h>
-#if GPGMEPP_VERSION > 0x10900
-# define GPGME_HAS_KEY_IS_DEVS
-#endif
-
-
 using namespace GpgME;
 using namespace Kleo;
 
@@ -983,7 +977,6 @@ QString Formatting::complianceMode()
 
 bool Formatting::isKeyDeVs(const GpgME::Key &key)
 {
-#ifdef GPGME_HAS_KEY_IS_DEVS
     for (const auto &sub: key.subkeys()) {
         if (sub.isExpired() || sub.isRevoked()) {
             // Ignore old subkeys
@@ -994,9 +987,6 @@ bool Formatting::isKeyDeVs(const GpgME::Key &key)
         }
     }
     return true;
-#else
-    return false;
-#endif
 }
 
 QString Formatting::complianceStringForKey(const GpgME::Key &key)
