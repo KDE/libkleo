@@ -224,7 +224,7 @@ public:
                     } else {
                         mUnresolvedCMS.removeAll(addr);
                     }
-                    qCDebug(LIBKLEO_LOG) << "Override" << addr << cryptoMessageFormatToString (fmt) << fprOrId;
+                    qCDebug(LIBKLEO_LOG) << "Override" << addr << cryptoMessageFormatToString (resolvedFmt) << fprOrId;
                 }
             }
         }
