@@ -60,7 +60,9 @@ public:
     void setCurrentKey(const QString &fingerprint);
 
     void setDefaultKey(const QString &fingerprint);
+    void setDefaultKey(const QString &fingerprint, GpgME::Protocol proto);
     QString defaultKey() const;
+    QString defaultKey(GpgME::Protocol proto) const;
 
     void prependCustomItem(const QIcon &icon, const QString &text, const QVariant &data);
     void appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data);

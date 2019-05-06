@@ -25,6 +25,7 @@
 #include "models/keycache.h"
 #include "utils/formatting.h"
 #include "progressbar.h"
+#include "kleo/defaultkeyfilter.h"
 
 #include <gpgme++/key.h>
 
@@ -316,11 +317,31 @@ public:
         return false;
     }
 
+    /* Updates the current key with the default key if the key matches
+     * the current key filter. */
+    void updateWithDefaultKey() const {
+        GpgME::Protocol filterProto = GpgME::UnknownProtocol;
+
+        const auto filter = dynamic_cast<const DefaultKeyFilter*> (sortFilterProxy->keyFilter().get());
+        if (filter && filter->isOpenPGP() == DefaultKeyFilter::Set) {
+            filterProto = GpgME::OpenPGP;
+        } else if (filter && filter->isOpenPGP() == DefaultKeyFilter::NotSet) {
+            filterProto = GpgME::CMS;
+        }
+
+        QString defaultKey = defaultKeys.value (filterProto);
+        if (defaultKey.isEmpty()) {
+            // Fallback to unknown protocol
+            defaultKey = defaultKeys.value (GpgME::UnknownProtocol);
+        }
+        q->setCurrentKey(defaultKey);
+    }
+
     Kleo::AbstractKeyListModel *model = nullptr;
     Kleo::KeyListSortFilterProxyModel *sortFilterProxy = nullptr;
     ProxyModel *proxyModel = nullptr;
     std::shared_ptr<Kleo::KeyCache> cache;
-    QString defaultKey;
+    QMap<GpgME::Protocol, QString> defaultKeys;
     bool wasEnabled = false;
     bool useWasEnabled = false;
     bool secretOnly;
@@ -397,7 +418,9 @@ void KeySelectionCombo::init()
                     Q_EMIT keyListingFinished();
             });
 
-    connect(this, &KeySelectionCombo::keyListingFinished, this, [this]() { setCurrentKey(d->defaultKey); });
+    connect(this, &KeySelectionCombo::keyListingFinished, this, [this]() {
+            d->updateWithDefaultKey();
+        });
 
     if (!d->cache->initialized()) {
         refreshKeys();
@@ -416,7 +439,7 @@ void KeySelectionCombo::setKeyFilter(const std::shared_ptr<const KeyFilter> &kf)
 {
     d->sortFilterProxy->setKeyFilter(kf);
     d->proxyModel->sort(0);
-    setCurrentKey(d->defaultKey);
+    d->updateWithDefaultKey();
 }
 
 std::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
@@ -428,7 +451,7 @@ void KeySelectionCombo::setIdFilter(const QString &id)
 {
     d->sortFilterProxy->setFilterRegExp(id);
     d->mPerfectMatchMbox = id;
-    setCurrentKey(d->defaultKey);
+    d->updateWithDefaultKey();
 }
 
 QString KeySelectionCombo::idFilter() const
@@ -454,6 +477,12 @@ void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
 
 void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
 {
+    const auto cur = currentKey();
+    if (!cur.isNull() && !fingerprint.isEmpty() &&
+        fingerprint == QLatin1String(cur.primaryFingerprint())) {
+        // Already set
+        return;
+    }
     for (int i = 0; i < d->proxyModel->rowCount(); ++i) {
         const auto idx = d->proxyModel->index(i, 0, QModelIndex());
         const auto key = d->proxyModel->data(idx, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
@@ -491,15 +520,24 @@ void KeySelectionCombo::prependCustomItem(const QIcon &icon, const QString &text
     d->proxyModel->prependItem(icon, text, data);
 }
 
+void Kleo::KeySelectionCombo::setDefaultKey(const QString &fingerprint, GpgME::Protocol proto)
+{
+    d->defaultKeys.insert(proto, fingerprint);
+    d->updateWithDefaultKey();
+}
+
 void Kleo::KeySelectionCombo::setDefaultKey(const QString &fingerprint)
 {
-    d->defaultKey = fingerprint;
-    setCurrentKey(d->defaultKey);
+    setDefaultKey(fingerprint, GpgME::UnknownProtocol);
+}
+
+QString Kleo::KeySelectionCombo::defaultKey(GpgME::Protocol proto) const
+{
+    return d->defaultKeys.value(proto);
 }
 
 QString Kleo::KeySelectionCombo::defaultKey() const
 {
-    return d->defaultKey;
+    return defaultKey(GpgME::UnknownProtocol);
 }
-
 #include "keyselectioncombo.moc"
