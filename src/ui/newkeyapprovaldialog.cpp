@@ -120,7 +120,8 @@ class ComboWidget: public QWidget
 public:
     explicit ComboWidget(KeySelectionCombo *combo):
         mCombo(combo),
-        mFilterBtn(new QPushButton)
+        mFilterBtn(new QPushButton),
+        mFromOverride(GpgME::UnknownProtocol)
     {
         auto hLay = new QHBoxLayout(this);
         hLay->addWidget(combo, 1);
@@ -156,10 +157,21 @@ public:
         return mCombo;
     }
 
+    GpgME::Protocol fromOverride() const
+    {
+        return mFromOverride;
+    }
+
+    void setFromOverride(GpgME::Protocol proto)
+    {
+        mFromOverride = proto;
+    }
+
 private:
     KeySelectionCombo *mCombo;
     QPushButton *mFilterBtn;
     QString mLastIdFilter;
+    GpgME::Protocol mFromOverride;
 };
 
 static enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key)
@@ -175,6 +187,17 @@ static enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key)
 
     return validity;
 }
+
+static bool key_has_addr(const GpgME::Key &key, const QString &addr)
+{
+    for (const auto &uid: key.userIDs()) {
+        if (QString::fromStdString(uid.addrSpec()).toLower() == addr.toLower()) {
+            return true;
+        }
+    }
+    return false;
+}
+
 } // namespace
 
 class NewKeyApprovalDialog::Private
@@ -294,7 +317,7 @@ public:
     {
         mLastError = result.error();
         if (!mLastError || mLastError.isCanceled()) {
-            combo->setDefaultKey(QString::fromLatin1(result.fingerprint()));
+            combo->setDefaultKey(QString::fromLatin1(result.fingerprint()), GpgME::OpenPGP);
             connect (combo, &KeySelectionCombo::keyListingFinished, q, [this, job] () {
                     mRunningJobs.removeAll(job);
                 });
@@ -311,9 +334,52 @@ public:
             mRunningJobs.clear();
             return;
         }
-        if (mRunningJobs.empty()) {
-            q->accept();
+
+        if (!mRunningJobs.empty()) {
+            return;
         }
+        /* Save the keys */
+        bool isPGP = mFormatBtns->checkedId() == 1;
+        bool isSMIME = mFormatBtns->checkedId() == 2;
+
+        mAcceptedEnc.clear();
+        mAcceptedSig.clear();
+
+        for (const auto combo: mEncCombos) {
+            const auto &addr = combo->property("address").toString();
+            const auto &key = combo->currentKey();
+            if (!combo->isVisible()) {
+                continue;
+            }
+            if (isSMIME && key.protocol() != GpgME::CMS) {
+                continue;
+            }
+            if (isPGP && key.protocol() != GpgME::OpenPGP) {
+                continue;
+            }
+            if (mAcceptedEnc.contains(addr)) {
+                mAcceptedEnc[addr].push_back(key);
+            } else {
+                std::vector<GpgME::Key> vec;
+                vec.push_back(key);
+                mAcceptedEnc.insert(addr, vec);
+            }
+        }
+        for (const auto combo: mSigningCombos) {
+            const auto key = combo->currentKey();
+            if (!combo->isVisible()) {
+                continue;
+            }
+            if (isSMIME && key.protocol() != GpgME::CMS) {
+                continue;
+            }
+            if (isPGP && key.protocol() != GpgME::OpenPGP) {
+                continue;
+            }
+            mAcceptedSig.push_back(combo->currentKey());
+        }
+
+        q->accept();
     }
 
     void accepted()
@@ -349,9 +415,26 @@ public:
         }
         for (auto combo: mSigningCombos) {
             combo->setKeyFilter(mCurSigFilter);
+            auto widget = qobject_cast <ComboWidget *>(combo->parentWidget());
+            if (!widget) {
+                qCDebug(LIBKLEO_LOG) << "Failed to find signature combo widget";
+                continue;
+            }
+            widget->setVisible(widget->fromOverride() == GpgME::UnknownProtocol ||
+                               ((isSMIME && widget->fromOverride() == GpgME::CMS) ||
+                                (isPGP && widget->fromOverride() == GpgME::OpenPGP)));
         }
         for (auto combo: mEncCombos) {
             combo->setKeyFilter(mCurEncFilter);
+
+            auto widget = qobject_cast <ComboWidget *>(combo->parentWidget());
+            if (!widget) {
+                qCDebug(LIBKLEO_LOG) << "Failed to find combo widget";
+                continue;
+            }
+            widget->setVisible(widget->fromOverride() == GpgME::UnknownProtocol ||
+                               ((isSMIME && widget->fromOverride() == GpgME::CMS) ||
+                                (isPGP && widget->fromOverride() == GpgME::OpenPGP)));
         }
     }
 
@@ -360,7 +443,7 @@ public:
         auto combo = new KeySelectionCombo();
         combo->setKeyFilter(mCurSigFilter);
         if (!key.isNull()) {
-            combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
+            combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
         }
         if (key.isNull() && mProto != GpgME::CMS) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
@@ -400,8 +483,11 @@ public:
             for (const auto &key: resolved[addr])
             {
                 auto comboWidget = createSigningCombo(addr, key);
-                if (resolved[addr].size() == 1) {
+                if (key_has_addr (key, addr)) {
                     comboWidget->combo()->setIdFilter(addr);
+                }
+                if (resolved[addr].size() > 1) {
+                    comboWidget->setFromOverride(key.protocol());
                 }
                 sigLayout->addWidget(comboWidget);
             }
@@ -430,7 +516,8 @@ public:
             auto combo = new KeySelectionCombo(false);
             combo->setKeyFilter(mCurEncFilter);
             if (!key.isNull()) {
-                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
+                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()),
+                                     key.protocol());
             }
 
             if (mSender == addr && key.isNull()) {
@@ -441,7 +528,7 @@ public:
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
                     i18n("Ignore recipient"), IgnoreKey);
 
-            if (keys.size () == 1) {
+            if (key.isNull() || key_has_addr (key, addr)) {
                 combo->setIdFilter(addr);
             }
 
@@ -456,6 +543,9 @@ public:
             mAllCombos << combo;
             combo->setProperty("address", addr);
             auto comboWidget = new ComboWidget(combo);
+            if (keys.size() > 1) {
+                comboWidget->setFromOverride(key.protocol());
+            }
             encGrid->addWidget(comboWidget, encGrid->rowCount(), 0, 1, 2);
         }
     }
@@ -483,6 +573,10 @@ public:
 
         encGrid->setColumnStretch(1, -1);
         mScrollLayout->addStretch(-1);
+
+        // Update filter to hide not matching combowidgets
+        // for a different protocol
+        updateFilter();
     }
 
     void updateOkButton()
@@ -580,6 +674,8 @@ public:
     QList <QGpgME::Job *> mRunningJobs;
     GpgME::Error mLastError;
     QLabel *mComplianceLbl;
+    QMap<QString, std::vector<GpgME::Key> > mAcceptedEnc;
+    std::vector<GpgME::Key> mAcceptedSig;
 };
 
 NewKeyApprovalDialog::NewKeyApprovalDialog(const QMap<QString, std::vector<GpgME::Key> > &resolvedSigningKeys,
@@ -605,30 +701,12 @@ NewKeyApprovalDialog::NewKeyApprovalDialog(const QMap<QString, std::vector<GpgME
 
 std::vector<GpgME::Key> NewKeyApprovalDialog::signingKeys()
 {
-    std::vector <GpgME::Key> ret;
-
-    for (const auto combo: d->mSigningCombos) {
-        ret.push_back(combo->currentKey());
-    }
-
-    return ret;
+    return d->mAcceptedSig;
 }
 
 QMap <QString, std::vector<GpgME::Key> > NewKeyApprovalDialog::encryptionKeys()
 {
-    QMap <QString, std::vector<GpgME::Key> > ret;
-    for (const auto combo: d->mEncCombos) {
-        const auto &addr = combo->property("address").toString();
-        const auto &key = combo->currentKey();
-        if (ret.contains(addr)) {
-            ret[addr].push_back(key);
-        } else {
-            std::vector<GpgME::Key> vec;
-            vec.push_back(key);
-            ret.insert(addr, vec);
-        }
-    }
-    return ret;
+    return d->mAcceptedEnc;
 }
 
 #include "newkeyapprovaldialog.moc"

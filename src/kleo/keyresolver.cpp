@@ -437,10 +437,6 @@ public:
                 std::vector<GpgME::Key> resolvedSigKeys;
                 for (const auto &keys: mSigKeys) {
                     for (const auto &key: keys) {
-                        if ((pgpOnly && key.protocol() != GpgME::OpenPGP) ||
-                            (cmsOnly && key.protocol() != GpgME::CMS)) {
-                            continue;
-                        }
                         resolvedSigKeys.push_back(key);
                     }
                 }
@@ -478,9 +474,18 @@ public:
                     if (!resolvedRecp.contains(addr) || !resolvedRecp[addr].size()) {
                         resolvedRecp.insert(addr, map[addr]);
                     } else {
-                        qCDebug(LIBKLEO_LOG) << "Replacing resolved keys for" << addr
-                                             << "with keys from new format.";
-                        resolvedRecp[addr] = map[addr];
+                        std::vector<GpgME::Key> merged = resolvedRecp[addr];
+                        // Add without duplication
+                        for (const auto &k: map[addr]) {
+                            const auto it = std::find_if (merged.begin(), merged.end(), [k] (const GpgME::Key &y) {
+                                return (k.primaryFingerprint() && y.primaryFingerprint() &&
+                                        !strcmp (k.primaryFingerprint(), y.primaryFingerprint()));
+                            });
+                            if (it == merged.end()) {
+                                merged.push_back(k);
+                            }
+                        }
+                        resolvedRecp[addr] = merged;
                     }
                 }
             }
@@ -492,9 +497,15 @@ public:
                                       GpgME::CMS;
 
         // Start with the protocol for which every keys could be found.
-        GpgME::Protocol presetProtocol = pgpOnly ? GpgME::OpenPGP :
-                                         cmsOnly ? GpgME::CMS :
-                                         mPreferredProtocol;
+        GpgME::Protocol presetProtocol;
+
+        if (mPreferredProtocol == GpgME::CMS && cmsOnly) {
+            presetProtocol = GpgME::CMS;
+        } else {
+            presetProtocol = pgpOnly ? GpgME::OpenPGP :
+                             cmsOnly ? GpgME::CMS :
+                             mPreferredProtocol;
+        }
 
         mDialog = std::shared_ptr<NewKeyApprovalDialog>(new NewKeyApprovalDialog(resolvedSig,
                                                                                  resolvedRecp,
@@ -610,7 +621,7 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     }
     bool pgpOnly = d->mUnresolvedPGP.empty() && (!d->mSign || d->mSigKeys.contains(AnyOpenPGP));
 
-    if (d->mFormat & AnySMIME && !(d->mFormat == AutoFormat && pgpOnly)) {
+    if (d->mFormat & AnySMIME) {
         d->resolveSign(GpgME::CMS);
         d->resolveEnc(GpgME::CMS);
     }
