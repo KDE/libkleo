@@ -69,6 +69,7 @@ public:
     OpenPGPFilter() : DefaultKeyFilter()
     {
         setIsOpenPGP(DefaultKeyFilter::Set);
+        setCanEncrypt(DefaultKeyFilter::Set);
     }
 };
 static std::shared_ptr<KeyFilter> s_pgpFilter = std::shared_ptr<KeyFilter> (new OpenPGPFilter);
@@ -78,6 +79,10 @@ public:
     OpenPGPSignFilter() : DefaultKeyFilter()
     {
         /* Also list unusable keys to make it transparent why they are unusable */
+        setDisabled(DefaultKeyFilter::NotSet);
+        setRevoked(DefaultKeyFilter::NotSet);
+        setExpired(DefaultKeyFilter::NotSet);
+        setCanSign(DefaultKeyFilter::Set);
         setHasSecret(DefaultKeyFilter::Set);
         setIsOpenPGP(DefaultKeyFilter::Set);
     }
@@ -89,6 +94,7 @@ public:
     SMIMEFilter(): DefaultKeyFilter()
     {
         setIsOpenPGP(DefaultKeyFilter::NotSet);
+        setCanEncrypt(DefaultKeyFilter::Set);
     }
 };
 static std::shared_ptr<KeyFilter> s_smimeFilter = std::shared_ptr<KeyFilter> (new SMIMEFilter);
@@ -97,6 +103,10 @@ class SMIMESignFilter: public DefaultKeyFilter
 public:
     SMIMESignFilter(): DefaultKeyFilter()
     {
+        setDisabled(DefaultKeyFilter::NotSet);
+        setRevoked(DefaultKeyFilter::NotSet);
+        setExpired(DefaultKeyFilter::NotSet);
+        setCanSign(DefaultKeyFilter::Set);
         setIsOpenPGP(DefaultKeyFilter::NotSet);
         setHasSecret(DefaultKeyFilter::Set);
     }
