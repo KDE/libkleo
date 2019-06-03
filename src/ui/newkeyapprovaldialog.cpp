@@ -583,10 +583,6 @@ public:
 
         encGrid->setColumnStretch(1, -1);
         mScrollLayout->addStretch(-1);
-
-        // Update filter to hide not matching combowidgets
-        // for a different protocol
-        updateFilter();
     }
 
     void updateOkButton()
@@ -702,6 +698,7 @@ NewKeyApprovalDialog::NewKeyApprovalDialog(const QMap<QString, std::vector<GpgME
 {
     d->addSigningKeys(resolvedSigningKeys, unresolvedSigKeys);
     d->addEncryptionKeys(resolvedRecp, unresolvedRecp);
+    d->updateFilter();
     d->updateOkButton();
 
     const auto size = sizeHint();
