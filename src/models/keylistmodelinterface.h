@@ -73,8 +73,8 @@ public:
 #endif
 
         Validity,
-        NumColumns,
         Summary, // Short summary line
+        NumColumns,
         Icon = PrettyName // which column shall the icon be displayed in?
     };
 
