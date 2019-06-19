@@ -46,7 +46,6 @@
 #include <KLocalizedString>
 #include <kguiitem.h>
 
-#include <QTextStream>
 
 #include <gpg-error.h>
 #include <KSharedConfig>

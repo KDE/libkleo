@@ -49,7 +49,6 @@
 #include <QTextDocument> // for Qt::escape
 #include <QLocale>
 #include <QIcon>
-#include <QColor>
 #include <QRegularExpression>
 
 #include "models/keycache.h"
