@@ -48,6 +48,7 @@ private:
         QIcon icon;
         QString text;
         QVariant data;
+        QString toolTip;
     };
 public:
     ProxyModel(QObject *parent = nullptr)
@@ -115,17 +116,17 @@ public:
         return row < mFrontItems.count() || row >= mFrontItems.count() + QSortFilterProxyModel::rowCount();
     }
 
-    void prependItem(const QIcon &icon, const QString &text, const QVariant &data)
+    void prependItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip)
     {
         beginInsertRows(QModelIndex(), 0, 0);
-        mFrontItems.push_front(new CustomItem{ icon, text, data });
+        mFrontItems.push_front(new CustomItem{ icon, text, data, toolTip });
         endInsertRows();
     }
 
-    void appendItem(const QIcon &icon, const QString &text, const QVariant &data)
+    void appendItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip)
     {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
-        mBackItems.push_back(new CustomItem{ icon, text, data });
+        mBackItems.push_back(new CustomItem{ icon, text, data, toolTip });
         endInsertRows();
     }
 
@@ -215,6 +216,8 @@ public:
                 return ci->icon;
             case Qt::UserRole:
                 return ci->data;
+            case Qt::ToolTipRole:
+                return ci->toolTip;
             default:
                 return QVariant();
             }
@@ -510,14 +513,24 @@ void KeySelectionCombo::refreshKeys()
     d->cache->startKeyListing();
 }
 
+void KeySelectionCombo::appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip)
+{
+    d->proxyModel->appendItem(icon, text, data, toolTip);
+}
+
 void KeySelectionCombo::appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data)
 {
-    d->proxyModel->appendItem(icon, text, data);
+    appendCustomItem(icon, text, data, QString());
+}
+
+void KeySelectionCombo::prependCustomItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip)
+{
+    d->proxyModel->prependItem(icon, text, data, toolTip);
 }
 
 void KeySelectionCombo::prependCustomItem(const QIcon &icon, const QString &text, const QVariant &data)
 {
-    d->proxyModel->prependItem(icon, text, data);
+    prependCustomItem(icon, text, data, QString());
 }
 
 void Kleo::KeySelectionCombo::setDefaultKey(const QString &fingerprint, GpgME::Protocol proto)

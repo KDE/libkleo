@@ -66,6 +66,8 @@ public:
 
     void prependCustomItem(const QIcon &icon, const QString &text, const QVariant &data);
     void appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data);
+    void prependCustomItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip);
+    void appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip);
 
 Q_SIGNALS:
     void customItemSelected(const QVariant &data);

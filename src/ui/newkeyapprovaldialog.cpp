@@ -228,6 +228,13 @@ public:
         mAllowMixed(allowMixed),
         q(pub)
     {
+        // We do the translation here to avoid having the same string multiple times.
+        mGenerateTooltip = i18nc("@info:tooltip for a 'Generate new key pair' action "
+                                 "in a combobox when a user does not yet have an OpenPGP or S/MIME key.",
+                                 "Generate a new key using your E-Mail address.<br/><br/>"
+                                 "The key is necessary to decrypt and sign E-Mails. "
+                                 "You will be asked for a passphrase to protect this key and the protected key "
+                                 "will be stored in your home directory.");
         mMainLay = new QVBoxLayout;
 
         QDialogButtonBox *btnBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -457,10 +464,13 @@ public:
         }
         if (key.isNull() && mProto != GpgME::CMS) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
-                                    i18n("Generate a new key pair"), GenerateKey);
+                                    i18n("Generate a new key pair"), GenerateKey,
+                                    mGenerateTooltip);
         }
         combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
-                i18n("Don't confirm identity and integrity"), IgnoreKey);
+                i18n("Don't confirm identity and integrity"), IgnoreKey,
+                i18nc("@info:tooltip for not selecting a key for signing.",
+                      "The E-Mail will not be cryptographically signed."));
 
         mSigningCombos << combo;
         mAllCombos << combo;
@@ -532,11 +542,16 @@ public:
 
             if (mSender == addr && key.isNull()) {
                 combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
-                                        i18n("Generate a new key pair"), GenerateKey);
+                                        i18n("Generate a new key pair"), GenerateKey,
+                                        mGenerateTooltip);
             }
 
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
-                    i18n("Ignore recipient"), IgnoreKey);
+                    i18n("No Key"), IgnoreKey,
+                    i18nc("@info:tooltip for No Key selected for a specific recipient.",
+                          "Do not select a key for this recipient.<br/><br/>"
+                          "The recipient will receive the encrypted E-Mail, but it can only "
+                          "be decrypted with the other keys selected in this dialog."));
 
             if (key.isNull() || key_has_addr (key, addr)) {
                 combo->setIdFilter(addr);
@@ -682,6 +697,7 @@ public:
     QLabel *mComplianceLbl;
     QMap<QString, std::vector<GpgME::Key> > mAcceptedEnc;
     std::vector<GpgME::Key> mAcceptedSig;
+    QString mGenerateTooltip;
 };
 
 NewKeyApprovalDialog::NewKeyApprovalDialog(const QMap<QString, std::vector<GpgME::Key> > &resolvedSigningKeys,
