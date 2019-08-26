@@ -535,7 +535,7 @@ QList<QUrl> DirectoryServicesWidget::openPGPServices() const
 {
     QList<QUrl> result;
     const QString pgpStr = d->ui.pgpKeyserver->text();
-    if (pgpStr.contains(QStringLiteral("://"))) {
+    if (pgpStr.contains(QLatin1String("://"))) {
         // Maybe validate here? Otoh maybe gnupg adds support for more schemes
         // then we know about in the future.
         result.push_back(QUrl::fromUserInput(pgpStr));

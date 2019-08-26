@@ -286,7 +286,7 @@ QString format_keyusage(const Key &key)
     if (key.canAuthenticate()) {
         capabilities.push_back(i18n("SSH Authentication"));
     }
-    return capabilities.join(QStringLiteral(", "));
+    return capabilities.join(QLatin1String(", "));
 }
 
 QString format_subkeyusage(const Subkey &subkey)
@@ -308,7 +308,7 @@ QString format_subkeyusage(const Subkey &subkey)
     if (subkey.canAuthenticate()) {
         capabilities.push_back(i18n("SSH Authentication"));
     }
-    return capabilities.join(QStringLiteral(", "));
+    return capabilities.join(QLatin1String(", "));
 }
 
 static QString time_t2string(time_t t)
@@ -898,7 +898,7 @@ QString Formatting::usageString(const Subkey &sub)
     if (sub.canAuthenticate()) {
         usageStrings << i18n("Authenticate");
     }
-    return usageStrings.join(QStringLiteral(", "));
+    return usageStrings.join(QLatin1String(", "));
 }
 
 QString Formatting::summaryLine(const Key &key)

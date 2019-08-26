@@ -324,7 +324,7 @@ QString Kleo::printableClassification(unsigned int classification)
     if (classification & CertificateRequest) {
         parts.push_back(QStringLiteral("CertificateRequest"));
     }
-    return parts.join(QStringLiteral(", "));
+    return parts.join(QLatin1String(", "));
 }
 
 static QString chopped(QString s, unsigned int n)
