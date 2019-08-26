@@ -276,7 +276,7 @@ void KeyFilterManager::reload()
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
 
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
-    bool ignoreDeVs = Formatting::complianceMode() != QStringLiteral("de-vs");
+    bool ignoreDeVs = Formatting::complianceMode() != QLatin1String("de-vs");
     for (QStringList::const_iterator it = groups.begin(); it != groups.end(); ++it) {
         const KConfigGroup cfg(config, *it);
         if (cfg.hasKey("is-de-vs") && ignoreDeVs) {

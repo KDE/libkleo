@@ -92,7 +92,7 @@ public:
         if (!ValidSigningKey(key)) {
             return false;
         }
-        if (mCompliance == QStringLiteral("de-vs")) {
+        if (mCompliance == QLatin1String("de-vs")) {
             if (!Formatting::isKeyDeVs(key)) {
                 qCDebug(LIBKLEO_LOG) << "Rejected sig key" << key.primaryFingerprint()
                                      << "because it is not de-vs compliant.";
@@ -108,7 +108,7 @@ public:
             return false;
         }
 
-        if (mCompliance == QStringLiteral("de-vs")) {
+        if (mCompliance == QLatin1String("de-vs")) {
             if (!Formatting::isKeyDeVs(key)) {
                 qCDebug(LIBKLEO_LOG) << "Rejected enc key" << key.primaryFingerprint()
                                      << "because it is not de-vs compliant.";

@@ -623,7 +623,7 @@ public:
             mOkButton->setText(origOkText);
         }
 
-        if (Formatting::complianceMode() != QStringLiteral("de-vs")) {
+        if (Formatting::complianceMode() != QLatin1String("de-vs")) {
             return;
         }
 

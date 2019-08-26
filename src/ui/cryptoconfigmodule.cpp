@@ -332,7 +332,7 @@ Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
     QGridLayout *glay, QWidget *widget)
     : QObject(module), mGroup(group)
 {
-    const bool de_vs = Kleo::Formatting::complianceMode() == QStringLiteral("de-vs");
+    const bool de_vs = Kleo::Formatting::complianceMode() == QLatin1String("de-vs");
     const int startRow = glay->rowCount();
     const QStringList entries = mGroup->entryList();
     for (QStringList::const_iterator it = entries.begin(), end = entries.end(); it != end; ++it) {

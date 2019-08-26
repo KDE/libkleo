@@ -973,7 +973,7 @@ QString Formatting::complianceMode()
     }
     const QGpgME::CryptoConfigEntry *const entry = config->entry(QStringLiteral("gpg"), QStringLiteral("Configuration"), QStringLiteral("compliance"));
 
-    if (!entry || entry->stringValue() == QStringLiteral("gnupg")) {
+    if (!entry || entry->stringValue() == QLatin1String("gnupg")) {
         return QString();
     }
     return entry->stringValue();
@@ -997,7 +997,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
 {
     // There will likely be more in the future for other institutions
     // for now we only have DE-VS
-    if (complianceMode() == QStringLiteral("de-vs")) {
+    if (complianceMode() == QLatin1String("de-vs")) {
         if (uidsHaveFullValidity(key) && isKeyDeVs(key)) {
             return i18nc("VS-NfD conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant with that..",
                          "May be used for VS-NfD-compliant communication.");
@@ -1012,7 +1012,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
 QString Formatting::complianceStringShort(const GpgME::Key &key)
 {
     if (Formatting::uidsHaveFullValidity(key)) {
-        if (complianceMode() == QStringLiteral("de-vs")
+        if (complianceMode() == QLatin1String("de-vs")
             && Formatting::isKeyDeVs(key)) {
             return QStringLiteral("★ ") +
                 i18nc("VS-NfD-conforming is a German standard for restricted documents for which special restrictions about algorithms apply.  The string states that a key is compliant with that.",
