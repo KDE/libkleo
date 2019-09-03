@@ -327,7 +327,7 @@ int main(int argc, char **argv)
             lst << QUrl(QStringLiteral("ldap://foo:389?a:b c"));
             lst << QUrl(QStringLiteral("ldap://server:389?a=b,c=DE"));   // the query contains a literal ','
             //cout << " trying to set: " << lst.toStringList().join(", ").local8Bit() << endl;
-            Q_ASSERT(lst[0].query() == QStringLiteral("b"));
+            Q_ASSERT(lst[0].query() == QLatin1Char('b'));
             Q_ASSERT(lst[1].query() == QStringLiteral("a:b c"));   // see, the space got _not_escaped
             entry->setURLValueList(lst);
             Q_ASSERT(entry->isDirty());
