@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-set(PIM_VERSION "5.12.2")
+set(PIM_VERSION "5.12.3")
 
 project(libkleo VERSION ${PIM_VERSION})
 
@@ -27,7 +27,7 @@ include(ECMAddTests)
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.11.0")
-set(KDEPIMTEXTEDIT_VERSION "5.12.1")
+set(KDEPIMTEXTEDIT_VERSION "5.12.2")
 
 find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
 find_package(KF5I18n ${KF5_MIN_VERSION} CONFIG REQUIRED)
