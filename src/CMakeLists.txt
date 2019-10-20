@@ -74,7 +74,6 @@ set(kleo_LIB_LIBS PUBLIC QGpgme Gpgmepp PRIVATE Qt5::Widgets
                                                 KF5::Completion
                                                 KF5::ConfigCore
                                                 KF5::CoreAddons
-                                                KF5::WindowSystem
                                                 KF5::WidgetsAddons
                                                 KF5::ItemModels
                                                 KF5::Codecs)

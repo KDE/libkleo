@@ -51,7 +51,6 @@
 
 // KDE
 #include <KLocalizedString>
-#include <kwindowsystem.h>
 #include <kconfig.h>
 #include <kmessagebox.h>
 #include <QPushButton>
@@ -513,9 +512,6 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
 
     if (qApp) {
         QSize dialogSize(sizeHint());
-        KWindowSystem::setIcons(winId(), qApp->windowIcon().pixmap(32, 32),
-                                qApp->windowIcon().pixmap(16, 16));
-
         KConfigGroup dialogConfig(KSharedConfig::openConfig(), "Key Selection Dialog");
         dialogSize = dialogConfig.readEntry("Dialog size", dialogSize);
         const QByteArray headerState = dialogConfig.readEntry("header", QByteArray());
