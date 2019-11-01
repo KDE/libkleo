@@ -1032,7 +1032,14 @@ QString Formatting::prettyID(const char *id)
     if (!id) {
         return QString();
     }
-    return QString::fromLatin1(id).toUpper().replace(QRegularExpression(QStringLiteral("(....)")), QStringLiteral("\\1 ")).trimmed();
+    QString ret = QString::fromLatin1(id).toUpper().replace(QRegularExpression(QStringLiteral("(....)")),
+                                                            QStringLiteral("\\1 ")).trimmed();
+    // For the standard 10 group fingerprint let us use a double space in the
+    // middle to increase readability
+    if (ret.size() == 49) {
+        ret.insert(24, QLatin1Char(' '));
+    }
+    return ret;
 }
 
 QString Formatting::origin(int o)
