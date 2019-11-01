@@ -96,6 +96,14 @@ public:
 
     void setToolTipOptions(int opts);
 
+    /**
+     * Set the keys to use for KeyListModelInterface::Remark column
+     * to obtain remarks from this keys signature notations.
+     * Needs at least GpgME 1.14 to work properly. Remarks are
+     * joined by a semicolon and a space. */
+    void setRemarkKeys(const std::vector<GpgME::Key> &remarkKeys);
+    std::vector<GpgME::Key> remarkKeys() const;
+
 private:
     virtual GpgME::Key doMapToKey(const QModelIndex &index) const = 0;
     virtual QModelIndex doMapFromKey(const GpgME::Key &key, int column) const = 0;

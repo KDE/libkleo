@@ -40,6 +40,10 @@
 
 #include <gpgme++/key.h>
 
+#include <gpgme++/gpgmepp_version.h>
+#if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
+# define GPGME_HAS_REMARKS
+#endif
 
 using namespace Kleo;
 using namespace GpgME;
@@ -203,6 +207,17 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
                 match = true;
                 break;
             }
+#ifdef GPGME_HAS_REMARKS
+            // Also match against remarks (search tags)
+            const auto alm = dynamic_cast<AbstractKeyListModel *>(sourceModel());
+            if (alm) {
+                const auto remarks = alm->data(alm->index(key, KeyListModelInterface::Remarks));
+                if (!remarks.isNull() && remarks.toString().contains(rx)) {
+                    match = true;
+                    break;
+                }
+            }
+#endif
         }
         if (!match) {
             return false;

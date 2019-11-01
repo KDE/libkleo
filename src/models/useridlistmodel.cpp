@@ -41,6 +41,13 @@
 #include <QVariant>
 #include <QIcon>
 
+#include "keycache.h"
+
+#include <gpgme++/gpgmepp_version.h>
+#if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
+# define GPGME_HAS_REMARKS
+#endif
+
 using namespace GpgME;
 using namespace Kleo;
 
@@ -51,16 +58,27 @@ class UIDModelItem
     // null values. (Not null but isNull)
     //
 public:
-    explicit UIDModelItem(const UserID::Signature &sig, UIDModelItem *parentItem)
+    explicit UIDModelItem(const UserID::Signature &sig, UIDModelItem *parentItem, bool showRemarks)
     {
         mItemData  << QString::fromUtf8(sig.signerKeyID())
                    << Formatting::prettyName(sig)
                    << Formatting::prettyEMail(sig)
                    << Formatting::creationDateString(sig)
                    << Formatting::expirationDateString(sig)
-                   << Formatting::validityShort(sig);
+                   << Formatting::validityShort(sig)
+                   << (sig.isExportable() ? QStringLiteral("✓") : QString());
         mSig = sig;
         mParentItem = parentItem;
+
+        if (showRemarks && parentItem) {
+            QString lastNotation;
+            for (const auto &notation: sig.notations()) {
+                if (notation.name() && !strcmp(notation.name(), "rem@gnupg.org")) {
+                    lastNotation = QString::fromUtf8(notation.value());
+                }
+            }
+            mItemData << lastNotation;
+        }
     }
 
     explicit UIDModelItem(const UserID &uid, UIDModelItem *parentItem)
@@ -71,14 +89,19 @@ public:
     }
 
     // The root item
-    explicit UIDModelItem() : mParentItem(nullptr)
+    explicit UIDModelItem(bool showRemarks) : mParentItem(nullptr)
     {
         mItemData << i18n("ID")
                   << i18n("Name")
                   << i18n("E-Mail")
                   << i18n("Valid From")
                   << i18n("Valid Until")
-                  << i18n("Status");
+                  << i18n("Status")
+                  << i18n("Exportable");
+
+        if (showRemarks) {
+            mItemData << i18n("Tags");
+        }
     }
 
     ~UIDModelItem()
@@ -190,14 +213,14 @@ void UserIDListModel::setKey(const Key &key)
     delete mRootItem;
     mKey = key;
 
-    mRootItem = new UIDModelItem();
+    mRootItem = new UIDModelItem(mRemarksEnabled);
     for (int i = 0, ids = key.numUserIDs(); i < ids; ++i) {
         UserID uid = key.userID(i);
         UIDModelItem *uidItem = new UIDModelItem(uid, mRootItem);
         mRootItem->appendChild(uidItem);
         for (int j = 0, sigs = uid.numSignatures(); j < sigs; ++j) {
             UserID::Signature sig = uid.signature(j);
-            UIDModelItem *sigItem = new UIDModelItem(sig, uidItem);
+            UIDModelItem *sigItem = new UIDModelItem(sig, uidItem, mRemarksEnabled);
             uidItem->appendChild(sigItem);
         }
     }
@@ -331,4 +354,9 @@ QVector<UserID::Signature> UserIDListModel::signatures (const QModelIndexList &i
         }
     }
     return ret;
+}
+
+void UserIDListModel::enableRemarks(bool value)
+{
+    mRemarksEnabled = value;
 }

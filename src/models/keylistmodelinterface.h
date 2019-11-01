@@ -74,6 +74,7 @@ public:
 
         Validity,
         Summary, // Short summary line
+        Remarks, // Additional remark notations
         NumColumns,
         Icon = PrettyName // which column shall the icon be displayed in?
     };

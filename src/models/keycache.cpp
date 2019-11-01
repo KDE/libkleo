@@ -42,6 +42,7 @@
 #include "utils/filesystemwatcher.h"
 
 #include <gpgme++/error.h>
+#include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/decryptionresult.h>
 #include <gpgme++/verificationresult.h>
@@ -89,7 +90,7 @@ class KeyCache::Private
     friend class ::Kleo::KeyCache;
     KeyCache *const q;
 public:
-    explicit Private(KeyCache *qq) : q(qq), m_refreshInterval(1), m_initalized(false), m_pgpOnly(true)
+    explicit Private(KeyCache *qq) : q(qq), m_refreshInterval(1), m_initalized(false), m_pgpOnly(true), m_remarks_enabled(false)
     {
         connect(&m_autoKeyListingTimer, &QTimer::timeout, q, [this]() { q->startKeyListing(); });
         updateAutoKeyListingTimer();
@@ -250,6 +251,7 @@ private:
     } by;
     bool m_initalized;
     bool m_pgpOnly;
+    bool m_remarks_enabled;
     QMap <QString, std::vector<Key> > m_groups;
 };
 
@@ -332,6 +334,30 @@ void KeyCache::addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &wa
             this, [this]() { startKeyListing(); });
 
     watcher->setEnabled(d->m_refreshJob.isNull());
+}
+
+void KeyCache::enableRemarks(bool value)
+{
+    if (!d->m_remarks_enabled && value) {
+        d->m_remarks_enabled = value;
+        if (d->m_initalized && !d->m_refreshJob) {
+            qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
+            reload();
+        } else {
+            connect(d->m_refreshJob.data(), &RefreshKeysJob::done,
+                    this, [this](const GpgME::KeyListResult &) {
+                qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
+                QTimer::singleShot(1000, this, [this](){ reload(); });
+            });
+        }
+    } else {
+        d->m_remarks_enabled = value;
+    }
+}
+
+bool KeyCache::remarksEnabled() const
+{
+    return d->m_remarks_enabled;
 }
 
 void KeyCache::Private::refreshJobDone(const KeyListResult &result)
@@ -1156,6 +1182,16 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
             q, SLOT(listAllKeysJobDone(GpgME::KeyListResult,std::vector<GpgME::Key>)));
 
     connect(q, &RefreshKeysJob::canceled, job, &QGpgME::Job::slotCancel);
+
+    // Only do this for initialized keycaches to avoid huge waits for
+    // signature notations during initial keylisting.
+    if (proto == GpgME::OpenPGP && m_cache->remarksEnabled() && m_cache->initialized()) {
+        auto ctx = QGpgME::Job::context(job);
+        if (ctx) {
+            ctx->addKeyListMode(KeyListMode::Signatures |
+                                KeyListMode::SignatureNotations);
+        }
+    }
 
     const Error error = job->start(true);
 

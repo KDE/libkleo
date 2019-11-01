@@ -91,6 +91,9 @@ public:
     void setRefreshInterval(int hours);
     int refreshInterval() const;
 
+    void enableRemarks(bool enable);
+    bool remarksEnabled() const;
+
     const std::vector<GpgME::Key> &keys() const;
     std::vector<GpgME::Key> secretKeys() const;
 

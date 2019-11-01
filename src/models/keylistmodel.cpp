@@ -64,6 +64,11 @@
 #include <set>
 #include <iterator>
 
+#include <gpgme++/gpgmepp_version.h>
+#if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
+# define GPGME_HAS_REMARKS
+#endif
+
 using namespace GpgME;
 using namespace Kleo;
 
@@ -78,8 +83,10 @@ public:
         m_secretOnly(false) {}
     int m_toolTipOptions;
     mutable QHash<const char *, QVariant> prettyEMailCache;
+    mutable QHash<const char *, QVariant> remarksCache;
     bool m_useKeyCache;
     bool m_secretOnly;
+    std::vector<GpgME::Key> m_remarkKeys;
 };
 AbstractKeyListModel::AbstractKeyListModel(QObject *p)
     : QAbstractItemModel(p), KeyListModelInterface(), d(new Private)
@@ -97,6 +104,16 @@ void AbstractKeyListModel::setToolTipOptions(int opts)
 int AbstractKeyListModel::toolTipOptions() const
 {
     return d->m_toolTipOptions;
+}
+
+void AbstractKeyListModel::setRemarkKeys(const std::vector<GpgME::Key> &keys)
+{
+    d->m_remarkKeys = keys;
+}
+
+std::vector<GpgME::Key> AbstractKeyListModel::remarkKeys() const
+{
+    return d->m_remarkKeys;
 }
 
 Key AbstractKeyListModel::key(const QModelIndex &idx) const
@@ -162,6 +179,7 @@ void AbstractKeyListModel::removeKey(const Key &key)
     }
     doRemoveKey(key);
     d->prettyEMailCache.remove(key.primaryFingerprint());
+    d->remarksCache.remove(key.primaryFingerprint());
 }
 
 QList<QModelIndex> AbstractKeyListModel::addKeys(const std::vector<Key> &keys)
@@ -180,6 +198,7 @@ void AbstractKeyListModel::clear()
     beginResetModel();
     doClear();
     d->prettyEMailCache.clear();
+    d->remarksCache.clear();
     endResetModel();
 }
 
@@ -207,6 +226,7 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
             case Origin:           return i18n("Origin");
             case LastUpdate:       return i18n("Last Update");
             case OwnerTrust:       return i18n("Certification Trust");
+            case Remarks:          return i18n("Tags");
             case NumColumns:;
             }
     return QVariant();
@@ -288,6 +308,39 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
             return QString::fromUtf8(key.issuerSerial());
         case OwnerTrust:
             return Formatting::ownerTrustShort(key.ownerTrust());
+        case Remarks:
+#ifdef GPGME_HAS_REMARKS
+            {
+                const char *const fpr = key.primaryFingerprint();
+                if (fpr && key.protocol() == GpgME::OpenPGP && key.numUserIDs() &&
+                        d->m_remarkKeys.size()) {
+                    if (!(key.keyListMode() & GpgME::SignatureNotations)) {
+                        return i18n("Loading...");
+                    }
+                    const QHash<const char *, QVariant>::const_iterator it = d->remarksCache.constFind(fpr);
+                    if (it != d->remarksCache.constEnd()) {
+                        return *it;
+                    } else {
+                        GpgME::Error err;
+                        const auto remarks = key.userID(0).remarks(d->m_remarkKeys, err);
+                        if (remarks.size() == 1) {
+                            const auto remark = QString::fromStdString(remarks[0]);
+                            return d->remarksCache[fpr] = remark;
+                        } else {
+                            QStringList remarkList;
+                            for (const auto &rem: remarks) {
+                                remarkList << QString::fromStdString(rem);
+                            }
+                            const auto remark = remarkList.join(QStringLiteral("; "));
+                            return d->remarksCache[fpr] = remark;
+                        }
+                    }
+                } else {
+                    return QVariant();
+                }
+            }
+#endif
+            return QVariant();
         case NumColumns:
             break;
         }

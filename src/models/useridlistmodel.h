@@ -56,6 +56,7 @@ public:
 public:
     QVector<GpgME::UserID> userIDs(const QModelIndexList &indexs) const;
     QVector<GpgME::UserID::Signature> signatures(const QModelIndexList &indexs) const;
+    void enableRemarks(bool value);
 
 public Q_SLOTS:
     void setKey(const GpgME::Key &key);
@@ -71,6 +72,7 @@ public:
 
 private:
     GpgME::Key mKey;
+    bool mRemarksEnabled = false;
     UIDModelItem *mRootItem = nullptr;
 };
 
