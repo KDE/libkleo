@@ -38,24 +38,22 @@
 
 #include "keyrequester.h"
 
-#include <QPushButton>
 #include <KLocalizedString>
-#include <kseparator.h>
+#include <KSeparator>
 
-#include <QStringList>
-#include <QLabel>
+#include <QApplication>
 #include <QComboBox>
-#include <QScrollArea>
-#include <QPushButton>
-#include <QVBoxLayout>
+#include <QDesktopWidget>
+#include <QDialogButtonBox>
 #include <QGridLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QStringList>
+#include <QVBoxLayout>
 
 #include <gpgme++/key.h>
 #include <qgpgme/protocol.h>
-
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QDialogButtonBox>
 
 static Kleo::EncryptionPreference cb2pref(int i)
 {

@@ -77,7 +77,7 @@ namespace Kleo
  * send one message for each format for the recipients and signed
  * by the signing keys.
  *
- * If the CryptoMessageFormat is Auto the minmum number
+ * If the CryptoMessageFormat is Auto the minimum number
  * of CryptoMessageFormats is returned that respects all overrides.
  *
  * -----

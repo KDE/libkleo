@@ -2,7 +2,7 @@
     keyselectiondialog.cpp
 
     This file is part of libkleopatra, the KDE keymanagement library
-    Copyright (c) 2004 Klar�vdalens Datakonsult AB
+    Copyright (c) 2004 Klarälvdalens Datakonsult AB
 
     Based on kpgpui.cpp
     Copyright (C) 2001,2002 the KPGP authors
@@ -50,36 +50,32 @@
 #include <qgpgme/protocol.h>
 
 // KDE
+#include <KConfig>
+#include <KConfigGroup>
 #include <KLocalizedString>
-#include <kconfig.h>
-#include <kmessagebox.h>
-#include <QPushButton>
-#include <kconfiggroup.h>
-#include <QMenu>
-#include <QLineEdit>
+#include <KMessageBox>
+#include <KSharedConfig>
 
 // Qt
-#include <QCheckBox>
-#include <QLabel>
-#include <QTimer>
-#include <QDateTime>
-#include <QProcess>
-
-#include <QRegExp>
-#include <QPushButton>
-#include <QFrame>
 #include <QApplication>
+#include <QCheckBox>
+#include <QDateTime>
+#include <QDialogButtonBox>
+#include <QFrame>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMenu>
+#include <QProcess>
+#include <QPushButton>
+#include <QRegExp>
+#include <QScrollBar>
+#include <QTimer>
 #include <QVBoxLayout>
 
 #include <algorithm>
 #include <iterator>
-
 #include <string.h>
-#include <QScrollBar>
-#include <KSharedConfig>
-#include <KConfigGroup>
-#include <QDialogButtonBox>
 
 static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString *statusString = nullptr)
 {

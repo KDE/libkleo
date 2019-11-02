@@ -692,7 +692,7 @@ QString Formatting::validityShort(const UserID::Signature &sig)
                 return i18n("key disabled");
             }
             /* can't happen */
-            return QStringLiteral("unknwon");
+            return QStringLiteral("unknown");
         }
     }
     return QString();

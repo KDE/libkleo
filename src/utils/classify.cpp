@@ -347,7 +347,7 @@ QString Kleo::findSignedData(const QString &signatureFileName)
 }
 
 /*!
-  \return all (existing) candiate signature files for \a signedDataFileName
+  \return all (existing) candidate signature files for \a signedDataFileName
 
   Note that there can very well be more than one such file, e.g. if
   the same data file was signed by both CMS and OpenPGP certificates.
@@ -357,9 +357,9 @@ QStringList Kleo::findSignatures(const QString &signedDataFileName)
     QStringList result;
     for (unsigned int i = 0, end = sizeof(classifications) / sizeof(_classification); i < end; ++i)
         if (classifications[i].classification & DetachedSignature) {
-            const QString candiate = signedDataFileName + QLatin1Char('.') + QLatin1String(classifications[i].extension);
-            if (QFile::exists(candiate)) {
-                result.push_back(candiate);
+            const QString candidate = signedDataFileName + QLatin1Char('.') + QLatin1String(classifications[i].extension);
+            if (QFile::exists(candidate)) {
+                result.push_back(candidate);
             }
         }
     return result;

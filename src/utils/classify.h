@@ -112,14 +112,14 @@ KLEO_EXPORT QString printableClassification(unsigned int classification);
     inline bool is##What( const QString & filename ) {                  \
         return ( classify( filename ) & Class::Mask ) == Class::What ;  \
     }                                                                   \
-    inline bool is##What( const unsigned int classifcation ) {          \
-        return ( classifcation & Class::Mask ) == Class::What ;         \
+    inline bool is##What( const unsigned int classification ) {         \
+        return ( classification & Class::Mask ) == Class::What ;        \
     }                                                                   \
     inline bool mayBe##What( const QString & filename ) {               \
         return classify( filename ) & Class::What ;                     \
     }                                                                   \
-    inline bool mayBe##What( const unsigned int classifcation ) {       \
-        return classifcation & Class::What ;                            \
+    inline bool mayBe##What( const unsigned int classification ) {      \
+        return classification & Class::What ;                           \
     }
 
 make_convenience(CMS,     ProtocolMask)
@@ -136,11 +136,11 @@ make_convenience(CertificateRevocationList, TypeMask)
 make_convenience(AnyCertStoreType,  TypeMask)
 #undef make_convenience
 
-inline GpgME::Protocol findProtocol(const unsigned int classifcation)
+inline GpgME::Protocol findProtocol(const unsigned int classification)
 {
-    if (isOpenPGP(classifcation)) {
+    if (isOpenPGP(classification)) {
         return GpgME::OpenPGP;
-    } else if (isCMS(classifcation)) {
+    } else if (isCMS(classification)) {
         return GpgME::CMS;
     } else {
         return GpgME::UnknownProtocol;

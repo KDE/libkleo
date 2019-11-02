@@ -490,9 +490,9 @@ QString Kleo::CryptoConfigEntryGUI::description() const
     }
     if (i18nc("Translate this to 'yes' or 'no' (use the English words!) "
               "depending on whether your language uses "
-              "Sentence style capitalisation in GUI labels (yes) or not (no). "
+              "Sentence style capitalization in GUI labels (yes) or not (no). "
               "Context: We get some backend strings in that have the wrong "
-              "capitalizaion (in English, at least) so we need to force the "
+              "capitalization (in English, at least) so we need to force the "
               "first character to upper-case. It is this behaviour you can "
               "control for your language with this translation.", "yes") == QLatin1String("yes")) {
         descr[0] = descr[0].toUpper();
