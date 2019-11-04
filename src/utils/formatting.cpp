@@ -1023,6 +1023,15 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
     if (key.isExpired()) {
         return i18n("expired");
     }
+    if (key.isRevoked()) {
+        return i18n("revoked");
+    }
+    if (key.isDisabled()) {
+        return i18n("disabled");
+    }
+    if (key.isInvalid()) {
+        return i18n("invalid");
+    }
 
     return i18nc("As in not all user IDs are valid.", "not certified");
 }
