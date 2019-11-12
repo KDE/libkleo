@@ -51,7 +51,7 @@ set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "h
 
 set_package_properties(KF5PimTextEdit PROPERTIES DESCRIPTION
                        "A textedit with PIM-specific features."
-                       URL "https://projects.kde.org/projects/kde/pim/kpimtextedit"
+                       URL "https://commits.kde.org/kpimtextedit"
                        TYPE OPTIONAL PURPOSE "Improved audit log viewer.")
 
 ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
