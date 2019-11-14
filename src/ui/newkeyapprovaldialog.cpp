@@ -49,6 +49,7 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QScrollArea>
+#include <QToolTip>
 #include <QVBoxLayout>
 
 #include <QGpgME/DefaultKeyGenerationJob>
@@ -134,8 +135,18 @@ public:
         mFromOverride(GpgME::UnknownProtocol)
     {
         auto hLay = new QHBoxLayout(this);
+        auto infoBtn = new QPushButton;
+        infoBtn->setIcon(QIcon::fromTheme("help-contextual"));
+        infoBtn->setIconSize(QSize(22,22));
+        infoBtn->setFlat(true);
+        hLay->addWidget(infoBtn);
         hLay->addWidget(combo, 1);
         hLay->addWidget(mFilterBtn, 0);
+
+        connect(infoBtn, &QPushButton::clicked, this, [this, infoBtn] () {
+            QToolTip::showText(infoBtn->mapToGlobal(QPoint()) + QPoint(infoBtn->width(), 0),
+                    mCombo->currentData(Qt::ToolTipRole).toString(), infoBtn, QRect(), 30000);
+        });
 
         // Assume that combos start out with a filter
         mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
@@ -547,7 +558,7 @@ public:
             }
 
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
-                    i18n("No Key"), IgnoreKey,
+                    i18n("No key. Recipient will be unable to decrypt."), IgnoreKey,
                     i18nc("@info:tooltip for No Key selected for a specific recipient.",
                           "Do not select a key for this recipient.<br/><br/>"
                           "The recipient will receive the encrypted E-Mail, but it can only "
