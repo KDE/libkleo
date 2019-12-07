@@ -60,7 +60,7 @@
 // KDE
 #include <KLocalizedString>
 #include <QDialog>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <QPushButton>
 
 // Qt

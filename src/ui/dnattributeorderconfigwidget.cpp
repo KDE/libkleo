@@ -35,7 +35,7 @@
 #include "libkleo/dn.h"
 
 #include <KLocalizedString>
-#include <kconfig.h>
+#include <KConfig>
 #include <QIcon>
 
 #include <QToolButton>

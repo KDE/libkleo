@@ -32,8 +32,8 @@
 
 #include "kconfigbasedkeyfilter.h"
 
-#include <kconfigbase.h>
-#include <kconfiggroup.h>
+#include <KConfigBase>
+#include <KConfigGroup>
 
 #include <algorithm>
 #include <QDebug>

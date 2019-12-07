@@ -35,7 +35,7 @@
 
 #include "kleo_export.h"
 
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 #undef MessageBox // Windows
 

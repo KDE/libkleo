@@ -38,7 +38,7 @@
 
 #include <qgpgme/cryptoconfig.h>
 
-#include <klineedit.h>
+#include <KLineEdit>
 #include <KLocalizedString>
 #include "kleo_ui_debug.h"
 #include <utils/formatting.h>

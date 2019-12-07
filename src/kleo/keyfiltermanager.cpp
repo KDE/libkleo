@@ -39,8 +39,8 @@
 #include "libkleo_debug.h"
 #include "utils/formatting.h"
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <QIcon>

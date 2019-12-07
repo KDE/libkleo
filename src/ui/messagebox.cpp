@@ -44,7 +44,7 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <KLocalizedString>
-#include <kguiitem.h>
+#include <KGuiItem>
 
 
 #include <gpg-error.h>

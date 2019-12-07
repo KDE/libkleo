@@ -40,7 +40,7 @@
 
 #include <KAboutData>
 
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <QDebug>
 
 #include <QLineEdit>

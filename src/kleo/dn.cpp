@@ -40,7 +40,7 @@
 
 #include "ui/dnattributeorderconfigwidget.h"
 
-#include <kconfig.h>
+#include <KConfig>
 #include <KLocalizedString>
 
 #include <QStringList>
@@ -53,7 +53,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <KSharedConfig>
 
 class Kleo::DN::Private

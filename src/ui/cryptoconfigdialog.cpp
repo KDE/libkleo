@@ -33,7 +33,7 @@
 #include "cryptoconfigdialog.h"
 #include "cryptoconfigmodule.h"
 #include <KLocalizedString>
-#include <kacceleratormanager.h>
+#include <KAcceleratorManager>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <KGuiItem>
