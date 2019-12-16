@@ -108,7 +108,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
     : QDialog(parent),
       d(new Private())
 {
-    setWindowTitle(i18n("Encryption Key Approval"));
+    setWindowTitle(i18nc("@title:window", "Encryption Key Approval"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);

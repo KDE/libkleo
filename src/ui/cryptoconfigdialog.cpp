@@ -42,7 +42,7 @@
 Kleo::CryptoConfigDialog::CryptoConfigDialog(QGpgME::CryptoConfig *config, QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18n("Configure GnuPG Backend"));
+    setWindowTitle(i18nc("@title:window", "Configure GnuPG Backend"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mButtonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults | QDialogButtonBox::Apply, this);
     QPushButton *okButton = mButtonBox->button(QDialogButtonBox::Ok);

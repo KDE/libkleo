@@ -831,7 +831,7 @@ void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
     // I'm a bad boy and I do it all on the stack. Enough classes already :)
     // This is just a simple dialog around the directory-services-widget
     QDialog dialog(mPushButton->parentWidget());
-    dialog.setWindowTitle(i18n("Configure LDAP Servers"));
+    dialog.setWindowTitle(i18nc("@title:window", "Configure LDAP Servers"));
 
     DirectoryServicesWidget *dirserv = new DirectoryServicesWidget(&dialog);
 
@@ -958,7 +958,7 @@ void Kleo::CryptoConfigEntryKeyserver::slotOpenDialog()
     // I'm a bad boy and I do it all on the stack. Enough classes already :)
     // This is just a simple dialog around the directory-services-widget
     QDialog dialog(mPushButton->parentWidget());
-    dialog.setWindowTitle(i18n("Configure Keyservers"));
+    dialog.setWindowTitle(i18nc("@title:window", "Configure Keyservers"));
 
     DirectoryServicesWidget *dirserv = new DirectoryServicesWidget(&dialog);
 

@@ -46,7 +46,7 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
       m_textEdit(new QTextEdit(this))
 #endif
 {
-    setWindowTitle(i18n("View GnuPG Audit Log"));
+    setWindowTitle(i18nc("@title:window", "View GnuPG Audit Log"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
 
     QPushButton *copyClipBtn = new QPushButton;

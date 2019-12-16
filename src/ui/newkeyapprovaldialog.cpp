@@ -264,7 +264,7 @@ public:
         mScrollArea->setFrameStyle(QFrame::NoFrame);
         mScrollLayout->setContentsMargins(0, 0, 0, 0);
 
-        q->setWindowTitle(i18n("Security approval"));
+        q->setWindowTitle(i18nc("@title:window", "Security approval"));
 
         auto fmtLayout = new QHBoxLayout;
         mFormatBtns = new QButtonGroup;
@@ -326,7 +326,7 @@ public:
         auto progress = new Kleo::ProgressDialog(job, i18n("Generating key for '%1'...", addr) + QStringLiteral("\n\n") +
                                                  i18n("This can take several minutes."), q);
         progress->setWindowFlags(progress->windowFlags() & ~Qt::WindowContextHelpButtonHint);
-        progress->setWindowTitle(i18n("Key generation"));
+        progress->setWindowTitle(i18nc("@title:window", "Key generation"));
         progress->setModal(true);
         progress->setAutoClose(true);
         progress->setMinimumDuration(0);
