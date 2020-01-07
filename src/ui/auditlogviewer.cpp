@@ -108,7 +108,7 @@ void AuditLogViewer::slotSaveAs()
         }
         s << "</head><body>\n"
           << m_log
-          << "\n</body></html>" << endl;
+          << "\n</body></html>\n";
         s.flush();
         file.commit();
     }
