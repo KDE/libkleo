@@ -36,6 +36,8 @@ set(libkleo_core_SRCS
    utils/filesystemwatcher.cpp
    utils/formatting.cpp
    utils/classify.cpp
+   utils/gnupg.cpp
+   utils/hex.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo)
 
@@ -147,6 +149,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   Classify
   FileSystemWatcher
   Formatting
+  GnuPG
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
