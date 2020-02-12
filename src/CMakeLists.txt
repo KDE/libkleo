@@ -38,6 +38,9 @@ set(libkleo_core_SRCS
    utils/classify.cpp
    utils/gnupg.cpp
    utils/hex.cpp
+   smartcard/card.cpp
+   smartcard/openpgpcard.cpp
+   smartcard/netkeycard.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo)
 
