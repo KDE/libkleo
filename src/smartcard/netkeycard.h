@@ -37,12 +37,14 @@
 #include <memory>
 #include <gpgme++/key.h>
 
+#include "kleo_export.h"
+
 namespace Kleo
 {
 namespace SmartCard
 {
 /** Class to work with OpenPGP Smartcards or compatible tokens */
-class NetKeyCard: public Card
+class KLEO_EXPORT NetKeyCard: public Card
 {
 public:
     NetKeyCard ();

@@ -37,14 +37,14 @@
 #include <memory>
 
 #include <QString>
+#include "kleo_export.h"
 
 namespace Kleo
 {
 namespace SmartCard
 {
-class ReaderStatus;
 /** Class to work with Smartcards or other Hardware tokens. */
-class Card
+class KLEO_EXPORT Card
 {
 public:
     enum AppType {
@@ -54,6 +54,7 @@ public:
         P15Application,
         DinSigApplication,
         GeldkarteApplication,
+        PIVApplication,
 
         NumAppTypes
     };
@@ -82,6 +83,7 @@ public:
     };
 
     Card();
+    Card(const QString &gpgCardOutput);
     virtual ~Card() {}
 
     virtual bool operator == (const Card& other) const;
@@ -113,6 +115,10 @@ public:
 
     QString errorMsg() const;
     void setErrorMsg(const QString &msg);
+
+    QString reader() const;
+
+    QString getSingleProperty(const char *name) const;
 
 private:
     class Private;

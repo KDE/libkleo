@@ -38,12 +38,14 @@
 
 #include "card.h"
 
+#include "kleo_export.h"
+
 namespace Kleo
 {
 namespace SmartCard
 {
 /** Class to work with OpenPGP Smartcards or compatible tokens */
-class OpenPGPCard: public Card
+class KLEO_EXPORT OpenPGPCard: public Card
 {
 public:
     OpenPGPCard ();

@@ -41,6 +41,7 @@ set(libkleo_core_SRCS
    smartcard/card.cpp
    smartcard/openpgpcard.cpp
    smartcard/netkeycard.cpp
+   smartcard/cardmanager.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo)
 
@@ -158,6 +159,17 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   RELATIVE utils
 )
 
+ecm_generate_headers(libkleo_CamelCase_smartcard_HEADERS
+  HEADER_NAMES
+  Card
+  NetKeyCard
+  OpenPGPCard
+  CardManager
+  REQUIRED_HEADERS libkleo_smartcard_HEADERS
+  PREFIX Libkleo
+  RELATIVE smartcard
+)
+
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   HEADER_NAMES
   CryptoConfigDialog
@@ -189,6 +201,7 @@ install(FILES
     ${libkleo_CamelCase_models_HEADERS}
     ${libkleo_CamelCase_ui_HEADERS}
     ${libkleo_CamelCase_utils_HEADERS}
+    ${libkleo_CamelCase_smartcard_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/Libkleo
     COMPONENT Devel
 )
@@ -199,6 +212,7 @@ install(FILES
     ${libkleo_models_HEADERS}
     ${libkleo_ui_HEADERS}
     ${libkleo_utils_HEADERS}
+    ${libkleo_smartcard_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/libkleo
     COMPONENT Devel
 )

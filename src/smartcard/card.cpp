@@ -33,6 +33,13 @@
 
 #include "card.h"
 
+#include <QString>
+#include <QMap>
+#include <QStringList>
+#include <QRegExp>
+
+#include "libkleo_debug.h"
+
 using namespace Kleo;
 using namespace Kleo::SmartCard;
 
@@ -47,6 +54,42 @@ public:
     {
     }
 
+    Private(const QString &gpgOutput)
+    {
+        const auto lines = gpgOutput.split(QRegExp("[\r\n]"),
+                                           QString::SkipEmptyParts);
+        for (const auto &line: lines) {
+            auto words = line.split(QLatin1Char(':'));
+            if (words.size () < 2) {
+                qCDebug(LIBKLEO_LOG) << "Failed to parse line:" << line;
+                continue;
+            }
+            QString key = words.takeFirst ();
+            if (key.startsWith(QLatin1Char(' '))) {
+                qCDebug(LIBKLEO_LOG) << "Ignoring subline:" << line;
+                continue;
+            }
+            key.remove(QRegExp(" \\.*$"));
+            mProperties.insert(key, words);
+        }
+
+        mReader = getSingleProperty("Reader");
+        mSerialNumber = getSingleProperty("Serial number").toStdString();
+    }
+
+    QString getSingleProperty(const char *val) const
+    {
+        if (!val) {
+            return QString();
+        }
+        const auto list = mProperties.value(QLatin1String(val));
+        if (list.empty()) {
+            return QString();
+        }
+        return list.first();
+    }
+
+    QString mReader;
     bool mCanLearn;
     bool mHasNullPin;
     Status mStatus;
@@ -56,9 +99,18 @@ public:
     std::vector<PinState> mPinStates;
     int mSlot;
     QString mErrMsg;
+    QMap<QString, QStringList> mProperties;
 };
 
 Card::Card(): d(new Private()) {
+}
+
+Card::Card(const QString &gpgOutput): d(new Private(gpgOutput)) {
+}
+
+QString Card::getSingleProperty(const char *propName) const
+{
+    return d->getSingleProperty(propName);
 }
 
 void Card::setStatus(Status s)
@@ -166,4 +218,9 @@ void Card::setErrorMsg(const QString &msg)
 QString Card::errorMsg() const
 {
     return d->mErrMsg;
+}
+
+QString Card::reader() const
+{
+    return d->mReader;
 }
