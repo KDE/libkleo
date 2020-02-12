@@ -3,6 +3,7 @@
     This file is part of Kleopatra, the KDE keymanager
     Copyright (c) 2017 by Bundesamt für Sicherheit in der Informationstechnik
     Software engineering by Intevation GmbH
+    Copyright (c) 2020 by g10 Code GmbH
 
     Kleopatra is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -35,103 +36,121 @@
 using namespace Kleo;
 using namespace Kleo::SmartCard;
 
-Card::Card(): mCanLearn(false),
-              mHasNullPin(false),
-              mStatus(Status::NoCard),
-              mAppType(UnknownApplication),
-              mAppVersion(-1) {
+class Card::Private
+{
+public:
+    Private(): mCanLearn(false),
+               mHasNullPin(false),
+               mStatus(Status::NoCard),
+               mAppType(UnknownApplication),
+               mAppVersion(-1)
+    {
+    }
+
+    bool mCanLearn;
+    bool mHasNullPin;
+    Status mStatus;
+    std::string mSerialNumber;
+    AppType mAppType;
+    int mAppVersion;
+    std::vector<PinState> mPinStates;
+    int mSlot;
+    QString mErrMsg;
+};
+
+Card::Card(): d(new Private()) {
 }
 
 void Card::setStatus(Status s)
 {
-    mStatus = s;
+    d->mStatus = s;
 }
 
 Card::Status Card::status() const
 {
-    return mStatus;
+    return d->mStatus;
 }
 
 void Card::setSerialNumber(const std::string &sn)
 {
-    mSerialNumber = sn;
+    d->mSerialNumber = sn;
 }
 
 std::string Card::serialNumber() const
 {
-    return mSerialNumber;
+    return d->mSerialNumber;
 }
 
 Card::AppType Card::appType() const
 {
-    return mAppType;
+    return d->mAppType;
 }
 
 void Card::setAppType(AppType t)
 {
-    mAppType = t;
+    d->mAppType = t;
 }
 
 void Card::setAppVersion(int version)
 {
-    mAppVersion = version;
+    d->mAppVersion = version;
 }
 
 int Card::appVersion() const
 {
-    return mAppVersion;
+    return d->mAppVersion;
 }
 
 std::vector<Card::PinState> Card::pinStates() const
 {
-    return mPinStates;
+    return d->mPinStates;
 }
 
 void Card::setPinStates(const std::vector<PinState> &pinStates)
 {
-    mPinStates = pinStates;
+    d->mPinStates = pinStates;
 }
 
 void Card::setSlot(int slot)
 {
-    mSlot = slot;
+    d->mSlot = slot;
 }
 
 int Card::slot() const
 {
-    return mSlot;
+    return d->mSlot;
 }
 
 bool Card::hasNullPin() const
 {
-    return mHasNullPin;
+    return d->mHasNullPin;
 }
 
 void Card::setHasNullPin(bool value)
 {
-    mHasNullPin = value;
+    d->mHasNullPin = value;
 }
 
 bool Card::canLearnKeys() const
 {
-    return mCanLearn;
+    return d->mCanLearn;
 }
 
 void Card::setCanLearnKeys(bool value)
 {
-    mCanLearn = value;
+    d->mCanLearn = value;
 }
 
 bool Card::operator == (const Card& other) const
 {
-    return mStatus == other.status()
-        && mSerialNumber == other.serialNumber()
-        && mAppType == other.appType()
-        && mAppVersion == other.appVersion()
-        && mPinStates == other.pinStates()
-        && mSlot == other.slot()
-        && mCanLearn == other.canLearnKeys()
-        && mHasNullPin == other.hasNullPin();
+    return d->mStatus == other.status()
+        && d->mSerialNumber == other.serialNumber()
+        && d->mAppType == other.appType()
+        && d->mAppVersion == other.appVersion()
+        && d->mPinStates == other.pinStates()
+        && d->mSlot == other.slot()
+        && d->mCanLearn == other.canLearnKeys()
+        && d->mHasNullPin == other.hasNullPin();
 }
 
 bool Card::operator != (const Card& other) const
@@ -141,10 +160,10 @@ bool Card::operator != (const Card& other) const
 
 void Card::setErrorMsg(const QString &msg)
 {
-    mErrMsg = msg;
+    d->mErrMsg = msg;
 }
 
 QString Card::errorMsg() const
 {
-    return mErrMsg;
+    return d->mErrMsg;
 }

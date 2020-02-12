@@ -34,6 +34,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #include <QString>
 
@@ -114,15 +115,8 @@ public:
     void setErrorMsg(const QString &msg);
 
 private:
-    bool mCanLearn;
-    bool mHasNullPin;
-    Status mStatus;
-    std::string mSerialNumber;
-    AppType mAppType;
-    int mAppVersion;
-    std::vector<PinState> mPinStates;
-    int mSlot;
-    QString mErrMsg;
+    class Private;
+    std::shared_ptr<Private> d;
 };
 } // namespace Smartcard
 } // namespace Kleopatra
