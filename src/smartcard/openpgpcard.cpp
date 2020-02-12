@@ -84,7 +84,21 @@ static const char * get_manufacturer (unsigned int no)
 
 } // namespace
 
-OpenPGPCard::OpenPGPCard()
+class OpenPGPCard::Private
+{
+public:
+    Private (): mIsV2(false)
+    {
+
+    }
+
+    bool mIsV2 = false;
+    std::string mCardVersion;
+    QMap <std::string, std::string> mMetaInfo;
+    std::string mManufacturer;
+};
+
+OpenPGPCard::OpenPGPCard(): d(new Private())
 {
     setAppType(Card::OpenPGPApplication);
 }
@@ -96,17 +110,17 @@ OpenPGPCard::OpenPGPCard(const std::string &serialno): OpenPGPCard()
 
 std::string OpenPGPCard::sigFpr() const
 {
-    return mMetaInfo.value("SIGKEY-FPR");
+    return d->mMetaInfo.value("SIGKEY-FPR");
 }
 
 std::string OpenPGPCard::encFpr() const
 {
-    return mMetaInfo.value("ENCKEY-FPR");
+    return d->mMetaInfo.value("ENCKEY-FPR");
 }
 
 std::string OpenPGPCard::authFpr() const
 {
-    return mMetaInfo.value("AUTHKEY-FPR");
+    return d->mMetaInfo.value("AUTHKEY-FPR");
 }
 
 void OpenPGPCard::setKeyPairInfo(const std::vector< std::pair<std::string, std::string> > &infos)
@@ -127,13 +141,13 @@ void OpenPGPCard::setKeyPairInfo(const std::vector< std::pair<std::string, std::
             const auto usage = values[0];
             const auto fpr = values[1].toStdString();
             if (usage == QLatin1Char('1')) {
-                mMetaInfo.insert(std::string("SIG") + pair.first, fpr);
+                d->mMetaInfo.insert(std::string("SIG") + pair.first, fpr);
             } else if (usage == QLatin1Char('2')) {
-                mMetaInfo.insert(std::string("ENC") + pair.first, fpr);
+                d->mMetaInfo.insert(std::string("ENC") + pair.first, fpr);
             } else if (usage == QLatin1Char('3')) {
-                mMetaInfo.insert(std::string("AUTH") + pair.first, fpr);
+                d->mMetaInfo.insert(std::string("AUTH") + pair.first, fpr);
             } else {
-                // Maybe more keyslots in the future?
+                // d->maybe more keyslots in the future?
                 qCDebug(LIBKLEO_LOG) << "Unhandled keyslot";
             }
         } else if (pair.first == "KEYPAIRINFO") {
@@ -147,17 +161,17 @@ void OpenPGPCard::setKeyPairInfo(const std::vector< std::pair<std::string, std::
             const auto usage = values[1];
             const auto grip = values[0].toStdString();
             if (usage == QLatin1String("OPENPGP.1")) {
-                mMetaInfo.insert(std::string("SIG") + pair.first, grip);
+                d->mMetaInfo.insert(std::string("SIG") + pair.first, grip);
             } else if (usage == QLatin1String("OPENPGP.2")) {
-                mMetaInfo.insert(std::string("ENC") + pair.first, grip);
+                d->mMetaInfo.insert(std::string("ENC") + pair.first, grip);
             } else if (usage == QLatin1String("OPENPGP.3")) {
-                mMetaInfo.insert(std::string("AUTH") + pair.first, grip);
+                d->mMetaInfo.insert(std::string("AUTH") + pair.first, grip);
             } else {
-                // Maybe more keyslots in the future?
+                // d->maybe more keyslots in the future?
                 qCDebug(LIBKLEO_LOG) << "Unhandled keyslot";
             }
         } else {
-            mMetaInfo.insert(pair.first, pair.second);
+            d->mMetaInfo.insert(pair.first, pair.second);
         }
     }
 }
@@ -172,7 +186,7 @@ void OpenPGPCard::setSerialNumber(const std::string &serialno)
     if (strncmp(string, "D27600012401", 12) || strlen(string) != 32 ) {
         /* Not a proper OpenPGP card serialnumber.  Display the full
            serialnumber. */
-        mManufacturer = "unknown";
+        d->mManufacturer = "unknown";
     } else {
         /* Reformat the version number to be better human readable.  */
         char *p = version_buffer;
@@ -189,11 +203,11 @@ void OpenPGPCard::setSerialNumber(const std::string &serialno)
         version = version_buffer;
 
         /* Get the manufacturer.  */
-        mManufacturer = get_manufacturer(xtoi_2(string + 16)*256 + xtoi_2(string + 18));
+        d->mManufacturer = get_manufacturer(xtoi_2(string + 16)*256 + xtoi_2(string + 18));
     }
 
-    mIsV2 = !((*version == '1' || *version == '0') && version[1] == '.');
-    mCardVersion = version;
+    d->mIsV2 = !((*version == '1' || *version == '0') && version[1] == '.');
+    d->mCardVersion = version;
 }
 
 bool OpenPGPCard::operator == (const Card& rhs) const
@@ -215,22 +229,22 @@ bool OpenPGPCard::operator == (const Card& rhs) const
 
 std::string OpenPGPCard::manufacturer() const
 {
-    return mManufacturer;
+    return d->mManufacturer;
 }
 
 std::string OpenPGPCard::cardVersion() const
 {
-    return mCardVersion;
+    return d->mCardVersion;
 }
 
 std::string OpenPGPCard::cardHolder() const
 {
-    auto list = QString::fromStdString(mMetaInfo.value("DISP-NAME")).split(QStringLiteral("<<"));
+    auto list = QString::fromStdString(d->mMetaInfo.value("DISP-NAME")).split(QStringLiteral("<<"));
     std::reverse(list.begin(), list.end());
     return list.join(QLatin1Char(' ')).toStdString();
 }
 
 std::string OpenPGPCard::pubkeyUrl() const
 {
-    return mMetaInfo.value("PUBKEY-URL");
+    return d->mMetaInfo.value("PUBKEY-URL");
 }

@@ -43,6 +43,16 @@
 using namespace Kleo;
 using namespace Kleo::SmartCard;
 
+
+class NetKeyCard::Private
+{
+public:
+    Private ()
+    {
+    }
+    std::vector <GpgME::Key> mKeys;
+};
+
 namespace
 {
 static std::string parse_keypairinfo(const std::string &kpi)
@@ -71,7 +81,7 @@ static GpgME::Key parse_keypairinfo_and_lookup_key(GpgME::Context *ctx, const st
 
 } // namespace
 
-NetKeyCard::NetKeyCard()
+NetKeyCard::NetKeyCard(): d(new Private())
 {
     setAppType(Card::NksApplication);
 }
@@ -87,13 +97,13 @@ void NetKeyCard::setKeyPairInfo(const std::vector<std::string> &infos)
     klc->addKeyListMode(GpgME::Validate);
 
     setCanLearnKeys(false);
-    mKeys.clear();
+    d->mKeys.clear();
     for (const auto &info: infos) {
         const auto key = parse_keypairinfo_and_lookup_key(klc.get(), info);
         if (key.isNull()) {
             setCanLearnKeys(true);
         }
-        mKeys.push_back(key);
+        d->mKeys.push_back(key);
     }
 }
 
@@ -125,5 +135,5 @@ bool NetKeyCard::hasSigGNullPin() const
 
 std::vector<GpgME::Key> NetKeyCard::keys() const
 {
-    return mKeys;
+    return d->mKeys;
 }

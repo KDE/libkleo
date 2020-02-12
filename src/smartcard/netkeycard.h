@@ -34,6 +34,7 @@
 
 #include "card.h"
 
+#include <memory>
 #include <gpgme++/key.h>
 
 namespace Kleo
@@ -56,7 +57,6 @@ public:
 private:
     class Private;
     std::shared_ptr<Private> d;
-    std::vector <GpgME::Key> mKeys;
 };
 } // namespace Smartcard
 } // namespace Kleopatra

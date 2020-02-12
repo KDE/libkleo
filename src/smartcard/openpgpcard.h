@@ -34,6 +34,8 @@
 
 #include <QMap>
 
+#include <memory>
+
 #include "card.h"
 
 namespace Kleo
@@ -61,10 +63,8 @@ public:
     std::string cardHolder() const;
     std::string pubkeyUrl() const;
 private:
-    bool mIsV2 = false;
-    std::string mCardVersion;
-    QMap <std::string, std::string> mMetaInfo;
-    std::string mManufacturer;
+    class Private;
+    std::shared_ptr<Private> d;
 };
 } // namespace Smartcard
 } // namespace Kleopatra
