@@ -47,7 +47,10 @@ class KLEO_EXPORT CardManager: public QObject
 {
     Q_OBJECT
 public:
-    CardManager();
+    /* CardManager is singleton */
+    static CardManager *instance();
+    CardManager(const CardManager&) = delete;
+    ~CardManager();
 
     /* Start a listing of all available cards. */
     void startCardList() const;
@@ -61,6 +64,7 @@ Q_SIGNALS:
     void cardsMayHaveChanged();
 
 private:
+    CardManager();
     class Private;
     std::shared_ptr<Private> d;
 };

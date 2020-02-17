@@ -45,6 +45,8 @@
 using namespace Kleo;
 using namespace SmartCard;
 
+static CardManager *s_instance = nullptr;
+
 class CardManager::Private
 {
 public:
@@ -139,7 +141,11 @@ private:
 
 CardManager::CardManager(): d(new Private(this))
 {
+}
 
+CardManager::~CardManager()
+{
+    s_instance = nullptr;
 }
 
 void CardManager::startCardList() const
@@ -165,4 +171,14 @@ void CardManager::startCardList() const
 QList <std::shared_ptr<Card> > CardManager::cards() const
 {
     return d->mCards;
+}
+
+/* static */
+CardManager *CardManager::instance()
+{
+    if (s_instance) {
+        return s_instance;
+    }
+    s_instance = new CardManager();
+    return s_instance;
 }
