@@ -27,6 +27,7 @@ set(libkleo_core_SRCS
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
    kleo/keyresolver.cpp
+   kleo/remarks.cpp
    models/keycache.cpp
    models/keylistmodel.cpp
    models/keylistsortfilterproxymodel.cpp
@@ -61,11 +62,18 @@ ecm_qt_declare_logging_category(libkleo_ui_common_SRCS HEADER kleo_ui_debug.h ID
 
 set(libkleo_ui_SRCS    # make this a separate lib.
     ui/keylistview.cpp
+    ui/keytreeview.cpp
     ui/keyselectiondialog.cpp
     ui/keyrequester.cpp
     ui/keyapprovaldialog.cpp
     ui/newkeyapprovaldialog.cpp
     ui/keyselectioncombo.cpp
+    ui/headerview.cpp
+    smartcard/netkeywidget.cpp
+    smartcard/pgpcardwidget.cpp
+    smartcard/smartcardwidget.cpp
+    smartcard/nullpinwidget.cpp
+    smartcard/gencardkeydialog.cpp
     )
 
 ki18n_wrap_ui(libkleo_ui_common_SRCS
