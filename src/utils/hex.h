@@ -35,19 +35,21 @@
 
 #include <string>
 
+#include "kleo_export.h"
+
 class QByteArray;
 
 namespace Kleo
 {
 
-std::string hexencode(const char *s);
-std::string hexdecode(const char *s);
+std::string KLEO_EXPORT hexencode(const char *s);
+std::string KLEO_EXPORT hexdecode(const char *s);
 
-std::string hexencode(const std::string &s);
-std::string hexdecode(const std::string &s);
+std::string KLEO_EXPORT hexencode(const std::string &s);
+std::string KLEO_EXPORT hexdecode(const std::string &s);
 
-QByteArray hexencode(const QByteArray &s);
-QByteArray hexdecode(const QByteArray &s);
+QByteArray KLEO_EXPORT hexencode(const QByteArray &s);
+QByteArray KLEO_EXPORT hexdecode(const QByteArray &s);
 
 }
 

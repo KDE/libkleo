@@ -162,6 +162,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   FileSystemWatcher
   Formatting
   GnuPG
+  Hex
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
