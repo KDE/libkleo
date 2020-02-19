@@ -300,8 +300,8 @@ public:
         updateFilter();
 
 
-        QObject::connect (mFormatBtns, static_cast<void (QButtonGroup::*)(int, bool)> (&QButtonGroup::buttonToggled),
-                q, [this](int, bool) {
+        QObject::connect (mFormatBtns, static_cast<void (QButtonGroup::*)(QAbstractButton *, bool)> (&QButtonGroup::buttonToggled),
+                q, [this](QAbstractButton *, bool) {
             updateFilter();
         });
 
@@ -490,7 +490,11 @@ public:
         connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
             updateOkButton();
         });
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
+#else
+        connect(combo, QOverload<int, const QString &>::of(&QComboBox::currentIndexChanged), q, [this] () {
+#endif
             updateOkButton();
         });
 
@@ -571,7 +575,11 @@ public:
             connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
                 updateOkButton();
             });
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
             connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
+#else
+            connect(combo, QOverload<int, const QString &>::of(&QComboBox::currentIndexChanged), q, [this] () {
+#endif
                 updateOkButton();
             });
 

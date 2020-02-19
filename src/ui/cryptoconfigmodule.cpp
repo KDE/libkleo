@@ -568,7 +568,11 @@ Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModul
         label->setEnabled(false);
         mComboBox->setEnabled(false);
     } else {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         connect(mComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+#else
+        connect(mComboBox, QOverload<int, const QString &>::of(&QComboBox::currentIndexChanged),
+#endif
                 this, &CryptoConfigEntryDebugLevel::slotChanged);
     }
 
