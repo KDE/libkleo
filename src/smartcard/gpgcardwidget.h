@@ -1,10 +1,11 @@
-#ifndef VIEW_SMARTCARDWIDGET_H
-#define VIEW_SMARTCARDWIDGET_H
-/*  smartcard/smartcardwidget.h
+#ifndef VIEW_GPGCARDWIDGET_H
+#define VIEW_GPGCARDWIDGET_H
+/*  view/gpgcardwidget.h
 
     This file is part of Kleopatra, the KDE keymanager
     Copyright (c) 2017 by Bundesamt für Sicherheit in der Informationstechnik
     Software engineering by Intevation GmbH
+    Copyright (c) 2020 g10 Code GmbH
 
     Kleopatra is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -35,20 +36,21 @@
 #include <QWidget>
 #include <memory>
 
+#include "kleo_export.h"
+
 namespace Kleo
 {
-/* SmartCardWidget a generic widget to interact with smartcards */
-class SmartCardWidget: public QWidget
+/* GpgCardWidget a generic widget to interact with smartcards.
+ * It's a frontend for gpg-card and as such it requires at
+ * least GnuPG 2.3 */
+class KLEO_EXPORT GpgCardWidget: public QWidget
 {
     Q_OBJECT
 public:
-    explicit SmartCardWidget(QWidget *parent = nullptr);
+    explicit GpgCardWidget(QWidget *parent = nullptr);
 
 public Q_SLOTS:
     void reload();
-
-Q_SIGNALS:
-    void backRequested();
 
 private:
     class Private;
@@ -56,4 +58,4 @@ private:
 };
 
 } // namespace Kleo
-#endif // VIEW_SMARTCARDWIDGET_H
+#endif // VIEW_GPGCARDWIDGET_H

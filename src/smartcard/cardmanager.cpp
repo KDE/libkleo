@@ -36,6 +36,8 @@
 
 #include <QGpgME/Protocol>
 
+#include "openpgpcard.h"
+
 #if GPGMEPP_VERSION < 0x10E00 // 1.14.0
 # define GPGMEPP_TOO_OLD
 #else
@@ -55,12 +57,16 @@ public:
 
     }
 
-    void addCard(const QString &std_out)
+    void addCard(const QString &std_out, const QString & app)
     {
-        Card *genericCard = new Card(std_out);
-        /* TODO Specialize */
+        if (app == QStringLiteral("openpgp")) {
+            mCards << std::shared_ptr<Card> (new OpenPGPCard(std_out));
+            return;
+        }
 
-        mCards << std::shared_ptr<Card>(genericCard);
+        /* TODO: Implement. */
+        qCDebug(LIBKLEO_LOG) << "Unknown app:" << app;
+        mCards << std::shared_ptr<Card> (new Card(std_out));
     }
 
     void cardListDone (const QString &std_out, const QString &std_err,
@@ -78,16 +84,22 @@ public:
         mCardsToApps.clear();
         const auto lines = std_out.split(QRegExp("[\r\n]"),
                                          QString::SkipEmptyParts);
+        QMap<QString, QString> readerMap;
         for (const auto &line: lines) {
-            auto words = line.split(QLatin1Char(' '));
+            auto words = line.split(QLatin1Char(' '),
+                                    QString::SkipEmptyParts);
              /* The first word is the selection */
-            words.pop_front ();
+            const auto reader = words.takeFirst().remove(QLatin1Char('*'));
             const auto key = words.takeFirst();
+            readerMap.insert(reader, key);
             mCardsToApps.insert(key, words);
         }
-        int i = 0;
-        for (const auto &id: mCardsToApps.keys()) {
+        /* Old for loop for now because the order matters. */
+        for (const auto &reader: readerMap.keys()) {
+            const auto &id = readerMap[reader];
             const auto apps = mCardsToApps.value(id);
+
+            qDebug() << "I think that " << id << "Has app " << apps << "in reader" << reader;
 
             /* Now for each card start a specific listing */
             auto cmd = QGpgME::gpgCardJob();
@@ -99,20 +111,20 @@ public:
                 GpgME::Error err = cmd->exec(QStringList() << QStringLiteral("--")
                                                            << QStringLiteral("list")
                                                            << QStringLiteral("--no-key-lookup")
-                                                           << QString::number(i), std_out, std_err,
+                                                           << reader, std_out, std_err,
                                                            exitCode);
                 if (err || exitCode) {
                     qCDebug(LIBKLEO_LOG) << "Card list failed with code:" << exitCode;
                     qCDebug(LIBKLEO_LOG) << "Error:" << std_err;
                 } else {
-                    addCard(std_out);
+                    addCard(std_out, QString());
                 }
             } else {
                 for (const auto &app: apps) {
                     GpgME::Error err = cmd->exec(QStringList() << QStringLiteral("--")
                             << QStringLiteral("list")
                             << QStringLiteral("--no-key-lookup")
-                            << QString::number(i)
+                            << reader
                             << app,
                             std_out, std_err,
                             exitCode);
@@ -120,11 +132,10 @@ public:
                         qCDebug(LIBKLEO_LOG) << "Card list failed with code:" << exitCode;
                         qCDebug(LIBKLEO_LOG) << "Error:" << std_err;
                     } else {
-                        addCard(std_out);
+                        addCard(std_out, app);
                     }
                 }
             }
-            i++;
         }
         Q_EMIT q->cardsMayHaveChanged ();
     }

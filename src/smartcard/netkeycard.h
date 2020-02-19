@@ -47,7 +47,8 @@ namespace SmartCard
 class KLEO_EXPORT NetKeyCard: public Card
 {
 public:
-    NetKeyCard ();
+    NetKeyCard() = delete;
+    NetKeyCard (const QString &std_out);
 
     void setKeyPairInfo (const std::vector<std::string> &infos);
 

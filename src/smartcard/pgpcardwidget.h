@@ -36,6 +36,7 @@
 #include <gpgme++/error.h>
 
 #include <string>
+#include <memory>
 
 #include "kleo_export.h"
 
@@ -70,18 +71,9 @@ public Q_SLOTS:
     void changeUrlResult(const GpgME::Error &err);
 
 private:
-    void updateKey(QLabel *label, const std::string &fpr);
-    QLabel *mSerialNumber = nullptr,
-           *mCardHolderLabel = nullptr,
-           *mVersionLabel = nullptr,
-           *mSigningKey = nullptr,
-           *mEncryptionKey = nullptr,
-           *mAuthKey = nullptr,
-           *mUrlLabel = nullptr;
-    QString mUrl;
-    bool mCardIsEmpty = false;
-    bool mIs21 = false;
-    std::string mRealSerial;
+    void updateKey(QLabel *label, const QString &fpr);
+    class Private;
+    std::shared_ptr<Private> d;
 };
 } // namespace Kleo
 

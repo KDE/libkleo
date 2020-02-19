@@ -1,8 +1,9 @@
-/*  view/smartcardwidget.cpp
+/*  view/gpgcardwidget.cpp
 
     This file is part of Kleopatra, the KDE keymanager
     Copyright (c) 2017 by Bundesamt für Sicherheit in der Informationstechnik
     Software engineering by Intevation GmbH
+    Copytrigh (c) 2020 g10 Code GmbH
 
     Kleopatra is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -30,12 +31,11 @@
     your version.
 */
 
-#include "smartcardwidget.h"
+#include "gpgcardwidget.h"
 #include "openpgpcard.h"
 #include "netkeycard.h"
 #include "pgpcardwidget.h"
 #include "netkeywidget.h"
-
 #include "cardmanager.h"
 
 #include "libkleo_debug.h"
@@ -61,8 +61,9 @@ public:
         auto lay = new QVBoxLayout;
         lay->addStretch(-1);
 
-        const QStringList supported = QStringList() << QStringLiteral("OpenPGP v2.0 - v3.3")
-                                                    << QStringLiteral("Gnuk")
+        const QStringList supported = QStringList() << QStringLiteral("OpenPGP > v2.0")
+                                                    << QStringLiteral("YubiKey")
+                                                    << QStringLiteral("Gnuk Token")
                                                     << QStringLiteral("NetKey v3");
         lay->addWidget(new QLabel(QStringLiteral("\t\t<h3>") +
                                   i18n("Please insert a compatible smartcard.") + QStringLiteral("</h3>")));
@@ -84,24 +85,12 @@ public:
 };
 } // namespace
 
-class SmartCardWidget::Private
+class GpgCardWidget::Private
 {
 public:
-    Private(SmartCardWidget *qq) : q(qq), mManager(CardManager::instance())
+    Private(GpgCardWidget *qq) : q(qq)
     {
-        QPushButton *backBtn = new QPushButton(QIcon::fromTheme(QStringLiteral("arrow-left")), i18n("Back"));
-        QHBoxLayout *backH = new QHBoxLayout;
-        backH->addWidget(backBtn);
-        backH->addWidget(new QLabel(QStringLiteral("<h2>") + i18n("Smartcard Management") +
-                                    QStringLiteral("</h2>")));
-        backH->addStretch(-1);
-
         QVBoxLayout *vLay = new QVBoxLayout(q);
-
-
-        connect(backBtn, &QPushButton::clicked, q, [this] () {Q_EMIT (q->backRequested());});
-
-        vLay->addLayout(backH);
 
         mStack = new QStackedWidget;
         vLay->addWidget(mStack);
@@ -117,10 +106,10 @@ public:
 
         mStack->setCurrentWidget(mPlaceHolderWidget);
 
-        connect (mManager, &CardManager::cardsMayHaveChanged, q, [this] () {
-                const auto cards = mManager->cards();
+        connect (CardManager::instance(), &CardManager::cardsMayHaveChanged, q, [this] () {
+                const auto cards = CardManager::instance()->cards();
                 if (!cards.size()) {
-                    setCard(std::shared_ptr<Card>(new Card()));
+                    setCard(std::shared_ptr<Card>(nullptr));
                 } else {
                     // No support for multiple reader / cards currently
                     setCard(cards[0]);
@@ -130,6 +119,10 @@ public:
 
     void setCard(std::shared_ptr<Card> card)
     {
+        if (!card) {
+            qCDebug(LIBKLEO_LOG) << "No card parsable";
+            mStack->setCurrentWidget(mPlaceHolderWidget);
+        }
         if (card->appType() == Card::OpenPGPApplication) {
             mPGPCardWidget->setCard(static_cast<OpenPGPCard *> (card.get()));
             mStack->setCurrentWidget(mPGPCardWidget);
@@ -137,33 +130,28 @@ public:
             mNetKeyWidget->setCard(static_cast<NetKeyCard *> (card.get()));
             mStack->setCurrentWidget(mNetKeyWidget);
         } else {
+            qCDebug(LIBKLEO_LOG) << "Ignoring unknown card: " << card->serialNumber();
             mStack->setCurrentWidget(mPlaceHolderWidget);
         }
     }
 
-    void reload()
-    {
-        mManager->startCardList();
-    }
-
 private:
-    SmartCardWidget *q;
+    GpgCardWidget *q;
     NetKeyWidget *mNetKeyWidget;
     PGPCardWidget *mPGPCardWidget;
     PlaceHolderWidget *mPlaceHolderWidget;
     QStackedWidget *mStack;
-    CardManager *mManager;
 };
 
-SmartCardWidget::SmartCardWidget(QWidget *parent):
+GpgCardWidget::GpgCardWidget(QWidget *parent):
     QWidget(parent),
     d(new Private(this))
 {
 }
 
-void SmartCardWidget::reload()
+void GpgCardWidget::reload()
 {
-    d->reload();
+    CardManager::instance()->startCardList();
 }
 
-#include "smartcardwidget.moc"
+#include "gpgcardwidget.moc"

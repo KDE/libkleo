@@ -82,43 +82,36 @@ public:
         NumStates
     };
 
-    Card();
-    Card(const QString &gpgCardOutput);
+    Card() = delete;
+    Card(const QString &gpgCardOutput, AppType type = UnknownApplication);
     virtual ~Card() {}
 
     virtual bool operator == (const Card& other) const;
     bool operator != (const Card& other) const;
 
-    void setStatus(Status s);
     Status status() const;
 
-    virtual void setSerialNumber(const std::string &sn);
-    std::string serialNumber() const;
-
-    AppType appType() const;
-    void setAppType(AppType type);
-
-    void setAppVersion(int version);
-    int appVersion() const;
+    const QString serialNumber() const;
 
     std::vector<PinState> pinStates() const;
-    void setPinStates(const std::vector<PinState> &pinStates);
 
-    void setSlot(int slot);
     int slot() const;
 
     bool hasNullPin() const;
-    void setHasNullPin(bool value);
 
     bool canLearnKeys() const;
-    void setCanLearnKeys(bool value);
 
     QString errorMsg() const;
-    void setErrorMsg(const QString &msg);
 
     QString reader() const;
 
-    QString getSingleProperty(const char *name) const;
+    AppType appType() const;
+    const QString appVersion() const;
+
+    const QString getSingleProperty(const char *name) const;
+    const QStringList getProperties(const char *name) const;
+
+    const QMap<QString, QStringList> properties() const;
 
 private:
     class Private;

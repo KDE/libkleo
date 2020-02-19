@@ -70,6 +70,12 @@
 # define GPGME_CAN_GENCARDKEY
 #endif
 
+#if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
+# define GPGME_CAN_GPGCARD
+# include <QGpgME/Protocol>
+# include <QGpgME/GpgCardJob>
+#endif
+
 using namespace Kleo;
 using namespace Kleo::SmartCard;
 
@@ -80,8 +86,8 @@ class GenKeyThread: public QThread
     Q_OBJECT
 
     public:
-        explicit GenKeyThread(const GenCardKeyDialog::KeyParams &params, const std::string &serial):
-            mSerial(serial),
+        explicit GenKeyThread(const GenCardKeyDialog::KeyParams &params, const QString &serial):
+            mSerial(serial.toStdString()),
             mParams(params)
         {
         }
@@ -121,15 +127,35 @@ class GenKeyThread: public QThread
 #endif
 } // Namespace
 
-PGPCardWidget::PGPCardWidget():
-    mSerialNumber(new QLabel),
-    mCardHolderLabel(new QLabel),
-    mVersionLabel(new QLabel),
-    mSigningKey(new QLabel),
-    mEncryptionKey(new QLabel),
-    mAuthKey(new QLabel),
-    mUrlLabel(new QLabel),
-    mCardIsEmpty(false)
+class PGPCardWidget::Private
+{
+public:
+    Private():
+        mSerialNumber(new QLabel),
+        mCardHolderLabel(new QLabel),
+        mVersionLabel(new QLabel),
+        mSigningKey(new QLabel),
+        mEncryptionKey(new QLabel),
+        mAuthKey(new QLabel),
+        mUrlLabel(new QLabel),
+        mCardIsEmpty(false)
+    {
+    }
+
+    QLabel *mSerialNumber = nullptr,
+           *mCardHolderLabel = nullptr,
+           *mVersionLabel = nullptr,
+           *mSigningKey = nullptr,
+           *mEncryptionKey = nullptr,
+           *mAuthKey = nullptr,
+           *mUrlLabel = nullptr;
+    QString mUrl;
+    bool mCardIsEmpty = false;
+    bool mIs21 = false;
+    QString mRealSerial;
+};
+
+PGPCardWidget::PGPCardWidget(): d(new Private())
 {
     auto grid = new QGridLayout;
     int row = 0;
@@ -147,19 +173,19 @@ PGPCardWidget::PGPCardWidget():
     myLayout->addWidget(area);
 
     // Version and Serialnumber
-    grid->addWidget(mVersionLabel, row++, 0, 1, 2);
-    mVersionLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    grid->addWidget(d->mVersionLabel, row++, 0, 1, 2);
+    d->mVersionLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     grid->addWidget(new QLabel(i18n("Serial number:")), row, 0);
 
-    grid->addWidget(mSerialNumber, row++, 1);
-    mSerialNumber->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    grid->addWidget(d->mSerialNumber, row++, 1);
+    d->mSerialNumber->setTextInteractionFlags(Qt::TextBrowserInteraction);
 
     // Cardholder Row
     grid->addWidget(new QLabel(i18nc("The owner of a smartcard. GnuPG refers to this as cardholder.",
                     "Cardholder:")), row, 0);
 
-    grid->addWidget(mCardHolderLabel, row, 1);
-    mCardHolderLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    grid->addWidget(d->mCardHolderLabel, row, 1);
+    d->mCardHolderLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     auto nameButtton = new QPushButton;
     nameButtton->setIcon(QIcon::fromTheme(QStringLiteral("cell_edit")));
     nameButtton->setToolTip(i18n("Change"));
@@ -170,9 +196,9 @@ PGPCardWidget::PGPCardWidget():
     grid->addWidget(new QLabel(i18nc("The URL under which a public key that "
                                      "corresponds to a smartcard can be downloaded",
                                      "Pubkey URL:")), row, 0);
-    grid->addWidget(mUrlLabel, row, 1);
+    grid->addWidget(d->mUrlLabel, row, 1);
 
-    mUrlLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    d->mUrlLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     auto urlButtton = new QPushButton;
     urlButtton->setIcon(QIcon::fromTheme(QStringLiteral("cell_edit")));
     urlButtton->setToolTip(i18n("Change"));
@@ -186,16 +212,16 @@ PGPCardWidget::PGPCardWidget():
     grid->addWidget(new QLabel(QStringLiteral("<b>%1</b>").arg(i18n("Keys:"))), row++, 0);
 
     grid->addWidget(new QLabel(i18n("Signature:")), row, 0);
-    grid->addWidget(mSigningKey, row++, 1);
-    mSigningKey->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    grid->addWidget(d->mSigningKey, row++, 1);
+    d->mSigningKey->setTextInteractionFlags(Qt::TextBrowserInteraction);
 
     grid->addWidget(new QLabel(i18n("Encryption:")), row, 0);
-    grid->addWidget(mEncryptionKey, row++, 1);
-    mEncryptionKey->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    grid->addWidget(d->mEncryptionKey, row++, 1);
+    d->mEncryptionKey->setTextInteractionFlags(Qt::TextBrowserInteraction);
 
     grid->addWidget(new QLabel(i18n("Authentication:")), row, 0);
-    grid->addWidget(mAuthKey, row++, 1);
-    mAuthKey->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    grid->addWidget(d->mAuthKey, row++, 1);
+    d->mAuthKey->setTextInteractionFlags(Qt::TextBrowserInteraction);
 
     auto line2 = new QFrame();
     line2->setFrameShape(QFrame::HLine);
@@ -234,28 +260,28 @@ PGPCardWidget::PGPCardWidget():
 
 void PGPCardWidget::setCard(const OpenPGPCard *card)
 {
-    const QString version = QString::fromStdString(card->cardVersion());
+    const QString version = card->cardVersion();
 
-    mIs21 = versionIsAtLeast("2.1", card->cardVersion().c_str());
-    mVersionLabel->setText(i18nc("First placeholder is manufacturer, second placeholder is a version number",
-                                 "%1 OpenPGP v%2 card", QString::fromStdString(card->manufacturer()),
+    d->mIs21 = versionIsAtLeast("2.1", card->cardVersion().toLatin1().constData());
+    d->mVersionLabel->setText(i18nc("First placeholder is manufacturer, second placeholder is a version number",
+                                 "%1 OpenPGP v%2 card", card->manufacturer(),
                                  version));
-    const QString sn = QString::fromStdString(card->serialNumber()).mid(16, 12);
-    mSerialNumber->setText(sn);
-    mRealSerial = card->serialNumber();
+    const QString sn = card->serialNumber().mid(16, 12);
+    d->mSerialNumber->setText(sn);
+    d->mRealSerial = card->serialNumber();
 
-    const auto holder = QString::fromStdString(card->cardHolder());
-    const auto url = QString::fromStdString(card->pubkeyUrl());
-    mCardHolderLabel->setText(holder.isEmpty() ? i18n("not set") : holder);
-    mUrl = url;
-    mUrlLabel->setText(url.isEmpty() ? i18n("not set") :
+    const auto holder = card->cardHolder();
+    const auto url = card->pubkeyUrl();
+    d->mCardHolderLabel->setText(holder.isEmpty() ? i18n("not set") : holder);
+    d->mUrl = url;
+    d->mUrlLabel->setText(url.isEmpty() ? i18n("not set") :
                        QStringLiteral("<a href=\"%1\">%1</a>").arg(url.toHtmlEscaped()));
-    mUrlLabel->setOpenExternalLinks(true);
+    d->mUrlLabel->setOpenExternalLinks(true);
 
-    updateKey(mSigningKey, card->sigFpr());
-    updateKey(mEncryptionKey, card->encFpr());
-    updateKey(mAuthKey, card->authFpr());
-    mCardIsEmpty = card->authFpr().empty() && card->sigFpr().empty() && card->encFpr().empty();
+    updateKey(d->mSigningKey, card->sigFpr());
+    updateKey(d->mEncryptionKey, card->encFpr());
+    updateKey(d->mAuthKey, card->authFpr());
+    d->mCardIsEmpty = card->authFpr().isEmpty() && card->sigFpr().isEmpty() && card->encFpr().isEmpty();
 }
 
 void PGPCardWidget::doChangePin(int slot)
@@ -276,8 +302,8 @@ void PGPCardWidget::doGenKey(GenCardKeyDialog *dlg)
     progress->setModal(true);
     progress->setCancelButton(nullptr);
     progress->setWindowTitle(i18nc("@title:window", "Generating Keys"));
-    progress->setLabel(new QLabel(i18n("This may take several minutes...")));
-    GenKeyThread *workerThread = new GenKeyThread(params, mRealSerial);
+    progress->setLabel(new QLabel(i18n("Thisd->may take several minutes...")));
+    GenKeyThread *workerThread = new GenKeyThread(params,d->mRealSerial);
     connect(workerThread, &QThread::finished, this, [this, workerThread, progress] {
             progress->accept();
             progress->deleteLater();
@@ -307,7 +333,7 @@ void PGPCardWidget::genKeyDone(const GpgME::Error &err, const std::string &backu
                                                          QStringLiteral("%1 (*.gpg)").arg(i18n("Backup Key")));
         if (!target.isEmpty() && !QFile::copy(bkpFile, target)) {
             KMessageBox::error(this, i18nc("@info",
-                               "Failed to move backup. The backup key is still stored under: %1", bkpFile),
+                               "Failed tod->move backup. The backup key is still stored under: %1", bkpFile),
                                i18nc("@title", "Error"));
         } else if (!target.isEmpty()) {
             QFile::remove(bkpFile);
@@ -325,7 +351,7 @@ void PGPCardWidget::genKeyDone(const GpgME::Error &, const std::string &) {}
 
 void PGPCardWidget::genkeyRequested()
 {
-    if (!mCardIsEmpty) {
+    if (!d->mCardIsEmpty) {
         auto ret = KMessageBox::warningContinueCancel(this,
                 i18n("The existing keys on this card will be <b>deleted</b> "
                      "and replaced by new keys.") + QStringLiteral("<br/><br/>") +
@@ -346,7 +372,7 @@ void PGPCardWidget::genkeyRequested()
     sizes.push_back(2048);
     sizes.push_back(3072);
     // There is probably a better way to check for capabilities
-    if (mIs21) {
+    if (d->mIs21) {
         sizes.push_back(4096);
     }
     dlg->setSupportedSizes(sizes);
@@ -375,7 +401,7 @@ void PGPCardWidget::changePinResult(const GpgME::Error &err)
 
 void PGPCardWidget::changeNameRequested()
 {
-    QString text = mCardHolderLabel->text();
+    QString text =d->mCardHolderLabel->text();
     while (true) {
         bool ok = false;
         text = QInputDialog::getText(this, i18n("Change cardholder"),
@@ -388,7 +414,7 @@ void PGPCardWidget::changeNameRequested()
         // Some additional restrictions imposed by gnupg
         if (text.contains(QLatin1Char('<'))) {
             KMessageBox::error(this, i18nc("@info",
-                               "The \"<\" character may not be used."),
+                               "The \"<\" characterd->may not be used."),
                                i18nc("@title", "Error"));
             continue;
         }
@@ -400,7 +426,7 @@ void PGPCardWidget::changeNameRequested()
         }
         if (text.size() > 38) {
             KMessageBox::error(this, i18nc("@info",
-                               "The size of the name may not exceed 38 characters."),
+                               "The size of the named->may not exceed 38 characters."),
                                i18nc("@title", "Error"));
         }
         break;
@@ -437,7 +463,7 @@ void PGPCardWidget::changeNameResult(const GpgME::Error &err)
 
 void PGPCardWidget::changeUrlRequested()
 {
-    QString text = mUrl;
+    QString text =d->mUrl;
     while (true) {
         bool ok = false;
         text = QInputDialog::getText(this, i18n("Change the URL where the pubkey can be found"),
@@ -450,7 +476,7 @@ void PGPCardWidget::changeUrlRequested()
         // Some additional restrictions imposed by gnupg
         if (text.size() > 254) {
             KMessageBox::error(this, i18nc("@info",
-                               "The size of the URL may not exceed 254 characters."),
+                               "The size of the URLd->may not exceed 254 characters."),
                                i18nc("@title", "Error"));
         }
         break;
@@ -482,17 +508,17 @@ void PGPCardWidget::changeUrlResult(const GpgME::Error &err)
     }
 }
 
-void PGPCardWidget::updateKey(QLabel *label, const std::string &fpr)
+void PGPCardWidget::updateKey(QLabel *label, const QString &fpr)
 {
-    label->setText(QString::fromStdString(fpr));
+    label->setText(fpr);
 
-    if (fpr.empty()) {
+    if (fpr.isEmpty()) {
         label->setText(i18n("Slot empty"));
         return;
     }
 
     std::vector<std::string> vec;
-    std::string keyid = fpr;
+    std::string keyid = fpr.toStdString();
     keyid.erase(0, keyid.size() - 16);
     vec.push_back(keyid);
     const auto subkeys = KeyCache::instance()->findSubkeysByKeyID(vec);

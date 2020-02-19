@@ -71,9 +71,9 @@ set(libkleo_ui_SRCS    # make this a separate lib.
     ui/headerview.cpp
     smartcard/netkeywidget.cpp
     smartcard/pgpcardwidget.cpp
-    smartcard/smartcardwidget.cpp
     smartcard/nullpinwidget.cpp
     smartcard/gencardkeydialog.cpp
+    smartcard/gpgcardwidget.cpp
     )
 
 ki18n_wrap_ui(libkleo_ui_common_SRCS
@@ -174,6 +174,7 @@ ecm_generate_headers(libkleo_CamelCase_smartcard_HEADERS
   NetKeyCard
   OpenPGPCard
   CardManager
+  GpgCardWidget
   REQUIRED_HEADERS libkleo_smartcard_HEADERS
   PREFIX Libkleo
   RELATIVE smartcard

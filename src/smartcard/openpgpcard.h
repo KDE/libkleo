@@ -37,6 +37,7 @@
 #include <memory>
 
 #include "card.h"
+#include <QString>
 
 #include "kleo_export.h"
 
@@ -48,22 +49,19 @@ namespace SmartCard
 class KLEO_EXPORT OpenPGPCard: public Card
 {
 public:
-    OpenPGPCard ();
-    OpenPGPCard (const std::string &serialno);
-    void setSerialNumber(const std::string &sn) override;
+    OpenPGPCard() = delete;
+    OpenPGPCard(const QString &std_out);
 
-    std::string encFpr() const;
-    std::string sigFpr() const;
-    std::string authFpr() const;
-
-    void setKeyPairInfo (const std::vector< std::pair<std::string, std::string> > &infos);
+    const QString encFpr() const;
+    const QString sigFpr() const;
+    const QString authFpr() const;
 
     bool operator == (const Card& other) const override;
 
-    std::string manufacturer() const;
-    std::string cardVersion() const;
-    std::string cardHolder() const;
-    std::string pubkeyUrl() const;
+    const QString manufacturer() const;
+    const QString cardVersion() const;
+    const QString cardHolder() const;
+    const QString pubkeyUrl() const;
 private:
     class Private;
     std::shared_ptr<Private> d;

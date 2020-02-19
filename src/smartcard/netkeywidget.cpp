@@ -172,7 +172,7 @@ NetKeyWidget::NetKeyWidget() :
 void NetKeyWidget::setCard(const NetKeyCard* card)
 {
     mVersionLabel->setText(i18nc("1 is a Version number", "NetKey v%1 Card", card->appVersion()));
-    mSerialNumber->setText(QString::fromStdString(card->serialNumber()));
+    mSerialNumber->setText(card->serialNumber());
 
     /* According to users of NetKey Cards it is fairly uncommon
      * to use SigG Certificates at all. So it should be optional to set the pins. */
