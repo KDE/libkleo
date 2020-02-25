@@ -136,7 +136,7 @@ public:
     {
         auto hLay = new QHBoxLayout(this);
         auto infoBtn = new QPushButton;
-        infoBtn->setIcon(QIcon::fromTheme("help-contextual"));
+        infoBtn->setIcon(QIcon::fromTheme(QStringLiteral("help-contextual")));
         infoBtn->setIconSize(QSize(22,22));
         infoBtn->setFlat(true);
         hLay->addWidget(infoBtn);
@@ -373,7 +373,7 @@ public:
         mAcceptedEnc.clear();
         mAcceptedSig.clear();
 
-        for (const auto combo: mEncCombos) {
+        for (const auto combo: qAsConst(mEncCombos)) {
             const auto &addr = combo->property("address").toString();
             const auto &key = combo->currentKey();
             if (!combo->isVisible()) {
@@ -393,7 +393,7 @@ public:
                 mAcceptedEnc.insert(addr, vec);
             }
         }
-        for (const auto combo: mSigningCombos) {
+        for (const auto combo: qAsConst(mSigningCombos)) {
             const auto key = combo->currentKey();
             if (!combo->isVisible()) {
                 continue;
@@ -415,7 +415,7 @@ public:
         // We can assume everything was validly resolved, otherwise
         // the OK button would have been disabled.
         // Handle custom items now.
-        for (auto combo: mAllCombos) {
+        for (auto combo: qAsConst(mAllCombos)) {
             auto act = combo->currentData(Qt::UserRole).toInt();
             if (act == GenerateKey) {
                 generateKey(combo);
@@ -441,7 +441,7 @@ public:
             mCurEncFilter = s_defaultFilter;
             mCurSigFilter = s_signFilter;
         }
-        for (auto combo: mSigningCombos) {
+        for (auto combo: qAsConst(mSigningCombos)) {
             combo->setKeyFilter(mCurSigFilter);
             auto widget = qobject_cast <ComboWidget *>(combo->parentWidget());
             if (!widget) {
@@ -452,7 +452,7 @@ public:
                                ((isSMIME && widget->fromOverride() == GpgME::CMS) ||
                                 (isPGP && widget->fromOverride() == GpgME::OpenPGP)));
         }
-        for (auto combo: mEncCombos) {
+        for (auto combo: qAsConst(mEncCombos)) {
             combo->setKeyFilter(mCurEncFilter);
 
             auto widget = qobject_cast <ComboWidget *>(combo->parentWidget());
@@ -527,7 +527,7 @@ public:
                 sigLayout->addWidget(comboWidget);
             }
         }
-        for (const QString &addr: unresolved) {
+        for (const QString &addr: qAsConst(unresolved)) {
             auto group = new QGroupBox(i18nc("Caption for signing key selection, no key found",
                                              "No key found for the address '%1':", addr));
             group->setAlignment(Qt::AlignLeft);

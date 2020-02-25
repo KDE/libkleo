@@ -435,7 +435,7 @@ public:
                 unresolvedSig << mSender;
             } else {
                 std::vector<GpgME::Key> resolvedSigKeys;
-                for (const auto &keys: mSigKeys) {
+                for (const auto &keys: qAsConst(mSigKeys)) {
                     for (const auto &key: keys) {
                         resolvedSigKeys.push_back(key);
                     }
@@ -454,7 +454,7 @@ public:
                 if (mFormat & AutoFormat) {
                     // In Auto Format we can now remove recipients that could
                     // be resolved either through CMS or PGP
-                    for (const auto &addr: mUnresolvedPGP) {
+                    for (const auto &addr: qAsConst(mUnresolvedPGP)) {
                         if (mUnresolvedCMS.contains(addr)) {
                             unresolvedRecp << addr;
                         }
