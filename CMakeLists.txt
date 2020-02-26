@@ -92,5 +92,13 @@ install(FILES
 
 
 add_subdirectory(src)
-install(FILES libkleo.renamecategories libkleo.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+if (ECM_VERSION VERSION_LESS "5.68.0")
+    install(FILES libkleo.renamecategories libkleo.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+else ()
+    ecm_qt_install_logging_categories(
+        EXPORT LIBKLEO
+        FILE libkleo.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+        )
+endif()
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
