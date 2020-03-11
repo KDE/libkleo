@@ -39,14 +39,10 @@ set(libkleo_core_SRCS
    utils/gnupg.cpp
    utils/hex.cpp
    )
-if (ECM_VERSION VERSION_LESS "5.68.0")
-    ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo)
-else()
-    ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
+ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
         EXPORT LIBKLEO
     )
-endif()
 
 
 set(libkleo_ui_common_SRCS
@@ -62,15 +58,11 @@ set(libkleo_ui_common_SRCS
    ui/auditlogviewer.cpp
    )
 
-if (ECM_VERSION VERSION_LESS "5.68.0")
-    ecm_qt_declare_logging_category(libkleo_ui_common_SRCS HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui)
-else()
-    ecm_qt_declare_logging_category(libkleo_ui_common_SRCS HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui
+ecm_qt_declare_logging_category(libkleo_ui_common_SRCS HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui
         DESCRIPTION "libkleo (kleo_ui)"
         OLD_CATEGORY_NAMES log_kleo_ui
         EXPORT LIBKLEO
     )
-endif()
 
 
 set(libkleo_ui_SRCS    # make this a separate lib.
