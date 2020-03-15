@@ -27,7 +27,7 @@ include(ECMAddTests)
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.12.0")
-set(KDEPIMTEXTEDIT_VERSION "5.13.40")
+set(KDEPIMTEXTEDIT_VERSION "5.13.80")
 
 find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
 find_package(KF5I18n ${KF5_MIN_VERSION} CONFIG REQUIRED)
@@ -63,7 +63,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 ########### Targets ###########
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x058000)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054400)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII )
 
 ########### CMake Config Files ###########
