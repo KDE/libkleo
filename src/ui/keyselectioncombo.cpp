@@ -376,11 +376,7 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
     d->proxyModel->setSourceModel(d->sortFilterProxy);
 
     setModel(d->proxyModel);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(this, static_cast<void(KeySelectionCombo::*)(int)>(&KeySelectionCombo::currentIndexChanged),
-#else
-    connect(this, static_cast<void(KeySelectionCombo::*)(int, const QString &)>(&KeySelectionCombo::currentIndexChanged),
-#endif
             this, [this](int row) {
                 if (row >= 0 && row < d->proxyModel->rowCount()) {
                     if (d->proxyModel->isCustomItem(row)) {
@@ -436,11 +432,7 @@ void KeySelectionCombo::init()
         Q_EMIT keyListingFinished();
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(this, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this] () {
-#else
-    connect(this, QOverload<int, const QString &>::of(&QComboBox::currentIndexChanged), this, [this] () {
-#endif
             setToolTip(currentData(Qt::ToolTipRole).toString());
         });
 }
