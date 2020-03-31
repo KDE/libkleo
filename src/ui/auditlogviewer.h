@@ -26,7 +26,7 @@
 #include <kleo_export.h>
 
 #ifdef HAVE_PIMTEXTEDIT
-#include "kpimtextedit/richtexteditorwidget.h"
+#include <KPIMTextEdit/RichTextEditorWidget>
 
 namespace KPIMTextEdit
 {
