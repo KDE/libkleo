@@ -64,7 +64,8 @@ add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054500)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII )
-
+add_definitions(-DQT_NO_SIGNALS_SLOTS_KEYWORDS)
+add_definitions(-DQT_NO_EMIT)
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Libkleo")
 

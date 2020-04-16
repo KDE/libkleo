@@ -155,7 +155,7 @@ protected Q_SLOTS:
     void slotChanged()
     {
         mChanged = true;
-        emit changed();
+        Q_EMIT changed();
     }
 
 protected:
