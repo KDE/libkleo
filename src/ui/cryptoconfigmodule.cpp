@@ -65,6 +65,7 @@
 
 #include <memory>
 #include <limits>
+#include <array>
 
 using namespace Kleo;
 
@@ -161,7 +162,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
         addPage(w, configOK ? QString() : i18n("GpgConf Error"));
     }
 
-    const QStringList components = config->componentList();
+    const QStringList components = sortComponentList(config->componentList());
     for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it) {
         //qCDebug(KLEO_UI_LOG) <<"Component" << (*it).toLocal8Bit() <<":";
         QGpgME::CryptoConfigComponent *comp = config->component(*it);
@@ -225,6 +226,36 @@ void Kleo::CryptoConfigModule::init(Layout layout)
         label->setMinimumHeight(fontMetrics().lineSpacing() * 5);
         vlay->addWidget(label);
     }
+}
+
+QStringList Kleo::CryptoConfigModule::sortComponentList(const QStringList &components)
+{
+    // components sorting algorithm:
+    // 1. components with hardcoded order - see below
+    // 2. other components sorted alphabetically
+    static const std::array<QString, 6> order = {
+        QStringLiteral("gpg"),
+        QStringLiteral("gpgsm"),
+        QStringLiteral("gpg-agent"),
+        QStringLiteral("dirmngr"),
+        QStringLiteral("pinentry"),
+        QStringLiteral("scdaemon")
+    };
+
+    QStringList result, others;
+    for (const auto &item : order) {
+        if (components.contains(item)) {
+            result.append(item);
+        }
+    }
+    for (const auto &item : components) {
+        if (!result.contains(item)) {
+            others.append(item);
+        }
+    }
+    others.sort();
+    result.append(others);
+    return result;
 }
 
 bool Kleo::CryptoConfigModule::hasError() const
