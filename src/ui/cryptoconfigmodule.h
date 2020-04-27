@@ -77,7 +77,11 @@ Q_SIGNALS:
 
 private:
     void init(Layout layout);
-    QStringList sortComponentList(const QStringList &components);
+    static QStringList sortConfigEntries(const QString *orderBegin, const QString *orderEnd, const QStringList &entries);
+    static QStringList sortComponentList(const QStringList &components);
+
+public:
+    static QStringList sortGroupList(const QString &moduleName, const QStringList &groups);
 
 private:
     QGpgME::CryptoConfig *mConfig = nullptr;

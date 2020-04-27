@@ -228,11 +228,29 @@ void Kleo::CryptoConfigModule::init(Layout layout)
     }
 }
 
-QStringList Kleo::CryptoConfigModule::sortComponentList(const QStringList &components)
+QStringList Kleo::CryptoConfigModule::sortConfigEntries(const QString *orderBegin, const QString *orderEnd, const QStringList &entries)
 {
     // components sorting algorithm:
-    // 1. components with hardcoded order - see below
+    // 1. components with predefined order (provided via orderBegin / orderEnd)
     // 2. other components sorted alphabetically
+    QStringList result, others;
+    for (auto it = orderBegin; it != orderEnd; ++it) {
+        if (entries.contains(*it)) {
+            result.append(*it);
+        }
+    }
+    for (const auto &item : entries) {
+        if (!result.contains(item)) {
+            others.append(item);
+        }
+    }
+    others.sort();
+    result.append(others);
+    return result;
+}
+
+QStringList Kleo::CryptoConfigModule::sortComponentList(const QStringList &components)
+{
     static const std::array<QString, 6> order = {
         QStringLiteral("gpg"),
         QStringLiteral("gpgsm"),
@@ -241,21 +259,64 @@ QStringList Kleo::CryptoConfigModule::sortComponentList(const QStringList &compo
         QStringLiteral("pinentry"),
         QStringLiteral("scdaemon")
     };
+    return sortConfigEntries(order.begin(), order.end(), components);
+}
 
-    QStringList result, others;
-    for (const auto &item : order) {
-        if (components.contains(item)) {
-            result.append(item);
-        }
+QStringList Kleo::CryptoConfigModule::sortGroupList(const QString &moduleName, const QStringList &groups)
+{
+    if (moduleName == QStringLiteral("gpg")) {
+        static const std::array<QString, 4> order = {
+            QStringLiteral("Keyserver"),
+            QStringLiteral("Configuration"),
+            QStringLiteral("Monitor"),
+            QStringLiteral("Debug"),
+        };
+        return sortConfigEntries(order.begin(), order.end(), groups);
+    } else if (moduleName == QStringLiteral("gpgsm")) {
+        static const std::array<QString, 4> order = {
+            QStringLiteral("Security"),
+            QStringLiteral("Configuration"),
+            QStringLiteral("Monitor"),
+            QStringLiteral("Debug"),
+        };
+        return sortConfigEntries(order.begin(), order.end(), groups);
+    } else if (moduleName == QStringLiteral("gpg-agent")) {
+        static const std::array<QString, 5> order = {
+            QStringLiteral("Security"),
+            QStringLiteral("Passphrase policy"),
+            QStringLiteral("Configuration"),
+            QStringLiteral("Monitor"),
+            QStringLiteral("Debug"),
+        };
+        return sortConfigEntries(order.begin(), order.end(), groups);
+    } else if (moduleName == QStringLiteral("dirmngr")) {
+        static const std::array<QString, 10> order = {
+            QStringLiteral("Keyserver"),
+            QStringLiteral("HTTP"),
+            QStringLiteral("LDAP"),
+            QStringLiteral("OCSP"),
+            QStringLiteral("Tor"),
+            QStringLiteral("Enforcement"),
+            QStringLiteral("Configuration"),
+            QStringLiteral("Format"),
+            QStringLiteral("Monitor"),
+            QStringLiteral("Debug"),
+        };
+        return sortConfigEntries(order.begin(), order.end(), groups);
+    } else if (moduleName == QStringLiteral("scdaemon")) {
+        static const std::array<QString, 4> order = {
+            QStringLiteral("Monitor"),
+            QStringLiteral("Configuration"),
+            QStringLiteral("Security"),
+            QStringLiteral("Debug"),
+        };
+        return sortConfigEntries(order.begin(), order.end(), groups);
+    } else {
+        qCDebug(KLEO_UI_LOG) << "Configuration groups order is not defined for " << moduleName;
+        QStringList result(groups);
+        result.sort();
+        return result;
     }
-    for (const auto &item : components) {
-        if (!result.contains(item)) {
-            others.append(item);
-        }
-    }
-    others.sort();
-    result.append(others);
-    return result;
 }
 
 bool Kleo::CryptoConfigModule::hasError() const
@@ -307,7 +368,7 @@ Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
       mComponent(component)
 {
     QGridLayout *glay = new QGridLayout(this);
-    const QStringList groups = mComponent->groupList();
+    const QStringList groups = module->sortGroupList(mComponent->name(), mComponent->groupList());
     if (groups.size() > 1) {
         glay->setColumnMinimumWidth(0, KDHorizontalLine::indentHint());
         for (QStringList::const_iterator it = groups.begin(), end = groups.end(); it != end; ++it) {
