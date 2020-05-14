@@ -61,7 +61,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 
 ########### Targets ###########
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
-#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
+#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054600)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII )
 add_definitions(-DQT_NO_SIGNALS_SLOTS_KEYWORDS)
