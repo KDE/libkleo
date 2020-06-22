@@ -979,7 +979,11 @@ Kleo::CryptoConfigEntryKeyserver::CryptoConfigEntryKeyserver(
 
 Kleo::ParsedKeyserver Kleo::parseKeyserver(const QString &str)
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList list = str.split(QRegExp(QLatin1String("[\\s,]")), QString::SkipEmptyParts);
+#else
+    const QStringList list = str.split(QRegExp(QLatin1String("[\\s,]")), Qt::SkipEmptyParts);
+#endif
     if (list.empty()) {
         return Kleo::ParsedKeyserver();
     }

@@ -229,7 +229,11 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         { "appearance", Appearance },
         { "filtering", Filtering },
     };
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(QRegExp(QLatin1String("[^a-zA-Z0-9_-!]+")), QString::SkipEmptyParts);
+#else
+    const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(QRegExp(QLatin1String("[^a-zA-Z0-9_-!]+")), Qt::SkipEmptyParts);
+#endif
     setMatchContexts(NoMatchContext);
     for (const QString & ctx : contexts) {
         bool found = false;
