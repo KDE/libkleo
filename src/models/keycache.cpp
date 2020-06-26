@@ -1095,7 +1095,10 @@ KeyCache::RefreshKeysJob::RefreshKeysJob(KeyCache *cache, QObject *parent) : QOb
 {
 }
 
-KeyCache::RefreshKeysJob::~RefreshKeysJob() {}
+KeyCache::RefreshKeysJob::~RefreshKeysJob()
+{
+    delete d;
+}
 
 void KeyCache::RefreshKeysJob::start()
 {
