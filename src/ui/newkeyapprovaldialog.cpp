@@ -640,21 +640,41 @@ public:
 
         // Handle compliance
         bool de_vs = true;
-        for (const auto &key: q->signingKeys()) {
+
+        bool isPGP = mFormatBtns->checkedId() == 1;
+        bool isSMIME = mFormatBtns->checkedId() == 2;
+
+        for (const auto combo: qAsConst(mEncCombos)) {
+            const auto &key = combo->currentKey();
+            if (!combo->isVisible()) {
+                continue;
+            }
+            if (isSMIME && key.protocol() != GpgME::CMS) {
+                continue;
+            }
+            if (isPGP && key.protocol() != GpgME::OpenPGP) {
+                continue;
+            }
+            qCDebug(LIBKLEO_LOG) << "Checking" << key.primaryFingerprint() << Formatting::isKeyDeVs(key);
             if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
                 de_vs = false;
                 break;
             }
         }
         if (de_vs) {
-            for (const auto &keys: q->encryptionKeys().values()) {
-                for (const auto &key: keys) {
-                    if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
-                        de_vs = false;
-                        break;
-                    }
+            for (const auto combo: qAsConst(mSigningCombos)) {
+                const auto key = combo->currentKey();
+                if (!combo->isVisible()) {
+                    continue;
                 }
-                if (!de_vs) {
+                if (isSMIME && key.protocol() != GpgME::CMS) {
+                    continue;
+                }
+                if (isPGP && key.protocol() != GpgME::OpenPGP) {
+                    continue;
+                }
+                if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
+                    de_vs = false;
                     break;
                 }
             }
