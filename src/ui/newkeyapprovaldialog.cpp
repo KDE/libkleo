@@ -655,7 +655,6 @@ public:
             if (isPGP && key.protocol() != GpgME::OpenPGP) {
                 continue;
             }
-            qCDebug(LIBKLEO_LOG) << "Checking" << key.primaryFingerprint() << Formatting::isKeyDeVs(key);
             if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
                 de_vs = false;
                 break;
