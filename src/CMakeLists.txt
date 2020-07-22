@@ -37,6 +37,7 @@ set(libkleo_core_SRCS
    utils/formatting.cpp
    utils/classify.cpp
    utils/gnupg.cpp
+   utils/gnupg-registry.c
    utils/hex.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
