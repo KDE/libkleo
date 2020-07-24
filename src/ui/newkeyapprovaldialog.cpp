@@ -628,7 +628,13 @@ public:
             }
         }
 
-        mOkButton->setEnabled(!isAllIgnored);
+        // If we don't encrypt the ok button is always enabled. But otherwise
+        // we only enable it if we encrypt to at least one recipient.
+        if (!mEncCombos.size()) {
+            mOkButton->setEnabled(true);
+        } else {
+            mOkButton->setEnabled(!isAllIgnored);
+        }
 
         if (!isGenerate) {
             mOkButton->setText(origOkText);
