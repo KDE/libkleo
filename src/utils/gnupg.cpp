@@ -5,6 +5,7 @@
     Copyright (c) 2008 Klarälvdalens Datakonsult AB
     2016 by Bundesamt für Sicherheit in der Informationstechnik
     Software engineering by Intevation GmbH
+    2020 g10 Code GmbH
 
     Kleopatra is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -60,6 +61,8 @@
 
 #include <algorithm>
 #include <array>
+
+#include <KLocalizedString>
 
 using namespace GpgME;
 
@@ -133,21 +136,108 @@ QStringList Kleo::gnupgFileWhitelist()
            ;
 }
 
+namespace
+{
+class Gpg4win
+{
+public:
+    static const Gpg4win *instance()
+    {
+        // We use singleton to do the signature check only once.
+        static Gpg4win *inst = nullptr;
+        if (!inst) {
+            inst = new Gpg4win();
+        }
+        return inst;
+    }
+
+private:
+    QString mVersion;
+    QString mDescription;
+    QString mDescLong;
+
+    Gpg4win() :
+        mVersion(QStringLiteral("Unknown Windows Version")),
+        mDescription(i18n("Certificate Manager and Unified Crypto GUI")),
+        mDescLong(QStringLiteral("<a href=https://www.gpg4win.org>Visit the Gpg4win homepage</a>"))
+    {
+        const QString instPath = Kleo::gpg4winInstallPath();
+        const QString verPath = instPath + QStringLiteral("/../VERSION");
+        QFile versionFile(verPath);
+
+        QString versVersion;
+        QString versDescription;
+        QString versDescLong;
+        // Open the file first to avoid a verify and then read issue where
+        // "auditors" might say its an issue,...
+        if (!versionFile.open(QIODevice::ReadOnly)) {
+            // No need to translate this should only be the case in development
+            // builds.
+            return;
+        } else {
+            // Expect a three line format of three HTML strings.
+            versVersion = QString::fromUtf8(versionFile.readLine()).trimmed();
+            versDescription = QString::fromUtf8(versionFile.readLine()).trimmed();
+            versDescLong = QString::fromUtf8(versionFile.readLine()).trimmed();
+        }
+
+        const QString sigPath = verPath + QStringLiteral(".sig");
+        QFileInfo versionSig(instPath + QStringLiteral("/../VERSION.sig"));
+        QString signedVersion;
+        if (versionSig.exists()) {
+            /* We have a signed version so let us check it against the GnuPG
+             * release keys. */
+            QProcess gpgv;
+            gpgv.setProgram(Kleo::gpgPath().replace(QStringLiteral("gpg.exe"), QStringLiteral("gpgv.exe")));
+            const QString keyringPath(QStringLiteral("%1/../share/gnupg/distsigkey.gpg").arg(Kleo::gnupgInstallPath()));
+            gpgv.setArguments(QStringList() << QStringLiteral("--keyring")
+                                            << keyringPath
+                                            << QStringLiteral("--")
+                                            << sigPath
+                                            << verPath);
+            gpgv.start();
+            gpgv.waitForFinished();
+            if (gpgv.exitStatus() == QProcess::NormalExit &&
+                !gpgv.exitCode()) {
+                qCDebug(LIBKLEO_LOG) << "Valid Version: " << mVersion;
+                mVersion = versVersion;
+                mDescription = versDescription;
+                mDescLong = versDescLong;
+            } else {
+                qCDebug(LIBKLEO_LOG) << "gpgv failed with stderr: " << gpgv.readAllStandardError();
+                qCDebug(LIBKLEO_LOG) << "gpgv stdout" << gpgv.readAllStandardOutput();
+            }
+        } else {
+            qCDebug(LIBKLEO_LOG) << "No signed VERSION file found.";
+        }
+    }
+public:
+    const QString &version() const
+    {
+        return mVersion;
+    }
+    const QString &description() const
+    {
+        return mDescription;
+    }
+    const QString &longDescription() const
+    {
+        return mDescLong;
+    }
+};
+} // namespace
+
 QString Kleo::gpg4winVersion()
 {
-    QFile versionFile(gpg4winInstallPath() + QStringLiteral("/../VERSION"));
-    if (!versionFile.open(QIODevice::ReadOnly)) {
-        // No need to translate this should only be the case in development
-        // builds.
-        return QStringLiteral("Unknown (no VERSION file found)");
-    }
-    const QString g4wTag = QString::fromUtf8(versionFile.readLine());
-    if (!g4wTag.startsWith(QLatin1String("gpg4win"))) {
-        // Hu? Something unknown
-        return QStringLiteral("Unknown (invalid VERSION file found)");
-    }
-    // Next line is version.
-    return QString::fromUtf8(versionFile.readLine()).trimmed();
+    return Gpg4win::instance()->version();
+}
+QString Kleo::gpg4winDescription()
+{
+    return Gpg4win::instance()->description();
+}
+QString Kleo::gpg4winLongDescription()
+{
+    return Gpg4win::instance()->longDescription();
 }
 
 QString Kleo::gpg4winInstallPath()

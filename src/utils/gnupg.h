@@ -3,6 +3,7 @@
 
     This file is part of Kleopatra, the KDE keymanager
     Copyright (c) 2008 Klarälvdalens Datakonsult AB
+                  2020 g10 Code GmbH
 
     Kleopatra is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -69,6 +70,8 @@ KLEO_EXPORT QString gpgPath();
 KLEO_EXPORT QString gpgConfListDir(const char *which);
 KLEO_EXPORT QString gpg4winInstallPath();
 KLEO_EXPORT QString gpg4winVersion();
+KLEO_EXPORT QString gpg4winDescription();
+KLEO_EXPORT QString gpg4winLongDescription();
 KLEO_EXPORT QString gnupgInstallPath();
 KLEO_EXPORT const QString& paperKeyInstallPath();
 
