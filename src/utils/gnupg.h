@@ -70,6 +70,7 @@ KLEO_EXPORT QString gpgPath();
 KLEO_EXPORT QString gpgConfListDir(const char *which);
 KLEO_EXPORT QString gpg4winInstallPath();
 KLEO_EXPORT QString gpg4winVersion();
+KLEO_EXPORT bool gpg4winSignedversion();
 KLEO_EXPORT QString gpg4winDescription();
 KLEO_EXPORT QString gpg4winLongDescription();
 KLEO_EXPORT QString gnupgInstallPath();

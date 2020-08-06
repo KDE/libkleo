@@ -155,11 +155,13 @@ private:
     QString mVersion;
     QString mDescription;
     QString mDescLong;
+    bool mSignedVersion;
 
     Gpg4win() :
         mVersion(QStringLiteral("Unknown Windows Version")),
         mDescription(i18n("Certificate Manager and Unified Crypto GUI")),
-        mDescLong(QStringLiteral("<a href=https://www.gpg4win.org>Visit the Gpg4win homepage</a>"))
+        mDescLong(QStringLiteral("<a href=https://www.gpg4win.org>Visit the Gpg4win homepage</a>")),
+        mSignedVersion(false)
     {
         const QString instPath = Kleo::gpg4winInstallPath();
         const QString verPath = instPath + QStringLiteral("/../VERSION");
@@ -199,10 +201,11 @@ private:
             gpgv.waitForFinished();
             if (gpgv.exitStatus() == QProcess::NormalExit &&
                 !gpgv.exitCode()) {
-                qCDebug(LIBKLEO_LOG) << "Valid Version: " << mVersion;
+                qCDebug(LIBKLEO_LOG) << "Valid Version: " << versVersion;
                 mVersion = versVersion;
                 mDescription = versDescription;
                 mDescLong = versDescLong;
+                mSignedVersion = true;
             } else {
                 qCDebug(LIBKLEO_LOG) << "gpgv failed with stderr: " << gpgv.readAllStandardError();
                 qCDebug(LIBKLEO_LOG) << "gpgv stdout" << gpgv.readAllStandardOutput();
@@ -224,8 +227,17 @@ public:
     {
         return mDescLong;
     }
+    bool isSignedVersion() const
+    {
+        return mSignedVersion;
+    }
 };
 } // namespace
+
+bool Kleo::gpg4winSignedversion()
+{
+    return Gpg4win::instance()->isSignedVersion();
+}
 
 QString Kleo::gpg4winVersion()
 {
