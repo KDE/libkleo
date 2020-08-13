@@ -9,19 +9,6 @@
 **
 ** SPDX-License-Identifier: GPL-2.0-or-later
 **
-** Licensees holding valid commercial KD Tools licenses may use this file in
-** accordance with the KD Tools Commercial License Agreement provided with
-** the Software.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-**
-** See http://www.klaralvdalens-datakonsult.se/?page=products for
-**   information about KD Tools Commercial License Agreements.
-**
-** Contact info@klaralvdalens-datakonsult.se if any conditions of this
-** licensing are not clear to you.
-**
 **********************************************************************/
 
 #ifndef __KDTOOLS__KDHORIZONTALLINE_H__
