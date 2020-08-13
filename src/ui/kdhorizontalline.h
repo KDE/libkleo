@@ -3,13 +3,11 @@
 */
 
 /****************************************************************************
-** Copyright (C) 2005 Klarälvdalens Datakonsult AB.  All rights reserved.
+** SPDX-FileCopyrightText: 2005 Klarälvdalens Datakonsult AB. All rights reserved.
 **
 ** This file is part of the KD Tools library.
 **
-** This file may be distributed and/or modified under the terms of the
-** GNU General Public License as published by the Free Software Foundation;
-** either version 2 of the License, or (at your option) any later version.
+** SPDX-License-Identifier: GPL-2.0-or-later
 **
 ** Licensees holding valid commercial KD Tools licenses may use this file in
 ** accordance with the KD Tools Commercial License Agreement provided with
@@ -23,17 +21,6 @@
 **
 ** Contact info@klaralvdalens-datakonsult.se if any conditions of this
 ** licensing are not clear to you.
-**
-** In addition, as a special exception, the copyright holders give
-** permission to link the code of this program with any edition of the
-** Qt library by Trolltech AS, Norway (or with modified versions of Qt
-** that use the same license as Qt), and distribute linked
-** combinations including the two.  You must obey the GNU General
-** Public License in all respects for all of the code used other than
-** Qt.  If you modify this file, you may extend this exception to your
-** version of the file, but you are not obligated to do so.  If you do
-** not wish to do so, delete this exception statement from your
-** version.
 **
 **********************************************************************/
 

@@ -1,11 +1,9 @@
 /****************************************************************************
-** Copyright (C) 2001-2007 Klarälvdalens Datakonsult AB.  All rights reserved.
+** SPDX-FileCopyrightText: 2001-2007 Klarälvdalens Datakonsult AB. All rights reserved.
 **
 ** This file is part of the KD Tools library.
 **
-** This file may be distributed and/or modified under the terms of the
-** GNU General Public License as published by the Free Software Foundation;
-** either version 2 of the License, or (at your option) any later version.
+** SPDX-License-Identifier: GPL-2.0-or-later
 **
 ** Licensees holding valid commercial KD Tools licenses may use this file in
 ** accordance with the KD Tools Commercial License Agreement provided with
@@ -18,6 +16,7 @@
 ** licensing are not clear to you.
 **
 **********************************************************************/
+
 #ifndef __KDTOOLSCORE_STL_UTIL_H__
 #define __KDTOOLSCORE_STL_UTIL_H__
 
