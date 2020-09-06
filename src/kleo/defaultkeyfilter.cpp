@@ -33,11 +33,6 @@ class DefaultKeyFilter::Private
 public:
     Private() :
         mMatchContexts(AnyMatchContext),
-        mSpecificity(0),
-        mItalic(false),
-        mBold(false),
-        mStrikeOut(false),
-        mUseFullFont(false),
         mRevoked(DoesNotMatter),
         mExpired(DoesNotMatter),
         mDisabled(DoesNotMatter),
@@ -62,11 +57,11 @@ public:
     QString mIcon;
     QString mId;
     MatchContexts mMatchContexts;
-    unsigned int mSpecificity;
-    bool mItalic;
-    bool mBold;
-    bool mStrikeOut;
-    bool mUseFullFont;
+    unsigned int mSpecificity = 0;
+    bool mItalic = false;
+    bool mBold = false;
+    bool mStrikeOut = false;
+    bool mUseFullFont = false;
     QFont mFont;
 
     TriState mRevoked;

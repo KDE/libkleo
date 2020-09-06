@@ -100,7 +100,8 @@ private:
     const QString m_label;
     const QString m_outputFileName;
     const QStringList m_patterns;
-    ArgumentPassingMethod m_createMethod, m_verifyMethod;
+    ArgumentPassingMethod m_createMethod = CommandLine;
+    ArgumentPassingMethod m_verifyMethod = CommandLine;
 };
 
 }

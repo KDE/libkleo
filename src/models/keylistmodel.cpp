@@ -54,15 +54,11 @@ Q_DECLARE_METATYPE(GpgME::Key)
 class AbstractKeyListModel::Private
 {
 public:
-    Private() :
-        m_toolTipOptions(Formatting::Validity),
-        m_useKeyCache(false),
-        m_secretOnly(false) {}
-    int m_toolTipOptions;
+    int m_toolTipOptions = Formatting::Validity;
     mutable QHash<const char *, QVariant> prettyEMailCache;
     mutable QHash<const char *, QVariant> remarksCache;
-    bool m_useKeyCache;
-    bool m_secretOnly;
+    bool m_useKeyCache = false;
+    bool m_secretOnly = false;
     std::vector<GpgME::Key> m_remarkKeys;
 };
 AbstractKeyListModel::AbstractKeyListModel(QObject *p)
@@ -305,6 +301,7 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
                             return d->remarksCache[fpr] = remark;
                         } else {
                             QStringList remarkList;
+                            remarkList.reserve(remarks.size());
                             for (const auto &rem: remarks) {
                                 remarkList << QString::fromStdString(rem);
                             }

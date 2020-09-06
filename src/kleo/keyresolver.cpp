@@ -555,7 +555,7 @@ public:
         Q_EMIT q->keysResolved(true, false);
     }
 
-    KeyResolver *q;
+    KeyResolver *const q;
     QString mSender;
     QStringList mRecipients;
     QStringList mHiddenRecipients;
