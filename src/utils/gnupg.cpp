@@ -192,6 +192,8 @@ private:
         } else {
             qCDebug(LIBKLEO_LOG) << "No signed VERSION file found.";
         }
+        // Also take Version information from unsigned Versions.
+        mVersion = versVersion;
     }
 public:
     const QString &version() const
