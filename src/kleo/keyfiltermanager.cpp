@@ -48,7 +48,8 @@ public:
 
     int rowCount(const QModelIndex &) const override;
     QVariant data(const QModelIndex &idx, int role) const override;
-    /* upgrade to public */ using QAbstractListModel::reset;
+    /* upgrade to public */ using QAbstractListModel::beginResetModel;
+    /* upgrade to public */ using QAbstractListModel::endResetModel;
 };
 
 class AllCertificatesKeyFilter : public DefaultKeyFilter
@@ -170,9 +171,10 @@ public:
     Private() : filters(), appearanceFilters(), model(this) {}
     void clear()
     {
+        model.beginResetModel();
         filters.clear();
         appearanceFilters.clear();
-        model.reset();
+        model.endResetModel();
     }
 
     std::vector<std::shared_ptr<KeyFilter>> filters;
