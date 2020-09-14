@@ -4,6 +4,8 @@
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007, 2008 Klarälvdalens Datakonsult AB
     SPDX-FileCopyrightText: 2018 Intevation GmbH
+    SPDX-FileCopyrightText: 2020 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -122,6 +124,11 @@ public:
 
     std::vector<Key> find_mailbox(const QString &email, bool sign) const;
 
+    std::vector<Subkey>::const_iterator find_keygrip(const char *keygrip) const
+    {
+        return find<_detail::ByKeyGrip>(by.keygrip, keygrip);
+    }
+
     std::vector<Subkey>::const_iterator find_subkeyid(const char *subkeyid) const
     {
         return find<_detail::ByKeyID>(by.subkeyid, subkeyid);
@@ -224,7 +231,7 @@ private:
     struct By {
         std::vector<Key> fpr, keyid, shortkeyid, chainid;
         std::vector< std::pair<std::string, Key> > email;
-        std::vector<Subkey> subkeyid;
+        std::vector<Subkey> subkeyid, keygrip;
     } by;
     bool m_initalized;
     bool m_pgpOnly;
@@ -454,6 +461,22 @@ std::vector<Key> KeyCache::findByKeyIDOrFingerprint(const std::vector<std::strin
     // unlikely they're used for this purpose. We might need to revise
     // this decision, but only after testing.
     return result;
+}
+
+const Subkey &KeyCache::findSubkeyByKeyGrip(const char *grip) const
+{
+    const std::vector<Subkey>::const_iterator it = d->find_keygrip(grip);
+    if (it == d->by.keygrip.end()) {
+        static const Subkey null;
+        return null;
+    } else {
+        return *it;
+    }
+}
+
+const Subkey &KeyCache::findSubkeyByKeyGrip(const std::string &grip) const
+{
+    return findSubkeyByKeyGrip(grip.c_str());
 }
 
 std::vector<Subkey> KeyCache::findSubkeysByKeyID(const std::vector<std::string> &ids) const
@@ -811,6 +834,15 @@ void KeyCache::remove(const Key &key)
                                            });
             d->by.subkeyid.erase(it, range.second);
         }
+        if (const char *keygrip = subkey.keyGrip()) {
+            const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(), keygrip,
+                                                _detail::ByKeyGrip<std::less>());
+            const auto it = std::remove_if(range.first, range.second,
+                                           [fpr] (const Subkey &subkey) {
+                                               return !qstricmp(fpr, subkey.parent().primaryFingerprint());
+                                           });
+            d->by.keygrip.erase(it, range.second);
+        }
     }
 }
 
@@ -975,12 +1007,24 @@ void KeyCache::insert(const std::vector<Key> &keys)
                std::back_inserter(by_subkeyid),
                _detail::ByKeyID<std::less>());
 
+    // 6c. sort by key grip
+    std::sort(subkeys.begin(), subkeys.end(), _detail::ByKeyGrip<std::less>());
+
+    // 6d. insert into subkey keygrip index:
+    std::vector<Subkey> by_keygrip;
+    by_keygrip.reserve(subkeys.size() + d->by.keygrip.size());
+    std::merge(subkeys.begin(), subkeys.end(),
+               d->by.keygrip.begin(), d->by.keygrip.end(),
+               std::back_inserter(by_keygrip),
+               _detail::ByKeyGrip<std::less>());
+
     // now commit (well, we already removed keys...)
     by_fpr.swap(d->by.fpr);
     by_keyid.swap(d->by.keyid);
     by_shortkeyid.swap(d->by.shortkeyid);
     by_email.swap(d->by.email);
     by_subkeyid.swap(d->by.subkeyid);
+    by_keygrip.swap(d->by.keygrip);
     by_chainid.swap(d->by.chainid);
 
     for (const Key &key : qAsConst(sorted)) {

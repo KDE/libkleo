@@ -79,6 +79,7 @@ make_comparator_str_fast(ByFingerprint, .primaryFingerprint());
 make_comparator_str_fast(ByKeyID, .keyID());
 make_comparator_str_fast(ByShortKeyID, .shortKeyID());
 make_comparator_str_fast(ByChainID, .chainID());
+make_comparator_str_fast(ByKeyGrip, .keyGrip());
 
 template <typename T>
 void sort_by_fpr(T &t)

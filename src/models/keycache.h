@@ -105,6 +105,9 @@ public:
 
     std::vector<GpgME::Key> findByKeyIDOrFingerprint(const std::vector<std::string> &ids) const;
 
+    const GpgME::Subkey &findSubkeyByKeyGrip(const char *grip) const;
+    const GpgME::Subkey &findSubkeyByKeyGrip(const std::string &grip) const;
+
     std::vector<GpgME::Subkey> findSubkeysByKeyID(const std::vector<std::string> &ids) const;
 
     std::vector<GpgME::Key> findRecipients(const GpgME::DecryptionResult &result) const;
