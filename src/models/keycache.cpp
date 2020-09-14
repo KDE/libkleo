@@ -805,8 +805,11 @@ void KeyCache::remove(const Key &key)
         if (const char *keyid = subkey.keyID()) {
             const auto range = std::equal_range(d->by.subkeyid.begin(), d->by.subkeyid.end(), keyid,
                                                 _detail::ByKeyID<std::less>());
-            const auto range2 = std::equal_range(range.first, range.second, fpr, _detail::ByKeyID<std::less>());
-            d->by.subkeyid.erase(range2.first, range2.second);
+            const auto it = std::remove_if(range.first, range.second,
+                                           [fpr] (const Subkey &subkey) {
+                                               return !qstricmp(fpr, subkey.parent().primaryFingerprint());
+                                           });
+            d->by.subkeyid.erase(it, range.second);
         }
     }
 }
