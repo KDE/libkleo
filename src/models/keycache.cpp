@@ -969,7 +969,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
 
     // 6b. insert into subkey ID index:
     std::vector<Subkey> by_subkeyid;
-    by_email.reserve(subkeys.size() + d->by.subkeyid.size());
+    by_subkeyid.reserve(subkeys.size() + d->by.subkeyid.size());
     std::merge(subkeys.begin(), subkeys.end(),
                d->by.subkeyid.begin(), d->by.subkeyid.end(),
                std::back_inserter(by_subkeyid),
