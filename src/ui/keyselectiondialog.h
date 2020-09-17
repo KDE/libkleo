@@ -163,9 +163,12 @@ private:
 private:
     QVBoxLayout *mTopLayout = nullptr;
     Kleo::KeyListView *mKeyListView = nullptr;
+    Kleo::KeyListViewItem *mCurrentContextMenuItem = nullptr;
+    QCheckBox *mRememberCB = nullptr;
+    QPushButton *mOkButton = nullptr;
+
     const QGpgME::Protocol *mOpenPGPBackend = nullptr;
     const QGpgME::Protocol *mSMIMEBackend = nullptr;
-    QCheckBox *mRememberCB = nullptr;
     std::vector<GpgME::Key> mSelectedKeys, mKeysToCheck;
     unsigned int mKeyUsage;
     QTimer *mCheckSelectionTimer = nullptr;
@@ -173,9 +176,9 @@ private:
     // cross-eventloop temporaries:
     QString mSearchText;
     const QString mInitialQuery;
-    Kleo::KeyListViewItem *mCurrentContextMenuItem = nullptr;
-    int mTruncated, mListJobCount, mSavedOffsetY;
-    QPushButton *mOkButton = nullptr;
+    int mTruncated = 0,
+        mListJobCount = 0,
+        mSavedOffsetY = 0;
 };
 
 }
