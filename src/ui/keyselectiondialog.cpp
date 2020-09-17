@@ -321,12 +321,8 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
         QWidget *parent,
         bool modal)
     : QDialog(parent),
-      mOpenPGPBackend(nullptr),
-      mSMIMEBackend(nullptr),
-      mRememberCB(nullptr),
       mSelectedKeys(selectedKeys),
-      mKeyUsage(keyUsage),
-      mCurrentContextMenuItem(nullptr)
+      mKeyUsage(keyUsage)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -343,14 +339,10 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
         QWidget *parent,
         bool modal)
     : QDialog(parent),
-      mOpenPGPBackend(nullptr),
-      mSMIMEBackend(nullptr),
-      mRememberCB(nullptr),
       mSelectedKeys(selectedKeys),
       mKeyUsage(keyUsage),
       mSearchText(initialQuery),
-      mInitialQuery(initialQuery),
-      mCurrentContextMenuItem(nullptr)
+      mInitialQuery(initialQuery)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -366,13 +358,9 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
         QWidget *parent,
         bool modal)
     : QDialog(parent),
-      mOpenPGPBackend(nullptr),
-      mSMIMEBackend(nullptr),
-      mRememberCB(nullptr),
       mKeyUsage(keyUsage),
       mSearchText(initialQuery),
-      mInitialQuery(initialQuery),
-      mCurrentContextMenuItem(nullptr)
+      mInitialQuery(initialQuery)
 {
     setWindowTitle(title);
     setModal(modal);
