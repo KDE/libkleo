@@ -50,6 +50,13 @@ class KLEO_EXPORT KeySelectionDialog : public QDialog
 {
     Q_OBJECT
 public:
+    enum Option {
+        RereadKeys = 0x01,
+        ExternalCertificateManager = 0x02,
+        ExtendedSelection = 0x04,
+        RememberChoice = 0x08
+    };
+    Q_DECLARE_FLAGS(Options, Option)
 
     enum KeyUsage {
         PublicKeys = 1,
@@ -66,6 +73,8 @@ public:
         ValidEncryptionKeys = AllKeys | EncryptionKeys | ValidKeys,
         ValidTrustedEncryptionKeys = AllKeys | EncryptionKeys | ValidKeys | TrustedKeys
     };
+
+    explicit KeySelectionDialog(QWidget *parent = nullptr, Options options = Options());
 
     KeySelectionDialog(const QString &title,
                        const QString &text,
@@ -93,6 +102,10 @@ public:
                        QWidget *parent = nullptr,
                        bool modal = true);
     ~KeySelectionDialog();
+
+    void setText(const QString &text);
+
+    void setKeys(const std::vector<GpgME::Key> &keys);
 
     /** Returns the key ID of the selected key in single selection mode.
         Otherwise it returns a null key. */
@@ -158,10 +171,12 @@ private:
     void startKeyListJobForBackend(const QGpgME::Protocol *, const std::vector<GpgME::Key> &, bool);
     void startValidatingKeyListing();
 
+    void setUpUI(Options options, const QString &);
     void init(bool, bool, const QString &, const QString &);
 
 private:
     QVBoxLayout *mTopLayout = nullptr;
+    QLabel *mTextLabel = nullptr;
     Kleo::KeyListView *mKeyListView = nullptr;
     Kleo::KeyListViewItem *mCurrentContextMenuItem = nullptr;
     QCheckBox *mRememberCB = nullptr;
@@ -182,5 +197,7 @@ private:
 };
 
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeySelectionDialog::Options)
 
 #endif // __KLEO_UI_KEYSELECTIONDIALOG_H__

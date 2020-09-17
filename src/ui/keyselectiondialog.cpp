@@ -312,6 +312,16 @@ QIcon ColumnStrategy::icon(const GpgME::Key &key, int col) const
 
 static const int sCheckSelectionDelay = 250;
 
+Kleo::KeySelectionDialog::KeySelectionDialog(QWidget *parent, Options options)
+    : QDialog(parent),
+      mOpenPGPBackend(QGpgME::openpgp()),
+      mSMIMEBackend(QGpgME::smime()),
+      mKeyUsage(AllKeys)
+{
+        qCDebug(KLEO_UI_LOG) << "mTruncated:" << mTruncated << "mSavedOffsetY:" << mSavedOffsetY;
+    setUpUI(options, QString());
+}
+
 Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
         const QString &text,
         const std::vector<GpgME::Key> &selectedKeys,
@@ -367,25 +377,13 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
     init(rememberChoice, extendedSelection, text, initialQuery);
 }
 
-void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
-                                    const QString &text, const QString &initialQuery)
+void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setDefault(true);
     mOkButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    QPushButton *user1Button = new QPushButton;
-    buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
-    QPushButton *user2Button = new QPushButton;
-    buttonBox->addButton(user2Button, QDialogButtonBox::ActionRole);
-
-    if (mKeyUsage & OpenPGPKeys) {
-        mOpenPGPBackend = QGpgME::openpgp();
-    }
-    if (mKeyUsage & SMIMEKeys) {
-        mSMIMEBackend = QGpgME::smime();
-    }
 
     mCheckSelectionTimer = new QTimer(this);
     mStartSearchTimer = new QTimer(this);
@@ -397,16 +395,15 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     mTopLayout = new QVBoxLayout(page);
     mTopLayout->setContentsMargins(0, 0, 0, 0);
 
-    if (!text.isEmpty()) {
-        QLabel *textLabel = new QLabel(text, page);
-        textLabel->setWordWrap(true);
+    mTextLabel = new QLabel(page);
+    mTextLabel->setWordWrap(true);
 
-        // Setting the size policy is necessary as a workaround for https://issues.kolab.org/issue4429
-        // and http://bugreports.qt.nokia.com/browse/QTBUG-8740
-        textLabel->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-        connect(textLabel, &QLabel::linkActivated, this, &KeySelectionDialog::slotStartCertificateManager);
-        mTopLayout->addWidget(textLabel);
-    }
+    // Setting the size policy is necessary as a workaround for https://issues.kolab.org/issue4429
+    // and http://bugreports.qt.nokia.com/browse/QTBUG-8740
+    mTextLabel->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+    connect(mTextLabel, &QLabel::linkActivated, this, &KeySelectionDialog::slotStartCertificateManager);
+    mTopLayout->addWidget(mTextLabel);
+    mTextLabel->hide();
 
     QPushButton *const searchExternalPB =
         new QPushButton(i18n("Search for &External Certificates"), page);
@@ -441,12 +438,12 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     mKeyListView->setSortingEnabled(true);
     mKeyListView->header()->setSortIndicatorShown(true);
     mKeyListView->header()->setSortIndicator(1, Qt::AscendingOrder);   // sort by User ID
-    if (extendedSelection) {
+    if (options & ExtendedSelection) {
         mKeyListView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     }
     mTopLayout->addWidget(mKeyListView, 10);
 
-    if (rememberChoice) {
+    if (options & RememberChoice) {
         mRememberCB = new QCheckBox(i18n("&Remember choice"), page);
         mTopLayout->addWidget(mRememberCB);
         mRememberCB->setWhatsThis(
@@ -462,13 +459,19 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     connect(mKeyListView, &Kleo::KeyListView::doubleClicked, this, &KeySelectionDialog::slotTryOk);
     connect(mKeyListView, &KeyListView::contextMenu, this, &KeySelectionDialog::slotRMB);
 
-    user1Button->setText(i18n("&Reread Keys"));
-    user2Button->setText(i18n("&Start Certificate Manager"));
-    connect(user1Button, &QPushButton::clicked, this, &KeySelectionDialog::slotRereadKeys);
-    connect(user2Button, &QPushButton::clicked, this, [this]() { slotStartCertificateManager(); });
+    if (options & RereadKeys) {
+        QPushButton *button = new QPushButton(i18n("&Reread Keys"));
+        buttonBox->addButton(button, QDialogButtonBox::ActionRole);
+        connect(button, &QPushButton::clicked, this, &KeySelectionDialog::slotRereadKeys);
+    }
+    if (options & ExternalCertificateManager) {
+        QPushButton *button = new QPushButton(i18n("&Start Certificate Manager"));
+        buttonBox->addButton(button, QDialogButtonBox::ActionRole);
+        connect(button, &QPushButton::clicked, this, [this]() { slotStartCertificateManager(); });
+    }
     connect(mOkButton, &QPushButton::clicked, this, &KeySelectionDialog::slotOk);
     connect(buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &KeySelectionDialog::slotCancel);
-    slotRereadKeys();
+
     mTopLayout->activate();
 
     if (qApp) {
@@ -483,6 +486,25 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
     }
 }
 
+void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection, const QString &text, const QString &initialQuery)
+{
+    Options options = { RereadKeys, ExternalCertificateManager };
+    options.setFlag(ExtendedSelection, extendedSelection);
+    options.setFlag(RememberChoice, rememberChoice);
+
+    setUpUI(options, initialQuery);
+    setText(text);
+
+    if (mKeyUsage & OpenPGPKeys) {
+        mOpenPGPBackend = QGpgME::openpgp();
+    }
+    if (mKeyUsage & SMIMEKeys) {
+        mSMIMEBackend = QGpgME::smime();
+    }
+
+    slotRereadKeys();
+}
+
 Kleo::KeySelectionDialog::~KeySelectionDialog()
 {
     disconnectSignals();
@@ -490,6 +512,19 @@ Kleo::KeySelectionDialog::~KeySelectionDialog()
     dialogConfig.writeEntry("Dialog size", size());
     dialogConfig.writeEntry("header", mKeyListView->header()->saveState());
     dialogConfig.sync();
+}
+
+void Kleo::KeySelectionDialog::setText(const QString &text)
+{
+    mTextLabel->setText(text);
+    mTextLabel->setVisible(!text.isEmpty());
+}
+
+void Kleo::KeySelectionDialog::setKeys(const std::vector<GpgME::Key> &keys)
+{
+    for (const GpgME::Key &key : keys) {
+        mKeyListView->slotAddKey(key);
+    }
 }
 
 void Kleo::KeySelectionDialog::connectSignals()
