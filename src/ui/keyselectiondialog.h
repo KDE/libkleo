@@ -20,17 +20,17 @@
 #include <qgpgme/protocol.h>
 
 #include <QDialog>
-
 #include <QPixmap>
 
 #include <vector>
 
-class QVBoxLayout;
 class QCheckBox;
+class QLabel;
 class QPixmap;
-class QTimer;
-class QRegExp;
 class QPoint;
+class QRegExp;
+class QTimer;
+class QVBoxLayout;
 
 namespace Kleo
 {
