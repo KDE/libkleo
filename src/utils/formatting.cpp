@@ -552,7 +552,7 @@ QDate Formatting::creationDate(const UserID::Signature &sig)
 QString Formatting::displayName(Protocol p)
 {
     if (p == CMS) {
-        return i18nc("X.509/CMS encryption standard", "X.509");
+        return i18nc("X.509/CMS encryption standard", "S/MIME");
     }
     if (p == OpenPGP) {
         return i18n("OpenPGP");
