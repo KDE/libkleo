@@ -40,7 +40,6 @@ public:
     void blacklistFiles(const QStringList &patterns);
     void whitelistFiles(const QStringList &patterns);
 
-    QStringList directories() const;
     QStringList files() const;
     void removePaths(const QStringList &path);
     void removePath(const QString &path);

@@ -163,7 +163,6 @@ private:
     void filterByKeyIDOrUID(const QString &keyID);
     void filterByUID(const QString &uid);
     void showAllItems();
-    bool anyChildMatches(const Kleo::KeyListViewItem *item, QRegExp &rx) const;
 
     void connectSignals();
     void disconnectSignals();
