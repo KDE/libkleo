@@ -18,8 +18,6 @@
 #include <KConfig>
 #include <KShell>
 
-#include <QString>
-#include <QStringList>
 #include <QDebug>
 #include <QFileInfo>
 #include <QProcess>

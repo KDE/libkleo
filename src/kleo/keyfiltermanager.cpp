@@ -29,7 +29,6 @@
 #include <QModelIndex>
 
 #include <algorithm>
-#include <vector>
 #include <climits>
 #include <functional>
 

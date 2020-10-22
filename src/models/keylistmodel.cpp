@@ -36,7 +36,6 @@
 #endif
 
 #include <algorithm>
-#include <vector>
 #include <map>
 #include <set>
 #include <iterator>

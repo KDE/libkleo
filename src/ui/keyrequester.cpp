@@ -22,7 +22,6 @@
 // gpgme++
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <qgpgme/protocol.h>
 #include <qgpgme/keylistjob.h>
 
 // KDE
@@ -36,7 +35,6 @@
 
 #include <QString>
 #include <QStringList>
-#include <QLabel>
 
 #include <QHBoxLayout>
 

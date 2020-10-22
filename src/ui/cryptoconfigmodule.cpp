@@ -30,7 +30,6 @@
 #include <QPushButton>
 #include <QRegExp>
 #include <QVBoxLayout>
-#include <QList>
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QScrollArea>

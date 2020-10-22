@@ -14,7 +14,6 @@
 
 #include "progressbar.h"
 
-#include <qgpgme/job.h>
 
 #include <KLocalizedString>
 
