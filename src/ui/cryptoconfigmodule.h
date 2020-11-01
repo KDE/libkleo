@@ -54,7 +54,6 @@ Q_SIGNALS:
 
 private:
     void init(Layout layout);
-    static QStringList sortConfigEntries(const QString *orderBegin, const QString *orderEnd, const QStringList &entries);
     static QStringList sortComponentList(const QStringList &components);
 
 public:

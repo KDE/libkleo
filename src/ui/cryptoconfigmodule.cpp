@@ -204,7 +204,10 @@ void Kleo::CryptoConfigModule::init(Layout layout)
     }
 }
 
-QStringList Kleo::CryptoConfigModule::sortConfigEntries(const QString *orderBegin, const QString *orderEnd, const QStringList &entries)
+namespace
+{
+template<typename Iterator>
+QStringList sortConfigEntries(const Iterator orderBegin, const Iterator orderEnd, const QStringList &entries)
 {
     // components sorting algorithm:
     // 1. components with predefined order (provided via orderBegin / orderEnd)
@@ -224,6 +227,7 @@ QStringList Kleo::CryptoConfigModule::sortConfigEntries(const QString *orderBegi
     result.append(others);
     return result;
 }
+} // namespace
 
 QStringList Kleo::CryptoConfigModule::sortComponentList(const QStringList &components)
 {
