@@ -87,7 +87,6 @@ public:
     TriState isOpenPGP() const;
     TriState wasValidated() const;
     TriState isDeVS() const;
-    TriState isBad() const;
 
     LevelState ownerTrust() const;
     GpgME::Key::OwnerTrust ownerTrustReferenceLevel() const;
@@ -113,7 +112,6 @@ public:
     void setIsOpenPGP(const TriState) const;
     void setWasValidated(const TriState) const;
     void setIsDeVs(const TriState) const;
-    void setIsBad(const TriState) const;
 
     void setOwnerTrust(const LevelState) const;
     void setOwnerTrustReferenceLevel(const GpgME::Key::OwnerTrust) const;
