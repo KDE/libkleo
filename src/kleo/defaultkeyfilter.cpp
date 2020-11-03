@@ -47,6 +47,7 @@ public:
         mIsOpenPGP(DoesNotMatter),
         mWasValidated(DoesNotMatter),
         mIsDeVs(DoesNotMatter),
+        mBad(DoesNotMatter),
         mOwnerTrust(LevelDoesNotMatter),
         mOwnerTrustReferenceLevel(Key::Unknown),
         mValidity(LevelDoesNotMatter),
@@ -78,6 +79,7 @@ public:
     TriState mIsOpenPGP;
     TriState mWasValidated;
     TriState mIsDeVs;
+    TriState mBad;
 
     LevelState mOwnerTrust;
     GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel;
@@ -122,6 +124,7 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
             return false;
         }
     MATCH(d_ptr->mHasSecret, hasSecret);
+    IS_MATCH(Bad);
 #undef MATCH
     if (d_ptr->mIsOpenPGP != DoesNotMatter &&
             bool(key.protocol() == GpgME::OpenPGP) != bool(d_ptr->mIsOpenPGP == Set)) {
@@ -348,6 +351,11 @@ void DefaultKeyFilter::setIsDeVs(DefaultKeyFilter::TriState value) const
     d_ptr->mIsDeVs = value;
 }
 
+void DefaultKeyFilter::setIsBad(DefaultKeyFilter::TriState value) const
+{
+    d_ptr->mBad = value;
+}
+
 QColor DefaultKeyFilter::fgColor() const
 {
     return d_ptr->mFgColor;
@@ -496,4 +504,9 @@ GpgME::UserID::Validity DefaultKeyFilter::validityReferenceLevel() const
 DefaultKeyFilter::TriState DefaultKeyFilter::isDeVS() const
 {
     return d_ptr->mIsDeVs;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::isBad() const
+{
+    return d_ptr->mBad;
 }
