@@ -24,6 +24,9 @@
 #if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
 # define GPGME_HAS_REMARKS
 #endif
+#if GPGMEPP_VERSION >= 0x10E01 // 1.14.1
+# define GPGME_USERID_SIGNATURES_ARE_SORTABLE
+#endif
 
 using namespace GpgME;
 using namespace Kleo;
@@ -195,8 +198,11 @@ void UserIDListModel::setKey(const Key &key)
         UserID uid = key.userID(i);
         UIDModelItem *uidItem = new UIDModelItem(uid, mRootItem);
         mRootItem->appendChild(uidItem);
-        for (int j = 0, sigs = uid.numSignatures(); j < sigs; ++j) {
-            UserID::Signature sig = uid.signature(j);
+        std::vector<UserID::Signature> sigs = uid.signatures();
+#ifdef GPGME_USERID_SIGNATURES_ARE_SORTABLE
+        std::sort(sigs.begin(), sigs.end());
+#endif
+        for (const auto &sig : sigs) {
             UIDModelItem *sigItem = new UIDModelItem(sig, uidItem, mRemarksEnabled);
             uidItem->appendChild(sigItem);
         }
