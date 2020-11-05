@@ -10,7 +10,6 @@
 
 #ifdef _WIN32
 
-#include <unistd.h>
 #include <windows.h>
 
 #include <shlobj.h>
@@ -212,7 +211,7 @@ standard_homedir(void)
             dir = tmp;
 
             /* Try to create the directory if it does not yet exists.  */
-            if (access(dir, F_OK)) {
+            if (access(dir, 0 /* check existence */)) {
                 CreateDirectoryA(dir, NULL);
             }
         } else {
