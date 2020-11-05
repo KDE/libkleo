@@ -47,6 +47,7 @@ public:
         mIsOpenPGP(DoesNotMatter),
         mWasValidated(DoesNotMatter),
         mIsDeVs(DoesNotMatter),
+        mBad(DoesNotMatter),
         mOwnerTrust(LevelDoesNotMatter),
         mOwnerTrustReferenceLevel(Key::Unknown),
         mValidity(LevelDoesNotMatter),
@@ -78,6 +79,7 @@ public:
     TriState mIsOpenPGP;
     TriState mWasValidated;
     TriState mIsDeVs;
+    TriState mBad;
 
     LevelState mOwnerTrust;
     GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel;
@@ -133,6 +135,11 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     }
     if (d_ptr->mIsDeVs != DoesNotMatter &&
             bool(Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d_ptr->mIsDeVs == Set)) {
+        return false;
+    }
+    if (d_ptr->mBad != DoesNotMatter &&
+        /* This is similar to GPGME::Key::isBad which was introduced in GPGME 1.13.0 */
+        bool(key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || key.isInvalid()) != bool(d_ptr->mBad == Set)) {
         return false;
     }
     switch (d_ptr->mOwnerTrust) {
@@ -348,6 +355,11 @@ void DefaultKeyFilter::setIsDeVs(DefaultKeyFilter::TriState value) const
     d_ptr->mIsDeVs = value;
 }
 
+void DefaultKeyFilter::setIsBad(DefaultKeyFilter::TriState value) const
+{
+    d_ptr->mBad = value;
+}
+
 QColor DefaultKeyFilter::fgColor() const
 {
     return d_ptr->mFgColor;
@@ -496,4 +508,9 @@ GpgME::UserID::Validity DefaultKeyFilter::validityReferenceLevel() const
 DefaultKeyFilter::TriState DefaultKeyFilter::isDeVS() const
 {
     return d_ptr->mIsDeVs;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::isBad() const
+{
+    return d_ptr->mBad;
 }
