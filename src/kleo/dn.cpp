@@ -33,6 +33,10 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
+#ifdef _MSC_VER
+#define strcasecmp _stricmp
+#endif
+
 class Kleo::DN::Private
 {
 public:
