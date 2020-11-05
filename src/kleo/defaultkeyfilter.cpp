@@ -35,6 +35,7 @@ public:
         mMatchContexts(AnyMatchContext),
         mRevoked(DoesNotMatter),
         mExpired(DoesNotMatter),
+        mInvalid(DoesNotMatter),
         mDisabled(DoesNotMatter),
         mRoot(DoesNotMatter),
         mCanEncrypt(DoesNotMatter),
@@ -67,6 +68,7 @@ public:
 
     TriState mRevoked;
     TriState mExpired;
+    TriState mInvalid;
     TriState mDisabled;
     TriState mRoot;
     TriState mCanEncrypt;
@@ -111,6 +113,7 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
 #define CAN_MATCH(what) MATCH( d_ptr->mCan##what, can##what )
     IS_MATCH(Revoked);
     IS_MATCH(Expired);
+    IS_MATCH(Invalid);
     IS_MATCH(Disabled);
     IS_MATCH(Root);
     CAN_MATCH(Encrypt);
@@ -275,6 +278,11 @@ void DefaultKeyFilter::setExpired(DefaultKeyFilter::TriState value) const
     d_ptr->mExpired = value;
 }
 
+void DefaultKeyFilter::setInvalid(DefaultKeyFilter::TriState value) const
+{
+    d_ptr->mInvalid = value;
+}
+
 void DefaultKeyFilter::setDisabled(DefaultKeyFilter::TriState value) const
 {
     d_ptr->mDisabled = value;
@@ -428,6 +436,11 @@ DefaultKeyFilter::TriState DefaultKeyFilter::revoked() const
 DefaultKeyFilter::TriState DefaultKeyFilter::expired() const
 {
     return d_ptr->mExpired;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::invalid() const
+{
+    return d_ptr->mInvalid;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::disabled() const

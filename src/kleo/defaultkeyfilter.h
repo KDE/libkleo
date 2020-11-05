@@ -75,6 +75,7 @@ public:
 
     TriState revoked() const;
     TriState expired() const;
+    TriState invalid() const;
     TriState disabled() const;
     TriState root() const;
     TriState canEncrypt() const;
@@ -101,6 +102,7 @@ public:
 
     void setRevoked(const TriState) const;
     void setExpired(const TriState) const;
+    void setInvalid(const TriState) const;
     void setDisabled(const TriState) const;
     void setRoot(const TriState) const;
     void setCanEncrypt(const TriState) const;
