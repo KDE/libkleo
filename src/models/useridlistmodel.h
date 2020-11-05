@@ -1,5 +1,5 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
-    models/userIDlistmodel.h
+    models/useridlistmodel.h
 
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
@@ -32,7 +32,9 @@ public:
     GpgME::Key key() const;
 
 public:
+    GpgME::UserID userID(const QModelIndex &index) const;
     QVector<GpgME::UserID> userIDs(const QModelIndexList &indexs) const;
+    GpgME::UserID::Signature signature(const QModelIndex &index) const;
     QVector<GpgME::UserID::Signature> signatures(const QModelIndexList &indexs) const;
     void enableRemarks(bool value);
 

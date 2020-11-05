@@ -311,7 +311,17 @@ QVariant UserIDListModel::data(const QModelIndex &index, int role) const
     return item->data(index.column());
 }
 
-QVector<UserID> UserIDListModel::userIDs (const QModelIndexList &indexs) const {
+UserID UserIDListModel::userID(const QModelIndex& index) const
+{
+    if (!index.isValid()) {
+        return UserID();
+    }
+    UIDModelItem *item = static_cast<UIDModelItem*>(index.internalPointer());
+    return item->uid();
+}
+
+QVector<UserID> UserIDListModel::userIDs(const QModelIndexList &indexs) const
+{
     QVector<GpgME::UserID> ret;
     for (const QModelIndex &idx : indexs) {
         if (!idx.isValid()) {
@@ -325,7 +335,17 @@ QVector<UserID> UserIDListModel::userIDs (const QModelIndexList &indexs) const {
     return ret;
 }
 
-QVector<UserID::Signature> UserIDListModel::signatures (const QModelIndexList &indexs) const {
+UserID::Signature UserIDListModel::signature(const QModelIndex& index) const
+{
+    if (!index.isValid()) {
+        return UserID::Signature();
+    }
+    UIDModelItem *item = static_cast<UIDModelItem*>(index.internalPointer());
+    return item->signature();
+}
+
+QVector<UserID::Signature> UserIDListModel::signatures(const QModelIndexList &indexs) const
+{
     QVector<GpgME::UserID::Signature> ret;
     for (const QModelIndex &idx : indexs) {
         if (!idx.isValid()) {
