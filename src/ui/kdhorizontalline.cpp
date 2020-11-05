@@ -95,7 +95,7 @@ void KDHorizontalLine::calculateFrame()
 
 QSizePolicy KDHorizontalLine::sizePolicy() const
 {
-    return QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
+    return {QSizePolicy::Minimum, QSizePolicy::Fixed};
 }
 
 QSize KDHorizontalLine::sizeHint() const

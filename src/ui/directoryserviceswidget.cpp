@@ -116,8 +116,8 @@ static unsigned short display_port(const QUrl &url)
 static QRect calculate_geometry(const QRect &cell, const QSize &sizeHint)
 {
     const int height = qMax(cell.height(), sizeHint.height());
-    return QRect(cell.left(), cell.top() - (height - cell.height()) / 2,
-                 cell.width(), height);
+    return {cell.left(), cell.top() - (height - cell.height()) / 2,
+                 cell.width(), height};
 }
 
 /* The Model contains a bit historic cruft because in the past it was
@@ -189,7 +189,7 @@ public:
     QModelIndex duplicateRow(unsigned int row)
     {
         if (row >= m_items.size()) {
-            return QModelIndex();
+            return {};
         }
 
         beginInsertRows(QModelIndex(), row + 1, row + 1);
@@ -332,7 +332,7 @@ public:
 private:
     QWidget *createPortWidget(QWidget *parent) const
     {
-        QSpinBox *sb = new QSpinBox(parent);
+        auto *sb = new QSpinBox(parent);
         sb->setRange(1, USHRT_MAX);   // valid port numbers
         return sb;
     }

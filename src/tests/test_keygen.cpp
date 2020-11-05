@@ -51,9 +51,9 @@ KeyGenerator::KeyGenerator(QWidget *parent)
     setWindowTitle(QStringLiteral("KeyGenerationJob test"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
-    QPushButton *user1Button = new QPushButton;
+    auto *user1Button = new QPushButton;
     buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &KeyGenerator::reject);
     user1Button->setDefault(true);
@@ -63,7 +63,7 @@ KeyGenerator::KeyGenerator(QWidget *parent)
     mainLayout->addWidget(w);
     mainLayout->addWidget(buttonBox);
 
-    QGridLayout *glay = new QGridLayout(w);
+    auto *glay = new QGridLayout(w);
 
     int row = -1;
 
@@ -152,7 +152,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    KeyGenerator *keygen = new KeyGenerator(nullptr);
+    auto *keygen = new KeyGenerator(nullptr);
     keygen->setObjectName(QStringLiteral("KeyGenerator top-level"));
     keygen->show();
 

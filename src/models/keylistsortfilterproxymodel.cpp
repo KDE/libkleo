@@ -79,7 +79,7 @@ QModelIndex AbstractKeyListSortFilterProxyModel::index(const Key &key) const
     if (const KeyListModelInterface *const klmi = dynamic_cast<KeyListModelInterface *>(sourceModel())) {
         return mapFromSource(klmi->index(key));
     } else {
-        return QModelIndex();
+        return {};
     }
 }
 

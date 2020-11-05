@@ -361,7 +361,7 @@ QString Formatting::toolTip(const Key &key, int flags)
                                  ? i18n("Subject")
                                  : i18n("User-ID"), prettyUserID(uids.front()));
         if (uids.size() > 1)
-            for (std::vector<UserID>::const_iterator it = uids.begin() + 1, end = uids.end(); it != end; ++it)
+            for (auto it = uids.begin() + 1, end = uids.end(); it != end; ++it)
                 if (!it->isRevoked() && !it->isInvalid()) {
                     result += format_row(i18n("a.k.a."), prettyUserID(*it));
                 }
@@ -452,7 +452,7 @@ namespace
 static QDate time_t2date(time_t t)
 {
     if (!t) {
-        return QDate();
+        return {};
     }
     QDateTime dt;
     dt.setTime_t(t);

@@ -113,7 +113,7 @@ std::vector<Key> AbstractKeyListModel::keys(const QList<QModelIndex> &indexes) c
 QModelIndex AbstractKeyListModel::index(const Key &key, int col) const
 {
     if (key.isNull() || col < 0 || col >= NumColumns) {
-        return QModelIndex();
+        return {};
     } else {
         return doMapFromKey(key, col);
     }
@@ -471,7 +471,7 @@ QModelIndex FlatKeyListModel::doMapFromKey(const Key &key, int col) const
         = std::lower_bound(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
                            key, _detail::ByFingerprint<std::less>());
     if (it == mKeysByFingerprint.end() || !_detail::ByFingerprint<std::equal_to>()(*it, key)) {
-        return QModelIndex();
+        return {};
     } else {
         return createIndex(it - mKeysByFingerprint.begin(), col);
     }
@@ -485,7 +485,7 @@ QList<QModelIndex> FlatKeyListModel::doAddKeys(const std::vector<Key> &keys)
         return QList<QModelIndex>();
     }
 
-    for (std::vector<Key>::const_iterator it = keys.begin(), end = keys.end(); it != end; ++it) {
+    for (auto it = keys.begin(), end = keys.end(); it != end; ++it) {
 
         // find an insertion point:
         const std::vector<Key>::iterator pos = std::upper_bound(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), *it, _detail::ByFingerprint<std::less>());
@@ -562,7 +562,7 @@ QModelIndex HierarchicalKeyListModel::index(int row, int col, const QModelIndex 
 {
 
     if (row < 0 || col < 0 || col >= NumColumns) {
-        return QModelIndex();
+        return {};
     }
 
     // toplevel item:
@@ -591,7 +591,7 @@ QModelIndex HierarchicalKeyListModel::parent(const QModelIndex &idx) const
 {
     const Key key = this->key(idx);
     if (key.isNull() || key.isRoot()) {
-        return QModelIndex();
+        return {};
     }
     const std::vector<Key>::const_iterator it
         = qBinaryFind(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
@@ -629,7 +629,7 @@ QModelIndex HierarchicalKeyListModel::doMapFromKey(const Key &key, int col) cons
 {
 
     if (key.isNull()) {
-        return QModelIndex();
+        return {};
     }
 
     const char *issuer_fpr = cleanChainID(key);
@@ -798,8 +798,8 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
         // Step 1: For new keys, remove children from toplevel:
 
         if (!keyAlreadyExisted) {
-            std::vector<Key>::iterator last = mTopLevels.begin();
-            std::vector<Key>::iterator lastFP = mKeysByFingerprint.begin();
+            auto last = mTopLevels.begin();
+            auto lastFP = mKeysByFingerprint.begin();
 
             for (const Key &k : qAsConst(children)) {
                 last = qBinaryFind(last, mTopLevels.end(), k, _detail::ByFingerprint<std::less>());

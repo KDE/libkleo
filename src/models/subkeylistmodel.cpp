@@ -103,7 +103,7 @@ QModelIndex SubkeyListModel::index(const Subkey &subkey, int col) const
         if (qstricmp(subkey.keyID(), d->key.subkey(row).keyID()) == 0) {
             return index(row, col);
         }
-    return QModelIndex();
+    return {};
 }
 
 QList<QModelIndex> SubkeyListModel::indexes(const std::vector<Subkey> &subkeys) const

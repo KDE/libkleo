@@ -124,7 +124,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    CertListView *clv = new CertListView;
+    auto *clv = new CertListView;
     clv->show();
 
     QTimer::singleShot(5000, clv, &CertListView::slotStart);

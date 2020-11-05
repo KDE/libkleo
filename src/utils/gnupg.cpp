@@ -331,7 +331,7 @@ static std::array<int, 3> getVersionFromString(const char *actual, bool &ok)
     QString versionString = QString::fromLatin1(actual);
 
     // Try to fix it up
-    QRegExp rx(QLatin1String("(\\d+)\\.(\\d+)\\.(\\d+)(?:-svn\\d+)?.*"));
+    QRegExp rx(QLatin1String(R"((\d+)\.(\d+)\.(\d+)(?:-svn\d+)?.*)"));
     for (int i = 0; i < 3; i++) {
         if (!rx.exactMatch(versionString)) {
             versionString += QStringLiteral(".0");

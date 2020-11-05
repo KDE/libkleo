@@ -166,7 +166,7 @@ Value accumulate_transform_if(InputIterator first, InputIterator last, UnaryFunc
 template <typename InputIterator, typename BinaryOperation>
 BinaryOperation for_each_adjacent_pair(InputIterator first, InputIterator last, BinaryOperation op)
 {
-    typedef typename std::iterator_traits<InputIterator>::value_type ValueType;
+    using ValueType = typename std::iterator_traits<InputIterator>::value_type;
     if (first == last) {
         return op;
     }

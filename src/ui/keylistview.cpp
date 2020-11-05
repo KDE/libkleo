@@ -109,7 +109,7 @@ Kleo::KeyListView::~KeyListView()
 void Kleo::KeyListView::takeItem(QTreeWidgetItem *qlvi)
 {
     //qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListView::takeItem(" << qlvi <<" )";
-    if (KeyListViewItem *item = lvi_cast<KeyListViewItem>(qlvi)) {
+    if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
         deregisterItem(item);
     }
     takeTopLevelItem(indexOfTopLevelItem(qlvi));
@@ -196,7 +196,7 @@ void Kleo::KeyListView::deregisterItem(const KeyListViewItem *item)
     if (!item) {
         return;
     }
-    std::map<QByteArray, KeyListViewItem *>::iterator it
+    auto it
         = d->itemMap.find(item->key().primaryFingerprint());
     if (it == d->itemMap.end()) {
         return;
@@ -425,14 +425,14 @@ bool Kleo::KeyListViewItem::operator<(const QTreeWidgetItem &other) const
     if (other.type() != RTTI || !listView() || !listView()->columnStrategy()) {
         return QTreeWidgetItem::operator<(other);
     }
-    const KeyListViewItem *that = static_cast<const KeyListViewItem *>(&other);
+    const auto *that = static_cast<const KeyListViewItem *>(&other);
     return listView()->columnStrategy()->compare(this->key(), that->key(), treeWidget()->sortColumn()) < 0;
 }
 
 void Kleo::KeyListViewItem::takeItem(QTreeWidgetItem *qlvi)
 {
     //qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListViewItem::takeItem(" << qlvi <<" )";
-    if (KeyListViewItem *item = lvi_cast<KeyListViewItem>(qlvi)) {
+    if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
         listView()->deregisterItem(item);
     }
     takeChild(indexOfChild(qlvi));
@@ -527,7 +527,7 @@ QList<Kleo::KeyListViewItem *> Kleo::KeyListView::selectedItems() const
 {
     QList<KeyListViewItem *> result;
     foreach (QTreeWidgetItem *selectedItem, QTreeWidget::selectedItems()) {
-        if (Kleo::KeyListViewItem *i = Kleo::lvi_cast<Kleo::KeyListViewItem>(selectedItem)) {
+        if (auto *i = Kleo::lvi_cast<Kleo::KeyListViewItem>(selectedItem)) {
             result.append(i);
         }
     }

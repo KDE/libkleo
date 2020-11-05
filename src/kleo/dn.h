@@ -58,8 +58,8 @@ class KLEO_EXPORT DN
 {
 public:
     class Attribute;
-    typedef QVector<Attribute> AttributeList;
-    typedef AttributeList::const_iterator const_iterator;
+    using AttributeList = QVector<Attribute>;
+    using const_iterator = AttributeList::const_iterator;
 
     DN();
     explicit DN(const QString &dn);
@@ -100,7 +100,7 @@ private:
 class KLEO_EXPORT DN::Attribute
 {
 public:
-    typedef DN::AttributeList List;
+    using List = DN::AttributeList;
 
     explicit Attribute(const QString &name = QString(), const QString &value = QString())
         : mName(name.toUpper()), mValue(value) {}

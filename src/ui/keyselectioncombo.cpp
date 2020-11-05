@@ -151,7 +151,7 @@ public:
 
             return sourceModel()->index(row, index.column());
         } else {
-            return QModelIndex();
+            return {};
         }
     }
 
@@ -164,7 +164,7 @@ public:
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
     {
         if (row < 0 || row >= rowCount()) {
-            return QModelIndex();
+            return {};
         }
         if (row < mFrontItems.count()) {
             return createIndex(row, column, mFrontItems[row]);
@@ -185,7 +185,7 @@ public:
     QModelIndex parent(const QModelIndex &) const override
     {
         // Flat list
-        return QModelIndex();
+        return {};
     }
 
     QVariant data(const QModelIndex &index, int role) const override
@@ -196,7 +196,7 @@ public:
 
         if (isCustomItem(index.row())) {
             Q_ASSERT(!mFrontItems.isEmpty() || !mBackItems.isEmpty());
-            CustomItem *ci = static_cast<CustomItem*>(index.internalPointer());
+            auto *ci = static_cast<CustomItem*>(index.internalPointer());
             switch (role) {
             case Qt::DisplayRole:
                 return ci->text;

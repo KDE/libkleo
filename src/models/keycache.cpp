@@ -86,7 +86,7 @@ public:
     std::vector<Key>::const_iterator find(const std::vector<Key> &keys, const char *key) const
     {
         ensureCachePopulated();
-        const std::vector<Key>::const_iterator it =
+        const auto it =
             std::lower_bound(keys.begin(), keys.end(), key, Comp<std::less>());
         if (it == keys.end() || Comp<std::equal_to>()(*it, key)) {
             return it;
@@ -99,7 +99,7 @@ public:
     std::vector<Subkey>::const_iterator find(const std::vector<Subkey> &keys, const char *key) const
     {
         ensureCachePopulated();
-        const std::vector<Subkey>::const_iterator it =
+        const auto it =
             std::lower_bound(keys.begin(), keys.end(), key, Comp<std::less>());
         if (it == keys.end() || Comp<std::equal_to>()(*it, key)) {
             return it;
@@ -888,7 +888,7 @@ template <
     template <template <typename T> class Op> class T2
     > struct lexicographically
 {
-    typedef bool result_type;
+    using result_type = bool;
 
     template <typename U, typename V>
     bool operator()(const U &lhs, const V &rhs) const

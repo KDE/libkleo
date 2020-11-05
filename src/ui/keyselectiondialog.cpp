@@ -142,7 +142,7 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString 
 
 static bool checkKeyUsage(const std::vector<GpgME::Key> &keys, unsigned int keyUsage)
 {
-    for (std::vector<GpgME::Key>::const_iterator it = keys.begin(); it != keys.end(); ++it)
+    for (auto it = keys.begin(); it != keys.end(); ++it)
         if (!checkKeyUsage(*it, keyUsage)) {
             return false;
         }
@@ -378,7 +378,7 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
 
 void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setDefault(true);
@@ -412,10 +412,10 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
         searchExternalPB->hide();
     }
 
-    QHBoxLayout *hlay = new QHBoxLayout();
+    auto *hlay = new QHBoxLayout();
     mTopLayout->addLayout(hlay);
 
-    QLineEdit *le = new QLineEdit(page);
+    auto *le = new QLineEdit(page);
     le->setClearButtonEnabled(true);
     le->setText(initialQuery);
 
@@ -562,7 +562,7 @@ QString Kleo::KeySelectionDialog::fingerprint() const
 QStringList Kleo::KeySelectionDialog::fingerprints() const
 {
     QStringList result;
-    for (std::vector<GpgME::Key>::const_iterator it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it)
+    for (auto it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it)
         if (const char *fpr = it->primaryFingerprint()) {
             result.push_back(QLatin1String(fpr));
         }
@@ -572,7 +572,7 @@ QStringList Kleo::KeySelectionDialog::fingerprints() const
 QStringList Kleo::KeySelectionDialog::pgpKeyFingerprints() const
 {
     QStringList result;
-    for (std::vector<GpgME::Key>::const_iterator it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it)
+    for (auto it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it)
         if (it->protocol() == GpgME::OpenPGP)
             if (const char *fpr = it->primaryFingerprint()) {
                 result.push_back(QLatin1String(fpr));
@@ -583,7 +583,7 @@ QStringList Kleo::KeySelectionDialog::pgpKeyFingerprints() const
 QStringList Kleo::KeySelectionDialog::smimeFingerprints() const
 {
     QStringList result;
-    for (std::vector<GpgME::Key>::const_iterator it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it)
+    for (auto it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it)
         if (it->protocol() == GpgME::CMS)
             if (const char *fpr = it->primaryFingerprint()) {
                 result.push_back(QLatin1String(fpr));
@@ -695,7 +695,7 @@ static void selectKeys(Kleo::KeyListView *klv, const std::vector<GpgME::Key> &se
     if (selectedKeys.empty()) {
         return;
     }
-    for (std::vector<GpgME::Key>::const_iterator it = selectedKeys.begin(); it != selectedKeys.end(); ++it)
+    for (auto it = selectedKeys.begin(); it != selectedKeys.end(); ++it)
         if (Kleo::KeyListViewItem *item = klv->itemByFingerprint(it->primaryFingerprint())) {
             item->setSelected(true);
         }
@@ -939,7 +939,7 @@ static bool anyUIDMatches(const Kleo::KeyListViewItem *item, QRegExp &rx)
     }
 
     const std::vector<GpgME::UserID> uids = item->key().userIDs();
-    for (std::vector<GpgME::UserID>::const_iterator it = uids.begin(); it != uids.end(); ++it)
+    for (auto it = uids.begin(); it != uids.end(); ++it)
         if (it->id() && rx.indexIn(QString::fromUtf8(it->id())) >= 0) {
             return true;
         }

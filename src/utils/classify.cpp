@@ -77,7 +77,7 @@ static const unsigned int defaultClassification = NoClass;
 
 template <template <typename U> class Op>
 struct ByExtension {
-    typedef bool result_type;
+    using result_type = bool;
 
     template <typename T>
     bool operator()(const T &lhs, const T &rhs) const
@@ -116,7 +116,7 @@ static const struct _content_classification {
 
 template <template <typename U> class Op>
 struct ByContent {
-    typedef bool result_type;
+    using result_type = bool;
 
     const unsigned int N;
     explicit ByContent(unsigned int n) : N(n) {}

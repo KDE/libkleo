@@ -68,7 +68,7 @@ Kleo::KeyRequester::KeyRequester(QWidget *parent)
 
 void Kleo::KeyRequester::init()
 {
-    QHBoxLayout *hlay = new QHBoxLayout(this);
+    auto *hlay = new QHBoxLayout(this);
     hlay->setContentsMargins(0, 0, 0, 0);
 
     // the label where the key id is to be displayed:
@@ -123,7 +123,7 @@ const GpgME::Key &Kleo::KeyRequester::key() const
 void Kleo::KeyRequester::setKeys(const std::vector<GpgME::Key> &keys)
 {
     mKeys.clear();
-    for (std::vector<GpgME::Key>::const_iterator it = keys.begin(); it != keys.end(); ++it)
+    for (auto it = keys.begin(); it != keys.end(); ++it)
         if (!it->isNull()) {
             mKeys.push_back(*it);
         }
@@ -151,7 +151,7 @@ QString Kleo::KeyRequester::fingerprint() const
 QStringList Kleo::KeyRequester::fingerprints() const
 {
     QStringList result;
-    for (std::vector<GpgME::Key>::const_iterator it = mKeys.begin(); it != mKeys.end(); ++it)
+    for (auto it = mKeys.begin(); it != mKeys.end(); ++it)
         if (!it->isNull())
             if (const char *fpr = it->primaryFingerprint()) {
                 result.push_back(QLatin1String(fpr));

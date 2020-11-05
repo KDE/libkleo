@@ -23,7 +23,7 @@ KeyRearrangeColumnsProxyModel::KeyRearrangeColumnsProxyModel(QObject *parent) :
 
 KeyListModelInterface *KeyRearrangeColumnsProxyModel::klm() const
 {
-    KeyListModelInterface *ret = dynamic_cast<KeyListModelInterface *>(sourceModel());
+    auto *ret = dynamic_cast<KeyListModelInterface *>(sourceModel());
     Q_ASSERT(ret);
     return ret;
 }

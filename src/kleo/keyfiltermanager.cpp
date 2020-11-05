@@ -298,7 +298,7 @@ const std::shared_ptr<KeyFilter> &KeyFilterManager::fromModelIndex(const QModelI
 QModelIndex KeyFilterManager::toModelIndex(const std::shared_ptr<KeyFilter> &kf) const
 {
     if (!kf) {
-        return QModelIndex();
+        return {};
     }
     const auto pair = std::equal_range(d->filters.cbegin(), d->filters.cend(), kf, ByDecreasingSpecificity());
     const auto it = std::find(pair.first, pair.second, kf);
@@ -372,7 +372,7 @@ static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, 
                                     && (filter.get()->*fun)().isValid();
                                  });
     if (it == filters.cend()) {
-        return QColor();
+        return {};
     } else {
         return (it->get()->*fun)();
     }
