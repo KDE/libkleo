@@ -47,16 +47,8 @@ using namespace GpgME;
 
 QString Kleo::gnupgHomeDirectory()
 {
-#ifdef Q_OS_WIN
-    return QFile::decodeName(default_homedir());
-#else
-    const QByteArray gnupgHome = qgetenv("GNUPGHOME");
-    if (!gnupgHome.isEmpty()) {
-        return QFile::decodeName(gnupgHome);
-    } else {
-        return QDir::homePath() + QLatin1String("/.gnupg");
-    }
-#endif
+    static QString homeDir = QString::fromUtf8(GpgME::dirInfo("homedir"));
+    return homeDir;
 }
 
 int Kleo::makeGnuPGError(int code)
