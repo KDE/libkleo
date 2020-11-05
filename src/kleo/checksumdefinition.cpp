@@ -9,7 +9,7 @@
 
 #include "checksumdefinition.h"
 
-#include "exception.h"
+#include "kleoexception.h"
 
 #include "libkleo_debug.h"
 

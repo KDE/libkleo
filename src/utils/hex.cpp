@@ -9,7 +9,7 @@
 
 #include "hex.h"
 
-#include <Libkleo/Exception>
+#include "kleo/kleoexception.h"
 
 #include <KLocalizedString>
 

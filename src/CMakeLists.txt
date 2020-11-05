@@ -23,10 +23,10 @@ set(libkleo_core_SRCS
    kleo/defaultkeygenerationjob.cpp
    kleo/dn.cpp
    kleo/enum.cpp
-   kleo/exception.cpp
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
    kleo/keyresolver.cpp
+   kleo/kleoexception.cpp
    models/keycache.cpp
    models/keylistmodel.cpp
    models/keylistsortfilterproxymodel.cpp
@@ -128,11 +128,11 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   DefaultKeyGenerationJob
   Dn
   Enum
-  Exception
   KConfigBasedKeyFilter
   KeyFilter
   KeyFilterManager
   KeyResolver
+  KleoException
   OidMap
   Predicates
   Stl_Util
