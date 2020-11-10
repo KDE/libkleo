@@ -474,16 +474,10 @@ void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
         // Already set
         return;
     }
-    for (int i = 0; i < d->proxyModel->rowCount(); ++i) {
-        const auto idx = d->proxyModel->index(i, 0, QModelIndex());
-        const auto key = d->proxyModel->data(idx, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
-        if (!key.isNull() && fingerprint == QString::fromLatin1(key.primaryFingerprint())) {
-            setCurrentIndex(i);
-            setToolTip(currentData(Qt::ToolTipRole).toString());
-            return;
-        }
-    }
-    if (!d->selectPerfectIdMatch()) {
+    const int idx = findData(fingerprint, Kleo::KeyListModelInterface::FingerprintRole, Qt::MatchExactly);
+    if (idx > -1) {
+        setCurrentIndex(idx);
+    } else if (!d->selectPerfectIdMatch()) {
         setCurrentIndex(0);
     }
     setToolTip(currentData(Qt::ToolTipRole).toString());
