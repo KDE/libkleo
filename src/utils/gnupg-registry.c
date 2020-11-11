@@ -11,6 +11,7 @@
 #ifdef _WIN32
 
 #include <windows.h>
+#include <unistd.h>
 
 #include <shlobj.h>
 #ifndef CSIDL_APPDATA
