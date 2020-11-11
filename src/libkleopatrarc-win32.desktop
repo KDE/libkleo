@@ -38,10 +38,10 @@ Name[uk]=TAR (сумісні з PGP®)
 Name[x-test]=xxTAR (PGP®-compatible)xx
 Name[zh_CN]=TAR(PGP® 兼容)
 Name[zh_TW]=TAR (相容 PGP®)
-pack-command-openpgp=0|%I/gpgtar --openpgp --skip-crypto --output - --encrypt -T- --null --
-pack-command-cms=0|%I/gpgtar --cms --skip-crypto --output - --encrypt -T- --null --
-unpack-command-openpgp=%I/gpgtar --openpgp --skip-crypto --set-filename %f --decrypt -- -
-unpack-command-cms=%I/gpgtar --cms --skip-crypto --set-filename %f --decrypt -- -
+pack-command-openpgp=0|%I/gpgtar --utf8-strings --openpgp --skip-crypto --output - --encrypt -T- --null --
+pack-command-cms=0|%I/gpgtar --utf8-strings --cms --skip-crypto --output - --encrypt -T- --null --
+unpack-command-openpgp=%I/gpgtar --utf8-strings --openpgp --skip-crypto --set-filename %f --decrypt -- -
+unpack-command-cms=%I/gpgtar --utf8-strings --cms --skip-crypto --set-filename %f --decrypt -- -
 
 [Checksum Definition #0]
 file-patterns=sha256sum.txt,.*\\\\.sha256,.*\\\\.sha2
