@@ -25,9 +25,6 @@
 #include <gpgme++/key.h>
 
 #include <gpgme++/gpgmepp_version.h>
-#if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
-# define GPGME_HAS_REMARKS
-#endif
 #if GPGMEPP_VERSION >= 0x10E01 // 1.14.1
 # define GPGME_USERID_SIGNATURES_ARE_SORTABLE
 #endif

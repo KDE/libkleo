@@ -45,11 +45,6 @@
 #include <set>
 #include <iterator>
 
-#include <gpgme++/gpgmepp_version.h>
-#if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
-# define GPGME_HAS_REMARKS
-#endif
-
 using namespace GpgME;
 using namespace Kleo;
 using namespace Kleo::KeyList;
@@ -384,7 +379,6 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
         case OwnerTrust:
             return Formatting::ownerTrustShort(key.ownerTrust());
         case Remarks:
-#ifdef GPGME_HAS_REMARKS
             {
                 const char *const fpr = key.primaryFingerprint();
                 if (fpr && key.protocol() == GpgME::OpenPGP && key.numUserIDs() &&
@@ -415,7 +409,6 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
                     return QVariant();
                 }
             }
-#endif
             return QVariant();
         case NumColumns:
             break;

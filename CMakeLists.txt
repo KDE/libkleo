@@ -45,7 +45,7 @@ find_package(KF5Codecs ${KF5_WANT_VERSION} CONFIG REQUIRED)
 find_package(KF5ItemModels ${KF5_WANT_VERSION} CONFIG REQUIRED)
 find_package(KF5PimTextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
 
-set(GPGMEPP_LIB_VERSION "1.13.1")
+set(GPGMEPP_LIB_VERSION "1.14.0")
 find_package(Gpgmepp ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
 find_package(QGpgme ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
