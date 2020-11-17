@@ -463,20 +463,29 @@ std::vector<Key> KeyCache::findByKeyIDOrFingerprint(const std::vector<std::strin
     return result;
 }
 
-const Subkey &KeyCache::findSubkeyByKeyGrip(const char *grip) const
+const Subkey &KeyCache::findSubkeyByKeyGrip(const char *grip, Protocol protocol) const
 {
-    const std::vector<Subkey>::const_iterator it = d->find_keygrip(grip);
-    if (it == d->by.keygrip.end()) {
-        static const Subkey null;
+    static const Subkey null;
+    d->ensureCachePopulated();
+    const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(),
+                                        grip, _detail::ByKeyGrip<std::less>());
+    if (range.first == d->by.keygrip.end()) {
         return null;
+    } else if (protocol == UnknownProtocol) {
+        return *range.first;
     } else {
-        return *it;
+        for (auto it = range.first; it != range.second; ++it) {
+            if (it->parent().protocol() == protocol) {
+                return *it;
+            }
+        }
     }
+    return null;
 }
 
-const Subkey &KeyCache::findSubkeyByKeyGrip(const std::string &grip) const
+const Subkey &KeyCache::findSubkeyByKeyGrip(const std::string &grip, Protocol protocol) const
 {
-    return findSubkeyByKeyGrip(grip.c_str());
+    return findSubkeyByKeyGrip(grip.c_str(), protocol);
 }
 
 std::vector<Subkey> KeyCache::findSubkeysByKeyID(const std::vector<std::string> &ids) const
