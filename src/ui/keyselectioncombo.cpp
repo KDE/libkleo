@@ -178,7 +178,7 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const override
     {
-        Q_UNUSED(index);
+        Q_UNUSED(index)
         return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
     }
 
