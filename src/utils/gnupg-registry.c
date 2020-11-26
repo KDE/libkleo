@@ -11,7 +11,7 @@
 #ifdef _WIN32
 
 #include <windows.h>
-#ifndef Q_CC_MSVC
+#ifndef _MSC_VER
 #include <unistd.h>
 #endif
 
