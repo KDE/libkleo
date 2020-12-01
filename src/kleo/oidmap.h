@@ -1,14 +1,19 @@
 /*
     oidmap.h
 
-    This file is part of libkleopatra, the KDE keymanagement library
+    This file is part of libkleo, the KDE keymanagement library
     SPDX-FileCopyrightText: 2004 Klarälvdalens Datakonsult AB
+    SPDX-FileCopyrightText: 2008 Klarälvdalens Datakonsult AB
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
 #ifndef __KLEO_OIDMAP_H__
 #define __KLEO_OIDMAP_H__
+
+#include "kleo_export.h"
+
+class QString;
 
 static const struct {
     const char *name;
@@ -30,5 +35,7 @@ static const struct {
     { "Pseudo", "2.5.4.65" },
 };
 static const unsigned int numOidMaps = sizeof oidmap / sizeof * oidmap;
+
+KLEO_EXPORT const char *oidForAttributeName(const QString &attr);
 
 #endif // __KLEO_OIDMAP_H__
