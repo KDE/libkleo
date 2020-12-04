@@ -3,8 +3,17 @@ include:
   - https://invent.kde.org/sysadmin/ci-tooling/raw/master/invent/ci-applications-linux.yml
   - https://invent.kde.org/sysadmin/ci-tooling/raw/master/invent/ci-static-analysis.yml
 
+linux kf5-qt5 qt5.15 manual:
+  extends: linux kf5-qt5 qt5.15
+  only:
+    refs:
+      - web
+
 static-analysis-linux-merge-request:
   extends: .static-analysis-linux-merge-request
 
 static-analysis-linux-commit:
   extends: .static-analysis-linux-commit
+  dependencies:
+    - linux kf5-qt5 qt5.15
+    - linux kf5-qt5 qt5.15 manual
