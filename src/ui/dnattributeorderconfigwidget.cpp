@@ -12,7 +12,6 @@
 #include "libkleo/dn.h"
 
 #include <KLocalizedString>
-#include <KConfig>
 #include <QIcon>
 
 #include <QToolButton>
