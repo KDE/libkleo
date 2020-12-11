@@ -22,7 +22,7 @@
 
 #include <memory>
 
-class QStringList;
+#include <QStringList>
 
 namespace Kleo
 {

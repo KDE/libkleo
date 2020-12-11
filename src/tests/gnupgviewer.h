@@ -17,7 +17,7 @@ namespace Kleo
 {
 class GnuPGProcessBase;
 }
-class QStringList;
+#include <QStringList>
 
 class GnuPGViewer : public QTextEdit
 {

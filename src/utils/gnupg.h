@@ -22,7 +22,7 @@
 #include <kleo_export.h>
 
 class QString;
-class QStringList;
+#include <QStringList>
 class QByteArray;
 
 namespace Kleo

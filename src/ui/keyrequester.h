@@ -31,7 +31,7 @@ class Key;
 class KeyListResult;
 }
 
-class QStringList;
+#include <QStringList>
 class QString;
 class QPushButton;
 class QLabel;

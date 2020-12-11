@@ -15,7 +15,7 @@
 #include <QString>
 #include <QVector>
 
-class QStringList;
+#include <QStringList>
 class QWidget;
 
 namespace Kleo
