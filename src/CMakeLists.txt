@@ -98,7 +98,7 @@ if (KF5PimTextEdit_FOUND)
 endif()
 
 add_library(KF5Libkleo ${kleo_LIB_SRCS})
-if (COMPILE_WITH_CMAKE_SUPPORT)
+if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KF5Libkleo PROPERTIES UNITY_BUILD ON)
 endif()
 generate_export_header(KF5Libkleo BASE_NAME kleo)
