@@ -39,38 +39,38 @@ static const struct _classification {
     unsigned int classification;
 } classifications[] = {
     // ordered by extension
-    { "arl", CMS    | Binary  | CertificateRevocationList },
-    { "asc", OpenPGP |  Ascii  | OpaqueSignature | DetachedSignature | CipherText | AnyCertStoreType | ExamineContentHint },
-    { "cer", CMS    | Binary  | Certificate },
-    { "crl", CMS    | Binary  | CertificateRevocationList },
-    { "crt", CMS    | Binary  | Certificate },
-    { "der", CMS    | Binary  | Certificate | CertificateRevocationList },
-    { "gpg", OpenPGP | Binary  | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
-    { "p10", CMS    |  Ascii  | CertificateRequest },
-    { "p12", CMS    | Binary  | ExportedPSM },
-    { "p7c", CMS    | Binary  | Certificate  },
-    { "p7m", CMS    | AnyFormat | CipherText },
-    { "p7s", CMS    | AnyFormat | AnySignature },
-    { "pem", CMS    |  Ascii  | AnyType | ExamineContentHint },
-    { "pfx", CMS    | Binary  | Certificate },
-    { "pgp", OpenPGP | Binary  | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
-    { "sig", OpenPGP | AnyFormat | DetachedSignature },
+    { "arl", Kleo::Class::CMS    | Binary  | CertificateRevocationList },
+    { "asc", Kleo::Class::OpenPGP |  Ascii  | OpaqueSignature | DetachedSignature | CipherText | AnyCertStoreType | ExamineContentHint },
+    { "cer", Kleo::Class::CMS    | Binary  | Certificate },
+    { "crl", Kleo::Class::CMS    | Binary  | CertificateRevocationList },
+    { "crt", Kleo::Class::CMS    | Binary  | Certificate },
+    { "der", Kleo::Class::CMS    | Binary  | Certificate | CertificateRevocationList },
+    { "gpg", Kleo::Class::OpenPGP | Binary  | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
+    { "p10", Kleo::Class::CMS    |  Ascii  | CertificateRequest },
+    { "p12", Kleo::Class::CMS    | Binary  | ExportedPSM },
+    { "p7c", Kleo::Class::CMS    | Binary  | Certificate  },
+    { "p7m", Kleo::Class::CMS    | AnyFormat | CipherText },
+    { "p7s", Kleo::Class::CMS    | AnyFormat | AnySignature },
+    { "pem", Kleo::Class::CMS    |  Ascii  | AnyType | ExamineContentHint },
+    { "pfx", Kleo::Class::CMS    | Binary  | Certificate },
+    { "pgp", Kleo::Class::OpenPGP | Binary  | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
+    { "sig", Kleo::Class::OpenPGP | AnyFormat | DetachedSignature },
 };
 
 static const QMap<GpgME::Data::Type, unsigned int> gpgmeTypeMap {
-    { GpgME::Data::PGPSigned, OpenPGP | OpaqueSignature },
+    { GpgME::Data::PGPSigned, Kleo::Class::OpenPGP | OpaqueSignature },
     /* PGPOther might be just an unencrypted unsigned pgp message. Decrypt
      * would yield the plaintext anyway so for us this is CipherText. */
-    { GpgME::Data::PGPOther, OpenPGP | CipherText },
-    { GpgME::Data::PGPKey, OpenPGP | Certificate },
-    { GpgME::Data::CMSSigned, CMS | AnySignature },
-    { GpgME::Data::CMSEncrypted, CMS | CipherText },
+    { GpgME::Data::PGPOther, Kleo::Class::OpenPGP | CipherText },
+    { GpgME::Data::PGPKey, Kleo::Class::OpenPGP | Certificate },
+    { GpgME::Data::CMSSigned, Kleo::Class::CMS | AnySignature },
+    { GpgME::Data::CMSEncrypted, Kleo::Class::CMS | CipherText },
     /* See PGPOther */
-    { GpgME::Data::CMSOther, CMS | CipherText },
-    { GpgME::Data::X509Cert, CMS | Certificate},
-    { GpgME::Data::PKCS12, CMS | Binary | ExportedPSM },
-    { GpgME::Data::PGPEncrypted, OpenPGP | CipherText },
-    { GpgME::Data::PGPSignature, OpenPGP | DetachedSignature },
+    { GpgME::Data::CMSOther, Kleo::Class::CMS | CipherText },
+    { GpgME::Data::X509Cert, Kleo::Class::CMS | Certificate},
+    { GpgME::Data::PKCS12, Kleo::Class::CMS | Binary | ExportedPSM },
+    { GpgME::Data::PGPEncrypted, Kleo::Class::OpenPGP | CipherText },
+    { GpgME::Data::PGPSignature, Kleo::Class::OpenPGP | DetachedSignature },
 };
 
 static const unsigned int defaultClassification = NoClass;
@@ -237,7 +237,7 @@ static unsigned int classifyContentInteral(const QByteArray &data)
                       data.data() + pos, ByContent<std::less>(epos - pos));
 
     if (cit != std::end(content_classifications)) {
-        return cit->classification | (pgp ? OpenPGP : CMS);
+        return cit->classification | (pgp ? Kleo::Class::OpenPGP : Kleo::Class::CMS);
     }
     return defaultClassification;
 }
@@ -268,37 +268,37 @@ unsigned int Kleo::classifyContent(const QByteArray &data)
 QString Kleo::printableClassification(unsigned int classification)
 {
     QStringList parts;
-    if (classification & CMS) {
+    if (classification & Kleo::Class::CMS) {
         parts.push_back(QStringLiteral("CMS"));
     }
-    if (classification & OpenPGP) {
+    if (classification & Kleo::Class::OpenPGP) {
         parts.push_back(QStringLiteral("OpenPGP"));
     }
-    if (classification & Binary) {
+    if (classification & Kleo::Class::Binary) {
         parts.push_back(QStringLiteral("Binary"));
     }
-    if (classification & Ascii) {
+    if (classification & Kleo::Class::Ascii) {
         parts.push_back(QStringLiteral("Ascii"));
     }
-    if (classification & DetachedSignature) {
+    if (classification & Kleo::Class::DetachedSignature) {
         parts.push_back(QStringLiteral("DetachedSignature"));
     }
-    if (classification & OpaqueSignature) {
+    if (classification & Kleo::Class::OpaqueSignature) {
         parts.push_back(QStringLiteral("OpaqueSignature"));
     }
-    if (classification & ClearsignedMessage) {
+    if (classification & Kleo::Class::ClearsignedMessage) {
         parts.push_back(QStringLiteral("ClearsignedMessage"));
     }
-    if (classification & CipherText) {
+    if (classification & Kleo::Class::CipherText) {
         parts.push_back(QStringLiteral("CipherText"));
     }
-    if (classification & Certificate) {
+    if (classification & Kleo::Class::Certificate) {
         parts.push_back(QStringLiteral("Certificate"));
     }
-    if (classification & ExportedPSM) {
+    if (classification & Kleo::Class::ExportedPSM) {
         parts.push_back(QStringLiteral("ExportedPSM"));
     }
-    if (classification & CertificateRequest) {
+    if (classification & Kleo::Class::CertificateRequest) {
         parts.push_back(QStringLiteral("CertificateRequest"));
     }
     return parts.join(QLatin1String(", "));
@@ -366,7 +366,7 @@ QString Kleo::outputFileName(const QString &inputFileName)
 const char *Kleo::outputFileExtension(unsigned int classification, bool usePGPFileExt)
 {
 
-    if (classification & OpenPGP && usePGPFileExt) {
+    if (classification & Kleo::Class::OpenPGP && usePGPFileExt) {
         return "pgp";
     }
 

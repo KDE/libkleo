@@ -30,7 +30,7 @@ static unsigned char unhex(unsigned char ch)
         return ch - 'a' + 10;
     }
     const char cch = ch;
-    throw Exception(gpg_error(GPG_ERR_ASS_SYNTAX),
+    throw Kleo::Exception(gpg_error(GPG_ERR_ASS_SYNTAX),
                     i18n("Invalid hex char '%1' in input stream.",
                          QString::fromLatin1(&cch, 1)));
 }
