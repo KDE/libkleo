@@ -40,8 +40,8 @@ Name[zh_CN]=TAR(PGP® 兼容)
 Name[zh_TW]=TAR (相容 PGP®)
 pack-command-openpgp=0|%I/gpgtar --utf8-strings --openpgp --skip-crypto --output - --encrypt -T- --null --
 pack-command-cms=0|%I/gpgtar --utf8-strings --cms --skip-crypto --output - --encrypt -T- --null --
-unpack-command-openpgp=%I/gpgtar --utf8-strings --openpgp --skip-crypto --set-filename %f --decrypt -- -
-unpack-command-cms=%I/gpgtar --utf8-strings --cms --skip-crypto --set-filename %f --decrypt -- -
+unpack-command-openpgp=%I/gpgtar --utf8-strings --openpgp --skip-crypto --set-filename %F --decrypt -- -
+unpack-command-cms=%I/gpgtar --utf8-strings --cms --skip-crypto --set-filename %F --decrypt -- -
 
 [Checksum Definition #0]
 file-patterns=sha256sum.txt,.*\\\\.sha256,.*\\\\.sha2
