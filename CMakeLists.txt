@@ -67,7 +67,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 ########### Targets ###########
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054E00)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII )
 add_definitions(-DQT_NO_EMIT)
 set(CMAKE_CXX_STANDARD 14)
