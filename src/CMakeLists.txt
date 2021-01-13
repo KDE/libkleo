@@ -30,6 +30,7 @@ set(libkleo_core_SRCS
    kleo/oidmap.cpp
    models/keycache.cpp
    models/keylistmodel.cpp
+   models/keylistmodelinterface.cpp
    models/keylistsortfilterproxymodel.cpp
    models/keyrearrangecolumnsproxymodel.cpp
    models/subkeylistmodel.cpp

@@ -12,6 +12,8 @@
 
 #include <vector>
 
+#include <kleo_export.h>
+
 namespace GpgME
 {
 class Key;
@@ -23,10 +25,10 @@ template <typename T> class QList;
 namespace Kleo
 {
 
-class KeyListModelInterface
+class KLEO_EXPORT KeyListModelInterface
 {
 public:
-    virtual ~KeyListModelInterface() {}
+    virtual ~KeyListModelInterface();
 
     static const int FingerprintRole = 0xF1;
     static const int KeyRole = 0xF2;
