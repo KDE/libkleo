@@ -8,6 +8,7 @@
 #include <kleo_ui_debug.h>
 
 #include "kleo/dn.h"
+#include "models/keylist.h"
 #include "models/keylistmodel.h"
 #include "models/keylistsortfilterproxymodel.h"
 #include "models/keycache.h"
@@ -22,6 +23,8 @@
 #include <QTimer>
 
 #include <KLocalizedString>
+
+using namespace Kleo;
 
 Q_DECLARE_METATYPE(GpgME::Key)
 
@@ -52,8 +55,8 @@ public:
 
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
     {
-        const auto leftKey =  sourceModel()->data(left, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
-        const auto rightKey = sourceModel()->data(right, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+        const auto leftKey =  sourceModel()->data(left, KeyList::KeyRole).value<GpgME::Key>();
+        const auto rightKey = sourceModel()->data(right, KeyList::KeyRole).value<GpgME::Key>();
         if (leftKey.isNull()) {
             return false;
         }
@@ -211,7 +214,7 @@ public:
             }
         }
 
-        const auto key = QSortFilterProxyModel::data(index, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+        const auto key = QSortFilterProxyModel::data(index, KeyList::KeyRole).value<GpgME::Key>();
         Q_ASSERT(!key.isNull());
         if (key.isNull()) {
             return QVariant();
@@ -293,7 +296,7 @@ public:
 
         for (int i = 0; i < proxyModel->rowCount(); ++i) {
             const auto idx = proxyModel->index(i, 0, QModelIndex());
-            const auto key = proxyModel->data(idx, Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+            const auto key = proxyModel->data(idx, KeyList::KeyRole).value<GpgME::Key>();
             if (key.isNull()) {
                 // WTF?
                 continue;
@@ -452,12 +455,12 @@ QString KeySelectionCombo::idFilter() const
 
 GpgME::Key Kleo::KeySelectionCombo::currentKey() const
 {
-    return currentData(Kleo::KeyListModelInterface::KeyRole).value<GpgME::Key>();
+    return currentData(KeyList::KeyRole).value<GpgME::Key>();
 }
 
 void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
 {
-    const int idx = findData(QVariant::fromValue(key), Kleo::KeyListModelInterface::KeyRole, Qt::MatchExactly);
+    const int idx = findData(QVariant::fromValue(key), KeyList::KeyRole, Qt::MatchExactly);
     if (idx > -1) {
         setCurrentIndex(idx);
     } else {
@@ -474,7 +477,7 @@ void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
         // Already set
         return;
     }
-    const int idx = findData(fingerprint, Kleo::KeyListModelInterface::FingerprintRole, Qt::MatchExactly);
+    const int idx = findData(fingerprint, KeyList::FingerprintRole, Qt::MatchExactly);
     if (idx > -1) {
         setCurrentIndex(idx);
     } else if (!d->selectPerfectIdMatch()) {

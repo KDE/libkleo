@@ -149,6 +149,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
 ecm_generate_headers(libkleo_CamelCase_models_HEADERS
   HEADER_NAMES
   KeyCache
+  KeyList
   KeyListModel
   KeyListModelInterface
   KeyListSortFilterProxyModel

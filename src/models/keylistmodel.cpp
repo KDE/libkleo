@@ -8,7 +8,9 @@
 */
 
 #include "keylistmodel.h"
+
 #include "keycache.h"
+#include "keylist.h"
 #include "kleo/predicates.h"
 #include "kleo/keyfiltermanager.h"
 #include "kleo/keyfilter.h"
@@ -47,6 +49,7 @@
 
 using namespace GpgME;
 using namespace Kleo;
+using namespace Kleo::KeyList;
 
 Q_DECLARE_METATYPE(GpgME::Key)
 

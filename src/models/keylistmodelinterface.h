@@ -30,30 +30,6 @@ class KLEO_EXPORT KeyListModelInterface
 public:
     virtual ~KeyListModelInterface();
 
-    static const int FingerprintRole = 0xF1;
-    static const int KeyRole = 0xF2;
-
-    enum Columns {
-        PrettyName,
-        PrettyEMail,
-        ValidFrom,
-        ValidUntil,
-        TechnicalDetails,
-        ShortKeyID,
-        KeyID,
-        Fingerprint,
-        Issuer,
-        SerialNumber,
-        OwnerTrust,
-        Origin,
-        LastUpdate,
-        Validity,
-        Summary, // Short summary line
-        Remarks, // Additional remark notations
-        NumColumns,
-        Icon = PrettyName // which column shall the icon be displayed in?
-    };
-
     virtual GpgME::Key key(const QModelIndex &idx) const = 0;
     virtual std::vector<GpgME::Key> keys(const QList<QModelIndex> &idxs) const = 0;
 

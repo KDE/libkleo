@@ -9,6 +9,7 @@
 
 #include "keylistsortfilterproxymodel.h"
 
+#include "keylist.h"
 #include "keylistmodel.h"
 #include "kleo/keyfilter.h"
 #include "kleo/stl_util.h"
@@ -163,7 +164,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     const int role = filterRole();
     const int col = filterKeyColumn();
     const QRegExp rx = filterRegExp();
-    const QModelIndex nameIndex = sourceModel()->index(source_row, PrettyName, source_parent);
+    const QModelIndex nameIndex = sourceModel()->index(source_row, KeyList::PrettyName, source_parent);
 
     const KeyListModelInterface *const klm = dynamic_cast<KeyListModelInterface *>(sourceModel());
     Q_ASSERT(klm);
@@ -188,7 +189,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
             // Also match against remarks (search tags)
             const auto alm = dynamic_cast<AbstractKeyListModel *>(sourceModel());
             if (alm) {
-                const auto remarks = alm->data(alm->index(key, KeyListModelInterface::Remarks));
+                const auto remarks = alm->data(alm->index(key, KeyList::Remarks));
                 if (!remarks.isNull() && remarks.toString().contains(rx)) {
                     match = true;
                     break;
