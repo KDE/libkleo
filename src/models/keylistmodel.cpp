@@ -113,6 +113,11 @@ std::vector<Key> AbstractKeyListModel::keys(const QList<QModelIndex> &indexes) c
     return result;
 }
 
+QModelIndex AbstractKeyListModel::index(const Key &key) const
+{
+    return index(key, 0);
+}
+
 QModelIndex AbstractKeyListModel::index(const Key &key, int col) const
 {
     if (key.isNull() || col < 0 || col >= NumColumns) {

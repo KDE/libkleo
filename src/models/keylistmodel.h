@@ -41,10 +41,7 @@ public:
     std::vector<GpgME::Key> keys(const QList<QModelIndex> &indexes) const override;
 
     using QAbstractItemModel::index;
-    QModelIndex index(const GpgME::Key &key) const override
-    {
-        return index(key, 0);
-    }
+    QModelIndex index(const GpgME::Key &key) const override;
     QModelIndex index(const GpgME::Key &key, int col) const;
     QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const override;
 
