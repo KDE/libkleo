@@ -47,10 +47,6 @@ public:
         OwnerTrust,
         Origin,
         LastUpdate,
-#if 0
-        LongKeyID,
-#endif
-
         Validity,
         Summary, // Short summary line
         Remarks, // Additional remark notations
