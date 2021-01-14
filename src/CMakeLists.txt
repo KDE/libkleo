@@ -25,6 +25,7 @@ set(libkleo_core_SRCS
    kleo/enum.cpp
    kleo/kconfigbasedkeyfilter.cpp
    kleo/keyfiltermanager.cpp
+   kleo/keygroup.cpp
    kleo/keyresolver.cpp
    kleo/kleoexception.cpp
    kleo/oidmap.cpp
@@ -136,6 +137,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   KConfigBasedKeyFilter
   KeyFilter
   KeyFilterManager
+  KeyGroup
   KeyResolver
   KleoException
   OidMap
