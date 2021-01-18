@@ -1,3 +1,5 @@
+include(ECMMarkAsTest)
+
 # Convenience macro to add kleo unit tests.
 macro( add_kleo_test _source )
   set( _test ${_source} )

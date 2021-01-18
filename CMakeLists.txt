@@ -25,9 +25,6 @@ include(ECMGeneratePriFile)
 
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
-include(ECMAddTests)
-
-
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.14.0")
