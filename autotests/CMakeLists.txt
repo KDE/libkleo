@@ -9,8 +9,16 @@ if(NOT Qt5Test_FOUND)
     return()
 endif()
 
-ecm_add_tests(
+ecm_add_test(
     flatkeylistmodeltest.cpp
+    abstractkeylistmodeltest.cpp
+    TEST_NAME flatkeylistmodeltest
+    LINK_LIBRARIES KF5::Libkleo Qt5::Test
+)
+
+ecm_add_test(
     hierarchicalkeylistmodeltest.cpp
+    abstractkeylistmodeltest.cpp
+    TEST_NAME hierarchicalkeylistmodeltest
     LINK_LIBRARIES KF5::Libkleo Qt5::Test
 )
