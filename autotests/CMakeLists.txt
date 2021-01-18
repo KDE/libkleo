@@ -11,5 +11,6 @@ endif()
 
 ecm_add_tests(
     flatkeylistmodeltest.cpp
+    hierarchicalkeylistmodeltest.cpp
     LINK_LIBRARIES KF5::Libkleo Qt5::Test
 )
