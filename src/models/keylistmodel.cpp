@@ -70,7 +70,7 @@ public:
     mutable QHash<const char *, QVariant> prettyEMailCache;
     mutable QHash<const char *, QVariant> remarksCache;
     bool m_useKeyCache = false;
-    bool m_secretOnly = false;
+    KeyList::Options m_keyListOptions = AllKeys;
     std::vector<GpgME::Key> m_remarkKeys;
 };
 
@@ -82,7 +82,7 @@ AbstractKeyListModel::Private::Private(Kleo::AbstractKeyListModel *qq)
 void AbstractKeyListModel::Private::updateFromKeyCache()
 {
     if (m_useKeyCache) {
-        q->setKeys(m_secretOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys());
+        q->setKeys(m_keyListOptions == SecretKeysOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys());
     }
 }
 
@@ -1151,9 +1151,9 @@ void HierarchicalKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
     endInsertRows();
 }
 
-void AbstractKeyListModel::useKeyCache(bool value, bool secretOnly)
+void AbstractKeyListModel::useKeyCache(bool value, KeyList::Options options)
 {
-    d->m_secretOnly = secretOnly;
+    d->m_keyListOptions = options;
     d->m_useKeyCache = value;
     if (!d->m_useKeyCache) {
         clear(All);

@@ -16,6 +16,7 @@
 
 #include <kleo_export.h>
 
+#include "keylist.h"
 #include "keylistmodelinterface.h"
 
 #include <vector>
@@ -66,7 +67,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setKeys(const std::vector<GpgME::Key> &keys);
     /* Set this to set all or only secret keys from the keycache. */
-    void useKeyCache(bool value, bool secretOnly);
+    void useKeyCache(bool value, Kleo::KeyList::Options options);
     QModelIndex addKey(const GpgME::Key &key);
     QList<QModelIndex> addKeys(const std::vector<GpgME::Key> &keys);
     void removeKey(const GpgME::Key &key);

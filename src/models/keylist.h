@@ -40,6 +40,11 @@ namespace KeyList
         NumColumns,
         Icon = PrettyName // which column shall the icon be displayed in?
     };
+
+    enum Options {
+        AllKeys,
+        SecretKeysOnly
+    };
 }
 }
 

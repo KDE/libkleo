@@ -394,7 +394,7 @@ void KeySelectionCombo::init()
             this, [this]() {
                     // Set useKeyCache ensures that the cache is populated
                     // so this can be a blocking call if the cache is not initialized 
-                    d->model->useKeyCache(true, d->secretOnly);
+                    d->model->useKeyCache(true, d->secretOnly ? KeyList::SecretKeysOnly : KeyList::AllKeys);
                     d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
 
                     // We use the useWasEnabled state variable to decide if we should
@@ -419,7 +419,7 @@ void KeySelectionCombo::init()
     if (!d->cache->initialized()) {
         refreshKeys();
     } else {
-        d->model->useKeyCache(true, d->secretOnly);
+        d->model->useKeyCache(true, d->secretOnly ? KeyList::SecretKeysOnly : KeyList::AllKeys);
         Q_EMIT keyListingFinished();
     }
 
