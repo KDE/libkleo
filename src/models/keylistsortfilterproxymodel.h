@@ -43,9 +43,13 @@ public:
     GpgME::Key key(const QModelIndex &idx) const override;
     std::vector<GpgME::Key> keys(const QList<QModelIndex> &indexes) const override;
 
+    KeyGroup group(const QModelIndex &idx) const override;
+
     using QAbstractItemModel::index;
     QModelIndex index(const GpgME::Key &key) const override;
     QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const override;
+
+    QModelIndex index(const KeyGroup &group) const override;
 
 private:
     void init();

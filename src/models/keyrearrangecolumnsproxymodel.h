@@ -28,10 +28,14 @@ public:
     GpgME::Key key(const QModelIndex &idx) const override;
     std::vector<GpgME::Key> keys(const QList<QModelIndex> &idxs) const override;
 
+    KeyGroup group(const QModelIndex &idx) const override;
+
     using KRearrangeColumnsProxyModel::index;
 
     QModelIndex index(const GpgME::Key &key) const override;
     QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const override;
+
+    QModelIndex index(const KeyGroup &group) const override;
 
     void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 private:

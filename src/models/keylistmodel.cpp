@@ -1,8 +1,10 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
     models/keylistmodel.cpp
 
-    This file is part of Kleopatra, the KDE keymanager
+    This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -11,6 +13,7 @@
 
 #include "keycache.h"
 #include "keylist.h"
+#include "kleo/keygroup.h"
 #include "kleo/predicates.h"
 #include "kleo/keyfiltermanager.h"
 #include "kleo/keyfilter.h"
@@ -113,6 +116,15 @@ std::vector<Key> AbstractKeyListModel::keys(const QList<QModelIndex> &indexes) c
     return result;
 }
 
+KeyGroup AbstractKeyListModel::group(const QModelIndex &idx) const
+{
+    if (idx.isValid()) {
+        return doMapToGroup(idx);
+    } else {
+        return KeyGroup();
+    }
+}
+
 QModelIndex AbstractKeyListModel::index(const Key &key) const
 {
     return index(key, 0);
@@ -137,6 +149,20 @@ QList<QModelIndex> AbstractKeyListModel::indexes(const std::vector<Key> &keys) c
                        return this->index(key);
                    });
     return result;
+}
+
+QModelIndex AbstractKeyListModel::index(const KeyGroup &group) const
+{
+    return index(group, 0);
+}
+
+QModelIndex AbstractKeyListModel::index(const KeyGroup &group, int col) const
+{
+    if (group.isNull() || col < 0 || col >= NumColumns) {
+        return {};
+    } else {
+        return doMapFromGroup(group, col);
+    }
 }
 
 void AbstractKeyListModel::setKeys(const std::vector<Key> &keys)
@@ -391,6 +417,10 @@ private:
     QModelIndex doMapFromKey(const Key &key, int col) const override;
     QList<QModelIndex> doAddKeys(const std::vector<Key> &keys) override;
     void doRemoveKey(const Key &key) override;
+
+    KeyGroup doMapToGroup(const QModelIndex &index) const override;
+    QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
+
     void doClear() override {
         mKeysByFingerprint.clear();
     }
@@ -421,6 +451,10 @@ private:
     QModelIndex doMapFromKey(const Key &key, int col) const override;
     QList<QModelIndex> doAddKeys(const std::vector<Key> &keys) override;
     void doRemoveKey(const Key &key) override;
+
+    KeyGroup doMapToGroup(const QModelIndex &index) const override;
+    QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
+
     void doClear() override {
         mTopLevels.clear();
         mKeysByFingerprint.clear();
@@ -527,6 +561,18 @@ void FlatKeyListModel::doRemoveKey(const Key &key)
     beginRemoveRows(QModelIndex(), row, row);
     mKeysByFingerprint.erase(it);
     endRemoveRows();
+}
+
+KeyGroup FlatKeyListModel::doMapToGroup(const QModelIndex &idx) const
+{
+    Q_ASSERT(!"not implemented");
+    return KeyGroup();
+}
+
+QModelIndex FlatKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
+{
+    Q_ASSERT(!"not implemented");
+    return QModelIndex();
 }
 
 HierarchicalKeyListModel::HierarchicalKeyListModel(QObject *p)
@@ -939,6 +985,18 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
         }
     }
     endRemoveRows();
+}
+
+KeyGroup HierarchicalKeyListModel::doMapToGroup(const QModelIndex &idx) const
+{
+    Q_ASSERT(!"not implemented");
+    return KeyGroup();
+}
+
+QModelIndex HierarchicalKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
+{
+    Q_ASSERT(!"not implemented");
+    return QModelIndex();
 }
 
 void AbstractKeyListModel::useKeyCache(bool value, bool secretOnly)

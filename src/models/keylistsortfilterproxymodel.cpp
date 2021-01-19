@@ -12,6 +12,7 @@
 #include "keylist.h"
 #include "keylistmodel.h"
 #include "kleo/keyfilter.h"
+#include "kleo/keygroup.h"
 #include "kleo/stl_util.h"
 
 #include <libkleo_debug.h>
@@ -75,13 +76,20 @@ std::vector<Key> AbstractKeyListSortFilterProxyModel::keys(const QList<QModelInd
     return klmi->keys(mapped);
 }
 
+KeyGroup AbstractKeyListSortFilterProxyModel::group(const QModelIndex &idx) const
+{
+    if (const KeyListModelInterface *const klmi = dynamic_cast<KeyListModelInterface *>(sourceModel())) {
+        return klmi->group(mapToSource(idx));
+    }
+    return KeyGroup();
+}
+
 QModelIndex AbstractKeyListSortFilterProxyModel::index(const Key &key) const
 {
     if (const KeyListModelInterface *const klmi = dynamic_cast<KeyListModelInterface *>(sourceModel())) {
         return mapFromSource(klmi->index(key));
-    } else {
-        return {};
     }
+    return {};
 }
 
 QList<QModelIndex> AbstractKeyListSortFilterProxyModel::indexes(const std::vector<Key> &keys) const
@@ -96,9 +104,16 @@ QList<QModelIndex> AbstractKeyListSortFilterProxyModel::indexes(const std::vecto
                            return mapFromSource(idx);
                        });
         return mapped;
-    } else {
-        return QList<QModelIndex>();
     }
+    return QList<QModelIndex>();
+}
+
+QModelIndex AbstractKeyListSortFilterProxyModel::index(const Kleo::KeyGroup& group) const
+{
+    if (const KeyListModelInterface *const klmi = dynamic_cast<KeyListModelInterface *>(sourceModel())) {
+        return mapFromSource(klmi->index(group));
+    }
+    return {};
 }
 
 class KeyListSortFilterProxyModel::Private
@@ -148,7 +163,6 @@ void KeyListSortFilterProxyModel::setKeyFilter(const std::shared_ptr<const KeyFi
 
 bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-
     //
     // 0. Keep parents of matching children:
     //
@@ -169,6 +183,8 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     const KeyListModelInterface *const klm = dynamic_cast<KeyListModelInterface *>(sourceModel());
     Q_ASSERT(klm);
     const Key key = klm->key(nameIndex);
+    const KeyGroup group = klm->group(nameIndex);
+    Q_ASSERT(!key.isNull() || !group.isNull());
 
     if (col) {
         const QModelIndex colIdx = sourceModel()->index(source_row, col, source_parent);
@@ -176,7 +192,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
         if (!content.contains(rx)) {
             return false;
         }
-    } else {
+    } else if (!key.isNull()) {
         // By default match against the full uid data (name / email / comment / dn)
         bool match = false;
         for (const auto &uid: key.userIDs()) {
@@ -200,12 +216,18 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
         if (!match) {
             return false;
         }
+    } else if (!group.isNull()) {
+        if (!group.name().contains(rx)) {
+            return false;
+        }
+    } else {
+        return false;
     }
 
     //
-    // 2. Check that key filters match (if any are defined)
+    // 2. For keys check that key filters match (if any are defined)
     //
-    if (d->keyFilter) {   // avoid artifacts when no filters are defined
+    if (d->keyFilter && !key.isNull()) {   // avoid artifacts when no filters are defined
         return d->keyFilter->matches(key, KeyFilter::Filtering);
     }
 

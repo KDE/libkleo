@@ -1,8 +1,10 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
     models/keylistmodel.h
 
-    This file is part of Kleopatra, the KDE keymanager
+    This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -40,10 +42,15 @@ public:
     GpgME::Key key(const QModelIndex &idx) const override;
     std::vector<GpgME::Key> keys(const QList<QModelIndex> &indexes) const override;
 
+    KeyGroup group(const QModelIndex &idx) const override;
+
     using QAbstractItemModel::index;
     QModelIndex index(const GpgME::Key &key) const override;
     QModelIndex index(const GpgME::Key &key, int col) const;
     QList<QModelIndex> indexes(const std::vector<GpgME::Key> &keys) const override;
+
+    QModelIndex index(const KeyGroup &group) const override;
+    QModelIndex index(const KeyGroup &group, int col) const;
 
 Q_SIGNALS:
     void rowAboutToBeMoved(const QModelIndex &old_parent, int old_row);
@@ -84,6 +91,10 @@ private:
     virtual QModelIndex doMapFromKey(const GpgME::Key &key, int column) const = 0;
     virtual QList<QModelIndex> doAddKeys(const std::vector<GpgME::Key> &keys) = 0;
     virtual void doRemoveKey(const GpgME::Key &key) = 0;
+
+    virtual KeyGroup doMapToGroup(const QModelIndex &index) const = 0;
+    virtual QModelIndex doMapFromGroup(const KeyGroup &group, int column) const = 0;
+
     virtual void doClear() = 0;
 
 private:

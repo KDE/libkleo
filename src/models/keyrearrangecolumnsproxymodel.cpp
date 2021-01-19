@@ -9,6 +9,8 @@
 
 #include "keyrearrangecolumnsproxymodel.h"
 
+#include "kleo/keygroup.h"
+
 #include <gpgme++/key.h>
 
 using namespace Kleo;
@@ -43,6 +45,10 @@ std::vector<GpgME::Key> KeyRearrangeColumnsProxyModel::keys(const QList<QModelIn
     return klm()->keys(srcIdxs);
 }
 
+KeyGroup KeyRearrangeColumnsProxyModel::group(const QModelIndex &idx) const
+{
+    return klm()->group(mapToSource(idx));
+}
 
 QModelIndex KeyRearrangeColumnsProxyModel::index(const GpgME::Key &key) const
 {
@@ -58,6 +64,11 @@ QList<QModelIndex> KeyRearrangeColumnsProxyModel::indexes(const std::vector<GpgM
         myIdxs << mapFromSource(idx);
     }
     return myIdxs;
+}
+
+QModelIndex KeyRearrangeColumnsProxyModel::index(const KeyGroup &group) const
+{
+    return mapFromSource(klm()->index(group));
 }
 
 void KeyRearrangeColumnsProxyModel::sort(int column, Qt::SortOrder order)
