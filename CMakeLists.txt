@@ -105,6 +105,10 @@ endif()
 
 
 add_subdirectory(src)
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
+
 ecm_qt_install_logging_categories(
         EXPORT LIBKLEO
         FILE libkleo.categories

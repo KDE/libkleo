@@ -479,7 +479,7 @@ public:
 
     int rowCount(const QModelIndex &pidx) const override
     {
-        return pidx.isValid() ? 0 : mKeysByFingerprint.size();
+        return pidx.isValid() ? 0 : mKeysByFingerprint.size() + mGroups.size();
     }
 
 private:
@@ -497,10 +497,14 @@ private:
         if (types & Keys) {
             mKeysByFingerprint.clear();
         }
+        if (types & Groups) {
+            mGroups.clear();
+        }
     }
 
 private:
     std::vector<Key> mKeysByFingerprint;
+    std::vector<KeyGroup> mGroups;
 };
 
 class HierarchicalKeyListModel : public AbstractKeyListModel
@@ -566,10 +570,8 @@ static const char *cleanChainID(const Key &key)
 }
 
 FlatKeyListModel::FlatKeyListModel(QObject *p)
-    : TableModelMixin<AbstractKeyListModel>(p),
-      mKeysByFingerprint()
+    : TableModelMixin<AbstractKeyListModel>(p)
 {
-
 }
 
 FlatKeyListModel::~FlatKeyListModel() {}
@@ -643,19 +645,36 @@ void FlatKeyListModel::doRemoveKey(const Key &key)
 
 KeyGroup FlatKeyListModel::doMapToGroup(const QModelIndex &idx) const
 {
-    Q_ASSERT(!"not implemented");
-    return KeyGroup();
+    Q_ASSERT(idx.isValid());
+    if (static_cast<unsigned>(idx.row()) >= mKeysByFingerprint.size()
+            && static_cast<unsigned>(idx.row()) < mKeysByFingerprint.size() + mGroups.size()
+            && idx.column() < NumColumns) {
+        return mGroups[ idx.row() - mKeysByFingerprint.size() ];
+    } else {
+        return KeyGroup();
+    }
 }
 
 QModelIndex FlatKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
 {
-    Q_ASSERT(!"not implemented");
-    return QModelIndex();
+    Q_ASSERT(!group.isNull());
+    const QString name = group.name();
+    const auto it = std::find_if(mGroups.begin(), mGroups.end(), [name](const KeyGroup &g) { return g.name() == name; });
+    if (it == mGroups.end()) {
+        return QModelIndex();
+    } else {
+        return createIndex(it - mGroups.begin() + mKeysByFingerprint.size(), column);
+    }
 }
 
 void FlatKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
 {
-    Q_ASSERT(!"not implemented");
+    Q_ASSERT(mGroups.empty());  // ensure that groups have been cleared
+    const int first = mKeysByFingerprint.size();
+    const int last = first + groups.size() - 1;
+    beginInsertRows(QModelIndex(), first, last);
+    mGroups = groups;
+    endInsertRows();
 }
 
 HierarchicalKeyListModel::HierarchicalKeyListModel(QObject *p)
