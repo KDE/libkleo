@@ -59,6 +59,12 @@ Q_DECLARE_METATYPE(KeyGroup)
 
 class AbstractKeyListModel::Private
 {
+    AbstractKeyListModel *const q;
+public:
+    explicit Private(AbstractKeyListModel *qq);
+
+    void updateFromKeyCache();
+
 public:
     int m_toolTipOptions = Formatting::Validity;
     mutable QHash<const char *, QVariant> prettyEMailCache;
@@ -67,8 +73,21 @@ public:
     bool m_secretOnly = false;
     std::vector<GpgME::Key> m_remarkKeys;
 };
+
+AbstractKeyListModel::Private::Private(Kleo::AbstractKeyListModel *qq)
+    : q(qq)
+{
+}
+
+void AbstractKeyListModel::Private::updateFromKeyCache()
+{
+    if (m_useKeyCache) {
+        q->setKeys(m_secretOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys());
+    }
+}
+
 AbstractKeyListModel::AbstractKeyListModel(QObject *p)
-    : QAbstractItemModel(p), KeyListModelInterface(), d(new Private)
+    : QAbstractItemModel(p), KeyListModelInterface(), d(new Private(this))
 {
 
 }
@@ -1136,12 +1155,13 @@ void AbstractKeyListModel::useKeyCache(bool value, bool secretOnly)
 {
     d->m_secretOnly = secretOnly;
     d->m_useKeyCache = value;
-    if (value) {
-        setKeys(d->m_secretOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys());
+    if (!d->m_useKeyCache) {
+        clear(All);
     } else {
-        setKeys(std::vector<Key>());
+        d->updateFromKeyCache();
     }
-    connect(KeyCache::instance().get(), &KeyCache::keysMayHaveChanged, this, [this] { if (d->m_useKeyCache) { setKeys(d->m_secretOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys()); } });
+    connect(KeyCache::instance().get(), &KeyCache::keysMayHaveChanged,
+            this, [this] { d->updateFromKeyCache(); });
 }
 
 // static
