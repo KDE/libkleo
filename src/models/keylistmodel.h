@@ -95,6 +95,9 @@ public:
     std::vector<GpgME::Key> remarkKeys() const;
 
 private:
+    QVariant data(const GpgME::Key &key, int column, int role) const;
+    QVariant data(const KeyGroup &group, int column, int role) const;
+
     virtual GpgME::Key doMapToKey(const QModelIndex &index) const = 0;
     virtual QModelIndex doMapFromKey(const GpgME::Key &key, int column) const = 0;
     virtual QList<QModelIndex> doAddKeys(const std::vector<GpgME::Key> &keys) = 0;

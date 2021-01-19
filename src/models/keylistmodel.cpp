@@ -55,6 +55,7 @@ using namespace Kleo;
 using namespace Kleo::KeyList;
 
 Q_DECLARE_METATYPE(GpgME::Key)
+Q_DECLARE_METATYPE(KeyGroup)
 
 class AbstractKeyListModel::Private
 {
@@ -261,13 +262,21 @@ static QVariant returnIfValid(const QIcon &t)
 QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
 {
     const Key key = this->key(index);
-    if (key.isNull()) {
-        return QVariant();
+    if (!key.isNull()) {
+        return data(key, index.column(), role);
     }
 
-    const int column = index.column();
+    const KeyGroup group = this->group(index);
+    if (!group.isNull()) {
+        return data(group, index.column(), role);
+    }
 
-    if (role == Qt::DisplayRole || role == Qt::EditRole) {
+    return QVariant();
+}
+
+QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
+{
+   if (role == Qt::DisplayRole || role == Qt::EditRole) {
         switch (column) {
         case PrettyName:
             return Formatting::prettyName(key);
@@ -367,6 +376,59 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
         return QString::fromLatin1(key.primaryFingerprint());
     } else if (role == KeyRole) {
         return QVariant::fromValue(key);
+    }
+    return QVariant();
+}
+
+QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role) const
+{
+    if (role == Qt::DisplayRole || role == Qt::EditRole) {
+        switch (column) {
+        case PrettyName:
+            return group.name();
+        case PrettyEMail:
+            return QVariant();
+        case Validity:
+            return QString();
+        case ValidFrom:
+            return QString();
+        case ValidUntil:
+            return QString();
+        case TechnicalDetails:
+            return i18nc("a group of keys/certificates", "Group");
+        case ShortKeyID:
+            return QString();
+        case KeyID:
+            return QString();
+        case Summary:
+            return group.name();  // used for filtering
+        case Fingerprint:
+            return QString();
+        case Issuer:
+            return QString();
+        case Origin:
+            return QString();
+        case LastUpdate:
+            return QString();
+        case SerialNumber:
+            return QString();
+        case OwnerTrust:
+            return QString();
+        case Remarks:
+            return QVariant();
+        case NumColumns:
+            break;
+        }
+    } else if (role == Qt::ToolTipRole) {
+        return QString();
+    } else if (role == Qt::FontRole) {
+        return QFont();
+    } else if (role == Qt::DecorationRole) {
+        return column == Icon ? QIcon::fromTheme("group") : QVariant();
+    } else if (role == Qt::BackgroundRole) {
+    } else if (role == Qt::ForegroundRole) {
+    } else if (role == GroupRole) {
+        return QVariant::fromValue(group);
     }
     return QVariant();
 }
