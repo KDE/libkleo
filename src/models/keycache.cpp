@@ -15,6 +15,7 @@
 
 #include "libkleo_debug.h"
 
+#include "kleo/keygroup.h"
 #include "kleo/predicates.h"
 #include "kleo/stl_util.h"
 #include "kleo/dn.h"
@@ -216,9 +217,9 @@ public:
                 qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << split[1] << "in group" << name;
                 continue;
             }
-            auto vec = m_groups.value(name);
-            vec.push_back(key);
-            m_groups.insert(name, vec);
+            std::vector<Key> groupKeys = m_groups.value(name).keys();
+            groupKeys.push_back(key);
+            m_groups.insert(name, KeyGroup(name, groupKeys));
         }
     }
 
@@ -236,7 +237,7 @@ private:
     bool m_initalized;
     bool m_pgpOnly;
     bool m_remarks_enabled;
-    QMap <QString, std::vector<Key> > m_groups;
+    QMap<QString, KeyGroup> m_groups;
 };
 
 std::shared_ptr<const KeyCache> KeyCache::instance()
@@ -880,6 +881,14 @@ std::vector<Key> KeyCache::secretKeys() const
     return keys;
 }
 
+std::vector<KeyGroup> KeyCache::groups() const
+{
+    d->ensureCachePopulated();
+    std::vector<KeyGroup> result;
+    std::copy(d->m_groups.cbegin(), d->m_groups.cend(), std::back_inserter(result));
+    return result;
+}
+
 void KeyCache::refresh(const std::vector<Key> &keys)
 {
     // make this better...
@@ -1359,7 +1368,7 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
 
 std::vector<GpgME::Key> KeyCache::getGroupKeys(const QString &groupName) const
 {
-    return d->m_groups.value(groupName);
+    return d->m_groups.value(groupName).keys();
 }
 
 #include "moc_keycache_p.cpp"

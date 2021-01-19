@@ -41,6 +41,7 @@ namespace Kleo
 {
 
 class FileSystemWatcher;
+class KeyGroup;
 
 class KLEO_EXPORT KeyCache : public QObject
 {
@@ -73,6 +74,8 @@ public:
 
     const std::vector<GpgME::Key> &keys() const;
     std::vector<GpgME::Key> secretKeys() const;
+
+    std::vector<KeyGroup> groups() const;
 
     const GpgME::Key &findByFingerprint(const char *fpr) const;
     const GpgME::Key &findByFingerprint(const std::string &fpr) const;
