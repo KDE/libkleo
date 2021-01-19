@@ -33,6 +33,13 @@ class KLEO_EXPORT AbstractKeyListModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
+    enum ItemType {
+        Keys = 0x01,
+        Groups = 0x02,
+        All = Keys | Groups
+    };
+    Q_DECLARE_FLAGS(ItemTypes, ItemType)
+
     explicit AbstractKeyListModel(QObject *parent = nullptr);
     ~AbstractKeyListModel() override;
 
@@ -63,7 +70,8 @@ public Q_SLOTS:
     QModelIndex addKey(const GpgME::Key &key);
     QList<QModelIndex> addKeys(const std::vector<GpgME::Key> &keys);
     void removeKey(const GpgME::Key &key);
-    void clear();
+
+    void clear(ItemTypes types = All);
 
 public:
     int columnCount(const QModelIndex &pidx) const override;
@@ -95,7 +103,7 @@ private:
     virtual KeyGroup doMapToGroup(const QModelIndex &index) const = 0;
     virtual QModelIndex doMapFromGroup(const KeyGroup &group, int column) const = 0;
 
-    virtual void doClear() = 0;
+    virtual void doClear(ItemTypes types) = 0;
 
 private:
     class Private;
@@ -103,5 +111,7 @@ private:
 };
 
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::AbstractKeyListModel::ItemTypes)
 
 #endif /* __KLEOPATRA_MODELS_KEYLISTMODEL_H__ */

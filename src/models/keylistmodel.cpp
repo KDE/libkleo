@@ -167,7 +167,7 @@ QModelIndex AbstractKeyListModel::index(const KeyGroup &group, int col) const
 
 void AbstractKeyListModel::setKeys(const std::vector<Key> &keys)
 {
-    clear();
+    clear(Keys);
     addKeys(keys);
 }
 
@@ -199,12 +199,14 @@ QList<QModelIndex> AbstractKeyListModel::addKeys(const std::vector<Key> &keys)
     return doAddKeys(sorted);
 }
 
-void AbstractKeyListModel::clear()
+void AbstractKeyListModel::clear(ItemTypes types)
 {
     beginResetModel();
-    doClear();
-    d->prettyEMailCache.clear();
-    d->remarksCache.clear();
+    doClear(types);
+    if (types & Keys) {
+        d->prettyEMailCache.clear();
+        d->remarksCache.clear();
+    }
     endResetModel();
 }
 
@@ -421,8 +423,11 @@ private:
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
 
-    void doClear() override {
-        mKeysByFingerprint.clear();
+    void doClear(ItemTypes types) override
+    {
+        if (types & Keys) {
+            mKeysByFingerprint.clear();
+        }
     }
 
 private:
@@ -455,11 +460,14 @@ private:
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
 
-    void doClear() override {
-        mTopLevels.clear();
-        mKeysByFingerprint.clear();
-        mKeysByExistingParent.clear();
-        mKeysByNonExistingParent.clear();
+    void doClear(ItemTypes types) override
+    {
+        if (types & Keys) {
+            mTopLevels.clear();
+            mKeysByFingerprint.clear();
+            mKeysByExistingParent.clear();
+            mKeysByNonExistingParent.clear();
+        }
     }
 
 private:
@@ -937,7 +945,7 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
         keys.erase(it);
         // FIXME for simplicity, we just clear the model and re-add all keys minus the removed one. This is suboptimal,
         // but acceptable given that deletion of non-leave nodes is rather rare.
-        clear();
+        clear(Keys);
         addKeys(keys);
         return;
     }
