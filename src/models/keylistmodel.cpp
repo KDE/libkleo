@@ -200,6 +200,12 @@ QList<QModelIndex> AbstractKeyListModel::addKeys(const std::vector<Key> &keys)
     return doAddKeys(sorted);
 }
 
+void AbstractKeyListModel::setGroups(const std::vector<KeyGroup> &groups)
+{
+    clear(Groups);
+    doSetGroups(groups);
+}
+
 void AbstractKeyListModel::clear(ItemTypes types)
 {
     beginResetModel();
@@ -484,6 +490,7 @@ private:
 
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
+    void doSetGroups(const std::vector<KeyGroup> &groups) override;
 
     void doClear(ItemTypes types) override
     {
@@ -521,6 +528,7 @@ private:
 
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
+    void doSetGroups(const std::vector<KeyGroup> &groups) override;
 
     void doClear(ItemTypes types) override
     {
@@ -643,6 +651,11 @@ QModelIndex FlatKeyListModel::doMapFromGroup(const KeyGroup &group, int column) 
 {
     Q_ASSERT(!"not implemented");
     return QModelIndex();
+}
+
+void FlatKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
+{
+    Q_ASSERT(!"not implemented");
 }
 
 HierarchicalKeyListModel::HierarchicalKeyListModel(QObject *p)
@@ -1067,6 +1080,11 @@ QModelIndex HierarchicalKeyListModel::doMapFromGroup(const KeyGroup &group, int 
 {
     Q_ASSERT(!"not implemented");
     return QModelIndex();
+}
+
+void HierarchicalKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
+{
+    Q_ASSERT(!"not implemented");
 }
 
 void AbstractKeyListModel::useKeyCache(bool value, bool secretOnly)
