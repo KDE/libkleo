@@ -43,7 +43,8 @@ namespace KeyList
 
     enum Options {
         AllKeys,
-        SecretKeysOnly
+        SecretKeysOnly,
+        IncludeGroups
     };
 }
 }

@@ -83,6 +83,9 @@ void AbstractKeyListModel::Private::updateFromKeyCache()
 {
     if (m_useKeyCache) {
         q->setKeys(m_keyListOptions == SecretKeysOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys());
+        if (m_keyListOptions == IncludeGroups) {
+            q->setGroups(KeyCache::instance()->groups());
+        }
     }
 }
 
