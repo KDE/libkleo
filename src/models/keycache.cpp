@@ -511,7 +511,8 @@ std::vector<Subkey> KeyCache::findSubkeysByKeyID(const std::vector<std::string> 
 std::vector<Key> KeyCache::findRecipients(const DecryptionResult &res) const
 {
     std::vector<std::string> keyids;
-    Q_FOREACH (const DecryptionResult::Recipient &r, res.recipients())
+    const auto recipients = res.recipients();
+    for (const DecryptionResult::Recipient &r : recipients)
         if (const char *kid = r.keyID()) {
             keyids.push_back(kid);
         }
@@ -529,7 +530,8 @@ std::vector<Key> KeyCache::findRecipients(const DecryptionResult &res) const
 std::vector<Key> KeyCache::findSigners(const VerificationResult &res) const
 {
     std::vector<std::string> fprs;
-    Q_FOREACH (const Signature &s, res.signatures())
+    const auto signatures = res.signatures();
+    for (const Signature &s : signatures)
         if (const char *fpr = s.fingerprint()) {
             fprs.push_back(fpr);
         }
@@ -767,7 +769,8 @@ static std::string email(const UserID &uid)
 static std::vector<std::string> emails(const Key &key)
 {
     std::vector<std::string> emails;
-    Q_FOREACH (const UserID &uid, key.userIDs()) {
+    const auto userIDs = key.userIDs();
+    for (const UserID &uid : userIDs) {
         const std::string e = email(uid);
         if (!e.empty()) {
             emails.push_back(e);

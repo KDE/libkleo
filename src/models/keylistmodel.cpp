@@ -779,7 +779,8 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
 
     std::set<Key, _detail::ByFingerprint<std::less> > changedParents;
 
-    Q_FOREACH (const Key &key, topological_sort(keys)) {
+    const auto topologicalSortedList = topological_sort(keys);
+    for (const Key &key : topologicalSortedList) {
 
         // check to see whether this key is a parent for a previously parent-less group:
         const char *const fpr = key.primaryFingerprint();

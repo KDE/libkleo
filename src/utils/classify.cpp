@@ -392,9 +392,11 @@ bool Kleo::isChecksumFile(const QString &file)
         return false;
     }
     if (!initialized) {
-        Q_FOREACH (const std::shared_ptr<ChecksumDefinition> &cd, ChecksumDefinition::getChecksumDefinitions()) {
+        const auto getChecksumDefinitions = ChecksumDefinition::getChecksumDefinitions();
+        for (const std::shared_ptr<ChecksumDefinition> &cd : getChecksumDefinitions) {
             if (cd) {
-                Q_FOREACH (const QString &pattern, cd->patterns()) {
+                const auto patternsList = cd->patterns();
+                for (const QString &pattern : patternsList) {
 #ifdef Q_OS_WIN
                     patterns << QRegExp(pattern, Qt::CaseInsensitive);
 #else

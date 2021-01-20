@@ -965,7 +965,8 @@ Kleo::ParsedKeyserver Kleo::parseKeyserver(const QString &str)
     }
     Kleo::ParsedKeyserver result;
     result.url = list.front();
-    Q_FOREACH (const QString &kvpair, list.mid(1)) {
+    const auto listMid = list.mid(1);
+    for (const QString &kvpair : listMid) {
         const int idx = kvpair.indexOf(QLatin1Char('='));
         if (idx < 0) {
             result.options.push_back(qMakePair(kvpair, QString()));     // null QString

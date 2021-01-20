@@ -526,7 +526,8 @@ Kleo::KeyListViewItem *Kleo::KeyListView::selectedItem() const
 QList<Kleo::KeyListViewItem *> Kleo::KeyListView::selectedItems() const
 {
     QList<KeyListViewItem *> result;
-    foreach (QTreeWidgetItem *selectedItem, QTreeWidget::selectedItems()) {
+    const auto selectedItems = QTreeWidget::selectedItems();
+    for (QTreeWidgetItem *selectedItem : selectedItems) {
         if (auto *i = Kleo::lvi_cast<Kleo::KeyListViewItem>(selectedItem)) {
             result.append(i);
         }
