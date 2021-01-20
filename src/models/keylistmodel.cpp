@@ -136,7 +136,7 @@ std::vector<Key> AbstractKeyListModel::keys(const QList<QModelIndex> &indexes) c
                        return this->key(idx);
                    });
     result.erase(std::remove_if(result.begin(), result.end(), std::mem_fn(&GpgME::Key::isNull)), result.end());
-    result.erase(std::unique(result.begin(), result.end(), _detail::ByFingerprint<std::equal_to>()), result.end());
+    _detail::remove_duplicates_by_fpr(result);
     return result;
 }
 
