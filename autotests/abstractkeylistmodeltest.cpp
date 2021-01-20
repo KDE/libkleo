@@ -15,15 +15,55 @@
 
 #include <gpgme++/key.h>
 
+#include <gpgme.h>
+
 #include <QTest>
 
 using namespace Kleo;
 using namespace GpgME;
 
+namespace
+{
+Key createTestKey(const char *uid)
+{
+    static int count = 0;
+    count++;
+
+    gpgme_key_t key;
+    gpgme_key_from_uid(&key, uid);
+    const QByteArray fingerprint = QByteArray::number(count, 16).rightJustified(40, '0');
+    key->fpr = strdup(fingerprint.constData());
+
+    return Key(key, false);
+}
+}
+
 void AbstractKeyListModelTest::testCreation()
 {
     QScopedPointer<AbstractKeyListModel> model(createModel());
     QCOMPARE( model->rowCount(), 0 );
+}
+
+void AbstractKeyListModelTest::testSetKeys()
+{
+    QScopedPointer<AbstractKeyListModel> model(createModel());
+
+    const std::vector<Key> keys = {
+        createTestKey("test1@example.net")
+    };
+    model->setKeys(keys);
+    QCOMPARE( model->rowCount(), 1 );
+    QVERIFY( model->index(keys[0]).isValid() );
+
+    const std::vector<Key> otherKeys = {
+        createTestKey("test2@example.net"),
+        createTestKey("test3@example.net")
+    };
+    model->setKeys(otherKeys);
+    QCOMPARE( model->rowCount(), 2 );
+    QVERIFY( model->index(otherKeys[0]).isValid() );
+    QVERIFY( model->index(otherKeys[1]).isValid() );
+    QVERIFY( !model->index(keys[0]).isValid() );
 }
 
 void AbstractKeyListModelTest::testSetGroups()
@@ -46,6 +86,48 @@ void AbstractKeyListModelTest::testSetGroups()
     QVERIFY( model->index(otherGroups[0]).isValid() );
     QVERIFY( model->index(otherGroups[1]).isValid() );
     QVERIFY( !model->index(groups[0]).isValid() );
+}
+
+void AbstractKeyListModelTest::testKeys()
+{
+    QScopedPointer<AbstractKeyListModel> model(createModel());
+
+    const Key key = createTestKey("test@example.net");
+    const KeyGroup group("test", {key});
+
+    model->setKeys({key});
+    model->setGroups({group});
+
+    QCOMPARE( model->rowCount(), 2 );
+
+    const QModelIndex keyIndex = model->index(key);
+    QVERIFY( keyIndex.isValid() );
+    const QModelIndex groupIndex = model->index(group);
+    QVERIFY( groupIndex.isValid() );
+
+    {
+        const auto keys = model->keys({});
+        QCOMPARE( keys.size(), 0 );
+    }
+
+    {
+        const auto keys = model->keys({keyIndex});
+        QCOMPARE( keys.size(), 1 );
+        QCOMPARE( keys[0].userID(0).addrSpec(), UserID::addrSpecFromString("test@example.net") );
+    }
+
+    {
+        // duplicate keys are removed from result
+        const auto keys = model->keys({keyIndex, keyIndex});
+        QCOMPARE( keys.size(), 1 );
+        QCOMPARE( keys[0].userID(0).addrSpec(), UserID::addrSpecFromString("test@example.net") );
+    }
+
+    {
+        // null keys are removed from result
+        const auto keys = model->keys({groupIndex});
+        QCOMPARE( keys.size(), 0 );
+    }
 }
 
 void AbstractKeyListModelTest::testClear()

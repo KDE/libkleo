@@ -23,7 +23,9 @@ class AbstractKeyListModelTest: public QObject
     Q_OBJECT
 private Q_SLOTS:
     void testCreation();
+    void testSetKeys();
     void testSetGroups();
+    void testKeys();
     void testClear();
 
 private:
