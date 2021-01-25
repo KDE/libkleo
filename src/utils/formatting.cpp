@@ -11,6 +11,7 @@
 #include "formatting.h"
 #include "kleo/dn.h"
 #include "kleo/keyfiltermanager.h"
+#include "kleo/keygroup.h"
 
 #include <gpgme++/key.h>
 #include <gpgme++/importresult.h>
@@ -887,6 +888,11 @@ QString Formatting::summaryLine(const Key &key)
 		 Formatting::complianceStringShort(key),
 		 displayName(key.protocol()),
                  Formatting::creationDateString(key));
+}
+
+QString Formatting::summaryLine(const KeyGroup &group)
+{
+    return i18nc("name of group (group)", "%1 (group)", group.name());
 }
 
 // Icon for certificate selection indication

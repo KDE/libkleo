@@ -430,7 +430,7 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
         case KeyID:
             return QString();
         case Summary:
-            return group.name();  // used for filtering
+            return Formatting::summaryLine(group);  // used for filtering
         case Fingerprint:
             return QString();
         case Issuer:
