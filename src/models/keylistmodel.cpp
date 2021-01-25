@@ -752,6 +752,8 @@ QModelIndex HierarchicalKeyListModel::index(int row, int col, const QModelIndex 
     if (!pidx.isValid()) {
         if (static_cast<unsigned>(row) < mTopLevels.size()) {
             return index(mTopLevels[row], col);
+        } else if (static_cast<unsigned>(row) < mTopLevels.size() + mGroups.size()) {
+            return index(mGroups[row - mTopLevels.size()], col);
         } else {
             return QModelIndex();
         }

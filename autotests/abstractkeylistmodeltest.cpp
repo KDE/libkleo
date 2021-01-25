@@ -130,6 +130,25 @@ void AbstractKeyListModelTest::testKeys()
     }
 }
 
+void AbstractKeyListModelTest::testIndex()
+{
+    QScopedPointer<AbstractKeyListModel> model(createModel());
+
+    const Key key = createTestKey("test@example.net");
+    const KeyGroup group("test", {key});
+
+    model->setKeys({key});
+    model->setGroups({group});
+
+    const QModelIndex keyIndex = model->index(0, 0);
+    QVERIFY( keyIndex.isValid() );
+    QVERIFY( !model->key(keyIndex).isNull() );
+
+    const QModelIndex groupIndex = model->index(1, 0);
+    QVERIFY( groupIndex.isValid() );
+    QVERIFY( !model->group(groupIndex).isNull() );
+}
+
 void AbstractKeyListModelTest::testClear()
 {
     QScopedPointer<AbstractKeyListModel> model(createModel());
