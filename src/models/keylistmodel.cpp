@@ -418,13 +418,13 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
         case PrettyEMail:
             return QVariant();
         case Validity:
-            return QString();
+            return Formatting::complianceStringShort(group);
         case ValidFrom:
             return QString();
         case ValidUntil:
             return QString();
         case TechnicalDetails:
-            return i18nc("a group of keys/certificates", "Group");
+            return Formatting::type(group);
         case ShortKeyID:
             return QString();
         case KeyID:
@@ -449,7 +449,7 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
             break;
         }
     } else if (role == Qt::ToolTipRole) {
-        return QString();
+        return Formatting::toolTip(group, toolTipOptions());
     } else if (role == Qt::FontRole) {
         return QFont();
     } else if (role == Qt::DecorationRole) {

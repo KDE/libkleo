@@ -444,6 +444,73 @@ QString Formatting::toolTip(const Key &key, int flags)
     return result;
 }
 
+namespace
+{
+QString calculateValidity(const std::vector<Key> &keys)
+{
+    Q_ASSERT(keys.size() > 0);
+
+    const bool allKeysAreOpenPGP = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.protocol() == OpenPGP; });
+    const bool allKeysAreValidated = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.keyListMode() & Validate; });
+    if (allKeysAreOpenPGP || allKeysAreValidated) {
+        const bool someKeysAreBad = std::any_of(keys.cbegin(), keys.cend(), std::mem_fn(&Key::isBad));
+        if (someKeysAreBad) {
+            return i18n("Some keys are revoked, expired, disabled, or invalid.");
+        } else {
+            const bool allKeysAreFullyValid = std::all_of(keys.cbegin(), keys.cend(), &Formatting::uidsHaveFullValidity);
+            if (allKeysAreFullyValid) {
+                return i18n("All keys are certified.");
+            } else {
+                return i18n("Some keys are not certified.");
+            }
+        }
+    }
+    return i18n("The validity of the keys cannot be checked at the moment.");
+}
+}
+
+QString Formatting::toolTip(const KeyGroup &group, int flags)
+{
+    static const unsigned int maxNumKeysForTooltip = 20;
+
+    if (group.isNull()) {
+        return QString();
+    }
+
+    const std::vector<Key> &keys = group.keys();
+    if (keys.size() == 0) {
+        return i18nc("@info:tooltip", "This group does not contain any keys.");
+    }
+
+    const QString validity = (flags & Validity) ? calculateValidity(keys) : QString();
+    if (flags == Validity) {
+        return validity;
+    }
+
+    // list either up to maxNumKeysForTooltip keys or (maxNumKeysForTooltip-1) keys followed by "and n more keys"
+    const unsigned int numKeysForTooltip = keys.size() > maxNumKeysForTooltip ? maxNumKeysForTooltip - 1 : keys.size();
+
+    QStringList result;
+    result.reserve(3 + 2 + numKeysForTooltip + 2);
+    if (!validity.isEmpty()) {
+        result.push_back("<p>");
+        result.push_back(validity.toHtmlEscaped());
+        result.push_back("</p>");
+    }
+
+    result.push_back("<p>");
+    result.push_back(i18n("Keys:"));
+    for (unsigned int i = 0; i < numKeysForTooltip; ++i) {
+        result.push_back(QLatin1String("<br>") + Formatting::summaryLine(keys[i]).toHtmlEscaped());
+    }
+    if (keys.size() > numKeysForTooltip) {
+        result.push_back(QLatin1String("<br>") + i18ncp("this follows a list of keys", "and 1 more key", "and %1 more keys", keys.size() - numKeysForTooltip));
+    }
+    result.push_back("</p>");
+
+    return result.join(QLatin1Char('\n'));
+}
+
 //
 // Creation and Expiration
 //
@@ -569,6 +636,12 @@ QString Formatting::type(const Key &key)
 QString Formatting::type(const Subkey &subkey)
 {
     return QString::fromUtf8(subkey.publicKeyAlgorithmAsString());
+}
+
+QString Formatting::type(const KeyGroup &group)
+{
+    Q_UNUSED(group)
+    return i18nc("a group of keys/certificates", "Group");
 }
 
 //
@@ -930,6 +1003,20 @@ QString Formatting::validity(const UserID &uid)
     }
 }
 
+QString Formatting::validity(const KeyGroup &group)
+{
+    if (group.isNull()) {
+        return QString();
+    }
+
+    const std::vector<Key> &keys = group.keys();
+    if (keys.size() == 0) {
+        return i18n("This group does not contain any keys.");
+    }
+
+    return calculateValidity(keys);
+}
+
 bool Formatting::uidsHaveFullValidity(const GpgME::Key &key)
 {
     bool oneValid = false;
@@ -1016,6 +1103,18 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
     }
 
     return i18nc("As in not all user IDs are valid.", "not certified");
+}
+
+QString Formatting::complianceStringShort(const KeyGroup &group)
+{
+    const std::vector<Key> &keys = group.keys();
+
+    const bool allKeysFullyValid = std::all_of(keys.cbegin(), keys.cend(), &Formatting::uidsHaveFullValidity);
+    if (allKeysFullyValid) {
+        return i18nc("As in all keys are valid.", "all certified");
+    }
+
+    return i18nc("As in not all keys are valid.", "not all certified");
 }
 
 QString Formatting::prettyID(const char *id)

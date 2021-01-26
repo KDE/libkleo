@@ -71,6 +71,7 @@ enum ToolTipOption {
 };
 
 KLEO_EXPORT QString toolTip(const GpgME::Key &key, int opts);
+KLEO_EXPORT QString toolTip(const Kleo::KeyGroup &group, int opts);
 
 KLEO_EXPORT QString expirationDateString(const GpgME::Key &key);
 KLEO_EXPORT QString expirationDateString(const GpgME::Subkey &subkey);
@@ -92,6 +93,7 @@ KLEO_EXPORT QString dateString(time_t t);
 KLEO_EXPORT QString displayName(GpgME::Protocol prot);
 KLEO_EXPORT QString type(const GpgME::Key &key);
 KLEO_EXPORT QString type(const GpgME::Subkey &subkey);
+KLEO_EXPORT QString type(const Kleo::KeyGroup &group);
 
 KLEO_EXPORT QString ownerTrustShort(const GpgME::Key &key);
 KLEO_EXPORT QString ownerTrustShort(GpgME::Key::OwnerTrust trust);
@@ -102,6 +104,7 @@ KLEO_EXPORT QString validityShort(const GpgME::UserID::Signature &sig);
 KLEO_EXPORT QIcon   validityIcon(const GpgME::UserID::Signature &sig);
 /* A sentence about the validity of the UserID */
 KLEO_EXPORT QString validity(const GpgME::UserID &uid);
+KLEO_EXPORT QString validity(const Kleo::KeyGroup &group);
 
 KLEO_EXPORT QString formatForComboBox(const GpgME::Key &key);
 
@@ -146,6 +149,7 @@ KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
  * given key, including any conformance statements relevant to the
  * current conformance mode.  */
 KLEO_EXPORT QString complianceStringShort(const GpgME::Key &key);
+KLEO_EXPORT QString complianceStringShort(const Kleo::KeyGroup &group);
 
 /* The origin of the key mapped to a localized string */
 KLEO_EXPORT QString origin(int o);
