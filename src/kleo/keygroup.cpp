@@ -69,7 +69,8 @@ QString KeyGroup::name() const
     return d ? d->name : QString();
 }
 
-std::vector<Key> Kleo::KeyGroup::keys() const
+const std::vector<Key> &KeyGroup::keys() const
 {
-    return d ? d->keys : std::vector<Key>();
+    static const std::vector<Key> empty;
+    return d ? d->keys : empty;
 }

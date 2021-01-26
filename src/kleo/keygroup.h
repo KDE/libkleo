@@ -44,7 +44,7 @@ public:
 
     QString name() const;
 
-    std::vector<GpgME::Key> keys() const;
+    const std::vector<GpgME::Key> &keys() const;
 
 private:
     class Private;
