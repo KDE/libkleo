@@ -105,6 +105,7 @@ KLEO_EXPORT QIcon   validityIcon(const GpgME::UserID::Signature &sig);
 /* A sentence about the validity of the UserID */
 KLEO_EXPORT QString validity(const GpgME::UserID &uid);
 KLEO_EXPORT QString validity(const Kleo::KeyGroup &group);
+KLEO_EXPORT QIcon validityIcon(const Kleo::KeyGroup &group);
 
 KLEO_EXPORT QString formatForComboBox(const GpgME::Key &key);
 

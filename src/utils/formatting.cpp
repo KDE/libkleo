@@ -968,10 +968,11 @@ QString Formatting::summaryLine(const KeyGroup &group)
     return i18nc("name of group (group)", "%1 (group)", group.name());
 }
 
-// Icon for certificate selection indication
-QIcon Formatting::iconForUid(const UserID &uid)
+namespace
 {
-    switch (uid.validity()) {
+QIcon iconForValidity(UserID::Validity validity)
+{
+    switch (validity) {
         case UserID::Ultimate:
         case UserID::Full:
         case UserID::Marginal:
@@ -983,6 +984,13 @@ QIcon Formatting::iconForUid(const UserID &uid)
         default:
             return QIcon::fromTheme(QStringLiteral("emblem-information"));
     }
+}
+}
+
+// Icon for certificate selection indication
+QIcon Formatting::iconForUid(const UserID &uid)
+{
+    return iconForValidity(uid.validity());
 }
 
 QString Formatting::validity(const UserID &uid)
@@ -1017,23 +1025,37 @@ QString Formatting::validity(const KeyGroup &group)
     return calculateValidity(keys);
 }
 
-bool Formatting::uidsHaveFullValidity(const GpgME::Key &key)
+namespace
 {
-    bool oneValid = false;
-    for (const auto &uid: key.userIDs()) {
-        if (uid.isRevoked()) {
-            /* Skip revoked uids */
-            continue;
-        }
-        if (uid.validity() < UserID::Validity::Full) {
-            return false;
-        }
-        /* Only return true if we have found at least one
-         * valid uid. E.g. if all uids are revoked we do
-         * not want to return true here. */
-        oneValid = true;
-    }
-    return oneValid;
+UserID::Validity minimalValidityOfNotRevokedUserIDs(const Key &key)
+{
+    std::vector<UserID> userIDs = key.userIDs();
+    const auto endOfNotRevokedUserIDs = std::remove_if(userIDs.begin(), userIDs.end(), std::mem_fn(&UserID::isRevoked));
+    const int minValidity = std::accumulate(userIDs.begin(), endOfNotRevokedUserIDs, UserID::Ultimate + 1,
+                                            [] (int validity, const UserID &userID) {
+                                                return std::min(validity, static_cast<int>(userID.validity()));
+                                            });
+    return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
+}
+
+UserID::Validity minimalValidity(const std::vector<Key> &keys)
+{
+    const int minValidity = std::accumulate(keys.cbegin(), keys.cend(), UserID::Ultimate + 1,
+                                            [] (int validity, const Key &key) {
+                                                return std::min<int>(validity, minimalValidityOfNotRevokedUserIDs(key));
+                                            });
+    return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
+}
+}
+
+QIcon Formatting::validityIcon(const KeyGroup &group)
+{
+    return iconForValidity(minimalValidity(group.keys()));
+}
+
+bool Formatting::uidsHaveFullValidity(const Key &key)
+{
+    return minimalValidityOfNotRevokedUserIDs(key) >= UserID::Full;
 }
 
 QString Formatting::complianceMode()
