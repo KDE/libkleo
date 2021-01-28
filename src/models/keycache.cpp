@@ -21,6 +21,9 @@
 #include "kleo/dn.h"
 #include "utils/filesystemwatcher.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+
 #include <gpgme++/error.h>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
@@ -183,11 +186,8 @@ public:
 
     void ensureCachePopulated() const;
 
-    void updateGroupCache() {
-        // Update Group Keys
-        // this is a quick thing as it only involves reading the config
-        // so no need for a job.
-
+    void readGroupsFromGpgConf(QMap<QString, KeyGroup> &groups)
+    {
         // According to Werner Koch groups are more of a hack to solve
         // a valid usecase (e.g. several keys defined for an internal mailing list)
         // that won't make it in the proper keylist interface. And using gpgconf
@@ -204,7 +204,6 @@ public:
             return;
         }
 
-        m_groups.clear();
         for (const auto &value: entry->stringValueList()) {
             const auto split = value.split(QLatin1Char('='));
             if (split.size() != 2) {
@@ -217,10 +216,62 @@ public:
                 qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << split[1] << "in group" << name;
                 continue;
             }
-            std::vector<Key> groupKeys = m_groups.value(name).keys();
+            std::vector<Key> groupKeys = groups.value(name).keys();
             groupKeys.push_back(key);
-            m_groups.insert(name, KeyGroup(name, groupKeys));
+            groups.insert(name, KeyGroup(name, groupKeys));
         }
+    }
+
+    void readGroupsFromGroupsConfig(QMap<QString, KeyGroup> &groups)
+    {
+        static const QString groupNamePrefix = QStringLiteral("Group-");
+
+        if (m_groupsConfigName.isEmpty()) {
+            return;
+        }
+
+        const KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(m_groupsConfigName);
+        const QStringList configGroups = groupsConfig->groupList();
+        for (const QString &configGroupName : configGroups) {
+            qCDebug(LIBKLEO_LOG) << "Reading config group" << configGroupName;
+            if (configGroupName.startsWith(groupNamePrefix)) {
+                const QString keyGroupId = configGroupName.mid(groupNamePrefix.size());
+                if (keyGroupId.isEmpty()) {
+                    qCWarning(LIBKLEO_LOG) << "Config group" << configGroupName << "has empty group id";
+                    continue;
+                }
+                const KConfigGroup configGroup = groupsConfig->group(configGroupName);
+                const QString keyGroupName = configGroup.readEntry("Name", QString());
+                if (keyGroupName.isEmpty()) {
+                    qCWarning(LIBKLEO_LOG) << "Config group" << configGroupName << "has empty or missing Name entry";
+                    continue;
+                }
+                const QStringList fingerprints = configGroup.readEntry("Keys", QStringList());
+                std::vector<Key> groupKeys;
+                groupKeys.reserve(fingerprints.size());
+                for (const QString &fpr : fingerprints) {
+                    const Key key = q->findByFingerprint(fpr.toLatin1().constData());
+                    if (key.isNull()) {
+                        qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << fpr << "in group" << keyGroupName;
+                        continue;
+                    }
+                    groupKeys.push_back(key);
+                }
+                qCDebug(LIBKLEO_LOG) << "Read group with id" << keyGroupId << ", name" << keyGroupName << ", and keys" << fingerprints;
+                groups.insert(keyGroupName, KeyGroup(keyGroupName, groupKeys));
+            }
+        }
+    }
+
+    void updateGroupCache()
+    {
+        // Update Group Keys
+        // this is a quick thing as it only involves reading the config
+        // so no need for a job.
+
+        m_groups.clear();
+        readGroupsFromGpgConf(m_groups);
+        readGroupsFromGroupsConfig(m_groups);
     }
 
 private:
@@ -237,6 +288,7 @@ private:
     bool m_initalized;
     bool m_pgpOnly;
     bool m_remarks_enabled;
+    QString m_groupsConfigName;
     QMap<QString, KeyGroup> m_groups;
 };
 
@@ -264,6 +316,11 @@ KeyCache::KeyCache()
 }
 
 KeyCache::~KeyCache() {}
+
+void KeyCache::setGroupsConfig(const QString &filename)
+{
+    d->m_groupsConfigName = filename;
+}
 
 void KeyCache::enableFileSystemWatcher(bool enable)
 {

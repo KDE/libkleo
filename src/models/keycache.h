@@ -54,6 +54,8 @@ public:
 
     ~KeyCache();
 
+    void setGroupsConfig(const QString &filename);
+
     void insert(const GpgME::Key &key);
     void insert(const std::vector<GpgME::Key> &keys);
 
