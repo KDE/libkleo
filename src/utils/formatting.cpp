@@ -965,7 +965,20 @@ QString Formatting::summaryLine(const Key &key)
 
 QString Formatting::summaryLine(const KeyGroup &group)
 {
-    return i18nc("name of group (group)", "%1 (group)", group.name());
+    switch (group.source()) {
+        case KeyGroup::ApplicationConfig:
+            return i18ncp("name of group of keys (n key(s), id: id of group)", "%2 (1 key, id: %3)", "%2 (%1 keys, id: %3)",
+                          group.keys().size(), group.name(), group.id());
+        case KeyGroup::GnuPGConfig:
+            return i18ncp("name of group of keys (n key(s), read ...)", "%2 (1 key, read from gpg.conf)", "%2 (%1 keys, read from gpg.conf)",
+                          group.keys().size(), group.name());
+        case KeyGroup::Tags:
+            return i18ncp("name of group of keys (n key(s), tag)", "%2 (1 key, tag)", "%2 (%1 keys, tag)",
+                          group.keys().size(), group.name());
+        default:
+            return i18ncp("name of group of keys (n key(s), group ...)", "%2 (1 key, unknown origin)", "%2 (%1 keys, unknown origin)",
+                          group.keys().size(), group.name());
+    }
 }
 
 namespace
