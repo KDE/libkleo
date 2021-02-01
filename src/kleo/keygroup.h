@@ -29,10 +29,17 @@ namespace Kleo
 class KLEO_EXPORT KeyGroup
 {
 public:
+    enum Source {
+        UnknownSource,
+        ApplicationConfig,
+        GnuPGConfig,
+        Tags
+    };
+
     KeyGroup();
     ~KeyGroup();
 
-    explicit KeyGroup(const QString &name, const std::vector<GpgME::Key> &keys);
+    explicit KeyGroup(const QString &id, const QString &name, const std::vector<GpgME::Key> &keys, Source source);
 
     KeyGroup(const KeyGroup &other);
     KeyGroup &operator=(const KeyGroup &other);
@@ -42,9 +49,10 @@ public:
 
     bool isNull() const;
 
+    QString id() const;
     QString name() const;
-
     const std::vector<GpgME::Key> &keys() const;
+    Source source() const;
 
 private:
     class Private;

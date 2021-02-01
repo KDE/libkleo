@@ -186,7 +186,22 @@ public:
 
     void ensureCachePopulated() const;
 
-    void readGroupsFromGpgConf(QMap<QString, KeyGroup> &groups)
+    std::vector<Key> getKeysForGroup(const QString &groupName, const QStringList &fingerprints)
+    {
+        std::vector<Key> groupKeys;
+        groupKeys.reserve(fingerprints.size());
+        for (const QString &fpr : fingerprints) {
+            const Key key = q->findByFingerprint(fpr.toLatin1().constData());
+            if (key.isNull()) {
+                qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << fpr << "in group" << groupName;
+                continue;
+            }
+            groupKeys.push_back(key);
+        }
+        return groupKeys;
+    }
+
+    void readGroupsFromGpgConf(QMultiMap<QString, KeyGroup> &groups)
     {
         // According to Werner Koch groups are more of a hack to solve
         // a valid usecase (e.g. several keys defined for an internal mailing list)
@@ -204,25 +219,28 @@ public:
             return;
         }
 
-        for (const auto &value: entry->stringValueList()) {
-            const auto split = value.split(QLatin1Char('='));
+        // collect the key fingerprints for all groups read from the configuration
+        QMap<QString, QStringList> fingerprints;
+        for (const QString &value: entry->stringValueList()) {
+            const QStringList split = value.split(QLatin1Char('='));
             if (split.size() != 2) {
                 qCDebug (LIBKLEO_LOG) << "Ignoring invalid group config:" << value;
                 continue;
             }
-            const auto name = split[0];
-            const auto key = q->findByFingerprint(split[1].toLatin1().constData());
-            if (key.isNull()) {
-                qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << split[1] << "in group" << name;
-                continue;
-            }
-            std::vector<Key> groupKeys = groups.value(name).keys();
-            groupKeys.push_back(key);
-            groups.insert(name, KeyGroup(name, groupKeys));
+            const QString groupName = split[0];
+            const QString fingerprint = split[1];
+            fingerprints[groupName].push_back(fingerprint);
+        }
+
+        // add all groups read from the configuration to the list of groups
+        for (auto it = fingerprints.cbegin(); it != fingerprints.cend(); ++it) {
+            const QString groupName = it.key();
+            const std::vector<Key> groupKeys = getKeysForGroup(groupName, it.value());
+            groups.insert(groupName, KeyGroup(groupName, groupName, groupKeys, KeyGroup::GnuPGConfig));
         }
     }
 
-    void readGroupsFromGroupsConfig(QMap<QString, KeyGroup> &groups)
+    void readGroupsFromGroupsConfig(QMultiMap<QString, KeyGroup> &groups)
     {
         static const QString groupNamePrefix = QStringLiteral("Group-");
 
@@ -247,18 +265,9 @@ public:
                     continue;
                 }
                 const QStringList fingerprints = configGroup.readEntry("Keys", QStringList());
-                std::vector<Key> groupKeys;
-                groupKeys.reserve(fingerprints.size());
-                for (const QString &fpr : fingerprints) {
-                    const Key key = q->findByFingerprint(fpr.toLatin1().constData());
-                    if (key.isNull()) {
-                        qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << fpr << "in group" << keyGroupName;
-                        continue;
-                    }
-                    groupKeys.push_back(key);
-                }
+                const std::vector<Key> groupKeys = getKeysForGroup(keyGroupName, fingerprints);
                 qCDebug(LIBKLEO_LOG) << "Read group with id" << keyGroupId << ", name" << keyGroupName << ", and keys" << fingerprints;
-                groups.insert(keyGroupName, KeyGroup(keyGroupName, groupKeys));
+                groups.insert(keyGroupName, KeyGroup(keyGroupId, keyGroupName, groupKeys, KeyGroup::ApplicationConfig));
             }
         }
     }
@@ -289,7 +298,7 @@ private:
     bool m_pgpOnly;
     bool m_remarks_enabled;
     QString m_groupsConfigName;
-    QMap<QString, KeyGroup> m_groups;
+    QMultiMap<QString, KeyGroup> m_groups;
 };
 
 std::shared_ptr<const KeyCache> KeyCache::instance()
@@ -1423,9 +1432,14 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
     return ret;
 }
 
-std::vector<GpgME::Key> KeyCache::getGroupKeys(const QString &groupName) const
+std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
 {
-    return d->m_groups.value(groupName).keys();
+    std::vector<Key> result;
+    for (auto it = d->m_groups.find(groupName); it != d->m_groups.end() && it.key() == groupName; ++it) {
+        const std::vector<Key> &keys = it.value().keys();
+        std::copy(keys.cbegin(), keys.cend(), std::back_inserter(result));
+    }
+    return result;
 }
 
 #include "moc_keycache_p.cpp"

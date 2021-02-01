@@ -685,8 +685,12 @@ KeyGroup FlatKeyListModel::doMapToGroup(const QModelIndex &idx) const
 QModelIndex FlatKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
 {
     Q_ASSERT(!group.isNull());
-    const QString name = group.name();
-    const auto it = std::find_if(mGroups.begin(), mGroups.end(), [name](const KeyGroup &g) { return g.name() == name; });
+    const auto it = std::find_if(mGroups.begin(), mGroups.end(),
+                                 [group](const KeyGroup &g) {
+                                     return g.source() == group.source()
+                                            && g.id() == group.id()
+                                            && g.name() == group.name();
+                                 });
     if (it == mGroups.end()) {
         return QModelIndex();
     } else {
@@ -1138,8 +1142,12 @@ KeyGroup HierarchicalKeyListModel::doMapToGroup(const QModelIndex &idx) const
 QModelIndex HierarchicalKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
 {
     Q_ASSERT(!group.isNull());
-    const QString name = group.name();
-    const auto it = std::find_if(mGroups.begin(), mGroups.end(), [name](const KeyGroup &g) { return g.name() == name; });
+    const auto it = std::find_if(mGroups.begin(), mGroups.end(),
+                                 [group](const KeyGroup &g) {
+                                     return g.source() == group.source()
+                                            && g.id() == group.id()
+                                            && g.name() == group.name();
+                                 });
     if (it == mGroups.end()) {
         return QModelIndex();
     } else {

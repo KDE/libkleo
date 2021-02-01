@@ -20,27 +20,31 @@ using namespace GpgME;
 class KeyGroup::Private
 {
 public:
-    explicit Private(const QString &name, const std::vector<GpgME::Key> &keys);
+    explicit Private(const QString &id, const QString &name, const std::vector<Key> &keys, Source source);
 
+    QString id;
     QString name;
     std::vector<Key> keys;
+    Source source;
 };
 
-KeyGroup::Private::Private(const QString &name_, const std::vector<GpgME::Key> &keys_)
-    : name(name_)
+KeyGroup::Private::Private(const QString &id_, const QString &name_, const std::vector<Key> &keys_, Source source_)
+    : id(id_)
+    , name(name_)
     , keys(keys_)
+    , source(source_)
 {
 }
 
 KeyGroup::KeyGroup()
-    : KeyGroup(QString(), {})
+    : KeyGroup(QString(), QString(), {}, UnknownSource)
 {
 }
 
 KeyGroup::~KeyGroup() = default;
 
-KeyGroup::KeyGroup(const QString &name, const std::vector<GpgME::Key> &keys)
-    : d(new Private(name, keys))
+KeyGroup::KeyGroup(const QString &id, const QString &name, const std::vector<Key> &keys, Source source)
+    : d(new Private(id, name, keys, source))
 {
 }
 
@@ -61,7 +65,12 @@ KeyGroup &KeyGroup::operator=(KeyGroup &&other) = default;
 
 bool KeyGroup::isNull() const
 {
-    return !d || d->name.isEmpty();
+    return !d || d->id.isEmpty();
+}
+
+QString KeyGroup::id() const
+{
+    return d ? d->id : QString();
 }
 
 QString KeyGroup::name() const
@@ -73,4 +82,9 @@ const std::vector<Key> &KeyGroup::keys() const
 {
     static const std::vector<Key> empty;
     return d ? d->keys : empty;
+}
+
+KeyGroup::Source KeyGroup::source() const
+{
+    return d ? d->source : UnknownSource;
 }
