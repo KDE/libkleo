@@ -59,6 +59,9 @@ public:
     const Keys &keys() const;
     Source source() const;
 
+    bool insert(const GpgME::Key &key);
+    bool erase(const GpgME::Key &key);
+
 private:
     class Private;
     std::unique_ptr<Private> d;

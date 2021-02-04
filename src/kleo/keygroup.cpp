@@ -88,3 +88,19 @@ KeyGroup::Source KeyGroup::source() const
 {
     return d ? d->source : UnknownSource;
 }
+
+bool KeyGroup::insert(const GpgME::Key &key)
+{
+    if (!d || key.isNull()) {
+        return false;
+    }
+    return d->keys.insert(key).second;
+}
+
+bool KeyGroup::erase(const GpgME::Key &key)
+{
+    if (!d || key.isNull()) {
+        return false;
+    }
+    return d->keys.erase(key) > 0;
+}
