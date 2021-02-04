@@ -446,10 +446,9 @@ QString Formatting::toolTip(const Key &key, int flags)
 
 namespace
 {
-QString calculateValidity(const std::vector<Key> &keys)
+template <typename Container>
+QString getValidityStatement(const Container &keys)
 {
-    Q_ASSERT(keys.size() > 0);
-
     const bool allKeysAreOpenPGP = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.protocol() == OpenPGP; });
     const bool allKeysAreValidated = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.keyListMode() & Validate; });
     if (allKeysAreOpenPGP || allKeysAreValidated) {
@@ -477,12 +476,12 @@ QString Formatting::toolTip(const KeyGroup &group, int flags)
         return QString();
     }
 
-    const std::vector<Key> &keys = group.keys();
+    const KeyGroup::Keys &keys = group.keys();
     if (keys.size() == 0) {
         return i18nc("@info:tooltip", "This group does not contain any keys.");
     }
 
-    const QString validity = (flags & Validity) ? calculateValidity(keys) : QString();
+    const QString validity = (flags & Validity) ? getValidityStatement(keys) : QString();
     if (flags == Validity) {
         return validity;
     }
@@ -500,8 +499,11 @@ QString Formatting::toolTip(const KeyGroup &group, int flags)
 
     result.push_back("<p>");
     result.push_back(i18n("Keys:"));
-    for (unsigned int i = 0; i < numKeysForTooltip; ++i) {
-        result.push_back(QLatin1String("<br>") + Formatting::summaryLine(keys[i]).toHtmlEscaped());
+    {
+        auto it = keys.cbegin();
+        for (unsigned int i = 0; i < numKeysForTooltip; ++i, ++it) {
+            result.push_back(QLatin1String("<br>") + Formatting::summaryLine(*it).toHtmlEscaped());
+        }
     }
     if (keys.size() > numKeysForTooltip) {
         result.push_back(QLatin1String("<br>") + i18ncp("this follows a list of keys", "and 1 more key", "and %1 more keys", keys.size() - numKeysForTooltip));
@@ -1030,12 +1032,12 @@ QString Formatting::validity(const KeyGroup &group)
         return QString();
     }
 
-    const std::vector<Key> &keys = group.keys();
+    const KeyGroup::Keys &keys = group.keys();
     if (keys.size() == 0) {
         return i18n("This group does not contain any keys.");
     }
 
-    return calculateValidity(keys);
+    return getValidityStatement(keys);
 }
 
 namespace
@@ -1051,7 +1053,8 @@ UserID::Validity minimalValidityOfNotRevokedUserIDs(const Key &key)
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
 
-UserID::Validity minimalValidity(const std::vector<Key> &keys)
+template <typename Container>
+UserID::Validity minimalValidity(const Container& keys)
 {
     const int minValidity = std::accumulate(keys.cbegin(), keys.cend(), UserID::Ultimate + 1,
                                             [] (int validity, const Key &key) {
@@ -1142,7 +1145,7 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
 
 QString Formatting::complianceStringShort(const KeyGroup &group)
 {
-    const std::vector<Key> &keys = group.keys();
+    const KeyGroup::Keys &keys = group.keys();
 
     const bool allKeysFullyValid = std::all_of(keys.cbegin(), keys.cend(), &Formatting::uidsHaveFullValidity);
     if (allKeysFullyValid) {

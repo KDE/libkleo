@@ -24,15 +24,15 @@ public:
 
     QString id;
     QString name;
-    std::vector<Key> keys;
+    Keys keys;
     Source source;
 };
 
-KeyGroup::Private::Private(const QString &id_, const QString &name_, const std::vector<Key> &keys_, Source source_)
-    : id(id_)
-    , name(name_)
-    , keys(keys_)
-    , source(source_)
+KeyGroup::Private::Private(const QString &id, const QString &name, const std::vector<Key> &keys, Source source)
+    : id(id)
+    , name(name)
+    , keys(keys.cbegin(), keys.cend())
+    , source(source)
 {
 }
 
@@ -78,9 +78,9 @@ QString KeyGroup::name() const
     return d ? d->name : QString();
 }
 
-const std::vector<Key> &KeyGroup::keys() const
+const KeyGroup::Keys &KeyGroup::keys() const
 {
-    static const std::vector<Key> empty;
+    static const Keys empty;
     return d ? d->keys : empty;
 }
 

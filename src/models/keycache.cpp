@@ -1436,7 +1436,7 @@ std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
 {
     std::vector<Key> result;
     for (auto it = d->m_groups.find(groupName); it != d->m_groups.end() && it.key() == groupName; ++it) {
-        const std::vector<Key> &keys = it.value().keys();
+        const KeyGroup::Keys &keys = it.value().keys();
         std::copy(keys.cbegin(), keys.cend(), std::back_inserter(result));
     }
     return result;

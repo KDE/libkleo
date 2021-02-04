@@ -13,7 +13,10 @@
 
 #include "kleo_export.h"
 
+#include <Libkleo/Predicates>
+
 #include <memory>
+#include <set>
 #include <vector>
 
 class QString;
@@ -29,6 +32,8 @@ namespace Kleo
 class KLEO_EXPORT KeyGroup
 {
 public:
+    typedef std::set<GpgME::Key, _detail::ByFingerprint<std::less>> Keys;
+
     enum Source {
         UnknownSource,
         ApplicationConfig,
@@ -51,7 +56,7 @@ public:
 
     QString id() const;
     QString name() const;
-    const std::vector<GpgME::Key> &keys() const;
+    const Keys &keys() const;
     Source source() const;
 
 private:
