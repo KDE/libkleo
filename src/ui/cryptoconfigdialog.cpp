@@ -20,11 +20,11 @@ Kleo::CryptoConfigDialog::CryptoConfigDialog(QGpgME::CryptoConfig *config, QWidg
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Configure GnuPG Backend"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mButtonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults | QDialogButtonBox::Apply, this);
     QPushButton *okButton = mButtonBox->button(QDialogButtonBox::Ok);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    auto *user1Button = new QPushButton(this);
+    auto user1Button = new QPushButton(this);
     mButtonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
     connect(mButtonBox, &QDialogButtonBox::accepted, this, &CryptoConfigDialog::accept);
     connect(mButtonBox, &QDialogButtonBox::rejected, this, &CryptoConfigDialog::reject);

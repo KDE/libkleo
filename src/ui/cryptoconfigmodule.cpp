@@ -124,9 +124,9 @@ void Kleo::CryptoConfigModule::init(Layout layout)
 
     if (type == Plain) {
         QWidget *w = new QWidget(this);
-        auto *l = new QVBoxLayout(w);
+        auto l = new QVBoxLayout(w);
         l->setContentsMargins(0, 0, 0, 0);
-        auto *s = new QScrollArea(w);
+        auto s = new QScrollArea(w);
         s->setFrameStyle(QFrame::NoFrame);
         s->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
         s->setWidgetResizable(true);
@@ -347,7 +347,7 @@ Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
     : QWidget(parent),
       mComponent(component)
 {
-    auto *glay = new QGridLayout(this);
+    auto glay = new QGridLayout(this);
     const QStringList groups = module->sortGroupList(mComponent->name(), mComponent->groupList());
     if (groups.size() > 1) {
         glay->setColumnMinimumWidth(0, KDHorizontalLine::indentHint());
@@ -358,7 +358,7 @@ Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
                 continue;
             }
             const QString title = group->description();
-            auto *hl = new KDHorizontalLine(title.isEmpty() ? *it : title, this);
+            auto hl = new KDHorizontalLine(title.isEmpty() ? *it : title, this);
             const int row = glay->rowCount();
             glay->addWidget(hl, row, 0, 1, 3);
             mGroupGUIs.append(new CryptoConfigGroupGUI(module, group, glay, this));
@@ -855,7 +855,7 @@ Kleo::CryptoConfigEntryLDAPURL::CryptoConfigEntryLDAPURL(
     QLabel *label = new QLabel(description(), widget);
     label->setBuddy(mPushButton);
     glay->addWidget(label, row, 1);
-    auto *hlay = new QHBoxLayout;
+    auto hlay = new QHBoxLayout;
     glay->addLayout(hlay, row, 2);
     hlay->addWidget(mLabel, 1);
     hlay->addWidget(mPushButton);
@@ -892,7 +892,7 @@ void prepareURLCfgDialog(QDialog *dialog, DirectoryServicesWidget *dirserv, bool
 
     QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
 
-    auto *layout = new QVBoxLayout;
+    auto layout = new QVBoxLayout;
     layout->addWidget(dirserv);
     layout->addWidget(buttonBox);
     dialog->setLayout(layout);
@@ -905,7 +905,7 @@ void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
     QDialog dialog(mPushButton->parentWidget());
     dialog.setWindowTitle(i18nc("@title:window", "Configure LDAP Servers"));
 
-    auto *dirserv = new DirectoryServicesWidget(&dialog);
+    auto dirserv = new DirectoryServicesWidget(&dialog);
 
     prepareURLCfgDialog(&dialog, dirserv, mEntry->isReadOnly());
 
@@ -944,7 +944,7 @@ Kleo::CryptoConfigEntryKeyserver::CryptoConfigEntryKeyserver(
     QLabel *label = new QLabel(i18n("Use keyserver at"), widget);
     label->setBuddy(mPushButton);
     glay->addWidget(label, row, 1);
-    auto *hlay = new QHBoxLayout;
+    auto hlay = new QHBoxLayout;
     glay->addLayout(hlay, row, 2);
     hlay->addWidget(mLabel, 1);
     hlay->addWidget(mPushButton);
@@ -1033,7 +1033,7 @@ void Kleo::CryptoConfigEntryKeyserver::slotOpenDialog()
     QDialog dialog(mPushButton->parentWidget());
     dialog.setWindowTitle(i18nc("@title:window", "Configure Keyservers"));
 
-    auto *dirserv = new DirectoryServicesWidget(&dialog);
+    auto dirserv = new DirectoryServicesWidget(&dialog);
 
     prepareURLCfgDialog(&dialog, dirserv, mEntry->isReadOnly());
 

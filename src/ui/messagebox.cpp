@@ -69,7 +69,7 @@ void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &captio
 // static
 void MessageBox::auditLog(QWidget *parent, const QString &log, const QString &caption)
 {
-    auto *const alv = new AuditLogViewer(log, parent);
+    auto const alv = new AuditLogViewer(log, parent);
     alv->setAttribute(Qt::WA_DeleteOnClose);
     alv->setObjectName(QStringLiteral("alv"));
     alv->setWindowTitle(caption);

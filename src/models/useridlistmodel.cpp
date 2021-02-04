@@ -196,14 +196,14 @@ void UserIDListModel::setKey(const Key &key)
     mRootItem = new UIDModelItem(mRemarksEnabled);
     for (int i = 0, ids = key.numUserIDs(); i < ids; ++i) {
         UserID uid = key.userID(i);
-        auto *uidItem = new UIDModelItem(uid, mRootItem);
+        auto uidItem = new UIDModelItem(uid, mRootItem);
         mRootItem->appendChild(uidItem);
         std::vector<UserID::Signature> sigs = uid.signatures();
 #ifdef GPGME_USERID_SIGNATURES_ARE_SORTABLE
         std::sort(sigs.begin(), sigs.end());
 #endif
         for (const auto &sig : sigs) {
-            auto *sigItem = new UIDModelItem(sig, uidItem, mRemarksEnabled);
+            auto sigItem = new UIDModelItem(sig, uidItem, mRemarksEnabled);
             uidItem->appendChild(sigItem);
         }
     }
@@ -267,7 +267,7 @@ QModelIndex UserIDListModel::parent(const QModelIndex &index) const
     if (!index.isValid()) {
         return {};
     }
-    auto *childItem = static_cast<UIDModelItem*>(index.internalPointer());
+    auto childItem = static_cast<UIDModelItem*>(index.internalPointer());
     UIDModelItem *parentItem = childItem->parentItem();
 
     if (parentItem == mRootItem) {
@@ -298,7 +298,7 @@ QVariant UserIDListModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    auto *item = static_cast<UIDModelItem*>(index.internalPointer());
+    auto item = static_cast<UIDModelItem*>(index.internalPointer());
 
     if (role == Qt::ToolTipRole) {
         return item->toolTip(index.column());
@@ -327,7 +327,7 @@ QVector<UserID> UserIDListModel::userIDs(const QModelIndexList &indexs) const
         if (!idx.isValid()) {
             continue;
         }
-        auto *item = static_cast<UIDModelItem*>(idx.internalPointer());
+        auto item = static_cast<UIDModelItem*>(idx.internalPointer());
         if (!item->uid().isNull()) {
             ret << item->uid();
         }
@@ -351,7 +351,7 @@ QVector<UserID::Signature> UserIDListModel::signatures(const QModelIndexList &in
         if (!idx.isValid()) {
             continue;
         }
-        auto *item = static_cast<UIDModelItem*>(idx.internalPointer());
+        auto item = static_cast<UIDModelItem*>(idx.internalPointer());
         if (!item->signature().isNull()) {
             ret << item->signature();
         }

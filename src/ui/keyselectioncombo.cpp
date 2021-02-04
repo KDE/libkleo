@@ -199,7 +199,7 @@ public:
 
         if (isCustomItem(index.row())) {
             Q_ASSERT(!mFrontItems.isEmpty() || !mBackItems.isEmpty());
-            auto *ci = static_cast<CustomItem*>(index.internalPointer());
+            auto ci = static_cast<CustomItem*>(index.internalPointer());
             switch (role) {
             case Qt::DisplayRole:
                 return ci->text;

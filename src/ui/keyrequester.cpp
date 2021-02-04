@@ -68,7 +68,7 @@ Kleo::KeyRequester::KeyRequester(QWidget *parent)
 
 void Kleo::KeyRequester::init()
 {
-    auto *hlay = new QHBoxLayout(this);
+    auto hlay = new QHBoxLayout(this);
     hlay->setContentsMargins(0, 0, 0, 0);
 
     // the label where the key id is to be displayed:

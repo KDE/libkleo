@@ -154,7 +154,7 @@ int main(int argc, char **argv)
     }
     resolver.setOverrideKeys(overrides);
 
-    auto * recp = new SignalRecipient(&resolver);
+    auto recp = new SignalRecipient(&resolver);
     QObject::connect (&resolver, &KeyResolver::keysResolved, recp, &SignalRecipient::keysResolved);
 
     QTimer::singleShot(1000, [&parser, &resolver]() {

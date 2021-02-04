@@ -378,7 +378,7 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
 
 void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setDefault(true);
@@ -412,10 +412,10 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
         searchExternalPB->hide();
     }
 
-    auto *hlay = new QHBoxLayout();
+    auto hlay = new QHBoxLayout();
     mTopLayout->addLayout(hlay);
 
-    auto *le = new QLineEdit(page);
+    auto le = new QLineEdit(page);
     le->setClearButtonEnabled(true);
     le->setText(initialQuery);
 

@@ -86,7 +86,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
       d(new Private())
 {
     setWindowTitle(i18nc("@title:window", "Encryption Key Approval"));
-    auto *mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -98,18 +98,18 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
     QFrame *page = new QFrame(this);
     mainLayout->addWidget(page);
     mainLayout->addWidget(buttonBox);
-    auto *vlay = new QVBoxLayout(page);
+    auto vlay = new QVBoxLayout(page);
     vlay->setContentsMargins(0, 0, 0, 0);
 
     vlay->addWidget(new QLabel(i18n("The following keys will be used for encryption:"), page));
 
-    auto *sv = new QScrollArea(page);
+    auto sv = new QScrollArea(page);
     sv->setWidgetResizable(true);
     vlay->addWidget(sv);
 
     QWidget *view = new QWidget(sv->viewport());
 
-    auto *glay = new QGridLayout(view);
+    auto glay = new QGridLayout(view);
     glay->setColumnStretch(1, 1);
     sv->setWidget(view);
 
@@ -142,7 +142,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
 
         ++row;
         glay->addWidget(new QLabel(i18n("Encryption preference:"), view), row, 0);
-        auto *cb = new QComboBox(view);
+        auto cb = new QComboBox(view);
         cb->setEditable(false);
         cb->addItems(prefs);
         glay->addWidget(cb, row, 1);

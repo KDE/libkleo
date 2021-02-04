@@ -55,7 +55,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapp
     Q_ASSERT(mapper);
     d->mapper = mapper;
 
-    auto *glay = new QGridLayout(this);
+    auto glay = new QGridLayout(this);
     glay->setContentsMargins(0, 0, 0, 0);
     glay->setColumnStretch(0, 1);
     glay->setColumnStretch(2, 1);
@@ -89,7 +89,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapp
 
     // the up/down/left/right arrow cross:
 
-    auto *xlay = new QGridLayout();
+    auto xlay = new QGridLayout();
     xlay->setSpacing(0);
     xlay->setObjectName(QStringLiteral("xlay"));
     xlay->setAlignment(Qt::AlignCenter);
@@ -159,7 +159,7 @@ void Kleo::DNAttributeOrderConfigWidget::load()
     const QStringList::const_iterator end(all.end());
     for (QStringList::const_iterator it = all.begin(); it != end; ++it) {
         if (!order.contains(*it)) {
-            auto *item = new QTreeWidgetItem(d->availableLV);
+            auto item = new QTreeWidgetItem(d->availableLV);
             item->setText(0, *it);
             item->setText(1, d->mapper->name2label(*it));
         }

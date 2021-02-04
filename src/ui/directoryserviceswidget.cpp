@@ -332,7 +332,7 @@ public:
 private:
     QWidget *createPortWidget(QWidget *parent) const
     {
-        auto *sb = new QSpinBox(parent);
+        auto sb = new QSpinBox(parent);
         sb->setRange(1, USHRT_MAX);   // valid port numbers
         return sb;
     }

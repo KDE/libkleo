@@ -425,7 +425,7 @@ bool Kleo::KeyListViewItem::operator<(const QTreeWidgetItem &other) const
     if (other.type() != RTTI || !listView() || !listView()->columnStrategy()) {
         return QTreeWidgetItem::operator<(other);
     }
-    const auto *that = static_cast<const KeyListViewItem *>(&other);
+    const auto that = static_cast<const KeyListViewItem *>(&other);
     return listView()->columnStrategy()->compare(this->key(), that->key(), treeWidget()->sortColumn()) < 0;
 }
 
