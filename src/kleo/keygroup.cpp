@@ -17,18 +17,21 @@
 using namespace Kleo;
 using namespace GpgME;
 
+static const KeyGroup::Id nullId = -1;
+
 class KeyGroup::Private
 {
 public:
-    explicit Private(const QString &id, const QString &name, const std::vector<Key> &keys, Source source);
+    explicit Private(Id id, const QString &name, const std::vector<Key> &keys, Source source);
 
-    QString id;
+    Id id;
     QString name;
+    QString configName;
     Keys keys;
     Source source;
 };
 
-KeyGroup::Private::Private(const QString &id, const QString &name, const std::vector<Key> &keys, Source source)
+KeyGroup::Private::Private(Id id, const QString &name, const std::vector<Key> &keys, Source source)
     : id(id)
     , name(name)
     , keys(keys.cbegin(), keys.cend())
@@ -37,13 +40,13 @@ KeyGroup::Private::Private(const QString &id, const QString &name, const std::ve
 }
 
 KeyGroup::KeyGroup()
-    : KeyGroup(QString(), QString(), {}, UnknownSource)
+    : KeyGroup(nullId, QString(), {}, UnknownSource)
 {
 }
 
 KeyGroup::~KeyGroup() = default;
 
-KeyGroup::KeyGroup(const QString &id, const QString &name, const std::vector<Key> &keys, Source source)
+KeyGroup::KeyGroup(Id id, const QString &name, const std::vector<Key> &keys, Source source)
     : d(new Private(id, name, keys, source))
 {
 }
@@ -65,12 +68,12 @@ KeyGroup &KeyGroup::operator=(KeyGroup &&other) = default;
 
 bool KeyGroup::isNull() const
 {
-    return !d || d->id.isEmpty();
+    return !d || d->id == nullId;
 }
 
-QString KeyGroup::id() const
+KeyGroup::Id KeyGroup::id() const
 {
-    return d ? d->id : QString();
+    return d ? d->id : nullId;
 }
 
 QString KeyGroup::name() const
@@ -87,6 +90,18 @@ const KeyGroup::Keys &KeyGroup::keys() const
 KeyGroup::Source KeyGroup::source() const
 {
     return d ? d->source : UnknownSource;
+}
+
+void KeyGroup::setConfigName(const QString &configName)
+{
+    if (d) {
+        d->configName = configName;
+    }
+}
+
+QString KeyGroup::configName() const
+{
+    return d ? d->configName : QString();
 }
 
 bool KeyGroup::insert(const GpgME::Key &key)

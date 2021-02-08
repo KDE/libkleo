@@ -32,6 +32,7 @@ namespace Kleo
 class KLEO_EXPORT KeyGroup
 {
 public:
+    typedef int32_t Id;
     typedef std::set<GpgME::Key, _detail::ByFingerprint<std::less>> Keys;
 
     enum Source {
@@ -44,7 +45,7 @@ public:
     KeyGroup();
     ~KeyGroup();
 
-    explicit KeyGroup(const QString &id, const QString &name, const std::vector<GpgME::Key> &keys, Source source);
+    explicit KeyGroup(Id id, const QString &name, const std::vector<GpgME::Key> &keys, Source source);
 
     KeyGroup(const KeyGroup &other);
     KeyGroup &operator=(const KeyGroup &other);
@@ -54,10 +55,13 @@ public:
 
     bool isNull() const;
 
-    QString id() const;
+    Id id() const;
     QString name() const;
     const Keys &keys() const;
     Source source() const;
+
+    void setConfigName(const QString &configName);
+    QString configName() const;
 
     bool insert(const GpgME::Key &key);
     bool erase(const GpgME::Key &key);

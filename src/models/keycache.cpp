@@ -186,14 +186,14 @@ public:
 
     void ensureCachePopulated() const;
 
-    std::vector<Key> getKeysForGroup(const QString &groupName, const QStringList &fingerprints)
+    std::vector<Key> getKeysForGroup(const QStringList &fingerprints)
     {
         std::vector<Key> groupKeys;
         groupKeys.reserve(fingerprints.size());
         for (const QString &fpr : fingerprints) {
             const Key key = q->findByFingerprint(fpr.toLatin1().constData());
             if (key.isNull()) {
-                qCDebug (LIBKLEO_LOG) << "Ignoring unknown fingerprint:" << fpr << "in group" << groupName;
+                qCDebug (LIBKLEO_LOG) << "Ignoring unknown key with fingerprint:" << fpr;
                 continue;
             }
             groupKeys.push_back(key);
@@ -201,7 +201,14 @@ public:
         return groupKeys;
     }
 
-    void readGroupsFromGpgConf(QMultiMap<QString, KeyGroup> &groups)
+    void addGroup(const QString &name, const std::vector<GpgME::Key> &keys, KeyGroup::Source source, const QString &configName = QString())
+    {
+        KeyGroup g(m_groups.size(), name, keys, source);
+        g.setConfigName(configName);
+        m_groups.push_back(g);
+    }
+
+    void readGroupsFromGpgConf()
     {
         // According to Werner Koch groups are more of a hack to solve
         // a valid usecase (e.g. several keys defined for an internal mailing list)
@@ -235,12 +242,12 @@ public:
         // add all groups read from the configuration to the list of groups
         for (auto it = fingerprints.cbegin(); it != fingerprints.cend(); ++it) {
             const QString groupName = it.key();
-            const std::vector<Key> groupKeys = getKeysForGroup(groupName, it.value());
-            groups.insert(groupName, KeyGroup(groupName, groupName, groupKeys, KeyGroup::GnuPGConfig));
+            const std::vector<Key> groupKeys = getKeysForGroup(it.value());
+            addGroup(groupName, groupKeys, KeyGroup::GnuPGConfig);
         }
     }
 
-    void readGroupsFromGroupsConfig(QMultiMap<QString, KeyGroup> &groups)
+    void readGroupsFromGroupsConfig()
     {
         static const QString groupNamePrefix = QStringLiteral("Group-");
 
@@ -265,9 +272,9 @@ public:
                     continue;
                 }
                 const QStringList fingerprints = configGroup.readEntry("Keys", QStringList());
-                const std::vector<Key> groupKeys = getKeysForGroup(keyGroupName, fingerprints);
+                const std::vector<Key> groupKeys = getKeysForGroup(fingerprints);
                 qCDebug(LIBKLEO_LOG) << "Read group with id" << keyGroupId << ", name" << keyGroupName << ", and keys" << fingerprints;
-                groups.insert(keyGroupName, KeyGroup(keyGroupId, keyGroupName, groupKeys, KeyGroup::ApplicationConfig));
+                addGroup(keyGroupName, groupKeys, KeyGroup::ApplicationConfig, keyGroupId);
             }
         }
     }
@@ -279,8 +286,8 @@ public:
         // so no need for a job.
 
         m_groups.clear();
-        readGroupsFromGpgConf(m_groups);
-        readGroupsFromGroupsConfig(m_groups);
+        readGroupsFromGpgConf();
+        readGroupsFromGroupsConfig();
     }
 
 private:
@@ -298,7 +305,7 @@ private:
     bool m_pgpOnly;
     bool m_remarks_enabled;
     QString m_groupsConfigName;
-    QMultiMap<QString, KeyGroup> m_groups;
+    std::vector<KeyGroup> m_groups;
 };
 
 std::shared_ptr<const KeyCache> KeyCache::instance()
@@ -950,9 +957,7 @@ std::vector<Key> KeyCache::secretKeys() const
 std::vector<KeyGroup> KeyCache::groups() const
 {
     d->ensureCachePopulated();
-    std::vector<KeyGroup> result;
-    std::copy(d->m_groups.cbegin(), d->m_groups.cend(), std::back_inserter(result));
-    return result;
+    return d->m_groups;
 }
 
 void KeyCache::refresh(const std::vector<Key> &keys)
@@ -1435,9 +1440,11 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
 std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
 {
     std::vector<Key> result;
-    for (auto it = d->m_groups.find(groupName); it != d->m_groups.end() && it.key() == groupName; ++it) {
-        const KeyGroup::Keys &keys = it.value().keys();
-        std::copy(keys.cbegin(), keys.cend(), std::back_inserter(result));
+    for (const KeyGroup &g : qAsConst(d->m_groups)) {
+        if (g.name() == groupName) {
+            const KeyGroup::Keys &keys = g.keys();
+            std::copy(keys.cbegin(), keys.cend(), std::back_inserter(result));
+        }
     }
     return result;
 }

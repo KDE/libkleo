@@ -36,6 +36,19 @@ Key createTestKey(const char *uid)
 
     return Key(key, false);
 }
+
+KeyGroup createGroup(const QString &name,
+                     const std::vector<Key> &keys = std::vector<Key>(),
+                     KeyGroup::Source source = KeyGroup::UnknownSource,
+                     const QString &configName = QString())
+{
+    static KeyGroup::Id nextGroupId = 0;
+
+    KeyGroup g(nextGroupId, name, keys, source);
+    ++nextGroupId;
+    g.setConfigName(configName);
+    return g;
+}
 }
 
 void AbstractKeyListModelTest::testCreation()
@@ -71,15 +84,15 @@ void AbstractKeyListModelTest::testSetGroups()
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
     const std::vector<KeyGroup> groups = {
-        KeyGroup("test1", "test1", std::vector<Key>(), KeyGroup::UnknownSource)
+        createGroup("test1")
     };
     model->setGroups(groups);
     QCOMPARE( model->rowCount(), 1 );
     QVERIFY( model->index(groups[0]).isValid() );
 
     const std::vector<KeyGroup> otherGroups = {
-        KeyGroup("test2", "test2", std::vector<Key>(), KeyGroup::UnknownSource),
-        KeyGroup("test3", "test3", std::vector<Key>(), KeyGroup::UnknownSource)
+        createGroup("test2"),
+        createGroup("test3")
     };
     model->setGroups(otherGroups);
     QCOMPARE( model->rowCount(), 2 );
@@ -93,7 +106,7 @@ void AbstractKeyListModelTest::testKeys()
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
     const Key key = createTestKey("test@example.net");
-    const KeyGroup group("test", "test", {key}, KeyGroup::UnknownSource);
+    const KeyGroup group = createGroup("test", {key});
 
     model->setKeys({key});
     model->setGroups({group});
@@ -136,10 +149,10 @@ void AbstractKeyListModelTest::testIndex()
 
     const Key key = createTestKey("test@example.net");
     const std::vector<KeyGroup> groups = {
-        KeyGroup("test", "test", {key}, KeyGroup::UnknownSource),
-        KeyGroup("test", "test", {key}, KeyGroup::GnuPGConfig),
-        KeyGroup("test", "test", {key}, KeyGroup::ApplicationConfig),
-        KeyGroup("otherId", "test", {key}, KeyGroup::UnknownSource)
+        createGroup("test", {key}, KeyGroup::UnknownSource),
+        createGroup("test", {key}, KeyGroup::GnuPGConfig),
+        createGroup("test", {key}, KeyGroup::ApplicationConfig, "test"),
+        createGroup("test", {key}, KeyGroup::ApplicationConfig, "otherConfigName")
     };
 
     model->setKeys({key});
@@ -160,10 +173,10 @@ void AbstractKeyListModelTest::testIndexForGroup()
 
     const Key key = createTestKey("test@example.net");
     const std::vector<KeyGroup> groups = {
-        KeyGroup("test", "test", {key}, KeyGroup::UnknownSource),
-        KeyGroup("test", "test", {key}, KeyGroup::GnuPGConfig),
-        KeyGroup("test", "test", {key}, KeyGroup::ApplicationConfig),
-        KeyGroup("otherId", "test", {key}, KeyGroup::UnknownSource)
+        createGroup("test", {key}, KeyGroup::UnknownSource),
+        createGroup("test", {key}, KeyGroup::GnuPGConfig),
+        createGroup("test", {key}, KeyGroup::ApplicationConfig, "test"),
+        createGroup("test", {key}, KeyGroup::ApplicationConfig, "otherConfigName")
     };
 
     model->setKeys({key});
@@ -182,8 +195,9 @@ void AbstractKeyListModelTest::testClear()
 {
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
-    const KeyGroup group("test", "test", std::vector<Key>(), KeyGroup::UnknownSource);
-    model->setGroups({group});
+    model->setGroups({
+        createGroup("test")
+    });
 
     model->clear(AbstractKeyListModel::Keys);
     QCOMPARE( model->rowCount(), 1 );
