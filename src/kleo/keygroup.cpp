@@ -29,6 +29,7 @@ public:
     QString configName;
     Keys keys;
     Source source;
+    bool isImmutable = true;
 };
 
 KeyGroup::Private::Private(Id id, const QString &name, const std::vector<Key> &keys, Source source)
@@ -102,6 +103,18 @@ void KeyGroup::setConfigName(const QString &configName)
 QString KeyGroup::configName() const
 {
     return d ? d->configName : QString();
+}
+
+void KeyGroup::setIsImmutable(bool isImmutable)
+{
+    if (d) {
+        d->isImmutable = isImmutable;
+    }
+}
+
+bool KeyGroup::isImmutable() const
+{
+    return d ? d->isImmutable : true;
 }
 
 bool KeyGroup::insert(const GpgME::Key &key)

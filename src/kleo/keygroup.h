@@ -63,6 +63,9 @@ public:
     void setConfigName(const QString &configName);
     QString configName() const;
 
+    void setIsImmutable(bool isImmutable);
+    bool isImmutable() const;
+
     bool insert(const GpgME::Key &key);
     bool erase(const GpgME::Key &key);
 

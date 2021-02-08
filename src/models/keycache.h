@@ -60,6 +60,7 @@ public:
     void insert(const std::vector<GpgME::Key> &keys);
 
     void refresh(const std::vector<GpgME::Key> &keys);
+    void update(const KeyGroup &group);
 
     void remove(const GpgME::Key &key);
     void remove(const std::vector<GpgME::Key> &keys);
@@ -162,6 +163,7 @@ Q_SIGNALS:
     void added(const GpgME::Key &key);
     void keyListingDone(const GpgME::KeyListResult &result);
     void keysMayHaveChanged();
+    void groupUpdated(const KeyGroup &group);
 
 private:
     class RefreshKeysJob;
