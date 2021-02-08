@@ -1446,6 +1446,8 @@ std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
             std::copy(keys.cbegin(), keys.cend(), std::back_inserter(result));
         }
     }
+    _detail::sort_by_fpr(result);
+    _detail::remove_duplicates_by_fpr(result);
     return result;
 }
 
