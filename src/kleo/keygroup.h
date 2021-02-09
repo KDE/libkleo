@@ -56,9 +56,14 @@ public:
     bool isNull() const;
 
     Id id() const;
-    QString name() const;
-    const Keys &keys() const;
     Source source() const;
+
+    void setName(const QString &name);
+    QString name() const;
+
+    void setKeys(const Keys &keys);
+    void setKeys(const std::vector<GpgME::Key> &keys);
+    const Keys &keys() const;
 
     void setConfigName(const QString &configName);
     QString configName() const;

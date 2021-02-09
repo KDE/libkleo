@@ -77,9 +77,30 @@ KeyGroup::Id KeyGroup::id() const
     return d ? d->id : nullId;
 }
 
+void KeyGroup::setName(const QString &name)
+{
+    if (d) {
+        d->name = name;
+    }
+}
+
 QString KeyGroup::name() const
 {
     return d ? d->name : QString();
+}
+
+void KeyGroup::setKeys(const KeyGroup::Keys &keys)
+{
+    if (d) {
+        d->keys = keys;
+    }
+}
+
+void KeyGroup::setKeys(const std::vector<GpgME::Key> &keys)
+{
+    if (d) {
+        d->keys = Keys(keys.cbegin(), keys.cend());
+    }
 }
 
 const KeyGroup::Keys &KeyGroup::keys() const
