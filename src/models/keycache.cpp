@@ -13,8 +13,6 @@
 #include "keycache.h"
 #include "keycache_p.h"
 
-#include "libkleo_debug.h"
-
 #include "kleo/keygroup.h"
 #include "kleo/predicates.h"
 #include "kleo/stl_util.h"
@@ -48,6 +46,9 @@
 #include <algorithm>
 #include <functional>
 #include <iterator>
+
+#include "kleo/debug.h"
+#include "libkleo_debug.h"
 
 using namespace Kleo;
 using namespace GpgME;
@@ -203,11 +204,11 @@ public:
         return groupKeys;
     }
 
-    void addGroup(const QString &name, const std::vector<GpgME::Key> &keys, KeyGroup::Source source,
-                  const QString &configName = QString(), bool isImmutable = true)
+    void addGroup(KeyGroup::Source source, const KeyGroup::Id &id,
+                  const QString &name, const std::vector<GpgME::Key> &keys,
+                  bool isImmutable = true)
     {
-        KeyGroup g(m_groups.size(), name, keys, source);
-        g.setConfigName(configName);
+        KeyGroup g(id, name, keys, source);
         g.setIsImmutable(isImmutable);
         m_groups.push_back(g);
     }
@@ -247,7 +248,7 @@ public:
         for (auto it = fingerprints.cbegin(); it != fingerprints.cend(); ++it) {
             const QString groupName = it.key();
             const std::vector<Key> groupKeys = getKeysForGroup(it.value());
-            addGroup(groupName, groupKeys, KeyGroup::GnuPGConfig);
+            addGroup(KeyGroup::GnuPGConfig, groupName, groupName, groupKeys);
         }
     }
 
@@ -277,21 +278,27 @@ public:
                 const std::vector<Key> groupKeys = getKeysForGroup(fingerprints);
                 qCDebug(LIBKLEO_LOG) << "Read group with id" << keyGroupId << ", name" << keyGroupName << ", and keys" << fingerprints;
                 const bool isImmutable = configGroup.isEntryImmutable("Keys");
-                addGroup(keyGroupName, groupKeys, KeyGroup::ApplicationConfig, keyGroupId, isImmutable);
+                addGroup(KeyGroup::ApplicationConfig, keyGroupId, keyGroupName, groupKeys, isImmutable);
             }
         }
     }
 
-    void writeGroupToGroupsConfig(const KeyGroup &group)
+    bool writeGroupToGroupsConfig(const KeyGroup &group)
     {
-        Q_ASSERT(!group.configName().isEmpty());
+        Q_ASSERT(!group.isNull());
+        Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
+        if (group.source() != KeyGroup::ApplicationConfig) {
+            qCDebug(LIBKLEO_LOG) << "writeGroupToGroupsConfig - group cannot be written to application configuration:" << group;
+            return false;
+        }
 
         if (m_groupsConfigName.isEmpty()) {
-            return;
+            qCDebug(LIBKLEO_LOG) << "writeGroupToGroupsConfig - name of application configuration file is unset";
+            return false;
         }
 
         KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(m_groupsConfigName);
-        KConfigGroup configGroup = groupsConfig->group(groupNamePrefix + group.configName());
+        KConfigGroup configGroup = groupsConfig->group(groupNamePrefix + group.id());
         Q_ASSERT(!configGroup.isEntryImmutable("Keys"));
 
         qCDebug(LIBKLEO_LOG) << "Writing config group" << configGroup.name();
@@ -305,6 +312,8 @@ public:
                            return QString::fromLatin1(key.primaryFingerprint());
                        });
         configGroup.writeEntry("Keys", fingerprints);
+
+        return true;
     }
 
     void updateGroupCache()
@@ -988,20 +997,37 @@ std::vector<KeyGroup> KeyCache::groups() const
     return d->m_groups;
 }
 
-void KeyCache::update(const KeyGroup &group)
+bool KeyCache::update(const KeyGroup &group)
 {
     Q_ASSERT(!group.isNull());
     Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
     Q_ASSERT(!group.isImmutable());
-    Q_ASSERT(group.id() < static_cast<signed>(d->m_groups.size()));
-    Q_ASSERT(group.id() == d->m_groups[group.id()].id());
+    if (group.isNull() || group.source() != KeyGroup::ApplicationConfig || group.isImmutable()) {
+        qCDebug(LIBKLEO_LOG) << "KeyCache::update - Invalid group:" << group;
+        return false;
+    }
+    const auto it = std::find_if(d->m_groups.cbegin(), d->m_groups.cend(),
+                                 [group] (const auto &g) {
+                                     return g.source() == group.source() && g.id() == group.id();
+                                 });
+    Q_ASSERT(!group.isImmutable());
+    if (it == d->m_groups.cend()) {
+        qCDebug(LIBKLEO_LOG) << "KeyCache::update - Group not found in list of groups:" << group;
+        return false;
+    }
+    const auto groupIndex = std::distance(d->m_groups.cbegin(), it);
 
-    d->writeGroupToGroupsConfig(group);
+    if (!d->writeGroupToGroupsConfig(group)) {
+        qCDebug(LIBKLEO_LOG) << "KeyCache::update - Writing group" << group.id() << "to config file failed";
+        return false;
+    }
 
-    d->m_groups[group.id()] = group;
+    d->m_groups[groupIndex] = group;
 
     Q_EMIT groupUpdated(group);
     Q_EMIT keysMayHaveChanged();
+
+    return true;
 }
 
 void KeyCache::refresh(const std::vector<Key> &keys)

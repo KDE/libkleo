@@ -17,8 +17,6 @@
 using namespace Kleo;
 using namespace GpgME;
 
-static const KeyGroup::Id nullId = -1;
-
 class KeyGroup::Private
 {
 public:
@@ -26,7 +24,6 @@ public:
 
     Id id;
     QString name;
-    QString configName;
     Keys keys;
     Source source;
     bool isImmutable = true;
@@ -41,7 +38,7 @@ KeyGroup::Private::Private(Id id, const QString &name, const std::vector<Key> &k
 }
 
 KeyGroup::KeyGroup()
-    : KeyGroup(nullId, QString(), {}, UnknownSource)
+    : KeyGroup(QString(), QString(), {}, UnknownSource)
 {
 }
 
@@ -69,12 +66,12 @@ KeyGroup &KeyGroup::operator=(KeyGroup &&other) = default;
 
 bool KeyGroup::isNull() const
 {
-    return !d || d->id == nullId;
+    return !d || d->id.isEmpty();
 }
 
 KeyGroup::Id KeyGroup::id() const
 {
-    return d ? d->id : nullId;
+    return d ? d->id : QString();
 }
 
 void KeyGroup::setName(const QString &name)
@@ -112,18 +109,6 @@ const KeyGroup::Keys &KeyGroup::keys() const
 KeyGroup::Source KeyGroup::source() const
 {
     return d ? d->source : UnknownSource;
-}
-
-void KeyGroup::setConfigName(const QString &configName)
-{
-    if (d) {
-        d->configName = configName;
-    }
-}
-
-QString KeyGroup::configName() const
-{
-    return d ? d->configName : QString();
 }
 
 void KeyGroup::setIsImmutable(bool isImmutable)

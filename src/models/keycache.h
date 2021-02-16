@@ -60,7 +60,7 @@ public:
     void insert(const std::vector<GpgME::Key> &keys);
 
     void refresh(const std::vector<GpgME::Key> &keys);
-    void update(const KeyGroup &group);
+    bool update(const KeyGroup &group);
 
     void remove(const GpgME::Key &key);
     void remove(const std::vector<GpgME::Key> &keys);

@@ -685,16 +685,14 @@ KeyGroup FlatKeyListModel::doMapToGroup(const QModelIndex &idx) const
 QModelIndex FlatKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
 {
     Q_ASSERT(!group.isNull());
-    const auto it = std::find_if(mGroups.begin(), mGroups.end(),
+    const auto it = std::find_if(mGroups.cbegin(), mGroups.cend(),
                                  [group](const KeyGroup &g) {
-                                     return g.source() == group.source()
-                                            && g.id() == group.id()
-                                            && g.name() == group.name();
+                                     return g.source() == group.source() && g.id() == group.id();
                                  });
-    if (it == mGroups.end()) {
+    if (it == mGroups.cend()) {
         return QModelIndex();
     } else {
-        return createIndex(it - mGroups.begin() + mKeysByFingerprint.size(), column);
+        return createIndex(it - mGroups.cbegin() + mKeysByFingerprint.size(), column);
     }
 }
 
@@ -1142,16 +1140,14 @@ KeyGroup HierarchicalKeyListModel::doMapToGroup(const QModelIndex &idx) const
 QModelIndex HierarchicalKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
 {
     Q_ASSERT(!group.isNull());
-    const auto it = std::find_if(mGroups.begin(), mGroups.end(),
+    const auto it = std::find_if(mGroups.cbegin(), mGroups.cend(),
                                  [group](const KeyGroup &g) {
-                                     return g.source() == group.source()
-                                            && g.id() == group.id()
-                                            && g.name() == group.name();
+                                     return g.source() == group.source() && g.id() == group.id();
                                  });
-    if (it == mGroups.end()) {
+    if (it == mGroups.cend()) {
         return QModelIndex();
     } else {
-        return createIndex(it - mGroups.begin() + mTopLevels.size(), column);
+        return createIndex(it - mGroups.cbegin() + mTopLevels.size(), column);
     }
 }
 

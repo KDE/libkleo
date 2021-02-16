@@ -39,14 +39,13 @@ Key createTestKey(const char *uid)
 
 KeyGroup createGroup(const QString &name,
                      const std::vector<Key> &keys = std::vector<Key>(),
-                     KeyGroup::Source source = KeyGroup::UnknownSource,
+                     KeyGroup::Source source = KeyGroup::ApplicationConfig,
                      const QString &configName = QString())
 {
-    static KeyGroup::Id nextGroupId = 0;
-
-    KeyGroup g(nextGroupId, name, keys, source);
-    ++nextGroupId;
-    g.setConfigName(configName);
+    const KeyGroup::Id groupId = (source == KeyGroup::ApplicationConfig) ?
+                                 (configName.isEmpty() ? name : configName) :
+                                 name;
+    KeyGroup g(groupId, name, keys, source);
     return g;
 }
 }

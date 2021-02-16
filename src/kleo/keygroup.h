@@ -32,7 +32,7 @@ namespace Kleo
 class KLEO_EXPORT KeyGroup
 {
 public:
-    typedef int32_t Id;
+    typedef QString Id;
     typedef std::set<GpgME::Key, _detail::ByFingerprint<std::less>> Keys;
 
     enum Source {
@@ -64,9 +64,6 @@ public:
     void setKeys(const Keys &keys);
     void setKeys(const std::vector<GpgME::Key> &keys);
     const Keys &keys() const;
-
-    void setConfigName(const QString &configName);
-    QString configName() const;
 
     void setIsImmutable(bool isImmutable);
     bool isImmutable() const;
