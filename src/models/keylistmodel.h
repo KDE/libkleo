@@ -73,6 +73,7 @@ public Q_SLOTS:
     void removeKey(const GpgME::Key &key);
 
     void setGroups(const std::vector<KeyGroup> &groups);
+    QModelIndex addGroup(const KeyGroup &group);
 
     void clear(ItemTypes types = All);
 
@@ -110,6 +111,7 @@ private:
     virtual KeyGroup doMapToGroup(const QModelIndex &index) const = 0;
     virtual QModelIndex doMapFromGroup(const KeyGroup &group, int column) const = 0;
     virtual void doSetGroups(const std::vector<KeyGroup> &groups) = 0;
+    virtual QModelIndex doAddGroup(const KeyGroup &group) = 0;
     virtual bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) = 0;
 
     virtual void doClear(ItemTypes types) = 0;

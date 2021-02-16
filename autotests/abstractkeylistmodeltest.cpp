@@ -192,6 +192,33 @@ void AbstractKeyListModelTest::testIndexForGroup()
     QCOMPARE(rows.size(), 4);
 }
 
+void AbstractKeyListModelTest::testAddGroup()
+{
+    QScopedPointer<AbstractKeyListModel> model(createModel());
+
+    {
+        const QModelIndex resultIndex = model->addGroup(KeyGroup());
+        QVERIFY( !resultIndex.isValid() );
+        QCOMPARE( model->rowCount(), 0 );
+    }
+
+    {
+        const KeyGroup group = createGroup("test");
+        const QModelIndex resultIndex = model->addGroup(group);
+        QVERIFY( resultIndex.isValid() );
+        QCOMPARE( resultIndex.row(), 0 );
+        QCOMPARE( resultIndex.column(), 0 );
+        QVERIFY( !resultIndex.parent().isValid() );
+        QCOMPARE( model->rowCount(), 1 );
+        const KeyGroup groupInModel = model->group(model->index(0, 0));
+        QVERIFY( !groupInModel.isNull() );
+        QCOMPARE( groupInModel.id(), group.id() );
+        QCOMPARE( groupInModel.source(), group.source() );
+        QCOMPARE( groupInModel.name(), group.name() );
+        QCOMPARE( groupInModel.keys().size(), group.keys().size() );
+    }
+}
+
 void AbstractKeyListModelTest::testSetData()
 {
     QScopedPointer<AbstractKeyListModel> model(createModel());

@@ -229,6 +229,14 @@ void AbstractKeyListModel::setGroups(const std::vector<KeyGroup> &groups)
     doSetGroups(groups);
 }
 
+QModelIndex AbstractKeyListModel::addGroup(const KeyGroup &group)
+{
+    if (group.isNull()) {
+        return QModelIndex();
+    }
+    return doAddGroup(group);
+}
+
 void AbstractKeyListModel::clear(ItemTypes types)
 {
     beginResetModel();
@@ -526,6 +534,7 @@ private:
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
     void doSetGroups(const std::vector<KeyGroup> &groups) override;
+    QModelIndex doAddGroup(const KeyGroup &group) override;
     bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) override;
 
     void doClear(ItemTypes types) override
@@ -538,19 +547,24 @@ private:
         }
     }
 
+    int firstGroupRow() const
+    {
+        return mKeysByFingerprint.size();
+    }
+
+    int lastGroupRow() const
+    {
+        return mKeysByFingerprint.size() + mGroups.size() - 1;
+    }
+
     int groupIndex(const QModelIndex &index) const
     {
-        if (!index.isValid() || mGroups.size() == 0) {
+        if (!index.isValid()
+                || index.row() < firstGroupRow() || index.row() > lastGroupRow()
+                || index.column() >= NumColumns) {
             return -1;
         }
-        const unsigned row = static_cast<unsigned>(index.row());
-        const unsigned firstGroupRow = mKeysByFingerprint.size();
-        const unsigned lastGroupRow = firstGroupRow + mGroups.size() - 1;
-        if (row < firstGroupRow || row > lastGroupRow || index.column() >= NumColumns)
-        {
-            return -1;
-        }
-        return row - firstGroupRow;
+        return index.row() - firstGroupRow();
     }
 
 private:
@@ -584,6 +598,7 @@ private:
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
     void doSetGroups(const std::vector<KeyGroup> &groups) override;
+    QModelIndex doAddGroup(const KeyGroup &group) override;
     bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) override;
 
     void doClear(ItemTypes types) override
@@ -599,19 +614,24 @@ private:
         }
     }
 
+    int firstGroupRow() const
+    {
+        return mTopLevels.size();
+    }
+
+    int lastGroupRow() const
+    {
+        return mTopLevels.size() + mGroups.size() - 1;
+    }
+
     int groupIndex(const QModelIndex &index) const
     {
-        if (!index.isValid() || mGroups.size() == 0) {
+        if (!index.isValid()
+                || index.row() < firstGroupRow() || index.row() > lastGroupRow()
+                || index.column() >= NumColumns) {
             return -1;
         }
-        const unsigned row = static_cast<unsigned>(index.row());
-        const unsigned firstGroupRow = mTopLevels.size();
-        const unsigned lastGroupRow = firstGroupRow + mGroups.size() - 1;
-        if (row < firstGroupRow || row > lastGroupRow || index.column() >= NumColumns)
-        {
-            return -1;
-        }
-        return row - firstGroupRow;
+        return index.row() - firstGroupRow();
     }
 
 private:
@@ -748,6 +768,15 @@ void FlatKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
     beginInsertRows(QModelIndex(), first, last);
     mGroups = groups;
     endInsertRows();
+}
+
+QModelIndex FlatKeyListModel::doAddGroup(const KeyGroup &group)
+{
+    const int newRow = lastGroupRow() + 1;
+    beginInsertRows(QModelIndex(), newRow, newRow);
+    mGroups.push_back(group);
+    endInsertRows();
+    return createIndex(newRow, 0);
 }
 
 bool FlatKeyListModel::doSetGroupData(const QModelIndex &index, const KeyGroup &group)
@@ -1217,6 +1246,15 @@ void HierarchicalKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
     beginInsertRows(QModelIndex(), first, last);
     mGroups = groups;
     endInsertRows();
+}
+
+QModelIndex HierarchicalKeyListModel::doAddGroup(const KeyGroup &group)
+{
+    const int newRow = lastGroupRow() + 1;
+    beginInsertRows(QModelIndex(), newRow, newRow);
+    mGroups.push_back(group);
+    endInsertRows();
+    return createIndex(newRow, 0);
 }
 
 bool HierarchicalKeyListModel::doSetGroupData(const QModelIndex &index, const KeyGroup &group)
