@@ -19,6 +19,7 @@ endif()
 ########### next target ###############
 set(libkleo_core_SRCS
    kleo/checksumdefinition.cpp
+   kleo/debug.cpp
    kleo/defaultkeyfilter.cpp
    kleo/defaultkeygenerationjob.cpp
    kleo/dn.cpp
@@ -130,6 +131,7 @@ target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTA
 ecm_generate_headers(libkleo_CamelCase_HEADERS
   HEADER_NAMES
   ChecksumDefinition
+  Debug
   DefaultKeyFilter
   DefaultKeyGenerationJob
   Dn
