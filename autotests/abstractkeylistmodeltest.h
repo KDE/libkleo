@@ -30,6 +30,7 @@ private Q_SLOTS:
     void testIndexForGroup();
     void testAddGroup();
     void testSetData();
+    void testRemoveGroup();
     void testClear();
 
 private:

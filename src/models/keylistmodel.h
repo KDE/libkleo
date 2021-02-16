@@ -74,6 +74,7 @@ public Q_SLOTS:
 
     void setGroups(const std::vector<KeyGroup> &groups);
     QModelIndex addGroup(const KeyGroup &group);
+    bool removeGroup(const KeyGroup &group);
 
     void clear(ItemTypes types = All);
 
@@ -113,6 +114,7 @@ private:
     virtual void doSetGroups(const std::vector<KeyGroup> &groups) = 0;
     virtual QModelIndex doAddGroup(const KeyGroup &group) = 0;
     virtual bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) = 0;
+    virtual bool doRemoveGroup(const KeyGroup &group) = 0;
 
     virtual void doClear(ItemTypes types) = 0;
 

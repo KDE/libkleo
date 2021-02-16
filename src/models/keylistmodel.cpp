@@ -237,6 +237,14 @@ QModelIndex AbstractKeyListModel::addGroup(const KeyGroup &group)
     return doAddGroup(group);
 }
 
+bool AbstractKeyListModel::removeGroup(const KeyGroup &group)
+{
+    if (group.isNull()) {
+        return false;
+    }
+    return doRemoveGroup(group);
+}
+
 void AbstractKeyListModel::clear(ItemTypes types)
 {
     beginResetModel();
@@ -536,6 +544,7 @@ private:
     void doSetGroups(const std::vector<KeyGroup> &groups) override;
     QModelIndex doAddGroup(const KeyGroup &group) override;
     bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) override;
+    bool doRemoveGroup(const KeyGroup &group) override;
 
     void doClear(ItemTypes types) override
     {
@@ -600,6 +609,7 @@ private:
     void doSetGroups(const std::vector<KeyGroup> &groups) override;
     QModelIndex doAddGroup(const KeyGroup &group) override;
     bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) override;
+    bool doRemoveGroup(const KeyGroup &group) override;
 
     void doClear(ItemTypes types) override
     {
@@ -790,6 +800,23 @@ bool FlatKeyListModel::doSetGroupData(const QModelIndex &index, const KeyGroup &
     }
     mGroups[groupIndex] = group;
     Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    return true;
+}
+
+bool FlatKeyListModel::doRemoveGroup(const KeyGroup &group)
+{
+    const QModelIndex modelIndex = doMapFromGroup(group, 0);
+    if (!modelIndex.isValid()) {
+        return false;
+    }
+    const int groupIndex = this->groupIndex(modelIndex);
+    Q_ASSERT(groupIndex != -1);
+    if (groupIndex == -1) {
+        return false;
+    }
+    beginRemoveRows(QModelIndex(), modelIndex.row(), modelIndex.row());
+    mGroups.erase(mGroups.begin() + groupIndex);
+    endRemoveRows();
     return true;
 }
 
@@ -1268,6 +1295,23 @@ bool HierarchicalKeyListModel::doSetGroupData(const QModelIndex &index, const Ke
     }
     mGroups[groupIndex] = group;
     Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    return true;
+}
+
+bool HierarchicalKeyListModel::doRemoveGroup(const KeyGroup &group)
+{
+    const QModelIndex modelIndex = doMapFromGroup(group, 0);
+    if (!modelIndex.isValid()) {
+        return false;
+    }
+    const int groupIndex = this->groupIndex(modelIndex);
+    Q_ASSERT(groupIndex != -1);
+    if (groupIndex == -1) {
+        return false;
+    }
+    beginRemoveRows(QModelIndex(), modelIndex.row(), modelIndex.row());
+    mGroups.erase(mGroups.begin() + groupIndex);
+    endRemoveRows();
     return true;
 }
 

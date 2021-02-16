@@ -239,6 +239,34 @@ void AbstractKeyListModelTest::testSetData()
     QCOMPARE( groupInModel.keys().size(), updatedGroup.keys().size() );
 }
 
+void AbstractKeyListModelTest::testRemoveGroup()
+{
+    QScopedPointer<AbstractKeyListModel> model(createModel());
+
+    const KeyGroup group = createGroup("test");
+    model->setGroups({group});
+
+    {
+        const bool result = model->removeGroup(KeyGroup());
+        QVERIFY( !result );
+        QCOMPARE( model->rowCount(), 1 );
+    }
+
+    {
+        const KeyGroup otherGroup = createGroup("test2");
+
+        const bool result = model->removeGroup(otherGroup);
+        QVERIFY( !result );
+        QCOMPARE( model->rowCount(), 1 );
+    }
+
+    {
+        const bool result = model->removeGroup(group);
+        QVERIFY( result );
+        QCOMPARE( model->rowCount(), 0 );
+    }
+}
+
 void AbstractKeyListModelTest::testClear()
 {
     QScopedPointer<AbstractKeyListModel> model(createModel());
