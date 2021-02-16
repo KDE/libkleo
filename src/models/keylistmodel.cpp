@@ -462,6 +462,18 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
     return QVariant();
 }
 
+bool AbstractKeyListModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    Q_UNUSED(role)
+    Q_ASSERT(value.canConvert<KeyGroup>());
+    if (value.canConvert<KeyGroup>()) {
+        const KeyGroup group = value.value<KeyGroup>();
+        return doSetGroupData(index, group);
+    }
+
+    return false;
+}
+
 namespace
 {
 template <typename Base>
@@ -514,6 +526,7 @@ private:
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
     void doSetGroups(const std::vector<KeyGroup> &groups) override;
+    bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) override;
 
     void doClear(ItemTypes types) override
     {
@@ -523,6 +536,21 @@ private:
         if (types & Groups) {
             mGroups.clear();
         }
+    }
+
+    int groupIndex(const QModelIndex &index) const
+    {
+        if (!index.isValid() || mGroups.size() == 0) {
+            return -1;
+        }
+        const unsigned row = static_cast<unsigned>(index.row());
+        const unsigned firstGroupRow = mKeysByFingerprint.size();
+        const unsigned lastGroupRow = firstGroupRow + mGroups.size() - 1;
+        if (row < firstGroupRow || row > lastGroupRow || index.column() >= NumColumns)
+        {
+            return -1;
+        }
+        return row - firstGroupRow;
     }
 
 private:
@@ -556,6 +584,7 @@ private:
     KeyGroup doMapToGroup(const QModelIndex &index) const override;
     QModelIndex doMapFromGroup(const KeyGroup &group, int column) const override;
     void doSetGroups(const std::vector<KeyGroup> &groups) override;
+    bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) override;
 
     void doClear(ItemTypes types) override
     {
@@ -568,6 +597,21 @@ private:
         if (types & Groups) {
             mGroups.clear();
         }
+    }
+
+    int groupIndex(const QModelIndex &index) const
+    {
+        if (!index.isValid() || mGroups.size() == 0) {
+            return -1;
+        }
+        const unsigned row = static_cast<unsigned>(index.row());
+        const unsigned firstGroupRow = mTopLevels.size();
+        const unsigned lastGroupRow = firstGroupRow + mGroups.size() - 1;
+        if (row < firstGroupRow || row > lastGroupRow || index.column() >= NumColumns)
+        {
+            return -1;
+        }
+        return row - firstGroupRow;
     }
 
 private:
@@ -704,6 +748,20 @@ void FlatKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
     beginInsertRows(QModelIndex(), first, last);
     mGroups = groups;
     endInsertRows();
+}
+
+bool FlatKeyListModel::doSetGroupData(const QModelIndex &index, const KeyGroup &group)
+{
+    if (group.isNull()) {
+        return false;
+    }
+    const int groupIndex = this->groupIndex(index);
+    if (groupIndex == -1) {
+        return false;
+    }
+    mGroups[groupIndex] = group;
+    Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    return true;
 }
 
 HierarchicalKeyListModel::HierarchicalKeyListModel(QObject *p)
@@ -1159,6 +1217,20 @@ void HierarchicalKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
     beginInsertRows(QModelIndex(), first, last);
     mGroups = groups;
     endInsertRows();
+}
+
+bool HierarchicalKeyListModel::doSetGroupData(const QModelIndex &index, const KeyGroup &group)
+{
+    if (group.isNull()) {
+        return false;
+    }
+    const int groupIndex = this->groupIndex(index);
+    if (groupIndex == -1) {
+        return false;
+    }
+    mGroups[groupIndex] = group;
+    Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    return true;
 }
 
 void AbstractKeyListModel::useKeyCache(bool value, KeyList::Options options)

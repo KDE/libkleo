@@ -80,6 +80,7 @@ public:
     int columnCount(const QModelIndex &pidx) const override;
     QVariant headerData(int section, Qt::Orientation o, int role = Qt::DisplayRole) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     /**
      * defines which information is displayed in tooltips
@@ -109,6 +110,7 @@ private:
     virtual KeyGroup doMapToGroup(const QModelIndex &index) const = 0;
     virtual QModelIndex doMapFromGroup(const KeyGroup &group, int column) const = 0;
     virtual void doSetGroups(const std::vector<KeyGroup> &groups) = 0;
+    virtual bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) = 0;
 
     virtual void doClear(ItemTypes types) = 0;
 

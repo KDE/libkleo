@@ -28,6 +28,7 @@ private Q_SLOTS:
     void testKeys();
     void testIndex();
     void testIndexForGroup();
+    void testSetData();
     void testClear();
 
 private:

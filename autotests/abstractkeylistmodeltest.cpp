@@ -22,6 +22,8 @@
 using namespace Kleo;
 using namespace GpgME;
 
+Q_DECLARE_METATYPE(KeyGroup)
+
 namespace
 {
 Key createTestKey(const char *uid)
@@ -188,6 +190,26 @@ void AbstractKeyListModelTest::testIndexForGroup()
         rows.insert(groupIndex.row());
     }
     QCOMPARE(rows.size(), 4);
+}
+
+void AbstractKeyListModelTest::testSetData()
+{
+    QScopedPointer<AbstractKeyListModel> model(createModel());
+
+    const Key key = createTestKey("test@example.net");
+    const KeyGroup group = createGroup("test");
+    model->setKeys({key});
+    model->setGroups({group});
+    const KeyGroup updatedGroup = createGroup("updated", {key});
+    QVERIFY( !model->setData(QModelIndex(), QVariant::fromValue(updatedGroup)) );
+    QVERIFY( !model->setData(model->index(key), QVariant::fromValue(updatedGroup)) );
+
+    const QModelIndex groupIndex = model->index(group);
+    QVERIFY( model->setData(groupIndex, QVariant::fromValue(updatedGroup)) );
+    const KeyGroup groupInModel = model->group(groupIndex);
+    QVERIFY( !groupInModel.isNull() );
+    QCOMPARE( groupInModel.name(), updatedGroup.name() );
+    QCOMPARE( groupInModel.keys().size(), updatedGroup.keys().size() );
 }
 
 void AbstractKeyListModelTest::testClear()
