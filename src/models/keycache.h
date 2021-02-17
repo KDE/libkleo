@@ -81,6 +81,8 @@ public:
     std::vector<GpgME::Key> secretKeys() const;
 
     std::vector<KeyGroup> groups() const;
+    std::vector<KeyGroup> configurableGroups() const;
+    void saveConfigurableGroups(const std::vector<KeyGroup> &groups);
 
     const GpgME::Key &findByFingerprint(const char *fpr) const;
     const GpgME::Key &findByFingerprint(const std::string &fpr) const;

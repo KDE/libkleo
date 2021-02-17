@@ -1124,6 +1124,72 @@ std::vector<KeyGroup> KeyCache::groups() const
     return d->m_groups;
 }
 
+std::vector<KeyGroup> KeyCache::configurableGroups() const
+{
+    std::vector<KeyGroup> groups;
+    groups.reserve(d->m_groups.size());
+    std::copy_if(d->m_groups.cbegin(), d->m_groups.cend(),
+                 std::back_inserter(groups),
+                 [] (const KeyGroup &group) { return group.source() == KeyGroup::ApplicationConfig; });
+    return groups;
+}
+
+namespace
+{
+bool compareById(const KeyGroup &lhs, const KeyGroup &rhs)
+{
+    return lhs.id() < rhs.id();
+}
+
+std::vector<KeyGroup> sortedById(std::vector<KeyGroup> groups)
+{
+    std::sort(groups.begin(), groups.end(), &compareById);
+    return groups;
+}
+}
+
+void KeyCache::saveConfigurableGroups(const std::vector<KeyGroup> &groups)
+{
+    const std::vector<KeyGroup> oldGroups = sortedById(configurableGroups());
+    const std::vector<KeyGroup> newGroups = sortedById(groups);
+
+    {
+        std::vector<KeyGroup> removedGroups;
+        std::set_difference(oldGroups.begin(), oldGroups.end(),
+                            newGroups.begin(), newGroups.end(),
+                            std::back_inserter(removedGroups),
+                            &compareById);
+        for (const auto &group : qAsConst(removedGroups)) {
+            qCDebug(LIBKLEO_LOG) << "Removing group" << group;
+            d->remove(group);
+        }
+    }
+    {
+        std::vector<KeyGroup> updatedGroups;
+        std::set_intersection(newGroups.begin(), newGroups.end(),
+                              oldGroups.begin(), oldGroups.end(),
+                              std::back_inserter(updatedGroups),
+                              &compareById);
+        for (const auto &group : qAsConst(updatedGroups)) {
+            qCDebug(LIBKLEO_LOG) << "Updating group" << group;
+            d->update(group);
+        }
+    }
+    {
+        std::vector<KeyGroup> addedGroups;
+        std::set_difference(newGroups.begin(), newGroups.end(),
+                            oldGroups.begin(), oldGroups.end(),
+                            std::back_inserter(addedGroups),
+                            &compareById);
+        for (const auto &group : qAsConst(addedGroups)) {
+            qCDebug(LIBKLEO_LOG) << "Adding group" << group;
+            d->insert(group);
+        }
+    }
+
+    Q_EMIT keysMayHaveChanged();
+}
+
 bool KeyCache::insert(const KeyGroup &group)
 {
     if (!d->insert(group)) {
