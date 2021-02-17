@@ -329,6 +329,29 @@ public:
         return readGroupFromGroupsConfig(group.id());
     }
 
+    bool removeGroupFromGroupsConfig(const KeyGroup &group)
+    {
+        if (m_groupsConfigName.isEmpty()) {
+            qCDebug(LIBKLEO_LOG) << "removeGroupFromGroupsConfig - name of application configuration file is unset";
+            return false;
+        }
+
+        Q_ASSERT(!group.isNull());
+        Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
+        if (group.isNull() || group.source() != KeyGroup::ApplicationConfig) {
+            qCDebug(LIBKLEO_LOG) << "removeGroupFromGroupsConfig - group cannot be removed from application configuration:" << group;
+            return false;
+        }
+
+        KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(m_groupsConfigName);
+        KConfigGroup configGroup = groupsConfig->group(groupNamePrefix + group.id());
+
+        qCDebug(LIBKLEO_LOG) << "Removing config group" << configGroup.name();
+        configGroup.deleteGroup();
+
+        return true;
+    }
+
     void updateGroupCache()
     {
         // Update Group Keys
@@ -397,6 +420,36 @@ public:
         m_groups[groupIndex] = savedGroup;
 
         Q_EMIT q->groupUpdated(savedGroup);
+
+        return true;
+    }
+
+    bool remove(const KeyGroup &group)
+    {
+        Q_ASSERT(!group.isNull());
+        Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
+        if (group.isNull() || group.source() != KeyGroup::ApplicationConfig) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::remove - Invalid group:" << group;
+            return false;
+        }
+        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(),
+                                    [group] (const auto &g) {
+                                        return g.source() == group.source() && g.id() == group.id();
+                                    });
+        if (it == m_groups.cend()) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::remove - Group not found in list of groups:" << group;
+            return false;
+        }
+
+        const bool success = removeGroupFromGroupsConfig(group);
+        if (!success) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::remove - Removing group" << group.id() << "from config file failed";
+            return false;
+        }
+
+        m_groups.erase(it);
+
+        Q_EMIT q->groupRemoved(group);
 
         return true;
     }
@@ -1085,6 +1138,17 @@ bool KeyCache::insert(const KeyGroup &group)
 bool KeyCache::update(const KeyGroup &group)
 {
     if (!d->update(group)) {
+        return false;
+    }
+
+    Q_EMIT keysMayHaveChanged();
+
+    return true;
+}
+
+bool KeyCache::remove(const KeyGroup &group)
+{
+    if (!d->remove(group)) {
         return false;
     }
 

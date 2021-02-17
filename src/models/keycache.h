@@ -65,6 +65,7 @@ public:
 
     void remove(const GpgME::Key &key);
     void remove(const std::vector<GpgME::Key> &keys);
+    bool remove(const KeyGroup &group);
 
     void addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &watcher);
 
@@ -166,6 +167,7 @@ Q_SIGNALS:
     void keysMayHaveChanged();
     void groupAdded(const KeyGroup &group);
     void groupUpdated(const KeyGroup &group);
+    void groupRemoved(const KeyGroup &group);
 
 private:
     class RefreshKeysJob;
