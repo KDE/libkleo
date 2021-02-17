@@ -69,6 +69,18 @@ namespace
 
 make_comparator_str(ByEMail, .first.c_str());
 
+QStringList getFingerprints(const KeyGroup::Keys &keys)
+{
+    QStringList fingerprints;
+    fingerprints.reserve(keys.size());
+    std::transform(keys.cbegin(), keys.cend(),
+                    std::back_inserter(fingerprints),
+                    [] (const Key &key) {
+                        return QString::fromLatin1(key.primaryFingerprint());
+                    });
+    return fingerprints;
+}
+
 }
 
 class KeyCache::Private
@@ -311,15 +323,7 @@ public:
 
         qCDebug(LIBKLEO_LOG) << "Writing config group" << configGroup.name();
         configGroup.writeEntry("Name", group.name());
-        const KeyGroup::Keys &keys = group.keys();
-        QStringList fingerprints;
-        fingerprints.reserve(keys.size());
-        std::transform(keys.cbegin(), keys.cend(),
-                       std::back_inserter(fingerprints),
-                       [] (const Key &key) {
-                           return QString::fromLatin1(key.primaryFingerprint());
-                       });
-        configGroup.writeEntry("Keys", fingerprints);
+        configGroup.writeEntry("Keys", getFingerprints(group.keys()));
 
         // reread group to ensure that it reflects the saved group in case of immutable entries
         return readGroupFromGroupsConfig(group.id());
