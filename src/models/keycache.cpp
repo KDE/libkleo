@@ -340,6 +340,37 @@ public:
         readGroupsFromGroupsConfig();
     }
 
+    bool update(const KeyGroup &group)
+    {
+        Q_ASSERT(!group.isNull());
+        Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
+        if (group.isNull() || group.source() != KeyGroup::ApplicationConfig) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::update - Invalid group:" << group;
+            return false;
+        }
+        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(),
+                                    [group] (const auto &g) {
+                                        return g.source() == group.source() && g.id() == group.id();
+                                    });
+        if (it == m_groups.cend()) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::update - Group not found in list of groups:" << group;
+            return false;
+        }
+        const auto groupIndex = std::distance(m_groups.cbegin(), it);
+
+        const KeyGroup savedGroup = writeGroupToGroupsConfig(group);
+        if (savedGroup.isNull()) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::update - Writing group" << group.id() << "to config file failed";
+            return false;
+        }
+
+        m_groups[groupIndex] = savedGroup;
+
+        Q_EMIT q->groupUpdated(savedGroup);
+
+        return true;
+    }
+
 private:
     QPointer<RefreshKeysJob> m_refreshJob;
     std::vector<std::shared_ptr<FileSystemWatcher> > m_fsWatchers;
@@ -1012,31 +1043,10 @@ std::vector<KeyGroup> KeyCache::groups() const
 
 bool KeyCache::update(const KeyGroup &group)
 {
-    Q_ASSERT(!group.isNull());
-    Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
-    if (group.isNull() || group.source() != KeyGroup::ApplicationConfig) {
-        qCDebug(LIBKLEO_LOG) << "KeyCache::update - Invalid group:" << group;
-        return false;
-    }
-    const auto it = std::find_if(d->m_groups.cbegin(), d->m_groups.cend(),
-                                 [group] (const auto &g) {
-                                     return g.source() == group.source() && g.id() == group.id();
-                                 });
-    if (it == d->m_groups.cend()) {
-        qCDebug(LIBKLEO_LOG) << "KeyCache::update - Group not found in list of groups:" << group;
-        return false;
-    }
-    const auto groupIndex = std::distance(d->m_groups.cbegin(), it);
-
-    const KeyGroup savedGroup = d->writeGroupToGroupsConfig(group);
-    if (savedGroup.isNull()) {
-        qCDebug(LIBKLEO_LOG) << "KeyCache::update - Writing group" << group.id() << "to config file failed";
+    if (!d->update(group)) {
         return false;
     }
 
-    d->m_groups[groupIndex] = savedGroup;
-
-    Q_EMIT groupUpdated(savedGroup);
     Q_EMIT keysMayHaveChanged();
 
     return true;
