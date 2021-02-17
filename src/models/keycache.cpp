@@ -340,6 +340,36 @@ public:
         readGroupsFromGroupsConfig();
     }
 
+    bool insert(const KeyGroup &group)
+    {
+        Q_ASSERT(!group.isNull());
+        Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
+        if (group.isNull() || group.source() != KeyGroup::ApplicationConfig) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::insert - Invalid group:" << group;
+            return false;
+        }
+        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(),
+                                    [group] (const auto &g) {
+                                        return g.source() == group.source() && g.id() == group.id();
+                                    });
+        if (it != m_groups.cend()) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::insert - Group already present in list of groups:" << group;
+            return false;
+        }
+
+        const KeyGroup savedGroup = writeGroupToGroupsConfig(group);
+        if (savedGroup.isNull()) {
+            qCDebug(LIBKLEO_LOG) << "KeyCache::Private::insert - Writing group" << group.id() << "to config file failed";
+            return false;
+        }
+
+        m_groups.push_back(savedGroup);
+
+        Q_EMIT q->groupAdded(savedGroup);
+
+        return true;
+    }
+
     bool update(const KeyGroup &group)
     {
         Q_ASSERT(!group.isNull());
@@ -1039,6 +1069,17 @@ std::vector<KeyGroup> KeyCache::groups() const
 {
     d->ensureCachePopulated();
     return d->m_groups;
+}
+
+bool KeyCache::insert(const KeyGroup &group)
+{
+    if (!d->insert(group)) {
+        return false;
+    }
+
+    Q_EMIT keysMayHaveChanged();
+
+    return true;
 }
 
 bool KeyCache::update(const KeyGroup &group)

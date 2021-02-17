@@ -58,6 +58,7 @@ public:
 
     void insert(const GpgME::Key &key);
     void insert(const std::vector<GpgME::Key> &keys);
+    bool insert(const KeyGroup &group);
 
     void refresh(const std::vector<GpgME::Key> &keys);
     bool update(const KeyGroup &group);
@@ -163,6 +164,7 @@ Q_SIGNALS:
     void added(const GpgME::Key &key);
     void keyListingDone(const GpgME::KeyListResult &result);
     void keysMayHaveChanged();
+    void groupAdded(const KeyGroup &group);
     void groupUpdated(const KeyGroup &group);
 
 private:
