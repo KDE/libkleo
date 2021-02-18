@@ -105,7 +105,7 @@ QSize KDHorizontalLine::sizeHint() const
 
 QSize KDHorizontalLine::minimumSizeHint() const
 {
-    const int w = fontMetrics().width(mTitle, mLenVisible) +
+    const int w = fontMetrics().horizontalAdvance(mTitle, mLenVisible) +
                   fontMetrics().boundingRect(QLatin1Char(' ')).width();
     const int h = fontMetrics().height();
     return QSize(qMax(w, indentHint()), h).expandedTo(qApp->globalStrut());
@@ -118,7 +118,7 @@ void KDHorizontalLine::paintEvent(QPaintEvent *e)
     if (mLenVisible) {          // draw title
         const QFontMetrics &fm = paint.fontMetrics();
         const int h = fm.height();
-        const int tw = fm.width(mTitle, mLenVisible) + fm.width(QLatin1Char(' '));
+        const int tw = fm.horizontalAdvance(mTitle, mLenVisible) + fm.horizontalAdvance(QLatin1Char(' '));
         int x;
         if (mAlign & Qt::AlignHCenter) {                // center alignment
             x = frameRect().width() / 2 - tw / 2;

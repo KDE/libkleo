@@ -407,7 +407,7 @@ void Kleo::KeyListViewItem::setKey(const GpgME::Key &key)
         }
         if (ds) {
             setForeground(i, QBrush(ds->keyForeground(key, foreground(i).color())));
-            setBackgroundColor(i, ds->keyBackground(key, backgroundColor(i)));
+            setBackground(i, QBrush(ds->keyBackground(key, background(i).color())));
             setFont(i, ds->keyFont(key, font(i)));
         }
     }
@@ -453,7 +453,7 @@ int Kleo::KeyListView::ColumnStrategy::compare(const GpgME::Key &key1, const Gpg
 
 int Kleo::KeyListView::ColumnStrategy::width(int col, const QFontMetrics &fm) const
 {
-    return fm.width(title(col)) * 2;
+    return fm.horizontalAdvance(title(col)) * 2;
 }
 
 QString Kleo::KeyListView::ColumnStrategy::toolTip(const GpgME::Key &key, int col) const
