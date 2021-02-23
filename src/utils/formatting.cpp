@@ -969,17 +969,18 @@ QString Formatting::summaryLine(const KeyGroup &group)
 {
     switch (group.source()) {
         case KeyGroup::ApplicationConfig:
-            return i18ncp("name of group of keys (n key(s), id: id of group)", "%2 (1 key, id: %3)", "%2 (%1 keys, id: %3)",
-                          group.keys().size(), group.name(), group.id());
         case KeyGroup::GnuPGConfig:
-            return i18ncp("name of group of keys (n key(s), read ...)", "%2 (1 key, read from gpg.conf)", "%2 (%1 keys, read from gpg.conf)",
-                          group.keys().size(), group.name());
+            return i18ncp("name of group of keys (n key(s), validity)",
+                          "%2 (1 key, %3)", "%2 (%1 keys, %3)",
+                          group.keys().size(), group.name(), Formatting::complianceStringShort(group));
         case KeyGroup::Tags:
-            return i18ncp("name of group of keys (n key(s), tag)", "%2 (1 key, tag)", "%2 (%1 keys, tag)",
-                          group.keys().size(), group.name());
+            return i18ncp("name of group of keys (n key(s), validity, tag)",
+                          "%2 (1 key, %3, tag)", "%2 (%1 keys, %3, tag)",
+                          group.keys().size(), group.name(), Formatting::complianceStringShort(group));
         default:
-            return i18ncp("name of group of keys (n key(s), group ...)", "%2 (1 key, unknown origin)", "%2 (%1 keys, unknown origin)",
-                          group.keys().size(), group.name());
+            return i18ncp("name of group of keys (n key(s), validity, group ...)",
+                          "%2 (1 key, %3, unknown origin)", "%2 (%1 keys, %3, unknown origin)",
+                          group.keys().size(), group.name(), Formatting::complianceStringShort(group));
     }
 }
 
