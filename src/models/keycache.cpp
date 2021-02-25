@@ -1621,6 +1621,29 @@ static bool subkeyIsOk(const Subkey &s)
     return !s.isRevoked() && !s.isInvalid() && !s.isDisabled();
 }
 
+namespace
+{
+time_t creationTimeOfNewestSuitableSubKey(const Key &key, bool needSign, bool needEncrypt)
+{
+    time_t creationTime = 0;
+    for (const Subkey &s: key.subkeys()) {
+        if (!subkeyIsOk(s)) {
+            continue;
+        }
+        if (needSign && !s.canSign()) {
+            continue;
+        }
+        if (needEncrypt && !s.canEncrypt()) {
+            continue;
+        }
+        if (s.creationTime() > creationTime) {
+            creationTime = s.creationTime();
+        }
+    }
+    return creationTime;
+}
+}
+
 std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto,
                                                     bool needSign, bool needEncrypt) const
 {
@@ -1639,6 +1662,7 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
     }
     Key keyC;
     UserID uidC;
+    time_t creationTimeC = 0;
     for (const Key &k: findByEMailAddress(addr)) {
         if (proto != Protocol::UnknownProtocol && k.protocol() != proto) {
             continue;
@@ -1655,43 +1679,22 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
                 continue;
             }
             if (uidC.isNull()) {
+                // we have found our first candidate
                 keyC = k;
                 uidC = u;
+                creationTimeC = creationTimeOfNewestSuitableSubKey(keyC, needSign, needEncrypt);
             } else if ((!uidIsOk(uidC) && uidIsOk(u)) || uidC.validity() < u.validity()) {
-                /* Validity of the new key is better. */
-                uidC = u;
+                // validity of the new key is better
                 keyC = k;
+                uidC = u;
+                creationTimeC = creationTimeOfNewestSuitableSubKey(keyC, needSign, needEncrypt);
             } else if (uidC.validity() == u.validity() && uidIsOk(u)) {
-                /* Both are the same check which one is newer. */
-                time_t oldTime = 0;
-                for (const Subkey &s: keyC.subkeys()) {
-                    if (!subkeyIsOk(s)) {
-                        continue;
-                    }
-                    if (needSign && s.canSign()) {
-                        oldTime = s.creationTime();
-                    } else if (needEncrypt && s.canEncrypt()) {
-                        oldTime = s.creationTime();
-                    } else if (s.canSign() || s.canEncrypt()) {
-                        oldTime = s.creationTime();
-                    }
-                }
-                time_t newTime = 0;
-                for (const Subkey &s: k.subkeys()) {
-                    if (!subkeyIsOk(s)) {
-                        continue;
-                    }
-                    if (needSign && s.canSign()) {
-                        newTime = s.creationTime();
-                    } else if (needEncrypt && s.canEncrypt()) {
-                        newTime = s.creationTime();
-                    } else if (s.canSign() || s.canEncrypt()) {
-                        newTime = s.creationTime();
-                    }
-                }
-                if (newTime > oldTime) {
-                    uidC = u;
+                // both keys/user IDs have same validity; check which one has the newer suitable subkey
+                const time_t creationTime = creationTimeOfNewestSuitableSubKey(k, needSign, needEncrypt);
+                if (creationTimeC < creationTime) {
                     keyC = k;
+                    uidC = u;
+                    creationTimeC = creationTime;
                 }
             }
         }
