@@ -1660,10 +1660,16 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
             return ret;
         }
     }
+    // support lookup of email addresses enclosed in angle brackets
+    QByteArray address(addr);
+    if (address[0] == '<' && address[address.size() - 1] == '>') {
+        address = address.mid(1, address.size() - 2);
+    }
+    address = address.toLower();
     Key keyC;
     UserID uidC;
     time_t creationTimeC = 0;
-    for (const Key &k: findByEMailAddress(addr)) {
+    for (const Key &k: findByEMailAddress(address.constData())) {
         if (proto != Protocol::UnknownProtocol && k.protocol() != proto) {
             continue;
         }
@@ -1675,7 +1681,7 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
         }
         /* First get the uid that matches the mailbox */
         for (const UserID &u: k.userIDs()) {
-            if (QString::fromStdString(u.addrSpec()).toLower() != QString::fromUtf8(addr).toLower()) {
+            if (QByteArray::fromStdString(u.addrSpec()).toLower() != address) {
                 continue;
             }
             if (uidC.isNull()) {
