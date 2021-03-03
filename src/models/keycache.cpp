@@ -359,8 +359,10 @@ public:
         // so no need for a job.
 
         m_groups.clear();
-        readGroupsFromGpgConf();
-        readGroupsFromGroupsConfig();
+        if (m_groupsEnabled) {
+            readGroupsFromGpgConf();
+            readGroupsFromGroupsConfig();
+        }
     }
 
     bool insert(const KeyGroup &group)
@@ -468,6 +470,7 @@ private:
     bool m_initalized;
     bool m_pgpOnly;
     bool m_remarks_enabled;
+    bool m_groupsEnabled = false;
     QString m_groupsConfigName;
     std::vector<KeyGroup> m_groups;
 };
@@ -496,6 +499,14 @@ KeyCache::KeyCache()
 }
 
 KeyCache::~KeyCache() {}
+
+void KeyCache::setGroupsEnabled(bool enabled)
+{
+    d->m_groupsEnabled = enabled;
+    if (d->m_initalized) {
+        d->updateGroupCache();
+    }
+}
 
 void KeyCache::setGroupsConfig(const QString &filename)
 {

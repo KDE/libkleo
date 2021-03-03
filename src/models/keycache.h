@@ -54,6 +54,7 @@ public:
 
     ~KeyCache();
 
+    void setGroupsEnabled(bool enabled);
     void setGroupsConfig(const QString &filename);
 
     void insert(const GpgME::Key &key);
