@@ -43,6 +43,7 @@ set(libkleo_core_SRCS
    utils/gnupg.cpp
    utils/gnupg-registry.c
    utils/hex.cpp
+   utils/compat.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
@@ -171,6 +172,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   FileSystemWatcher
   Formatting
   GnuPG
+  Compat
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
