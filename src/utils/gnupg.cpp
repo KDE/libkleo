@@ -14,6 +14,7 @@
 
 #include "gnupg.h"
 
+#include "utils/compat.h"
 #include "utils/hex.h"
 
 #include <gpgme++/engineinfo.h>
@@ -421,17 +422,14 @@ bool Kleo::haveKeyserverConfigured()
     if (!config) {
         return false;
     }
-    const QGpgME::CryptoConfigEntry *const entry = config->entry(QStringLiteral("gpg"), QStringLiteral("Keyserver"), QStringLiteral("keyserver"));
+    const QGpgME::CryptoConfigEntry *const entry = Kleo::getCryptoConfigEntry(config, "gpg", "keyserver");
     return entry && !entry->stringValue().isEmpty();
 }
 
 bool Kleo::gpgComplianceP(const char *mode)
 {
     const auto conf = QGpgME::cryptoConfig();
-    const auto entry = conf->entry(QStringLiteral("gpg"),
-                                   QStringLiteral("Configuration"),
-                                   QStringLiteral("compliance"));
-
+    const auto entry = getCryptoConfigEntry(conf, "gpg", "compliance");
     return entry && entry->stringValue() == QString::fromLatin1(mode);
 }
 

@@ -13,6 +13,8 @@
 #include "kleo/keyfiltermanager.h"
 #include "kleo/keygroup.h"
 
+#include "utils/compat.h"
+
 #include <gpgme++/key.h>
 #include <gpgme++/importresult.h>
 
@@ -1081,8 +1083,7 @@ QString Formatting::complianceMode()
     if (!config) {
         return QString();
     }
-    const QGpgME::CryptoConfigEntry *const entry = config->entry(QStringLiteral("gpg"), QStringLiteral("Configuration"), QStringLiteral("compliance"));
-
+    const QGpgME::CryptoConfigEntry *const entry = getCryptoConfigEntry(config, "gpg", "compliance");
     if (!entry || entry->stringValue() == QLatin1String("gnupg")) {
         return QString();
     }

@@ -17,6 +17,8 @@
 #include "kleo/predicates.h"
 #include "kleo/stl_util.h"
 #include "kleo/dn.h"
+
+#include "utils/compat.h"
 #include "utils/filesystemwatcher.h"
 
 #include <KConfigGroup>
@@ -227,9 +229,7 @@ public:
             return;
         }
 
-        auto entry = conf->entry(QStringLiteral("gpg"),
-                                 QStringLiteral("Configuration"),
-                                 QStringLiteral("group"));
+        auto entry = getCryptoConfigEntry(conf, "gpg", "group");
         if (!entry) {
             return;
         }
