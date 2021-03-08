@@ -7,6 +7,8 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
+#include "utils/compat.h"
+
 #include <qgpgme/qgpgmenewcryptoconfig.h>
 
 #include <QCoreApplication>
@@ -17,6 +19,7 @@ using namespace QGpgME;
 
 #include <gpgme++/global.h>
 #include <gpgme++/error.h>
+#include <gpgme++/engineinfo.h>
 
 #include <stdlib.h>
 
@@ -24,6 +27,11 @@ int main(int argc, char **argv)
 {
 
     if (GpgME::initializeLibrary(0)) {
+        return 1;
+    }
+
+    if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() < "2.2.2") {
+        cerr << "This test requires GnuPG 2.2.2 or later.";
         return 1;
     }
 
@@ -135,9 +143,8 @@ int main(int argc, char **argv)
 
     {
         // Static querying of a single boolean option
-        static const QString s_groupName = QStringLiteral("Monitor");
-        static const QString s_entryName = QStringLiteral("quiet");
-        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        static const char *s_entryName = "quiet";
+        QGpgME::CryptoConfigEntry *entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
             bool val = entry->boolValue();
@@ -151,7 +158,7 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check new value
-            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
             Q_ASSERT(entry);
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None);
             cout << "quiet option now: " << (val ? "is set" : "is not set") << endl;
@@ -166,7 +173,7 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check value
-            entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
             Q_ASSERT(!entry->isDirty());
             Q_ASSERT(!entry->isSet());
             cout << "quiet option reset to default: " << (entry->boolValue() ? "is set" : "is not set") << endl;
@@ -179,24 +186,29 @@ int main(int argc, char **argv)
 
             cout << "quiet option reset to initial: " << (val ? "is set" : "is not set") << endl;
         } else {
-            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
     {
         // Static querying and setting of a single int option
-        static const QString s_groupName = QStringLiteral("LDAP");
-        static const QString s_entryName = QStringLiteral("ldaptimeout");
-        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        static const char *s_entryName = "ldaptimeout";
+        QGpgME::CryptoConfigEntry *entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
         if (entry) {
-            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
-            uint val = entry->uintValue();
-            cout << "LDAP timeout initially: " << val << " seconds." << endl;
+            // type of entry should be int (since 2.3) or uint (until 2.2)
+            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int ||
+                entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
+            const int initialValue = entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int ? entry->intValue() : static_cast<int>(entry->uintValue());
+            cout << "LDAP timeout initially: " << initialValue << " seconds." << endl;
 
             // Test setting the option directly, then querying again
             //system( "echo 'ldaptimeout:0:101' | gpgconf --change-options dirmngr" );
             // Now let's do it with the C++ API instead
-            entry->setUIntValue(101);
+            if (entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int) {
+                entry->setIntValue(101);
+            } else {
+                entry->setUIntValue(101);
+            }
             Q_ASSERT(entry->isDirty());
             config->sync(true);
 
@@ -204,43 +216,55 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check new value
-            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            Q_ASSERT(entry);
-            Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt);
-            cout << "LDAP timeout now: " << entry->uintValue() << " seconds." << endl;
-            Q_ASSERT(entry->uintValue() == 101);
+            {
+                entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
+                Q_ASSERT(entry);
+                const int newValue = entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int ? entry->intValue() : static_cast<int>(entry->uintValue());
+                cout << "LDAP timeout now: " << newValue << " seconds." << endl;
+                Q_ASSERT(newValue == 101);
+            }
 
             // Set to default
-            entry->resetToDefault();
-            Q_ASSERT(entry->uintValue() == 100);
-            Q_ASSERT(entry->isDirty());
-            Q_ASSERT(!entry->isSet());
-            config->sync(true);
-            config->clear();
+            {
+                entry->resetToDefault();
+                const int defaultValue = entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int ? entry->intValue() : static_cast<int>(entry->uintValue());
+                cout << "LDAP timeout reset to default, " << defaultValue << " seconds." << endl;
+                Q_ASSERT(defaultValue == 15);
+                Q_ASSERT(entry->isDirty());
+                Q_ASSERT(!entry->isSet());
+                config->sync(true);
+                config->clear();
+            }
 
             // Check value
-            entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
-            Q_ASSERT(!entry->isDirty());
-            Q_ASSERT(!entry->isSet());
-            cout << "LDAP timeout reset to default, " << entry->uintValue() << " seconds." << endl;
-            Q_ASSERT(entry->uintValue() == 100);
+            {
+                entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
+                Q_ASSERT(!entry->isDirty());
+                Q_ASSERT(!entry->isSet());
+                const int defaultValue = entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int ? entry->intValue() : static_cast<int>(entry->uintValue());
+                cout << "LDAP timeout reset to default, " << defaultValue << " seconds." << endl;
+                Q_ASSERT(defaultValue == 15);
+            }
 
             // Reset old value
-            entry->setUIntValue(val);
+            if (entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Int) {
+                entry->setIntValue(initialValue);
+            } else {
+                entry->setUIntValue(initialValue);
+            }
             Q_ASSERT(entry->isDirty());
             config->sync(true);
 
-            cout << "LDAP timeout reset to initial " << val << " seconds." << endl;
+            cout << "LDAP timeout reset to initial " << initialValue << " seconds." << endl;
         } else {
-            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
     {
         // Static querying and setting of a single string option
-        static const QString s_groupName = QStringLiteral("Debug");
-        static const QString s_entryName = QStringLiteral("log-file");
-        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        static const char *s_entryName = "log-file";
+        QGpgME::CryptoConfigEntry *entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
             QString val = entry->stringValue();
@@ -258,7 +282,7 @@ int main(int argc, char **argv)
             config->clear();
 
             // Check new value
-            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            entry = Kleo::getCryptoConfigEntry(config, "dirmngr", s_entryName);
             Q_ASSERT(entry);
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_Path);
             cout << "Log-file now: " << entry->stringValue().toLocal8Bit().constData() << endl;
@@ -280,15 +304,14 @@ int main(int argc, char **argv)
 
             cout << "Log-file reset to initial " << val.toLocal8Bit().constData() << endl;
         } else {
-            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
     {
-        // Static querying and setting of the LDAP URL list option
-        static const QString s_groupName = QStringLiteral("LDAP");
-        static const QString s_entryName = QStringLiteral("LDAP Server");
-        QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+        // Static querying and setting of the keyserver list option
+        static const char *s_entryName = "keyserver";
+        QGpgME::CryptoConfigEntry *entry = Kleo::getCryptoConfigEntry(config, "gpgsm", s_entryName);
         if (entry) {
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
             Q_ASSERT(entry->isList());
@@ -312,13 +335,13 @@ int main(int argc, char **argv)
             config->sync(true);
 
             // Let's see how it prints it
-            system("gpgconf --list-options dirmngr | grep 'LDAP Server'");
+            system("gpgconf --list-options gpgsm | grep 'keyserver'");
 
             // Clear cached values!
             config->clear();
 
             // Check new value
-            QGpgME::CryptoConfigEntry *entry = config->entry(QStringLiteral("dirmngr"), s_groupName, s_entryName);
+            entry = Kleo::getCryptoConfigEntry(config, "gpgsm", s_entryName);
             Q_ASSERT(entry);
             Q_ASSERT(entry->argType() == QGpgME::CryptoConfigEntry::ArgType_LDAPURL);
             Q_ASSERT(entry->isList());
@@ -339,13 +362,14 @@ int main(int argc, char **argv)
             Q_ASSERT(entry->isDirty());
             config->sync(true);
 
+            const QList<QUrl> resetList = entry->urlValueList();
             cout << "URL list reset to initial: ";
-            for (const QUrl &url : qAsConst(newlst)) {
+            for (const QUrl &url : resetList) {
                 cout << url.toString().toLocal8Bit().constData() << ", ";
             }
             cout << endl;
         } else {
-            cout << "Entry 'dirmngr/" << qPrintable(s_groupName) << "/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'gpgsm/" << qPrintable(s_entryName) << "' not found" << endl;
         }
     }
 
