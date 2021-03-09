@@ -12,16 +12,15 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "keyresolver.h"
+
+#include "models/keycache.h"
+#include "ui/newkeyapprovaldialog.h"
+#include "utils/formatting.h"
+
 #include <gpgme++/key.h>
 
 #include "libkleo_debug.h"
-#include "keyresolver.h"
-#include "models/keycache.h"
-#include "utils/formatting.h"
-
-#include "ui/newkeyapprovaldialog.h"
-
-#include <QStringList>
 
 using namespace Kleo;
 
@@ -60,9 +59,7 @@ public:
     {
     }
 
-    ~Private()
-    {
-    }
+    ~Private() = default;
 
     bool isAcceptableSigningKey(const GpgME::Key &key)
     {
@@ -650,6 +647,8 @@ KeyResolver::KeyResolver(bool encrypt, bool sign, CryptoMessageFormat fmt, bool 
     d(new Private(this, encrypt, sign, fmt, allowMixed))
 {
 }
+
+Kleo::KeyResolver::~KeyResolver() = default;
 
 void KeyResolver::setRecipients(const QStringList &addresses)
 {

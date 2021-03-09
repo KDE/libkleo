@@ -15,6 +15,8 @@
 #include <QDebug>
 #include <QTimer>
 
+#include <gpgme++/key.h>
+
 using namespace Kleo;
 
 void dumpKeys(const QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > &fmtMap)

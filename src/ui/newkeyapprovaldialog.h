@@ -75,6 +75,8 @@ public:
                                   QWidget *parent = nullptr,
                                   Qt::WindowFlags f = Qt::WindowFlags());
 
+    ~NewKeyApprovalDialog() override;
+
     /** @brief The selected signing Keys. Only valid after Dialog was accepted. */
     std::vector<GpgME::Key> signingKeys();
     /** @brief The selected encryption Keys. Only valid after Dialog was accepted. */
@@ -82,7 +84,7 @@ public:
 
 private:
     class Private;
-    std::shared_ptr<Private> d;
+    std::unique_ptr<Private> d;
 };
 
 } // namespace kleo

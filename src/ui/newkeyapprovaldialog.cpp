@@ -296,6 +296,8 @@ public:
 
     }
 
+    ~Private() = default;
+
     void generateKey(KeySelectionCombo *combo)
     {
         const auto &addr = combo->property("address").toString();
@@ -689,8 +691,6 @@ public:
         }
     }
 
-    ~Private() {}
-
     GpgME::Protocol mProto;
     QList<KeySelectionCombo *> mSigningCombos;
     QList<KeySelectionCombo *> mEncCombos;
@@ -734,6 +734,8 @@ NewKeyApprovalDialog::NewKeyApprovalDialog(const QMap<QString, std::vector<GpgME
     const auto desk = QApplication::desktop()->screenGeometry(this);
     resize(QSize(desk.width() / 3, qMin(size.height(), desk.height() / 2)));
 }
+
+Kleo::NewKeyApprovalDialog::~NewKeyApprovalDialog() = default;
 
 std::vector<GpgME::Key> NewKeyApprovalDialog::signingKeys()
 {

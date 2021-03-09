@@ -11,18 +11,23 @@
 #define __KLEO_KEYRESOLVER_H__
 
 #include "kleo_export.h"
+
 #include <Libkleo/Enum>
 
-#include <gpgme++/key.h>
-
-#include <vector>
 #include <QMap>
-#include <QString>
 #include <QObject>
+#include <QString>
+#include <QStringList>
+
+#include <gpgme++/global.h>
 
 #include <memory>
+#include <vector>
 
-#include <QStringList>
+namespace GpgME
+{
+class Key;
+}
 
 namespace Kleo
 {
@@ -92,7 +97,7 @@ public:
     explicit KeyResolver(bool encrypt, bool sign,
                          CryptoMessageFormat format = AutoFormat,
                          bool allowMixed = true);
-    ~KeyResolver() {}
+    ~KeyResolver() override;
 
     /**
      *  Set the list of (To/CC) recipient addresses. Also looks
@@ -223,8 +228,7 @@ Q_SIGNALS:
 
 private:
     class Private;
-    friend class Private;
-    std::shared_ptr<Private> d;
+    std::unique_ptr<Private> d;
 };
 } // namespace Kleo
 
