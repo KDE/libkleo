@@ -142,14 +142,6 @@ public:
     void setSigningKeys(const QStringList &fingerprints);
 
     /**
-     * Turn Nagging messages off or on, default on.
-     * See class description about nagging.
-     *
-     * @param value: Turn nagging on or off.
-     */
-    void enableNagging(bool value);
-
-    /**
      * Set the minimum user id validity for autoresolution.
      *
      * The default value is marginal

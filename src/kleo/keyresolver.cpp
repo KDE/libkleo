@@ -49,7 +49,7 @@ class KeyResolver::Private
 {
 public:
     Private(KeyResolver* qq, bool enc, bool sig, CryptoMessageFormat fmt, bool allowMixed) :
-            q(qq), mFormat(fmt), mEncrypt(enc), mSign(sig), mNag(true),
+            q(qq), mFormat(fmt), mEncrypt(enc), mSign(sig),
             mAllowMixed(allowMixed),
             mCache(KeyCache::instance()),
             mDialogWindowFlags(Qt::WindowFlags()),
@@ -565,7 +565,7 @@ public:
 
     CryptoMessageFormat mFormat;
     QStringList mFatalErrors;
-    bool mEncrypt, mSign, mNag;
+    bool mEncrypt, mSign;
     bool mAllowMixed;
     // The cache is needed as a member variable to avoid rebuilding
     // it between calls if we are the only user.
@@ -715,11 +715,6 @@ QMap <CryptoMessageFormat, std::vector<GpgME::Key> > KeyResolver::signingKeys() 
 QMap <CryptoMessageFormat, QMap<QString, QStringList> > KeyResolver::overrideKeys() const
 {
     return d->mOverrides;
-}
-
-void KeyResolver::enableNagging(bool value)
-{
-    d->mNag = value;
 }
 
 void KeyResolver::setDialogWindowFlags(Qt::WindowFlags flags)
