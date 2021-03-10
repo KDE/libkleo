@@ -91,11 +91,11 @@ public:
      *
      * @param encrypt: Should encryption keys be selected.
      * @param sign: Should signing keys be selected.
-     * @param format: A specific format for selection. Default Auto.
+     * @param format: A specific key protocol (OpenPGP, S/MIME) for selection. Default: Both protocols.
      * @param allowMixed: Specify if multiple message formats may be resolved.
      **/
     explicit KeyResolver(bool encrypt, bool sign,
-                         CryptoMessageFormat format = AutoFormat,
+                         GpgME::Protocol format = GpgME::UnknownProtocol,
                          bool allowMixed = true);
     ~KeyResolver() override;
 
@@ -123,9 +123,9 @@ public:
      * addresses. The keys for the fingerprints are looked
      * up and used when found. Does not interact with the user.
      *
-     * @param overrides: A map of \<cryptomessageformat\> -> (\<address\> \<fingerprints\>)
+     * @param overrides: A map of \<protocol\> -> (\<address\> \<fingerprints\>)
     */
-    void setOverrideKeys(const QMap<CryptoMessageFormat, QMap<QString, QStringList> > &overrides);
+    void setOverrideKeys(const QMap<GpgME::Protocol, QMap<QString, QStringList> > &overrides);
 
     /**
      * Set explicit signing keys. If this was set for a
@@ -147,7 +147,7 @@ public:
      *
      * @return the resolved sender / key pairs for encryption by format.
      */
-    QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > encryptionKeys() const;
+    QMap <GpgME::Protocol, QMap<QString, std::vector<GpgME::Key> > > encryptionKeys() const;
 
     /**
      * Get the signing keys to use after resolution.
@@ -155,7 +155,7 @@ public:
      * @return the resolved resolved sender / key pairs for signing
      *         by format.
      */
-    QMap <CryptoMessageFormat, std::vector<GpgME::Key> > signingKeys() const;
+    QMap <GpgME::Protocol, std::vector<GpgME::Key> > signingKeys() const;
 
     /**
      * Starts the key resolving procedure. Emits keysResolved on success or
@@ -173,7 +173,7 @@ public:
      * @return A map of email's with new overrides and the according
      *         cryptoformat / fingerprint. Should be saved somehow.
      */
-    QMap <CryptoMessageFormat, QMap<QString, QStringList> > overrideKeys() const;
+    QMap <GpgME::Protocol, QMap<QString, QStringList> > overrideKeys() const;
 
     /**
      * Set window flags for a possible dialog.

@@ -23,10 +23,11 @@
 #include "libkleo_debug.h"
 
 using namespace Kleo;
+using namespace GpgME;
 
 namespace {
 
-static inline bool ValidEncryptionKey(const GpgME::Key &key)
+static inline bool ValidEncryptionKey(const Key &key)
 {
     if (key.isNull() || key.isRevoked() || key.isExpired() ||
         key.isDisabled() || !key.canEncrypt()) {
@@ -35,7 +36,7 @@ static inline bool ValidEncryptionKey(const GpgME::Key &key)
     return true;
 }
 
-static inline bool ValidSigningKey(const GpgME::Key &key)
+static inline bool ValidSigningKey(const Key &key)
 {
     if (key.isNull() || key.isRevoked() || key.isExpired() ||
         key.isDisabled() || !key.canSign() || !key.hasSecret()) {
@@ -48,20 +49,20 @@ static inline bool ValidSigningKey(const GpgME::Key &key)
 class KeyResolver::Private
 {
 public:
-    Private(KeyResolver* qq, bool enc, bool sig, CryptoMessageFormat fmt, bool allowMixed) :
+    Private(KeyResolver* qq, bool enc, bool sig, Protocol fmt, bool allowMixed) :
             q(qq), mFormat(fmt), mEncrypt(enc), mSign(sig),
             mAllowMixed(allowMixed),
             mCache(KeyCache::instance()),
             mDialogWindowFlags(Qt::WindowFlags()),
-            mPreferredProtocol(GpgME::UnknownProtocol),
-            mMinimumValidity(GpgME::UserID::Marginal),
+            mPreferredProtocol(UnknownProtocol),
+            mMinimumValidity(UserID::Marginal),
             mCompliance(Formatting::complianceMode())
     {
     }
 
     ~Private() = default;
 
-    bool isAcceptableSigningKey(const GpgME::Key &key)
+    bool isAcceptableSigningKey(const Key &key)
     {
         if (!ValidSigningKey(key)) {
             return false;
@@ -76,7 +77,7 @@ public:
         return true;
     }
 
-    bool isAcceptableEncryptionKey(const GpgME::Key &key, const QString &address = QString())
+    bool isAcceptableEncryptionKey(const Key &key, const QString &address = QString())
     {
         if (!ValidEncryptionKey(key)) {
             return false;
@@ -113,7 +114,7 @@ public:
         // matches the gnupg one.
         for (const auto &addr :addresses) {
             // PGP Uids are defined to be UTF-8 (RFC 4880 §5.11)
-            const auto normalized = GpgME::UserID::addrSpecFromString (addr.toUtf8().constData());
+            const auto normalized = UserID::addrSpecFromString (addr.toUtf8().constData());
             if (normalized.empty()) {
                 // should not happen bug in the caller, non localized
                 // error for bug reporting.
@@ -141,9 +142,9 @@ public:
             // No encryption we are done.
             return;
         }
-        for (CryptoMessageFormat fmt: mOverrides.keys()) {
+        for (Protocol fmt: mOverrides.keys()) {
             // Iterate over the crypto message formats
-            if (mFormat != AutoFormat && mFormat != fmt && fmt != AutoFormat) {
+            if (mFormat != UnknownProtocol && mFormat != fmt && fmt != UnknownProtocol) {
                 // Skip overrides for the wrong format
                 continue;
             }
@@ -166,14 +167,10 @@ public:
                         continue;
                     }
 
-                    CryptoMessageFormat resolvedFmt = fmt;
-                    if (fmt == AutoFormat) {
+                    Protocol resolvedFmt = fmt;
+                    if (fmt == UnknownProtocol) {
                         // Take the format from the key.
-                        if (key.protocol() == GpgME::OpenPGP) {
-                            resolvedFmt = AnyOpenPGP;
-                        } else {
-                            resolvedFmt = AnySMIME;
-                        }
+                        resolvedFmt = key.protocol();
                     }
 
                     auto recpMap = mEncKeys.value(resolvedFmt);
@@ -183,21 +180,20 @@ public:
                     mEncKeys.insert(resolvedFmt, recpMap);
 
                     // Now we can remove it from our unresolved lists.
-                    if (key.protocol() == GpgME::OpenPGP) {
+                    if (key.protocol() == OpenPGP) {
                         mUnresolvedPGP.removeAll(addr);
                     } else {
                         mUnresolvedCMS.removeAll(addr);
                     }
-                    qCDebug(LIBKLEO_LOG) << "Override" << addr << cryptoMessageFormatToString (resolvedFmt) << fprOrId;
+                    qCDebug(LIBKLEO_LOG) << "Override" << addr << Formatting::displayName(resolvedFmt) << fprOrId;
                 }
             }
         }
     }
 
-    void resolveSign(GpgME::Protocol proto)
+    void resolveSign(Protocol proto)
     {
-        auto fmt = proto == GpgME::OpenPGP ? AnyOpenPGP : AnySMIME;
-        if (mSigKeys.contains(fmt)) {
+        if (mSigKeys.contains(proto)) {
             // Explicitly set
             return;
         }
@@ -215,36 +211,34 @@ public:
         }
 
         if (!keys.empty() && !keys[0].isNull()) {
-            mSigKeys.insert(fmt, keys);
+            mSigKeys.insert(proto, keys);
         }
     }
 
-    void setSigningKeys(const std::vector<GpgME::Key> &keys)
+    void setSigningKeys(const std::vector<Key> &keys)
     {
         if (mSign) {
             for (const auto &key: keys) {
-                const auto sigFmt = key.protocol() == GpgME::Protocol::OpenPGP ? AnyOpenPGP : AnySMIME;
-                auto list = mSigKeys.value(sigFmt);
+                auto list = mSigKeys.value(key.protocol());
                 list.push_back(key);
-                mSigKeys.insert(sigFmt, list);
+                mSigKeys.insert(key.protocol(), list);
             }
         }
     }
 
     // Try to find matching keys in the provided protocol for the unresolved addresses
     // only updates the any maps.
-    void resolveEnc(GpgME::Protocol proto)
+    void resolveEnc(Protocol proto)
     {
-        auto fmt = proto == GpgME::OpenPGP ? AnyOpenPGP : AnySMIME;
-        auto encMap = mEncKeys.value(fmt);
-        QMutableStringListIterator it((proto == GpgME::Protocol::OpenPGP) ? mUnresolvedPGP : mUnresolvedCMS);
+        auto encMap = mEncKeys.value(proto);
+        QMutableStringListIterator it((proto == Protocol::OpenPGP) ? mUnresolvedPGP : mUnresolvedCMS);
         while (it.hasNext()) {
             const QString addr = it.next();
             const auto keys = mCache->findBestByMailBox(addr.toUtf8().constData(),
                                                         proto, false, true);
             if (keys.empty() || keys[0].isNull()) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find any"
-                                     << (proto == GpgME::Protocol::OpenPGP ? "OpenPGP" : "CMS")
+                                     << (proto == Protocol::OpenPGP ? "OpenPGP" : "CMS")
                                      << "key for: " << addr;
                 continue;
             }
@@ -284,111 +278,21 @@ public:
             }
             it.remove();
         }
-        mEncKeys.insert(fmt, encMap);
-    }
-
-    void encMapToSpecific(CryptoMessageFormat anyFormat, CryptoMessageFormat specificFormat,
-                          QMap<CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > >&encMap)
-    {
-        Q_ASSERT(anyFormat & specificFormat);
-        if (!encMap.contains(anyFormat)) {
-            return;
-        }
-        for (const auto &addr: encMap[anyFormat].keys()) {
-            if (!encMap.contains(specificFormat)) {
-                encMap.insert(specificFormat, QMap<QString, std::vector<GpgME::Key> >());
-            }
-            encMap[specificFormat].insert(addr, encMap[anyFormat][addr]);
-        }
-        encMap.remove(anyFormat);
-    }
-
-    void reduceToSingle(CryptoMessageFormat targetFmt)
-    {
-        // We a have a specific format so we need to map any keys
-        // into that format. This ignores overrides as the format
-        // was explicitly set.
-        CryptoMessageFormat srcFmt = (targetFmt & AnySMIME) ? AnySMIME : AnyOpenPGP;
-        if (mSigKeys.contains(srcFmt)) {
-            mSigKeys.insert(targetFmt, mSigKeys.take(srcFmt));
-        }
-        encMapToSpecific(srcFmt, targetFmt, mEncKeys);
-    }
-
-    void updateEncMap(QMap<QString, std::vector<GpgME::Key> > &target,
-                      QMap<QString, std::vector<GpgME::Key> > &src)
-    {
-        for (const auto &addr: target.keys()) {
-            if (src.contains(addr)) {
-                target.insert(addr, src[addr]);
-            }
-        }
-    }
-
-    void updateEncMaps(CryptoMessageFormat target, CryptoMessageFormat src)
-    {
-        if (mEncKeys.contains(src) && mEncKeys.contains(target)) {
-            updateEncMap(mEncKeys[target], mEncKeys[src]);
-        }
-    }
-
-    bool needsFormat(CryptoMessageFormat fmt)
-    {
-        return mEncKeys.contains(fmt);
-    }
-
-    void selectFormats()
-    {
-        // Check if we can find a single common specific format that works
-        if (mFormat != AutoFormat && mFormat != AnyOpenPGP && mFormat != AnySMIME) {
-            reduceToSingle(mFormat);
-        }
-
-        // OpenPGP
-        // By default prefer OpenPGPMIME
-        bool needTwoPGP = needsFormat(OpenPGPMIMEFormat) && needsFormat(InlineOpenPGPFormat);
-        reduceToSingle(OpenPGPMIMEFormat);
-        if (needTwoPGP) {
-            // We need two messages as we have conflicting preferences.
-
-            // Then we need to check that if we sign the PGP MIME Message we
-            // also sign the inline one.
-            if (mSigKeys.contains(OpenPGPMIMEFormat)) {
-                mSigKeys.insert(InlineOpenPGPFormat,
-                                mSigKeys[OpenPGPMIMEFormat]);
-            }
-
-            // Then it's also possible that a user updated a key in the
-            // UI so we need to check that too.
-            updateEncMaps(InlineOpenPGPFormat, OpenPGPMIMEFormat);
-        }
-
-        // Similar for S/MIME
-        bool needTwoSMIME = needsFormat(SMIMEOpaqueFormat) && needsFormat(SMIMEFormat);
-        // Here we prefer real S/MIME
-        reduceToSingle(SMIMEFormat);
-        if (needTwoSMIME) {
-            if (mSigKeys.contains(SMIMEFormat)) {
-                mSigKeys.insert(SMIMEOpaqueFormat,
-                                mSigKeys[SMIMEFormat]);
-            }
-            updateEncMaps(SMIMEOpaqueFormat, SMIMEFormat);
-        }
-        return;
+        mEncKeys.insert(proto, encMap);
     }
 
     void showApprovalDialog(QWidget *parent)
     {
-        QMap<QString, std::vector<GpgME::Key> > resolvedSig;
+        QMap<QString, std::vector<Key> > resolvedSig;
         QStringList unresolvedSig;
-        bool pgpOnly = mUnresolvedPGP.empty() && (!mSign || mSigKeys.contains(AnyOpenPGP));
-        bool cmsOnly = mUnresolvedCMS.empty() && (!mSign || mSigKeys.contains(AnySMIME));
+        bool pgpOnly = mUnresolvedPGP.empty() && (!mSign || mSigKeys.contains(OpenPGP));
+        bool cmsOnly = mUnresolvedCMS.empty() && (!mSign || mSigKeys.contains(CMS));
         // First handle the signing keys
         if (mSign) {
             if (mSigKeys.empty()) {
                 unresolvedSig << mSender;
             } else {
-                std::vector<GpgME::Key> resolvedSigKeys;
+                std::vector<Key> resolvedSigKeys;
                 for (const auto &keys: qAsConst(mSigKeys)) {
                     for (const auto &key: keys) {
                         resolvedSigKeys.push_back(key);
@@ -399,13 +303,13 @@ public:
         }
 
         // Now build the encryption keys
-        QMap<QString, std::vector<GpgME::Key> > resolvedRecp;
+        QMap<QString, std::vector<Key> > resolvedRecp;
         QStringList unresolvedRecp;
 
         if (mEncrypt) {
             // Use all unresolved recipients.
             if (!cmsOnly && !pgpOnly) {
-                if (mFormat & AutoFormat) {
+                if (mFormat == UnknownProtocol) {
                     // In Auto Format we can now remove recipients that could
                     // be resolved either through CMS or PGP
                     for (const auto &addr: qAsConst(mUnresolvedPGP)) {
@@ -413,9 +317,9 @@ public:
                             unresolvedRecp << addr;
                         }
                     }
-                } else if (mFormat & AnyOpenPGP) {
+                } else if (mFormat == OpenPGP) {
                     unresolvedRecp = mUnresolvedPGP;
-                } else if (mFormat & AnySMIME) {
+                } else if (mFormat == CMS) {
                     unresolvedRecp = mUnresolvedCMS;
                 }
             }
@@ -428,10 +332,10 @@ public:
                     if (!resolvedRecp.contains(addr) || !resolvedRecp[addr].size()) {
                         resolvedRecp.insert(addr, map[addr]);
                     } else {
-                        std::vector<GpgME::Key> merged = resolvedRecp[addr];
+                        std::vector<Key> merged = resolvedRecp[addr];
                         // Add without duplication
                         for (const auto &k: map[addr]) {
-                            const auto it = std::find_if (merged.begin(), merged.end(), [k] (const GpgME::Key &y) {
+                            const auto it = std::find_if (merged.begin(), merged.end(), [k] (const Key &y) {
                                 return (k.primaryFingerprint() && y.primaryFingerprint() &&
                                         !strcmp (k.primaryFingerprint(), y.primaryFingerprint()));
                             });
@@ -446,18 +350,16 @@ public:
         }
 
         // Do we force the protocol?
-        GpgME::Protocol forcedProto = mFormat == AutoFormat ? GpgME::UnknownProtocol :
-                                      mFormat & AnyOpenPGP ? GpgME::OpenPGP :
-                                      GpgME::CMS;
+        Protocol forcedProto = mFormat;
 
         // Start with the protocol for which every keys could be found.
-        GpgME::Protocol presetProtocol;
+        Protocol presetProtocol;
 
-        if (mPreferredProtocol == GpgME::CMS && cmsOnly) {
-            presetProtocol = GpgME::CMS;
+        if (mPreferredProtocol == CMS && cmsOnly) {
+            presetProtocol = CMS;
         } else {
-            presetProtocol = pgpOnly ? GpgME::OpenPGP :
-                             cmsOnly ? GpgME::CMS :
+            presetProtocol = pgpOnly ? OpenPGP :
+                             cmsOnly ? CMS :
                              mPreferredProtocol;
         }
 
@@ -485,19 +387,18 @@ public:
         // Update keymaps accordingly
         mSigKeys.clear();
         for (const auto &key: mDialog->signingKeys()) {
-            CryptoMessageFormat fmt = key.protocol() == GpgME::OpenPGP ? AnyOpenPGP : AnySMIME;
-            if (!mSigKeys.contains(fmt)) {
-                mSigKeys.insert(fmt, std::vector<GpgME::Key>());
+            if (!mSigKeys.contains(key.protocol())) {
+                mSigKeys.insert(key.protocol(), std::vector<Key>());
             }
-            mSigKeys[fmt].push_back(key);
+            mSigKeys[key.protocol()].push_back(key);
         }
         const auto &encMap = mDialog->encryptionKeys();
         // First we clear the Any Maps and fill them with
         // the results of the dialog. Then we use the sender
         // address to determine if a keys in the specific
         // maps need updating.
-        mEncKeys.remove(AnyOpenPGP);
-        mEncKeys.remove(AnySMIME);
+        mEncKeys.remove(OpenPGP);
+        mEncKeys.remove(CMS);
 
         bool isUnresolved = false;
         for (const auto &addr: encMap.keys()) {
@@ -505,17 +406,16 @@ public:
                 if (key.isNull()) {
                     isUnresolved = true;
                 }
-                CryptoMessageFormat fmt = key.protocol() == GpgME::OpenPGP ? AnyOpenPGP : AnySMIME;
-                if (!mEncKeys.contains(fmt)) {
-                    mEncKeys.insert(fmt, QMap<QString, std::vector<GpgME::Key> >());
+                if (!mEncKeys.contains(key.protocol())) {
+                    mEncKeys.insert(key.protocol(), QMap<QString, std::vector<Key> >());
                 }
-                if (!mEncKeys[fmt].contains(addr)) {
-                    mEncKeys[fmt].insert(addr, std::vector<GpgME::Key>());
+                if (!mEncKeys[key.protocol()].contains(addr)) {
+                    mEncKeys[key.protocol()].insert(addr, std::vector<Key>());
                 }
-                qCDebug (LIBKLEO_LOG) << "Adding" << addr << "for" << cryptoMessageFormatToString (fmt)
+                qCDebug (LIBKLEO_LOG) << "Adding" << addr << "for" << Formatting::displayName(key.protocol())
                                       << "fpr:" << key.primaryFingerprint();
 
-                mEncKeys[fmt][addr].push_back(key);
+                mEncKeys[key.protocol()][addr].push_back(key);
             }
         }
 
@@ -529,13 +429,13 @@ public:
     KeyResolver *const q;
     QString mSender;
     QStringList mRecipients;
-    QMap<CryptoMessageFormat, std::vector<GpgME::Key> > mSigKeys;
-    QMap<CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > >mEncKeys;
-    QMap<CryptoMessageFormat, QMap<QString, QStringList> > mOverrides;
+    QMap<Protocol, std::vector<Key> > mSigKeys;
+    QMap<Protocol, QMap<QString, std::vector<Key> > >mEncKeys;
+    QMap<Protocol, QMap<QString, QStringList> > mOverrides;
 
     QStringList mUnresolvedPGP, mUnresolvedCMS;
 
-    CryptoMessageFormat mFormat;
+    Protocol mFormat;
     QStringList mFatalErrors;
     bool mEncrypt, mSign;
     bool mAllowMixed;
@@ -544,7 +444,7 @@ public:
     std::shared_ptr<const KeyCache> mCache;
     std::shared_ptr<NewKeyApprovalDialog> mDialog;
     Qt::WindowFlags mDialogWindowFlags;
-    GpgME::Protocol mPreferredProtocol;
+    Protocol mPreferredProtocol;
     int mMinimumValidity;
     QString mCompliance;
 };
@@ -561,17 +461,17 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     d->resolveOverrides();
 
     // Then look for signing / encryption keys
-    if (d->mFormat & AnyOpenPGP) {
-        d->resolveSign(GpgME::OpenPGP);
-        d->resolveEnc(GpgME::OpenPGP);
+    if (d->mFormat != CMS) {
+        d->resolveSign(OpenPGP);
+        d->resolveEnc(OpenPGP);
     }
-    bool pgpOnly = d->mUnresolvedPGP.empty() && (!d->mSign || d->mSigKeys.contains(AnyOpenPGP));
+    bool pgpOnly = d->mUnresolvedPGP.empty() && (!d->mSign || d->mSigKeys.contains(OpenPGP));
 
-    if (d->mFormat & AnySMIME) {
-        d->resolveSign(GpgME::CMS);
-        d->resolveEnc(GpgME::CMS);
+    if (d->mFormat != OpenPGP) {
+        d->resolveSign(CMS);
+        d->resolveEnc(CMS);
     }
-    bool cmsOnly = d->mUnresolvedCMS.empty() && (!d->mSign || d->mSigKeys.contains(AnySMIME));
+    bool cmsOnly = d->mUnresolvedCMS.empty() && (!d->mSign || d->mSigKeys.contains(CMS));
 
     // Check if we need the user to select different keys.
     bool needsUser = false;
@@ -587,22 +487,21 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
             // So every recipient could be resolved through
             // a combination of PGP and S/MIME do we also
             // have signing keys for both?
-            needsUser |= !(d->mSigKeys.contains(AnyOpenPGP) &&
-                           d->mSigKeys.contains(AnySMIME));
+            needsUser |= !(d->mSigKeys.contains(OpenPGP) &&
+                           d->mSigKeys.contains(CMS));
         }
     }
 
     if (!needsUser && !showApproval) {
         if (pgpOnly) {
-            d->mSigKeys.remove(AnySMIME);
-            d->mEncKeys.remove(AnySMIME);
+            d->mSigKeys.remove(CMS);
+            d->mEncKeys.remove(CMS);
         }
         if (cmsOnly) {
-            d->mSigKeys.remove(AnyOpenPGP);
-            d->mEncKeys.remove(AnyOpenPGP);
+            d->mSigKeys.remove(OpenPGP);
+            d->mEncKeys.remove(OpenPGP);
         }
 
-        d->selectFormats();
         qCDebug(LIBKLEO_LOG) << "Automatic key resolution done.";
         Q_EMIT keysResolved(true, false);
         return;
@@ -613,7 +512,7 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     d->showApprovalDialog(parentWidget);
 }
 
-KeyResolver::KeyResolver(bool encrypt, bool sign, CryptoMessageFormat fmt, bool allowMixed)
+KeyResolver::KeyResolver(bool encrypt, bool sign, Protocol fmt, bool allowMixed)
     : d(new Private(this, encrypt, sign, fmt, allowMixed))
 {
 }
@@ -627,7 +526,7 @@ void KeyResolver::setRecipients(const QStringList &addresses)
 
 void KeyResolver::setSender(const QString &address)
 {
-    const auto normalized = GpgME::UserID::addrSpecFromString (address.toUtf8().constData());
+    const auto normalized = UserID::addrSpecFromString (address.toUtf8().constData());
     if (normalized.empty()) {
         // should not happen bug in the caller, non localized
         // error for bug reporting.
@@ -648,13 +547,13 @@ void KeyResolver::setSender(const QString &address)
     }
 }
 
-void KeyResolver::setOverrideKeys(const QMap<CryptoMessageFormat, QMap<QString, QStringList> > &overrides)
+void KeyResolver::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList> > &overrides)
 {
     QMap<QString, QStringList> normalizedOverrides;
     for (const auto fmt: overrides.keys()) {
         for (const auto &addr: overrides[fmt].keys()) {
             const auto normalized = QString::fromUtf8(
-                    GpgME::UserID::addrSpecFromString (addr.toUtf8().constData()).c_str());
+                    UserID::addrSpecFromString (addr.toUtf8().constData()).c_str());
             const auto fingerprints = overrides[fmt][addr];
             normalizedOverrides.insert(addr, fingerprints);
         }
@@ -662,17 +561,17 @@ void KeyResolver::setOverrideKeys(const QMap<CryptoMessageFormat, QMap<QString, 
     }
 }
 
-QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > KeyResolver::encryptionKeys() const
+QMap <Protocol, QMap<QString, std::vector<Key> > > KeyResolver::encryptionKeys() const
 {
     return d->mEncKeys;
 }
 
-QMap <CryptoMessageFormat, std::vector<GpgME::Key> > KeyResolver::signingKeys() const
+QMap <Protocol, std::vector<Key> > KeyResolver::signingKeys() const
 {
     return d->mSigKeys;
 }
 
-QMap <CryptoMessageFormat, QMap<QString, QStringList> > KeyResolver::overrideKeys() const
+QMap <Protocol, QMap<QString, QStringList> > KeyResolver::overrideKeys() const
 {
     return d->mOverrides;
 }
@@ -682,7 +581,7 @@ void KeyResolver::setDialogWindowFlags(Qt::WindowFlags flags)
     d->mDialogWindowFlags = flags;
 }
 
-void KeyResolver::setPreferredProtocol(GpgME::Protocol proto)
+void KeyResolver::setPreferredProtocol(Protocol proto)
 {
     d->mPreferredProtocol = proto;
 }

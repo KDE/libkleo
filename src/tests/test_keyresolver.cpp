@@ -10,6 +10,8 @@
 
 #include "kleo/keyresolver.h"
 
+#include "utils/formatting.h"
+
 #include <QCommandLineParser>
 #include <QApplication>
 #include <QDebug>
@@ -18,11 +20,12 @@
 #include <gpgme++/key.h>
 
 using namespace Kleo;
+using namespace GpgME;
 
-void dumpKeys(const QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > &fmtMap)
+void dumpKeys(const QMap <Protocol, QMap<QString, std::vector<Key> > > &fmtMap)
 {
-    for (const CryptoMessageFormat fmt: fmtMap.keys()) {
-        qDebug () << "Format:" << cryptoMessageFormatToLabel(fmt) << fmt;
+    for (const Protocol fmt: fmtMap.keys()) {
+        qDebug () << "Format:" << Formatting::displayName(fmt) << fmt;
         for (const auto &mbox: fmtMap[fmt].keys()) {
             qDebug() << "Address:" << mbox;
             qDebug() << "Keys:";
@@ -33,10 +36,10 @@ void dumpKeys(const QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::
     }
 }
 
-void dumpSigKeys(const QMap <CryptoMessageFormat, std::vector<GpgME::Key> > &fmtMap)
+void dumpSigKeys(const QMap <Protocol, std::vector<Key> > &fmtMap)
 {
-    for (const CryptoMessageFormat fmt: fmtMap.keys()) {
-        qDebug () << "Format:" << cryptoMessageFormatToLabel(fmt) << fmt;
+    for (const Protocol fmt: fmtMap.keys()) {
+        qDebug () << "Format:" << Formatting::displayName(fmt) << fmt;
         qDebug() << "Keys:";
         for (const auto &key: fmtMap[fmt]) {
             qDebug () << key.primaryFingerprint();
@@ -113,31 +116,23 @@ int main(int argc, char **argv)
     resolver.setRecipients(recps);
     resolver.setSender(parser.value(QStringLiteral("sender")));
 
-    QMap <CryptoMessageFormat, QMap <QString, QStringList> > overrides;
+    QMap <Protocol, QMap <QString, QStringList> > overrides;
 
     for (const QString &oride: parser.values(QStringLiteral("overrides"))) {
         const QStringList split = oride.split(QLatin1Char(':'));
-        CryptoMessageFormat fmt = AutoFormat;
+        Protocol fmt = UnknownProtocol;
         if (split.size() < 2 || split.size() > 3) {
             parser.showHelp(1);
         }
 
         if (split.size() == 3) {
             const QString fmtStr = split[2].toLower();
-            if (fmtStr == QLatin1String("inlineopenpgp")) {
-                fmt = InlineOpenPGPFormat;
-            } else if (fmtStr == QLatin1String("openpgpmime")) {
-                fmt = OpenPGPMIMEFormat;
+            if (fmtStr == QLatin1String("openpgp")) {
+                fmt = OpenPGP;
             } else if (fmtStr == QLatin1String("smime")) {
-                fmt = SMIMEFormat;
-            } else if (fmtStr == QLatin1String("smimeopaque")) {
-                fmt = SMIMEOpaqueFormat;
-            } else if (fmtStr == QLatin1String("anyopenpgp")) {
-                fmt = AnyOpenPGP;
-            } else if (fmtStr == QLatin1String("anysmime")) {
-                fmt = AnySMIME;
+                fmt = CMS;
             } else if (fmtStr == QLatin1String("auto")) {
-                fmt = AutoFormat;
+                fmt = UnknownProtocol;
             } else {
                 parser.showHelp(1);
             }
