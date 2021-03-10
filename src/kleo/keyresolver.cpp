@@ -103,7 +103,7 @@ public:
         return false;
     }
 
-    void addRecpients (const QStringList &addresses, bool hidden)
+    void addRecpients (const QStringList &addresses)
     {
         if (!mEncrypt) {
             return;
@@ -130,12 +130,7 @@ public:
                 mUnresolvedPGP << normStr;
             }
 
-            // Add it to the according recipient lists
-            if (hidden) {
-                mHiddenRecipients << normStr;
-            } else {
-                mRecipients << normStr;
-            }
+            mRecipients << normStr;
         }
     }
 
@@ -165,13 +160,8 @@ public:
 
                     // Now add it to the resolved keys and remove it from our list
                     // of unresolved keys.
-                    QMap<CryptoMessageFormat, QMap <QString, std::vector<GpgME::Key> > > *targetMap;
-                    if (mRecipients.contains(addr)) {
-                        targetMap = &mEncKeys;
-                    } else if (mHiddenRecipients.contains(addr)) {
-                        targetMap = &mBccKeys;
-                    } else {
-                        qCWarning(LIBKLEO_LOG) << "Override provided for an address that is "
+                    if (!mRecipients.contains(addr)) {
+                        qCDebug(LIBKLEO_LOG) << "Override provided for an address that is "
                             "neither sender nor recipient. Address: " << addr;
                         continue;
                     }
@@ -186,11 +176,11 @@ public:
                         }
                     }
 
-                    auto recpMap = targetMap->value(resolvedFmt);
+                    auto recpMap = mEncKeys.value(resolvedFmt);
                     auto keys = recpMap.value(addr);
                     keys.push_back(key);
                     recpMap.insert(addr, keys);
-                    targetMap->insert(resolvedFmt, recpMap);
+                    mEncKeys.insert(resolvedFmt, recpMap);
 
                     // Now we can remove it from our unresolved lists.
                     if (key.protocol() == GpgME::OpenPGP) {
@@ -247,7 +237,6 @@ public:
     {
         auto fmt = proto == GpgME::OpenPGP ? AnyOpenPGP : AnySMIME;
         auto encMap = mEncKeys.value(fmt);
-        auto hiddenMap = mBccKeys.value(fmt);
         QMutableStringListIterator it((proto == GpgME::Protocol::OpenPGP) ? mUnresolvedPGP : mUnresolvedCMS);
         while (it.hasNext()) {
             const QString addr = it.next();
@@ -286,21 +275,16 @@ public:
                     continue;
                 }
             }
-            if (mHiddenRecipients.contains(addr)) {
-                hiddenMap.insert(addr, keys);
-            } else {
-                encMap.insert(addr, keys);
-                for (const auto &k: keys) {
-                    if (!k.isNull()) {
-                        qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << addr
-                                             << "with key" << k.primaryFingerprint();
-                    }
+            encMap.insert(addr, keys);
+            for (const auto &k: keys) {
+                if (!k.isNull()) {
+                    qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << addr
+                                            << "with key" << k.primaryFingerprint();
                 }
             }
             it.remove();
         }
         mEncKeys.insert(fmt, encMap);
-        mBccKeys.insert(fmt, hiddenMap);
     }
 
     void encMapToSpecific(CryptoMessageFormat anyFormat, CryptoMessageFormat specificFormat,
@@ -329,7 +313,6 @@ public:
             mSigKeys.insert(targetFmt, mSigKeys.take(srcFmt));
         }
         encMapToSpecific(srcFmt, targetFmt, mEncKeys);
-        encMapToSpecific(srcFmt, targetFmt, mBccKeys);
     }
 
     void updateEncMap(QMap<QString, std::vector<GpgME::Key> > &target,
@@ -344,9 +327,6 @@ public:
 
     void updateEncMaps(CryptoMessageFormat target, CryptoMessageFormat src)
     {
-        if (mBccKeys.contains(src) && mBccKeys.contains(target)) {
-            updateEncMap(mBccKeys[target], mBccKeys[src]);
-        }
         if (mEncKeys.contains(src) && mEncKeys.contains(target)) {
             updateEncMap(mEncKeys[target], mEncKeys[src]);
         }
@@ -354,7 +334,7 @@ public:
 
     bool needsFormat(CryptoMessageFormat fmt)
     {
-        return mBccKeys.contains(fmt) || mEncKeys.contains(fmt);
+        return mEncKeys.contains(fmt);
     }
 
     void selectFormats()
@@ -518,8 +498,6 @@ public:
         // maps need updating.
         mEncKeys.remove(AnyOpenPGP);
         mEncKeys.remove(AnySMIME);
-        mBccKeys.remove(AnyOpenPGP);
-        mBccKeys.remove(AnySMIME);
 
         bool isUnresolved = false;
         for (const auto &addr: encMap.keys()) {
@@ -528,20 +506,16 @@ public:
                     isUnresolved = true;
                 }
                 CryptoMessageFormat fmt = key.protocol() == GpgME::OpenPGP ? AnyOpenPGP : AnySMIME;
-                // Should we add to hidden or normal?
-                QMap<CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > *targetMap =
-                    mHiddenRecipients.contains(addr) ? &mBccKeys : &mEncKeys;
-                if (!targetMap->contains(fmt)) {
-                    targetMap->insert(fmt, QMap<QString, std::vector<GpgME::Key> >());
+                if (!mEncKeys.contains(fmt)) {
+                    mEncKeys.insert(fmt, QMap<QString, std::vector<GpgME::Key> >());
                 }
-
-                if (!(*targetMap)[fmt].contains(addr)) {
-                    (*targetMap)[fmt].insert(addr, std::vector<GpgME::Key>());
+                if (!mEncKeys[fmt].contains(addr)) {
+                    mEncKeys[fmt].insert(addr, std::vector<GpgME::Key>());
                 }
                 qCDebug (LIBKLEO_LOG) << "Adding" << addr << "for" << cryptoMessageFormatToString (fmt)
                                       << "fpr:" << key.primaryFingerprint();
 
-                (*targetMap)[fmt][addr].push_back(key);
+                mEncKeys[fmt][addr].push_back(key);
             }
         }
 
@@ -555,10 +529,8 @@ public:
     KeyResolver *const q;
     QString mSender;
     QStringList mRecipients;
-    QStringList mHiddenRecipients;
     QMap<CryptoMessageFormat, std::vector<GpgME::Key> > mSigKeys;
     QMap<CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > >mEncKeys;
-    QMap<CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > >mBccKeys;
     QMap<CryptoMessageFormat, QMap<QString, QStringList> > mOverrides;
 
     QStringList mUnresolvedPGP, mUnresolvedCMS;
@@ -624,12 +596,10 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
         if (pgpOnly) {
             d->mSigKeys.remove(AnySMIME);
             d->mEncKeys.remove(AnySMIME);
-            d->mBccKeys.remove(AnySMIME);
         }
         if (cmsOnly) {
             d->mSigKeys.remove(AnyOpenPGP);
             d->mEncKeys.remove(AnyOpenPGP);
-            d->mBccKeys.remove(AnyOpenPGP);
         }
 
         d->selectFormats();
@@ -643,8 +613,8 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     d->showApprovalDialog(parentWidget);
 }
 
-KeyResolver::KeyResolver(bool encrypt, bool sign, CryptoMessageFormat fmt, bool allowMixed) :
-    d(new Private(this, encrypt, sign, fmt, allowMixed))
+KeyResolver::KeyResolver(bool encrypt, bool sign, CryptoMessageFormat fmt, bool allowMixed)
+    : d(new Private(this, encrypt, sign, fmt, allowMixed))
 {
 }
 
@@ -652,7 +622,7 @@ Kleo::KeyResolver::~KeyResolver() = default;
 
 void KeyResolver::setRecipients(const QStringList &addresses)
 {
-    d->addRecpients(addresses, false);
+    d->addRecpients(addresses);
 }
 
 void KeyResolver::setSender(const QString &address)
@@ -678,11 +648,6 @@ void KeyResolver::setSender(const QString &address)
     }
 }
 
-void KeyResolver::setHiddenRecipients(const QStringList &addresses)
-{
-    d->addRecpients(addresses, true);
-}
-
 void KeyResolver::setOverrideKeys(const QMap<CryptoMessageFormat, QMap<QString, QStringList> > &overrides)
 {
     QMap<QString, QStringList> normalizedOverrides;
@@ -700,11 +665,6 @@ void KeyResolver::setOverrideKeys(const QMap<CryptoMessageFormat, QMap<QString, 
 QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > KeyResolver::encryptionKeys() const
 {
     return d->mEncKeys;
-}
-
-QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > KeyResolver::hiddenKeys() const
-{
-    return d->mBccKeys;
 }
 
 QMap <CryptoMessageFormat, std::vector<GpgME::Key> > KeyResolver::signingKeys() const

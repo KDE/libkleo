@@ -60,8 +60,6 @@ public:
         dumpSigKeys (resolver->signingKeys());
         qDebug() << "Resolved Encryption keys:";
         dumpKeys (resolver->encryptionKeys());
-        qDebug() << "Resolved Hidden keys:";
-        dumpKeys (resolver->hiddenKeys());
         qDebug() << "Send Unencrypted:" << sendUnencrypted;
         exit(0);
     }
@@ -93,10 +91,6 @@ int main(int argc, char **argv)
                                         << QStringLiteral("s"),
                                         QStringLiteral("Mailbox of the sender"),
                                         QStringLiteral("mailbox")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("hidden")
-                                        << QStringLiteral("h"),
-                                        QStringLiteral("hidden recipients"),
-                                        QStringLiteral("A hidden / bcc recipient")));
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("sigkeys")
                                         << QStringLiteral("k"),
                                         QStringLiteral("signing key"),

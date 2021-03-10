@@ -47,7 +47,7 @@ namespace Kleo
  * the newest subkey is used.
  *
  * The KeyResolver also supports groups so the number of
- * encryption keys / hidden encryption keys does not necessarily
+ * encryption keys does not necessarily
  * need to match the amount of sender addresses. For this reason
  * maps are used heavily to map:
  *
@@ -100,7 +100,7 @@ public:
     ~KeyResolver() override;
 
     /**
-     *  Set the list of (To/CC) recipient addresses. Also looks
+     *  Set the list of recipient addresses. Also looks
      *  up possible keys, but doesn't interact with the user.
      *
      *  @param addresses: A list of unnormalized addresses
@@ -117,14 +117,6 @@ public:
      * @param sender: The sender of this message.
      */
     void setSender(const QString &sender);
-
-    /**
-     *  Set the list of hidden (BCC) recipient addresses. Also looks
-     *  up possible keys, but doesn't interact with the user.
-     *
-     *  @param addresses: A list of unnormalized addresses.
-    */
-    void setHiddenRecipients(const QStringList &addresses);
 
     /**
      * Set up possible override keys for recipients / sender
@@ -156,16 +148,6 @@ public:
      * @return the resolved sender / key pairs for encryption by format.
      */
     QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > encryptionKeys() const;
-
-    /**
-     * Get the secondary encryption keys after resolution.
-     * The Map will only contain values if hidden recipients
-     * were set.
-     *
-     * @return the resolved resolved sender / key pairs for encryption
-     *         by format.
-     */
-    QMap <CryptoMessageFormat, QMap<QString, std::vector<GpgME::Key> > > hiddenKeys() const;
 
     /**
      * Get the signing keys to use after resolution.
