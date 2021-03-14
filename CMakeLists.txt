@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-set(PIM_VERSION "5.16.81")
+set(PIM_VERSION "5.17.40")
 
 project(libkleo VERSION ${PIM_VERSION})
 
-set(KF5_MIN_VERSION "5.79.0")
+set(KF5_MIN_VERSION "5.80.0")
 
 if (WIN32)
   set(KF5_WANT_VERSION "5.70.0")
@@ -64,7 +64,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 ########### Targets ###########
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055000)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII )
 remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
