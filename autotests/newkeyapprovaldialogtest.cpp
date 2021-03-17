@@ -19,6 +19,7 @@
 #include <gpgme.h>
 
 #include <memory>
+#include <set>
 
 using namespace Kleo;
 
@@ -128,6 +129,47 @@ private Q_SLOTS:
             QVERIFY(combo);
             QVERIFY2(combo->property("address").toString() != sender || !combo->defaultKey(GpgME::CMS).isEmpty(),
                      "encryption key widget for sender's OpenPGP key should be hidden");
+        }
+    }
+
+    void test_all_resolved_allow_mixed()
+    {
+        const QStringList unresolvedSenders;
+        const QStringList unresolvedRecipients;
+        const QString sender = QStringLiteral("sender@example.net");
+        bool allowMixed = true;
+        GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        GpgME::Protocol presetProtocol = GpgME::UnknownProtocol;
+        const auto resolvedSenders = resolved_senders_openpgp_and_smime();
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(resolvedSenders,
+                                                                   resolved_recipients_openpgp_and_smime(),
+                                                                   unresolvedSenders,
+                                                                   unresolvedRecipients,
+                                                                   sender,
+                                                                   allowMixed,
+                                                                   forcedProtocol,
+                                                                   presetProtocol);
+        dialog->show();
+        const QList<KeySelectionCombo *> signingKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key"));
+        QCOMPARE(signingKeyWidgets.size(), 2);
+        for (auto widget : signingKeyWidgets) {
+            QVERIFY2(widget->isVisible(), "signing key widget should be visible");
+        }
+        // one signing key widget should default to sender's OpenPGP key, the other to sender's S/MIME key
+        const std::set<QString> signingKeyFingerprints = {
+            QString::fromLatin1(resolvedSenders["sender@example.net"][0].primaryFingerprint()),
+            QString::fromLatin1(resolvedSenders["sender@example.net"][1].primaryFingerprint()),
+        };
+        const std::set<QString> defaultKeys = {
+            signingKeyWidgets[0]->defaultKey(),
+            signingKeyWidgets[1]->defaultKey()
+        };
+        QCOMPARE(defaultKeys, signingKeyFingerprints);
+        const QList<QWidget *> encryptionKeyWidgets = dialog->findChildren<QWidget *>(QStringLiteral("encryption key"));
+        QCOMPARE(encryptionKeyWidgets.size(), 4);
+        for (auto widget : encryptionKeyWidgets) {
+            QVERIFY2(widget->isVisible(),
+                     qPrintable(QString("encryption key widget should be visible for address %1").arg(widget->property("address").toString())));
         }
     }
 

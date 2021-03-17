@@ -13,7 +13,6 @@
 #include "progressdialog.h"
 #include "utils/formatting.h"
 
-
 #include "libkleo_debug.h"
 
 #include <QApplication>
@@ -407,8 +406,8 @@ public:
 
     void updateFilter()
     {
-        bool isPGP = mFormatBtns->checkedId() == 1;
-        bool isSMIME = mFormatBtns->checkedId() == 2;
+        const bool isPGP = !mAllowMixed && mFormatBtns->checkedId() == 1;
+        const bool isSMIME = !mAllowMixed && mFormatBtns->checkedId() == 2;
 
         if (isSMIME) {
             mCurEncFilter = s_smimeFilter;
@@ -427,7 +426,8 @@ public:
                 qCDebug(LIBKLEO_LOG) << "Failed to find signature combo widget";
                 continue;
             }
-            widget->setVisible(widget->fromOverride() == GpgME::UnknownProtocol ||
+            widget->setVisible(mAllowMixed ||
+                               widget->fromOverride() == GpgME::UnknownProtocol ||
                                ((isSMIME && widget->fromOverride() == GpgME::CMS) ||
                                 (isPGP && widget->fromOverride() == GpgME::OpenPGP)));
         }
@@ -439,7 +439,8 @@ public:
                 qCDebug(LIBKLEO_LOG) << "Failed to find combo widget";
                 continue;
             }
-            widget->setVisible(widget->fromOverride() == GpgME::UnknownProtocol ||
+            widget->setVisible(mAllowMixed ||
+                               widget->fromOverride() == GpgME::UnknownProtocol ||
                                ((isSMIME && widget->fromOverride() == GpgME::CMS) ||
                                 (isPGP && widget->fromOverride() == GpgME::OpenPGP)));
         }
@@ -453,7 +454,12 @@ public:
 #endif
         combo->setKeyFilter(mCurSigFilter);
         if (!key.isNull()) {
-            combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
+            if (mAllowMixed) {
+                // do not set the key for a specific protocol if mixed protocols are allowed
+                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
+            } else {
+                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
+            }
         }
         if (key.isNull() && mProto != GpgME::CMS) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
@@ -532,8 +538,12 @@ public:
 #endif
             combo->setKeyFilter(mCurEncFilter);
             if (!key.isNull()) {
-                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()),
-                                     key.protocol());
+                if (mAllowMixed) {
+                    // do not set the key for a specific protocol if mixed protocols are allowed
+                    combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
+                } else {
+                    combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
+                }
             }
 
             if (mSender == addr && key.isNull()) {
