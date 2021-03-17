@@ -448,6 +448,9 @@ public:
     ComboWidget *createSigningCombo(const QString &addr, const GpgME::Key &key)
     {
         auto combo = new KeySelectionCombo();
+#ifndef NDEBUG
+        combo->setObjectName(QStringLiteral("signing key"));
+#endif
         combo->setKeyFilter(mCurSigFilter);
         if (!key.isNull()) {
             combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
@@ -524,6 +527,9 @@ public:
         for (const auto &key: keys)
         {
             auto combo = new KeySelectionCombo(false);
+#ifndef NDEBUG
+            combo->setObjectName(QStringLiteral("encryption key"));
+#endif
             combo->setKeyFilter(mCurEncFilter);
             if (!key.isNull()) {
                 combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()),

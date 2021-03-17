@@ -22,3 +22,8 @@ ecm_add_test(
     TEST_NAME hierarchicalkeylistmodeltest
     LINK_LIBRARIES KF5::Libkleo Qt5::Test
 )
+
+ecm_add_tests(
+    newkeyapprovaldialogtest.cpp
+    LINK_LIBRARIES KF5::Libkleo Qt5::Widgets Qt5::Test
+)
