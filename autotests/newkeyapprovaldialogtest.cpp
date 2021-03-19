@@ -42,9 +42,10 @@ GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::Unkn
     return GpgME::Key(key, false);
 }
 
-QList<QWidget *> visibleWidgets(const QList<QWidget *> &widgets)
+template <typename T>
+QList<T *> visibleWidgets(const QList<T *> &widgets)
 {
-    QList<QWidget *> result;
+    QList<T *> result;
     std::copy_if(widgets.begin(), widgets.end(),
                  std::back_inserter(result),
                  std::mem_fn(&QWidget::isVisible));
@@ -73,21 +74,22 @@ private Q_SLOTS:
                                                                    forcedProtocol,
                                                                    presetProtocol);
         dialog->show();
-        const QList<QWidget *> signingKeyWidgets = dialog->findChildren<QWidget *>(QStringLiteral("signing key"));
+        const QList<KeySelectionCombo *> signingKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key"));
         QCOMPARE(signingKeyWidgets.size(), 2);
         const auto visibleSigningKeyWidgets = visibleWidgets(signingKeyWidgets);
         QCOMPARE(visibleSigningKeyWidgets.size(), 1);
-        for (auto widget : visibleSigningKeyWidgets) {
-            KeySelectionCombo *combo = qobject_cast<KeySelectionCombo *>(widget);
+        for (auto combo: visibleSigningKeyWidgets) {
             QVERIFY(combo);
             QVERIFY2(!combo->defaultKey(GpgME::OpenPGP).isEmpty(), "visible signing key widget should default to OpenPGP key");
         }
-        const QList<QWidget *> encryptionKeyWidgets = dialog->findChildren<QWidget *>(QStringLiteral("encryption key"));
+        const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
         QCOMPARE(encryptionKeyWidgets.size(), 4);
         const auto visibleEncryptionKeyWidgets = visibleWidgets(encryptionKeyWidgets);
         QCOMPARE(visibleEncryptionKeyWidgets.size(), 3);
-        for (auto widget : visibleEncryptionKeyWidgets) {
-            KeySelectionCombo *combo = qobject_cast<KeySelectionCombo *>(widget);
+        QCOMPARE(visibleEncryptionKeyWidgets[0]->property("address").toString(), sender);
+        QVERIFY2(!visibleEncryptionKeyWidgets[0]->defaultKey(GpgME::OpenPGP).isEmpty(),
+                 "encryption key widget for sender's OpenPGP key is first visible widget");
+        for (auto combo: visibleEncryptionKeyWidgets) {
             QVERIFY(combo);
             QVERIFY2(combo->property("address").toString() != sender || !combo->defaultKey(GpgME::OpenPGP).isEmpty(),
                      "encryption key widget for sender's CMS key should be hidden");
@@ -111,21 +113,22 @@ private Q_SLOTS:
                                                                    forcedProtocol,
                                                                    presetProtocol);
         dialog->show();
-        const QList<QWidget *> signingKeyWidgets = dialog->findChildren<QWidget *>(QStringLiteral("signing key"));
+        const QList<KeySelectionCombo *> signingKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key"));
         QCOMPARE(signingKeyWidgets.size(), 2);
         const auto visibleSigningKeyWidgets = visibleWidgets(signingKeyWidgets);
         QCOMPARE(visibleSigningKeyWidgets.size(), 1);
-        for (auto widget : visibleSigningKeyWidgets) {
-            KeySelectionCombo *combo = qobject_cast<KeySelectionCombo *>(widget);
+        for (auto combo: visibleSigningKeyWidgets) {
             QVERIFY(combo);
             QVERIFY2(!combo->defaultKey(GpgME::CMS).isEmpty(), "visible signing key widget should default to S/MIME key");
         }
-        const QList<QWidget *> encryptionKeyWidgets = dialog->findChildren<QWidget *>(QStringLiteral("encryption key"));
+        const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
         QCOMPARE(encryptionKeyWidgets.size(), 4);
         const auto visibleEncryptionKeyWidgets = visibleWidgets(encryptionKeyWidgets);
         QCOMPARE(visibleEncryptionKeyWidgets.size(), 3);
-        for (auto widget : visibleEncryptionKeyWidgets) {
-            KeySelectionCombo *combo = qobject_cast<KeySelectionCombo *>(widget);
+        QCOMPARE(visibleEncryptionKeyWidgets[0]->property("address").toString(), sender);
+        QVERIFY2(!visibleEncryptionKeyWidgets[0]->defaultKey(GpgME::CMS).isEmpty(),
+                 "encryption key widget for sender's CMS key is first visible widget");
+        for (auto combo: visibleEncryptionKeyWidgets) {
             QVERIFY(combo);
             QVERIFY2(combo->property("address").toString() != sender || !combo->defaultKey(GpgME::CMS).isEmpty(),
                      "encryption key widget for sender's OpenPGP key should be hidden");
@@ -141,8 +144,9 @@ private Q_SLOTS:
         GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
         GpgME::Protocol presetProtocol = GpgME::UnknownProtocol;
         const auto resolvedSenders = resolved_senders_openpgp_and_smime();
+        const auto resolvedRecipients = resolved_recipients_openpgp_and_smime();
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(resolvedSenders,
-                                                                   resolved_recipients_openpgp_and_smime(),
+                                                                   resolvedRecipients,
                                                                    unresolvedSenders,
                                                                    unresolvedRecipients,
                                                                    sender,
@@ -165,12 +169,19 @@ private Q_SLOTS:
             signingKeyWidgets[1]->defaultKey()
         };
         QCOMPARE(defaultKeys, signingKeyFingerprints);
-        const QList<QWidget *> encryptionKeyWidgets = dialog->findChildren<QWidget *>(QStringLiteral("encryption key"));
+        const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
         QCOMPARE(encryptionKeyWidgets.size(), 4);
         for (auto widget : encryptionKeyWidgets) {
             QVERIFY2(widget->isVisible(),
                      qPrintable(QString("encryption key widget should be visible for address %1").arg(widget->property("address").toString())));
         }
+        // encryption key widgets for sender's keys shall be first two widgets
+        QCOMPARE(encryptionKeyWidgets[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets[0]->defaultKey(),
+                 QString::fromLatin1(resolvedRecipients["sender@example.net"][0].primaryFingerprint()));
+        QCOMPARE(encryptionKeyWidgets[1]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets[1]->defaultKey(),
+                 QString::fromLatin1(resolvedRecipients["sender@example.net"][1].primaryFingerprint()));
     }
 
 private:

@@ -526,58 +526,69 @@ public:
         }
     }
 
+    ComboWidget *createEncryptionCombo(const QString &addr, const GpgME::Key &key)
+    {
+        auto combo = new KeySelectionCombo(false);
+#ifndef NDEBUG
+        combo->setObjectName(QStringLiteral("encryption key"));
+#endif
+        combo->setKeyFilter(mCurEncFilter);
+        if (!key.isNull()) {
+            if (mAllowMixed) {
+                // do not set the key for a specific protocol if mixed protocols are allowed
+                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
+            } else {
+                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
+            }
+        }
+
+        if (mSender == addr && key.isNull()) {
+            combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
+                                    i18n("Generate a new key pair"), GenerateKey,
+                                    mGenerateTooltip);
+        }
+
+        combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
+                i18n("No key. Recipient will be unable to decrypt."), IgnoreKey,
+                i18nc("@info:tooltip for No Key selected for a specific recipient.",
+                        "Do not select a key for this recipient.<br/><br/>"
+                        "The recipient will receive the encrypted E-Mail, but it can only "
+                        "be decrypted with the other keys selected in this dialog."));
+
+        if (key.isNull() || key_has_addr (key, addr)) {
+            combo->setIdFilter(addr);
+        }
+
+        connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
+            updateOkButton();
+        });
+        connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
+            updateOkButton();
+        });
+
+        mEncCombos << combo;
+        mAllCombos << combo;
+        combo->setProperty("address", addr);
+        return new ComboWidget(combo);
+    }
+
     void addEncryptionAddr(const QString &addr, const std::vector<GpgME::Key> &keys,
                            QGridLayout *encGrid)
     {
-        encGrid->addWidget(new QLabel(addr), encGrid->rowCount(), 0);
-        for (const auto &key: keys)
-        {
-            auto combo = new KeySelectionCombo(false);
-#ifndef NDEBUG
-            combo->setObjectName(QStringLiteral("encryption key"));
-#endif
-            combo->setKeyFilter(mCurEncFilter);
-            if (!key.isNull()) {
-                if (mAllowMixed) {
-                    // do not set the key for a specific protocol if mixed protocols are allowed
-                    combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
-                } else {
-                    combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
-                }
-            }
-
-            if (mSender == addr && key.isNull()) {
-                combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
-                                        i18n("Generate a new key pair"), GenerateKey,
-                                        mGenerateTooltip);
-            }
-
-            combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
-                    i18n("No key. Recipient will be unable to decrypt."), IgnoreKey,
-                    i18nc("@info:tooltip for No Key selected for a specific recipient.",
-                          "Do not select a key for this recipient.<br/><br/>"
-                          "The recipient will receive the encrypted E-Mail, but it can only "
-                          "be decrypted with the other keys selected in this dialog."));
-
-            if (key.isNull() || key_has_addr (key, addr)) {
-                combo->setIdFilter(addr);
-            }
-
-            connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
-                updateOkButton();
-            });
-            connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
-                updateOkButton();
-            });
-
-            mEncCombos << combo;
-            mAllCombos << combo;
-            combo->setProperty("address", addr);
-            auto comboWidget = new ComboWidget(combo);
-            if (keys.size() > 1) {
-                comboWidget->setFromOverride(key.protocol());
-            }
+        if (addr != mSender) {
+            encGrid->addWidget(new QLabel(addr), encGrid->rowCount(), 0);
+        }
+        if (keys.empty()) {
+            ComboWidget* comboWidget = createEncryptionCombo(addr, GpgME::Key());
             encGrid->addWidget(comboWidget, encGrid->rowCount(), 0, 1, 2);
+        } else {
+            for (const auto &key: keys) {
+                ComboWidget* comboWidget = createEncryptionCombo(addr, key);
+                if (keys.size() > 1) {
+                    comboWidget->setFromOverride(key.protocol());
+                }
+                encGrid->addWidget(comboWidget, encGrid->rowCount(), 0, 1, 2);
+            }
         }
     }
 
@@ -587,19 +598,30 @@ public:
         if (resolved.empty() && unresolved.empty()) {
             return;
         }
-        auto group = new QGroupBox(i18n("Encrypt to:"));
+        {
+            auto group = new QGroupBox(i18nc("Encrypt to self (email address):", "Encrypt to self (%1):", mSender));
+            group->setAlignment(Qt::AlignLeft);
+            auto encGrid = new QGridLayout;
+            group->setLayout(encGrid);
+            mScrollLayout->addWidget(group);
+            addEncryptionAddr(mSender, resolved.value(mSender), encGrid);
+        }
+
+        auto group = new QGroupBox(i18n("Encrypt to others:"));
         group->setAlignment(Qt::AlignLeft);
         auto encGrid = new QGridLayout;
         group->setLayout(encGrid);
         mScrollLayout->addWidget(group);
 
         for (const QString &addr: resolved.keys()) {
-            addEncryptionAddr(addr, resolved[addr], encGrid);
+            if (addr != mSender) {
+                addEncryptionAddr(addr, resolved[addr], encGrid);
+            }
         }
-        std::vector<GpgME::Key> dummy;
-        dummy.push_back(GpgME::Key());
         for (const QString &addr: unresolved) {
-            addEncryptionAddr(addr, dummy, encGrid);
+            if (addr != mSender) {
+                addEncryptionAddr(addr, {}, encGrid);
+            }
         }
 
         encGrid->setColumnStretch(1, -1);
