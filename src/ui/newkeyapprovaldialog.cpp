@@ -217,15 +217,20 @@ private:
         IgnoreKey,
     };
 public:
-    Private(NewKeyApprovalDialog *pub,
+    Private(NewKeyApprovalDialog *qq,
             GpgME::Protocol forcedProtocol,
             GpgME::Protocol presetProtocol,
-            const QString &sender, bool allowMixed):
-        mProto(forcedProtocol),
-        mSender(sender),
-        mAllowMixed(allowMixed),
-        q(pub)
+            const QString &sender,
+            bool allowMixed)
+        : mForcedProtocol(forcedProtocol)
+        , mPreferredProtocol(presetProtocol)
+        , mSender(sender)
+        , mAllowMixed(allowMixed)
+        , q(qq)
     {
+        Q_ASSERT(forcedProtocol == GpgME::UnknownProtocol || presetProtocol == GpgME::UnknownProtocol || presetProtocol == forcedProtocol);
+        Q_ASSERT(!allowMixed || (allowMixed && forcedProtocol == GpgME::UnknownProtocol));
+
         // We do the translation here to avoid having the same string multiple times.
         mGenerateTooltip = i18nc("@info:tooltip for a 'Generate new key pair' action "
                                  "in a combobox when a user does not yet have an OpenPGP or S/MIME key.",
@@ -267,21 +272,23 @@ public:
         mMainLay->addLayout(fmtLayout);
 
         // Handle force / preset
-        if (forcedProtocol == GpgME::OpenPGP) {
-            pgpBtn->setChecked(true);
-            pgpBtn->setVisible(false);
-            smimeBtn->setVisible(false);
-        } else if (forcedProtocol == GpgME::CMS) {
-            smimeBtn->setChecked(true);
-            pgpBtn->setVisible(false);
-            smimeBtn->setVisible(false);
-        } else if (presetProtocol == GpgME::CMS) {
-            smimeBtn->setChecked(true);
-        } else if (!mAllowMixed) {
-            pgpBtn->setChecked(true);
-        } else if (mAllowMixed) {
+        if (mForcedProtocol != GpgME::UnknownProtocol) {
+            mPreferredProtocol = mForcedProtocol;
+        }
+        if (mPreferredProtocol == GpgME::UnknownProtocol) {
+            mPreferredProtocol = GpgME::OpenPGP;
+        }
+        if (mAllowMixed) {
             smimeBtn->setVisible(false);
             pgpBtn->setVisible(false);
+        } else if (mForcedProtocol != GpgME::UnknownProtocol) {
+            pgpBtn->setChecked(mForcedProtocol == GpgME::OpenPGP);
+            smimeBtn->setChecked(mForcedProtocol == GpgME::CMS);
+            pgpBtn->setVisible(false);
+            smimeBtn->setVisible(false);
+        } else {
+            pgpBtn->setChecked(mPreferredProtocol == GpgME::OpenPGP);
+            smimeBtn->setChecked(mPreferredProtocol == GpgME::CMS);
         }
 
         updateFilter();
@@ -481,7 +488,7 @@ public:
         if (!combo->keyFilter()) {
             combo->setKeyFilter(mCurSigFilter);
         }
-        if (key.isNull() && mProto != GpgME::CMS) {
+        if (key.isNull() && mForcedProtocol != GpgME::CMS) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
                                     i18n("Generate a new key pair"), GenerateKey,
                                     mGenerateTooltip);
@@ -615,7 +622,15 @@ public:
             ComboWidget* comboWidget = createEncryptionCombo(addr, GpgME::Key());
             encGrid->addWidget(comboWidget, encGrid->rowCount(), 0, 1, 2);
         } else {
-            for (const auto &key: keys) {
+            // in mixed mode prefer the keys with the preferred protocol for the other recipients
+            std::vector<GpgME::Key> preferredKeys;
+            if (mAllowMixed && addr != mSender) {
+                std::copy_if(keys.cbegin(), keys.cend(),
+                             std::back_inserter(preferredKeys),
+                             [this] (const auto &key) { return key.protocol() == mPreferredProtocol; });
+            }
+            const std::vector<GpgME::Key> &encryptionKeys = !preferredKeys.empty() ? preferredKeys : keys;
+            for (const auto &key: encryptionKeys) {
                 ComboWidget* comboWidget = createEncryptionCombo(addr, key);
                 if (keys.size() > 1) {
                     comboWidget->setFromOverride(key.protocol());
@@ -631,6 +646,7 @@ public:
         if (resolved.empty() && unresolved.empty()) {
             return;
         }
+
         {
             auto group = new QGroupBox(i18nc("Encrypt to self (email address):", "Encrypt to self (%1):", mSender));
             group->setAlignment(Qt::AlignLeft);
@@ -762,7 +778,8 @@ public:
         }
     }
 
-    GpgME::Protocol mProto;
+    GpgME::Protocol mForcedProtocol;
+    GpgME::Protocol mPreferredProtocol;
     QList<KeySelectionCombo *> mSigningCombos;
     QList<KeySelectionCombo *> mEncCombos;
     QList<KeySelectionCombo *> mAllCombos;

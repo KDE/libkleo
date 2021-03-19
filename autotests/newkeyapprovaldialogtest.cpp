@@ -135,7 +135,7 @@ private Q_SLOTS:
         }
     }
 
-    void test_all_resolved_allow_mixed()
+    void test_all_resolved_allow_mixed_no_protocol_preference()
     {
         const QStringList unresolvedSenders;
         const QStringList unresolvedRecipients;
@@ -144,7 +144,9 @@ private Q_SLOTS:
         GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
         GpgME::Protocol presetProtocol = GpgME::UnknownProtocol;
         const auto resolvedSenders = resolved_senders_openpgp_and_smime();
-        const auto resolvedRecipients = resolved_recipients_openpgp_and_smime();
+        auto resolvedRecipients = resolved_recipients_openpgp_and_smime();
+        resolvedRecipients["prefer-smime@example.net"].push_back(createTestKey("OpenPGP <prefer-smime@example.net>", GpgME::OpenPGP));
+        resolvedRecipients.insert("smime-only@example.net", {createTestKey("S/MIME Only <smime-only@example.net>", GpgME::CMS)});
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(resolvedSenders,
                                                                    resolvedRecipients,
                                                                    unresolvedSenders,
@@ -167,7 +169,7 @@ private Q_SLOTS:
                  QString::fromLatin1(resolvedSenders["sender@example.net"][1].primaryFingerprint()));
 
         const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
-        QCOMPARE(encryptionKeyWidgets.size(), 4);
+        QCOMPARE(encryptionKeyWidgets.size(), 5);
         for (auto widget : encryptionKeyWidgets) {
             QVERIFY2(widget->isVisible(),
                      qPrintable(QString("encryption key widget should be visible for address %1").arg(widget->property("address").toString())));
@@ -179,13 +181,16 @@ private Q_SLOTS:
         QCOMPARE(encryptionKeyWidgets[1]->property("address").toString(), sender);
         QCOMPARE(encryptionKeyWidgets[1]->defaultKey(GpgME::CMS),
                  QString::fromLatin1(resolvedRecipients["sender@example.net"][1].primaryFingerprint()));
-        // further encryption key widgets shall be widgets for keys of recipients
+        // further encryption key widgets shall be widgets for keys of recipients, where OpenPGP keys are preferred due to no specific preset
         QCOMPARE(encryptionKeyWidgets[2]->property("address").toString(), QStringLiteral("prefer-openpgp@example.net"));
         QCOMPARE(encryptionKeyWidgets[2]->defaultKey(),
                  QString::fromLatin1(resolvedRecipients["prefer-openpgp@example.net"][0].primaryFingerprint()));
         QCOMPARE(encryptionKeyWidgets[3]->property("address").toString(), QStringLiteral("prefer-smime@example.net"));
         QCOMPARE(encryptionKeyWidgets[3]->defaultKey(),
-                 QString::fromLatin1(resolvedRecipients["prefer-smime@example.net"][0].primaryFingerprint()));
+                 QString::fromLatin1(resolvedRecipients["prefer-smime@example.net"][1].primaryFingerprint()));
+        QCOMPARE(encryptionKeyWidgets[4]->property("address").toString(), QStringLiteral("smime-only@example.net"));
+        QCOMPARE(encryptionKeyWidgets[4]->defaultKey(),
+                 QString::fromLatin1(resolvedRecipients["smime-only@example.net"][0].primaryFingerprint()));
     }
 
 private:
@@ -202,8 +207,12 @@ private:
     QMap<QString, std::vector<GpgME::Key> > resolved_recipients_openpgp_and_smime()
     {
         return {
-            {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-            {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+            {QStringLiteral("prefer-openpgp@example.net"), {
+                createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)
+            }},
+            {QStringLiteral("prefer-smime@example.net"), {
+                createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)
+            }},
             {QStringLiteral("sender@example.net"), {
                 createTestKey("sender@example.net", GpgME::OpenPGP),
                 createTestKey("sender@example.net", GpgME::CMS)
