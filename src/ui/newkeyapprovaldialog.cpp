@@ -164,11 +164,22 @@ public:
         mFromOverride = proto;
     }
 
+    GpgME::Protocol fixedProtocol() const
+    {
+        return mFixedProtocol;
+    }
+
+    void setFixedProtocol(GpgME::Protocol proto)
+    {
+        mFixedProtocol = proto;
+    }
+
 private:
     KeySelectionCombo *mCombo;
     QPushButton *mFilterBtn;
     QString mLastIdFilter;
     GpgME::Protocol mFromOverride;
+    GpgME::Protocol mFixedProtocol = GpgME::UnknownProtocol;
 };
 
 static enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key)
@@ -420,46 +431,55 @@ public:
             mCurSigFilter = s_signFilter;
         }
         for (auto combo: qAsConst(mSigningCombos)) {
-            combo->setKeyFilter(mCurSigFilter);
-            auto widget = qobject_cast <ComboWidget *>(combo->parentWidget());
+            auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
             if (!widget) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find signature combo widget";
                 continue;
             }
+            if (widget->fixedProtocol() == GpgME::UnknownProtocol) {
+                combo->setKeyFilter(mCurSigFilter);
+            }
             widget->setVisible(mAllowMixed ||
                                widget->fromOverride() == GpgME::UnknownProtocol ||
-                               ((isSMIME && widget->fromOverride() == GpgME::CMS) ||
-                                (isPGP && widget->fromOverride() == GpgME::OpenPGP)));
+                               (isSMIME && widget->fromOverride() == GpgME::CMS) ||
+                               (isPGP && widget->fromOverride() == GpgME::OpenPGP));
         }
         for (auto combo: qAsConst(mEncCombos)) {
-            combo->setKeyFilter(mCurEncFilter);
-
-            auto widget = qobject_cast <ComboWidget *>(combo->parentWidget());
+            auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
             if (!widget) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find combo widget";
                 continue;
             }
+            if (widget->fixedProtocol() == GpgME::UnknownProtocol) {
+                combo->setKeyFilter(mCurEncFilter);
+            }
             widget->setVisible(mAllowMixed ||
                                widget->fromOverride() == GpgME::UnknownProtocol ||
-                               ((isSMIME && widget->fromOverride() == GpgME::CMS) ||
-                                (isPGP && widget->fromOverride() == GpgME::OpenPGP)));
+                               (isSMIME && widget->fromOverride() == GpgME::CMS) ||
+                               (isPGP && widget->fromOverride() == GpgME::OpenPGP));
         }
     }
 
     ComboWidget *createSigningCombo(const QString &addr, const GpgME::Key &key)
     {
         auto combo = new KeySelectionCombo();
+        auto comboWidget = new ComboWidget(combo);
 #ifndef NDEBUG
         combo->setObjectName(QStringLiteral("signing key"));
 #endif
-        combo->setKeyFilter(mCurSigFilter);
         if (!key.isNull()) {
             if (mAllowMixed) {
-                // do not set the key for a specific protocol if mixed protocols are allowed
-                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
-            } else {
-                combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
+                if (key.protocol() == GpgME::OpenPGP) {
+                    combo->setKeyFilter(s_pgpSignFilter);
+                } else if (key.protocol() == GpgME::CMS) {
+                    combo->setKeyFilter(s_smimeSignFilter);
+                }
+                comboWidget->setFixedProtocol(key.protocol());
             }
+            combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
+        }
+        if (!combo->keyFilter()) {
+            combo->setKeyFilter(mCurSigFilter);
         }
         if (key.isNull() && mProto != GpgME::CMS) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
@@ -482,7 +502,7 @@ public:
             updateOkButton();
         });
 
-        return new ComboWidget(combo);
+        return comboWidget;
     }
 
     void addSigningKeys(const QMap<QString, std::vector<GpgME::Key> > &resolved,
@@ -529,19 +549,32 @@ public:
     ComboWidget *createEncryptionCombo(const QString &addr, const GpgME::Key &key)
     {
         auto combo = new KeySelectionCombo(false);
+        auto comboWidget = new ComboWidget(combo);
 #ifndef NDEBUG
         combo->setObjectName(QStringLiteral("encryption key"));
 #endif
         combo->setKeyFilter(mCurEncFilter);
         if (!key.isNull()) {
-            if (mAllowMixed) {
+            if (mAllowMixed && addr == mSender) {
+                if (key.protocol() == GpgME::OpenPGP) {
+                    combo->setKeyFilter(s_pgpFilter);
+                } else if (key.protocol() == GpgME::CMS) {
+                    combo->setKeyFilter(s_smimeFilter);
+                }
+                comboWidget->setFixedProtocol(key.protocol());
+            }
+            if (mAllowMixed && addr != mSender) {
                 // do not set the key for a specific protocol if mixed protocols are allowed
                 combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()));
-            } else {
+            }
+            else {
                 combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), key.protocol());
             }
         }
 
+        if (!combo->keyFilter()) {
+            combo->setKeyFilter(mCurSigFilter);
+        }
         if (mSender == addr && key.isNull()) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
                                     i18n("Generate a new key pair"), GenerateKey,
@@ -569,7 +602,7 @@ public:
         mEncCombos << combo;
         mAllCombos << combo;
         combo->setProperty("address", addr);
-        return new ComboWidget(combo);
+        return comboWidget;
     }
 
     void addEncryptionAddr(const QString &addr, const std::vector<GpgME::Key> &keys,

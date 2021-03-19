@@ -154,34 +154,38 @@ private Q_SLOTS:
                                                                    forcedProtocol,
                                                                    presetProtocol);
         dialog->show();
+
         const QList<KeySelectionCombo *> signingKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key"));
         QCOMPARE(signingKeyWidgets.size(), 2);
         for (auto widget : signingKeyWidgets) {
             QVERIFY2(widget->isVisible(), "signing key widget should be visible");
         }
-        // one signing key widget should default to sender's OpenPGP key, the other to sender's S/MIME key
-        const std::set<QString> signingKeyFingerprints = {
-            QString::fromLatin1(resolvedSenders["sender@example.net"][0].primaryFingerprint()),
-            QString::fromLatin1(resolvedSenders["sender@example.net"][1].primaryFingerprint()),
-        };
-        const std::set<QString> defaultKeys = {
-            signingKeyWidgets[0]->defaultKey(),
-            signingKeyWidgets[1]->defaultKey()
-        };
-        QCOMPARE(defaultKeys, signingKeyFingerprints);
+        // first signing key widget should default to sender's OpenPGP key, the other to sender's S/MIME key
+        QCOMPARE(signingKeyWidgets[0]->defaultKey(GpgME::OpenPGP),
+                 QString::fromLatin1(resolvedSenders["sender@example.net"][0].primaryFingerprint()));
+        QCOMPARE(signingKeyWidgets[1]->defaultKey(GpgME::CMS),
+                 QString::fromLatin1(resolvedSenders["sender@example.net"][1].primaryFingerprint()));
+
         const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
         QCOMPARE(encryptionKeyWidgets.size(), 4);
         for (auto widget : encryptionKeyWidgets) {
             QVERIFY2(widget->isVisible(),
                      qPrintable(QString("encryption key widget should be visible for address %1").arg(widget->property("address").toString())));
         }
-        // encryption key widgets for sender's keys shall be first two widgets
+        // first two encryption key widgets shall be widgets for sender's keys
         QCOMPARE(encryptionKeyWidgets[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets[0]->defaultKey(),
+        QCOMPARE(encryptionKeyWidgets[0]->defaultKey(GpgME::OpenPGP),
                  QString::fromLatin1(resolvedRecipients["sender@example.net"][0].primaryFingerprint()));
         QCOMPARE(encryptionKeyWidgets[1]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets[1]->defaultKey(),
+        QCOMPARE(encryptionKeyWidgets[1]->defaultKey(GpgME::CMS),
                  QString::fromLatin1(resolvedRecipients["sender@example.net"][1].primaryFingerprint()));
+        // further encryption key widgets shall be widgets for keys of recipients
+        QCOMPARE(encryptionKeyWidgets[2]->property("address").toString(), QStringLiteral("prefer-openpgp@example.net"));
+        QCOMPARE(encryptionKeyWidgets[2]->defaultKey(),
+                 QString::fromLatin1(resolvedRecipients["prefer-openpgp@example.net"][0].primaryFingerprint()));
+        QCOMPARE(encryptionKeyWidgets[3]->property("address").toString(), QStringLiteral("prefer-smime@example.net"));
+        QCOMPARE(encryptionKeyWidgets[3]->defaultKey(),
+                 QString::fromLatin1(resolvedRecipients["prefer-smime@example.net"][0].primaryFingerprint()));
     }
 
 private:
