@@ -496,8 +496,7 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
         if (pgpOnly) {
             d->mSigKeys.remove(CMS);
             d->mEncKeys.remove(CMS);
-        }
-        if (cmsOnly) {
+        } else if (cmsOnly) {
             d->mSigKeys.remove(OpenPGP);
             d->mEncKeys.remove(OpenPGP);
         }

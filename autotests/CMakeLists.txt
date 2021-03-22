@@ -23,6 +23,13 @@ ecm_add_test(
     LINK_LIBRARIES KF5::Libkleo Qt5::Test
 )
 
+ecm_add_test(
+    keyresolvertest.cpp
+    keyresolvertest.qrc
+    TEST_NAME keyresolvertest
+    LINK_LIBRARIES KF5::Libkleo Qt5::Widgets Qt5::Test
+)
+
 ecm_add_tests(
     newkeyapprovaldialogtest.cpp
     LINK_LIBRARIES KF5::Libkleo Qt5::Widgets Qt5::Test
