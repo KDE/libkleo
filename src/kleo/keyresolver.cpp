@@ -544,14 +544,7 @@ void KeyResolver::setSender(const QString &address)
     if (d->mSign) {
         d->mSender = normStr;
     }
-    if (d->mEncrypt) {
-        if (!d->mUnresolvedCMS.contains(normStr)) {
-            d->mUnresolvedCMS << normStr;
-        }
-        if (!d->mUnresolvedPGP.contains(normStr)) {
-            d->mUnresolvedPGP << normStr;
-        }
-    }
+    d->addRecpients({address});
 }
 
 void KeyResolver::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList> > &overrides)

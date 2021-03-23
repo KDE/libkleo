@@ -30,7 +30,6 @@ private Q_SLOTS:
     {
         mGnupgHome = QTest::qExtractTestData("/fixtures/keyresolvertest");
         qputenv("GNUPGHOME", mGnupgHome->path().toLocal8Bit());
-        qDebug() << "Using GNUPGHOME" << qgetenv("GNUPGHOME");
 
         // hold a reference to the key cache to avoid rebuilding while the test is running
         mKeyCache = KeyCache::instance();
@@ -137,6 +136,39 @@ private Q_SLOTS:
         QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net").size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net")[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_override_sender_openpgp()
+    {
+        const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
+        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
+        resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("sender-mixed@example.net"), {override}}}}});
+        spyOnKeysResolvedSignal(&resolver);
+
+        resolver.start(/*showApproval=*/ false);
+
+        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net")[0].primaryFingerprint(), override);
+    }
+
+    void test_override_sender_smime()
+    {
+        const QString override = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
+        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setPreferredProtocol(CMS);
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
+        resolver.setOverrideKeys({{CMS, {{QStringLiteral("sender-mixed@example.net"), {override}}}}});
+        spyOnKeysResolvedSignal(&resolver);
+
+        resolver.start(/*showApproval=*/ false);
+
+        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net")[0].primaryFingerprint(), override);
     }
 
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
