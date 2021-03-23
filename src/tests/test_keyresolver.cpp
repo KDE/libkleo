@@ -79,30 +79,21 @@ int main(int argc, char **argv)
     parser.addPositionalArgument(QStringLiteral("recipients"),
                                   QStringLiteral("Recipients to resolve"),
                                   QStringLiteral("[mailboxes]"));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("overrides")
-                                        << QStringLiteral("o"),
+    parser.addOption(QCommandLineOption({QStringLiteral("overrides"), QStringLiteral("o")},
                                         QStringLiteral("Override where format can be:\n"
-                                                       "InlineOpenPGP\n"
-                                                       "OpenPGPMIME\n"
+                                                       "OpenPGP\n"
                                                        "SMIME\n"
-                                                       "SMIMEOpaque\n"
-                                                       "AnyOpenPGP\n"
-                                                       "AnySMIME\n"
                                                        "Auto"),
-                                        QStringLiteral("mailbox:fpr,fpr,..:format")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("sender")
-                                        << QStringLiteral("s"),
+                                        QStringLiteral("mailbox:fpr,fpr,...[:format]")));
+    parser.addOption(QCommandLineOption({QStringLiteral("sender"), QStringLiteral("s")},
                                         QStringLiteral("Mailbox of the sender"),
                                         QStringLiteral("mailbox")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("sigkeys")
-                                        << QStringLiteral("k"),
-                                        QStringLiteral("signing key"),
-                                        QStringLiteral("Explicit signing keys")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("encrypt")
-                                        << QStringLiteral("e"),
+    parser.addOption(QCommandLineOption({QStringLiteral("sigkeys"), QStringLiteral("k")},
+                                        QStringLiteral("Explicit signing keys"),
+                                        QStringLiteral("signing key")));
+    parser.addOption(QCommandLineOption({QStringLiteral("encrypt"), QStringLiteral("e")},
                                         QStringLiteral("Only select encryption keys")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("approval")
-                                        << QStringLiteral("a"),
+    parser.addOption(QCommandLineOption({QStringLiteral("approval"), QStringLiteral("a")},
                                         QStringLiteral("Always show approval dlg")));
 
     parser.process(app);
