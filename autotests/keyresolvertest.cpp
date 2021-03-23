@@ -50,38 +50,28 @@ private Q_SLOTS:
     void test_verify_test_keys()
     {
         {
-            const auto keys = KeyCache::instance()->findByEMailAddress("sender-mixed@example.net");
-            QCOMPARE(keys.size(), 2);
-            QVERIFY((keys[0].protocol() == OpenPGP && keys[1].protocol() == CMS) ||
-                    (keys[1].protocol() == OpenPGP && keys[0].protocol() == CMS));
-            QVERIFY(keys[0].hasSecret() && keys[0].canEncrypt() && keys[0].canSign());
-            QCOMPARE(keys[0].userID(0).validity(), UserID::Ultimate);
-            QVERIFY(keys[1].hasSecret() && keys[1].canEncrypt() && keys[1].canSign());
-            QCOMPARE(keys[1].userID(0).validity(), UserID::Ultimate);
+            const Key openpgp = testKey("sender-mixed@example.net", OpenPGP);
+            QVERIFY(openpgp.hasSecret() && openpgp.canEncrypt() && openpgp.canSign());
+            QCOMPARE(openpgp.userID(0).validity(), UserID::Ultimate);
+            const Key smime = testKey("sender-mixed@example.net", CMS);
+            QVERIFY(smime.hasSecret() && smime.canEncrypt() && smime.canSign());
+            QCOMPARE(smime.userID(0).validity(), UserID::Ultimate);
         }
         {
-            const auto keys = KeyCache::instance()->findByEMailAddress("sender-openpgp@example.net");
-            QCOMPARE(keys.size(), 1);
-            QVERIFY(keys[0].protocol() == OpenPGP);
-            QVERIFY(keys[0].hasSecret() && keys[0].canEncrypt() && keys[0].canSign());
-            QCOMPARE(keys[0].userID(0).validity(), UserID::Ultimate);
+            const Key openpgp = testKey("sender-openpgp@example.net", OpenPGP);
+            QVERIFY(openpgp.hasSecret() && openpgp.canEncrypt() && openpgp.canSign());
+            QCOMPARE(openpgp.userID(0).validity(), UserID::Ultimate);
         }
         {
-            const auto keys = KeyCache::instance()->findByEMailAddress("prefer-openpgp@example.net");
-            QCOMPARE(keys.size(), 1);
-            QVERIFY(keys[0].protocol() == OpenPGP);
-            QVERIFY(keys[0].canEncrypt());
-            QCOMPARE(keys[0].userID(0).validity(), UserID::Full);
+            const Key openpgp = testKey("prefer-openpgp@example.net", OpenPGP);
+            QVERIFY(openpgp.canEncrypt());
+            QCOMPARE(openpgp.userID(0).validity(), UserID::Full);
         }
         {
-            const auto keys = KeyCache::instance()->findByEMailAddress("prefer-smime@example.net");
-            QCOMPARE(keys.size(), 2);
-            const Key openpgp = keys[0].protocol() == OpenPGP ? keys[0] : keys[1];
-            QVERIFY(openpgp.protocol() == OpenPGP);
+            const Key openpgp = testKey("prefer-smime@example.net", OpenPGP);
             QVERIFY(openpgp.canEncrypt());
             QCOMPARE(openpgp.userID(0).validity(), UserID::Marginal);
-            const Key smime = keys[0].protocol() == CMS ? keys[0] : keys[1];
-            QVERIFY(smime.protocol() == CMS);
+            const Key smime = testKey("prefer-smime@example.net", CMS);
             QVERIFY(smime.canEncrypt());
             QVERIFY(smime.userID(0).validity() >= UserID::Full);
         }
@@ -97,9 +87,13 @@ private Q_SLOTS:
 
         verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
         QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 1);
+        QCOMPARE(resolver.signingKeys().value(OpenPGP)[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(resolver.signingKeys().value(CMS).size(), 0);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net")[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 0);
     }
 
@@ -114,9 +108,13 @@ private Q_SLOTS:
 
         verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
         QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 1);
+        QCOMPARE(resolver.signingKeys().value(OpenPGP)[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(resolver.signingKeys().value(CMS).size(), 0);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net")[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 0);
     }
 
@@ -132,9 +130,24 @@ private Q_SLOTS:
         verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
         QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 0);
         QCOMPARE(resolver.signingKeys().value(CMS).size(), 1);
+        QCOMPARE(resolver.signingKeys().value(CMS)[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", CMS).primaryFingerprint());
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 0);
         QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net")[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", CMS).primaryFingerprint());
+    }
+
+    Key testKey(const char *email, Protocol protocol = UnknownProtocol)
+    {
+        const std::vector<Key> keys = KeyCache::instance()->findByEMailAddress(email);
+        for (const auto &key: keys) {
+            if (protocol == UnknownProtocol || key.protocol() == protocol) {
+                return key;
+            }
+        }
+        return Key();
     }
 
     void spyOnKeysResolvedSignal(KeyResolver *resolver)
