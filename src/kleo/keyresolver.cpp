@@ -493,7 +493,15 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     }
 
     if (!needsUser && !showApproval) {
-        if (pgpOnly) {
+        if (pgpOnly && cmsOnly) {
+            if (d->mPreferredProtocol == CMS) {
+                d->mSigKeys.remove(OpenPGP);
+                d->mEncKeys.remove(OpenPGP);
+            } else {
+                d->mSigKeys.remove(CMS);
+                d->mEncKeys.remove(CMS);
+            }
+        } else if (pgpOnly) {
             d->mSigKeys.remove(CMS);
             d->mEncKeys.remove(CMS);
         } else if (cmsOnly) {

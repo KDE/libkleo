@@ -87,7 +87,7 @@ private Q_SLOTS:
         }
     }
 
-    void test_openpgp_is_preferred_if_openpgp_only_and_smime_only_are_both_possible()
+    void test_openpgp_is_used_if_openpgp_only_and_smime_only_are_both_possible()
     {
         KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
@@ -101,6 +101,40 @@ private Q_SLOTS:
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net").size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 0);
+    }
+
+    void test_openpgp_is_used_if_openpgp_only_and_smime_only_are_both_possible_with_preference_for_openpgp()
+    {
+        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setPreferredProtocol(OpenPGP);
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
+        spyOnKeysResolvedSignal(&resolver);
+
+        resolver.start(/*showApproval=*/ false);
+
+        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 1);
+        QCOMPARE(resolver.signingKeys().value(CMS).size(), 0);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 0);
+    }
+
+    void test_smime_is_used_if_openpgp_only_and_smime_only_are_both_possible_with_preference_for_smime()
+    {
+        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setPreferredProtocol(CMS);
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
+        spyOnKeysResolvedSignal(&resolver);
+
+        resolver.start(/*showApproval=*/ false);
+
+        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 0);
+        QCOMPARE(resolver.signingKeys().value(CMS).size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 0);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net").size(), 1);
     }
 
     void spyOnKeysResolvedSignal(KeyResolver *resolver)
