@@ -124,29 +124,40 @@ public:
                     mCombo->currentData(Qt::ToolTipRole).toString(), infoBtn, QRect(), 30000);
         });
 
-        // Assume that combos start out with a filter
-        mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
-        mFilterBtn->setToolTip(i18n("Remove Filter"));
-
         // FIXME: This is ugly to enforce but otherwise the
         // icon is broken.
         combo->setMinimumHeight(22);
         mFilterBtn->setMinimumHeight(23);
 
+        updateFilterButton();
+
         connect(mFilterBtn, &QPushButton::clicked, this, [this] () {
             const QString curFilter = mCombo->idFilter();
             if (curFilter.isEmpty()) {
-                mCombo->setIdFilter(mLastIdFilter);
+                setIdFilter(mLastIdFilter);
                 mLastIdFilter = QString();
-                mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
-                mFilterBtn->setToolTip(i18n("Remove Filter"));
             } else {
+                setIdFilter(QString());
                 mLastIdFilter = curFilter;
-                mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-add-filters")));
-                mFilterBtn->setToolTip(i18n("Add Filter"));
-                mCombo->setIdFilter(QString());
             }
         });
+    }
+
+    void setIdFilter(const QString &id)
+    {
+        mCombo->setIdFilter(id);
+        updateFilterButton();
+    }
+
+    void updateFilterButton()
+    {
+        if (mCombo->idFilter().isEmpty()) {
+            mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-add-filters")));
+            mFilterBtn->setToolTip(i18n("Add Filter"));
+        } else {
+            mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
+            mFilterBtn->setToolTip(i18n("Remove Filter"));
+        }
     }
 
     KeySelectionCombo *combo()
@@ -530,7 +541,7 @@ public:
             {
                 auto comboWidget = createSigningCombo(addr, key);
                 if (key_has_addr (key, addr)) {
-                    comboWidget->combo()->setIdFilter(addr);
+                    comboWidget->setIdFilter(addr);
                 }
                 if (resolved[addr].size() > 1) {
                     comboWidget->setFromOverride(key.protocol());
@@ -548,7 +559,7 @@ public:
             group->setLayout(sigLayout);
 
             auto comboWidget = createSigningCombo(addr, GpgME::Key());
-            comboWidget->combo()->setIdFilter(addr);
+            comboWidget->setIdFilter(addr);
             sigLayout->addWidget(comboWidget);
         }
     }
@@ -596,7 +607,7 @@ public:
                         "be decrypted with the other keys selected in this dialog."));
 
         if (key.isNull() || key_has_addr (key, addr)) {
-            combo->setIdFilter(addr);
+            comboWidget->setIdFilter(addr);
         }
 
         connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
