@@ -153,10 +153,10 @@ public:
     {
         if (mCombo->idFilter().isEmpty()) {
             mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-add-filters")));
-            mFilterBtn->setToolTip(i18n("Add Filter"));
+            mFilterBtn->setToolTip(i18n("Show keys matching the email address"));
         } else {
             mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
-            mFilterBtn->setToolTip(i18n("Remove Filter"));
+            mFilterBtn->setToolTip(i18n("Show all keys"));
         }
     }
 
