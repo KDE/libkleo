@@ -168,14 +168,6 @@ public:
     void start(bool showApproval, QWidget *parentWidget = nullptr);
 
     /**
-     * Access possibly updated Override Keys
-     *
-     * @return A map of email's with new overrides and the according
-     *         cryptoformat / fingerprint. Should be saved somehow.
-     */
-    QMap <GpgME::Protocol, QMap<QString, QStringList> > overrideKeys() const;
-
-    /**
      * Set window flags for a possible dialog.
      */
     void setDialogWindowFlags(Qt::WindowFlags flags);

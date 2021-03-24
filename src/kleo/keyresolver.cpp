@@ -571,11 +571,6 @@ QMap <Protocol, std::vector<Key> > KeyResolver::signingKeys() const
     return d->mSigKeys;
 }
 
-QMap <Protocol, QMap<QString, QStringList> > KeyResolver::overrideKeys() const
-{
-    return d->mOverrides;
-}
-
 void KeyResolver::setDialogWindowFlags(Qt::WindowFlags flags)
 {
     d->mDialogWindowFlags = flags;
