@@ -28,6 +28,7 @@ set(libkleo_core_SRCS
    kleo/keyfiltermanager.cpp
    kleo/keygroup.cpp
    kleo/keyresolver.cpp
+   kleo/keyresolvercore.cpp
    kleo/kleoexception.cpp
    kleo/oidmap.cpp
    models/keycache.cpp
