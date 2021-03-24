@@ -142,6 +142,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   KeyFilterManager
   KeyGroup
   KeyResolver
+  KeyResolverCore
   KleoException
   OidMap
   Predicates
