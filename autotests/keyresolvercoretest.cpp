@@ -1,5 +1,5 @@
 /*
-    autotests/keyresolvertest.cpp
+    autotests/keyresolvercoretest.cpp
 
     This file is part of libkleopatra's test suite.
     SPDX-FileCopyrightText: 2021 g10 Code GmbH
@@ -9,10 +9,9 @@
 */
 
 #include <Libkleo/KeyCache>
-#include <Libkleo/KeyResolver>
+#include <Libkleo/KeyResolverCore>
 
 #include <QObject>
-#include <QSignalSpy>
 #include <QTest>
 
 #include <gpgme++/key.h>
@@ -22,13 +21,13 @@
 using namespace Kleo;
 using namespace GpgME;
 
-class KeyResolverTest: public QObject
+class KeyResolverCoreTest: public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
     void init()
     {
-        mGnupgHome = QTest::qExtractTestData("/fixtures/keyresolvertest");
+        mGnupgHome = QTest::qExtractTestData("/fixtures/keyresolvercoretest");
         qputenv("GNUPGHOME", mGnupgHome->path().toLocal8Bit());
 
         // hold a reference to the key cache to avoid rebuilding while the test is running
@@ -37,8 +36,6 @@ private Q_SLOTS:
 
     void cleanup()
     {
-        mKeysResolvedSpy.reset();
-
         // verify that nobody else holds a reference to the key cache
         QVERIFY(mKeyCache.use_count() == 1);
         mKeyCache.reset();
@@ -78,13 +75,12 @@ private Q_SLOTS:
 
     void test_openpgp_is_used_if_openpgp_only_and_smime_only_are_both_possible()
     {
-        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        spyOnKeysResolvedSignal(&resolver);
 
-        resolver.start(/*showApproval=*/ false);
+        const bool success = resolver.resolve();
 
-        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QVERIFY(success);
         QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 1);
         QCOMPARE(resolver.signingKeys().value(OpenPGP)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
@@ -98,14 +94,13 @@ private Q_SLOTS:
 
     void test_openpgp_is_used_if_openpgp_only_and_smime_only_are_both_possible_with_preference_for_openpgp()
     {
-        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setPreferredProtocol(OpenPGP);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        spyOnKeysResolvedSignal(&resolver);
 
-        resolver.start(/*showApproval=*/ false);
+        const bool success = resolver.resolve();
 
-        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QVERIFY(success);
         QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 1);
         QCOMPARE(resolver.signingKeys().value(OpenPGP)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
@@ -119,14 +114,13 @@ private Q_SLOTS:
 
     void test_smime_is_used_if_openpgp_only_and_smime_only_are_both_possible_with_preference_for_smime()
     {
-        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setPreferredProtocol(CMS);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        spyOnKeysResolvedSignal(&resolver);
 
-        resolver.start(/*showApproval=*/ false);
+        const bool success = resolver.resolve();
 
-        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QVERIFY(success);
         QCOMPARE(resolver.signingKeys().value(OpenPGP).size(), 0);
         QCOMPARE(resolver.signingKeys().value(CMS).size(), 1);
         QCOMPARE(resolver.signingKeys().value(CMS)[0].primaryFingerprint(),
@@ -141,14 +135,13 @@ private Q_SLOTS:
     void test_override_sender_openpgp()
     {
         const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
-        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
         resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("sender-mixed@example.net"), {override}}}}});
-        spyOnKeysResolvedSignal(&resolver);
 
-        resolver.start(/*showApproval=*/ false);
+        const bool success = resolver.resolve();
 
-        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QVERIFY(success);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net").size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net")[0].primaryFingerprint(), override);
@@ -157,20 +150,20 @@ private Q_SLOTS:
     void test_override_sender_smime()
     {
         const QString override = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
-        KeyResolver resolver(/*encrypt=*/ true, /*sign=*/ true);
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setPreferredProtocol(CMS);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
         resolver.setOverrideKeys({{CMS, {{QStringLiteral("sender-mixed@example.net"), {override}}}}});
-        spyOnKeysResolvedSignal(&resolver);
 
-        resolver.start(/*showApproval=*/ false);
+        const bool success = resolver.resolve();
 
-        verifyKeysResolvedSignalEmittedWith(/*success=*/ true, /*sendUnencrypted=*/ false);
+        QVERIFY(success);
         QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net").size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-mixed@example.net")[0].primaryFingerprint(), override);
     }
 
+private:
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
     {
         const std::vector<Key> keys = KeyCache::instance()->findByEMailAddress(email);
@@ -182,25 +175,10 @@ private Q_SLOTS:
         return Key();
     }
 
-    void spyOnKeysResolvedSignal(KeyResolver *resolver)
-    {
-        mKeysResolvedSpy = std::make_unique<QSignalSpy>(resolver, &KeyResolver::keysResolved);
-        QVERIFY(mKeysResolvedSpy->isValid());
-    }
-
-    void verifyKeysResolvedSignalEmittedWith(bool success, bool sendUnencrypted)
-    {
-        QCOMPARE(mKeysResolvedSpy->count(), 1);
-        const QList<QVariant> arguments = mKeysResolvedSpy->takeFirst();
-        QCOMPARE(arguments.at(0).toBool(), success);
-        QCOMPARE(arguments.at(1).toBool(), sendUnencrypted);
-    }
-
 private:
     QSharedPointer<QTemporaryDir> mGnupgHome;
     std::shared_ptr<const KeyCache> mKeyCache;
-    std::unique_ptr<QSignalSpy> mKeysResolvedSpy;
 };
 
-QTEST_MAIN(KeyResolverTest)
-#include "keyresolvertest.moc"
+QTEST_MAIN(KeyResolverCoreTest)
+#include "keyresolvercoretest.moc"
