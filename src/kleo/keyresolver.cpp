@@ -215,10 +215,15 @@ public:
         }
     }
 
-    void setSigningKeys(const std::vector<Key> &keys)
+    void setSigningKeys(const QStringList &fingerprints)
     {
         if (mSign) {
-            for (const auto &key: keys) {
+            for (const auto &fpr: fingerprints) {
+                const auto key = mCache->findByKeyIDOrFingerprint(fpr.toUtf8().constData());
+                if (key.isNull()) {
+                    qCDebug(LIBKLEO_LOG) << "Failed to find signing key with fingerprint" << fpr;
+                    continue;
+                }
                 auto list = mSigKeys.value(key.protocol());
                 list.push_back(key);
                 mSigKeys.insert(key.protocol(), list);
@@ -559,6 +564,11 @@ void KeyResolver::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList
         }
         d->mOverrides.insert(fmt, normalizedOverrides);
     }
+}
+
+void KeyResolver::setSigningKeys(const QStringList &fingerprints)
+{
+    d->setSigningKeys(fingerprints);
 }
 
 QMap <Protocol, QMap<QString, std::vector<Key> > > KeyResolver::encryptionKeys() const
