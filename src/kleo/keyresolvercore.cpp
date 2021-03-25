@@ -73,6 +73,7 @@ public:
     void resolveOverrides();
     void resolveSign(Protocol proto);
     void setSigningKeys(const QStringList &fingerprints);
+    std::vector<Key> resolveRecipient(const QString &address, Protocol protocol);
     void resolveEnc(Protocol proto);
     QStringList unresolvedRecipients(GpgME::Protocol protocol) const;
     bool resolve();
@@ -284,6 +285,46 @@ void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
     }
 }
 
+std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &address, Protocol protocol)
+{
+    const auto keys = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, false, true);
+    if (keys.empty() || keys[0].isNull()) {
+        qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(protocol) << "key for: " << address;
+        return {};
+    }
+    if (keys.size() == 1) {
+        if (!isAcceptableEncryptionKey(keys[0], address)) {
+            qCDebug(LIBKLEO_LOG) << "key for:" << address << keys[0].primaryFingerprint()
+                                    << "has not enough validity";
+            return {};
+        }
+    } else {
+        // If we have one unacceptable group key we reject the
+        // whole group to avoid the situation where one key is
+        // skipped or the operation fails.
+        //
+        // We are in Autoresolve land here. In the GUI we
+        // will also show unacceptable group keys so that the
+        // user can see which key is not acceptable.
+        bool unacceptable = false;
+        for (const auto &key: keys) {
+            if (!isAcceptableEncryptionKey(key)) {
+                qCDebug(LIBKLEO_LOG) << "group key for:" << address << keys[0].primaryFingerprint()
+                                        << "has not enough validity";
+                unacceptable = true;
+                break;
+            }
+        }
+        if (unacceptable) {
+            return {};
+        }
+    }
+    for (const auto &k: keys) {
+        qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << k.primaryFingerprint();
+    }
+    return keys;
+}
+
 // Try to find matching keys in the provided protocol for the unresolved addresses
 void KeyResolverCore::Private::resolveEnc(Protocol proto)
 {
@@ -292,47 +333,7 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
         if (!it.value().empty()) {
             continue;
         }
-        const QString addr = it.key();
-        const auto keys = mCache->findBestByMailBox(addr.toUtf8().constData(),
-                                                    proto, false, true);
-        if (keys.empty() || keys[0].isNull()) {
-            qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(proto) << "key for: " << addr;
-            continue;
-        }
-        if (keys.size() == 1) {
-            if (!isAcceptableEncryptionKey(keys[0], addr)) {
-                qCDebug(LIBKLEO_LOG) << "key for:" << addr << keys[0].primaryFingerprint()
-                                     << "has not enough validity";
-                continue;
-            }
-        } else {
-            // If we have one unacceptable group key we reject the
-            // whole group to avoid the situation where one key is
-            // skipped or the operation fails.
-            //
-            // We are in Autoresolve land here. In the GUI we
-            // will also show unacceptable group keys so that the
-            // user can see which key is not acceptable.
-            bool unacceptable = false;
-            for (const auto &key: keys) {
-                if (!isAcceptableEncryptionKey(key)) {
-                    qCDebug(LIBKLEO_LOG) << "group key for:" << addr << keys[0].primaryFingerprint()
-                                         << "has not enough validity";
-                    unacceptable = true;
-                    break;
-                }
-            }
-            if (unacceptable) {
-                continue;
-            }
-        }
-        it.value() = keys;
-        for (const auto &k: keys) {
-            if (!k.isNull()) {
-                qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << addr
-                                     << "with key" << k.primaryFingerprint();
-            }
-        }
+        it.value() = resolveRecipient(it.key(), proto);
     }
     mEncKeys.insert(proto, encMap);
 }
