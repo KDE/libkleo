@@ -83,7 +83,7 @@ public:
     QStringList mRecipients;
     QMap<Protocol, std::vector<Key>> mSigKeys;
     QMap<Protocol, QMap<QString, std::vector<Key>>> mEncKeys;
-    QMap<Protocol, QMap<QString, QStringList>> mOverrides;
+    QMap<QString, QMap<Protocol, QStringList>> mOverrides;
 
     Protocol mFormat;
     QStringList mFatalErrors;
@@ -184,15 +184,15 @@ void KeyResolverCore::Private::addRecipients(const QStringList &addresses)
 
 void KeyResolverCore::Private::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides)
 {
-    QMap<QString, QStringList> normalizedOverrides;
-    for (const auto fmt: overrides.keys()) {
-        for (const auto &addr: overrides[fmt].keys()) {
-            const auto normalized = QString::fromUtf8(
-                    UserID::addrSpecFromString (addr.toUtf8().constData()).c_str());
-            const auto fingerprints = overrides[fmt][addr];
-            normalizedOverrides.insert(normalized, fingerprints);
+    for (auto protocolIt = overrides.cbegin(); protocolIt != overrides.cend(); ++protocolIt) {
+        const Protocol &protocol = protocolIt.key();
+        const auto &addressFingerprintMap = protocolIt.value();
+        for (auto addressIt = addressFingerprintMap.cbegin(); addressIt != addressFingerprintMap.cend(); ++addressIt) {
+            const QString &address = addressIt.key();
+            const QStringList &fingerprints = addressIt.value();
+            const QString normalizedAddress = QString::fromUtf8(UserID::addrSpecFromString(address.toUtf8().constData()).c_str());
+            mOverrides[normalizedAddress][protocol] = fingerprints;
         }
-        mOverrides.insert(fmt, normalizedOverrides);
     }
 }
 
@@ -203,43 +203,40 @@ void KeyResolverCore::Private::resolveOverrides()
         // No encryption we are done.
         return;
     }
-    for (Protocol fmt: mOverrides.keys()) {
-        // Iterate over the crypto message formats
-        if (mFormat != UnknownProtocol && mFormat != fmt && fmt != UnknownProtocol) {
-            // Skip overrides for the wrong format
+    for (auto addressIt = mOverrides.cbegin(); addressIt != mOverrides.cend(); ++addressIt) {
+        const QString &address = addressIt.key();
+        const auto &protocolFingerprintsMap = addressIt.value();
+
+        if (!mRecipients.contains(address)) {
+            qCDebug(LIBKLEO_LOG) << "Overrides provided for an address that is "
+                "neither sender nor recipient. Address:" << address;
             continue;
         }
-        for (const auto &addr: mOverrides[fmt].keys()) {
-            // For all address overrides of this format.
-            for (const auto &fprOrId: mOverrides[fmt][addr]) {
-                // For all the keys configured for this address.
-                const auto key = mCache->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());
+
+        for (auto protocolIt = protocolFingerprintsMap.cbegin(); protocolIt != protocolFingerprintsMap.cend(); ++protocolIt) {
+            const Protocol protocol = protocolIt.key();
+            const QStringList &fingerprints = protocolIt.value();
+            if ((mFormat == OpenPGP && protocol == CMS) ||
+                (mFormat == CMS && protocol == OpenPGP)) {
+                // Skip overrides for the wrong format
+                continue;
+            }
+            for (const auto &fprOrId: fingerprints) {
+                const Key key = mCache->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());
                 if (key.isNull()) {
-                    qCDebug (LIBKLEO_LOG) << "Failed to find override key for:" << addr
+                    qCDebug (LIBKLEO_LOG) << "Failed to find override key for:" << address
                         << "fpr:" << fprOrId;
                     continue;
                 }
 
-                // Now add it to the resolved keys
-                if (!mRecipients.contains(addr)) {
-                    qCDebug(LIBKLEO_LOG) << "Override provided for an address that is "
-                        "neither sender nor recipient. Address: " << addr;
-                    continue;
-                }
-
-                Protocol resolvedFmt = fmt;
-                if (fmt == UnknownProtocol) {
+                Protocol resolvedFmt = protocol;
+                if (protocol == UnknownProtocol) {
                     // Take the format from the key.
                     resolvedFmt = key.protocol();
                 }
+                mEncKeys[resolvedFmt][address].push_back(key);
 
-                auto recpMap = mEncKeys.value(resolvedFmt);
-                auto keys = recpMap.value(addr);
-                keys.push_back(key);
-                recpMap.insert(addr, keys);
-                mEncKeys.insert(resolvedFmt, recpMap);
-
-                qCDebug(LIBKLEO_LOG) << "Override" << addr << Formatting::displayName(resolvedFmt) << fprOrId;
+                qCDebug(LIBKLEO_LOG) << "Override" << address << Formatting::displayName(resolvedFmt) << fprOrId;
             }
         }
     }
