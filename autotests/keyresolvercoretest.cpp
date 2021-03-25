@@ -132,12 +132,12 @@ private Q_SLOTS:
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
     }
 
-    void test_override_sender_openpgp()
+    void test_overrides_openpgp()
     {
         const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("sender-mixed@example.net"), {override}}}}});
+        resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("Needs to be normalized <sender-mixed@example.net>"), {override}}}}});
 
         const bool success = resolver.resolve();
 
@@ -147,13 +147,13 @@ private Q_SLOTS:
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-mixed@example.net")[0].primaryFingerprint(), override);
     }
 
-    void test_override_sender_smime()
+    void test_overrides_smime()
     {
         const QString override = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
         resolver.setPreferredProtocol(CMS);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setOverrideKeys({{CMS, {{QStringLiteral("sender-mixed@example.net"), {override}}}}});
+        resolver.setOverrideKeys({{CMS, {{QStringLiteral("Needs to be normalized <sender-mixed@example.net>"), {override}}}}});
 
         const bool success = resolver.resolve();
 

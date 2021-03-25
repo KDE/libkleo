@@ -190,7 +190,7 @@ void KeyResolverCore::Private::setOverrideKeys(const QMap<Protocol, QMap<QString
             const auto normalized = QString::fromUtf8(
                     UserID::addrSpecFromString (addr.toUtf8().constData()).c_str());
             const auto fingerprints = overrides[fmt][addr];
-            normalizedOverrides.insert(addr, fingerprints);
+            normalizedOverrides.insert(normalized, fingerprints);
         }
         mOverrides.insert(fmt, normalizedOverrides);
     }
