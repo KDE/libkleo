@@ -82,7 +82,7 @@ public:
     QString mSender;
     QStringList mRecipients;
     QMap<Protocol, std::vector<Key>> mSigKeys;
-    QMap<Protocol, QMap<QString, std::vector<Key>>> mEncKeys;
+    QMap<QString, QMap<Protocol, std::vector<Key>>> mEncKeys;
     QMap<QString, QMap<Protocol, QStringList>> mOverrides;
 
     Protocol mFormat;
@@ -163,7 +163,7 @@ void KeyResolverCore::Private::addRecipients(const QStringList &addresses)
 
     // Internally we work with normalized addresses. Normalization
     // matches the gnupg one.
-    for (const auto &addr :addresses) {
+    for (const auto &addr: addresses) {
         // PGP Uids are defined to be UTF-8 (RFC 4880 §5.11)
         const auto normalized = UserID::addrSpecFromString (addr.toUtf8().constData());
         if (normalized.empty()) {
@@ -177,8 +177,7 @@ void KeyResolverCore::Private::addRecipients(const QStringList &addresses)
         mRecipients << normStr;
 
         // Initially add empty lists of keys for both protocols
-        mEncKeys[CMS][normStr] = {};
-        mEncKeys[OpenPGP][normStr] = {};
+        mEncKeys[normStr] = {{CMS, {}}, {OpenPGP, {}}};
     }
 }
 
@@ -234,7 +233,7 @@ void KeyResolverCore::Private::resolveOverrides()
                     // Take the format from the key.
                     resolvedFmt = key.protocol();
                 }
-                mEncKeys[resolvedFmt][address].push_back(key);
+                mEncKeys[address][resolvedFmt].push_back(key);
 
                 qCDebug(LIBKLEO_LOG) << "Override" << address << Formatting::displayName(resolvedFmt) << fprOrId;
             }
@@ -325,23 +324,23 @@ std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &addre
 // Try to find matching keys in the provided protocol for the unresolved addresses
 void KeyResolverCore::Private::resolveEnc(Protocol proto)
 {
-    auto encMap = mEncKeys.value(proto);
-    for (auto it = encMap.begin(); it != encMap.end(); ++it) {
-        if (!it.value().empty()) {
+    for (auto it = mEncKeys.begin(); it != mEncKeys.end(); ++it) {
+        const QString &address = it.key();
+        auto &protocolKeysMap = it.value();
+        if (!protocolKeysMap[proto].empty()) {
             continue;
         }
-        it.value() = resolveRecipient(it.key(), proto);
+        protocolKeysMap[proto] = resolveRecipient(address, proto);
     }
-    mEncKeys.insert(proto, encMap);
 }
 
 QStringList KeyResolverCore::Private::unresolvedRecipients(GpgME::Protocol protocol) const
 {
     QStringList result;
-    const auto encMap = mEncKeys.value(protocol);
-    result.reserve(encMap.size());
-    for (auto it = encMap.cbegin(); it != encMap.cend(); ++it) {
-        if (it.value().empty()) {
+    result.reserve(mEncKeys.size());
+    for (auto it = mEncKeys.begin(); it != mEncKeys.end(); ++it) {
+        const auto &protocolKeysMap = it.value();
+        if (protocolKeysMap.value(protocol).empty()) {
             result.push_back(it.key());
         }
     }
@@ -397,17 +396,25 @@ bool KeyResolverCore::Private::resolve()
         if (pgpOnly && cmsOnly) {
             if (mPreferredProtocol == CMS) {
                 mSigKeys.remove(OpenPGP);
-                mEncKeys.remove(OpenPGP);
+                for (auto &protocolKeysMap: mEncKeys) {
+                    protocolKeysMap.remove(OpenPGP);
+                }
             } else {
                 mSigKeys.remove(CMS);
-                mEncKeys.remove(CMS);
+                for (auto &protocolKeysMap: mEncKeys) {
+                    protocolKeysMap.remove(CMS);
+                }
             }
         } else if (pgpOnly) {
             mSigKeys.remove(CMS);
-            mEncKeys.remove(CMS);
+            for (auto &protocolKeysMap: mEncKeys) {
+                protocolKeysMap.remove(CMS);
+            }
         } else if (cmsOnly) {
             mSigKeys.remove(OpenPGP);
-            mEncKeys.remove(OpenPGP);
+            for (auto &protocolKeysMap: mEncKeys) {
+                protocolKeysMap.remove(OpenPGP);
+            }
         }
 
         qCDebug(LIBKLEO_LOG) << "Automatic key resolution done.";
@@ -469,9 +476,21 @@ QMap <Protocol, std::vector<Key> > KeyResolverCore::signingKeys() const
     return d->mSigKeys;
 }
 
-QMap <Protocol, QMap<QString, std::vector<Key> > > KeyResolverCore::encryptionKeys() const
+QMap<Protocol, QMap<QString, std::vector<Key>>> KeyResolverCore::encryptionKeys() const
 {
-    return d->mEncKeys;
+    QMap<Protocol, QMap<QString, std::vector<Key>>> result;
+
+    for (auto addressIt = d->mEncKeys.cbegin(); addressIt != d->mEncKeys.cend(); ++addressIt) {
+        const QString &address = addressIt.key();
+        const auto &protocolKeysMap = addressIt.value();
+        for (auto protocolIt = protocolKeysMap.cbegin(); protocolIt != protocolKeysMap.cend(); ++protocolIt) {
+            const Protocol protocol = protocolIt.key();
+            const auto &keys = protocolIt.value();
+            result[protocol][address] = keys;
+        }
+    }
+
+    return result;
 }
 
 QStringList KeyResolverCore::unresolvedRecipients(GpgME::Protocol protocol) const
