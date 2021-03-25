@@ -67,11 +67,15 @@ public:
 
     bool isAcceptableSigningKey(const Key &key);
     bool isAcceptableEncryptionKey(const Key &key, const QString &address = QString());
+    void setSender(const QString &address);
     void addRecipients(const QStringList &addresses);
+    void setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides);
     void resolveOverrides();
     void resolveSign(Protocol proto);
     void setSigningKeys(const QStringList &fingerprints);
     void resolveEnc(Protocol proto);
+    QStringList unresolvedRecipients(GpgME::Protocol protocol) const;
+    bool resolve();
 
     KeyResolverCore *const q;
     QString mSender;
@@ -134,6 +138,22 @@ bool KeyResolverCore::Private::isAcceptableEncryptionKey(const Key &key, const Q
     return false;
 }
 
+void KeyResolverCore::Private::setSender(const QString &address)
+{
+    const auto normalized = UserID::addrSpecFromString (address.toUtf8().constData());
+    if (normalized.empty()) {
+        // should not happen bug in the caller, non localized
+        // error for bug reporting.
+        mFatalErrors << QStringLiteral("The sender address '%1' could not be extracted").arg(address);
+        return;
+    }
+    const auto normStr = QString::fromUtf8(normalized.c_str());
+    if (mSign) {
+        mSender = normStr;
+    }
+    addRecipients({address});
+}
+
 void KeyResolverCore::Private::addRecipients(const QStringList &addresses)
 {
     if (!mEncrypt) {
@@ -158,6 +178,20 @@ void KeyResolverCore::Private::addRecipients(const QStringList &addresses)
         // Initially add empty lists of keys for both protocols
         mEncKeys[CMS][normStr] = {};
         mEncKeys[OpenPGP][normStr] = {};
+    }
+}
+
+void KeyResolverCore::Private::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides)
+{
+    QMap<QString, QStringList> normalizedOverrides;
+    for (const auto fmt: overrides.keys()) {
+        for (const auto &addr: overrides[fmt].keys()) {
+            const auto normalized = QString::fromUtf8(
+                    UserID::addrSpecFromString (addr.toUtf8().constData()).c_str());
+            const auto fingerprints = overrides[fmt][addr];
+            normalizedOverrides.insert(addr, fingerprints);
+        }
+        mOverrides.insert(fmt, normalizedOverrides);
     }
 }
 
@@ -303,6 +337,88 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
     mEncKeys.insert(proto, encMap);
 }
 
+QStringList KeyResolverCore::Private::unresolvedRecipients(GpgME::Protocol protocol) const
+{
+    QStringList result;
+    const auto encMap = mEncKeys.value(protocol);
+    result.reserve(encMap.size());
+    for (auto it = encMap.cbegin(); it != encMap.cend(); ++it) {
+        if (it.value().empty()) {
+            result.push_back(it.key());
+        }
+    }
+    return result;
+}
+
+bool KeyResolverCore::Private::resolve()
+{
+    qCDebug(LIBKLEO_LOG) << "Starting ";
+    if (!mSign && !mEncrypt) {
+        // nothing to do
+        return true;
+    }
+
+    // First resolve through overrides
+    resolveOverrides();
+
+    // Then look for signing / encryption keys
+    if (mFormat != CMS) {
+        resolveSign(OpenPGP);
+        resolveEnc(OpenPGP);
+    }
+    const QStringList unresolvedPGP = unresolvedRecipients(OpenPGP);
+    bool pgpOnly = unresolvedPGP.empty() && (!mSign || mSigKeys.contains(OpenPGP));
+
+    if (mFormat != OpenPGP) {
+        resolveSign(CMS);
+        resolveEnc(CMS);
+    }
+    const QStringList unresolvedCMS = unresolvedRecipients(CMS);
+    bool cmsOnly = unresolvedCMS.empty() && (!mSign || mSigKeys.contains(CMS));
+
+    // Check if we need the user to select different keys.
+    bool needsUser = false;
+    if (!pgpOnly && !cmsOnly) {
+        for (const auto &unresolved: unresolvedPGP) {
+            if (unresolvedCMS.contains(unresolved)) {
+                // We have at least one unresolvable key.
+                needsUser = true;
+                break;
+            }
+        }
+        if (mSign) {
+            // So every recipient could be resolved through
+            // a combination of PGP and S/MIME do we also
+            // have signing keys for both?
+            needsUser |= !(mSigKeys.contains(OpenPGP) &&
+                           mSigKeys.contains(CMS));
+        }
+    }
+
+    if (!needsUser) {
+        if (pgpOnly && cmsOnly) {
+            if (mPreferredProtocol == CMS) {
+                mSigKeys.remove(OpenPGP);
+                mEncKeys.remove(OpenPGP);
+            } else {
+                mSigKeys.remove(CMS);
+                mEncKeys.remove(CMS);
+            }
+        } else if (pgpOnly) {
+            mSigKeys.remove(CMS);
+            mEncKeys.remove(CMS);
+        } else if (cmsOnly) {
+            mSigKeys.remove(OpenPGP);
+            mEncKeys.remove(OpenPGP);
+        }
+
+        qCDebug(LIBKLEO_LOG) << "Automatic key resolution done.";
+        return true;
+    }
+
+    return false;
+}
+
 KeyResolverCore::KeyResolverCore(bool encrypt, bool sign, Protocol fmt)
     : d(new Private(this, encrypt, sign, fmt))
 {
@@ -312,18 +428,7 @@ KeyResolverCore::~KeyResolverCore() = default;
 
 void KeyResolverCore::setSender(const QString &address)
 {
-    const auto normalized = UserID::addrSpecFromString (address.toUtf8().constData());
-    if (normalized.empty()) {
-        // should not happen bug in the caller, non localized
-        // error for bug reporting.
-        d->mFatalErrors << QStringLiteral("The sender address '%1' could not be extracted").arg(address);
-        return;
-    }
-    const auto normStr = QString::fromUtf8(normalized.c_str());
-    if (d->mSign) {
-        d->mSender = normStr;
-    }
-    d->addRecipients({address});
+    d->setSender(address);
 }
 
 QString KeyResolverCore::normalizedSender() const
@@ -341,18 +446,9 @@ void KeyResolverCore::setSigningKeys(const QStringList &fingerprints)
     d->setSigningKeys(fingerprints);
 }
 
-void KeyResolverCore::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList> > &overrides)
+void KeyResolverCore::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides)
 {
-    QMap<QString, QStringList> normalizedOverrides;
-    for (const auto fmt: overrides.keys()) {
-        for (const auto &addr: overrides[fmt].keys()) {
-            const auto normalized = QString::fromUtf8(
-                    UserID::addrSpecFromString (addr.toUtf8().constData()).c_str());
-            const auto fingerprints = overrides[fmt][addr];
-            normalizedOverrides.insert(addr, fingerprints);
-        }
-        d->mOverrides.insert(fmt, normalizedOverrides);
-    }
+    d->setOverrideKeys(overrides);
 }
 
 void KeyResolverCore::setPreferredProtocol(Protocol proto)
@@ -367,71 +463,7 @@ void KeyResolverCore::setMinimumValidity(int validity)
 
 bool KeyResolverCore::resolve()
 {
-    qCDebug(LIBKLEO_LOG) << "Starting ";
-    if (!d->mSign && !d->mEncrypt) {
-        // nothing to do
-        return true;
-    }
-
-    // First resolve through overrides
-    d->resolveOverrides();
-
-    // Then look for signing / encryption keys
-    if (d->mFormat != CMS) {
-        d->resolveSign(OpenPGP);
-        d->resolveEnc(OpenPGP);
-    }
-    const QStringList unresolvedPGP = unresolvedRecipients(OpenPGP);
-    bool pgpOnly = unresolvedPGP.empty() && (!d->mSign || d->mSigKeys.contains(OpenPGP));
-
-    if (d->mFormat != OpenPGP) {
-        d->resolveSign(CMS);
-        d->resolveEnc(CMS);
-    }
-    const QStringList unresolvedCMS = unresolvedRecipients(CMS);
-    bool cmsOnly = unresolvedCMS.empty() && (!d->mSign || d->mSigKeys.contains(CMS));
-
-    // Check if we need the user to select different keys.
-    bool needsUser = false;
-    if (!pgpOnly && !cmsOnly) {
-        for (const auto &unresolved: unresolvedPGP) {
-            if (unresolvedCMS.contains(unresolved)) {
-                // We have at least one unresolvable key.
-                needsUser = true;
-                break;
-            }
-        }
-        if (d->mSign) {
-            // So every recipient could be resolved through
-            // a combination of PGP and S/MIME do we also
-            // have signing keys for both?
-            needsUser |= !(d->mSigKeys.contains(OpenPGP) &&
-                           d->mSigKeys.contains(CMS));
-        }
-    }
-
-    if (!needsUser) {
-        if (pgpOnly && cmsOnly) {
-            if (d->mPreferredProtocol == CMS) {
-                d->mSigKeys.remove(OpenPGP);
-                d->mEncKeys.remove(OpenPGP);
-            } else {
-                d->mSigKeys.remove(CMS);
-                d->mEncKeys.remove(CMS);
-            }
-        } else if (pgpOnly) {
-            d->mSigKeys.remove(CMS);
-            d->mEncKeys.remove(CMS);
-        } else if (cmsOnly) {
-            d->mSigKeys.remove(OpenPGP);
-            d->mEncKeys.remove(OpenPGP);
-        }
-
-        qCDebug(LIBKLEO_LOG) << "Automatic key resolution done.";
-        return true;
-    }
-
-    return false;
+    return d->resolve();
 }
 
 QMap <Protocol, std::vector<Key> > KeyResolverCore::signingKeys() const
@@ -446,13 +478,5 @@ QMap <Protocol, QMap<QString, std::vector<Key> > > KeyResolverCore::encryptionKe
 
 QStringList KeyResolverCore::unresolvedRecipients(GpgME::Protocol protocol) const
 {
-    QStringList result;
-    const auto encMap = d->mEncKeys.value(protocol);
-    result.reserve(encMap.size());
-    for (auto it = encMap.cbegin(); it != encMap.cend(); ++it) {
-        if (it.value().empty()) {
-            result.push_back(it.key());
-        }
-    }
-    return result;
+    return d->unresolvedRecipients(protocol);
 }
