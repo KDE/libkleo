@@ -121,10 +121,6 @@ void KeyResolver::Private::showApprovalDialog(QWidget *parent)
             for (auto it = map.cbegin(); it != map.cend(); ++it) {
                 const QString &addr = it.key();
                 const auto &keys = it.value();
-                if (keys.empty()) {
-                    // skip unresolved recipients
-                    continue;
-                }
                 if (!resolvedRecp.contains(addr) || !resolvedRecp[addr].size()) {
                     resolvedRecp.insert(addr, keys);
                 } else {

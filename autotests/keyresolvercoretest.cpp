@@ -132,6 +132,22 @@ private Q_SLOTS:
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
     }
 
+    void test_encryption_keys_result_has_no_entry_for_unresolved_recipients()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
+        resolver.setRecipients({"prefer-smime@example.net", "unknown@example.net"});
+
+        const bool success = resolver.resolve();
+
+        QVERIFY(!success);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
+        QVERIFY(resolver.encryptionKeys().value(OpenPGP).contains("prefer-smime@example.net"));
+        QVERIFY(!resolver.encryptionKeys().value(OpenPGP).contains("unknown@example.net"));
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 1);
+        QVERIFY(resolver.encryptionKeys().value(CMS).contains("prefer-smime@example.net"));
+        QVERIFY(!resolver.encryptionKeys().value(CMS).contains("unknown@example.net"));
+    }
+
     void test_overrides_openpgp()
     {
         const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();

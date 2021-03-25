@@ -486,7 +486,9 @@ QMap<Protocol, QMap<QString, std::vector<Key>>> KeyResolverCore::encryptionKeys(
         for (auto protocolIt = protocolKeysMap.cbegin(); protocolIt != protocolKeysMap.cend(); ++protocolIt) {
             const Protocol protocol = protocolIt.key();
             const auto &keys = protocolIt.value();
-            result[protocol][address] = keys;
+            if (!keys.empty()) {
+                result[protocol][address] = keys;
+            }
         }
     }
 
