@@ -118,15 +118,19 @@ void KeyResolver::Private::showApprovalDialog(QWidget *parent)
         // Now Map all resolved encryption keys regardless of the format.
         const QMap<Protocol, QMap<QString, std::vector<Key>>> encryptionKeys = mCore.encryptionKeys();
         for (const auto &map: encryptionKeys.values()) {
-            // Foreach format
-            for (const auto &addr: map.keys()) {
-                // Foreach sender
+            for (auto it = map.cbegin(); it != map.cend(); ++it) {
+                const QString &addr = it.key();
+                const auto &keys = it.value();
+                if (keys.empty()) {
+                    // skip unresolved recipients
+                    continue;
+                }
                 if (!resolvedRecp.contains(addr) || !resolvedRecp[addr].size()) {
-                    resolvedRecp.insert(addr, map[addr]);
+                    resolvedRecp.insert(addr, keys);
                 } else {
                     std::vector<Key> merged = resolvedRecp[addr];
                     // Add without duplication
-                    for (const auto &k: map[addr]) {
+                    for (const auto &k: keys) {
                         const auto it = std::find_if (merged.begin(), merged.end(), [k] (const Key &y) {
                             return (k.primaryFingerprint() && y.primaryFingerprint() &&
                                     !strcmp (k.primaryFingerprint(), y.primaryFingerprint()));

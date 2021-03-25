@@ -80,9 +80,6 @@ public:
     QMap<Protocol, QMap<QString, std::vector<Key>>> mEncKeys;
     QMap<Protocol, QMap<QString, QStringList>> mOverrides;
 
-    QStringList mUnresolvedPGP;
-    QStringList mUnresolvedCMS;
-
     Protocol mFormat;
     QStringList mFatalErrors;
     bool mEncrypt;
@@ -156,15 +153,11 @@ void KeyResolverCore::Private::addRecipients(const QStringList &addresses)
         }
         const QString normStr = QString::fromUtf8(normalized.c_str());
 
-        // Initially mark them as unresolved for both protocols
-        if (!mUnresolvedCMS.contains(normStr)) {
-            mUnresolvedCMS << normStr;
-        }
-        if (!mUnresolvedPGP.contains(normStr)) {
-            mUnresolvedPGP << normStr;
-        }
-
         mRecipients << normStr;
+
+        // Initially add empty lists of keys for both protocols
+        mEncKeys[CMS][normStr] = {};
+        mEncKeys[OpenPGP][normStr] = {};
     }
 }
 
@@ -192,8 +185,7 @@ void KeyResolverCore::Private::resolveOverrides()
                     continue;
                 }
 
-                // Now add it to the resolved keys and remove it from our list
-                // of unresolved keys.
+                // Now add it to the resolved keys
                 if (!mRecipients.contains(addr)) {
                     qCDebug(LIBKLEO_LOG) << "Override provided for an address that is "
                         "neither sender nor recipient. Address: " << addr;
@@ -212,12 +204,6 @@ void KeyResolverCore::Private::resolveOverrides()
                 recpMap.insert(addr, keys);
                 mEncKeys.insert(resolvedFmt, recpMap);
 
-                // Now we can remove it from our unresolved lists.
-                if (key.protocol() == OpenPGP) {
-                    mUnresolvedPGP.removeAll(addr);
-                } else {
-                    mUnresolvedCMS.removeAll(addr);
-                }
                 qCDebug(LIBKLEO_LOG) << "Override" << addr << Formatting::displayName(resolvedFmt) << fprOrId;
             }
         }
@@ -265,25 +251,24 @@ void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
 }
 
 // Try to find matching keys in the provided protocol for the unresolved addresses
-// only updates the any maps.
 void KeyResolverCore::Private::resolveEnc(Protocol proto)
 {
     auto encMap = mEncKeys.value(proto);
-    QMutableStringListIterator it((proto == Protocol::OpenPGP) ? mUnresolvedPGP : mUnresolvedCMS);
-    while (it.hasNext()) {
-        const QString addr = it.next();
+    for (auto it = encMap.begin(); it != encMap.end(); ++it) {
+        if (!it.value().empty()) {
+            continue;
+        }
+        const QString addr = it.key();
         const auto keys = mCache->findBestByMailBox(addr.toUtf8().constData(),
                                                     proto, false, true);
         if (keys.empty() || keys[0].isNull()) {
-            qCDebug(LIBKLEO_LOG) << "Failed to find any"
-                                    << (proto == Protocol::OpenPGP ? "OpenPGP" : "CMS")
-                                    << "key for: " << addr;
+            qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(proto) << "key for: " << addr;
             continue;
         }
         if (keys.size() == 1) {
             if (!isAcceptableEncryptionKey(keys[0], addr)) {
-                qCDebug(LIBKLEO_LOG) << "key for: " << addr << keys[0].primaryFingerprint()
-                                        << "has not enough validity";
+                qCDebug(LIBKLEO_LOG) << "key for:" << addr << keys[0].primaryFingerprint()
+                                     << "has not enough validity";
                 continue;
             }
         } else {
@@ -297,8 +282,8 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
             bool unacceptable = false;
             for (const auto &key: keys) {
                 if (!isAcceptableEncryptionKey(key)) {
-                    qCDebug(LIBKLEO_LOG) << "group key for: " << addr << keys[0].primaryFingerprint()
-                                            << "has not enough validity";
+                    qCDebug(LIBKLEO_LOG) << "group key for:" << addr << keys[0].primaryFingerprint()
+                                         << "has not enough validity";
                     unacceptable = true;
                     break;
                 }
@@ -307,14 +292,13 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
                 continue;
             }
         }
-        encMap.insert(addr, keys);
+        it.value() = keys;
         for (const auto &k: keys) {
             if (!k.isNull()) {
                 qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << addr
-                                        << "with key" << k.primaryFingerprint();
+                                     << "with key" << k.primaryFingerprint();
             }
         }
-        it.remove();
     }
     mEncKeys.insert(proto, encMap);
 }
@@ -397,19 +381,21 @@ bool KeyResolverCore::resolve()
         d->resolveSign(OpenPGP);
         d->resolveEnc(OpenPGP);
     }
-    bool pgpOnly = d->mUnresolvedPGP.empty() && (!d->mSign || d->mSigKeys.contains(OpenPGP));
+    const QStringList unresolvedPGP = unresolvedRecipients(OpenPGP);
+    bool pgpOnly = unresolvedPGP.empty() && (!d->mSign || d->mSigKeys.contains(OpenPGP));
 
     if (d->mFormat != OpenPGP) {
         d->resolveSign(CMS);
         d->resolveEnc(CMS);
     }
-    bool cmsOnly = d->mUnresolvedCMS.empty() && (!d->mSign || d->mSigKeys.contains(CMS));
+    const QStringList unresolvedCMS = unresolvedRecipients(CMS);
+    bool cmsOnly = unresolvedCMS.empty() && (!d->mSign || d->mSigKeys.contains(CMS));
 
     // Check if we need the user to select different keys.
     bool needsUser = false;
     if (!pgpOnly && !cmsOnly) {
-        for (const auto &unresolved: d->mUnresolvedPGP) {
-            if (d->mUnresolvedCMS.contains(unresolved)) {
+        for (const auto &unresolved: unresolvedPGP) {
+            if (unresolvedCMS.contains(unresolved)) {
                 // We have at least one unresolvable key.
                 needsUser = true;
                 break;
@@ -460,11 +446,13 @@ QMap <Protocol, QMap<QString, std::vector<Key> > > KeyResolverCore::encryptionKe
 
 QStringList KeyResolverCore::unresolvedRecipients(GpgME::Protocol protocol) const
 {
-    if (protocol == OpenPGP) {
-        return d->mUnresolvedPGP;
+    QStringList result;
+    const auto encMap = d->mEncKeys.value(protocol);
+    result.reserve(encMap.size());
+    for (auto it = encMap.cbegin(); it != encMap.cend(); ++it) {
+        if (it.value().empty()) {
+            result.push_back(it.key());
+        }
     }
-    if (protocol == CMS) {
-        return d->mUnresolvedCMS;
-    }
-    return {};
+    return result;
 }
