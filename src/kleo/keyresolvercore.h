@@ -48,6 +48,8 @@ public:
 
     void setOverrideKeys(const QMap<GpgME::Protocol, QMap<QString, QStringList> > &overrides);
 
+    void setAllowMixedProtocols(bool allowMixed);
+
     void setPreferredProtocol(GpgME::Protocol proto);
 
     void setMinimumValidity(int validity);

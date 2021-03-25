@@ -46,6 +46,28 @@ static inline bool ValidSigningKey(const Key &key)
     return true;
 }
 
+static int keyValidity(const Key &key, const QString &address)
+{
+    // returns the validity of the UID matching the address or, if no UID matches, the maximal validity of all UIDs
+    int overallValidity = UserID::Validity::Unknown;
+    for (const auto &uid: key.userIDs()) {
+        if (QString::fromStdString(uid.addrSpec()).toLower() == address.toLower()) {
+            return uid.validity();
+        }
+        overallValidity = std::max(overallValidity, static_cast<int>(uid.validity()));
+    }
+    return overallValidity;
+}
+
+static int minimumValidity(const std::vector<Key> &keys, const QString &address)
+{
+    const int minValidity = std::accumulate(keys.cbegin(), keys.cend(), UserID::Ultimate + 1,
+                                            [address] (int validity, const Key &key) {
+                                                return std::min<int>(validity, keyValidity(key, address));
+                                            });
+    return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
+}
+
 } // namespace
 
 class KeyResolverCore::Private
@@ -75,6 +97,7 @@ public:
     void setSigningKeys(const QStringList &fingerprints);
     std::vector<Key> resolveRecipient(const QString &address, Protocol protocol);
     void resolveEnc(Protocol proto);
+    void mergeEncryptionKeys();
     QStringList unresolvedRecipients(GpgME::Protocol protocol) const;
     bool resolve();
 
@@ -92,6 +115,7 @@ public:
     // The cache is needed as a member variable to avoid rebuilding
     // it between calls if we are the only user.
     std::shared_ptr<const KeyCache> mCache;
+    bool mAllowMixed = true;
     Protocol mPreferredProtocol;
     int mMinimumValidity;
     QString mCompliance;
@@ -334,6 +358,40 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
     }
 }
 
+void KeyResolverCore::Private::mergeEncryptionKeys()
+{
+    for (auto it = mEncKeys.begin(); it != mEncKeys.end(); ++it) {
+        const QString &address = it.key();
+        auto &protocolKeysMap = it.value();
+        if (!protocolKeysMap[UnknownProtocol].empty()) {
+            // override keys are set for address
+            continue;
+        }
+        const std::vector<Key> &keysOpenPGP = protocolKeysMap.value(OpenPGP);
+        const std::vector<Key> &keysCMS = protocolKeysMap.value(CMS);
+        if (keysOpenPGP.empty() && keysCMS.empty()) {
+            continue;
+        } else if (!keysOpenPGP.empty() && keysCMS.empty()) {
+            protocolKeysMap[UnknownProtocol] = keysOpenPGP;
+        } else if (keysOpenPGP.empty() && !keysCMS.empty()) {
+            protocolKeysMap[UnknownProtocol] = keysCMS;
+        } else {
+            // check whether OpenPGP keys or S/MIME keys have higher validity
+            const int validityPGP = minimumValidity(keysOpenPGP, address);
+            const int validityCMS = minimumValidity(keysCMS, address);
+            if ((validityPGP > validityCMS)
+                || (validityPGP == validityCMS && mPreferredProtocol == OpenPGP)) {
+                protocolKeysMap[UnknownProtocol] = keysOpenPGP;
+            } else if ((validityCMS > validityPGP)
+                || (validityCMS == validityPGP && mPreferredProtocol == CMS)) {
+                protocolKeysMap[UnknownProtocol] = keysCMS;
+            } else {
+                protocolKeysMap[UnknownProtocol] = keysOpenPGP;
+            }
+        }
+    }
+}
+
 QStringList KeyResolverCore::Private::unresolvedRecipients(GpgME::Protocol protocol) const
 {
     QStringList result;
@@ -372,6 +430,10 @@ bool KeyResolverCore::Private::resolve()
     }
     const QStringList unresolvedCMS = unresolvedRecipients(CMS);
     bool cmsOnly = unresolvedCMS.empty() && (!mSign || mSigKeys.contains(CMS));
+
+    if (mAllowMixed && mFormat == UnknownProtocol) {
+        mergeEncryptionKeys();
+    }
 
     // Check if we need the user to select different keys.
     bool needsUser = false;
@@ -454,6 +516,11 @@ void KeyResolverCore::setSigningKeys(const QStringList &fingerprints)
 void KeyResolverCore::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides)
 {
     d->setOverrideKeys(overrides);
+}
+
+void KeyResolverCore::setAllowMixedProtocols(bool allowMixed)
+{
+    d->mAllowMixed = allowMixed;
 }
 
 void KeyResolverCore::setPreferredProtocol(Protocol proto)

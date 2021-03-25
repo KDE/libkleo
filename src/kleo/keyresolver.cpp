@@ -43,6 +43,7 @@ public:
         , mDialogWindowFlags(Qt::WindowFlags())
         , mPreferredProtocol(UnknownProtocol)
     {
+        mCore.setAllowMixedProtocols(allowMixed);
     }
 
     ~Private() = default;

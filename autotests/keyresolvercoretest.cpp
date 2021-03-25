@@ -132,6 +132,22 @@ private Q_SLOTS:
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
     }
 
+    void test_in_mixed_mode_smime_key_with_higher_validity_is_preferred_over_openpgp_key()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
+        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net", "prefer-smime@example.net"});
+
+        const bool success = resolver.resolve();
+
+        QVERIFY(success);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 3);
+        QVERIFY(resolver.encryptionKeys().value(UnknownProtocol).contains("sender-openpgp@example.net"));
+        QVERIFY(resolver.encryptionKeys().value(UnknownProtocol).contains("sender-smime@example.net"));
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("prefer-smime@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("prefer-smime@example.net")[0].primaryFingerprint(),
+                 testKey("prefer-smime@example.net", CMS).primaryFingerprint());
+    }
+
     void test_encryption_keys_result_has_no_entry_for_unresolved_recipients()
     {
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
