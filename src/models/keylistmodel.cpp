@@ -17,6 +17,7 @@
 #include "kleo/predicates.h"
 #include "kleo/keyfiltermanager.h"
 #include "kleo/keyfilter.h"
+#include "utils/algorithm.h"
 #include "utils/formatting.h"
 
 #ifdef KLEO_MODEL_TEST
@@ -732,8 +733,8 @@ QList<QModelIndex> FlatKeyListModel::doAddKeys(const std::vector<Key> &keys)
 void FlatKeyListModel::doRemoveKey(const Key &key)
 {
     const std::vector<Key>::iterator it
-        = qBinaryFind(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                      key, _detail::ByFingerprint<std::less>());
+        = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
+                            key, _detail::ByFingerprint<std::less>());
     if (it == mKeysByFingerprint.end()) {
         return;
     }
@@ -895,8 +896,8 @@ QModelIndex HierarchicalKeyListModel::parent(const QModelIndex &idx) const
         return {};
     }
     const std::vector<Key>::const_iterator it
-        = qBinaryFind(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                      cleanChainID(key), _detail::ByFingerprint<std::less>());
+        = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
+                            cleanChainID(key), _detail::ByFingerprint<std::less>());
     return it != mKeysByFingerprint.end() ? index(*it) : QModelIndex();
 }
 
@@ -975,7 +976,8 @@ void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Ke
         Q_EMIT dataChanged(createIndex(row, 0, const_cast<char *>(issuer_fpr)), createIndex(row, NumColumns - 1, const_cast<char *>(issuer_fpr)));
     } else {
         // doesn't exist -> insert
-        const std::vector<Key>::const_iterator pos = qBinaryFind(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
+        const std::vector<Key>::const_iterator pos = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
+                                                                       issuer_fpr, _detail::ByFingerprint<std::less>());
         Q_ASSERT(pos != mKeysByFingerprint.end());
         beginInsertRows(index(*pos), row, row);
         subjects.insert(it, key);
@@ -1039,7 +1041,7 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
             continue;
         }
         const std::vector<Key>::const_iterator it
-            = qBinaryFind(keys.begin(), keys.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
+            = Kleo::binary_find(keys.begin(), keys.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
         if (it == keys.end()) {
             continue;
         }
@@ -1089,7 +1091,7 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
             continue;
         }
 
-        const bool keyAlreadyExisted = qBinaryFind(oldKeys.begin(), oldKeys.end(), key, _detail::ByFingerprint<std::less>()) != oldKeys.end();
+        const bool keyAlreadyExisted = std::binary_search(oldKeys.begin(), oldKeys.end(), key, _detail::ByFingerprint<std::less>());
 
         const Map::iterator it = mKeysByNonExistingParent.find(fpr);
         const std::vector<Key> children = it != mKeysByNonExistingParent.end() ? it->second : std::vector<Key>();
@@ -1104,11 +1106,11 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
             auto lastFP = mKeysByFingerprint.begin();
 
             for (const Key &k : qAsConst(children)) {
-                last = qBinaryFind(last, mTopLevels.end(), k, _detail::ByFingerprint<std::less>());
+                last = Kleo::binary_find(last, mTopLevels.end(), k, _detail::ByFingerprint<std::less>());
                 Q_ASSERT(last != mTopLevels.end());
                 const int row = std::distance(mTopLevels.begin(), last);
 
-                lastFP = qBinaryFind(lastFP, mKeysByFingerprint.end(), k, _detail::ByFingerprint<std::less>());
+                lastFP = Kleo::binary_find(lastFP, mKeysByFingerprint.end(), k, _detail::ByFingerprint<std::less>());
                 Q_ASSERT(lastFP != mKeysByFingerprint.end());
 
                 Q_EMIT rowAboutToBeMoved(QModelIndex(), row);
@@ -1176,8 +1178,8 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
     if (mKeysByExistingParent.find(fpr) != mKeysByExistingParent.end()) {
         //handle non-leave nodes:
         std::vector<Key> keys = mKeysByFingerprint;
-        const std::vector<Key>::iterator it = qBinaryFind(keys.begin(), keys.end(),
-                                              key, _detail::ByFingerprint<std::less>());
+        const std::vector<Key>::iterator it = Kleo::binary_find(keys.begin(), keys.end(),
+                                                                key, _detail::ByFingerprint<std::less>());
         if (it == keys.end()) {
             return;
         }
@@ -1191,8 +1193,8 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
 
     //handle leave nodes:
 
-    const std::vector<Key>::iterator it = qBinaryFind(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                                          key, _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::iterator it = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
+                                                            key, _detail::ByFingerprint<std::less>());
 
     Q_ASSERT(it != mKeysByFingerprint.end());
     Q_ASSERT(mKeysByNonExistingParent.find(fpr) == mKeysByNonExistingParent.end());
@@ -1203,7 +1205,8 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
 
     const char *const issuer_fpr = cleanChainID(key);
 
-    const std::vector<Key>::iterator tlIt = qBinaryFind(mTopLevels.begin(), mTopLevels.end(), key, _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::iterator tlIt = Kleo::binary_find(mTopLevels.begin(), mTopLevels.end(),
+                                                              key, _detail::ByFingerprint<std::less>());
     if (tlIt != mTopLevels.end()) {
         mTopLevels.erase(tlIt);
     }
@@ -1211,7 +1214,8 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
     if (issuer_fpr && *issuer_fpr) {
         const Map::iterator nexIt = mKeysByNonExistingParent.find(issuer_fpr);
         if (nexIt != mKeysByNonExistingParent.end()) {
-            const std::vector<Key>::iterator eit = qBinaryFind(nexIt->second.begin(), nexIt->second.end(), key, _detail::ByFingerprint<std::less>());
+            const std::vector<Key>::iterator eit = Kleo::binary_find(nexIt->second.begin(), nexIt->second.end(),
+                                                                     key, _detail::ByFingerprint<std::less>());
             if (eit != nexIt->second.end()) {
                 nexIt->second.erase(eit);
             }
@@ -1222,7 +1226,8 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
 
         const Map::iterator exIt = mKeysByExistingParent.find(issuer_fpr);
         if (exIt != mKeysByExistingParent.end()) {
-            const std::vector<Key>::iterator eit = qBinaryFind(exIt->second.begin(), exIt->second.end(), key, _detail::ByFingerprint<std::less>());
+            const std::vector<Key>::iterator eit = Kleo::binary_find(exIt->second.begin(), exIt->second.end(),
+                                                                     key, _detail::ByFingerprint<std::less>());
             if (eit != exIt->second.end()) {
                 exIt->second.erase(eit);
             }

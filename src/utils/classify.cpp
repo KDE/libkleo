@@ -11,12 +11,12 @@
 
 #include "libkleo_debug.h"
 #include "kleo/checksumdefinition.h"
+#include "utils/algorithm.h"
 
 #include <QString>
 #include <QStringList>
 #include <QFile>
 #include <QFileInfo>
-#include <QtAlgorithms>
 #include <QByteArrayMatcher>
 #include <QMap>
 #include <QRegularExpression>
@@ -158,9 +158,9 @@ unsigned int Kleo::classify(const QStringList &fileNames)
 
 static unsigned int classifyExtension(const QFileInfo &fi)
 {
-    const _classification *const it = qBinaryFind(std::begin(classifications), std::end(classifications),
-                                      fi.suffix().toLatin1().constData(),
-                                      ByExtension<std::less>());
+    const _classification *const it = Kleo::binary_find(std::begin(classifications), std::end(classifications),
+                                                        fi.suffix().toLatin1().constData(),
+                                                        ByExtension<std::less>());
     if (it != std::end(classifications))
         if (!(it->classification & ExamineContentHint)) {
             return it->classification;
@@ -233,8 +233,9 @@ static unsigned int classifyContentInteral(const QByteArray &data)
     }
 
     const _content_classification *const cit
-        = qBinaryFind(std::begin(content_classifications), std::end(content_classifications),
-                      data.data() + pos, ByContent<std::less>(epos - pos));
+        = Kleo::binary_find(std::begin(content_classifications), std::end(content_classifications),
+                            data.data() + pos,
+                            ByContent<std::less>(epos - pos));
 
     if (cit != std::end(content_classifications)) {
         return cit->classification | (pgp ? Kleo::Class::OpenPGP : Kleo::Class::CMS);
@@ -350,9 +351,9 @@ QString Kleo::outputFileName(const QString &inputFileName)
 {
     const QFileInfo fi(inputFileName);
 
-    if (qBinaryFind(std::begin(classifications), std::end(classifications),
-                    fi.suffix().toLatin1().constData(),
-                    ByExtension<std::less>()) == std::end(classifications)) {
+    if (!std::binary_search(std::begin(classifications), std::end(classifications),
+                            fi.suffix().toLatin1().constData(),
+                            ByExtension<std::less>())) {
         return inputFileName + QLatin1String(".out");
     } else {
         return chopped(inputFileName, 4);
