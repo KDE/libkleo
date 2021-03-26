@@ -170,6 +170,7 @@ ecm_generate_headers(libkleo_CamelCase_models_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   HEADER_NAMES
+  Algorithm
   Classify
   FileSystemWatcher
   Formatting
