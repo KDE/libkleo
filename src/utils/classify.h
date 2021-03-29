@@ -7,17 +7,16 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include <gpgme++/global.h>
-
 #ifndef LIBKLEO_CLASSIFY_H
 #define LIBKLEO_CLASSIFY_H
 
-#include <QByteArray>
-
 #include <kleo_export.h>
 
+#include <gpgme++/global.h>
+
+class QByteArray;
 class QString;
-#include <QStringList>
+class QStringList;
 
 namespace Kleo
 {
