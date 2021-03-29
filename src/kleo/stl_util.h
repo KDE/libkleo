@@ -253,8 +253,4 @@ bool set_intersects(ForwardIterator first1,  ForwardIterator last1,
     return false;
 }
 
-//@{
-
 }
-
-
