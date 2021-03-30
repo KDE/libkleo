@@ -68,6 +68,11 @@ static int minimumValidity(const std::vector<Key> &keys, const QString &address)
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
 
+bool allKeysHaveProtocol(const std::vector<Key> &keys, Protocol protocol)
+{
+    return std::all_of(keys.cbegin(), keys.cend(), [protocol] (const Key &key) { return key.protocol() == protocol; });
+}
+
 } // namespace
 
 class KeyResolverCore::Private
@@ -244,6 +249,7 @@ void KeyResolverCore::Private::resolveOverrides()
                 // Skip overrides for the wrong format
                 continue;
             }
+            std::vector<Key> keys;
             for (const auto &fprOrId: fingerprints) {
                 const Key key = mCache->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());
                 if (key.isNull()) {
@@ -256,16 +262,10 @@ void KeyResolverCore::Private::resolveOverrides()
                                          << address;
                     continue;
                 }
-
-                Protocol resolvedFmt = protocol;
-                if (protocol == UnknownProtocol) {
-                    // Take the format from the key.
-                    resolvedFmt = key.protocol();
-                }
-                mEncKeys[address][resolvedFmt].push_back(key);
-
-                qCDebug(LIBKLEO_LOG) << "Override" << address << Formatting::displayName(resolvedFmt) << fprOrId;
+                qCDebug(LIBKLEO_LOG) << "Using key" << Formatting::summaryLine(key) << "as" << Formatting::displayName(protocol) << "override for" << address;
+                keys.push_back(key);
             }
+            mEncKeys[address][protocol] = keys;
         }
     }
 }
@@ -357,7 +357,19 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
         const QString &address = it.key();
         auto &protocolKeysMap = it.value();
         if (!protocolKeysMap[proto].empty()) {
+            // already resolved for current protocol (by override)
             continue;
+        }
+        const std::vector<Key> &commonOverride = protocolKeysMap[UnknownProtocol];
+        if (!commonOverride.empty()) {
+            // there is a common override; use it for current protocol if possible
+            if (allKeysHaveProtocol(commonOverride, proto)) {
+                protocolKeysMap[proto] = commonOverride;
+                continue;
+            } else {
+                qCDebug(LIBKLEO_LOG) << "Common override for" << address << "is unusable for" << Formatting::displayName(proto);
+                continue;
+            }
         }
         protocolKeysMap[proto] = resolveRecipient(address, proto);
     }
@@ -439,15 +451,20 @@ bool KeyResolverCore::Private::resolve()
     if (mAllowMixed && mFormat == UnknownProtocol) {
         mergeEncryptionKeys();
     }
+    const QStringList unresolvedMerged = unresolvedRecipients(UnknownProtocol);
 
     // Check if we need the user to select different keys.
     bool needsUser = false;
     if (!pgpOnly && !cmsOnly) {
-        for (const auto &unresolved: unresolvedPGP) {
-            if (unresolvedCMS.contains(unresolved)) {
-                // We have at least one unresolvable key.
-                needsUser = true;
-                break;
+        if (mAllowMixed && mFormat == UnknownProtocol) {
+            needsUser = !unresolvedMerged.empty();
+        } else {
+            for (const auto &unresolved: unresolvedPGP) {
+                if (unresolvedCMS.contains(unresolved)) {
+                    // We have at least one unresolvable key.
+                    needsUser = true;
+                    break;
+                }
             }
         }
         if (mSign) {
