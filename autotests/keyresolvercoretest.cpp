@@ -51,7 +51,7 @@ private Q_SLOTS:
             QCOMPARE(openpgp.userID(0).validity(), UserID::Ultimate);
             const Key smime = testKey("sender-mixed@example.net", CMS);
             QVERIFY(smime.hasSecret() && smime.canEncrypt() && smime.canSign());
-            QCOMPARE(smime.userID(0).validity(), UserID::Ultimate);
+            QCOMPARE(smime.userID(0).validity(), UserID::Full);
         }
         {
             const Key openpgp = testKey("sender-openpgp@example.net", OpenPGP);
@@ -59,9 +59,25 @@ private Q_SLOTS:
             QCOMPARE(openpgp.userID(0).validity(), UserID::Ultimate);
         }
         {
+            const Key smime = testKey("sender-smime@example.net", CMS);
+            QVERIFY(smime.hasSecret() && smime.canEncrypt() && smime.canSign());
+            QCOMPARE(smime.userID(0).validity(), UserID::Full);
+        }
+        {
             const Key openpgp = testKey("prefer-openpgp@example.net", OpenPGP);
             QVERIFY(openpgp.canEncrypt());
+            QCOMPARE(openpgp.userID(0).validity(), UserID::Ultimate);
+            const Key smime = testKey("prefer-openpgp@example.net", CMS);
+            QVERIFY(smime.canEncrypt());
+            QCOMPARE(smime.userID(0).validity(), UserID::Full);
+        }
+        {
+            const Key openpgp = testKey("full-validity@example.net", OpenPGP);
+            QVERIFY(openpgp.canEncrypt());
             QCOMPARE(openpgp.userID(0).validity(), UserID::Full);
+            const Key smime = testKey("full-validity@example.net", CMS);
+            QVERIFY(smime.canEncrypt());
+            QCOMPARE(smime.userID(0).validity(), UserID::Full);
         }
         {
             const Key openpgp = testKey("prefer-smime@example.net", OpenPGP);
@@ -69,7 +85,7 @@ private Q_SLOTS:
             QCOMPARE(openpgp.userID(0).validity(), UserID::Marginal);
             const Key smime = testKey("prefer-smime@example.net", CMS);
             QVERIFY(smime.canEncrypt());
-            QVERIFY(smime.userID(0).validity() >= UserID::Full);
+            QCOMPARE(smime.userID(0).validity(), UserID::Full);
         }
     }
 
@@ -132,17 +148,20 @@ private Q_SLOTS:
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
     }
 
-    void test_in_mixed_mode_smime_key_with_higher_validity_is_preferred_over_openpgp_key()
+    void test_in_mixed_mode_keys_with_higher_validity_are_preferred()
     {
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
-        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net", "prefer-smime@example.net"});
+        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net", "prefer-openpgp@example.net", "prefer-smime@example.net"});
 
         const bool success = resolver.resolve();
 
         QVERIFY(success);
-        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 3);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 4);
         QVERIFY(resolver.encryptionKeys().value(UnknownProtocol).contains("sender-openpgp@example.net"));
         QVERIFY(resolver.encryptionKeys().value(UnknownProtocol).contains("sender-smime@example.net"));
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("prefer-openpgp@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("prefer-openpgp@example.net")[0].primaryFingerprint(),
+                 testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("prefer-smime@example.net").size(), 1);
         QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("prefer-smime@example.net")[0].primaryFingerprint(),
                  testKey("prefer-smime@example.net", CMS).primaryFingerprint());
