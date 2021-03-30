@@ -300,6 +300,33 @@ private Q_SLOTS:
         QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 0);
     }
 
+    void test_overrides_for_wrong_protocol_are_ignored()
+    {
+        const QString override1 = testKey("full-validity@example.net", CMS).primaryFingerprint();
+        const QString override2 = testKey("full-validity@example.net", OpenPGP).primaryFingerprint();
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
+        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+        resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("Needs to be normalized <sender-openpgp@example.net>"), {override1}}}}});
+        resolver.setOverrideKeys({{CMS, {{QStringLiteral("Needs to be normalized <sender-smime@example.net>"), {override2}}}}});
+
+        const bool success = resolver.resolve();
+
+        QVERIFY(success);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-openpgp@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).value("sender-openpgp@example.net")[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+        QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-smime@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).value("sender-smime@example.net")[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-openpgp@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-openpgp@example.net")[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-smime@example.net").size(), 1);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-smime@example.net")[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
 private:
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
     {
