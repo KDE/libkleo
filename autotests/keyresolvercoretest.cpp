@@ -21,6 +21,16 @@
 using namespace Kleo;
 using namespace GpgME;
 
+namespace QTest
+{
+template <>
+inline bool qCompare(GpgME::UserID::Validity const &t1, GpgME::UserID::Validity const &t2, const char *actual, const char *expected,
+                    const char *file, int line)
+{
+    return qCompare(int(t1), int(t2), actual, expected, file, line);
+}
+}
+
 class KeyResolverCoreTest: public QObject
 {
     Q_OBJECT
