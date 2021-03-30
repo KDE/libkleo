@@ -251,6 +251,11 @@ void KeyResolverCore::Private::resolveOverrides()
                         << "fpr:" << fprOrId;
                     continue;
                 }
+                if (protocol != UnknownProtocol && key.protocol() != protocol) {
+                    qCDebug(LIBKLEO_LOG) << "Ignoring key" << Formatting::summaryLine(key) << "given as" << Formatting::displayName(protocol) << "override for"
+                                         << address;
+                    continue;
+                }
 
                 Protocol resolvedFmt = protocol;
                 if (protocol == UnknownProtocol) {
