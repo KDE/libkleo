@@ -363,6 +363,24 @@ private Q_SLOTS:
         QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-smime@example.net")[0].primaryFingerprint(), override);
     }
 
+    void test_mixed_protocol_common_overrides_override_protocol_specific_resolution()
+    {
+        const QString override1 = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
+        const QString override2 = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
+        resolver.setOverrideKeys({{UnknownProtocol, {{QStringLiteral("sender-mixed@example.net"), {override1, override2}}}}});
+
+        const bool success = resolver.resolve();
+
+        QVERIFY(success);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 0);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 0);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-mixed@example.net").size(), 2);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-mixed@example.net")[0].primaryFingerprint(), override1);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-mixed@example.net")[1].primaryFingerprint(), override2);
+    }
+
 private:
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
     {
