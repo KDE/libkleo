@@ -224,7 +224,30 @@ void KeyResolverCore::Private::setOverrideKeys(const QMap<Protocol, QMap<QString
     }
 }
 
-// Apply the overrides this is also where specific formats come in
+namespace
+{
+std::vector<Key> resolveOverride(const QString &address, Protocol protocol, const QStringList &fingerprints)
+{
+    std::vector<Key> keys;
+    for (const auto &fprOrId: fingerprints) {
+        const Key key = KeyCache::instance()->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());
+        if (key.isNull()) {
+            // FIXME: Report to caller
+            qCDebug (LIBKLEO_LOG) << "Failed to find override key for:" << address << "fpr:" << fprOrId;
+            continue;
+        }
+        if (protocol != UnknownProtocol && key.protocol() != protocol) {
+            qCDebug(LIBKLEO_LOG) << "Ignoring key" << Formatting::summaryLine(key) << "given as" << Formatting::displayName(protocol) << "override for"
+                                 << address;
+            continue;
+        }
+        qCDebug(LIBKLEO_LOG) << "Using key" << Formatting::summaryLine(key) << "as" << Formatting::displayName(protocol) << "override for" << address;
+        keys.push_back(key);
+    }
+    return keys;
+}
+}
+
 void KeyResolverCore::Private::resolveOverrides()
 {
     if (!mEncrypt) {
@@ -241,31 +264,22 @@ void KeyResolverCore::Private::resolveOverrides()
             continue;
         }
 
-        for (auto protocolIt = protocolFingerprintsMap.cbegin(); protocolIt != protocolFingerprintsMap.cend(); ++protocolIt) {
-            const Protocol protocol = protocolIt.key();
-            const QStringList &fingerprints = protocolIt.value();
-            if ((mFormat == OpenPGP && protocol == CMS) ||
-                (mFormat == CMS && protocol == OpenPGP)) {
-                // Skip overrides for the wrong format
-                continue;
+        const QStringList commonOverride = protocolFingerprintsMap.value(UnknownProtocol);
+        if (!commonOverride.empty()) {
+            mEncKeys[address][UnknownProtocol] = resolveOverride(address, UnknownProtocol, commonOverride);
+            if (protocolFingerprintsMap.contains(OpenPGP)) {
+                qCDebug(LIBKLEO_LOG) << "Ignoring OpenPGP-specific override for" << address << "in favor of common override";
             }
-            std::vector<Key> keys;
-            for (const auto &fprOrId: fingerprints) {
-                const Key key = mCache->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());
-                if (key.isNull()) {
-                    qCDebug (LIBKLEO_LOG) << "Failed to find override key for:" << address
-                        << "fpr:" << fprOrId;
-                    continue;
-                }
-                if (protocol != UnknownProtocol && key.protocol() != protocol) {
-                    qCDebug(LIBKLEO_LOG) << "Ignoring key" << Formatting::summaryLine(key) << "given as" << Formatting::displayName(protocol) << "override for"
-                                         << address;
-                    continue;
-                }
-                qCDebug(LIBKLEO_LOG) << "Using key" << Formatting::summaryLine(key) << "as" << Formatting::displayName(protocol) << "override for" << address;
-                keys.push_back(key);
+            if (protocolFingerprintsMap.contains(CMS)) {
+                qCDebug(LIBKLEO_LOG) << "Ignoring S/MIME-specific override for" << address << "in favor of common override";
             }
-            mEncKeys[address][protocol] = keys;
+        } else {
+            if (mFormat != CMS) {
+                mEncKeys[address][OpenPGP] = resolveOverride(address, OpenPGP, protocolFingerprintsMap.value(OpenPGP));
+            }
+            if (mFormat != OpenPGP) {
+                mEncKeys[address][CMS] = resolveOverride(address, CMS, protocolFingerprintsMap.value(CMS));
+            }
         }
     }
 }
