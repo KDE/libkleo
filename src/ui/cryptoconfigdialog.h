@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef CRYPTOCONFIGDIALOG_H
-#define CRYPTOCONFIGDIALOG_H
+#pragma once
 
 #include "kleo_export.h"
 #include <QDialog>
@@ -50,5 +49,4 @@ private:
 
 }
 
-#endif /* CRYPTOCONFIGDIALOG_H */
 

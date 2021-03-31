@@ -8,8 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_MODELS_USERIDLISTMODEL_H__
-#define __KLEOPATRA_MODELS_USERIDLISTMODEL_H__
+#pragma once
 
 #include <QAbstractItemModel>
 
@@ -58,4 +57,3 @@ private:
 
 }
 
-#endif /* __KLEOPATRA_MODELS_USERIDLISTMODEL_H__ */

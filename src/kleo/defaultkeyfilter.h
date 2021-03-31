@@ -10,8 +10,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_DEFAULTKEYFILTER_H__
-#define __KLEO_DEFAULTKEYFILTER_H__
+#pragma once
 
 #include "keyfilter.h"
 
@@ -135,4 +134,3 @@ private:
 };
 
 } // namespace Kleo
-#endif

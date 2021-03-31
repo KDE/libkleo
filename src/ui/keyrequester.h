@@ -13,8 +13,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#ifndef __KLEO_UI_KEYREQUESTER_H__
-#define __KLEO_UI_KEYREQUESTER_H__
+#pragma once
 
 #include "kleo_export.h"
 
@@ -201,4 +200,3 @@ protected:
 
 }
 
-#endif // __KLEO_UI_KEYREQUESTER_H__

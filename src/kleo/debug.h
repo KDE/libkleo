@@ -8,8 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef LIBKLEO_DEBUG_H
-#define LIBKLEO_DEBUG_H
+#pragma once
 
 #include "kleo_export.h"
 
@@ -22,4 +21,3 @@ class QDebug;
 
 KLEO_EXPORT QDebug operator<<(QDebug debug, const Kleo::KeyGroup &group);
 
-#endif // LIBKLEO_DEBUG_H

@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_UTILS_FILESYSTEMWATCHER_H__
-#define __KLEOPATRA_UTILS_FILESYSTEMWATCHER_H__
+#pragma once
 
 #include <QObject>
 
@@ -55,4 +54,3 @@ private:
 };
 }
 
-#endif // __KLEOPATRA_UTILS_FILESYSTEMWATCHER_H__

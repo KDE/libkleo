@@ -8,8 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef ABSTRACTKEYLISTMODELTEST_H
-#define ABSTRACTKEYLISTMODELTEST_H
+#pragma once
 
 #include <QObject>
 
@@ -37,4 +36,3 @@ private:
     virtual Kleo::AbstractKeyListModel *createModel() = 0;
 };
 
-#endif // ABSTRACTKEYLISTMODELTEST_H

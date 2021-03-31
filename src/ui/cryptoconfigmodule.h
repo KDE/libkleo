@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef CRYPTOCONFIGMODULE_H
-#define CRYPTOCONFIGMODULE_H
+#pragma once
 
 #include "kleo_export.h"
 #include <kpagedialog.h>
@@ -66,4 +65,3 @@ private:
 
 }
 
-#endif

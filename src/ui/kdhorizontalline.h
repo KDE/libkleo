@@ -11,8 +11,7 @@
 **
 **********************************************************************/
 
-#ifndef __KDTOOLS__KDHORIZONTALLINE_H__
-#define __KDTOOLS__KDHORIZONTALLINE_H__
+#pragma once
 
 #include "kleo_export.h"
 
@@ -56,5 +55,4 @@ private:
     int mLenVisible;
 };
 
-#endif /* __KDTOOLS__KDHORIZONTALLINE_H__ */
 

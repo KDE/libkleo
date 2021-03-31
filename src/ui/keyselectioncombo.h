@@ -4,8 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KLEO_KEYSELECTIONCOMBO_H
-#define KLEO_KEYSELECTIONCOMBO_H
+#pragma once
 
 #include <QComboBox>
 
@@ -70,4 +69,3 @@ private:
 };
 
 }
-#endif

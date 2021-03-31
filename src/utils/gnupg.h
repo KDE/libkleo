@@ -8,8 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_GNUPGHELPER_H__
-#define __KLEOPATRA_GNUPGHELPER_H__
+#pragma once
 
 #include <gpgme++/engineinfo.h>
 #include <gpgme++/key.h>
@@ -61,4 +60,3 @@ KLEO_EXPORT QString stringFromGpgOutput(const QByteArray &ba);
 KLEO_EXPORT bool versionIsAtLeast(const char *minimum, const char *actual);
 }
 
-#endif // __KLEOPATRA_GNUPGHELPER_H__

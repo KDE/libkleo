@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_MODELS_KEYCACHE_H__
-#define __KLEOPATRA_MODELS_KEYCACHE_H__
+#pragma once
 
 #include <QObject>
 
@@ -183,4 +182,3 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeyCache::Options)
 
-#endif /* __KLEOPATRA_MODELS_KEYCACHE_H__ */

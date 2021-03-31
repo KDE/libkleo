@@ -4,8 +4,7 @@
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef AUDITLOGVIEWER_H
-#define AUDITLOGVIEWER_H
+#pragma once
 
 #include <QDialog>
 
@@ -56,4 +55,3 @@ private:
 
 }
 }
-#endif // AUDITLOGVIEWER_H

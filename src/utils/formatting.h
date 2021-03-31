@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_UTILS_FORMATTING_H__
-#define __KLEOPATRA_UTILS_FORMATTING_H__
+#pragma once
 
 #include <gpgme++/key.h>
 
@@ -157,4 +156,3 @@ KLEO_EXPORT QString origin(int o);
 }
 }
 
-#endif /* __KLEOPATRA_UTILS_FORMATTING_H__ */

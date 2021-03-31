@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_PROGRESSBAR_H__
-#define __KLEO_PROGRESSBAR_H__
+#pragma once
 
 #include "kleo_export.h"
 #include <QProgressBar>
@@ -53,4 +52,3 @@ private:
 };
 }
 
-#endif // __KLEO_PROGRESSBAR_H__

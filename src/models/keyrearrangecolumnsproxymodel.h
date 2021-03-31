@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KEYREARRANGECOLUMNSPROXYMODEL_H
-#define KEYREARRANGECOLUMNSPROXYMODEL_H
+#pragma once
 
 #include "keylistmodelinterface.h"
 
@@ -42,4 +41,3 @@ private:
     KeyListModelInterface *klm() const;
 };
 } // namespace Kleo
-#endif // KEYREARRANGECOLUMNSPROXYMODEL_H

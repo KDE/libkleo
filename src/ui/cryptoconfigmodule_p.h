@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef CRYPTOCONFIGMODULE_P_H
-#define CRYPTOCONFIGMODULE_P_H
+#pragma once
 
 #include <QWidget>
 
@@ -307,4 +306,3 @@ private:
 };
 }
 
-#endif // CRYPTOCONFIGMODULE_P_H

@@ -7,8 +7,7 @@
 **
 **********************************************************************/
 
-#ifndef __KDTOOLSCORE_STL_UTIL_H__
-#define __KDTOOLSCORE_STL_UTIL_H__
+#pragma once
 
 #include <algorithm>
 #include <numeric>
@@ -258,5 +257,4 @@ bool set_intersects(ForwardIterator first1,  ForwardIterator last1,
 
 }
 
-#endif /* __KDTOOLSCORE_STL_UTIL_H__ */
 

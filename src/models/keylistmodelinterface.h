@@ -9,8 +9,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_MODELS_KEYLISTMODELINTERFACE_H__
-#define __KLEOPATRA_MODELS_KEYLISTMODELINTERFACE_H__
+#pragma once
 
 #include <vector>
 
@@ -45,4 +44,3 @@ public:
 
 }
 
-#endif /* __KLEOPATRA_MODELS_KEYLISTMODELINTERFACE_H__ */

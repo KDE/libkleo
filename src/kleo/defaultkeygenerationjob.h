@@ -4,8 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef LIBKLEO_DEFAULTKEYGENERATIONJOB_H
-#define LIBKLEO_DEFAULTKEYGENERATIONJOB_H
+#pragma once
 
 #include <qgpgme/job.h>
 
@@ -61,4 +60,3 @@ private:
 
 }
 
-#endif

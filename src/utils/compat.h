@@ -8,8 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef LIBKLEO_COMPAT_H
-#define LIBKLEO_COMPAT_H
+#pragma once
 
 #include "kleo_export.h"
 
@@ -26,4 +25,3 @@ KLEO_EXPORT QGpgME::CryptoConfigEntry *getCryptoConfigEntry(const QGpgME::Crypto
 
 }
 
-#endif // LIBKLEO_COMPAT_H

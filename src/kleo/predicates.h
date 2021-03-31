@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_MODELS_PREDICATES_H__
-#define __KLEOPATRA_MODELS_PREDICATES_H__
+#pragma once
 
 #include <gpgme++/key.h>
 
@@ -186,4 +185,3 @@ void grep_can_encrypt(T &t)
 }
 }
 
-#endif /* __KLEOPATRA_MODELS_PREDICATES_H__ */

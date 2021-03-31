@@ -8,8 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef LIBKLEO_ALGORITHM_H
-#define LIBKLEO_ALGORITHM_H
+#pragma once
 
 #include <algorithm>
 
@@ -32,4 +31,3 @@ ForwardIterator binary_find(ForwardIterator first, ForwardIterator last, const T
 
 }
 
-#endif // LIBKLEO_ALGORITHM_H

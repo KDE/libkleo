@@ -11,8 +11,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_UI_KEYSELECTIONDIALOG_H__
-#define __KLEO_UI_KEYSELECTIONDIALOG_H__
+#pragma once
 
 #include "kleo_export.h"
 
@@ -199,4 +198,3 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeySelectionDialog::Options)
 
-#endif // __KLEO_UI_KEYSELECTIONDIALOG_H__

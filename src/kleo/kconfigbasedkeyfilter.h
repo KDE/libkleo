@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_KCONFIGBASEDKEYFILTER_H__
-#define __KLEO_KCONFIGBASEDKEYFILTER_H__
+#pragma once
 
 #include "defaultkeyfilter.h"
 
@@ -25,4 +24,3 @@ public:
 
 }
 
-#endif // __KLEO_KCONFIGBASEDKEYFILTER_H__

@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_DN_H__
-#define __KLEO_DN_H__
+#pragma once
 
 #include "kleo_export.h"
 
@@ -137,4 +136,3 @@ private:
 
 }
 
-#endif // __KLEO_DN_H__

@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_UI_FILENAMEREQUESTER_H__
-#define __KLEOPATRA_UI_FILENAMEREQUESTER_H__
+#pragma once
 
 #include "kleo_export.h"
 
@@ -54,4 +53,3 @@ private:
 
 }
 
-#endif /* __KLEOPATRA_UI_FILENAMEREQUESTER_H__ */

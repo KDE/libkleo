@@ -11,8 +11,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_KEYAPPROVALDIALOG_H__
-#define __KLEO_KEYAPPROVALDIALOG_H__
+#pragma once
 
 #include "kleo_export.h"
 #include "libkleo/enum.h"
@@ -65,4 +64,3 @@ private:
 
 } // namespace Kleo
 
-#endif // __KLEO_KEYAPPROVALDIALOG_H__

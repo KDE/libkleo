@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_TESTS_GNUPGVIEWER_H__
-#define __KLEO_TESTS_GNUPGVIEWER_H__
+#pragma once
 
 #include <QTextEdit>
 #include <QString>
@@ -39,4 +38,3 @@ private:
     QString mLastStdout, mLastStderr, mLastStatus;
 };
 
-#endif // __KLEO_TESTS_GNUPGVIEWER_H__

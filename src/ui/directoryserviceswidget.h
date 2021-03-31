@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef DIRECTORYSERVICESWIDGET_H
-#define DIRECTORYSERVICESWIDGET_H
+#pragma once
 
 #include "kleo_export.h"
 #include <QUrl>
@@ -118,4 +117,3 @@ inline void Kleo::DirectoryServicesWidget::setX509ReadOnly(bool ro)
     }
 }
 
-#endif // DIRECTORYSERVICESWIDGET_H

@@ -8,8 +8,7 @@
 
 /* keep this in sync with svn://cvs.gnupg.org/gpgex/trunk/src/registry.h (last checked against rev. 19) */
 
-#ifndef REGISTRY_H
-#define REGISTRY_H
+#pragma once
 
 #include <windows.h>
 
@@ -40,4 +39,3 @@ char *default_homedir(void);
 }
 #endif
 
-#endif /* ! REGISTRY_H */

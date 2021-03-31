@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#ifndef __KLEO_TEST_KEYLISTER_H__
-#define __KLEO_TEST_KEYLISTER_H__
+#pragma once
 
 #include "ui/keylistview.h"
 
@@ -30,4 +29,3 @@ public Q_SLOTS:
     void slotStart();
 };
 
-#endif // __KLEO_TEST_KEYLISTER_H__

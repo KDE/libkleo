@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#ifndef __KLEO_TEST_KEYGEN_H__
-#define __KLEO_TEST_KEYGEN_H__
+#pragma once
 
 #include <QDialog>
 
@@ -39,4 +38,3 @@ private:
     QLineEdit *mLineEdits[20];
 };
 
-#endif // __KLEO_TEST_KEYGEN_H__

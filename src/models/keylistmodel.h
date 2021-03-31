@@ -9,8 +9,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_MODELS_KEYLISTMODEL_H__
-#define __KLEOPATRA_MODELS_KEYLISTMODEL_H__
+#pragma once
 
 #include <QAbstractItemModel>
 
@@ -127,4 +126,3 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::AbstractKeyListModel::ItemTypes)
 
-#endif /* __KLEOPATRA_MODELS_KEYLISTMODEL_H__ */

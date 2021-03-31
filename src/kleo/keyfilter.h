@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEO_KEYFILTER_H__
-#define __KLEO_KEYFILTER_H__
+#pragma once
 
 #include <QFlags>
 
@@ -95,4 +94,3 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(KeyFilter::MatchContexts)
 
 }
 
-#endif // __KLEO_KEYFILTER_H__

@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef __KLEOPATRA_MODELS_KEYLISTSORTFILTERPROXYMODEL_H__
-#define __KLEOPATRA_MODELS_KEYLISTSORTFILTERPROXYMODEL_H__
+#pragma once
 
 #include <QSortFilterProxyModel>
 
@@ -79,4 +78,3 @@ private:
 
 }
 
-#endif /* __KLEOPATRA_MODELS_KEYLISTMODEL_H__ */

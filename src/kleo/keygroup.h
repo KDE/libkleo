@@ -8,8 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef LIBKLEO_KEYGROUP_H
-#define LIBKLEO_KEYGROUP_H
+#pragma once
 
 #include "kleo_export.h"
 
@@ -78,4 +77,3 @@ private:
 
 }
 
-#endif // LIBKLEO_KEYGROUP_H

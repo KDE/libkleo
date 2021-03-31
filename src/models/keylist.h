@@ -9,8 +9,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef LIBKLEO_KEYLIST_H
-#define LIBKLEO_KEYLIST_H
+#pragma once
 
 namespace Kleo
 {
@@ -49,4 +48,3 @@ namespace KeyList
 }
 }
 
-#endif /* LIBKLEO_KEYLIST_H */
