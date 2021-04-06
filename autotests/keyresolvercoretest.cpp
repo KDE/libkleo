@@ -177,20 +177,43 @@ private Q_SLOTS:
                  testKey("prefer-smime@example.net", CMS).primaryFingerprint());
     }
 
-    void test_encryption_keys_result_has_no_entry_for_unresolved_recipients()
+    void test_reports_failure_if_both_protocols_are_allowed_but_no_keys_are_found_for_an_address()
     {
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
-        resolver.setRecipients({"prefer-smime@example.net", "unknown@example.net"});
+        resolver.setRecipients({"unknown@example.net"});
 
         const bool success = resolver.resolve();
 
         QVERIFY(!success);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 0);
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 0);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 0);
+    }
+
+    void test_reports_failure_if_openpgp_is_requested_and_no_openpgp_keys_are_found_for_an_adddress()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, OpenPGP);
+        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+
+        const bool success = resolver.resolve();
+        QVERIFY(!success);
         QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
-        QVERIFY(resolver.encryptionKeys().value(OpenPGP).contains("prefer-smime@example.net"));
-        QVERIFY(!resolver.encryptionKeys().value(OpenPGP).contains("unknown@example.net"));
+        QVERIFY(resolver.encryptionKeys().value(OpenPGP).contains("sender-openpgp@example.net"));
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 0);
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 0);
+    }
+
+    void test_reports_failure_if_smime_is_requested_and_no_smime_keys_are_found_for_an_adddress()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, CMS);
+        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+
+        const bool success = resolver.resolve();
+        QVERIFY(!success);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 0);
         QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 1);
-        QVERIFY(resolver.encryptionKeys().value(CMS).contains("prefer-smime@example.net"));
-        QVERIFY(!resolver.encryptionKeys().value(CMS).contains("unknown@example.net"));
+        QVERIFY(resolver.encryptionKeys().value(CMS).contains("sender-smime@example.net"));
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 0);
     }
 
     void test_openpgp_overrides_are_used_if_both_protocols_are_allowed()
