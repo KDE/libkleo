@@ -38,6 +38,7 @@
 #include <KMessageBox>
 
 using namespace Kleo;
+using namespace GpgME;
 
 namespace {
 class OpenPGPFilter: public DefaultKeyFilter
@@ -326,6 +327,16 @@ public:
 
     ~Private() = default;
 
+    Protocol currentProtocol()
+    {
+        if (!mAllowMixed && mFormatBtns->checkedId() == 1) {
+            return OpenPGP;
+        } else if (!mAllowMixed && mFormatBtns->checkedId() == 2) {
+            return CMS;
+        }
+        return UnknownProtocol;
+    }
+
     void generateKey(KeySelectionCombo *combo)
     {
         const auto &addr = combo->property("address").toString();
@@ -374,8 +385,7 @@ public:
             return;
         }
         /* Save the keys */
-        bool isPGP = mFormatBtns->checkedId() == 1;
-        bool isSMIME = mFormatBtns->checkedId() == 2;
+        const Protocol protocol = currentProtocol();
 
         mAcceptedEnc.clear();
         mAcceptedSig.clear();
@@ -386,10 +396,7 @@ public:
             if (!combo->isVisible()) {
                 continue;
             }
-            if (isSMIME && key.protocol() != GpgME::CMS) {
-                continue;
-            }
-            if (isPGP && key.protocol() != GpgME::OpenPGP) {
+            if (protocol != UnknownProtocol && key.protocol() != protocol) {
                 continue;
             }
             if (mAcceptedEnc.contains(addr)) {
@@ -405,10 +412,7 @@ public:
             if (!combo->isVisible()) {
                 continue;
             }
-            if (isSMIME && key.protocol() != GpgME::CMS) {
-                continue;
-            }
-            if (isPGP && key.protocol() != GpgME::OpenPGP) {
+            if (protocol != UnknownProtocol && key.protocol() != protocol) {
                 continue;
             }
             mAcceptedSig.push_back(combo->currentKey());
@@ -435,16 +439,18 @@ public:
 
     void updateFilter()
     {
-        const bool isPGP = !mAllowMixed && mFormatBtns->checkedId() == 1;
-        const bool isSMIME = !mAllowMixed && mFormatBtns->checkedId() == 2;
+        const Protocol protocol = currentProtocol();
 
-        if (isSMIME) {
+        switch (protocol) {
+        case CMS:
             mCurEncFilter = s_smimeFilter;
             mCurSigFilter = s_smimeSignFilter;
-        } else if (isPGP) {
+            break;
+        case OpenPGP:
             mCurEncFilter = s_pgpFilter;
             mCurSigFilter = s_pgpSignFilter;
-        } else {
+            break;
+        default:
             mCurEncFilter = s_defaultFilter;
             mCurSigFilter = s_signFilter;
         }
@@ -459,8 +465,7 @@ public:
             }
             widget->setVisible(mAllowMixed ||
                                widget->fromOverride() == GpgME::UnknownProtocol ||
-                               (isSMIME && widget->fromOverride() == GpgME::CMS) ||
-                               (isPGP && widget->fromOverride() == GpgME::OpenPGP));
+                               (protocol != UnknownProtocol && widget->fromOverride() == protocol));
         }
         for (auto combo: qAsConst(mEncCombos)) {
             auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
@@ -473,8 +478,7 @@ public:
             }
             widget->setVisible(mAllowMixed ||
                                widget->fromOverride() == GpgME::UnknownProtocol ||
-                               (isSMIME && widget->fromOverride() == GpgME::CMS) ||
-                               (isPGP && widget->fromOverride() == GpgME::OpenPGP));
+                               (protocol != UnknownProtocol && widget->fromOverride() == protocol));
         }
     }
 
@@ -724,18 +728,14 @@ public:
         // Handle compliance
         bool de_vs = true;
 
-        bool isPGP = mFormatBtns->checkedId() == 1;
-        bool isSMIME = mFormatBtns->checkedId() == 2;
+        const Protocol protocol = currentProtocol();
 
         for (const auto combo: qAsConst(mEncCombos)) {
             const auto &key = combo->currentKey();
             if (!combo->isVisible()) {
                 continue;
             }
-            if (isSMIME && key.protocol() != GpgME::CMS) {
-                continue;
-            }
-            if (isPGP && key.protocol() != GpgME::OpenPGP) {
+            if (protocol != UnknownProtocol && key.protocol() != protocol) {
                 continue;
             }
             if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
@@ -749,10 +749,7 @@ public:
                 if (!combo->isVisible()) {
                     continue;
                 }
-                if (isSMIME && key.protocol() != GpgME::CMS) {
-                    continue;
-                }
-                if (isPGP && key.protocol() != GpgME::OpenPGP) {
+                if (protocol != UnknownProtocol && key.protocol() != protocol) {
                     continue;
                 }
                 if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
