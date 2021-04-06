@@ -436,6 +436,17 @@ QStringList KeyResolverCore::Private::unresolvedRecipients(GpgME::Protocol proto
     return result;
 }
 
+namespace
+{
+bool hasUnresolvedRecipients(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol protocol)
+{
+    return std::any_of(std::cbegin(encryptionKeys), std::cend(encryptionKeys),
+                       [protocol] (const auto &protocolKeysMap) {
+                           return protocolKeysMap.value(protocol).empty();
+                       });
+}
+}
+
 bool KeyResolverCore::Private::resolve()
 {
     qCDebug(LIBKLEO_LOG) << "Starting ";
@@ -452,34 +463,28 @@ bool KeyResolverCore::Private::resolve()
         resolveSign(OpenPGP);
         resolveEnc(OpenPGP);
     }
-    const QStringList unresolvedPGP = unresolvedRecipients(OpenPGP);
-    bool pgpOnly = unresolvedPGP.empty() && (!mSign || mSigKeys.contains(OpenPGP));
+    const bool pgpOnly = !hasUnresolvedRecipients(mEncKeys, OpenPGP) && (!mSign || mSigKeys.contains(OpenPGP));
 
     if (mFormat != OpenPGP) {
         resolveSign(CMS);
         resolveEnc(CMS);
     }
-    const QStringList unresolvedCMS = unresolvedRecipients(CMS);
-    bool cmsOnly = unresolvedCMS.empty() && (!mSign || mSigKeys.contains(CMS));
+    const bool cmsOnly = !hasUnresolvedRecipients(mEncKeys, CMS) && (!mSign || mSigKeys.contains(CMS));
 
     if (mAllowMixed && mFormat == UnknownProtocol) {
         mergeEncryptionKeys();
     }
-    const QStringList unresolvedMerged = unresolvedRecipients(UnknownProtocol);
+    const bool hasUnresolvedMerged = mAllowMixed && mFormat == UnknownProtocol && hasUnresolvedRecipients(mEncKeys, UnknownProtocol);
 
     // Check if we need the user to select different keys.
     bool needsUser = false;
     if (!pgpOnly && !cmsOnly) {
         if (mAllowMixed && mFormat == UnknownProtocol) {
-            needsUser = !unresolvedMerged.empty();
+            needsUser = hasUnresolvedMerged;
         } else {
-            for (const auto &unresolved: unresolvedPGP) {
-                if (unresolvedCMS.contains(unresolved)) {
-                    // We have at least one unresolvable key.
-                    needsUser = true;
-                    break;
-                }
-            }
+            needsUser = (mFormat == UnknownProtocol)
+                        || (mFormat == OpenPGP && !pgpOnly)
+                        || (mFormat == CMS && !cmsOnly);
         }
         if (mSign) {
             // So every recipient could be resolved through

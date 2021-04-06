@@ -216,6 +216,21 @@ private Q_SLOTS:
         QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 0);
     }
 
+    void test_reports_failure_if_mixed_protocols_are_not_allowed_but_needed()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
+        resolver.setAllowMixedProtocols(false);
+        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+
+        const bool success = resolver.resolve();
+        QVERIFY(!success);
+        QCOMPARE(resolver.encryptionKeys().value(OpenPGP).size(), 1);
+        QVERIFY(resolver.encryptionKeys().value(OpenPGP).contains("sender-openpgp@example.net"));
+        QCOMPARE(resolver.encryptionKeys().value(CMS).size(), 1);
+        QVERIFY(resolver.encryptionKeys().value(CMS).contains("sender-smime@example.net"));
+        QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).size(), 0);
+    }
+
     void test_openpgp_overrides_are_used_if_both_protocols_are_allowed()
     {
         const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
