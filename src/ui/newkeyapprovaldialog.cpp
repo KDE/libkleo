@@ -776,19 +776,6 @@ public:
         mComplianceLbl->setVisible(true);
     }
 
-    void selectionChanged()
-    {
-        bool isPGP = false;
-        bool isCMS = false;
-        for (const auto combo: mEncCombos) {
-            isPGP |= combo->currentKey().protocol() == GpgME::OpenPGP;
-            isCMS |= combo->currentKey().protocol() == GpgME::CMS;
-            if (isPGP && isCMS) {
-                break;
-            }
-        }
-    }
-
     GpgME::Protocol mForcedProtocol;
     GpgME::Protocol mPreferredProtocol;
     QList<KeySelectionCombo *> mSigningCombos;
