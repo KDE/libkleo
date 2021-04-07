@@ -73,6 +73,11 @@ bool allKeysHaveProtocol(const std::vector<Key> &keys, Protocol protocol)
     return std::all_of(keys.cbegin(), keys.cend(), [protocol] (const Key &key) { return key.protocol() == protocol; });
 }
 
+bool anyKeyHasProtocol(const std::vector<Key> &keys, Protocol protocol)
+{
+    return std::any_of(std::begin(keys), std::end(keys), [protocol] (const Key &key) { return key.protocol() == protocol; });
+}
+
 } // namespace
 
 class KeyResolverCore::Private
@@ -445,6 +450,14 @@ bool hasUnresolvedRecipients(const QMap<QString, QMap<Protocol, std::vector<Key>
                            return protocolKeysMap.value(protocol).empty();
                        });
 }
+
+bool anyCommonOverrideHasKeyOfType(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol protocol)
+{
+    return std::any_of(std::cbegin(encryptionKeys), std::cend(encryptionKeys),
+                       [protocol] (const auto &protocolKeysMap) {
+                           return anyKeyHasProtocol(protocolKeysMap.value(UnknownProtocol), protocol);
+                       });
+}
 }
 
 bool KeyResolverCore::Private::resolve()
@@ -457,6 +470,17 @@ bool KeyResolverCore::Private::resolve()
 
     // First resolve through overrides
     resolveOverrides();
+
+    // check protocols needed for overrides
+    const bool commonOverridesNeedOpenPGP = anyCommonOverrideHasKeyOfType(mEncKeys, OpenPGP);
+    const bool commonOverridesNeedCMS = anyCommonOverrideHasKeyOfType(mEncKeys, CMS);
+    if ((mFormat == OpenPGP && commonOverridesNeedCMS)
+            || (mFormat == CMS && commonOverridesNeedOpenPGP)
+            || (!mAllowMixed && commonOverridesNeedOpenPGP && commonOverridesNeedCMS)) {
+        // invalid protocol requirements -> clear intermediate result and abort resolution
+        mEncKeys.clear();
+        return false;
+    }
 
     // Then look for signing / encryption keys
     if (mFormat != CMS) {

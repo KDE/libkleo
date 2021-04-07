@@ -452,6 +452,49 @@ private Q_SLOTS:
         QCOMPARE(resolver.encryptionKeys().value(UnknownProtocol).value("sender-smime@example.net")[0].primaryFingerprint(), override2);
     }
 
+    void test_reports_failure_if_openpgp_is_requested_but_common_overrides_require_smime()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, OpenPGP);
+        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setOverrideKeys({{UnknownProtocol, {
+            {QStringLiteral("sender-mixed@example.net"), {testKey("prefer-smime@example.net", CMS).primaryFingerprint()}}
+        }}});
+
+        const bool success = resolver.resolve();
+        QVERIFY(!success);
+        QVERIFY(resolver.encryptionKeys().empty());
+    }
+
+    void test_reports_failure_if_smime_is_requested_but_common_overrides_require_openpgp()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, CMS);
+        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setOverrideKeys({{UnknownProtocol, {
+            {QStringLiteral("sender-mixed@example.net"), {testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()}}
+        }}});
+
+        const bool success = resolver.resolve();
+        QVERIFY(!success);
+        QVERIFY(resolver.encryptionKeys().empty());
+    }
+
+    void test_reports_failure_if_mixed_protocols_are_not_allowed_but_required_by_common_overrides()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
+        resolver.setAllowMixedProtocols(false);
+        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setOverrideKeys({{UnknownProtocol, {
+            {QStringLiteral("sender-mixed@example.net"), {
+                testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint(),
+                testKey("prefer-smime@example.net", CMS).primaryFingerprint()
+            }}
+        }}});
+
+        const bool success = resolver.resolve();
+        QVERIFY(!success);
+        QVERIFY(resolver.encryptionKeys().empty());
+    }
+
 private:
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
     {
