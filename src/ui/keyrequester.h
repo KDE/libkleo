@@ -33,7 +33,6 @@ class KeyListResult;
 #include <QStringList>
 class QString;
 class QPushButton;
-class QLabel;
 
 namespace Kleo
 {
