@@ -3,7 +3,7 @@ set(PIM_VERSION "5.17.42")
 
 project(libkleo VERSION ${PIM_VERSION})
 
-set(KF5_MIN_VERSION "5.80.0")
+set(KF5_MIN_VERSION "5.81.0")
 
 if (WIN32)
   set(KF5_WANT_VERSION "5.70.0")
