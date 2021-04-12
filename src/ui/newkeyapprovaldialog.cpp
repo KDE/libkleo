@@ -591,7 +591,7 @@ public:
         }
 
         if (!combo->keyFilter()) {
-            combo->setKeyFilter(mCurSigFilter);
+            combo->setKeyFilter(mCurEncFilter);
         }
         if (mSender == addr && key.isNull()) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
