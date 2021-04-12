@@ -316,14 +316,14 @@ QString Formatting::toolTip(const Key &key, int flags)
 
     QString result;
     if (flags & Validity) {
-        if (key.protocol() == OpenPGP || (key.keyListMode() & Validate))
+        if (key.protocol() == OpenPGP || (key.keyListMode() & Validate)) {
             if (key.isRevoked()) {
                 result = make_red(i18n("Revoked"));
             } else if (key.isExpired()) {
                 result = make_red(i18n("Expired"));
             } else if (key.isDisabled()) {
                 result = i18n("Disabled");
-            } else {
+            } else if (key.keyListMode() & GpgME::Validate) {
                 unsigned int fullyTrusted = 0;
                 for (const auto &uid: key.userIDs()) {
                     if (uid.validity() >= UserID::Validity::Full) {
@@ -339,8 +339,10 @@ QString Formatting::toolTip(const Key &key, int flags)
                 } else {
                     result = i18np("One User-ID is not certified.", "%1 User-IDs are not certified.", key.numUserIDs() - fullyTrusted);
                 }
+            } else {
+                result = i18n("The validity cannot be checked at the moment.");
             }
-        else {
+        } else {
             result = i18n("The validity cannot be checked at the moment.");
         }
     }
@@ -1122,7 +1124,8 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
 
 QString Formatting::complianceStringShort(const GpgME::Key &key)
 {
-    if (Formatting::uidsHaveFullValidity(key)) {
+    const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
+    if (keyValidityChecked && Formatting::uidsHaveFullValidity(key)) {
         if (complianceMode() == QLatin1String("de-vs")
             && Formatting::isKeyDeVs(key)) {
             return QStringLiteral("★ ") + deVsString(true);
@@ -1141,8 +1144,11 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
     if (key.isInvalid()) {
         return i18n("invalid");
     }
+    if (keyValidityChecked) {
+        return i18nc("As in not all user IDs are valid.", "not certified");
+    }
 
-    return i18nc("As in not all user IDs are valid.", "not certified");
+    return i18nc("The validity of the user IDs has not been/could not be checked", "not checked");
 }
 
 QString Formatting::complianceStringShort(const KeyGroup &group)
