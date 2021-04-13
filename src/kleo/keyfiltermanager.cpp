@@ -167,17 +167,15 @@ static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
 class KeyFilterManager::Private
 {
 public:
-    Private() : filters(), appearanceFilters(), model(this) {}
+    Private() : filters(), model(this) {}
     void clear()
     {
         model.beginResetModel();
         filters.clear();
-        appearanceFilters.clear();
         model.endResetModel();
     }
 
     std::vector<std::shared_ptr<KeyFilter>> filters;
-    std::vector<std::shared_ptr<KeyFilter>> appearanceFilters;
     Model model;
 };
 
@@ -359,10 +357,7 @@ static KeyFilter::FontDescription get_fontdescription(const std::vector<std::sha
 
 QFont KeyFilterManager::font(const Key &key, const QFont &baseFont) const
 {
-    KeyFilter::FontDescription fd;
-
-    fd = get_fontdescription(d->appearanceFilters, key, KeyFilter::FontDescription());
-    fd = get_fontdescription(d->filters, key, fd);
+    const KeyFilter::FontDescription fd = get_fontdescription(d->filters, key, KeyFilter::FontDescription());
 
     return fd.font(baseFont);
 }
@@ -397,34 +392,16 @@ static QString get_string(const std::vector<std::shared_ptr<KeyFilter>> &filters
 
 QColor KeyFilterManager::bgColor(const Key &key) const
 {
-    QColor color;
-
-    color = get_color(d->appearanceFilters, key, &KeyFilter::bgColor);
-    if (!color.isValid()) {
-        color = get_color(d->filters, key, &KeyFilter::bgColor);
-    }
-    return color;
+    return get_color(d->filters, key, &KeyFilter::bgColor);
 }
 
 QColor KeyFilterManager::fgColor(const Key &key) const
 {
-    QColor color;
-
-    color = get_color(d->appearanceFilters, key, &KeyFilter::fgColor);
-    if (!color.isValid()) {
-        color = get_color(d->filters, key, &KeyFilter::fgColor);
-    }
-    return color;
+    return get_color(d->filters, key, &KeyFilter::fgColor);
 }
 
 QIcon KeyFilterManager::icon(const Key &key) const
 {
-    QString icon;
-
-    icon = get_string(d->appearanceFilters, key, &KeyFilter::icon);
-    if (icon.isEmpty()) {
-        icon = get_string(d->filters, key, &KeyFilter::icon);
-    }
+    const QString icon = get_string(d->filters, key, &KeyFilter::icon);
     return icon.isEmpty() ? QIcon() : QIcon::fromTheme(icon);
 }
-
