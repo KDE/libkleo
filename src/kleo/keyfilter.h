@@ -94,3 +94,6 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(KeyFilter::MatchContexts)
 
 }
 
+#include <QObject>
+
+Q_DECLARE_METATYPE(Kleo::KeyFilter::MatchContexts)

@@ -333,8 +333,11 @@ QVariant Model::data(const QModelIndex &idx, int role) const
     case Qt::ToolTipRole:  /* Most useless tooltip ever.  */
         return filter->name();
 
-    case Qt::UserRole:
+    case KeyFilterManager::FilterIdRole:
         return filter->id();
+
+    case KeyFilterManager::FilterMatchContextsRole:
+        return QVariant::fromValue(filter->availableMatchContexts());
 
     default:
         return QVariant();

@@ -34,6 +34,12 @@ namespace Kleo
 class KLEO_EXPORT KeyFilterManager : public QObject
 {
     Q_OBJECT
+public:
+    enum ModelRoles {
+        FilterIdRole = Qt::UserRole,
+        FilterMatchContextsRole,
+    };
+
 protected:
     explicit KeyFilterManager(QObject *parent = nullptr);
     ~KeyFilterManager();
