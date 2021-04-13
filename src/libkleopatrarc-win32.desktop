@@ -650,3 +650,24 @@ Name[uk]=Несумісний із VS-NfD
 Name[x-test]=xxNot VS-NfD Compliantxx
 Name[zh_TW]=不相容 VS-NfD
 background-color=250,233,235
+
+[Key Filter #12]
+match-contexts=appearance
+is-de-vs=false
+is-expired=true
+is-revoked=false
+id=not-de-vs-expired-filter
+Name=Not VS-NfD Compliant (Expired)
+Name[de]=Nicht VS-NfD-konform (Abgelaufen)
+Name[x-test]=xxNot VS-NfD Compliant (Expired)xx
+background-color=250,233,235
+
+[Key Filter #13]
+match-contexts=appearance
+is-de-vs=false
+is-revoked=true
+id=not-de-vs-revoked-filter
+Name=Not VS-NfD Compliant (Revoked)
+Name[de]=Nicht VS-NfD-konform (Widerrufen)
+Name[x-test]=xxNot VS-NfD Compliant (Revoked)xx
+background-color=250,233,235
