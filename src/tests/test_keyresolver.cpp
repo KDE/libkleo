@@ -22,28 +22,23 @@
 using namespace Kleo;
 using namespace GpgME;
 
-void dumpKeys(const QMap <Protocol, QMap<QString, std::vector<Key> > > &fmtMap)
+void dumpKeys(const QMap<QString, std::vector<Key>> &keysMap)
 {
-    for (const Protocol fmt: fmtMap.keys()) {
-        qDebug () << "Format:" << Formatting::displayName(fmt) << fmt;
-        for (const auto &mbox: fmtMap[fmt].keys()) {
-            qDebug() << "Address:" << mbox;
-            qDebug() << "Keys:";
-            for (const auto &key: fmtMap[fmt][mbox]) {
-                qDebug () << key.primaryFingerprint();
-            }
+    for (auto it = std::begin(keysMap); it != std::end(keysMap); ++it) {
+        const auto &address = it.key();
+        const auto &keys = it.value();
+        qDebug() << "Address:" << address;
+        qDebug() << "Keys:";
+        for (const auto &key: keys) {
+            qDebug() << key.primaryFingerprint();
         }
     }
 }
 
-void dumpSigKeys(const QMap <Protocol, std::vector<Key> > &fmtMap)
+void dumpSigKeys(const std::vector<Key> &keys)
 {
-    for (const Protocol fmt: fmtMap.keys()) {
-        qDebug () << "Format:" << Formatting::displayName(fmt) << fmt;
-        qDebug() << "Keys:";
-        for (const auto &key: fmtMap[fmt]) {
-            qDebug () << key.primaryFingerprint();
-        }
+    for (const auto &key: keys) {
+        qDebug() << key.primaryFingerprint();
     }
 }
 
@@ -59,10 +54,11 @@ public:
             qDebug() << "Canceled";
             exit(1);
         }
+        const auto result = resolver->result();
         qDebug() << "Resolved Signing keys:";
-        dumpSigKeys (resolver->signingKeys());
+        dumpSigKeys(result.signingKeys);
         qDebug() << "Resolved Encryption keys:";
-        dumpKeys (resolver->encryptionKeys());
+        dumpKeys(result.encryptionKeys);
         qDebug() << "Send Unencrypted:" << sendUnencrypted;
         exit(0);
     }

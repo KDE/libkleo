@@ -43,12 +43,20 @@ GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::Unkn
 }
 
 template <typename T>
-QList<T *> visibleWidgets(const QList<T *> &widgets)
+struct Widgets
 {
-    QList<T *> result;
-    std::copy_if(widgets.begin(), widgets.end(),
-                 std::back_inserter(result),
-                 std::mem_fn(&QWidget::isVisible));
+    std::vector<T *> visible;
+    std::vector<T *> hidden;
+};
+
+template <typename T>
+Widgets<T> visibleAndHiddenWidgets(const QList<T *> &widgets)
+{
+    Widgets<T> result;
+    std::partition_copy(std::begin(widgets), std::end(widgets),
+                        std::back_inserter(result.visible),
+                        std::back_inserter(result.hidden),
+                        std::mem_fn(&QWidget::isVisible));
     return result;
 }
 }
@@ -57,140 +65,373 @@ class NewKeyApprovalDialogTest: public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
-    void test_all_resolved_exclusive_prefer_OpenPGP()
+    void test__both_protocols_allowed__mixed_not_allowed__openpgp_preferred()
     {
-        const QStringList unresolvedSenders;
-        const QStringList unresolvedRecipients;
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = false;
         const QString sender = QStringLiteral("sender@example.net");
-        bool allowMixed = false;
-        GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
-        GpgME::Protocol presetProtocol = GpgME::OpenPGP;
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(resolved_senders_openpgp_and_smime(),
-                                                                   resolved_recipients_openpgp_and_smime(),
-                                                                   unresolvedSenders,
-                                                                   unresolvedRecipients,
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::OpenPGP,
+            {createTestKey("sender@example.net", GpgME::OpenPGP)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {
+            GpgME::CMS,
+            {createTestKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {}},
+                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
                                                                    sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
                                                                    allowMixed,
-                                                                   forcedProtocol,
-                                                                   presetProtocol);
+                                                                   forcedProtocol);
         dialog->show();
-        const QList<KeySelectionCombo *> signingKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key"));
-        QCOMPARE(signingKeyWidgets.size(), 2);
-        const auto visibleSigningKeyWidgets = visibleWidgets(signingKeyWidgets);
-        QCOMPARE(visibleSigningKeyWidgets.size(), 1);
-        for (auto combo: visibleSigningKeyWidgets) {
-            QVERIFY(combo);
-            QVERIFY2(!combo->defaultKey(GpgME::OpenPGP).isEmpty(), "visible signing key widget should default to OpenPGP key");
-        }
-        const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
-        QCOMPARE(encryptionKeyWidgets.size(), 4);
-        const auto visibleEncryptionKeyWidgets = visibleWidgets(encryptionKeyWidgets);
-        QCOMPARE(visibleEncryptionKeyWidgets.size(), 3);
-        QCOMPARE(visibleEncryptionKeyWidgets[0]->property("address").toString(), sender);
-        QVERIFY2(!visibleEncryptionKeyWidgets[0]->defaultKey(GpgME::OpenPGP).isEmpty(),
-                 "encryption key widget for sender's OpenPGP key is first visible widget");
-        for (auto combo: visibleEncryptionKeyWidgets) {
-            QVERIFY(combo);
-            QVERIFY2(combo->property("address").toString() != sender || !combo->defaultKey(GpgME::OpenPGP).isEmpty(),
-                     "encryption key widget for sender's CMS key should be hidden");
-        }
+
+        const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
+        QCOMPARE(signingKeyWidgets.visible.size(), 1);
+        QCOMPARE(signingKeyWidgets.hidden.size(), 1);
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::CMS),
+                 alternativeSolution.signingKeys[0].primaryFingerprint());
+
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
+        QCOMPARE(encryptionKeyWidgets.hidden.size(), 3);
+
+        // encryption key widgets for sender come first (visible for OpenPGP, hidden for S/MIME)
+        QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::CMS),
+                 alternativeSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+
+        // encryption key widgets for other recipients follow (visible for OpenPGP, hidden for S/MIME)
+        QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[1]->property("address").toString(), "prefer-openpgp@example.net");
+        QVERIFY(encryptionKeyWidgets.hidden[1]->defaultKey(GpgME::CMS).isEmpty());
+        QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
+        QVERIFY(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::OpenPGP).isEmpty());
+        QCOMPARE(encryptionKeyWidgets.hidden[2]->property("address").toString(), "prefer-smime@example.net");
+        QCOMPARE(encryptionKeyWidgets.hidden[2]->defaultKey(GpgME::CMS),
+                 alternativeSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
     }
 
-    void test_all_resolved_exclusive_prefer_SMIME()
+    void test__both_protocols_allowed__mixed_not_allowed__smime_preferred()
     {
-        const QStringList unresolvedSenders;
-        const QStringList unresolvedRecipients;
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = false;
         const QString sender = QStringLiteral("sender@example.net");
-        bool allowMixed = false;
-        GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
-        GpgME::Protocol presetProtocol = GpgME::CMS;
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(resolved_senders_openpgp_and_smime(),
-                                                                   resolved_recipients_openpgp_and_smime(),
-                                                                   unresolvedSenders,
-                                                                   unresolvedRecipients,
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::CMS,
+            {createTestKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {}},
+                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {
+            GpgME::OpenPGP,
+            {createTestKey("sender@example.net", GpgME::OpenPGP)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP)}}
+            }
+        };
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
                                                                    sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
                                                                    allowMixed,
-                                                                   forcedProtocol,
-                                                                   presetProtocol);
+                                                                   forcedProtocol);
         dialog->show();
-        const QList<KeySelectionCombo *> signingKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key"));
-        QCOMPARE(signingKeyWidgets.size(), 2);
-        const auto visibleSigningKeyWidgets = visibleWidgets(signingKeyWidgets);
-        QCOMPARE(visibleSigningKeyWidgets.size(), 1);
-        for (auto combo: visibleSigningKeyWidgets) {
-            QVERIFY(combo);
-            QVERIFY2(!combo->defaultKey(GpgME::CMS).isEmpty(), "visible signing key widget should default to S/MIME key");
-        }
-        const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
-        QCOMPARE(encryptionKeyWidgets.size(), 4);
-        const auto visibleEncryptionKeyWidgets = visibleWidgets(encryptionKeyWidgets);
-        QCOMPARE(visibleEncryptionKeyWidgets.size(), 3);
-        QCOMPARE(visibleEncryptionKeyWidgets[0]->property("address").toString(), sender);
-        QVERIFY2(!visibleEncryptionKeyWidgets[0]->defaultKey(GpgME::CMS).isEmpty(),
-                 "encryption key widget for sender's CMS key is first visible widget");
-        for (auto combo: visibleEncryptionKeyWidgets) {
-            QVERIFY(combo);
-            QVERIFY2(combo->property("address").toString() != sender || !combo->defaultKey(GpgME::CMS).isEmpty(),
-                     "encryption key widget for sender's OpenPGP key should be hidden");
-        }
+
+        const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
+        QCOMPARE(signingKeyWidgets.visible.size(), 1);
+        QCOMPARE(signingKeyWidgets.hidden.size(), 1);
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
+                 preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP),
+                 alternativeSolution.signingKeys[0].primaryFingerprint());
+
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
+        QCOMPARE(encryptionKeyWidgets.hidden.size(), 3);
+
+        // encryption key widgets for sender come first (visible for S/MIME, hidden for OpenPGP)
+        QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
+                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP),
+                 alternativeSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+
+        // encryption key widgets for other recipients follow (visible for OpenPGP, hidden for S/MIME)
+        QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
+        QVERIFY(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::CMS).isEmpty());
+        QCOMPARE(encryptionKeyWidgets.hidden[1]->property("address").toString(), "prefer-openpgp@example.net");
+        QCOMPARE(encryptionKeyWidgets.hidden[1]->defaultKey(GpgME::OpenPGP),
+                 alternativeSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::CMS),
+                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[2]->property("address").toString(), "prefer-smime@example.net");
+        QVERIFY(encryptionKeyWidgets.hidden[2]->defaultKey(GpgME::OpenPGP).isEmpty());
     }
 
-    void test_all_resolved_allow_mixed_no_protocol_preference()
+    void test__openpgp_only()
     {
-        const QStringList unresolvedSenders;
-        const QStringList unresolvedRecipients;
+        const GpgME::Protocol forcedProtocol = GpgME::OpenPGP;
+        const bool allowMixed = false;
         const QString sender = QStringLiteral("sender@example.net");
-        bool allowMixed = true;
-        GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
-        GpgME::Protocol presetProtocol = GpgME::UnknownProtocol;
-        const auto resolvedSenders = resolved_senders_openpgp_and_smime();
-        auto resolvedRecipients = resolved_recipients_openpgp_and_smime();
-        resolvedRecipients["prefer-smime@example.net"].push_back(createTestKey("OpenPGP <prefer-smime@example.net>", GpgME::OpenPGP));
-        resolvedRecipients.insert("smime-only@example.net", {createTestKey("S/MIME Only <smime-only@example.net>", GpgME::CMS)});
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(resolvedSenders,
-                                                                   resolvedRecipients,
-                                                                   unresolvedSenders,
-                                                                   unresolvedRecipients,
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::OpenPGP,
+            {createTestKey("sender@example.net", GpgME::OpenPGP)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
                                                                    sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
                                                                    allowMixed,
-                                                                   forcedProtocol,
-                                                                   presetProtocol);
+                                                                   forcedProtocol);
         dialog->show();
 
-        const QList<KeySelectionCombo *> signingKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key"));
-        QCOMPARE(signingKeyWidgets.size(), 2);
-        for (auto widget : signingKeyWidgets) {
-            QVERIFY2(widget->isVisible(), "signing key widget should be visible");
-        }
-        // first signing key widget should default to sender's OpenPGP key, the other to sender's S/MIME key
-        QCOMPARE(signingKeyWidgets[0]->defaultKey(GpgME::OpenPGP),
-                 QString::fromLatin1(resolvedSenders["sender@example.net"][0].primaryFingerprint()));
-        QCOMPARE(signingKeyWidgets[1]->defaultKey(GpgME::CMS),
-                 QString::fromLatin1(resolvedSenders["sender@example.net"][1].primaryFingerprint()));
+        const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
+        QCOMPARE(signingKeyWidgets.visible.size(), 1);
+        QCOMPARE(signingKeyWidgets.hidden.size(), 0);
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.signingKeys[0].primaryFingerprint());
 
-        const QList<KeySelectionCombo *> encryptionKeyWidgets = dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key"));
-        QCOMPARE(encryptionKeyWidgets.size(), 5);
-        for (auto widget : encryptionKeyWidgets) {
-            QVERIFY2(widget->isVisible(),
-                     qPrintable(QString("encryption key widget should be visible for address %1").arg(widget->property("address").toString())));
-        }
-        // first two encryption key widgets shall be widgets for sender's keys
-        QCOMPARE(encryptionKeyWidgets[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets[0]->defaultKey(GpgME::OpenPGP),
-                 QString::fromLatin1(resolvedRecipients["sender@example.net"][0].primaryFingerprint()));
-        QCOMPARE(encryptionKeyWidgets[1]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets[1]->defaultKey(GpgME::CMS),
-                 QString::fromLatin1(resolvedRecipients["sender@example.net"][1].primaryFingerprint()));
-        // further encryption key widgets shall be widgets for keys of recipients, where OpenPGP keys are preferred due to no specific preset
-        QCOMPARE(encryptionKeyWidgets[2]->property("address").toString(), QStringLiteral("prefer-openpgp@example.net"));
-        QCOMPARE(encryptionKeyWidgets[2]->defaultKey(),
-                 QString::fromLatin1(resolvedRecipients["prefer-openpgp@example.net"][0].primaryFingerprint()));
-        QCOMPARE(encryptionKeyWidgets[3]->property("address").toString(), QStringLiteral("prefer-smime@example.net"));
-        QCOMPARE(encryptionKeyWidgets[3]->defaultKey(),
-                 QString::fromLatin1(resolvedRecipients["prefer-smime@example.net"][1].primaryFingerprint()));
-        QCOMPARE(encryptionKeyWidgets[4]->property("address").toString(), QStringLiteral("smime-only@example.net"));
-        QCOMPARE(encryptionKeyWidgets[4]->defaultKey(),
-                 QString::fromLatin1(resolvedRecipients["smime-only@example.net"][0].primaryFingerprint()));
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
+        QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
+
+        // encryption key widget for sender comes first
+        QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+
+        // encryption key widgets for other recipients follow
+        QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
+        QVERIFY(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::OpenPGP).isEmpty());
+    }
+
+    void test__smime_only()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::CMS;
+        const bool allowMixed = false;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::CMS,
+            {createTestKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {}},
+                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+
+        const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
+        QCOMPARE(signingKeyWidgets.visible.size(), 1);
+        QCOMPARE(signingKeyWidgets.hidden.size(), 0);
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
+                 preferredSolution.signingKeys[0].primaryFingerprint());
+
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
+        QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
+
+        // encryption key widget for sender comes first
+        QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
+                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+
+        // encryption key widgets for other recipients follow
+        QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
+        QVERIFY(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::CMS).isEmpty());
+        QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::CMS),
+                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+    }
+
+    void test__both_protocols_allowed__mixed_allowed()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("unknown@example.net"), {}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+
+        const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
+        QCOMPARE(signingKeyWidgets.visible.size(), 2);
+        QCOMPARE(signingKeyWidgets.hidden.size(), 0);
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[1]->defaultKey(GpgME::CMS),
+                 preferredSolution.signingKeys[1].primaryFingerprint());
+
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        QCOMPARE(encryptionKeyWidgets.visible.size(), 5);
+        QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
+
+        // encryption key widgets for sender come first
+        QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
+                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::CMS),
+                 preferredSolution.encryptionKeys.value(sender)[1].primaryFingerprint());
+
+        // encryption key widgets for other recipients follow
+        QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-openpgp@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::UnknownProtocol),
+                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[3]->property("address").toString(), "prefer-smime@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[3]->defaultKey(GpgME::UnknownProtocol),
+                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[4]->property("address").toString(), "unknown@example.net");
+        QVERIFY(encryptionKeyWidgets.visible[4]->defaultKey(GpgME::UnknownProtocol).isEmpty());
+    }
+
+    void test__both_protocols_allowed__mixed_allowed__no_sender_keys()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("unknown@example.net"), {}},
+                {QStringLiteral("sender@example.net"), {}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+
+        const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
+        QCOMPARE(signingKeyWidgets.visible.size(), 2);
+        QCOMPARE(signingKeyWidgets.hidden.size(), 0);
+
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        QCOMPARE(encryptionKeyWidgets.visible.size(), 5);
+        QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
+
+        // encryption key widgets for sender come first
+        QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
+        QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), sender);
+
+        // encryption key widgets for other recipients follow
+        QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-openpgp@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::UnknownProtocol),
+                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[3]->property("address").toString(), "prefer-smime@example.net");
+        QCOMPARE(encryptionKeyWidgets.visible[3]->defaultKey(GpgME::UnknownProtocol),
+                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[4]->property("address").toString(), "unknown@example.net");
+        QVERIFY(encryptionKeyWidgets.visible[4]->defaultKey(GpgME::UnknownProtocol).isEmpty());
+    }
+
+    void test__both_protocols_allowed__mixed_allowed__encrypt_only()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("unknown@example.net"), {}},
+                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   false,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+
+        const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
+        QCOMPARE(signingKeyWidgets.visible.size(), 0);
+        QCOMPARE(signingKeyWidgets.hidden.size(), 0);
+
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        QCOMPARE(encryptionKeyWidgets.visible.size(), 5);
+        QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
     }
 
 private:

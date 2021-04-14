@@ -109,7 +109,7 @@ public:
     void resolveEnc(Protocol proto);
     void mergeEncryptionKeys();
     QStringList unresolvedRecipients(GpgME::Protocol protocol) const;
-    bool resolve();
+    Result resolve();
 
     KeyResolverCore *const q;
     QString mSender;
@@ -394,38 +394,39 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
     }
 }
 
-void KeyResolverCore::Private::mergeEncryptionKeys()
+auto getBestEncryptionKeys(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol preferredProtocol)
 {
-    for (auto it = mEncKeys.begin(); it != mEncKeys.end(); ++it) {
+    QMap<QString, std::vector<Key>> result;
+
+    for (auto it = encryptionKeys.begin(); it != encryptionKeys.end(); ++it) {
         const QString &address = it.key();
         auto &protocolKeysMap = it.value();
-        if (!protocolKeysMap[UnknownProtocol].empty()) {
-            // override keys are set for address
+        const std::vector<Key> &overrideKeys = protocolKeysMap[UnknownProtocol];
+        if (!overrideKeys.empty()) {
+            result.insert(address, overrideKeys);
             continue;
         }
-        const std::vector<Key> &keysOpenPGP = protocolKeysMap.value(OpenPGP);
-        const std::vector<Key> &keysCMS = protocolKeysMap.value(CMS);
+        const std::vector<Key> &keysOpenPGP = protocolKeysMap[OpenPGP];
+        const std::vector<Key> &keysCMS = protocolKeysMap[CMS];
         if (keysOpenPGP.empty() && keysCMS.empty()) {
-            continue;
+            result.insert(address, {});
         } else if (!keysOpenPGP.empty() && keysCMS.empty()) {
-            protocolKeysMap[UnknownProtocol] = keysOpenPGP;
+            result.insert(address, keysOpenPGP);
         } else if (keysOpenPGP.empty() && !keysCMS.empty()) {
-            protocolKeysMap[UnknownProtocol] = keysCMS;
+            result.insert(address, keysCMS);
         } else {
             // check whether OpenPGP keys or S/MIME keys have higher validity
             const int validityPGP = minimumValidity(keysOpenPGP, address);
             const int validityCMS = minimumValidity(keysCMS, address);
-            if ((validityPGP > validityCMS)
-                || (validityPGP == validityCMS && mPreferredProtocol == OpenPGP)) {
-                protocolKeysMap[UnknownProtocol] = keysOpenPGP;
-            } else if ((validityCMS > validityPGP)
-                || (validityCMS == validityPGP && mPreferredProtocol == CMS)) {
-                protocolKeysMap[UnknownProtocol] = keysCMS;
+            if ((validityCMS > validityPGP) || (validityCMS == validityPGP && preferredProtocol == CMS)) {
+                result.insert(address, keysCMS);
             } else {
-                protocolKeysMap[UnknownProtocol] = keysOpenPGP;
+                result.insert(address, keysOpenPGP);
             }
         }
     }
+
+    return result;
 }
 
 QStringList KeyResolverCore::Private::unresolvedRecipients(GpgME::Protocol protocol) const
@@ -458,14 +459,34 @@ bool anyCommonOverrideHasKeyOfType(const QMap<QString, QMap<Protocol, std::vecto
                            return anyKeyHasProtocol(protocolKeysMap.value(UnknownProtocol), protocol);
                        });
 }
+
+auto keysForProtocol(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol protocol)
+{
+    QMap<QString, std::vector<Key>> keys;
+    for (auto it = std::begin(encryptionKeys), end = std::end(encryptionKeys); it != end; ++it) {
+        const QString &address = it.key();
+        const auto &protocolKeysMap = it.value();
+        keys.insert(address, protocolKeysMap.value(protocol));
+    }
+    return keys;
 }
 
-bool KeyResolverCore::Private::resolve()
+template<typename T>
+auto concatenate(std::vector<T> v1, const std::vector<T> &v2)
+{
+    v1.reserve(v1.size() + v2.size());
+    v1.insert(std::end(v1), std::begin(v2), std::end(v2));
+    return v1;
+}
+
+}
+
+KeyResolverCore::Result KeyResolverCore::Private::resolve()
 {
     qCDebug(LIBKLEO_LOG) << "Starting ";
     if (!mSign && !mEncrypt) {
         // nothing to do
-        return true;
+        return {AllResolved, {}, {}};
     }
 
     // First resolve through overrides
@@ -479,76 +500,127 @@ bool KeyResolverCore::Private::resolve()
             || (!mAllowMixed && commonOverridesNeedOpenPGP && commonOverridesNeedCMS)) {
         // invalid protocol requirements -> clear intermediate result and abort resolution
         mEncKeys.clear();
-        return false;
+        return {Error, {}, {}};
     }
 
     // Then look for signing / encryption keys
-    if (mFormat != CMS) {
+    if (mFormat == OpenPGP || mFormat == UnknownProtocol) {
         resolveSign(OpenPGP);
         resolveEnc(OpenPGP);
     }
-    const bool pgpOnly = !hasUnresolvedRecipients(mEncKeys, OpenPGP) && (!mSign || mSigKeys.contains(OpenPGP));
+    const bool pgpOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, OpenPGP)) && (!mSign || mSigKeys.contains(OpenPGP));
 
-    if (mFormat != OpenPGP) {
+    if (mFormat == OpenPGP) {
+        return {
+            SolutionFlags((pgpOnly ? AllResolved : SomeUnresolved) | OpenPGPOnly),
+            {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
+            {}
+        };
+    }
+
+    if (mFormat == CMS || mFormat == UnknownProtocol) {
         resolveSign(CMS);
         resolveEnc(CMS);
     }
-    const bool cmsOnly = !hasUnresolvedRecipients(mEncKeys, CMS) && (!mSign || mSigKeys.contains(CMS));
+    const bool cmsOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, CMS)) && (!mSign || mSigKeys.contains(CMS));
 
-    if (mAllowMixed && mFormat == UnknownProtocol) {
-        mergeEncryptionKeys();
+    if (mFormat == CMS) {
+        return {
+            SolutionFlags((cmsOnly ? AllResolved : SomeUnresolved) | CMSOnly),
+            {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
+            {}
+        };
     }
-    const bool hasUnresolvedMerged = mAllowMixed && mFormat == UnknownProtocol && hasUnresolvedRecipients(mEncKeys, UnknownProtocol);
 
-    // Check if we need the user to select different keys.
-    bool needsUser = false;
-    if (!pgpOnly && !cmsOnly) {
-        if (mAllowMixed && mFormat == UnknownProtocol) {
-            needsUser = hasUnresolvedMerged;
+    // check if single-protocol solution has been found
+    if (cmsOnly && (!pgpOnly || mPreferredProtocol == CMS)) {
+        if (!mAllowMixed) {
+            return {
+                SolutionFlags(AllResolved | CMSOnly),
+                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
+                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)}
+            };
         } else {
-            needsUser = (mFormat == UnknownProtocol)
-                        || (mFormat == OpenPGP && !pgpOnly)
-                        || (mFormat == CMS && !cmsOnly);
+            // keys marked as mixed (UnknownProtocol) as hint that OpenPGP keys are also allowed in key approval
+            return {
+                SolutionFlags(AllResolved | CMSOnly),
+                {UnknownProtocol, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
+                {}
+            };
         }
-        if (mSign) {
-            // So every recipient could be resolved through
-            // a combination of PGP and S/MIME do we also
-            // have signing keys for both?
-            needsUser |= !(mSigKeys.contains(OpenPGP) &&
-                           mSigKeys.contains(CMS));
+    }
+    if (pgpOnly) {
+        if (!mAllowMixed) {
+            return {
+                SolutionFlags(AllResolved | OpenPGPOnly),
+                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
+                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)}
+            };
+        } else {
+            // keys marked as mixed (UnknownProtocol) as hint that S/MIME keys are also allowed in key approval
+            return {
+                SolutionFlags(AllResolved | OpenPGPOnly),
+                {UnknownProtocol, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
+                {}
+            };
         }
     }
 
-    if (!needsUser) {
-        if (pgpOnly && cmsOnly) {
-            if (mPreferredProtocol == CMS) {
-                mSigKeys.remove(OpenPGP);
-                for (auto &protocolKeysMap: mEncKeys) {
-                    protocolKeysMap.remove(OpenPGP);
-                }
-            } else {
-                mSigKeys.remove(CMS);
-                for (auto &protocolKeysMap: mEncKeys) {
-                    protocolKeysMap.remove(CMS);
-                }
-            }
-        } else if (pgpOnly) {
-            mSigKeys.remove(CMS);
-            for (auto &protocolKeysMap: mEncKeys) {
-                protocolKeysMap.remove(CMS);
-            }
-        } else if (cmsOnly) {
-            mSigKeys.remove(OpenPGP);
-            for (auto &protocolKeysMap: mEncKeys) {
-                protocolKeysMap.remove(OpenPGP);
-            }
+    if (!mAllowMixed) {
+        // return incomplete single-protocol solution
+        if (mPreferredProtocol == CMS) {
+            return {
+                SolutionFlags(SomeUnresolved | CMSOnly),
+                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
+                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)}
+            };
+        } else {
+            return {
+                SolutionFlags(SomeUnresolved | OpenPGPOnly),
+                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
+                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)}
+            };
         }
-
-        qCDebug(LIBKLEO_LOG) << "Automatic key resolution done.";
-        return true;
     }
 
-    return false;
+    const auto bestEncryptionKeys = getBestEncryptionKeys(mEncKeys, mPreferredProtocol);
+    const bool allAddressesAreResolved = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
+                                                     [] (const auto &keys) { return !keys.empty(); });
+    if (allAddressesAreResolved) {
+        return {
+            SolutionFlags(AllResolved | MixedProtocols),
+            {UnknownProtocol, concatenate(mSigKeys.value(OpenPGP), mSigKeys.value(CMS)), bestEncryptionKeys},
+            {}
+        };
+    }
+
+    const bool allKeysAreOpenPGP = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
+                                               [] (const auto &keys) { return allKeysHaveProtocol(keys, OpenPGP); });
+    if (allKeysAreOpenPGP) {
+        // keys marked as mixed (UnknownProtocol) as hint that S/MIME keys are also allowed in key approval
+        return {
+            SolutionFlags(SomeUnresolved | OpenPGPOnly),
+            {UnknownProtocol, mSigKeys.value(OpenPGP), bestEncryptionKeys},
+            {}
+        };
+    }
+
+    const bool allKeysAreCMS = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
+                                           [] (const auto &keys) { return allKeysHaveProtocol(keys, CMS); });
+    if (allKeysAreCMS) {
+        // keys marked as mixed (UnknownProtocol) as hint that S/MIME keys are also allowed in key approval
+        return {
+            SolutionFlags(SomeUnresolved | CMSOnly),
+            {UnknownProtocol, mSigKeys.value(CMS), bestEncryptionKeys},
+            {}
+        };
+    }
+
+    return {
+        SolutionFlags(SomeUnresolved | MixedProtocols),
+        {UnknownProtocol, concatenate(mSigKeys.value(OpenPGP), mSigKeys.value(CMS)), bestEncryptionKeys},
+        {}
+    };
 }
 
 KeyResolverCore::KeyResolverCore(bool encrypt, bool sign, Protocol fmt)
@@ -598,36 +670,7 @@ void KeyResolverCore::setMinimumValidity(int validity)
     d->mMinimumValidity = validity;
 }
 
-bool KeyResolverCore::resolve()
+KeyResolverCore::Result KeyResolverCore::resolve()
 {
     return d->resolve();
-}
-
-QMap <Protocol, std::vector<Key> > KeyResolverCore::signingKeys() const
-{
-    return d->mSigKeys;
-}
-
-QMap<Protocol, QMap<QString, std::vector<Key>>> KeyResolverCore::encryptionKeys() const
-{
-    QMap<Protocol, QMap<QString, std::vector<Key>>> result;
-
-    for (auto addressIt = d->mEncKeys.cbegin(); addressIt != d->mEncKeys.cend(); ++addressIt) {
-        const QString &address = addressIt.key();
-        const auto &protocolKeysMap = addressIt.value();
-        for (auto protocolIt = protocolKeysMap.cbegin(); protocolIt != protocolKeysMap.cend(); ++protocolIt) {
-            const Protocol protocol = protocolIt.key();
-            const auto &keys = protocolIt.value();
-            if (!keys.empty()) {
-                result[protocol][address] = keys;
-            }
-        }
-    }
-
-    return result;
-}
-
-QStringList KeyResolverCore::unresolvedRecipients(GpgME::Protocol protocol) const
-{
-    return d->unresolvedRecipients(protocol);
 }

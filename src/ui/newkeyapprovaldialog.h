@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <Libkleo/KeyResolver>
+
 #include "kleo_export.h"
 
 #include <QDialog>
@@ -41,45 +43,33 @@ class KLEO_EXPORT NewKeyApprovalDialog : public QDialog
 public:
     /** @brief Create a new Key Approval Dialog.
      *
-     * @param resolvedSigningKeys: A map of signing addresses and Keys. Usually the
-     *                             map would contain a single element and a single key
-     *                             but configuration may allow more.
-     * @param resolvedRecp: A map of a recipient address and the keys for that address. Multiple
-     *                      keys could for example be configured through Address book or GnuPG
-     *                      Groups.
-     * @param unresolvedSigKeys: A list of signing addresses for which no key was found. Should
-     *                           usually be only one. If resolved and unresolved sig keys are
-     *                           empty it is assumed signing was not selected.
-     * @param unresolvedRecp: A list of encryption target addresses if both unresolved and
-     *                        resolved recipients are empty it is assumed no encryption should
-     *                        take place.
-     * @param senderAddr: The address of the sender, this may be used if singing is not
-     *                    specified to identify a recipient for which "Generate Key" should
-     *                    be offered.
-     * @param allowMixed: Whether or not the dialog should allow mixed CMS / PGP key selection.
+     * @param sender: The address of the sender, this may be used if signing is not
+     *                specified to identify a recipient for which "Generate Key" should
+     *                be offered.
+     * @param preferredSolution: The preferred signing and/or encryption keys for the sender
+     *                           and the recipients.
+     * @param alternativeSolution: An alternative set of signing and/or encryption keys for the sender
+     *                             and the recipients. Typically, S/MIME-only, if preferred solution is OpenPGP-only,
+     *                             and vice versa. Ignored, if mixed protocol selection is allowed.
+     * @param allowMixed: Whether or not the dialog should allow mixed S/MIME / OpenPGP key selection.
      * @param forcedProtocol: A specific forced protocol.
-     * @param presetProtocol: A specific preselected protocol. If Protocol is unknown it will allow
-     *               both (depending on allowMixed) S/MIME and OpenPGP.
      * @param parent: The parent widget.
      * @param f: The Qt window flags.
      */
-    explicit NewKeyApprovalDialog(const QMap<QString, std::vector<GpgME::Key> > &resolvedSigningKeys,
-                                  const QMap<QString, std::vector<GpgME::Key> > &resolvedRecp,
-                                  const QStringList &unresolvedSigKeys,
-                                  const QStringList &unresolvedRecp,
-                                  const QString &senderAddr,
+    explicit NewKeyApprovalDialog(bool encrypt,
+                                  bool sign,
+                                  const QString &sender,
+                                  KeyResolver::Solution preferredSolution,
+                                  KeyResolver::Solution alternativeSolution,
                                   bool allowMixed,
                                   GpgME::Protocol forcedProtocol,
-                                  GpgME::Protocol presetProtocol,
                                   QWidget *parent = nullptr,
                                   Qt::WindowFlags f = Qt::WindowFlags());
 
     ~NewKeyApprovalDialog() override;
 
-    /** @brief The selected signing Keys. Only valid after Dialog was accepted. */
-    std::vector<GpgME::Key> signingKeys();
-    /** @brief The selected encryption Keys. Only valid after Dialog was accepted. */
-    QMap<QString, std::vector<GpgME::Key> > encryptionKeys();
+    /** @brief The selected signing and/or encryption keys. Only valid after the dialog was accepted. */
+    KeyResolver::Solution result();
 
 private:
     class Private;
