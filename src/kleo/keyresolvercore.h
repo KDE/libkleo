@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include <Libkleo/KeyResolver>
+
 #include "kleo_export.h"
 
 #include <QMap>
@@ -34,6 +36,27 @@ namespace Kleo
 class KLEO_EXPORT KeyResolverCore
 {
 public:
+    enum SolutionFlags
+    {
+        SomeUnresolved = 0,
+        AllResolved = 1,
+
+        OpenPGPOnly = 2,
+        CMSOnly = 4,
+        MixedProtocols = OpenPGPOnly | CMSOnly,
+
+        Error = 0x1000,
+
+        ResolvedMask = AllResolved | Error,
+        ProtocolsMask = OpenPGPOnly | CMSOnly | Error,
+    };
+    struct Result
+    {
+        SolutionFlags flags;
+        KeyResolver::Solution solution;
+        KeyResolver::Solution alternative;
+    };
+
     explicit KeyResolverCore(bool encrypt, bool sign,
                              GpgME::Protocol format = GpgME::UnknownProtocol);
     ~KeyResolverCore();
@@ -53,13 +76,7 @@ public:
 
     void setMinimumValidity(int validity);
 
-    bool resolve();
-
-    QMap<GpgME::Protocol, std::vector<GpgME::Key> > signingKeys() const;
-
-    QMap<GpgME::Protocol, QMap<QString, std::vector<GpgME::Key> > > encryptionKeys() const;
-
-    QStringList unresolvedRecipients(GpgME::Protocol protocol) const;
+    Result resolve();
 
 private:
     class Private;

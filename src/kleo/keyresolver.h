@@ -86,6 +86,13 @@ class KLEO_EXPORT KeyResolver : public QObject
     Q_OBJECT
 
 public:
+    struct Solution
+    {
+        GpgME::Protocol protocol = GpgME::UnknownProtocol;
+        std::vector<GpgME::Key> signingKeys;
+        QMap<QString, std::vector<GpgME::Key>> encryptionKeys;
+    };
+
     /** Creates a new key resolver object.
      *
      * @param encrypt: Should encryption keys be selected.
@@ -142,19 +149,11 @@ public:
     void setMinimumValidity(int validity);
 
     /**
-     * Get the encryption keys after resolution.
+     * Get the result of the resolution.
      *
-     * @return the resolved sender / key pairs for encryption by format.
+     * @return the resolved keys for signing and encryption.
      */
-    QMap <GpgME::Protocol, QMap<QString, std::vector<GpgME::Key> > > encryptionKeys() const;
-
-    /**
-     * Get the signing keys to use after resolution.
-     *
-     * @return the resolved resolved sender / key pairs for signing
-     *         by format.
-     */
-    QMap <GpgME::Protocol, std::vector<GpgME::Key> > signingKeys() const;
+    Solution result() const;
 
     /**
      * Starts the key resolving procedure. Emits keysResolved on success or

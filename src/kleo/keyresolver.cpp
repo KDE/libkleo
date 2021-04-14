@@ -48,13 +48,12 @@ public:
 
     ~Private() = default;
 
-    void showApprovalDialog(QWidget *parent);
+    void showApprovalDialog(KeyResolverCore::Result result, QWidget *parent);
     void dialogAccepted();
 
     KeyResolver *const q;
     KeyResolverCore mCore;
-    QMap<Protocol, std::vector<Key>> mSigKeys;
-    QMap<Protocol, QMap<QString, std::vector<Key>>> mEncKeys;
+    Solution mResult;
 
     Protocol mFormat;
     bool mEncrypt;
@@ -63,156 +62,35 @@ public:
     // The cache is needed as a member variable to avoid rebuilding
     // it between calls if we are the only user.
     std::shared_ptr<const KeyCache> mCache;
-    std::shared_ptr<NewKeyApprovalDialog> mDialog;
+    std::unique_ptr<NewKeyApprovalDialog> mDialog;
     Qt::WindowFlags mDialogWindowFlags;
     Protocol mPreferredProtocol;
 };
 
-void KeyResolver::Private::showApprovalDialog(QWidget *parent)
+void KeyResolver::Private::showApprovalDialog(KeyResolverCore::Result result, QWidget *parent)
 {
     const QString sender = mCore.normalizedSender();
-    const QMap<GpgME::Protocol, std::vector<GpgME::Key>> signingKeys = mCore.signingKeys();
-    const QStringList unresolvedPGP = mCore.unresolvedRecipients(OpenPGP);
-    const QStringList unresolvedCMS = mCore.unresolvedRecipients(CMS);
-
-    QMap<QString, std::vector<Key> > resolvedSig;
-    QStringList unresolvedSig;
-    const bool pgpOnly = unresolvedPGP.empty() && (!mSign || signingKeys.contains(OpenPGP));
-    const bool cmsOnly = unresolvedCMS.empty() && (!mSign || signingKeys.contains(CMS));
-    // First handle the signing keys
-    if (mSign) {
-        if (signingKeys.empty()) {
-            unresolvedSig << sender;
-        } else {
-            std::vector<Key> resolvedSigKeys;
-            for (const auto &keys: signingKeys) {
-                for (const auto &key: keys) {
-                    resolvedSigKeys.push_back(key);
-                }
-            }
-            resolvedSig.insert(sender, resolvedSigKeys);
-        }
-    }
-
-    // Now build the encryption keys
-    QMap<QString, std::vector<Key> > resolvedRecp;
-    QStringList unresolvedRecp;
-
-    if (mEncrypt) {
-        // Use all unresolved recipients.
-        if (!cmsOnly && !pgpOnly) {
-            if (mFormat == UnknownProtocol) {
-                // In Auto Format we can now remove recipients that could
-                // be resolved either through CMS or PGP
-                for (const auto &addr: qAsConst(unresolvedPGP)) {
-                    if (unresolvedCMS.contains(addr)) {
-                        unresolvedRecp << addr;
-                    }
-                }
-            } else if (mFormat == OpenPGP) {
-                unresolvedRecp = unresolvedPGP;
-            } else if (mFormat == CMS) {
-                unresolvedRecp = unresolvedCMS;
-            }
-        }
-
-        // Now Map all resolved encryption keys regardless of the format.
-        const QMap<Protocol, QMap<QString, std::vector<Key>>> encryptionKeys = mCore.encryptionKeys();
-        for (const auto &map: encryptionKeys.values()) {
-            for (auto it = map.cbegin(); it != map.cend(); ++it) {
-                const QString &addr = it.key();
-                const auto &keys = it.value();
-                if (!resolvedRecp.contains(addr) || !resolvedRecp[addr].size()) {
-                    resolvedRecp.insert(addr, keys);
-                } else {
-                    std::vector<Key> merged = resolvedRecp[addr];
-                    // Add without duplication
-                    for (const auto &k: keys) {
-                        const auto it = std::find_if (merged.begin(), merged.end(), [k] (const Key &y) {
-                            return (k.primaryFingerprint() && y.primaryFingerprint() &&
-                                    !strcmp (k.primaryFingerprint(), y.primaryFingerprint()));
-                        });
-                        if (it == merged.end()) {
-                            merged.push_back(k);
-                        }
-                    }
-                    resolvedRecp[addr] = merged;
-                }
-            }
-        }
-    }
-
-    // Do we force the protocol?
-    Protocol forcedProto = mFormat;
-
-    // Start with the protocol for which every keys could be found.
-    Protocol presetProtocol;
-
-    if (mPreferredProtocol == CMS && cmsOnly) {
-        presetProtocol = CMS;
-    } else {
-        presetProtocol = pgpOnly ? OpenPGP :
-                            cmsOnly ? CMS :
-                            mPreferredProtocol;
-    }
-
-    mDialog = std::shared_ptr<NewKeyApprovalDialog>(new NewKeyApprovalDialog(resolvedSig,
-                                                                                resolvedRecp,
-                                                                                unresolvedSig,
-                                                                                unresolvedRecp,
-                                                                                sender,
-                                                                                mAllowMixed,
-                                                                                forcedProto,
-                                                                                presetProtocol,
-                                                                                parent,
-                                                                                mDialogWindowFlags));
+    mDialog = std::make_unique<NewKeyApprovalDialog>(mEncrypt,
+                                                     mSign,
+                                                     sender,
+                                                     std::move(result.solution),
+                                                     std::move(result.alternative),
+                                                     mAllowMixed,
+                                                     mFormat,
+                                                     parent,
+                                                     mDialogWindowFlags);
     connect (mDialog.get(), &QDialog::accepted, q, [this] () {
         dialogAccepted();
     });
     connect (mDialog.get(), &QDialog::rejected, q, [this] () {
-        Q_EMIT q->keysResolved(false, false);}
-    );
+        Q_EMIT q->keysResolved(false, false);
+    });
     mDialog->open();
 }
 
 void KeyResolver::Private::dialogAccepted()
 {
-    for (const auto &key: mDialog->signingKeys()) {
-        if (!mSigKeys.contains(key.protocol())) {
-            mSigKeys.insert(key.protocol(), std::vector<Key>());
-        }
-        mSigKeys[key.protocol()].push_back(key);
-    }
-
-    const auto &encMap = mDialog->encryptionKeys();
-    // First we fill the protocol-specific maps with
-    // the results of the dialog. Then we use the sender
-    // address to determine if a keys in the specific
-    // maps need updating.
-
-    bool isUnresolved = false;
-    for (const auto &addr: encMap.keys()) {
-        for (const auto &key: encMap[addr]) {
-            if (key.isNull()) {
-                isUnresolved = true;
-            }
-            if (!mEncKeys.contains(key.protocol())) {
-                mEncKeys.insert(key.protocol(), QMap<QString, std::vector<Key> >());
-            }
-            if (!mEncKeys[key.protocol()].contains(addr)) {
-                mEncKeys[key.protocol()].insert(addr, std::vector<Key>());
-            }
-            qCDebug (LIBKLEO_LOG) << "Adding" << addr << "for" << Formatting::displayName(key.protocol())
-                                    << "fpr:" << key.primaryFingerprint();
-
-            mEncKeys[key.protocol()][addr].push_back(key);
-        }
-    }
-
-    if (isUnresolved) {
-        // TODO show warning
-    }
-
+    mResult = mDialog->result();
     Q_EMIT q->keysResolved(true, false);
 }
 
@@ -223,16 +101,24 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
         // nothing to do
         return Q_EMIT keysResolved(true, true);
     }
-    const bool success = d->mCore.resolve();
-
+    const auto result = d->mCore.resolve();
+    const bool success = (result.flags & KeyResolverCore::AllResolved);
     if (success && !showApproval) {
+        d->mResult = std::move(result.solution);
+        // update protocol hint of solution if solution is single-protocol solution
+        const auto protocolsHint = result.flags & KeyResolverCore::ProtocolsMask;
+        if (protocolsHint == KeyResolverCore::OpenPGPOnly) {
+            d->mResult.protocol = OpenPGP;
+        } else if (protocolsHint == KeyResolverCore::CMSOnly) {
+            d->mResult.protocol = CMS;
+        }
         Q_EMIT keysResolved(true, false);
         return;
     } else if (success) {
         qCDebug(LIBKLEO_LOG) << "No need for the user showing approval anyway.";
     }
 
-    d->showApprovalDialog(parentWidget);
+    d->showApprovalDialog(std::move(result), parentWidget);
 }
 
 KeyResolver::KeyResolver(bool encrypt, bool sign, Protocol fmt, bool allowMixed)
@@ -262,14 +148,9 @@ void KeyResolver::setSigningKeys(const QStringList &fingerprints)
     d->mCore.setSigningKeys(fingerprints);
 }
 
-QMap <Protocol, QMap<QString, std::vector<Key> > > KeyResolver::encryptionKeys() const
+KeyResolver::Solution KeyResolver::result() const
 {
-    return d->mCore.encryptionKeys();
-}
-
-QMap <Protocol, std::vector<Key> > KeyResolver::signingKeys() const
-{
-    return d->mCore.signingKeys();
+    return d->mResult;
 }
 
 void KeyResolver::setDialogWindowFlags(Qt::WindowFlags flags)
