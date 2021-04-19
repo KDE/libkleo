@@ -323,10 +323,8 @@ public:
             smimeBtn->setChecked(presetProtocol == GpgME::CMS);
         }
 
-        QObject::connect (mFormatBtns, static_cast<void (QButtonGroup::*)(QAbstractButton *, bool)> (&QButtonGroup::buttonToggled),
-                q, [this](QAbstractButton *, bool) {
-            updateWidgetVisibility();
-        });
+        QObject::connect(mFormatBtns, &QButtonGroup::idToggled,
+                         q, [this](int, bool) { updateWidgetVisibility(); });
 
         mMainLay->addWidget(mScrollArea);
 
