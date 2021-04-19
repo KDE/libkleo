@@ -433,33 +433,6 @@ private Q_SLOTS:
         QCOMPARE(encryptionKeyWidgets.visible.size(), 5);
         QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
     }
-
-private:
-    QMap<QString, std::vector<GpgME::Key> > resolved_senders_openpgp_and_smime()
-    {
-        return {
-            {QStringLiteral("sender@example.net"), {
-                createTestKey("sender@example.net", GpgME::OpenPGP),
-                createTestKey("sender@example.net", GpgME::CMS)
-            }}
-        };
-    }
-
-    QMap<QString, std::vector<GpgME::Key> > resolved_recipients_openpgp_and_smime()
-    {
-        return {
-            {QStringLiteral("prefer-openpgp@example.net"), {
-                createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)
-            }},
-            {QStringLiteral("prefer-smime@example.net"), {
-                createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)
-            }},
-            {QStringLiteral("sender@example.net"), {
-                createTestKey("sender@example.net", GpgME::OpenPGP),
-                createTestKey("sender@example.net", GpgME::CMS)
-            }}
-        };
-    }
 };
 
 QTEST_MAIN(NewKeyApprovalDialogTest)
