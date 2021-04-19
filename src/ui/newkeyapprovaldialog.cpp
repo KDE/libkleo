@@ -122,8 +122,7 @@ class ComboWidget: public QWidget
 public:
     explicit ComboWidget(KeySelectionCombo *combo):
         mCombo(combo),
-        mFilterBtn(new QPushButton),
-        mFromOverride(GpgME::UnknownProtocol)
+        mFilterBtn(new QPushButton)
     {
         auto hLay = new QHBoxLayout(this);
         auto infoBtn = new QPushButton;
@@ -180,16 +179,6 @@ public:
         return mCombo;
     }
 
-    GpgME::Protocol fromOverride() const
-    {
-        return mFromOverride;
-    }
-
-    void setFromOverride(GpgME::Protocol proto)
-    {
-        mFromOverride = proto;
-    }
-
     GpgME::Protocol fixedProtocol() const
     {
         return mFixedProtocol;
@@ -204,7 +193,6 @@ private:
     KeySelectionCombo *mCombo;
     QPushButton *mFilterBtn;
     QString mLastIdFilter;
-    GpgME::Protocol mFromOverride;
     GpgME::Protocol mFixedProtocol = GpgME::UnknownProtocol;
 };
 
