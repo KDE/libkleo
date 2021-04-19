@@ -17,6 +17,7 @@
 
 #include <QApplication>
 #include <QButtonGroup>
+#include <QCheckBox>
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QGroupBox>
@@ -253,6 +254,11 @@ private:
         IgnoreKey,
     };
 public:
+    enum {
+        OpenPGPButtonId = 1,
+        SMIMEButtonId = 2
+    };
+
     Private(NewKeyApprovalDialog *qq,
             bool encrypt,
             bool sign,
@@ -269,6 +275,7 @@ public:
     {
         Q_ASSERT(forcedProtocol == GpgME::UnknownProtocol || presetProtocol == GpgME::UnknownProtocol || presetProtocol == forcedProtocol);
         Q_ASSERT(!allowMixed || (allowMixed && forcedProtocol == GpgME::UnknownProtocol));
+        Q_ASSERT(!(!allowMixed && presetProtocol == GpgME::UnknownProtocol));
 
         // We do the translation here to avoid having the same string multiple times.
         mGenerateTooltip = i18nc("@info:tooltip for a 'Generate new key pair' action "
@@ -299,32 +306,40 @@ public:
 
         auto fmtLayout = new QHBoxLayout;
         mFormatBtns = new QButtonGroup;
-        auto pgpBtn = new QRadioButton(i18n("OpenPGP"));
-        auto smimeBtn = new QRadioButton(i18n("S/MIME"));
-        mFormatBtns->addButton(pgpBtn, 1);
-        mFormatBtns->addButton(smimeBtn, 2);
-        mFormatBtns->setExclusive(true);
+        QAbstractButton *pgpBtn;
+        QAbstractButton *smimeBtn;
+        if (mAllowMixed) {
+            pgpBtn = new QCheckBox(i18n("OpenPGP"));
+            smimeBtn = new QCheckBox(i18n("S/MIME"));
+        } else {
+            pgpBtn = new QRadioButton(i18n("OpenPGP"));
+            smimeBtn = new QRadioButton(i18n("S/MIME"));
+        }
+#ifndef NDEBUG
+        pgpBtn->setObjectName(QStringLiteral("openpgp button"));
+        smimeBtn->setObjectName(QStringLiteral("smime button"));
+#endif
+        mFormatBtns->addButton(pgpBtn, OpenPGPButtonId);
+        mFormatBtns->addButton(smimeBtn, SMIMEButtonId);
+        mFormatBtns->setExclusive(!mAllowMixed);
 
         fmtLayout->addStretch(-1);
         fmtLayout->addWidget(pgpBtn);
         fmtLayout->addWidget(smimeBtn);
         mMainLay->addLayout(fmtLayout);
 
-        if (mAllowMixed) {
-            smimeBtn->setVisible(false);
-            pgpBtn->setVisible(false);
-        } else if (mForcedProtocol != GpgME::UnknownProtocol) {
+        if (mForcedProtocol != GpgME::UnknownProtocol) {
             pgpBtn->setChecked(mForcedProtocol == GpgME::OpenPGP);
             smimeBtn->setChecked(mForcedProtocol == GpgME::CMS);
             pgpBtn->setVisible(false);
             smimeBtn->setVisible(false);
         } else {
-            pgpBtn->setChecked(presetProtocol == GpgME::OpenPGP);
-            smimeBtn->setChecked(presetProtocol == GpgME::CMS);
+            pgpBtn->setChecked(presetProtocol == GpgME::OpenPGP || presetProtocol == GpgME::UnknownProtocol);
+            smimeBtn->setChecked(presetProtocol == GpgME::CMS || presetProtocol == GpgME::UnknownProtocol);
         }
 
         QObject::connect(mFormatBtns, &QButtonGroup::idToggled,
-                         q, [this](int, bool) { updateWidgetVisibility(); });
+                         q, [this](int, bool) { updateWidgets(); });
 
         mMainLay->addWidget(mScrollArea);
 
@@ -337,18 +352,24 @@ public:
         mMainLay->addLayout(btnLayout);
 
         q->setLayout(mMainLay);
-
     }
 
     ~Private() = default;
 
     Protocol currentProtocol()
     {
+        const bool openPGPButtonChecked = mFormatBtns->button(OpenPGPButtonId)->isChecked();
+        const bool smimeButtonChecked = mFormatBtns->button(SMIMEButtonId)->isChecked();
         if (mAllowMixed) {
-            return UnknownProtocol;
-        } else if (mFormatBtns->checkedId() == 1) {
+            if (openPGPButtonChecked && !smimeButtonChecked) {
+                return OpenPGP;
+            }
+            if (!openPGPButtonChecked && smimeButtonChecked) {
+                return CMS;
+            }
+        } else if (openPGPButtonChecked) {
             return OpenPGP;
-        } else if (mFormatBtns->checkedId() == 2) {
+        } else if (smimeButtonChecked) {
             return CMS;
         }
         return UnknownProtocol;
@@ -448,9 +469,22 @@ public:
         checkAccepted();
     }
 
-    void updateWidgetVisibility()
+    auto encryptionKeyFilter(Protocol protocol)
+    {
+        switch (protocol) {
+        case OpenPGP:
+            return s_pgpEncryptFilter;
+        case CMS:
+            return s_smimeEncryptFilter;
+        default:
+            return s_encryptFilter;
+        }
+    }
+
+    void updateWidgets()
     {
         const Protocol protocol = currentProtocol();
+        const auto encryptionFilter = encryptionKeyFilter(protocol);
 
         for (auto combo: qAsConst(mSigningCombos)) {
             auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
@@ -458,7 +492,7 @@ public:
                 qCDebug(LIBKLEO_LOG) << "Failed to find signature combo widget";
                 continue;
             }
-            widget->setVisible(protocol == UnknownProtocol || widget->fixedProtocol() == protocol);
+            widget->setVisible(protocol == UnknownProtocol || widget->fixedProtocol() == UnknownProtocol || widget->fixedProtocol() == protocol);
         }
         for (auto combo: qAsConst(mEncCombos)) {
             auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
@@ -466,8 +500,23 @@ public:
                 qCDebug(LIBKLEO_LOG) << "Failed to find combo widget";
                 continue;
             }
-            widget->setVisible(protocol == UnknownProtocol || widget->fixedProtocol() == protocol);
+            widget->setVisible(protocol == UnknownProtocol || widget->fixedProtocol() == UnknownProtocol || widget->fixedProtocol() == protocol);
+            if (widget->isVisible() && combo->property("address") != mSender) {
+                combo->setKeyFilter(encryptionFilter);
+            }
         }
+        // hide the labels indicating the protocol of the sender's keys if only a single protocol is active
+        const auto protocolLabels = q->findChildren<QLabel *>(QStringLiteral("protocol label"));
+        for (auto label: protocolLabels) {
+            label->setVisible(protocol == UnknownProtocol);
+        }
+    }
+
+    auto createProtocolLabel(Protocol protocol)
+    {
+        auto label = new QLabel(Formatting::displayName(protocol));
+        label->setObjectName(QStringLiteral("protocol label"));
+        return label;
     }
 
     ComboWidget *createSigningCombo(const QString &addr, const GpgME::Key &key, Protocol protocol = UnknownProtocol)
@@ -526,7 +575,7 @@ public:
         const bool mayNeedCMS = mForcedProtocol != OpenPGP;
         if (mayNeedOpenPGP) {
             if (mAllowMixed) {
-                sigLayout->addWidget(new QLabel(Formatting::displayName(OpenPGP)));
+                sigLayout->addWidget(createProtocolLabel(OpenPGP));
             }
             const Key preferredKey = findfirstKeyOfType(preferredKeys, OpenPGP);
             const Key alternativeKey = findfirstKeyOfType(alternativeKeys, OpenPGP);
@@ -546,7 +595,7 @@ public:
         }
         if (mayNeedCMS) {
             if (mAllowMixed) {
-                sigLayout->addWidget(new QLabel(Formatting::displayName(CMS)));
+                sigLayout->addWidget(createProtocolLabel(CMS));
             }
             const Key preferredKey = findfirstKeyOfType(preferredKeys, CMS);
             const Key alternativeKey = findfirstKeyOfType(alternativeKeys, CMS);
@@ -626,7 +675,7 @@ public:
             const bool mayNeedCMS = mForcedProtocol != OpenPGP;
             if (mayNeedOpenPGP) {
                 if (mAllowMixed) {
-                    encGrid->addWidget(new QLabel(Formatting::displayName(OpenPGP)), encGrid->rowCount(), 0);
+                    encGrid->addWidget(createProtocolLabel(OpenPGP), encGrid->rowCount(), 0);
                 }
                 for (const auto &key : preferredKeys) {
                     if (key.protocol() == OpenPGP) {
@@ -650,7 +699,7 @@ public:
             }
             if (mayNeedCMS) {
                 if (mAllowMixed) {
-                    encGrid->addWidget(new QLabel(Formatting::displayName(CMS)), encGrid->rowCount(), 0);
+                    encGrid->addWidget(createProtocolLabel(CMS), encGrid->rowCount(), 0);
                 }
                 for (const auto &key : preferredKeys) {
                     if (key.protocol() == CMS) {
@@ -858,7 +907,7 @@ NewKeyApprovalDialog::NewKeyApprovalDialog(bool encrypt,
         d->setEncryptionKeys(allowMixed ? UnknownProtocol : preferredSolution.protocol, std::move(preferredSolution.encryptionKeys),
                              allowMixed ? UnknownProtocol : alternativeSolution.protocol, std::move(alternativeSolution.encryptionKeys));
     }
-    d->updateWidgetVisibility();
+    d->updateWidgets();
     d->updateOkButton();
 
     const auto size = sizeHint();
