@@ -51,7 +51,15 @@ QDebug operator<<(QDebug debug, const GpgME::Key &key)
 }
 
 namespace {
-static std::shared_ptr<KeyFilter> s_defaultFilter= std::shared_ptr<KeyFilter> (new DefaultKeyFilter);
+class EncryptFilter: public DefaultKeyFilter
+{
+public:
+    EncryptFilter() : DefaultKeyFilter()
+    {
+        setCanEncrypt(DefaultKeyFilter::Set);
+    }
+};
+static std::shared_ptr<KeyFilter> s_encryptFilter = std::shared_ptr<KeyFilter>(new EncryptFilter);
 
 class OpenPGPFilter: public DefaultKeyFilter
 {
@@ -62,7 +70,7 @@ public:
         setCanEncrypt(DefaultKeyFilter::Set);
     }
 };
-static std::shared_ptr<KeyFilter> s_pgpFilter = std::shared_ptr<KeyFilter> (new OpenPGPFilter);
+static std::shared_ptr<KeyFilter> s_pgpEncryptFilter = std::shared_ptr<KeyFilter> (new OpenPGPFilter);
 
 class OpenPGPSignFilter: public DefaultKeyFilter
 {
@@ -89,7 +97,7 @@ public:
         setCanEncrypt(DefaultKeyFilter::Set);
     }
 };
-static std::shared_ptr<KeyFilter> s_smimeFilter = std::shared_ptr<KeyFilter> (new SMIMEFilter);
+static std::shared_ptr<KeyFilter> s_smimeEncryptFilter = std::shared_ptr<KeyFilter> (new SMIMEFilter);
 
 class SMIMESignFilter: public DefaultKeyFilter
 {
@@ -570,11 +578,11 @@ public:
         combo->setObjectName(QStringLiteral("encryption key"));
 #endif
         if (fixedProtocol == GpgME::OpenPGP) {
-            combo->setKeyFilter(s_pgpFilter);
+            combo->setKeyFilter(s_pgpEncryptFilter);
         } else if (fixedProtocol == GpgME::CMS) {
-            combo->setKeyFilter(s_smimeFilter);
+            combo->setKeyFilter(s_smimeEncryptFilter);
         } else {
-            combo->setKeyFilter(s_defaultFilter);
+            combo->setKeyFilter(s_encryptFilter);
         }
         if (key.isNull() || key_has_addr (key, addr)) {
             comboWidget->setIdFilter(addr);
