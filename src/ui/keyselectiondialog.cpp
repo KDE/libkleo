@@ -427,7 +427,7 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
     le->setFocus();
 
     connect(le, &QLineEdit::textChanged,
-            this, static_cast<void(KeySelectionDialog::*)(const QString &)>(&KeySelectionDialog::slotSearch));
+            this, [this] (const QString &s) { slotSearch(s); });
     connect(mStartSearchTimer, &QTimer::timeout, this, &KeySelectionDialog::slotFilter);
 
     mKeyListView = new KeyListView(new ColumnStrategy(mKeyUsage), nullptr, page);
@@ -452,7 +452,7 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
     }
 
     connect(mCheckSelectionTimer, &QTimer::timeout,
-            this, static_cast<void(KeySelectionDialog::*)()>(&KeySelectionDialog::slotCheckSelection));
+            this, [this] () { slotCheckSelection(); });
     connectSignals();
 
     connect(mKeyListView, &Kleo::KeyListView::doubleClicked, this, &KeySelectionDialog::slotTryOk);
@@ -531,8 +531,8 @@ void Kleo::KeySelectionDialog::connectSignals()
     if (mKeyListView->isMultiSelection())
         connect(mKeyListView, &QTreeWidget::itemSelectionChanged, this, &KeySelectionDialog::slotSelectionChanged);
     else
-        connect(mKeyListView, static_cast<void(KeyListView::*)(KeyListViewItem*)>(&KeyListView::selectionChanged),
-                this, static_cast<void(KeySelectionDialog::*)(KeyListViewItem*)>(&KeySelectionDialog::slotCheckSelection));
+        connect(mKeyListView, QOverload<KeyListViewItem*>::of(&KeyListView::selectionChanged),
+                this, QOverload<KeyListViewItem*>::of(&KeySelectionDialog::slotCheckSelection));
 }
 
 void Kleo::KeySelectionDialog::disconnectSignals()
@@ -541,8 +541,8 @@ void Kleo::KeySelectionDialog::disconnectSignals()
         disconnect(mKeyListView, &QTreeWidget::itemSelectionChanged,
                    this, &KeySelectionDialog::slotSelectionChanged);
     else
-        disconnect(mKeyListView, static_cast<void(KeyListView::*)(KeyListViewItem*)>(&KeyListView::selectionChanged),
-                   this, static_cast<void(KeySelectionDialog::*)(KeyListViewItem*)>(&KeySelectionDialog::slotCheckSelection));
+        disconnect(mKeyListView, QOverload<KeyListViewItem*>::of(&KeyListView::selectionChanged),
+                   this, QOverload<KeyListViewItem*>::of(&KeySelectionDialog::slotCheckSelection));
 }
 
 const GpgME::Key &Kleo::KeySelectionDialog::selectedKey() const
