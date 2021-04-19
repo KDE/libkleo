@@ -541,10 +541,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
                 {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)}
             };
         } else {
-            // keys marked as mixed (UnknownProtocol) as hint that OpenPGP keys are also allowed in key approval
             return {
                 SolutionFlags(AllResolved | CMSOnly),
-                {UnknownProtocol, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
+                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
                 {}
             };
         }
@@ -557,10 +556,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
                 {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)}
             };
         } else {
-            // keys marked as mixed (UnknownProtocol) as hint that S/MIME keys are also allowed in key approval
             return {
                 SolutionFlags(AllResolved | OpenPGPOnly),
-                {UnknownProtocol, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
+                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
                 {}
             };
         }
@@ -597,10 +595,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     const bool allKeysAreOpenPGP = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
                                                [] (const auto &keys) { return allKeysHaveProtocol(keys, OpenPGP); });
     if (allKeysAreOpenPGP) {
-        // keys marked as mixed (UnknownProtocol) as hint that S/MIME keys are also allowed in key approval
         return {
             SolutionFlags(SomeUnresolved | OpenPGPOnly),
-            {UnknownProtocol, mSigKeys.value(OpenPGP), bestEncryptionKeys},
+            {OpenPGP, mSigKeys.value(OpenPGP), bestEncryptionKeys},
             {}
         };
     }
@@ -608,10 +605,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     const bool allKeysAreCMS = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
                                            [] (const auto &keys) { return allKeysHaveProtocol(keys, CMS); });
     if (allKeysAreCMS) {
-        // keys marked as mixed (UnknownProtocol) as hint that S/MIME keys are also allowed in key approval
         return {
             SolutionFlags(SomeUnresolved | CMSOnly),
-            {UnknownProtocol, mSigKeys.value(CMS), bestEncryptionKeys},
+            {CMS, mSigKeys.value(CMS), bestEncryptionKeys},
             {}
         };
     }

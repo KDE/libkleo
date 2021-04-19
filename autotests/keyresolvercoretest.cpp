@@ -8,6 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
 #include <Libkleo/KeyResolverCore>
 
@@ -35,6 +36,20 @@ inline bool qCompare(int const &t1, KeyResolverCore::SolutionFlags const &t2, co
                     const char *file, int line)
 {
     return qCompare(int(t1), int(t2), actual, expected, file, line);
+}
+
+template <>
+inline char *toString(const GpgME::Protocol &t)
+{
+    return qstrdup(Formatting::displayName(t).toLocal8Bit().constData());
+}
+
+template <>
+inline bool qCompare(GpgME::Protocol const &t1, GpgME::Protocol const &t2, const char *actual, const char *expected,
+                    const char *file, int line)
+{
+    return compare_helper(t1 == t2, "Compared values are not the same",
+                          toString(t1), toString(t2), actual, expected, file, line);
 }
 }
 
@@ -201,7 +216,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
-        QCOMPARE(result.solution.protocol, UnknownProtocol);
+        QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
@@ -224,7 +239,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
-        QCOMPARE(result.solution.protocol, UnknownProtocol);
+        QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
@@ -247,7 +262,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
-        QCOMPARE(result.solution.protocol, UnknownProtocol);
+        QCOMPARE(result.solution.protocol, CMS);
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
@@ -293,6 +308,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.value("unknown@example.net").size(), 0);
     }
 
@@ -305,6 +321,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.size(), 2);
         QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 1);
         QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 0);
@@ -320,6 +337,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
+        QCOMPARE(result.solution.protocol, CMS);
         QCOMPARE(result.solution.encryptionKeys.size(), 2);
         QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 0);
         QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 1);
@@ -336,6 +354,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.size(), 2);
         QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 1);
         QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 0);

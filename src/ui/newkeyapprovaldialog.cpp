@@ -849,8 +849,8 @@ NewKeyApprovalDialog::NewKeyApprovalDialog(bool encrypt,
         d->setSigningKeys(std::move(preferredSolution.signingKeys), std::move(alternativeSolution.signingKeys));
     }
     if (encrypt) {
-        d->setEncryptionKeys(preferredSolution.protocol, std::move(preferredSolution.encryptionKeys),
-                             alternativeSolution.protocol, std::move(alternativeSolution.encryptionKeys));
+        d->setEncryptionKeys(allowMixed ? UnknownProtocol : preferredSolution.protocol, std::move(preferredSolution.encryptionKeys),
+                             allowMixed ? UnknownProtocol : alternativeSolution.protocol, std::move(alternativeSolution.encryptionKeys));
     }
     d->updateWidgetVisibility();
     d->updateOkButton();

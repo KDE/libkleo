@@ -105,13 +105,6 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
     const bool success = (result.flags & KeyResolverCore::AllResolved);
     if (success && !showApproval) {
         d->mResult = std::move(result.solution);
-        // update protocol hint of solution if solution is single-protocol solution
-        const auto protocolsHint = result.flags & KeyResolverCore::ProtocolsMask;
-        if (protocolsHint == KeyResolverCore::OpenPGPOnly) {
-            d->mResult.protocol = OpenPGP;
-        } else if (protocolsHint == KeyResolverCore::CMSOnly) {
-            d->mResult.protocol = CMS;
-        }
         Q_EMIT keysResolved(true, false);
         return;
     } else if (success) {
