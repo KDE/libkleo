@@ -326,8 +326,16 @@ public:
             smimeBtn->setChecked(presetProtocol == GpgME::CMS || presetProtocol == GpgME::UnknownProtocol);
         }
 
-        QObject::connect(mFormatBtns, &QButtonGroup::idToggled,
-                         q, [this](int, bool) { updateWidgets(); });
+        QObject::connect(mFormatBtns, &QButtonGroup::idClicked,
+                         q, [this](int buttonId) {
+                             // ensure that at least one protocol button is checked
+                             if (mAllowMixed
+                                    && !mFormatBtns->button(OpenPGPButtonId)->isChecked()
+                                    && !mFormatBtns->button(SMIMEButtonId)->isChecked()) {
+                                 mFormatBtns->button(buttonId == OpenPGPButtonId ? SMIMEButtonId : OpenPGPButtonId)->setChecked(true);
+                             }
+                             updateWidgets();
+                        });
 
         mMainLay->addWidget(mScrollArea);
 
