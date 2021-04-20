@@ -8,6 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <Libkleo/KeyCache>
 #include <Libkleo/KeySelectionCombo>
 #include <Libkleo/NewKeyApprovalDialog>
 
@@ -61,6 +62,17 @@ GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::Unkn
     key->fpr = strdup(fingerprint.constData());
 
     return GpgME::Key(key, false);
+}
+
+auto testKey(const char *email, GpgME::Protocol protocol = GpgME::UnknownProtocol)
+{
+    const auto keys = KeyCache::instance()->findByEMailAddress(email);
+    for (const auto &key: keys) {
+        if (protocol == GpgME::UnknownProtocol || key.protocol() == protocol) {
+            return key;
+        }
+    }
+    return GpgME::Key();
 }
 
 template <typename T>
@@ -119,6 +131,26 @@ class NewKeyApprovalDialogTest: public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void init()
+    {
+        // hold a reference to the key cache to avoid rebuilding while the test is running
+        mKeyCache = KeyCache::instance();
+
+        KeyCache::mutableInstance()->setKeys({
+            createTestKey("sender@example.net", GpgME::OpenPGP),
+            createTestKey("sender@example.net", GpgME::CMS),
+            createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP),
+            createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS),
+        });
+    }
+
+    void cleanup()
+    {
+        // verify that nobody else holds a reference to the key cache
+        QVERIFY(mKeyCache.use_count() == 1);
+        mKeyCache.reset();
+    }
+
     void test__both_protocols_allowed__mixed_not_allowed__openpgp_preferred()
     {
         const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
@@ -126,20 +158,20 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::OpenPGP,
-            {createTestKey("sender@example.net", GpgME::OpenPGP)},
+            {testKey("sender@example.net", GpgME::OpenPGP)},
             {
-                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
                 {QStringLiteral("prefer-smime@example.net"), {}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP)}}
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {
             GpgME::CMS,
-            {createTestKey("sender@example.net", GpgME::CMS)},
+            {testKey("sender@example.net", GpgME::CMS)},
             {
                 {QStringLiteral("prefer-openpgp@example.net"), {}},
-                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::CMS)}}
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}}
             }
         };
 
@@ -194,20 +226,20 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::CMS,
-            {createTestKey("sender@example.net", GpgME::CMS)},
+            {testKey("sender@example.net", GpgME::CMS)},
             {
                 {QStringLiteral("prefer-openpgp@example.net"), {}},
-                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::CMS)}}
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {
             GpgME::OpenPGP,
-            {createTestKey("sender@example.net", GpgME::OpenPGP)},
+            {testKey("sender@example.net", GpgME::OpenPGP)},
             {
-                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
                 {QStringLiteral("prefer-smime@example.net"), {}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP)}}
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}}
             }
         };
 
@@ -262,11 +294,11 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::OpenPGP,
-            {createTestKey("sender@example.net", GpgME::OpenPGP)},
+            {testKey("sender@example.net", GpgME::OpenPGP)},
             {
-                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
                 {QStringLiteral("prefer-smime@example.net"), {}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP)}}
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {};
@@ -312,11 +344,11 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::CMS,
-            {createTestKey("sender@example.net", GpgME::CMS)},
+            {testKey("sender@example.net", GpgME::CMS)},
             {
                 {QStringLiteral("prefer-openpgp@example.net"), {}},
-                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::CMS)}}
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {};
@@ -362,12 +394,12 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::UnknownProtocol,
-            {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)},
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
             {
-                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
                 {QStringLiteral("unknown@example.net"), {}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)}}
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {};
@@ -422,11 +454,11 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::OpenPGP,
-            {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)},
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
             {
-                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
                 {QStringLiteral("unknown@example.net"), {}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)}}
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {};
@@ -478,11 +510,11 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::CMS,
-            {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)},
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
             {
-                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
                 {QStringLiteral("unknown@example.net"), {}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)}}
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {};
@@ -536,8 +568,8 @@ private Q_SLOTS:
             GpgME::UnknownProtocol,
             {},
             {
-                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
                 {QStringLiteral("unknown@example.net"), {}},
                 {QStringLiteral("sender@example.net"), {}}
             }
@@ -583,12 +615,12 @@ private Q_SLOTS:
         const QString sender = QStringLiteral("sender@example.net");
         const KeyResolver::Solution preferredSolution = {
             GpgME::UnknownProtocol,
-            {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)},
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
             {
-                {QStringLiteral("prefer-openpgp@example.net"), {createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-                {QStringLiteral("prefer-smime@example.net"), {createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
                 {QStringLiteral("unknown@example.net"), {}},
-                {QStringLiteral("sender@example.net"), {createTestKey("sender@example.net", GpgME::OpenPGP), createTestKey("sender@example.net", GpgME::CMS)}}
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
             }
         };
         const KeyResolver::Solution alternativeSolution = {};
@@ -610,6 +642,9 @@ private Q_SLOTS:
         QCOMPARE(encryptionKeyWidgets.visible.size(), 5);
         QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
     }
+
+private:
+    std::shared_ptr<const KeyCache> mKeyCache;
 };
 
 QTEST_MAIN(NewKeyApprovalDialogTest)
