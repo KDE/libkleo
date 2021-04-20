@@ -152,6 +152,9 @@ public:
     /** Check if all keys have OpenPGP Protocol. */
     bool pgpOnly() const;
 
+    /** Set the keys the cache shall contain. Marks cache as initialized. Use for tests only. */
+    void setKeys(const std::vector<GpgME::Key> &keys);
+
 public Q_SLOTS:
     void clear();
     void startKeyListing(GpgME::Protocol proto = GpgME::UnknownProtocol)

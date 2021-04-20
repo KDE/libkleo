@@ -1741,6 +1741,17 @@ std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
     return result;
 }
 
+void KeyCache::setKeys(const std::vector<GpgME::Key>& keys)
+{
+    // disable regular key listing and cancel running key listing
+    setRefreshInterval(0);
+    cancelKeyListing();
+    clear();
+    insert(keys);
+    d->m_initalized = true;
+    Q_EMIT keyListingDone(KeyListResult());
+}
+
 #include "moc_keycache_p.cpp"
 #include "moc_keycache.cpp"
 
