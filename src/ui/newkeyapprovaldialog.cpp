@@ -276,6 +276,9 @@ public:
 
         QDialogButtonBox *btnBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
         mOkButton = btnBox->button(QDialogButtonBox::Ok);
+#ifndef NDEBUG
+        mOkButton->setObjectName(QStringLiteral("ok button"));
+#endif
         QObject::connect (btnBox, &QDialogButtonBox::accepted, q, [this] () {
                 accepted();
             });
@@ -371,6 +374,16 @@ public:
         return UnknownProtocol;
     }
 
+    auto findVisibleKeySelectionComboWithGenerateKey()
+    {
+        const auto it = std::find_if(std::begin(mAllCombos), std::end(mAllCombos),
+                                     [] (auto combo) {
+                                         return combo->isVisible()
+                                             && combo->currentData(Qt::UserRole).toInt() == GenerateKey;
+                                     });
+        return it != std::end(mAllCombos) ? *it : nullptr;
+    }
+
     void generateKey(KeySelectionCombo *combo)
     {
         const auto &addr = combo->property("address").toString();
@@ -454,13 +467,9 @@ public:
         // We can assume everything was validly resolved, otherwise
         // the OK button would have been disabled.
         // Handle custom items now.
-        for (auto combo: qAsConst(mAllCombos)) {
-            auto act = combo->currentData(Qt::UserRole).toInt();
-            if (act == GenerateKey) {
-                generateKey(combo);
-                // Only generate once
-                return;
-            }
+        if (auto combo = findVisibleKeySelectionComboWithGenerateKey()) {
+            generateKey(combo);
+            return;
         }
         checkAccepted();
     }
@@ -785,15 +794,10 @@ public:
     void updateOkButton()
     {
         static QString origOkText = mOkButton->text();
-        bool isGenerate = false;
+        const bool isGenerate = bool(findVisibleKeySelectionComboWithGenerateKey());
         bool isAllIgnored = true;
-        // Check if generate is selected.
         for (auto combo: mAllCombos) {
             auto act = combo->currentData(Qt::UserRole).toInt();
-            if (act == GenerateKey) {
-                mOkButton->setText(i18n("Generate"));
-                isGenerate = true;
-            }
             if (act != IgnoreKey) {
                 isAllIgnored = false;
             }
@@ -807,9 +811,7 @@ public:
             mOkButton->setEnabled(!isAllIgnored);
         }
 
-        if (!isGenerate) {
-            mOkButton->setText(origOkText);
-        }
+        mOkButton->setText(isGenerate ? i18n("Generate") : origOkText);
 
         if (Formatting::complianceMode() != QLatin1String("de-vs")) {
             return;

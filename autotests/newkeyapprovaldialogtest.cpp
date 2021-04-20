@@ -15,7 +15,9 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QObject>
+#include <QPushButton>
 #include <QRadioButton>
+#include <QSignalSpy>
 #include <QTest>
 
 #include <gpgme++/key.h>
@@ -47,7 +49,13 @@ inline bool qCompare(bool const &t1, bool const &t2, const char *actual, const c
 namespace
 {
 
-GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::UnknownProtocol)
+enum class KeyUsage {
+    AnyUsage,
+    Sign,
+    Encrypt,
+};
+
+GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::UnknownProtocol, KeyUsage usage = KeyUsage::AnyUsage)
 {
     static int count = 0;
     count++;
@@ -60,6 +68,12 @@ GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::Unkn
     }
     const QByteArray fingerprint = QByteArray::number(count, 16).rightJustified(40, '0');
     key->fpr = strdup(fingerprint.constData());
+    key->revoked = 0;
+    key->expired = 0;
+    key->disabled = 0;
+    key->can_encrypt = int(usage == KeyUsage::AnyUsage || usage == KeyUsage::Encrypt);
+    key->can_sign = int(usage == KeyUsage::AnyUsage || usage == KeyUsage::Sign);
+    key->secret = 1;
 
     return GpgME::Key(key, false);
 }
@@ -73,6 +87,17 @@ auto testKey(const char *email, GpgME::Protocol protocol = GpgME::UnknownProtoco
         }
     }
     return GpgME::Key();
+}
+
+void waitForKeySelectionCombosBeingInitialized(const QDialog *dialog)
+{
+    QVERIFY(dialog);
+    auto combo = dialog->findChild<KeySelectionCombo *>();
+    QVERIFY(combo);
+
+    const auto spy = std::make_unique<QSignalSpy>(combo, &KeySelectionCombo::keyListingFinished);
+    QVERIFY(spy->isValid());
+    QVERIFY(spy->wait(10));
 }
 
 template <typename T>
@@ -112,10 +137,17 @@ void verifyProtocolButton(const T *button, Visibility expectedVisibility, Checke
 }
 
 template <typename T>
+void verifyWidgetVisibility(const T *widget, Visibility expectedVisibility)
+{
+    QVERIFY(widget);
+    QCOMPARE(widget->isVisible(), expectedVisibility == IsVisible);
+}
+
+template <typename T>
 void verifyWidgetsVisibility(const QList<T> &widgets, Visibility expectedVisibility)
 {
     for (auto w: widgets) {
-        QCOMPARE(w->isVisible(), expectedVisibility == IsVisible);
+        verifyWidgetVisibility(w, expectedVisibility);
     }
 }
 
@@ -130,6 +162,14 @@ void verifyProtocolLabels(const QList<QLabel *> &labels, int expectedNumber, Vis
 class NewKeyApprovalDialogTest: public QObject
 {
     Q_OBJECT
+
+private:
+    // copied from NewKeyApprovalDialog::Private
+    enum Action {
+        Unset,
+        GenerateKey,
+        IgnoreKey,
+    };
 private Q_SLOTS:
     void init()
     {
@@ -137,10 +177,10 @@ private Q_SLOTS:
         mKeyCache = KeyCache::instance();
 
         KeyCache::mutableInstance()->setKeys({
-            createTestKey("sender@example.net", GpgME::OpenPGP),
-            createTestKey("sender@example.net", GpgME::CMS),
-            createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP),
-            createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS),
+            createTestKey("sender@example.net", GpgME::OpenPGP, KeyUsage::AnyUsage),
+            createTestKey("sender@example.net", GpgME::CMS, KeyUsage::AnyUsage),
+            createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP, KeyUsage::Encrypt),
+            createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS, KeyUsage::Encrypt),
         });
     }
 
@@ -641,6 +681,110 @@ private Q_SLOTS:
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 5);
         QCOMPARE(encryptionKeyWidgets.hidden.size(), 0);
+    }
+
+    void test__ok_button_shows_generate_if_generate_is_selected()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::OpenPGP,
+            {}, // no signing keys to get "Generate key" choice in OpenPGP combo
+            {{QStringLiteral("sender@example.net"), {}}} // no encryption keys to get "Generate key" choice in OpenPGP combo
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+
+        const auto okButton = dialog->findChild<QPushButton *>("ok button");
+        QVERIFY(okButton);
+        QVERIFY(okButton->text() != "Generate");
+
+        {
+            // get the first signing key combo which is the OpenPGP one
+            const auto signingKeyCombo = dialog->findChild<KeySelectionCombo *>("signing key");
+            verifyWidgetVisibility(signingKeyCombo, IsVisible);
+            const auto originalIndex = signingKeyCombo->currentIndex();
+            const auto generateIndex = signingKeyCombo->findData(GenerateKey);
+            QVERIFY(generateIndex != -1);
+            signingKeyCombo->setCurrentIndex(generateIndex);
+            QCOMPARE(okButton->text(), "Generate");
+            signingKeyCombo->setCurrentIndex(originalIndex);
+            QVERIFY(okButton->text() != "Generate");
+        }
+        {
+            // get the first encryption key combo which is the OpenPGP one for the sender
+            const auto encryptionKeyCombo = dialog->findChild<KeySelectionCombo *>("encryption key");
+            verifyWidgetVisibility(encryptionKeyCombo, IsVisible);
+            const auto originalIndex = encryptionKeyCombo->currentIndex();
+            const auto generateIndex = encryptionKeyCombo->findData(GenerateKey);
+            QVERIFY(generateIndex != -1);
+            encryptionKeyCombo->setCurrentIndex(generateIndex);
+            QCOMPARE(okButton->text(), "Generate");
+            encryptionKeyCombo->setCurrentIndex(originalIndex);
+            QVERIFY(okButton->text() != "Generate");
+        }
+    }
+
+    void test__ok_button_does_not_show_generate_if_generate_is_selected_in_hidden_combos()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::CMS, // enables S/MIME as default protocol, hides OpenPGP combos
+            {}, // no signing keys to get "Generate key" choice in OpenPGP combo
+            {{QStringLiteral("sender@example.net"), {}}} // no encryption keys to get "Generate key" choice in OpenPGP combo
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+
+        const auto okButton = dialog->findChild<QPushButton *>("ok button");
+        QVERIFY(okButton);
+        QVERIFY(okButton->text() != "Generate");
+
+        {
+            // get the first signing key combo which is the OpenPGP one
+            const auto signingKeyCombo = dialog->findChild<KeySelectionCombo *>("signing key");
+            verifyWidgetVisibility(signingKeyCombo, IsHidden);
+            const auto originalIndex = signingKeyCombo->currentIndex();
+            const auto generateIndex = signingKeyCombo->findData(GenerateKey);
+            QVERIFY(generateIndex != -1);
+            signingKeyCombo->setCurrentIndex(generateIndex);
+            QVERIFY(okButton->text() != "Generate");
+            signingKeyCombo->setCurrentIndex(originalIndex);
+            QVERIFY(okButton->text() != "Generate");
+        }
+        {
+            // get the first encryption key combo which is the OpenPGP one for the sender
+            const auto encryptionKeyCombo = dialog->findChild<KeySelectionCombo *>("encryption key");
+            verifyWidgetVisibility(encryptionKeyCombo, IsHidden);
+            const auto originalIndex = encryptionKeyCombo->currentIndex();
+            const auto generateIndex = encryptionKeyCombo->findData(GenerateKey);
+            QVERIFY(generateIndex != -1);
+            encryptionKeyCombo->setCurrentIndex(generateIndex);
+            QVERIFY(okButton->text() != "Generate");
+            encryptionKeyCombo->setCurrentIndex(originalIndex);
+            QVERIFY(okButton->text() != "Generate");
+        }
     }
 
 private:
