@@ -16,6 +16,8 @@
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
 
+#include <unordered_map>
+
 using namespace QGpgME;
 
 static std::unordered_map<std::string, std::unordered_map<std::string, QString>> fakeCryptoConfigValues;
