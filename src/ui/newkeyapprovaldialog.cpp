@@ -820,8 +820,11 @@ public:
         const Protocol protocol = currentProtocol();
 
         for (const auto combo: qAsConst(mAllCombos)) {
-            const auto &key = combo->currentKey();
             if (!combo->isVisible()) {
+                continue;
+            }
+            const auto key = combo->currentKey();
+            if (key.isNull()) {
                 continue;
             }
             if (protocol != UnknownProtocol && key.protocol() != protocol) {

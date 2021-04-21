@@ -903,6 +903,37 @@ private Q_SLOTS:
         QVERIFY(complianceLabel->text().contains(" not "));
     }
 
+    void test__vs_de_compliance__null_keys_are_ignored()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("unknown@example.net"), {}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+
+        const auto complianceLabel = dialog->findChild<QLabel *>("compliance label");
+        verifyWidgetVisibility(complianceLabel, IsVisible);
+        QVERIFY(!complianceLabel->text().contains(" not "));
+    }
+
 private:
     std::shared_ptr<const KeyCache> mKeyCache;
 };
