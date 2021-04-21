@@ -45,6 +45,8 @@ set(libkleo_core_SRCS
    utils/gnupg-registry.c
    utils/hex.cpp
    utils/compat.cpp
+   utils/cryptoconfig.cpp
+   utils/test.cpp
    )
 ecm_qt_declare_logging_category(libkleo_core_SRCS HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
@@ -172,10 +174,12 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   HEADER_NAMES
   Algorithm
   Classify
+  CryptoConfig
   FileSystemWatcher
   Formatting
   GnuPG
   Compat
+  Test
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
