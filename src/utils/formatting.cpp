@@ -13,7 +13,7 @@
 #include "kleo/keyfiltermanager.h"
 #include "kleo/keygroup.h"
 
-#include "utils/compat.h"
+#include "utils/cryptoconfig.h"
 
 #include <gpgme++/key.h>
 #include <gpgme++/importresult.h>
@@ -1081,15 +1081,8 @@ bool Formatting::uidsHaveFullValidity(const Key &key)
 
 QString Formatting::complianceMode()
 {
-    const QGpgME::CryptoConfig *const config = QGpgME::cryptoConfig();
-    if (!config) {
-        return QString();
-    }
-    const QGpgME::CryptoConfigEntry *const entry = getCryptoConfigEntry(config, "gpg", "compliance");
-    if (!entry || entry->stringValue() == QLatin1String("gnupg")) {
-        return QString();
-    }
-    return entry->stringValue();
+    const auto complianceValue = getCryptoConfigStringValue("gpg", "compliance");
+    return complianceValue == QLatin1String("gnupg") ? QString() : complianceValue;
 }
 
 bool Formatting::isKeyDeVs(const GpgME::Key &key)

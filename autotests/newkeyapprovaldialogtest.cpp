@@ -11,6 +11,7 @@
 #include <Libkleo/KeyCache>
 #include <Libkleo/KeySelectionCombo>
 #include <Libkleo/NewKeyApprovalDialog>
+#include <Libkleo/Test>
 
 #include <QCheckBox>
 #include <QLabel>
@@ -55,7 +56,21 @@ enum class KeyUsage {
     Encrypt,
 };
 
-GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::UnknownProtocol, KeyUsage usage = KeyUsage::AnyUsage)
+auto mapValidity(GpgME::UserID::Validity validity)
+{
+    switch (validity) {
+    default:
+    case GpgME::UserID::Unknown: return GPGME_VALIDITY_UNKNOWN;
+    case GpgME::UserID::Undefined: return GPGME_VALIDITY_UNDEFINED;
+    case GpgME::UserID::Never: return GPGME_VALIDITY_NEVER;
+    case GpgME::UserID::Marginal: return GPGME_VALIDITY_MARGINAL;
+    case GpgME::UserID::Full: return GPGME_VALIDITY_FULL;
+    case GpgME::UserID::Ultimate: return GPGME_VALIDITY_ULTIMATE;
+    }
+}
+
+GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::UnknownProtocol, KeyUsage usage = KeyUsage::AnyUsage,
+                         GpgME::UserID::Validity validity = GpgME::UserID::Full)
 {
     static int count = 0;
     count++;
@@ -63,6 +78,7 @@ GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::Unkn
     gpgme_key_t key;
     gpgme_key_from_uid(&key, uid);
     Q_ASSERT(key);
+    Q_ASSERT(key->uids);
     if (protocol != GpgME::UnknownProtocol) {
         key->protocol = protocol == GpgME::OpenPGP ? GPGME_PROTOCOL_OpenPGP : GPGME_PROTOCOL_CMS;
     }
@@ -74,6 +90,7 @@ GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::Unkn
     key->can_encrypt = int(usage == KeyUsage::AnyUsage || usage == KeyUsage::Encrypt);
     key->can_sign = int(usage == KeyUsage::AnyUsage || usage == KeyUsage::Sign);
     key->secret = 1;
+    key->uids->validity = mapValidity(validity);
 
     return GpgME::Key(key, false);
 }
@@ -181,6 +198,7 @@ private Q_SLOTS:
             createTestKey("sender@example.net", GpgME::CMS, KeyUsage::AnyUsage),
             createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP, KeyUsage::Encrypt),
             createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS, KeyUsage::Encrypt),
+            createTestKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP, KeyUsage::Encrypt, GpgME::UserID::Marginal),
         });
     }
 
@@ -820,6 +838,69 @@ private Q_SLOTS:
             combo->setCurrentIndex(ignoreIndex);
         }
         QVERIFY(!okButton->isEnabled());
+    }
+
+    void test__vs_de_compliance__all_keys_fully_valid()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+
+        const auto complianceLabel = dialog->findChild<QLabel *>("compliance label");
+        verifyWidgetVisibility(complianceLabel, IsVisible);
+        QVERIFY(!complianceLabel->text().contains(" not "));
+    }
+
+    void test__vs_de_compliance__not_all_keys_fully_valid()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("marginal-openpgp@example.net"), {testKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+
+        const auto complianceLabel = dialog->findChild<QLabel *>("compliance label");
+        verifyWidgetVisibility(complianceLabel, IsVisible);
+        QVERIFY(complianceLabel->text().contains(" not "));
     }
 
 private:

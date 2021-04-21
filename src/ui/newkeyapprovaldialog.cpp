@@ -344,6 +344,9 @@ public:
 
         mComplianceLbl = new QLabel;
         mComplianceLbl->setVisible(false);
+#ifndef NDEBUG
+        mComplianceLbl->setObjectName(QStringLiteral("compliance label"));
+#endif
 
         auto btnLayout = new QHBoxLayout;
         btnLayout->addWidget(mComplianceLbl);
