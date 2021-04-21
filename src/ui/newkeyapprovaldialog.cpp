@@ -795,21 +795,15 @@ public:
     {
         static QString origOkText = mOkButton->text();
         const bool isGenerate = bool(findVisibleKeySelectionComboWithGenerateKey());
-        bool isAllIgnored = true;
-        for (auto combo: mAllCombos) {
-            auto act = combo->currentData(Qt::UserRole).toInt();
-            if (act != IgnoreKey) {
-                isAllIgnored = false;
-            }
-        }
+        const bool allVisibleEncryptionKeysAreIgnored = std::all_of(std::begin(mEncCombos), std::end(mEncCombos),
+                                                                    [] (auto combo) {
+                                                                        return !combo->isVisible()
+                                                                            || combo->currentData(Qt::UserRole).toInt() == IgnoreKey;
+                                                                    });
 
         // If we don't encrypt the ok button is always enabled. But otherwise
         // we only enable it if we encrypt to at least one recipient.
-        if (!mEncrypt) {
-            mOkButton->setEnabled(true);
-        } else {
-            mOkButton->setEnabled(!isAllIgnored);
-        }
+        mOkButton->setEnabled(!mEncrypt || !allVisibleEncryptionKeysAreIgnored);
 
         mOkButton->setText(isGenerate ? i18n("Generate") : origOkText);
 

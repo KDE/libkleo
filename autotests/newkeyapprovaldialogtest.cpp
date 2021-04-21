@@ -787,6 +787,41 @@ private Q_SLOTS:
         }
     }
 
+    void test__ok_button_is_disabled_if_ignore_is_selected_in_all_visible_encryption_combos()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::OpenPGP,
+            {}, // no signing keys to get "Generate key" choice in OpenPGP combo
+            {{QStringLiteral("sender@example.net"), {}}} // no encryption keys to get "Generate key" choice in OpenPGP combo
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+
+        const auto okButton = dialog->findChild<QPushButton *>("ok button");
+        QVERIFY(okButton);
+        QVERIFY(okButton->isEnabled());
+
+        const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
+        for (auto combo: encryptionKeyWidgets.visible) {
+            const auto ignoreIndex = combo->findData(IgnoreKey);
+            QVERIFY(ignoreIndex != -1);
+            combo->setCurrentIndex(ignoreIndex);
+        }
+        QVERIFY(!okButton->isEnabled());
+    }
+
 private:
     std::shared_ptr<const KeyCache> mKeyCache;
 };
