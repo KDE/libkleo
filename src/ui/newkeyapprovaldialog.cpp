@@ -819,7 +819,7 @@ public:
 
         const Protocol protocol = currentProtocol();
 
-        for (const auto combo: qAsConst(mEncCombos)) {
+        for (const auto combo: qAsConst(mAllCombos)) {
             const auto &key = combo->currentKey();
             if (!combo->isVisible()) {
                 continue;
@@ -830,21 +830,6 @@ public:
             if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
                 de_vs = false;
                 break;
-            }
-        }
-        if (de_vs) {
-            for (const auto combo: qAsConst(mSigningCombos)) {
-                const auto key = combo->currentKey();
-                if (!combo->isVisible()) {
-                    continue;
-                }
-                if (protocol != UnknownProtocol && key.protocol() != protocol) {
-                    continue;
-                }
-                if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
-                    de_vs = false;
-                    break;
-                }
             }
         }
 
