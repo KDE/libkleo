@@ -8,6 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
 #include <Libkleo/KeySelectionCombo>
 #include <Libkleo/NewKeyApprovalDialog>
