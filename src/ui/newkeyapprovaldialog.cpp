@@ -434,29 +434,20 @@ public:
         if (!mRunningJobs.empty()) {
             return;
         }
+
         /* Save the keys */
-        const Protocol protocol = currentProtocol();
-
-        mAcceptedResult.encryptionKeys.clear();
-        mAcceptedResult.signingKeys.clear();
-
+        mAcceptedResult.protocol = currentProtocol();
         for (const auto combo: qAsConst(mEncCombos)) {
-            const auto &addr = combo->property("address").toString();
-            const auto &key = combo->currentKey();
-            if (!combo->isVisible()) {
-                continue;
-            }
-            if (protocol != UnknownProtocol && key.protocol() != protocol) {
+            const auto addr = combo->property("address").toString();
+            const auto key = combo->currentKey();
+            if (!combo->isVisible() || key.isNull()) {
                 continue;
             }
             mAcceptedResult.encryptionKeys[addr].push_back(key);
         }
         for (const auto combo: qAsConst(mSigningCombos)) {
             const auto key = combo->currentKey();
-            if (!combo->isVisible()) {
-                continue;
-            }
-            if (protocol != UnknownProtocol && key.protocol() != protocol) {
+            if (!combo->isVisible() || key.isNull()) {
                 continue;
             }
             mAcceptedResult.signingKeys.push_back(key);

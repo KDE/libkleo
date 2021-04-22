@@ -11,6 +11,7 @@
 #include <Libkleo/KeyCache>
 #include <Libkleo/KeySelectionCombo>
 #include <Libkleo/NewKeyApprovalDialog>
+#include <Libkleo/Predicates>
 #include <Libkleo/Test>
 
 #include <QCheckBox>
@@ -45,10 +46,31 @@ inline bool qCompare(bool const &t1, bool const &t2, const char *actual, const c
     return compare_helper(t1 == t2, "Compared values are not the same",
                           toString(t1), toString(t2), actual, expected, file, line);
 }
+
+template <>
+inline char *toString(const GpgME::Protocol &t)
+{
+    return qstrdup(Formatting::displayName(t).toLocal8Bit().constData());
+}
+
+template <>
+inline bool qCompare(GpgME::Protocol const &t1, GpgME::Protocol const &t2, const char *actual, const char *expected,
+                    const char *file, int line)
+{
+    return compare_helper(t1 == t2, "Compared values are not the same",
+                          toString(t1), toString(t2), actual, expected, file, line);
+}
 }
 
 namespace
 {
+
+// copied from NewKeyApprovalDialog::Private
+enum Action {
+    Unset,
+    GenerateKey,
+    IgnoreKey,
+};
 
 enum class KeyUsage {
     AnyUsage,
@@ -175,19 +197,43 @@ void verifyProtocolLabels(const QList<QLabel *> &labels, int expectedNumber, Vis
     verifyWidgetsVisibility(labels, expectedVisibility);
 }
 
+bool listsOfKeysAreEqual(const std::vector<GpgME::Key> &l1, const std::vector<GpgME::Key> &l2)
+{
+    return std::equal(std::begin(l1), std::end(l1),
+                      std::begin(l2), std::end(l2),
+                      ByFingerprint<std::equal_to>());
+}
+
+void verifySolution(const KeyResolver::Solution &actual, const KeyResolver::Solution &expected)
+{
+    QCOMPARE(actual.protocol, expected.protocol);
+
+    QVERIFY(listsOfKeysAreEqual(actual.signingKeys, expected.signingKeys));
+
+    QVERIFY(std::equal(actual.encryptionKeys.constKeyValueBegin(), actual.encryptionKeys.constKeyValueEnd(),
+                       expected.encryptionKeys.constKeyValueBegin(), expected.encryptionKeys.constKeyValueEnd(),
+                       [] (const auto& kv1, const auto& kv2) {
+                           return kv1.first == kv2.first && listsOfKeysAreEqual(kv1.second, kv2.second);
+                       }));
+}
+
+void switchKeySelectionCombosFromGenerateKeyToIgnoreKey(const QList<KeySelectionCombo *> &combos)
+{
+    for (auto combo: combos) {
+        if (combo->currentData(Qt::UserRole).toInt() == GenerateKey) {
+            const auto ignoreIndex = combo->findData(IgnoreKey);
+            QVERIFY(ignoreIndex != -1);
+            combo->setCurrentIndex(ignoreIndex);
+        }
+    }
+}
+
 }
 
 class NewKeyApprovalDialogTest: public QObject
 {
     Q_OBJECT
 
-private:
-    // copied from NewKeyApprovalDialog::Private
-    enum Action {
-        Unset,
-        GenerateKey,
-        IgnoreKey,
-    };
 private Q_SLOTS:
     void init()
     {
@@ -942,6 +988,193 @@ private Q_SLOTS:
         const auto complianceLabel = dialog->findChild<QLabel *>("compliance label");
         verifyWidgetVisibility(complianceLabel, IsVisible);
         QVERIFY(!complianceLabel->text().contains(" not "));
+    }
+
+    void test__result_does_not_include_null_keys()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("unknown@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("unknown@example.net"), {}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+        switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
+
+        const QSignalSpy dialogAcceptedSpy{dialog.get(), &QDialog::accepted};
+        QVERIFY(dialogAcceptedSpy.isValid());
+
+        const auto okButton = dialog->findChild<QPushButton *>("ok button");
+        QVERIFY(okButton);
+        QVERIFY(okButton->isEnabled());
+        okButton->click();
+
+        QCOMPARE(dialogAcceptedSpy.count(), 1);
+        verifySolution(dialog->result(), {
+            GpgME::UnknownProtocol,
+            {},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+            }
+        });
+    }
+
+    void test__result_has_keys_for_both_protocols_if_both_are_needed()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+        switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
+
+        const QSignalSpy dialogAcceptedSpy{dialog.get(), &QDialog::accepted};
+        QVERIFY(dialogAcceptedSpy.isValid());
+
+        const auto okButton = dialog->findChild<QPushButton *>("ok button");
+        QVERIFY(okButton);
+        QVERIFY(okButton->isEnabled());
+        okButton->click();
+
+        QCOMPARE(dialogAcceptedSpy.count(), 1);
+        verifySolution(dialog->result(), preferredSolution);
+    }
+
+    void test__result_has_only_openpgp_keys_if_openpgp_protocol_selected()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+        switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
+
+        const auto smimeButton = dialog->findChild<QCheckBox *>("smime button");
+        QVERIFY(smimeButton);
+        smimeButton->click();
+        QVERIFY(!smimeButton->isChecked());
+
+        const QSignalSpy dialogAcceptedSpy{dialog.get(), &QDialog::accepted};
+        QVERIFY(dialogAcceptedSpy.isValid());
+
+        const auto okButton = dialog->findChild<QPushButton *>("ok button");
+        QVERIFY(okButton);
+        QVERIFY(okButton->isEnabled());
+        okButton->click();
+
+        QCOMPARE(dialogAcceptedSpy.count(), 1);
+        verifySolution(dialog->result(), {
+            GpgME::OpenPGP,
+            {testKey("sender@example.net", GpgME::OpenPGP)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}}
+            }
+        });
+    }
+
+    void test__result_has_only_smime_keys_if_smime_protocol_selected()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
+        const bool allowMixed = true;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::UnknownProtocol,
+            {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP), testKey("sender@example.net", GpgME::CMS)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+        waitForKeySelectionCombosBeingInitialized(dialog.get());
+        switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
+
+        const auto openPGPButton = dialog->findChild<QCheckBox *>("openpgp button");
+        QVERIFY(openPGPButton);
+        openPGPButton->click();
+        QVERIFY(!openPGPButton->isChecked());
+
+        const QSignalSpy dialogAcceptedSpy{dialog.get(), &QDialog::accepted};
+        QVERIFY(dialogAcceptedSpy.isValid());
+
+        const auto okButton = dialog->findChild<QPushButton *>("ok button");
+        QVERIFY(okButton);
+        QVERIFY(okButton->isEnabled());
+        okButton->click();
+
+        QCOMPARE(dialogAcceptedSpy.count(), 1);
+        verifySolution(dialog->result(), {
+            GpgME::CMS,
+            {testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}}
+            }
+        });
     }
 
 private:
