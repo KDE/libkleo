@@ -474,7 +474,9 @@ void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
     const auto cur = currentKey();
     if (!cur.isNull() && !fingerprint.isEmpty() &&
         fingerprint == QLatin1String(cur.primaryFingerprint())) {
-        // Already set
+        // already set; still emit a changed signal because the current key may
+        // have become the item at the current index by changes in the underlying model
+        Q_EMIT currentKeyChanged(cur);
         return;
     }
     const int idx = findData(fingerprint, KeyList::FingerprintRole, Qt::MatchExactly);
