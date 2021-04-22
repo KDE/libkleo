@@ -95,8 +95,9 @@ GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::Unkn
     return GpgME::Key(key, false);
 }
 
-auto testKey(const char *email, GpgME::Protocol protocol = GpgME::UnknownProtocol)
+auto testKey(const char *address, GpgME::Protocol protocol = GpgME::UnknownProtocol)
 {
+    const auto email = GpgME::UserID::addrSpecFromString(address);
     const auto keys = KeyCache::instance()->findByEMailAddress(email);
     for (const auto &key: keys) {
         if (protocol == GpgME::UnknownProtocol || key.protocol() == protocol) {
@@ -207,6 +208,15 @@ private Q_SLOTS:
         // verify that nobody else holds a reference to the key cache
         QVERIFY(mKeyCache.use_count() == 1);
         mKeyCache.reset();
+    }
+
+    void test__verify_test_keys()
+    {
+        QVERIFY(!testKey("sender@example.net", GpgME::OpenPGP).isNull());
+        QVERIFY(!testKey("sender@example.net", GpgME::CMS).isNull());
+        QVERIFY(!testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP).isNull());
+        QVERIFY(!testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS).isNull());
+        QVERIFY(!testKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP).isNull());
     }
 
     void test__both_protocols_allowed__mixed_not_allowed__openpgp_preferred()
