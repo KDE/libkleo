@@ -17,6 +17,7 @@
 
 #include <gpgme.h>
 
+#include <QSet>
 #include <QTest>
 
 using namespace Kleo;
