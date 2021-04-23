@@ -296,7 +296,7 @@ public:
         q->setWindowTitle(i18nc("@title:window", "Security approval"));
 
         auto fmtLayout = new QHBoxLayout;
-        mFormatBtns = new QButtonGroup;
+        mFormatBtns = new QButtonGroup(qq);
         QAbstractButton *pgpBtn;
         QAbstractButton *smimeBtn;
         if (mAllowMixed) {
