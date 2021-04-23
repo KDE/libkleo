@@ -7,8 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef LIBKLEO_CLASSIFY_H
-#define LIBKLEO_CLASSIFY_H
+#pragma once
 
 #include <kleo_export.h>
 
@@ -129,4 +128,3 @@ inline GpgME::Protocol findProtocol(const QString &filename)
 
 }
 
-#endif /* __KLEOPATRA_UISERVER_CLASSIFY_H__ */
