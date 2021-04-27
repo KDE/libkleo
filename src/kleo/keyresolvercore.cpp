@@ -104,6 +104,8 @@ public:
     void addRecipients(const QStringList &addresses);
     void setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides);
     void resolveOverrides();
+    std::vector<Key> resolveRecipientWithGroup(const QString &address, Protocol protocol);
+    void resolveEncryptionGroups();
     void resolveSign(Protocol proto);
     void setSigningKeys(const QStringList &fingerprints);
     std::vector<Key> resolveRecipient(const QString &address, Protocol protocol);
@@ -324,32 +326,79 @@ void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
     }
 }
 
-std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &address, Protocol protocol)
+std::vector<Key> KeyResolverCore::Private::resolveRecipientWithGroup(const QString &address, Protocol protocol)
 {
     const auto group = mCache->findGroup(address, protocol, KeyUsage::Encrypt);
-    if (!group.isNull() && group.keys().size() > 0) {
-        // If we have one unacceptable group key we reject the
-        // whole group to avoid the situation where one key is
-        // skipped or the operation fails.
-        //
-        // We are in Autoresolve land here. In the GUI we
-        // will also show unacceptable group keys so that the
-        // user can see which key is not acceptable.
-        const auto &keys = group.keys();
-        const bool allKeysAreAcceptable =
-            std::all_of(std::begin(keys), std::end(keys), [this] (const auto &key) { return isAcceptableEncryptionKey(key); });
-        if (!allKeysAreAcceptable) {
-            qCDebug(LIBKLEO_LOG) << "group" << group.name() << "has at least one unacceptable key";
-            return {};
-        }
-        for (const auto &k: keys) {
-            qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << k.primaryFingerprint();
-        }
-        std::vector<Key> result;
-        std::copy(std::begin(keys), std::end(keys), std::back_inserter(result));
-        return result;
+    if (group.isNull()) {
+        return {};
     }
 
+    // If we have one unacceptable group key we reject the
+    // whole group to avoid the situation where one key is
+    // skipped or the operation fails.
+    //
+    // We are in Autoresolve land here. In the GUI we
+    // will also show unacceptable group keys so that the
+    // user can see which key is not acceptable.
+    const auto &keys = group.keys();
+    const bool allKeysAreAcceptable =
+        std::all_of(std::begin(keys), std::end(keys), [this] (const auto &key) { return isAcceptableEncryptionKey(key); });
+    if (!allKeysAreAcceptable) {
+        qCDebug(LIBKLEO_LOG) << "group" << group.name() << "has at least one unacceptable key";
+        return {};
+    }
+    for (const auto &k: keys) {
+        qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << k.primaryFingerprint();
+    }
+    std::vector<Key> result;
+    std::copy(std::begin(keys), std::end(keys), std::back_inserter(result));
+    return result;
+}
+
+void KeyResolverCore::Private::resolveEncryptionGroups()
+{
+    for (auto it = mEncKeys.begin(); it != mEncKeys.end(); ++it) {
+        const QString &address = it.key();
+        auto &protocolKeysMap = it.value();
+        if (!protocolKeysMap[UnknownProtocol].empty()) {
+            // already resolved by common override
+            continue;
+        }
+        if (mFormat == OpenPGP) {
+            if (!protocolKeysMap[OpenPGP].empty()) {
+                // already resolved by override
+                continue;
+            }
+            protocolKeysMap[OpenPGP] = resolveRecipientWithGroup(address, OpenPGP);
+        } else if (mFormat == CMS) {
+            if (!protocolKeysMap[CMS].empty()) {
+                // already resolved by override
+                continue;
+            }
+            protocolKeysMap[CMS] = resolveRecipientWithGroup(address, CMS);
+        } else {
+            // prefer single-protocol groups over mixed-protocol groups
+            const auto openPGPGroupKeys = resolveRecipientWithGroup(address, OpenPGP);
+            const auto smimeGroupKeys = resolveRecipientWithGroup(address, CMS);
+            if (!openPGPGroupKeys.empty() && !smimeGroupKeys.empty()) {
+                protocolKeysMap[OpenPGP] = openPGPGroupKeys;
+                protocolKeysMap[CMS] = smimeGroupKeys;
+            } else if (openPGPGroupKeys.empty() && smimeGroupKeys.empty()) {
+                // no single-protocol groups found;
+                // if mixed protocols are allowed, then look for any group with encryption keys
+                if (mAllowMixed) {
+                    protocolKeysMap[UnknownProtocol] = resolveRecipientWithGroup(address, UnknownProtocol);
+                }
+            } else {
+                // there is a single-protocol group only for one protocol; use this group for all protocols
+                protocolKeysMap[UnknownProtocol] = !openPGPGroupKeys.empty() ? openPGPGroupKeys : smimeGroupKeys;
+            }
+        }
+    }
+}
+
+std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &address, Protocol protocol)
+{
     const auto key = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, KeyUsage::Encrypt);
     if (key.isNull()) {
         qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(protocol) << "key for:" << address;
@@ -371,17 +420,17 @@ void KeyResolverCore::Private::resolveEnc(Protocol proto)
         const QString &address = it.key();
         auto &protocolKeysMap = it.value();
         if (!protocolKeysMap[proto].empty()) {
-            // already resolved for current protocol (by override)
+            // already resolved for current protocol (by override or group)
             continue;
         }
-        const std::vector<Key> &commonOverride = protocolKeysMap[UnknownProtocol];
-        if (!commonOverride.empty()) {
-            // there is a common override; use it for current protocol if possible
-            if (allKeysHaveProtocol(commonOverride, proto)) {
-                protocolKeysMap[proto] = commonOverride;
+        const std::vector<Key> &commonOverrideOrGroup = protocolKeysMap[UnknownProtocol];
+        if (!commonOverrideOrGroup.empty()) {
+            // there is a common override or group; use it for current protocol if possible
+            if (allKeysHaveProtocol(commonOverrideOrGroup, proto)) {
+                protocolKeysMap[proto] = commonOverrideOrGroup;
                 continue;
             } else {
-                qCDebug(LIBKLEO_LOG) << "Common override for" << address << "is unusable for" << Formatting::displayName(proto);
+                qCDebug(LIBKLEO_LOG) << "Common override/group for" << address << "is unusable for" << Formatting::displayName(proto);
                 continue;
             }
         }
@@ -497,6 +546,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         mEncKeys.clear();
         return {Error, {}, {}};
     }
+
+    // Next look for matching groups of keys
+    resolveEncryptionGroups();
 
     // Then look for signing / encryption keys
     if (mFormat == OpenPGP || mFormat == UnknownProtocol) {
