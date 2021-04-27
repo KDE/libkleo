@@ -22,6 +22,14 @@ class UserID;
 namespace Kleo
 {
 
+enum class KeyUsage : char {
+    AnyUsage,
+    Sign,
+    Encrypt,
+    Certify,
+    Authenticate,
+};
+
 enum CryptoMessageFormat {
     InlineOpenPGPFormat = 1,
     OpenPGPMIMEFormat = 2,

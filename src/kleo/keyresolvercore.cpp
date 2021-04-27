@@ -295,8 +295,7 @@ void KeyResolverCore::Private::resolveSign(Protocol proto)
         // Explicitly set
         return;
     }
-    const auto keys = mCache->findBestByMailBox(mSender.toUtf8().constData(),
-                                                proto, true, false);
+    const auto keys = mCache->findBestByMailBox(mSender.toUtf8().constData(), proto, KeyUsage::Sign);
     for (const auto &key: keys) {
         if (key.isNull()) {
             continue;
@@ -331,7 +330,7 @@ void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
 
 std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &address, Protocol protocol)
 {
-    const auto keys = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, false, true);
+    const auto keys = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, KeyUsage::Encrypt);
     if (keys.empty() || keys[0].isNull()) {
         qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(protocol) << "key for: " << address;
         return {};

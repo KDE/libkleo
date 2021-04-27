@@ -73,11 +73,6 @@ enum Action {
     IgnoreKey,
 };
 
-enum class KeyUsage {
-    AnyUsage,
-    Sign,
-    Encrypt,
-};
 
 auto mapValidity(GpgME::UserID::Validity validity)
 {

@@ -13,6 +13,7 @@
 #include "keycache.h"
 #include "keycache_p.h"
 
+#include "kleo/enum.h"
 #include "kleo/keygroup.h"
 #include "kleo/predicates.h"
 #include "kleo/stl_util.h"
@@ -1634,17 +1635,17 @@ static bool subkeyIsOk(const Subkey &s)
 
 namespace
 {
-time_t creationTimeOfNewestSuitableSubKey(const Key &key, bool needSign, bool needEncrypt)
+time_t creationTimeOfNewestSuitableSubKey(const Key &key, KeyUsage usage)
 {
     time_t creationTime = 0;
     for (const Subkey &s: key.subkeys()) {
         if (!subkeyIsOk(s)) {
             continue;
         }
-        if (needSign && !s.canSign()) {
+        if (usage == KeyUsage::Sign && !s.canSign()) {
             continue;
         }
-        if (needEncrypt && !s.canEncrypt()) {
+        if (usage == KeyUsage::Encrypt && !s.canEncrypt()) {
             continue;
         }
         if (s.creationTime() > creationTime) {
@@ -1662,8 +1663,7 @@ struct BestMatch
 };
 }
 
-std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto,
-                                                    bool needSign, bool needEncrypt) const
+std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, KeyUsage usage) const
 {
     d->ensureCachePopulated();
     std::vector<GpgME::Key> ret;
@@ -1689,13 +1689,13 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
         if (proto != Protocol::UnknownProtocol && k.protocol() != proto) {
             continue;
         }
-        if (needEncrypt && !k.canEncrypt()) {
+        if (usage == KeyUsage::Encrypt && !k.canEncrypt()) {
             continue;
         }
-        if (needSign && (!k.canSign() || !k.hasSecret())) {
+        if (usage == KeyUsage::Sign && (!k.canSign() || !k.hasSecret())) {
             continue;
         }
-        const time_t creationTime = creationTimeOfNewestSuitableSubKey(k, needSign, needEncrypt);
+        const time_t creationTime = creationTimeOfNewestSuitableSubKey(k, usage);
         if (creationTime == 0) {
             // key does not have a suitable (and usable) subkey
             continue;

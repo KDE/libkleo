@@ -41,6 +41,7 @@ namespace Kleo
 
 class FileSystemWatcher;
 class KeyGroup;
+enum class KeyUsage : char;
 
 class KLEO_EXPORT KeyCache : public QObject
 {
@@ -104,8 +105,7 @@ public:
      * keys for a single mailbox. Only supported for OpenPGP currently.
      *
      * @returns only the "best" key for the mailbox, or a list if it is a group. */
-    std::vector<GpgME::Key> findBestByMailBox(const char *addr, GpgME::Protocol proto,
-                                              bool needSign, bool needEncrypt) const;
+    std::vector<GpgME::Key> findBestByMailBox(const char *addr, GpgME::Protocol proto, KeyUsage usage) const;
 
     const GpgME::Key &findByShortKeyID(const char *id) const;
     const GpgME::Key &findByShortKeyID(const std::string &id) const;
