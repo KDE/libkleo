@@ -1663,27 +1663,20 @@ struct BestMatch
 };
 }
 
-std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, KeyUsage usage) const
+GpgME::Key KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, KeyUsage usage) const
 {
     d->ensureCachePopulated();
-    std::vector<GpgME::Key> ret;
     if (!addr) {
-        return ret;
+        return {};
     }
-    if (proto == Protocol::OpenPGP) {
-        // Groups take precedence over automatic keys. We return all here
-        // so if a group key for example is expired we can show that.
-        ret = getGroupKeys(QString::fromUtf8(addr));
-        if (!ret.empty()) {
-            return ret;
-        }
-    }
+
     // support lookup of email addresses enclosed in angle brackets
     QByteArray address(addr);
     if (address[0] == '<' && address[address.size() - 1] == '>') {
         address = address.mid(1, address.size() - 2);
     }
     address = address.toLower();
+
     BestMatch best;
     for (const Key &k: findByEMailAddress(address.constData())) {
         if (proto != Protocol::UnknownProtocol && k.protocol() != proto) {
@@ -1723,8 +1716,54 @@ std::vector<GpgME::Key> KeyCache::findBestByMailBox(const char *addr, GpgME::Pro
             }
         }
     }
-    ret.push_back(best.key);
-    return ret;
+
+    return best.key;
+}
+
+namespace
+{
+template<typename T>
+bool allKeysAllowUsage(const T &keys, KeyUsage usage)
+{
+    switch(usage) {
+    case KeyUsage::AnyUsage:
+        return true;
+    case KeyUsage::Sign:
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canSign));
+    case KeyUsage::Encrypt:
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canEncrypt));
+    case KeyUsage::Certify:
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canCertify));
+    case KeyUsage::Authenticate:
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canAuthenticate));
+    }
+    qCDebug(LIBKLEO_LOG) << __func__ << "called with invalid usage" << int(usage);
+    return false;
+}
+
+template<typename T>
+bool allKeysHaveProtocol(const T &keys, Protocol protocol)
+{
+    return std::all_of(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
+}
+}
+
+KeyGroup KeyCache::findGroup(const QString &name, Protocol protocol, KeyUsage usage) const
+{
+    d->ensureCachePopulated();
+
+    Q_ASSERT(usage == KeyUsage::Sign || usage == KeyUsage::Encrypt);
+    for (const auto &group : qAsConst(d->m_groups)) {
+        if (group.name() == name) {
+            const KeyGroup::Keys &keys = group.keys();
+            if (allKeysAllowUsage(keys, usage)
+                && (protocol == UnknownProtocol || allKeysHaveProtocol(keys, protocol))) {
+                return group;
+            }
+        }
+    }
+
+    return {};
 }
 
 std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
@@ -1752,6 +1791,12 @@ void KeyCache::setKeys(const std::vector<GpgME::Key>& keys)
     Q_EMIT keyListingDone(KeyListResult());
 }
 
+void KeyCache::setGroups(const std::vector<KeyGroup>& groups)
+{
+    Q_ASSERT(d->m_initalized && "Call setKeys() before setting groups");
+    d->m_groups = groups;
+    Q_EMIT keysMayHaveChanged();
+}
+
 #include "moc_keycache_p.cpp"
 #include "moc_keycache.cpp"
-

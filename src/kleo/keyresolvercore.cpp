@@ -16,6 +16,7 @@
 
 #include "keyresolvercore.h"
 
+#include "kleo/keygroup.h"
 #include "models/keycache.h"
 #include "utils/formatting.h"
 
@@ -295,21 +296,16 @@ void KeyResolverCore::Private::resolveSign(Protocol proto)
         // Explicitly set
         return;
     }
-    const auto keys = mCache->findBestByMailBox(mSender.toUtf8().constData(), proto, KeyUsage::Sign);
-    for (const auto &key: keys) {
-        if (key.isNull()) {
-            continue;
-        }
-        if (!isAcceptableSigningKey(key)) {
-            qCDebug(LIBKLEO_LOG) << "Unacceptable signing key" << key.primaryFingerprint()
-                                    << "for" << mSender;
-            return;
-        }
+    const auto key = mCache->findBestByMailBox(mSender.toUtf8().constData(), proto, KeyUsage::Sign);
+    if (key.isNull()) {
+        qCDebug(LIBKLEO_LOG) << "Failed to find" << Formatting::displayName(proto) << "signing key for" << mSender;
+        return;
     }
-
-    if (!keys.empty() && !keys[0].isNull()) {
-        mSigKeys.insert(proto, keys);
+    if (!isAcceptableSigningKey(key)) {
+        qCDebug(LIBKLEO_LOG) << "Unacceptable signing key" << key.primaryFingerprint() << "for" << mSender;
+        return;
     }
+    mSigKeys.insert(proto, {key});
 }
 
 void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
@@ -330,18 +326,8 @@ void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
 
 std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &address, Protocol protocol)
 {
-    const auto keys = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, KeyUsage::Encrypt);
-    if (keys.empty() || keys[0].isNull()) {
-        qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(protocol) << "key for: " << address;
-        return {};
-    }
-    if (keys.size() == 1) {
-        if (!isAcceptableEncryptionKey(keys[0], address)) {
-            qCDebug(LIBKLEO_LOG) << "key for:" << address << keys[0].primaryFingerprint()
-                                    << "has not enough validity";
-            return {};
-        }
-    } else {
+    const auto group = mCache->findGroup(address, protocol, KeyUsage::Encrypt);
+    if (!group.isNull() && group.keys().size() > 0) {
         // If we have one unacceptable group key we reject the
         // whole group to avoid the situation where one key is
         // skipped or the operation fails.
@@ -349,23 +335,33 @@ std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &addre
         // We are in Autoresolve land here. In the GUI we
         // will also show unacceptable group keys so that the
         // user can see which key is not acceptable.
-        bool unacceptable = false;
-        for (const auto &key: keys) {
-            if (!isAcceptableEncryptionKey(key)) {
-                qCDebug(LIBKLEO_LOG) << "group key for:" << address << keys[0].primaryFingerprint()
-                                        << "has not enough validity";
-                unacceptable = true;
-                break;
-            }
-        }
-        if (unacceptable) {
+        const auto &keys = group.keys();
+        const bool allKeysAreAcceptable =
+            std::all_of(std::begin(keys), std::end(keys), [this] (const auto &key) { return isAcceptableEncryptionKey(key); });
+        if (!allKeysAreAcceptable) {
+            qCDebug(LIBKLEO_LOG) << "group" << group.name() << "has at least one unacceptable key";
             return {};
         }
+        for (const auto &k: keys) {
+            qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << k.primaryFingerprint();
+        }
+        std::vector<Key> result;
+        std::copy(std::begin(keys), std::end(keys), std::back_inserter(result));
+        return result;
     }
-    for (const auto &k: keys) {
-        qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << k.primaryFingerprint();
+
+    const auto key = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, KeyUsage::Encrypt);
+    if (key.isNull()) {
+        qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(protocol) << "key for:" << address;
+        return {};
     }
-    return keys;
+    if (!isAcceptableEncryptionKey(key, address)) {
+        qCDebug(LIBKLEO_LOG) << "key for:" << address << key.primaryFingerprint()
+                             << "has not enough validity";
+        return {};
+    }
+    qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << key.primaryFingerprint();
+    return {key};
 }
 
 // Try to find matching keys in the provided protocol for the unresolved addresses

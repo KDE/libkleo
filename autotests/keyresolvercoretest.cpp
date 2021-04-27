@@ -10,6 +10,7 @@
 
 #include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
+#include <Libkleo/KeyGroup>
 #include <Libkleo/KeyResolverCore>
 
 #include <QObject>
@@ -53,6 +54,21 @@ inline bool qCompare(GpgME::Protocol const &t1, GpgME::Protocol const &t2, const
 }
 }
 
+namespace
+{
+KeyGroup createGroup(const QString &name,
+                     const std::vector<Key> &keys = std::vector<Key>(),
+                     KeyGroup::Source source = KeyGroup::ApplicationConfig,
+                     const QString &configName = QString())
+{
+    const KeyGroup::Id groupId = (source == KeyGroup::ApplicationConfig) ?
+                                 (configName.isEmpty() ? name : configName) :
+                                 name;
+    KeyGroup g(groupId, name, keys, source);
+    return g;
+}
+}
+
 class KeyResolverCoreTest: public QObject
 {
     Q_OBJECT
@@ -64,6 +80,8 @@ private Q_SLOTS:
 
         // hold a reference to the key cache to avoid rebuilding while the test is running
         mKeyCache = KeyCache::instance();
+        // make sure that the key cache has been populated
+        (void)mKeyCache->keys();
     }
 
     void cleanup()
@@ -616,6 +634,26 @@ private Q_SLOTS:
         const auto result = resolver.resolve();
 
         QVERIFY(result.flags & KeyResolverCore::Error);
+    }
+
+    void test_groups__group_with_one_openpgp_key__mixed_mode()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("group@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP)
+            })
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
+        resolver.setRecipients({"group@example.net"});
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value("group@example.net")[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
     }
 
 private:

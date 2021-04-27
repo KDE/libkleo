@@ -91,8 +91,7 @@ public:
     std::vector<GpgME::Key> findByEMailAddress(const char *email) const;
     std::vector<GpgME::Key> findByEMailAddress(const std::string &email) const;
 
-    /** Look through the cache and search for the best key for a mailbox taking
-     * groups into account.
+    /** Look through the cache and search for the best key for a mailbox.
      *
      * The best key is the key with a UID for the provided mailbox that
      * has the highest validity and a subkey that is capable for the given
@@ -100,12 +99,18 @@ public:
      * If more then one key have a UID with the same validity
      * the most recently created key is taken.
      *
-     * The return value is a list because of groups. A group is
-     * a gnupg config entry that allows a user to configure multiple
-     * keys for a single mailbox. Only supported for OpenPGP currently.
+     * @returns the "best" key for the mailbox. */
+    GpgME::Key findBestByMailBox(const char *addr, GpgME::Protocol proto, KeyUsage usage) const;
+
+    /**
+     * Looks for a group named @a name which contains keys with protocol @a protocol
+     * that are suitable for the usage @a usage.
      *
-     * @returns only the "best" key for the mailbox, or a list if it is a group. */
-    std::vector<GpgME::Key> findBestByMailBox(const char *addr, GpgME::Protocol proto, KeyUsage usage) const;
+     * The first group that fulfills all conditions is returned.
+     *
+     * @returns a matching group or a null group if no matching group is found.
+     */
+    KeyGroup findGroup(const QString &name, GpgME::Protocol protocol, KeyUsage usage) const;
 
     const GpgME::Key &findByShortKeyID(const char *id) const;
     const GpgME::Key &findByShortKeyID(const std::string &id) const;
@@ -154,6 +159,8 @@ public:
 
     /** Set the keys the cache shall contain. Marks cache as initialized. Use for tests only. */
     void setKeys(const std::vector<GpgME::Key> &keys);
+
+    void setGroups(const std::vector<KeyGroup> &groups);
 
 public Q_SLOTS:
     void clear();
