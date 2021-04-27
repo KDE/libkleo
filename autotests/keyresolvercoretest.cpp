@@ -14,6 +14,7 @@
 #include <Libkleo/KeyResolverCore>
 
 #include <QObject>
+#include <QProcess>
 #include <QTest>
 
 #include <gpgme++/key.h>
@@ -90,7 +91,11 @@ private Q_SLOTS:
         QVERIFY(mKeyCache.use_count() == 1);
         mKeyCache.reset();
 
+        // kill all running gpg daemons
+        (void)QProcess::execute("gpgconf", {"--kill", "all"});
+
         mGnupgHome.reset();
+        qunsetenv("GNUPGHOME");
     }
 
     void test_verify_test_keys()
