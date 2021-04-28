@@ -319,9 +319,7 @@ void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
                 qCDebug(LIBKLEO_LOG) << "Failed to find signing key with fingerprint" << fpr;
                 continue;
             }
-            auto list = mSigKeys.value(key.protocol());
-            list.push_back(key);
-            mSigKeys.insert(key.protocol(), list);
+            mSigKeys[key.protocol()].push_back(key);
         }
     }
 }
