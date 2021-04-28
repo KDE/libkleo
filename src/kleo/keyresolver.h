@@ -11,19 +11,18 @@
 
 #pragma once
 
-#include "kleo_export.h"
-
-#include <Libkleo/Enum>
-
 #include <QMap>
 #include <QObject>
 #include <QString>
-#include <QStringList>
 
 #include <gpgme++/global.h>
 
 #include <memory>
 #include <vector>
+
+#include "kleo_export.h"
+
+class QStringList;
 
 namespace GpgME
 {

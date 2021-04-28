@@ -13,14 +13,14 @@
 
 #include <Libkleo/KeyResolver>
 
-#include "kleo_export.h"
-
 #include <QMap>
 
 #include <gpgme++/global.h>
 
 #include <memory>
 #include <vector>
+
+#include "kleo_export.h"
 
 class QString;
 class QStringList;

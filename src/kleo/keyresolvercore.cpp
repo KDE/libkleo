@@ -16,6 +16,7 @@
 
 #include "keyresolvercore.h"
 
+#include "kleo/enum.h"
 #include "kleo/keygroup.h"
 #include "models/keycache.h"
 #include "utils/formatting.h"

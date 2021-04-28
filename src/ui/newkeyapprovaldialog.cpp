@@ -10,12 +10,14 @@
 */
 
 #include "newkeyapprovaldialog.h"
-#include "kleo/defaultkeyfilter.h"
+
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
+#include "kleo/defaultkeyfilter.h"
 #include "utils/formatting.h"
 
-#include "libkleo_debug.h"
+#include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QApplication>
 #include <QButtonGroup>
@@ -23,6 +25,7 @@
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QGroupBox>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QMap>
 #include <QPushButton>
@@ -32,13 +35,12 @@
 #include <QVBoxLayout>
 
 #include <QGpgME/DefaultKeyGenerationJob>
-#include <QGpgME/CryptoConfig>
-#include <QGpgME/Protocol>
+#include <QGpgME/Job>
+
 #include <gpgme++/keygenerationresult.h>
 #include <gpgme++/key.h>
 
-#include <KLocalizedString>
-#include <KMessageBox>
+#include "libkleo_debug.h"
 
 using namespace Kleo;
 using namespace GpgME;

@@ -13,13 +13,11 @@
 
 #include <Libkleo/KeyResolver>
 
-#include "kleo_export.h"
-
 #include <QDialog>
 
-#include <gpgme++/key.h>
+#include <memory>
 
-#include <vector>
+#include "kleo_export.h"
 
 namespace Kleo
 {
