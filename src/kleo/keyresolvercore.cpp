@@ -548,7 +548,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     }
 
     // Next look for matching groups of keys
-    resolveEncryptionGroups();
+    if (mEncrypt) {
+        resolveEncryptionGroups();
+    }
 
     // Then look for signing / encryption keys
     if (mFormat == OpenPGP || mFormat == UnknownProtocol) {
