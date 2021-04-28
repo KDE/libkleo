@@ -33,61 +33,46 @@ class Key;
 namespace Kleo
 {
 /**
- * Class to find Keys for E-Mail encryption.
+ * Class to find Keys for E-Mail signing and encryption.
  *
  * The KeyResolver uses the Keycache to find keys for signing
  * or encryption.
  *
- * Overrides can be provided for address book integration if the
- * format is not Auto overrides will only be respected if they
- * match the format provided in the constructor.
+ * Overrides can be provided for address book integration.
  *
- * If no override key is provided for an address the key
+ * If no override key(s) are provided for an address and no
+ * KeyGroup for this address is found, then the key
  * with a uid that matches the address and has the highest
- * validity is used. If both keys have the same validity
- * the newest subkey is used.
+ * validity is used. If both keys have the same validity,
+ * then the key with the newest subkey is used.
  *
  * The KeyResolver also supports groups so the number of
  * encryption keys does not necessarily
  * need to match the amount of sender addresses. For this reason
- * maps are used heavily to map:
+ * maps are used to map addresses to lists of keys.
  *
- * CryptoFormat
- *   - Addresses
- *   -- For each Address a List of Keys
- *
- * As a caller you should iterate over the CryptoFormats and
- * send one message for each format for the recipients and signed
+ * The keys can be OpenPGP keys and S/MIME (CMS) keys.
+ * As a caller you need to partition the keys by their protocol and
+ * send one message for each protocol for the recipients and signed
  * by the signing keys.
- *
- * If the CryptoMessageFormat is Auto the minimum number
- * of CryptoMessageFormats is returned that respects all overrides.
- *
- * -----
- * Planned:
- *
- * As the central place to manage mail encryption / signing keys
- * the Keyresolver will also show various warning / nagging messages
- * and offer solutions if nagging is not explicitly turned off.
- * These include:
- *
- * - If own keys or subkeys are about to expire:
- *   Offer to extend their expiration date.
- *
- * - (S/MIME) If they are about to expire: Offer
- *   to generate a new CSR.
- *
- * - If a user has not marked a key as backed up and
- *   uses it for encryption for several mails.
- *
- * - If a user has multiple keys for a sender address and they
- *   are not cross signed. Offer to cross sign / publish.
  */
 class KLEO_EXPORT KeyResolver : public QObject
 {
     Q_OBJECT
 
 public:
+    /**
+     * Solution represents the solution found by the KeyResolver.
+     * @a protocol hints at the protocol of the signing and encryption keys,
+     * i.e. if @a protocol is either @c GpgME::OpenPGP or @c GpgME::CMS, then
+     * all keys have the corresponding protocol. Otherwise, the keys have
+     * mixed protocols.
+     * @a signingKeys contains the signing keys to use. It contains
+     * zero or one OpenPGP key and zero or one S/MIME key.
+     * @a encryptionKeys contains the encryption keys to use for the
+     * different recipients. The keys of the map represent the normalized
+     * email addresses of the recipients.
+     */
     struct Solution
     {
         GpgME::Protocol protocol = GpgME::UnknownProtocol;
@@ -99,27 +84,27 @@ public:
      *
      * @param encrypt: Should encryption keys be selected.
      * @param sign: Should signing keys be selected.
-     * @param format: A specific key protocol (OpenPGP, S/MIME) for selection. Default: Both protocols.
+     * @param protocol: A specific key protocol (OpenPGP, S/MIME) for selection. Default: Both protocols.
      * @param allowMixed: Specify if multiple message formats may be resolved.
      **/
     explicit KeyResolver(bool encrypt, bool sign,
-                         GpgME::Protocol format = GpgME::UnknownProtocol,
+                         GpgME::Protocol protocol = GpgME::UnknownProtocol,
                          bool allowMixed = true);
+
     ~KeyResolver() override;
 
     /**
-     *  Set the list of recipient addresses. Also looks
-     *  up possible keys, but doesn't interact with the user.
+     *  Set the list of recipient addresses.
      *
-     *  @param addresses: A list of unnormalized addresses
+     *  @param addresses: A list of (not necessarily normalized) email addresses
     */
     void setRecipients(const QStringList &addresses);
 
     /**
-     * Set the senders address.
+     * Set the sender's address.
      *
-     * Sender address will be added to encryption keys and used
-     * for signing key resolution if the signing keys are not
+     * This address is added to the list of recipients (for encryption to self)
+     * and it is used for signing key resolution, if the signing keys are not
      * explicitly set through setSigningKeys.
      *
      * @param sender: The sender of this message.
@@ -127,18 +112,22 @@ public:
     void setSender(const QString &sender);
 
     /**
-     * Set up possible override keys for recipients / sender
-     * addresses. The keys for the fingerprints are looked
-     * up and used when found. Does not interact with the user.
+     * Set up possible override keys for recipients addresses.
+     * The keys for the fingerprints are looked
+     * up and used when found.
+     *
+     * Overrides for @c GpgME::UnknownProtocol are used regardless of the
+     * protocol. Overrides for a specific protocol are only used for this
+     * protocol. Overrides for @c GpgME::UnknownProtocol takes precendent over
+     * overrides for a specific protocol.
      *
      * @param overrides: A map of \<protocol\> -> (\<address\> \<fingerprints\>)
     */
     void setOverrideKeys(const QMap<GpgME::Protocol, QMap<QString, QStringList> > &overrides);
 
     /**
-     * Set explicit signing keys. If this was set for a
-     * protocol the sender address will be only used as an additional encryption
-     * recipient for that protocol. */
+     * Set explicit signing keys to use.
+     */
     void setSigningKeys(const QStringList &fingerprints);
 
     /**
@@ -197,5 +186,3 @@ private:
     std::unique_ptr<Private> d;
 };
 } // namespace Kleo
-
-
