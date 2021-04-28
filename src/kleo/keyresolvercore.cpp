@@ -124,7 +124,6 @@ public:
     std::vector<Key> resolveRecipient(const QString &address, Protocol protocol);
     void resolveEnc(Protocol proto);
     void mergeEncryptionKeys();
-    QStringList unresolvedRecipients(GpgME::Protocol protocol) const;
     Result resolve();
 
     KeyResolverCore *const q;
@@ -532,19 +531,6 @@ auto getBestEncryptionKeys(const QMap<QString, QMap<Protocol, std::vector<Key>>>
         }
     }
 
-    return result;
-}
-
-QStringList KeyResolverCore::Private::unresolvedRecipients(GpgME::Protocol protocol) const
-{
-    QStringList result;
-    result.reserve(mEncKeys.size());
-    for (auto it = mEncKeys.begin(); it != mEncKeys.end(); ++it) {
-        const auto &protocolKeysMap = it.value();
-        if (protocolKeysMap.value(protocol).empty()) {
-            result.push_back(it.key());
-        }
-    }
     return result;
 }
 
