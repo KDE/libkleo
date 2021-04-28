@@ -106,6 +106,15 @@ public:
      * Looks for a group named @a name which contains keys with protocol @a protocol
      * that are suitable for the usage @a usage.
      *
+     * If @a protocol is GpgME::OpenPGP or GpgME::CMS, then only groups consisting of keys
+     * matching this protocol are considered. Use @a protocol GpgME::UnknownProtocol to consider
+     * any groups regardless of the protocol including mixed-protocol groups.
+     *
+     * If @a usage is not KeyUsage::AnyUsage, then only groups consisting of keys supporting this usage
+     * are considered.
+     * The validity of keys and the presence of a private key (necessary for signing, certification, and
+     * authentication) is not taken into account.
+     *
      * The first group that fulfills all conditions is returned.
      *
      * @returns a matching group or a null group if no matching group is found.

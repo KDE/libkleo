@@ -816,6 +816,308 @@ private Q_SLOTS:
         QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 2);
     }
 
+    void test_groups_for_signing_key__openpgp_only_mode__prefers_groups_over_keys()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-mixed@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
+        resolver.setSender("sender-mixed@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__openpgp_only_mode__prefers_single_protocol_groups()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-alias@example.net", {
+                testKey("sender-mixed@example.net", OpenPGP),
+                testKey("sender-mixed@example.net", CMS),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
+        resolver.setSender("sender-alias@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__openpgp_only_mode__takes_key_of_mixed_protocol_groups()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-alias@example.net", {
+                testKey("sender-mixed@example.net", OpenPGP),
+                testKey("sender-mixed@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
+        resolver.setSender("sender-alias@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__smime_only_mode__prefers_groups_over_keys()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-mixed@example.net", {
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
+        resolver.setSender("sender-mixed@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
+        QCOMPARE(result.solution.protocol, CMS);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__smime_only_mode__prefers_single_protocol_groups()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-alias@example.net", {
+                testKey("sender-mixed@example.net", OpenPGP),
+                testKey("sender-mixed@example.net", CMS),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
+        resolver.setSender("sender-alias@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
+        QCOMPARE(result.solution.protocol, CMS);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__smime_only_mode__takes_key_of_mixed_protocol_groups()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-alias@example.net", {
+                testKey("sender-mixed@example.net", OpenPGP),
+                testKey("sender-mixed@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
+        resolver.setSender("sender-alias@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
+        QCOMPARE(result.solution.protocol, CMS);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-mixed@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__single_protocol_mode__prefers_groups_over_keys()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-mixed@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
+        resolver.setAllowMixedProtocols(false);
+        resolver.setSender("sender-mixed@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+        QCOMPARE(result.alternative.signingKeys.size(), 1);
+        QCOMPARE(result.alternative.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__single_protocol_mode__prefers_single_protocol_groups()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-alias@example.net", {
+                testKey("sender-mixed@example.net", OpenPGP),
+                testKey("sender-mixed@example.net", CMS),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
+        resolver.setAllowMixedProtocols(false);
+        resolver.setSender("sender-alias@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+        QCOMPARE(result.alternative.signingKeys.size(), 1);
+        QCOMPARE(result.alternative.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__mixed_mode__prefers_groups_over_keys()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-mixed@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
+        resolver.setSender("sender-mixed@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__mixed_mode_with_smime_preferred__prefers_groups_over_keys()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-mixed@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
+        resolver.setPreferredProtocol(CMS);
+        resolver.setSender("sender-mixed@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
+        QCOMPARE(result.solution.protocol, CMS);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__mixed_mode__prefers_single_protocol_groups()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-alias@example.net", {
+                testKey("sender-mixed@example.net", OpenPGP),
+                testKey("sender-mixed@example.net", CMS),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
+        resolver.setSender("sender-alias@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+    }
+
+    void test_groups_for_signing_key__mixed_mode_with_smime_preferred__prefers_single_protocol_groups()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("sender-alias@example.net", {
+                testKey("sender-mixed@example.net", OpenPGP),
+                testKey("sender-mixed@example.net", CMS),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-openpgp@example.net", OpenPGP),
+            }),
+            createGroup("sender-alias@example.net", {
+                testKey("sender-smime@example.net", CMS),
+            }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
+        resolver.setPreferredProtocol(CMS);
+        resolver.setSender("sender-alias@example.net");
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
+        QCOMPARE(result.solution.protocol, CMS);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
 private:
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
     {

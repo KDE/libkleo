@@ -29,6 +29,16 @@ using namespace GpgME;
 
 namespace {
 
+QDebug operator<<(QDebug debug, const GpgME::Key &key)
+{
+    if (key.isNull()) {
+        debug << "Null";
+    } else {
+        debug << Formatting::summaryLine(key);
+    }
+    return debug.maybeSpace();
+}
+
 static inline bool ValidEncryptionKey(const Key &key)
 {
     if (key.isNull() || key.isRevoked() || key.isExpired() ||
@@ -106,6 +116,8 @@ public:
     void resolveOverrides();
     std::vector<Key> resolveRecipientWithGroup(const QString &address, Protocol protocol);
     void resolveEncryptionGroups();
+    std::vector<Key> resolveSenderWithGroup(const QString &address, Protocol protocol);
+    void resolveSigningGroups();
     void resolveSign(Protocol proto);
     void setSigningKeys(const QStringList &fingerprints);
     std::vector<Key> resolveRecipient(const QString &address, Protocol protocol);
@@ -292,9 +304,60 @@ void KeyResolverCore::Private::resolveOverrides()
     }
 }
 
+std::vector<Key> KeyResolverCore::Private::resolveSenderWithGroup(const QString &address, Protocol protocol)
+{
+    // prefer single-protocol groups over mixed-protocol groups
+    auto group = mCache->findGroup(address, protocol, KeyUsage::Sign);
+    if (group.isNull()) {
+        group = mCache->findGroup(address, UnknownProtocol, KeyUsage::Sign);
+    }
+    if (group.isNull()) {
+        return {};
+    }
+
+    // take the first key matching the protocol
+    const auto &keys = group.keys();
+    const auto it = std::find_if(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
+    if (it == std::end(keys)) {
+        qCDebug(LIBKLEO_LOG) << "group" << group.name() << "has no" << Formatting::displayName(protocol) << "signing key";
+        return {};
+    }
+    const auto key = *it;
+    if (!isAcceptableSigningKey(key)) {
+        qCDebug(LIBKLEO_LOG) << "group" << group.name() << "has unacceptable signing key" << key;
+        return {};
+    }
+    return {key};
+}
+
+void KeyResolverCore::Private::resolveSigningGroups()
+{
+    auto &protocolKeysMap = mSigKeys;
+    if (!protocolKeysMap[UnknownProtocol].empty()) {
+        // already resolved by common override
+        return;
+    }
+    if (mFormat == OpenPGP) {
+        if (!protocolKeysMap[OpenPGP].empty()) {
+            // already resolved by override
+            return;
+        }
+        protocolKeysMap[OpenPGP] = resolveSenderWithGroup(mSender, OpenPGP);
+    } else if (mFormat == CMS) {
+        if (!protocolKeysMap[CMS].empty()) {
+            // already resolved by override
+            return;
+        }
+        protocolKeysMap[CMS] = resolveSenderWithGroup(mSender, CMS);
+    } else {
+        protocolKeysMap[OpenPGP] = resolveSenderWithGroup(mSender, OpenPGP);
+        protocolKeysMap[CMS] = resolveSenderWithGroup(mSender, CMS);
+    }
+}
+
 void KeyResolverCore::Private::resolveSign(Protocol proto)
 {
-    if (mSigKeys.contains(proto)) {
+    if (!mSigKeys[proto].empty()) {
         // Explicitly set
         return;
     }
@@ -546,6 +609,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     }
 
     // Next look for matching groups of keys
+    if (mSign) {
+        resolveSigningGroups();
+    }
     if (mEncrypt) {
         resolveEncryptionGroups();
     }
