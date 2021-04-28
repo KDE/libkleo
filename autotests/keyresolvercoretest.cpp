@@ -825,7 +825,8 @@ private:
                 return key;
             }
         }
-        return Key();
+        qWarning() << "No" << Formatting::displayName(protocol) << "test key found for" << email;
+        return {};
     }
 
 private:
