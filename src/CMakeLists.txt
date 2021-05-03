@@ -117,7 +117,7 @@ target_link_libraries(KF5Libkleo ${kleo_LIB_LIBS} )
 endif()
 
 set_target_properties(KF5Libkleo PROPERTIES
-    VERSION ${LIBKLEO_VERSION_STRING}
+    VERSION ${LIBKLEO_VERSION}
     SOVERSION ${LIBKLEO_SOVERSION}
     EXPORT_NAME Libkleo
 )
