@@ -173,14 +173,11 @@ private:
 };
 
 UserIDListModel::UserIDListModel(QObject *p)
-    : QAbstractItemModel(p), mRootItem(nullptr)
+    : QAbstractItemModel{p}
 {
 }
 
-UserIDListModel::~UserIDListModel()
-{
-    delete mRootItem;
-}
+UserIDListModel::~UserIDListModel() = default;
 
 Key UserIDListModel::key() const
 {
@@ -190,13 +187,12 @@ Key UserIDListModel::key() const
 void UserIDListModel::setKey(const Key &key)
 {
     beginResetModel();
-    delete mRootItem;
     mKey = key;
 
-    mRootItem = new UIDModelItem(mRemarksEnabled);
+    mRootItem.reset(new UIDModelItem(mRemarksEnabled));
     for (int i = 0, ids = key.numUserIDs(); i < ids; ++i) {
         UserID uid = key.userID(i);
-        auto uidItem = new UIDModelItem(uid, mRootItem);
+        auto uidItem = new UIDModelItem(uid, mRootItem.get());
         mRootItem->appendChild(uidItem);
         std::vector<UserID::Signature> sigs = uid.signatures();
 #ifdef GPGME_USERID_SIGNATURES_ARE_SORTABLE
@@ -226,17 +222,11 @@ int UserIDListModel::columnCount(const QModelIndex &parent) const
 
 int UserIDListModel::rowCount(const QModelIndex &parent) const
 {
-    UIDModelItem *parentItem = nullptr;
     if (parent.column() > 0 || !mRootItem) {
         return 0;
     }
 
-    if (!parent.isValid()) {
-        parentItem = mRootItem;
-    } else {
-        parentItem = static_cast<UIDModelItem*>(parent.internalPointer());
-    }
-
+    const UIDModelItem *const parentItem = !parent.isValid() ? mRootItem.get() : static_cast<UIDModelItem*>(parent.internalPointer());
     return parentItem->childCount();
 }
 
@@ -246,15 +236,8 @@ QModelIndex UserIDListModel::index(int row, int column, const QModelIndex &paren
         return {};
     }
 
-    UIDModelItem *parentItem = nullptr;
-
-    if (!parent.isValid()) {
-        parentItem = mRootItem;
-    } else {
-        parentItem = static_cast<UIDModelItem*>(parent.internalPointer());
-    }
-
-    UIDModelItem *childItem = parentItem->child(row);
+    const UIDModelItem *const parentItem = !parent.isValid() ? mRootItem.get() : static_cast<UIDModelItem*>(parent.internalPointer());
+    UIDModelItem *const childItem = parentItem->child(row);
     if (childItem) {
         return createIndex(row, column, childItem);
     } else {
@@ -270,7 +253,7 @@ QModelIndex UserIDListModel::parent(const QModelIndex &index) const
     auto childItem = static_cast<UIDModelItem*>(index.internalPointer());
     UIDModelItem *parentItem = childItem->parentItem();
 
-    if (parentItem == mRootItem) {
+    if (parentItem == mRootItem.get()) {
         return QModelIndex();
     }
 

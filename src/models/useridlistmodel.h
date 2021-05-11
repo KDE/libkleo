@@ -16,6 +16,8 @@
 
 #include <gpgme++/key.h> // since Signature is nested in UserID...
 
+#include <memory>
+
 class UIDModelItem;
 
 namespace Kleo
@@ -52,7 +54,7 @@ public:
 private:
     GpgME::Key mKey;
     bool mRemarksEnabled = false;
-    UIDModelItem *mRootItem = nullptr;
+    std::unique_ptr<UIDModelItem> mRootItem;
 };
 
 }
