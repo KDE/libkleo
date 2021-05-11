@@ -3,6 +3,8 @@
 
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -153,6 +155,11 @@ KLEO_EXPORT QString complianceStringShort(const Kleo::KeyGroup &group);
 
 /* The origin of the key mapped to a localized string */
 KLEO_EXPORT QString origin(int o);
+
+/* Human-readable trust signature scope (for trust signature regexp created by GnuPG) */
+KLEO_EXPORT QString trustSignatureDomain(const GpgME::UserID::Signature &sig);
+/* Summary of trust signature properties */
+KLEO_EXPORT QString trustSignature(const GpgME::UserID::Signature &sig);
 }
 }
 

@@ -45,6 +45,9 @@ find_package(Gpgmepp ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
 find_package(QGpgme ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
 message(STATUS "GPGME Version ${Gpgmepp_VERSION}")
+if (Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.15.2")
+    set(GPGMEPP_SUPPORTS_TRUST_SIGNATURES 1)
+endif()
 
 find_package(Boost 1.34.0)
 set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "https://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")
@@ -91,6 +94,9 @@ install(FILES
    ${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel
 )
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-libkleo.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-libkleo.h)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 

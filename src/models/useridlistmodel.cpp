@@ -4,9 +4,13 @@
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
     SPDX-FileCopyrightText: 2016 Andre Heinecke <aheinecke@gnupg.org>
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
+
+#include <config-libkleo.h>
 
 #include "useridlistmodel.h"
 
@@ -59,6 +63,10 @@ public:
             }
         }
         mItemData << lastNotation;
+
+#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+        mItemData << Formatting::trustSignatureDomain(sig);
+#endif
     }
 
     explicit UIDModelItem(const UserID &uid, UIDModelItem *parentItem)
@@ -79,6 +87,9 @@ public:
                   << i18n("Status")
                   << i18n("Exportable")
                   << i18n("Tags");
+#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+        mItemData << i18n("Trust Signature For");
+#endif
     }
 
     ~UIDModelItem()
@@ -127,6 +138,8 @@ public:
         if (!mSig.isNull()) {
             if (column == static_cast<int>(UserIDListModel::Column::Status)) {
                 return i18n("class %1", mSig.certClass());
+            } else if (column == static_cast<int>(UserIDListModel::Column::TrustSignatureDomain)) {
+                return Formatting::trustSignature(mSig);
             }
         }
         return mItemData.value(column);

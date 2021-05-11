@@ -4,6 +4,8 @@
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
     SPDX-FileCopyrightText: 2016 Andre Heinecke <aheinecke@gnupg.org>
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -36,6 +38,7 @@ public:
         Status,
         Exportable,
         Tags,
+        TrustSignatureDomain,
     };
 
     explicit UserIDListModel(QObject *parent = nullptr);

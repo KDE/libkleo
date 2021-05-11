@@ -1,12 +1,15 @@
 /* -*- mode: c++; c-basic-offset: 4; indent-tabs-mode: nil; -*-
-
     utils/formatting.cpp
 
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
+
+#include <config-libkleo.h>
 
 #include "formatting.h"
 #include "kleo/dn.h"
@@ -1202,4 +1205,48 @@ QString Formatting::deVsString(bool compliant)
         return compliant ? i18n("VS-NfD compliant") : i18n("Not VS-NfD compliant");
     }
     return filter->name();
+}
+
+namespace
+{
+QString formatTrustScope(const char *trustScope)
+{
+    static const QRegularExpression escapedNonAlphaNum{QStringLiteral(R"(\\([^0-9A-Za-z]))")};
+
+    const auto scopeRegExp = QString::fromUtf8(trustScope);
+    if (scopeRegExp.startsWith(u"<[^>]+[@.]") && scopeRegExp.endsWith(u">$")) {
+        // looks like a trust scope regular expression created by gpg
+        auto domain = scopeRegExp.mid(10, scopeRegExp.size() - 10 - 2);
+        domain.replace(escapedNonAlphaNum, QStringLiteral(R"(\1)"));
+        return domain;
+    }
+    return scopeRegExp;
+}
+}
+
+QString Formatting::trustSignatureDomain(const GpgME::UserID::Signature &sig)
+{
+#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+    return formatTrustScope(sig.trustScope());
+#else
+    return {};
+#endif
+}
+
+QString Formatting::trustSignature(const GpgME::UserID::Signature &sig)
+{
+#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+    switch (sig.trustValue()) {
+    case TrustSignatureTrust::Partial:
+        return i18nc("Certifies this key as partially trusted introducer for 'domain name'.",
+                     "Certifies this key as partially trusted introducer for '%1'.", trustSignatureDomain(sig));
+    case TrustSignatureTrust::Complete:
+        return i18nc("Certifies this key as fully trusted introducer for 'domain name'.",
+                     "Certifies this key as fully trusted introducer for '%1'.", trustSignatureDomain(sig));
+    default:
+        return {};
+    }
+#else
+    return {};
+#endif
 }
