@@ -186,7 +186,7 @@ int main(int argc, char **argv)
 
             cout << "quiet option reset to initial: " << (val ? "is set" : "is not set") << endl;
         } else {
-            cout << "Entry 'dirmngr/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << s_entryName << "' not found" << endl;
         }
     }
 
@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 
             cout << "LDAP timeout reset to initial " << initialValue << " seconds." << endl;
         } else {
-            cout << "Entry 'dirmngr/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << s_entryName << "' not found" << endl;
         }
     }
 
@@ -304,7 +304,7 @@ int main(int argc, char **argv)
 
             cout << "Log-file reset to initial " << val.toLocal8Bit().constData() << endl;
         } else {
-            cout << "Entry 'dirmngr/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'dirmngr/" << s_entryName << "' not found" << endl;
         }
     }
 
@@ -369,7 +369,7 @@ int main(int argc, char **argv)
             }
             cout << endl;
         } else {
-            cout << "Entry 'gpgsm/" << qPrintable(s_entryName) << "' not found" << endl;
+            cout << "Entry 'gpgsm/" << s_entryName << "' not found" << endl;
         }
     }
 

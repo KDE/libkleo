@@ -477,8 +477,13 @@ struct ltstr {
 };
 }
 
-static const char *const defaultOrder[] = {
-    "CN", "L", "_X_", "OU", "O", "C"
+static const QStringList defaultOrder = {
+    QStringLiteral("CN"),
+    QStringLiteral("L"),
+    QStringLiteral("_X_"),
+    QStringLiteral("OU"),
+    QStringLiteral("O"),
+    QStringLiteral("C"),
 };
 
 static std::pair<const char *, const char *> const attributeLabels[] = {
@@ -521,10 +526,7 @@ Kleo::DNAttributeMapper::DNAttributeMapper()
 {
     d = new Private();
     const KConfigGroup config(KSharedConfig::openConfig(), "DN");
-    d->attributeOrder = config.readEntry("AttributeOrder", QStringList());
-    if (d->attributeOrder.empty())
-        std::copy(defaultOrder, defaultOrder + sizeof defaultOrder / sizeof * defaultOrder,
-                  std::back_inserter(d->attributeOrder));
+    d->attributeOrder = config.readEntry("AttributeOrder", defaultOrder);
     mSelf = this;
 }
 
@@ -570,10 +572,8 @@ const QStringList &Kleo::DNAttributeMapper::attributeOrder() const
 
 void Kleo::DNAttributeMapper::setAttributeOrder(const QStringList &order)
 {
-    d->attributeOrder = order;
-    if (order.empty())
-        std::copy(defaultOrder, defaultOrder + sizeof defaultOrder / sizeof * defaultOrder,
-                  std::back_inserter(d->attributeOrder));
+    d->attributeOrder = order.empty() ? defaultOrder : order;
+
     KConfigGroup config(KSharedConfig::openConfig(), "DN");
     config.writeEntry("AttributeOrder", order);
 }
