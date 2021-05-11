@@ -39,6 +39,8 @@ class UIDModelItem
     //
 public:
     explicit UIDModelItem(const UserID::Signature &sig, UIDModelItem *parentItem, bool showRemarks)
+        : mParentItem{parentItem}
+        , mSig{sig}
     {
         mItemData  << QString::fromUtf8(sig.signerKeyID())
                    << Formatting::prettyName(sig)
@@ -47,8 +49,6 @@ public:
                    << Formatting::expirationDateString(sig)
                    << Formatting::validityShort(sig)
                    << (sig.isExportable() ? QStringLiteral("✓") : QString());
-        mSig = sig;
-        mParentItem = parentItem;
 
         if (showRemarks && parentItem) {
             QString lastNotation;
@@ -62,14 +62,14 @@ public:
     }
 
     explicit UIDModelItem(const UserID &uid, UIDModelItem *parentItem)
+        : mParentItem{parentItem}
+        , mUid{uid}
     {
         mItemData << Formatting::prettyUserID(uid);
-        mUid = uid;
-        mParentItem = parentItem;
     }
 
     // The root item
-    explicit UIDModelItem(bool showRemarks) : mParentItem(nullptr)
+    explicit UIDModelItem(bool showRemarks)
     {
         mItemData << i18n("ID")
                   << i18n("Name")
@@ -140,7 +140,7 @@ public:
         if (!mSig.isNull() && column == static_cast<int>(UserIDListModel::Column::Status)) {
             return Formatting::validityIcon(mSig);
         }
-        return QVariant();
+        return {};
     }
 
     int row() const
