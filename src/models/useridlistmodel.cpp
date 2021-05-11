@@ -50,15 +50,15 @@ public:
                    << Formatting::validityShort(sig)
                    << (sig.isExportable() ? QStringLiteral("✓") : QString());
 
+        QString lastNotation;
         if (showRemarks && parentItem) {
-            QString lastNotation;
             for (const auto &notation: sig.notations()) {
                 if (notation.name() && !strcmp(notation.name(), "rem@gnupg.org")) {
                     lastNotation = QString::fromUtf8(notation.value());
                 }
             }
-            mItemData << lastNotation;
         }
+        mItemData << lastNotation;
     }
 
     explicit UIDModelItem(const UserID &uid, UIDModelItem *parentItem)
@@ -69,7 +69,7 @@ public:
     }
 
     // The root item
-    explicit UIDModelItem(bool showRemarks)
+    UIDModelItem()
     {
         mItemData << i18n("ID")
                   << i18n("Name")
@@ -77,11 +77,8 @@ public:
                   << i18n("Valid From")
                   << i18n("Valid Until")
                   << i18n("Status")
-                  << i18n("Exportable");
-
-        if (showRemarks) {
-            mItemData << i18n("Tags");
-        }
+                  << i18n("Exportable")
+                  << i18n("Tags");
     }
 
     ~UIDModelItem()
@@ -191,7 +188,7 @@ void UserIDListModel::setKey(const Key &key)
     beginResetModel();
     mKey = key;
 
-    mRootItem.reset(new UIDModelItem(mRemarksEnabled));
+    mRootItem.reset(new UIDModelItem);
     for (int i = 0, ids = key.numUserIDs(); i < ids; ++i) {
         UserID uid = key.userID(i);
         auto uidItem = new UIDModelItem(uid, mRootItem.get());
