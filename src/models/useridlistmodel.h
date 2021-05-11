@@ -27,6 +27,17 @@ class KLEO_EXPORT UserIDListModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
+    enum class Column {
+        Id,
+        Name,
+        Email,
+        ValidFrom,
+        ValidUntil,
+        Status,
+        Exportable,
+        Tags,
+    };
+
     explicit UserIDListModel(QObject *parent = nullptr);
     ~UserIDListModel() override;
 

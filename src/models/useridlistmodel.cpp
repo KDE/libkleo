@@ -127,15 +127,17 @@ public:
 
     QVariant toolTip(int column) const
     {
-        if (column == 5 /*Status*/) {
-            return i18n("class %1", mSig.certClass());
+        if (!mSig.isNull()) {
+            if (column == static_cast<int>(UserIDListModel::Column::Status)) {
+                return i18n("class %1", mSig.certClass());
+            }
         }
         return mItemData.value(column);
     }
 
     QVariant icon(int column) const
     {
-        if (!mSig.isNull() && column == 5 /*Status*/) {
+        if (!mSig.isNull() && column == static_cast<int>(UserIDListModel::Column::Status)) {
             return Formatting::validityIcon(mSig);
         }
         return QVariant();
