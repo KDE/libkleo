@@ -10,9 +10,9 @@
 
 #pragma once
 
-#include <QAbstractItemModel>
-
 #include <kleo_export.h>
+
+#include <QAbstractItemModel>
 
 #include <gpgme++/key.h> // since Signature is nested in UserID...
 

@@ -9,16 +9,16 @@
 */
 
 #include "useridlistmodel.h"
-#include "utils/formatting.h"
 
-#include <gpgme++/key.h>
+#include "keycache.h"
+#include "utils/formatting.h"
 
 #include <KLocalizedString>
 
 #include <QVariant>
 #include <QIcon>
 
-#include "keycache.h"
+#include <gpgme++/key.h>
 
 #include <gpgme++/gpgmepp_version.h>
 #if GPGMEPP_VERSION >= 0x10E00 // 1.14.0
