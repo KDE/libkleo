@@ -45,7 +45,7 @@ QString Kleo::getCryptoConfigStringValue(const char *componentName, const char *
     return entry->stringValue();
 }
 
-void Kleo::Private::setFakeCryptoConfigStringValue(std::string componentName, std::string entryName, const QString &fakeValue)
+void Kleo::Private::setFakeCryptoConfigStringValue(const std::string &componentName, const std::string &entryName, const QString &fakeValue)
 {
     fakeCryptoConfigValues[componentName][entryName] = fakeValue;
 }

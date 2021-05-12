@@ -532,7 +532,9 @@ void DirectoryServicesWidget::addX509Services(const QList<QUrl> &urls)
 QList<QUrl> DirectoryServicesWidget::x509Services() const
 {
     QList<QUrl> result;
-    for (unsigned int i = 0, end = d->model.numServices(); i != end; ++i) {
+    unsigned int numServices{d->model.numServices()};
+    result.reserve(numServices);
+    for (unsigned int i = 0; i != numServices; ++i) {
         result.push_back(d->model.service(i));
     }
     return result;

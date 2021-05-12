@@ -44,7 +44,7 @@ public:
     KeyGroup();
     ~KeyGroup();
 
-    explicit KeyGroup(Id id, const QString &name, const std::vector<GpgME::Key> &keys, Source source);
+    explicit KeyGroup(const Id &id, const QString &name, const std::vector<GpgME::Key> &keys, Source source);
 
     KeyGroup(const KeyGroup &other);
     KeyGroup &operator=(const KeyGroup &other);

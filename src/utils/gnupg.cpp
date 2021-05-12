@@ -157,7 +157,6 @@ private:
 
         const QString sigPath = verPath + QStringLiteral(".sig");
         QFileInfo versionSig(instPath + QStringLiteral("/../VERSION.sig"));
-        QString signedVersion;
         if (versionSig.exists()) {
             /* We have a signed version so let us check it against the GnuPG
              * release keys. */

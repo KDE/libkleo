@@ -568,7 +568,7 @@ public:
         return comboWidget;
     }
 
-    void setSigningKeys(std::vector<GpgME::Key> preferredKeys, std::vector<GpgME::Key> alternativeKeys)
+    void setSigningKeys(const std::vector<GpgME::Key> &preferredKeys, const std::vector<GpgME::Key> &alternativeKeys)
     {
         auto group = new QGroupBox(i18nc("Caption for signing key selection", "Confirm identity '%1' as:", mSender));
         group->setAlignment(Qt::AlignLeft);

@@ -72,10 +72,10 @@ public Q_SLOTS:
     void removeKey(const GpgME::Key &key);
 
     void setGroups(const std::vector<KeyGroup> &groups);
-    QModelIndex addGroup(const KeyGroup &group);
-    bool removeGroup(const KeyGroup &group);
+    QModelIndex addGroup(const Kleo::KeyGroup &group);
+    bool removeGroup(const Kleo::KeyGroup &group);
 
-    void clear(ItemTypes types = All);
+    void clear(Kleo::AbstractKeyListModel::ItemTypes types = All);
 
 public:
     int columnCount(const QModelIndex &pidx) const override;

@@ -76,7 +76,7 @@ class KeyResolverCoreTest: public QObject
 private Q_SLOTS:
     void init()
     {
-        mGnupgHome = QTest::qExtractTestData("/fixtures/keyresolvercoretest");
+        mGnupgHome = QTest::qExtractTestData(QStringLiteral("/fixtures/keyresolvercoretest"));
         qputenv("GNUPGHOME", mGnupgHome->path().toLocal8Bit());
 
         // hold a reference to the key cache to avoid rebuilding while the test is running
@@ -92,7 +92,7 @@ private Q_SLOTS:
         mKeyCache.reset();
 
         // kill all running gpg daemons
-        (void)QProcess::execute("gpgconf", {"--kill", "all"});
+        (void)QProcess::execute(QStringLiteral("gpgconf"), {"--kill", "all"});
 
         mGnupgHome.reset();
         qunsetenv("GNUPGHOME");
@@ -825,7 +825,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
-        resolver.setSender("sender-mixed@example.net");
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -853,7 +853,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
-        resolver.setSender("sender-alias@example.net");
+        resolver.setSender(QStringLiteral("sender-alias@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -875,7 +875,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
-        resolver.setSender("sender-alias@example.net");
+        resolver.setSender(QStringLiteral("sender-alias@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -896,7 +896,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
-        resolver.setSender("sender-mixed@example.net");
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -924,7 +924,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
-        resolver.setSender("sender-alias@example.net");
+        resolver.setSender(QStringLiteral("sender-alias@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -946,7 +946,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
-        resolver.setSender("sender-alias@example.net");
+        resolver.setSender(QStringLiteral("sender-alias@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -969,7 +969,7 @@ private Q_SLOTS:
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
         resolver.setAllowMixedProtocols(false);
-        resolver.setSender("sender-mixed@example.net");
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -1001,7 +1001,7 @@ private Q_SLOTS:
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
         resolver.setAllowMixedProtocols(false);
-        resolver.setSender("sender-alias@example.net");
+        resolver.setSender(QStringLiteral("sender-alias@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -1026,7 +1026,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
-        resolver.setSender("sender-mixed@example.net");
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -1049,7 +1049,7 @@ private Q_SLOTS:
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
         resolver.setPreferredProtocol(CMS);
-        resolver.setSender("sender-mixed@example.net");
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -1077,7 +1077,7 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
-        resolver.setSender("sender-alias@example.net");
+        resolver.setSender(QStringLiteral("sender-alias@example.net"));
 
         const auto result = resolver.resolve();
 
@@ -1106,7 +1106,7 @@ private Q_SLOTS:
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
         resolver.setPreferredProtocol(CMS);
-        resolver.setSender("sender-alias@example.net");
+        resolver.setSender(QStringLiteral("sender-alias@example.net"));
 
         const auto result = resolver.resolve();
 

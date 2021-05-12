@@ -186,9 +186,9 @@ Q_SIGNALS:
     void added(const GpgME::Key &key);
     void keyListingDone(const GpgME::KeyListResult &result);
     void keysMayHaveChanged();
-    void groupAdded(const KeyGroup &group);
-    void groupUpdated(const KeyGroup &group);
-    void groupRemoved(const KeyGroup &group);
+    void groupAdded(const Kleo::KeyGroup &group);
+    void groupUpdated(const Kleo::KeyGroup &group);
+    void groupRemoved(const Kleo::KeyGroup &group);
 
 private:
     class RefreshKeysJob;

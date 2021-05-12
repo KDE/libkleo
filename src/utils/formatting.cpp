@@ -496,12 +496,12 @@ QString Formatting::toolTip(const KeyGroup &group, int flags)
     QStringList result;
     result.reserve(3 + 2 + numKeysForTooltip + 2);
     if (!validity.isEmpty()) {
-        result.push_back("<p>");
+        result.push_back(QStringLiteral("<p>"));
         result.push_back(validity.toHtmlEscaped());
-        result.push_back("</p>");
+        result.push_back(QStringLiteral("</p>"));
     }
 
-    result.push_back("<p>");
+    result.push_back(QStringLiteral("<p>"));
     result.push_back(i18n("Keys:"));
     {
         auto it = keys.cbegin();
@@ -512,7 +512,7 @@ QString Formatting::toolTip(const KeyGroup &group, int flags)
     if (keys.size() > numKeysForTooltip) {
         result.push_back(QLatin1String("<br>") + i18ncp("this follows a list of keys", "and 1 more key", "and %1 more keys", keys.size() - numKeysForTooltip));
     }
-    result.push_back("</p>");
+    result.push_back(QStringLiteral("</p>"));
 
     return result.join(QLatin1Char('\n'));
 }

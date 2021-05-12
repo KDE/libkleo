@@ -237,7 +237,8 @@ public:
 
         // collect the key fingerprints for all groups read from the configuration
         QMap<QString, QStringList> fingerprints;
-        for (const QString &value: entry->stringValueList()) {
+        const auto stringValueList = entry->stringValueList();
+        for (const QString &value: stringValueList) {
             const QStringList split = value.split(QLatin1Char('='));
             if (split.size() != 2) {
                 qCDebug (LIBKLEO_LOG) << "Ignoring invalid group config:" << value;

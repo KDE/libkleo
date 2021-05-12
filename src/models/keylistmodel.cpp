@@ -470,7 +470,7 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
     } else if (role == Qt::FontRole) {
         return QFont();
     } else if (role == Qt::DecorationRole) {
-        return column == Icon ? QIcon::fromTheme("group") : QVariant();
+        return column == Icon ? QIcon::fromTheme(QStringLiteral("group")) : QVariant();
     } else if (role == Qt::BackgroundRole) {
     } else if (role == Qt::ForegroundRole) {
     } else if (role == GroupRole) {

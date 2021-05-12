@@ -20,7 +20,7 @@ using namespace GpgME;
 class KeyGroup::Private
 {
 public:
-    explicit Private(Id id, const QString &name, const std::vector<Key> &keys, Source source);
+    explicit Private(const Id &id, const QString &name, const std::vector<Key> &keys, Source source);
 
     Id id;
     QString name;
@@ -29,7 +29,7 @@ public:
     bool isImmutable = true;
 };
 
-KeyGroup::Private::Private(Id id, const QString &name, const std::vector<Key> &keys, Source source)
+KeyGroup::Private::Private(const Id &id, const QString &name, const std::vector<Key> &keys, Source source)
     : id(id)
     , name(name)
     , keys(keys.cbegin(), keys.cend())
@@ -44,7 +44,7 @@ KeyGroup::KeyGroup()
 
 KeyGroup::~KeyGroup() = default;
 
-KeyGroup::KeyGroup(Id id, const QString &name, const std::vector<Key> &keys, Source source)
+KeyGroup::KeyGroup(const Id &id, const QString &name, const std::vector<Key> &keys, Source source)
     : d(new Private(id, name, keys, source))
 {
 }

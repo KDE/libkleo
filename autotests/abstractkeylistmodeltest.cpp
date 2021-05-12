@@ -108,7 +108,7 @@ void AbstractKeyListModelTest::testKeys()
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
     const Key key = createTestKey("test@example.net");
-    const KeyGroup group = createGroup("test", {key});
+    const KeyGroup group = createGroup(QStringLiteral("test"), {key});
 
     model->setKeys({key});
     model->setGroups({group});
@@ -204,7 +204,7 @@ void AbstractKeyListModelTest::testAddGroup()
     }
 
     {
-        const KeyGroup group = createGroup("test");
+        const KeyGroup group = createGroup(QStringLiteral("test"));
         const QModelIndex resultIndex = model->addGroup(group);
         QVERIFY( resultIndex.isValid() );
         QCOMPARE( resultIndex.row(), 0 );
@@ -225,10 +225,10 @@ void AbstractKeyListModelTest::testSetData()
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
     const Key key = createTestKey("test@example.net");
-    const KeyGroup group = createGroup("test");
+    const KeyGroup group = createGroup(QStringLiteral("test"));
     model->setKeys({key});
     model->setGroups({group});
-    const KeyGroup updatedGroup = createGroup("updated", {key});
+    const KeyGroup updatedGroup = createGroup(QStringLiteral("updated"), {key});
     QVERIFY( !model->setData(QModelIndex(), QVariant::fromValue(updatedGroup)) );
     QVERIFY( !model->setData(model->index(key), QVariant::fromValue(updatedGroup)) );
 
@@ -244,7 +244,7 @@ void AbstractKeyListModelTest::testRemoveGroup()
 {
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
-    const KeyGroup group = createGroup("test");
+    const KeyGroup group = createGroup(QStringLiteral("test"));
     model->setGroups({group});
 
     {
@@ -254,7 +254,7 @@ void AbstractKeyListModelTest::testRemoveGroup()
     }
 
     {
-        const KeyGroup otherGroup = createGroup("test2");
+        const KeyGroup otherGroup = createGroup(QStringLiteral("test2"));
 
         const bool result = model->removeGroup(otherGroup);
         QVERIFY( !result );

@@ -20,7 +20,7 @@ namespace Kleo
 namespace Private
 {
 
-void setFakeCryptoConfigStringValue(std::string componentName, std::string entryName, const QString &fakeValue);
+void setFakeCryptoConfigStringValue(const std::string &componentName, const std::string &entryName, const QString &fakeValue);
 void clearFakeCryptoConfigStringValue(const std::string &componentName, const std::string &entryName);
 
 }
