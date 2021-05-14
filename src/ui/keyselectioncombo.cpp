@@ -30,6 +30,40 @@ Q_DECLARE_METATYPE(GpgME::Key)
 
 namespace
 {
+class SortFilterProxyModel : public KeyListSortFilterProxyModel
+{
+    Q_OBJECT
+
+public:
+    using KeyListSortFilterProxyModel::KeyListSortFilterProxyModel;
+
+    void setAlwaysAcceptedKey(const QString &fingerprint)
+    {
+        if (fingerprint == mFingerprint) {
+            return;
+        }
+        mFingerprint = fingerprint;
+        invalidate();
+    }
+
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override
+    {
+        if (!mFingerprint.isEmpty()) {
+            const QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
+            const auto fingerprint = sourceModel()->data(index, KeyList::FingerprintRole).toString();
+            if (fingerprint == mFingerprint) {
+                return true;
+            }
+        }
+
+        return KeyListSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    }
+
+private:
+    QString mFingerprint;
+};
+
 class ProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -313,7 +347,7 @@ public:
 
     /* Updates the current key with the default key if the key matches
      * the current key filter. */
-    void updateWithDefaultKey() const {
+    void updateWithDefaultKey() {
         GpgME::Protocol filterProto = GpgME::UnknownProtocol;
 
         const auto filter = dynamic_cast<const DefaultKeyFilter*> (sortFilterProxy->keyFilter().get());
@@ -328,11 +362,13 @@ public:
             // Fallback to unknown protocol
             defaultKey = defaultKeys.value (GpgME::UnknownProtocol);
         }
+        // make sure that the default key is not filtered out
+        sortFilterProxy->setAlwaysAcceptedKey(defaultKey);
         q->setCurrentKey(defaultKey);
     }
 
     Kleo::AbstractKeyListModel *model = nullptr;
-    Kleo::KeyListSortFilterProxyModel *sortFilterProxy = nullptr;
+    SortFilterProxyModel *sortFilterProxy = nullptr;
     ProxyModel *proxyModel = nullptr;
     std::shared_ptr<Kleo::KeyCache> cache;
     QMap<GpgME::Protocol, QString> defaultKeys;
@@ -360,7 +396,7 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
     d->model = Kleo::AbstractKeyListModel::createFlatKeyListModel(this);
     d->secretOnly = secretOnly;
 
-    d->sortFilterProxy = new Kleo::KeyListSortFilterProxyModel(this);
+    d->sortFilterProxy = new SortFilterProxyModel(this);
     d->sortFilterProxy->setSourceModel(d->model);
 
     d->proxyModel = new ProxyModel(this);
