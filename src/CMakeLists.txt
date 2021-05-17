@@ -90,7 +90,7 @@ ki18n_wrap_ui(libkleo_ui_common_SRCS
 set(kleo_LIB_SRCS ${libkleo_core_SRCS} ${libkleo_ui_SRCS}
                                        ${libkleo_ui_common_SRCS})
 
-set(kleo_LIB_LIBS PUBLIC QGpgme Gpgmepp PRIVATE Qt5::Widgets
+set(kleo_LIB_LIBS PUBLIC QGpgme Gpgmepp PRIVATE Qt::Widgets
                                                 KF5::I18n
                                                 KF5::Completion
                                                 KF5::ConfigCore

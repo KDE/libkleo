@@ -13,24 +13,24 @@ ecm_add_test(
     flatkeylistmodeltest.cpp
     abstractkeylistmodeltest.cpp
     TEST_NAME flatkeylistmodeltest
-    LINK_LIBRARIES KF5::Libkleo Qt5::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Test
 )
 
 ecm_add_test(
     hierarchicalkeylistmodeltest.cpp
     abstractkeylistmodeltest.cpp
     TEST_NAME hierarchicalkeylistmodeltest
-    LINK_LIBRARIES KF5::Libkleo Qt5::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Test
 )
 
 ecm_add_test(
     keyresolvercoretest.cpp
     keyresolvercoretest.qrc
     TEST_NAME keyresolvercoretest
-    LINK_LIBRARIES KF5::Libkleo Qt5::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Test
 )
 
 ecm_add_tests(
     newkeyapprovaldialogtest.cpp
-    LINK_LIBRARIES KF5::Libkleo Qt5::Widgets Qt5::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Widgets Qt::Test
 )
