@@ -929,46 +929,4 @@ void Kleo::CryptoConfigEntryLDAPURL::setURLList(const QList<QUrl> &urlList)
     }
 }
 
-Kleo::ParsedKeyserver Kleo::parseKeyserver(const QString &str)
-{
-    const QStringList list = str.split(QRegExp(QLatin1String("[\\s,]")), Qt::SkipEmptyParts);
-    if (list.empty()) {
-        return Kleo::ParsedKeyserver();
-    }
-    Kleo::ParsedKeyserver result;
-    result.url = list.front();
-    const auto listMid = list.mid(1);
-    for (const QString &kvpair : listMid) {
-        const int idx = kvpair.indexOf(QLatin1Char('='));
-        if (idx < 0) {
-            result.options.push_back(qMakePair(kvpair, QString()));     // null QString
-        } else {
-            const QString key = kvpair.left(idx);
-            const QString value = kvpair.mid(idx + 1);
-            if (value.isEmpty()) {
-                result.options.push_back(qMakePair(key, QStringLiteral("")));    // make sure it's not a null QString, only an empty one
-            } else {
-                result.options.push_back(qMakePair(key, value));
-            }
-        }
-    }
-    return result;
-}
-
-QString Kleo::assembleKeyserver(const ParsedKeyserver &keyserver)
-{
-    if (keyserver.options.empty()) {
-        return keyserver.url;
-    }
-    QString result = keyserver.url;
-    typedef QPair<QString, QString> Pair;
-    for (const Pair &pair : qAsConst(keyserver.options))
-        if (pair.second.isNull()) {
-            result += QLatin1Char(' ') + pair.first;
-        } else {
-            result += QLatin1Char(' ') + pair.first + QLatin1Char('=') + pair.second;
-        }
-    return result;
-}
-
 #include "moc_cryptoconfigmodule_p.cpp"
