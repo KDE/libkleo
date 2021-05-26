@@ -506,7 +506,7 @@ void DirectoryServicesWidget::setOpenPGPService(const QString &url)
 QString DirectoryServicesWidget::openPGPService() const
 {
     const auto pgpStr = d->ui.pgpKeyserver->text();
-    return pgpStr.contains(QLatin1String("://")) ?  pgpStr : (QLatin1String("hkp://") + pgpStr);
+    return pgpStr.contains(QLatin1String("://")) ?  pgpStr : (QLatin1String("hkps://") + pgpStr);
 }
 
 void DirectoryServicesWidget::addX509Services(const QList<QUrl> &urls)
