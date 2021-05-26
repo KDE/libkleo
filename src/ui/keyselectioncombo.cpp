@@ -362,8 +362,17 @@ public:
             // Fallback to unknown protocol
             defaultKey = defaultKeys.value (GpgME::UnknownProtocol);
         }
-        // make sure that the default key is not filtered out
-        sortFilterProxy->setAlwaysAcceptedKey(defaultKey);
+        // make sure that the default key is not filtered out unless it has the wrong protocol
+        if (filterProto == GpgME::UnknownProtocol) {
+            sortFilterProxy->setAlwaysAcceptedKey(defaultKey);
+        } else {
+            const auto key = KeyCache::instance()->findByFingerprint(defaultKey.toLatin1().constData());
+            if (!key.isNull() && key.protocol() == filterProto) {
+                sortFilterProxy->setAlwaysAcceptedKey(defaultKey);
+            } else {
+                sortFilterProxy->setAlwaysAcceptedKey({});
+            }
+        }
         q->setCurrentKey(defaultKey);
     }
 
