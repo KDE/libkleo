@@ -60,7 +60,6 @@ set(libkleo_ui_common_SRCS
    ui/filenamerequester.cpp
    ui/messagebox.cpp
    ui/cryptoconfigmodule.cpp
-   ui/cryptoconfigdialog.cpp
    ui/directoryserviceswidget.cpp
    ui/progressbar.cpp
    ui/progressdialog.cpp
@@ -187,7 +186,6 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   HEADER_NAMES
-  CryptoConfigDialog
   CryptoConfigModule
   DNAttributeOrderConfigWidget
   DirectoryServicesWidget
