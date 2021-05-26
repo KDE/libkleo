@@ -58,8 +58,8 @@ public:
     void setOpenPGPReadOnly(bool ro);
     void setX509ReadOnly(bool ro);
 
-    void addOpenPGPServices(const QList<QUrl> &urls);
-    QList<QUrl> openPGPServices() const;
+    void setOpenPGPService(const QString &url);
+    QString openPGPService() const;
 
     void addX509Services(const QList<QUrl> &urls);
     QList<QUrl> x509Services() const;

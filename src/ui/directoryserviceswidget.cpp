@@ -498,28 +498,15 @@ DirectoryServicesWidget::Protocols DirectoryServicesWidget::readOnlyProtocols() 
     return d->readOnlyProtocols;
 }
 
-void DirectoryServicesWidget::addOpenPGPServices(const QList<QUrl> &urls)
+void DirectoryServicesWidget::setOpenPGPService(const QString &url)
 {
-    if (urls.size() > 1) {
-        qCWarning(KLEO_UI_LOG) << "More then one PGP Server, Ignoring all others.";
-    }
-    if (urls.size()) {
-        d->ui.pgpKeyserver->setText(urls[0].toString());
-    }
+    d->ui.pgpKeyserver->setText(url);
 }
 
-QList<QUrl> DirectoryServicesWidget::openPGPServices() const
+QString DirectoryServicesWidget::openPGPService() const
 {
-    QList<QUrl> result;
-    const QString pgpStr = d->ui.pgpKeyserver->text();
-    if (pgpStr.contains(QLatin1String("://"))) {
-        // Maybe validate here? Otoh maybe gnupg adds support for more schemes
-        // then we know about in the future.
-        result.push_back(QUrl::fromUserInput(pgpStr));
-    } else if (!pgpStr.isEmpty()) {
-        result.push_back(QUrl::fromUserInput(QStringLiteral("hkp://") + pgpStr));
-    }
-    return result;
+    const auto pgpStr = d->ui.pgpKeyserver->text();
+    return pgpStr.contains(QLatin1String("://")) ?  pgpStr : (QLatin1String("hkp://") + pgpStr);
 }
 
 void DirectoryServicesWidget::addX509Services(const QList<QUrl> &urls)
