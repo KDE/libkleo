@@ -282,27 +282,5 @@ private:
     QList<QUrl> mURLList;
 };
 
-/**
- * A widget manager for a (OpenPGP) keyserver entry in the crypto config
- */
-class CryptoConfigEntryKeyserver : public CryptoConfigEntryGUI
-{
-    Q_OBJECT
-
-public:
-    CryptoConfigEntryKeyserver(CryptoConfigModule *module,
-                               QGpgME::CryptoConfigEntry *entry,
-                               const QString &entryName,
-                               QGridLayout *layout,
-                               QWidget *parent = nullptr);
-    void doSave() override;
-    void doLoad() override;
-private Q_SLOTS:
-    void slotOpenDialog();
-private:
-    QLabel *mLabel = nullptr;
-    QPushButton *mPushButton = nullptr;
-    ParsedKeyserver mParsedKeyserver;
-};
 }
 

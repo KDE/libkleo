@@ -483,8 +483,7 @@ static const struct WidgetsByEntryName {
     const char *entryGlob;
     constructor create;
 } widgetsByEntryName[] = {
-    { "*/*/debug-level",   &_create<CryptoConfigEntryDebugLevel> },
-    { "gpg/*/keyserver",   &_create<CryptoConfigEntryKeyserver>  }
+    { "*/*/debug-level",   &_create<CryptoConfigEntryDebugLevel> }
 };
 static const unsigned int numWidgetsByEntryName = sizeof widgetsByEntryName / sizeof * widgetsByEntryName;
 
@@ -930,33 +929,6 @@ void Kleo::CryptoConfigEntryLDAPURL::setURLList(const QList<QUrl> &urlList)
     }
 }
 
-Kleo::CryptoConfigEntryKeyserver::CryptoConfigEntryKeyserver(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry,
-    const QString &entryName,
-    QGridLayout *glay, QWidget *widget)
-    : CryptoConfigEntryGUI(module, entry, entryName)
-{
-    mLabel = new QLabel(widget);
-    mPushButton = new QPushButton(i18n("Edit..."), widget);
-
-    const int row = glay->rowCount();
-    QLabel *label = new QLabel(i18n("Use keyserver at"), widget);
-    label->setBuddy(mPushButton);
-    glay->addWidget(label, row, 1);
-    auto hlay = new QHBoxLayout;
-    glay->addLayout(hlay, row, 2);
-    hlay->addWidget(mLabel, 1);
-    hlay->addWidget(mPushButton);
-
-    if (entry->isReadOnly()) {
-        mLabel->setEnabled(false);
-        mPushButton->hide();
-    } else {
-        connect(mPushButton, &QPushButton::clicked, this, &CryptoConfigEntryKeyserver::slotOpenDialog);
-    }
-}
-
 Kleo::ParsedKeyserver Kleo::parseKeyserver(const QString &str)
 {
     const QStringList list = str.split(QRegExp(QLatin1String("[\\s,]")), Qt::SkipEmptyParts);
@@ -997,55 +969,6 @@ QString Kleo::assembleKeyserver(const ParsedKeyserver &keyserver)
             result += QLatin1Char(' ') + pair.first + QLatin1Char('=') + pair.second;
         }
     return result;
-}
-
-void Kleo::CryptoConfigEntryKeyserver::doLoad()
-{
-    mParsedKeyserver = parseKeyserver(mEntry->stringValue());
-    mLabel->setText(mParsedKeyserver.url);
-}
-
-void Kleo::CryptoConfigEntryKeyserver::doSave()
-{
-    mParsedKeyserver.url = mLabel->text();
-    mEntry->setStringValue(assembleKeyserver(mParsedKeyserver));
-}
-
-static QList<QUrl> string2urls(const QString &str)
-{
-    QList<QUrl> ret;
-    if (str.isEmpty()) {
-        return ret;
-    }
-    ret << QUrl::fromUserInput(str);
-    return ret;
-}
-
-static QString urls2string(const QList<QUrl> &urls)
-{
-    return urls.empty() ? QString() : urls.front().url();
-}
-
-void Kleo::CryptoConfigEntryKeyserver::slotOpenDialog()
-{
-    // I'm a bad boy and I do it all on the stack. Enough classes already :)
-    // This is just a simple dialog around the directory-services-widget
-    QDialog dialog(mPushButton->parentWidget());
-    dialog.setWindowTitle(i18nc("@title:window", "Configure Keyservers"));
-
-    auto dirserv = new DirectoryServicesWidget(&dialog);
-
-    prepareURLCfgDialog(&dialog, dirserv, mEntry->isReadOnly());
-
-    dirserv->setOpenPGPReadOnly(mEntry->isReadOnly());
-    dirserv->setAllowedSchemes(DirectoryServicesWidget::AllSchemes);
-    dirserv->setAllowedProtocols(DirectoryServicesWidget::OpenPGPProtocol);
-    dirserv->addOpenPGPServices(string2urls(mLabel->text()));
-
-    if (dialog.exec()) {
-        mLabel->setText(urls2string(dirserv->openPGPServices()));
-        slotChanged();
-    }
 }
 
 #include "moc_cryptoconfigmodule_p.cpp"
