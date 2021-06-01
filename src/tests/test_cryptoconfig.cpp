@@ -23,6 +23,8 @@ using namespace QGpgME;
 
 #include <stdlib.h>
 
+#include <gpgme++/gpgmepp_version.h>
+
 int main(int argc, char **argv)
 {
 
@@ -325,11 +327,16 @@ int main(int argc, char **argv)
             // Test setting the option, sync'ing, then querying again
             QList<QUrl> lst;
             lst << QUrl(QStringLiteral("ldap://a:389?b"));
-            lst << QUrl(QStringLiteral("ldap://foo:389?a:b c"));
-            lst << QUrl(QStringLiteral("ldap://server:389?a=b,c=DE"));   // the query contains a literal ','
-            //cout << " trying to set: " << lst.toStringList().join(", ").local8Bit() << endl;
             Q_ASSERT(lst[0].query() == QLatin1Char('b'));
+            lst << QUrl(QStringLiteral("ldap://foo:389?a:b c"));
             Q_ASSERT(lst[1].query() == QStringLiteral("a:b c"));   // see, the space got _not_escaped
+            lst << QUrl(QStringLiteral("ldap://server:389?a=b,c=DE"));
+            Q_ASSERT(lst[2].query() == QStringLiteral("a=b,c=DE"));   // the query contains a literal ','
+#if GPGMEPP_VERSION >= 0x10F02 // 1.15.2
+            lst << QUrl(QStringLiteral("ldap://foo:389?a#ldaps"));
+            Q_ASSERT(lst[3].fragment() == QStringLiteral("ldaps"));
+#endif
+            //cout << " trying to set: " << lst.toStringList().join(", ").local8Bit() << endl;
             entry->setURLValueList(lst);
             Q_ASSERT(entry->isDirty());
             config->sync(true);
@@ -349,13 +356,16 @@ int main(int argc, char **argv)
             const QList<QUrl> newlst = entry->urlValueList();
             cout << "URL list now: ";
             for (const QUrl &url : newlst) {
-                cout << url.toString().toLocal8Bit().constData() << endl;
+                cout << url.toString().toLocal8Bit().constData() << ", ";
             }
             cout << endl;
-            Q_ASSERT(newlst.count() == 3);
+            Q_ASSERT(newlst.size() == lst.size());
             Q_ASSERT(newlst[0].url() == lst[0].url());
             Q_ASSERT(newlst[1].url() == lst[1].url());
             Q_ASSERT(newlst[2].url() == lst[2].url());
+#if GPGMEPP_VERSION >= 0x10F02 // 1.15.2
+            Q_ASSERT(newlst[3].url() == lst[3].url());
+#endif
 
             // Reset old value
             entry->setURLValueList(val);
