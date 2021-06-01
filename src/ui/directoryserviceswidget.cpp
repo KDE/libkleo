@@ -182,8 +182,9 @@ public:
         BaseDN,
         UserName,
         Password,
+        Flags,
 
-        NumColumns
+        NumColumns,
     };
 
     QModelIndex duplicateRow(unsigned int row)
@@ -553,6 +554,7 @@ QVariant Model::headerData(int section, Qt::Orientation orientation, int role) c
             case BaseDN:   return i18n("Base DN");
             case UserName: return i18n("User Name");
             case Password: return i18n("Password");
+            case Flags:    return i18nc("Flags to enable/disable certain features", "Flags");
             default:       return QVariant();
             }
         else {
@@ -595,6 +597,8 @@ QVariant Model::data(const QModelIndex &index, int role) const
                 return m_items[row].userName();
             case Password:
                 return m_items[row].password();
+            case Flags:
+                return m_items[row].fragment();
             default:
                 return QVariant();
             }
@@ -639,7 +643,14 @@ Qt::ItemFlags Model::flags(const QModelIndex &index) const
             } else {
                 return flags | Qt::ItemIsEditable;
             }
+        case Flags:
+            if (m_x509ReadOnly) {
+                return flags & ~(Qt::ItemIsEditable | Qt::ItemIsEnabled);
+            } else {
+                return flags | Qt::ItemIsEditable;
+            }
         }
+
     return flags;
 }
 
@@ -690,6 +701,13 @@ bool Model::doSetData(unsigned int row, unsigned int column, const QVariant &val
         case Password:
             m_items[row].setPassword(value.toString());
             return true;
+        case Flags:
+            if (value.toString().isEmpty()) {
+                m_items[row].setFragment(QString()); // unset the fragment
+            } else {
+                m_items[row].setFragment(value.toString());
+            }
+            return true;
         }
     return false;
 }
@@ -713,6 +731,8 @@ QString Model::toolTipForColumn(int column)
                                    "Enter your password here, if needed. "
                                    "Note that the password will be saved in the clear "
                                    "in a config file in your home directory.");
+    case Flags: return i18n("<b>(Optional)</b> "
+                                "Enter 'ldaps' to specify that a TLS connections shall be used.");
     default:
         return QString();
     }
