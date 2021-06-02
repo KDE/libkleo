@@ -732,7 +732,7 @@ QString Model::toolTipForColumn(int column)
                                    "Note that the password will be saved in the clear "
                                    "in a config file in your home directory.");
     case Flags: return i18n("<b>(Optional)</b> "
-                                "Enter 'ldaps' to specify that a TLS connections shall be used.");
+                                "Enter 'ldaps' to specify that a TLS connection shall be used.");
     default:
         return QString();
     }
