@@ -96,6 +96,11 @@ set(kleo_LIB_LIBS PUBLIC QGpgme Gpgmepp PRIVATE Qt5::Widgets
                                                 KF5::ItemModels
                                                 KF5::Codecs)
 
+# Boost::headers may not be available for old versions of Boost
+if (TARGET Boost::headers)
+  set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PRIVATE Boost::headers)
+endif()
+
 if (KF5PimTextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
   set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PRIVATE KF5::PimTextEdit)
