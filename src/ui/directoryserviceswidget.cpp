@@ -41,18 +41,6 @@ static QUrl defaultX509Service()
     url.setHost(i18nc("default server name, keep it a valid domain name, ie. no spaces", "server"));
     return url;
 }
-static QUrl defaultOpenPGPService()
-{
-    QUrl url;
-    if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() < "2.1.16") {
-        url.setScheme(QStringLiteral("hkp"));
-        url.setHost(QStringLiteral("keys.gnupg.net"));
-    } else {
-        url.setScheme(QStringLiteral("hkps"));
-        url.setHost(QStringLiteral("hkps.pool.sks-keyservers.net"));
-    }
-   return url;
-}
 
 static bool is_ldap_scheme(const QUrl &url)
 {
@@ -371,14 +359,11 @@ public:
         ui.treeView->setModel(&model);
         ui.treeView->setItemDelegate(&delegate);
 
-        ui.pgpKeyserver->setPlaceholderText(defaultOpenPGPService().toString());
-
         connect(&model, &QAbstractItemModel::dataChanged, q, &DirectoryServicesWidget::changed);
         connect(&model, &QAbstractItemModel::rowsInserted, q, &DirectoryServicesWidget::changed);
         connect(&model, &QAbstractItemModel::rowsRemoved, q, &DirectoryServicesWidget::changed);
         connect(ui.treeView->selectionModel(), &QItemSelectionModel::selectionChanged,
                 q, [this]() { slotSelectionChanged(); });
-        connect(ui.pgpKeyserver, &QLineEdit::textChanged, q, &DirectoryServicesWidget::changed);
 
         slotShowUserAndPasswordToggled(false);
     }
@@ -426,9 +411,7 @@ private:
     void enableDisableActions()
     {
         const bool x509 = (protocols & X509Protocol) && !(readOnlyProtocols & X509Protocol);
-        const bool pgp  = (protocols & OpenPGPProtocol) && !(readOnlyProtocols & OpenPGPProtocol);
         ui.newTB->setEnabled(x509);
-        ui.pgpKeyserver->setEnabled(pgp);
         const int row = selectedRow();
         ui.deleteTB->setEnabled(row >= 0 && !(readOnlyProtocols & X509Protocol));
     }
@@ -499,17 +482,6 @@ DirectoryServicesWidget::Protocols DirectoryServicesWidget::readOnlyProtocols() 
     return d->readOnlyProtocols;
 }
 
-void DirectoryServicesWidget::setOpenPGPService(const QString &url)
-{
-    d->ui.pgpKeyserver->setText(url);
-}
-
-QString DirectoryServicesWidget::openPGPService() const
-{
-    const auto pgpStr = d->ui.pgpKeyserver->text();
-    return pgpStr.contains(QLatin1String("://")) ?  pgpStr : (QLatin1String("hkps://") + pgpStr);
-}
-
 void DirectoryServicesWidget::addX509Services(const QList<QUrl> &urls)
 {
     for (const QUrl &url : urls) {
@@ -534,7 +506,6 @@ void DirectoryServicesWidget::clear()
         return;
     }
     d->model.clear();
-    d->ui.pgpKeyserver->setText(QString());
     Q_EMIT changed();
 }
 

@@ -37,9 +37,8 @@ public:
     enum Protocol {
         NoProtocol = 0,
         X509Protocol = 1,
-        OpenPGPProtocol = 2,
 
-        AllProtocols = X509Protocol | OpenPGPProtocol
+        AllProtocols = X509Protocol
     };
     Q_DECLARE_FLAGS(Protocols, Protocol)
 
@@ -50,16 +49,11 @@ public:
     Protocols allowedProtocols() const;
 
     void setX509Allowed(bool allowed);
-    void setOpenPGPAllowed(bool allowed);
 
     void setReadOnlyProtocols(Protocols protocols);
     Protocols readOnlyProtocols() const;
 
-    void setOpenPGPReadOnly(bool ro);
     void setX509ReadOnly(bool ro);
-
-    void setOpenPGPService(const QString &url);
-    QString openPGPService() const;
 
     void addX509Services(const QList<QUrl> &urls);
     QList<QUrl> x509Services() const;
@@ -81,30 +75,12 @@ private:
 
 }
 
-inline void Kleo::DirectoryServicesWidget::setOpenPGPAllowed(bool allowed)
-{
-    if (allowed) {
-        setAllowedProtocols(allowedProtocols() | OpenPGPProtocol);
-    } else {
-        setAllowedProtocols(allowedProtocols() & ~OpenPGPProtocol);
-    }
-}
-
 inline void Kleo::DirectoryServicesWidget::setX509Allowed(bool allowed)
 {
     if (allowed) {
         setAllowedProtocols(allowedProtocols() | X509Protocol);
     } else {
         setAllowedProtocols(allowedProtocols() & ~X509Protocol);
-    }
-}
-
-inline void Kleo::DirectoryServicesWidget::setOpenPGPReadOnly(bool ro)
-{
-    if (ro) {
-        setReadOnlyProtocols(readOnlyProtocols() | OpenPGPProtocol);
-    } else {
-        setReadOnlyProtocols(readOnlyProtocols() & ~OpenPGPProtocol);
     }
 }
 
