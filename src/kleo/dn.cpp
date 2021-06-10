@@ -20,7 +20,6 @@
 #include <KConfig>
 #include <KLocalizedString>
 
-#include <QStringList>
 
 #include <iostream>
 #include <iterator>

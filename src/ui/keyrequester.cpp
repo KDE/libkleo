@@ -34,7 +34,6 @@
 #include <QApplication>
 
 #include <QString>
-#include <QStringList>
 
 #include <QHBoxLayout>
 

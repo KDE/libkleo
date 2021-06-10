@@ -28,7 +28,6 @@
 #include <KEmailAddress>
 
 #include <QString>
-#include <QStringList>
 #include <QDateTime>
 #include <QTextDocument> // for Qt::escape
 #include <QLocale>

@@ -19,7 +19,6 @@
 #include <gpgme++/tofuinfo.h>
 
 #include <QString>
-#include <QStringList>
 #include <QEventLoop>
 
 static const struct {

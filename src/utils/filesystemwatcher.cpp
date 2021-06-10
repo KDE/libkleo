@@ -14,7 +14,6 @@
 
 #include <QFileSystemWatcher>
 #include <QString>
-#include <QStringList>
 #include <QTimer>
 #include <QDir>
 

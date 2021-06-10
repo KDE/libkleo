@@ -12,7 +12,6 @@
 #include "keylistmodel.h"
 
 #include "keycache.h"
-#include "keylist.h"
 #include "kleo/keygroup.h"
 #include "kleo/predicates.h"
 #include "kleo/keyfiltermanager.h"
