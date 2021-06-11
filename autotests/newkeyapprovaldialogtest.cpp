@@ -16,6 +16,7 @@
 #include <Libkleo/Test>
 
 #include <QCheckBox>
+#include <QGroupBox>
 #include <QLabel>
 #include <QObject>
 #include <QPushButton>
@@ -984,6 +985,59 @@ private Q_SLOTS:
         const auto complianceLabel = dialog->findChild<QLabel *>(QStringLiteral("compliance label"));
         verifyWidgetVisibility(complianceLabel, IsVisible);
         QVERIFY(!complianceLabel->text().contains(" not "));
+    }
+
+    void test__sign_and_encrypt_to_self_only()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::OpenPGP;
+        const bool allowMixed = false;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::OpenPGP,
+            {testKey("sender@example.net", GpgME::OpenPGP)},
+            {
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+
+        QVERIFY(!dialog->findChild<QGroupBox *>(QStringLiteral("encrypt-to-others box")));
+    }
+
+    void test__sign_and_encrypt_to_self_and_others()
+    {
+        const GpgME::Protocol forcedProtocol = GpgME::OpenPGP;
+        const bool allowMixed = false;
+        const QString sender = QStringLiteral("sender@example.net");
+        const KeyResolver::Solution preferredSolution = {
+            GpgME::OpenPGP,
+            {testKey("sender@example.net", GpgME::OpenPGP)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}}
+            }
+        };
+        const KeyResolver::Solution alternativeSolution = {};
+
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
+                                                                   true,
+                                                                   sender,
+                                                                   preferredSolution,
+                                                                   alternativeSolution,
+                                                                   allowMixed,
+                                                                   forcedProtocol);
+        dialog->show();
+
+        QVERIFY(dialog->findChild<QGroupBox *>(QStringLiteral("encrypt-to-others box")));
     }
 
     void test__result_does_not_include_null_keys()

@@ -763,29 +763,39 @@ public:
     {
         {
             auto group = new QGroupBox(i18nc("Encrypt to self (email address):", "Encrypt to self (%1):", mSender));
+#ifndef NDEBUG
+            group->setObjectName(QStringLiteral("encrypt-to-self box"));
+#endif
             group->setAlignment(Qt::AlignLeft);
             auto encGrid = new QGridLayout(group);
 
             addEncryptionAddr(mSender, preferredKeysProtocol, preferredKeys.value(mSender), alternativeKeysProtocol, alternativeKeys.value(mSender), encGrid);
 
+            encGrid->setColumnStretch(1, -1);
             mScrollLayout->addWidget(group);
         }
 
-        auto group = new QGroupBox(i18n("Encrypt to others:"));
-        group->setAlignment(Qt::AlignLeft);
-        auto encGrid = new QGridLayout;
-        group->setLayout(encGrid);
-        mScrollLayout->addWidget(group);
+        const bool hasOtherRecipients = std::any_of(preferredKeys.keyBegin(), preferredKeys.keyEnd(), [this](const auto &recipient) { return recipient != mSender; });
+        if (hasOtherRecipients) {
+            auto group = new QGroupBox(i18n("Encrypt to others:"));
+#ifndef NDEBUG
+            group->setObjectName(QStringLiteral("encrypt-to-others box"));
+#endif
+            group->setAlignment(Qt::AlignLeft);
+            auto encGrid = new QGridLayout{group};
 
-        for (auto it = std::begin(preferredKeys); it != std::end(preferredKeys); ++it) {
-            const auto &address = it.key();
-            const auto &keys = it.value();
-            if (address != mSender) {
-                addEncryptionAddr(address, preferredKeysProtocol, keys, alternativeKeysProtocol, alternativeKeys.value(address), encGrid);
+            for (auto it = std::begin(preferredKeys); it != std::end(preferredKeys); ++it) {
+                const auto &address = it.key();
+                const auto &keys = it.value();
+                if (address != mSender) {
+                    addEncryptionAddr(address, preferredKeysProtocol, keys, alternativeKeysProtocol, alternativeKeys.value(address), encGrid);
+                }
             }
+
+            encGrid->setColumnStretch(1, -1);
+            mScrollLayout->addWidget(group);
         }
 
-        encGrid->setColumnStretch(1, -1);
         mScrollLayout->addStretch(-1);
     }
 
