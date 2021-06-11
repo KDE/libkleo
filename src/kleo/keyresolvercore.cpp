@@ -198,9 +198,7 @@ void KeyResolverCore::Private::setSender(const QString &address)
         return;
     }
     const auto normStr = QString::fromUtf8(normalized.c_str());
-    if (mSign) {
-        mSender = normStr;
-    }
+    mSender = normStr;
     addRecipients({address});
 }
 
