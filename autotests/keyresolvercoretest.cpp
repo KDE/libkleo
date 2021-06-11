@@ -1118,6 +1118,17 @@ private Q_SLOTS:
                  testKey("sender-smime@example.net", CMS).primaryFingerprint());
     }
 
+    void test_sender_is_set__encrypt_only_mode()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
+        resolver.setRecipients({"prefer-openpgp@example.net", "prefer-smime@example.net"});
+        resolver.setSender(QStringLiteral("sender-mixed@example.net"));
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(resolver.normalizedSender(), QLatin1String{"sender-mixed@example.net"});
+    }
+
 private:
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
     {
