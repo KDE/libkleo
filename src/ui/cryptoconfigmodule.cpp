@@ -13,6 +13,8 @@
 #include "kdhorizontalline.h"
 #include "filenamerequester.h"
 
+#include "kleo/keyserverconfig.h"
+
 #include <qgpgme/cryptoconfig.h>
 
 #include <KLineEdit>
@@ -902,19 +904,23 @@ void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
     // I'm a bad boy and I do it all on the stack. Enough classes already :)
     // This is just a simple dialog around the directory-services-widget
     QDialog dialog(mPushButton->parentWidget());
-    dialog.setWindowTitle(i18nc("@title:window", "Configure LDAP Servers"));
+    dialog.setWindowTitle(i18nc("@title:window", "Configure Directory Services"));
 
     auto dirserv = new DirectoryServicesWidget(&dialog);
 
     prepareURLCfgDialog(&dialog, dirserv, mEntry->isReadOnly());
 
-    dirserv->setX509ReadOnly(mEntry->isReadOnly());
-    dirserv->setAllowedSchemes(DirectoryServicesWidget::LDAP);
-    dirserv->setAllowedProtocols(DirectoryServicesWidget::X509Protocol);
-    dirserv->addX509Services(mURLList);
+    dirserv->setReadOnly(mEntry->isReadOnly());
+
+    std::vector<KeyserverConfig> servers;
+    std::transform(std::cbegin(mURLList), std::cend(mURLList), std::back_inserter(servers), [](const auto &url) { return KeyserverConfig::fromUrl(url); });
+    dirserv->setKeyservers(servers);
 
     if (dialog.exec()) {
-        setURLList(dirserv->x509Services());
+        QList<QUrl> urls;
+        const auto servers = dirserv->keyservers();
+        std::transform(std::begin(servers), std::end(servers), std::back_inserter(urls), [](const auto &server) { return server.toUrl(); });
+        setURLList(urls);
         slotChanged();
     }
 }

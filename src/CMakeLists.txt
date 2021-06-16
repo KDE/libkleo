@@ -86,10 +86,6 @@ target_sources(KF5Libkleo PRIVATE    # make this a separate lib.
     ui/keyselectioncombo.cpp
     )
 
-ki18n_wrap_ui(KF5Libkleo
-    ui/directoryserviceswidget.ui
-)
-
 
 target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt::Widgets
                                                 KF5::I18n
