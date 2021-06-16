@@ -31,6 +31,11 @@ ecm_add_test(
 )
 
 ecm_add_tests(
+    editdirectoryservicedialogtest.cpp
+    LINK_LIBRARIES KF5::Libkleo KF5::WidgetsAddons Qt::Widgets Qt::Test
+)
+
+ecm_add_tests(
     keyserverconfigtest.cpp
     newkeyapprovaldialogtest.cpp
     LINK_LIBRARIES KF5::Libkleo Qt::Widgets Qt::Test

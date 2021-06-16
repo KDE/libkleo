@@ -67,6 +67,7 @@ target_sources(KF5Libkleo PRIVATE
    ui/progressbar.cpp
    ui/progressdialog.cpp
    ui/auditlogviewer.cpp
+   ui/editdirectoryservicedialog.cpp
    )
 
 ecm_qt_declare_logging_category(KF5Libkleo HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui
@@ -187,6 +188,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   CryptoConfigModule
   DNAttributeOrderConfigWidget
   DirectoryServicesWidget
+  EditDirectoryServiceDialog
   FileNameRequester
   KDHorizontalLine
   KeyApprovalDialog
