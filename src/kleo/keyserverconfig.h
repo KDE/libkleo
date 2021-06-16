@@ -15,6 +15,7 @@
 #include <memory>
 
 class QString;
+class QStringList;
 class QUrl;
 
 namespace Kleo
@@ -68,6 +69,9 @@ public:
 
     QString ldapBaseDn() const;
     void setLdapBaseDn(const QString &baseDn);
+
+    QStringList additionalFlags() const;
+    void setAdditionalFlags(const QStringList &flags);
 
 private:
     class Private;

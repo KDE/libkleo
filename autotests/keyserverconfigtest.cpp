@@ -255,6 +255,22 @@ private Q_SLOTS:
         QVERIFY(!createdUrl.hasQuery());
         QVERIFY(!createdUrl.hasFragment());
     }
+
+    void test_ldap_keyserver_with_additional_flags()
+    {
+        const QUrl url{QStringLiteral("ldap://ldap.example.net#flag1,StartTLS, Flag2 ,NTDS,flag 3")};
+        auto config = KeyserverConfig::fromUrl(url);
+        QCOMPARE(config.authentication(), KeyserverAuthentication::ActiveDirectory);
+        QCOMPARE(config.connection(), KeyserverConnection::UseSTARTTLS);
+        const QStringList expectedFlags{"flag1", "flag2", "flag 3"};
+        QCOMPARE(config.additionalFlags(), expectedFlags);
+
+        const auto createdUrl = config.toUrl();
+        const auto expectedUrl = QUrl{QStringLiteral("ldap://ldap.example.net#starttls,ntds,flag1,flag2,flag 3")};
+        QCOMPARE(createdUrl, expectedUrl);
+        QVERIFY(!createdUrl.hasQuery());
+        QVERIFY(createdUrl.hasFragment());
+    }
 };
 
 QTEST_MAIN(KeyserverConfigTest)

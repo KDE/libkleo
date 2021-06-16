@@ -29,6 +29,7 @@ public:
     QString password;
     KeyserverConnection connection = KeyserverConnection::Default;
     QString baseDn;
+    QStringList additionalFlags;
 };
 
 KeyserverConfig::Private::Private()
@@ -80,6 +81,8 @@ KeyserverConfig KeyserverConfig::fromUrl(const QUrl &url)
                 config.d->connection = KeyserverConnection::Plain;
             } else if (flag == QLatin1String{"ntds"}) {
                 config.d->authentication = KeyserverAuthentication::ActiveDirectory;
+            } else {
+                config.d->additionalFlags.push_back(flag);
             }
         }
     }
@@ -127,6 +130,7 @@ QUrl KeyserverConfig::toUrl() const
     if (d->authentication == KeyserverAuthentication::ActiveDirectory) {
         flags.push_back(QStringLiteral("ntds"));
     }
+    std::copy(std::cbegin(d->additionalFlags), std::cend(d->additionalFlags), std::back_inserter(flags));
     if (!flags.isEmpty()) {
         url.setFragment(flags.join(QLatin1Char{','}));
     }
@@ -202,4 +206,14 @@ QString KeyserverConfig::ldapBaseDn() const
 void KeyserverConfig::setLdapBaseDn(const QString &baseDn)
 {
     d->baseDn = baseDn;
+}
+
+QStringList KeyserverConfig::additionalFlags() const
+{
+    return d->additionalFlags;
+}
+
+void KeyserverConfig::setAdditionalFlags(const QStringList &flags)
+{
+    d->additionalFlags = flags;
 }
