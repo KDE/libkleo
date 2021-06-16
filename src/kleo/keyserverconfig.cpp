@@ -27,7 +27,7 @@ public:
     KeyserverAuthentication authentication = KeyserverAuthentication::Anonymous;
     QString user;
     QString password;
-    KeyserverConnection connection = KeyserverConnection::Plain;
+    KeyserverConnection connection = KeyserverConnection::Default;
     QString baseDn;
 };
 
@@ -119,7 +119,10 @@ QUrl KeyserverConfig::toUrl() const
         flags.push_back(QStringLiteral("ldaptls"));
         break;
     case KeyserverConnection::Plain:
-        ; // omit connection flag "plain"; it's the default
+        flags.push_back(QStringLiteral("plain"));
+        break;
+    case KeyserverConnection::Default:
+        ; // omit connection flag to use default
     }
     if (d->authentication == KeyserverAuthentication::ActiveDirectory) {
         flags.push_back(QStringLiteral("ntds"));

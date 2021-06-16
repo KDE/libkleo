@@ -27,6 +27,7 @@ enum class KeyserverAuthentication {
 };
 
 enum class KeyserverConnection {
+    Default,
     Plain,
     UseSTARTTLS,
     TunnelThroughTLS
