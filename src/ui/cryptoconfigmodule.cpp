@@ -19,6 +19,7 @@
 
 #include <KLineEdit>
 #include <KLocalizedString>
+#include <KMessageBox>
 #include "kleo_ui_debug.h"
 #include <utils/formatting.h>
 #include <QIcon>
@@ -40,6 +41,8 @@
 #include <QStyle>
 #include <QComboBox>
 #include <QGroupBox>
+
+#include <gpgme.h>
 
 #include <memory>
 #include <limits>
@@ -901,6 +904,14 @@ void prepareURLCfgDialog(QDialog *dialog, DirectoryServicesWidget *dirserv, bool
 
 void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
 {
+    if (!gpgme_check_version("1.15.2")) {
+        KMessageBox::sorry(mPushButton->parentWidget(),
+                           i18n("Configuration of directory services is not possible "
+                                "because the used gpgme libraries are too old."),
+                           i18n("Sorry"));
+        return;
+    }
+
     // I'm a bad boy and I do it all on the stack. Enough classes already :)
     // This is just a simple dialog around the directory-services-widget
     QDialog dialog(mPushButton->parentWidget());
