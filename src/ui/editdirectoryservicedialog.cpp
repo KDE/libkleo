@@ -12,6 +12,7 @@
 
 #include "kleo/keyserverconfig.h"
 #include "utils/algorithm.h"
+#include "utils/gnupg.h"
 
 #include <KCollapsibleGroupBox>
 #include <KConfigGroup>
@@ -125,6 +126,9 @@ class EditDirectoryServiceDialog::Private
                 }
                 {
                     auto radioButton = new QRadioButton{i18n("Authenticate via Active Directory")};
+                    if (!engineIsVersion(2, 2, 28, GpgME::GpgSMEngine)) {
+                        radioButton->setText(i18n("Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"));
+                    }
                     radioButton->setToolTip(i18nc("@info:tooltip",
                                                   "On Windows, authenticate to the LDAP server using the Active Directory with the current user."));
                     authenticationGroup->addButton(radioButton, static_cast<int>(KeyserverAuthentication::ActiveDirectory));
@@ -162,6 +166,9 @@ class EditDirectoryServiceDialog::Private
             mainLayout->addWidget(authenticationWidget);
 
             auto securityWidget = new QGroupBox{i18n("Connection Security"), parent};
+            if (!engineIsVersion(2, 2, 28, GpgME::GpgSMEngine)) {
+                securityWidget->setTitle(i18n("Connection Security (requires GnuPG 2.2.28 or later)"));
+            }
             {
                 auto layout = new QVBoxLayout{securityWidget};
                 {
