@@ -475,7 +475,7 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
 
     if (qApp) {
         QSize dialogSize(sizeHint());
-        KConfigGroup dialogConfig(KSharedConfig::openConfig(), "Key Selection Dialog");
+        KConfigGroup dialogConfig(KSharedConfig::openStateConfig(), "Key Selection Dialog");
         dialogSize = dialogConfig.readEntry("Dialog size", dialogSize);
         const QByteArray headerState = dialogConfig.readEntry("header", QByteArray());
         if (!headerState.isEmpty()) {
@@ -507,7 +507,7 @@ void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection,
 Kleo::KeySelectionDialog::~KeySelectionDialog()
 {
     disconnectSignals();
-    KConfigGroup dialogConfig(KSharedConfig::openConfig(), "Key Selection Dialog");
+    KConfigGroup dialogConfig(KSharedConfig::openStateConfig(), "Key Selection Dialog");
     dialogConfig.writeEntry("Dialog size", size());
     dialogConfig.writeEntry("header", mKeyListView->header()->saveState());
     dialogConfig.sync();
