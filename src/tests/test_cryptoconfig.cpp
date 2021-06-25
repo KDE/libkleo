@@ -332,7 +332,7 @@ int main(int argc, char **argv)
             Q_ASSERT(lst[1].query() == QStringLiteral("a:b c"));   // see, the space got _not_escaped
             lst << QUrl(QStringLiteral("ldap://server:389?a=b,c=DE"));
             Q_ASSERT(lst[2].query() == QStringLiteral("a=b,c=DE"));   // the query contains a literal ','
-#if GPGMEPP_VERSION >= 0x10F02 // 1.15.2
+#if GPGMEPP_VERSION >= 0x11000 // 1.16.0
             lst << QUrl(QStringLiteral("ldap://foo:389?a#ldaps"));
             Q_ASSERT(lst[3].fragment() == QStringLiteral("ldaps"));
 #endif
@@ -363,7 +363,7 @@ int main(int argc, char **argv)
             Q_ASSERT(newlst[0].url() == lst[0].url());
             Q_ASSERT(newlst[1].url() == lst[1].url());
             Q_ASSERT(newlst[2].url() == lst[2].url());
-#if GPGMEPP_VERSION >= 0x10F02 // 1.15.2
+#if GPGMEPP_VERSION >= 0x11000 // 1.16.0
             Q_ASSERT(newlst[3].url() == lst[3].url());
 #endif
 

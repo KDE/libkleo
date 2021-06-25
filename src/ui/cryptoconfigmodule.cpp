@@ -904,7 +904,7 @@ void prepareURLCfgDialog(QDialog *dialog, DirectoryServicesWidget *dirserv, bool
 
 void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
 {
-    if (!gpgme_check_version("1.15.2")) {
+    if (!gpgme_check_version("1.16.0")) {
         KMessageBox::sorry(mPushButton->parentWidget(),
                            i18n("Configuration of directory services is not possible "
                                 "because the used gpgme libraries are too old."),

@@ -45,7 +45,7 @@ find_package(Gpgmepp ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
 find_package(QGpgme ${GPGMEPP_LIB_VERSION} CONFIG REQUIRED)
 message(STATUS "GPGME Version ${Gpgmepp_VERSION}")
-if (Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.15.2")
+if (Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.16.0")
     set(GPGMEPP_SUPPORTS_TRUST_SIGNATURES 1)
 endif()
 
