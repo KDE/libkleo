@@ -70,6 +70,7 @@ public:
     mutable QHash<const char *, QVariant> prettyEMailCache;
     mutable QHash<const char *, QVariant> remarksCache;
     bool m_useKeyCache = false;
+    bool m_modelResetInProgress = false;
     KeyList::Options m_keyListOptions = AllKeys;
     std::vector<GpgME::Key> m_remarkKeys;
 };
@@ -92,7 +93,8 @@ void AbstractKeyListModel::Private::updateFromKeyCache()
 AbstractKeyListModel::AbstractKeyListModel(QObject *p)
     : QAbstractItemModel(p), KeyListModelInterface(), d(new Private(this))
 {
-
+    connect(this, &QAbstractItemModel::modelAboutToBeReset, this, [this] () { d->m_modelResetInProgress = true; });
+    connect(this, &QAbstractItemModel::modelReset, this, [this] () { d->m_modelResetInProgress = false; });
 }
 
 AbstractKeyListModel::~AbstractKeyListModel() {}
@@ -191,8 +193,10 @@ QModelIndex AbstractKeyListModel::index(const KeyGroup &group, int col) const
 
 void AbstractKeyListModel::setKeys(const std::vector<Key> &keys)
 {
+    beginResetModel();
     clear(Keys);
     addKeys(keys);
+    endResetModel();
 }
 
 QModelIndex AbstractKeyListModel::addKey(const Key &key)
@@ -225,8 +229,10 @@ QList<QModelIndex> AbstractKeyListModel::addKeys(const std::vector<Key> &keys)
 
 void AbstractKeyListModel::setGroups(const std::vector<KeyGroup> &groups)
 {
+    beginResetModel();
     clear(Groups);
     doSetGroups(groups);
+    endResetModel();
 }
 
 QModelIndex AbstractKeyListModel::addGroup(const KeyGroup &group)
@@ -247,13 +253,18 @@ bool AbstractKeyListModel::removeGroup(const KeyGroup &group)
 
 void AbstractKeyListModel::clear(ItemTypes types)
 {
-    beginResetModel();
+    const bool inReset = modelResetInProgress();
+    if (!inReset) {
+        beginResetModel();
+    }
     doClear(types);
     if (types & Keys) {
         d->prettyEMailCache.clear();
         d->remarksCache.clear();
     }
-    endResetModel();
+    if (!inReset) {
+        endResetModel();
+    }
 }
 
 int AbstractKeyListModel::columnCount(const QModelIndex &) const
@@ -490,6 +501,11 @@ bool AbstractKeyListModel::setData(const QModelIndex &index, const QVariant &val
     return false;
 }
 
+bool AbstractKeyListModel::modelResetInProgress()
+{
+    return d->m_modelResetInProgress;
+}
+
 namespace
 {
 template <typename Base>
@@ -717,12 +733,18 @@ QList<QModelIndex> FlatKeyListModel::doAddKeys(const std::vector<Key> &keys)
         if (idx > 0 && qstrcmp(mKeysByFingerprint[idx - 1].primaryFingerprint(), it->primaryFingerprint()) == 0) {
             // key existed before - replace with new one:
             mKeysByFingerprint[idx - 1] = *it;
-            Q_EMIT dataChanged(createIndex(idx - 1, 0), createIndex(idx - 1, NumColumns - 1));
+            if (!modelResetInProgress()) {
+                Q_EMIT dataChanged(createIndex(idx - 1, 0), createIndex(idx - 1, NumColumns - 1));
+            }
         } else {
             // new key - insert:
-            beginInsertRows(QModelIndex(), idx, idx);
+            if (!modelResetInProgress()) {
+                beginInsertRows(QModelIndex(), idx, idx);
+            }
             mKeysByFingerprint.insert(pos, *it);
-            endInsertRows();
+            if (!modelResetInProgress()) {
+                endInsertRows();
+            }
         }
     }
 
@@ -739,9 +761,13 @@ void FlatKeyListModel::doRemoveKey(const Key &key)
     }
 
     const unsigned int row = std::distance(mKeysByFingerprint.begin(), it);
-    beginRemoveRows(QModelIndex(), row, row);
+    if (!modelResetInProgress()) {
+        beginRemoveRows(QModelIndex(), row, row);
+    }
     mKeysByFingerprint.erase(it);
-    endRemoveRows();
+    if (!modelResetInProgress()) {
+        endRemoveRows();
+    }
 }
 
 KeyGroup FlatKeyListModel::doMapToGroup(const QModelIndex &idx) const
@@ -775,17 +801,25 @@ void FlatKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
     Q_ASSERT(mGroups.empty());  // ensure that groups have been cleared
     const int first = mKeysByFingerprint.size();
     const int last = first + groups.size() - 1;
-    beginInsertRows(QModelIndex(), first, last);
+    if (!modelResetInProgress()) {
+        beginInsertRows(QModelIndex(), first, last);
+    }
     mGroups = groups;
-    endInsertRows();
+    if (!modelResetInProgress()) {
+        endInsertRows();
+    }
 }
 
 QModelIndex FlatKeyListModel::doAddGroup(const KeyGroup &group)
 {
     const int newRow = lastGroupRow() + 1;
-    beginInsertRows(QModelIndex(), newRow, newRow);
+    if (!modelResetInProgress()) {
+        beginInsertRows(QModelIndex(), newRow, newRow);
+    }
     mGroups.push_back(group);
-    endInsertRows();
+    if (!modelResetInProgress()) {
+        endInsertRows();
+    }
     return createIndex(newRow, 0);
 }
 
@@ -799,7 +833,9 @@ bool FlatKeyListModel::doSetGroupData(const QModelIndex &index, const KeyGroup &
         return false;
     }
     mGroups[groupIndex] = group;
-    Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    if (!modelResetInProgress()) {
+        Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    }
     return true;
 }
 
@@ -814,9 +850,13 @@ bool FlatKeyListModel::doRemoveGroup(const KeyGroup &group)
     if (groupIndex == -1) {
         return false;
     }
-    beginRemoveRows(QModelIndex(), modelIndex.row(), modelIndex.row());
+    if (!modelResetInProgress()) {
+        beginRemoveRows(QModelIndex(), modelIndex.row(), modelIndex.row());
+    }
     mGroups.erase(mGroups.begin() + groupIndex);
-    endRemoveRows();
+    if (!modelResetInProgress()) {
+        endRemoveRows();
+    }
     return true;
 }
 
@@ -972,15 +1012,21 @@ void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Ke
     if (it != subjects.end() && qstricmp(it->primaryFingerprint(), key.primaryFingerprint()) == 0) {
         // exists -> replace
         *it = key;
-        Q_EMIT dataChanged(createIndex(row, 0, const_cast<char *>(issuer_fpr)), createIndex(row, NumColumns - 1, const_cast<char *>(issuer_fpr)));
+        if (!modelResetInProgress()) {
+            Q_EMIT dataChanged(createIndex(row, 0, const_cast<char *>(issuer_fpr)), createIndex(row, NumColumns - 1, const_cast<char *>(issuer_fpr)));
+        }
     } else {
         // doesn't exist -> insert
         const std::vector<Key>::const_iterator pos = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
                                                                        issuer_fpr, _detail::ByFingerprint<std::less>());
         Q_ASSERT(pos != mKeysByFingerprint.end());
-        beginInsertRows(index(*pos), row, row);
+        if (!modelResetInProgress()) {
+            beginInsertRows(index(*pos), row, row);
+        }
         subjects.insert(it, key);
-        endInsertRows();
+        if (!modelResetInProgress()) {
+            endInsertRows();
+        }
     }
 }
 
@@ -1017,12 +1063,18 @@ void HierarchicalKeyListModel::addTopLevelKey(const Key &key)
     if (it != mTopLevels.end() && qstricmp(it->primaryFingerprint(), key.primaryFingerprint()) == 0) {
         // exists -> replace
         *it = key;
-        Q_EMIT dataChanged(createIndex(row, 0), createIndex(row, NumColumns - 1));
+        if (!modelResetInProgress()) {
+            Q_EMIT dataChanged(createIndex(row, 0), createIndex(row, NumColumns - 1));
+        }
     } else {
         // doesn't exist -> insert
-        beginInsertRows(QModelIndex(), row, row);
+        if (!modelResetInProgress()) {
+            beginInsertRows(QModelIndex(), row, row);
+        }
         mTopLevels.insert(it, key);
-        endInsertRows();
+        if (!modelResetInProgress()) {
+            endInsertRows();
+        }
     }
 
 }
@@ -1113,10 +1165,14 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
                 Q_ASSERT(lastFP != mKeysByFingerprint.end());
 
                 Q_EMIT rowAboutToBeMoved(QModelIndex(), row);
-                beginRemoveRows(QModelIndex(), row, row);
+                if (!modelResetInProgress()) {
+                    beginRemoveRows(QModelIndex(), row, row);
+                }
                 last = mTopLevels.erase(last);
                 lastFP = mKeysByFingerprint.erase(lastFP);
-                endRemoveRows();
+                if (!modelResetInProgress()) {
+                    endRemoveRows();
+                }
             }
         }
         // Step 2: add/update key
@@ -1157,10 +1213,12 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
     }
     //Q_EMIT dataChanged for all parents with new children. This triggers KeyListSortFilterProxyModel to
     //show a parent node if it just got children matching the proxy's filter
-    for (const Key &i : qAsConst(changedParents)) {
-        const QModelIndex idx = index(i);
-        if (idx.isValid()) {
-            Q_EMIT dataChanged(idx.sibling(idx.row(), 0), idx.sibling(idx.row(), NumColumns - 1));
+    if (!modelResetInProgress()) {
+        for (const Key &i : qAsConst(changedParents)) {
+            const QModelIndex idx = index(i);
+            if (idx.isValid()) {
+                Q_EMIT dataChanged(idx.sibling(idx.row(), 0), idx.sibling(idx.row(), NumColumns - 1));
+            }
         }
     }
     return indexes(keys);
@@ -1199,7 +1257,9 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
     Q_ASSERT(mKeysByNonExistingParent.find(fpr) == mKeysByNonExistingParent.end());
     Q_ASSERT(mKeysByExistingParent.find(fpr) == mKeysByExistingParent.end());
 
-    beginRemoveRows(parent(idx), idx.row(), idx.row());
+    if (!modelResetInProgress()) {
+        beginRemoveRows(parent(idx), idx.row(), idx.row());
+    }
     mKeysByFingerprint.erase(it);
 
     const char *const issuer_fpr = cleanChainID(key);
@@ -1235,7 +1295,9 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
             }
         }
     }
-    endRemoveRows();
+    if (!modelResetInProgress()) {
+        endRemoveRows();
+    }
 }
 
 KeyGroup HierarchicalKeyListModel::doMapToGroup(const QModelIndex &idx) const
@@ -1274,17 +1336,25 @@ void HierarchicalKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
     Q_ASSERT(mGroups.empty());  // ensure that groups have been cleared
     const int first = mTopLevels.size();
     const int last = first + groups.size() - 1;
-    beginInsertRows(QModelIndex(), first, last);
+    if (!modelResetInProgress()) {
+        beginInsertRows(QModelIndex(), first, last);
+    }
     mGroups = groups;
-    endInsertRows();
+    if (!modelResetInProgress()) {
+        endInsertRows();
+    }
 }
 
 QModelIndex HierarchicalKeyListModel::doAddGroup(const KeyGroup &group)
 {
     const int newRow = lastGroupRow() + 1;
-    beginInsertRows(QModelIndex(), newRow, newRow);
+    if (!modelResetInProgress()) {
+        beginInsertRows(QModelIndex(), newRow, newRow);
+    }
     mGroups.push_back(group);
-    endInsertRows();
+    if (!modelResetInProgress()) {
+        endInsertRows();
+    }
     return createIndex(newRow, 0);
 }
 
@@ -1298,7 +1368,9 @@ bool HierarchicalKeyListModel::doSetGroupData(const QModelIndex &index, const Ke
         return false;
     }
     mGroups[groupIndex] = group;
-    Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    if (!modelResetInProgress()) {
+        Q_EMIT dataChanged(createIndex(index.row(), 0), createIndex(index.row(), NumColumns - 1));
+    }
     return true;
 }
 
@@ -1313,9 +1385,13 @@ bool HierarchicalKeyListModel::doRemoveGroup(const KeyGroup &group)
     if (groupIndex == -1) {
         return false;
     }
-    beginRemoveRows(QModelIndex(), modelIndex.row(), modelIndex.row());
+    if (!modelResetInProgress()) {
+        beginRemoveRows(QModelIndex(), modelIndex.row(), modelIndex.row());
+    }
     mGroups.erase(mGroups.begin() + groupIndex);
-    endRemoveRows();
+    if (!modelResetInProgress()) {
+        endRemoveRows();
+    }
     return true;
 }
 

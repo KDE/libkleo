@@ -99,6 +99,9 @@ public:
     void setRemarkKeys(const std::vector<GpgME::Key> &remarkKeys);
     std::vector<GpgME::Key> remarkKeys() const;
 
+protected:
+    bool modelResetInProgress();
+
 private:
     QVariant data(const GpgME::Key &key, int column, int role) const;
     QVariant data(const KeyGroup &group, int column, int role) const;
