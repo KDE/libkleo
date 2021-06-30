@@ -376,6 +376,26 @@ public:
         q->setCurrentKey(defaultKey);
     }
 
+    void storeCurrentSelectionBeforeModelChange()
+    {
+        keyBeforeModelChange = q->currentKey();
+        customItemBeforeModelChange = q->currentData();
+    }
+
+    void restoreCurrentSelectionAfterModelChange()
+    {
+        if (!keyBeforeModelChange.isNull()) {
+            q->setCurrentKey(keyBeforeModelChange);
+        } else if (customItemBeforeModelChange.isValid()) {
+            const auto index = q->findData(customItemBeforeModelChange);
+            if (index != -1) {
+                q->setCurrentIndex(index);
+            } else {
+                updateWithDefaultKey();
+            }
+        }
+    }
+
     Kleo::AbstractKeyListModel *model = nullptr;
     SortFilterProxyModel *sortFilterProxy = nullptr;
     ProxyModel *proxyModel = nullptr;
@@ -383,8 +403,11 @@ public:
     QMap<GpgME::Protocol, QString> defaultKeys;
     bool wasEnabled = false;
     bool useWasEnabled = false;
-    bool secretOnly;
+    bool secretOnly = false;
+    bool initialKeyListingDone = false;
     QString mPerfectMatchMbox;
+    GpgME::Key keyBeforeModelChange;
+    QVariant customItemBeforeModelChange;
 
 private:
     KeySelectionCombo * const q;
@@ -416,7 +439,7 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
             this, [this](int row) {
                 if (row >= 0 && row < d->proxyModel->rowCount()) {
                     if (d->proxyModel->isCustomItem(row)) {
-                        Q_EMIT customItemSelected(d->proxyModel->index(row, 0).data(Qt::UserRole));
+                        Q_EMIT customItemSelected(currentData(Qt::UserRole));
                     } else {
                         Q_EMIT currentKeyChanged(currentKey());
                     }
@@ -424,6 +447,19 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
             });
 
     d->cache = Kleo::KeyCache::mutableInstance();
+
+    connect(model(), &QAbstractItemModel::rowsAboutToBeInserted,
+            this, [this] () { d->storeCurrentSelectionBeforeModelChange(); });
+    connect(model(), &QAbstractItemModel::rowsInserted,
+            this, [this] () { d->restoreCurrentSelectionAfterModelChange(); });
+    connect(model(), &QAbstractItemModel::rowsAboutToBeRemoved,
+            this, [this] () { d->storeCurrentSelectionBeforeModelChange(); });
+    connect(model(), &QAbstractItemModel::rowsRemoved,
+            this, [this] () { d->restoreCurrentSelectionAfterModelChange(); });
+    connect(model(), &QAbstractItemModel::modelAboutToBeReset,
+            this, [this] () { d->storeCurrentSelectionBeforeModelChange(); });
+    connect(model(), &QAbstractItemModel::modelReset,
+            this, [this] () { d->restoreCurrentSelectionAfterModelChange(); });
 
     QTimer::singleShot(0, this, &KeySelectionCombo::init);
 }
@@ -439,8 +475,10 @@ void KeySelectionCombo::init()
             this, [this]() {
                     // Set useKeyCache ensures that the cache is populated
                     // so this can be a blocking call if the cache is not initialized 
-                    d->model->useKeyCache(true, d->secretOnly ? KeyList::SecretKeysOnly : KeyList::AllKeys);
-                    d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
+                    if (!d->initialKeyListingDone) {
+                        d->model->useKeyCache(true, d->secretOnly ? KeyList::SecretKeysOnly : KeyList::AllKeys);
+                        d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
+                    }
 
                     // We use the useWasEnabled state variable to decide if we should
                     // change the enable / disable state based on the keylist done signal.
@@ -458,7 +496,10 @@ void KeySelectionCombo::init()
             });
 
     connect(this, &KeySelectionCombo::keyListingFinished, this, [this]() {
-            d->updateWithDefaultKey();
+            if (!d->initialKeyListingDone) {
+                d->updateWithDefaultKey();
+                d->initialKeyListingDone = true;
+            }
         });
 
     if (!d->cache->initialized()) {
@@ -505,11 +546,11 @@ GpgME::Key Kleo::KeySelectionCombo::currentKey() const
 
 void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
 {
-    const int idx = findData(QVariant::fromValue(key), KeyList::KeyRole, Qt::MatchExactly);
+    const int idx = findData(QString::fromLatin1(key.primaryFingerprint()), KeyList::FingerprintRole, Qt::MatchExactly);
     if (idx > -1) {
         setCurrentIndex(idx);
-    } else {
-        d->selectPerfectIdMatch();
+    } else if (!d->selectPerfectIdMatch()) {
+        d->updateWithDefaultKey();
     }
     setToolTip(currentData(Qt::ToolTipRole).toString());
 }
@@ -563,6 +604,11 @@ void KeySelectionCombo::prependCustomItem(const QIcon &icon, const QString &text
 void KeySelectionCombo::prependCustomItem(const QIcon &icon, const QString &text, const QVariant &data)
 {
     prependCustomItem(icon, text, data, QString());
+}
+
+void KeySelectionCombo::removeCustomItem(const QVariant &data)
+{
+    d->proxyModel->removeCustomItem(data);
 }
 
 void Kleo::KeySelectionCombo::setDefaultKey(const QString &fingerprint, GpgME::Protocol proto)

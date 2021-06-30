@@ -36,6 +36,7 @@ ecm_add_tests(
 )
 
 ecm_add_tests(
+    keyselectioncombotest.cpp
     keyserverconfigtest.cpp
     newkeyapprovaldialogtest.cpp
     LINK_LIBRARIES KF5::Libkleo Qt::Widgets Qt::Test
