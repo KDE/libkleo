@@ -1107,7 +1107,7 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
 
     std::vector<Key> result;
     result.reserve(keys.size());
-    for (int i : qAsConst(order)) {
+    for (int i : std::as_const(order)) {
         result.push_back(keys[i]);
     }
     return result;
@@ -1156,7 +1156,7 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
             auto last = mTopLevels.begin();
             auto lastFP = mKeysByFingerprint.begin();
 
-            for (const Key &k : qAsConst(children)) {
+            for (const Key &k : std::as_const(children)) {
                 last = Kleo::binary_find(last, mTopLevels.end(), k, _detail::ByFingerprint<std::less>());
                 Q_ASSERT(last != mTopLevels.end());
                 const int row = std::distance(mTopLevels.begin(), last);
@@ -1214,7 +1214,7 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
     //Q_EMIT dataChanged for all parents with new children. This triggers KeyListSortFilterProxyModel to
     //show a parent node if it just got children matching the proxy's filter
     if (!modelResetInProgress()) {
-        for (const Key &i : qAsConst(changedParents)) {
+        for (const Key &i : std::as_const(changedParents)) {
             const QModelIndex idx = index(i);
             if (idx.isValid()) {
                 Q_EMIT dataChanged(idx.sibling(idx.row(), 0), idx.sibling(idx.row(), NumColumns - 1));

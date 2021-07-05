@@ -441,7 +441,7 @@ public:
 
         /* Save the keys */
         mAcceptedResult.protocol = currentProtocol();
-        for (const auto combo: qAsConst(mEncCombos)) {
+        for (const auto combo: std::as_const(mEncCombos)) {
             const auto addr = combo->property("address").toString();
             const auto key = combo->currentKey();
             if (!combo->isVisible() || key.isNull()) {
@@ -449,7 +449,7 @@ public:
             }
             mAcceptedResult.encryptionKeys[addr].push_back(key);
         }
-        for (const auto combo: qAsConst(mSigningCombos)) {
+        for (const auto combo: std::as_const(mSigningCombos)) {
             const auto key = combo->currentKey();
             if (!combo->isVisible() || key.isNull()) {
                 continue;
@@ -489,7 +489,7 @@ public:
         const Protocol protocol = currentProtocol();
         const auto encryptionFilter = encryptionKeyFilter(protocol);
 
-        for (auto combo: qAsConst(mSigningCombos)) {
+        for (auto combo: std::as_const(mSigningCombos)) {
             auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
             if (!widget) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find signature combo widget";
@@ -497,7 +497,7 @@ public:
             }
             widget->setVisible(protocol == UnknownProtocol || widget->fixedProtocol() == UnknownProtocol || widget->fixedProtocol() == protocol);
         }
-        for (auto combo: qAsConst(mEncCombos)) {
+        for (auto combo: std::as_const(mEncCombos)) {
             auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
             if (!widget) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find combo widget";
@@ -824,7 +824,7 @@ public:
 
         const Protocol protocol = currentProtocol();
 
-        for (const auto combo: qAsConst(mAllCombos)) {
+        for (const auto combo: std::as_const(mAllCombos)) {
             if (!combo->isVisible()) {
                 continue;
             }

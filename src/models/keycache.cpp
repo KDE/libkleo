@@ -517,7 +517,7 @@ void KeyCache::setGroupsConfig(const QString &filename)
 
 void KeyCache::enableFileSystemWatcher(bool enable)
 {
-    for (const auto &i : qAsConst(d->m_fsWatchers)) {
+    for (const auto &i : std::as_const(d->m_fsWatchers)) {
         i->setEnabled(enable);
     }
 }
@@ -1172,7 +1172,7 @@ void KeyCache::saveConfigurableGroups(const std::vector<KeyGroup> &groups)
                             newGroups.begin(), newGroups.end(),
                             std::back_inserter(removedGroups),
                             &compareById);
-        for (const auto &group : qAsConst(removedGroups)) {
+        for (const auto &group : std::as_const(removedGroups)) {
             qCDebug(LIBKLEO_LOG) << "Removing group" << group;
             d->remove(group);
         }
@@ -1183,7 +1183,7 @@ void KeyCache::saveConfigurableGroups(const std::vector<KeyGroup> &groups)
                               oldGroups.begin(), oldGroups.end(),
                               std::back_inserter(updatedGroups),
                               &compareById);
-        for (const auto &group : qAsConst(updatedGroups)) {
+        for (const auto &group : std::as_const(updatedGroups)) {
             qCDebug(LIBKLEO_LOG) << "Updating group" << group;
             d->update(group);
         }
@@ -1194,7 +1194,7 @@ void KeyCache::saveConfigurableGroups(const std::vector<KeyGroup> &groups)
                             oldGroups.begin(), oldGroups.end(),
                             std::back_inserter(addedGroups),
                             &compareById);
-        for (const auto &group : qAsConst(addedGroups)) {
+        for (const auto &group : std::as_const(addedGroups)) {
             qCDebug(LIBKLEO_LOG) << "Adding group" << group;
             d->insert(group);
         }
@@ -1395,7 +1395,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     by_keygrip.swap(d->by.keygrip);
     by_chainid.swap(d->by.chainid);
 
-    for (const Key &key : qAsConst(sorted)) {
+    for (const Key &key : std::as_const(sorted)) {
         d->m_pgpOnly &= key.protocol() == GpgME::OpenPGP;
         Q_EMIT added(key);
     }
@@ -1754,7 +1754,7 @@ KeyGroup KeyCache::findGroup(const QString &name, Protocol protocol, KeyUsage us
     d->ensureCachePopulated();
 
     Q_ASSERT(usage == KeyUsage::Sign || usage == KeyUsage::Encrypt);
-    for (const auto &group : qAsConst(d->m_groups)) {
+    for (const auto &group : std::as_const(d->m_groups)) {
         if (group.name() == name) {
             const KeyGroup::Keys &keys = group.keys();
             if (allKeysAllowUsage(keys, usage)
@@ -1770,7 +1770,7 @@ KeyGroup KeyCache::findGroup(const QString &name, Protocol protocol, KeyUsage us
 std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
 {
     std::vector<Key> result;
-    for (const KeyGroup &g : qAsConst(d->m_groups)) {
+    for (const KeyGroup &g : std::as_const(d->m_groups)) {
         if (g.name() == groupName) {
             const KeyGroup::Keys &keys = g.keys();
             std::copy(keys.cbegin(), keys.cend(), std::back_inserter(result));

@@ -156,10 +156,10 @@ void FileSystemWatcher::Private::onTimeout()
 
     Q_EMIT q->triggered();
 
-    for (const QString &i : qAsConst(dirs)) {
+    for (const QString &i : std::as_const(dirs)) {
         Q_EMIT q->directoryChanged(i);
     }
-    for (const QString &i : qAsConst(files)) {
+    for (const QString &i : std::as_const(files)) {
         Q_EMIT q->fileChanged(i);
     }
 }
