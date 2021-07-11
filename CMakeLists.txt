@@ -3,7 +3,7 @@ set(PIM_VERSION "5.18.40")
 
 project(libkleo VERSION ${PIM_VERSION})
 
-set(KF5_MIN_VERSION "5.83.0")
+set(KF5_MIN_VERSION "5.84.0")
 
 if (WIN32)
   set(KF5_WANT_VERSION "5.70.0")
@@ -28,7 +28,7 @@ include(ECMQtDeclareLoggingCategory)
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.15.0")
-set(KDEPIMTEXTEDIT_VERSION "5.17.80")
+set(KDEPIMTEXTEDIT_VERSION "5.18.40")
 
 find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
 find_package(KF5I18n ${KF5_WANT_VERSION} CONFIG REQUIRED)
@@ -67,7 +67,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 ########### Targets ###########
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055400)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055500)
 remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
 set(CMAKE_CXX_STANDARD 17)
