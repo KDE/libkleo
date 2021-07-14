@@ -117,7 +117,7 @@ public:
      *
      * Overrides for @c GpgME::UnknownProtocol are used regardless of the
      * protocol. Overrides for a specific protocol are only used for this
-     * protocol. Overrides for @c GpgME::UnknownProtocol takes precendent over
+     * protocol. Overrides for @c GpgME::UnknownProtocol takes precedence over
      * overrides for a specific protocol.
      *
      * @param overrides: A map of \<protocol\> -> (\<address\> \<fingerprints\>)

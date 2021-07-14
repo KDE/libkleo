@@ -140,7 +140,7 @@ KLEO_EXPORT bool isKeyDeVs(const GpgME::Key &key);
  *
  * This is required to make the string configurable which is
  * a common request from users because VS-NfD compliance is called
- * differently in different enviornments. E.g NATO RESTRICTED or
+ * differently in different environments. E.g NATO RESTRICTED or
  * EU RESTRICTED. */
 KLEO_EXPORT QString deVsString (bool compliant = true);
 

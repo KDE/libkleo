@@ -247,7 +247,7 @@ namespace {
 
 bool hasTrustedSignature(const GpgME::UserID &uid)
 {
-    // lazily intialized cache
+    // lazily initialized cache
     static std::shared_ptr<const Kleo::KeyCache> keyCache;
     if (!keyCache) {
         keyCache = Kleo::KeyCache::instance();

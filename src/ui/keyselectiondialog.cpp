@@ -663,7 +663,7 @@ struct ExtractFingerprint {
 void Kleo::KeySelectionDialog::startKeyListJobForBackend(const QGpgME::Protocol *backend, const std::vector<GpgME::Key> &keys, bool validate)
 {
     Q_ASSERT(backend);
-    QGpgME::KeyListJob *job = backend->keyListJob(false, false, validate);    // local, w/o sigs, validation as givem
+    QGpgME::KeyListJob *job = backend->keyListJob(false, false, validate);    // local, w/o sigs, validation as given
     if (!job) {
         return;
     }
