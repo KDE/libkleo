@@ -65,20 +65,22 @@ const char *Kleo::cryptoMessageFormatToString(Kleo::CryptoMessageFormat f)
     if (f == AutoFormat) {
         return "auto";
     }
-    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i)
+    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i) {
         if (f == cryptoMessageFormats[i].format) {
             return cryptoMessageFormats[i].configName;
         }
+    }
     return nullptr;
 }
 
 QStringList Kleo::cryptoMessageFormatsToStringList(unsigned int f)
 {
     QStringList result;
-    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i)
+    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i) {
         if (f & cryptoMessageFormats[i].format) {
             result.push_back(QLatin1String(cryptoMessageFormats[i].configName));
         }
+    }
     return result;
 }
 
@@ -87,20 +89,22 @@ QString Kleo::cryptoMessageFormatToLabel(Kleo::CryptoMessageFormat f)
     if (f == AutoFormat) {
         return i18n("Any");
     }
-    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i)
+    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i) {
         if (f == cryptoMessageFormats[i].format) {
             return i18n(cryptoMessageFormats[i].displayName);
         }
+    }
     return QString();
 }
 
 Kleo::CryptoMessageFormat Kleo::stringToCryptoMessageFormat(const QString &s)
 {
     const QString t = s.toLower();
-    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i)
+    for (unsigned int i = 0; i < numCryptoMessageFormats; ++i) {
         if (t == QLatin1String(cryptoMessageFormats[i].configName)) {
             return cryptoMessageFormats[i].format;
         }
+    }
     return AutoFormat;
 }
 

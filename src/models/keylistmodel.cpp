@@ -274,8 +274,8 @@ int AbstractKeyListModel::columnCount(const QModelIndex &) const
 
 QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int role) const
 {
-    if (o == Qt::Horizontal)
-        if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::ToolTipRole)
+    if (o == Qt::Horizontal) {
+        if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::ToolTipRole) {
             switch (section) {
             case PrettyName:       return i18n("Name");
             case PrettyEMail:      return i18n("E-Mail");
@@ -294,6 +294,8 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
             case Remarks:          return i18n("Tags");
             case NumColumns:;
             }
+        }
+    }
     return QVariant();
 }
 

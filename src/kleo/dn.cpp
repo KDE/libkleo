@@ -95,7 +95,8 @@ struct DnPair {
 static char *
 trim_trailing_spaces(char *string)
 {
-    char *p, *mark;
+    char *p;
+    char *mark;
 
     for (mark = nullptr, p = string; *p; p++) {
         if (isspace(*p)) {
@@ -119,13 +120,15 @@ trim_trailing_spaces(char *string)
 static const unsigned char *
 parse_dn_part(DnPair *array, const unsigned char *string)
 {
-    const unsigned char *s, *s1;
+    const unsigned char *s;
+    const unsigned char *s1;
     size_t n;
     char *p;
 
     /* parse attributeType */
-    for (s = string + 1; *s && *s != '='; s++)
+    for (s = string + 1; *s && *s != '='; s++) {
         ;
+    }
     if (!*s) {
         return nullptr;    /* error */
     }
@@ -139,12 +142,13 @@ parse_dn_part(DnPair *array, const unsigned char *string)
     p[n] = 0;
     trim_trailing_spaces((char *)p);
     // map OIDs to their names:
-    for (unsigned int i = 0; i < numOidMaps; ++i)
+    for (unsigned int i = 0; i < numOidMaps; ++i) {
         if (!strcasecmp((char *)p, oidmap[i].oid)) {
             free(p);
             p = strdup(oidmap[i].name);
             break;
         }
+    }
     array->key = p;
     string = s + 1;
 
@@ -235,9 +239,10 @@ parse_dn(const unsigned char *string)
         if (!string) {
             goto failure;
         }
-        if (pair.key && pair.value)
+        if (pair.key && pair.value) {
             result.push_back(Kleo::DN::Attribute(QString::fromUtf8(pair.key),
                                                  QString::fromUtf8(pair.value)));
+        }
         free(pair.key);
         free(pair.value);
 
@@ -290,10 +295,11 @@ static QString
 serialise(const QVector<Kleo::DN::Attribute> &dn, const QString &sep)
 {
     QStringList result;
-    for (QVector<Kleo::DN::Attribute>::const_iterator it = dn.begin(); it != dn.end(); ++it)
+    for (QVector<Kleo::DN::Attribute>::const_iterator it = dn.begin(); it != dn.end(); ++it) {
         if (!(*it).name().isEmpty() && !(*it).value().isEmpty()) {
             result.push_back((*it).name().trimmed() + QLatin1Char('=') + dn_escape((*it).value().trimmed()));
         }
+    }
     return result.join(sep);
 }
 
@@ -308,24 +314,27 @@ reorder_dn(const Kleo::DN::Attribute::List &dn)
     result.reserve(dn.size());
 
     // find all unknown entries in their order of appearance
-    for (Kleo::DN::const_iterator it = dn.begin(); it != dn.end(); ++it)
+    for (Kleo::DN::const_iterator it = dn.begin(); it != dn.end(); ++it) {
         if (!attrOrder.contains((*it).name())) {
             unknownEntries.push_back(*it);
         }
+    }
 
     // process the known attrs in the desired order
-    for (QStringList::const_iterator oit = attrOrder.begin(); oit != attrOrder.end(); ++oit)
+    for (QStringList::const_iterator oit = attrOrder.begin(); oit != attrOrder.end(); ++oit) {
         if (*oit == QLatin1String("_X_")) {
             // insert the unknown attrs
             std::copy(unknownEntries.begin(), unknownEntries.end(),
                       std::back_inserter(result));
             unknownEntries.clear(); // don't produce dup's
         } else {
-            for (Kleo::DN::const_iterator dnit = dn.begin(); dnit != dn.end(); ++dnit)
+            for (Kleo::DN::const_iterator dnit = dn.begin(); dnit != dn.end(); ++dnit) {
                 if ((*dnit).name() == *oit) {
                     result.push_back(*dnit);
                 }
+            }
         }
+    }
 
     return result;
 }
@@ -444,11 +453,11 @@ QString Kleo::DN::operator[](const QString &attr) const
         return QString();
     }
     const QString attrUpper = attr.toUpper();
-    for (QVector<Attribute>::const_iterator it = d->attributes.constBegin();
-            it != d->attributes.constEnd(); ++it)
+    for (QVector<Attribute>::const_iterator it = d->attributes.constBegin(); it != d->attributes.constEnd(); ++it) {
         if ((*it).name() == attrUpper) {
             return (*it).value();
         }
+    }
     return QString();
 }
 

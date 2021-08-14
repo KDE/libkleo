@@ -39,18 +39,20 @@ std::string Kleo::hexdecode(const std::string &in)
 {
     std::string result;
     result.reserve(in.size());
-    for (std::string::const_iterator it = in.begin(), end = in.end(); it != end; ++it)
+    for (std::string::const_iterator it = in.begin(), end = in.end(); it != end; ++it) {
         if (*it == '%') {
             ++it;
             unsigned char ch = '\0';
-            if (it == end)
+            if (it == end) {
                 throw Exception(gpg_error(GPG_ERR_ASS_SYNTAX),
                                 i18n("Premature end of hex-encoded char in input stream"));
+            }
             ch |= unhex(*it) << 4;
             ++it;
-            if (it == end)
+            if (it == end) {
                 throw Exception(gpg_error(GPG_ERR_ASS_SYNTAX),
                                 i18n("Premature end of hex-encoded char in input stream"));
+            }
             ch |= unhex(*it);
             result.push_back(ch);
         } else if (*it == '+') {
@@ -58,6 +60,7 @@ std::string Kleo::hexdecode(const std::string &in)
         } else  {
             result.push_back(*it);
         }
+    }
     return result;
 }
 
@@ -68,7 +71,7 @@ std::string Kleo::hexencode(const std::string &in)
 
     static const char hex[] = "0123456789ABCDEF";
 
-    for (std::string::const_iterator it = in.begin(), end = in.end(); it != end; ++it)
+    for (std::string::const_iterator it = in.begin(), end = in.end(); it != end; ++it) {
         switch (const unsigned char ch = *it) {
         default:
             if ((ch >= '!' && ch <= '~') || ch > 0xA0) {
@@ -91,6 +94,7 @@ std::string Kleo::hexencode(const std::string &in)
             result += hex[(ch & 0x0F)      ];
             break;
         }
+    }
 
     return result;
 }

@@ -121,11 +121,12 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     CAN_MATCH(Certify);
     CAN_MATCH(Authenticate);
     IS_MATCH(Qualified);
-    if (d_ptr->mCardKey != DoesNotMatter)
+    if (d_ptr->mCardKey != DoesNotMatter) {
         if ((d_ptr->mCardKey == Set    && !is_card_key(key)) ||
                 (d_ptr->mCardKey == NotSet &&  is_card_key(key))) {
             return false;
         }
+    }
     MATCH(d_ptr->mHasSecret, hasSecret);
 #undef MATCH
     if (d_ptr->mIsOpenPGP != DoesNotMatter &&

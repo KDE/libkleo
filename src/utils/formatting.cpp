@@ -191,7 +191,9 @@ QString Formatting::prettyEMail(const UserID::Signature &sig)
 
 QString Formatting::prettyEMail(const char *email_, const char *id)
 {
-    QString email, name, comment;
+    QString email;
+    QString name;
+    QString comment;
     if (email_ && KEmailAddress::splitAddress(QString::fromUtf8(email_),
                                               name, email, comment) == KEmailAddress::AddressOk) {
         return email;
@@ -209,7 +211,8 @@ namespace
 
 static QString protect_whitespace(QString s)
 {
-    static const QLatin1Char SP(' '), NBSP('\xA0');
+    static const QLatin1Char SP(' ');
+    static const QLatin1Char NBSP('\xA0');
     return s.replace(SP, NBSP);
 }
 
@@ -363,15 +366,18 @@ QString Formatting::toolTip(const Key &key, int flags)
     }
     if (flags & UserIDs) {
         const std::vector<UserID> uids = key.userIDs();
-        if (!uids.empty())
+        if (!uids.empty()) {
             result += format_row(key.protocol() == CMS
                                  ? i18n("Subject")
                                  : i18n("User-ID"), prettyUserID(uids.front()));
-        if (uids.size() > 1)
-            for (auto it = uids.begin() + 1, end = uids.end(); it != end; ++it)
+        }
+        if (uids.size() > 1) {
+            for (auto it = uids.begin() + 1, end = uids.end(); it != end; ++it) {
                 if (!it->isRevoked() && !it->isInvalid()) {
                     result += format_row(i18n("a.k.a."), prettyUserID(*it));
                 }
+            }
+        }
     }
     if (flags & ExpiryDates) {
         result += format_row(i18n("Created"), time_t2string(subkey.creationTime()));
@@ -850,35 +856,35 @@ QString Formatting::signatureToString(const Signature &sig, const Key &key)
     const bool red   = (sig.summary() & Signature::Red);
     const bool valid = (sig.summary() & Signature::Valid);
 
-    if (red)
-        if (key.isNull())
+    if (red) {
+        if (key.isNull()) {
             if (const char *fpr = sig.fingerprint()) {
                 return i18n("Bad signature by unknown certificate %1: %2", QString::fromLatin1(fpr), QString::fromLocal8Bit(sig.status().asString()));
             } else {
                 return i18n("Bad signature by an unknown certificate: %1", QString::fromLocal8Bit(sig.status().asString()));
             }
-        else {
+        } else {
             return i18n("Bad signature by %1: %2", keyToString(key), QString::fromLocal8Bit(sig.status().asString()));
         }
 
-    else if (valid)
-        if (key.isNull())
+    } else if (valid) {
+        if (key.isNull()) {
             if (const char *fpr = sig.fingerprint()) {
                 return i18n("Good signature by unknown certificate %1.", QString::fromLatin1(fpr));
             } else {
                 return i18n("Good signature by an unknown certificate.");
             }
-        else {
+        } else {
             return i18n("Good signature by %1.", keyToString(key));
         }
 
-    else if (key.isNull())
+    } else if (key.isNull()) {
         if (const char *fpr = sig.fingerprint()) {
             return i18n("Invalid signature by unknown certificate %1: %2", QString::fromLatin1(fpr), QString::fromLocal8Bit(sig.status().asString()));
         } else {
             return i18n("Invalid signature by an unknown certificate: %1", QString::fromLocal8Bit(sig.status().asString()));
         }
-    else {
+    } else {
         return i18n("Invalid signature by %1: %2", keyToString(key), QString::fromLocal8Bit(sig.status().asString()));
     }
 }
@@ -892,10 +898,11 @@ QString Formatting::importMetaData(const Import &import, const QStringList &ids)
     const QString result = importMetaData(import);
     if (result.isEmpty()) {
         return QString();
-    } else
+    } else {
         return result + QLatin1Char('\n') +
                i18n("This certificate was imported from the following sources:") + QLatin1Char('\n') +
                ids.join(QLatin1Char('\n'));
+    }
 }
 
 QString Formatting::importMetaData(const Import &import)
@@ -908,15 +915,17 @@ QString Formatting::importMetaData(const Import &import)
     if (import.error().isCanceled()) {
         return i18n("The import of this certificate was canceled.");
     }
-    if (import.error())
+    if (import.error()) {
         return i18n("An error occurred importing this certificate: %1",
                     QString::fromLocal8Bit(import.error().asString()));
+    }
 
     const unsigned int status = import.status();
-    if (status & Import::NewKey)
+    if (status & Import::NewKey) {
         return (status & Import::ContainedSecretKey)
                ? i18n("This certificate was new to your keystore. The secret key is available.")
                : i18n("This certificate is new to your keystore.");
+    }
 
     QStringList results;
     if (status & Import::NewUserIDs) {

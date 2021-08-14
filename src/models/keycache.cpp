@@ -763,10 +763,11 @@ std::vector<Key> KeyCache::findRecipients(const DecryptionResult &res) const
 {
     std::vector<std::string> keyids;
     const auto recipients = res.recipients();
-    for (const DecryptionResult::Recipient &r : recipients)
+    for (const DecryptionResult::Recipient &r : recipients) {
         if (const char *kid = r.keyID()) {
             keyids.push_back(kid);
         }
+    }
     const std::vector<Subkey> subkeys = findSubkeysByKeyID(keyids);
     std::vector<Key> result;
     result.reserve(subkeys.size());
@@ -782,10 +783,11 @@ std::vector<Key> KeyCache::findSigners(const VerificationResult &res) const
 {
     std::vector<std::string> fprs;
     const auto signatures = res.signatures();
-    for (const Signature &s : signatures)
+    for (const Signature &s : signatures) {
         if (const char *fpr = s.fingerprint()) {
             fprs.push_back(fpr);
         }
+    }
     return findByKeyIDOrFingerprint(fprs);
 }
 
@@ -854,14 +856,15 @@ std::vector<Key> KeyCache::Private::find_mailbox(const QString &email, bool sign
     const auto pair = find_email(email.toUtf8().constData());
     std::vector<Key> result;
     result.reserve(std::distance(pair.first, pair.second));
-    if (sign)
+    if (sign) {
         kdtools::copy_2nd_if(pair.first, pair.second,
                              std::back_inserter(result),
                              ready_for_signing());
-    else
+    } else {
         kdtools::copy_2nd_if(pair.first, pair.second,
                              std::back_inserter(result),
                              ready_for_encryption());
+    }
 
     return result;
 }
@@ -1427,11 +1430,12 @@ public:
         keys.reserve(m_keys.size() + nextKeys.size());
         if (m_keys.empty()) {
             keys = nextKeys;
-        } else
+        } else {
             std::merge(m_keys.begin(), m_keys.end(),
                        nextKeys.begin(), nextKeys.end(),
                        std::back_inserter(keys),
                        _detail::ByFingerprint<std::less>());
+        }
         m_keys.swap(keys);
         jobDone(res);
     }

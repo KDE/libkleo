@@ -87,10 +87,10 @@ void CertListView::slotResult(const GpgME::KeyListResult &result)
     qDebug() << "CertListView::slotResult()";
     if (result.isNull()) {
         QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("KeyListResult is null!"));
-    } else if (result.error())
+    } else if (result.error()) {
         QMessageBox::critical(this, QStringLiteral("Key Listing Result"),
                               QStringLiteral("KeyListResult Error: %1").arg(QString::fromLatin1(result.error().asString())));
-    else if (result.isTruncated()) {
+    } else if (result.isTruncated()) {
         QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("KeyListResult is truncated!"));
     } else {
         QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("Key listing successful"));

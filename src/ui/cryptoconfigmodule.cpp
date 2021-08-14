@@ -78,11 +78,13 @@ static unsigned int num_components_with_options(const QGpgME::CryptoConfig *conf
     }
     const QStringList components = config->componentList();
     unsigned int result = 0;
-    for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it)
-        if (const QGpgME::CryptoConfigComponent *const comp = config->component(*it))
+    for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it) {
+        if (const QGpgME::CryptoConfigComponent *const comp = config->component(*it)) {
             if (!comp->groupList().empty()) {
                 ++result;
             }
+        }
+    }
     return result;
 }
 
@@ -217,7 +219,8 @@ QStringList sortConfigEntries(const Iterator orderBegin, const Iterator orderEnd
     // components sorting algorithm:
     // 1. components with predefined order (provided via orderBegin / orderEnd)
     // 2. other components sorted alphabetically
-    QStringList result, others;
+    QStringList result;
+    QStringList others;
     for (auto it = orderBegin; it != orderEnd; ++it) {
         if (entries.contains(*it)) {
             result.append(*it);
@@ -522,21 +525,22 @@ CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoCo
 
     // try to lookup by path:
     const QString path = entry->path();
-    for (unsigned int i = 0; i < numWidgetsByEntryName; ++i)
+    for (unsigned int i = 0; i < numWidgetsByEntryName; ++i) {
         if (QRegExp(QLatin1String(widgetsByEntryName[i].entryGlob), Qt::CaseSensitive, QRegExp::Wildcard).exactMatch(path)) {
             return widgetsByEntryName[i].create(module, entry, entryName, glay, widget);
         }
+    }
 
     // none found, so look up by type:
     const unsigned int argType = entry->argType();
     Q_ASSERT(argType < QGpgME::CryptoConfigEntry::NumArgType);
-    if (entry->isList())
+    if (entry->isList()) {
         if (const constructor create = listWidgets[argType]) {
             return create(module, entry, entryName, glay, widget);
         } else {
             qCWarning(KLEO_UI_LOG) << "No widget implemented for list of type" << entry->argType();
         }
-    else if (const constructor create = scalarWidgets[argType]) {
+    } else if (const constructor create = scalarWidgets[argType]) {
         return create(module, entry, entryName, glay, widget);
     } else {
         qCWarning(KLEO_UI_LOG) << "No widget implemented for type" << entry->argType();
@@ -666,11 +670,12 @@ void Kleo::CryptoConfigEntryDebugLevel::doSave()
 void Kleo::CryptoConfigEntryDebugLevel::doLoad()
 {
     const QString str = mEntry->stringValue();
-    for (unsigned int i = 0; i < numDebugLevels; ++i)
+    for (unsigned int i = 0; i < numDebugLevels; ++i) {
         if (str == QLatin1String(debugLevels[i].name)) {
             mComboBox->setCurrentIndex(i);
             return;
         }
+    }
     mComboBox->setCurrentIndex(0);
 }
 

@@ -57,10 +57,11 @@ FileSystemWatcher::Private::Private(FileSystemWatcher *qq, const QStringList &pa
 
 static bool is_matching(const QString &file, const QStringList &list)
 {
-    for (const QString &entry : list)
+    for (const QString &entry : list) {
         if (QRegExp(entry, Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(file)) {
             return true;
         }
+    }
     return false;
 }
 
@@ -101,11 +102,12 @@ static QStringList list_dir_absolute(const QString &path, const QStringList &bla
                        [&blacklist](const QString &entry) {
                            return is_blacklisted(entry, blacklist);
                        });
-    if (!whitelist.empty())
+    if (!whitelist.empty()) {
         end = std::remove_if(entries.begin(), end,
                              [&whitelist](const QString &entry) {
                                  return !is_whitelisted(entry, whitelist);
                              });
+    }
     entries.erase(end, entries.end());
     std::sort(entries.begin(), entries.end());
 
@@ -145,7 +147,8 @@ void FileSystemWatcher::Private::onDirectoryChanged(const QString &path)
 
 void FileSystemWatcher::Private::onTimeout()
 {
-    std::set<QString> dirs, files;
+    std::set<QString> dirs;
+    std::set<QString> files;
 
     dirs.swap(m_cachedDirectories);
     files.swap(m_cachedFiles);
@@ -261,10 +264,11 @@ static QStringList resolve(const QStringList &paths, const QStringList &blacklis
         return QStringList();
     }
     QStringList result;
-    for (const QString &path : paths)
+    for (const QString &path : paths) {
         if (QDir(path).exists()) {
             result += list_dir_absolute(path, blacklist, whitelist);
         }
+    }
     return result + resolve(result, blacklist, whitelist);
 }
 

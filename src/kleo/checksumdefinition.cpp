@@ -359,7 +359,7 @@ std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecks
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Checksum Definition #")));
     result.reserve(groups.size());
-    for (const QString &group : groups)
+    for (const QString &group : groups) {
         try {
             const std::shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
             result.push_back(ad);
@@ -369,6 +369,7 @@ std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecks
         } catch (...) {
             errors.push_back(i18n("Caught unknown exception in group %1", group));
         }
+    }
     return result;
 }
 
@@ -378,11 +379,13 @@ std::shared_ptr<ChecksumDefinition> ChecksumDefinition::getDefaultChecksumDefini
     const KConfigGroup group(KSharedConfig::openConfig(), "ChecksumOperations");
     const QString checksumDefinitionId = group.readEntry(CHECKSUM_DEFINITION_ID_ENTRY, QStringLiteral("sha256sum"));
 
-    if (!checksumDefinitionId.isEmpty())
-        for (const std::shared_ptr<ChecksumDefinition> &cd : checksumDefinitions)
+    if (!checksumDefinitionId.isEmpty()) {
+        for (const std::shared_ptr<ChecksumDefinition> &cd : checksumDefinitions) {
             if (cd && cd->id() == checksumDefinitionId) {
                 return cd;
             }
+        }
+    }
     if (!checksumDefinitions.empty()) {
         return checksumDefinitions.front();
     } else {

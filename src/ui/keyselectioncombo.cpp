@@ -257,7 +257,8 @@ public:
         switch (role) {
         case Qt::DisplayRole: {
             const auto userID = key.userID(0);
-            QString name, email;
+            QString name;
+            QString email;
 
             if (key.protocol() == GpgME::OpenPGP) {
                 name = QString::fromUtf8(userID.name());

@@ -90,10 +90,11 @@ KeyGenerator::~KeyGenerator() {}
 void KeyGenerator::slotStartKeyGeneration()
 {
     QString params = QStringLiteral("<GnupgKeyParms format=\"internal\">\n");
-    for (int i = 0; i < numKeyParams; ++i)
+    for (int i = 0; i < numKeyParams; ++i) {
         if (mLineEdits[i] && !mLineEdits[i]->text().trimmed().isEmpty()) {
             params += QString::fromLatin1(keyParams[i]) + (QStringLiteral(": ") + mLineEdits[i]->text().trimmed()) + QLatin1Char('\n');
         }
+    }
     params += QStringLiteral("</GnupgKeyParms>\n");
 
     const QGpgME::Protocol *proto = nullptr;
@@ -133,9 +134,10 @@ void KeyGenerator::slotResult(const GpgME::KeyGenerationResult &res, const QByte
 {
     if (res.error()) {
         showError(res.error());
-    } else
+    } else {
         KMessageBox::information(this, QStringLiteral("Key generated successfully, %1 bytes long").arg(keyData.size()),
                                  QStringLiteral("Key Generation Finished"));
+    }
 }
 
 int main(int argc, char **argv)

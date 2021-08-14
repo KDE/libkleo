@@ -63,7 +63,7 @@ int main(int argc, char **argv)
                 cout << "  Entry " << (*entryit).toLocal8Bit().constData() << ":"
                      << " descr=\"" << entry->description().toLocal8Bit().constData() << "\""
                      << " " << (entry->isSet() ? "is set" : "is not set");
-                if (!entry->isList())
+                if (!entry->isList()) {
                     switch (entry->argType()) {
                     case QGpgME::CryptoConfigEntry::ArgType_None:
                         break;
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
                         // just metadata and should never actually occur in the switch
                         break;
                     }
-                else { // lists
+                } else { // lists
                     switch (entry->argType()) {
                     case QGpgME::CryptoConfigEntry::ArgType_None: {
                         cout << " set " << entry->numberOfTimesSet() << " times";

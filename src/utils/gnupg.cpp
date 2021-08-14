@@ -294,7 +294,7 @@ QString Kleo::gpgConfListDir(const char *which)
         return QString();
     }
     const QList<QByteArray> lines = gpgConf.readAllStandardOutput().split('\n');
-    for (const QByteArray &line : lines)
+    for (const QByteArray &line : lines) {
         if (line.startsWith(which) && line[qstrlen(which)] == ':') {
             const int begin = qstrlen(which) + 1;
             int end = line.size();
@@ -306,6 +306,7 @@ QString Kleo::gpgConfListDir(const char *which)
                                    << " for '" << which << "'entry";
             return result;
         }
+    }
     qCDebug(LIBKLEO_LOG) << "gpgConfListDir(): didn't find '" << which << "'"
                            << "entry in output:\n" << gpgConf.readAllStandardError().constData();
     return QString();

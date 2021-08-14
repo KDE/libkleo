@@ -122,10 +122,11 @@ const GpgME::Key &Kleo::KeyRequester::key() const
 void Kleo::KeyRequester::setKeys(const std::vector<GpgME::Key> &keys)
 {
     mKeys.clear();
-    for (auto it = keys.begin(); it != keys.end(); ++it)
+    for (auto it = keys.begin(); it != keys.end(); ++it) {
         if (!it->isNull()) {
             mKeys.push_back(*it);
         }
+    }
     updateKeys();
 }
 
@@ -150,11 +151,13 @@ QString Kleo::KeyRequester::fingerprint() const
 QStringList Kleo::KeyRequester::fingerprints() const
 {
     QStringList result;
-    for (auto it = mKeys.begin(); it != mKeys.end(); ++it)
-        if (!it->isNull())
+    for (auto it = mKeys.begin(); it != mKeys.end(); ++it) {
+        if (!it->isNull()) {
             if (const char *fpr = it->primaryFingerprint()) {
                 result.push_back(QLatin1String(fpr));
             }
+        }
+    }
     return result;
 }
 
@@ -187,13 +190,13 @@ void Kleo::KeyRequester::updateKeys()
         const QString fpr = QLatin1String(it->primaryFingerprint());
         labelTexts.push_back(fpr.right(8));
         toolTipText += fpr.right(8) + QLatin1String(": ");
-        if (const char *uid = it->userID(0).id())
+        if (const char *uid = it->userID(0).id()) {
             if (it->protocol() == GpgME::OpenPGP) {
                 toolTipText += QString::fromUtf8(uid);
             } else {
                 toolTipText += Kleo::DN(uid).prettyDN();
             }
-        else {
+        } else {
             toolTipText += xi18n("<placeholder>unknown</placeholder>");
         }
         toolTipText += QLatin1Char('\n');
@@ -227,10 +230,11 @@ void Kleo::KeyRequester::startKeyListJob(const QStringList &fingerprints)
     mJobs = 0;
 
     unsigned int count = 0;
-    for (QStringList::const_iterator it = fingerprints.begin(); it != fingerprints.end(); ++it)
+    for (QStringList::const_iterator it = fingerprints.begin(); it != fingerprints.end(); ++it) {
         if (!(*it).trimmed().isEmpty()) {
             ++count;
         }
+    }
 
     if (!count) {
         // don't fall into the trap that an empty pattern means

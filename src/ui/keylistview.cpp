@@ -220,11 +220,12 @@ void Kleo::KeyListView::doHierarchicalInsert(const GpgME::Key &key)
         return;
     }
     KeyListViewItem *item = nullptr;
-    if (!key.isRoot())
+    if (!key.isRoot()) {
         if (KeyListViewItem *parent = itemByFingerprint(key.chainID())) {
             item = new KeyListViewItem(parent, key);
             parent->setExpanded(true);
         }
+    }
     if (!item) {
         item = new KeyListViewItem(this, key);    // top-level (for now)
     }

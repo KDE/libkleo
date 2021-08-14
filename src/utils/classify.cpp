@@ -161,10 +161,11 @@ static unsigned int classifyExtension(const QFileInfo &fi)
     const _classification *const it = Kleo::binary_find(std::begin(classifications), std::end(classifications),
                                                         fi.suffix().toLatin1().constData(),
                                                         ByExtension<std::less>());
-    if (it != std::end(classifications))
+    if (it != std::end(classifications)) {
         if (!(it->classification & ExamineContentHint)) {
             return it->classification;
         }
+    }
 
     return it == std::end(classifications) ? defaultClassification
                                         : it->classification;
@@ -333,13 +334,14 @@ QString Kleo::findSignedData(const QString &signatureFileName)
 QStringList Kleo::findSignatures(const QString &signedDataFileName)
 {
     QStringList result;
-    for (unsigned int i = 0, end = sizeof(classifications) / sizeof(_classification); i < end; ++i)
+    for (unsigned int i = 0, end = sizeof(classifications) / sizeof(_classification); i < end; ++i) {
         if (classifications[i].classification & DetachedSignature) {
             const QString candidate = signedDataFileName + QLatin1Char('.') + QLatin1String(classifications[i].extension);
             if (QFile::exists(candidate)) {
                 result.push_back(candidate);
             }
         }
+    }
     return result;
 }
 
@@ -371,10 +373,11 @@ const char *Kleo::outputFileExtension(unsigned int classification, bool usePGPFi
         return "pgp";
     }
 
-    for (unsigned int i = 0; i < sizeof classifications / sizeof * classifications; ++i)
+    for (unsigned int i = 0; i < sizeof classifications / sizeof *classifications; ++i) {
         if ((classifications[i].classification & classification) == classification) {
             return classifications[i].extension;
         }
+    }
     return nullptr;
 }
 

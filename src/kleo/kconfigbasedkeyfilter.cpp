@@ -115,19 +115,21 @@ static const struct {
 
 static Key::OwnerTrust map2OwnerTrust(const QString &s)
 {
-    for (unsigned int i = 0; i < sizeof ownerTrustAndValidityMap / sizeof * ownerTrustAndValidityMap; ++i)
+    for (unsigned int i = 0; i < sizeof ownerTrustAndValidityMap / sizeof *ownerTrustAndValidityMap; ++i) {
         if (s.toLower() == QLatin1String(ownerTrustAndValidityMap[i].name)) {
             return ownerTrustAndValidityMap[i].trust;
         }
+    }
     return ownerTrustAndValidityMap[0].trust;
 }
 
 static UserID::Validity map2Validity(const QString &s)
 {
-    for (unsigned int i = 0; i < sizeof ownerTrustAndValidityMap / sizeof * ownerTrustAndValidityMap; ++i)
+    for (unsigned int i = 0; i < sizeof ownerTrustAndValidityMap / sizeof *ownerTrustAndValidityMap; ++i) {
         if (s.toLower() == QLatin1String(ownerTrustAndValidityMap[i].name)) {
             return ownerTrustAndValidityMap[i].validity;
         }
+    }
     return ownerTrustAndValidityMap[0].validity;
 }
 
@@ -210,7 +212,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
     setMatchContexts(NoMatchContext);
     for (const QString & ctx : contexts) {
         bool found = false;
-        for (unsigned int i = 0; i < sizeof matchMap / sizeof * matchMap; ++i)
+        for (unsigned int i = 0; i < sizeof matchMap / sizeof *matchMap; ++i) {
             if (ctx == QLatin1String(matchMap[i].key)) {
                 setMatchContexts(availableMatchContexts() |= matchMap[i].context);
                 found = true;
@@ -220,6 +222,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
                 found = true;
                 break;
             }
+        }
         if (!found) {
             qWarning() << QStringLiteral("KConfigBasedKeyFilter: found unknown match context '%1' in group '%2'").arg(ctx, config.name());
         }
