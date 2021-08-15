@@ -27,7 +27,7 @@ include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
-set(QT_REQUIRED_VERSION "5.15.0")
+set(QT_REQUIRED_VERSION "5.15.2")
 set(KDEPIMTEXTEDIT_VERSION "5.18.40")
 
 find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
@@ -66,7 +66,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 
 ########### Targets ###########
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
-#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
+#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055600)
 remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
