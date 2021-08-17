@@ -77,6 +77,8 @@ FileNameRequester::Private::Private(FileNameRequester *qq)
     hlay.setContentsMargins(0, 0, 0, 0);
     hlay.addWidget(&lineedit);
     hlay.addWidget(&button);
+    q->setFocusPolicy(lineedit.focusPolicy());
+    q->setFocusProxy(&lineedit);
 
     connect(&button, &QToolButton::clicked, q, [this]() { slotButtonClicked(); });
     connect(&lineedit, &KLineEdit::textChanged, q, &FileNameRequester::fileNameChanged);
