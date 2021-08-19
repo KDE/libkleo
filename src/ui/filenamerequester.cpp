@@ -10,6 +10,7 @@
 #include "filenamerequester.h"
 
 #include <KLineEdit>
+#include <KLocalizedString>
 
 #include <QHBoxLayout>
 #include <QToolButton>
@@ -17,6 +18,7 @@
 #include <QDirModel>
 #include <QString>
 #include <QFileDialog>
+#include <QEvent>
 
 using namespace Kleo;
 
@@ -70,6 +72,7 @@ FileNameRequester::Private::Private(FileNameRequester *qq)
     hlay.setObjectName(QStringLiteral("hlay"));
 
     button.setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
+    button.setToolTip(i18n("Open file dialog"));
 #ifndef QT_NO_DIRMODEL
     lineedit.setCompleter(&completer);
 #endif
@@ -161,6 +164,14 @@ void FileNameRequester::Private::slotButtonClicked()
     if (!fileName.isEmpty()) {
         q->setFileName(fileName);
     }
+}
+
+bool FileNameRequester::event(QEvent *e)
+{
+    if (e->type() == QEvent::ToolTipChange) {
+        d->lineedit.setToolTip(toolTip());
+    }
+    return QWidget::event(e);
 }
 
 QString FileNameRequester::requestFileName()

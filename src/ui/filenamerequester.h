@@ -43,6 +43,9 @@ public:
 Q_SIGNALS:
     void fileNameChanged(const QString &filename);
 
+protected:
+    bool event(QEvent *event) override;
+
 private:
     virtual QString requestFileName();
 
