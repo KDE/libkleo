@@ -26,6 +26,9 @@
 #include <QApplication>
 #include <KLocalizedString>
 #include <QCommandLineParser>
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 namespace
 {
@@ -127,7 +130,7 @@ int main(int argc, char **argv)
     auto clv = new CertListView;
     clv->show();
 
-    QTimer::singleShot(5000, clv, &CertListView::slotStart);
+    QTimer::singleShot(5s, clv, &CertListView::slotStart);
 
     return app.exec();
 }

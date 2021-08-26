@@ -18,7 +18,8 @@
 #include <QTimer>
 
 #include <gpgme++/key.h>
-
+#include <chrono>
+using namespace std::chrono_literals;
 using namespace Kleo;
 using namespace GpgME;
 
@@ -135,7 +136,7 @@ int main(int argc, char **argv)
     auto recp = new SignalRecipient(&resolver);
     QObject::connect (&resolver, &KeyResolver::keysResolved, recp, &SignalRecipient::keysResolved);
 
-    QTimer::singleShot(1000, [&parser, &resolver]() {
+    QTimer::singleShot(1s, [&parser, &resolver]() {
         resolver.start(parser.isSet(QStringLiteral("approval")));
     });
 

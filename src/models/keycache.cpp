@@ -52,7 +52,8 @@
 
 #include "kleo/debug.h"
 #include "libkleo_debug.h"
-
+#include <chrono>
+using namespace std::chrono_literals;
 using namespace Kleo;
 using namespace GpgME;
 using namespace KMime::Types;
@@ -582,7 +583,7 @@ void KeyCache::enableRemarks(bool value)
             connect(d->m_refreshJob.data(), &RefreshKeysJob::done,
                     this, [this](const GpgME::KeyListResult &) {
                 qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
-                QTimer::singleShot(1000, this, [this](){ reload(); });
+                QTimer::singleShot(1s, this, [this](){ reload(); });
             });
         }
     } else {
