@@ -8,6 +8,9 @@
 
 #include "auditlogviewer.h"
 
+#include <KGuiItem>
+#include <KStandardGuiItem>
+
 #ifdef HAVE_PIMTEXTEDIT
 # include "kpimtextedit/richtexteditor.h"
 #else
@@ -41,22 +44,19 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     setWindowTitle(i18nc("@title:window", "View GnuPG Audit Log"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox{};
 
-    auto copyClipBtn = new QPushButton;
-    copyClipBtn->setText(i18n("&Copy to Clipboard"));
+    auto copyClipBtn = buttonBox->addButton(i18n("&Copy to Clipboard"), QDialogButtonBox::ActionRole);
     copyClipBtn->setObjectName(QStringLiteral("copyClipBtn"));
     copyClipBtn->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
-    buttonBox->addButton(copyClipBtn, QDialogButtonBox::ActionRole);
     connect(copyClipBtn, &QPushButton::clicked, this, &AuditLogViewer::slotCopyClip);
 
-    auto saveAsBtn = new QPushButton;
-    saveAsBtn->setText(i18n("&Save to Disk..."));
+    auto saveAsBtn = buttonBox->addButton(i18n("&Save to Disk..."), QDialogButtonBox::ActionRole);
     saveAsBtn->setObjectName(QStringLiteral("saveAsBtn"));
     saveAsBtn->setIcon(QIcon::fromTheme(QStringLiteral("document-save-as")));
-    buttonBox->addButton(saveAsBtn, QDialogButtonBox::ActionRole);
     connect(saveAsBtn, &QPushButton::clicked, this, &AuditLogViewer::slotSaveAs);
 
-    buttonBox->setStandardButtons(QDialogButtonBox::Close);
-    buttonBox->button(QDialogButtonBox::Close)->setObjectName(QStringLiteral("Close"));
+    auto closeBtn = buttonBox->addButton(QString{}, QDialogButtonBox::AcceptRole);
+    closeBtn->setObjectName(QStringLiteral("Close"));
+    KGuiItem::assign(closeBtn, KStandardGuiItem::close());
 
     m_textEdit->setObjectName(QStringLiteral("m_textEdit"));
     m_textEdit->setReadOnly(true);
@@ -69,8 +69,9 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
 //     qDebug() << __func__ << "buttonBox->focusProxy():" << buttonBox->focusProxy();
 //     qDebug() << __func__ << "copyClipBtn->nextInFocusChain():" << copyClipBtn->nextInFocusChain();
 //     qDebug() << __func__ << "saveAsBtn->nextInFocusChain():" << saveAsBtn->nextInFocusChain();
-//     qDebug() << __func__ << "closeBtn->nextInFocusChain():" << buttonBox->button(QDialogButtonBox::Close)->nextInFocusChain();
+//     qDebug() << __func__ << "closeBtn->nextInFocusChain():" << closeBtn->nextInFocusChain();
 
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
     setAuditLog(log);
