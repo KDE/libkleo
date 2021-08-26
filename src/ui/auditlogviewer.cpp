@@ -1,9 +1,11 @@
 /*
-  SPDX-FileCopyrightText: 2015-2021 Laurent Montel <montel@kde.org>
+    SPDX-FileCopyrightText: 2015-2021 Laurent Montel <montel@kde.org>
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
-  SPDX-License-Identifier: LGPL-2.0-or-later
-
+    SPDX-License-Identifier: LGPL-2.0-or-later
 */
+
 #include "auditlogviewer.h"
 
 #ifdef HAVE_PIMTEXTEDIT
@@ -22,6 +24,9 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include <QStyle>
+#include <QDebug>
+
 using namespace Kleo::Private;
 
 AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
@@ -34,19 +39,24 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
 #endif
 {
     setWindowTitle(i18nc("@title:window", "View GnuPG Audit Log"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox{};
 
     auto copyClipBtn = new QPushButton;
     copyClipBtn->setText(i18n("&Copy to Clipboard"));
+    copyClipBtn->setObjectName(QStringLiteral("copyClipBtn"));
     copyClipBtn->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     buttonBox->addButton(copyClipBtn, QDialogButtonBox::ActionRole);
     connect(copyClipBtn, &QPushButton::clicked, this, &AuditLogViewer::slotCopyClip);
 
     auto saveAsBtn = new QPushButton;
     saveAsBtn->setText(i18n("&Save to Disk..."));
+    saveAsBtn->setObjectName(QStringLiteral("saveAsBtn"));
     saveAsBtn->setIcon(QIcon::fromTheme(QStringLiteral("document-save-as")));
     buttonBox->addButton(saveAsBtn, QDialogButtonBox::ActionRole);
     connect(saveAsBtn, &QPushButton::clicked, this, &AuditLogViewer::slotSaveAs);
+
+    buttonBox->setStandardButtons(QDialogButtonBox::Close);
+    buttonBox->button(QDialogButtonBox::Close)->setObjectName(QStringLiteral("Close"));
 
     m_textEdit->setObjectName(QStringLiteral("m_textEdit"));
     m_textEdit->setReadOnly(true);
@@ -54,6 +64,12 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(m_textEdit);
     mainLayout->addWidget(buttonBox);
+
+//     qDebug() << "buttonBox->style()->styleHint(QStyle::SH_DialogButtonLayout, ...):" << buttonBox->style()->styleHint(QStyle::SH_DialogButtonLayout, nullptr, buttonBox);
+//     qDebug() << __func__ << "buttonBox->focusProxy():" << buttonBox->focusProxy();
+//     qDebug() << __func__ << "copyClipBtn->nextInFocusChain():" << copyClipBtn->nextInFocusChain();
+//     qDebug() << __func__ << "saveAsBtn->nextInFocusChain():" << saveAsBtn->nextInFocusChain();
+//     qDebug() << __func__ << "closeBtn->nextInFocusChain():" << buttonBox->button(QDialogButtonBox::Close)->nextInFocusChain();
 
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
