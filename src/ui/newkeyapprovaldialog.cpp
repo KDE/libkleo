@@ -561,7 +561,7 @@ public:
         connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
             updateOkButton();
         });
-        connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
+        connect(combo, qOverload<int>(&QComboBox::currentIndexChanged), q, [this] () {
             updateOkButton();
         });
 
@@ -658,7 +658,7 @@ public:
         connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
             updateOkButton();
         });
-        connect(combo, QOverload<int>::of(&QComboBox::currentIndexChanged), q, [this] () {
+        connect(combo, qOverload<int>(&QComboBox::currentIndexChanged), q, [this] () {
             updateOkButton();
         });
 

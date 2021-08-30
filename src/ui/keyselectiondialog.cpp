@@ -534,8 +534,8 @@ void Kleo::KeySelectionDialog::connectSignals()
     if (mKeyListView->isMultiSelection()) {
         connect(mKeyListView, &QTreeWidget::itemSelectionChanged, this, &KeySelectionDialog::slotSelectionChanged);
     } else {
-        connect(mKeyListView, QOverload<KeyListViewItem*>::of(&KeyListView::selectionChanged),
-                this, QOverload<KeyListViewItem*>::of(&KeySelectionDialog::slotCheckSelection));
+        connect(mKeyListView, qOverload<KeyListViewItem*>(&KeyListView::selectionChanged),
+                this, qOverload<KeyListViewItem*>(&KeySelectionDialog::slotCheckSelection));
     }
 }
 
@@ -545,8 +545,8 @@ void Kleo::KeySelectionDialog::disconnectSignals()
         disconnect(mKeyListView, &QTreeWidget::itemSelectionChanged,
                    this, &KeySelectionDialog::slotSelectionChanged);
     } else {
-        disconnect(mKeyListView, QOverload<KeyListViewItem*>::of(&KeyListView::selectionChanged),
-                   this, QOverload<KeyListViewItem*>::of(&KeySelectionDialog::slotCheckSelection));
+        disconnect(mKeyListView, qOverload<KeyListViewItem*>(&KeyListView::selectionChanged),
+                   this, qOverload<KeyListViewItem*>(&KeySelectionDialog::slotCheckSelection));
     }
 }
 
