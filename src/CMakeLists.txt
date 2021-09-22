@@ -98,7 +98,7 @@ target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt::Widgets
 
 # Boost::headers may not be available for old versions of Boost
 if (TARGET Boost::headers)
-  set(kleo_LIB_LIBS ${kleo_LIB_LIBS} PRIVATE Boost::headers)
+  target_link_libraries(KF5Libkleo PRIVATE Boost::headers)
 endif()
 
 if (KF5PimTextEdit_FOUND)
