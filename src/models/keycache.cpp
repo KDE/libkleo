@@ -1081,7 +1081,8 @@ void KeyCache::remove(const Key &key)
         d->by.chainid.erase(range2.first, range2.second);
     }
 
-    Q_FOREACH (const std::string &email, emails(key)) {
+    const auto emailsKey{emails(key)};
+    for (const std::string &email : emailsKey) {
         const auto range = std::equal_range(d->by.email.begin(), d->by.email.end(), email, ByEMail<std::less>());
         const auto it = std::remove_if(range.first, range.second,
                                        [fpr](const std::pair<std::string, Key> &pair) {
@@ -1090,7 +1091,8 @@ void KeyCache::remove(const Key &key)
         d->by.email.erase(it, range.second);
     }
 
-    Q_FOREACH (const Subkey &subkey, key.subkeys()) {
+    const auto keySubKeys{key.subkeys()};
+    for (const Subkey &subkey : keySubKeys) {
         if (const char *keyid = subkey.keyID()) {
             const auto range = std::equal_range(d->by.subkeyid.begin(), d->by.subkeyid.end(), keyid,
                                                 _detail::ByKeyID<std::less>());
@@ -1305,7 +1307,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // 3. build email index:
     std::vector< std::pair<std::string, Key> > pairs;
     pairs.reserve(sorted.size());
-    Q_FOREACH (const Key &key, sorted) {
+    for (const Key &key : std::as_const(sorted)) {
         const std::vector<std::string> emails = ::emails(key);
         for (const std::string &e : emails) {
             pairs.push_back(std::make_pair(e, key));
@@ -1362,10 +1364,12 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // 6. build subkey ID index:
     std::vector<Subkey> subkeys;
     subkeys.reserve(sorted.size());
-    Q_FOREACH (const Key &key, sorted)
-        Q_FOREACH (const Subkey &subkey, key.subkeys()) {
+    for (const Key &key : std::as_const(sorted)) {
+        const auto keySubkeys{key.subkeys()};
+        for (const Subkey &subkey : keySubkeys) {
             subkeys.push_back(subkey);
         }
+    }
 
     // 6a sort by key id:
     std::sort(subkeys.begin(), subkeys.end(), _detail::ByKeyID<std::less>());
