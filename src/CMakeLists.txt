@@ -1,6 +1,9 @@
 
 # target_include_directories does not handle empty include paths
-include_directories(${GPGME_INCLUDES})
+include_directories(
+    ${Boost_INCLUDE_DIRS}
+    ${GPGME_INCLUDES}
+)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"libkleopatra\")
 
