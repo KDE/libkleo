@@ -58,8 +58,8 @@ private Q_SLOTS:
     void slotPrefsChanged();
 
 private:
-    class Private;
-    Private *const d;
+    class KeyApprovalDialogPrivate;
+    std::unique_ptr<KeyApprovalDialogPrivate> const d;
 };
 
 } // namespace Kleo

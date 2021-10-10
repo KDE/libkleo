@@ -22,7 +22,7 @@
 #include <QHeaderView>
 
 
-class Kleo::DNAttributeOrderConfigWidget::Private
+class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate
 {
 public:
     enum { UUp = 0, Up = 1, Left = 2, Right = 3, Down = 4, DDown = 5 };
@@ -50,7 +50,7 @@ static void prepare(QTreeWidget *lv)
 #endif
 
 Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapper *mapper, QWidget *parent, Qt::WindowFlags f)
-    : QWidget(parent, f), d(new Private)
+    : QWidget(parent, f), d(new DNAttributeOrderConfigWidgetPrivate)
 {
     Q_ASSERT(mapper);
     d->mapper = mapper;
@@ -122,10 +122,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapp
     glay->addLayout(xlay, row, 1);
 }
 
-Kleo::DNAttributeOrderConfigWidget::~DNAttributeOrderConfigWidget()
-{
-    delete d;
-}
+Kleo::DNAttributeOrderConfigWidget::~DNAttributeOrderConfigWidget() = default;
 
 void Kleo::DNAttributeOrderConfigWidget::load()
 {
@@ -199,7 +196,7 @@ void Kleo::DNAttributeOrderConfigWidget::defaults()
 
 void Kleo::DNAttributeOrderConfigWidget::slotAvailableSelectionChanged(QTreeWidgetItem *item)
 {
-    d->navTB[Private::Right]->setEnabled(item);
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Right]->setEnabled(item);
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged(QTreeWidgetItem *item)
@@ -210,11 +207,11 @@ void Kleo::DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged(QTreeW
 void Kleo::DNAttributeOrderConfigWidget::enableDisableButtons(QTreeWidgetItem *item)
 {
 #ifndef QT_NO_TREEWIDGET
-    d->navTB[Private::UUp  ]->setEnabled(item && d->currentLV->itemAbove(item));
-    d->navTB[Private::Up   ]->setEnabled(item && d->currentLV->itemAbove(item));
-    d->navTB[Private::Left ]->setEnabled(item);
-    d->navTB[Private::Down ]->setEnabled(item && d->currentLV->itemBelow(item));
-    d->navTB[Private::DDown]->setEnabled(item && d->currentLV->itemBelow(item));
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::UUp  ]->setEnabled(item && d->currentLV->itemAbove(item));
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Up   ]->setEnabled(item && d->currentLV->itemAbove(item));
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Left ]->setEnabled(item);
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Down ]->setEnabled(item && d->currentLV->itemBelow(item));
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::DDown]->setEnabled(item && d->currentLV->itemBelow(item));
 #endif
 }
 
@@ -341,7 +338,7 @@ void Kleo::DNAttributeOrderConfigWidget::slotRightButtonClicked()
     d->currentLV->insertTopLevelItem(newRightIndex, left);
     left->setSelected(true);
     enableDisableButtons(left);
-    d->navTB[Private::Right]->setEnabled(next);
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Right]->setEnabled(next);
     if (next) {
         next->setSelected(true);
     }

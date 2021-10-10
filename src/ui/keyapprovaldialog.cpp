@@ -67,10 +67,10 @@ static QStringList preferencesStrings()
            << i18n("Ask Whenever Encryption is Possible");
 }
 
-class Q_DECL_HIDDEN Kleo::KeyApprovalDialog::Private
+class Q_DECL_HIDDEN Kleo::KeyApprovalDialog::KeyApprovalDialogPrivate
 {
 public:
-    Private() {}
+    KeyApprovalDialogPrivate() {}
 
     Kleo::KeyRequester *selfRequester = nullptr;
     QStringList addresses;
@@ -83,7 +83,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
         const std::vector<GpgME::Key> &sender,
         QWidget *parent)
     : QDialog(parent),
-      d(new Private())
+      d(new KeyApprovalDialogPrivate())
 {
     setWindowTitle(i18nc("@title:window", "Encryption Key Approval"));
     auto mainLayout = new QVBoxLayout(this);
@@ -159,10 +159,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
                  qMin(size.height(), 7 * desk.height() / 8)));
 }
 
-Kleo::KeyApprovalDialog::~KeyApprovalDialog()
-{
-    delete d;
-}
+Kleo::KeyApprovalDialog::~KeyApprovalDialog() = default;
 
 std::vector<GpgME::Key> Kleo::KeyApprovalDialog::senderKeys() const
 {

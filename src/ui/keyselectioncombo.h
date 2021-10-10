@@ -66,7 +66,7 @@ protected:
     virtual void init();
 
 private:
-    KeySelectionComboPrivate * const d;
+    std::unique_ptr<KeySelectionComboPrivate> const d;
 };
 
 }

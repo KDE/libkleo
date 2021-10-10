@@ -22,13 +22,13 @@
 
 using namespace Kleo;
 
-class Q_DECL_HIDDEN FileNameRequester::Private
+class Q_DECL_HIDDEN FileNameRequester::FileNameRequesterPrivate
 {
     friend class ::Kleo::FileNameRequester;
     FileNameRequester *const q;
 public:
-    explicit Private(FileNameRequester *qq);
-    ~Private();
+    explicit FileNameRequesterPrivate(FileNameRequester *qq);
+    ~FileNameRequesterPrivate();
 
 private:
     void slotButtonClicked();
@@ -49,7 +49,7 @@ private:
     bool existingOnly;
 };
 
-FileNameRequester::Private::Private(FileNameRequester *qq)
+FileNameRequester::FileNameRequesterPrivate::FileNameRequesterPrivate(FileNameRequester *qq)
     : q(qq),
 #ifndef QT_NO_DIRMODEL
       dirmodel(),
@@ -87,16 +87,16 @@ FileNameRequester::Private::Private(FileNameRequester *qq)
     connect(&lineedit, &KLineEdit::textChanged, q, &FileNameRequester::fileNameChanged);
 }
 
-FileNameRequester::Private::~Private() {}
+FileNameRequester::FileNameRequesterPrivate::~FileNameRequesterPrivate() {}
 
 FileNameRequester::FileNameRequester(QWidget *p)
-    : QWidget(p), d(new Private(this))
+    : QWidget(p), d(new FileNameRequesterPrivate(this))
 {
 
 }
 
 FileNameRequester::FileNameRequester(QDir::Filters f, QWidget *p)
-    : QWidget(p), d(new Private(this))
+    : QWidget(p), d(new FileNameRequesterPrivate(this))
 {
 #ifndef QT_NO_DIRMODEL
     d->dirmodel.setFilter(f);
@@ -105,10 +105,7 @@ FileNameRequester::FileNameRequester(QDir::Filters f, QWidget *p)
 #endif
 }
 
-FileNameRequester::~FileNameRequester()
-{
-    delete d;
-}
+FileNameRequester::~FileNameRequester() = default;
 
 void FileNameRequester::setFileName(const QString &file)
 {
@@ -158,7 +155,7 @@ QString FileNameRequester::nameFilter() const
     return d->nameFilter;
 }
 
-void FileNameRequester::Private::slotButtonClicked()
+void FileNameRequester::FileNameRequesterPrivate::slotButtonClicked()
 {
     const QString fileName = q->requestFileName();
     if (!fileName.isEmpty()) {

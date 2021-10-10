@@ -50,8 +50,8 @@ private:
     virtual QString requestFileName();
 
 private:
-    class Private;
-    Private *d;
+    class FileNameRequesterPrivate;
+    std::unique_ptr<FileNameRequesterPrivate> const d;
 };
 
 }

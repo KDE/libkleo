@@ -195,8 +195,8 @@ private:
     const DisplayStrategy *mDisplayStrategy = nullptr;
     bool mHierarchical = false;
 
-    class Private;
-    Private *const d;
+    class KeyListViewPrivate;
+    std::unique_ptr<KeyListViewPrivate> const d;
 };
 }
 

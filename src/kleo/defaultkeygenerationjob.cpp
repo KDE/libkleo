@@ -16,13 +16,13 @@ using namespace Kleo;
 
 namespace Kleo {
 
-class DefaultKeyGenerationJob::Private
+class DefaultKeyGenerationJob::DefaultKeyGenerationJobPrivate
 {
 public:
-    Private()
+    DefaultKeyGenerationJobPrivate()
     {}
 
-    ~Private()
+    ~DefaultKeyGenerationJobPrivate()
     {
         if (job) {
             job->deleteLater();
@@ -37,14 +37,11 @@ public:
 
 DefaultKeyGenerationJob::DefaultKeyGenerationJob(QObject* parent)
     : Job(parent)
-    , d(new DefaultKeyGenerationJob::Private())
+    , d(new DefaultKeyGenerationJob::DefaultKeyGenerationJobPrivate())
 {
 }
 
-DefaultKeyGenerationJob::~DefaultKeyGenerationJob()
-{
-    delete d;
-}
+DefaultKeyGenerationJob::~DefaultKeyGenerationJob() = default;
 
 QString DefaultKeyGenerationJob::auditLogAsHtml() const
 {

@@ -57,8 +57,8 @@ private:
     void enableDisableButtons(QTreeWidgetItem *);
 
 private:
-    class Private;
-    Private *const d;
+    class DNAttributeOrderConfigWidgetPrivate;
+    std::unique_ptr<DNAttributeOrderConfigWidgetPrivate> const d;
 protected:
     virtual void virtual_hook(int, void *);
 };

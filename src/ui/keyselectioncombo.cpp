@@ -465,10 +465,7 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
     QTimer::singleShot(0, this, &KeySelectionCombo::init);
 }
 
-KeySelectionCombo::~KeySelectionCombo()
-{
-    delete d;
-}
+KeySelectionCombo::~KeySelectionCombo() = default;
 
 void KeySelectionCombo::init()
 {

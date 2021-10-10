@@ -26,10 +26,10 @@
 
 static const int updateDelayMilliSecs = 500;
 
-class Q_DECL_HIDDEN Kleo::KeyListView::Private
+class Q_DECL_HIDDEN Kleo::KeyListView::KeyListViewPrivate
 {
 public:
-    Private() : updateTimer(nullptr) {}
+    KeyListViewPrivate() : updateTimer(nullptr) {}
 
     std::vector<GpgME::Key> keyBuffer;
     QTimer *updateTimer = nullptr;
@@ -61,7 +61,7 @@ Kleo::KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const Displ
     : QTreeWidget(parent),
       mColumnStrategy(columnStrategy),
       mDisplayStrategy(displayStrategy),
-      mHierarchical(false), d(new Private())
+      mHierarchical(false), d(new KeyListViewPrivate())
 {
     setWindowFlags(f);
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -101,7 +101,6 @@ Kleo::KeyListView::~KeyListView()
     clear();
     Q_ASSERT(d->itemMap.size() == 0);
     // need to delete the tooltip ourselves, as ~QToolTip isn't virtual :o
-    delete d;
     delete mColumnStrategy; mColumnStrategy = nullptr;
     delete mDisplayStrategy; mDisplayStrategy = nullptr;
 }

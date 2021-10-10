@@ -9,6 +9,7 @@
 #include <qgpgme/job.h>
 
 #include <kleo_export.h>
+#include <memory>
 
 namespace GpgME {
 class KeyGenerationResult;
@@ -54,8 +55,8 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
-    class Private;
-    Private * const d;
+    class DefaultKeyGenerationJobPrivate;
+    std::unique_ptr<DefaultKeyGenerationJobPrivate> const d;
 };
 
 }
