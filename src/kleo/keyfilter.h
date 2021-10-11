@@ -14,7 +14,7 @@
 #include <algorithm>
 
 #include <kleo_export.h>
-
+#include <memory>
 namespace GpgME
 {
 class Key;
@@ -84,7 +84,7 @@ public:
         }
         struct Private;
     private:
-        Private *d;
+        std::unique_ptr<Private> d;
     };
 
     virtual FontDescription fontDescription() const = 0;

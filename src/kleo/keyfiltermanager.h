@@ -65,7 +65,7 @@ public:
 
     class Private;
 private:
-    Private *d;
+    std::unique_ptr<Private> d;
     static KeyFilterManager *mSelf;
 };
 

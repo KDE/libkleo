@@ -198,7 +198,6 @@ KeyFilterManager::~KeyFilterManager()
     if (d) {
         d->clear();
     }
-    delete d; d = nullptr;
 }
 
 KeyFilterManager *KeyFilterManager::instance()
