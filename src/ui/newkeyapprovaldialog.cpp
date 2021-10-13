@@ -224,12 +224,12 @@ static bool key_has_addr(const GpgME::Key &key, const QString &addr)
     return false;
 }
 
-bool anyKeyHasProtocol(const std::vector<Key> &keys, Protocol protocol)
+bool anyKeyHasProtocol(const std::vector<Key> &keys, GpgME::Protocol protocol)
 {
     return std::any_of(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
 }
 
-Key findfirstKeyOfType(const std::vector<Key> &keys, Protocol protocol)
+Key findfirstKeyOfType(const std::vector<Key> &keys, GpgME::Protocol protocol)
 {
     const auto it = std::find_if(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
     return it != std::end(keys) ? *it : Key();
@@ -362,7 +362,7 @@ public:
 
     ~Private() = default;
 
-    Protocol currentProtocol()
+    GpgME::Protocol currentProtocol()
     {
         const bool openPGPButtonChecked = mFormatBtns->button(OpenPGPButtonId)->isChecked();
         const bool smimeButtonChecked = mFormatBtns->button(SMIMEButtonId)->isChecked();
@@ -472,7 +472,7 @@ public:
         checkAccepted();
     }
 
-    auto encryptionKeyFilter(Protocol protocol)
+    auto encryptionKeyFilter(GpgME::Protocol protocol)
     {
         switch (protocol) {
         case OpenPGP:
@@ -486,7 +486,7 @@ public:
 
     void updateWidgets()
     {
-        const Protocol protocol = currentProtocol();
+        const GpgME::Protocol protocol = currentProtocol();
         const auto encryptionFilter = encryptionKeyFilter(protocol);
 
         for (auto combo: std::as_const(mSigningCombos)) {
@@ -515,14 +515,14 @@ public:
         }
     }
 
-    auto createProtocolLabel(Protocol protocol)
+    auto createProtocolLabel(GpgME::Protocol protocol)
     {
         auto label = new QLabel(Formatting::displayName(protocol));
         label->setObjectName(QStringLiteral("protocol label"));
         return label;
     }
 
-    ComboWidget *createSigningCombo(const QString &addr, const GpgME::Key &key, Protocol protocol = UnknownProtocol)
+    ComboWidget *createSigningCombo(const QString &addr, const GpgME::Key &key, GpgME::Protocol protocol = UnknownProtocol)
     {
         Q_ASSERT(!key.isNull() || protocol != UnknownProtocol);
         protocol = !key.isNull() ? key.protocol() : protocol;
@@ -620,7 +620,7 @@ public:
         mScrollLayout->addWidget(group);
     }
 
-    ComboWidget *createEncryptionCombo(const QString &addr, const GpgME::Key &key, Protocol fixedProtocol)
+    ComboWidget *createEncryptionCombo(const QString &addr, const GpgME::Key &key, GpgME::Protocol fixedProtocol)
     {
         auto combo = new KeySelectionCombo(false);
         auto comboWidget = new ComboWidget(combo);
@@ -669,8 +669,8 @@ public:
     }
 
     void addEncryptionAddr(const QString &addr,
-                           Protocol preferredKeysProtocol, const std::vector<GpgME::Key> &preferredKeys,
-                           Protocol alternativeKeysProtocol, const std::vector<GpgME::Key> &alternativeKeys,
+                           GpgME::Protocol preferredKeysProtocol, const std::vector<GpgME::Key> &preferredKeys,
+                           GpgME::Protocol alternativeKeysProtocol, const std::vector<GpgME::Key> &alternativeKeys,
                            QGridLayout *encGrid)
     {
         if (addr == mSender) {
@@ -758,8 +758,8 @@ public:
         }
     }
 
-    void setEncryptionKeys(Protocol preferredKeysProtocol, const QMap<QString, std::vector<GpgME::Key>> &preferredKeys,
-                           Protocol alternativeKeysProtocol, const QMap<QString, std::vector<GpgME::Key>> &alternativeKeys)
+    void setEncryptionKeys(GpgME::Protocol preferredKeysProtocol, const QMap<QString, std::vector<GpgME::Key>> &preferredKeys,
+                           GpgME::Protocol alternativeKeysProtocol, const QMap<QString, std::vector<GpgME::Key>> &alternativeKeys)
     {
         {
             auto group = new QGroupBox(i18nc("Encrypt to self (email address):", "Encrypt to self (%1):", mSender));
@@ -822,7 +822,7 @@ public:
         // Handle compliance
         bool de_vs = true;
 
-        const Protocol protocol = currentProtocol();
+        const GpgME::Protocol protocol = currentProtocol();
 
         for (const auto combo: std::as_const(mAllCombos)) {
             if (!combo->isVisible()) {
