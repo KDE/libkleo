@@ -497,3 +497,32 @@ QString Kleo::stringFromGpgOutput(const QByteArray &ba)
     return QString::fromLocal8Bit(ba);
 #endif
 }
+
+QStringList Kleo::backendVersionInfo()
+{
+    QStringList versions;
+    if (Kleo::engineIsVersion(2, 2, 24, GpgME::GpgConfEngine)) {
+        QProcess p;
+        qCDebug(LIBKLEO_LOG) << "Running gpgconf --show-versions ...";
+        p.start(Kleo::gpgConfPath(), {QStringLiteral("--show-versions")});
+        // wait at most 1 second
+        if (!p.waitForFinished(1000)) {
+            qCDebug(LIBKLEO_LOG) << "Running gpgconf --show-versions timed out after 1 second.";
+        } else if (p.exitStatus() != QProcess::NormalExit || p.exitCode() != 0) {
+            qCDebug(LIBKLEO_LOG) << "Running gpgconf --show-versions failed:" << p.errorString();
+            qCDebug(LIBKLEO_LOG) << "gpgconf stderr:" << p.readAllStandardError();
+            qCDebug(LIBKLEO_LOG) << "gpgconf stdout:" << p.readAllStandardOutput();
+        } else {
+            const QByteArray output = p.readAllStandardOutput().replace("\r\n", "\n");
+            qCDebug(LIBKLEO_LOG) << "gpgconf stdout:" << p.readAllStandardOutput();
+            const auto lines = output.split('\n');
+            for (const auto &line : lines) {
+                if (line.startsWith("* GnuPG") || line.startsWith("* Libgcrypt")) {
+                    const auto components = line.split(' ');
+                    versions.push_back(QString::fromLatin1(components.at(1) + ' ' + components.value(2)));
+                }
+            }
+        }
+    }
+    return versions;
+}

@@ -58,5 +58,10 @@ KLEO_EXPORT QString stringFromGpgOutput(const QByteArray &ba);
 /* Check if a minimum version is there. Strings should be in the format:
  * 1.2.3 */
 KLEO_EXPORT bool versionIsAtLeast(const char *minimum, const char *actual);
-}
 
+/** Returns a list of component names (e.g. GnuPG, libgcrypt) followed by
+ *  version numbers. This is meant for displaying in the About dialog.
+ */
+KLEO_EXPORT QStringList backendVersionInfo();
+
+}
