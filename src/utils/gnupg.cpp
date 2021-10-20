@@ -33,6 +33,7 @@
 #include <QByteArray>
 #include <QStandardPaths>
 #include <QCoreApplication>
+#include <QRegularExpression>
 #include <gpg-error.h>
 
 #ifdef Q_OS_WIN
@@ -210,6 +211,15 @@ public:
 bool Kleo::gpg4winSignedversion()
 {
     return Gpg4win::instance()->isSignedVersion();
+}
+
+QString Kleo::gpg4winVersionNumber()
+{
+    // extract the actual version number from the string returned by Gpg4win::version();
+    // we assume that Gpg4win::version() returns the version number prefixed with
+    // some text followed by a dash, e.g. "Gpg4win-3.1.15"; see https://dev.gnupg.org/T5663
+    static const QRegularExpression prefixRegExp{QLatin1String{"^.*-"}};
+    return gpg4winVersion().remove(prefixRegExp);
 }
 
 QString Kleo::gpg4winVersion()

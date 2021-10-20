@@ -35,6 +35,9 @@ KLEO_EXPORT QString gpgPath();
 
 KLEO_EXPORT QString gpgConfListDir(const char *which);
 KLEO_EXPORT QString gpg4winInstallPath();
+// Returns the version number.
+KLEO_EXPORT QString gpg4winVersionNumber();
+// Returns the version number with an optional product specific prefix.
 KLEO_EXPORT QString gpg4winVersion();
 KLEO_EXPORT bool gpg4winSignedversion();
 KLEO_EXPORT QString gpg4winDescription();
