@@ -910,6 +910,7 @@ private Q_SLOTS:
         const KeyResolver::Solution alternativeSolution = {};
 
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
+        Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
                                                                    true,
                                                                    sender,
@@ -941,6 +942,7 @@ private Q_SLOTS:
         const KeyResolver::Solution alternativeSolution = {};
 
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
+        Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
                                                                    true,
                                                                    sender,
@@ -972,6 +974,7 @@ private Q_SLOTS:
         const KeyResolver::Solution alternativeSolution = {};
 
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
+        Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
                                                                    true,
                                                                    sender,

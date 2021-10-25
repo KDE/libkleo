@@ -130,8 +130,10 @@ KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
 KLEO_EXPORT bool uidsHaveFullValidity(const GpgME::Key &key);
 
 /* The compliance mode of the gnupg system. Empty if compliance
- * mode is not set. */
-KLEO_EXPORT QString complianceMode();
+ * mode is not set.
+ * Use Kleo::gnupgComplianceMode() instead.
+ */
+KLEO_DEPRECATED_EXPORT QString complianceMode();
 
 /* Is the given key in compliance with CO_DE_VS?  */
 KLEO_EXPORT bool isKeyDeVs(const GpgME::Key &key);

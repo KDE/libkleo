@@ -17,6 +17,7 @@
 #include "kleo/keygroup.h"
 
 #include "utils/cryptoconfig.h"
+#include "utils/gnupg.h"
 
 #include <gpgme++/key.h>
 #include <gpgme++/importresult.h>
@@ -1114,7 +1115,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
 {
     // There will likely be more in the future for other institutions
     // for now we only have DE-VS
-    if (complianceMode() == QLatin1String("de-vs")) {
+    if (Kleo::gnupgIsDeVsCompliant()) {
         if (uidsHaveFullValidity(key) && isKeyDeVs(key)) {
             return i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                          "May be used for %1 communication.", deVsString());
@@ -1130,8 +1131,7 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
 {
     const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
     if (keyValidityChecked && Formatting::uidsHaveFullValidity(key)) {
-        if (complianceMode() == QLatin1String("de-vs")
-            && Formatting::isKeyDeVs(key)) {
+        if (Kleo::gnupgIsDeVsCompliant() && Formatting::isKeyDeVs(key)) {
             return QStringLiteral("★ ") + deVsString(true);
         }
         return i18nc("As in all user IDs are valid.", "certified");

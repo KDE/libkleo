@@ -15,6 +15,7 @@
 #include "progressdialog.h"
 #include "kleo/defaultkeyfilter.h"
 #include "utils/formatting.h"
+#include "utils/gnupg.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -815,29 +816,31 @@ public:
 
         mOkButton->setText(isGenerate ? i18n("Generate") : origOkText);
 
-        if (Formatting::complianceMode() != QLatin1String("de-vs")) {
+        if (!Kleo::gnupgUsesDeVsCompliance()) {
             return;
         }
 
         // Handle compliance
-        bool de_vs = true;
+        bool de_vs = Kleo::gnupgIsDeVsCompliant();
 
-        const Protocol protocol = currentProtocol();
+        if (de_vs) {
+            const Protocol protocol = currentProtocol();
 
-        for (const auto combo: std::as_const(mAllCombos)) {
-            if (!combo->isVisible()) {
-                continue;
-            }
-            const auto key = combo->currentKey();
-            if (key.isNull()) {
-                continue;
-            }
-            if (protocol != UnknownProtocol && key.protocol() != protocol) {
-                continue;
-            }
-            if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
-                de_vs = false;
-                break;
+            for (const auto combo: std::as_const(mAllCombos)) {
+                if (!combo->isVisible()) {
+                    continue;
+                }
+                const auto key = combo->currentKey();
+                if (key.isNull()) {
+                    continue;
+                }
+                if (protocol != UnknownProtocol && key.protocol() != protocol) {
+                    continue;
+                }
+                if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
+                    de_vs = false;
+                    break;
+                }
             }
         }
 

@@ -20,6 +20,7 @@
 #include "kleo/keygroup.h"
 #include "models/keycache.h"
 #include "utils/formatting.h"
+#include "utils/gnupg.h"
 
 #include <gpgme++/key.h>
 
@@ -103,7 +104,6 @@ public:
         , mCache(KeyCache::instance())
         , mPreferredProtocol(UnknownProtocol)
         , mMinimumValidity(UserID::Marginal)
-        , mCompliance(Formatting::complianceMode())
     {
     }
 
@@ -143,7 +143,6 @@ public:
     bool mAllowMixed = true;
     Protocol mPreferredProtocol;
     int mMinimumValidity;
-    QString mCompliance;
 };
 
 bool KeyResolverCore::Private::isAcceptableSigningKey(const Key &key)
@@ -151,7 +150,7 @@ bool KeyResolverCore::Private::isAcceptableSigningKey(const Key &key)
     if (!ValidSigningKey(key)) {
         return false;
     }
-    if (mCompliance == QLatin1String("de-vs")) {
+    if (Kleo::gnupgIsDeVsCompliant()) {
         if (!Formatting::isKeyDeVs(key)) {
             qCDebug(LIBKLEO_LOG) << "Rejected sig key" << key.primaryFingerprint()
                                     << "because it is not de-vs compliant.";
@@ -167,7 +166,7 @@ bool KeyResolverCore::Private::isAcceptableEncryptionKey(const Key &key, const Q
         return false;
     }
 
-    if (mCompliance == QLatin1String("de-vs")) {
+    if (Kleo::gnupgIsDeVsCompliant()) {
         if (!Formatting::isKeyDeVs(key)) {
             qCDebug(LIBKLEO_LOG) << "Rejected enc key" << key.primaryFingerprint()
                                     << "because it is not de-vs compliant.";
