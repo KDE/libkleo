@@ -15,6 +15,7 @@
 #include "gnupg.h"
 
 #include "utils/compat.h"
+#include "utils/cryptoconfig.h"
 #include "utils/hex.h"
 
 #include <gpgme++/engineinfo.h>
@@ -452,6 +453,22 @@ bool Kleo::gpgComplianceP(const char *mode)
     const auto conf = QGpgME::cryptoConfig();
     const auto entry = getCryptoConfigEntry(conf, "gpg", "compliance");
     return entry && entry->stringValue() == QString::fromLatin1(mode);
+}
+
+bool Kleo::gnupgUsesDeVsCompliance()
+{
+    return getCryptoConfigStringValue("gpg", "compliance") == QLatin1String{"de-vs"};
+}
+
+bool Kleo::gnupgIsDeVsCompliant()
+{
+    if (!gnupgUsesDeVsCompliance()) {
+        return false;
+    }
+    // the pseudo option compliance_de_vs was added in 2.2.28; for older versions of GnuPG
+    // we assume non-compliance to be on the safe side; versions of Kleopatra for which
+    // this matters are bundled with new enough versions of GnuPG anyway
+    return getCryptoConfigIntValue("gpg", "compliance_de_vs", 0) != 0;
 }
 
 enum GpgME::UserID::Validity Kleo::keyValidity(const GpgME::Key &key)

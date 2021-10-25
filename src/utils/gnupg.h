@@ -50,7 +50,21 @@ KLEO_EXPORT int makeGnuPGError(int code);
 
 KLEO_EXPORT bool engineIsVersion(int major, int minor, int patch, GpgME::Engine = GpgME::GpgConfEngine);
 KLEO_EXPORT bool haveKeyserverConfigured();
-KLEO_EXPORT bool gpgComplianceP(const char *mode);
+
+/* Use gnupgUsesDeVsCompliance() or gnupgIsDeVsCompliant() instead. */
+KLEO_DEPRECATED_EXPORT bool gpgComplianceP(const char *mode);
+
+/** Returns true, if compliance mode "de-vs" is configured for GnuPG.
+ *  Note: It does not check whether the used GnuPG is actually compliant.
+ */
+KLEO_EXPORT bool gnupgUsesDeVsCompliance();
+
+/** Returns true, if compliance mode "de-vs" is configured for GnuPG and if
+ *  GnuPG passes a basic compliance check, i.e. at least libgcrypt and the used
+ *  RNG are compliant.
+ */
+KLEO_EXPORT bool gnupgIsDeVsCompliant();
+
 KLEO_EXPORT enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key);
 
 /* Convert GnuPG output to a QString with proper encoding.
