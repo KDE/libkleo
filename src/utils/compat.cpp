@@ -21,13 +21,19 @@ using namespace QGpgME;
 
 QGpgME::CryptoConfigEntry *Kleo::getCryptoConfigEntry(const CryptoConfig *config, const char *componentName, const char *entryName)
 {
+    if (!config) {
+        return nullptr;
+    }
 #ifdef CRYPTOCONFIG_HAS_GROUPLESS_ENTRY_OVERLOAD
     return config->entry(QString::fromLatin1(componentName), QString::fromLatin1(entryName));
 #else
     const CryptoConfigComponent *const comp = config->component(QString::fromLatin1(componentName));
+    if (!comp) {
+        return nullptr;
+    }
     const QStringList groupNames = comp->groupList();
     for (const auto &groupName : groupNames) {
-        const CryptoConfigGroup *const group = comp ? comp->group(groupName) : nullptr;
+        const CryptoConfigGroup *const group = comp->group(groupName);
         if (CryptoConfigEntry *const entry = group->entry(QString::fromLatin1(entryName))) {
             return entry;
         }
