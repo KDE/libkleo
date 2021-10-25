@@ -42,7 +42,7 @@ public:
 
 protected:
     explicit KeyFilterManager(QObject *parent = nullptr);
-    ~KeyFilterManager();
+    ~KeyFilterManager() override;
 
 public:
     static KeyFilterManager *instance();

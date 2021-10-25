@@ -25,7 +25,7 @@ class KeyCache::RefreshKeysJob : public QObject
 public:
 
     explicit RefreshKeysJob(KeyCache *cache, QObject *parent = nullptr);
-    ~RefreshKeysJob();
+    ~RefreshKeysJob() override;
 
     void start();
     void cancel();

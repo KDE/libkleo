@@ -26,7 +26,7 @@ class KLEO_EXPORT FileNameRequester : public QWidget
 public:
     explicit FileNameRequester(QWidget *parent = nullptr);
     explicit FileNameRequester(QDir::Filters filter, QWidget *parent = nullptr);
-    ~FileNameRequester();
+    ~FileNameRequester() override;
 
     void setFileName(const QString &name);
     QString fileName() const;

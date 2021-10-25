@@ -25,7 +25,7 @@ class KLEO_EXPORT FileSystemWatcher : public QObject
 public:
     explicit FileSystemWatcher(QObject *parent = nullptr);
     explicit FileSystemWatcher(const QStringList &paths, QObject *parent = nullptr);
-    ~FileSystemWatcher();
+    ~FileSystemWatcher() override;
 
     void setDelay(int ms);
     int delay() const;

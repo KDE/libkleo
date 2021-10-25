@@ -47,7 +47,7 @@ public:
     KeyApprovalDialog(const std::vector<Item> &recipients,
                       const std::vector<GpgME::Key> &sender,
                       QWidget *parent = nullptr);
-    ~KeyApprovalDialog();
+    ~KeyApprovalDialog() override;
 
     std::vector<Item> items() const;
     std::vector<GpgME::Key> senderKeys() const;

@@ -33,7 +33,7 @@ class KLEO_EXPORT AuditLogViewer : public QDialog
 public:
     explicit AuditLogViewer(const QString &log, QWidget *parent = nullptr);
 
-    ~AuditLogViewer();
+    ~AuditLogViewer() override;
 
     void setAuditLog(const QString &log);
 

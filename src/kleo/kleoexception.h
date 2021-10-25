@@ -36,7 +36,7 @@ public:
     Exception(const GpgME::Error &e, const QString &msg)
         : GpgME::Exception(e, msg.toLocal8Bit().constData()) {}
 
-    ~Exception() throw ();
+    ~Exception() throw () override;
 
     const std::string &messageLocal8Bit() const
     {

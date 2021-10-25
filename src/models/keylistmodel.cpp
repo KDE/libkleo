@@ -515,7 +515,7 @@ class TableModelMixin : public Base
 {
 public:
     explicit TableModelMixin(QObject *p = nullptr) : Base(p) {}
-    ~TableModelMixin() {}
+    ~TableModelMixin() override {}
 
     using Base::index;
     QModelIndex index(int row, int column, const QModelIndex &pidx = QModelIndex()) const override

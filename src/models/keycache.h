@@ -52,7 +52,7 @@ public:
     static std::shared_ptr<const KeyCache> instance();
     static std::shared_ptr<KeyCache> mutableInstance();
 
-    ~KeyCache();
+    ~KeyCache() override;
 
     void setGroupsEnabled(bool enabled);
     void setGroupsConfig(const QString &filename);

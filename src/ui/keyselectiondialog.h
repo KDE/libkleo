@@ -99,7 +99,7 @@ public:
                        bool rememberChoice = false,
                        QWidget *parent = nullptr,
                        bool modal = true);
-    ~KeySelectionDialog();
+    ~KeySelectionDialog() override;
 
     void setText(const QString &text);
 

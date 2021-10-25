@@ -46,7 +46,7 @@ public:
                           QWidget *parent = nullptr);
     // Constructor for Qt Designer
     explicit KeyRequester(QWidget *parent = nullptr);
-    ~KeyRequester();
+    ~KeyRequester() override;
 
     const GpgME::Key &key() const;
     /** Preferred method to set a key for
@@ -146,7 +146,7 @@ public:
      * Constructor for Qt designer
      */
     explicit EncryptionKeyRequester(QWidget *parent);
-    ~EncryptionKeyRequester();
+    ~EncryptionKeyRequester() override;
 
     void setAllowedKeys(unsigned int proto, bool onlyTrusted = true, bool onlyValid = true);
 
@@ -180,7 +180,7 @@ public:
      * Constructor for Qt designer
      */
     explicit SigningKeyRequester(QWidget *parent);
-    ~SigningKeyRequester();
+    ~SigningKeyRequester() override;
 
     /*
      * Those parameters affect the parameters given to the key selection dialog.

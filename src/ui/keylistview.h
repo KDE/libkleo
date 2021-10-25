@@ -120,7 +120,7 @@ public:
                          const DisplayStrategy *display = nullptr,
                          QWidget *parent = nullptr, Qt::WindowFlags f = {});
 
-    ~KeyListView();
+    ~KeyListView() override;
 
     const ColumnStrategy *columnStrategy() const
     {

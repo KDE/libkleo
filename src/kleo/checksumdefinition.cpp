@@ -84,7 +84,7 @@ public:
     {
 
     }
-    ~ChecksumDefinitionError() throw() {}
+    ~ChecksumDefinitionError() throw() override {}
 
     const QString &checksumDefinitionId() const
     {

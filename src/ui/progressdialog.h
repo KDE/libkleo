@@ -29,7 +29,7 @@ class KLEO_EXPORT ProgressDialog : public QProgressDialog
 public:
     ProgressDialog(QGpgME::Job *job, const QString &baseText,
                    QWidget *widget = nullptr, Qt::WindowFlags f = {});
-    ~ProgressDialog();
+    ~ProgressDialog() override;
 
 public Q_SLOTS:
     /*! reimplementation */

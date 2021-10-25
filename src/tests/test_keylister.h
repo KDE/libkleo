@@ -22,7 +22,7 @@ class CertListView : public Kleo::KeyListView
     Q_OBJECT
 public:
     explicit CertListView(QWidget *parent = nullptr, Qt::WindowFlags f = {});
-    ~CertListView();
+    ~CertListView() override;
 
 public Q_SLOTS:
     void slotResult(const GpgME::KeyListResult &result);
