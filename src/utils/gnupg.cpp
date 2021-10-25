@@ -216,10 +216,21 @@ bool Kleo::gpg4winSignedversion()
 QString Kleo::gpg4winVersionNumber()
 {
     // extract the actual version number from the string returned by Gpg4win::version();
-    // we assume that Gpg4win::version() returns the version number prefixed with
-    // some text followed by a dash, e.g. "Gpg4win-3.1.15"; see https://dev.gnupg.org/T5663
-    static const QRegularExpression prefixRegExp{QLatin1String{"^.*-"}};
-    return gpg4winVersion().remove(prefixRegExp);
+    // we assume that Gpg4win::version() returns a version number (conforming to the semantic
+    // versioning spec) optionally prefixed with some text followed by a dash,
+    // e.g. "Gpg4win-3.1.15-beta15"; see https://dev.gnupg.org/T5663
+    static const QRegularExpression catchSemVerRegExp{
+        QLatin1String{R"(-([0-9]+(?:\.[0-9]+)*(?:-[.0-9A-Za-z-]+)?(?:\+[.0-9a-zA-Z-]+)?)$)"}};
+
+    QString ret;
+    const auto match = catchSemVerRegExp.match(gpg4winVersion());
+    if (match.hasMatch()) {
+        ret = match.captured(1);
+    } else {
+        ret = gpg4winVersion();
+    }
+    qCDebug(LIBKLEO_LOG) << __func__ << "returns" << ret;
+    return ret;
 }
 
 QString Kleo::gpg4winVersion()
