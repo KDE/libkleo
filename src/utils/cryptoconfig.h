@@ -17,6 +17,8 @@ class QString;
 namespace Kleo
 {
 
+KLEO_EXPORT int getCryptoConfigIntValue(const char *componentName, const char *entryName, int defaultValue);
+
 KLEO_EXPORT QString getCryptoConfigStringValue(const char *componentName, const char *entryName);
 
 }

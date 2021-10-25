@@ -16,6 +16,18 @@
 
 using namespace Kleo::Tests;
 
+FakeCryptoConfigIntValue::FakeCryptoConfigIntValue(const char *componentName, const char *entryName, int fakeValue)
+    : mComponentName(componentName)
+    , mEntryName(entryName)
+{
+    Kleo::Private::setFakeCryptoConfigIntValue(mComponentName, mEntryName, fakeValue);
+}
+
+FakeCryptoConfigIntValue::~FakeCryptoConfigIntValue()
+{
+    Kleo::Private::clearFakeCryptoConfigIntValue(mComponentName, mEntryName);
+}
+
 FakeCryptoConfigStringValue::FakeCryptoConfigStringValue(const char *componentName, const char *entryName, const QString &fakeValue)
     : mComponentName(componentName)
     , mEntryName(entryName)

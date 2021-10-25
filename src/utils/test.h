@@ -22,6 +22,17 @@ namespace Kleo
 namespace Tests
 {
 
+class KLEO_EXPORT FakeCryptoConfigIntValue
+{
+public:
+    FakeCryptoConfigIntValue(const char *componentName, const char *entryName, int fakeValue);
+    ~FakeCryptoConfigIntValue();
+
+private:
+    std::string mComponentName;
+    std::string mEntryName;
+};
+
 class KLEO_EXPORT FakeCryptoConfigStringValue
 {
 public:

@@ -20,13 +20,37 @@
 
 using namespace QGpgME;
 
-static std::unordered_map<std::string, std::unordered_map<std::string, QString>> fakeCryptoConfigValues;
+static std::unordered_map<std::string, std::unordered_map<std::string, int>> fakeCryptoConfigIntValues;
+static std::unordered_map<std::string, std::unordered_map<std::string, QString>> fakeCryptoConfigStringValues;
+
+int Kleo::getCryptoConfigIntValue(const char *componentName, const char *entryName, int defaultValue)
+{
+    if (!fakeCryptoConfigIntValues.empty()) {
+        const auto componentIt = fakeCryptoConfigIntValues.find(componentName);
+        if (componentIt != std::end(fakeCryptoConfigIntValues)) {
+            const auto entryIt = componentIt->second.find(entryName);
+            if (entryIt != std::end(componentIt->second)) {
+                return entryIt->second;
+            }
+        }
+    }
+
+    const CryptoConfig *const config = cryptoConfig();
+    if (!config) {
+        return defaultValue;
+    }
+    const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, componentName, entryName);
+    if (!entry || entry->argType() != CryptoConfigEntry::ArgType_Int) {
+        return defaultValue;
+    }
+    return entry->intValue();
+}
 
 QString Kleo::getCryptoConfigStringValue(const char *componentName, const char *entryName)
 {
-    if (!fakeCryptoConfigValues.empty()) {
-        const auto componentIt = fakeCryptoConfigValues.find(componentName);
-        if (componentIt != std::end(fakeCryptoConfigValues)) {
+    if (!fakeCryptoConfigStringValues.empty()) {
+        const auto componentIt = fakeCryptoConfigStringValues.find(componentName);
+        if (componentIt != std::end(fakeCryptoConfigStringValues)) {
             const auto entryIt = componentIt->second.find(entryName);
             if (entryIt != std::end(componentIt->second)) {
                 return entryIt->second;
@@ -45,16 +69,30 @@ QString Kleo::getCryptoConfigStringValue(const char *componentName, const char *
     return entry->stringValue();
 }
 
+void Kleo::Private::setFakeCryptoConfigIntValue(const std::string &componentName, const std::string &entryName, int fakeValue)
+{
+    fakeCryptoConfigIntValues[componentName][entryName] = fakeValue;
+}
+
+void Kleo::Private::clearFakeCryptoConfigIntValue(const std::string &componentName, const std::string &entryName)
+{
+    auto &entryMap = fakeCryptoConfigIntValues[componentName];
+    entryMap.erase(entryName);
+    if (entryMap.empty()) {
+        fakeCryptoConfigIntValues.erase(componentName);
+    }
+}
+
 void Kleo::Private::setFakeCryptoConfigStringValue(const std::string &componentName, const std::string &entryName, const QString &fakeValue)
 {
-    fakeCryptoConfigValues[componentName][entryName] = fakeValue;
+    fakeCryptoConfigStringValues[componentName][entryName] = fakeValue;
 }
 
 void Kleo::Private::clearFakeCryptoConfigStringValue(const std::string &componentName, const std::string &entryName)
 {
-    auto &entryMap = fakeCryptoConfigValues[componentName];
+    auto &entryMap = fakeCryptoConfigStringValues[componentName];
     entryMap.erase(entryName);
     if (entryMap.empty()) {
-        fakeCryptoConfigValues.erase(componentName);
+        fakeCryptoConfigStringValues.erase(componentName);
     }
 }
