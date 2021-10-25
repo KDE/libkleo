@@ -38,7 +38,7 @@ QString Kleo::getCryptoConfigStringValue(const char *componentName, const char *
     if (!config) {
         return {};
     }
-    const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, "gpg", "compliance");
+    const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, componentName, entryName);
     if (!entry || entry->argType() != CryptoConfigEntry::ArgType_String) {
         return QString();
     }
