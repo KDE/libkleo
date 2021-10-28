@@ -440,12 +440,16 @@ bool Kleo::haveKeyserverConfigured()
         // since 2.1.19 there is a builtin keyserver
         return true;
     }
-    const QGpgME::CryptoConfig *const config = QGpgME::cryptoConfig();
-    if (!config) {
-        return false;
+    return !Kleo::keyserver().isEmpty();
+}
+
+QString Kleo::keyserver()
+{
+    QString result = getCryptoConfigStringValue("gpg", "keyserver");
+    if (result.isEmpty()) {
+        result = getCryptoConfigStringValue("dirmngr", "keyserver");
     }
-    const QGpgME::CryptoConfigEntry *const entry = Kleo::getCryptoConfigEntry(config, "gpg", "keyserver");
-    return entry && !entry->stringValue().isEmpty();
+    return result;
 }
 
 bool Kleo::gpgComplianceP(const char *mode)

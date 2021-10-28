@@ -49,7 +49,21 @@ KLEO_EXPORT QStringList gnupgFileWhitelist();
 KLEO_EXPORT int makeGnuPGError(int code);
 
 KLEO_EXPORT bool engineIsVersion(int major, int minor, int patch, GpgME::Engine = GpgME::GpgConfEngine);
+
+/** Returns true, if GnuPG knows which keyserver to use for keyserver
+ *  operations.
+ *  Since version 2.1.19 GnuPG has a builtin default keyserver, so that this
+ *  function always returns true. For older versions of GnuPG it checks if
+ *  a keyserver has been configured.
+ */
 KLEO_EXPORT bool haveKeyserverConfigured();
+
+/** Returns the configured keyserver or an empty string if no keyserver is
+ *  configured.
+ *  Note: Since GnuPG 2.1.19 gpg/dirmngr uses a default keyserver if no
+ *        keyserver is configured.
+ */
+KLEO_EXPORT QString keyserver();
 
 /* Use gnupgUsesDeVsCompliance() or gnupgIsDeVsCompliant() instead. */
 KLEO_DEPRECATED_EXPORT bool gpgComplianceP(const char *mode);
