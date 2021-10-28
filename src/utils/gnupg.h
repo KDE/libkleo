@@ -65,6 +65,11 @@ KLEO_EXPORT bool haveKeyserverConfigured();
  */
 KLEO_EXPORT QString keyserver();
 
+/** Returns true, if GnuPG knows which server to use for directory service
+ *  operations for X.509 certificates.
+ */
+KLEO_EXPORT bool haveX509DirectoryServerConfigured();
+
 /* Use gnupgUsesDeVsCompliance() or gnupgIsDeVsCompliant() instead. */
 KLEO_DEPRECATED_EXPORT bool gpgComplianceP(const char *mode);
 

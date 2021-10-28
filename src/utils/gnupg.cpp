@@ -452,6 +452,13 @@ QString Kleo::keyserver()
     return result;
 }
 
+bool Kleo::haveX509DirectoryServerConfigured()
+{
+    return !getCryptoConfigUrlList("dirmngr", "ldapserver").empty()
+        || !getCryptoConfigUrlList("dirmngr", "LDAP Server").empty()
+        || !getCryptoConfigUrlList("gpgsm", "keyserver").empty();
+}
+
 bool Kleo::gpgComplianceP(const char *mode)
 {
     const auto conf = QGpgME::cryptoConfig();
