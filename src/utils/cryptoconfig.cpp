@@ -40,10 +40,10 @@ int Kleo::getCryptoConfigIntValue(const char *componentName, const char *entryNa
         return defaultValue;
     }
     const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, componentName, entryName);
-    if (!entry || entry->argType() != CryptoConfigEntry::ArgType_Int) {
-        return defaultValue;
+    if (entry && entry->argType() == CryptoConfigEntry::ArgType_Int) {
+        return entry->intValue();
     }
-    return entry->intValue();
+    return defaultValue;
 }
 
 QString Kleo::getCryptoConfigStringValue(const char *componentName, const char *entryName)
@@ -63,10 +63,25 @@ QString Kleo::getCryptoConfigStringValue(const char *componentName, const char *
         return {};
     }
     const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, componentName, entryName);
-    if (!entry || entry->argType() != CryptoConfigEntry::ArgType_String) {
-        return QString();
+    if (entry && entry->argType() == CryptoConfigEntry::ArgType_String) {
+        return entry->stringValue();
     }
-    return entry->stringValue();
+    return {};
+}
+
+QList<QUrl> Kleo::getCryptoConfigUrlList(const char *componentName, const char *entryName)
+{
+    const CryptoConfig *const config = cryptoConfig();
+    if (!config) {
+        return {};
+    }
+    const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, componentName, entryName);
+    if (entry && entry->isList()
+        && (entry->argType() == CryptoConfigEntry::ArgType_LDAPURL
+            || entry->argType() == CryptoConfigEntry::ArgType_Path)) {
+        return entry->urlValueList();
+    }
+    return {};
 }
 
 void Kleo::Private::setFakeCryptoConfigIntValue(const std::string &componentName, const std::string &entryName, int fakeValue)

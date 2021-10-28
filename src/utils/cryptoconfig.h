@@ -12,7 +12,10 @@
 
 #include "kleo_export.h"
 
+#include <QList>
+
 class QString;
+class QUrl;
 
 namespace Kleo
 {
@@ -20,5 +23,7 @@ namespace Kleo
 KLEO_EXPORT int getCryptoConfigIntValue(const char *componentName, const char *entryName, int defaultValue);
 
 KLEO_EXPORT QString getCryptoConfigStringValue(const char *componentName, const char *entryName);
+
+KLEO_EXPORT QList<QUrl> getCryptoConfigUrlList(const char *componentName, const char *entryName);
 
 }
