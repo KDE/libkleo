@@ -44,6 +44,7 @@ target_sources(KF5Libkleo PRIVATE
    models/keyrearrangecolumnsproxymodel.cpp
    models/subkeylistmodel.cpp
    models/useridlistmodel.cpp
+   utils/assuan.cpp
    utils/filesystemwatcher.cpp
    utils/formatting.cpp
    utils/classify.cpp
@@ -175,6 +176,7 @@ ecm_generate_headers(libkleo_CamelCase_models_HEADERS
 ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   HEADER_NAMES
   Algorithm
+  Assuan
   Classify
   CryptoConfig
   FileSystemWatcher
