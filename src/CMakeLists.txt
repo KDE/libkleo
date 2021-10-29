@@ -53,6 +53,7 @@ target_sources(KF5Libkleo PRIVATE
    utils/hex.cpp
    utils/compat.cpp
    utils/cryptoconfig.cpp
+   utils/scdaemon.cpp
    utils/stringutils.cpp
    utils/test.cpp
    )
@@ -184,6 +185,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   Formatting
   GnuPG
   Compat
+  SCDaemon
   StringUtils
   Test
   REQUIRED_HEADERS libkleo_utils_HEADERS
