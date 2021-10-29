@@ -9,6 +9,7 @@
 
 #include "cryptoconfigmodule.h"
 #include "cryptoconfigmodule_p.h"
+#include "cryptoconfigentryreaderport_p.h"
 #include "directoryserviceswidget.h"
 #include "kdhorizontalline.h"
 #include "filenamerequester.h"
@@ -492,7 +493,8 @@ static const struct WidgetsByEntryName {
     const char *entryGlob;
     constructor create;
 } widgetsByEntryName[] = {
-    { "*/*/debug-level",   &_create<CryptoConfigEntryDebugLevel> }
+    { "*/*/debug-level",   &_create<CryptoConfigEntryDebugLevel> },
+    { "scdaemon/*/reader-port", &_create<CryptoConfigEntryReaderPort> },
 };
 static const unsigned int numWidgetsByEntryName = sizeof widgetsByEntryName / sizeof * widgetsByEntryName;
 

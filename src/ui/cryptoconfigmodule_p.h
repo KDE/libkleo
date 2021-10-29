@@ -37,6 +37,7 @@ class CryptoConfigEntry;
 
 namespace Kleo
 {
+class CryptoConfigModule;
 class CryptoConfigComponentGUI;
 class CryptoConfigGroupGUI;
 class CryptoConfigEntryGUI;
@@ -283,4 +284,3 @@ private:
 };
 
 }
-
