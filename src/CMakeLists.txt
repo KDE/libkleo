@@ -53,6 +53,7 @@ target_sources(KF5Libkleo PRIVATE
    utils/hex.cpp
    utils/compat.cpp
    utils/cryptoconfig.cpp
+   utils/stringutils.cpp
    utils/test.cpp
    )
 ecm_qt_declare_logging_category(KF5Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
@@ -183,6 +184,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   Formatting
   GnuPG
   Compat
+  StringUtils
   Test
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
