@@ -11,7 +11,7 @@
 
 #include <QObject>
 
-#include <kleo_export.h>
+#include "kleo_export.h"
 
 class QString;
 #include <QStringList>

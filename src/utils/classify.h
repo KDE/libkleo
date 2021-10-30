@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include <kleo_export.h>
+#include "kleo_export.h"
 
 #include <gpgme++/global.h>
 

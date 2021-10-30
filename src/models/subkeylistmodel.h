@@ -11,7 +11,7 @@
 
 #include <QAbstractTableModel>
 
-#include <kleo_export.h>
+#include "kleo_export.h"
 
 #include <vector>
 

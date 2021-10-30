@@ -18,7 +18,7 @@
    without cluttering the code with preprocessor conditionals.  */
 #define IS_DE_VS(x)	(x).isDeVs()
 
-#include <kleo_export.h>
+#include "kleo_export.h"
 
 class QString;
 #include <QStringList>

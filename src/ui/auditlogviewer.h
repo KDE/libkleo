@@ -8,7 +8,7 @@
 
 #include <QDialog>
 
-#include <kleo_export.h>
+#include "kleo_export.h"
 
 #ifdef HAVE_PIMTEXTEDIT
 #include <KPIMTextEdit/RichTextEditorWidget>

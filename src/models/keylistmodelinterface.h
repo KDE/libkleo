@@ -13,7 +13,7 @@
 
 #include <vector>
 
-#include <kleo_export.h>
+#include "kleo_export.h"
 
 namespace GpgME
 {

@@ -13,7 +13,7 @@
 
 #include <QAbstractItemModel>
 
-#include <kleo_export.h>
+#include "kleo_export.h"
 
 #include "keylist.h"
 #include "keylistmodelinterface.h"
