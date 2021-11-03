@@ -415,13 +415,16 @@ Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
     : QObject(module), mGroup(group)
 {
     const bool de_vs = Kleo::gnupgUsesDeVsCompliance();
+    // Skip "dangerous" expert options if we are running in CO_DE_VS.
+    // Otherwise, skip any options beyond expert level.
+    const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced
+                                     : QGpgME::CryptoConfigEntry::Level_Expert;
     const int startRow = glay->rowCount();
     const QStringList entries = mGroup->entryList();
     for (QStringList::const_iterator it = entries.begin(), end = entries.end(); it != end; ++it) {
         QGpgME::CryptoConfigEntry *entry = group->entry(*it);
         Q_ASSERT(entry);
-        /* Skip "dangerous" options if we are running in CO_DE_VS.  */
-        if (de_vs && entry->level() > QGpgME::CryptoConfigEntry::Level_Advanced) {
+        if (entry->level() > maxEntryLevel) {
             qCDebug(KLEO_UI_LOG) << "entry" << *it << "too advanced, skipping";
             continue;
         }
