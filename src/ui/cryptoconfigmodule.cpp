@@ -351,6 +351,31 @@ void Kleo::CryptoConfigModule::cancel()
 
 ////
 
+namespace
+{
+auto getGroupEntriesToOfferForConfiguration(QGpgME::CryptoConfigGroup *group)
+{
+    const bool de_vs = Kleo::gnupgUsesDeVsCompliance();
+    // Skip "dangerous" expert options if we are running in CO_DE_VS.
+    // Otherwise, skip any options beyond expert level.
+    const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced
+                                     : QGpgME::CryptoConfigEntry::Level_Expert;
+
+    std::vector<QGpgME::CryptoConfigEntry *> result;
+    const auto entryNames = group->entryList();
+    for (const auto &entryName : entryNames) {
+        auto *const entry = group->entry(entryName);
+        Q_ASSERT(entry);
+        if (entry->level() > maxEntryLevel) {
+            qCDebug(KLEO_UI_LOG) << "entry" << entryName << "too advanced, skipping";
+        } else {
+            result.push_back(entry);
+        }
+    }
+    return result;
+}
+}
+
 Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
     CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component,
     QWidget *parent)
@@ -367,14 +392,23 @@ Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
             if (!group) {
                 continue;
             }
+            auto groupEntries = getGroupEntriesToOfferForConfiguration(group);
+            if (groupEntries.size() == 0) {
+                // skip groups without entries to be offered in the UI
+                continue;
+            }
             const QString title = group->description();
             auto hl = new KDHorizontalLine(title.isEmpty() ? *it : title, this);
             const int row = glay->rowCount();
             glay->addWidget(hl, row, 0, 1, 3);
-            mGroupGUIs.append(new CryptoConfigGroupGUI(module, group, glay, this));
+            mGroupGUIs.append(new CryptoConfigGroupGUI(module, group, groupEntries, glay, this));
         }
     } else if (!groups.empty()) {
-        mGroupGUIs.append(new CryptoConfigGroupGUI(module, mComponent->group(groups.front()), glay, this));
+        auto *const group = mComponent->group(groups.front());
+        auto groupEntries = getGroupEntriesToOfferForConfiguration(group);
+        if (groupEntries.size() > 0) {
+            mGroupGUIs.append(new CryptoConfigGroupGUI(module, group, groupEntries, glay, this));
+        }
     }
     glay->setRowStretch(glay->rowCount(), 1);
 }
@@ -410,26 +444,17 @@ void Kleo::CryptoConfigComponentGUI::defaults()
 ////
 
 Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
-    CryptoConfigModule *module, QGpgME::CryptoConfigGroup *group,
-    QGridLayout *glay, QWidget *widget)
-    : QObject(module), mGroup(group)
+        CryptoConfigModule *module,
+        QGpgME::CryptoConfigGroup *group,
+        const std::vector<QGpgME::CryptoConfigEntry *> &entries,
+        QGridLayout *glay,
+        QWidget *widget)
+    : QObject(module)
 {
-    const bool de_vs = Kleo::gnupgUsesDeVsCompliance();
-    // Skip "dangerous" expert options if we are running in CO_DE_VS.
-    // Otherwise, skip any options beyond expert level.
-    const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced
-                                     : QGpgME::CryptoConfigEntry::Level_Expert;
     const int startRow = glay->rowCount();
-    const QStringList entries = mGroup->entryList();
-    for (QStringList::const_iterator it = entries.begin(), end = entries.end(); it != end; ++it) {
-        QGpgME::CryptoConfigEntry *entry = group->entry(*it);
-        Q_ASSERT(entry);
-        if (entry->level() > maxEntryLevel) {
-            qCDebug(KLEO_UI_LOG) << "entry" << *it << "too advanced, skipping";
-            continue;
-        }
+    for (auto entry : entries) {
         CryptoConfigEntryGUI *entryGUI =
-            CryptoConfigEntryGUIFactory::createEntryGUI(module, entry, *it, glay, widget);
+            CryptoConfigEntryGUIFactory::createEntryGUI(module, entry, entry->name(), glay, widget);
         if (entryGUI) {
             mEntryGUIs.append(entryGUI);
             entryGUI->load();

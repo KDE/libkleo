@@ -71,6 +71,7 @@ class CryptoConfigGroupGUI : public QObject
 
 public:
     CryptoConfigGroupGUI(CryptoConfigModule *module, QGpgME::CryptoConfigGroup *group,
+                         const std::vector<QGpgME::CryptoConfigEntry *> &entries,
                          QGridLayout *layout, QWidget *parent = nullptr);
 
     bool save();
@@ -78,7 +79,6 @@ public:
     void defaults();
 
 private:
-    QGpgME::CryptoConfigGroup *mGroup = nullptr;
     QList<CryptoConfigEntryGUI *> mEntryGUIs;
 };
 
