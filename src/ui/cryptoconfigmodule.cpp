@@ -49,6 +49,7 @@
 #include <memory>
 #include <limits>
 #include <array>
+#include <set>
 
 using namespace Kleo;
 
@@ -353,23 +354,33 @@ void Kleo::CryptoConfigModule::cancel()
 
 namespace
 {
-auto getGroupEntriesToOfferForConfiguration(QGpgME::CryptoConfigGroup *group)
+bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
 {
+    static const std::set<QString> entriesToExclude = {
+        QStringLiteral("gpg/importexport/keyserver")
+    };
     const bool de_vs = Kleo::gnupgUsesDeVsCompliance();
     // Skip "dangerous" expert options if we are running in CO_DE_VS.
     // Otherwise, skip any options beyond "invisible" (== expert + 1) level.
     const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced
                                      : QGpgME::CryptoConfigEntry::Level_Expert + 1;
 
+    return (entry->level() <= maxEntryLevel) &&
+           (entriesToExclude.find(entry->path().toLower()) == entriesToExclude.end());
+}
+
+auto getGroupEntriesToOfferForConfiguration(QGpgME::CryptoConfigGroup *group)
+{
+
     std::vector<QGpgME::CryptoConfigEntry *> result;
     const auto entryNames = group->entryList();
     for (const auto &entryName : entryNames) {
         auto *const entry = group->entry(entryName);
         Q_ASSERT(entry);
-        if (entry->level() > maxEntryLevel) {
-            qCDebug(KLEO_UI_LOG) << "entry" << entryName << "too advanced, skipping";
-        } else {
+        if (offerEntryForConfiguration(entry)) {
             result.push_back(entry);
+        } else {
+            qCDebug(KLEO_UI_LOG) << "entry" << entry->path() << "too advanced or excluded explicitly, skipping";
         }
     }
     return result;
