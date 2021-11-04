@@ -56,6 +56,64 @@ target_sources(KF5Libkleo PRIVATE
    utils/scdaemon.cpp
    utils/stringutils.cpp
    utils/test.cpp
+   utils/compat.h
+   utils/assuan.h
+   utils/algorithm.h
+   utils/cryptoconfig.h
+   utils/classify.h
+   utils/stringutils.h
+   utils/formatting.h
+   utils/cryptoconfig_p.h
+   utils/scdaemon.h
+   utils/gnupg-registry.h
+   utils/hex.h
+   utils/test.h
+   utils/gnupg.h
+   utils/filesystemwatcher.h
+   ui/cryptoconfigentryreaderport_p.h
+   ui/keyrequester.h
+   ui/keyselectiondialog.h
+   ui/newkeyapprovaldialog.h
+   ui/messagebox.h
+   ui/dnattributeorderconfigwidget.h
+   ui/cryptoconfigmodule_p.h
+   ui/keylistview.h
+   ui/filenamerequester.h
+   ui/progressbar.h
+   ui/kdhorizontalline.h
+   ui/keyselectioncombo.h
+   ui/directoryserviceswidget.h
+   ui/editdirectoryservicedialog.h
+   ui/auditlogviewer.h
+   ui/progressdialog.h
+   ui/cryptoconfigmodule.h
+   ui/keyapprovaldialog.h
+   kleo/keyresolvercore.h
+   kleo/enum.h
+   kleo/checksumdefinition.h
+   kleo/predicates.h
+   kleo/keygroup.h
+   kleo/keyfilter.h
+   kleo/keyresolver.h
+   kleo/kleoexception.h
+   kleo/stl_util.h
+   kleo/oidmap.h
+   kleo/keyserverconfig.h
+   kleo/defaultkeygenerationjob.h
+   kleo/dn.h
+   kleo/defaultkeyfilter.h
+   kleo/keyfiltermanager.h
+   kleo/kconfigbasedkeyfilter.h
+   kleo/debug.h
+   models/keylistmodelinterface.h
+   models/subkeylistmodel.h
+   models/keycache.h
+   models/keylist.h
+   models/keylistsortfilterproxymodel.h
+   models/keyrearrangecolumnsproxymodel.h
+   models/keycache_p.h
+   models/useridlistmodel.h
+   models/keylistmodel.h
    )
 ecm_qt_declare_logging_category(KF5Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
