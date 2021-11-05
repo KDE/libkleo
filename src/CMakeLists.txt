@@ -24,96 +24,78 @@ add_library(KF5::Libkleo ALIAS KF5Libkleo)
 ########### next target ###############
 target_sources(KF5Libkleo PRIVATE
    kleo/checksumdefinition.cpp
-   kleo/debug.cpp
-   kleo/defaultkeyfilter.cpp
-   kleo/defaultkeygenerationjob.cpp
-   kleo/dn.cpp
-   kleo/enum.cpp
-   kleo/kconfigbasedkeyfilter.cpp
-   kleo/keyfiltermanager.cpp
-   kleo/keygroup.cpp
-   kleo/keyresolver.cpp
-   kleo/keyresolvercore.cpp
-   kleo/keyserverconfig.cpp
-   kleo/kleoexception.cpp
-   kleo/oidmap.cpp
-   models/keycache.cpp
-   models/keylistmodel.cpp
-   models/keylistmodelinterface.cpp
-   models/keylistsortfilterproxymodel.cpp
-   models/keyrearrangecolumnsproxymodel.cpp
-   models/subkeylistmodel.cpp
-   models/useridlistmodel.cpp
-   utils/assuan.cpp
-   utils/filesystemwatcher.cpp
-   utils/formatting.cpp
-   utils/classify.cpp
-   utils/gnupg.cpp
-   utils/gnupg-registry.c
-   utils/hex.cpp
-   utils/compat.cpp
-   utils/cryptoconfig.cpp
-   utils/scdaemon.cpp
-   utils/stringutils.cpp
-   utils/test.cpp
-   utils/compat.h
-   utils/assuan.h
-   utils/algorithm.h
-   utils/cryptoconfig.h
-   utils/classify.h
-   utils/stringutils.h
-   utils/formatting.h
-   utils/cryptoconfig_p.h
-   utils/scdaemon.h
-   utils/gnupg-registry.h
-   utils/hex.h
-   utils/test.h
-   utils/gnupg.h
-   utils/filesystemwatcher.h
-   ui/cryptoconfigentryreaderport_p.h
-   ui/keyrequester.h
-   ui/keyselectiondialog.h
-   ui/newkeyapprovaldialog.h
-   ui/messagebox.h
-   ui/dnattributeorderconfigwidget.h
-   ui/cryptoconfigmodule_p.h
-   ui/keylistview.h
-   ui/filenamerequester.h
-   ui/progressbar.h
-   ui/kdhorizontalline.h
-   ui/keyselectioncombo.h
-   ui/directoryserviceswidget.h
-   ui/editdirectoryservicedialog.h
-   ui/auditlogviewer.h
-   ui/progressdialog.h
-   ui/cryptoconfigmodule.h
-   ui/keyapprovaldialog.h
-   kleo/keyresolvercore.h
-   kleo/enum.h
    kleo/checksumdefinition.h
-   kleo/predicates.h
-   kleo/keygroup.h
-   kleo/keyfilter.h
-   kleo/keyresolver.h
-   kleo/kleoexception.h
-   kleo/stl_util.h
-   kleo/oidmap.h
-   kleo/keyserverconfig.h
-   kleo/defaultkeygenerationjob.h
-   kleo/dn.h
-   kleo/defaultkeyfilter.h
-   kleo/keyfiltermanager.h
-   kleo/kconfigbasedkeyfilter.h
+   kleo/debug.cpp
    kleo/debug.h
-   models/keylistmodelinterface.h
-   models/subkeylistmodel.h
+   kleo/defaultkeyfilter.cpp
+   kleo/defaultkeyfilter.h
+   kleo/defaultkeygenerationjob.cpp
+   kleo/defaultkeygenerationjob.h
+   kleo/dn.cpp
+   kleo/dn.h
+   kleo/enum.cpp
+   kleo/enum.h
+   kleo/kconfigbasedkeyfilter.cpp
+   kleo/kconfigbasedkeyfilter.h
+   kleo/keyfilter.h
+   kleo/keyfiltermanager.cpp
+   kleo/keyfiltermanager.h
+   kleo/keygroup.cpp
+   kleo/keygroup.h
+   kleo/keyresolver.cpp
+   kleo/keyresolver.h
+   kleo/keyresolvercore.cpp
+   kleo/keyresolvercore.h
+   kleo/keyserverconfig.cpp
+   kleo/keyserverconfig.h
+   kleo/kleoexception.cpp
+   kleo/kleoexception.h
+   kleo/oidmap.cpp
+   kleo/oidmap.h
+   kleo/predicates.h
+   kleo/stl_util.h
+   models/keycache.cpp
    models/keycache.h
-   models/keylist.h
-   models/keylistsortfilterproxymodel.h
-   models/keyrearrangecolumnsproxymodel.h
    models/keycache_p.h
-   models/useridlistmodel.h
+   models/keylist.h
+   models/keylistmodel.cpp
    models/keylistmodel.h
+   models/keylistmodelinterface.cpp
+   models/keylistmodelinterface.h
+   models/keylistsortfilterproxymodel.cpp
+   models/keylistsortfilterproxymodel.h
+   models/keyrearrangecolumnsproxymodel.cpp
+   models/keyrearrangecolumnsproxymodel.h
+   models/subkeylistmodel.cpp
+   models/subkeylistmodel.h
+   models/useridlistmodel.cpp
+   models/useridlistmodel.h
+   utils/algorithm.h
+   utils/assuan.cpp
+   utils/assuan.h
+   utils/classify.cpp
+   utils/classify.h
+   utils/compat.cpp
+   utils/compat.h
+   utils/cryptoconfig.cpp
+   utils/cryptoconfig.h
+   utils/cryptoconfig_p.h
+   utils/filesystemwatcher.cpp
+   utils/filesystemwatcher.h
+   utils/formatting.cpp
+   utils/formatting.h
+   utils/gnupg-registry.c
+   utils/gnupg-registry.h
+   utils/gnupg.cpp
+   utils/gnupg.h
+   utils/hex.cpp
+   utils/hex.h
+   utils/scdaemon.cpp
+   utils/scdaemon.h
+   utils/stringutils.cpp
+   utils/stringutils.h
+   utils/test.cpp
+   utils/test.h
    )
 ecm_qt_declare_logging_category(KF5Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
@@ -122,17 +104,29 @@ ecm_qt_declare_logging_category(KF5Libkleo HEADER libkleo_debug.h IDENTIFIER LIB
 
 
 target_sources(KF5Libkleo PRIVATE
-   ui/dnattributeorderconfigwidget.cpp
-   ui/kdhorizontalline.cpp
-   ui/filenamerequester.cpp
-   ui/messagebox.cpp
-   ui/cryptoconfigmodule.cpp
-   ui/directoryserviceswidget.cpp
-   ui/progressbar.cpp
-   ui/progressdialog.cpp
    ui/auditlogviewer.cpp
-   ui/editdirectoryservicedialog.cpp
+   ui/auditlogviewer.h
    ui/cryptoconfigentryreaderport.cpp
+   ui/cryptoconfigentryreaderport_p.h
+   ui/cryptoconfigmodule.cpp
+   ui/cryptoconfigmodule.h
+   ui/cryptoconfigmodule_p.h
+   ui/directoryserviceswidget.cpp
+   ui/directoryserviceswidget.h
+   ui/dnattributeorderconfigwidget.cpp
+   ui/dnattributeorderconfigwidget.h
+   ui/editdirectoryservicedialog.cpp
+   ui/editdirectoryservicedialog.h
+   ui/filenamerequester.cpp
+   ui/filenamerequester.h
+   ui/kdhorizontalline.cpp
+   ui/kdhorizontalline.h
+   ui/messagebox.cpp
+   ui/messagebox.h
+   ui/progressbar.cpp
+   ui/progressbar.h
+   ui/progressdialog.cpp
+   ui/progressdialog.h
    )
 
 ecm_qt_declare_logging_category(KF5Libkleo HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui
@@ -143,12 +137,18 @@ ecm_qt_declare_logging_category(KF5Libkleo HEADER kleo_ui_debug.h IDENTIFIER KLE
 
 
 target_sources(KF5Libkleo PRIVATE    # make this a separate lib.
-    ui/keylistview.cpp
-    ui/keyselectiondialog.cpp
-    ui/keyrequester.cpp
     ui/keyapprovaldialog.cpp
-    ui/newkeyapprovaldialog.cpp
+    ui/keyapprovaldialog.h
+    ui/keylistview.cpp
+    ui/keylistview.h
+    ui/keyrequester.cpp
+    ui/keyrequester.h
     ui/keyselectioncombo.cpp
+    ui/keyselectioncombo.h
+    ui/keyselectiondialog.cpp
+    ui/keyselectiondialog.h
+    ui/newkeyapprovaldialog.cpp
+    ui/newkeyapprovaldialog.h
     )
 
 
@@ -236,11 +236,11 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   Algorithm
   Assuan
   Classify
+  Compat
   CryptoConfig
   FileSystemWatcher
   Formatting
   GnuPG
-  Compat
   SCDaemon
   StringUtils
   Test
@@ -258,11 +258,11 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   FileNameRequester
   KDHorizontalLine
   KeyApprovalDialog
-  NewKeyApprovalDialog
   KeyRequester
   KeySelectionCombo
   KeySelectionDialog
   MessageBox
+  NewKeyApprovalDialog
   ProgressDialog
   REQUIRED_HEADERS libkleo_ui_HEADERS
   PREFIX Libkleo
