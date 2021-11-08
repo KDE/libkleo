@@ -41,6 +41,7 @@ namespace Kleo
 
 class FileSystemWatcher;
 class KeyGroup;
+class KeyGroupConfig;
 enum class KeyUsage : char;
 
 class KLEO_EXPORT KeyCache : public QObject
@@ -55,7 +56,7 @@ public:
     ~KeyCache() override;
 
     void setGroupsEnabled(bool enabled);
-    void setGroupsConfig(const QString &filename);
+    void setGroupConfig(const std::shared_ptr<KeyGroupConfig> &groupConfig);
 
     void insert(const GpgME::Key &key);
     void insert(const std::vector<GpgME::Key> &keys);

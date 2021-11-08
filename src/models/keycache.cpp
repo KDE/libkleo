@@ -234,19 +234,20 @@ public:
 
     void readGroupsFromGroupsConfig()
     {
-        if (m_groupsConfigName.isEmpty()) {
-            qCDebug(LIBKLEO_LOG) << __func__ << "name of application configuration file is unset";
+        Q_ASSERT(m_groupConfig);
+        if (!m_groupConfig) {
+            qCWarning(LIBKLEO_LOG) << __func__ << "group config not set";
             return;
         }
 
-        const KeyGroupConfig config{m_groupsConfigName};
-        m_groups = config.readGroups();
+        m_groups = m_groupConfig->readGroups();
     }
 
     KeyGroup writeGroupToGroupsConfig(const KeyGroup &group)
     {
-        if (m_groupsConfigName.isEmpty()) {
-            qCDebug(LIBKLEO_LOG) << __func__ << "name of application configuration file is unset";
+        Q_ASSERT(m_groupConfig);
+        if (!m_groupConfig) {
+            qCWarning(LIBKLEO_LOG) << __func__ << "group config not set";
             return {};
         }
 
@@ -257,14 +258,14 @@ public:
             return group;
         }
 
-        KeyGroupConfig config{m_groupsConfigName};
-        return config.writeGroup(group);
+        return m_groupConfig->writeGroup(group);
     }
 
     bool removeGroupFromGroupsConfig(const KeyGroup &group)
     {
-        if (m_groupsConfigName.isEmpty()) {
-            qCDebug(LIBKLEO_LOG) << __func__ << "name of application configuration file is unset";
+        Q_ASSERT(m_groupConfig);
+        if (!m_groupConfig) {
+            qCWarning(LIBKLEO_LOG) << __func__ << "group config not set";
             return false;
         }
 
@@ -275,8 +276,7 @@ public:
             return false;
         }
 
-        KeyGroupConfig config{m_groupsConfigName};
-        return config.removeGroup(group);
+        return m_groupConfig->removeGroup(group);
     }
 
     void updateGroupCache()
@@ -398,7 +398,7 @@ private:
     bool m_pgpOnly;
     bool m_remarks_enabled;
     bool m_groupsEnabled = false;
-    QString m_groupsConfigName;
+    std::shared_ptr<KeyGroupConfig> m_groupConfig;
     std::vector<KeyGroup> m_groups;
 };
 
@@ -435,9 +435,9 @@ void KeyCache::setGroupsEnabled(bool enabled)
     }
 }
 
-void KeyCache::setGroupsConfig(const QString &filename)
+void KeyCache::setGroupConfig(const std::shared_ptr<KeyGroupConfig> &groupConfig)
 {
-    d->m_groupsConfigName = filename;
+    d->m_groupConfig = groupConfig;
 }
 
 void KeyCache::enableFileSystemWatcher(bool enable)
