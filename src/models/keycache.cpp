@@ -619,6 +619,21 @@ const Key &KeyCache::findByFingerprint(const std::string &fpr) const
     return findByFingerprint(fpr.c_str());
 }
 
+std::vector<GpgME::Key> KeyCache::findByFingerprint(const std::vector<std::string> &fprs) const
+{
+    std::vector<Key> keys;
+    keys.reserve(fprs.size());
+    for (const auto &fpr : fprs) {
+        const Key key = findByFingerprint(fpr.c_str());
+        if (key.isNull()) {
+            qCDebug (LIBKLEO_LOG) << __func__ << "Ignoring unknown key with fingerprint:" << fpr.c_str();
+            continue;
+        }
+        keys.push_back(key);
+    }
+    return keys;
+}
+
 std::vector<Key> KeyCache::findByEMailAddress(const char *email) const
 {
     const auto pair = d->find_email(email);
