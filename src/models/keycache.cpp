@@ -15,12 +15,14 @@
 
 #include "kleo/enum.h"
 #include "kleo/keygroup.h"
+#include "kleo/keygroupconfig.h"
 #include "kleo/predicates.h"
 #include "kleo/stl_util.h"
 #include "kleo/dn.h"
 
 #include "utils/compat.h"
 #include "utils/filesystemwatcher.h"
+#include "utils/qtstlhelpers.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -52,14 +54,13 @@
 #include "kleo/debug.h"
 #include "libkleo_debug.h"
 #include <chrono>
+
 using namespace std::chrono_literals;
 using namespace Kleo;
 using namespace GpgME;
 using namespace KMime::Types;
 
 static const unsigned int hours2ms = 1000 * 60 * 60;
-
-static const QString groupNamePrefix = QStringLiteral("Group-");
 
 //
 //
@@ -71,18 +72,6 @@ namespace
 {
 
 make_comparator_str(ByEMail, .first.c_str());
-
-QStringList getFingerprints(const KeyGroup::Keys &keys)
-{
-    QStringList fingerprints;
-    fingerprints.reserve(keys.size());
-    std::transform(keys.cbegin(), keys.cend(),
-                    std::back_inserter(fingerprints),
-                    [] (const Key &key) {
-                        return QString::fromLatin1(key.primaryFingerprint());
-                    });
-    return fingerprints;
-}
 
 }
 
@@ -204,21 +193,6 @@ public:
 
     void ensureCachePopulated() const;
 
-    std::vector<Key> getKeysForGroup(const QStringList &fingerprints) const
-    {
-        std::vector<Key> groupKeys;
-        groupKeys.reserve(fingerprints.size());
-        for (const QString &fpr : fingerprints) {
-            const Key key = q->findByFingerprint(fpr.toLatin1().constData());
-            if (key.isNull()) {
-                qCDebug (LIBKLEO_LOG) << "Ignoring unknown key with fingerprint:" << fpr;
-                continue;
-            }
-            groupKeys.push_back(key);
-        }
-        return groupKeys;
-    }
-
     void readGroupsFromGpgConf()
     {
         // According to Werner Koch groups are more of a hack to solve
@@ -252,106 +226,57 @@ public:
         // add all groups read from the configuration to the list of groups
         for (auto it = fingerprints.cbegin(); it != fingerprints.cend(); ++it) {
             const QString groupName = it.key();
-            const std::vector<Key> groupKeys = getKeysForGroup(it.value());
+            const std::vector<Key> groupKeys = q->findByFingerprint(toStdStrings(it.value()));
             KeyGroup g(groupName, groupName, groupKeys, KeyGroup::GnuPGConfig);
             m_groups.push_back(g);
         }
     }
 
-    KeyGroup readGroupFromGroupsConfig(const QString &groupId) const
-    {
-        Q_ASSERT(!m_groupsConfigName.isEmpty());
-
-        KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(m_groupsConfigName);
-        const KConfigGroup configGroup = groupsConfig->group(groupNamePrefix + groupId);
-
-        const QString groupName = configGroup.readEntry("Name", QString());
-        const QStringList fingerprints = configGroup.readEntry("Keys", QStringList());
-        const std::vector<Key> groupKeys = getKeysForGroup(fingerprints);
-
-        // treat group as immutable if any of its entries is immutable
-        const QStringList entries = configGroup.keyList();
-        const bool isImmutable = configGroup.isImmutable() || std::any_of(entries.begin(), entries.end(),
-                                                                          [configGroup] (const QString &entry) {
-                                                                              return configGroup.isEntryImmutable(entry);
-                                                                          });
-
-        KeyGroup g(groupId, groupName, groupKeys, KeyGroup::ApplicationConfig);
-        g.setIsImmutable(isImmutable);
-        qCDebug(LIBKLEO_LOG) << "Read group" << g;
-
-        return g;
-    }
-
     void readGroupsFromGroupsConfig()
     {
         if (m_groupsConfigName.isEmpty()) {
-            qCDebug(LIBKLEO_LOG) << "readGroupsFromGroupsConfig - name of application configuration file is unset";
+            qCDebug(LIBKLEO_LOG) << __func__ << "name of application configuration file is unset";
             return;
         }
 
-        const KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(m_groupsConfigName);
-        const QStringList configGroups = groupsConfig->groupList();
-        for (const QString &configGroupName : configGroups) {
-            qCDebug(LIBKLEO_LOG) << "Reading config group" << configGroupName;
-            if (configGroupName.startsWith(groupNamePrefix)) {
-                const QString keyGroupId = configGroupName.mid(groupNamePrefix.size());
-                if (keyGroupId.isEmpty()) {
-                    qCWarning(LIBKLEO_LOG) << "Config group" << configGroupName << "has empty group id";
-                    continue;
-                }
-                KeyGroup group = readGroupFromGroupsConfig(keyGroupId);
-                m_groups.push_back(group);
-            }
-        }
+        const KeyGroupConfig config{m_groupsConfigName};
+        m_groups = config.readGroups();
     }
 
     KeyGroup writeGroupToGroupsConfig(const KeyGroup &group)
     {
         if (m_groupsConfigName.isEmpty()) {
-            qCDebug(LIBKLEO_LOG) << "writeGroupToGroupsConfig - name of application configuration file is unset";
-            return KeyGroup();
+            qCDebug(LIBKLEO_LOG) << __func__ << "name of application configuration file is unset";
+            return {};
         }
 
         Q_ASSERT(!group.isNull());
         Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
         if (group.isNull() || group.source() != KeyGroup::ApplicationConfig) {
-            qCDebug(LIBKLEO_LOG) << "writeGroupToGroupsConfig - group cannot be written to application configuration:" << group;
-            return KeyGroup();
+            qCDebug(LIBKLEO_LOG) << __func__ << "group cannot be written to application configuration:" << group;
+            return group;
         }
 
-        KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(m_groupsConfigName);
-        KConfigGroup configGroup = groupsConfig->group(groupNamePrefix + group.id());
-
-        qCDebug(LIBKLEO_LOG) << "Writing config group" << configGroup.name();
-        configGroup.writeEntry("Name", group.name());
-        configGroup.writeEntry("Keys", getFingerprints(group.keys()));
-
-        // reread group to ensure that it reflects the saved group in case of immutable entries
-        return readGroupFromGroupsConfig(group.id());
+        KeyGroupConfig config{m_groupsConfigName};
+        return config.writeGroup(group);
     }
 
     bool removeGroupFromGroupsConfig(const KeyGroup &group)
     {
         if (m_groupsConfigName.isEmpty()) {
-            qCDebug(LIBKLEO_LOG) << "removeGroupFromGroupsConfig - name of application configuration file is unset";
+            qCDebug(LIBKLEO_LOG) << __func__ << "name of application configuration file is unset";
             return false;
         }
 
         Q_ASSERT(!group.isNull());
         Q_ASSERT(group.source() == KeyGroup::ApplicationConfig);
         if (group.isNull() || group.source() != KeyGroup::ApplicationConfig) {
-            qCDebug(LIBKLEO_LOG) << "removeGroupFromGroupsConfig - group cannot be removed from application configuration:" << group;
+            qCDebug(LIBKLEO_LOG) << __func__ << "group cannot be removed from application configuration:" << group;
             return false;
         }
 
-        KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(m_groupsConfigName);
-        KConfigGroup configGroup = groupsConfig->group(groupNamePrefix + group.id());
-
-        qCDebug(LIBKLEO_LOG) << "Removing config group" << configGroup.name();
-        configGroup.deleteGroup();
-
-        return true;
+        KeyGroupConfig config{m_groupsConfigName};
+        return config.removeGroup(group);
     }
 
     void updateGroupCache()

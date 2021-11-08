@@ -42,6 +42,8 @@ target_sources(KF5Libkleo PRIVATE
    kleo/keyfiltermanager.h
    kleo/keygroup.cpp
    kleo/keygroup.h
+   kleo/keygroupconfig.cpp
+   kleo/keygroupconfig.h
    kleo/keyresolver.cpp
    kleo/keyresolver.h
    kleo/keyresolvercore.cpp
@@ -206,6 +208,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   KeyFilter
   KeyFilterManager
   KeyGroup
+  KeyGroupConfig
   KeyResolver
   KeyResolverCore
   KeyserverConfig
