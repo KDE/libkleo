@@ -35,5 +35,17 @@ Container transformInPlace(Container &&c, UnaryOperation op)
     std::transform(std::begin(c), std::end(c), std::begin(c), op);
     return std::move(c);
 }
+
+/** Convenience helper for checking if a @p container contains an element
+ *  with key equivalent to @p key. This is mainly meant to be used for the
+ *  associative standard containers until we can use their corresponding
+ *  member function in C++20.
+ */
+template<typename Container, typename Key>
+bool contains(const Container &container, const Key &key)
+{
+    return std::find(std::begin(container), std::end(container), key) != std::end(container);
+}
+
 }
 
