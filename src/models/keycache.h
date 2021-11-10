@@ -44,9 +44,12 @@ class KeyGroup;
 class KeyGroupConfig;
 enum class KeyUsage : char;
 
+class KeyCacheAutoRefreshSuspension;
+
 class KLEO_EXPORT KeyCache : public QObject
 {
     Q_OBJECT
+
 protected:
     explicit KeyCache();
 public:
@@ -75,6 +78,8 @@ public:
 
     void setRefreshInterval(int hours);
     int refreshInterval() const;
+
+    std::shared_ptr<KeyCacheAutoRefreshSuspension> suspendAutoRefresh();
 
     void enableRemarks(bool enable);
     bool remarksEnabled() const;

@@ -4,7 +4,7 @@
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007, 2008 Klarälvdalens Datakonsult AB
     SPDX-FileCopyrightText: 2018 Intevation GmbH
-    SPDX-FileCopyrightText: 2020 g10 Code GmbH
+    SPDX-FileCopyrightText: 2020, 2021 g10 Code GmbH
     SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
@@ -74,6 +74,46 @@ namespace
 make_comparator_str(ByEMail, .first.c_str());
 
 }
+
+class Kleo::KeyCacheAutoRefreshSuspension
+{
+    KeyCacheAutoRefreshSuspension()
+    {
+        qCDebug(LIBKLEO_LOG) << __func__;
+        auto cache = KeyCache::mutableInstance();
+        cache->enableFileSystemWatcher(false);
+        m_refreshInterval = cache->refreshInterval();
+        cache->setRefreshInterval(0);
+        cache->cancelKeyListing();
+        m_cache = cache;
+    }
+
+public:
+    ~KeyCacheAutoRefreshSuspension()
+    {
+        qCDebug(LIBKLEO_LOG) << __func__;
+        if (auto cache = m_cache.lock()) {
+            cache->enableFileSystemWatcher(true);
+            cache->setRefreshInterval(m_refreshInterval);
+        }
+    }
+
+    static std::shared_ptr<KeyCacheAutoRefreshSuspension> instance()
+    {
+        static std::weak_ptr<KeyCacheAutoRefreshSuspension> self;
+        if (auto s = self.lock()) {
+            return s;
+        } else {
+            s = std::shared_ptr<KeyCacheAutoRefreshSuspension>{new KeyCacheAutoRefreshSuspension{}};
+            self = s;
+            return s;
+        }
+    }
+
+private:
+    std::weak_ptr<KeyCache> m_cache;
+    int m_refreshInterval = 0;
+};
 
 class KeyCache::Private
 {
@@ -455,6 +495,11 @@ void KeyCache::setRefreshInterval(int hours)
 int KeyCache::refreshInterval() const
 {
     return d->refreshInterval();
+}
+
+std::shared_ptr<KeyCacheAutoRefreshSuspension> KeyCache::suspendAutoRefresh()
+{
+    return KeyCacheAutoRefreshSuspension::instance();
 }
 
 void KeyCache::reload(GpgME::Protocol /*proto*/)
