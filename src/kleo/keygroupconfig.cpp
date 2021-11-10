@@ -14,6 +14,7 @@
 #include "keygroup.h"
 
 #include "models/keycache.h"
+#include "utils/keyhelpers.h"
 #include "utils/qtstlhelpers.h"
 
 #include <KConfigGroup>
@@ -102,23 +103,6 @@ std::vector<KeyGroup> KeyGroupConfig::Private::readGroups() const
     return groups;
 }
 
-namespace
-{
-auto getFingerprints(const KeyGroup::Keys &keys)
-{
-    QStringList fingerprints;
-
-    fingerprints.reserve(keys.size());
-    std::transform(std::begin(keys), std::end(keys),
-                   std::back_inserter(fingerprints),
-                   [](const auto &key) {
-                       return QString::fromLatin1(key.primaryFingerprint());
-                   });
-
-    return fingerprints;
-}
-}
-
 KeyGroup KeyGroupConfig::Private::writeGroup(const KeyGroup &group)
 {
     if (filename.isEmpty()) {
@@ -135,7 +119,7 @@ KeyGroup KeyGroupConfig::Private::writeGroup(const KeyGroup &group)
 
     qCDebug(LIBKLEO_LOG) << __func__ << "Writing config group" << configGroup.name();
     configGroup.writeEntry("Name", group.name());
-    configGroup.writeEntry("Keys", getFingerprints(group.keys()));
+    configGroup.writeEntry("Keys", Kleo::getFingerprints(group.keys()));
 
     // reread group to ensure that it reflects the saved group in case of immutable entries
     return readGroup(groupsConfig, group.id());

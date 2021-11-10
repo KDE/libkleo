@@ -92,6 +92,7 @@ target_sources(KF5Libkleo PRIVATE
    utils/gnupg.h
    utils/hex.cpp
    utils/hex.h
+   utils/keyhelpers.h
    utils/qtstlhelpers.cpp
    utils/qtstlhelpers.h
    utils/scdaemon.cpp
@@ -246,6 +247,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   FileSystemWatcher
   Formatting
   GnuPG
+  KeyHelpers
   QtStlHelpers
   SCDaemon
   StringUtils
