@@ -87,6 +87,7 @@ public:
     const std::vector<GpgME::Key> &keys() const;
     std::vector<GpgME::Key> secretKeys() const;
 
+    KeyGroup group(const QString &id) const;
     std::vector<KeyGroup> groups() const;
     std::vector<KeyGroup> configurableGroups() const;
     void saveConfigurableGroups(const std::vector<KeyGroup> &groups);

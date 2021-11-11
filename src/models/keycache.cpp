@@ -1121,6 +1121,17 @@ std::vector<Key> KeyCache::secretKeys() const
     return keys;
 }
 
+KeyGroup KeyCache::group(const QString &id) const
+{
+    KeyGroup result{};
+    const auto it = std::find_if(std::cbegin(d->m_groups), std::cend(d->m_groups),
+                                 [id](const auto &g) { return g.id() == id; });
+    if (it != std::cend(d->m_groups)) {
+        result = *it;
+    }
+    return result;
+}
+
 std::vector<KeyGroup> KeyCache::groups() const
 {
     d->ensureCachePopulated();
