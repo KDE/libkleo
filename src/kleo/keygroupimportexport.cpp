@@ -35,12 +35,49 @@ using namespace GpgME;
 // thing because the ini files created by KConfig are incompatible with QSettings
 static const QString groupNamePrefix = QStringLiteral("KeyGroup-");
 
-static KeyGroup readGroup(const QSettings &groupsConfig, const QString &groupId)
+namespace
+{
+
+QString readString(const QSettings &settings, const QString &key)
+{
+    return settings.value(key, QString{}).toString();
+}
+
+QStringList readStringList(const QSettings &settings, const QString &key)
+{
+    auto variant = settings.value(key);
+    if (!variant.isValid()) {
+        return {};
+    }
+    if ((variant.userType() == QMetaType::QString) && variant.toString().isEmpty()) {
+        // interpret empty string value as empty list instead of as list with an empty string
+        return {};
+    }
+    // opportunistically, interpret the value as string list
+    return variant.toStringList();
+}
+
+void writeString(QSettings &settings, const QString &key, const QString &string)
+{
+    settings.setValue(key, string);
+}
+
+void writeStringList(QSettings &settings, const QString &key, const QStringList &list)
+{
+    // write empty list as empty string to avoid Qt's "@Invalid()"
+    if (list.empty()) {
+        writeString(settings, key, {});
+    } else {
+        settings.setValue(key, list);
+    }
+}
+
+KeyGroup readGroup(const QSettings &groupsConfig, const QString &groupId)
 {
     const auto configGroupPath = groupNamePrefix + groupId + QLatin1Char{'/'};
 
-    const auto groupName = groupsConfig.value(configGroupPath + QLatin1String{"Name"}, QString()).toString();
-    const auto fingerprints = groupsConfig.value(configGroupPath + QLatin1String{"Keys"}, QStringList()).toStringList();
+    const auto groupName = readString(groupsConfig, configGroupPath + QLatin1String{"Name"});
+    const auto fingerprints = readStringList(groupsConfig, configGroupPath + QLatin1String{"Keys"});
     const std::vector<Key> groupKeys = KeyCache::instance()->findByFingerprint(toStdStrings(fingerprints));
 
     KeyGroup g(groupId, groupName, groupKeys, KeyGroup::ApplicationConfig);
@@ -48,6 +85,22 @@ static KeyGroup readGroup(const QSettings &groupsConfig, const QString &groupId)
 
     return g;
 }
+
+void writeGroup(QSettings &groupsConfig, const KeyGroup &group)
+{
+    if (group.isNull()) {
+        qCDebug(LIBKLEO_LOG) << __func__ << "Error: group is null";
+        return;
+    }
+
+    const auto configGroupName = groupNamePrefix + group.id();
+    qCDebug(LIBKLEO_LOG) << __func__ << "Writing config group" << configGroupName;
+    const auto configGroupPath = configGroupName + QLatin1Char{'/'};
+    writeString(groupsConfig, configGroupPath + QLatin1String{"Name"}, group.name());
+    writeStringList(groupsConfig, configGroupPath + QLatin1String{"Keys"}, Kleo::getFingerprints(group.keys()));
+}
+
+} // namespace
 
 std::vector<KeyGroup> Kleo::readKeyGroups(const QString &filename)
 {
@@ -77,20 +130,6 @@ std::vector<KeyGroup> Kleo::readKeyGroups(const QString &filename)
     }
 
     return groups;
-}
-
-static void writeGroup(QSettings &groupsConfig, const KeyGroup &group)
-{
-    if (group.isNull()) {
-        qCDebug(LIBKLEO_LOG) << __func__ << "Error: group is null";
-        return;
-    }
-
-    const auto configGroupName = groupNamePrefix + group.id();
-    qCDebug(LIBKLEO_LOG) << __func__ << "Writing config group" << configGroupName;
-    const auto configGroupPath = configGroupName + QLatin1Char{'/'};
-    groupsConfig.setValue(configGroupPath + QLatin1String{"Name"}, group.name());
-    groupsConfig.setValue(configGroupPath + QLatin1String{"Keys"}, Kleo::getFingerprints(group.keys()));
 }
 
 Kleo::WriteKeyGroups Kleo::writeKeyGroups(const QString &filename, const std::vector<KeyGroup> &groups)
