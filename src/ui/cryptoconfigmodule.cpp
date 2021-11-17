@@ -51,6 +51,13 @@
 #include <array>
 #include <set>
 
+#include "ki18n_version.h"
+#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
+#include <klazylocalizedstring.h>
+#undef I18N_NOOP
+#define I18N_NOOP kli18n
+#endif
+
 using namespace Kleo;
 
 namespace
@@ -663,7 +670,11 @@ void Kleo::CryptoConfigEntryLineEdit::doLoad()
 ////
 
 static const struct {
+#if KI18N_VERSION < QT_VERSION_CHECK(5, 89, 0)
     const char *label;
+#else
+    const KLazyLocalizedString label;
+#endif
     const char *name;
 } debugLevels[] = {
     { I18N_NOOP("0 - None"), "none"},
@@ -683,7 +694,12 @@ Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModul
     label->setBuddy(mComboBox);
 
     for (unsigned int i = 0; i < numDebugLevels; ++i) {
+#if KI18N_VERSION < QT_VERSION_CHECK(5, 89, 0)
         mComboBox->addItem(i18n(debugLevels[i].label));
+#else
+        mComboBox->addItem(KLocalizedString(debugLevels[i].label).toString());
+#endif
+
     }
 
     if (entry->isReadOnly()) {
