@@ -121,11 +121,11 @@ std::vector<GpgME::Key> AbstractKeyListModel::remarkKeys() const
 
 Key AbstractKeyListModel::key(const QModelIndex &idx) const
 {
+    Key key = Key::null;
     if (idx.isValid()) {
-        return doMapToKey(idx);
-    } else {
-        return Key::null;
+        key = doMapToKey(idx);
     }
+    return key;
 }
 
 std::vector<Key> AbstractKeyListModel::keys(const QList<QModelIndex> &indexes) const
@@ -944,28 +944,25 @@ QModelIndex HierarchicalKeyListModel::parent(const QModelIndex &idx) const
 
 Key HierarchicalKeyListModel::doMapToKey(const QModelIndex &idx) const
 {
+    Key key = Key::null;
 
-    if (!idx.isValid()) {
-        return Key::null;
-    }
-
-    const char *const issuer_fpr = static_cast<const char *>(idx.internalPointer());
-    if (!issuer_fpr || !*issuer_fpr) {
-        // top-level:
-        if (static_cast<unsigned>(idx.row()) >= mTopLevels.size()) {
-            return Key::null;
+    if (idx.isValid()) {
+        const char *const issuer_fpr = static_cast<const char *>(idx.internalPointer());
+        if (!issuer_fpr || !*issuer_fpr) {
+            // top-level:
+            if (static_cast<unsigned>(idx.row()) < mTopLevels.size()) {
+                key = mTopLevels[idx.row()];
+            }
         } else {
-            return mTopLevels[idx.row()];
+            // non-toplevel:
+            const Map::const_iterator it = mKeysByExistingParent.find(issuer_fpr);
+            if (it != mKeysByExistingParent.end() && static_cast<unsigned>(idx.row()) < it->second.size()) {
+                key = it->second[idx.row()];
+            }
         }
     }
 
-    // non-toplevel:
-    const Map::const_iterator it
-        = mKeysByExistingParent.find(issuer_fpr);
-    if (it == mKeysByExistingParent.end() || static_cast<unsigned>(idx.row()) >= it->second.size()) {
-        return Key::null;
-    }
-    return it->second[idx.row()];
+    return key;
 }
 
 QModelIndex HierarchicalKeyListModel::doMapFromKey(const Key &key, int col) const
