@@ -1109,10 +1109,61 @@ void HierarchicalKeyListModel::addTopLevelKey(const Key &key)
 
 }
 
-// sorts 'keys' such that parent always come before their children:
-static std::vector<Key> topological_sort(const std::vector<Key> &keys)
+namespace
 {
 
+// based on https://www.boost.org/doc/libs/1_77_0/libs/graph/doc/file_dependency_example.html#sec:cycles
+struct cycle_detector : public boost::dfs_visitor<>
+{
+    cycle_detector(bool &has_cycle)
+        : _has_cycle{has_cycle}
+    {
+    }
+
+    template <class Edge, class Graph>
+    void back_edge(Edge, Graph&)
+    {
+        _has_cycle = true;
+    }
+
+private:
+    bool &_has_cycle;
+};
+
+static bool graph_has_cycle(const boost::adjacency_list<> &graph)
+{
+    bool cycle_found = false;
+    cycle_detector vis{cycle_found};
+    boost::depth_first_search(graph, visitor(vis));
+    return cycle_found;
+}
+
+static void find_keys_causing_cycles_and_mask_their_issuers(const std::vector<Key> &keys)
+{
+    boost::adjacency_list<> graph{keys.size()};
+
+    for (unsigned int i = 0, end = keys.size(); i != end; ++i) {
+        const auto &key = keys[i];
+        const char *const issuer_fpr = cleanChainID(key);
+        if (!issuer_fpr || !*issuer_fpr) {
+            continue;
+        }
+        const std::vector<Key>::const_iterator it
+            = Kleo::binary_find(keys.begin(), keys.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
+        if (it == keys.end()) {
+            continue;
+        }
+        const auto j = std::distance(keys.begin(), it);
+        const auto edge = boost::add_edge(i, j, graph).first;
+        if (graph_has_cycle(graph)) {
+            Issuers::instance()->maskIssuerOfKey(key);
+            boost::remove_edge(edge, graph);
+        }
+    }
+}
+
+static auto build_key_graph(const std::vector<Key> &keys)
+{
     boost::adjacency_list<> graph(keys.size());
 
     // add edges from children to parents:
@@ -1126,8 +1177,17 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
         if (it == keys.end()) {
             continue;
         }
-        add_edge(i, std::distance(keys.begin(), it), graph);
+        const auto j = std::distance(keys.begin(), it);
+        add_edge(i, j, graph);
     }
+
+    return graph;
+}
+
+// sorts 'keys' such that parent always come before their children:
+static std::vector<Key> topological_sort(const std::vector<Key> &keys)
+{
+    const auto graph = build_key_graph(keys);
 
     std::vector<int> order;
     order.reserve(keys.size());
@@ -1141,6 +1201,8 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
         result.push_back(keys[i]);
     }
     return result;
+}
+
 }
 
 QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &keys)
@@ -1160,6 +1222,10 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
                    std::back_inserter(merged), _detail::ByFingerprint<std::less>());
 
     mKeysByFingerprint = merged;
+
+    if (graph_has_cycle(build_key_graph(mKeysByFingerprint))) {
+        find_keys_causing_cycles_and_mask_their_issuers(mKeysByFingerprint);
+    }
 
     std::set<Key, _detail::ByFingerprint<std::less> > changedParents;
 
