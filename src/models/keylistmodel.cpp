@@ -675,15 +675,46 @@ private:
     std::vector<KeyGroup> mGroups;
 };
 
+class Issuers
+{
+    Issuers() {}
+
+public:
+    static Issuers *instance()
+    {
+        static auto self = std::unique_ptr<Issuers>{new Issuers{}};
+        return self.get();
+    }
+
+    const char *cleanChainID(const Key &key) const
+    {
+        const char *chainID = "";
+        if (!key.isRoot()) {
+            const char *const chid = key.chainID();
+            if (chid && mKeysWithMaskedIssuer.find(key) == std::end(mKeysWithMaskedIssuer)) {
+                chainID = chid;
+            }
+        }
+        return chainID;
+    }
+
+    void maskIssuerOfKey(const Key &key)
+    {
+        mKeysWithMaskedIssuer.insert(key);
+    }
+
+    void clear()
+    {
+        mKeysWithMaskedIssuer.clear();
+    }
+
+private:
+    std::set<Key, _detail::ByFingerprint<std::less>> mKeysWithMaskedIssuer;
+};
+
 static const char *cleanChainID(const Key &key)
 {
-    if (key.isRoot()) {
-        return "";
-    }
-    if (const char *chid = key.chainID()) {
-        return chid;
-    }
-    return "";
+    return Issuers::instance()->cleanChainID(key);
 }
 
 }
