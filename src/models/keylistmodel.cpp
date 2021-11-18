@@ -1155,7 +1155,7 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
             auto last = mTopLevels.begin();
             auto lastFP = mKeysByFingerprint.begin();
 
-            for (const Key &k : std::as_const(children)) {
+            for (const Key &k : children) {
                 last = Kleo::binary_find(last, mTopLevels.end(), k, _detail::ByFingerprint<std::less>());
                 Q_ASSERT(last != mTopLevels.end());
                 const int row = std::distance(mTopLevels.begin(), last);
