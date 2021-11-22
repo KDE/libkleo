@@ -47,5 +47,14 @@ bool contains(const Container &container, const Key &key)
     return std::find(std::begin(container), std::end(container), key) != std::end(container);
 }
 
+/** Convenience helper for checking if a @p container contains an element
+ *  for which predicate @p p returns @c true.
+ */
+template<typename Container, typename UnaryPredicate>
+bool contains_if(const Container &container, UnaryPredicate p)
+{
+    return std::find_if(std::begin(container), std::end(container), p) != std::end(container);
+}
+
 }
 
