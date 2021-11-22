@@ -20,6 +20,7 @@
 #include "kleo/stl_util.h"
 #include "kleo/dn.h"
 
+#include "utils/algorithm.h"
 #include "utils/compat.h"
 #include "utils/filesystemwatcher.h"
 #include "utils/qtstlhelpers.h"
@@ -898,12 +899,12 @@ std::vector<Key> KeyCache::findSubjects(std::vector<Key>::const_iterator first, 
 
 std::vector<Key> KeyCache::findIssuers(const Key &key, Options options) const
 {
+    std::vector<Key> result;
 
     if (key.isNull()) {
-        return std::vector<Key>();
+        return result;
     }
 
-    std::vector<Key> result;
     if (options & IncludeSubject) {
         result.push_back(key);
     }
@@ -924,12 +925,21 @@ std::vector<Key> KeyCache::findIssuers(const Key &key, Options options) const
         return result;
     }
 
-    while (!result.back().isNull() && !result.back().isRoot()) {
-        result.push_back(findByFingerprint(result.back().chainID()));
-    }
-
-    if (result.back().isNull()) {
-        result.pop_back();
+    while (true) {
+        const Key &issuer = findByFingerprint(result.back().chainID());
+        if (issuer.isNull()) {
+            break;
+        }
+        const bool chainAlreadyContainsIssuer =
+            Kleo::contains_if(result, [issuer](const auto &key) {
+                return _detail::ByFingerprint<std::equal_to>()(issuer, key);
+            });
+        // we also add the issuer if the chain already contains it, so that
+        // the user can spot the recursion
+        result.push_back(issuer);
+        if (issuer.isRoot() || chainAlreadyContainsIssuer) {
+            break;
+        }
     }
 
     return result;
