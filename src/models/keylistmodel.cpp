@@ -1487,6 +1487,7 @@ void HierarchicalKeyListModel::doClear(ItemTypes types)
         mKeysByFingerprint.clear();
         mKeysByExistingParent.clear();
         mKeysByNonExistingParent.clear();
+        Issuers::instance()->clear();
     }
     if (types & Groups) {
         mGroups.clear();
