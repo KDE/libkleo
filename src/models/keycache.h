@@ -166,8 +166,6 @@ public:
     std::vector<GpgME::Key> findSubjects(std::vector<GpgME::Key>::const_iterator first, std::vector<GpgME::Key>::const_iterator last, Options options = RecursiveSearch) const;
 
     std::vector<GpgME::Key> findIssuers(const GpgME::Key &key, Options options = RecursiveSearch) const;
-    std::vector<GpgME::Key> findIssuers(const std::vector<GpgME::Key> &keys, Options options = RecursiveSearch) const;
-    std::vector<GpgME::Key> findIssuers(std::vector<GpgME::Key>::const_iterator first, std::vector<GpgME::Key>::const_iterator last, Options options = RecursiveSearch) const;
 
     /** Check if at least one keylisting was finished. */
     bool initialized() const;

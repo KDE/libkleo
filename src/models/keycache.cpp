@@ -945,58 +945,6 @@ std::vector<Key> KeyCache::findIssuers(const Key &key, Options options) const
     return result;
 }
 
-std::vector<Key> KeyCache::findIssuers(const std::vector<Key> &keys, Options options) const
-{
-    return findIssuers(keys.begin(), keys.end(), options);
-}
-
-std::vector<Key> KeyCache::findIssuers(std::vector<Key>::const_iterator first, std::vector<Key>::const_iterator last, Options options) const
-{
-
-    if (first == last) {
-        return std::vector<Key>();
-    }
-
-    // extract chain-ids, identifying issuers:
-    std::vector<const char *> chainIDs;
-    chainIDs.reserve(last - first);
-    kdtools::transform_if(first, last, std::back_inserter(chainIDs),
-                          std::mem_fn(&Key::chainID),
-                          [](const Key &key) { return !key.isRoot(); });
-    std::sort(chainIDs.begin(), chainIDs.end(), _detail::ByFingerprint<std::less>());
-
-    const auto lastUniqueChainID = std::unique(chainIDs.begin(), chainIDs.end(), _detail::ByFingerprint<std::less>());
-
-    std::vector<Key> result;
-    result.reserve(lastUniqueChainID - chainIDs.begin());
-
-    d->ensureCachePopulated();
-
-    kdtools::set_intersection(d->by.fpr.begin(), d->by.fpr.end(),
-                              chainIDs.begin(), lastUniqueChainID,
-                              std::back_inserter(result),
-                              _detail::ByFingerprint<std::less>());
-
-    if (options & IncludeSubject) {
-        const unsigned int rs = result.size();
-        result.insert(result.end(), first, last);
-        std::inplace_merge(result.begin(), result.begin() + rs, result.end(),
-                           _detail::ByFingerprint<std::less>());
-    }
-
-    if (!(options & RecursiveSearch)) {
-        return result;
-    }
-
-    const std::vector<Key> l2result = findIssuers(result, options & ~IncludeSubject);
-
-    const unsigned long result_size = result.size();
-    result.insert(result.end(), l2result.begin(), l2result.end());
-    std::inplace_merge(result.begin(), result.begin() + result_size, result.end(),
-                       _detail::ByFingerprint<std::less>());
-    return result;
-}
-
 static std::string email(const UserID &uid)
 {
     // Prefer the gnupg normalized one
