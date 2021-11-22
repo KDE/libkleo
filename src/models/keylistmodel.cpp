@@ -629,18 +629,7 @@ private:
     bool doSetGroupData(const QModelIndex &index, const KeyGroup &group) override;
     bool doRemoveGroup(const KeyGroup &group) override;
 
-    void doClear(ItemTypes types) override
-    {
-        if (types & Keys) {
-            mTopLevels.clear();
-            mKeysByFingerprint.clear();
-            mKeysByExistingParent.clear();
-            mKeysByNonExistingParent.clear();
-        }
-        if (types & Groups) {
-            mGroups.clear();
-        }
-    }
+    void doClear(ItemTypes types) override;
 
     int firstGroupRow() const
     {
@@ -1489,6 +1478,19 @@ bool HierarchicalKeyListModel::doRemoveGroup(const KeyGroup &group)
         endRemoveRows();
     }
     return true;
+}
+
+void HierarchicalKeyListModel::doClear(ItemTypes types)
+{
+    if (types & Keys) {
+        mTopLevels.clear();
+        mKeysByFingerprint.clear();
+        mKeysByExistingParent.clear();
+        mKeysByNonExistingParent.clear();
+    }
+    if (types & Groups) {
+        mGroups.clear();
+    }
 }
 
 void AbstractKeyListModel::useKeyCache(bool value, KeyList::Options options)
