@@ -141,13 +141,16 @@ public:
     KeyNotValidFilter()
         : DefaultKeyFilter()
     {
-        setName(i18n("Not validated Certificates"));
-        setId(QStringLiteral("not-validated-certificates"));
         setSpecificity(UINT_MAX - 6); // overly high for ordering
+
+        setName(i18n("Not Validated Certificates"));
+        setId(QStringLiteral("not-validated-certificates"));
+        setMatchContexts(Filtering);
     }
     bool matches (const Key &key, MatchContexts contexts) const override
     {
-        return (contexts & Filtering) && !Formatting::uidsHaveFullValidity(key);
+        return DefaultKeyFilter::matches(key, contexts)
+            && !Formatting::uidsHaveFullValidity(key);
     }
 };
 
