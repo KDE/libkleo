@@ -56,5 +56,16 @@ bool contains_if(const Container &container, UnaryPredicate p)
     return std::find_if(std::begin(container), std::end(container), p) != std::end(container);
 }
 
+/**
+ * Convenience helper for removing elements from a vector @p v for which
+ * predicate @p p returns @c true.
+ * Use std::erase_if() instead if you can use C++20.
+ */
+template<typename Vector, typename UnaryPredicate>
+void erase_if(Vector &v, UnaryPredicate p)
+{
+    v.erase(std::remove_if(std::begin(v), std::end(v), p), std::end(v));
+}
+
 }
 
