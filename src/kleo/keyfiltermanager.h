@@ -14,6 +14,8 @@
 
 #include <libkleo/keyfilter.h>
 
+#include <gpgme++/global.h>
+
 #include <memory>
 #include <vector>
 
@@ -46,6 +48,11 @@ protected:
 
 public:
     static KeyFilterManager *instance();
+
+    /**
+     * Adds the rule that keys must match @p protocol to all filters.
+     */
+    void alwaysFilterByProtocol(GpgME::Protocol protocol);
 
     const std::shared_ptr<KeyFilter> &filterMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;
     std::vector<std::shared_ptr<KeyFilter>> filtersMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;

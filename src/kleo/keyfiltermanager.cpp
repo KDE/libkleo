@@ -14,6 +14,7 @@
 #include "stl_util.h"
 
 #include "libkleo_debug.h"
+#include "utils/algorithm.h"
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
 
@@ -178,6 +179,7 @@ public:
 
     std::vector<std::shared_ptr<KeyFilter>> filters;
     Model model;
+    GpgME::Protocol protocol = GpgME::UnknownProtocol;
 };
 
 KeyFilterManager *KeyFilterManager::mSelf = nullptr;
@@ -207,6 +209,14 @@ KeyFilterManager *KeyFilterManager::instance()
         mSelf = new KeyFilterManager();
     }
     return mSelf;
+}
+
+void KeyFilterManager::alwaysFilterByProtocol(GpgME::Protocol protocol)
+{
+    if (protocol != d->protocol) {
+        d->protocol = protocol;
+        reload();
+    }
 }
 
 const std::shared_ptr<KeyFilter> &KeyFilterManager::filterMatching(const Key &key, KeyFilter::MatchContexts contexts) const
@@ -262,7 +272,26 @@ void KeyFilterManager::reload()
         d->filters.push_back(std::shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
     }
     std::stable_sort(d->filters.begin(), d->filters.end(), ByDecreasingSpecificity());
-    qCDebug(LIBKLEO_LOG) << "final filter count is" << d->filters.size();
+
+    if (d->protocol != GpgME::UnknownProtocol) {
+        // remove filters with conflicting isOpenPGP rule
+        const auto conflictingValue = (d->protocol == GpgME::OpenPGP) ? DefaultKeyFilter::NotSet : DefaultKeyFilter::Set;
+        Kleo::erase_if(d->filters,
+                       [conflictingValue](const auto &f) {
+                           const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
+                           Q_ASSERT(filter);
+                           return filter->isOpenPGP() == conflictingValue;
+                       });
+        // add isOpenPGP rule to all filters
+        const auto isOpenPGPValue = (d->protocol == GpgME::OpenPGP) ? DefaultKeyFilter::Set : DefaultKeyFilter::NotSet;
+        std::for_each(std::begin(d->filters), std::end(d->filters),
+                      [isOpenPGPValue](auto &f) {
+                           const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
+                           Q_ASSERT(filter);
+                           return filter->setIsOpenPGP(isOpenPGPValue);
+                      });
+    }
+    qCDebug(LIBKLEO_LOG) << "KeyFilterManager::" << __func__ << "final filter count is" << d->filters.size();
 }
 
 QAbstractItemModel *KeyFilterManager::model() const
