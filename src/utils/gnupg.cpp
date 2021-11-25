@@ -476,9 +476,15 @@ bool Kleo::gnupgIsDeVsCompliant()
     if (!gnupgUsesDeVsCompliance()) {
         return false;
     }
-    // the pseudo option compliance_de_vs was added in 2.2.28; for older versions of GnuPG
-    // we assume non-compliance to be on the safe side; versions of Kleopatra for which
-    // this matters are bundled with new enough versions of GnuPG anyway
+    // The pseudo option compliance_de_vs was fully added in 2.2.34;
+    // For versions between 2.2.28 and 2.2.33 there was a broken config
+    // value with a wrong type. So for them we add an extra check. This
+    // can be removed in future versions because. For GnuPG we could assume
+    // non-compliance for older versions as versions of Kleopatra for
+    // which this matters are bundled with new enough versions of GnuPG anyway
+    if (engineIsVersion(2, 2, 28) && !engineIsVersion(2, 2, 34)) {
+        return true;
+    }
     return getCryptoConfigIntValue("gpg", "compliance_de_vs", 0) != 0;
 }
 
