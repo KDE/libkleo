@@ -1,13 +1,13 @@
 /*
     utils/uniquelock.cpp
-    QMutex-compatible replacement for std::UniqueLock
+    QMutex-compatible replacement for std::unique_lock
 
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2008-2021 Free Software Foundation, Inc.
     SPDX-FileCopyrightText: 2021 g10 Code GmbH
     SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
-    SPDX-License-Identifier: GPL-3.0-or-later+GCC Runtime Library Exception
+    SPDX-License-Identifier: GPL-3.0-or-later WITH GCC-exception-3.1
 */
 
 #include <config-libkleo.h>
