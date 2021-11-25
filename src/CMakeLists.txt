@@ -103,6 +103,8 @@ target_sources(KF5Libkleo PRIVATE
    utils/stringutils.h
    utils/test.cpp
    utils/test.h
+   utils/uniquelock.cpp
+   utils/uniquelock.h
    )
 ecm_qt_declare_logging_category(KF5Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
@@ -255,6 +257,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   SCDaemon
   StringUtils
   Test
+  UniqueLock
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
