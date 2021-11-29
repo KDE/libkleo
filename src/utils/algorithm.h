@@ -36,6 +36,17 @@ Container transformInPlace(Container &&c, UnaryOperation op)
     return std::move(c);
 }
 
+/** Convenience helper for checking if a @p range contains at least one element
+ *  for which predicate @p p returns @c true. Returns @c false if @p range is
+ *  empty.
+ *  Use ranges::any_of() instead if you can use C++20.
+ */
+template<typename InputRange, typename UnaryPredicate>
+bool any_of(const InputRange &range, UnaryPredicate p)
+{
+    return std::any_of(std::begin(range), std::end(range), p);
+}
+
 /** Convenience helper for checking if a @p container contains an element
  *  with key equivalent to @p key. This is mainly meant to be used for the
  *  associative standard containers until we can use their corresponding
