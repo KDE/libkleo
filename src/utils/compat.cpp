@@ -12,8 +12,8 @@
 
 #include <QGpgME/CryptoConfig>
 
-#include <gpgme++/gpgmepp_version.h>
-#if GPGMEPP_VERSION >= 0x11000 // 1.16.0
+#include <qgpgme/qgpgme_version.h>
+#if QGPGME_VERSION >= 0x11000 // 1.16.0
 # define CRYPTOCONFIG_HAS_GROUPLESS_ENTRY_OVERLOAD
 #endif
 
