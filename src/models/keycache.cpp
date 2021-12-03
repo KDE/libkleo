@@ -517,6 +517,10 @@ void KeyCache::reload(GpgME::Protocol /*proto*/)
             this, [this](const GpgME::KeyListResult &r) {
                 d->refreshJobDone(r);
             });
+    connect(d->m_refreshJob.data(), &RefreshKeysJob::canceled,
+            this, [this]() {
+                d->m_refreshJob.clear();
+            });
     d->m_refreshJob->start();
 }
 
@@ -568,6 +572,7 @@ bool KeyCache::remarksEnabled() const
 
 void KeyCache::Private::refreshJobDone(const KeyListResult &result)
 {
+    m_refreshJob.clear();
     q->enableFileSystemWatcher(true);
     m_initalized = true;
     updateGroupCache();
