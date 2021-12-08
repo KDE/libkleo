@@ -1,4 +1,5 @@
-
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: none
 # target_include_directories does not handle empty include paths
 include_directories(
     ${Boost_INCLUDE_DIRS}

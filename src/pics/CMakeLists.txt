@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: none
 install(FILES
 hi16-app-gpg.png
 hi16-app-gpgsm.png

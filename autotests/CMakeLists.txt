@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: none
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 include(ECMAddTests)
