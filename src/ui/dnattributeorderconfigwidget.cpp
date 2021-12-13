@@ -20,6 +20,7 @@
 
 #include <QTreeWidget>
 #include <QHeaderView>
+#include <KLazyLocalizedString>
 
 
 class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate
@@ -97,23 +98,23 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapp
     static const struct {
         const char *icon;
         int row, col;
-        const char *tooltip;
+        const KLazyLocalizedString tooltip;
         void(DNAttributeOrderConfigWidget::*slot)();
         bool autorepeat;
     } navButtons[] = {
-        { "go-top",    0, 1, I18N_NOOP("Move to top"),   &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked, false },
-        { "go-up",    1, 1, I18N_NOOP("Move one up"),    &DNAttributeOrderConfigWidget::slotUpButtonClicked, true },
-        { "go-previous",  2, 0, I18N_NOOP("Remove from current attribute order"), &DNAttributeOrderConfigWidget::slotLeftButtonClicked, false },
-        { "go-next", 2, 2, I18N_NOOP("Add to current attribute order"), &DNAttributeOrderConfigWidget::slotRightButtonClicked, false },
-        { "go-down",  3, 1, I18N_NOOP("Move one down"),  &DNAttributeOrderConfigWidget::slotDownButtonClicked, true },
-        { "go-bottom",  4, 1, I18N_NOOP("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false }
+        { "go-top",    0, 1, kli18n("Move to top"),   &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked, false },
+        { "go-up",    1, 1, kli18n("Move one up"),    &DNAttributeOrderConfigWidget::slotUpButtonClicked, true },
+        { "go-previous",  2, 0, kli18n("Remove from current attribute order"), &DNAttributeOrderConfigWidget::slotLeftButtonClicked, false },
+        { "go-next", 2, 2, kli18n("Add to current attribute order"), &DNAttributeOrderConfigWidget::slotRightButtonClicked, false },
+        { "go-down",  3, 1, kli18n("Move one down"),  &DNAttributeOrderConfigWidget::slotDownButtonClicked, true },
+        { "go-bottom",  4, 1, kli18n("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false }
     };
 
     for (unsigned int i = 0; i < sizeof navButtons / sizeof * navButtons; ++i) {
         QToolButton *tb = d->navTB[i] = new QToolButton(this);
         tb->setIcon(QIcon::fromTheme(QLatin1String(navButtons[i].icon)));
         tb->setEnabled(false);
-        tb->setToolTip(i18n(navButtons[i].tooltip));
+        tb->setToolTip(KLocalizedString(navButtons[i].tooltip).toString());
         xlay->addWidget(tb, navButtons[i].row, navButtons[i].col);
         tb->setAutoRepeat(navButtons[i].autorepeat);
         connect(tb, &QToolButton::clicked, this, navButtons[i].slot);

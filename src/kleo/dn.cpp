@@ -31,6 +31,7 @@
 #include <stdlib.h>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <KLazyLocalizedString>
 
 #ifdef _MSC_VER
 #define strcasecmp _stricmp
@@ -494,27 +495,27 @@ static const QStringList defaultOrder = {
     QStringLiteral("C"),
 };
 
-static std::pair<const char *, const char *> const attributeLabels[] = {
-#define MAKE_PAIR(x,y) std::pair<const char*,const char*>( x, y )
-    MAKE_PAIR("CN", I18N_NOOP("Common name")),
-    MAKE_PAIR("SN", I18N_NOOP("Surname")),
-    MAKE_PAIR("GN", I18N_NOOP("Given name")),
-    MAKE_PAIR("L",  I18N_NOOP("Location")),
-    MAKE_PAIR("T",  I18N_NOOP("Title")),
-    MAKE_PAIR("OU", I18N_NOOP("Organizational unit")),
-    MAKE_PAIR("O",  I18N_NOOP("Organization")),
-    MAKE_PAIR("PC", I18N_NOOP("Postal code")),
-    MAKE_PAIR("C",  I18N_NOOP("Country code")),
-    MAKE_PAIR("SP", I18N_NOOP("State or province")),
-    MAKE_PAIR("DC", I18N_NOOP("Domain component")),
-    MAKE_PAIR("BC", I18N_NOOP("Business category")),
-    MAKE_PAIR("EMAIL", I18N_NOOP("Email address")),
-    MAKE_PAIR("MAIL", I18N_NOOP("Mail address")),
-    MAKE_PAIR("MOBILE", I18N_NOOP("Mobile phone number")),
-    MAKE_PAIR("TEL", I18N_NOOP("Telephone number")),
-    MAKE_PAIR("FAX", I18N_NOOP("Fax number")),
-    MAKE_PAIR("STREET", I18N_NOOP("Street address")),
-    MAKE_PAIR("UID", I18N_NOOP("Unique ID"))
+static std::pair<const char *, const KLazyLocalizedString> const attributeLabels[] = {
+#define MAKE_PAIR(x,y) std::pair<const char*,const KLazyLocalizedString>( x, y )
+    MAKE_PAIR("CN", kli18n("Common name")),
+    MAKE_PAIR("SN", kli18n("Surname")),
+    MAKE_PAIR("GN", kli18n("Given name")),
+    MAKE_PAIR("L",  kli18n("Location")),
+    MAKE_PAIR("T",  kli18n("Title")),
+    MAKE_PAIR("OU", kli18n("Organizational unit")),
+    MAKE_PAIR("O",  kli18n("Organization")),
+    MAKE_PAIR("PC", kli18n("Postal code")),
+    MAKE_PAIR("C",  kli18n("Country code")),
+    MAKE_PAIR("SP", kli18n("State or province")),
+    MAKE_PAIR("DC", kli18n("Domain component")),
+    MAKE_PAIR("BC", kli18n("Business category")),
+    MAKE_PAIR("EMAIL", kli18n("Email address")),
+    MAKE_PAIR("MAIL", kli18n("Mail address")),
+    MAKE_PAIR("MOBILE", kli18n("Mobile phone number")),
+    MAKE_PAIR("TEL", kli18n("Telephone number")),
+    MAKE_PAIR("FAX", kli18n("Fax number")),
+    MAKE_PAIR("STREET", kli18n("Street address")),
+    MAKE_PAIR("UID", kli18n("Unique ID"))
 #undef MAKE_PAIR
 };
 static const unsigned int numAttributeLabels = sizeof attributeLabels / sizeof * attributeLabels;
@@ -523,7 +524,7 @@ class Kleo::DNAttributeMapper::Private
 {
 public:
     Private();
-    std::map<const char *, const char *, ltstr> map;
+    std::map<const char *, const KLazyLocalizedString, ltstr> map;
     QStringList attributeOrder;
 };
 
@@ -556,18 +557,18 @@ const Kleo::DNAttributeMapper *Kleo::DNAttributeMapper::instance()
 
 QString Kleo::DNAttributeMapper::name2label(const QString &s) const
 {
-    const std::map<const char *, const char *, ltstr>::const_iterator it
+    const std::map<const char *, const KLazyLocalizedString, ltstr>::const_iterator it
         = d->map.find(s.trimmed().toUpper().toLatin1().constData());
     if (it == d->map.end()) {
         return QString();
     }
-    return i18n(it->second);
+    return KLocalizedString(it->second).toString();
 }
 
 QStringList Kleo::DNAttributeMapper::names() const
 {
     QStringList result;
-    for (std::map<const char *, const char *, ltstr>::const_iterator it = d->map.begin(); it != d->map.end(); ++it) {
+    for (std::map<const char *, const KLazyLocalizedString, ltstr>::const_iterator it = d->map.begin(); it != d->map.end(); ++it) {
         result.push_back(QLatin1String(it->first));
     }
     return result;

@@ -51,12 +51,7 @@
 #include <array>
 #include <set>
 
-#include <ki18n_version.h>
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
 #include <KLazyLocalizedString>
-#undef I18N_NOOP
-#define I18N_NOOP kli18n
-#endif
 
 using namespace Kleo;
 
@@ -670,18 +665,14 @@ void Kleo::CryptoConfigEntryLineEdit::doLoad()
 ////
 
 static const struct {
-#if KI18N_VERSION < QT_VERSION_CHECK(5, 89, 0)
-    const char *label;
-#else
     const KLazyLocalizedString label;
-#endif
     const char *name;
 } debugLevels[] = {
-    { I18N_NOOP("0 - None"), "none"},
-    { I18N_NOOP("1 - Basic"), "basic"},
-    { I18N_NOOP("2 - Verbose"), "advanced"},
-    { I18N_NOOP("3 - More Verbose"), "expert"},
-    { I18N_NOOP("4 - All"), "guru"},
+    { kli18n("0 - None"), "none"},
+    { kli18n("1 - Basic"), "basic"},
+    { kli18n("2 - Verbose"), "advanced"},
+    { kli18n("3 - More Verbose"), "expert"},
+    { kli18n("4 - All"), "guru"},
 };
 static const unsigned int numDebugLevels = sizeof debugLevels / sizeof * debugLevels;
 
@@ -694,12 +685,7 @@ Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModul
     label->setBuddy(mComboBox);
 
     for (unsigned int i = 0; i < numDebugLevels; ++i) {
-#if KI18N_VERSION < QT_VERSION_CHECK(5, 89, 0)
-        mComboBox->addItem(i18n(debugLevels[i].label));
-#else
         mComboBox->addItem(KLocalizedString(debugLevels[i].label).toString());
-#endif
-
     }
 
     if (entry->isReadOnly()) {

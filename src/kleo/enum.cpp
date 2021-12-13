@@ -14,6 +14,7 @@
 #include <functional>
 
 #include <KLocalizedString>
+#include <KLazyLocalizedString>
 
 #include <gpgme++/key.h>
 #include <gpgme++/tofuinfo.h>
@@ -23,37 +24,37 @@
 
 static const struct {
     Kleo::CryptoMessageFormat format;
-    const char *displayName;
+    const KLazyLocalizedString displayName;
     const char *configName;
 } cryptoMessageFormats[] = {
     {
         Kleo::InlineOpenPGPFormat,
-        I18N_NOOP("Inline OpenPGP (deprecated)"),
+        kli18n("Inline OpenPGP (deprecated)"),
         "inline openpgp"
     },
     {
         Kleo::OpenPGPMIMEFormat,
-        I18N_NOOP("OpenPGP/MIME"),
+        kli18n("OpenPGP/MIME"),
         "openpgp/mime"
     },
     {
         Kleo::SMIMEFormat,
-        I18N_NOOP("S/MIME"),
+        kli18n("S/MIME"),
         "s/mime"
     },
     {
         Kleo::SMIMEOpaqueFormat,
-        I18N_NOOP("S/MIME Opaque"),
+        kli18n("S/MIME Opaque"),
         "s/mime opaque"
     },
     {
         Kleo::AnySMIME,
-        I18N_NOOP("Any S/MIME"),
+        kli18n("Any S/MIME"),
         "any s/mime"
     },
     {
         Kleo::AnyOpenPGP,
-        I18N_NOOP("Any OpenPGP"),
+        kli18n("Any OpenPGP"),
         "any openpgp"
     },
 };
@@ -91,7 +92,7 @@ QString Kleo::cryptoMessageFormatToLabel(Kleo::CryptoMessageFormat f)
     }
     for (unsigned int i = 0; i < numCryptoMessageFormats; ++i) {
         if (f == cryptoMessageFormats[i].format) {
-            return i18n(cryptoMessageFormats[i].displayName);
+            return KLocalizedString(cryptoMessageFormats[i].displayName).toString();
         }
     }
     return QString();
