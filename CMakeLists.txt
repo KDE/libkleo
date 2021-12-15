@@ -31,7 +31,7 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "5.15.2")
-set(KDEPIMTEXTEDIT_VERSION "5.19.0")
+set(KDEPIMTEXTEDIT_VERSION "5.19.1")
 
 find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
 find_package(KF5I18n ${KF5_WANT_VERSION} CONFIG REQUIRED)
