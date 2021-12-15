@@ -24,11 +24,6 @@
 
 #include <gpgme++/key.h>
 
-#include <gpgme++/gpgmepp_version.h>
-#if GPGMEPP_VERSION >= 0x10E01 // 1.14.1
-# define GPGME_USERID_SIGNATURES_ARE_SORTABLE
-#endif
-
 using namespace GpgME;
 using namespace Kleo;
 
@@ -204,9 +199,7 @@ void UserIDListModel::setKey(const Key &key)
         auto uidItem = new UIDModelItem(uid, mRootItem.get());
         mRootItem->appendChild(uidItem);
         std::vector<UserID::Signature> sigs = uid.signatures();
-#ifdef GPGME_USERID_SIGNATURES_ARE_SORTABLE
         std::sort(sigs.begin(), sigs.end());
-#endif
         for (const auto &sig : sigs) {
             auto sigItem = new UIDModelItem(sig, uidItem, mRemarksEnabled);
             uidItem->appendChild(sigItem);
