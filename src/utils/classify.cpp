@@ -369,7 +369,7 @@ QString Kleo::outputFileName(const QString &inputFileName)
 const char *Kleo::outputFileExtension(unsigned int classification, bool usePGPFileExt)
 {
 
-    if (classification & Kleo::Class::OpenPGP && usePGPFileExt) {
+    if (usePGPFileExt && (classification & Class::OpenPGP) && (classification & Class::Binary)) {
         return "pgp";
     }
 
