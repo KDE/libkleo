@@ -180,7 +180,7 @@ QString FileNameRequester::requestFileName()
     } else if (d->existingOnly) {
         return QFileDialog::getOpenFileName(this, QString(), QString(), d->nameFilter);
     } else {
-        return QFileDialog::getSaveFileName(this, QString(), QString(), d->nameFilter);
+        return QFileDialog::getSaveFileName(this, QString(), fileName(), d->nameFilter);
     }
 #else
     return QString();
