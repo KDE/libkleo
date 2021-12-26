@@ -163,7 +163,7 @@ target_sources(KF5Libkleo PRIVATE    # make this a separate lib.
     )
 
 
-target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt::Widgets
+target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt${QT_MAJOR_VERSION}::Widgets
                                                 KF5::I18n
                                                 KF5::Completion
                                                 KF5::ConfigCore
@@ -288,7 +288,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
 
 ecm_generate_pri_file(BASE_NAME Libkleo
     LIB_NAME KF5Libkleo
-    DEPS "QGpgme" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/Libkleo
+    DEPS "QGpgme" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo
 )
 
 
@@ -297,7 +297,7 @@ install(FILES
     ${libkleo_CamelCase_models_HEADERS}
     ${libkleo_CamelCase_ui_HEADERS}
     ${libkleo_CamelCase_utils_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/Libkleo
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo
     COMPONENT Devel
 )
 
@@ -307,7 +307,7 @@ install(FILES
     ${libkleo_models_HEADERS}
     ${libkleo_ui_HEADERS}
     ${libkleo_utils_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/libkleo
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/libkleo
     COMPONENT Devel
 )
 install(FILES
