@@ -32,6 +32,7 @@ target_sources(KF5Libkleo PRIVATE
    kleo/defaultkeyfilter.h
    kleo/defaultkeygenerationjob.cpp
    kleo/defaultkeygenerationjob.h
+   kleo/docaction.cpp
    kleo/dn.cpp
    kleo/dn.h
    kleo/enum.cpp
@@ -208,6 +209,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   Debug
   DefaultKeyFilter
   DefaultKeyGenerationJob
+  DocAction
   Dn
   Enum
   KConfigBasedKeyFilter
