@@ -33,7 +33,7 @@ using namespace GpgME;
 // other applications; this means that the key groups stored in the normal group
 // configuration file cannot be read with the below functions, but that's a good
 // thing because the ini files created by KConfig are incompatible with QSettings
-static const QString groupNamePrefix = QStringLiteral("KeyGroup-");
+static const QString keyGroupNamePrefix = QStringLiteral("KeyGroup-");
 
 namespace
 {
@@ -74,7 +74,7 @@ void writeStringList(QSettings &settings, const QString &key, const QStringList 
 
 KeyGroup readGroup(const QSettings &groupsConfig, const QString &groupId)
 {
-    const auto configGroupPath = groupNamePrefix + groupId + QLatin1Char{'/'};
+    const auto configGroupPath = keyGroupNamePrefix + groupId + QLatin1Char{'/'};
 
     const auto groupName = readString(groupsConfig, configGroupPath + QLatin1String{"Name"});
     const auto fingerprints = readStringList(groupsConfig, configGroupPath + QLatin1String{"Keys"});
@@ -93,7 +93,7 @@ void writeGroup(QSettings &groupsConfig, const KeyGroup &group)
         return;
     }
 
-    const auto configGroupName = groupNamePrefix + group.id();
+    const auto configGroupName = keyGroupNamePrefix + group.id();
     qCDebug(LIBKLEO_LOG) << __func__ << "Writing config group" << configGroupName;
     const auto configGroupPath = configGroupName + QLatin1Char{'/'};
     writeString(groupsConfig, configGroupPath + QLatin1String{"Name"}, group.name());
@@ -118,9 +118,9 @@ std::vector<KeyGroup> Kleo::readKeyGroups(const QString &filename)
     const QSettings groupsConfig{filename, QSettings::IniFormat};
     const QStringList configGroups = groupsConfig.childGroups();
     for (const QString &configGroupName : configGroups) {
-        if (configGroupName.startsWith(groupNamePrefix)) {
+        if (configGroupName.startsWith(keyGroupNamePrefix)) {
             qCDebug(LIBKLEO_LOG) << __func__ << "Reading config group" << configGroupName;
-            const QString keyGroupId = configGroupName.mid(groupNamePrefix.size());
+            const QString keyGroupId = configGroupName.mid(keyGroupNamePrefix.size());
             if (keyGroupId.isEmpty()) {
                 qCWarning(LIBKLEO_LOG) << __func__ << "Config group" << configGroupName << "has empty group id";
                 continue;
