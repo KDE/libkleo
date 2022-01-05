@@ -47,7 +47,7 @@ using namespace Kleo;
 QString Formatting::prettyName(int proto, const char *id, const char *name_, const char *comment_)
 {
 
-    if (proto == OpenPGP) {
+    if (proto == GpgME::OpenPGP) {
         const QString name = QString::fromUtf8(name_);
         if (name.isEmpty()) {
             return QString();
@@ -59,7 +59,7 @@ QString Formatting::prettyName(int proto, const char *id, const char *name_, con
         return QStringLiteral("%1 (%2)").arg(name, comment);
     }
 
-    if (proto == CMS) {
+    if (proto == GpgME::CMS) {
         const DN subject(id);
         const QString cn = subject[QStringLiteral("CN")].trimmed();
         if (cn.isEmpty()) {
@@ -79,7 +79,7 @@ QString Formatting::prettyNameAndEMail(int proto, const char *id, const char *na
 QString Formatting::prettyNameAndEMail(int proto, const QString &id, const QString &name, const QString &email, const QString &comment)
 {
 
-    if (proto == OpenPGP) {
+    if (proto == GpgME::OpenPGP) {
         if (name.isEmpty()) {
             if (email.isEmpty()) {
                 return QString();
@@ -103,7 +103,7 @@ QString Formatting::prettyNameAndEMail(int proto, const QString &id, const QStri
         }
     }
 
-    if (proto == CMS) {
+    if (proto == GpgME::CMS) {
         const DN subject(id);
         const QString cn = subject[QStringLiteral("CN")].trimmed();
         if (cn.isEmpty()) {
@@ -116,7 +116,7 @@ QString Formatting::prettyNameAndEMail(int proto, const QString &id, const QStri
 
 QString Formatting::prettyUserID(const UserID &uid)
 {
-    if (uid.parent().protocol() == OpenPGP) {
+    if (uid.parent().protocol() == GpgME::OpenPGP) {
         return prettyNameAndEMail(uid);
     }
     const QByteArray id = QByteArray(uid.id()).trimmed();
@@ -162,7 +162,7 @@ QString Formatting::prettyName(const UserID &uid)
 
 QString Formatting::prettyName(const UserID::Signature &sig)
 {
-    return prettyName(OpenPGP, sig.signerUserID(), sig.signerName(), sig.signerComment());
+    return prettyName(GpgME::OpenPGP, sig.signerUserID(), sig.signerName(), sig.signerComment());
 }
 
 //
@@ -314,7 +314,7 @@ static QString make_red(const QString &txt)
 
 QString Formatting::toolTip(const Key &key, int flags)
 {
-    if (flags == 0 || (key.protocol() != CMS && key.protocol() != OpenPGP)) {
+    if (flags == 0 || (key.protocol() != GpgME::CMS && key.protocol() != GpgME::OpenPGP)) {
         return QString();
     }
 
@@ -322,7 +322,7 @@ QString Formatting::toolTip(const Key &key, int flags)
 
     QString result;
     if (flags & Validity) {
-        if (key.protocol() == OpenPGP || (key.keyListMode() & Validate)) {
+        if (key.protocol() == GpgME::OpenPGP || (key.keyListMode() & Validate)) {
             if (key.isRevoked()) {
                 result = make_red(i18n("Revoked"));
             } else if (key.isExpired()) {
@@ -357,7 +357,7 @@ QString Formatting::toolTip(const Key &key, int flags)
     }
 
     result += QLatin1String("<table border=\"0\">");
-    if (key.protocol() == CMS) {
+    if (key.protocol() == GpgME::CMS) {
         if (flags & SerialNumber) {
             result += format_row(i18n("Serial number"), key.issuerSerial());
         }
@@ -368,7 +368,7 @@ QString Formatting::toolTip(const Key &key, int flags)
     if (flags & UserIDs) {
         const std::vector<UserID> uids = key.userIDs();
         if (!uids.empty()) {
-            result += format_row(key.protocol() == CMS
+            result += format_row(key.protocol() == GpgME::CMS
                                  ? i18n("Subject")
                                  : i18n("User-ID"), prettyUserID(uids.front()));
         }
@@ -402,7 +402,7 @@ QString Formatting::toolTip(const Key &key, int flags)
         result += format_row(i18n("Fingerprint"), key.primaryFingerprint());
     }
     if (flags & OwnerTrust) {
-        if (key.protocol() == OpenPGP) {
+        if (key.protocol() == GpgME::OpenPGP) {
             result += format_row(i18n("Certification trust"), ownerTrustShort(key));
         } else if (key.isRoot()) {
             result += format_row(i18n("Trusted issuer?"),
@@ -462,7 +462,7 @@ namespace
 template <typename Container>
 QString getValidityStatement(const Container &keys)
 {
-    const bool allKeysAreOpenPGP = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.protocol() == OpenPGP; });
+    const bool allKeysAreOpenPGP = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.protocol() == GpgME::OpenPGP; });
     const bool allKeysAreValidated = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.keyListMode() & Validate; });
     if (allKeysAreOpenPGP || allKeysAreValidated) {
         const bool someKeysAreBad = std::any_of(keys.cbegin(), keys.cend(), std::mem_fn(&Key::isBad));
@@ -632,12 +632,12 @@ QDate Formatting::creationDate(const UserID::Signature &sig)
 // Types
 //
 
-QString Formatting::displayName(Protocol p)
+QString Formatting::displayName(GpgME::Protocol p)
 {
-    if (p == CMS) {
+    if (p == GpgME::CMS) {
         return i18nc("X.509/CMS encryption standard", "S/MIME");
     }
-    if (p == OpenPGP) {
+    if (p == GpgME::OpenPGP) {
         return i18n("OpenPGP");
     }
     return i18nc("Unknown encryption protocol", "Unknown");
