@@ -33,6 +33,7 @@
 #include <QHash>
 #include <QIcon>
 #include <QDate>
+#include <QStack>
 #include <gpgme++/key.h>
 
 #ifndef Q_MOC_RUN // QTBUG-22829
@@ -1091,38 +1092,122 @@ void HierarchicalKeyListModel::addTopLevelKey(const Key &key)
 
 }
 
-namespace
+class SimpleGraph
 {
-
-// based on https://www.boost.org/doc/libs/1_77_0/libs/graph/doc/file_dependency_example.html#sec:cycles
-struct cycle_detector : public boost::dfs_visitor<>
-{
-    cycle_detector(bool &has_cycle)
-        : _has_cycle{has_cycle}
+public:
+    SimpleGraph(int numNodes)
+        : m_adjacencyLists(QVector<QVector<int>>(numNodes))
     {
+        m_numNodes = numNodes;
+    };
+
+    std::pair<int, int> addEdge(int source, int destination)
+    {
+        if(source < 0 || source > m_numNodes) {
+            throw std::out_of_range("Out of range");
+        }
+
+        m_adjacencyLists[source].push_back(destination);
+        return std::pair<int, int>(source, destination);
+    };
+
+    void removeEdge(std::pair<int, int> edge) {
+        removeEdge(edge.first, edge.second);
     }
 
-    template <class Edge, class Graph>
-    void back_edge(Edge, Graph&)
+    void removeEdge(int source, int destination)
     {
-        _has_cycle = true;
+        if(source < 0 || source > m_numNodes) {
+            throw std::out_of_range("Out of range");
+        } else if (!m_adjacencyLists[source].contains(destination)) {
+            throw std::logic_error("Edge does not exist.");
+        }
+
+        m_adjacencyLists[source].removeAll(destination);
+    };
+
+    // Topological sorting seeks to find the "bottom-most" element in a graph. For instance,
+    // for every node that has an edge a->b, we consider that a comes before b in the ordering.
+    // Topological sorting is only possible on a graph that is acyclic.
+
+    // In a graph a->b->c, this function returns the sorted nodes as [a, b, c] order.
+    QStack<int> topologicalSort() const
+    {
+        QStack<int> resultStack;
+
+        QVector<short> visited(m_numNodes);
+        visited.fill(0);
+
+        for (int i = 0; i < m_numNodes; i++) {
+            if (!visited[i]) {
+                try {
+                    depthSearch(i, visited, resultStack);
+                } catch (const std::logic_error &error) {
+                    throw;
+                }
+            }
+        }
+
+        return resultStack;
+    }
+
+    // This helper method recursively iterates over all of a node's adjacent nodes. Upon visiting
+    // a node it is marked as visited. This helps us keep track of how far "up" or "down" a graph
+    // we've been.
+    void depthSearch(int node, QVector<short> &visited, QStack<int> &resultStack) const
+    {
+        // Marking the nodes as visited is crucial also to detecting if the graph is acyclic.
+        // Nodes that have not been visited are marked with 0.
+        // Nodes that we are now visiting, and are probing its subtee's nodes (e.g. 3->4->5 etc), are marked with 1.
+        // Nodes that we have visited, and have also visited all of its subtree's nodes, are marked with 2.
+
+        // If we call this method and receive a node that is marked with 1, we know we are dealing with a cyclic graph.
+        // This is because we haven't yet left the top-most call that originated from the same node, so we have looped back.
+
+        if (visited[node] == 1) {
+            throw std::logic_error("Graph is cyclic!");
+        }
+
+        visited[node] = 1;
+
+        // Recur over all nodes adjacent to this one
+        QVector<int>::const_iterator i;
+        for (i = m_adjacencyLists[node].constBegin(); i != m_adjacencyLists[node].constEnd(); i++) {
+            if (!visited[*i]) {
+                depthSearch(*i, visited, resultStack);
+            }
+        }
+
+        resultStack.push(node);
+        visited[node] = 2;
     }
 
 private:
-    bool &_has_cycle;
+    int m_numNodes = 0;
+    // The graph is represented as a list of lists. Each of the lists represents
+    // the nodes that are adjacent to a node, e.g.: 3->5, 3->8, 3->12 is...
+    // m_adjacencyLists[3] == [5, 8, 12]
+    QVector<QVector<int>> m_adjacencyLists;
 };
 
-static bool graph_has_cycle(const boost::adjacency_list<> &graph)
+namespace
 {
-    bool cycle_found = false;
-    cycle_detector vis{cycle_found};
-    boost::depth_first_search(graph, visitor(vis));
-    return cycle_found;
+
+
+static bool graph_has_cycle(const SimpleGraph &graph) {
+    // Graph's toposort throws an exception if the graph is cyclic,
+    // so let's catch that
+    try {
+        graph.topologicalSort();
+        return true;
+    } catch(std::logic_error &error) {
+        return true;
+    }
 }
 
 static void find_keys_causing_cycles_and_mask_their_issuers(const std::vector<Key> &keys)
 {
-    boost::adjacency_list<> graph{keys.size()};
+    SimpleGraph graph(keys.size());
 
     for (unsigned int i = 0, end = keys.size(); i != end; ++i) {
         const auto &key = keys[i];
@@ -1136,17 +1221,18 @@ static void find_keys_causing_cycles_and_mask_their_issuers(const std::vector<Ke
             continue;
         }
         const auto j = std::distance(keys.begin(), it);
-        const auto edge = boost::add_edge(i, j, graph).first;
-        if (graph_has_cycle(graph)) {
+        const auto edge = graph.addEdge(i, j);
+
+        if(graph_has_cycle(graph)) {
             Issuers::instance()->maskIssuerOfKey(key);
-            boost::remove_edge(edge, graph);
+            graph.removeEdge(edge);
         }
     }
 }
 
 static auto build_key_graph(const std::vector<Key> &keys)
 {
-    boost::adjacency_list<> graph(keys.size());
+    SimpleGraph graph(keys.size());
 
     // add edges from children to parents:
     for (unsigned int i = 0, end = keys.size(); i != end; ++i) {
@@ -1160,7 +1246,7 @@ static auto build_key_graph(const std::vector<Key> &keys)
             continue;
         }
         const auto j = std::distance(keys.begin(), it);
-        add_edge(i, j, graph);
+        graph.addEdge(i, j);
     }
 
     return graph;
@@ -1171,9 +1257,8 @@ static std::vector<Key> topological_sort(const std::vector<Key> &keys)
 {
     const auto graph = build_key_graph(keys);
 
-    std::vector<int> order;
-    order.reserve(keys.size());
-    topological_sort(graph, std::back_inserter(order));
+    const auto topoSort = graph.topologicalSort();
+    std::vector<int> order(topoSort.begin(), topoSort.end());
 
     Q_ASSERT(order.size() == keys.size());
 
