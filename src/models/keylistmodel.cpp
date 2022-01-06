@@ -36,11 +36,6 @@
 #include <QStack>
 #include <gpgme++/key.h>
 
-#ifndef Q_MOC_RUN // QTBUG-22829
-#include <boost/graph/topological_sort.hpp>
-#include <boost/graph/adjacency_list.hpp>
-#endif
-
 #include <algorithm>
 #include <map>
 #include <set>

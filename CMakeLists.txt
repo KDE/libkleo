@@ -54,9 +54,6 @@ if (Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.16.0")
     set(GPGMEPP_SUPPORTS_TRUST_SIGNATURES 1)
 endif()
 
-find_package(Boost 1.34.0)
-set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "https://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")
-
 
 set_package_properties(KF5PimTextEdit PROPERTIES DESCRIPTION
                        "A textedit with PIM-specific features."

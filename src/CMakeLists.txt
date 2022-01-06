@@ -2,7 +2,6 @@
 # SPDX-FileCopyrightText: none
 # target_include_directories does not handle empty include paths
 include_directories(
-    ${Boost_INCLUDE_DIRS}
     ${GPGME_INCLUDES}
 )
 
@@ -171,11 +170,6 @@ target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt::Widgets
                                                 KF5::WidgetsAddons
                                                 KF5::ItemModels
                                                 KF5::Codecs)
-
-# Boost::headers may not be available for old versions of Boost
-if (TARGET Boost::headers)
-  target_link_libraries(KF5Libkleo PRIVATE Boost::headers)
-endif()
 
 if (KF5PimTextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
