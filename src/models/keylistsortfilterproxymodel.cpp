@@ -206,6 +206,14 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
                     break;
                 }
             }
+            // Also match against fingerprints
+            for (const auto &subkey: key.subkeys()) {
+                const auto fpr = QString::fromLatin1(subkey.fingerprint());
+                if (fpr.contains(rx)) {
+                    match = true;
+                    break;
+                }
+            }
         }
         if (!match) {
             return false;
