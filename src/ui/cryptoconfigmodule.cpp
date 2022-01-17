@@ -663,7 +663,9 @@ void Kleo::CryptoConfigEntryLineEdit::doLoad()
 }
 
 ////
-
+/* Note: Do not use "guru" as debug level but use the value 10.  The
+   former also enables the creation of hash dump files and thus leaves
+   traces of plaintext on the disk.  */
 static const struct {
     const KLazyLocalizedString label;
     const char *name;
@@ -672,7 +674,7 @@ static const struct {
     { kli18n("1 - Basic"), "basic"},
     { kli18n("2 - Verbose"), "advanced"},
     { kli18n("3 - More Verbose"), "expert"},
-    { kli18n("4 - All"), "guru"},
+    { kli18n("4 - All"), "10"},
 };
 static const unsigned int numDebugLevels = sizeof debugLevels / sizeof * debugLevels;
 
