@@ -238,7 +238,11 @@ public:
         connect(ui.keyserverList->selectionModel(), &QItemSelectionModel::selectionChanged,
                 q, [this] () { selectionChanged(); });
         connect(ui.keyserverList, &QListView::doubleClicked,
-                q, [this] (const QModelIndex &index) { editKeyserver(index); });
+                q, [this] (const QModelIndex &index) {
+                    if (!readOnly) {
+                        editKeyserver(index);
+                    }
+                });
         connect(ui.editButton, &QPushButton::clicked, q, [this] () { editKeyserver(); });
         connect(ui.deleteButton, &QPushButton::clicked, q, [this] () { deleteKeyserver(); });
     }
