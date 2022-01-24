@@ -3,6 +3,8 @@
 
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2004 Klarälvdalens Datakonsult AB
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -12,43 +14,13 @@
 #include "kleo_export.h"
 
 #include <QString>
+#include <QStringList>
 #include <QVector>
 
-#include <QStringList>
 class QWidget;
 
 namespace Kleo
 {
-class DNAttributeOrderConfigWidget;
-}
-
-namespace Kleo
-{
-
-/**
-   @short DN Attribute mapper
-*/
-class KLEO_EXPORT DNAttributeMapper
-{
-    DNAttributeMapper();
-    ~DNAttributeMapper();
-public:
-    static const DNAttributeMapper *instance();
-
-    QString name2label(const QString &s) const;
-    QStringList names() const;
-
-    const QStringList &attributeOrder() const;
-
-    void setAttributeOrder(const QStringList &order);
-
-    DNAttributeOrderConfigWidget *configWidget(QWidget *parent = nullptr) const;
-
-private:
-    class Private;
-    Private *d;
-    static DNAttributeMapper *mSelf;
-};
 
 /**
    @short DN parser and reorderer
@@ -67,6 +39,14 @@ public:
     ~DN();
 
     const DN &operator=(const DN &other);
+
+    static QStringList attributeOrder();
+    static void setAttributeOrder(const QStringList &order);
+
+    static QStringList defaultAttributeOrder();
+
+    static QStringList attributeNames();
+    static QString attributeNameToLabel(const QString &name);
 
     /** @return the value in rfc-2253-escaped form */
     static QString escape(const QString &value);

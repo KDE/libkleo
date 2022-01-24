@@ -13,11 +13,6 @@
 
 #include <QWidget>
 
-namespace Kleo
-{
-class DNAttributeMapper;
-}
-
 class QTreeWidgetItem;
 
 namespace Kleo
@@ -27,13 +22,11 @@ class KLEO_EXPORT DNAttributeOrderConfigWidget : public QWidget
 {
     Q_OBJECT
 public:
-    /*! Use Kleo::DNAttributeMapper::instance()->configWidget( parent, name ) instead. */
-    explicit DNAttributeOrderConfigWidget(DNAttributeMapper *mapper, QWidget *parent = nullptr, Qt::WindowFlags f = {});
+    explicit DNAttributeOrderConfigWidget(QWidget *parent = nullptr, Qt::WindowFlags f = {});
     ~DNAttributeOrderConfigWidget() override;
 
-    void load();
-    void save() const;
-    void defaults();
+    QStringList attributeOrder() const;
+    void setAttributeOrder(const QStringList &order);
 
 Q_SIGNALS:
     void changed();
@@ -64,4 +57,3 @@ protected:
 };
 
 }
-

@@ -3,9 +3,11 @@
 
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2004 Klarälvdalens Datakonsult AB
+    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     DN parsing:
-    SPDX-FileCopyrightText: 2002 g 10 Code GmbH
+    SPDX-FileCopyrightText: 2002 g10 Code GmbH
     SPDX-FileCopyrightText: 2004 Klarälvdalens Datakonsult AB
 
     SPDX-License-Identifier: GPL-2.0-or-later
@@ -15,27 +17,53 @@
 
 #include "oidmap.h"
 
-#include "ui/dnattributeorderconfigwidget.h"
-
-#include <KConfig>
-#include <KLocalizedString>
-
-
-#include <iostream>
-#include <iterator>
-#include <algorithm>
-#include <map>
-
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLazyLocalizedString>
 
+#include <algorithm>
+
 #ifdef _MSC_VER
+#include <string.h>
 #define strcasecmp _stricmp
 #endif
+
+namespace {
+static const QStringList defaultOrder = {
+    QStringLiteral("CN"),
+    QStringLiteral("L"),
+    QStringLiteral("_X_"),
+    QStringLiteral("OU"),
+    QStringLiteral("O"),
+    QStringLiteral("C"),
+};
+
+class DNAttributeOrderStore
+{
+    DNAttributeOrderStore()
+        : mAttributeOrder{defaultOrder}
+    {
+    }
+
+public:
+    static DNAttributeOrderStore *instance()
+    {
+        static DNAttributeOrderStore *self = new DNAttributeOrderStore();
+        return self;
+    }
+
+    const QStringList &attributeOrder() const
+    {
+        return mAttributeOrder.empty() ? defaultOrder : mAttributeOrder;
+    }
+
+    void setAttributeOrder(const QStringList &order)
+    {
+        mAttributeOrder = order;
+    }
+
+private:
+    QStringList mAttributeOrder;
+};
+}
 
 class Kleo::DN::Private
 {
@@ -307,7 +335,7 @@ serialise(const QVector<Kleo::DN::Attribute> &dn, const QString &sep)
 static Kleo::DN::Attribute::List
 reorder_dn(const Kleo::DN::Attribute::List &dn)
 {
-    const QStringList &attrOrder = Kleo::DNAttributeMapper::instance()->attributeOrder();
+    const QStringList &attrOrder = Kleo::DN::attributeOrder();
 
     Kleo::DN::Attribute::List unknownEntries;
     Kleo::DN::Attribute::List result;
@@ -401,6 +429,24 @@ const Kleo::DN &Kleo::DN::operator=(const DN &that)
     return *this;
 }
 
+// static
+QStringList Kleo::DN::attributeOrder()
+{
+    return DNAttributeOrderStore::instance()->attributeOrder();
+}
+
+// static
+void Kleo::DN::setAttributeOrder(const QStringList &order)
+{
+    DNAttributeOrderStore::instance()->setAttributeOrder(order);
+}
+
+// static
+QStringList Kleo::DN::defaultAttributeOrder()
+{
+    return defaultOrder;
+}
+
 QString Kleo::DN::prettyDN() const
 {
     if (!d) {
@@ -478,116 +524,37 @@ Kleo::DN::const_iterator Kleo::DN::end() const
 
 namespace
 {
-struct ltstr {
-    bool operator()(const char *s1, const char *s2) const
-    {
-        return qstrcmp(s1, s2) < 0;
-    }
+static const QMap<QString, KLazyLocalizedString> attributeNamesAndLabels = {
+    { QStringLiteral("CN"), kli18n("Common name") },
+    { QStringLiteral("SN"), kli18n("Surname") },
+    { QStringLiteral("GN"), kli18n("Given name") },
+    { QStringLiteral("L"), kli18n("Location") },
+    { QStringLiteral("T"), kli18n("Title") },
+    { QStringLiteral("OU"), kli18n("Organizational unit") },
+    { QStringLiteral("O"), kli18n("Organization") },
+    { QStringLiteral("PC"), kli18n("Postal code") },
+    { QStringLiteral("C"), kli18n("Country code") },
+    { QStringLiteral("SP"), kli18n("State or province") },
+    { QStringLiteral("DC"), kli18n("Domain component") },
+    { QStringLiteral("BC"), kli18n("Business category") },
+    { QStringLiteral("EMAIL"), kli18n("Email address") },
+    { QStringLiteral("MAIL"), kli18n("Mail address") },
+    { QStringLiteral("MOBILE"), kli18n("Mobile phone number") },
+    { QStringLiteral("TEL"), kli18n("Telephone number") },
+    { QStringLiteral("FAX"), kli18n("Fax number") },
+    { QStringLiteral("STREET"), kli18n("Street address") },
+    { QStringLiteral("UID"), kli18n("Unique ID") }
 };
 }
 
-static const QStringList defaultOrder = {
-    QStringLiteral("CN"),
-    QStringLiteral("L"),
-    QStringLiteral("_X_"),
-    QStringLiteral("OU"),
-    QStringLiteral("O"),
-    QStringLiteral("C"),
-};
-
-static std::pair<const char *, const KLazyLocalizedString> const attributeLabels[] = {
-#define MAKE_PAIR(x,y) std::pair<const char*,const KLazyLocalizedString>( x, y )
-    MAKE_PAIR("CN", kli18n("Common name")),
-    MAKE_PAIR("SN", kli18n("Surname")),
-    MAKE_PAIR("GN", kli18n("Given name")),
-    MAKE_PAIR("L",  kli18n("Location")),
-    MAKE_PAIR("T",  kli18n("Title")),
-    MAKE_PAIR("OU", kli18n("Organizational unit")),
-    MAKE_PAIR("O",  kli18n("Organization")),
-    MAKE_PAIR("PC", kli18n("Postal code")),
-    MAKE_PAIR("C",  kli18n("Country code")),
-    MAKE_PAIR("SP", kli18n("State or province")),
-    MAKE_PAIR("DC", kli18n("Domain component")),
-    MAKE_PAIR("BC", kli18n("Business category")),
-    MAKE_PAIR("EMAIL", kli18n("Email address")),
-    MAKE_PAIR("MAIL", kli18n("Mail address")),
-    MAKE_PAIR("MOBILE", kli18n("Mobile phone number")),
-    MAKE_PAIR("TEL", kli18n("Telephone number")),
-    MAKE_PAIR("FAX", kli18n("Fax number")),
-    MAKE_PAIR("STREET", kli18n("Street address")),
-    MAKE_PAIR("UID", kli18n("Unique ID"))
-#undef MAKE_PAIR
-};
-static const unsigned int numAttributeLabels = sizeof attributeLabels / sizeof * attributeLabels;
-
-class Kleo::DNAttributeMapper::Private
+// static
+QStringList Kleo::DN::attributeNames()
 {
-public:
-    Private();
-    std::map<const char *, const KLazyLocalizedString, ltstr> map;
-    QStringList attributeOrder;
-};
-
-Kleo::DNAttributeMapper::Private::Private()
-    : map(attributeLabels, attributeLabels + numAttributeLabels) {}
-
-Kleo::DNAttributeMapper::DNAttributeMapper()
-{
-    d = new Private();
-    const KConfigGroup config(KSharedConfig::openConfig(), "DN");
-    d->attributeOrder = config.readEntry("AttributeOrder", defaultOrder);
-    mSelf = this;
+    return attributeNamesAndLabels.keys();
 }
 
-Kleo::DNAttributeMapper::~DNAttributeMapper()
+// static
+QString Kleo::DN::attributeNameToLabel(const QString &name)
 {
-    mSelf = nullptr;
-    delete d; d = nullptr;
-}
-
-Kleo::DNAttributeMapper *Kleo::DNAttributeMapper::mSelf = nullptr;
-
-const Kleo::DNAttributeMapper *Kleo::DNAttributeMapper::instance()
-{
-    if (!mSelf) {
-        (void)new DNAttributeMapper();
-    }
-    return mSelf;
-}
-
-QString Kleo::DNAttributeMapper::name2label(const QString &s) const
-{
-    const std::map<const char *, const KLazyLocalizedString, ltstr>::const_iterator it
-        = d->map.find(s.trimmed().toUpper().toLatin1().constData());
-    if (it == d->map.end()) {
-        return QString();
-    }
-    return KLocalizedString(it->second).toString();
-}
-
-QStringList Kleo::DNAttributeMapper::names() const
-{
-    QStringList result;
-    for (std::map<const char *, const KLazyLocalizedString, ltstr>::const_iterator it = d->map.begin(); it != d->map.end(); ++it) {
-        result.push_back(QLatin1String(it->first));
-    }
-    return result;
-}
-
-const QStringList &Kleo::DNAttributeMapper::attributeOrder() const
-{
-    return d->attributeOrder;
-}
-
-void Kleo::DNAttributeMapper::setAttributeOrder(const QStringList &order)
-{
-    d->attributeOrder = order.empty() ? defaultOrder : order;
-
-    KConfigGroup config(KSharedConfig::openConfig(), "DN");
-    config.writeEntry("AttributeOrder", order);
-}
-
-Kleo::DNAttributeOrderConfigWidget *Kleo::DNAttributeMapper::configWidget(QWidget *parent) const
-{
-    return new DNAttributeOrderConfigWidget(mSelf, parent);
+    return attributeNamesAndLabels.value(name.trimmed().toUpper()).toString();
 }

@@ -8,6 +8,7 @@
 */
 
 #include "dnattributeorderconfigwidget.h"
+
 #include "libkleo_debug.h"
 #include "libkleo/dn.h"
 
@@ -37,8 +38,6 @@ public:
 #ifndef QT_NO_TREEWIDGET
     QTreeWidgetItem *placeHolderItem = nullptr;
 #endif
-
-    Kleo::DNAttributeMapper *mapper = nullptr;
 };
 
 #ifndef QT_NO_TREEWIDGET
@@ -50,12 +49,9 @@ static void prepare(QTreeWidget *lv)
 }
 #endif
 
-Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapper *mapper, QWidget *parent, Qt::WindowFlags f)
+Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent, Qt::WindowFlags f)
     : QWidget(parent, f), d(new DNAttributeOrderConfigWidgetPrivate)
 {
-    Q_ASSERT(mapper);
-    d->mapper = mapper;
-
     auto glay = new QGridLayout(this);
     glay->setContentsMargins(0, 0, 0, 0);
     glay->setColumnStretch(0, 1);
@@ -125,7 +121,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(DNAttributeMapp
 
 Kleo::DNAttributeOrderConfigWidget::~DNAttributeOrderConfigWidget() = default;
 
-void Kleo::DNAttributeOrderConfigWidget::load()
+void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &order)
 {
 #ifndef QT_NO_TREEWIDGET
     // save the _X_ item:
@@ -133,8 +129,6 @@ void Kleo::DNAttributeOrderConfigWidget::load()
     // clear the rest:
     d->availableLV->clear();
     d->currentLV->clear();
-
-    const QStringList order = d->mapper->attributeOrder();
 
     // fill the RHS listview:
     QTreeWidgetItem *last = nullptr;
@@ -147,19 +141,19 @@ void Kleo::DNAttributeOrderConfigWidget::load()
         } else {
             last = new QTreeWidgetItem(d->currentLV, last);
             last->setText(0, attr);
-            last->setText(1, d->mapper->name2label(attr));
+            last->setText(1, DN::attributeNameToLabel(attr));
         }
     }
 
     // fill the LHS listview with what's left:
 
-    const QStringList all = Kleo::DNAttributeMapper::instance()->names();
+    const QStringList all = DN::attributeNames();
     const QStringList::const_iterator end(all.end());
     for (QStringList::const_iterator it = all.begin(); it != end; ++it) {
         if (!order.contains(*it)) {
             auto item = new QTreeWidgetItem(d->availableLV);
             item->setText(0, *it);
-            item->setText(1, d->mapper->name2label(*it));
+            item->setText(1, DN::attributeNameToLabel(*it));
         }
     }
 
@@ -178,21 +172,15 @@ void Kleo::DNAttributeOrderConfigWidget::takePlaceHolderItem()
 #endif
 }
 
-void Kleo::DNAttributeOrderConfigWidget::save() const
+QStringList Kleo::DNAttributeOrderConfigWidget::attributeOrder() const
 {
-#ifndef QT_NO_TREEWIDGET
     QStringList order;
+#ifndef QT_NO_TREEWIDGET
     for (QTreeWidgetItemIterator it(d->currentLV); (*it); ++it) {
         order.push_back((*it)->text(0));
     }
-
-    d->mapper->setAttributeOrder(order);
 #endif
-}
-
-void Kleo::DNAttributeOrderConfigWidget::defaults()
-{
-     qCDebug (LIBKLEO_LOG) << "Sorry, not implemented: Kleo::DNAttributeOrderConfigWidget::defaults()";
+    return order;
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotAvailableSelectionChanged(QTreeWidgetItem *item)
