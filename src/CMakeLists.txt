@@ -201,6 +201,7 @@ install(TARGETS
     EXPORT KF5LibkleoTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
+target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo/>")
 target_include_directories(KF5Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src;${libkleo_BINARY_DIR}/src>")
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
@@ -297,7 +298,7 @@ install(FILES
     ${libkleo_CamelCase_models_HEADERS}
     ${libkleo_CamelCase_ui_HEADERS}
     ${libkleo_CamelCase_utils_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo/Libkleo
     COMPONENT Devel
 )
 
@@ -307,7 +308,7 @@ install(FILES
     ${libkleo_models_HEADERS}
     ${libkleo_ui_HEADERS}
     ${libkleo_utils_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/libkleo
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo/libkleo
     COMPONENT Devel
 )
 install(FILES
