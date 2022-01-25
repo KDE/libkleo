@@ -43,3 +43,8 @@ ecm_add_tests(
     newkeyapprovaldialogtest.cpp
     LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Widgets Qt${QT_MAJOR_VERSION}::Test
 )
+
+ecm_add_tests(
+    hextest.cpp
+    LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Test
+)
