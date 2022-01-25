@@ -1,7 +1,7 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
     utils/hex.cpp
 
-    This file is part of Kleopatra, the KDE keymanager
+    This file is part of libkleopatra
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
 
     SPDX-License-Identifier: GPL-2.0-or-later

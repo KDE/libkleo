@@ -256,6 +256,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   FileSystemWatcher
   Formatting
   GnuPG
+  Hex
   KeyHelpers
   QtStlHelpers
   SCDaemon

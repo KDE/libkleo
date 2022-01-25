@@ -1,7 +1,7 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
     utils/hex.h
 
-    This file is part of Kleopatra, the KDE keymanager
+    This file is part of libkleopatra
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
 
     SPDX-License-Identifier: GPL-2.0-or-later
@@ -11,19 +11,21 @@
 
 #include <string>
 
+#include "kleo_export.h"
+
 class QByteArray;
 
 namespace Kleo
 {
 
-std::string hexencode(const char *s);
-std::string hexdecode(const char *s);
+KLEO_EXPORT std::string hexencode(const char *s);
+KLEO_EXPORT std::string hexdecode(const char *s);
 
-std::string hexencode(const std::string &s);
-std::string hexdecode(const std::string &s);
+KLEO_EXPORT std::string hexencode(const std::string &s);
+KLEO_EXPORT std::string hexdecode(const std::string &s);
 
-QByteArray hexencode(const QByteArray &s);
-QByteArray hexdecode(const QByteArray &s);
+KLEO_EXPORT QByteArray hexencode(const QByteArray &s);
+KLEO_EXPORT QByteArray hexdecode(const QByteArray &s);
 
 }
 
