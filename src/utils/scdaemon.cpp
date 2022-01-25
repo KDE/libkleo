@@ -39,12 +39,11 @@ std::vector<std::string> Kleo::SCDaemon::getReaders(Error &err)
 
     auto assuanContext = std::shared_ptr<Context>(c.release());
     const std::string command = "SCD GETINFO reader_list";
-    const auto readersData = Assuan::sendDataCommand(assuanContext, command.c_str(), err);
+    const auto readers = Assuan::sendDataCommand(assuanContext, command.c_str(), err);
     if (err) {
         return result;
     }
 
-    const auto readers = hexdecode(readersData);
     result = split(readers, '\n');
     // remove empty entries; in particular, the last entry
     result.erase(std::remove_if(std::begin(result), std::end(result),
