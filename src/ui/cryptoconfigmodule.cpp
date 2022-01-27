@@ -363,7 +363,10 @@ bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
     static std::set<QString> entriesToExclude;
     if (entriesToExclude.empty()) {
         entriesToExclude.insert(QStringLiteral("gpg/keyserver"));
-        if (Kleo::engineIsVersion(2, 3, 5, GpgME::GpgConfEngine)) {
+        if (engineIsVersion(2, 3, 5, GpgME::GpgConfEngine)
+            || (engineIsVersion(2, 2, 34, GpgME::GpgConfEngine)
+                && !engineIsVersion(2, 3, 0, GpgME::GpgConfEngine))) {
+            // exclude for 2.2.{34,...} and 2.3.5+
             entriesToExclude.insert(QStringLiteral("gpgsm/keyserver"));
         }
     }
