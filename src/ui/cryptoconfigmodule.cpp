@@ -358,17 +358,26 @@ namespace
 {
 bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
 {
-    static const std::set<QString> entriesToExclude = {
-        QStringLiteral("gpg/importexport/keyserver")
-    };
+    static const QRegularExpression entryPathGroupSegmentRegexp{QStringLiteral("/.*/")};
+
+    static std::set<QString> entriesToExclude;
+    if (entriesToExclude.empty()) {
+        entriesToExclude.insert(QStringLiteral("gpg/keyserver"));
+        if (Kleo::engineIsVersion(2, 3, 5, GpgME::GpgConfEngine)) {
+            entriesToExclude.insert(QStringLiteral("gpgsm/keyserver"));
+        }
+    }
+
     const bool de_vs = Kleo::gnupgUsesDeVsCompliance();
     // Skip "dangerous" expert options if we are running in CO_DE_VS.
     // Otherwise, skip any options beyond "invisible" (== expert + 1) level.
     const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced
                                      : QGpgME::CryptoConfigEntry::Level_Expert + 1;
-
+    // we ignore the group when looking up entries to exclude because entries
+    // are uniquely identified by their name and their component
+    const auto entryId = entry->path().replace(entryPathGroupSegmentRegexp, QLatin1String{"/"}).toLower();
     return (entry->level() <= maxEntryLevel) &&
-           (entriesToExclude.find(entry->path().toLower()) == entriesToExclude.end());
+           (entriesToExclude.find(entryId) == entriesToExclude.end());
 }
 
 auto getGroupEntriesToOfferForConfiguration(QGpgME::CryptoConfigGroup *group)
