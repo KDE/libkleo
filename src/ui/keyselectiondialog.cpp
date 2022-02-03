@@ -636,12 +636,15 @@ void Kleo::KeySelectionDialog::slotStartCertificateManager(const QString &query)
     if (!query.isEmpty()) {
         args << QStringLiteral("--search") << query;
     }
-    if (!QProcess::startDetached(QStringLiteral("kleopatra"), args)) {
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("kleopatra"));
+    if (exec.isEmpty()) {
+        qCWarning(KLEO_UI_LOG) << "Could not find kleopatra executable in PATH";
         KMessageBox::error(this,
                            i18n("Could not start certificate manager; "
                                 "please check your installation."),
                            i18n("Certificate Manager Error"));
     } else {
+        QProcess::startDetached(QStringLiteral("kleopatra"), args);
         qCDebug(KLEO_UI_LOG) << "\nslotStartCertManager(): certificate manager started.";
     }
 }
