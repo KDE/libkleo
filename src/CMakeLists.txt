@@ -96,6 +96,7 @@ target_sources(KF5Libkleo PRIVATE
    utils/gnupg.h
    utils/hex.cpp
    utils/hex.h
+   utils/keyhelpers.cpp
    utils/keyhelpers.h
    utils/qtstlhelpers.cpp
    utils/qtstlhelpers.h
