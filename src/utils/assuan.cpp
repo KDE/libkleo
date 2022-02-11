@@ -27,6 +27,11 @@
 using namespace GpgME;
 using namespace Kleo;
 using namespace Kleo::Assuan;
+using namespace std::chrono_literals;
+
+static const auto initialRetryDelay = 125ms;
+static const auto maxRetryDelay = 1000ms;
+static const auto maxConnectionAttempts = 10;
 
 namespace
 {
@@ -69,15 +74,17 @@ bool Kleo::Assuan::agentIsRunning()
 std::unique_ptr<GpgME::AssuanTransaction> Kleo::Assuan::sendCommand(std::shared_ptr<GpgME::Context> &context, const std::string &command, std::unique_ptr<GpgME::AssuanTransaction> transaction, GpgME::Error &err)
 {
     qCDebug(LIBKLEO_LOG) << __func__ << command;
+    int connectionAttempts = 1;
     err = context->assuanTransact(command.c_str(), std::move(transaction));
 
-    static int cnt = 0;
-    while (err.code() == GPG_ERR_ASS_CONNECT_FAILED && cnt < 5) {
+    auto retryDelay = initialRetryDelay;
+    while (err.code() == GPG_ERR_ASS_CONNECT_FAILED && connectionAttempts < maxConnectionAttempts) {
         // Esp. on Windows the agent processes may take their time so we try
         // in increasing waits for them to start up
-        qCDebug(LIBKLEO_LOG) << "Waiting for the daemons to start up";
-        cnt++;
-        QThread::msleep(250 * cnt);
+        qCDebug(LIBKLEO_LOG) << "Connecting to the agent failed. Retrying in" << retryDelay.count() << "ms";
+        QThread::msleep(retryDelay.count());
+        retryDelay = std::min(retryDelay * 2, maxRetryDelay);
+        connectionAttempts++;
         err = context->assuanTransact(command.c_str(), context->takeLastAssuanTransaction());
     }
     if (err.code()) {
