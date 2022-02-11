@@ -2,7 +2,7 @@
     utils/assuan.cpp
 
     This file is part of libkleopatra
-    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileCopyrightText: 2021, 2022 g10 Code GmbH
     SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
@@ -44,6 +44,26 @@ static QDebug operator<<(QDebug s, const std::vector< std::pair<std::string, std
     }
     return s << ')';
 }
+}
+
+bool Kleo::Assuan::agentIsRunning()
+{
+    Error err;
+    const std::unique_ptr<Context> ctx = Context::createForEngine(AssuanEngine, &err);
+    if (err) {
+        qCWarning(LIBKLEO_LOG) << __func__ << ": Creating context for Assuan engine failed:" << err;
+        return false;
+    }
+    static const char *command = "GETINFO version";
+    err = ctx->assuanTransact(command);
+    if (!err) {
+        // all good
+    } else if (err.code() == GPG_ERR_ASS_CONNECT_FAILED) {
+        qCDebug(LIBKLEO_LOG) << __func__ << ": Connecting to the agent failed.";
+    } else {
+        qCWarning(LIBKLEO_LOG) << __func__ << ": Starting Assuan transaction for" << command << "failed:" << err;
+    }
+    return !err;
 }
 
 std::unique_ptr<GpgME::AssuanTransaction> Kleo::Assuan::sendCommand(std::shared_ptr<GpgME::Context> &context, const std::string &command, std::unique_ptr<GpgME::AssuanTransaction> transaction, GpgME::Error &err)

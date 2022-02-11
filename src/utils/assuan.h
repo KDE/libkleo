@@ -2,7 +2,7 @@
     utils/assuan.h
 
     This file is part of libkleopatra
-    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileCopyrightText: 2021, 2022 g10 Code GmbH
     SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
@@ -29,6 +29,9 @@ namespace Kleo
  *  agent via the Assuan protocol. */
 namespace Assuan
 {
+
+/** Checks if the GnuPG agent is running and accepts connections. */
+KLEO_EXPORT bool agentIsRunning();
 
 /** Sends the Assuan @p command using the @p transaction and the @p assuanContext
  *  to the GnuPG agent and waits for the result. The returned transaction can be used
