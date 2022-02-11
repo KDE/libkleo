@@ -29,6 +29,7 @@
 
 #include "libkleo_debug.h"
 
+#include <QDateTime>
 #include <QDir>
 #include <QFile>
 #include <QString>
@@ -588,16 +589,28 @@ QStringList Kleo::backendVersionInfo()
 void Kleo::launchGpgAgent()
 {
     static QPointer<QProcess> process;
+    static qint64 mSecsSinceEpochOfLastLaunch = 0;
+    static int numberOfFailedLaunches = 0;
 
     if (Kleo::Assuan::agentIsRunning()) {
         qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already running";
         return;
     }
-
     if (process) {
         qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already being launched";
         return;
     }
+    const auto now = QDateTime::currentMSecsSinceEpoch();
+    if (now - mSecsSinceEpochOfLastLaunch < 1000) {
+        // reduce attempts to launch the agent to 1 attempt per second
+        return;
+    }
+    mSecsSinceEpochOfLastLaunch = now;
+    if (numberOfFailedLaunches > 5) {
+        qCWarning(LIBKLEO_LOG) << __func__ << ": Launching gpg-agent failed" << numberOfFailedLaunches << "times in a row. Giving up.";
+        return;
+    }
+
     process = new QProcess;
     QObject::connect(process, &QProcess::started,
                      []() {
@@ -607,6 +620,7 @@ void Kleo::launchGpgAgent()
                      [](auto error) {
                          qCDebug(LIBKLEO_LOG) << "launchGpgAgent: Error while running gpgconf:" << error;
                          process->deleteLater();
+                         numberOfFailedLaunches++;
                      });
     QObject::connect(process, &QProcess::readyReadStandardError,
                      []() {
@@ -620,8 +634,14 @@ void Kleo::launchGpgAgent()
                      [](int exitCode, QProcess::ExitStatus exitStatus) {
                          if (exitStatus == QProcess::NormalExit) {
                             qCDebug(LIBKLEO_LOG) << "launchGpgAgent: gpgconf exited normally with exit code" << exitCode;
+                            if (exitCode == 0) {
+                                numberOfFailedLaunches = 0;
+                            } else {
+                                numberOfFailedLaunches++;
+                            }
                          } else {
                             qCDebug(LIBKLEO_LOG) << "launchGpgAgent: gpgconf crashed (exit code:" << exitCode << ")";
+                            numberOfFailedLaunches++;
                          }
                          process->deleteLater();
                      });

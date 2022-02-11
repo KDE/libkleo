@@ -101,6 +101,7 @@ KLEO_EXPORT bool versionIsAtLeast(const char *minimum, const char *actual);
  */
 KLEO_EXPORT QStringList backendVersionInfo();
 
-/** Launches the GnuPG agent if it is not already running. */
+/** Launch the GnuPG agent if it is not already running. */
 KLEO_EXPORT void launchGpgAgent();
+
 }
