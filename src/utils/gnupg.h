@@ -3,7 +3,8 @@
 
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2008 Klarälvdalens Datakonsult AB
-    SPDX-FileCopyrightText: 2020 g10 Code GmbH
+    SPDX-FileCopyrightText: 2020-2022 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -100,4 +101,6 @@ KLEO_EXPORT bool versionIsAtLeast(const char *minimum, const char *actual);
  */
 KLEO_EXPORT QStringList backendVersionInfo();
 
+/** Launches the GnuPG agent if it is not already running. */
+KLEO_EXPORT void launchGpgAgent();
 }

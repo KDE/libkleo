@@ -7,13 +7,15 @@
     SPDX-FileCopyrightText: 2016 Bundesamt für Sicherheit in der Informationstechnik
     SPDX-FileContributor: Intevation GmbH
 
-    SPDX-FileCopyrightText: 2020 g10 Code GmbH
+    SPDX-FileCopyrightText: 2020-2022 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
 #include "gnupg.h"
 
+#include "utils/assuan.h"
 #include "utils/compat.h"
 #include "utils/cryptoconfig.h"
 #include "utils/hex.h"
@@ -35,6 +37,7 @@
 #include <QStandardPaths>
 #include <QCoreApplication>
 #include <QRegularExpression>
+#include <QPointer>
 #include <gpg-error.h>
 
 #ifdef Q_OS_WIN
@@ -580,4 +583,48 @@ QStringList Kleo::backendVersionInfo()
         }
     }
     return versions;
+}
+
+void Kleo::launchGpgAgent()
+{
+    static QPointer<QProcess> process;
+
+    if (Kleo::Assuan::agentIsRunning()) {
+        qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already running";
+        return;
+    }
+
+    if (process) {
+        qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already being launched";
+        return;
+    }
+    process = new QProcess;
+    QObject::connect(process, &QProcess::started,
+                     []() {
+                         qCDebug(LIBKLEO_LOG) << "launchGpgAgent: gpgconf was started successfully";
+                     });
+    QObject::connect(process, &QProcess::errorOccurred,
+                     [](auto error) {
+                         qCDebug(LIBKLEO_LOG) << "launchGpgAgent: Error while running gpgconf:" << error;
+                         process->deleteLater();
+                     });
+    QObject::connect(process, &QProcess::readyReadStandardError,
+                     []() {
+                         for (const auto &line : process->readAllStandardError().trimmed().split('\n')) {
+                            qCDebug(LIBKLEO_LOG) << "launchGpgAgent: gpgconf stderr:" << line;
+                         }
+                     });
+    QObject::connect(process, &QProcess::readyReadStandardOutput,
+                     []() { (void)process->readAllStandardOutput(); /* ignore stdout */ });
+    QObject::connect(process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished),
+                     [](int exitCode, QProcess::ExitStatus exitStatus) {
+                         if (exitStatus == QProcess::NormalExit) {
+                            qCDebug(LIBKLEO_LOG) << "launchGpgAgent: gpgconf exited normally with exit code" << exitCode;
+                         } else {
+                            qCDebug(LIBKLEO_LOG) << "launchGpgAgent: gpgconf crashed (exit code:" << exitCode << ")";
+                         }
+                         process->deleteLater();
+                     });
+    qCDebug(LIBKLEO_LOG) << __func__ << ": Starting gpgconf --launch gpg-agent ...";
+    process->start(Kleo::gpgConfPath(), {QStringLiteral("--launch"), QStringLiteral("gpg-agent")});
 }
