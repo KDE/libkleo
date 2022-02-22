@@ -329,7 +329,7 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
 
 QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
 {
-   if (role == Qt::DisplayRole || role == Qt::EditRole) {
+   if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole) {
         switch (column) {
         case PrettyName:
             return Formatting::prettyName(key);
@@ -349,31 +349,51 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
         case ValidFrom:
             if (role == Qt::EditRole) {
                 return Formatting::creationDate(key);
+            } else if (role == Qt::AccessibleTextRole) {
+                return Formatting::accessibleCreationDate(key);
             } else {
                 return Formatting::creationDateString(key);
             }
         case ValidUntil:
             if (role == Qt::EditRole) {
                 return Formatting::expirationDate(key);
+            } else if (role == Qt::AccessibleTextRole) {
+                return Formatting::accessibleExpirationDate(key);
             } else {
                 return Formatting::expirationDateString(key);
             }
         case TechnicalDetails:
             return Formatting::type(key);
         case ShortKeyID:
-            return QString::fromLatin1(key.shortKeyID());
+            if (role == Qt::AccessibleTextRole) {
+                return Formatting::accessibleHexID(key.shortKeyID());
+            } else {
+                return Formatting::prettyID(key.shortKeyID());
+            }
         case KeyID:
-            return Formatting::prettyID(key.keyID());
+            if (role == Qt::AccessibleTextRole) {
+                return Formatting::accessibleHexID(key.keyID());
+            } else {
+                return Formatting::prettyID(key.keyID());
+            }
         case Summary:
             return Formatting::summaryLine(key);
         case Fingerprint:
-            return Formatting::prettyID(key.primaryFingerprint());
+            if (role == Qt::AccessibleTextRole) {
+                return Formatting::accessibleHexID(key.primaryFingerprint());
+            } else {
+                return Formatting::prettyID(key.primaryFingerprint());
+            }
         case Issuer:
             return QString::fromUtf8(key.issuerName());
         case Origin:
             return Formatting::origin(key.origin());
         case LastUpdate:
-            return Formatting::dateString(key.lastUpdate());
+            if (role == Qt::AccessibleTextRole) {
+                return Formatting::accessibleDate(key.lastUpdate());
+            } else {
+                return Formatting::dateString(key.lastUpdate());
+            }
         case SerialNumber:
             return QString::fromUtf8(key.issuerSerial());
         case OwnerTrust:
