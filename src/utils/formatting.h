@@ -3,7 +3,7 @@
 
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
-    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileCopyrightText: 2021, 2022 g10 Code GmbH
     SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
@@ -52,6 +52,7 @@ KLEO_EXPORT QString prettyEMail(const GpgME::UserID::Signature &sig);
 
 /* Formats a fingerprint or keyid into groups of four */
 KLEO_EXPORT QString prettyID(const char *id);
+KLEO_EXPORT QString accessibleHexID(const char *id);
 
 enum ToolTipOption {
     KeyID            = 0x001,
@@ -80,6 +81,7 @@ KLEO_EXPORT QString expirationDateString(const GpgME::UserID::Signature &sig);
 KLEO_EXPORT QDate expirationDate(const GpgME::Key &key);
 KLEO_EXPORT QDate expirationDate(const GpgME::Subkey &subkey);
 KLEO_EXPORT QDate expirationDate(const GpgME::UserID::Signature &sig);
+KLEO_EXPORT QString accessibleExpirationDate(const GpgME::Key &key);
 
 KLEO_EXPORT QString creationDateString(const GpgME::Key &key);
 KLEO_EXPORT QString creationDateString(const GpgME::Subkey &subkey);
@@ -87,9 +89,11 @@ KLEO_EXPORT QString creationDateString(const GpgME::UserID::Signature &sig);
 KLEO_EXPORT QDate creationDate(const GpgME::Key &key);
 KLEO_EXPORT QDate creationDate(const GpgME::Subkey &subkey);
 KLEO_EXPORT QDate creationDate(const GpgME::UserID::Signature &sig);
+KLEO_EXPORT QString accessibleCreationDate(const GpgME::Key &key);
 
 /* Convert a GPGME style time to a localized string */
 KLEO_EXPORT QString dateString(time_t t);
+KLEO_EXPORT QString accessibleDate(time_t t);
 
 KLEO_EXPORT QString displayName(GpgME::Protocol prot);
 KLEO_EXPORT QString type(const GpgME::Key &key);

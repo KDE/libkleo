@@ -3,7 +3,7 @@
 
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
-    SPDX-FileCopyrightText: 2021 g10 Code GmbH
+    SPDX-FileCopyrightText: 2021, 2022 g10 Code GmbH
     SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: GPL-2.0-or-later
@@ -545,6 +545,10 @@ static QString date2string(const QDate &date)
 {
     return QLocale().toString(date, QLocale::ShortFormat);
 }
+static QString localized_long_format(const QDate &date)
+{
+    return date.isValid() ? QLocale().toString(date, QLocale::LongFormat) : QString{};
+}
 
 template <typename T>
 QString expiration_date_string(const T &tee)
@@ -566,6 +570,11 @@ QDate expiration_date(const T &tee)
 QString Formatting::dateString(time_t t)
 {
     return date2string(time_t2date(t));
+}
+
+QString Formatting::accessibleDate(time_t t)
+{
+    return localized_long_format(time_t2date(t));
 }
 
 QString Formatting::expirationDateString(const Key &key)
@@ -598,6 +607,11 @@ QDate Formatting::expirationDate(const UserID::Signature &sig)
     return expiration_date(sig);
 }
 
+QString Formatting::accessibleExpirationDate(const Key &key)
+{
+    return key.subkey(0).neverExpires() ? i18n("no expiration") : localized_long_format(expirationDate(key));
+}
+
 QString Formatting::creationDateString(const Key &key)
 {
     return date2string(creation_date(key.subkey(0)));
@@ -626,6 +640,11 @@ QDate Formatting::creationDate(const Subkey &subkey)
 QDate Formatting::creationDate(const UserID::Signature &sig)
 {
     return creation_date(sig);
+}
+
+QString Formatting::accessibleCreationDate(const Key &key)
+{
+    return localized_long_format(creationDate(key));
 }
 
 //
@@ -1178,6 +1197,18 @@ QString Formatting::prettyID(const char *id)
     // middle to increase readability
     if (ret.size() == 49) {
         ret.insert(24, QLatin1Char(' '));
+    }
+    return ret;
+}
+
+QString Formatting::accessibleHexID(const char *id)
+{
+    static const QRegularExpression groupOfFourRegExp{QStringLiteral("(?:(.)(.)(.)(.))")};
+
+    QString ret;
+    ret = QString::fromLatin1(id);
+    if (!ret.isEmpty() && (ret.size() % 4 == 0)) {
+        ret = ret.replace(groupOfFourRegExp, QStringLiteral("\\1 \\2 \\3 \\4, ")).chopped(2);
     }
     return ret;
 }
