@@ -60,9 +60,11 @@ public:
 
     void updateFromKeyCache();
 
+    QString getEMail(const Key &key) const;
+
 public:
     int m_toolTipOptions = Formatting::Validity;
-    mutable QHash<const char *, QVariant> prettyEMailCache;
+    mutable QHash<const char *, QString> prettyEMailCache;
     mutable QHash<const char *, QVariant> remarksCache;
     bool m_useKeyCache = false;
     bool m_modelResetInProgress = false;
@@ -83,6 +85,21 @@ void AbstractKeyListModel::Private::updateFromKeyCache()
             q->setGroups(KeyCache::instance()->groups());
         }
     }
+}
+
+QString AbstractKeyListModel::Private::getEMail(const Key &key) const
+{
+    QString email;
+    if (const auto fpr = key.primaryFingerprint()) {
+        const auto it = prettyEMailCache.constFind(fpr);
+        if (it != prettyEMailCache.constEnd()) {
+            email = *it;
+        } else {
+            email = Formatting::prettyEMail(key);
+            prettyEMailCache[fpr] = email;
+        }
+    }
+    return email;
 }
 
 AbstractKeyListModel::AbstractKeyListModel(QObject *p)
@@ -331,19 +348,20 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
 {
    if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole) {
         switch (column) {
-        case PrettyName:
-            return Formatting::prettyName(key);
-        case PrettyEMail:
-            if (const char *const fpr = key.primaryFingerprint()) {
-                const QHash<const char *, QVariant>::const_iterator it = d->prettyEMailCache.constFind(fpr);
-                if (it != d->prettyEMailCache.constEnd()) {
-                    return *it;
-                } else {
-                    return d->prettyEMailCache[fpr] = Formatting::prettyEMail(key);
-                }
-            } else {
-                return QVariant();
+        case PrettyName: {
+            const auto name = Formatting::prettyName(key);
+            if (role == Qt::AccessibleTextRole) {
+                return name.isEmpty() ? i18nc("text for screen readers for an empty name", "no name") : name;
             }
+            return name;
+        }
+        case PrettyEMail: {
+            const auto email = d->getEMail(key);
+            if (role == Qt::AccessibleTextRole) {
+                return email.isEmpty() ? i18nc("text for screen readers for an empty email address", "no email") : email;
+            }
+            return email;
+        }
         case Validity:
             return Formatting::complianceStringShort(key);
         case ValidFrom:
