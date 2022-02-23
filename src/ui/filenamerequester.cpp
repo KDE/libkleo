@@ -9,7 +9,6 @@
 
 #include "filenamerequester.h"
 
-#include <KLineEdit>
 #include <KLocalizedString>
 
 #include <QHBoxLayout>
@@ -19,6 +18,7 @@
 #include <QString>
 #include <QFileDialog>
 #include <QEvent>
+#include <QLineEdit>
 
 using namespace Kleo;
 
@@ -41,8 +41,8 @@ private:
     QDir::Filters filter;
 #endif
 
-    KLineEdit    lineedit;
-    QToolButton  button;
+    QLineEdit lineedit;
+    QToolButton button;
     QHBoxLayout hlay;
 
     QString nameFilter;
@@ -84,7 +84,7 @@ FileNameRequester::FileNameRequesterPrivate::FileNameRequesterPrivate(FileNameRe
     q->setFocusProxy(&lineedit);
 
     connect(&button, &QToolButton::clicked, q, [this]() { slotButtonClicked(); });
-    connect(&lineedit, &KLineEdit::textChanged, q, &FileNameRequester::fileNameChanged);
+    connect(&lineedit, &QLineEdit::textChanged, q, &FileNameRequester::fileNameChanged);
 }
 
 FileNameRequester::FileNameRequesterPrivate::~FileNameRequesterPrivate() {}
