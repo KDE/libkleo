@@ -156,6 +156,11 @@ QString FileNameRequester::nameFilter() const
     return d->nameFilter;
 }
 
+void FileNameRequester::setAccessibleNameOfLineEdit(const QString &name)
+{
+    d->lineedit.setAccessibleName(name);
+}
+
 void FileNameRequester::FileNameRequesterPrivate::slotButtonClicked()
 {
     const QString fileName = q->requestFileName();
