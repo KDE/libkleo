@@ -15,6 +15,7 @@
 namespace Kleo
 {
 class CryptoConfigModule;
+class ReaderPortSelection;
 
 /**
  * A widget manager for the reader-port entry of scdaemon in the crypto config
@@ -33,12 +34,8 @@ private:
     void doSave() override;
     void doLoad() override;
 
-    void onCurrentIndexChanged(int);
-    void onEditTextChanged(const QString &);
-
 private:
-    QComboBox *const mComboBox = nullptr;
-    const QString mCustomEntryPlaceholderText;
+    ReaderPortSelection *const mReaderPort = nullptr;
 };
 
 }
