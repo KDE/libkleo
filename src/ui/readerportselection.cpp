@@ -22,6 +22,7 @@
 
 #include <QComboBox>
 #include <QHBoxLayout>
+#include <QLineEdit>
 
 #include <gpgme++/error.h>
 
@@ -44,13 +45,11 @@ private:
 private:
     ReaderPortSelection *const q = nullptr;
     QComboBox *const mComboBox = nullptr;
-    const QString mCustomEntryPlaceholderText;
 };
 
 ReaderPortSelection::Private::Private(Kleo::ReaderPortSelection *qq)
     : q{qq}
     , mComboBox{new QComboBox{qq}}
-    , mCustomEntryPlaceholderText{i18nc("@item:inlistbox", "Custom entry")}
 {
     auto layout = new QHBoxLayout{q};
     layout->setContentsMargins({});
@@ -70,7 +69,7 @@ ReaderPortSelection::Private::Private(Kleo::ReaderPortSelection *qq)
                     });
     }
 
-    mComboBox->addItem(mCustomEntryPlaceholderText, {});
+    mComboBox->addItem(QString{}, {});
     mComboBox->setToolTip(xi18nc("@info:tooltip",
                                     "<para>Select the smart card reader that GnuPG shall use.<list>"
                                     "<item>The first item will make GnuPG use the first reader that is found.</item>"
@@ -114,6 +113,9 @@ void ReaderPortSelection::Private::onCurrentIndexChanged(int index)
 {
     // the last item serves as input for a custom entry
     mComboBox->setEditable(index == mComboBox->count() - 1);
+    if (mComboBox->lineEdit()) {
+        mComboBox->lineEdit()->setPlaceholderText(i18nc("@item:inlistbox", "Custom reader ID or port number"));
+    }
 }
 
 void ReaderPortSelection::Private::onEditTextChanged(const QString &text)
