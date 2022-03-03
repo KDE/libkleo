@@ -181,6 +181,15 @@ public:
         return mFrontItems.count() + QSortFilterProxyModel::rowCount(parent) + mBackItems.count();
     }
 
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override
+    {
+        Q_UNUSED(parent)
+        // pretend that there is only one column to workaround a bug in
+        // QAccessibleTable which provides the accessibility interface for the
+        // pop-up of the combo box
+        return 1;
+    }
+
     QModelIndex mapToSource(const QModelIndex &index) const override
     {
         if (!isCustomItem(index.row())) {
