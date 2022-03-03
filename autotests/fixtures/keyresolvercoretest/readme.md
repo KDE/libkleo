@@ -52,6 +52,11 @@ gpg --quick-sign-key --default-key $(gpg -K --batch --with-colons ca-full@exampl
 gpg --quick-gen-key --batch --pinentry-mode loopback --passphrase "" --no-auto-trust-new-key "prefer-smime@example.net" default default never
 gpg --delete-secret-keys --batch --yes $(gpg -K --batch --with-colons prefer-smime@example.net | grep fpr | head -1 | cut -d ':' -f 10)
 gpg --quick-sign-key --default-key $(gpg -K --batch --with-colons ca-marginal@example.net | grep fpr | head -1 | cut -d ':' -f 10) --batch --pinentry-mode loopback --passphrase "" $(gpg -k --batch --with-colons prefer-smime@example.net | grep fpr | head -1 | cut -d ':' -f 10)
+
+# OpenPGP-only recipient with full validity
+gpg --quick-gen-key --batch --pinentry-mode loopback --passphrase "" --no-auto-trust-new-key "openpgp-only@example.net" default default never
+gpg --delete-secret-keys --batch --yes $(gpg -K --batch --with-colons openpgp-only@example.net | grep fpr | head -1 | cut -d ':' -f 10)
+gpg --quick-sign-key --default-key $(gpg -K --batch --with-colons ca-full@example.net | grep fpr | head -1 | cut -d ':' -f 10) --batch --pinentry-mode loopback --passphrase "" $(gpg -k --batch --with-colons openpgp-only@example.net | grep fpr | head -1 | cut -d ':' -f 10)
 ```
 
 ### Unused OpenPGP keys
@@ -165,4 +170,17 @@ Name-Email: prefer-openpgp@example.net
 eof
 echo test | openssl ca -config ./openssl.cnf -batch --passin stdin -keyfile test-ca.key.pem -in prefer-openpgp.req.pem -out prefer-openpgp.cert.pem
 gpgsm --import prefer-openpgp.cert.pem
+
+# S/MIME-only recipient with full validity
+gpgsm --gen-key --armor --batch --pinentry-mode loopback --passphrase "" <<eof >smime-only.req.pem
+dummy
+Key-Type: RSA
+Key-Length: 2048
+Key-Usage: sign, encrypt
+Name-DN: CN=S/MIME w/ full validity,O=example,C=DE
+Name-Email: smime-only@example.net
+eof
+echo test | openssl ca -config ./openssl.cnf -batch --passin stdin -keyfile test-ca.key.pem -in smime-only.req.pem -out smime-only.cert.pem
+gpgsm --import smime-only.cert.pem
+# remove the corresponding secret key in private-keys-v1.d
 ```

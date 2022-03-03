@@ -142,6 +142,20 @@ private Q_SLOTS:
             QVERIFY(smime.canEncrypt());
             QCOMPARE(smime.userID(0).validity(), UserID::Full);
         }
+        {
+            const Key openpgp = testKey("openpgp-only@example.net", OpenPGP);
+            QVERIFY(openpgp.canEncrypt());
+            QCOMPARE(openpgp.userID(0).validity(), UserID::Full);
+            const Key smime = testKey("openpgp-only@example.net", CMS);
+            QVERIFY(smime.isNull());
+        }
+        {
+            const Key openpgp = testKey("smime-only@example.net", OpenPGP);
+            QVERIFY(openpgp.isNull());
+            const Key smime = testKey("smime-only@example.net", CMS);
+            QVERIFY(smime.canEncrypt());
+            QCOMPARE(smime.userID(0).validity(), UserID::Full);
+        }
     }
 
     void test_openpgp_is_used_if_openpgp_only_and_smime_only_are_both_possible()
