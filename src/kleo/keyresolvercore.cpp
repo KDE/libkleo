@@ -533,6 +533,11 @@ auto getBestEncryptionKeys(const QMap<QString, QMap<Protocol, std::vector<Key>>>
 
 namespace
 {
+bool hasUnresolvedSender(const QMap<Protocol, std::vector<Key>> &signingKeys, Protocol protocol)
+{
+    return signingKeys.value(protocol).empty();
+}
+
 bool hasUnresolvedRecipients(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol protocol)
 {
     return std::any_of(std::cbegin(encryptionKeys), std::cend(encryptionKeys),
@@ -605,7 +610,8 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         resolveSign(OpenPGP);
         resolveEnc(OpenPGP);
     }
-    const bool pgpOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, OpenPGP)) && (!mSign || mSigKeys.contains(OpenPGP));
+    const bool pgpOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, OpenPGP))
+                      && (!mSign || !hasUnresolvedSender(mSigKeys, OpenPGP));
 
     if (mFormat == OpenPGP) {
         return {
@@ -619,7 +625,8 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         resolveSign(CMS);
         resolveEnc(CMS);
     }
-    const bool cmsOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, CMS)) && (!mSign || mSigKeys.contains(CMS));
+    const bool cmsOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, CMS))
+                      && (!mSign || !hasUnresolvedSender(mSigKeys, CMS));
 
     if (mFormat == CMS) {
         return {
@@ -679,9 +686,11 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     }
 
     const auto bestEncryptionKeys = getBestEncryptionKeys(mEncKeys, mPreferredProtocol);
-    const bool allAddressesAreResolved = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
-                                                     [] (const auto &keys) { return !keys.empty(); });
-    if (allAddressesAreResolved) {
+    // we are in mixed mode, i.e. we need an OpenPGP signing key and an S/MIME signing key
+    const bool senderIsResolved = (!mSign || (!hasUnresolvedSender(mSigKeys, OpenPGP) && !hasUnresolvedSender(mSigKeys, CMS)));
+    const bool allRecipientsAreResolved = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
+                                                      [] (const auto &keys) { return !keys.empty(); });
+    if (senderIsResolved && allRecipientsAreResolved) {
         return {
             SolutionFlags(AllResolved | MixedProtocols),
             {UnknownProtocol, concatenate(mSigKeys.value(OpenPGP), mSigKeys.value(CMS)), bestEncryptionKeys},

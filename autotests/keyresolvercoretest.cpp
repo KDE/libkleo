@@ -34,10 +34,29 @@ inline bool qCompare(GpgME::UserID::Validity const &t1, GpgME::UserID::Validity 
 }
 
 template <>
+inline char *toString(const KeyResolverCore::SolutionFlags &flags)
+{
+    QStringList v;
+    if (flags & KeyResolverCore::AllResolved) {
+        v.append(QStringLiteral("KeyResolverCore::AllResolved"));
+    } else {
+        v.append(QStringLiteral("KeyResolverCore::SomeResolved"));
+    }
+    if ((flags & KeyResolverCore::MixedProtocols) == KeyResolverCore::MixedProtocols) {
+        v.append(QStringLiteral("KeyResolverCore::MixedProtocols"));
+    } else if (flags & KeyResolverCore::OpenPGPOnly) {
+        v.append(QStringLiteral("KeyResolverCore::OpenPGPOnly"));
+    } else if (flags & KeyResolverCore::CMSOnly) {
+        v.append(QStringLiteral("KeyResolverCore::CMSOnly"));
+    }
+    return qstrdup(v.join(QStringLiteral(" | ")).toLocal8Bit().constData());
+}
+
+template <>
 inline bool qCompare(int const &t1, KeyResolverCore::SolutionFlags const &t2, const char *actual, const char *expected,
                     const char *file, int line)
 {
-    return qCompare(int(t1), int(t2), actual, expected, file, line);
+    return qCompare(static_cast<KeyResolverCore::SolutionFlags>(t1), t2, actual, expected, file, line);
 }
 
 template <>
@@ -828,6 +847,77 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
         QCOMPARE(result.solution.protocol, UnknownProtocol);
         QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 2);
+    }
+
+    void test_reports_unresolved_addresses_if_both_protocols_are_allowed_but_no_signing_keys_are_found_for_an_address()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
+        resolver.setSender(QStringLiteral("unknown@example.net"));
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 0);
+    }
+
+    void test_reports_unresolved_addresses_if_openpgp_is_requested_and_no_openpgp_signing_keys_are_found_for_an_address()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
+        resolver.setSender(QStringLiteral("sender-smime@example.net"));
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.signingKeys.size(), 0);
+    }
+
+    void test_reports_unresolved_addresses_if_smime_is_requested_and_no_smime_signing_keys_are_found_for_an_address()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
+        resolver.setSender(QStringLiteral("sender-openpgp@example.net"));
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
+        QCOMPARE(result.solution.protocol, CMS);
+        QCOMPARE(result.solution.signingKeys.size(), 0);
+    }
+
+    void test_reports_unresolved_addresses_if_both_protocols_are_needed_but_no_signing_keys_are_found_for_smime()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setSender(QStringLiteral("sender-openpgp@example.net"));
+        resolver.setRecipients({"smime-only@example.net"});
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
+        QCOMPARE(result.solution.protocol, UnknownProtocol);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
+    }
+
+    void test_reports_unresolved_addresses_if_both_protocols_are_needed_but_no_signing_keys_are_found_for_openpgp()
+    {
+        KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ true);
+        resolver.setSender(QStringLiteral("sender-smime@example.net"));
+        resolver.setRecipients({"openpgp-only@example.net"});
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
+        QCOMPARE(result.solution.protocol, UnknownProtocol);
+        QCOMPARE(result.solution.signingKeys.size(), 1);
+        QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(),
+                 testKey("sender-smime@example.net", CMS).primaryFingerprint());
     }
 
     void test_groups_for_signing_key__openpgp_only_mode__prefers_groups_over_keys()
