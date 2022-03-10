@@ -471,40 +471,32 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
 
 QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role) const
 {
-    if (role == Qt::DisplayRole || role == Qt::EditRole) {
+    if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole) {
         switch (column) {
         case PrettyName:
             return group.name();
-        case PrettyEMail:
-            return QVariant();
         case Validity:
             return Formatting::complianceStringShort(group);
-        case ValidFrom:
-            return QString();
-        case ValidUntil:
-            return QString();
         case TechnicalDetails:
             return Formatting::type(group);
-        case ShortKeyID:
-            return QString();
-        case KeyID:
-            return QString();
         case Summary:
             return Formatting::summaryLine(group);  // used for filtering
+        case PrettyEMail:
+        case ValidFrom:
+        case ValidUntil:
+        case ShortKeyID:
+        case KeyID:
         case Fingerprint:
-            return QString();
         case Issuer:
-            return QString();
         case Origin:
-            return QString();
         case LastUpdate:
-            return QString();
         case SerialNumber:
-            return QString();
         case OwnerTrust:
-            return QString();
         case Remarks:
-            return QVariant();
+            if (role == Qt::AccessibleTextRole) {
+                return i18nc("text for screen readers", "not applicable");
+            }
+            break;
         case NumColumns:
             break;
         }
