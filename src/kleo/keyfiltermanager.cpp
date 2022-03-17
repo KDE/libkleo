@@ -133,6 +133,29 @@ public:
     }
 };
 
+/* This filter selects uncertified OpenPGP keys, i.e. "good" OpenPGP keys with
+ * unrevoked user IDs that are not fully valid. */
+class UncertifiedOpenPGPKeysFilter : public DefaultKeyFilter
+{
+public:
+    UncertifiedOpenPGPKeysFilter()
+        : DefaultKeyFilter()
+    {
+        setSpecificity(UINT_MAX - 6); // overly high for ordering
+        setName(i18n("Not Certified Certificates"));
+        setId(QStringLiteral("not-certified-certificates"));
+
+        setMatchContexts(Filtering);
+        setIsOpenPGP(Set);
+        setIsBad(NotSet);
+    }
+    bool matches (const Key &key, MatchContexts contexts) const override
+    {
+        return DefaultKeyFilter::matches(key, contexts)
+            && !Formatting::uidsHaveFullValidity(key);
+    }
+};
+
 /* This filter selects only invalid keys (i.e. those where not all
  * UIDs are at least fully valid).  */
 class KeyNotValidFilter : public DefaultKeyFilter
@@ -141,7 +164,7 @@ public:
     KeyNotValidFilter()
         : DefaultKeyFilter()
     {
-        setSpecificity(UINT_MAX - 6); // overly high for ordering
+        setSpecificity(UINT_MAX - 7); // overly high for ordering
 
         setName(i18n("Not Validated Certificates"));
         setId(QStringLiteral("not-validated-certificates"));
@@ -165,6 +188,7 @@ static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
     result.push_back(std::shared_ptr<KeyFilter>(new FullCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new UncertifiedOpenPGPKeysFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new KeyNotValidFilter));
     return result;
 }
