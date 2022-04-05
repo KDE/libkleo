@@ -32,15 +32,15 @@ class KeyGroup;
 namespace Formatting
 {
 
-KLEO_EXPORT QString prettyNameAndEMail(int proto, const char *id, const char *name, const char *email, const char *comment);
-KLEO_EXPORT QString prettyNameAndEMail(int proto, const QString &id, const QString &name, const QString &email, const QString &comment);
+KLEO_EXPORT QString prettyNameAndEMail(int proto, const char *id, const char *name, const char *email, const char *comment = nullptr);
+KLEO_EXPORT QString prettyNameAndEMail(int proto, const QString &id, const QString &name, const QString &email, const QString &comment = {});
 KLEO_EXPORT QString prettyNameAndEMail(const GpgME::Key &key);
 KLEO_EXPORT QString prettyNameAndEMail(const GpgME::UserID &key);
 
 KLEO_EXPORT QString prettyUserID(const GpgME::UserID &uid);
 KLEO_EXPORT QString prettyKeyID(const char *id);
 
-KLEO_EXPORT QString prettyName(int proto, const char *id, const char *name, const char *comment);
+KLEO_EXPORT QString prettyName(int proto, const char *id, const char *name, const char *comment = nullptr);
 KLEO_EXPORT QString prettyName(const GpgME::Key &key);
 KLEO_EXPORT QString prettyName(const GpgME::UserID &uid);
 KLEO_EXPORT QString prettyName(const GpgME::UserID::Signature &sig);
