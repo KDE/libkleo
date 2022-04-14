@@ -250,7 +250,7 @@ QStringList Kleo::CryptoConfigModule::sortComponentList(const QStringList &compo
         QStringLiteral("gpg-agent"),
         QStringLiteral("dirmngr"),
         QStringLiteral("pinentry"),
-        QStringLiteral("scdaemon")
+        QStringLiteral("scdaemon"),
     };
     return sortConfigEntries(order.begin(), order.end(), components);
 }

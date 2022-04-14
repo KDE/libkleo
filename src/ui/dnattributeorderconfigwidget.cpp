@@ -103,7 +103,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
         { "go-previous",  2, 0, kli18n("Remove from current attribute order"), &DNAttributeOrderConfigWidget::slotLeftButtonClicked, false },
         { "go-next", 2, 2, kli18n("Add to current attribute order"), &DNAttributeOrderConfigWidget::slotRightButtonClicked, false },
         { "go-down",  3, 1, kli18n("Move one down"),  &DNAttributeOrderConfigWidget::slotDownButtonClicked, true },
-        { "go-bottom",  4, 1, kli18n("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false }
+        { "go-bottom",  4, 1, kli18n("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false },
     };
 
     for (unsigned int i = 0; i < sizeof navButtons / sizeof * navButtons; ++i) {

@@ -64,7 +64,7 @@ void AbstractKeyListModelTest::testSetKeys()
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
     const std::vector<Key> keys = {
-        createTestKey("test1@example.net")
+        createTestKey("test1@example.net"),
     };
     model->setKeys(keys);
     QCOMPARE( model->rowCount(), 1 );
@@ -72,7 +72,7 @@ void AbstractKeyListModelTest::testSetKeys()
 
     const std::vector<Key> otherKeys = {
         createTestKey("test2@example.net"),
-        createTestKey("test3@example.net")
+        createTestKey("test3@example.net"),
     };
     model->setKeys(otherKeys);
     QCOMPARE( model->rowCount(), 2 );
@@ -86,7 +86,7 @@ void AbstractKeyListModelTest::testSetGroups()
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
     const std::vector<KeyGroup> groups = {
-        createGroup("test1")
+        createGroup("test1"),
     };
     model->setGroups(groups);
     QCOMPARE( model->rowCount(), 1 );
@@ -94,7 +94,7 @@ void AbstractKeyListModelTest::testSetGroups()
 
     const std::vector<KeyGroup> otherGroups = {
         createGroup("test2"),
-        createGroup("test3")
+        createGroup("test3"),
     };
     model->setGroups(otherGroups);
     QCOMPARE( model->rowCount(), 2 );
@@ -154,7 +154,7 @@ void AbstractKeyListModelTest::testIndex()
         createGroup("test", {key}, KeyGroup::UnknownSource),
         createGroup("test", {key}, KeyGroup::GnuPGConfig),
         createGroup("test", {key}, KeyGroup::ApplicationConfig, "test"),
-        createGroup("test", {key}, KeyGroup::ApplicationConfig, "otherConfigName")
+        createGroup("test", {key}, KeyGroup::ApplicationConfig, "otherConfigName"),
     };
 
     model->setKeys({key});
@@ -178,7 +178,7 @@ void AbstractKeyListModelTest::testIndexForGroup()
         createGroup("test", {key}, KeyGroup::UnknownSource),
         createGroup("test", {key}, KeyGroup::GnuPGConfig),
         createGroup("test", {key}, KeyGroup::ApplicationConfig, "test"),
-        createGroup("test", {key}, KeyGroup::ApplicationConfig, "otherConfigName")
+        createGroup("test", {key}, KeyGroup::ApplicationConfig, "otherConfigName"),
     };
 
     model->setKeys({key});
@@ -273,7 +273,7 @@ void AbstractKeyListModelTest::testClear()
     QScopedPointer<AbstractKeyListModel> model(createModel());
 
     model->setGroups({
-        createGroup("test")
+        createGroup("test"),
     });
 
     model->clear(AbstractKeyListModel::Keys);

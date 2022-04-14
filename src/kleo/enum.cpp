@@ -30,32 +30,32 @@ static const struct {
     {
         Kleo::InlineOpenPGPFormat,
         kli18n("Inline OpenPGP (deprecated)"),
-        "inline openpgp"
+        "inline openpgp",
     },
     {
         Kleo::OpenPGPMIMEFormat,
         kli18n("OpenPGP/MIME"),
-        "openpgp/mime"
+        "openpgp/mime",
     },
     {
         Kleo::SMIMEFormat,
         kli18n("S/MIME"),
-        "s/mime"
+        "s/mime",
     },
     {
         Kleo::SMIMEOpaqueFormat,
         kli18n("S/MIME Opaque"),
-        "s/mime opaque"
+        "s/mime opaque",
     },
     {
         Kleo::AnySMIME,
         kli18n("Any S/MIME"),
-        "any s/mime"
+        "any s/mime",
     },
     {
         Kleo::AnyOpenPGP,
         kli18n("Any OpenPGP"),
-        "any openpgp"
+        "any openpgp",
     },
 };
 static const unsigned int numCryptoMessageFormats

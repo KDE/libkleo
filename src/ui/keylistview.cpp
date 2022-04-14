@@ -44,15 +44,15 @@ static const struct {
 } signalReplacements[] = {
     {
         SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
-        SLOT(slotEmitDoubleClicked(QTreeWidgetItem*,int))
+        SLOT(slotEmitDoubleClicked(QTreeWidgetItem*,int)),
     },
     {
         SIGNAL(itemSelectionChanged()),
-        SLOT(slotEmitSelectionChanged())
+        SLOT(slotEmitSelectionChanged()),
     },
     {
         SIGNAL(customContextMenuRequested(QPoint)),
-        SLOT(slotEmitContextMenu(QPoint))
+        SLOT(slotEmitContextMenu(QPoint)),
     },
 };
 static const int numSignalReplacements = sizeof signalReplacements / sizeof * signalReplacements;

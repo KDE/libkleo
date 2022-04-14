@@ -617,7 +617,7 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         return {
             SolutionFlags((pgpOnly ? AllResolved : SomeUnresolved) | OpenPGPOnly),
             {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
-            {}
+            {},
         };
     }
 
@@ -632,7 +632,7 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         return {
             SolutionFlags((cmsOnly ? AllResolved : SomeUnresolved) | CMSOnly),
             {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
-            {}
+            {},
         };
     }
 
@@ -642,13 +642,13 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
             return {
                 SolutionFlags(AllResolved | CMSOnly),
                 {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
-                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)}
+                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
             };
         } else {
             return {
                 SolutionFlags(AllResolved | CMSOnly),
                 {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
-                {}
+                {},
             };
         }
     }
@@ -657,13 +657,13 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
             return {
                 SolutionFlags(AllResolved | OpenPGPOnly),
                 {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
-                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)}
+                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
             };
         } else {
             return {
                 SolutionFlags(AllResolved | OpenPGPOnly),
                 {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
-                {}
+                {},
             };
         }
     }
@@ -674,13 +674,13 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
             return {
                 SolutionFlags(SomeUnresolved | CMSOnly),
                 {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
-                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)}
+                {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
             };
         } else {
             return {
                 SolutionFlags(SomeUnresolved | OpenPGPOnly),
                 {OpenPGP, mSigKeys.value(OpenPGP), keysForProtocol(mEncKeys, OpenPGP)},
-                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)}
+                {CMS, mSigKeys.value(CMS), keysForProtocol(mEncKeys, CMS)},
             };
         }
     }
@@ -694,7 +694,7 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         return {
             SolutionFlags(AllResolved | MixedProtocols),
             {UnknownProtocol, concatenate(mSigKeys.value(OpenPGP), mSigKeys.value(CMS)), bestEncryptionKeys},
-            {}
+            {},
         };
     }
 
@@ -704,7 +704,7 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         return {
             SolutionFlags(SomeUnresolved | OpenPGPOnly),
             {OpenPGP, mSigKeys.value(OpenPGP), bestEncryptionKeys},
-            {}
+            {},
         };
     }
 
@@ -714,14 +714,14 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         return {
             SolutionFlags(SomeUnresolved | CMSOnly),
             {CMS, mSigKeys.value(CMS), bestEncryptionKeys},
-            {}
+            {},
         };
     }
 
     return {
         SolutionFlags(SomeUnresolved | MixedProtocols),
         {UnknownProtocol, concatenate(mSigKeys.value(OpenPGP), mSigKeys.value(CMS)), bestEncryptionKeys},
-        {}
+        {},
     };
 }
 

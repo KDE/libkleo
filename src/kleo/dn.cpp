@@ -543,7 +543,7 @@ static const QMap<QString, KLazyLocalizedString> attributeNamesAndLabels = {
     { QStringLiteral("TEL"), kli18n("Telephone number") },
     { QStringLiteral("FAX"), kli18n("Fax number") },
     { QStringLiteral("STREET"), kli18n("Street address") },
-    { QStringLiteral("UID"), kli18n("Unique ID") }
+    { QStringLiteral("UID"), kli18n("Unique ID") },
 };
 }
 

@@ -609,16 +609,25 @@ private Q_SLOTS:
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
         resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
         resolver.setOverrideKeys({
-            {OpenPGP, {
-                {QStringLiteral("sender-openpgp@example.net"), {testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()}}
-            }},
-            {CMS, {
-                {QStringLiteral("sender-smime@example.net"), {testKey("prefer-smime@example.net", CMS).primaryFingerprint()}}
-            }},
-            {UnknownProtocol, {
-                {QStringLiteral("sender-openpgp@example.net"), {override1}},
-                {QStringLiteral("sender-smime@example.net"), {override2}}
-            }}
+            {
+                OpenPGP,
+                {
+                    {QStringLiteral("sender-openpgp@example.net"), {testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()}},
+                },
+            },
+            {
+                CMS,
+                {
+                    {QStringLiteral("sender-smime@example.net"), {testKey("prefer-smime@example.net", CMS).primaryFingerprint()}},
+                },
+            },
+            {
+                UnknownProtocol,
+                {
+                    {QStringLiteral("sender-openpgp@example.net"), {override1}},
+                    {QStringLiteral("sender-smime@example.net"), {override2}},
+                },
+            },
         });
 
         const auto result = resolver.resolve();
@@ -635,9 +644,10 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, OpenPGP);
         resolver.setRecipients({"sender-mixed@example.net"});
-        resolver.setOverrideKeys({{UnknownProtocol, {
-            {QStringLiteral("sender-mixed@example.net"), {testKey("prefer-smime@example.net", CMS).primaryFingerprint()}}
-        }}});
+        resolver.setOverrideKeys({{
+            UnknownProtocol,
+            {{QStringLiteral("sender-mixed@example.net"), {testKey("prefer-smime@example.net", CMS).primaryFingerprint()}}},
+        }});
 
         const auto result = resolver.resolve();
 
@@ -648,9 +658,10 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, CMS);
         resolver.setRecipients({"sender-mixed@example.net"});
-        resolver.setOverrideKeys({{UnknownProtocol, {
-            {QStringLiteral("sender-mixed@example.net"), {testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()}}
-        }}});
+        resolver.setOverrideKeys({{
+            UnknownProtocol,
+            {{QStringLiteral("sender-mixed@example.net"), {testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()}}},
+        }});
 
         const auto result = resolver.resolve();
 
@@ -662,12 +673,14 @@ private Q_SLOTS:
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
         resolver.setAllowMixedProtocols(false);
         resolver.setRecipients({"sender-mixed@example.net"});
-        resolver.setOverrideKeys({{UnknownProtocol, {
-            {QStringLiteral("sender-mixed@example.net"), {
-                testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint(),
-                testKey("prefer-smime@example.net", CMS).primaryFingerprint()
-            }}
-        }}});
+        resolver.setOverrideKeys({{
+            UnknownProtocol,
+            {{QStringLiteral("sender-mixed@example.net"),
+              {
+                  testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint(),
+                  testKey("prefer-smime@example.net", CMS).primaryFingerprint(),
+              }}},
+        }});
 
         const auto result = resolver.resolve();
 
@@ -677,16 +690,19 @@ private Q_SLOTS:
     void test_groups__openpgp_only_mode__ignores_non_openpgp_only_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("group@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("prefer-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("prefer-openpgp@example.net", OpenPGP),
-            }),
+            createGroup("group@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-openpgp@example.net", OpenPGP),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, OpenPGP);
@@ -705,16 +721,19 @@ private Q_SLOTS:
     void test_groups__smime_only_mode__ignores_non_smime_only_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("group@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("prefer-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("prefer-openpgp@example.net", OpenPGP),
-            }),
+            createGroup("group@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-openpgp@example.net", OpenPGP),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false, CMS);
@@ -733,10 +752,11 @@ private Q_SLOTS:
     void test_groups__single_protocol_mode__ignores_mixed_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-mixed@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS)
-            }),
+            createGroup("sender-mixed@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
@@ -756,16 +776,19 @@ private Q_SLOTS:
     void test_groups__mixed_mode__single_protocol_groups_are_preferred_over_mixed_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("group@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("prefer-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("prefer-openpgp@example.net", OpenPGP),
-            }),
+            createGroup("group@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-openpgp@example.net", OpenPGP),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
@@ -784,13 +807,15 @@ private Q_SLOTS:
     void test_groups__mixed_mode__openpgp_only_group_preferred_over_mixed_protocol_group()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("group@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP)
-            }),
+            createGroup("group@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
@@ -808,13 +833,15 @@ private Q_SLOTS:
     void test_groups__mixed_mode__smime_only_group_preferred_over_mixed_protocol_group()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("group@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS)
-            }),
-            createGroup("group@example.net", {
-                testKey("sender-smime@example.net", CMS)
-            }),
+            createGroup("group@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
+            createGroup("group@example.net",
+                        {
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
@@ -832,10 +859,11 @@ private Q_SLOTS:
     void test_groups__mixed_mode__mixed_protocol_groups_are_used()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-mixed@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS)
-            }),
+            createGroup("sender-mixed@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ true, /*sign=*/ false);
@@ -923,9 +951,10 @@ private Q_SLOTS:
     void test_groups_for_signing_key__openpgp_only_mode__prefers_groups_over_keys()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-mixed@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-            }),
+            createGroup("sender-mixed@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
@@ -944,16 +973,19 @@ private Q_SLOTS:
     void test_groups_for_signing_key__openpgp_only_mode__prefers_single_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-alias@example.net", {
-                testKey("sender-mixed@example.net", OpenPGP),
-                testKey("sender-mixed@example.net", CMS),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-mixed@example.net", OpenPGP),
+                            testKey("sender-mixed@example.net", CMS),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
@@ -972,10 +1004,11 @@ private Q_SLOTS:
     void test_groups_for_signing_key__openpgp_only_mode__takes_key_of_mixed_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-alias@example.net", {
-                testKey("sender-mixed@example.net", OpenPGP),
-                testKey("sender-mixed@example.net", CMS),
-            }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-mixed@example.net", OpenPGP),
+                            testKey("sender-mixed@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, OpenPGP);
@@ -994,9 +1027,10 @@ private Q_SLOTS:
     void test_groups_for_signing_key__smime_only_mode__prefers_groups_over_keys()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-mixed@example.net", {
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-mixed@example.net",
+                        {
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
@@ -1015,16 +1049,19 @@ private Q_SLOTS:
     void test_groups_for_signing_key__smime_only_mode__prefers_single_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-alias@example.net", {
-                testKey("sender-mixed@example.net", OpenPGP),
-                testKey("sender-mixed@example.net", CMS),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-mixed@example.net", OpenPGP),
+                            testKey("sender-mixed@example.net", CMS),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
@@ -1043,10 +1080,11 @@ private Q_SLOTS:
     void test_groups_for_signing_key__smime_only_mode__takes_key_of_mixed_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-alias@example.net", {
-                testKey("sender-mixed@example.net", OpenPGP),
-                testKey("sender-mixed@example.net", CMS),
-            }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-mixed@example.net", OpenPGP),
+                            testKey("sender-mixed@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true, CMS);
@@ -1065,10 +1103,11 @@ private Q_SLOTS:
     void test_groups_for_signing_key__single_protocol_mode__prefers_groups_over_keys()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-mixed@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-mixed@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
@@ -1091,16 +1130,19 @@ private Q_SLOTS:
     void test_groups_for_signing_key__single_protocol_mode__prefers_single_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-alias@example.net", {
-                testKey("sender-mixed@example.net", OpenPGP),
-                testKey("sender-mixed@example.net", CMS),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-mixed@example.net", OpenPGP),
+                            testKey("sender-mixed@example.net", CMS),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
@@ -1123,10 +1165,11 @@ private Q_SLOTS:
     void test_groups_for_signing_key__mixed_mode__prefers_groups_over_keys()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-mixed@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-mixed@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
@@ -1145,10 +1188,11 @@ private Q_SLOTS:
     void test_groups_for_signing_key__mixed_mode_with_smime_preferred__prefers_groups_over_keys()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-mixed@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-mixed@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
@@ -1168,16 +1212,19 @@ private Q_SLOTS:
     void test_groups_for_signing_key__mixed_mode__prefers_single_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-alias@example.net", {
-                testKey("sender-mixed@example.net", OpenPGP),
-                testKey("sender-mixed@example.net", CMS),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-mixed@example.net", OpenPGP),
+                            testKey("sender-mixed@example.net", CMS),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);
@@ -1196,16 +1243,19 @@ private Q_SLOTS:
     void test_groups_for_signing_key__mixed_mode_with_smime_preferred__prefers_single_protocol_groups()
     {
         const std::vector<KeyGroup> groups = {
-            createGroup("sender-alias@example.net", {
-                testKey("sender-mixed@example.net", OpenPGP),
-                testKey("sender-mixed@example.net", CMS),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-openpgp@example.net", OpenPGP),
-            }),
-            createGroup("sender-alias@example.net", {
-                testKey("sender-smime@example.net", CMS),
-            }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-mixed@example.net", OpenPGP),
+                            testKey("sender-mixed@example.net", CMS),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-openpgp@example.net", OpenPGP),
+                        }),
+            createGroup("sender-alias@example.net",
+                        {
+                            testKey("sender-smime@example.net", CMS),
+                        }),
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/ false, /*sign=*/ true);

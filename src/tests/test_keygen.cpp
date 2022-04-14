@@ -38,7 +38,7 @@ static const char *const keyParams[] = {
     "Subkey-Type", "Subkey-Length",
     "Name-Real", "Name-Comment", "Name-Email", "Name-DN",
     "Expire-Date",
-    "Passphrase"
+    "Passphrase",
 };
 static const int numKeyParams = sizeof keyParams / sizeof * keyParams;
 
