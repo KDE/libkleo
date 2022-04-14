@@ -68,12 +68,23 @@ void DefaultKeyGenerationJob::setPassphrase(const QString &passphrase)
     d->passphrase = passphrase.isNull() ? QLatin1String("") : passphrase;
 }
 
+namespace
+{
+QString passphraseParameter(const QString &passphrase)
+{
+    if (passphrase.isNull()) {
+        return QStringLiteral("%ask-passphrase");
+    } else if (passphrase.isEmpty()) {
+        return QStringLiteral("%no-protection");
+    } else {
+        return QStringLiteral("passphrase: %1").arg(passphrase);
+    };
+}
+}
+
 GpgME::Error DefaultKeyGenerationJob::start(const QString &email, const QString &name)
 {
-    const QString passphrase = d->passphrase.isNull() ? QStringLiteral("%ask-passphrase") :
-                               d->passphrase.isEmpty() ? QStringLiteral("%no-protection") :
-                                                         QStringLiteral("passphrase:    %1").arg(d->passphrase);
-
+    const QString passphrase = passphraseParameter(d->passphrase);
     const QString args = QStringLiteral("<GnupgKeyParms format=\"internal\">\n"
                                         "key-type:      RSA\n"
                                         "key-length:    2048\n"
