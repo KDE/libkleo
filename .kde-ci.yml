@@ -13,3 +13,6 @@ Dependencies:
     'frameworks/kcoreaddons': '@latest'
     'frameworks/kcodecs': '@latest'
     'frameworks/kitemmodels': '@latest'
+
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
