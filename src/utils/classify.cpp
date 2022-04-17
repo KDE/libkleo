@@ -58,19 +58,21 @@ static const struct _classification {
 };
 
 static const QMap<GpgME::Data::Type, unsigned int> gpgmeTypeMap {
-    { GpgME::Data::PGPSigned, Kleo::Class::OpenPGP | OpaqueSignature },
+    // clang-format off
+    {GpgME::Data::PGPSigned,    Kleo::Class::OpenPGP | OpaqueSignature  },
     /* PGPOther might be just an unencrypted unsigned pgp message. Decrypt
      * would yield the plaintext anyway so for us this is CipherText. */
-    { GpgME::Data::PGPOther, Kleo::Class::OpenPGP | CipherText },
-    { GpgME::Data::PGPKey, Kleo::Class::OpenPGP | Certificate },
-    { GpgME::Data::CMSSigned, Kleo::Class::CMS | AnySignature },
-    { GpgME::Data::CMSEncrypted, Kleo::Class::CMS | CipherText },
+    {GpgME::Data::PGPOther,     Kleo::Class::OpenPGP | CipherText       },
+    {GpgME::Data::PGPKey,       Kleo::Class::OpenPGP | Certificate      },
+    {GpgME::Data::CMSSigned,    Kleo::Class::CMS | AnySignature         },
+    {GpgME::Data::CMSEncrypted, Kleo::Class::CMS | CipherText           },
     /* See PGPOther */
-    { GpgME::Data::CMSOther, Kleo::Class::CMS | CipherText },
-    { GpgME::Data::X509Cert, Kleo::Class::CMS | Certificate},
-    { GpgME::Data::PKCS12, Kleo::Class::CMS | Binary | ExportedPSM },
-    { GpgME::Data::PGPEncrypted, Kleo::Class::OpenPGP | CipherText },
-    { GpgME::Data::PGPSignature, Kleo::Class::OpenPGP | DetachedSignature },
+    {GpgME::Data::CMSOther,     Kleo::Class::CMS | CipherText           },
+    {GpgME::Data::X509Cert,     Kleo::Class::CMS | Certificate          },
+    {GpgME::Data::PKCS12,       Kleo::Class::CMS | Binary | ExportedPSM },
+    {GpgME::Data::PGPEncrypted, Kleo::Class::OpenPGP | CipherText       },
+    {GpgME::Data::PGPSignature, Kleo::Class::OpenPGP | DetachedSignature},
+    // clang-format on
 };
 
 static const unsigned int defaultClassification = NoClass;
@@ -104,14 +106,16 @@ static const struct _content_classification {
     char content[28];
     unsigned int classification;
 } content_classifications[] = {
-    { "CERTIFICATE",       Certificate },
-    { "ENCRYPTED MESSAGE", CipherText  },
-    { "MESSAGE",           OpaqueSignature | CipherText },
-    { "PKCS12",            ExportedPSM },
-    { "PRIVATE KEY BLOCK", ExportedPSM },
-    { "PUBLIC KEY BLOCK",  Certificate },
-    { "SIGNATURE",         DetachedSignature },
-    { "SIGNED MESSAGE",    ClearsignedMessage | DetachedSignature },
+    // clang-format off
+    {"CERTIFICATE",       Certificate                           },
+    {"ENCRYPTED MESSAGE", CipherText                            },
+    {"MESSAGE",           OpaqueSignature | CipherText          },
+    {"PKCS12",            ExportedPSM                           },
+    {"PRIVATE KEY BLOCK", ExportedPSM                           },
+    {"PUBLIC KEY BLOCK",  Certificate                           },
+    {"SIGNATURE",         DetachedSignature                     },
+    {"SIGNED MESSAGE",    ClearsignedMessage | DetachedSignature},
+    // clang-format on
 };
 
 template <template <typename U> class Op>

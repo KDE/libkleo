@@ -102,12 +102,14 @@ static const struct {
     Key::OwnerTrust trust;
     UserID::Validity validity;
 } ownerTrustAndValidityMap[] = {
-    { "unknown",   Key::Unknown,   UserID::Unknown   },
-    { "undefined", Key::Undefined, UserID::Undefined },
-    { "never",     Key::Never,     UserID::Never     },
-    { "marginal",  Key::Marginal,  UserID::Marginal  },
-    { "full",      Key::Full,      UserID::Full      },
-    { "ultimate",  Key::Ultimate,  UserID::Ultimate  },
+    // clang-format off
+    {"unknown",   Key::Unknown,   UserID::Unknown  },
+    {"undefined", Key::Undefined, UserID::Undefined},
+    {"never",     Key::Never,     UserID::Never    },
+    {"marginal",  Key::Marginal,  UserID::Marginal },
+    {"full",      Key::Full,      UserID::Full     },
+    {"ultimate",  Key::Ultimate,  UserID::Ultimate },
+    // clang-format on
 };
 
 static Key::OwnerTrust map2OwnerTrust(const QString &s)

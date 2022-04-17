@@ -525,25 +525,27 @@ Kleo::DN::const_iterator Kleo::DN::end() const
 namespace
 {
 static const QMap<QString, KLazyLocalizedString> attributeNamesAndLabels = {
-    { QStringLiteral("CN"), kli18n("Common name") },
-    { QStringLiteral("SN"), kli18n("Surname") },
-    { QStringLiteral("GN"), kli18n("Given name") },
-    { QStringLiteral("L"), kli18n("Location") },
-    { QStringLiteral("T"), kli18n("Title") },
-    { QStringLiteral("OU"), kli18n("Organizational unit") },
-    { QStringLiteral("O"), kli18n("Organization") },
-    { QStringLiteral("PC"), kli18n("Postal code") },
-    { QStringLiteral("C"), kli18n("Country code") },
-    { QStringLiteral("SP"), kli18n("State or province") },
-    { QStringLiteral("DC"), kli18n("Domain component") },
-    { QStringLiteral("BC"), kli18n("Business category") },
-    { QStringLiteral("EMAIL"), kli18n("Email address") },
-    { QStringLiteral("MAIL"), kli18n("Mail address") },
-    { QStringLiteral("MOBILE"), kli18n("Mobile phone number") },
-    { QStringLiteral("TEL"), kli18n("Telephone number") },
-    { QStringLiteral("FAX"), kli18n("Fax number") },
-    { QStringLiteral("STREET"), kli18n("Street address") },
-    { QStringLiteral("UID"), kli18n("Unique ID") },
+    // clang-format off
+    {QStringLiteral("CN"),     kli18n("Common name")        },
+    {QStringLiteral("SN"),     kli18n("Surname")            },
+    {QStringLiteral("GN"),     kli18n("Given name")         },
+    {QStringLiteral("L"),      kli18n("Location")           },
+    {QStringLiteral("T"),      kli18n("Title")              },
+    {QStringLiteral("OU"),     kli18n("Organizational unit")},
+    {QStringLiteral("O"),      kli18n("Organization")       },
+    {QStringLiteral("PC"),     kli18n("Postal code")        },
+    {QStringLiteral("C"),      kli18n("Country code")       },
+    {QStringLiteral("SP"),     kli18n("State or province")  },
+    {QStringLiteral("DC"),     kli18n("Domain component")   },
+    {QStringLiteral("BC"),     kli18n("Business category")  },
+    {QStringLiteral("EMAIL"),  kli18n("Email address")      },
+    {QStringLiteral("MAIL"),   kli18n("Mail address")       },
+    {QStringLiteral("MOBILE"), kli18n("Mobile phone number")},
+    {QStringLiteral("TEL"),    kli18n("Telephone number")   },
+    {QStringLiteral("FAX"),    kli18n("Fax number")         },
+    {QStringLiteral("STREET"), kli18n("Street address")     },
+    {QStringLiteral("UID"),    kli18n("Unique ID")          },
+    // clang-format on
 };
 }
 

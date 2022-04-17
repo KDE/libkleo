@@ -27,36 +27,14 @@ static const struct {
     const KLazyLocalizedString displayName;
     const char *configName;
 } cryptoMessageFormats[] = {
-    {
-        Kleo::InlineOpenPGPFormat,
-        kli18n("Inline OpenPGP (deprecated)"),
-        "inline openpgp",
-    },
-    {
-        Kleo::OpenPGPMIMEFormat,
-        kli18n("OpenPGP/MIME"),
-        "openpgp/mime",
-    },
-    {
-        Kleo::SMIMEFormat,
-        kli18n("S/MIME"),
-        "s/mime",
-    },
-    {
-        Kleo::SMIMEOpaqueFormat,
-        kli18n("S/MIME Opaque"),
-        "s/mime opaque",
-    },
-    {
-        Kleo::AnySMIME,
-        kli18n("Any S/MIME"),
-        "any s/mime",
-    },
-    {
-        Kleo::AnyOpenPGP,
-        kli18n("Any OpenPGP"),
-        "any openpgp",
-    },
+    // clang-format off
+    {Kleo::InlineOpenPGPFormat, kli18n("Inline OpenPGP (deprecated)"), "inline openpgp"},
+    {Kleo::OpenPGPMIMEFormat,   kli18n("OpenPGP/MIME"),                "openpgp/mime"  },
+    {Kleo::SMIMEFormat,         kli18n("S/MIME"),                      "s/mime"        },
+    {Kleo::SMIMEOpaqueFormat,   kli18n("S/MIME Opaque"),               "s/mime opaque" },
+    {Kleo::AnySMIME,            kli18n("Any S/MIME"),                  "any s/mime"    },
+    {Kleo::AnyOpenPGP,          kli18n("Any OpenPGP"),                 "any openpgp"   },
+    // clang-format on
 };
 static const unsigned int numCryptoMessageFormats
     = sizeof cryptoMessageFormats / sizeof * cryptoMessageFormats;
