@@ -83,33 +83,175 @@ KLEO_EXPORT const char *outputFileExtension(unsigned int classification, bool us
 
 KLEO_EXPORT QString printableClassification(unsigned int classification);
 
-#define make_convenience( What, Mask )                                  \
-    inline bool is##What( const QString & filename ) {                  \
-        return ( classify( filename ) & Class::Mask ) == Class::What ;  \
-    }                                                                   \
-    inline bool is##What( const unsigned int classification ) {         \
-        return ( classification & Class::Mask ) == Class::What ;        \
-    }                                                                   \
-    inline bool mayBe##What( const QString & filename ) {               \
-        return classify( filename ) & Class::What ;                     \
-    }                                                                   \
-    inline bool mayBe##What( const unsigned int classification ) {      \
-        return classification & Class::What ;                           \
-    }
+inline bool isCMS(const QString &filename)
+{
+    return (classify(filename) & Class::ProtocolMask) == Class::CMS;
+}
+inline bool isCMS(const unsigned int classification)
+{
+    return (classification & Class::ProtocolMask) == Class::CMS;
+}
+inline bool mayBeCMS(const QString &filename)
+{
+    return classify(filename) & Class::CMS;
+}
+inline bool mayBeCMS(const unsigned int classification)
+{
+    return classification & Class::CMS;
+}
 
-make_convenience(CMS,     ProtocolMask)
-make_convenience(OpenPGP, ProtocolMask)
+inline bool isOpenPGP(const QString &filename)
+{
+    return (classify(filename) & Class::ProtocolMask) == Class::OpenPGP;
+}
+inline bool isOpenPGP(const unsigned int classification)
+{
+    return (classification & Class::ProtocolMask) == Class::OpenPGP;
+}
+inline bool mayBeOpenPGP(const QString &filename)
+{
+    return classify(filename) & Class::OpenPGP;
+}
+inline bool mayBeOpenPGP(const unsigned int classification)
+{
+    return classification & Class::OpenPGP;
+}
 
-make_convenience(Binary, FormatMask)
-make_convenience(Ascii,  FormatMask)
+inline bool isBinary(const QString &filename)
+{
+    return (classify(filename) & Class::FormatMask) == Class::Binary;
+}
+inline bool isBinary(const unsigned int classification)
+{
+    return (classification & Class::FormatMask) == Class::Binary;
+}
+inline bool mayBeBinary(const QString &filename)
+{
+    return classify(filename) & Class::Binary;
+}
+inline bool mayBeBinary(const unsigned int classification)
+{
+    return classification & Class::Binary;
+}
 
-make_convenience(DetachedSignature, TypeMask)
-make_convenience(OpaqueSignature,   TypeMask)
-make_convenience(CipherText,        TypeMask)
-make_convenience(AnyMessageType,    TypeMask)
-make_convenience(CertificateRevocationList, TypeMask)
-make_convenience(AnyCertStoreType,  TypeMask)
-#undef make_convenience
+inline bool isAscii(const QString &filename)
+{
+    return (classify(filename) & Class::FormatMask) == Class::Ascii;
+}
+inline bool isAscii(const unsigned int classification)
+{
+    return (classification & Class::FormatMask) == Class::Ascii;
+}
+inline bool mayBeAscii(const QString &filename)
+{
+    return classify(filename) & Class::Ascii;
+}
+inline bool mayBeAscii(const unsigned int classification)
+{
+    return classification & Class::Ascii;
+}
+
+inline bool isDetachedSignature(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::DetachedSignature;
+}
+inline bool isDetachedSignature(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::DetachedSignature;
+}
+inline bool mayBeDetachedSignature(const QString &filename)
+{
+    return classify(filename) & Class::DetachedSignature;
+}
+inline bool mayBeDetachedSignature(const unsigned int classification)
+{
+    return classification & Class::DetachedSignature;
+}
+
+inline bool isOpaqueSignature(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::OpaqueSignature;
+}
+inline bool isOpaqueSignature(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::OpaqueSignature;
+}
+inline bool mayBeOpaqueSignature(const QString &filename)
+{
+    return classify(filename) & Class::OpaqueSignature;
+}
+inline bool mayBeOpaqueSignature(const unsigned int classification)
+{
+    return classification & Class::OpaqueSignature;
+}
+
+inline bool isCipherText(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::CipherText;
+}
+inline bool isCipherText(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::CipherText;
+}
+inline bool mayBeCipherText(const QString &filename)
+{
+    return classify(filename) & Class::CipherText;
+}
+inline bool mayBeCipherText(const unsigned int classification)
+{
+    return classification & Class::CipherText;
+}
+
+inline bool isAnyMessageType(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::AnyMessageType;
+}
+inline bool isAnyMessageType(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::AnyMessageType;
+}
+inline bool mayBeAnyMessageType(const QString &filename)
+{
+    return classify(filename) & Class::AnyMessageType;
+}
+inline bool mayBeAnyMessageType(const unsigned int classification)
+{
+    return classification & Class::AnyMessageType;
+}
+
+inline bool isCertificateRevocationList(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::CertificateRevocationList;
+}
+inline bool isCertificateRevocationList(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::CertificateRevocationList;
+}
+inline bool mayBeCertificateRevocationList(const QString &filename)
+{
+    return classify(filename) & Class::CertificateRevocationList;
+}
+inline bool mayBeCertificateRevocationList(const unsigned int classification)
+{
+    return classification & Class::CertificateRevocationList;
+}
+
+inline bool isAnyCertStoreType(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::AnyCertStoreType;
+}
+inline bool isAnyCertStoreType(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::AnyCertStoreType;
+}
+inline bool mayBeAnyCertStoreType(const QString &filename)
+{
+    return classify(filename) & Class::AnyCertStoreType;
+}
+inline bool mayBeAnyCertStoreType(const unsigned int classification)
+{
+    return classification & Class::AnyCertStoreType;
+}
 
 inline GpgME::Protocol findProtocol(const unsigned int classification)
 {
