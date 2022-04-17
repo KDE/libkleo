@@ -571,14 +571,16 @@ static const constructor listWidgets[QGpgME::CryptoConfigEntry::NumArgType] = {
 };
 
 static const constructor scalarWidgets[QGpgME::CryptoConfigEntry::NumArgType] = {
+    // clang-format off
     &_create<CryptoConfigEntryCheckBox>, // None
     &_create<CryptoConfigEntryLineEdit>, // String
     &_create<CryptoConfigEntrySpinBox>,  // Int
     &_create<CryptoConfigEntrySpinBox>,  // UInt
     &_create<CryptoConfigEntryPath>,     // Path
-    nullptr,                                   // Formerly URL
-    nullptr,                                   // LDAPURL
+    nullptr,                             // Formerly URL
+    nullptr,                             // LDAPURL
     &_create<CryptoConfigEntryDirPath>,  // DirPath
+    // clang-format on
 };
 
 CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry, const QString &entryName, QGridLayout *glay, QWidget *widget)
