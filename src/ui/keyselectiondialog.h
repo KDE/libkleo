@@ -188,9 +188,9 @@ private:
     // cross-eventloop temporaries:
     QString mSearchText;
     const QString mInitialQuery;
-    int mTruncated = 0,
-        mListJobCount = 0,
-        mSavedOffsetY = 0;
+    int mTruncated = 0;
+    int mListJobCount = 0;
+    int mSavedOffsetY = 0;
 };
 
 }
