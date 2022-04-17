@@ -8,6 +8,7 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
+// clang-format off
 const char * auditlog =
 "<div class=\"GnuPGAuditLog\">"
 "<table border=\"0\">"
@@ -51,6 +52,7 @@ const char * auditlog =
 "  <tr><td><table><tr><td><font color=\"green\">*</font></td><td>Gpg-Agent usable</td></tr></table></td><td><font color=\"green\">Yes</font></td></tr>"
 "</table>"
 "</div>";
+// clang-format on
 
 #include "libkleo/messagebox.h"
 
