@@ -65,11 +65,13 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     mainLayout->addWidget(m_textEdit);
     mainLayout->addWidget(buttonBox);
 
-//     qDebug() << "buttonBox->style()->styleHint(QStyle::SH_DialogButtonLayout, ...):" << buttonBox->style()->styleHint(QStyle::SH_DialogButtonLayout, nullptr, buttonBox);
-//     qDebug() << __func__ << "buttonBox->focusProxy():" << buttonBox->focusProxy();
-//     qDebug() << __func__ << "copyClipBtn->nextInFocusChain():" << copyClipBtn->nextInFocusChain();
-//     qDebug() << __func__ << "saveAsBtn->nextInFocusChain():" << saveAsBtn->nextInFocusChain();
-//     qDebug() << __func__ << "closeBtn->nextInFocusChain():" << closeBtn->nextInFocusChain();
+#if 0
+    qDebug() << "buttonBox->style()->styleHint(QStyle::SH_DialogButtonLayout, ...):" << buttonBox->style()->styleHint(QStyle::SH_DialogButtonLayout, nullptr, buttonBox);
+    qDebug() << __func__ << "buttonBox->focusProxy():" << buttonBox->focusProxy();
+    qDebug() << __func__ << "copyClipBtn->nextInFocusChain():" << copyClipBtn->nextInFocusChain();
+    qDebug() << __func__ << "saveAsBtn->nextInFocusChain():" << saveAsBtn->nextInFocusChain();
+    qDebug() << __func__ << "closeBtn->nextInFocusChain():" << closeBtn->nextInFocusChain();
+#endif
 
     connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
