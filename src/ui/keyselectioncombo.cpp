@@ -284,13 +284,10 @@ public:
                             key.protocol() == GpgME::OpenPGP ? i18n("OpenPGP") + QLatin1Char(',') : i18n("S/MIME") + QLatin1Char(','),
                          Kleo::Formatting::creationDateString(key));
         }
-        case Qt::ToolTipRole:
-            return Kleo::Formatting::toolTip(key, Kleo::Formatting::Validity |
-                                                  Kleo::Formatting::Issuer |
-                                                  Kleo::Formatting::Subject |
-                                                  Kleo::Formatting::Fingerprint |
-                                                  Kleo::Formatting::ExpiryDates |
-                                                  Kleo::Formatting::UserIDs);
+        case Qt::ToolTipRole: {
+            using namespace Kleo::Formatting;
+            return Kleo::Formatting::toolTip(key, Validity | Issuer | Subject | Fingerprint | ExpiryDates | UserIDs);
+        }
         case Qt::DecorationRole:
             return Kleo::Formatting::iconForUid(key.userID(0));
         default:
