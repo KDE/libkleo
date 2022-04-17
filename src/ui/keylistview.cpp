@@ -291,9 +291,8 @@ void Kleo::KeyListView::slotRefreshKey(const GpgME::Key &key)
     }
     if (KeyListViewItem *item = itemByFingerprint(fpr)) {
         item->setKey(key);
-    } else
+    } else {
         // none found -> add it
-    {
         slotAddKey(key);
     }
 }

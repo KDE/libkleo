@@ -124,8 +124,8 @@ QString Formatting::prettyUserID(const UserID &uid)
         return prettyEMail(uid.email(), uid.id());
     }
     if (id.startsWith('('))
-        // ### parse uri/dns:
     {
+        // ### parse uri/dns:
         return QString::fromUtf8(uid.id());
     } else {
         return DN(uid.id()).prettyDN();

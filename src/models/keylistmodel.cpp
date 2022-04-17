@@ -1085,12 +1085,12 @@ void HierarchicalKeyListModel::addKeyWithoutParent(const char *issuer_fpr, const
     const std::vector<Key>::iterator it = std::lower_bound(subjects.begin(), subjects.end(), key, _detail::ByFingerprint<std::less>());
 
     if (it != subjects.end() && qstricmp(it->primaryFingerprint(), key.primaryFingerprint()) == 0)
-        // exists -> replace
     {
+        // exists -> replace
         *it = key;
     } else
-        // doesn't exist -> insert
     {
+        // doesn't exist -> insert
         subjects.insert(it, key);
     }
 
@@ -1289,16 +1289,16 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
 
         const char *const issuer_fpr = cleanChainID(key);
         if (!issuer_fpr || !*issuer_fpr)
-            // root or something...
         {
+            // root or something...
             addTopLevelKey(key);
         } else if (std::binary_search(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), issuer_fpr, _detail::ByFingerprint<std::less>()))
-            // parent exists...
         {
+            // parent exists...
             addKeyWithParent(issuer_fpr, key);
         } else
-            // parent doesn't exist yet...
         {
+            // parent doesn't exist yet...
             addKeyWithoutParent(issuer_fpr, key);
         }
 
