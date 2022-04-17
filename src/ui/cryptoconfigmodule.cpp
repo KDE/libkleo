@@ -100,10 +100,16 @@ static KPageView::FaceType determineJanusFace(const QGpgME::CryptoConfig *config
         ok = false;
         return KPageView::Plain;
     }
-    return
-        layout == CryptoConfigModule::LinearizedLayout ? KPageView::Plain :
-        layout == CryptoConfigModule::TabbedLayout     ? KPageView::Tabbed :
-        /* else */                                       KPageView::List;
+    switch (layout) {
+    case CryptoConfigModule::LinearizedLayout:
+        return KPageView::Plain;
+    case CryptoConfigModule::TabbedLayout:
+        return KPageView::Tabbed;
+    case CryptoConfigModule::IconListLayout:
+        return KPageView::List;
+    }
+    Q_ASSERT(!"we should never get here");
+    return KPageView::List;
 }
 
 Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent)
