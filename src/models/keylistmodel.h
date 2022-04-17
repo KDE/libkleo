@@ -34,9 +34,11 @@ class KLEO_EXPORT AbstractKeyListModel : public QAbstractItemModel
     Q_OBJECT
 public:
     enum ItemType {
-        Keys = 0x01,
+        // clang-format off
+        Keys   = 0x01,
         Groups = 0x02,
-        All = Keys | Groups,
+        All    = Keys | Groups,
+        // clang-format on
     };
     Q_DECLARE_FLAGS(ItemTypes, ItemType)
 

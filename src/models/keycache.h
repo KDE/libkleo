@@ -155,9 +155,11 @@ public:
     std::vector<GpgME::Key> getGroupKeys(const QString &groupName) const;
 
     enum Option {
-        NoOption = 0,
+        // clang-format off
+        NoOption        = 0,
         RecursiveSearch = 1,
-        IncludeSubject = 2,
+        IncludeSubject  = 2,
+        // clang-format on
     };
     Q_DECLARE_FLAGS(Options, Option)
 

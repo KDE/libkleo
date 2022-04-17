@@ -37,11 +37,13 @@ public:
     virtual ~KeyFilter() {}
 
     enum MatchContext {
-        NoMatchContext = 0x0,
-        Appearance = 0x1,
-        Filtering = 0x2,
+        // clang-format off
+        NoMatchContext  = 0x0,
+        Appearance      = 0x1,
+        Filtering       = 0x2,
 
         AnyMatchContext = Appearance | Filtering
+        // clang-format on
     };
     Q_DECLARE_FLAGS(MatchContexts, MatchContext)
 

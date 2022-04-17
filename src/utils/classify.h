@@ -23,45 +23,47 @@ namespace Kleo
 namespace Class
 {
 enum {
-    NoClass = 0,
+    // clang-format off
+    NoClass                   = 0,
 
     // protocol:
-    CMS          = 0x01,
-    OpenPGP      = 0x02,
+    CMS                       = 0x01,
+    OpenPGP                   = 0x02,
 
-    AnyProtocol  = OpenPGP | CMS,
-    ProtocolMask = AnyProtocol,
+    AnyProtocol               = OpenPGP | CMS,
+    ProtocolMask              = AnyProtocol,
 
     // format:
-    Binary     = 0x04,
-    Ascii      = 0x08,
+    Binary                    = 0x04,
+    Ascii                     = 0x08,
 
-    AnyFormat  = Binary | Ascii,
-    FormatMask = AnyFormat,
+    AnyFormat                 = Binary | Ascii,
+    FormatMask                = AnyFormat,
 
     // type:
-    DetachedSignature  = 0x010,
-    OpaqueSignature    = 0x020,
-    ClearsignedMessage = 0x040,
+    DetachedSignature         = 0x010,
+    OpaqueSignature           = 0x020,
+    ClearsignedMessage        = 0x040,
 
-    AnySignature       = DetachedSignature | OpaqueSignature | ClearsignedMessage,
+    AnySignature              = DetachedSignature | OpaqueSignature | ClearsignedMessage,
 
-    CipherText         = 0x080,
+    CipherText                = 0x080,
 
-    AnyMessageType     = AnySignature | CipherText,
+    AnyMessageType            = AnySignature | CipherText,
 
-    Importable         = 0x100,
-    Certificate        = 0x200 | Importable,
-    ExportedPSM        = 0x400 | Importable,
+    Importable                = 0x100,
+    Certificate               = 0x200 | Importable,
+    ExportedPSM               = 0x400 | Importable,
 
-    AnyCertStoreType   = Certificate | ExportedPSM,
+    AnyCertStoreType          = Certificate | ExportedPSM,
 
-    CertificateRequest = 0x800,
+    CertificateRequest        = 0x800,
 
     CertificateRevocationList = 0x1000,
 
-    AnyType            = AnyMessageType | AnyCertStoreType | CertificateRequest | CertificateRevocationList,
-    TypeMask           = AnyType
+    AnyType                   = AnyMessageType | AnyCertStoreType | CertificateRequest | CertificateRevocationList,
+    TypeMask                  = AnyType
+    // clang-format on
 };
 }
 

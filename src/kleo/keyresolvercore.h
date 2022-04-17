@@ -38,17 +38,19 @@ class KLEO_EXPORT KeyResolverCore
 public:
     enum SolutionFlags
     {
+        // clang-format off
         SomeUnresolved = 0,
-        AllResolved = 1,
+        AllResolved    = 1,
 
-        OpenPGPOnly = 2,
-        CMSOnly = 4,
+        OpenPGPOnly    = 2,
+        CMSOnly        = 4,
         MixedProtocols = OpenPGPOnly | CMSOnly,
 
-        Error = 0x1000,
+        Error          = 0x1000,
 
-        ResolvedMask = AllResolved | Error,
-        ProtocolsMask = OpenPGPOnly | CMSOnly | Error,
+        ResolvedMask   = AllResolved | Error,
+        ProtocolsMask  = OpenPGPOnly | CMSOnly | Error,
+        // clang-format on
     };
     struct Result
     {

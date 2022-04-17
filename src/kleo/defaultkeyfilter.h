@@ -35,18 +35,22 @@ public:
 
     /** Used for bool checks */
     enum TriState {
+        // clang-format off
         DoesNotMatter = 0,
-        Set = 1,
-        NotSet = 2,
+        Set           = 1,
+        NotSet        = 2,
+        // clang-format on
     };
 
     /** Used for level checks */
     enum LevelState {
+        // clang-format off
         LevelDoesNotMatter = 0,
-        Is = 1,
-        IsNot = 2,
-        IsAtLeast = 3,
-        IsAtMost = 4,
+        Is                 = 1,
+        IsNot              = 2,
+        IsAtLeast          = 3,
+        IsAtMost           = 4,
+        // clang-format on
     };
 
     bool matches(const GpgME::Key &key, MatchContexts ctx) const override;

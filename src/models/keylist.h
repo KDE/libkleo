@@ -15,9 +15,11 @@ namespace Kleo
 {
 namespace KeyList
 {
-    static const int FingerprintRole = 0xF1;
-    static const int KeyRole = 0xF2;
-    static const int GroupRole = 0xF3;
+// clang-format off
+static const int FingerprintRole = 0xF1;
+static const int KeyRole         = 0xF2;
+static const int GroupRole       = 0xF3;
+// clang-format on
 
     enum Columns {
         PrettyName,

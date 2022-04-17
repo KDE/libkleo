@@ -49,27 +49,31 @@ class KLEO_EXPORT KeySelectionDialog : public QDialog
     Q_OBJECT
 public:
     enum Option {
-        RereadKeys = 0x01,
+        // clang-format off
+        RereadKeys                 = 0x01,
         ExternalCertificateManager = 0x02,
-        ExtendedSelection = 0x04,
-        RememberChoice = 0x08,
+        ExtendedSelection          = 0x04,
+        RememberChoice             = 0x08,
+        // clang-format on
     };
     Q_DECLARE_FLAGS(Options, Option)
 
     enum KeyUsage {
-        PublicKeys = 1,
-        SecretKeys = 2,
-        EncryptionKeys = 4,
-        SigningKeys = 8,
-        ValidKeys = 16,
-        TrustedKeys = 32,
-        CertificationKeys = 64,
-        AuthenticationKeys = 128,
-        OpenPGPKeys = 256,
-        SMIMEKeys = 512,
-        AllKeys = PublicKeys | SecretKeys | OpenPGPKeys | SMIMEKeys,
-        ValidEncryptionKeys = AllKeys | EncryptionKeys | ValidKeys,
+        // clang-format off
+        PublicKeys                 = 1,
+        SecretKeys                 = 2,
+        EncryptionKeys             = 4,
+        SigningKeys                = 8,
+        ValidKeys                  = 16,
+        TrustedKeys                = 32,
+        CertificationKeys          = 64,
+        AuthenticationKeys         = 128,
+        OpenPGPKeys                = 256,
+        SMIMEKeys                  = 512,
+        AllKeys                    = PublicKeys | SecretKeys | OpenPGPKeys | SMIMEKeys,
+        ValidEncryptionKeys        = AllKeys | EncryptionKeys | ValidKeys,
         ValidTrustedEncryptionKeys = AllKeys | EncryptionKeys | ValidKeys | TrustedKeys
+        // clang-format on
     };
 
     explicit KeySelectionDialog(QWidget *parent = nullptr, Options options = Options());

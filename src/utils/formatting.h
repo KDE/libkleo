@@ -54,6 +54,7 @@ KLEO_EXPORT QString prettyEMail(const GpgME::UserID::Signature &sig);
 KLEO_EXPORT QString prettyID(const char *id);
 KLEO_EXPORT QString accessibleHexID(const char *id);
 
+// clang-format off
 enum ToolTipOption {
     KeyID            = 0x001,
     Validity         = 0x002,
@@ -69,8 +70,9 @@ enum ToolTipOption {
     OwnerTrust       = 0x800,
     Subkeys          = 0x1000,
 
-    AllOptions = 0xffff
+    AllOptions       = 0xffff
 };
+// clang-format on
 
 KLEO_EXPORT QString toolTip(const GpgME::Key &key, int opts);
 KLEO_EXPORT QString toolTip(const Kleo::KeyGroup &group, int opts);

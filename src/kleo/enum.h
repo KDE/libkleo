@@ -31,13 +31,15 @@ enum class KeyUsage : char {
 };
 
 enum CryptoMessageFormat {
+    // clang-format off
     InlineOpenPGPFormat = 1,
-    OpenPGPMIMEFormat = 2,
-    SMIMEFormat = 4,
-    SMIMEOpaqueFormat = 8,
-    AnyOpenPGP = InlineOpenPGPFormat | OpenPGPMIMEFormat,
-    AnySMIME = SMIMEOpaqueFormat | SMIMEFormat,
-    AutoFormat = AnyOpenPGP | AnySMIME
+    OpenPGPMIMEFormat   = 2,
+    SMIMEFormat         = 4,
+    SMIMEOpaqueFormat   = 8,
+    AnyOpenPGP          = InlineOpenPGPFormat | OpenPGPMIMEFormat,
+    AnySMIME            = SMIMEOpaqueFormat | SMIMEFormat,
+    AutoFormat          = AnyOpenPGP | AnySMIME
+    // clang-format on
 };
 
 KLEO_EXPORT QString cryptoMessageFormatToLabel(CryptoMessageFormat f);
@@ -52,13 +54,15 @@ enum Action {
 };
 
 enum EncryptionPreference {
-    UnknownPreference = 0,
-    NeverEncrypt = 1,
-    AlwaysEncrypt = 2,
+    // clang-format off
+    UnknownPreference       = 0,
+    NeverEncrypt            = 1,
+    AlwaysEncrypt           = 2,
     AlwaysEncryptIfPossible = 3,
-    AlwaysAskForEncryption = 4,
-    AskWheneverPossible = 5,
+    AlwaysAskForEncryption  = 4,
+    AskWheneverPossible     = 5,
     MaxEncryptionPreference = AskWheneverPossible
+    // clang-format on
 };
 
 KLEO_EXPORT QString encryptionPreferenceToLabel(EncryptionPreference pref);
@@ -66,13 +70,15 @@ KLEO_EXPORT const char *encryptionPreferenceToString(EncryptionPreference pref);
 KLEO_EXPORT EncryptionPreference stringToEncryptionPreference(const QString &str);
 
 enum SigningPreference {
-    UnknownSigningPreference = 0,
-    NeverSign = 1,
-    AlwaysSign = 2,
-    AlwaysSignIfPossible = 3,
-    AlwaysAskForSigning = 4,
+    // clang-format off
+    UnknownSigningPreference   = 0,
+    NeverSign                  = 1,
+    AlwaysSign                 = 2,
+    AlwaysSignIfPossible       = 3,
+    AlwaysAskForSigning        = 4,
     AskSigningWheneverPossible = 5,
-    MaxSigningPreference = AskSigningWheneverPossible
+    MaxSigningPreference       = AskSigningWheneverPossible
+    // clang-format on
 };
 
 KLEO_EXPORT QString signingPreferenceToLabel(SigningPreference pref);
