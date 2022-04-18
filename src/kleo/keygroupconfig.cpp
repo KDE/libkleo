@@ -65,10 +65,11 @@ KeyGroup KeyGroupConfig::Private::readGroup(const KSharedConfigPtr &groupsConfig
 
     // treat group as immutable if any of its entries is immutable
     const QStringList entries = configGroup.keyList();
-    const bool isImmutable = configGroup.isImmutable() || std::any_of(entries.begin(), entries.end(),
-                                                                        [configGroup] (const QString &entry) {
-                                                                            return configGroup.isEntryImmutable(entry);
-                                                                        });
+    const bool isImmutable = (configGroup.isImmutable() //
+                              || std::any_of(entries.begin(), entries.end(),
+                                             [configGroup] (const QString &entry) {
+                                                 return configGroup.isEntryImmutable(entry);
+                                             }));
 
     KeyGroup g(groupId, groupName, groupKeys, KeyGroup::ApplicationConfig);
     g.setIsImmutable(isImmutable);
