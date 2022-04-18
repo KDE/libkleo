@@ -277,12 +277,21 @@ public:
                 name = dn[QStringLiteral("CN")];
                 email = dn[QStringLiteral("EMAIL")];
             }
-            return i18nc("Name <email> (validity, type, created: date)", "%1 (%2, %3 created: %4)",
-                         email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email),
-                         Kleo::Formatting::complianceStringShort(key),
-                         Kleo::KeyCache::instance()->pgpOnly() ? QString() :
-                            key.protocol() == GpgME::OpenPGP ? i18n("OpenPGP") + QLatin1Char(',') : i18n("S/MIME") + QLatin1Char(','),
-                         Kleo::Formatting::creationDateString(key));
+            const auto nameAndEmail = email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email);
+            if (Kleo::KeyCache::instance()->pgpOnly()) {
+                return i18nc("Name <email> (validity, created: date)",
+                             "%1 (%2, created: %3)",
+                             nameAndEmail,
+                             Kleo::Formatting::complianceStringShort(key),
+                             Kleo::Formatting::creationDateString(key));
+            } else {
+                return i18nc("Name <email> (validity, type, created: date)",
+                             "%1 (%2, %3, created: %4)",
+                             nameAndEmail,
+                             Kleo::Formatting::complianceStringShort(key),
+                             Formatting::displayName(key.protocol()),
+                             Kleo::Formatting::creationDateString(key));
+            }
         }
         case Qt::ToolTipRole: {
             using namespace Kleo::Formatting;
