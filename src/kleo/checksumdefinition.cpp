@@ -314,7 +314,7 @@ static bool start_command(QProcess *p, const char *functionName,
         }
         const char sep =
             method == ChecksumDefinition::NewlineSeparatedInputFile ? '\n' :
-            /* else */                            '\0';
+                                                                      '\0';
         const QByteArray stdin = make_input(files, sep);
         if (p->write(stdin) != stdin.size()) {
             return false;
@@ -332,7 +332,7 @@ bool ChecksumDefinition::startCreateCommand(QProcess *p, const QStringList &file
     return start_command(p, Q_FUNC_INFO,
                          doGetCreateCommand(),
                          m_createMethod == CommandLine ? doGetCreateArguments(files) :
-                         /* else */                      doGetCreateArguments(QStringList()),
+                                                         doGetCreateArguments(QStringList()),
                          files, m_createMethod);
 }
 
@@ -341,7 +341,7 @@ bool ChecksumDefinition::startVerifyCommand(QProcess *p, const QStringList &file
     return start_command(p, Q_FUNC_INFO,
                          doGetVerifyCommand(),
                          m_verifyMethod == CommandLine ? doGetVerifyArguments(files) :
-                         /* else */                      doGetVerifyArguments(QStringList()),
+                                                         doGetVerifyArguments(QStringList()),
                          files, m_verifyMethod);
 }
 

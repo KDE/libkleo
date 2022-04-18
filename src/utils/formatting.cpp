@@ -407,7 +407,7 @@ QString Formatting::toolTip(const Key &key, int flags)
         } else if (key.isRoot()) {
             result += format_row(i18n("Trusted issuer?"),
                                  key.userID(0).validity() == UserID::Ultimate ? i18n("Yes") :
-                                 /* else */                                     i18n("No"));
+                                                                                i18n("No"));
         }
     }
 
