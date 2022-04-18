@@ -74,7 +74,9 @@ static int keyValidity(const Key &key, const QString &address)
 
 static int minimumValidity(const std::vector<Key> &keys, const QString &address)
 {
-    const int minValidity = std::accumulate(keys.cbegin(), keys.cend(), UserID::Ultimate + 1,
+    const int minValidity = std::accumulate(keys.cbegin(), //
+                                            keys.cend(),
+                                            UserID::Ultimate + 1,
                                             [address] (int validity, const Key &key) {
                                                 return std::min<int>(validity, keyValidity(key, address));
                                             });

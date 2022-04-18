@@ -88,7 +88,8 @@ std::vector<Subkey> SubkeyListModel::subkeys(const QList<QModelIndex> &indexes) 
 {
     std::vector<Subkey> result;
     result.reserve(indexes.size());
-    std::transform(indexes.begin(), indexes.end(),
+    std::transform(indexes.begin(), //
+                   indexes.end(),
                    std::back_inserter(result),
                    [this](const QModelIndex &idx) {
                        return subkey(idx);
@@ -112,7 +113,8 @@ QList<QModelIndex> SubkeyListModel::indexes(const std::vector<Subkey> &subkeys) 
     QList<QModelIndex> result;
     result.reserve(subkeys.size());
     // O(N*M), but who cares...?
-    std::transform(subkeys.begin(), subkeys.end(),
+    std::transform(subkeys.begin(), //
+                   subkeys.end(),
                    std::back_inserter(result),
                    [this](const Subkey &key) {
                        return index(key);

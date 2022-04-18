@@ -97,8 +97,10 @@ T union_by_fpr(const T &t1, const T &t2)
 {
     T result;
     result.reserve(t1.size() + t2.size());
-    std::set_union(t1.begin(), t1.end(),
-                   t2.begin(), t2.end(),
+    std::set_union(t1.begin(), //
+                   t1.end(),
+                   t2.begin(),
+                   t2.end(),
                    std::back_inserter(result),
                    ByFingerprint<std::less>());
     return result;

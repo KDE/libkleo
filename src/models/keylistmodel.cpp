@@ -144,7 +144,8 @@ std::vector<Key> AbstractKeyListModel::keys(const QList<QModelIndex> &indexes) c
 {
     std::vector<Key> result;
     result.reserve(indexes.size());
-    std::transform(indexes.begin(), indexes.end(),
+    std::transform(indexes.begin(), //
+                   indexes.end(),
                    std::back_inserter(result),
                    [this](const QModelIndex &idx) {
                        return this->key(idx);
@@ -181,7 +182,8 @@ QList<QModelIndex> AbstractKeyListModel::indexes(const std::vector<Key> &keys) c
 {
     QList<QModelIndex> result;
     result.reserve(keys.size());
-    std::transform(keys.begin(), keys.end(),
+    std::transform(keys.begin(), //
+                   keys.end(),
                    std::back_inserter(result),
                    [this](const Key &key) {
                        return this->index(key);

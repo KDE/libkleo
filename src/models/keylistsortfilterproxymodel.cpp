@@ -63,7 +63,8 @@ std::vector<Key> AbstractKeyListSortFilterProxyModel::keys(const QList<QModelInd
     }
     QList<QModelIndex> mapped;
     mapped.reserve(indexes.size());
-    std::transform(indexes.begin(), indexes.end(),
+    std::transform(indexes.begin(), //
+                   indexes.end(),
                    std::back_inserter(mapped),
                    [this](const QModelIndex &idx) {
                        return mapToSource(idx);
@@ -93,7 +94,8 @@ QList<QModelIndex> AbstractKeyListSortFilterProxyModel::indexes(const std::vecto
         const QList<QModelIndex> source = klmi->indexes(keys);
         QList<QModelIndex> mapped;
         mapped.reserve(source.size());
-        std::transform(source.begin(), source.end(),
+        std::transform(source.begin(), //
+                       source.end(),
                        std::back_inserter(mapped),
                        [this](const QModelIndex &idx) {
                            return mapFromSource(idx);

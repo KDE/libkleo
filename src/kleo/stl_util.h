@@ -79,7 +79,10 @@ OutputIterator copy_1st_if(InputIterator first, InputIterator last, OutputIterat
     const auto trans = [](typename std::iterator_traits<InputIterator>::reference v) {
                             return std::get<0>(v);
                        };
-    kdtools::transform_if(first, last, dest, trans,
+    kdtools::transform_if(first, //
+                          last,
+                          dest,
+                          trans,
                           [&pred, &trans](typename std::iterator_traits<InputIterator>::reference v) {
                             return pred(trans(v));
                           });
@@ -92,7 +95,10 @@ OutputIterator copy_2nd_if(InputIterator first, InputIterator last, OutputIterat
     const auto trans = [](typename std::iterator_traits<InputIterator>::reference v) {
                             return std::get<1>(v);
                        };
-    kdtools::transform_if(first, last, dest, trans,
+    kdtools::transform_if(first, //
+                          last,
+                          dest,
+                          trans,
                           [&pred, &trans](typename std::iterator_traits<InputIterator>::reference v) {
                             return pred(trans(v));
                           });
@@ -103,7 +109,9 @@ OutputIterator copy_2nd_if(InputIterator first, InputIterator last, OutputIterat
 template <typename OutputIterator, typename InputIterator, typename UnaryFunction>
 OutputIterator transform_1st(InputIterator first, InputIterator last, OutputIterator dest, UnaryFunction func)
 {
-    return std::transform(first, last, dest,
+    return std::transform(first, //
+                          last,
+                          dest,
                           [func](typename std::iterator_traits<InputIterator>::reference v) {
                               return func(std::get<0>(v));
                           });
@@ -112,7 +120,9 @@ OutputIterator transform_1st(InputIterator first, InputIterator last, OutputIter
 template <typename OutputIterator, typename InputIterator, typename UnaryFunction>
 OutputIterator transform_2nd(InputIterator first, InputIterator last, OutputIterator dest, UnaryFunction func)
 {
-    return std::transform(first, last, dest,
+    return std::transform(first, //
+                          last,
+                          dest,
                           [func](typename std::iterator_traits<InputIterator>::reference v) {
                               return func(std::get<1>(v));
                           });
@@ -121,21 +131,23 @@ OutputIterator transform_2nd(InputIterator first, InputIterator last, OutputIter
 template <typename Value, typename InputIterator, typename UnaryPredicate>
 Value accumulate_if(InputIterator first, InputIterator last, UnaryPredicate filter, const Value &value = Value())
 {
-    return std::accumulate(make_filter_iterator(filter, first, last),
+    return std::accumulate(make_filter_iterator(filter, first, last), //
                            make_filter_iterator(filter, last,  last), value);
 }
 
 template <typename Value, typename InputIterator, typename UnaryPredicate, typename BinaryOperation>
 Value accumulate_if(InputIterator first, InputIterator last, UnaryPredicate filter, const Value &value, BinaryOperation op)
 {
-    return std::accumulate(make_filter_iterator(filter, first, last),
+    return std::accumulate(make_filter_iterator(filter, first, last), //
                            make_filter_iterator(filter, last,  last), value, op);
 }
 
 template <typename Value, typename InputIterator, typename UnaryFunction>
 Value accumulate_transform(InputIterator first, InputIterator last, UnaryFunction map, const Value &value = Value())
 {
-    return std::accumulate(first, last, value,
+    return std::accumulate(first, //
+                           last,
+                           value,
                            [map](Value lhs,
                                  typename std::iterator_traits<InputIterator>::reference rhs)
                            {
@@ -146,7 +158,9 @@ Value accumulate_transform(InputIterator first, InputIterator last, UnaryFunctio
 template <typename Value, typename InputIterator, typename UnaryFunction, typename BinaryOperation>
 Value accumulate_transform(InputIterator first, InputIterator last, UnaryFunction map, const Value &value, BinaryOperation op)
 {
-    return std::accumulate(first, last, value,
+    return std::accumulate(first, //
+                           last,
+                           value,
                            [map, op](typename InputIterator::reference lhs,
                                      typename InputIterator::reference rhs) {
                                return op(map(lhs), map(rhs));
@@ -156,7 +170,7 @@ Value accumulate_transform(InputIterator first, InputIterator last, UnaryFunctio
 template <typename Value, typename InputIterator, typename UnaryFunction, typename UnaryPredicate, typename BinaryOperation>
 Value accumulate_transform_if(InputIterator first, InputIterator last, UnaryFunction map, UnaryPredicate filter, const Value &value, BinaryOperation op)
 {
-    return accumulate_transform(make_filter_iterator(filter, first, last),
+    return accumulate_transform(make_filter_iterator(filter, first, last), //
                                 make_filter_iterator(filter, last, last),
                                 map, value, op);
 }
