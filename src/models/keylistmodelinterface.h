@@ -21,7 +21,8 @@ class Key;
 }
 
 class QModelIndex;
-template <typename T> class QList;
+template<typename T>
+class QList;
 
 namespace Kleo
 {
@@ -43,4 +44,3 @@ public:
 };
 
 }
-

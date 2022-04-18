@@ -13,24 +13,24 @@
 
 #include "libkleo_debug.h"
 
+#include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <KConfig>
 #include <KShell>
 
+#include <QByteArray>
+#include <QCoreApplication>
 #include <QDebug>
 #include <QFileInfo>
-#include <QProcess>
-#include <QByteArray>
 #include <QMutex>
-#include <QCoreApplication>
+#include <QProcess>
 #include <QRegularExpression>
 
 #include <KSharedConfig>
 #include <QStandardPaths>
 
 #ifdef stdin
-# undef stdin // pah..
+#undef stdin // pah..
 #endif
 
 using namespace Kleo;
@@ -66,7 +66,7 @@ static const QLatin1String OUTPUT_FILE_ENTRY("output-file");
 static const QLatin1String FILE_PLACEHOLDER("%f");
 static const QLatin1String INSTALLPATH_PLACEHOLDER("%I");
 static const QLatin1String NULL_SEPARATED_STDIN_INDICATOR("0|");
-static const QLatin1Char   NEWLINE_SEPARATED_STDIN_INDICATOR('|');
+static const QLatin1Char NEWLINE_SEPARATED_STDIN_INDICATOR('|');
 
 // ChecksumOperations group
 static const QLatin1String CHECKSUM_DEFINITION_ID_ENTRY("checksum-definition-id");
@@ -77,14 +77,16 @@ namespace
 class ChecksumDefinitionError : public Kleo::Exception
 {
     const QString m_id;
+
 public:
     ChecksumDefinitionError(const QString &id, const QString &message)
-        : Kleo::Exception(GPG_ERR_INV_PARAMETER, i18n("Error in checksum definition %1: %2", id, message), MessageOnly),
-          m_id(id)
+        : Kleo::Exception(GPG_ERR_INV_PARAMETER, i18n("Error in checksum definition %1: %2", id, message), MessageOnly)
+        , m_id(id)
     {
-
     }
-    ~ChecksumDefinitionError() throw() override {}
+    ~ChecksumDefinitionError() throw() override
+    {
+    }
 
     const QString &checksumDefinitionId() const
     {
@@ -97,9 +99,13 @@ public:
 static QString try_extensions(const QString &path)
 {
     static const char exts[][4] = {
-        "", "exe", "bat", "bin", "cmd",
+        "",
+        "exe",
+        "bat",
+        "bin",
+        "cmd",
     };
-    static const size_t numExts = sizeof exts / sizeof * exts;
+    static const size_t numExts = sizeof exts / sizeof *exts;
     for (unsigned int i = 0; i < numExts; ++i) {
         const QFileInfo fi(path + QLatin1Char('.') + QLatin1String(exts[i]));
         if (fi.exists()) {
@@ -109,8 +115,13 @@ static QString try_extensions(const QString &path)
     return QString();
 }
 
-static void parse_command(QString cmdline, const QString &id, const QString &whichCommand,
-                          QString *command, QStringList *prefix, QStringList *suffix, ChecksumDefinition::ArgumentPassingMethod *method)
+static void parse_command(QString cmdline,
+                          const QString &id,
+                          const QString &whichCommand,
+                          QString *command,
+                          QStringList *prefix,
+                          QStringList *suffix,
+                          ChecksumDefinition::ArgumentPassingMethod *method)
 {
     Q_ASSERT(prefix);
     Q_ASSERT(suffix);
@@ -131,8 +142,9 @@ static void parse_command(QString cmdline, const QString &id, const QString &whi
     if (*method != ChecksumDefinition::CommandLine && cmdline.contains(FILE_PLACEHOLDER)) {
         throw ChecksumDefinitionError(id, i18n("Cannot use both %f and | in '%1'", whichCommand));
     }
-    cmdline.replace(FILE_PLACEHOLDER,        QLatin1String("__files_go_here__")) //
-    .replace(INSTALLPATH_PLACEHOLDER, QStringLiteral("__path_goes_here__"));
+    cmdline
+        .replace(FILE_PLACEHOLDER, QLatin1String("__files_go_here__")) //
+        .replace(INSTALLPATH_PLACEHOLDER, QStringLiteral("__path_goes_here__"));
     l = KShell::splitArgs(cmdline, KShell::AbortOnMeta | KShell::TildeExpand, &errors);
     l = l.replaceInStrings(QStringLiteral("__files_go_here__"), FILE_PLACEHOLDER);
     if (l.indexOf(QRegExp(QLatin1String(".*__path_goes_here__.*"))) >= 0) {
@@ -205,13 +217,23 @@ public:
 
         // create-command
         ArgumentPassingMethod method;
-        parse_command(group.readEntry(CREATE_COMMAND_ENTRY), id(), CREATE_COMMAND_ENTRY,
-                      &m_createCommand, &m_createPrefixArguments, &m_createPostfixArguments, &method);
+        parse_command(group.readEntry(CREATE_COMMAND_ENTRY),
+                      id(),
+                      CREATE_COMMAND_ENTRY,
+                      &m_createCommand,
+                      &m_createPrefixArguments,
+                      &m_createPostfixArguments,
+                      &method);
         setCreateCommandArgumentPassingMethod(method);
 
         // verify-command
-        parse_command(group.readEntry(VERIFY_COMMAND_ENTRY), id(), VERIFY_COMMAND_ENTRY,
-                      &m_verifyCommand, &m_verifyPrefixArguments, &m_verifyPostfixArguments, &method);
+        parse_command(group.readEntry(VERIFY_COMMAND_ENTRY),
+                      id(),
+                      VERIFY_COMMAND_ENTRY,
+                      &m_verifyCommand,
+                      &m_verifyPrefixArguments,
+                      &m_verifyPostfixArguments,
+                      &method);
         setVerifyCommandArgumentPassingMethod(method);
     }
 
@@ -242,17 +264,18 @@ private:
 }
 
 ChecksumDefinition::ChecksumDefinition(const QString &id, const QString &label, const QString &outputFileName, const QStringList &patterns)
-    : m_id(id),
-      m_label(label.isEmpty() ? id : label),
-      m_outputFileName(outputFileName),
-      m_patterns(patterns),
-      m_createMethod(CommandLine),
-      m_verifyMethod(CommandLine)
+    : m_id(id)
+    , m_label(label.isEmpty() ? id : label)
+    , m_outputFileName(outputFileName)
+    , m_patterns(patterns)
+    , m_createMethod(CommandLine)
+    , m_verifyMethod(CommandLine)
 {
-
 }
 
-ChecksumDefinition::~ChecksumDefinition() {}
+ChecksumDefinition::~ChecksumDefinition()
+{
+}
 
 QString ChecksumDefinition::createCommand() const
 {
@@ -286,9 +309,12 @@ static QByteArray make_input(const QStringList &files, char sep)
     return result;
 }
 
-static bool start_command(QProcess *p, const char *functionName,
-                          const QString &cmd, const QStringList &args,
-                          const QStringList &files, ChecksumDefinition::ArgumentPassingMethod method)
+static bool start_command(QProcess *p,
+                          const char *functionName,
+                          const QString &cmd,
+                          const QStringList &args,
+                          const QStringList &files,
+                          ChecksumDefinition::ArgumentPassingMethod method)
 {
     if (!p) {
         qCWarning(LIBKLEO_LOG) << functionName << ": process == NULL";
@@ -296,7 +322,6 @@ static bool start_command(QProcess *p, const char *functionName,
     }
 
     switch (method) {
-
     case ChecksumDefinition::NumArgumentPassingMethods:
         Q_ASSERT(!"Should not happen");
 
@@ -312,9 +337,7 @@ static bool start_command(QProcess *p, const char *functionName,
         if (!p->waitForStarted()) {
             return false;
         }
-        const char sep =
-            method == ChecksumDefinition::NewlineSeparatedInputFile ? '\n' :
-                                                                      '\0';
+        const char sep = method == ChecksumDefinition::NewlineSeparatedInputFile ? '\n' : '\0';
         const QByteArray stdin = make_input(files, sep);
         if (p->write(stdin) != stdin.size()) {
             return false;
@@ -324,38 +347,39 @@ static bool start_command(QProcess *p, const char *functionName,
     }
 
     return false; // make compiler happy
-
 }
 
 bool ChecksumDefinition::startCreateCommand(QProcess *p, const QStringList &files) const
 {
-    return start_command(p, Q_FUNC_INFO,
+    return start_command(p,
+                         Q_FUNC_INFO,
                          doGetCreateCommand(),
-                         m_createMethod == CommandLine ? doGetCreateArguments(files) :
-                                                         doGetCreateArguments(QStringList()),
-                         files, m_createMethod);
+                         m_createMethod == CommandLine ? doGetCreateArguments(files) : doGetCreateArguments(QStringList()),
+                         files,
+                         m_createMethod);
 }
 
 bool ChecksumDefinition::startVerifyCommand(QProcess *p, const QStringList &files) const
 {
-    return start_command(p, Q_FUNC_INFO,
+    return start_command(p,
+                         Q_FUNC_INFO,
                          doGetVerifyCommand(),
-                         m_verifyMethod == CommandLine ? doGetVerifyArguments(files) :
-                                                         doGetVerifyArguments(QStringList()),
-                         files, m_verifyMethod);
+                         m_verifyMethod == CommandLine ? doGetVerifyArguments(files) : doGetVerifyArguments(QStringList()),
+                         files,
+                         m_verifyMethod);
 }
 
 // static
-std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDefinitions()
+std::vector<std::shared_ptr<ChecksumDefinition>> ChecksumDefinition::getChecksumDefinitions()
 {
     QStringList errors;
     return getChecksumDefinitions(errors);
 }
 
 // static
-std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecksumDefinitions(QStringList &errors)
+std::vector<std::shared_ptr<ChecksumDefinition>> ChecksumDefinition::getChecksumDefinitions(QStringList &errors)
 {
-    std::vector< std::shared_ptr<ChecksumDefinition> > result;
+    std::vector<std::shared_ptr<ChecksumDefinition>> result;
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Checksum Definition #")));
     result.reserve(groups.size());
@@ -374,7 +398,8 @@ std::vector< std::shared_ptr<ChecksumDefinition> > ChecksumDefinition::getChecks
 }
 
 // static
-std::shared_ptr<ChecksumDefinition> ChecksumDefinition::getDefaultChecksumDefinition(const std::vector< std::shared_ptr<ChecksumDefinition> > &checksumDefinitions)
+std::shared_ptr<ChecksumDefinition>
+ChecksumDefinition::getDefaultChecksumDefinition(const std::vector<std::shared_ptr<ChecksumDefinition>> &checksumDefinitions)
 {
     const KConfigGroup group(KSharedConfig::openConfig(), "ChecksumOperations");
     const QString checksumDefinitionId = group.readEntry(CHECKSUM_DEFINITION_ID_ENTRY, QStringLiteral("sha256sum"));

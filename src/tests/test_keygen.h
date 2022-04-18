@@ -31,10 +31,10 @@ public:
 public Q_SLOTS:
     void slotStartKeyGeneration();
     void slotResult(const GpgME::KeyGenerationResult &res, const QByteArray &keyData);
+
 private:
     void showError(const GpgME::Error &err);
 
 private:
     QLineEdit *mLineEdits[20];
 };
-

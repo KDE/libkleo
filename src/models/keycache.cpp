@@ -13,12 +13,12 @@
 #include "keycache.h"
 #include "keycache_p.h"
 
+#include "kleo/dn.h"
 #include "kleo/enum.h"
 #include "kleo/keygroup.h"
 #include "kleo/keygroupconfig.h"
 #include "kleo/predicates.h"
 #include "kleo/stl_util.h"
-#include "kleo/dn.h"
 
 #include "utils/algorithm.h"
 #include "utils/compat.h"
@@ -28,29 +28,29 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-#include <gpgme++/error.h>
 #include <gpgme++/context.h>
-#include <gpgme++/key.h>
 #include <gpgme++/decryptionresult.h>
-#include <gpgme++/verificationresult.h>
+#include <gpgme++/error.h>
+#include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
+#include <gpgme++/verificationresult.h>
 
-#include <qgpgme/protocol.h>
-#include <qgpgme/listallkeysjob.h>
 #include <qgpgme/cryptoconfig.h>
+#include <qgpgme/listallkeysjob.h>
+#include <qgpgme/protocol.h>
 
 #include <gpg-error.h>
 
 //#include <KMime/HeaderParsing>
 
+#include <QEventLoop>
 #include <QPointer>
 #include <QTimer>
-#include <QEventLoop>
 
-#include <utility>
 #include <algorithm>
 #include <functional>
 #include <iterator>
+#include <utility>
 
 #include "kleo/debug.h"
 #include "libkleo_debug.h"
@@ -120,10 +120,18 @@ class KeyCache::Private
 {
     friend class ::Kleo::KeyCache;
     KeyCache *const q;
+
 public:
-    explicit Private(KeyCache *qq) : q(qq), m_refreshInterval(1), m_initalized(false), m_pgpOnly(true), m_remarks_enabled(false)
+    explicit Private(KeyCache *qq)
+        : q(qq)
+        , m_refreshInterval(1)
+        , m_initalized(false)
+        , m_pgpOnly(true)
+        , m_remarks_enabled(false)
     {
-        connect(&m_autoKeyListingTimer, &QTimer::timeout, q, [this]() { q->startKeyListing(); });
+        connect(&m_autoKeyListingTimer, &QTimer::timeout, q, [this]() {
+            q->startKeyListing();
+        });
         updateAutoKeyListingTimer();
     }
 
@@ -134,12 +142,11 @@ public:
         }
     }
 
-    template < template <template <typename U> class Op> class Comp>
+    template<template<template<typename U> class Op> class Comp>
     std::vector<Key>::const_iterator find(const std::vector<Key> &keys, const char *key) const
     {
         ensureCachePopulated();
-        const auto it =
-            std::lower_bound(keys.begin(), keys.end(), key, Comp<std::less>());
+        const auto it = std::lower_bound(keys.begin(), keys.end(), key, Comp<std::less>());
         if (it == keys.end() || Comp<std::equal_to>()(*it, key)) {
             return it;
         } else {
@@ -147,12 +154,11 @@ public:
         }
     }
 
-    template < template <template <typename U> class Op> class Comp>
+    template<template<template<typename U> class Op> class Comp>
     std::vector<Subkey>::const_iterator find(const std::vector<Subkey> &keys, const char *key) const
     {
         ensureCachePopulated();
-        const auto it =
-            std::lower_bound(keys.begin(), keys.end(), key, Comp<std::less>());
+        const auto it = std::lower_bound(keys.begin(), keys.end(), key, Comp<std::less>());
         if (it == keys.end() || Comp<std::equal_to>()(*it, key)) {
             return it;
         } else {
@@ -165,13 +171,11 @@ public:
         return find<_detail::ByFingerprint>(by.fpr, fpr);
     }
 
-    std::pair< std::vector< std::pair<std::string, Key> >::const_iterator,
-        std::vector< std::pair<std::string, Key> >::const_iterator >
-        find_email(const char *email) const
+    std::pair<std::vector<std::pair<std::string, Key>>::const_iterator, std::vector<std::pair<std::string, Key>>::const_iterator>
+    find_email(const char *email) const
     {
         ensureCachePopulated();
-        return std::equal_range(by.email.begin(), by.email.end(),
-                                email, ByEMail<std::less>());
+        return std::equal_range(by.email.begin(), by.email.end(), email, ByEMail<std::less>());
     }
 
     std::vector<Key> find_mailbox(const QString &email, bool sign) const;
@@ -196,14 +200,10 @@ public:
         return find<_detail::ByShortKeyID>(by.shortkeyid, shortkeyid);
     }
 
-    std::pair <
-    std::vector<Key>::const_iterator,
-        std::vector<Key>::const_iterator
-        > find_subjects(const char *chain_id) const
+    std::pair<std::vector<Key>::const_iterator, std::vector<Key>::const_iterator> find_subjects(const char *chain_id) const
     {
         ensureCachePopulated();
-        return std::equal_range(by.chainid.begin(), by.chainid.end(),
-                                chain_id, _detail::ByChainID<std::less>());
+        return std::equal_range(by.chainid.begin(), by.chainid.end(), chain_id, _detail::ByChainID<std::less>());
     }
 
     void refreshJobDone(const KeyListResult &result);
@@ -253,10 +253,10 @@ public:
         // collect the key fingerprints for all groups read from the configuration
         QMap<QString, QStringList> fingerprints;
         const auto stringValueList = entry->stringValueList();
-        for (const QString &value: stringValueList) {
+        for (const QString &value : stringValueList) {
             const QStringList split = value.split(QLatin1Char('='));
             if (split.size() != 2) {
-                qCDebug (LIBKLEO_LOG) << "Ignoring invalid group config:" << value;
+                qCDebug(LIBKLEO_LOG) << "Ignoring invalid group config:" << value;
                 continue;
             }
             const QString groupName = split[0];
@@ -341,10 +341,9 @@ public:
             qCDebug(LIBKLEO_LOG) << "KeyCache::Private::insert - Invalid group:" << group;
             return false;
         }
-        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(),
-                                    [group] (const auto &g) {
-                                        return g.source() == group.source() && g.id() == group.id();
-                                    });
+        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(), [group](const auto &g) {
+            return g.source() == group.source() && g.id() == group.id();
+        });
         if (it != m_groups.cend()) {
             qCDebug(LIBKLEO_LOG) << "KeyCache::Private::insert - Group already present in list of groups:" << group;
             return false;
@@ -371,10 +370,9 @@ public:
             qCDebug(LIBKLEO_LOG) << "KeyCache::Private::update - Invalid group:" << group;
             return false;
         }
-        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(),
-                                    [group] (const auto &g) {
-                                        return g.source() == group.source() && g.id() == group.id();
-                                    });
+        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(), [group](const auto &g) {
+            return g.source() == group.source() && g.id() == group.id();
+        });
         if (it == m_groups.cend()) {
             qCDebug(LIBKLEO_LOG) << "KeyCache::Private::update - Group not found in list of groups:" << group;
             return false;
@@ -402,10 +400,9 @@ public:
             qCDebug(LIBKLEO_LOG) << "KeyCache::Private::remove - Invalid group:" << group;
             return false;
         }
-        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(),
-                                    [group] (const auto &g) {
-                                        return g.source() == group.source() && g.id() == group.id();
-                                    });
+        const auto it = std::find_if(m_groups.cbegin(), m_groups.cend(), [group](const auto &g) {
+            return g.source() == group.source() && g.id() == group.id();
+        });
         if (it == m_groups.cend()) {
             qCDebug(LIBKLEO_LOG) << "KeyCache::Private::remove - Group not found in list of groups:" << group;
             return false;
@@ -426,13 +423,13 @@ public:
 
 private:
     QPointer<RefreshKeysJob> m_refreshJob;
-    std::vector<std::shared_ptr<FileSystemWatcher> > m_fsWatchers;
+    std::vector<std::shared_ptr<FileSystemWatcher>> m_fsWatchers;
     QTimer m_autoKeyListingTimer;
     int m_refreshInterval;
 
     struct By {
         std::vector<Key> fpr, keyid, shortkeyid, chainid;
-        std::vector< std::pair<std::string, Key> > email;
+        std::vector<std::pair<std::string, Key>> email;
         std::vector<Subkey> subkeyid, keygrip;
     } by;
     bool m_initalized;
@@ -461,12 +458,14 @@ std::shared_ptr<KeyCache> KeyCache::mutableInstance()
 }
 
 KeyCache::KeyCache()
-    : QObject(), d(new Private(this))
+    : QObject()
+    , d(new Private(this))
 {
-
 }
 
-KeyCache::~KeyCache() {}
+KeyCache::~KeyCache()
+{
+}
 
 void KeyCache::setGroupsEnabled(bool enabled)
 {
@@ -513,14 +512,12 @@ void KeyCache::reload(GpgME::Protocol /*proto*/)
 
     enableFileSystemWatcher(false);
     d->m_refreshJob = new RefreshKeysJob(this);
-    connect(d->m_refreshJob.data(), &RefreshKeysJob::done,
-            this, [this](const GpgME::KeyListResult &r) {
-                d->refreshJobDone(r);
-            });
-    connect(d->m_refreshJob.data(), &RefreshKeysJob::canceled,
-            this, [this]() {
-                d->m_refreshJob.clear();
-            });
+    connect(d->m_refreshJob.data(), &RefreshKeysJob::done, this, [this](const GpgME::KeyListResult &r) {
+        d->refreshJobDone(r);
+    });
+    connect(d->m_refreshJob.data(), &RefreshKeysJob::canceled, this, [this]() {
+        d->m_refreshJob.clear();
+    });
     d->m_refreshJob->start();
 }
 
@@ -538,10 +535,12 @@ void KeyCache::addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &wa
         return;
     }
     d->m_fsWatchers.push_back(watcher);
-    connect(watcher.get(), &FileSystemWatcher::directoryChanged,
-            this, [this]() { startKeyListing(); });
-    connect(watcher.get(), &FileSystemWatcher::fileChanged,
-            this, [this]() { startKeyListing(); });
+    connect(watcher.get(), &FileSystemWatcher::directoryChanged, this, [this]() {
+        startKeyListing();
+    });
+    connect(watcher.get(), &FileSystemWatcher::fileChanged, this, [this]() {
+        startKeyListing();
+    });
 
     watcher->setEnabled(d->m_refreshJob.isNull());
 }
@@ -554,10 +553,11 @@ void KeyCache::enableRemarks(bool value)
             qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
             reload();
         } else {
-            connect(d->m_refreshJob.data(), &RefreshKeysJob::done,
-                    this, [this](const GpgME::KeyListResult &) {
+            connect(d->m_refreshJob.data(), &RefreshKeysJob::done, this, [this](const GpgME::KeyListResult &) {
                 qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
-                QTimer::singleShot(1s, this, [this](){ reload(); });
+                QTimer::singleShot(1s, this, [this]() {
+                    reload();
+                });
             });
         }
     } else {
@@ -602,7 +602,7 @@ std::vector<GpgME::Key> KeyCache::findByFingerprint(const std::vector<std::strin
     for (const auto &fpr : fprs) {
         const Key key = findByFingerprint(fpr.c_str());
         if (key.isNull()) {
-            qCDebug (LIBKLEO_LOG) << __func__ << "Ignoring unknown key with fingerprint:" << fpr.c_str();
+            qCDebug(LIBKLEO_LOG) << __func__ << "Ignoring unknown key with fingerprint:" << fpr.c_str();
             continue;
         }
         keys.push_back(key);
@@ -615,11 +615,9 @@ std::vector<Key> KeyCache::findByEMailAddress(const char *email) const
     const auto pair = d->find_email(email);
     std::vector<Key> result;
     result.reserve(std::distance(pair.first, pair.second));
-    std::transform(pair.first, pair.second,
-                   std::back_inserter(result),
-                   [](const std::pair<std::string, Key> &pair) {
-                       return pair.second;
-                   });
+    std::transform(pair.first, pair.second, std::back_inserter(result), [](const std::pair<std::string, Key> &pair) {
+        return pair.second;
+    });
     return result;
 }
 
@@ -651,7 +649,8 @@ const Key &KeyCache::findByKeyIDOrFingerprint(const char *id) const
         if (it != d->by.fpr.end()) {
             return *it;
         }
-    }{
+    }
+    {
         // try by.keyid next:
         const std::vector<Key>::const_iterator it = d->find_keyid(id);
         if (it != d->by.keyid.end()) {
@@ -669,29 +668,31 @@ const Key &KeyCache::findByKeyIDOrFingerprint(const std::string &id) const
 
 std::vector<Key> KeyCache::findByKeyIDOrFingerprint(const std::vector<std::string> &ids) const
 {
-
     std::vector<std::string> keyids;
-    std::remove_copy_if(ids.begin(), ids.end(), std::back_inserter(keyids),
-                        [](const std::string &str) {
-                            return !str.c_str() || !*str.c_str();
-                        });
+    std::remove_copy_if(ids.begin(), ids.end(), std::back_inserter(keyids), [](const std::string &str) {
+        return !str.c_str() || !*str.c_str();
+    });
 
     // this is just case-insensitive string search:
     std::sort(keyids.begin(), keyids.end(), _detail::ByFingerprint<std::less>());
 
     std::vector<Key> result;
-    result.reserve(keyids.size());   // dups shouldn't happen
+    result.reserve(keyids.size()); // dups shouldn't happen
     d->ensureCachePopulated();
 
-    kdtools::set_intersection(d->by.fpr.begin(), d->by.fpr.end(),
-                              keyids.begin(), keyids.end(),
+    kdtools::set_intersection(d->by.fpr.begin(),
+                              d->by.fpr.end(),
+                              keyids.begin(),
+                              keyids.end(),
                               std::back_inserter(result),
                               _detail::ByFingerprint<std::less>());
     if (result.size() < keyids.size()) {
         // note that By{Fingerprint,KeyID,ShortKeyID} define the same
         // order for _strings_
-        kdtools::set_intersection(d->by.keyid.begin(), d->by.keyid.end(),
-                                  keyids.begin(), keyids.end(),
+        kdtools::set_intersection(d->by.keyid.begin(),
+                                  d->by.keyid.end(),
+                                  keyids.begin(),
+                                  keyids.end(),
                                   std::back_inserter(result),
                                   _detail::ByKeyID<std::less>());
     }
@@ -709,8 +710,7 @@ const Subkey &KeyCache::findSubkeyByKeyGrip(const char *grip, Protocol protocol)
 {
     static const Subkey null;
     d->ensureCachePopulated();
-    const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(),
-                                        grip, _detail::ByKeyGrip<std::less>());
+    const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(), grip, _detail::ByKeyGrip<std::less>());
     if (range.first == d->by.keygrip.end()) {
         return null;
     } else if (protocol == UnknownProtocol) {
@@ -734,17 +734,18 @@ std::vector<Subkey> KeyCache::findSubkeysByKeyID(const std::vector<std::string> 
 {
     std::vector<std::string> sorted;
     sorted.reserve(ids.size());
-    std::remove_copy_if(ids.begin(), ids.end(), std::back_inserter(sorted),
-                        [](const std::string &str) {
-                            return !str.c_str() || !*str.c_str();
-                        });
+    std::remove_copy_if(ids.begin(), ids.end(), std::back_inserter(sorted), [](const std::string &str) {
+        return !str.c_str() || !*str.c_str();
+    });
 
     std::sort(sorted.begin(), sorted.end(), _detail::ByKeyID<std::less>());
 
     std::vector<Subkey> result;
     d->ensureCachePopulated();
-    kdtools::set_intersection(d->by.subkeyid.begin(), d->by.subkeyid.end(),
-                              sorted.begin(), sorted.end(),
+    kdtools::set_intersection(d->by.subkeyid.begin(),
+                              d->by.subkeyid.end(),
+                              sorted.begin(),
+                              sorted.end(),
                               std::back_inserter(result),
                               _detail::ByKeyID<std::less>());
     return result;
@@ -762,8 +763,7 @@ std::vector<Key> KeyCache::findRecipients(const DecryptionResult &res) const
     const std::vector<Subkey> subkeys = findSubkeysByKeyID(keyids);
     std::vector<Key> result;
     result.reserve(subkeys.size());
-    std::transform(subkeys.begin(), subkeys.end(), std::back_inserter(result),
-                   std::mem_fn(&Subkey::parent));
+    std::transform(subkeys.begin(), subkeys.end(), std::back_inserter(result), std::mem_fn(&Subkey::parent));
 
     std::sort(result.begin(), result.end(), _detail::ByFingerprint<std::less>());
     result.erase(std::unique(result.begin(), result.end(), _detail::ByFingerprint<std::equal_to>()), result.end());
@@ -794,9 +794,14 @@ std::vector<Key> KeyCache::findEncryptionKeysByMailbox(const QString &mb) const
 
 namespace
 {
-#define DO( op, meth, meth2 ) if ( op key.meth() ) {} else { qDebug( "rejecting for signing: %s: %s", #meth2, key.primaryFingerprint() ); return false; }
-#define ACCEPT( meth ) DO( !!, meth, !meth )
-#define REJECT( meth ) DO( !, meth, meth )
+#define DO(op, meth, meth2)                                                                                                                                    \
+    if (op key.meth()) {                                                                                                                                       \
+    } else {                                                                                                                                                   \
+        qDebug("rejecting for signing: %s: %s", #meth2, key.primaryFingerprint());                                                                             \
+        return false;                                                                                                                                          \
+    }
+#define ACCEPT(meth) DO(!!, meth, !meth)
+#define REJECT(meth) DO(!, meth, meth)
 struct ready_for_signing : std::unary_function<Key, bool> {
     bool operator()(const Key &key) const
     {
@@ -809,15 +814,19 @@ struct ready_for_signing : std::unary_function<Key, bool> {
         REJECT(isInvalid);
         return true;
 #else
-        return key.hasSecret() &&
-               key.canReallySign() && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
+        return key.hasSecret() && key.canReallySign() && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
 #endif
 #undef DO
     }
 };
 
 struct ready_for_encryption : std::unary_function<Key, bool> {
-#define DO( op, meth, meth2 ) if ( op key.meth() ) {} else { qDebug( "rejecting for encrypting: %s: %s", #meth2, key.primaryFingerprint() ); return false; }
+#define DO(op, meth, meth2)                                                                                                                                    \
+    if (op key.meth()) {                                                                                                                                       \
+    } else {                                                                                                                                                   \
+        qDebug("rejecting for encrypting: %s: %s", #meth2, key.primaryFingerprint());                                                                          \
+        return false;                                                                                                                                          \
+    }
     bool operator()(const Key &key) const
     {
 #if 1
@@ -828,8 +837,7 @@ struct ready_for_encryption : std::unary_function<Key, bool> {
         REJECT(isInvalid);
         return true;
 #else
-        return
-            key.canEncrypt()    && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
+        return key.canEncrypt() && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
 #endif
     }
 #undef DO
@@ -848,13 +856,9 @@ std::vector<Key> KeyCache::Private::find_mailbox(const QString &email, bool sign
     std::vector<Key> result;
     result.reserve(std::distance(pair.first, pair.second));
     if (sign) {
-        kdtools::copy_2nd_if(pair.first, pair.second,
-                             std::back_inserter(result),
-                             ready_for_signing());
+        kdtools::copy_2nd_if(pair.first, pair.second, std::back_inserter(result), ready_for_signing());
     } else {
-        kdtools::copy_2nd_if(pair.first, pair.second,
-                             std::back_inserter(result),
-                             ready_for_encryption());
+        kdtools::copy_2nd_if(pair.first, pair.second, std::back_inserter(result), ready_for_encryption());
     }
 
     return result;
@@ -872,7 +876,6 @@ std::vector<Key> KeyCache::findSubjects(const std::vector<Key> &keys, Options op
 
 std::vector<Key> KeyCache::findSubjects(std::vector<Key>::const_iterator first, std::vector<Key>::const_iterator last, Options options) const
 {
-
     if (first == last) {
         return std::vector<Key>();
     }
@@ -891,8 +894,10 @@ std::vector<Key> KeyCache::findSubjects(std::vector<Key>::const_iterator first, 
         const std::vector<Key> furtherSubjects = findSubjects(result, options);
         std::vector<Key> combined;
         combined.reserve(result.size() + furtherSubjects.size());
-        std::merge(result.begin(), result.end(),
-                   furtherSubjects.begin(), furtherSubjects.end(),
+        std::merge(result.begin(),
+                   result.end(),
+                   furtherSubjects.begin(),
+                   furtherSubjects.end(),
                    std::back_inserter(combined),
                    _detail::ByFingerprint<std::less>());
         combined.erase(std::unique(combined.begin(), combined.end(), _detail::ByFingerprint<std::equal_to>()), combined.end());
@@ -935,10 +940,9 @@ std::vector<Key> KeyCache::findIssuers(const Key &key, Options options) const
         if (issuer.isNull()) {
             break;
         }
-        const bool chainAlreadyContainsIssuer =
-            Kleo::contains_if(result, [issuer](const auto &key) {
-                return _detail::ByFingerprint<std::equal_to>()(issuer, key);
-            });
+        const bool chainAlreadyContainsIssuer = Kleo::contains_if(result, [issuer](const auto &key) {
+            return _detail::ByFingerprint<std::equal_to>()(issuer, key);
+        });
         // we also add the issuer if the chain already contains it, so that
         // the user can spot the recursion
         result.push_back(issuer);
@@ -997,34 +1001,28 @@ void KeyCache::remove(const Key &key)
     Q_EMIT aboutToRemove(key);
 
     {
-        const auto range = std::equal_range(d->by.fpr.begin(), d->by.fpr.end(), fpr,
-                                            _detail::ByFingerprint<std::less>());
+        const auto range = std::equal_range(d->by.fpr.begin(), d->by.fpr.end(), fpr, _detail::ByFingerprint<std::less>());
         d->by.fpr.erase(range.first, range.second);
     }
 
     if (const char *keyid = key.keyID()) {
-        const auto range = std::equal_range(d->by.keyid.begin(), d->by.keyid.end(), keyid,
-                                            _detail::ByKeyID<std::less>());
-        const auto it = std::remove_if(range.first, range.second,
-                                       [fpr](const GpgME::Key &key) {
-                                           return _detail::ByFingerprint<std::equal_to>()(fpr, key);
-                                       });
+        const auto range = std::equal_range(d->by.keyid.begin(), d->by.keyid.end(), keyid, _detail::ByKeyID<std::less>());
+        const auto it = std::remove_if(range.first, range.second, [fpr](const GpgME::Key &key) {
+            return _detail::ByFingerprint<std::equal_to>()(fpr, key);
+        });
         d->by.keyid.erase(it, range.second);
     }
 
     if (const char *shortkeyid = key.shortKeyID()) {
-        const auto range = std::equal_range(d->by.shortkeyid.begin(), d->by.shortkeyid.end(), shortkeyid,
-                                            _detail::ByShortKeyID<std::less>());
-        const auto it = std::remove_if(range.first, range.second,
-                                       [fpr](const GpgME::Key &key) {
-                                           return _detail::ByFingerprint<std::equal_to>()(fpr, key);
-                                       });
+        const auto range = std::equal_range(d->by.shortkeyid.begin(), d->by.shortkeyid.end(), shortkeyid, _detail::ByShortKeyID<std::less>());
+        const auto it = std::remove_if(range.first, range.second, [fpr](const GpgME::Key &key) {
+            return _detail::ByFingerprint<std::equal_to>()(fpr, key);
+        });
         d->by.shortkeyid.erase(it, range.second);
     }
 
     if (const char *chainid = key.chainID()) {
-        const auto range = std::equal_range(d->by.chainid.begin(), d->by.chainid.end(), chainid,
-                                            _detail::ByChainID<std::less>());
+        const auto range = std::equal_range(d->by.chainid.begin(), d->by.chainid.end(), chainid, _detail::ByChainID<std::less>());
         const auto range2 = std::equal_range(range.first, range.second, fpr, _detail::ByFingerprint<std::less>());
         d->by.chainid.erase(range2.first, range2.second);
     }
@@ -1032,31 +1030,26 @@ void KeyCache::remove(const Key &key)
     const auto emailsKey{emails(key)};
     for (const std::string &email : emailsKey) {
         const auto range = std::equal_range(d->by.email.begin(), d->by.email.end(), email, ByEMail<std::less>());
-        const auto it = std::remove_if(range.first, range.second,
-                                       [fpr](const std::pair<std::string, Key> &pair) {
-                                           return qstricmp(fpr, pair.second.primaryFingerprint()) == 0;
-                                       });
+        const auto it = std::remove_if(range.first, range.second, [fpr](const std::pair<std::string, Key> &pair) {
+            return qstricmp(fpr, pair.second.primaryFingerprint()) == 0;
+        });
         d->by.email.erase(it, range.second);
     }
 
     const auto keySubKeys{key.subkeys()};
     for (const Subkey &subkey : keySubKeys) {
         if (const char *keyid = subkey.keyID()) {
-            const auto range = std::equal_range(d->by.subkeyid.begin(), d->by.subkeyid.end(), keyid,
-                                                _detail::ByKeyID<std::less>());
-            const auto it = std::remove_if(range.first, range.second,
-                                           [fpr] (const Subkey &subkey) {
-                                               return !qstricmp(fpr, subkey.parent().primaryFingerprint());
-                                           });
+            const auto range = std::equal_range(d->by.subkeyid.begin(), d->by.subkeyid.end(), keyid, _detail::ByKeyID<std::less>());
+            const auto it = std::remove_if(range.first, range.second, [fpr](const Subkey &subkey) {
+                return !qstricmp(fpr, subkey.parent().primaryFingerprint());
+            });
             d->by.subkeyid.erase(it, range.second);
         }
         if (const char *keygrip = subkey.keyGrip()) {
-            const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(), keygrip,
-                                                _detail::ByKeyGrip<std::less>());
-            const auto it = std::remove_if(range.first, range.second,
-                                           [fpr] (const Subkey &subkey) {
-                                               return !qstricmp(fpr, subkey.parent().primaryFingerprint());
-                                           });
+            const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(), keygrip, _detail::ByKeyGrip<std::less>());
+            const auto it = std::remove_if(range.first, range.second, [fpr](const Subkey &subkey) {
+                return !qstricmp(fpr, subkey.parent().primaryFingerprint());
+            });
             d->by.keygrip.erase(it, range.second);
         }
     }
@@ -1078,8 +1071,11 @@ const std::vector<GpgME::Key> &KeyCache::keys() const
 std::vector<Key> KeyCache::secretKeys() const
 {
     std::vector<Key> keys = this->keys();
-    keys.erase(std::remove_if(keys.begin(), keys.end(),
-                              [](const Key &key) { return !key.hasSecret(); }),
+    keys.erase(std::remove_if(keys.begin(),
+                              keys.end(),
+                              [](const Key &key) {
+                                  return !key.hasSecret();
+                              }),
                keys.end());
     return keys;
 }
@@ -1087,8 +1083,9 @@ std::vector<Key> KeyCache::secretKeys() const
 KeyGroup KeyCache::group(const QString &id) const
 {
     KeyGroup result{};
-    const auto it = std::find_if(std::cbegin(d->m_groups), std::cend(d->m_groups),
-                                 [id](const auto &g) { return g.id() == id; });
+    const auto it = std::find_if(std::cbegin(d->m_groups), std::cend(d->m_groups), [id](const auto &g) {
+        return g.id() == id;
+    });
     if (it != std::cend(d->m_groups)) {
         result = *it;
     }
@@ -1105,9 +1102,9 @@ std::vector<KeyGroup> KeyCache::configurableGroups() const
 {
     std::vector<KeyGroup> groups;
     groups.reserve(d->m_groups.size());
-    std::copy_if(d->m_groups.cbegin(), d->m_groups.cend(),
-                 std::back_inserter(groups),
-                 [] (const KeyGroup &group) { return group.source() == KeyGroup::ApplicationConfig; });
+    std::copy_if(d->m_groups.cbegin(), d->m_groups.cend(), std::back_inserter(groups), [](const KeyGroup &group) {
+        return group.source() == KeyGroup::ApplicationConfig;
+    });
     return groups;
 }
 
@@ -1132,10 +1129,7 @@ void KeyCache::saveConfigurableGroups(const std::vector<KeyGroup> &groups)
 
     {
         std::vector<KeyGroup> removedGroups;
-        std::set_difference(oldGroups.begin(), oldGroups.end(),
-                            newGroups.begin(), newGroups.end(),
-                            std::back_inserter(removedGroups),
-                            &compareById);
+        std::set_difference(oldGroups.begin(), oldGroups.end(), newGroups.begin(), newGroups.end(), std::back_inserter(removedGroups), &compareById);
         for (const auto &group : std::as_const(removedGroups)) {
             qCDebug(LIBKLEO_LOG) << "Removing group" << group;
             d->remove(group);
@@ -1143,10 +1137,7 @@ void KeyCache::saveConfigurableGroups(const std::vector<KeyGroup> &groups)
     }
     {
         std::vector<KeyGroup> updatedGroups;
-        std::set_intersection(newGroups.begin(), newGroups.end(),
-                              oldGroups.begin(), oldGroups.end(),
-                              std::back_inserter(updatedGroups),
-                              &compareById);
+        std::set_intersection(newGroups.begin(), newGroups.end(), oldGroups.begin(), oldGroups.end(), std::back_inserter(updatedGroups), &compareById);
         for (const auto &group : std::as_const(updatedGroups)) {
             qCDebug(LIBKLEO_LOG) << "Updating group" << group;
             d->update(group);
@@ -1154,10 +1145,7 @@ void KeyCache::saveConfigurableGroups(const std::vector<KeyGroup> &groups)
     }
     {
         std::vector<KeyGroup> addedGroups;
-        std::set_difference(newGroups.begin(), newGroups.end(),
-                            oldGroups.begin(), oldGroups.end(),
-                            std::back_inserter(addedGroups),
-                            &compareById);
+        std::set_difference(newGroups.begin(), newGroups.end(), oldGroups.begin(), oldGroups.end(), std::back_inserter(addedGroups), &compareById);
         for (const auto &group : std::as_const(addedGroups)) {
             qCDebug(LIBKLEO_LOG) << "Adding group" << group;
             d->insert(group);
@@ -1215,14 +1203,11 @@ void KeyCache::insert(const Key &key)
 namespace
 {
 
-template <
-    template <template <typename T> class Op> class T1,
-    template <template <typename T> class Op> class T2
-    > struct lexicographically
-{
+template<template<template<typename T> class Op> class T1, template<template<typename T> class Op> class T2>
+struct lexicographically {
     using result_type = bool;
 
-    template <typename U, typename V>
+    template<typename U, typename V>
     bool operator()(const U &lhs, const V &rhs) const
     {
         return T1<std::less>()(lhs, rhs) //
@@ -1234,19 +1219,16 @@ template <
 
 void KeyCache::insert(const std::vector<Key> &keys)
 {
-
     // 1. remove those with empty fingerprints:
     std::vector<Key> sorted;
     sorted.reserve(keys.size());
-    std::remove_copy_if(keys.begin(), keys.end(),
-                        std::back_inserter(sorted),
-                        [](const Key &key) {
-                            auto fp = key.primaryFingerprint();
-                            return !fp|| !*fp;
-                        });
+    std::remove_copy_if(keys.begin(), keys.end(), std::back_inserter(sorted), [](const Key &key) {
+        auto fp = key.primaryFingerprint();
+        return !fp || !*fp;
+    });
 
     Q_FOREACH (const Key &key, sorted) {
-        remove(key);    // this is sub-optimal, but makes implementation from here on much easier
+        remove(key); // this is sub-optimal, but makes implementation from here on much easier
     }
 
     // 2. sort by fingerprint:
@@ -1255,13 +1237,10 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // 2a. insert into fpr index:
     std::vector<Key> by_fpr;
     by_fpr.reserve(sorted.size() + d->by.fpr.size());
-    std::merge(sorted.begin(), sorted.end(),
-               d->by.fpr.begin(), d->by.fpr.end(),
-               std::back_inserter(by_fpr),
-               _detail::ByFingerprint<std::less>());
+    std::merge(sorted.begin(), sorted.end(), d->by.fpr.begin(), d->by.fpr.end(), std::back_inserter(by_fpr), _detail::ByFingerprint<std::less>());
 
     // 3. build email index:
-    std::vector< std::pair<std::string, Key> > pairs;
+    std::vector<std::pair<std::string, Key>> pairs;
     pairs.reserve(sorted.size());
     for (const Key &key : std::as_const(sorted)) {
         const std::vector<std::string> emails = ::emails(key);
@@ -1272,12 +1251,9 @@ void KeyCache::insert(const std::vector<Key> &keys)
     std::sort(pairs.begin(), pairs.end(), ByEMail<std::less>());
 
     // 3a. insert into email index:
-    std::vector< std::pair<std::string, Key> > by_email;
+    std::vector<std::pair<std::string, Key>> by_email;
     by_email.reserve(pairs.size() + d->by.email.size());
-    std::merge(pairs.begin(), pairs.end(),
-               d->by.email.begin(), d->by.email.end(),
-               std::back_inserter(by_email),
-               ByEMail<std::less>());
+    std::merge(pairs.begin(), pairs.end(), d->by.email.begin(), d->by.email.end(), std::back_inserter(by_email), ByEMail<std::less>());
 
     // 3.5: stable-sort by chain-id (effectively lexicographically<ByChainID,ByFingerprint>)
     std::stable_sort(sorted.begin(), sorted.end(), _detail::ByChainID<std::less>());
@@ -1287,11 +1263,13 @@ void KeyCache::insert(const std::vector<Key> &keys)
     nonroot.reserve(sorted.size());
     std::vector<Key> by_chainid;
     by_chainid.reserve(sorted.size() + d->by.chainid.size());
-    std::copy_if(sorted.cbegin(), sorted.cend(),
-                 std::back_inserter(nonroot),
-                 [](const Key &key) { return !key.isRoot(); });
-    std::merge(nonroot.cbegin(), nonroot.cend(),
-               d->by.chainid.cbegin(), d->by.chainid.cend(),
+    std::copy_if(sorted.cbegin(), sorted.cend(), std::back_inserter(nonroot), [](const Key &key) {
+        return !key.isRoot();
+    });
+    std::merge(nonroot.cbegin(),
+               nonroot.cend(),
+               d->by.chainid.cbegin(),
+               d->by.chainid.cend(),
                std::back_inserter(by_chainid),
                lexicographically<_detail::ByChainID, _detail::ByFingerprint>());
 
@@ -1301,10 +1279,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // 4a. insert into keyid index:
     std::vector<Key> by_keyid;
     by_keyid.reserve(sorted.size() + d->by.keyid.size());
-    std::merge(sorted.begin(), sorted.end(),
-               d->by.keyid.begin(), d->by.keyid.end(),
-               std::back_inserter(by_keyid),
-               _detail::ByKeyID<std::less>());
+    std::merge(sorted.begin(), sorted.end(), d->by.keyid.begin(), d->by.keyid.end(), std::back_inserter(by_keyid), _detail::ByKeyID<std::less>());
 
     // 5. sort by short key id:
     std::sort(sorted.begin(), sorted.end(), _detail::ByShortKeyID<std::less>());
@@ -1312,8 +1287,10 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // 5a. insert into short keyid index:
     std::vector<Key> by_shortkeyid;
     by_shortkeyid.reserve(sorted.size() + d->by.shortkeyid.size());
-    std::merge(sorted.begin(), sorted.end(),
-               d->by.shortkeyid.begin(), d->by.shortkeyid.end(),
+    std::merge(sorted.begin(),
+               sorted.end(),
+               d->by.shortkeyid.begin(),
+               d->by.shortkeyid.end(),
                std::back_inserter(by_shortkeyid),
                _detail::ByShortKeyID<std::less>());
 
@@ -1333,10 +1310,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // 6b. insert into subkey ID index:
     std::vector<Subkey> by_subkeyid;
     by_subkeyid.reserve(subkeys.size() + d->by.subkeyid.size());
-    std::merge(subkeys.begin(), subkeys.end(),
-               d->by.subkeyid.begin(), d->by.subkeyid.end(),
-               std::back_inserter(by_subkeyid),
-               _detail::ByKeyID<std::less>());
+    std::merge(subkeys.begin(), subkeys.end(), d->by.subkeyid.begin(), d->by.subkeyid.end(), std::back_inserter(by_subkeyid), _detail::ByKeyID<std::less>());
 
     // 6c. sort by key grip
     std::sort(subkeys.begin(), subkeys.end(), _detail::ByKeyGrip<std::less>());
@@ -1344,10 +1318,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // 6d. insert into subkey keygrip index:
     std::vector<Subkey> by_keygrip;
     by_keygrip.reserve(subkeys.size() + d->by.keygrip.size());
-    std::merge(subkeys.begin(), subkeys.end(),
-               d->by.keygrip.begin(), d->by.keygrip.end(),
-               std::back_inserter(by_keygrip),
-               _detail::ByKeyGrip<std::less>());
+    std::merge(subkeys.begin(), subkeys.end(), d->by.keygrip.begin(), d->by.keygrip.end(), std::back_inserter(by_keygrip), _detail::ByKeyGrip<std::less>());
 
     // now commit (well, we already removed keys...)
     by_fpr.swap(d->by.fpr);
@@ -1380,6 +1351,7 @@ void KeyCache::clear()
 class KeyCache::RefreshKeysJob::Private
 {
     RefreshKeysJob *const q;
+
 public:
     Private(KeyCache *cache, RefreshKeysJob *qq);
     void doStart();
@@ -1391,10 +1363,7 @@ public:
         if (m_keys.empty()) {
             keys = nextKeys;
         } else {
-            std::merge(m_keys.begin(), m_keys.end(),
-                       nextKeys.begin(), nextKeys.end(),
-                       std::back_inserter(keys),
-                       _detail::ByFingerprint<std::less>());
+            std::merge(m_keys.begin(), m_keys.end(), nextKeys.begin(), nextKeys.end(), std::back_inserter(keys), _detail::ByFingerprint<std::less>());
         }
         m_keys.swap(keys);
         jobDone(res);
@@ -1403,7 +1372,7 @@ public:
     void updateKeyCache();
 
     QPointer<KeyCache> m_cache;
-    QVector<QGpgME::ListAllKeysJob*> m_jobsPending;
+    QVector<QGpgME::ListAllKeysJob *> m_jobsPending;
     std::vector<Key> m_keys;
     KeyListResult m_mergedResult;
     bool m_canceled;
@@ -1432,7 +1401,7 @@ void KeyCache::RefreshKeysJob::Private::jobDone(const KeyListResult &result)
         sender->disconnect(q);
     }
     Q_ASSERT(m_jobsPending.size() > 0);
-    m_jobsPending.removeOne(qobject_cast<QGpgME::ListAllKeysJob*>(sender));
+    m_jobsPending.removeOne(qobject_cast<QGpgME::ListAllKeysJob *>(sender));
     m_mergedResult.mergeWith(result);
     if (m_jobsPending.size() > 0) {
         return;
@@ -1447,7 +1416,9 @@ void KeyCache::RefreshKeysJob::Private::emitDone(const KeyListResult &res)
     Q_EMIT q->done(res);
 }
 
-KeyCache::RefreshKeysJob::RefreshKeysJob(KeyCache *cache, QObject *parent) : QObject(parent), d(new Private(cache, this))
+KeyCache::RefreshKeysJob::RefreshKeysJob(KeyCache *cache, QObject *parent)
+    : QObject(parent)
+    , d(new Private(cache, this))
 {
 }
 
@@ -1458,14 +1429,15 @@ KeyCache::RefreshKeysJob::~RefreshKeysJob()
 
 void KeyCache::RefreshKeysJob::start()
 {
-    QTimer::singleShot(0, this, [this](){ d->doStart(); });
+    QTimer::singleShot(0, this, [this]() {
+        d->doStart();
+    });
 }
 
 void KeyCache::RefreshKeysJob::cancel()
 {
     d->m_canceled = true;
-    std::for_each(d->m_jobsPending.begin(), d->m_jobsPending.end(),
-                  std::mem_fn(&QGpgME::ListAllKeysJob::slotCancel));
+    std::for_each(d->m_jobsPending.begin(), d->m_jobsPending.end(), std::mem_fn(&QGpgME::ListAllKeysJob::slotCancel));
     Q_EMIT canceled();
 }
 
@@ -1498,8 +1470,10 @@ void KeyCache::RefreshKeysJob::Private::updateKeyCache()
     std::vector<Key> cachedKeys = m_cache->initialized() ? m_cache->keys() : std::vector<Key>();
     std::sort(cachedKeys.begin(), cachedKeys.end(), _detail::ByFingerprint<std::less>());
     std::vector<Key> keysToRemove;
-    std::set_difference(cachedKeys.begin(), cachedKeys.end(),
-                        m_keys.begin(), m_keys.end(),
+    std::set_difference(cachedKeys.begin(),
+                        cachedKeys.end(),
+                        m_keys.begin(),
+                        m_keys.end(),
                         std::back_inserter(keysToRemove),
                         _detail::ByFingerprint<std::less>());
     m_cache->remove(keysToRemove);
@@ -1508,11 +1482,11 @@ void KeyCache::RefreshKeysJob::Private::updateKeyCache()
 
 Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
 {
-    const auto * const protocol = (proto == GpgME::OpenPGP) ? QGpgME::openpgp() : QGpgME::smime();
+    const auto *const protocol = (proto == GpgME::OpenPGP) ? QGpgME::openpgp() : QGpgME::smime();
     if (!protocol) {
         return Error();
     }
-    QGpgME::ListAllKeysJob *const job = protocol->listAllKeysJob(/*includeSigs*/false, /*validate*/true);
+    QGpgME::ListAllKeysJob *const job = protocol->listAllKeysJob(/*includeSigs*/ false, /*validate*/ true);
     if (!job) {
         return Error();
     }
@@ -1537,8 +1511,7 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
                 listAllKeysJobDone(res, keys);
             });
 #endif
-    connect(job, SIGNAL(result(GpgME::KeyListResult,std::vector<GpgME::Key>)),
-            q, SLOT(listAllKeysJobDone(GpgME::KeyListResult,std::vector<GpgME::Key>)));
+    connect(job, SIGNAL(result(GpgME::KeyListResult, std::vector<GpgME::Key>)), q, SLOT(listAllKeysJobDone(GpgME::KeyListResult, std::vector<GpgME::Key>)));
 
     connect(q, &RefreshKeysJob::canceled, job, &QGpgME::Job::slotCancel);
 
@@ -1547,8 +1520,7 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
     if (proto == GpgME::OpenPGP && m_cache->remarksEnabled() && m_cache->initialized()) {
         auto ctx = QGpgME::Job::context(job);
         if (ctx) {
-            ctx->addKeyListMode(KeyListMode::Signatures |
-                                KeyListMode::SignatureNotations);
+            ctx->addKeyListMode(KeyListMode::Signatures | KeyListMode::SignatureNotations);
         }
     }
 
@@ -1570,8 +1542,7 @@ void KeyCache::Private::ensureCachePopulated() const
     if (!m_initalized) {
         q->startKeyListing();
         QEventLoop loop;
-        loop.connect(q, &KeyCache::keyListingDone,
-                     &loop, &QEventLoop::quit);
+        loop.connect(q, &KeyCache::keyListingDone, &loop, &QEventLoop::quit);
         qCDebug(LIBKLEO_LOG) << "Waiting for keycache.";
         loop.exec();
         qCDebug(LIBKLEO_LOG) << "Keycache available.";
@@ -1603,7 +1574,7 @@ namespace
 time_t creationTimeOfNewestSuitableSubKey(const Key &key, KeyUsage usage)
 {
     time_t creationTime = 0;
-    for (const Subkey &s: key.subkeys()) {
+    for (const Subkey &s : key.subkeys()) {
         if (!subkeyIsOk(s)) {
             continue;
         }
@@ -1620,8 +1591,7 @@ time_t creationTimeOfNewestSuitableSubKey(const Key &key, KeyUsage usage)
     return creationTime;
 }
 
-struct BestMatch
-{
+struct BestMatch {
     Key key;
     UserID uid;
     time_t creationTime = 0;
@@ -1643,7 +1613,7 @@ GpgME::Key KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, 
     address = address.toLower();
 
     BestMatch best;
-    for (const Key &k: findByEMailAddress(address.constData())) {
+    for (const Key &k : findByEMailAddress(address.constData())) {
         if (proto != Protocol::UnknownProtocol && k.protocol() != proto) {
             continue;
         }
@@ -1658,7 +1628,7 @@ GpgME::Key KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, 
             // key does not have a suitable (and usable) subkey
             continue;
         }
-        for (const UserID &u: k.userIDs()) {
+        for (const UserID &u : k.userIDs()) {
             if (QByteArray::fromStdString(u.addrSpec()).toLower() != address) {
                 // user ID does not match the given email address
                 continue;
@@ -1690,7 +1660,7 @@ namespace
 template<typename T>
 bool allKeysAllowUsage(const T &keys, KeyUsage usage)
 {
-    switch(usage) {
+    switch (usage) {
     case KeyUsage::AnyUsage:
         return true;
     case KeyUsage::Sign:
@@ -1709,7 +1679,9 @@ bool allKeysAllowUsage(const T &keys, KeyUsage usage)
 template<typename T>
 bool allKeysHaveProtocol(const T &keys, Protocol protocol)
 {
-    return std::all_of(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
+    return std::all_of(std::begin(keys), std::end(keys), [protocol](const auto &key) {
+        return key.protocol() == protocol;
+    });
 }
 }
 
@@ -1721,8 +1693,7 @@ KeyGroup KeyCache::findGroup(const QString &name, Protocol protocol, KeyUsage us
     for (const auto &group : std::as_const(d->m_groups)) {
         if (group.name() == name) {
             const KeyGroup::Keys &keys = group.keys();
-            if (allKeysAllowUsage(keys, usage)
-                && (protocol == UnknownProtocol || allKeysHaveProtocol(keys, protocol))) {
+            if (allKeysAllowUsage(keys, usage) && (protocol == UnknownProtocol || allKeysHaveProtocol(keys, protocol))) {
                 return group;
             }
         }
@@ -1745,7 +1716,7 @@ std::vector<Key> KeyCache::getGroupKeys(const QString &groupName) const
     return result;
 }
 
-void KeyCache::setKeys(const std::vector<GpgME::Key>& keys)
+void KeyCache::setKeys(const std::vector<GpgME::Key> &keys)
 {
     // disable regular key listing and cancel running key listing
     setRefreshInterval(0);
@@ -1756,12 +1727,12 @@ void KeyCache::setKeys(const std::vector<GpgME::Key>& keys)
     Q_EMIT keyListingDone(KeyListResult());
 }
 
-void KeyCache::setGroups(const std::vector<KeyGroup>& groups)
+void KeyCache::setGroups(const std::vector<KeyGroup> &groups)
 {
     Q_ASSERT(d->m_initalized && "Call setKeys() before setting groups");
     d->m_groups = groups;
     Q_EMIT keysMayHaveChanged();
 }
 
-#include "moc_keycache_p.cpp"
 #include "moc_keycache.cpp"
+#include "moc_keycache_p.cpp"

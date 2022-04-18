@@ -14,25 +14,23 @@
 
 #include "progressbar.h"
 
-
 #include <KLocalizedString>
 
 #include <QTimer>
 
-
-Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText,
-                                     QWidget *creator, Qt::WindowFlags f)
-    : QProgressDialog(creator, f), mBaseText(baseText)
+Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText, QWidget *creator, Qt::WindowFlags f)
+    : QProgressDialog(creator, f)
+    , mBaseText(baseText)
 {
     Q_ASSERT(job);
-    setBar(new ProgressBar(this/*, "replacement progressbar in Kleo::ProgressDialog"*/));
+    setBar(new ProgressBar(this /*, "replacement progressbar in Kleo::ProgressDialog"*/));
 
     setMinimumDuration(2000 /*ms*/);
     setAutoReset(false);
     setAutoClose(false);
     setLabelText(baseText);
     setModal(false);
-    setRange(0, 0);   // activate busy indicator
+    setRange(0, 0); // activate busy indicator
 
     connect(job, &QGpgME::Job::progress, this, &ProgressDialog::slotProgress);
     connect(job, &QGpgME::Job::done, this, &ProgressDialog::slotDone);
@@ -43,7 +41,6 @@ Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText,
 
 Kleo::ProgressDialog::~ProgressDialog()
 {
-
 }
 
 void Kleo::ProgressDialog::setMinimumDuration(int ms)
@@ -56,8 +53,7 @@ void Kleo::ProgressDialog::setMinimumDuration(int ms)
 
 void Kleo::ProgressDialog::slotProgress(const QString &what, int current, int total)
 {
-    qCDebug(KLEO_UI_LOG) << "Kleo::ProgressDialog::slotProgress( \"" << what << "\","
-                         << current << "," << total << ")";
+    qCDebug(KLEO_UI_LOG) << "Kleo::ProgressDialog::slotProgress( \"" << what << "\"," << current << "," << total << ")";
     if (mBaseText.isEmpty()) {
         setLabelText(what);
     } else if (what.isEmpty()) {

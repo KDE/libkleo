@@ -30,7 +30,7 @@ namespace Kleo
     file cannout be found at creation. Otherwise triggered
     calls QDesktopServicesOpenURL on the file.
 */
-class KLEO_EXPORT DocAction: public QAction
+class KLEO_EXPORT DocAction : public QAction
 {
     Q_OBJECT
 
@@ -41,16 +41,13 @@ public:
      * @a pathHint A path relative to QCoreApplication::applicationDirPath() to look for the file.
      *
      * */
-    explicit DocAction(const QIcon &icon,
-                       const QString &text,
-                       const QString &filename,
-                       const QString &pathHint = QString(),
-                       QObject *parent = nullptr);
+    explicit DocAction(const QIcon &icon, const QString &text, const QString &filename, const QString &pathHint = QString(), QObject *parent = nullptr);
 
     ~DocAction() override;
 
     DocAction(const QString &, QObject *parent) = delete;
     DocAction(QObject *parent) = delete;
+
 private:
     class Private;
     std::unique_ptr<Private> d;

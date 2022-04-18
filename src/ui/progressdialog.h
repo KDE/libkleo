@@ -27,8 +27,7 @@ class KLEO_EXPORT ProgressDialog : public QProgressDialog
 {
     Q_OBJECT
 public:
-    ProgressDialog(QGpgME::Job *job, const QString &baseText,
-                   QWidget *widget = nullptr, Qt::WindowFlags f = {});
+    ProgressDialog(QGpgME::Job *job, const QString &baseText, QWidget *widget = nullptr, Qt::WindowFlags f = {});
     ~ProgressDialog() override;
 
 public Q_SLOTS:
@@ -38,6 +37,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void slotProgress(const QString &what, int current, int total);
     void slotDone();
+
 private:
     QString mBaseText;
 };
@@ -45,8 +45,7 @@ private:
 }
 
 #else
-# ifndef LIBKLEO_NO_PROGRESSDIALOG
-#  define LIBKLEO_NO_PROGRESSDIALOG
-# endif
+#ifndef LIBKLEO_NO_PROGRESSDIALOG
+#define LIBKLEO_NO_PROGRESSDIALOG
+#endif
 #endif // QT_NO_PROGRESSDIALOG
-

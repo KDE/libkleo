@@ -28,8 +28,7 @@ class Key;
 namespace Kleo
 {
 
-class KLEO_EXPORT AbstractKeyListModel : public QAbstractItemModel
-                                       , public KeyListModelInterface
+class KLEO_EXPORT AbstractKeyListModel : public QAbstractItemModel, public KeyListModelInterface
 {
     Q_OBJECT
 public:
@@ -130,4 +129,3 @@ private:
 }
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::AbstractKeyListModel::ItemTypes)
-

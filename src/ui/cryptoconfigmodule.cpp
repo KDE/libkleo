@@ -8,47 +8,47 @@
 */
 
 #include "cryptoconfigmodule.h"
-#include "cryptoconfigmodule_p.h"
 #include "cryptoconfigentryreaderport_p.h"
+#include "cryptoconfigmodule_p.h"
 #include "directoryserviceswidget.h"
-#include "kdhorizontalline.h"
 #include "filenamerequester.h"
+#include "kdhorizontalline.h"
 
 #include "kleo/keyserverconfig.h"
 #include "utils/gnupg.h"
 
 #include <qgpgme/cryptoconfig.h>
 
+#include "kleo_ui_debug.h"
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include "kleo_ui_debug.h"
-#include <utils/formatting.h>
-#include <QIcon>
 #include <QDialogButtonBox>
+#include <QIcon>
+#include <utils/formatting.h>
 
 #include <QSpinBox>
 
 #include <QApplication>
+#include <QCheckBox>
+#include <QComboBox>
+#include <QDesktopWidget>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QLayout>
 #include <QPushButton>
 #include <QRegExp>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QGridLayout>
 #include <QScrollArea>
-#include <QDesktopWidget>
-#include <QCheckBox>
 #include <QStyle>
-#include <QComboBox>
-#include <QGroupBox>
+#include <QVBoxLayout>
 
 #include <gpgme.h>
 
-#include <memory>
-#include <limits>
 #include <array>
+#include <limits>
+#include <memory>
 #include <set>
 
 #include <KLazyLocalizedString>
@@ -61,7 +61,10 @@ namespace
 class ScrollArea : public QScrollArea
 {
 public:
-    explicit ScrollArea(QWidget *p) : QScrollArea(p) {}
+    explicit ScrollArea(QWidget *p)
+        : QScrollArea(p)
+    {
+    }
     QSize sizeHint() const override
     {
         const QSize wsz = widget() ? widget()->sizeHint() : QSize();
@@ -113,13 +116,15 @@ static KPageView::FaceType determineJanusFace(const QGpgME::CryptoConfig *config
 }
 
 Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent)
-    : KPageWidget(parent), mConfig(config)
+    : KPageWidget(parent)
+    , mConfig(config)
 {
     init(IconListLayout);
 }
 
 Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, Layout layout, QWidget *parent)
-    : KPageWidget(parent), mConfig(config)
+    : KPageWidget(parent)
+    , mConfig(config)
 {
     init(layout);
 }
@@ -158,7 +163,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
 
     const QStringList components = sortComponentList(config->componentList());
     for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it) {
-        //qCDebug(KLEO_UI_LOG) <<"Component" << (*it).toLocal8Bit() <<":";
+        // qCDebug(KLEO_UI_LOG) <<"Component" << (*it).toLocal8Bit() <<":";
         QGpgME::CryptoConfigComponent *comp = config->component(*it);
         Q_ASSERT(comp);
         if (comp->groupList().empty()) {
@@ -209,12 +214,13 @@ void Kleo::CryptoConfigModule::init(Layout layout)
         }
     }
     if (mComponentGUIs.empty()) {
-        const QString msg = i18n("The gpgconf tool used to provide the information "
-                                 "for this dialog does not seem to be installed "
-                                 "properly. It did not return any components. "
-                                 "Try running \"%1\" on the command line for more "
-                                 "information.",
-                                 components.empty() ? QLatin1String("gpgconf --list-components") : QLatin1String("gpgconf --list-options gpg"));
+        const QString msg = i18n(
+            "The gpgconf tool used to provide the information "
+            "for this dialog does not seem to be installed "
+            "properly. It did not return any components. "
+            "Try running \"%1\" on the command line for more "
+            "information.",
+            components.empty() ? QLatin1String("gpgconf --list-components") : QLatin1String("gpgconf --list-options gpg"));
         QLabel *label = new QLabel(msg, vbox);
         label->setWordWrap(true);
         label->setMinimumHeight(fontMetrics().lineSpacing() * 5);
@@ -370,8 +376,7 @@ bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
     if (entriesToExclude.empty()) {
         entriesToExclude.insert(QStringLiteral("gpg/keyserver"));
         if (engineIsVersion(2, 3, 5, GpgME::GpgConfEngine)
-            || (engineIsVersion(2, 2, 34, GpgME::GpgConfEngine)
-                && !engineIsVersion(2, 3, 0, GpgME::GpgConfEngine))) {
+            || (engineIsVersion(2, 2, 34, GpgME::GpgConfEngine) && !engineIsVersion(2, 3, 0, GpgME::GpgConfEngine))) {
             // exclude for 2.2.{34,...} and 2.3.5+
             entriesToExclude.insert(QStringLiteral("gpgsm/keyserver"));
         }
@@ -385,13 +390,11 @@ bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
     // we ignore the group when looking up entries to exclude because entries
     // are uniquely identified by their name and their component
     const auto entryId = entry->path().replace(entryPathGroupSegmentRegexp, QLatin1String{"/"}).toLower();
-    return (entry->level() <= maxEntryLevel) &&
-           (entriesToExclude.find(entryId) == entriesToExclude.end());
+    return (entry->level() <= maxEntryLevel) && (entriesToExclude.find(entryId) == entriesToExclude.end());
 }
 
 auto getGroupEntriesToOfferForConfiguration(QGpgME::CryptoConfigGroup *group)
 {
-
     std::vector<QGpgME::CryptoConfigEntry *> result;
     const auto entryNames = group->entryList();
     for (const auto &entryName : entryNames) {
@@ -407,11 +410,9 @@ auto getGroupEntriesToOfferForConfiguration(QGpgME::CryptoConfigGroup *group)
 }
 }
 
-Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(
-    CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component,
-    QWidget *parent)
-    : QWidget(parent),
-      mComponent(component)
+Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component, QWidget *parent)
+    : QWidget(parent)
+    , mComponent(component)
 {
     auto glay = new QGridLayout(this);
     const QStringList groups = module->sortGroupList(mComponent->name(), mComponent->groupList());
@@ -474,18 +475,16 @@ void Kleo::CryptoConfigComponentGUI::defaults()
 
 ////
 
-Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(
-        CryptoConfigModule *module,
-        QGpgME::CryptoConfigGroup *group,
-        const std::vector<QGpgME::CryptoConfigEntry *> &entries,
-        QGridLayout *glay,
-        QWidget *widget)
+Kleo::CryptoConfigGroupGUI::CryptoConfigGroupGUI(CryptoConfigModule *module,
+                                                 QGpgME::CryptoConfigGroup *group,
+                                                 const std::vector<QGpgME::CryptoConfigEntry *> &entries,
+                                                 QGridLayout *glay,
+                                                 QWidget *widget)
     : QObject(module)
 {
     const int startRow = glay->rowCount();
     for (auto entry : entries) {
-        CryptoConfigEntryGUI *entryGUI =
-            CryptoConfigEntryGUIFactory::createEntryGUI(module, entry, entry->name(), glay, widget);
+        CryptoConfigEntryGUI *entryGUI = CryptoConfigEntryGUIFactory::createEntryGUI(module, entry, entry->name(), glay, widget);
         if (entryGUI) {
             mEntryGUIs.append(entryGUI);
             entryGUI->load();
@@ -541,7 +540,7 @@ using constructor = CryptoConfigEntryGUI *(*)(CryptoConfigModule *, QGpgME::Cryp
 
 namespace
 {
-template <typename T_Widget>
+template<typename T_Widget>
 CryptoConfigEntryGUI *_create(CryptoConfigModule *m, QGpgME::CryptoConfigEntry *e, const QString &n, QGridLayout *l, QWidget *p)
 {
     return new T_Widget(m, e, n, l, p);
@@ -552,10 +551,10 @@ static const struct WidgetsByEntryName {
     const char *entryGlob;
     constructor create;
 } widgetsByEntryName[] = {
-    { "*/*/debug-level",   &_create<CryptoConfigEntryDebugLevel> },
-    { "scdaemon/*/reader-port", &_create<CryptoConfigEntryReaderPort> },
+    {"*/*/debug-level", &_create<CryptoConfigEntryDebugLevel>},
+    {"scdaemon/*/reader-port", &_create<CryptoConfigEntryReaderPort>},
 };
-static const unsigned int numWidgetsByEntryName = sizeof widgetsByEntryName / sizeof * widgetsByEntryName;
+static const unsigned int numWidgetsByEntryName = sizeof widgetsByEntryName / sizeof *widgetsByEntryName;
 
 static const constructor listWidgets[QGpgME::CryptoConfigEntry::NumArgType] = {
     // None: A list of options with no arguments (e.g. -v -v -v) is shown as a spinbox
@@ -583,7 +582,11 @@ static const constructor scalarWidgets[QGpgME::CryptoConfigEntry::NumArgType] = 
     // clang-format on
 };
 
-CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry, const QString &entryName, QGridLayout *glay, QWidget *widget)
+CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoConfigModule *module,
+                                                                        QGpgME::CryptoConfigEntry *entry,
+                                                                        const QString &entryName,
+                                                                        QGridLayout *glay,
+                                                                        QWidget *widget)
 {
     Q_ASSERT(entry);
 
@@ -615,11 +618,11 @@ CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoCo
 
 ////
 
-Kleo::CryptoConfigEntryGUI::CryptoConfigEntryGUI(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry,
-    const QString &entryName)
-    : QObject(module), mEntry(entry), mName(entryName), mChanged(false)
+Kleo::CryptoConfigEntryGUI::CryptoConfigEntryGUI(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry, const QString &entryName)
+    : QObject(module)
+    , mEntry(entry)
+    , mName(entryName)
+    , mChanged(false)
 {
     connect(this, &CryptoConfigEntryGUI::changed, module, &CryptoConfigModule::changed);
 }
@@ -638,7 +641,9 @@ QString Kleo::CryptoConfigEntryGUI::description() const
               "Context: We get some backend strings in that have the wrong "
               "capitalization (in English, at least) so we need to force the "
               "first character to upper-case. It is this behaviour you can "
-              "control for your language with this translation.", "yes") == QLatin1String("yes")) {
+              "control for your language with this translation.",
+              "yes")
+        == QLatin1String("yes")) {
         descr[0] = descr[0].toUpper();
     }
     return descr;
@@ -652,10 +657,11 @@ void Kleo::CryptoConfigEntryGUI::resetToDefault()
 
 ////
 
-Kleo::CryptoConfigEntryLineEdit::CryptoConfigEntryLineEdit(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
-    QGridLayout *glay, QWidget *widget)
+Kleo::CryptoConfigEntryLineEdit::CryptoConfigEntryLineEdit(CryptoConfigModule *module,
+                                                           QGpgME::CryptoConfigEntry *entry,
+                                                           const QString &entryName,
+                                                           QGridLayout *glay,
+                                                           QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
     const int row = glay->rowCount();
@@ -690,18 +696,21 @@ static const struct {
     const KLazyLocalizedString label;
     const char *name;
 } debugLevels[] = {
-    { kli18n("0 - None"), "none"},
-    { kli18n("1 - Basic"), "basic"},
-    { kli18n("2 - Verbose"), "advanced"},
-    { kli18n("3 - More Verbose"), "expert"},
-    { kli18n("4 - All"), "10"},
+    {kli18n("0 - None"), "none"},
+    {kli18n("1 - Basic"), "basic"},
+    {kli18n("2 - Verbose"), "advanced"},
+    {kli18n("3 - More Verbose"), "expert"},
+    {kli18n("4 - All"), "10"},
 };
-static const unsigned int numDebugLevels = sizeof debugLevels / sizeof * debugLevels;
+static const unsigned int numDebugLevels = sizeof debugLevels / sizeof *debugLevels;
 
-Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry,
-        const QString &entryName, QGridLayout *glay, QWidget *widget)
-    : CryptoConfigEntryGUI(module, entry, entryName),
-      mComboBox(new QComboBox(widget))
+Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModule *module,
+                                                               QGpgME::CryptoConfigEntry *entry,
+                                                               const QString &entryName,
+                                                               QGridLayout *glay,
+                                                               QWidget *widget)
+    : CryptoConfigEntryGUI(module, entry, entryName)
+    , mComboBox(new QComboBox(widget))
 {
     QLabel *label = new QLabel(i18n("Set the debugging level to"), widget);
     label->setBuddy(mComboBox);
@@ -714,8 +723,7 @@ Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModul
         label->setEnabled(false);
         mComboBox->setEnabled(false);
     } else {
-        connect(mComboBox, qOverload<int>(&QComboBox::currentIndexChanged),
-                this, &CryptoConfigEntryDebugLevel::slotChanged);
+        connect(mComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, &CryptoConfigEntryDebugLevel::slotChanged);
     }
 
     const int row = glay->rowCount();
@@ -747,12 +755,13 @@ void Kleo::CryptoConfigEntryDebugLevel::doLoad()
 
 ////
 
-Kleo::CryptoConfigEntryPath::CryptoConfigEntryPath(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
-    QGridLayout *glay, QWidget *widget)
-    : CryptoConfigEntryGUI(module, entry, entryName),
-      mFileNameRequester(nullptr)
+Kleo::CryptoConfigEntryPath::CryptoConfigEntryPath(CryptoConfigModule *module,
+                                                   QGpgME::CryptoConfigEntry *entry,
+                                                   const QString &entryName,
+                                                   QGridLayout *glay,
+                                                   QWidget *widget)
+    : CryptoConfigEntryGUI(module, entry, entryName)
+    , mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
     mFileNameRequester = new FileNameRequester(widget);
@@ -786,12 +795,13 @@ void Kleo::CryptoConfigEntryPath::doLoad()
 
 ////
 
-Kleo::CryptoConfigEntryDirPath::CryptoConfigEntryDirPath(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
-    QGridLayout *glay, QWidget *widget)
-    : CryptoConfigEntryGUI(module, entry, entryName),
-      mFileNameRequester(nullptr)
+Kleo::CryptoConfigEntryDirPath::CryptoConfigEntryDirPath(CryptoConfigModule *module,
+                                                         QGpgME::CryptoConfigEntry *entry,
+                                                         const QString &entryName,
+                                                         QGridLayout *glay,
+                                                         QWidget *widget)
+    : CryptoConfigEntryGUI(module, entry, entryName)
+    , mFileNameRequester(nullptr)
 {
     const int row = glay->rowCount();
     mFileNameRequester = new FileNameRequester(widget);
@@ -821,13 +831,13 @@ void Kleo::CryptoConfigEntryDirPath::doLoad()
 
 ////
 
-Kleo::CryptoConfigEntrySpinBox::CryptoConfigEntrySpinBox(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
-    QGridLayout *glay, QWidget *widget)
+Kleo::CryptoConfigEntrySpinBox::CryptoConfigEntrySpinBox(CryptoConfigModule *module,
+                                                         QGpgME::CryptoConfigEntry *entry,
+                                                         const QString &entryName,
+                                                         QGridLayout *glay,
+                                                         QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
-
     if (entry->argType() == QGpgME::CryptoConfigEntry::ArgType_None && entry->isList()) {
         mKind = ListOfNone;
     } else if (entry->argType() == QGpgME::CryptoConfigEntry::ArgType_UInt) {
@@ -889,10 +899,11 @@ void Kleo::CryptoConfigEntrySpinBox::doLoad()
 
 ////
 
-Kleo::CryptoConfigEntryCheckBox::CryptoConfigEntryCheckBox(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry, const QString &entryName,
-    QGridLayout *glay, QWidget *widget)
+Kleo::CryptoConfigEntryCheckBox::CryptoConfigEntryCheckBox(CryptoConfigModule *module,
+                                                           QGpgME::CryptoConfigEntry *entry,
+                                                           const QString &entryName,
+                                                           QGridLayout *glay,
+                                                           QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
     const int row = glay->rowCount();
@@ -916,11 +927,11 @@ void Kleo::CryptoConfigEntryCheckBox::doLoad()
     mCheckBox->setChecked(mEntry->boolValue());
 }
 
-Kleo::CryptoConfigEntryLDAPURL::CryptoConfigEntryLDAPURL(
-    CryptoConfigModule *module,
-    QGpgME::CryptoConfigEntry *entry,
-    const QString &entryName,
-    QGridLayout *glay, QWidget *widget)
+Kleo::CryptoConfigEntryLDAPURL::CryptoConfigEntryLDAPURL(CryptoConfigModule *module,
+                                                         QGpgME::CryptoConfigEntry *entry,
+                                                         const QString &entryName,
+                                                         QGridLayout *glay,
+                                                         QWidget *widget)
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
     mLabel = new QLabel(widget);
@@ -995,13 +1006,17 @@ void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
     dirserv->setReadOnly(mEntry->isReadOnly());
 
     std::vector<KeyserverConfig> servers;
-    std::transform(std::cbegin(mURLList), std::cend(mURLList), std::back_inserter(servers), [](const auto &url) { return KeyserverConfig::fromUrl(url); });
+    std::transform(std::cbegin(mURLList), std::cend(mURLList), std::back_inserter(servers), [](const auto &url) {
+        return KeyserverConfig::fromUrl(url);
+    });
     dirserv->setKeyservers(servers);
 
     if (dialog.exec()) {
         QList<QUrl> urls;
         const auto servers = dirserv->keyservers();
-        std::transform(std::begin(servers), std::end(servers), std::back_inserter(urls), [](const auto &server) { return server.toUrl(); });
+        std::transform(std::begin(servers), std::end(servers), std::back_inserter(urls), [](const auto &server) {
+            return server.toUrl();
+        });
         setURLList(urls);
         slotChanged();
     }

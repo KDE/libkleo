@@ -17,7 +17,7 @@
 #include <KLocalizedString>
 
 #if __has_include(<QGpgME/Debug>)
-# include <QGpgME/Debug>
+#include <QGpgME/Debug>
 #endif
 
 #include <QComboBox>
@@ -62,31 +62,28 @@ ReaderPortSelection::Private::Private(Kleo::ReaderPortSelection *qq)
     if (err) {
         qCWarning(LIBKLEO_LOG) << "Getting available smart card readers failed:" << err;
     } else {
-        std::for_each(std::begin(readers), std::end(readers),
-                    [this](const auto &reader) {
-                        const auto readerId = QString::fromStdString(reader);
-                        mComboBox->addItem(readerId, readerId);
-                    });
+        std::for_each(std::begin(readers), std::end(readers), [this](const auto &reader) {
+            const auto readerId = QString::fromStdString(reader);
+            mComboBox->addItem(readerId, readerId);
+        });
     }
 
     mComboBox->addItem(QString{}, {});
     mComboBox->setToolTip(xi18nc("@info:tooltip",
-                                    "<para>Select the smart card reader that GnuPG shall use.<list>"
-                                    "<item>The first item will make GnuPG use the first reader that is found.</item>"
-                                    "<item>The last item allows you to enter a custom reader ID or reader port number.</item>"
-                                    "<item>All other items represent readers that were found by GnuPG.</item>"
-                                    "</list></para>"));
+                                 "<para>Select the smart card reader that GnuPG shall use.<list>"
+                                 "<item>The first item will make GnuPG use the first reader that is found.</item>"
+                                 "<item>The last item allows you to enter a custom reader ID or reader port number.</item>"
+                                 "<item>All other items represent readers that were found by GnuPG.</item>"
+                                 "</list></para>"));
 
-    connect(mComboBox, qOverload<int>(&QComboBox::currentIndexChanged),
-            q, [this](int index) {
-                onCurrentIndexChanged(index);
-                Q_EMIT q->valueChanged(q->value());
-            });
-    connect(mComboBox, &QComboBox::editTextChanged,
-            q, [this](const QString &text) {
-                onEditTextChanged(text);
-                Q_EMIT q->valueChanged(q->value());
-            });
+    connect(mComboBox, qOverload<int>(&QComboBox::currentIndexChanged), q, [this](int index) {
+        onCurrentIndexChanged(index);
+        Q_EMIT q->valueChanged(q->value());
+    });
+    connect(mComboBox, &QComboBox::editTextChanged, q, [this](const QString &text) {
+        onEditTextChanged(text);
+        Q_EMIT q->valueChanged(q->value());
+    });
 }
 
 void ReaderPortSelection::Private::setValue(const QString &value)

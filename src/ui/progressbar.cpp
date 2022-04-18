@@ -9,15 +9,15 @@
 
 #include "progressbar.h"
 
-#include <QTimer>
 #include "kleo_ui_debug.h"
+#include <QTimer>
 
 static const int busyTimerTickInterval = 100;
 static const int busyTimerTickIncrement = 5;
 
 Kleo::ProgressBar::ProgressBar(QWidget *parent)
-    : QProgressBar(parent),
-      mRealProgress(-1)
+    : QProgressBar(parent)
+    , mRealProgress(-1)
 {
     mBusyTimer = new QTimer(this);
     connect(mBusyTimer, &QTimer::timeout, this, &ProgressBar::slotBusyTimerTick);
@@ -95,4 +95,3 @@ void Kleo::ProgressBar::fixup(bool newValue)
         }
     }
 }
-

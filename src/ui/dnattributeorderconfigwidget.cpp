@@ -9,20 +9,19 @@
 
 #include "dnattributeorderconfigwidget.h"
 
-#include "libkleo_debug.h"
 #include "libkleo/dn.h"
+#include "libkleo_debug.h"
 
 #include <KLocalizedString>
 #include <QIcon>
 
-#include <QToolButton>
 #include <QGridLayout>
 #include <QLabel>
+#include <QToolButton>
 
-#include <QTreeWidget>
-#include <QHeaderView>
 #include <KLazyLocalizedString>
-
+#include <QHeaderView>
+#include <QTreeWidget>
 
 class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate
 {
@@ -50,7 +49,8 @@ static void prepare(QTreeWidget *lv)
 #endif
 
 Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent, Qt::WindowFlags f)
-    : QWidget(parent, f), d(new DNAttributeOrderConfigWidgetPrivate)
+    : QWidget(parent, f)
+    , d(new DNAttributeOrderConfigWidgetPrivate)
 {
     auto glay = new QGridLayout(this);
     glay->setContentsMargins(0, 0, 0, 0);
@@ -95,18 +95,18 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
         const char *icon;
         int row, col;
         const KLazyLocalizedString tooltip;
-        void(DNAttributeOrderConfigWidget::*slot)();
+        void (DNAttributeOrderConfigWidget::*slot)();
         bool autorepeat;
     } navButtons[] = {
-        { "go-top",    0, 1, kli18n("Move to top"),   &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked, false },
-        { "go-up",    1, 1, kli18n("Move one up"),    &DNAttributeOrderConfigWidget::slotUpButtonClicked, true },
-        { "go-previous",  2, 0, kli18n("Remove from current attribute order"), &DNAttributeOrderConfigWidget::slotLeftButtonClicked, false },
-        { "go-next", 2, 2, kli18n("Add to current attribute order"), &DNAttributeOrderConfigWidget::slotRightButtonClicked, false },
-        { "go-down",  3, 1, kli18n("Move one down"),  &DNAttributeOrderConfigWidget::slotDownButtonClicked, true },
-        { "go-bottom",  4, 1, kli18n("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false },
+        {"go-top", 0, 1, kli18n("Move to top"), &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked, false},
+        {"go-up", 1, 1, kli18n("Move one up"), &DNAttributeOrderConfigWidget::slotUpButtonClicked, true},
+        {"go-previous", 2, 0, kli18n("Remove from current attribute order"), &DNAttributeOrderConfigWidget::slotLeftButtonClicked, false},
+        {"go-next", 2, 2, kli18n("Add to current attribute order"), &DNAttributeOrderConfigWidget::slotRightButtonClicked, false},
+        {"go-down", 3, 1, kli18n("Move one down"), &DNAttributeOrderConfigWidget::slotDownButtonClicked, true},
+        {"go-bottom", 4, 1, kli18n("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false},
     };
 
-    for (unsigned int i = 0; i < sizeof navButtons / sizeof * navButtons; ++i) {
+    for (unsigned int i = 0; i < sizeof navButtons / sizeof *navButtons; ++i) {
         QToolButton *tb = d->navTB[i] = new QToolButton(this);
         tb->setIcon(QIcon::fromTheme(QLatin1String(navButtons[i].icon)));
         tb->setEnabled(false);
@@ -196,10 +196,10 @@ void Kleo::DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged(QTreeW
 void Kleo::DNAttributeOrderConfigWidget::enableDisableButtons(QTreeWidgetItem *item)
 {
 #ifndef QT_NO_TREEWIDGET
-    d->navTB[DNAttributeOrderConfigWidgetPrivate::UUp  ]->setEnabled(item && d->currentLV->itemAbove(item));
-    d->navTB[DNAttributeOrderConfigWidgetPrivate::Up   ]->setEnabled(item && d->currentLV->itemAbove(item));
-    d->navTB[DNAttributeOrderConfigWidgetPrivate::Left ]->setEnabled(item);
-    d->navTB[DNAttributeOrderConfigWidgetPrivate::Down ]->setEnabled(item && d->currentLV->itemBelow(item));
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::UUp]->setEnabled(item && d->currentLV->itemAbove(item));
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Up]->setEnabled(item && d->currentLV->itemAbove(item));
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Left]->setEnabled(item);
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Down]->setEnabled(item && d->currentLV->itemBelow(item));
     d->navTB[DNAttributeOrderConfigWidgetPrivate::DDown]->setEnabled(item && d->currentLV->itemBelow(item));
 #endif
 }
@@ -335,5 +335,6 @@ void Kleo::DNAttributeOrderConfigWidget::slotRightButtonClicked()
 #endif
 }
 
-void Kleo::DNAttributeOrderConfigWidget::virtual_hook(int, void *) {}
-
+void Kleo::DNAttributeOrderConfigWidget::virtual_hook(int, void *)
+{
+}

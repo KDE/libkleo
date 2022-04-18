@@ -9,10 +9,10 @@
 
 #include "test_keygen.h"
 
-#include <qgpgme/keylistjob.h>
-#include <qgpgme/keygenerationjob.h>
-#include <qgpgme/protocol.h>
 #include "ui/progressdialog.h"
+#include <qgpgme/keygenerationjob.h>
+#include <qgpgme/keylistjob.h>
+#include <qgpgme/protocol.h>
 
 #include <gpgme++/keygenerationresult.h>
 
@@ -21,26 +21,31 @@
 #include <KMessageBox>
 #include <QDebug>
 
-#include <QLineEdit>
-#include <QLabel>
 #include <QGridLayout>
+#include <QLabel>
+#include <QLineEdit>
 
-#include <QApplication>
+#include <KGuiItem>
 #include <KLocalizedString>
+#include <QApplication>
 #include <QCommandLineParser>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <KGuiItem>
 #include <QVBoxLayout>
 
 static const char *const keyParams[] = {
-    "Key-Type", "Key-Length",
-    "Subkey-Type", "Subkey-Length",
-    "Name-Real", "Name-Comment", "Name-Email", "Name-DN",
+    "Key-Type",
+    "Key-Length",
+    "Subkey-Type",
+    "Subkey-Length",
+    "Name-Real",
+    "Name-Comment",
+    "Name-Email",
+    "Name-DN",
     "Expire-Date",
     "Passphrase",
 };
-static const int numKeyParams = sizeof keyParams / sizeof * keyParams;
+static const int numKeyParams = sizeof keyParams / sizeof *keyParams;
 
 static const char *protocol = nullptr;
 
@@ -68,8 +73,7 @@ KeyGenerator::KeyGenerator(QWidget *parent)
     int row = -1;
 
     ++row;
-    glay->addWidget(new QLabel(QStringLiteral("<GnupgKeyParms format=\"internal\">"), w),
-                    row, 0, 1, 2);
+    glay->addWidget(new QLabel(QStringLiteral("<GnupgKeyParms format=\"internal\">"), w), row, 0, 1, 2);
     for (int i = 0; i < numKeyParams; ++i) {
         ++row;
         glay->addWidget(new QLabel(QString::fromLatin1(keyParams[i]), w), row, 0);
@@ -85,7 +89,9 @@ KeyGenerator::KeyGenerator(QWidget *parent)
     connect(user1Button, &QPushButton::clicked, this, &KeyGenerator::slotStartKeyGeneration);
 }
 
-KeyGenerator::~KeyGenerator() {}
+KeyGenerator::~KeyGenerator()
+{
+}
 
 void KeyGenerator::slotStartKeyGeneration()
 {
@@ -126,7 +132,8 @@ void KeyGenerator::slotStartKeyGeneration()
 
 void KeyGenerator::showError(const GpgME::Error &err)
 {
-    KMessageBox::error(this, QStringLiteral("Could not start key generation: %1").arg(QString::fromLocal8Bit(err.asString())),
+    KMessageBox::error(this,
+                       QStringLiteral("Could not start key generation: %1").arg(QString::fromLocal8Bit(err.asString())),
                        QStringLiteral("Key Generation Error"));
 }
 
@@ -135,7 +142,8 @@ void KeyGenerator::slotResult(const GpgME::KeyGenerationResult &res, const QByte
     if (res.error()) {
         showError(res.error());
     } else {
-        KMessageBox::information(this, QStringLiteral("Key generated successfully, %1 bytes long").arg(keyData.size()),
+        KMessageBox::information(this,
+                                 QStringLiteral("Key generated successfully, %1 bytes long").arg(keyData.size()),
                                  QStringLiteral("Key Generation Finished"));
     }
 }
@@ -160,4 +168,3 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-

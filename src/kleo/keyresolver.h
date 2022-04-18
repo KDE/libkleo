@@ -72,8 +72,7 @@ public:
      * different recipients. The keys of the map represent the normalized
      * email addresses of the recipients.
      */
-    struct Solution
-    {
+    struct Solution {
         GpgME::Protocol protocol = GpgME::UnknownProtocol;
         std::vector<GpgME::Key> signingKeys;
         QMap<QString, std::vector<GpgME::Key>> encryptionKeys;
@@ -86,9 +85,7 @@ public:
      * @param protocol: A specific key protocol (OpenPGP, S/MIME) for selection. Default: Both protocols.
      * @param allowMixed: Specify if multiple message formats may be resolved.
      **/
-    explicit KeyResolver(bool encrypt, bool sign,
-                         GpgME::Protocol protocol = GpgME::UnknownProtocol,
-                         bool allowMixed = true);
+    explicit KeyResolver(bool encrypt, bool sign, GpgME::Protocol protocol = GpgME::UnknownProtocol, bool allowMixed = true);
 
     ~KeyResolver() override;
 
@@ -96,7 +93,7 @@ public:
      *  Set the list of recipient addresses.
      *
      *  @param addresses: A list of (not necessarily normalized) email addresses
-    */
+     */
     void setRecipients(const QStringList &addresses);
 
     /**
@@ -121,8 +118,8 @@ public:
      * overrides for a specific protocol.
      *
      * @param overrides: A map of \<protocol\> -> (\<address\> \<fingerprints\>)
-    */
-    void setOverrideKeys(const QMap<GpgME::Protocol, QMap<QString, QStringList> > &overrides);
+     */
+    void setOverrideKeys(const QMap<GpgME::Protocol, QMap<QString, QStringList>> &overrides);
 
     /**
      * Set explicit signing keys to use.

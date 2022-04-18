@@ -35,32 +35,28 @@ using namespace Kleo;
 
 namespace QTest
 {
-template <>
+template<>
 inline char *toString(const bool &t)
 {
     return t ? qstrdup("true") : qstrdup("false");
 }
 
-template <>
-inline bool qCompare(bool const &t1, bool const &t2, const char *actual, const char *expected,
-                     const char *file, int line)
+template<>
+inline bool qCompare(bool const &t1, bool const &t2, const char *actual, const char *expected, const char *file, int line)
 {
-    return compare_helper(t1 == t2, "Compared values are not the same",
-                          toString(t1), toString(t2), actual, expected, file, line);
+    return compare_helper(t1 == t2, "Compared values are not the same", toString(t1), toString(t2), actual, expected, file, line);
 }
 
-template <>
+template<>
 inline char *toString(const GpgME::Protocol &t)
 {
     return qstrdup(Formatting::displayName(t).toLocal8Bit().constData());
 }
 
-template <>
-inline bool qCompare(GpgME::Protocol const &t1, GpgME::Protocol const &t2, const char *actual, const char *expected,
-                    const char *file, int line)
+template<>
+inline bool qCompare(GpgME::Protocol const &t1, GpgME::Protocol const &t2, const char *actual, const char *expected, const char *file, int line)
 {
-    return compare_helper(t1 == t2, "Compared values are not the same",
-                          toString(t1), toString(t2), actual, expected, file, line);
+    return compare_helper(t1 == t2, "Compared values are not the same", toString(t1), toString(t2), actual, expected, file, line);
 }
 }
 
@@ -74,21 +70,28 @@ enum Action {
     IgnoreKey,
 };
 
-
 auto mapValidity(GpgME::UserID::Validity validity)
 {
     switch (validity) {
     default:
-    case GpgME::UserID::Unknown: return GPGME_VALIDITY_UNKNOWN;
-    case GpgME::UserID::Undefined: return GPGME_VALIDITY_UNDEFINED;
-    case GpgME::UserID::Never: return GPGME_VALIDITY_NEVER;
-    case GpgME::UserID::Marginal: return GPGME_VALIDITY_MARGINAL;
-    case GpgME::UserID::Full: return GPGME_VALIDITY_FULL;
-    case GpgME::UserID::Ultimate: return GPGME_VALIDITY_ULTIMATE;
+    case GpgME::UserID::Unknown:
+        return GPGME_VALIDITY_UNKNOWN;
+    case GpgME::UserID::Undefined:
+        return GPGME_VALIDITY_UNDEFINED;
+    case GpgME::UserID::Never:
+        return GPGME_VALIDITY_NEVER;
+    case GpgME::UserID::Marginal:
+        return GPGME_VALIDITY_MARGINAL;
+    case GpgME::UserID::Full:
+        return GPGME_VALIDITY_FULL;
+    case GpgME::UserID::Ultimate:
+        return GPGME_VALIDITY_ULTIMATE;
     }
 }
 
-GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::UnknownProtocol, KeyUsage usage = KeyUsage::AnyUsage,
+GpgME::Key createTestKey(const char *uid,
+                         GpgME::Protocol protocol = GpgME::UnknownProtocol,
+                         KeyUsage usage = KeyUsage::AnyUsage,
                          GpgME::UserID::Validity validity = GpgME::UserID::Full)
 {
     static int count = 0;
@@ -118,7 +121,7 @@ auto testKey(const char *address, GpgME::Protocol protocol = GpgME::UnknownProto
 {
     const auto email = GpgME::UserID::addrSpecFromString(address);
     const auto keys = KeyCache::instance()->findByEMailAddress(email);
-    for (const auto &key: keys) {
+    for (const auto &key : keys) {
         if (protocol == GpgME::UnknownProtocol || key.protocol() == protocol) {
             return key;
         }
@@ -137,18 +140,18 @@ void waitForKeySelectionCombosBeingInitialized(const QDialog *dialog)
     QVERIFY(spy->wait(10));
 }
 
-template <typename T>
-struct Widgets
-{
+template<typename T>
+struct Widgets {
     std::vector<T *> visible;
     std::vector<T *> hidden;
 };
 
-template <typename T>
+template<typename T>
 Widgets<T> visibleAndHiddenWidgets(const QList<T *> &widgets)
 {
     Widgets<T> result;
-    std::partition_copy(std::begin(widgets), std::end(widgets),
+    std::partition_copy(std::begin(widgets),
+                        std::end(widgets),
                         std::back_inserter(result.visible),
                         std::back_inserter(result.hidden),
                         std::mem_fn(&QWidget::isVisible));
@@ -165,7 +168,7 @@ enum CheckedState {
     IsChecked,
 };
 
-template <typename T>
+template<typename T>
 void verifyProtocolButton(const T *button, Visibility expectedVisibility, CheckedState expectedCheckedState)
 {
     QVERIFY(button);
@@ -173,17 +176,17 @@ void verifyProtocolButton(const T *button, Visibility expectedVisibility, Checke
     QCOMPARE(button->isChecked(), expectedCheckedState == IsChecked);
 }
 
-template <typename T>
+template<typename T>
 void verifyWidgetVisibility(const T *widget, Visibility expectedVisibility)
 {
     QVERIFY(widget);
     QCOMPARE(widget->isVisible(), expectedVisibility == IsVisible);
 }
 
-template <typename T>
+template<typename T>
 void verifyWidgetsVisibility(const QList<T> &widgets, Visibility expectedVisibility)
 {
-    for (auto w: widgets) {
+    for (auto w : widgets) {
         verifyWidgetVisibility(w, expectedVisibility);
     }
 }
@@ -196,9 +199,7 @@ void verifyProtocolLabels(const QList<QLabel *> &labels, int expectedNumber, Vis
 
 bool listsOfKeysAreEqual(const std::vector<GpgME::Key> &l1, const std::vector<GpgME::Key> &l2)
 {
-    return std::equal(std::begin(l1), std::end(l1),
-                      std::begin(l2), std::end(l2),
-                      ByFingerprint<std::equal_to>());
+    return std::equal(std::begin(l1), std::end(l1), std::begin(l2), std::end(l2), ByFingerprint<std::equal_to>());
 }
 
 void verifySolution(const KeyResolver::Solution &actual, const KeyResolver::Solution &expected)
@@ -207,16 +208,18 @@ void verifySolution(const KeyResolver::Solution &actual, const KeyResolver::Solu
 
     QVERIFY(listsOfKeysAreEqual(actual.signingKeys, expected.signingKeys));
 
-    QVERIFY(std::equal(actual.encryptionKeys.constKeyValueBegin(), actual.encryptionKeys.constKeyValueEnd(),
-                       expected.encryptionKeys.constKeyValueBegin(), expected.encryptionKeys.constKeyValueEnd(),
-                       [] (const auto& kv1, const auto& kv2) {
+    QVERIFY(std::equal(actual.encryptionKeys.constKeyValueBegin(),
+                       actual.encryptionKeys.constKeyValueEnd(),
+                       expected.encryptionKeys.constKeyValueBegin(),
+                       expected.encryptionKeys.constKeyValueEnd(),
+                       [](const auto &kv1, const auto &kv2) {
                            return kv1.first == kv2.first && listsOfKeysAreEqual(kv1.second, kv2.second);
                        }));
 }
 
 void switchKeySelectionCombosFromGenerateKeyToIgnoreKey(const QList<KeySelectionCombo *> &combos)
 {
-    for (auto combo: combos) {
+    for (auto combo : combos) {
         if (combo->currentData(Qt::UserRole).toInt() == GenerateKey) {
             const auto ignoreIndex = combo->findData(IgnoreKey);
             QVERIFY(ignoreIndex != -1);
@@ -227,7 +230,7 @@ void switchKeySelectionCombosFromGenerateKeyToIgnoreKey(const QList<KeySelection
 
 }
 
-class NewKeyApprovalDialogTest: public QObject
+class NewKeyApprovalDialogTest : public QObject
 {
     Q_OBJECT
 
@@ -286,13 +289,7 @@ private Q_SLOTS:
             },
         };
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsVisible, IsChecked);
@@ -300,10 +297,8 @@ private Q_SLOTS:
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 1);
-        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.signingKeys[0].primaryFingerprint());
-        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::CMS),
-                 alternativeSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::CMS), alternativeSolution.signingKeys[0].primaryFingerprint());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
@@ -311,11 +306,9 @@ private Q_SLOTS:
 
         // encryption key widgets for sender come first (visible for OpenPGP, hidden for S/MIME)
         QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.hidden[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::CMS),
-                 alternativeSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::CMS), alternativeSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
 
         // encryption key widgets for other recipients follow (visible for OpenPGP, hidden for S/MIME)
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
@@ -354,13 +347,7 @@ private Q_SLOTS:
             },
         };
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsVisible, IsUnchecked);
@@ -368,10 +355,8 @@ private Q_SLOTS:
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 1);
-        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.signingKeys[0].primaryFingerprint());
-        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP),
-                 alternativeSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS), preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP), alternativeSolution.signingKeys[0].primaryFingerprint());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
@@ -379,11 +364,9 @@ private Q_SLOTS:
 
         // encryption key widgets for sender come first (visible for S/MIME, hidden for OpenPGP)
         QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS), preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.hidden[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP),
-                 alternativeSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP), alternativeSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
 
         // encryption key widgets for other recipients follow (visible for OpenPGP, hidden for S/MIME)
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
@@ -414,13 +397,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsHidden, IsChecked);
@@ -428,8 +405,7 @@ private Q_SLOTS:
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 0);
-        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.signingKeys[0].primaryFingerprint());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
@@ -437,8 +413,7 @@ private Q_SLOTS:
 
         // encryption key widget for sender comes first
         QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
 
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
@@ -464,13 +439,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsHidden, IsUnchecked);
@@ -478,8 +447,7 @@ private Q_SLOTS:
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 0);
-        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS), preferredSolution.signingKeys[0].primaryFingerprint());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
@@ -487,8 +455,7 @@ private Q_SLOTS:
 
         // encryption key widget for sender comes first
         QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS), preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
 
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
@@ -515,13 +482,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("openpgp button")), IsVisible, IsChecked);
@@ -530,10 +491,8 @@ private Q_SLOTS:
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 2);
         QCOMPARE(signingKeyWidgets.hidden.size(), 0);
-        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.signingKeys[0].primaryFingerprint());
-        QCOMPARE(signingKeyWidgets.visible[1]->defaultKey(GpgME::CMS),
-                 preferredSolution.signingKeys[1].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[1]->defaultKey(GpgME::CMS), preferredSolution.signingKeys[1].primaryFingerprint());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 5);
@@ -541,11 +500,9 @@ private Q_SLOTS:
 
         // encryption key widgets for sender come first
         QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::CMS),
-                 preferredSolution.encryptionKeys.value(sender)[1].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::CMS), preferredSolution.encryptionKeys.value(sender)[1].primaryFingerprint());
 
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-openpgp@example.net");
@@ -574,13 +531,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("openpgp button")), IsVisible, IsChecked);
@@ -589,10 +540,8 @@ private Q_SLOTS:
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 1);
-        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.signingKeys[0].primaryFingerprint());
-        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.signingKeys[1].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::CMS), preferredSolution.signingKeys[1].primaryFingerprint());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
@@ -600,11 +549,9 @@ private Q_SLOTS:
 
         // encryption key widgets for sender come first
         QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::OpenPGP), preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.hidden[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.encryptionKeys.value(sender)[1].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::CMS), preferredSolution.encryptionKeys.value(sender)[1].primaryFingerprint());
 
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
@@ -630,13 +577,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("openpgp button")), IsVisible, IsUnchecked);
@@ -645,10 +586,8 @@ private Q_SLOTS:
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 1);
-        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.signingKeys[1].primaryFingerprint());
-        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.signingKeys[0].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.visible[0]->defaultKey(GpgME::CMS), preferredSolution.signingKeys[1].primaryFingerprint());
+        QCOMPARE(signingKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP), preferredSolution.signingKeys[0].primaryFingerprint());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
         QCOMPARE(encryptionKeyWidgets.visible.size(), 3);
@@ -656,11 +595,9 @@ private Q_SLOTS:
 
         // encryption key widgets for sender come first
         QCOMPARE(encryptionKeyWidgets.visible[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS),
-                 preferredSolution.encryptionKeys.value(sender)[1].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.visible[0]->defaultKey(GpgME::CMS), preferredSolution.encryptionKeys.value(sender)[1].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.hidden[0]->property("address").toString(), sender);
-        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
+        QCOMPARE(encryptionKeyWidgets.hidden[0]->defaultKey(GpgME::OpenPGP), preferredSolution.encryptionKeys.value(sender)[0].primaryFingerprint());
 
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-smime@example.net");
@@ -687,13 +624,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
@@ -736,13 +667,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   false,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, false, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
@@ -766,13 +691,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
 
@@ -818,13 +737,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
 
@@ -870,13 +783,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
 
@@ -885,7 +792,7 @@ private Q_SLOTS:
         QVERIFY(okButton->isEnabled());
 
         const auto encryptionKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("encryption key")));
-        for (auto combo: encryptionKeyWidgets.visible) {
+        for (auto combo : encryptionKeyWidgets.visible) {
             const auto ignoreIndex = combo->findData(IgnoreKey);
             QVERIFY(ignoreIndex != -1);
             combo->setCurrentIndex(ignoreIndex);
@@ -911,13 +818,7 @@ private Q_SLOTS:
 
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
         Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
 
@@ -943,13 +844,7 @@ private Q_SLOTS:
 
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
         Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
 
@@ -975,13 +870,7 @@ private Q_SLOTS:
 
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
         Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
 
@@ -1004,13 +893,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         QVERIFY(!dialog->findChild<QGroupBox *>(QStringLiteral("encrypt-to-others box")));
@@ -1031,13 +914,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
         QVERIFY(dialog->findChild<QGroupBox *>(QStringLiteral("encrypt-to-others box")));
@@ -1059,13 +936,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
         switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
@@ -1079,14 +950,13 @@ private Q_SLOTS:
         okButton->click();
 
         QCOMPARE(dialogAcceptedSpy.count(), 1);
-        verifySolution(dialog->result(), {
-            GpgME::UnknownProtocol,
-            {},
-            {
-                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
-            }
-        });
+        verifySolution(dialog->result(),
+                       {GpgME::UnknownProtocol,
+                        {},
+                        {
+                            {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                            {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                        }});
     }
 
     void test__result_has_keys_for_both_protocols_if_both_are_needed()
@@ -1105,13 +975,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
         switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
@@ -1144,13 +1008,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
         switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
@@ -1169,14 +1027,13 @@ private Q_SLOTS:
         okButton->click();
 
         QCOMPARE(dialogAcceptedSpy.count(), 1);
-        verifySolution(dialog->result(), {
-            GpgME::OpenPGP,
-            {testKey("sender@example.net", GpgME::OpenPGP)},
-            {
-                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}},
-            }
-        });
+        verifySolution(dialog->result(),
+                       {GpgME::OpenPGP,
+                        {testKey("sender@example.net", GpgME::OpenPGP)},
+                        {
+                            {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                            {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}},
+                        }});
     }
 
     void test__result_has_only_smime_keys_if_smime_protocol_selected()
@@ -1195,13 +1052,7 @@ private Q_SLOTS:
         };
         const KeyResolver::Solution alternativeSolution = {};
 
-        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true,
-                                                                   true,
-                                                                   sender,
-                                                                   preferredSolution,
-                                                                   alternativeSolution,
-                                                                   allowMixed,
-                                                                   forcedProtocol);
+        const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
         waitForKeySelectionCombosBeingInitialized(dialog.get());
         switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
@@ -1220,14 +1071,13 @@ private Q_SLOTS:
         okButton->click();
 
         QCOMPARE(dialogAcceptedSpy.count(), 1);
-        verifySolution(dialog->result(), {
-            GpgME::CMS,
-            {testKey("sender@example.net", GpgME::CMS)},
-            {
-                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
-                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}},
-            }
-        });
+        verifySolution(dialog->result(),
+                       {GpgME::CMS,
+                        {testKey("sender@example.net", GpgME::CMS)},
+                        {
+                            {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                            {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}},
+                        }});
     }
 
 private:

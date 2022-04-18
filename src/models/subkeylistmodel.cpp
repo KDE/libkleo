@@ -14,8 +14,8 @@
 
 #include <KLocalizedString>
 
-#include <QVariant>
 #include <QDate>
+#include <QVariant>
 
 #include <algorithm>
 #include <iterator>
@@ -27,21 +27,27 @@ class SubkeyListModel::Private
 {
     friend class ::Kleo::SubkeyListModel;
     SubkeyListModel *const q;
+
 public:
     explicit Private(SubkeyListModel *qq)
-        : q(qq), key() {}
+        : q(qq)
+        , key()
+    {
+    }
 
 private:
     Key key;
 };
 
 SubkeyListModel::SubkeyListModel(QObject *p)
-    : QAbstractTableModel(p), d(new Private(this))
+    : QAbstractTableModel(p)
+    , d(new Private(this))
 {
-
 }
 
-SubkeyListModel::~SubkeyListModel() {}
+SubkeyListModel::~SubkeyListModel()
+{
+}
 
 Key SubkeyListModel::key() const
 {
@@ -51,9 +57,7 @@ Key SubkeyListModel::key() const
 // slot
 void SubkeyListModel::setKey(const Key &key)
 {
-
     const Key oldKey = d->key;
-
 
     if (qstricmp(key.primaryFingerprint(), oldKey.primaryFingerprint()) != 0) {
         // different key -> reset
@@ -144,13 +148,20 @@ QVariant SubkeyListModel::headerData(int section, Qt::Orientation o, int role) c
     if (o == Qt::Horizontal) {
         if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::ToolTipRole) {
             switch (section) {
-            case ID:         return i18n("ID");
-            case Type:       return i18n("Type");
-            case ValidFrom:  return i18n("Valid From");
-            case ValidUntil: return i18n("Valid Until");
-            case Status:     return i18n("Status");
-            case Strength:   return i18n("Strength");
-            case Usage:      return i18n("Usage");
+            case ID:
+                return i18n("ID");
+            case Type:
+                return i18n("Type");
+            case ValidFrom:
+                return i18n("Valid From");
+            case ValidUntil:
+                return i18n("Valid Until");
+            case Status:
+                return i18n("Status");
+            case Strength:
+                return i18n("Strength");
+            case Usage:
+                return i18n("Usage");
             case NumColumns:;
             }
         }
@@ -160,7 +171,6 @@ QVariant SubkeyListModel::headerData(int section, Qt::Orientation o, int role) c
 
 QVariant SubkeyListModel::data(const QModelIndex &idx, int role) const
 {
-
     if (role != Qt::DisplayRole && role != Qt::EditRole && role != Qt::ToolTipRole) {
         return QVariant();
     }
@@ -200,4 +210,3 @@ QVariant SubkeyListModel::data(const QModelIndex &idx, int role) const
 
     return QVariant();
 }
-

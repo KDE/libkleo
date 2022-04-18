@@ -17,7 +17,7 @@ namespace Kleo
 class AbstractKeyListModel;
 }
 
-class AbstractKeyListModelTest: public QObject
+class AbstractKeyListModelTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
@@ -35,4 +35,3 @@ private Q_SLOTS:
 private:
     virtual Kleo::AbstractKeyListModel *createModel() = 0;
 };
-

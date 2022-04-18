@@ -12,8 +12,8 @@
 #include "newkeyapprovaldialog.h"
 
 #include "keyselectioncombo.h"
-#include "progressdialog.h"
 #include "kleo/defaultkeyfilter.h"
+#include "progressdialog.h"
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
 
@@ -38,8 +38,8 @@
 #include <QGpgME/DefaultKeyGenerationJob>
 #include <QGpgME/Job>
 
-#include <gpgme++/keygenerationresult.h>
 #include <gpgme++/key.h>
+#include <gpgme++/keygenerationresult.h>
 
 #include "libkleo_debug.h"
 
@@ -56,32 +56,36 @@ QDebug operator<<(QDebug debug, const GpgME::Key &key)
     return debug.maybeSpace();
 }
 
-namespace {
-class EncryptFilter: public DefaultKeyFilter
+namespace
+{
+class EncryptFilter : public DefaultKeyFilter
 {
 public:
-    EncryptFilter() : DefaultKeyFilter()
+    EncryptFilter()
+        : DefaultKeyFilter()
     {
         setCanEncrypt(DefaultKeyFilter::Set);
     }
 };
 static std::shared_ptr<KeyFilter> s_encryptFilter = std::shared_ptr<KeyFilter>(new EncryptFilter);
 
-class OpenPGPFilter: public DefaultKeyFilter
+class OpenPGPFilter : public DefaultKeyFilter
 {
 public:
-    OpenPGPFilter() : DefaultKeyFilter()
+    OpenPGPFilter()
+        : DefaultKeyFilter()
     {
         setIsOpenPGP(DefaultKeyFilter::Set);
         setCanEncrypt(DefaultKeyFilter::Set);
     }
 };
-static std::shared_ptr<KeyFilter> s_pgpEncryptFilter = std::shared_ptr<KeyFilter> (new OpenPGPFilter);
+static std::shared_ptr<KeyFilter> s_pgpEncryptFilter = std::shared_ptr<KeyFilter>(new OpenPGPFilter);
 
-class OpenPGPSignFilter: public DefaultKeyFilter
+class OpenPGPSignFilter : public DefaultKeyFilter
 {
 public:
-    OpenPGPSignFilter() : DefaultKeyFilter()
+    OpenPGPSignFilter()
+        : DefaultKeyFilter()
     {
         /* Also list unusable keys to make it transparent why they are unusable */
         setDisabled(DefaultKeyFilter::NotSet);
@@ -92,23 +96,25 @@ public:
         setIsOpenPGP(DefaultKeyFilter::Set);
     }
 };
-static std::shared_ptr<KeyFilter> s_pgpSignFilter = std::shared_ptr<KeyFilter> (new OpenPGPSignFilter);
+static std::shared_ptr<KeyFilter> s_pgpSignFilter = std::shared_ptr<KeyFilter>(new OpenPGPSignFilter);
 
-class SMIMEFilter: public DefaultKeyFilter
+class SMIMEFilter : public DefaultKeyFilter
 {
 public:
-    SMIMEFilter(): DefaultKeyFilter()
+    SMIMEFilter()
+        : DefaultKeyFilter()
     {
         setIsOpenPGP(DefaultKeyFilter::NotSet);
         setCanEncrypt(DefaultKeyFilter::Set);
     }
 };
-static std::shared_ptr<KeyFilter> s_smimeEncryptFilter = std::shared_ptr<KeyFilter> (new SMIMEFilter);
+static std::shared_ptr<KeyFilter> s_smimeEncryptFilter = std::shared_ptr<KeyFilter>(new SMIMEFilter);
 
-class SMIMESignFilter: public DefaultKeyFilter
+class SMIMESignFilter : public DefaultKeyFilter
 {
 public:
-    SMIMESignFilter(): DefaultKeyFilter()
+    SMIMESignFilter()
+        : DefaultKeyFilter()
     {
         setDisabled(DefaultKeyFilter::NotSet);
         setRevoked(DefaultKeyFilter::NotSet);
@@ -118,29 +124,32 @@ public:
         setHasSecret(DefaultKeyFilter::Set);
     }
 };
-static std::shared_ptr<KeyFilter> s_smimeSignFilter = std::shared_ptr<KeyFilter> (new SMIMESignFilter);
+static std::shared_ptr<KeyFilter> s_smimeSignFilter = std::shared_ptr<KeyFilter>(new SMIMESignFilter);
 
 /* Some decoration and a button to remove the filter for a keyselectioncombo */
-class ComboWidget: public QWidget
+class ComboWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ComboWidget(KeySelectionCombo *combo):
-        mCombo(combo),
-        mFilterBtn(new QPushButton)
+    explicit ComboWidget(KeySelectionCombo *combo)
+        : mCombo(combo)
+        , mFilterBtn(new QPushButton)
     {
         auto hLay = new QHBoxLayout(this);
         auto infoBtn = new QPushButton;
         infoBtn->setIcon(QIcon::fromTheme(QStringLiteral("help-contextual")));
-        infoBtn->setIconSize(QSize(22,22));
+        infoBtn->setIconSize(QSize(22, 22));
         infoBtn->setFlat(true);
         hLay->addWidget(infoBtn);
         hLay->addWidget(combo, 1);
         hLay->addWidget(mFilterBtn, 0);
 
-        connect(infoBtn, &QPushButton::clicked, this, [this, infoBtn] () {
+        connect(infoBtn, &QPushButton::clicked, this, [this, infoBtn]() {
             QToolTip::showText(infoBtn->mapToGlobal(QPoint()) + QPoint(infoBtn->width(), 0),
-                    mCombo->currentData(Qt::ToolTipRole).toString(), infoBtn, QRect(), 30000);
+                               mCombo->currentData(Qt::ToolTipRole).toString(),
+                               infoBtn,
+                               QRect(),
+                               30000);
         });
 
         // FIXME: This is ugly to enforce but otherwise the
@@ -150,7 +159,7 @@ public:
 
         updateFilterButton();
 
-        connect(mFilterBtn, &QPushButton::clicked, this, [this] () {
+        connect(mFilterBtn, &QPushButton::clicked, this, [this]() {
             const QString curFilter = mCombo->idFilter();
             if (curFilter.isEmpty()) {
                 setIdFilter(mLastIdFilter);
@@ -205,9 +214,8 @@ static enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key)
 {
     enum GpgME::UserID::Validity validity = GpgME::UserID::Validity::Unknown;
 
-    for (const auto &uid: key.userIDs()) {
-        if (validity == GpgME::UserID::Validity::Unknown
-            || validity > uid.validity()) {
+    for (const auto &uid : key.userIDs()) {
+        if (validity == GpgME::UserID::Validity::Unknown || validity > uid.validity()) {
             validity = uid.validity();
         }
     }
@@ -217,7 +225,7 @@ static enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key)
 
 static bool key_has_addr(const GpgME::Key &key, const QString &addr)
 {
-    for (const auto &uid: key.userIDs()) {
+    for (const auto &uid : key.userIDs()) {
         if (QString::fromStdString(uid.addrSpec()).toLower() == addr.toLower()) {
             return true;
         }
@@ -227,12 +235,16 @@ static bool key_has_addr(const GpgME::Key &key, const QString &addr)
 
 bool anyKeyHasProtocol(const std::vector<Key> &keys, GpgME::Protocol protocol)
 {
-    return std::any_of(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
+    return std::any_of(std::begin(keys), std::end(keys), [protocol](const auto &key) {
+        return key.protocol() == protocol;
+    });
 }
 
 Key findfirstKeyOfType(const std::vector<Key> &keys, GpgME::Protocol protocol)
 {
-    const auto it = std::find_if(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
+    const auto it = std::find_if(std::begin(keys), std::end(keys), [protocol](const auto &key) {
+        return key.protocol() == protocol;
+    });
     return it != std::end(keys) ? *it : Key();
 }
 
@@ -246,6 +258,7 @@ private:
         GenerateKey,
         IgnoreKey,
     };
+
 public:
     enum {
         OpenPGPButtonId = 1,
@@ -271,12 +284,13 @@ public:
         Q_ASSERT(!(!allowMixed && presetProtocol == GpgME::UnknownProtocol));
 
         // We do the translation here to avoid having the same string multiple times.
-        mGenerateTooltip = i18nc("@info:tooltip for a 'Generate new key pair' action "
-                                 "in a combobox when a user does not yet have an OpenPGP or S/MIME key.",
-                                 "Generate a new key using your E-Mail address.<br/><br/>"
-                                 "The key is necessary to decrypt and sign E-Mails. "
-                                 "You will be asked for a passphrase to protect this key and the protected key "
-                                 "will be stored in your home directory.");
+        mGenerateTooltip = i18nc(
+            "@info:tooltip for a 'Generate new key pair' action "
+            "in a combobox when a user does not yet have an OpenPGP or S/MIME key.",
+            "Generate a new key using your E-Mail address.<br/><br/>"
+            "The key is necessary to decrypt and sign E-Mails. "
+            "You will be asked for a passphrase to protect this key and the protected key "
+            "will be stored in your home directory.");
         mMainLay = new QVBoxLayout;
 
         QDialogButtonBox *btnBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -284,10 +298,10 @@ public:
 #ifndef NDEBUG
         mOkButton->setObjectName(QStringLiteral("ok button"));
 #endif
-        QObject::connect (btnBox, &QDialogButtonBox::accepted, q, [this] () {
-                accepted();
-            });
-        QObject::connect (btnBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
+        QObject::connect(btnBox, &QDialogButtonBox::accepted, q, [this]() {
+            accepted();
+        });
+        QObject::connect(btnBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
 
         mScrollArea = new QScrollArea;
         mScrollArea->setWidget(new QWidget);
@@ -334,16 +348,13 @@ public:
             smimeBtn->setChecked(presetProtocol == GpgME::CMS || presetProtocol == GpgME::UnknownProtocol);
         }
 
-        QObject::connect(mFormatBtns, &QButtonGroup::idClicked,
-                         q, [this](int buttonId) {
-                             // ensure that at least one protocol button is checked
-                             if (mAllowMixed
-                                    && !mFormatBtns->button(OpenPGPButtonId)->isChecked()
-                                    && !mFormatBtns->button(SMIMEButtonId)->isChecked()) {
-                                 mFormatBtns->button(buttonId == OpenPGPButtonId ? SMIMEButtonId : OpenPGPButtonId)->setChecked(true);
-                             }
-                             updateWidgets();
-                        });
+        QObject::connect(mFormatBtns, &QButtonGroup::idClicked, q, [this](int buttonId) {
+            // ensure that at least one protocol button is checked
+            if (mAllowMixed && !mFormatBtns->button(OpenPGPButtonId)->isChecked() && !mFormatBtns->button(SMIMEButtonId)->isChecked()) {
+                mFormatBtns->button(buttonId == OpenPGPButtonId ? SMIMEButtonId : OpenPGPButtonId)->setChecked(true);
+            }
+            updateWidgets();
+        });
 
         mMainLay->addWidget(mScrollArea);
 
@@ -384,11 +395,9 @@ public:
 
     auto findVisibleKeySelectionComboWithGenerateKey()
     {
-        const auto it = std::find_if(std::begin(mAllCombos), std::end(mAllCombos),
-                                     [] (auto combo) {
-                                         return combo->isVisible()
-                                             && combo->currentData(Qt::UserRole).toInt() == GenerateKey;
-                                     });
+        const auto it = std::find_if(std::begin(mAllCombos), std::end(mAllCombos), [](auto combo) {
+            return combo->isVisible() && combo->currentData(Qt::UserRole).toInt() == GenerateKey;
+        });
         return it != std::end(mAllCombos) ? *it : nullptr;
     }
 
@@ -396,8 +405,8 @@ public:
     {
         const auto &addr = combo->property("address").toString();
         auto job = new QGpgME::DefaultKeyGenerationJob(q);
-        auto progress = new Kleo::ProgressDialog(job, i18n("Generating key for '%1'...", addr) + QStringLiteral("\n\n") +
-                                                 i18n("This can take several minutes."), q);
+        auto progress =
+            new Kleo::ProgressDialog(job, i18n("Generating key for '%1'...", addr) + QStringLiteral("\n\n") + i18n("This can take several minutes."), q);
         progress->setWindowFlags(progress->windowFlags() & ~Qt::WindowContextHelpButtonHint);
         progress->setWindowTitle(i18nc("@title:window", "Key generation"));
         progress->setModal(true);
@@ -406,10 +415,9 @@ public:
         progress->setValue(0);
 
         mRunningJobs << job;
-        connect (job, &QGpgME::DefaultKeyGenerationJob::result, q,
-            [this, job, combo] (const GpgME::KeyGenerationResult &result) {
-                handleKeyGenResult(result, job, combo);
-            });
+        connect(job, &QGpgME::DefaultKeyGenerationJob::result, q, [this, job, combo](const GpgME::KeyGenerationResult &result) {
+            handleKeyGenResult(result, job, combo);
+        });
         job->start(addr, QString());
         return;
     }
@@ -419,9 +427,9 @@ public:
         mLastError = result.error();
         if (!mLastError || mLastError.isCanceled()) {
             combo->setDefaultKey(QString::fromLatin1(result.fingerprint()), GpgME::OpenPGP);
-            connect (combo, &KeySelectionCombo::keyListingFinished, q, [this, job] () {
-                    mRunningJobs.removeAll(job);
-                });
+            connect(combo, &KeySelectionCombo::keyListingFinished, q, [this, job]() {
+                mRunningJobs.removeAll(job);
+            });
             combo->refreshKeys();
         } else {
             mRunningJobs.removeAll(job);
@@ -442,7 +450,7 @@ public:
 
         /* Save the keys */
         mAcceptedResult.protocol = currentProtocol();
-        for (const auto combo: std::as_const(mEncCombos)) {
+        for (const auto combo : std::as_const(mEncCombos)) {
             const auto addr = combo->property("address").toString();
             const auto key = combo->currentKey();
             if (!combo->isVisible() || key.isNull()) {
@@ -450,7 +458,7 @@ public:
             }
             mAcceptedResult.encryptionKeys[addr].push_back(key);
         }
-        for (const auto combo: std::as_const(mSigningCombos)) {
+        for (const auto combo : std::as_const(mSigningCombos)) {
             const auto key = combo->currentKey();
             if (!combo->isVisible() || key.isNull()) {
                 continue;
@@ -490,7 +498,7 @@ public:
         const GpgME::Protocol protocol = currentProtocol();
         const auto encryptionFilter = encryptionKeyFilter(protocol);
 
-        for (auto combo: std::as_const(mSigningCombos)) {
+        for (auto combo : std::as_const(mSigningCombos)) {
             auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
             if (!widget) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find signature combo widget";
@@ -498,7 +506,7 @@ public:
             }
             widget->setVisible(protocol == GpgME::UnknownProtocol || widget->fixedProtocol() == GpgME::UnknownProtocol || widget->fixedProtocol() == protocol);
         }
-        for (auto combo: std::as_const(mEncCombos)) {
+        for (auto combo : std::as_const(mEncCombos)) {
             auto widget = qobject_cast<ComboWidget *>(combo->parentWidget());
             if (!widget) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find combo widget";
@@ -511,7 +519,7 @@ public:
         }
         // hide the labels indicating the protocol of the sender's keys if only a single protocol is active
         const auto protocolLabels = q->findChildren<QLabel *>(QStringLiteral("protocol label"));
-        for (auto label: protocolLabels) {
+        for (auto label : protocolLabels) {
             label->setVisible(protocol == GpgME::UnknownProtocol);
         }
     }
@@ -546,23 +554,21 @@ public:
             combo->setDefaultKey(QString::fromLatin1(key.primaryFingerprint()), protocol);
         }
         if (key.isNull() && protocol == OpenPGP) {
-            combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
-                                    i18n("Generate a new key pair"), GenerateKey,
-                                    mGenerateTooltip);
+            combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Generate a new key pair"), GenerateKey, mGenerateTooltip);
         }
         combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
-                i18n("Don't confirm identity and integrity"), IgnoreKey,
-                i18nc("@info:tooltip for not selecting a key for signing.",
-                      "The E-Mail will not be cryptographically signed."));
+                                i18n("Don't confirm identity and integrity"),
+                                IgnoreKey,
+                                i18nc("@info:tooltip for not selecting a key for signing.", "The E-Mail will not be cryptographically signed."));
 
         mSigningCombos << combo;
         mAllCombos << combo;
         combo->setProperty("address", addr);
 
-        connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
+        connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this]() {
             updateOkButton();
         });
-        connect(combo, qOverload<int>(&QComboBox::currentIndexChanged), q, [this] () {
+        connect(combo, qOverload<int>(&QComboBox::currentIndexChanged), q, [this]() {
             updateOkButton();
         });
 
@@ -635,7 +641,7 @@ public:
         } else {
             combo->setKeyFilter(s_encryptFilter);
         }
-        if (key.isNull() || key_has_addr (key, addr)) {
+        if (key.isNull() || key_has_addr(key, addr)) {
             comboWidget->setIdFilter(addr);
         }
         comboWidget->setFixedProtocol(fixedProtocol);
@@ -644,22 +650,21 @@ public:
         }
 
         if (addr == mSender && key.isNull() && fixedProtocol == OpenPGP) {
-            combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")),
-                                    i18n("Generate a new key pair"), GenerateKey,
-                                    mGenerateTooltip);
+            combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Generate a new key pair"), GenerateKey, mGenerateTooltip);
         }
 
         combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
-                i18n("No key. Recipient will be unable to decrypt."), IgnoreKey,
-                i18nc("@info:tooltip for No Key selected for a specific recipient.",
-                        "Do not select a key for this recipient.<br/><br/>"
-                        "The recipient will receive the encrypted E-Mail, but it can only "
-                        "be decrypted with the other keys selected in this dialog."));
+                                i18n("No key. Recipient will be unable to decrypt."),
+                                IgnoreKey,
+                                i18nc("@info:tooltip for No Key selected for a specific recipient.",
+                                      "Do not select a key for this recipient.<br/><br/>"
+                                      "The recipient will receive the encrypted E-Mail, but it can only "
+                                      "be decrypted with the other keys selected in this dialog."));
 
-        connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this] () {
+        connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this]() {
             updateOkButton();
         });
-        connect(combo, qOverload<int>(&QComboBox::currentIndexChanged), q, [this] () {
+        connect(combo, qOverload<int>(&QComboBox::currentIndexChanged), q, [this]() {
             updateOkButton();
         });
 
@@ -670,8 +675,10 @@ public:
     }
 
     void addEncryptionAddr(const QString &addr,
-                           GpgME::Protocol preferredKeysProtocol, const std::vector<GpgME::Key> &preferredKeys,
-                           GpgME::Protocol alternativeKeysProtocol, const std::vector<GpgME::Key> &alternativeKeys,
+                           GpgME::Protocol preferredKeysProtocol,
+                           const std::vector<GpgME::Key> &preferredKeys,
+                           GpgME::Protocol alternativeKeysProtocol,
+                           const std::vector<GpgME::Key> &alternativeKeys,
                            QGridLayout *encGrid)
     {
         if (addr == mSender) {
@@ -740,12 +747,14 @@ public:
             }
             if (!mAllowMixed) {
                 if (preferredKeys.empty()) {
-                    qCDebug(LIBKLEO_LOG) << "setEncryptionKeys -" << addr << "- creating encryption combo for" << Formatting::displayName(preferredKeysProtocol) << "key";
+                    qCDebug(LIBKLEO_LOG) << "setEncryptionKeys -" << addr << "- creating encryption combo for" << Formatting::displayName(preferredKeysProtocol)
+                                         << "key";
                     auto comboWidget = createEncryptionCombo(addr, GpgME::Key(), preferredKeysProtocol);
                     encGrid->addWidget(comboWidget, encGrid->rowCount(), 0, 1, 2);
                 }
                 if (alternativeKeys.empty() && alternativeKeysProtocol != UnknownProtocol) {
-                    qCDebug(LIBKLEO_LOG) << "setEncryptionKeys -" << addr << "- creating encryption combo for" << Formatting::displayName(alternativeKeysProtocol) << "key";
+                    qCDebug(LIBKLEO_LOG) << "setEncryptionKeys -" << addr << "- creating encryption combo for"
+                                         << Formatting::displayName(alternativeKeysProtocol) << "key";
                     auto comboWidget = createEncryptionCombo(addr, GpgME::Key(), alternativeKeysProtocol);
                     encGrid->addWidget(comboWidget, encGrid->rowCount(), 0, 1, 2);
                 }
@@ -759,8 +768,10 @@ public:
         }
     }
 
-    void setEncryptionKeys(GpgME::Protocol preferredKeysProtocol, const QMap<QString, std::vector<GpgME::Key>> &preferredKeys,
-                           GpgME::Protocol alternativeKeysProtocol, const QMap<QString, std::vector<GpgME::Key>> &alternativeKeys)
+    void setEncryptionKeys(GpgME::Protocol preferredKeysProtocol,
+                           const QMap<QString, std::vector<GpgME::Key>> &preferredKeys,
+                           GpgME::Protocol alternativeKeysProtocol,
+                           const QMap<QString, std::vector<GpgME::Key>> &alternativeKeys)
     {
         {
             auto group = new QGroupBox(i18nc("Encrypt to self (email address):", "Encrypt to self (%1):", mSender));
@@ -776,7 +787,9 @@ public:
             mScrollLayout->addWidget(group);
         }
 
-        const bool hasOtherRecipients = std::any_of(preferredKeys.keyBegin(), preferredKeys.keyEnd(), [this](const auto &recipient) { return recipient != mSender; });
+        const bool hasOtherRecipients = std::any_of(preferredKeys.keyBegin(), preferredKeys.keyEnd(), [this](const auto &recipient) {
+            return recipient != mSender;
+        });
         if (hasOtherRecipients) {
             auto group = new QGroupBox(i18n("Encrypt to others:"));
 #ifndef NDEBUG
@@ -804,11 +817,9 @@ public:
     {
         static QString origOkText = mOkButton->text();
         const bool isGenerate = bool(findVisibleKeySelectionComboWithGenerateKey());
-        const bool allVisibleEncryptionKeysAreIgnored = std::all_of(std::begin(mEncCombos), std::end(mEncCombos),
-                                                                    [] (auto combo) {
-                                                                        return !combo->isVisible()
-                                                                            || combo->currentData(Qt::UserRole).toInt() == IgnoreKey;
-                                                                    });
+        const bool allVisibleEncryptionKeysAreIgnored = std::all_of(std::begin(mEncCombos), std::end(mEncCombos), [](auto combo) {
+            return !combo->isVisible() || combo->currentData(Qt::UserRole).toInt() == IgnoreKey;
+        });
 
         // If we don't encrypt the ok button is always enabled. But otherwise
         // we only enable it if we encrypt to at least one recipient.
@@ -826,7 +837,7 @@ public:
         if (de_vs) {
             const GpgME::Protocol protocol = currentProtocol();
 
-            for (const auto combo: std::as_const(mAllCombos)) {
+            for (const auto combo : std::as_const(mAllCombos)) {
                 if (!combo->isVisible()) {
                     continue;
                 }
@@ -846,14 +857,22 @@ public:
 
         if (de_vs) {
             mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-high")));
-            mOkButton->setStyleSheet(QStringLiteral("background-color: ") + QStringLiteral("#D5FAE2")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name());
+            mOkButton->setStyleSheet(
+                QStringLiteral("background-color: ")
+                + QStringLiteral(
+                    "#D5FAE2")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name());
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                                          "%1 communication possible.", Formatting::deVsString()));
+                                          "%1 communication possible.",
+                                          Formatting::deVsString()));
         } else {
             mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-medium")));
-            mOkButton->setStyleSheet(QStringLiteral("background-color: ") + QStringLiteral("#FAE9EB")); //KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name()));
+            mOkButton->setStyleSheet(
+                QStringLiteral("background-color: ")
+                + QStringLiteral(
+                    "#FAE9EB")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name()));
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                                          "%1 communication not possible.", Formatting::deVsString()));
+                                          "%1 communication not possible.",
+                                          Formatting::deVsString()));
         }
         mComplianceLbl->setVisible(true);
     }
@@ -872,7 +891,7 @@ public:
     bool mEncrypt;
     bool mAllowMixed;
     NewKeyApprovalDialog *q;
-    QList <QGpgME::Job *> mRunningJobs;
+    QList<QGpgME::Job *> mRunningJobs;
     GpgME::Error mLastError;
     QLabel *mComplianceLbl;
     KeyResolver::Solution mAcceptedResult;
@@ -895,8 +914,10 @@ NewKeyApprovalDialog::NewKeyApprovalDialog(bool encrypt,
         d->setSigningKeys(std::move(preferredSolution.signingKeys), std::move(alternativeSolution.signingKeys));
     }
     if (encrypt) {
-        d->setEncryptionKeys(allowMixed ? UnknownProtocol : preferredSolution.protocol, std::move(preferredSolution.encryptionKeys),
-                             allowMixed ? UnknownProtocol : alternativeSolution.protocol, std::move(alternativeSolution.encryptionKeys));
+        d->setEncryptionKeys(allowMixed ? UnknownProtocol : preferredSolution.protocol,
+                             std::move(preferredSolution.encryptionKeys),
+                             allowMixed ? UnknownProtocol : alternativeSolution.protocol,
+                             std::move(alternativeSolution.encryptionKeys));
     }
     d->updateWidgets();
     d->updateOkButton();

@@ -18,8 +18,7 @@
 namespace Kleo
 {
 /** KRearrangeColumnsProxymodel that implements the KeyListModelInterface. */
-class KLEO_EXPORT KeyRearrangeColumnsProxyModel: public KRearrangeColumnsProxyModel,
-                                                 public KeyListModelInterface
+class KLEO_EXPORT KeyRearrangeColumnsProxyModel : public KRearrangeColumnsProxyModel, public KeyListModelInterface
 {
 public:
     explicit KeyRearrangeColumnsProxyModel(QObject *parent = nullptr);
@@ -37,6 +36,7 @@ public:
     QModelIndex index(const KeyGroup &group) const override;
 
     void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+
 private:
     KeyListModelInterface *klm() const;
 };

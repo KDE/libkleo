@@ -32,7 +32,7 @@ using namespace GpgME;
 class KeyResolver::Private
 {
 public:
-    Private(KeyResolver* qq, bool enc, bool sig, Protocol fmt, bool allowMixed)
+    Private(KeyResolver *qq, bool enc, bool sig, Protocol fmt, bool allowMixed)
         : q(qq)
         , mCore(enc, sig, fmt)
         , mFormat(fmt)
@@ -79,10 +79,10 @@ void KeyResolver::Private::showApprovalDialog(KeyResolverCore::Result result, QW
                                                      mFormat,
                                                      parent,
                                                      mDialogWindowFlags);
-    connect (mDialog.get(), &QDialog::accepted, q, [this] () {
+    connect(mDialog.get(), &QDialog::accepted, q, [this]() {
         dialogAccepted();
     });
-    connect (mDialog.get(), &QDialog::rejected, q, [this] () {
+    connect(mDialog.get(), &QDialog::rejected, q, [this]() {
         Q_EMIT q->keysResolved(false, false);
     });
     mDialog->open();
@@ -131,7 +131,7 @@ void KeyResolver::setSender(const QString &address)
     d->mCore.setSender(address);
 }
 
-void KeyResolver::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList> > &overrides)
+void KeyResolver::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides)
 {
     d->mCore.setOverrideKeys(overrides);
 }

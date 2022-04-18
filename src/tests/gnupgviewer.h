@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include <QTextEdit>
-#include <QString>
 #include <QProcess>
+#include <QString>
+#include <QTextEdit>
 namespace Kleo
 {
 class GnuPGProcessBase;
@@ -37,4 +37,3 @@ private:
     Kleo::GnuPGProcessBase *mProcess = nullptr;
     QString mLastStdout, mLastStderr, mLastStatus;
 };
-

@@ -8,8 +8,8 @@
 */
 
 #include "keyfiltermanager.h"
-#include "kconfigbasedkeyfilter.h"
 #include "defaultkeyfilter.h"
+#include "kconfigbasedkeyfilter.h"
 
 #include "stl_util.h"
 
@@ -20,15 +20,15 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QIcon>
 
+#include <QAbstractListModel>
 #include <QCoreApplication>
+#include <QModelIndex>
 #include <QRegularExpression>
 #include <QStringList>
-#include <QAbstractListModel>
-#include <QModelIndex>
 
 #include <algorithm>
 #include <climits>
@@ -43,9 +43,13 @@ namespace
 class Model : public QAbstractListModel
 {
     KeyFilterManager::Private *m_keyFilterManagerPrivate;
+
 public:
     explicit Model(KeyFilterManager::Private *p)
-        : QAbstractListModel(nullptr), m_keyFilterManagerPrivate(p) {}
+        : QAbstractListModel(nullptr)
+        , m_keyFilterManagerPrivate(p)
+    {
+    }
 
     int rowCount(const QModelIndex &) const override;
     QVariant data(const QModelIndex &idx, int role) const override;
@@ -149,10 +153,9 @@ public:
         setIsOpenPGP(Set);
         setIsBad(NotSet);
     }
-    bool matches (const Key &key, MatchContexts contexts) const override
+    bool matches(const Key &key, MatchContexts contexts) const override
     {
-        return DefaultKeyFilter::matches(key, contexts)
-            && !Formatting::uidsHaveFullValidity(key);
+        return DefaultKeyFilter::matches(key, contexts) && !Formatting::uidsHaveFullValidity(key);
     }
 };
 
@@ -170,10 +173,9 @@ public:
         setId(QStringLiteral("not-validated-certificates"));
         setMatchContexts(Filtering);
     }
-    bool matches (const Key &key, MatchContexts contexts) const override
+    bool matches(const Key &key, MatchContexts contexts) const override
     {
-        return DefaultKeyFilter::matches(key, contexts)
-            && !Formatting::uidsHaveFullValidity(key);
+        return DefaultKeyFilter::matches(key, contexts) && !Formatting::uidsHaveFullValidity(key);
     }
 };
 
@@ -181,7 +183,7 @@ public:
 
 static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
 {
-    std::vector<std::shared_ptr<KeyFilter> > result;
+    std::vector<std::shared_ptr<KeyFilter>> result;
     result.reserve(6);
     result.push_back(std::shared_ptr<KeyFilter>(new MyCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new TrustedCertificatesKeyFilter));
@@ -196,7 +198,11 @@ static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
 class KeyFilterManager::Private
 {
 public:
-    Private() : filters(), model(this) {}
+    Private()
+        : filters()
+        , model(this)
+    {
+    }
     void clear()
     {
         model.beginResetModel();
@@ -212,7 +218,8 @@ public:
 KeyFilterManager *KeyFilterManager::mSelf = nullptr;
 
 KeyFilterManager::KeyFilterManager(QObject *parent)
-    : QObject(parent), d(new Private)
+    : QObject(parent)
+    , d(new Private)
 {
     mSelf = this;
     // ### DF: doesn't a KStaticDeleter work more reliably?
@@ -248,10 +255,9 @@ void KeyFilterManager::alwaysFilterByProtocol(GpgME::Protocol protocol)
 
 const std::shared_ptr<KeyFilter> &KeyFilterManager::filterMatching(const Key &key, KeyFilter::MatchContexts contexts) const
 {
-    const auto it = std::find_if(d->filters.cbegin(), d->filters.cend(),
-                                 [&key, contexts](const std::shared_ptr<KeyFilter> &filter) {
-                                     return filter->matches(key, contexts);
-                                 });
+    const auto it = std::find_if(d->filters.cbegin(), d->filters.cend(), [&key, contexts](const std::shared_ptr<KeyFilter> &filter) {
+        return filter->matches(key, contexts);
+    });
     if (it != d->filters.cend()) {
         return *it;
     }
@@ -263,11 +269,9 @@ std::vector<std::shared_ptr<KeyFilter>> KeyFilterManager::filtersMatching(const 
 {
     std::vector<std::shared_ptr<KeyFilter>> result;
     result.reserve(d->filters.size());
-    std::remove_copy_if(d->filters.begin(), d->filters.end(),
-                        std::back_inserter(result),
-                        [&key, contexts](const std::shared_ptr<KeyFilter> &filter) {
-                            return !filter->matches(key, contexts);
-                        });
+    std::remove_copy_if(d->filters.begin(), d->filters.end(), std::back_inserter(result), [&key, contexts](const std::shared_ptr<KeyFilter> &filter) {
+        return !filter->matches(key, contexts);
+    });
     return result;
 }
 
@@ -303,20 +307,18 @@ void KeyFilterManager::reload()
     if (d->protocol != GpgME::UnknownProtocol) {
         // remove filters with conflicting isOpenPGP rule
         const auto conflictingValue = (d->protocol == GpgME::OpenPGP) ? DefaultKeyFilter::NotSet : DefaultKeyFilter::Set;
-        Kleo::erase_if(d->filters,
-                       [conflictingValue](const auto &f) {
-                           const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
-                           Q_ASSERT(filter);
-                           return filter->isOpenPGP() == conflictingValue;
-                       });
+        Kleo::erase_if(d->filters, [conflictingValue](const auto &f) {
+            const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
+            Q_ASSERT(filter);
+            return filter->isOpenPGP() == conflictingValue;
+        });
         // add isOpenPGP rule to all filters
         const auto isOpenPGPValue = (d->protocol == GpgME::OpenPGP) ? DefaultKeyFilter::Set : DefaultKeyFilter::NotSet;
-        std::for_each(std::begin(d->filters), std::end(d->filters),
-                      [isOpenPGPValue](auto &f) {
-                           const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
-                           Q_ASSERT(filter);
-                           return filter->setIsOpenPGP(isOpenPGPValue);
-                      });
+        std::for_each(std::begin(d->filters), std::end(d->filters), [isOpenPGPValue](auto &f) {
+            const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
+            Q_ASSERT(filter);
+            return filter->setIsOpenPGP(isOpenPGPValue);
+        });
     }
     qCDebug(LIBKLEO_LOG) << "KeyFilterManager::" << __func__ << "final filter count is" << d->filters.size();
 }
@@ -328,10 +330,9 @@ QAbstractItemModel *KeyFilterManager::model() const
 
 const std::shared_ptr<KeyFilter> &KeyFilterManager::keyFilterByID(const QString &id) const
 {
-    const auto it = std::find_if(d->filters.begin(), d->filters.end(),
-                                 [id](const std::shared_ptr<KeyFilter> &filter) {
-                                    return filter->id() == id;
-                                 });
+    const auto it = std::find_if(d->filters.begin(), d->filters.end(), [id](const std::shared_ptr<KeyFilter> &filter) {
+        return filter->id() == id;
+    });
     if (it != d->filters.end()) {
         return *it;
     }
@@ -341,8 +342,7 @@ const std::shared_ptr<KeyFilter> &KeyFilterManager::keyFilterByID(const QString 
 
 const std::shared_ptr<KeyFilter> &KeyFilterManager::fromModelIndex(const QModelIndex &idx) const
 {
-    if (!idx.isValid() || idx.model() != &d->model || idx.row() < 0 ||
-            static_cast<unsigned>(idx.row()) >= d->filters.size()) {
+    if (!idx.isValid() || idx.model() != &d->model || idx.row() < 0 || static_cast<unsigned>(idx.row()) >= d->filters.size()) {
         static const std::shared_ptr<KeyFilter> null;
         return null;
     }
@@ -370,10 +370,7 @@ int Model::rowCount(const QModelIndex &) const
 
 QVariant Model::data(const QModelIndex &idx, int role) const
 {
-    if (!idx.isValid()
-        || idx.model() != this
-        || idx.row() < 0
-        || static_cast<unsigned>(idx.row()) >  m_keyFilterManagerPrivate->filters.size()) {
+    if (!idx.isValid() || idx.model() != this || idx.row() < 0 || static_cast<unsigned>(idx.row()) > m_keyFilterManagerPrivate->filters.size()) {
         return QVariant();
     }
 
@@ -384,7 +381,7 @@ QVariant Model::data(const QModelIndex &idx, int role) const
 
     case Qt::DisplayRole:
     case Qt::EditRole:
-    case Qt::ToolTipRole:  /* Most useless tooltip ever.  */
+    case Qt::ToolTipRole: /* Most useless tooltip ever.  */
         return filter->name();
 
     case KeyFilterManager::FilterIdRole:
@@ -398,17 +395,19 @@ QVariant Model::data(const QModelIndex &idx, int role) const
     }
 }
 
-static KeyFilter::FontDescription get_fontdescription(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, const KeyFilter::FontDescription &initial)
+static KeyFilter::FontDescription
+get_fontdescription(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, const KeyFilter::FontDescription &initial)
 {
-    return kdtools::accumulate_if(filters.begin(), filters.end(),
-                                  [&key](const std::shared_ptr<KeyFilter> &filter) {
-                                      return filter->matches(key, KeyFilter::Appearance);
-                                  },
-                                  initial,
-                                  [](const KeyFilter::FontDescription &lhs,
-                                     const std::shared_ptr<KeyFilter> &rhs) {
-                                      return lhs.resolve(rhs->fontDescription());
-                                  });
+    return kdtools::accumulate_if(
+        filters.begin(),
+        filters.end(),
+        [&key](const std::shared_ptr<KeyFilter> &filter) {
+            return filter->matches(key, KeyFilter::Appearance);
+        },
+        initial,
+        [](const KeyFilter::FontDescription &lhs, const std::shared_ptr<KeyFilter> &rhs) {
+            return lhs.resolve(rhs->fontDescription());
+        });
 }
 
 QFont KeyFilterManager::font(const Key &key, const QFont &baseFont) const
@@ -418,13 +417,11 @@ QFont KeyFilterManager::font(const Key &key, const QFont &baseFont) const
     return fd.font(baseFont);
 }
 
-static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QColor(KeyFilter::*fun)() const)
+static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QColor (KeyFilter::*fun)() const)
 {
-    const auto it = std::find_if(filters.cbegin(), filters.cend(),
-                                 [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
-                                    return filter->matches(key, KeyFilter::Appearance)
-                                    && (filter.get()->*fun)().isValid();
-                                 });
+    const auto it = std::find_if(filters.cbegin(), filters.cend(), [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
+        return filter->matches(key, KeyFilter::Appearance) && (filter.get()->*fun)().isValid();
+    });
     if (it == filters.cend()) {
         return {};
     } else {
@@ -432,13 +429,11 @@ static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, 
     }
 }
 
-static QString get_string(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QString(KeyFilter::*fun)() const)
+static QString get_string(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QString (KeyFilter::*fun)() const)
 {
-    const auto it = std::find_if(filters.cbegin(), filters.cend(),
-                                 [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
-                                     return filter->matches(key, KeyFilter::Appearance)
-                                            && !(filter.get()->*fun)().isEmpty();
-                                 });
+    const auto it = std::find_if(filters.cbegin(), filters.cend(), [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
+        return filter->matches(key, KeyFilter::Appearance) && !(filter.get()->*fun)().isEmpty();
+    });
     if (it == filters.cend()) {
         return QString();
     } else {

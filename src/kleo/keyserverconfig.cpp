@@ -23,7 +23,7 @@ public:
     explicit Private();
 
     QString host;
-    int port = -1;  // -1 == use default port
+    int port = -1; // -1 == use default port
     KeyserverAuthentication authentication = KeyserverAuthentication::Anonymous;
     QString user;
     QString password;
@@ -70,8 +70,9 @@ KeyserverConfig KeyserverConfig::fromUrl(const QUrl &url)
         config.d->authentication = KeyserverAuthentication::Password;
     }
     if (url.hasFragment()) {
-        const auto flags = transformInPlace(url.fragment().split(QLatin1Char{','}, Qt::SkipEmptyParts),
-                                            [] (const auto &flag) { return flag.trimmed().toLower(); });
+        const auto flags = transformInPlace(url.fragment().split(QLatin1Char{','}, Qt::SkipEmptyParts), [](const auto &flag) {
+            return flag.trimmed().toLower();
+        });
         for (const auto &flag : flags) {
             if (flag == QLatin1String{"starttls"}) {
                 config.d->connection = KeyserverConnection::UseSTARTTLS;
@@ -124,8 +125,7 @@ QUrl KeyserverConfig::toUrl() const
     case KeyserverConnection::Plain:
         flags.push_back(QStringLiteral("plain"));
         break;
-    case KeyserverConnection::Default:
-        ; // omit connection flag to use default
+    case KeyserverConnection::Default:; // omit connection flag to use default
     }
     if (d->authentication == KeyserverAuthentication::ActiveDirectory) {
         flags.push_back(QStringLiteral("ntds"));

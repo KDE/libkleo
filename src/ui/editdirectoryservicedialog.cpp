@@ -75,7 +75,7 @@ class EditDirectoryServiceDialog::Private
             , additionalFlagsEdit{new QLineEdit{parent}}
             , buttonBox{new QDialogButtonBox{parent}}
         {
-#define SET_OBJECT_NAME( x ) x->setObjectName(QStringLiteral( #x ));
+#define SET_OBJECT_NAME(x) x->setObjectName(QStringLiteral(#x));
             SET_OBJECT_NAME(hostEdit)
             SET_OBJECT_NAME(portSpinBox)
             SET_OBJECT_NAME(useDefaultPortCheckBox)
@@ -96,8 +96,7 @@ class EditDirectoryServiceDialog::Private
                 layout->setColumnStretch(2, 1);
                 int row = 0;
                 layout->addWidget(new QLabel{i18n("Host:")}, row, 0);
-                hostEdit->setToolTip(i18nc("@info:tooltip",
-                                           "Enter the name or IP address of the server hosting the directory service."));
+                hostEdit->setToolTip(i18nc("@info:tooltip", "Enter the name or IP address of the server hosting the directory service."));
                 hostEdit->setClearButtonEnabled(true);
                 layout->addWidget(hostEdit, row, 1, 1, -1);
                 ++row;
@@ -118,8 +117,7 @@ class EditDirectoryServiceDialog::Private
                 auto layout = new QVBoxLayout{authenticationWidget};
                 {
                     auto radioButton = new QRadioButton{i18n("Anonymous")};
-                    radioButton->setToolTip(i18nc("@info:tooltip",
-                                                  "Use an anonymous LDAP server that does not require authentication."));
+                    radioButton->setToolTip(i18nc("@info:tooltip", "Use an anonymous LDAP server that does not require authentication."));
                     radioButton->setChecked(true);
                     authenticationGroup->addButton(radioButton, static_cast<int>(KeyserverAuthentication::Anonymous));
                     layout->addWidget(radioButton);
@@ -129,15 +127,14 @@ class EditDirectoryServiceDialog::Private
                     if (!engineIsVersion(2, 2, 28, GpgME::GpgSMEngine)) {
                         radioButton->setText(i18n("Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"));
                     }
-                    radioButton->setToolTip(i18nc("@info:tooltip",
-                                                  "On Windows, authenticate to the LDAP server using the Active Directory with the current user."));
+                    radioButton->setToolTip(
+                        i18nc("@info:tooltip", "On Windows, authenticate to the LDAP server using the Active Directory with the current user."));
                     authenticationGroup->addButton(radioButton, static_cast<int>(KeyserverAuthentication::ActiveDirectory));
                     layout->addWidget(radioButton);
                 }
                 {
                     auto radioButton = new QRadioButton{i18n("Authenticate with user and password")};
-                    radioButton->setToolTip(i18nc("@info:tooltip",
-                                                  "Authenticate to the LDAP server with your LDAP credentials."));
+                    radioButton->setToolTip(i18nc("@info:tooltip", "Authenticate to the LDAP server with your LDAP credentials."));
                     authenticationGroup->addButton(radioButton, static_cast<int>(KeyserverAuthentication::Password));
                     layout->addWidget(radioButton);
                 }
@@ -148,8 +145,7 @@ class EditDirectoryServiceDialog::Private
                     layout->setColumnStretch(1, 1);
                     int row = 0;
                     layout->addWidget(new QLabel{i18n("User:")}, row, 0);
-                    userEdit->setToolTip(i18nc("@info:tooltip",
-                                               "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."));
+                    userEdit->setToolTip(i18nc("@info:tooltip", "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."));
                     userEdit->setClearButtonEnabled(true);
                     layout->addWidget(userEdit, row, 1);
                     ++row;
@@ -280,15 +276,15 @@ class EditDirectoryServiceDialog::Private
 
     QStringList additionalFlags() const
     {
-        return transformInPlace(ui.additionalFlagsEdit->text().split(QLatin1Char{','}, Qt::SkipEmptyParts),
-                                [] (const auto &flag) { return flag.trimmed(); });
+        return transformInPlace(ui.additionalFlagsEdit->text().split(QLatin1Char{','}, Qt::SkipEmptyParts), [](const auto &flag) {
+            return flag.trimmed();
+        });
     }
 
     bool inputIsAcceptable() const
     {
         const bool hostIsSet = !host().isEmpty();
-        const bool requiredCredentialsAreSet = authentication() != KeyserverAuthentication::Password
-            || (!user().isEmpty() && !password().isEmpty());
+        const bool requiredCredentialsAreSet = authentication() != KeyserverAuthentication::Password || (!user().isEmpty() && !password().isEmpty());
         return hostIsSet && requiredCredentialsAreSet;
     }
 
@@ -310,12 +306,24 @@ public:
         : q{q}
         , ui{q}
     {
-        connect(ui.hostEdit, &QLineEdit::textEdited, q, [this] () { updateWidgets(); });
-        connect(ui.useDefaultPortCheckBox, &QCheckBox::toggled, q, [this] () { updateWidgets(); });
-        connect(ui.authenticationGroup, &QButtonGroup::idToggled, q, [this] () { updateWidgets(); });
-        connect(ui.userEdit, &QLineEdit::textEdited, q, [this] () { updateWidgets(); });
-        connect(ui.passwordEdit, &KPasswordLineEdit::passwordChanged, q, [this] () { updateWidgets(); });
-        connect(ui.connectionGroup, &QButtonGroup::idToggled, q, [this] () { updateWidgets(); });
+        connect(ui.hostEdit, &QLineEdit::textEdited, q, [this]() {
+            updateWidgets();
+        });
+        connect(ui.useDefaultPortCheckBox, &QCheckBox::toggled, q, [this]() {
+            updateWidgets();
+        });
+        connect(ui.authenticationGroup, &QButtonGroup::idToggled, q, [this]() {
+            updateWidgets();
+        });
+        connect(ui.userEdit, &QLineEdit::textEdited, q, [this]() {
+            updateWidgets();
+        });
+        connect(ui.passwordEdit, &KPasswordLineEdit::passwordChanged, q, [this]() {
+            updateWidgets();
+        });
+        connect(ui.connectionGroup, &QButtonGroup::idToggled, q, [this]() {
+            updateWidgets();
+        });
 
         connect(ui.buttonBox, &QDialogButtonBox::accepted, q, &EditDirectoryServiceDialog::accept);
         connect(ui.buttonBox, &QDialogButtonBox::rejected, q, &EditDirectoryServiceDialog::reject);
@@ -330,7 +338,7 @@ public:
         saveLayout();
     }
 
-    void setKeyserver(const KeyserverConfig& keyserver)
+    void setKeyserver(const KeyserverConfig &keyserver)
     {
         ui.hostEdit->setText(keyserver.host());
         ui.useDefaultPortCheckBox->setChecked(keyserver.port() == -1);
@@ -388,7 +396,7 @@ EditDirectoryServiceDialog::EditDirectoryServiceDialog(QWidget *parent, Qt::Wind
 
 EditDirectoryServiceDialog::~EditDirectoryServiceDialog() = default;
 
-void EditDirectoryServiceDialog::setKeyserver(const KeyserverConfig& keyserver)
+void EditDirectoryServiceDialog::setKeyserver(const KeyserverConfig &keyserver)
 {
     d->setKeyserver(keyserver);
 }

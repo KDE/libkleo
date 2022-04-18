@@ -16,14 +16,14 @@ using namespace Kleo;
 
 namespace QTest
 {
-template <>
+template<>
 inline char *toString(const std::string &s)
 {
     return qstrdup(('"' + s + '"').c_str());
 }
 }
 
-class HexTest: public QObject
+class HexTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:

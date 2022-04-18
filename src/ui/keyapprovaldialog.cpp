@@ -36,41 +36,55 @@ static Kleo::EncryptionPreference cb2pref(int i)
 {
     switch (i) {
     default:
-    case 0: return Kleo::UnknownPreference;
-    case 1: return Kleo::NeverEncrypt;
-    case 2: return Kleo::AlwaysEncrypt;
-    case 3: return Kleo::AlwaysEncryptIfPossible;
-    case 4: return Kleo::AlwaysAskForEncryption;
-    case 5: return Kleo::AskWheneverPossible;
+    case 0:
+        return Kleo::UnknownPreference;
+    case 1:
+        return Kleo::NeverEncrypt;
+    case 2:
+        return Kleo::AlwaysEncrypt;
+    case 3:
+        return Kleo::AlwaysEncryptIfPossible;
+    case 4:
+        return Kleo::AlwaysAskForEncryption;
+    case 5:
+        return Kleo::AskWheneverPossible;
     }
 }
 
 static int pref2cb(Kleo::EncryptionPreference p)
 {
     switch (p) {
-    default:                            return 0;
-    case Kleo::NeverEncrypt:            return 1;
-    case Kleo::AlwaysEncrypt:           return 2;
-    case Kleo::AlwaysEncryptIfPossible: return 3;
-    case Kleo::AlwaysAskForEncryption:  return 4;
-    case Kleo::AskWheneverPossible:     return 5;
+    default:
+        return 0;
+    case Kleo::NeverEncrypt:
+        return 1;
+    case Kleo::AlwaysEncrypt:
+        return 2;
+    case Kleo::AlwaysEncryptIfPossible:
+        return 3;
+    case Kleo::AlwaysAskForEncryption:
+        return 4;
+    case Kleo::AskWheneverPossible:
+        return 5;
     }
 }
 
 static QStringList preferencesStrings()
 {
     return QStringList() << xi18n("<placeholder>none</placeholder>") //
-           << i18n("Never Encrypt with This Key") //
-           << i18n("Always Encrypt with This Key") //
-           << i18n("Encrypt Whenever Encryption is Possible") //
-           << i18n("Always Ask") //
-           << i18n("Ask Whenever Encryption is Possible");
+                         << i18n("Never Encrypt with This Key") //
+                         << i18n("Always Encrypt with This Key") //
+                         << i18n("Encrypt Whenever Encryption is Possible") //
+                         << i18n("Always Ask") //
+                         << i18n("Ask Whenever Encryption is Possible");
 }
 
 class Q_DECL_HIDDEN Kleo::KeyApprovalDialog::KeyApprovalDialogPrivate
 {
 public:
-    KeyApprovalDialogPrivate() {}
+    KeyApprovalDialogPrivate()
+    {
+    }
 
     Kleo::KeyRequester *selfRequester = nullptr;
     QStringList addresses;
@@ -79,11 +93,9 @@ public:
     bool prefsChanged = false;
 };
 
-Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
-        const std::vector<GpgME::Key> &sender,
-        QWidget *parent)
-    : QDialog(parent),
-      d(new KeyApprovalDialogPrivate())
+Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients, const std::vector<GpgME::Key> &sender, QWidget *parent)
+    : QDialog(parent)
+    , d(new KeyApprovalDialogPrivate())
 {
     setWindowTitle(i18nc("@title:window", "Encryption Key Approval"));
     auto mainLayout = new QVBoxLayout(this);
@@ -155,8 +167,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients,
 
     // don't make the dialog too large
     const QRect desk = QApplication::desktop()->screenGeometry(this);
-    resize(QSize(qMin(size.width(), 3 * desk.width() / 4),
-                 qMin(size.height(), 7 * desk.height() / 8)));
+    resize(QSize(qMin(size.width(), 3 * desk.width() / 4), qMin(size.height(), 7 * desk.height() / 8)));
 }
 
 Kleo::KeyApprovalDialog::~KeyApprovalDialog() = default;
@@ -191,4 +202,3 @@ void Kleo::KeyApprovalDialog::slotPrefsChanged()
 {
     d->prefsChanged = true;
 }
-

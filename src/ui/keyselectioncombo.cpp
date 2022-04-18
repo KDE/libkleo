@@ -7,20 +7,20 @@
 #include "keyselectioncombo.h"
 #include <kleo_ui_debug.h>
 
+#include "kleo/defaultkeyfilter.h"
 #include "kleo/dn.h"
+#include "models/keycache.h"
 #include "models/keylist.h"
 #include "models/keylistmodel.h"
 #include "models/keylistsortfilterproxymodel.h"
-#include "models/keycache.h"
-#include "utils/formatting.h"
 #include "progressbar.h"
-#include "kleo/defaultkeyfilter.h"
+#include "utils/formatting.h"
 
 #include <gpgme++/key.h>
 
 #include <QSortFilterProxyModel>
-#include <QVector>
 #include <QTimer>
+#include <QVector>
 
 #include <KLocalizedString>
 
@@ -75,6 +75,7 @@ private:
         QVariant data;
         QString toolTip;
     };
+
 public:
     ProxyModel(QObject *parent = nullptr)
         : QSortFilterProxyModel(parent)
@@ -89,7 +90,7 @@ public:
 
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
     {
-        const auto leftKey =  sourceModel()->data(left, KeyList::KeyRole).value<GpgME::Key>();
+        const auto leftKey = sourceModel()->data(left, KeyList::KeyRole).value<GpgME::Key>();
         const auto rightKey = sourceModel()->data(right, KeyList::KeyRole).value<GpgME::Key>();
         if (leftKey.isNull()) {
             return false;
@@ -106,7 +107,7 @@ public:
         if (rUid.isNull()) {
             return true;
         }
-        int cmp = strcmp (lUid.id(), rUid.id());
+        int cmp = strcmp(lUid.id(), rUid.id());
         if (cmp) {
             return cmp < 0;
         }
@@ -114,16 +115,16 @@ public:
         if (lUid.validity() == rUid.validity()) {
             /* Both are the same check which one is newer. */
             time_t oldTime = 0;
-            for (const GpgME::Subkey &s: leftKey.subkeys()) {
+            for (const GpgME::Subkey &s : leftKey.subkeys()) {
                 if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
                     continue;
                 }
                 if (s.creationTime() > oldTime) {
-                    oldTime= s.creationTime();
+                    oldTime = s.creationTime();
                 }
             }
             time_t newTime = 0;
-            for (const GpgME::Subkey &s: rightKey.subkeys()) {
+            for (const GpgME::Subkey &s : rightKey.subkeys()) {
                 if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
                     continue;
                 }
@@ -144,14 +145,14 @@ public:
     void prependItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip)
     {
         beginInsertRows(QModelIndex(), 0, 0);
-        mFrontItems.push_front(new CustomItem{ icon, text, data, toolTip });
+        mFrontItems.push_front(new CustomItem{icon, text, data, toolTip});
         endInsertRows();
     }
 
     void appendItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip)
     {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
-        mBackItems.push_back(new CustomItem{ icon, text, data, toolTip });
+        mBackItems.push_back(new CustomItem{icon, text, data, toolTip});
         endInsertRows();
     }
 
@@ -242,7 +243,7 @@ public:
 
         if (isCustomItem(index.row())) {
             Q_ASSERT(!mFrontItems.isEmpty() || !mBackItems.isEmpty());
-            auto ci = static_cast<CustomItem*>(index.internalPointer());
+            auto ci = static_cast<CustomItem *>(index.internalPointer());
             switch (role) {
             case Qt::DisplayRole:
                 return ci->text;
@@ -305,10 +306,9 @@ public:
     }
 
 private:
-    QVector<CustomItem*> mFrontItems;
-    QVector<CustomItem*> mBackItems;
+    QVector<CustomItem *> mFrontItems;
+    QVector<CustomItem *> mBackItems;
 };
-
 
 } // anonymous namespace
 
@@ -351,7 +351,7 @@ public:
                 // WTF?
                 continue;
             }
-            for (const auto &uid: key.userIDs()) {
+            for (const auto &uid : key.userIDs()) {
                 if (QString::fromStdString(uid.addrSpec()) == mPerfectMatchMbox) {
                     q->setCurrentIndex(i);
                     return true;
@@ -363,20 +363,21 @@ public:
 
     /* Updates the current key with the default key if the key matches
      * the current key filter. */
-    void updateWithDefaultKey() {
+    void updateWithDefaultKey()
+    {
         GpgME::Protocol filterProto = GpgME::UnknownProtocol;
 
-        const auto filter = dynamic_cast<const DefaultKeyFilter*> (sortFilterProxy->keyFilter().get());
+        const auto filter = dynamic_cast<const DefaultKeyFilter *>(sortFilterProxy->keyFilter().get());
         if (filter && filter->isOpenPGP() == DefaultKeyFilter::Set) {
             filterProto = GpgME::OpenPGP;
         } else if (filter && filter->isOpenPGP() == DefaultKeyFilter::NotSet) {
             filterProto = GpgME::CMS;
         }
 
-        QString defaultKey = defaultKeys.value (filterProto);
+        QString defaultKey = defaultKeys.value(filterProto);
         if (defaultKey.isEmpty()) {
             // Fallback to unknown protocol
-            defaultKey = defaultKeys.value (GpgME::UnknownProtocol);
+            defaultKey = defaultKeys.value(GpgME::UnknownProtocol);
         }
         // make sure that the default key is not filtered out unless it has the wrong protocol
         if (filterProto == GpgME::UnknownProtocol) {
@@ -426,18 +427,19 @@ public:
     QVariant customItemBeforeModelChange;
 
 private:
-    KeySelectionCombo * const q;
+    KeySelectionCombo *const q;
 };
 
 }
 
 using namespace Kleo;
 
-KeySelectionCombo::KeySelectionCombo(QWidget* parent)
+KeySelectionCombo::KeySelectionCombo(QWidget *parent)
     : KeySelectionCombo(true, parent)
-{}
+{
+}
 
-KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
+KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget *parent)
     : QComboBox(parent)
     , d(new KeySelectionComboPrivate(this))
 {
@@ -451,31 +453,36 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget* parent)
     d->proxyModel->setSourceModel(d->sortFilterProxy);
 
     setModel(d->proxyModel);
-    connect(this, qOverload<int>(&QComboBox::currentIndexChanged),
-            this, [this](int row) {
-                if (row >= 0 && row < d->proxyModel->rowCount()) {
-                    if (d->proxyModel->isCustomItem(row)) {
-                        Q_EMIT customItemSelected(currentData(Qt::UserRole));
-                    } else {
-                        Q_EMIT currentKeyChanged(currentKey());
-                    }
-                }
-            });
+    connect(this, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int row) {
+        if (row >= 0 && row < d->proxyModel->rowCount()) {
+            if (d->proxyModel->isCustomItem(row)) {
+                Q_EMIT customItemSelected(currentData(Qt::UserRole));
+            } else {
+                Q_EMIT currentKeyChanged(currentKey());
+            }
+        }
+    });
 
     d->cache = Kleo::KeyCache::mutableInstance();
 
-    connect(model(), &QAbstractItemModel::rowsAboutToBeInserted,
-            this, [this] () { d->storeCurrentSelectionBeforeModelChange(); });
-    connect(model(), &QAbstractItemModel::rowsInserted,
-            this, [this] () { d->restoreCurrentSelectionAfterModelChange(); });
-    connect(model(), &QAbstractItemModel::rowsAboutToBeRemoved,
-            this, [this] () { d->storeCurrentSelectionBeforeModelChange(); });
-    connect(model(), &QAbstractItemModel::rowsRemoved,
-            this, [this] () { d->restoreCurrentSelectionAfterModelChange(); });
-    connect(model(), &QAbstractItemModel::modelAboutToBeReset,
-            this, [this] () { d->storeCurrentSelectionBeforeModelChange(); });
-    connect(model(), &QAbstractItemModel::modelReset,
-            this, [this] () { d->restoreCurrentSelectionAfterModelChange(); });
+    connect(model(), &QAbstractItemModel::rowsAboutToBeInserted, this, [this]() {
+        d->storeCurrentSelectionBeforeModelChange();
+    });
+    connect(model(), &QAbstractItemModel::rowsInserted, this, [this]() {
+        d->restoreCurrentSelectionAfterModelChange();
+    });
+    connect(model(), &QAbstractItemModel::rowsAboutToBeRemoved, this, [this]() {
+        d->storeCurrentSelectionBeforeModelChange();
+    });
+    connect(model(), &QAbstractItemModel::rowsRemoved, this, [this]() {
+        d->restoreCurrentSelectionAfterModelChange();
+    });
+    connect(model(), &QAbstractItemModel::modelAboutToBeReset, this, [this]() {
+        d->storeCurrentSelectionBeforeModelChange();
+    });
+    connect(model(), &QAbstractItemModel::modelReset, this, [this]() {
+        d->restoreCurrentSelectionAfterModelChange();
+    });
 
     QTimer::singleShot(0, this, &KeySelectionCombo::init);
 }
@@ -484,36 +491,35 @@ KeySelectionCombo::~KeySelectionCombo() = default;
 
 void KeySelectionCombo::init()
 {
-    connect(d->cache.get(), &Kleo::KeyCache::keyListingDone,
-            this, [this]() {
-                    // Set useKeyCache ensures that the cache is populated
-                    // so this can be a blocking call if the cache is not initialized 
-                    if (!d->initialKeyListingDone) {
-                        d->model->useKeyCache(true, d->secretOnly ? KeyList::SecretKeysOnly : KeyList::AllKeys);
-                        d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
-                    }
+    connect(d->cache.get(), &Kleo::KeyCache::keyListingDone, this, [this]() {
+        // Set useKeyCache ensures that the cache is populated
+        // so this can be a blocking call if the cache is not initialized
+        if (!d->initialKeyListingDone) {
+            d->model->useKeyCache(true, d->secretOnly ? KeyList::SecretKeysOnly : KeyList::AllKeys);
+            d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
+        }
 
-                    // We use the useWasEnabled state variable to decide if we should
-                    // change the enable / disable state based on the keylist done signal.
-                    // If we triggered the refresh useWasEnabled is true and we want to
-                    // enable / disable again after our refresh, as the refresh disabled it.
-                    //
-                    // But if a keyListingDone signal comes from just a generic refresh
-                    // triggered by someone else we don't want to change the enable / disable
-                    // state.
-                    if (d->useWasEnabled) {
-                        setEnabled(d->wasEnabled);
-                        d->useWasEnabled = false;
-                    }
-                    Q_EMIT keyListingFinished();
-            });
+        // We use the useWasEnabled state variable to decide if we should
+        // change the enable / disable state based on the keylist done signal.
+        // If we triggered the refresh useWasEnabled is true and we want to
+        // enable / disable again after our refresh, as the refresh disabled it.
+        //
+        // But if a keyListingDone signal comes from just a generic refresh
+        // triggered by someone else we don't want to change the enable / disable
+        // state.
+        if (d->useWasEnabled) {
+            setEnabled(d->wasEnabled);
+            d->useWasEnabled = false;
+        }
+        Q_EMIT keyListingFinished();
+    });
 
     connect(this, &KeySelectionCombo::keyListingFinished, this, [this]() {
-            if (!d->initialKeyListingDone) {
-                d->updateWithDefaultKey();
-                d->initialKeyListingDone = true;
-            }
-        });
+        if (!d->initialKeyListingDone) {
+            d->updateWithDefaultKey();
+            d->initialKeyListingDone = true;
+        }
+    });
 
     if (!d->cache->initialized()) {
         refreshKeys();
@@ -522,11 +528,10 @@ void KeySelectionCombo::init()
         Q_EMIT keyListingFinished();
     }
 
-    connect(this, qOverload<int>(&QComboBox::currentIndexChanged), this, [this] () {
-            setToolTip(currentData(Qt::ToolTipRole).toString());
-        });
+    connect(this, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
+        setToolTip(currentData(Qt::ToolTipRole).toString());
+    });
 }
-
 
 void KeySelectionCombo::setKeyFilter(const std::shared_ptr<const KeyFilter> &kf)
 {
@@ -571,8 +576,7 @@ void Kleo::KeySelectionCombo::setCurrentKey(const GpgME::Key &key)
 void Kleo::KeySelectionCombo::setCurrentKey(const QString &fingerprint)
 {
     const auto cur = currentKey();
-    if (!cur.isNull() && !fingerprint.isEmpty() &&
-        fingerprint == QLatin1String(cur.primaryFingerprint())) {
+    if (!cur.isNull() && !fingerprint.isEmpty() && fingerprint == QLatin1String(cur.primaryFingerprint())) {
         // already set; still emit a changed signal because the current key may
         // have become the item at the current index by changes in the underlying model
         Q_EMIT currentKeyChanged(cur);

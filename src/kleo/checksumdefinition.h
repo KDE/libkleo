@@ -26,6 +26,7 @@ class KLEO_EXPORT ChecksumDefinition
 {
 protected:
     ChecksumDefinition(const QString &id, const QString &label, const QString &outputFileName, const QStringList &extensions);
+
 public:
     virtual ~ChecksumDefinition();
 
@@ -73,10 +74,10 @@ public:
     static QString installPath();
     static void setInstallPath(const QString &ip);
 
-    static std::vector< std::shared_ptr<ChecksumDefinition> > getChecksumDefinitions();
-    static std::vector< std::shared_ptr<ChecksumDefinition> > getChecksumDefinitions(QStringList &errors);
+    static std::vector<std::shared_ptr<ChecksumDefinition>> getChecksumDefinitions();
+    static std::vector<std::shared_ptr<ChecksumDefinition>> getChecksumDefinitions(QStringList &errors);
 
-    static std::shared_ptr<ChecksumDefinition> getDefaultChecksumDefinition(const std::vector< std::shared_ptr<ChecksumDefinition> > &available);
+    static std::shared_ptr<ChecksumDefinition> getDefaultChecksumDefinition(const std::vector<std::shared_ptr<ChecksumDefinition>> &available);
     static void setDefaultChecksumDefinition(const std::shared_ptr<ChecksumDefinition> &checksumDefinition);
 
 protected:
@@ -94,6 +95,7 @@ private:
     virtual QString doGetVerifyCommand() const = 0;
     virtual QStringList doGetCreateArguments(const QStringList &files) const = 0;
     virtual QStringList doGetVerifyArguments(const QStringList &files) const = 0;
+
 private:
     const QString m_id;
     const QString m_label;
@@ -104,5 +106,3 @@ private:
 };
 
 }
-
-

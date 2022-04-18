@@ -23,7 +23,6 @@ class KeyCache::RefreshKeysJob : public QObject
 {
     Q_OBJECT
 public:
-
     explicit RefreshKeysJob(KeyCache *cache, QObject *parent = nullptr);
     ~RefreshKeysJob() override;
 
@@ -37,8 +36,7 @@ Q_SIGNALS:
 private:
     class Private;
     friend class Private;
-    Private * const d;
+    Private *const d;
     Q_PRIVATE_SLOT(d, void listAllKeysJobDone(GpgME::KeyListResult, std::vector<GpgME::Key>))
 };
 }
-

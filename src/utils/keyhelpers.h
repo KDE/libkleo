@@ -33,11 +33,9 @@ QStringList getFingerprints(const KeyContainer &keys)
     QStringList fingerprints;
 
     fingerprints.reserve(keys.size());
-    std::transform(std::begin(keys), std::end(keys),
-                   std::back_inserter(fingerprints),
-                   [](const auto &key) {
-                       return QString::fromLatin1(key.primaryFingerprint());
-                   });
+    std::transform(std::begin(keys), std::end(keys), std::back_inserter(fingerprints), [](const auto &key) {
+        return QString::fromLatin1(key.primaryFingerprint());
+    });
 
     return fingerprints;
 }

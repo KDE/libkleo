@@ -13,10 +13,10 @@
 #include <KAboutData>
 #include <QDebug>
 
-#include <vector>
-#include <QApplication>
 #include <KLocalizedString>
+#include <QApplication>
 #include <QCommandLineParser>
+#include <vector>
 
 int main(int argc, char **argv)
 {
@@ -31,7 +31,9 @@ int main(int argc, char **argv)
     Kleo::KeySelectionDialog dlg(QStringLiteral("Kleo::KeySelectionDialog Test"),
                                  QStringLiteral("Please select a key:"),
                                  std::vector<GpgME::Key>(),
-                                 Kleo::KeySelectionDialog::AllKeys, true, true);
+                                 Kleo::KeySelectionDialog::AllKeys,
+                                 true,
+                                 true);
 
     if (dlg.exec() == QDialog::Accepted) {
         qDebug() << "accepted; selected key:" << (dlg.selectedKey().userID(0).id() ? dlg.selectedKey().userID(0).id() : "<null>") << "\nselected _keys_:";

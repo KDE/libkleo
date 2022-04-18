@@ -56,7 +56,7 @@ KeyGroup createGroup(const QString &name,
 void AbstractKeyListModelTest::testCreation()
 {
     QScopedPointer<AbstractKeyListModel> model(createModel());
-    QCOMPARE( model->rowCount(), 0 );
+    QCOMPARE(model->rowCount(), 0);
 }
 
 void AbstractKeyListModelTest::testSetKeys()
@@ -67,18 +67,18 @@ void AbstractKeyListModelTest::testSetKeys()
         createTestKey("test1@example.net"),
     };
     model->setKeys(keys);
-    QCOMPARE( model->rowCount(), 1 );
-    QVERIFY( model->index(keys[0]).isValid() );
+    QCOMPARE(model->rowCount(), 1);
+    QVERIFY(model->index(keys[0]).isValid());
 
     const std::vector<Key> otherKeys = {
         createTestKey("test2@example.net"),
         createTestKey("test3@example.net"),
     };
     model->setKeys(otherKeys);
-    QCOMPARE( model->rowCount(), 2 );
-    QVERIFY( model->index(otherKeys[0]).isValid() );
-    QVERIFY( model->index(otherKeys[1]).isValid() );
-    QVERIFY( !model->index(keys[0]).isValid() );
+    QCOMPARE(model->rowCount(), 2);
+    QVERIFY(model->index(otherKeys[0]).isValid());
+    QVERIFY(model->index(otherKeys[1]).isValid());
+    QVERIFY(!model->index(keys[0]).isValid());
 }
 
 void AbstractKeyListModelTest::testSetGroups()
@@ -89,18 +89,18 @@ void AbstractKeyListModelTest::testSetGroups()
         createGroup("test1"),
     };
     model->setGroups(groups);
-    QCOMPARE( model->rowCount(), 1 );
-    QVERIFY( model->index(groups[0]).isValid() );
+    QCOMPARE(model->rowCount(), 1);
+    QVERIFY(model->index(groups[0]).isValid());
 
     const std::vector<KeyGroup> otherGroups = {
         createGroup("test2"),
         createGroup("test3"),
     };
     model->setGroups(otherGroups);
-    QCOMPARE( model->rowCount(), 2 );
-    QVERIFY( model->index(otherGroups[0]).isValid() );
-    QVERIFY( model->index(otherGroups[1]).isValid() );
-    QVERIFY( !model->index(groups[0]).isValid() );
+    QCOMPARE(model->rowCount(), 2);
+    QVERIFY(model->index(otherGroups[0]).isValid());
+    QVERIFY(model->index(otherGroups[1]).isValid());
+    QVERIFY(!model->index(groups[0]).isValid());
 }
 
 void AbstractKeyListModelTest::testKeys()
@@ -113,35 +113,35 @@ void AbstractKeyListModelTest::testKeys()
     model->setKeys({key});
     model->setGroups({group});
 
-    QCOMPARE( model->rowCount(), 2 );
+    QCOMPARE(model->rowCount(), 2);
 
     const QModelIndex keyIndex = model->index(key);
-    QVERIFY( keyIndex.isValid() );
+    QVERIFY(keyIndex.isValid());
     const QModelIndex groupIndex = model->index(group);
-    QVERIFY( groupIndex.isValid() );
+    QVERIFY(groupIndex.isValid());
 
     {
         const auto keys = model->keys({});
-        QCOMPARE( keys.size(), 0 );
+        QCOMPARE(keys.size(), 0);
     }
 
     {
         const auto keys = model->keys({keyIndex});
-        QCOMPARE( keys.size(), 1 );
-        QCOMPARE( keys[0].userID(0).addrSpec(), UserID::addrSpecFromString("test@example.net") );
+        QCOMPARE(keys.size(), 1);
+        QCOMPARE(keys[0].userID(0).addrSpec(), UserID::addrSpecFromString("test@example.net"));
     }
 
     {
         // duplicate keys are removed from result
         const auto keys = model->keys({keyIndex, keyIndex});
-        QCOMPARE( keys.size(), 1 );
-        QCOMPARE( keys[0].userID(0).addrSpec(), UserID::addrSpecFromString("test@example.net") );
+        QCOMPARE(keys.size(), 1);
+        QCOMPARE(keys[0].userID(0).addrSpec(), UserID::addrSpecFromString("test@example.net"));
     }
 
     {
         // null keys are removed from result
         const auto keys = model->keys({groupIndex});
-        QCOMPARE( keys.size(), 0 );
+        QCOMPARE(keys.size(), 0);
     }
 }
 
@@ -161,12 +161,12 @@ void AbstractKeyListModelTest::testIndex()
     model->setGroups(groups);
 
     const QModelIndex keyIndex = model->index(0, 0);
-    QVERIFY( keyIndex.isValid() );
-    QVERIFY( !model->key(keyIndex).isNull() );
+    QVERIFY(keyIndex.isValid());
+    QVERIFY(!model->key(keyIndex).isNull());
 
     const QModelIndex groupIndex = model->index(1, 0);
-    QVERIFY( groupIndex.isValid() );
-    QVERIFY( !model->group(groupIndex).isNull() );
+    QVERIFY(groupIndex.isValid());
+    QVERIFY(!model->group(groupIndex).isNull());
 }
 
 void AbstractKeyListModelTest::testIndexForGroup()
@@ -187,7 +187,7 @@ void AbstractKeyListModelTest::testIndexForGroup()
     QSet<int> rows;
     for (const KeyGroup &group : groups) {
         const QModelIndex groupIndex = model->index(group);
-        QVERIFY( groupIndex.isValid() );
+        QVERIFY(groupIndex.isValid());
         rows.insert(groupIndex.row());
     }
     QCOMPARE(rows.size(), 4);
@@ -199,24 +199,24 @@ void AbstractKeyListModelTest::testAddGroup()
 
     {
         const QModelIndex resultIndex = model->addGroup(KeyGroup());
-        QVERIFY( !resultIndex.isValid() );
-        QCOMPARE( model->rowCount(), 0 );
+        QVERIFY(!resultIndex.isValid());
+        QCOMPARE(model->rowCount(), 0);
     }
 
     {
         const KeyGroup group = createGroup(QStringLiteral("test"));
         const QModelIndex resultIndex = model->addGroup(group);
-        QVERIFY( resultIndex.isValid() );
-        QCOMPARE( resultIndex.row(), 0 );
-        QCOMPARE( resultIndex.column(), 0 );
-        QVERIFY( !resultIndex.parent().isValid() );
-        QCOMPARE( model->rowCount(), 1 );
+        QVERIFY(resultIndex.isValid());
+        QCOMPARE(resultIndex.row(), 0);
+        QCOMPARE(resultIndex.column(), 0);
+        QVERIFY(!resultIndex.parent().isValid());
+        QCOMPARE(model->rowCount(), 1);
         const KeyGroup groupInModel = model->group(model->index(0, 0));
-        QVERIFY( !groupInModel.isNull() );
-        QCOMPARE( groupInModel.id(), group.id() );
-        QCOMPARE( groupInModel.source(), group.source() );
-        QCOMPARE( groupInModel.name(), group.name() );
-        QCOMPARE( groupInModel.keys().size(), group.keys().size() );
+        QVERIFY(!groupInModel.isNull());
+        QCOMPARE(groupInModel.id(), group.id());
+        QCOMPARE(groupInModel.source(), group.source());
+        QCOMPARE(groupInModel.name(), group.name());
+        QCOMPARE(groupInModel.keys().size(), group.keys().size());
     }
 }
 
@@ -229,15 +229,15 @@ void AbstractKeyListModelTest::testSetData()
     model->setKeys({key});
     model->setGroups({group});
     const KeyGroup updatedGroup = createGroup(QStringLiteral("updated"), {key});
-    QVERIFY( !model->setData(QModelIndex(), QVariant::fromValue(updatedGroup)) );
-    QVERIFY( !model->setData(model->index(key), QVariant::fromValue(updatedGroup)) );
+    QVERIFY(!model->setData(QModelIndex(), QVariant::fromValue(updatedGroup)));
+    QVERIFY(!model->setData(model->index(key), QVariant::fromValue(updatedGroup)));
 
     const QModelIndex groupIndex = model->index(group);
-    QVERIFY( model->setData(groupIndex, QVariant::fromValue(updatedGroup)) );
+    QVERIFY(model->setData(groupIndex, QVariant::fromValue(updatedGroup)));
     const KeyGroup groupInModel = model->group(groupIndex);
-    QVERIFY( !groupInModel.isNull() );
-    QCOMPARE( groupInModel.name(), updatedGroup.name() );
-    QCOMPARE( groupInModel.keys().size(), updatedGroup.keys().size() );
+    QVERIFY(!groupInModel.isNull());
+    QCOMPARE(groupInModel.name(), updatedGroup.name());
+    QCOMPARE(groupInModel.keys().size(), updatedGroup.keys().size());
 }
 
 void AbstractKeyListModelTest::testRemoveGroup()
@@ -249,22 +249,22 @@ void AbstractKeyListModelTest::testRemoveGroup()
 
     {
         const bool result = model->removeGroup(KeyGroup());
-        QVERIFY( !result );
-        QCOMPARE( model->rowCount(), 1 );
+        QVERIFY(!result);
+        QCOMPARE(model->rowCount(), 1);
     }
 
     {
         const KeyGroup otherGroup = createGroup(QStringLiteral("test2"));
 
         const bool result = model->removeGroup(otherGroup);
-        QVERIFY( !result );
-        QCOMPARE( model->rowCount(), 1 );
+        QVERIFY(!result);
+        QCOMPARE(model->rowCount(), 1);
     }
 
     {
         const bool result = model->removeGroup(group);
-        QVERIFY( result );
-        QCOMPARE( model->rowCount(), 0 );
+        QVERIFY(result);
+        QCOMPARE(model->rowCount(), 0);
     }
 }
 
@@ -277,8 +277,8 @@ void AbstractKeyListModelTest::testClear()
     });
 
     model->clear(AbstractKeyListModel::Keys);
-    QCOMPARE( model->rowCount(), 1 );
+    QCOMPARE(model->rowCount(), 1);
 
     model->clear(AbstractKeyListModel::Groups);
-    QCOMPARE( model->rowCount(), 0 );
+    QCOMPARE(model->rowCount(), 0);
 }

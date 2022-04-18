@@ -28,4 +28,3 @@ KLEO_EXPORT QByteArray hexencode(const QByteArray &s);
 KLEO_EXPORT QByteArray hexdecode(const QByteArray &s);
 
 }
-

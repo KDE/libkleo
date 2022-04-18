@@ -31,16 +31,24 @@ auto mapValidity(GpgME::UserID::Validity validity)
 {
     switch (validity) {
     default:
-    case GpgME::UserID::Unknown: return GPGME_VALIDITY_UNKNOWN;
-    case GpgME::UserID::Undefined: return GPGME_VALIDITY_UNDEFINED;
-    case GpgME::UserID::Never: return GPGME_VALIDITY_NEVER;
-    case GpgME::UserID::Marginal: return GPGME_VALIDITY_MARGINAL;
-    case GpgME::UserID::Full: return GPGME_VALIDITY_FULL;
-    case GpgME::UserID::Ultimate: return GPGME_VALIDITY_ULTIMATE;
+    case GpgME::UserID::Unknown:
+        return GPGME_VALIDITY_UNKNOWN;
+    case GpgME::UserID::Undefined:
+        return GPGME_VALIDITY_UNDEFINED;
+    case GpgME::UserID::Never:
+        return GPGME_VALIDITY_NEVER;
+    case GpgME::UserID::Marginal:
+        return GPGME_VALIDITY_MARGINAL;
+    case GpgME::UserID::Full:
+        return GPGME_VALIDITY_FULL;
+    case GpgME::UserID::Ultimate:
+        return GPGME_VALIDITY_ULTIMATE;
     }
 }
 
-GpgME::Key createTestKey(const char *uid, GpgME::Protocol protocol = GpgME::UnknownProtocol, KeyUsage usage = KeyUsage::AnyUsage,
+GpgME::Key createTestKey(const char *uid,
+                         GpgME::Protocol protocol = GpgME::UnknownProtocol,
+                         KeyUsage usage = KeyUsage::AnyUsage,
                          GpgME::UserID::Validity validity = GpgME::UserID::Full)
 {
     static int count = 0;
@@ -70,7 +78,7 @@ auto testKey(const char *address, GpgME::Protocol protocol = GpgME::UnknownProto
 {
     const auto email = GpgME::UserID::addrSpecFromString(address);
     const auto keys = KeyCache::instance()->findByEMailAddress(email);
-    for (const auto &key: keys) {
+    for (const auto &key : keys) {
         if (protocol == GpgME::UnknownProtocol || key.protocol() == protocol) {
             return key;
         }
@@ -89,7 +97,7 @@ void waitForKeySelectionComboBeingInitialized(const KeySelectionCombo *combo)
 
 }
 
-class KeySelectionComboTest: public QObject
+class KeySelectionComboTest : public QObject
 {
     Q_OBJECT
 

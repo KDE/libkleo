@@ -26,8 +26,8 @@
 
 // KDE
 #include <KLocalizedString>
-#include <QDialog>
 #include <KMessageBox>
+#include <QDialog>
 #include <QPushButton>
 
 // Qt
@@ -37,30 +37,28 @@
 
 #include <QHBoxLayout>
 
-
 using namespace QGpgME;
 
-Kleo::KeyRequester::KeyRequester(unsigned int allowedKeys, bool multipleKeys,
-                                 QWidget *parent)
-    : QWidget(parent),
-      mOpenPGPBackend(nullptr),
-      mSMIMEBackend(nullptr),
-      mMulti(multipleKeys),
-      mKeyUsage(allowedKeys),
-      mJobs(0),
-      d(nullptr)
+Kleo::KeyRequester::KeyRequester(unsigned int allowedKeys, bool multipleKeys, QWidget *parent)
+    : QWidget(parent)
+    , mOpenPGPBackend(nullptr)
+    , mSMIMEBackend(nullptr)
+    , mMulti(multipleKeys)
+    , mKeyUsage(allowedKeys)
+    , mJobs(0)
+    , d(nullptr)
 {
     init();
 }
 
 Kleo::KeyRequester::KeyRequester(QWidget *parent)
-    : QWidget(parent),
-      mOpenPGPBackend(nullptr),
-      mSMIMEBackend(nullptr),
-      mMulti(false),
-      mKeyUsage(0),
-      mJobs(0),
-      d(nullptr)
+    : QWidget(parent)
+    , mOpenPGPBackend(nullptr)
+    , mSMIMEBackend(nullptr)
+    , mMulti(false)
+    , mKeyUsage(0)
+    , mJobs(0)
+    , d(nullptr)
 {
     init();
 }
@@ -77,9 +75,9 @@ void Kleo::KeyRequester::init()
     // the button to unset any key:
     mEraseButton = new QPushButton(this);
     mEraseButton->setAutoDefault(false);
-    mEraseButton->setSizePolicy(QSizePolicy(QSizePolicy::Minimum,
-                                            QSizePolicy::Minimum));
-    mEraseButton->setIcon(QIcon::fromTheme(QApplication::isRightToLeft() ? QStringLiteral("edit-clear-locationbar-ltr") : QStringLiteral("edit-clear-locationbar-rtl")));
+    mEraseButton->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+    mEraseButton->setIcon(
+        QIcon::fromTheme(QApplication::isRightToLeft() ? QStringLiteral("edit-clear-locationbar-ltr") : QStringLiteral("edit-clear-locationbar-rtl")));
     mEraseButton->setToolTip(i18n("Clear"));
 
     // the button to call the KeySelectionDialog:
@@ -93,15 +91,13 @@ void Kleo::KeyRequester::init()
     connect(mEraseButton, &QPushButton::clicked, this, &SigningKeyRequester::slotEraseButtonClicked);
     connect(mDialogButton, &QPushButton::clicked, this, &SigningKeyRequester::slotDialogButtonClicked);
 
-    setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding,
-                              QSizePolicy::Fixed));
+    setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed));
 
     setAllowedKeys(mKeyUsage);
 }
 
 Kleo::KeyRequester::~KeyRequester()
 {
-
 }
 
 const std::vector<GpgME::Key> &Kleo::KeyRequester::keys() const
@@ -211,10 +207,11 @@ void Kleo::KeyRequester::updateKeys()
 static void showKeyListError(QWidget *parent, const GpgME::Error &err)
 {
     Q_ASSERT(err);
-    const QString msg = i18n("<qt><p>An error occurred while fetching "
-                             "the keys from the backend:</p>"
-                             "<p><b>%1</b></p></qt>",
-                             QString::fromLocal8Bit(err.asString()));
+    const QString msg = i18n(
+        "<qt><p>An error occurred while fetching "
+        "the keys from the backend:</p>"
+        "<p><b>%1</b></p></qt>",
+        QString::fromLocal8Bit(err.asString()));
 
     KMessageBox::error(parent, msg, i18n("Key Listing Failed"));
 }
@@ -244,7 +241,7 @@ void Kleo::KeyRequester::startKeyListJob(const QStringList &fingerprints)
     }
 
     if (mOpenPGPBackend) {
-        KeyListJob *job = mOpenPGPBackend->keyListJob(false);    // local, no sigs
+        KeyListJob *job = mOpenPGPBackend->keyListJob(false); // local, no sigs
         if (!job) {
             KMessageBox::error(this,
                                i18n("The OpenPGP backend does not support listing keys. "
@@ -254,9 +251,8 @@ void Kleo::KeyRequester::startKeyListJob(const QStringList &fingerprints)
             connect(job, &KeyListJob::result, this, &SigningKeyRequester::slotKeyListResult);
             connect(job, &KeyListJob::nextKey, this, &SigningKeyRequester::slotNextKey);
 
-            const GpgME::Error err = job->start(fingerprints,
-                                                mKeyUsage & Kleo::KeySelectionDialog::SecretKeys &&
-                                                !(mKeyUsage & Kleo::KeySelectionDialog::PublicKeys));
+            const GpgME::Error err =
+                job->start(fingerprints, mKeyUsage & Kleo::KeySelectionDialog::SecretKeys && !(mKeyUsage & Kleo::KeySelectionDialog::PublicKeys));
 
             if (err) {
                 showKeyListError(this, err);
@@ -267,7 +263,7 @@ void Kleo::KeyRequester::startKeyListJob(const QStringList &fingerprints)
     }
 
     if (mSMIMEBackend) {
-        KeyListJob *job = mSMIMEBackend->keyListJob(false);    // local, no sigs
+        KeyListJob *job = mSMIMEBackend->keyListJob(false); // local, no sigs
         if (!job) {
             KMessageBox::error(this,
                                i18n("The S/MIME backend does not support listing keys. "
@@ -277,9 +273,8 @@ void Kleo::KeyRequester::startKeyListJob(const QStringList &fingerprints)
             connect(job, &KeyListJob::result, this, &SigningKeyRequester::slotKeyListResult);
             connect(job, &KeyListJob::nextKey, this, &SigningKeyRequester::slotNextKey);
 
-            const GpgME::Error err = job->start(fingerprints,
-                                                mKeyUsage & Kleo::KeySelectionDialog::SecretKeys &&
-                                                !(mKeyUsage & Kleo::KeySelectionDialog::PublicKeys));
+            const GpgME::Error err =
+                job->start(fingerprints, mKeyUsage & Kleo::KeySelectionDialog::SecretKeys && !(mKeyUsage & Kleo::KeySelectionDialog::PublicKeys));
 
             if (err) {
                 showKeyListError(this, err);
@@ -319,9 +314,8 @@ void Kleo::KeyRequester::slotKeyListResult(const GpgME::KeyListResult &res)
 
 void Kleo::KeyRequester::slotDialogButtonClicked()
 {
-    KeySelectionDialog *dlg = mKeys.empty()
-                              ? new KeySelectionDialog(mDialogCaption, mDialogMessage, mInitialQuery, mKeyUsage, mMulti, false, this)
-                              : new KeySelectionDialog(mDialogCaption, mDialogCaption, mKeys, mKeyUsage, mMulti, false, this);
+    KeySelectionDialog *dlg = mKeys.empty() ? new KeySelectionDialog(mDialogCaption, mDialogMessage, mInitialQuery, mKeyUsage, mMulti, false, this)
+                                            : new KeySelectionDialog(mDialogCaption, mDialogCaption, mKeys, mKeyUsage, mMulti, false, this);
 
     if (dlg->exec() == QDialog::Accepted) {
         if (mMulti) {
@@ -441,47 +435,51 @@ static inline unsigned int signingKeyUsage(bool openpgp, bool smime, bool truste
     return foo(openpgp, smime, trusted, valid) | Kleo::KeySelectionDialog::SigningKeys | Kleo::KeySelectionDialog::SecretKeys;
 }
 
-Kleo::EncryptionKeyRequester::EncryptionKeyRequester(bool multi, unsigned int proto,
-        QWidget *parent,
-        bool onlyTrusted, bool onlyValid)
-    : KeyRequester(encryptionKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid), multi,
-                   parent), d(nullptr)
+Kleo::EncryptionKeyRequester::EncryptionKeyRequester(bool multi, unsigned int proto, QWidget *parent, bool onlyTrusted, bool onlyValid)
+    : KeyRequester(encryptionKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid), multi, parent)
+    , d(nullptr)
 {
 }
 
 Kleo::EncryptionKeyRequester::EncryptionKeyRequester(QWidget *parent)
-    : KeyRequester(0, false, parent), d(nullptr)
+    : KeyRequester(0, false, parent)
+    , d(nullptr)
 {
 }
 
-Kleo::EncryptionKeyRequester::~EncryptionKeyRequester() {}
+Kleo::EncryptionKeyRequester::~EncryptionKeyRequester()
+{
+}
 
 void Kleo::EncryptionKeyRequester::setAllowedKeys(unsigned int proto, bool onlyTrusted, bool onlyValid)
 {
     KeyRequester::setAllowedKeys(encryptionKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid));
 }
 
-Kleo::SigningKeyRequester::SigningKeyRequester(bool multi, unsigned int proto,
-        QWidget *parent,
-        bool onlyTrusted, bool onlyValid)
-    : KeyRequester(signingKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid), multi,
-                   parent), d(nullptr)
+Kleo::SigningKeyRequester::SigningKeyRequester(bool multi, unsigned int proto, QWidget *parent, bool onlyTrusted, bool onlyValid)
+    : KeyRequester(signingKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid), multi, parent)
+    , d(nullptr)
 {
 }
 
 Kleo::SigningKeyRequester::SigningKeyRequester(QWidget *parent)
-    : KeyRequester(0, false, parent), d(nullptr)
+    : KeyRequester(0, false, parent)
+    , d(nullptr)
 {
 }
 
-Kleo::SigningKeyRequester::~SigningKeyRequester() {}
+Kleo::SigningKeyRequester::~SigningKeyRequester()
+{
+}
 
 void Kleo::SigningKeyRequester::setAllowedKeys(unsigned int proto, bool onlyTrusted, bool onlyValid)
 {
     KeyRequester::setAllowedKeys(signingKeyUsage(proto & OpenPGP, proto & SMIME, onlyTrusted, onlyValid));
 }
 
-void Kleo::KeyRequester::virtual_hook(int, void *) {}
+void Kleo::KeyRequester::virtual_hook(int, void *)
+{
+}
 void Kleo::EncryptionKeyRequester::virtual_hook(int id, void *data)
 {
     KeyRequester::virtual_hook(id, data);
@@ -490,4 +488,3 @@ void Kleo::SigningKeyRequester::virtual_hook(int id, void *data)
 {
     KeyRequester::virtual_hook(id, data);
 }
-

@@ -35,7 +35,6 @@ static const struct {
     {"Pseudo",            "2.5.4.65"            },
     // clang-format on
 };
-static const unsigned int numOidMaps = sizeof oidmap / sizeof * oidmap;
+static const unsigned int numOidMaps = sizeof oidmap / sizeof *oidmap;
 
 KLEO_EXPORT const char *oidForAttributeName(const QString &attr);
-

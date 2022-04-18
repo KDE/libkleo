@@ -24,4 +24,3 @@ namespace Kleo
 KLEO_EXPORT QGpgME::CryptoConfigEntry *getCryptoConfigEntry(const QGpgME::CryptoConfig *config, const char *componentName, const char *entryName);
 
 }
-

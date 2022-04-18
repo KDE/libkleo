@@ -71,10 +71,10 @@ public:
     QIcon icon(const GpgME::Key &key) const;
 
     class Private;
+
 private:
     std::unique_ptr<Private> d;
     static KeyFilterManager *mSelf;
 };
 
 }
-

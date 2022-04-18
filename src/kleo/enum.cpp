@@ -13,14 +13,14 @@
 
 #include <functional>
 
-#include <KLocalizedString>
 #include <KLazyLocalizedString>
+#include <KLocalizedString>
 
 #include <gpgme++/key.h>
 #include <gpgme++/tofuinfo.h>
 
-#include <QString>
 #include <QEventLoop>
+#include <QString>
 
 static const struct {
     Kleo::CryptoMessageFormat format;
@@ -36,8 +36,7 @@ static const struct {
     {Kleo::AnyOpenPGP,          kli18n("Any OpenPGP"),                 "any openpgp"   },
     // clang-format on
 };
-static const unsigned int numCryptoMessageFormats
-    = sizeof cryptoMessageFormats / sizeof * cryptoMessageFormats;
+static const unsigned int numCryptoMessageFormats = sizeof cryptoMessageFormats / sizeof *cryptoMessageFormats;
 
 const char *Kleo::cryptoMessageFormatToString(Kleo::CryptoMessageFormat f)
 {
@@ -226,7 +225,8 @@ Kleo::TrustLevel Kleo::trustLevel(const GpgME::Key &key)
     return maxTl;
 }
 
-namespace {
+namespace
+{
 
 bool hasTrustedSignature(const GpgME::UserID &uid)
 {
@@ -237,22 +237,21 @@ bool hasTrustedSignature(const GpgME::UserID &uid)
     }
     if (!keyCache->initialized()) {
         QEventLoop el;
-        QObject::connect(keyCache.get(), &Kleo::KeyCache::keyListingDone,
-                         &el, &QEventLoop::quit);
+        QObject::connect(keyCache.get(), &Kleo::KeyCache::keyListingDone, &el, &QEventLoop::quit);
         el.exec();
     }
 
     const auto signatures = uid.signatures();
     std::vector<std::string> sigKeyIDs;
-    std::transform(signatures.cbegin(), signatures.cend(),
+    std::transform(signatures.cbegin(),
+                   signatures.cend(),
                    std::back_inserter(sigKeyIDs),
                    std::bind(&GpgME::UserID::Signature::signerKeyID, std::placeholders::_1));
 
     const auto keys = keyCache->findByKeyIDOrFingerprint(sigKeyIDs);
-    return std::any_of(keys.cbegin(), keys.cend(),
-                       [](const GpgME::Key &key) {
-                           return key.ownerTrust() == GpgME::Key::Ultimate;
-                       });
+    return std::any_of(keys.cbegin(), keys.cend(), [](const GpgME::Key &key) {
+        return key.ownerTrust() == GpgME::Key::Ultimate;
+    });
 }
 
 }

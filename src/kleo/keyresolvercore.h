@@ -36,8 +36,7 @@ namespace Kleo
 class KLEO_EXPORT KeyResolverCore
 {
 public:
-    enum SolutionFlags
-    {
+    enum SolutionFlags {
         // clang-format off
         SomeUnresolved = 0,
         AllResolved    = 1,
@@ -52,15 +51,13 @@ public:
         ProtocolsMask  = OpenPGPOnly | CMSOnly | Error,
         // clang-format on
     };
-    struct Result
-    {
+    struct Result {
         SolutionFlags flags;
         KeyResolver::Solution solution;
         KeyResolver::Solution alternative;
     };
 
-    explicit KeyResolverCore(bool encrypt, bool sign,
-                             GpgME::Protocol format = GpgME::UnknownProtocol);
+    explicit KeyResolverCore(bool encrypt, bool sign, GpgME::Protocol format = GpgME::UnknownProtocol);
     ~KeyResolverCore();
 
     void setSender(const QString &sender);
@@ -70,7 +67,7 @@ public:
 
     void setSigningKeys(const QStringList &fingerprints);
 
-    void setOverrideKeys(const QMap<GpgME::Protocol, QMap<QString, QStringList> > &overrides);
+    void setOverrideKeys(const QMap<GpgME::Protocol, QMap<QString, QStringList>> &overrides);
 
     void setAllowMixedProtocols(bool allowMixed);
 
@@ -86,4 +83,3 @@ private:
 };
 
 } // namespace Kleo
-

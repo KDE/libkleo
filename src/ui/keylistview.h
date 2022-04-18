@@ -14,9 +14,9 @@
 #include <gpgme++/key.h>
 
 #include <QByteArray>
-#include <QTreeWidget>
 #include <QHeaderView>
 #include <QIcon>
+#include <QTreeWidget>
 
 class QFont;
 class QColor;
@@ -25,19 +25,17 @@ namespace Kleo
 {
 
 // work around moc parser bug...
-#define TEMPLATE_TYPENAME(T) template <typename T>
+#define TEMPLATE_TYPENAME(T) template<typename T>
 TEMPLATE_TYPENAME(T)
 inline T *lvi_cast(QTreeWidgetItem *item)
 {
-    return item && (item->type() == T::RTTI)
-           ? static_cast<T *>(item) : nullptr;
+    return item && (item->type() == T::RTTI) ? static_cast<T *>(item) : nullptr;
 }
 
 TEMPLATE_TYPENAME(T)
 inline const T *lvi_cast(const QTreeWidgetItem *item)
 {
-    return item && (item->type() == T::RTTI)
-           ? static_cast<const T *>(item) : nullptr;
+    return item && (item->type() == T::RTTI) ? static_cast<const T *>(item) : nullptr;
 }
 #undef TEMPLATE_TYPENAME
 
@@ -82,8 +80,8 @@ class KLEO_EXPORT KeyListView : public QTreeWidget
 {
     Q_OBJECT
     friend class KeyListViewItem;
-public:
 
+public:
     class KLEO_EXPORT ColumnStrategy
     {
     public:
@@ -108,17 +106,15 @@ public:
     {
     public:
         virtual ~DisplayStrategy();
-        //font
+        // font
         virtual QFont keyFont(const GpgME::Key &, const QFont &) const;
-        //foreground
+        // foreground
         virtual QColor keyForeground(const GpgME::Key &, const QColor &) const;
-        //background
+        // background
         virtual QColor keyBackground(const GpgME::Key &, const QColor &) const;
     };
 
-    explicit KeyListView(const ColumnStrategy *strategy,
-                         const DisplayStrategy *display = nullptr,
-                         QWidget *parent = nullptr, Qt::WindowFlags f = {});
+    explicit KeyListView(const ColumnStrategy *strategy, const DisplayStrategy *display = nullptr, QWidget *parent = nullptr, Qt::WindowFlags f = {});
 
     ~KeyListView() override;
 
@@ -199,4 +195,3 @@ private:
     std::unique_ptr<KeyListViewPrivate> const d;
 };
 }
-

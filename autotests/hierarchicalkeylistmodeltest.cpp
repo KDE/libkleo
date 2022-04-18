@@ -16,7 +16,7 @@
 
 using namespace Kleo;
 
-class HierarchicalKeyListModelTest: public AbstractKeyListModelTest
+class HierarchicalKeyListModelTest : public AbstractKeyListModelTest
 {
     Q_OBJECT
 

@@ -23,13 +23,15 @@ using namespace Kleo;
 using namespace GpgME;
 
 AbstractKeyListSortFilterProxyModel::AbstractKeyListSortFilterProxyModel(QObject *p)
-    : QSortFilterProxyModel(p), KeyListModelInterface()
+    : QSortFilterProxyModel(p)
+    , KeyListModelInterface()
 {
     init();
 }
 
 AbstractKeyListSortFilterProxyModel::AbstractKeyListSortFilterProxyModel(const AbstractKeyListSortFilterProxyModel &other)
-    : QSortFilterProxyModel(), KeyListModelInterface()
+    : QSortFilterProxyModel()
+    , KeyListModelInterface()
 {
     Q_UNUSED(other)
     init();
@@ -38,12 +40,14 @@ AbstractKeyListSortFilterProxyModel::AbstractKeyListSortFilterProxyModel(const A
 void AbstractKeyListSortFilterProxyModel::init()
 {
     setDynamicSortFilter(true);
-    setSortRole(Qt::EditRole);    // EditRole can be expected to be in a less formatted way, better for sorting
+    setSortRole(Qt::EditRole); // EditRole can be expected to be in a less formatted way, better for sorting
     setFilterRole(Qt::DisplayRole);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
 }
 
-AbstractKeyListSortFilterProxyModel::~AbstractKeyListSortFilterProxyModel() {}
+AbstractKeyListSortFilterProxyModel::~AbstractKeyListSortFilterProxyModel()
+{
+}
 
 Key AbstractKeyListSortFilterProxyModel::key(const QModelIndex &idx) const
 {
@@ -105,7 +109,7 @@ QList<QModelIndex> AbstractKeyListSortFilterProxyModel::indexes(const std::vecto
     return QList<QModelIndex>();
 }
 
-QModelIndex AbstractKeyListSortFilterProxyModel::index(const Kleo::KeyGroup& group) const
+QModelIndex AbstractKeyListSortFilterProxyModel::index(const Kleo::KeyGroup &group) const
 {
     if (const KeyListModelInterface *const klmi = dynamic_cast<KeyListModelInterface *>(sourceModel())) {
         return mapFromSource(klmi->index(group));
@@ -116,28 +120,35 @@ QModelIndex AbstractKeyListSortFilterProxyModel::index(const Kleo::KeyGroup& gro
 class KeyListSortFilterProxyModel::Private
 {
     friend class ::Kleo::KeyListSortFilterProxyModel;
+
 public:
     explicit Private()
-        : keyFilter() {}
-    ~Private() {}
+        : keyFilter()
+    {
+    }
+    ~Private()
+    {
+    }
 
 private:
     std::shared_ptr<const KeyFilter> keyFilter;
 };
 
 KeyListSortFilterProxyModel::KeyListSortFilterProxyModel(QObject *p)
-    : AbstractKeyListSortFilterProxyModel(p), d(new Private)
+    : AbstractKeyListSortFilterProxyModel(p)
+    , d(new Private)
 {
-
 }
 
 KeyListSortFilterProxyModel::KeyListSortFilterProxyModel(const KeyListSortFilterProxyModel &other)
-    : AbstractKeyListSortFilterProxyModel(other), d(new Private(*other.d))
+    : AbstractKeyListSortFilterProxyModel(other)
+    , d(new Private(*other.d))
 {
-
 }
 
-KeyListSortFilterProxyModel::~KeyListSortFilterProxyModel() {}
+KeyListSortFilterProxyModel::~KeyListSortFilterProxyModel()
+{
+}
 
 KeyListSortFilterProxyModel *KeyListSortFilterProxyModel::clone() const
 {
@@ -193,7 +204,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     } else if (!key.isNull()) {
         // By default match against the full uid data (name / email / comment / dn)
         bool match = false;
-        for (const auto &uid: key.userIDs()) {
+        for (const auto &uid : key.userIDs()) {
             const auto id = QString::fromUtf8(uid.id());
             if (id.contains(rx)) {
                 match = true;
@@ -209,7 +220,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
                 }
             }
             // Also match against fingerprints
-            for (const auto &subkey: key.subkeys()) {
+            for (const auto &subkey : key.subkeys()) {
                 const auto fpr = QString::fromLatin1(subkey.fingerprint());
                 if (fpr.contains(rx)) {
                     match = true;
@@ -231,11 +242,10 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     //
     // 2. For keys check that key filters match (if any are defined)
     //
-    if (d->keyFilter && !key.isNull()) {   // avoid artifacts when no filters are defined
+    if (d->keyFilter && !key.isNull()) { // avoid artifacts when no filters are defined
         return d->keyFilter->matches(key, KeyFilter::Filtering);
     }
 
     // 3. match by default:
     return true;
 }
-

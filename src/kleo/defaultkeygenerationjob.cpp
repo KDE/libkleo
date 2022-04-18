@@ -6,21 +6,23 @@
 
 #include "defaultkeygenerationjob.h"
 
-#include <qgpgme/protocol.h>
 #include <qgpgme/keygenerationjob.h>
+#include <qgpgme/protocol.h>
 
-#include <QPointer>
 #include <QEvent>
+#include <QPointer>
 
 using namespace Kleo;
 
-namespace Kleo {
+namespace Kleo
+{
 
 class DefaultKeyGenerationJob::DefaultKeyGenerationJobPrivate
 {
 public:
     DefaultKeyGenerationJobPrivate()
-    {}
+    {
+    }
 
     ~DefaultKeyGenerationJobPrivate()
     {
@@ -34,8 +36,7 @@ public:
 };
 }
 
-
-DefaultKeyGenerationJob::DefaultKeyGenerationJob(QObject* parent)
+DefaultKeyGenerationJob::DefaultKeyGenerationJob(QObject *parent)
     : Job(parent)
     , d(new DefaultKeyGenerationJob::DefaultKeyGenerationJobPrivate())
 {
@@ -85,17 +86,19 @@ QString passphraseParameter(const QString &passphrase)
 GpgME::Error DefaultKeyGenerationJob::start(const QString &email, const QString &name)
 {
     const QString passphrase = passphraseParameter(d->passphrase);
-    const QString args = QStringLiteral("<GnupgKeyParms format=\"internal\">\n"
-                                        "key-type:      RSA\n"
-                                        "key-length:    2048\n"
-                                        "key-usage:     sign\n"
-                                        "subkey-type:   RSA\n"
-                                        "subkey-length: 2048\n"
-                                        "subkey-usage:  encrypt\n"
-                                        "%1\n"
-                                        "name-email:    %2\n"
-                                        "name-real:     %3\n"
-                                        "</GnupgKeyParms>").arg(passphrase, email, name);
+    const QString args = QStringLiteral(
+                             "<GnupgKeyParms format=\"internal\">\n"
+                             "key-type:      RSA\n"
+                             "key-length:    2048\n"
+                             "key-usage:     sign\n"
+                             "subkey-type:   RSA\n"
+                             "subkey-length: 2048\n"
+                             "subkey-usage:  encrypt\n"
+                             "%1\n"
+                             "name-email:    %2\n"
+                             "name-real:     %3\n"
+                             "</GnupgKeyParms>")
+                             .arg(passphrase, email, name);
 
     d->job = QGpgME::openpgp()->keyGenerationJob();
     d->job->installEventFilter(this);

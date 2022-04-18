@@ -76,9 +76,7 @@ QList<QUrl> Kleo::getCryptoConfigUrlList(const char *componentName, const char *
         return {};
     }
     const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, componentName, entryName);
-    if (entry && entry->isList()
-        && (entry->argType() == CryptoConfigEntry::ArgType_LDAPURL
-            || entry->argType() == CryptoConfigEntry::ArgType_Path)) {
+    if (entry && entry->isList() && (entry->argType() == CryptoConfigEntry::ArgType_LDAPURL || entry->argType() == CryptoConfigEntry::ArgType_Path)) {
         return entry->urlValueList();
     }
     return {};

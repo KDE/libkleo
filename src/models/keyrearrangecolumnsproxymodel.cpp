@@ -16,11 +16,10 @@
 using namespace Kleo;
 using namespace GpgME;
 
-KeyRearrangeColumnsProxyModel::KeyRearrangeColumnsProxyModel(QObject *parent) :
-    KRearrangeColumnsProxyModel(parent),
-    KeyListModelInterface()
+KeyRearrangeColumnsProxyModel::KeyRearrangeColumnsProxyModel(QObject *parent)
+    : KRearrangeColumnsProxyModel(parent)
+    , KeyListModelInterface()
 {
-
 }
 
 KeyListModelInterface *KeyRearrangeColumnsProxyModel::klm() const
@@ -58,7 +57,7 @@ QModelIndex KeyRearrangeColumnsProxyModel::index(const GpgME::Key &key) const
 QList<QModelIndex> KeyRearrangeColumnsProxyModel::indexes(const std::vector<GpgME::Key> &keys) const
 {
     QList<QModelIndex> myIdxs;
-    const QList <QModelIndex> srcIdxs = klm()->indexes(keys);
+    const QList<QModelIndex> srcIdxs = klm()->indexes(keys);
     myIdxs.reserve(srcIdxs.count());
     for (const QModelIndex &idx : srcIdxs) {
         myIdxs << mapFromSource(idx);

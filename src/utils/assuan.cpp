@@ -15,11 +15,11 @@
 #include <QThread>
 
 #if __has_include(<QGpgME/Debug>)
-# include <QGpgME/Debug>
+#include <QGpgME/Debug>
 #endif
 
-#include <gpgme++/defaultassuantransaction.h>
 #include <gpgme++/context.h>
+#include <gpgme++/defaultassuantransaction.h>
 #include <gpgme++/error.h>
 
 #include "libkleo_debug.h"
@@ -40,7 +40,7 @@ static QDebug operator<<(QDebug s, const std::string &string)
     return s << QString::fromStdString(string);
 }
 
-static QDebug operator<<(QDebug s, const std::vector< std::pair<std::string, std::string> > &v)
+static QDebug operator<<(QDebug s, const std::vector<std::pair<std::string, std::string>> &v)
 {
     using pair = std::pair<std::string, std::string>;
     s << '(';
@@ -71,7 +71,10 @@ bool Kleo::Assuan::agentIsRunning()
     return !err;
 }
 
-std::unique_ptr<GpgME::AssuanTransaction> Kleo::Assuan::sendCommand(std::shared_ptr<GpgME::Context> &context, const std::string &command, std::unique_ptr<GpgME::AssuanTransaction> transaction, GpgME::Error &err)
+std::unique_ptr<GpgME::AssuanTransaction> Kleo::Assuan::sendCommand(std::shared_ptr<GpgME::Context> &context,
+                                                                    const std::string &command,
+                                                                    std::unique_ptr<GpgME::AssuanTransaction> transaction,
+                                                                    GpgME::Error &err)
 {
     qCDebug(LIBKLEO_LOG) << __func__ << command;
     int connectionAttempts = 1;
@@ -101,7 +104,7 @@ std::unique_ptr<GpgME::AssuanTransaction> Kleo::Assuan::sendCommand(std::shared_
 std::unique_ptr<DefaultAssuanTransaction> Kleo::Assuan::sendCommand(std::shared_ptr<Context> &context, const std::string &command, Error &err)
 {
     std::unique_ptr<AssuanTransaction> t = sendCommand(context, command, std::make_unique<DefaultAssuanTransaction>(), err);
-    return std::unique_ptr<DefaultAssuanTransaction>(dynamic_cast<DefaultAssuanTransaction*>(t.release()));
+    return std::unique_ptr<DefaultAssuanTransaction>(dynamic_cast<DefaultAssuanTransaction *>(t.release()));
 }
 
 std::string Kleo::Assuan::sendDataCommand(std::shared_ptr<Context> context, const std::string &command, Error &err)
@@ -138,7 +141,7 @@ std::string Kleo::Assuan::sendStatusCommand(const std::shared_ptr<Context> &cont
     // it would only be FOO
     const auto lastSpace = command.rfind(' ');
     const auto needle = lastSpace == std::string::npos ? command : command.substr(lastSpace + 1);
-    for (const auto &pair: lines) {
+    for (const auto &pair : lines) {
         if (pair.first == needle) {
             return pair.second;
         }

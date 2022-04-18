@@ -31,177 +31,177 @@ using namespace Kleo;
 
 namespace QTest
 {
-template <>
+template<>
 char *toString(const KeyserverAuthentication &authentication)
 {
     return QTest::toString(static_cast<int>(authentication));
 }
 
-template <>
+template<>
 char *toString(const KeyserverConnection &connection)
 {
     return QTest::toString(static_cast<int>(connection));
 }
 }
 
-#define ASSERT_HOST_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("hostEdit")); \
-    QVERIFY(w); \
-    QCOMPARE(w->text(), expected); \
-} while (false)
-
-#define ASSERT_PORT_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<QSpinBox *>(QStringLiteral("portSpinBox")); \
-    QVERIFY(w); \
-    QCOMPARE(w->value(), expected); \
-} while (false)
-
-#define ASSERT_USE_DEFAULT_PORT_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<QCheckBox *>(QStringLiteral("useDefaultPortCheckBox")); \
-    QVERIFY(w); \
-    QCOMPARE(w->isChecked(), expected); \
-} while (false)
-
-#define ASSERT_AUTHENTICATION_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<QButtonGroup *>(QStringLiteral("authenticationGroup")); \
-    QVERIFY(w); \
-    QCOMPARE(w->checkedId(), static_cast<int>(expected)); \
-} while (false)
-
-#define ASSERT_USER_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("userEdit")); \
-    QVERIFY(w); \
-    QCOMPARE(w->text(), expected); \
-} while (false)
-
-#define ASSERT_PASSWORD_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<KPasswordLineEdit *>(QStringLiteral("passwordEdit")); \
-    QVERIFY(w); \
-    QCOMPARE(w->password(), expected); \
-} while (false)
-
-#define ASSERT_CONNECTION_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<QButtonGroup *>(QStringLiteral("connectionGroup")); \
-    QVERIFY(w); \
-    QCOMPARE(w->checkedId(), static_cast<int>(expected)); \
-} while (false)
-
-#define ASSERT_BASE_DN_IS( expected ) \
-do { \
-    const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("baseDnEdit")); \
-    QVERIFY(w); \
-    QCOMPARE(w->text(), expected); \
-} while (false)
-
-#define ASSERT_ADDITONAL_FLAGS_ARE( expected ) \
-do { \
-    const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("additionalFlagsEdit")); \
-    QVERIFY(w); \
-    QCOMPARE(w->text(), expected); \
-} while (false)
-
-#define ASSERT_WIDGET_IS_ENABLED( objectName ) \
-do { \
-    const auto w = dialog->findChild<QWidget *>(QStringLiteral(objectName)); \
-    QVERIFY(w); \
-    QVERIFY(w->isEnabled()); \
-} while (false)
-
-#define ASSERT_WIDGET_IS_DISABLED( objectName ) \
-do { \
-    const auto w = dialog->findChild<QWidget *>(QStringLiteral(objectName)); \
-    QVERIFY(w); \
-    QVERIFY(!w->isEnabled()); \
-} while (false)
-
-#define ASSERT_ADVANCED_SETTINGS_ARE_EXPANDED() \
-do { \
-    const auto w = dialog->findChild<KCollapsibleGroupBox *>(QStringLiteral("advancedSettings")); \
-    QVERIFY(w); \
-    QVERIFY(w->isExpanded()); \
-} while (false)
-
-#define ASSERT_ADVANCED_SETTINGS_ARE_COLLAPSED() \
-do { \
-    const auto w = dialog->findChild<KCollapsibleGroupBox *>(QStringLiteral("advancedSettings")); \
-    QVERIFY(w); \
-    QVERIFY(!w->isExpanded()); \
-} while (false)
-
-#define ASSERT_OK_BUTTON_IS_ENABLED() \
-do { \
-    const auto o = dialog->findChild<QDialogButtonBox *>(QStringLiteral("buttonBox")); \
-    QVERIFY(o); \
-    QVERIFY(o->button(QDialogButtonBox::Ok)); \
-    QVERIFY(o->button(QDialogButtonBox::Ok)->isEnabled()); \
-} while (false)
-
-#define ASSERT_OK_BUTTON_IS_DISABLED() \
-do { \
-    const auto o = dialog->findChild<QDialogButtonBox *>(QStringLiteral("buttonBox")); \
-    QVERIFY(o); \
-    QVERIFY(o->button(QDialogButtonBox::Ok)); \
-    QVERIFY(!o->button(QDialogButtonBox::Ok)->isEnabled()); \
-} while (false)
-
-#define WHEN_USER_SETS_LINEEDIT_VALUE_TO( objectName, value ) \
-do { \
-    const auto w = dialog->findChild<QLineEdit *>(QStringLiteral(objectName)); \
-    QVERIFY(w); \
-    w->selectAll(); \
-    w->del(); \
-    QTest::keyClicks(w, value); \
-} while (false)
-
-#define WHEN_USER_SETS_PASSWORD_TO( objectName, value ) \
-do { \
-    const auto w = dialog->findChild<KPasswordLineEdit *>(QStringLiteral(objectName)); \
-    QVERIFY(w); \
-    w->setPassword(value); \
-} while (false)
-
-#define WHEN_USER_TOGGLES_BUTTON( objectName ) \
-do { \
-    const auto w = dialog->findChild<QAbstractButton *>(QStringLiteral(objectName)); \
-    QVERIFY(w); \
-    QVERIFY(w->isCheckable()); \
-    w->toggle(); \
-} while (false)
-
-#define WHEN_USER_SETS_SPINBOX_VALUE_TO( objectName, value ) \
-do { \
-    const auto w = dialog->findChild<QSpinBox *>(QStringLiteral(objectName)); \
-    QVERIFY(w); \
-    w->setValue(value); \
-} while (false)
-
-#define WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP( objectName, buttonId ) \
-do { \
-    const auto w = dialog->findChild<QButtonGroup *>(QStringLiteral(objectName)); \
-    QVERIFY(w); \
-    const auto button = w->button(buttonId); \
-    QVERIFY(button); \
-    button->setChecked(true); \
-} while (false)
-
-#define WHEN_USER_SELECTS_AUTHENTICATION(authentication) \
-    do { \
-        WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("authenticationGroup", static_cast<int>(authentication)); \
+#define ASSERT_HOST_IS(expected)                                                                                                                               \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("hostEdit"));                                                                             \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->text(), expected);                                                                                                                         \
     } while (false)
 
-#define WHEN_USER_SELECTS_CONNECTION(connection) \
-    do { \
-        WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("connectionGroup", static_cast<int>(connection)); \
+#define ASSERT_PORT_IS(expected)                                                                                                                               \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QSpinBox *>(QStringLiteral("portSpinBox"));                                                                           \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->value(), expected);                                                                                                                        \
     } while (false)
 
-class EditDirectoryServiceDialogTest: public QObject
+#define ASSERT_USE_DEFAULT_PORT_IS(expected)                                                                                                                   \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QCheckBox *>(QStringLiteral("useDefaultPortCheckBox"));                                                               \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->isChecked(), expected);                                                                                                                    \
+    } while (false)
+
+#define ASSERT_AUTHENTICATION_IS(expected)                                                                                                                     \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QButtonGroup *>(QStringLiteral("authenticationGroup"));                                                               \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->checkedId(), static_cast<int>(expected));                                                                                                  \
+    } while (false)
+
+#define ASSERT_USER_IS(expected)                                                                                                                               \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("userEdit"));                                                                             \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->text(), expected);                                                                                                                         \
+    } while (false)
+
+#define ASSERT_PASSWORD_IS(expected)                                                                                                                           \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<KPasswordLineEdit *>(QStringLiteral("passwordEdit"));                                                                 \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->password(), expected);                                                                                                                     \
+    } while (false)
+
+#define ASSERT_CONNECTION_IS(expected)                                                                                                                         \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QButtonGroup *>(QStringLiteral("connectionGroup"));                                                                   \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->checkedId(), static_cast<int>(expected));                                                                                                  \
+    } while (false)
+
+#define ASSERT_BASE_DN_IS(expected)                                                                                                                            \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("baseDnEdit"));                                                                           \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->text(), expected);                                                                                                                         \
+    } while (false)
+
+#define ASSERT_ADDITONAL_FLAGS_ARE(expected)                                                                                                                   \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QLineEdit *>(QStringLiteral("additionalFlagsEdit"));                                                                  \
+        QVERIFY(w);                                                                                                                                            \
+        QCOMPARE(w->text(), expected);                                                                                                                         \
+    } while (false)
+
+#define ASSERT_WIDGET_IS_ENABLED(objectName)                                                                                                                   \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QWidget *>(QStringLiteral(objectName));                                                                               \
+        QVERIFY(w);                                                                                                                                            \
+        QVERIFY(w->isEnabled());                                                                                                                               \
+    } while (false)
+
+#define ASSERT_WIDGET_IS_DISABLED(objectName)                                                                                                                  \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QWidget *>(QStringLiteral(objectName));                                                                               \
+        QVERIFY(w);                                                                                                                                            \
+        QVERIFY(!w->isEnabled());                                                                                                                              \
+    } while (false)
+
+#define ASSERT_ADVANCED_SETTINGS_ARE_EXPANDED()                                                                                                                \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<KCollapsibleGroupBox *>(QStringLiteral("advancedSettings"));                                                          \
+        QVERIFY(w);                                                                                                                                            \
+        QVERIFY(w->isExpanded());                                                                                                                              \
+    } while (false)
+
+#define ASSERT_ADVANCED_SETTINGS_ARE_COLLAPSED()                                                                                                               \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<KCollapsibleGroupBox *>(QStringLiteral("advancedSettings"));                                                          \
+        QVERIFY(w);                                                                                                                                            \
+        QVERIFY(!w->isExpanded());                                                                                                                             \
+    } while (false)
+
+#define ASSERT_OK_BUTTON_IS_ENABLED()                                                                                                                          \
+    do {                                                                                                                                                       \
+        const auto o = dialog->findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));                                                                     \
+        QVERIFY(o);                                                                                                                                            \
+        QVERIFY(o->button(QDialogButtonBox::Ok));                                                                                                              \
+        QVERIFY(o->button(QDialogButtonBox::Ok)->isEnabled());                                                                                                 \
+    } while (false)
+
+#define ASSERT_OK_BUTTON_IS_DISABLED()                                                                                                                         \
+    do {                                                                                                                                                       \
+        const auto o = dialog->findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));                                                                     \
+        QVERIFY(o);                                                                                                                                            \
+        QVERIFY(o->button(QDialogButtonBox::Ok));                                                                                                              \
+        QVERIFY(!o->button(QDialogButtonBox::Ok)->isEnabled());                                                                                                \
+    } while (false)
+
+#define WHEN_USER_SETS_LINEEDIT_VALUE_TO(objectName, value)                                                                                                    \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QLineEdit *>(QStringLiteral(objectName));                                                                             \
+        QVERIFY(w);                                                                                                                                            \
+        w->selectAll();                                                                                                                                        \
+        w->del();                                                                                                                                              \
+        QTest::keyClicks(w, value);                                                                                                                            \
+    } while (false)
+
+#define WHEN_USER_SETS_PASSWORD_TO(objectName, value)                                                                                                          \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<KPasswordLineEdit *>(QStringLiteral(objectName));                                                                     \
+        QVERIFY(w);                                                                                                                                            \
+        w->setPassword(value);                                                                                                                                 \
+    } while (false)
+
+#define WHEN_USER_TOGGLES_BUTTON(objectName)                                                                                                                   \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QAbstractButton *>(QStringLiteral(objectName));                                                                       \
+        QVERIFY(w);                                                                                                                                            \
+        QVERIFY(w->isCheckable());                                                                                                                             \
+        w->toggle();                                                                                                                                           \
+    } while (false)
+
+#define WHEN_USER_SETS_SPINBOX_VALUE_TO(objectName, value)                                                                                                     \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QSpinBox *>(QStringLiteral(objectName));                                                                              \
+        QVERIFY(w);                                                                                                                                            \
+        w->setValue(value);                                                                                                                                    \
+    } while (false)
+
+#define WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP(objectName, buttonId)                                                                                 \
+    do {                                                                                                                                                       \
+        const auto w = dialog->findChild<QButtonGroup *>(QStringLiteral(objectName));                                                                          \
+        QVERIFY(w);                                                                                                                                            \
+        const auto button = w->button(buttonId);                                                                                                               \
+        QVERIFY(button);                                                                                                                                       \
+        button->setChecked(true);                                                                                                                              \
+    } while (false)
+
+#define WHEN_USER_SELECTS_AUTHENTICATION(authentication)                                                                                                       \
+    do {                                                                                                                                                       \
+        WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("authenticationGroup", static_cast<int>(authentication));                                             \
+    } while (false)
+
+#define WHEN_USER_SELECTS_CONNECTION(connection)                                                                                                               \
+    do {                                                                                                                                                       \
+        WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("connectionGroup", static_cast<int>(connection));                                                     \
+    } while (false)
+
+class EditDirectoryServiceDialogTest : public QObject
 {
     Q_OBJECT
 

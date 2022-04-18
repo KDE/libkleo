@@ -27,12 +27,12 @@ namespace Kleo
 
 class KeyFilter;
 
-class KLEO_EXPORT AbstractKeyListSortFilterProxyModel : public QSortFilterProxyModel
-                                                      , public KeyListModelInterface
+class KLEO_EXPORT AbstractKeyListSortFilterProxyModel : public QSortFilterProxyModel, public KeyListModelInterface
 {
     Q_OBJECT
 protected:
     AbstractKeyListSortFilterProxyModel(const AbstractKeyListSortFilterProxyModel &);
+
 public:
     explicit AbstractKeyListSortFilterProxyModel(QObject *parent = nullptr);
     ~AbstractKeyListSortFilterProxyModel() override;
@@ -59,6 +59,7 @@ class KLEO_EXPORT KeyListSortFilterProxyModel : public AbstractKeyListSortFilter
     Q_OBJECT
 protected:
     KeyListSortFilterProxyModel(const KeyListSortFilterProxyModel &);
+
 public:
     explicit KeyListSortFilterProxyModel(QObject *parent = nullptr);
     ~KeyListSortFilterProxyModel() override;
@@ -77,4 +78,3 @@ private:
 };
 
 }
-

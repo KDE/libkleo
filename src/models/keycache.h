@@ -52,6 +52,7 @@ class KLEO_EXPORT KeyCache : public QObject
 
 protected:
     explicit KeyCache();
+
 public:
     static std::shared_ptr<const KeyCache> instance();
     static std::shared_ptr<KeyCache> mutableInstance();
@@ -165,7 +166,8 @@ public:
 
     std::vector<GpgME::Key> findSubjects(const GpgME::Key &key, Options option = RecursiveSearch) const;
     std::vector<GpgME::Key> findSubjects(const std::vector<GpgME::Key> &keys, Options options = RecursiveSearch) const;
-    std::vector<GpgME::Key> findSubjects(std::vector<GpgME::Key>::const_iterator first, std::vector<GpgME::Key>::const_iterator last, Options options = RecursiveSearch) const;
+    std::vector<GpgME::Key>
+    findSubjects(std::vector<GpgME::Key>::const_iterator first, std::vector<GpgME::Key>::const_iterator last, Options options = RecursiveSearch) const;
 
     std::vector<GpgME::Key> findIssuers(const GpgME::Key &key, Options options = RecursiveSearch) const;
 
@@ -190,7 +192,7 @@ public Q_SLOTS:
     void cancelKeyListing();
 
 Q_SIGNALS:
-    //void changed( const GpgME::Key & key );
+    // void changed( const GpgME::Key & key );
     void aboutToRemove(const GpgME::Key &key);
     void added(const GpgME::Key &key);
     void keyListingDone(const GpgME::KeyListResult &result);
@@ -209,4 +211,3 @@ private:
 }
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeyCache::Options)
-

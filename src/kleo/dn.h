@@ -71,6 +71,7 @@ public:
 
 private:
     void detach();
+
 private:
     class Private;
     Private *d;
@@ -82,9 +83,15 @@ public:
     using List = DN::AttributeList;
 
     explicit Attribute(const QString &name = QString(), const QString &value = QString())
-        : mName(name.toUpper()), mValue(value) {}
+        : mName(name.toUpper())
+        , mValue(value)
+    {
+    }
     Attribute(const Attribute &other)
-        : mName(other.name()), mValue(other.value()) {}
+        : mName(other.name())
+        , mValue(other.value())
+    {
+    }
 
     const Attribute &operator=(const Attribute &other)
     {
@@ -115,4 +122,3 @@ private:
 };
 
 }
-

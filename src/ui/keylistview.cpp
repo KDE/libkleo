@@ -11,16 +11,16 @@
 
 #include "kleo_ui_debug.h"
 
-#include <QFontMetrics>
-#include <QToolTip>
-#include <QPoint>
-#include <QFont>
 #include <QColor>
+#include <QFont>
+#include <QFontMetrics>
+#include <QPoint>
 #include <QTimer>
+#include <QToolTip>
 #include <gpgme++/key.h>
 
-#include <vector>
 #include <map>
+#include <vector>
 
 #include <QKeyEvent>
 
@@ -29,7 +29,10 @@ static const int updateDelayMilliSecs = 500;
 class Q_DECL_HIDDEN Kleo::KeyListView::KeyListViewPrivate
 {
 public:
-    KeyListViewPrivate() : updateTimer(nullptr) {}
+    KeyListViewPrivate()
+        : updateTimer(nullptr)
+    {
+    }
 
     std::vector<GpgME::Key> keyBuffer;
     QTimer *updateTimer = nullptr;
@@ -43,8 +46,8 @@ static const struct {
     const char *target;
 } signalReplacements[] = {
     {
-        SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
-        SLOT(slotEmitDoubleClicked(QTreeWidgetItem*,int)),
+        SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)),
+        SLOT(slotEmitDoubleClicked(QTreeWidgetItem *, int)),
     },
     {
         SIGNAL(itemSelectionChanged()),
@@ -55,13 +58,14 @@ static const struct {
         SLOT(slotEmitContextMenu(QPoint)),
     },
 };
-static const int numSignalReplacements = sizeof signalReplacements / sizeof * signalReplacements;
+static const int numSignalReplacements = sizeof signalReplacements / sizeof *signalReplacements;
 
 Kleo::KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const DisplayStrategy *displayStrategy, QWidget *parent, Qt::WindowFlags f)
-    : QTreeWidget(parent),
-      mColumnStrategy(columnStrategy),
-      mDisplayStrategy(displayStrategy),
-      mHierarchical(false), d(new KeyListViewPrivate())
+    : QTreeWidget(parent)
+    , mColumnStrategy(columnStrategy)
+    , mDisplayStrategy(displayStrategy)
+    , mHierarchical(false)
+    , d(new KeyListViewPrivate())
 {
     setWindowFlags(f);
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -101,13 +105,15 @@ Kleo::KeyListView::~KeyListView()
     clear();
     Q_ASSERT(d->itemMap.size() == 0);
     // need to delete the tooltip ourselves, as ~QToolTip isn't virtual :o
-    delete mColumnStrategy; mColumnStrategy = nullptr;
-    delete mDisplayStrategy; mDisplayStrategy = nullptr;
+    delete mColumnStrategy;
+    mColumnStrategy = nullptr;
+    delete mDisplayStrategy;
+    mDisplayStrategy = nullptr;
 }
 
 void Kleo::KeyListView::takeItem(QTreeWidgetItem *qlvi)
 {
-    //qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListView::takeItem(" << qlvi <<" )";
+    // qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListView::takeItem(" << qlvi <<" )";
     if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
         deregisterItem(item);
     }
@@ -149,8 +155,7 @@ void Kleo::KeyListView::slotUpdateTimeout()
     if (wasUpdatesEnabled) {
         viewport()->setUpdatesEnabled(false);
     }
-    qCDebug(KLEO_UI_LOG) << "Kleo::KeyListView::slotUpdateTimeout(): processing"
-                         << d->keyBuffer.size() << "items en block";
+    qCDebug(KLEO_UI_LOG) << "Kleo::KeyListView::slotUpdateTimeout(): processing" << d->keyBuffer.size() << "items en block";
     if (hierarchical()) {
         for (std::vector<GpgME::Key>::const_iterator it = d->keyBuffer.begin(); it != d->keyBuffer.end(); ++it) {
             doHierarchicalInsert(*it);
@@ -179,7 +184,7 @@ void Kleo::KeyListView::clear()
 
 void Kleo::KeyListView::registerItem(KeyListViewItem *item)
 {
-    //qCDebug(KLEO_UI_LOG) <<"registerItem(" << item <<" )";
+    // qCDebug(KLEO_UI_LOG) <<"registerItem(" << item <<" )";
     if (!item) {
         return;
     }
@@ -191,18 +196,17 @@ void Kleo::KeyListView::registerItem(KeyListViewItem *item)
 
 void Kleo::KeyListView::deregisterItem(const KeyListViewItem *item)
 {
-    //qCDebug(KLEO_UI_LOG) <<"deregisterItem( KeyLVI:" << item <<" )";
+    // qCDebug(KLEO_UI_LOG) <<"deregisterItem( KeyLVI:" << item <<" )";
     if (!item) {
         return;
     }
-    auto it
-        = d->itemMap.find(item->key().primaryFingerprint());
+    auto it = d->itemMap.find(item->key().primaryFingerprint());
     if (it == d->itemMap.end()) {
         return;
     }
     // This Q_ASSERT triggers, though it shouldn't. Print some more
     // information when it happens.
-    //Q_ASSERT( it->second == item );
+    // Q_ASSERT( it->second == item );
     if (it->second != item) {
         qCWarning(KLEO_UI_LOG) << "deregisterItem:"
                                << "item      " << item->key().primaryFingerprint() //
@@ -226,7 +230,7 @@ void Kleo::KeyListView::doHierarchicalInsert(const GpgME::Key &key)
         }
     }
     if (!item) {
-        item = new KeyListViewItem(this, key);    // top-level (for now)
+        item = new KeyListViewItem(this, key); // top-level (for now)
     }
 
     d->itemMap.insert(std::make_pair(fpr, item));
@@ -414,9 +418,7 @@ void Kleo::KeyListViewItem::setKey(const GpgME::Key &key)
 
 QString Kleo::KeyListViewItem::toolTip(int col) const
 {
-    return listView() && listView()->columnStrategy()
-           ? listView()->columnStrategy()->toolTip(key(), col)
-           : QString();
+    return listView() && listView()->columnStrategy() ? listView()->columnStrategy()->toolTip(key(), col) : QString();
 }
 
 bool Kleo::KeyListViewItem::operator<(const QTreeWidgetItem &other) const
@@ -430,7 +432,7 @@ bool Kleo::KeyListViewItem::operator<(const QTreeWidgetItem &other) const
 
 void Kleo::KeyListViewItem::takeItem(QTreeWidgetItem *qlvi)
 {
-    //qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListViewItem::takeItem(" << qlvi <<" )";
+    // qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListViewItem::takeItem(" << qlvi <<" )";
     if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
         listView()->deregisterItem(item);
     }
@@ -443,7 +445,9 @@ void Kleo::KeyListViewItem::takeItem(QTreeWidgetItem *qlvi)
 //
 //
 
-Kleo::KeyListView::ColumnStrategy::~ColumnStrategy() {}
+Kleo::KeyListView::ColumnStrategy::~ColumnStrategy()
+{
+}
 
 int Kleo::KeyListView::ColumnStrategy::compare(const GpgME::Key &key1, const GpgME::Key &key2, const int col) const
 {
@@ -466,22 +470,24 @@ QString Kleo::KeyListView::ColumnStrategy::toolTip(const GpgME::Key &key, int co
 //
 //
 
-Kleo::KeyListView::DisplayStrategy::~DisplayStrategy() {}
+Kleo::KeyListView::DisplayStrategy::~DisplayStrategy()
+{
+}
 
-//font
+// font
 QFont Kleo::KeyListView::DisplayStrategy::keyFont(const GpgME::Key &, const QFont &font) const
 {
     return font;
 }
 
-//foreground
-QColor Kleo::KeyListView::DisplayStrategy::keyForeground(const GpgME::Key &, const QColor &fg)const
+// foreground
+QColor Kleo::KeyListView::DisplayStrategy::keyForeground(const GpgME::Key &, const QColor &fg) const
 {
     return fg;
 }
 
-//background
-QColor Kleo::KeyListView::DisplayStrategy::keyBackground(const GpgME::Key &, const QColor &bg)const
+// background
+QColor Kleo::KeyListView::DisplayStrategy::keyBackground(const GpgME::Key &, const QColor &bg) const
 {
     return bg;
 }
@@ -548,4 +554,3 @@ void Kleo::KeyListView::keyPressEvent(QKeyEvent *event)
     }
     QTreeView::keyPressEvent(event);
 }
-

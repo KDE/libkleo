@@ -22,29 +22,34 @@ namespace Kleo
 {
 
 UniqueLock::UniqueLock() noexcept
-    : mMutex{nullptr}, mOwnsMutex{false}
+    : mMutex{nullptr}
+    , mOwnsMutex{false}
 {
 }
 
 UniqueLock::UniqueLock(QMutex &mutex)
-    : mMutex{std::addressof(mutex)}, mOwnsMutex{false}
+    : mMutex{std::addressof(mutex)}
+    , mOwnsMutex{false}
 {
     lock();
     mOwnsMutex = true;
 }
 
 UniqueLock::UniqueLock(QMutex &mutex, DeferLockType) noexcept
-    : mMutex{std::addressof(mutex)}, mOwnsMutex{false}
+    : mMutex{std::addressof(mutex)}
+    , mOwnsMutex{false}
 {
 }
 
 UniqueLock::UniqueLock(QMutex &mutex, TryToLockType)
-    : mMutex{std::addressof(mutex)}, mOwnsMutex{mMutex->try_lock()}
+    : mMutex{std::addressof(mutex)}
+    , mOwnsMutex{mMutex->try_lock()}
 {
 }
 
 UniqueLock::UniqueLock(QMutex &mutex, AdoptLockType) noexcept
-    : mMutex{std::addressof(mutex)}, mOwnsMutex{true}
+    : mMutex{std::addressof(mutex)}
+    , mOwnsMutex{true}
 {
     // XXX calling thread owns mutex
 }
@@ -57,7 +62,8 @@ UniqueLock::~UniqueLock()
 }
 
 UniqueLock::UniqueLock(UniqueLock &&u) noexcept
-    : mMutex{u.mMutex}, mOwnsMutex{u.mOwnsMutex}
+    : mMutex{u.mMutex}
+    , mOwnsMutex{u.mOwnsMutex}
 {
     u.mMutex = nullptr;
     u.mOwnsMutex = false;
@@ -65,7 +71,7 @@ UniqueLock::UniqueLock(UniqueLock &&u) noexcept
 
 UniqueLock &UniqueLock::operator=(UniqueLock &&u) noexcept
 {
-    if(mOwnsMutex) {
+    if (mOwnsMutex) {
         unlock();
     }
 

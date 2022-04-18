@@ -12,10 +12,10 @@
 
 #include <libkleo_debug.h>
 
+#include <QDir>
 #include <QFileSystemWatcher>
 #include <QString>
 #include <QTimer>
-#include <QDir>
 
 #include <set>
 
@@ -24,6 +24,7 @@ using namespace Kleo;
 class FileSystemWatcher::Private
 {
     FileSystemWatcher *const q;
+
 public:
     explicit Private(FileSystemWatcher *qq, const QStringList &paths = QStringList());
     ~Private()
@@ -47,12 +48,14 @@ public:
 };
 
 FileSystemWatcher::Private::Private(FileSystemWatcher *qq, const QStringList &paths)
-    : q(qq),
-      m_watcher(nullptr),
-      m_paths(paths)
+    : q(qq)
+    , m_watcher(nullptr)
+    , m_paths(paths)
 {
     m_timer.setSingleShot(true);
-    connect(&m_timer, &QTimer::timeout, q, [this]() { onTimeout(); });
+    connect(&m_timer, &QTimer::timeout, q, [this]() {
+        onTimeout();
+    });
 }
 
 static bool is_matching(const QString &file, const QStringList &list)
@@ -73,7 +76,7 @@ static bool is_blacklisted(const QString &file, const QStringList &blacklist)
 static bool is_whitelisted(const QString &file, const QStringList &whitelist)
 {
     if (whitelist.empty()) {
-        return true;    // special case
+        return true; // special case
     }
     return is_matching(file, whitelist);
 }
@@ -97,24 +100,20 @@ static QStringList list_dir_absolute(const QString &path, const QStringList &bla
 {
     QDir dir(path);
     QStringList entries = dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot);
-    QStringList::iterator end =
-        std::remove_if(entries.begin(), entries.end(),
-                       [&blacklist](const QString &entry) {
-                           return is_blacklisted(entry, blacklist);
-                       });
+    QStringList::iterator end = std::remove_if(entries.begin(), entries.end(), [&blacklist](const QString &entry) {
+        return is_blacklisted(entry, blacklist);
+    });
     if (!whitelist.empty()) {
-        end = std::remove_if(entries.begin(), end,
-                             [&whitelist](const QString &entry) {
-                                 return !is_whitelisted(entry, whitelist);
-                             });
+        end = std::remove_if(entries.begin(), end, [&whitelist](const QString &entry) {
+            return !is_whitelisted(entry, whitelist);
+        });
     }
     entries.erase(end, entries.end());
     std::sort(entries.begin(), entries.end());
 
-    std::transform(entries.begin(), entries.end(), entries.begin(),
-                   [&dir](const QString &entry) {
-                       return dir.absoluteFilePath(entry);
-                   });
+    std::transform(entries.begin(), entries.end(), entries.begin(), [&dir](const QString &entry) {
+        return dir.absoluteFilePath(entry);
+    });
 
     return entries;
 }
@@ -122,9 +121,7 @@ static QStringList list_dir_absolute(const QString &path, const QStringList &bla
 static QStringList find_new_files(const QStringList &current, const std::set<QString> &seen)
 {
     QStringList result;
-    std::set_difference(current.begin(), current.end(),
-                        seen.begin(), seen.end(),
-                        std::back_inserter(result));
+    std::set_difference(current.begin(), current.end(), seen.begin(), seen.end(), std::back_inserter(result));
     return result;
 }
 
@@ -181,18 +178,24 @@ void FileSystemWatcher::Private::connectWatcher()
     if (!m_watcher) {
         return;
     }
-    connect(m_watcher, &QFileSystemWatcher::directoryChanged, q, [this](const QString &str) { onDirectoryChanged(str); });
-    connect(m_watcher, &QFileSystemWatcher::fileChanged, q, [this](const QString &str) { onFileChanged(str); });
+    connect(m_watcher, &QFileSystemWatcher::directoryChanged, q, [this](const QString &str) {
+        onDirectoryChanged(str);
+    });
+    connect(m_watcher, &QFileSystemWatcher::fileChanged, q, [this](const QString &str) {
+        onFileChanged(str);
+    });
 }
 
 FileSystemWatcher::FileSystemWatcher(QObject *p)
-    : QObject(p), d(new Private(this))
+    : QObject(p)
+    , d(new Private(this))
 {
     setEnabled(true);
 }
 
 FileSystemWatcher::FileSystemWatcher(const QStringList &paths, QObject *p)
-    : QObject(p), d(new Private(this, paths))
+    : QObject(p)
+    , d(new Private(this, paths))
 {
     setEnabled(true);
 }
@@ -240,11 +243,15 @@ void FileSystemWatcher::blacklistFiles(const QStringList &paths)
 {
     d->m_blacklist += paths;
     QStringList blacklisted;
-    d->m_paths.erase(kdtools::separate_if(d->m_paths.begin(), d->m_paths.end(),
-                                          std::back_inserter(blacklisted), d->m_paths.begin(),
+    d->m_paths.erase(kdtools::separate_if(d->m_paths.begin(),
+                                          d->m_paths.end(),
+                                          std::back_inserter(blacklisted),
+                                          d->m_paths.begin(),
                                           [this](const QString &path) {
                                               return is_blacklisted(path, d->m_blacklist);
-                                          }).second, d->m_paths.end());
+                                          })
+                         .second,
+                     d->m_paths.end());
     if (d->m_watcher && !blacklisted.empty()) {
         d->m_watcher->removePaths(blacklisted);
     }

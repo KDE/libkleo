@@ -50,8 +50,7 @@ class CryptoConfigComponentGUI : public QWidget
     Q_OBJECT
 
 public:
-    CryptoConfigComponentGUI(CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component,
-                             QWidget *parent = nullptr);
+    CryptoConfigComponentGUI(CryptoConfigModule *module, QGpgME::CryptoConfigComponent *component, QWidget *parent = nullptr);
 
     bool save();
     void load();
@@ -70,9 +69,11 @@ class CryptoConfigGroupGUI : public QObject
     Q_OBJECT
 
 public:
-    CryptoConfigGroupGUI(CryptoConfigModule *module, QGpgME::CryptoConfigGroup *group,
+    CryptoConfigGroupGUI(CryptoConfigModule *module,
+                         QGpgME::CryptoConfigGroup *group,
                          const std::vector<QGpgME::CryptoConfigEntry *> &entries,
-                         QGridLayout *layout, QWidget *parent = nullptr);
+                         QGridLayout *layout,
+                         QWidget *parent = nullptr);
 
     bool save();
     void load();
@@ -89,10 +90,8 @@ private:
 class CryptoConfigEntryGUIFactory
 {
 public:
-    static CryptoConfigEntryGUI *createEntryGUI(
-        CryptoConfigModule *module,
-        QGpgME::CryptoConfigEntry *entry, const QString &entryName,
-        QGridLayout *layout, QWidget *widget);
+    static CryptoConfigEntryGUI *
+    createEntryGUI(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry, const QString &entryName, QGridLayout *layout, QWidget *widget);
 };
 
 /**
@@ -102,9 +101,7 @@ class CryptoConfigEntryGUI : public QObject
 {
     Q_OBJECT
 public:
-    CryptoConfigEntryGUI(CryptoConfigModule *module,
-                         QGpgME::CryptoConfigEntry *entry,
-                         const QString &entryName);
+    CryptoConfigEntryGUI(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry, const QString &entryName);
 
     void load()
     {
@@ -160,6 +157,7 @@ public:
 
     void doSave() override;
     void doLoad() override;
+
 private:
     KLineEdit *mLineEdit = nullptr;
 };
@@ -171,11 +169,15 @@ class CryptoConfigEntryDebugLevel : public CryptoConfigEntryGUI
 {
     Q_OBJECT
 public:
-    CryptoConfigEntryDebugLevel(CryptoConfigModule *module, QGpgME::CryptoConfigEntry *entry,
-                                const QString &entryName, QGridLayout *layout, QWidget *parent = nullptr);
+    CryptoConfigEntryDebugLevel(CryptoConfigModule *module,
+                                QGpgME::CryptoConfigEntry *entry,
+                                const QString &entryName,
+                                QGridLayout *layout,
+                                QWidget *parent = nullptr);
 
     void doSave() override;
     void doLoad() override;
+
 private:
     QComboBox *mComboBox = nullptr;
 };
@@ -196,6 +198,7 @@ public:
 
     void doSave() override;
     void doLoad() override;
+
 private:
     Kleo::FileNameRequester *mFileNameRequester = nullptr;
 };
@@ -216,6 +219,7 @@ public:
 
     void doSave() override;
     void doLoad() override;
+
 private:
     Kleo::FileNameRequester *mFileNameRequester = nullptr;
 };
@@ -235,6 +239,7 @@ public:
                              QWidget *parent = nullptr);
     void doSave() override;
     void doLoad() override;
+
 private:
     enum { Int, UInt, ListOfNone } mKind;
     QSpinBox *mNumInput = nullptr;
@@ -255,6 +260,7 @@ public:
                               QWidget *parent = nullptr);
     void doSave() override;
     void doLoad() override;
+
 private:
     QCheckBox *mCheckBox = nullptr;
 };
@@ -276,6 +282,7 @@ public:
     void doLoad() override;
 private Q_SLOTS:
     void slotOpenDialog();
+
 private:
     void setURLList(const QList<QUrl> &urlList);
     QLabel *mLabel = nullptr;

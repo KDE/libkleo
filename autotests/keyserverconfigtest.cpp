@@ -18,31 +18,40 @@ using namespace Kleo;
 
 namespace QTest
 {
-template <>
+template<>
 inline char *toString(const KeyserverAuthentication &t)
 {
     switch (t) {
-    case KeyserverAuthentication::Anonymous: return qstrdup("Anonymous");
-    case KeyserverAuthentication::ActiveDirectory: return qstrdup("ActiveDirectory");
-    case KeyserverAuthentication::Password: return qstrdup("Password");
-    default: return qstrdup((std::string("invalid value (") + std::to_string(static_cast<int>(t)) + ")").c_str());
+    case KeyserverAuthentication::Anonymous:
+        return qstrdup("Anonymous");
+    case KeyserverAuthentication::ActiveDirectory:
+        return qstrdup("ActiveDirectory");
+    case KeyserverAuthentication::Password:
+        return qstrdup("Password");
+    default:
+        return qstrdup((std::string("invalid value (") + std::to_string(static_cast<int>(t)) + ")").c_str());
     }
 }
 
-template <>
+template<>
 inline char *toString(const KeyserverConnection &t)
 {
     switch (t) {
-    case KeyserverConnection::Default: return qstrdup("Default");
-    case KeyserverConnection::Plain: return qstrdup("Plain");
-    case KeyserverConnection::UseSTARTTLS: return qstrdup("UseSTARTTLS");
-    case KeyserverConnection::TunnelThroughTLS: return qstrdup("TunnelThroughTLS");
-    default: return qstrdup((std::string("invalid value (") + std::to_string(static_cast<int>(t)) + ")").c_str());
+    case KeyserverConnection::Default:
+        return qstrdup("Default");
+    case KeyserverConnection::Plain:
+        return qstrdup("Plain");
+    case KeyserverConnection::UseSTARTTLS:
+        return qstrdup("UseSTARTTLS");
+    case KeyserverConnection::TunnelThroughTLS:
+        return qstrdup("TunnelThroughTLS");
+    default:
+        return qstrdup((std::string("invalid value (") + std::to_string(static_cast<int>(t)) + ")").c_str());
     }
 }
 }
 
-class KeyserverConfigTest: public QObject
+class KeyserverConfigTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:

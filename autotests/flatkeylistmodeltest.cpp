@@ -16,7 +16,7 @@
 
 using namespace Kleo;
 
-class FlatKeyListModelTest: public AbstractKeyListModelTest
+class FlatKeyListModelTest : public AbstractKeyListModelTest
 {
     Q_OBJECT
 

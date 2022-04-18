@@ -26,7 +26,8 @@
 #define strcasecmp _stricmp
 #endif
 
-namespace {
+namespace
+{
 static const QStringList defaultOrder = {
     QStringLiteral("CN"),
     QStringLiteral("L"),
@@ -68,13 +69,15 @@ private:
 class Kleo::DN::Private
 {
 public:
-    Private() : mRefCount(0) {}
-    Private(const Private &other)
-        : attributes(other.attributes),
-          reorderedAttributes(other.reorderedAttributes),
-          mRefCount(0)
+    Private()
+        : mRefCount(0)
     {
-
+    }
+    Private(const Private &other)
+        : attributes(other.attributes)
+        , reorderedAttributes(other.reorderedAttributes)
+        , mRefCount(0)
+    {
     }
 
     int ref()
@@ -99,6 +102,7 @@ public:
 
     DN::Attribute::List attributes;
     DN::Attribute::List reorderedAttributes;
+
 private:
     int mRefCount;
 };
@@ -113,16 +117,12 @@ struct DnPair {
 
 // copied from CryptPlug and adapted to work on DN::Attribute::List:
 
-#define digitp(p)   (*(p) >= '0' && *(p) <= '9')
-#define hexdigitp(a) (digitp (a)                     \
-                      || (*(a) >= 'A' && *(a) <= 'F')  \
-                      || (*(a) >= 'a' && *(a) <= 'f'))
-#define xtoi_1(p)   (*(p) <= '9'? (*(p)- '0'): \
-                     *(p) <= 'F'? (*(p)-'A'+10):(*(p)-'a'+10))
-#define xtoi_2(p)   ((xtoi_1(p) * 16) + xtoi_1((p)+1))
+#define digitp(p) (*(p) >= '0' && *(p) <= '9')
+#define hexdigitp(a) (digitp(a) || (*(a) >= 'A' && *(a) <= 'F') || (*(a) >= 'a' && *(a) <= 'f'))
+#define xtoi_1(p) (*(p) <= '9' ? (*(p) - '0') : *(p) <= 'F' ? (*(p) - 'A' + 10) : (*(p) - 'a' + 10))
+#define xtoi_2(p) ((xtoi_1(p) * 16) + xtoi_1((p) + 1))
 
-static char *
-trim_trailing_spaces(char *string)
+static char *trim_trailing_spaces(char *string)
 {
     char *p;
     char *mark;
@@ -146,8 +146,7 @@ trim_trailing_spaces(char *string)
 /* Parse a DN and return an array-ized one.  This is not a validating
    parser and it does not support any old-stylish syntax; gpgme is
    expected to return only rfc2253 compatible strings. */
-static const unsigned char *
-parse_dn_part(DnPair *array, const unsigned char *string)
+static const unsigned char *parse_dn_part(DnPair *array, const unsigned char *string)
 {
     const unsigned char *s;
     const unsigned char *s1;
@@ -159,11 +158,11 @@ parse_dn_part(DnPair *array, const unsigned char *string)
         ;
     }
     if (!*s) {
-        return nullptr;    /* error */
+        return nullptr; /* error */
     }
     n = s - string;
     if (!n) {
-        return nullptr;    /* empty key */
+        return nullptr; /* empty key */
     }
     p = (char *)malloc(n + 1);
 
@@ -189,7 +188,7 @@ parse_dn_part(DnPair *array, const unsigned char *string)
         }
         n = s - string;
         if (!n || (n & 1)) {
-            return nullptr;    /* empty or odd number of digits */
+            return nullptr; /* empty or odd number of digits */
         }
         n /= 2;
         array->value = p = (char *)malloc(n + 1);
@@ -204,20 +203,17 @@ parse_dn_part(DnPair *array, const unsigned char *string)
             if (*s == '\\') {
                 /* pair */
                 s++;
-                if (*s == ',' || *s == '=' || *s == '+'
-                        || *s == '<' || *s == '>' || *s == '#' || *s == ';'
-                        || *s == '\\' || *s == '\"' || *s == ' ') {
+                if (*s == ',' || *s == '=' || *s == '+' || *s == '<' || *s == '>' || *s == '#' || *s == ';' || *s == '\\' || *s == '\"' || *s == ' ') {
                     n++;
                 } else if (hexdigitp(s) && hexdigitp(s + 1)) {
                     s++;
                     n++;
                 } else {
-                    return nullptr;    /* invalid escape sequence */
+                    return nullptr; /* invalid escape sequence */
                 }
             } else if (*s == '\"') {
-                return nullptr;    /* invalid encoding */
-            } else if (*s == ',' || *s == '=' || *s == '+'
-                       || *s == '<' || *s == '>' || *s == '#' || *s == ';') {
+                return nullptr; /* invalid encoding */
+            } else if (*s == ',' || *s == '=' || *s == '+' || *s == '<' || *s == '>' || *s == '#' || *s == ';') {
                 break;
             } else {
                 n++;
@@ -247,8 +243,7 @@ parse_dn_part(DnPair *array, const unsigned char *string)
 /* Parse a DN and return an array-ized one.  This is not a validating
    parser and it does not support any old-stylish syntax; gpgme is
    expected to return only rfc2253 compatible strings. */
-static Kleo::DN::Attribute::List
-parse_dn(const unsigned char *string)
+static Kleo::DN::Attribute::List parse_dn(const unsigned char *string)
 {
     if (!string) {
         return QVector<Kleo::DN::Attribute>();
@@ -260,17 +255,16 @@ parse_dn(const unsigned char *string)
             string++;
         }
         if (!*string) {
-            break;    /* ready */
+            break; /* ready */
         }
 
-        DnPair pair = { nullptr, nullptr };
+        DnPair pair = {nullptr, nullptr};
         string = parse_dn_part(&pair, string);
         if (!string) {
             goto failure;
         }
         if (pair.key && pair.value) {
-            result.push_back(Kleo::DN::Attribute(QString::fromUtf8(pair.key),
-                                                 QString::fromUtf8(pair.value)));
+            result.push_back(Kleo::DN::Attribute(QString::fromUtf8(pair.key), QString::fromUtf8(pair.value)));
         }
         free(pair.key);
         free(pair.value);
@@ -279,7 +273,7 @@ parse_dn(const unsigned char *string)
             string++;
         }
         if (*string && *string != ',' && *string != ';' && *string != '+') {
-            goto failure;    /* invalid delimiter */
+            goto failure; /* invalid delimiter */
         }
         if (*string) {
             string++;
@@ -291,8 +285,7 @@ failure:
     return QVector<Kleo::DN::Attribute>();
 }
 
-static QVector<Kleo::DN::Attribute>
-parse_dn(const QString &dn)
+static QVector<Kleo::DN::Attribute> parse_dn(const QString &dn)
 {
     return parse_dn((const unsigned char *)dn.toUtf8().data());
 }
@@ -320,8 +313,7 @@ static QString dn_escape(const QString &s)
     return result;
 }
 
-static QString
-serialise(const QVector<Kleo::DN::Attribute> &dn, const QString &sep)
+static QString serialise(const QVector<Kleo::DN::Attribute> &dn, const QString &sep)
 {
     QStringList result;
     for (QVector<Kleo::DN::Attribute>::const_iterator it = dn.begin(); it != dn.end(); ++it) {
@@ -332,8 +324,7 @@ serialise(const QVector<Kleo::DN::Attribute> &dn, const QString &sep)
     return result.join(sep);
 }
 
-static Kleo::DN::Attribute::List
-reorder_dn(const Kleo::DN::Attribute::List &dn)
+static Kleo::DN::Attribute::List reorder_dn(const Kleo::DN::Attribute::List &dn)
 {
     const QStringList &attrOrder = Kleo::DN::attributeOrder();
 
@@ -353,8 +344,7 @@ reorder_dn(const Kleo::DN::Attribute::List &dn)
     for (QStringList::const_iterator oit = attrOrder.begin(); oit != attrOrder.end(); ++oit) {
         if (*oit == QLatin1String("_X_")) {
             // insert the unknown attrs
-            std::copy(unknownEntries.begin(), unknownEntries.end(),
-                      std::back_inserter(result));
+            std::copy(unknownEntries.begin(), unknownEntries.end(), std::back_inserter(result));
             unknownEntries.clear(); // don't produce dup's
         } else {
             for (Kleo::DN::const_iterator dnit = dn.begin(); dnit != dn.end(); ++dnit) {

@@ -35,18 +35,22 @@ class KLEO_EXPORT KeyApprovalDialog : public QDialog
     Q_OBJECT
 public:
     struct Item {
-        Item() : pref(UnknownPreference) {}
-        Item(const QString &a, const std::vector<GpgME::Key> &k,
-             EncryptionPreference p = UnknownPreference)
-            : address(a), keys(k), pref(p) {}
+        Item()
+            : pref(UnknownPreference)
+        {
+        }
+        Item(const QString &a, const std::vector<GpgME::Key> &k, EncryptionPreference p = UnknownPreference)
+            : address(a)
+            , keys(k)
+            , pref(p)
+        {
+        }
         QString address;
         std::vector<GpgME::Key> keys;
         EncryptionPreference pref;
     };
 
-    KeyApprovalDialog(const std::vector<Item> &recipients,
-                      const std::vector<GpgME::Key> &sender,
-                      QWidget *parent = nullptr);
+    KeyApprovalDialog(const std::vector<Item> &recipients, const std::vector<GpgME::Key> &sender, QWidget *parent = nullptr);
     ~KeyApprovalDialog() override;
 
     std::vector<Item> items() const;
@@ -63,4 +67,3 @@ private:
 };
 
 } // namespace Kleo
-

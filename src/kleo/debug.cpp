@@ -20,8 +20,8 @@ QDebug operator<<(QDebug debug, const Kleo::KeyGroup &group)
     if (group.isNull()) {
         debug << "Null";
     } else {
-        debug.nospace() << group.name() << " (id: " << group.id() << ", source: " << group.source()
-            << ", keys: " << group.keys().size() << ", isImmutable: " << group.isImmutable() << ")";
+        debug.nospace() << group.name() << " (id: " << group.id() << ", source: " << group.source() << ", keys: " << group.keys().size()
+                        << ", isImmutable: " << group.isImmutable() << ")";
     }
     debug.setAutoInsertSpaces(oldSetting);
     return debug.maybeSpace();

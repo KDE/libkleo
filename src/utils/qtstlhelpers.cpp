@@ -17,9 +17,7 @@ std::vector<std::string> Kleo::toStdStrings(const QList<QString> &list)
     std::vector<std::string> result;
 
     result.reserve(list.size());
-    std::transform(std::begin(list), std::end(list),
-                   std::back_inserter(result),
-                   std::mem_fn(&QString::toStdString));
+    std::transform(std::begin(list), std::end(list), std::back_inserter(result), std::mem_fn(&QString::toStdString));
 
     return result;
 }

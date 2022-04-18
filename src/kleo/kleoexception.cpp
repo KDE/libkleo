@@ -9,4 +9,6 @@
 
 #include "kleoexception.h"
 
-Kleo::Exception::~Exception() throw() {}
+Kleo::Exception::~Exception() throw()
+{
+}

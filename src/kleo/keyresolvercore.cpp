@@ -29,7 +29,8 @@
 using namespace Kleo;
 using namespace GpgME;
 
-namespace {
+namespace
+{
 
 QDebug operator<<(QDebug debug, const GpgME::Key &key)
 {
@@ -43,8 +44,7 @@ QDebug operator<<(QDebug debug, const GpgME::Key &key)
 
 static inline bool ValidEncryptionKey(const Key &key)
 {
-    if (key.isNull() || key.isRevoked() || key.isExpired() ||
-        key.isDisabled() || !key.canEncrypt()) {
+    if (key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || !key.canEncrypt()) {
         return false;
     }
     return true;
@@ -52,8 +52,7 @@ static inline bool ValidEncryptionKey(const Key &key)
 
 static inline bool ValidSigningKey(const Key &key)
 {
-    if (key.isNull() || key.isRevoked() || key.isExpired() ||
-        key.isDisabled() || !key.canSign() || !key.hasSecret()) {
+    if (key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || !key.canSign() || !key.hasSecret()) {
         return false;
     }
     return true;
@@ -63,7 +62,7 @@ static int keyValidity(const Key &key, const QString &address)
 {
     // returns the validity of the UID matching the address or, if no UID matches, the maximal validity of all UIDs
     int overallValidity = UserID::Validity::Unknown;
-    for (const auto &uid: key.userIDs()) {
+    for (const auto &uid : key.userIDs()) {
         if (QString::fromStdString(uid.addrSpec()).toLower() == address.toLower()) {
             return uid.validity();
         }
@@ -77,7 +76,7 @@ static int minimumValidity(const std::vector<Key> &keys, const QString &address)
     const int minValidity = std::accumulate(keys.cbegin(), //
                                             keys.cend(),
                                             UserID::Ultimate + 1,
-                                            [address] (int validity, const Key &key) {
+                                            [address](int validity, const Key &key) {
                                                 return std::min<int>(validity, keyValidity(key, address));
                                             });
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
@@ -85,12 +84,16 @@ static int minimumValidity(const std::vector<Key> &keys, const QString &address)
 
 bool allKeysHaveProtocol(const std::vector<Key> &keys, Protocol protocol)
 {
-    return std::all_of(keys.cbegin(), keys.cend(), [protocol] (const Key &key) { return key.protocol() == protocol; });
+    return std::all_of(keys.cbegin(), keys.cend(), [protocol](const Key &key) {
+        return key.protocol() == protocol;
+    });
 }
 
 bool anyKeyHasProtocol(const std::vector<Key> &keys, Protocol protocol)
 {
-    return std::any_of(std::begin(keys), std::end(keys), [protocol] (const Key &key) { return key.protocol() == protocol; });
+    return std::any_of(std::begin(keys), std::end(keys), [protocol](const Key &key) {
+        return key.protocol() == protocol;
+    });
 }
 
 } // namespace
@@ -98,7 +101,7 @@ bool anyKeyHasProtocol(const std::vector<Key> &keys, Protocol protocol)
 class KeyResolverCore::Private
 {
 public:
-    Private(KeyResolverCore* qq, bool enc, bool sig, Protocol fmt)
+    Private(KeyResolverCore *qq, bool enc, bool sig, Protocol fmt)
         : q(qq)
         , mFormat(fmt)
         , mEncrypt(enc)
@@ -154,8 +157,7 @@ bool KeyResolverCore::Private::isAcceptableSigningKey(const Key &key)
     }
     if (Kleo::gnupgIsDeVsCompliant()) {
         if (!Formatting::isKeyDeVs(key)) {
-            qCDebug(LIBKLEO_LOG) << "Rejected sig key" << key.primaryFingerprint()
-                                    << "because it is not de-vs compliant.";
+            qCDebug(LIBKLEO_LOG) << "Rejected sig key" << key.primaryFingerprint() << "because it is not de-vs compliant.";
             return false;
         }
     }
@@ -170,8 +172,7 @@ bool KeyResolverCore::Private::isAcceptableEncryptionKey(const Key &key, const Q
 
     if (Kleo::gnupgIsDeVsCompliant()) {
         if (!Formatting::isKeyDeVs(key)) {
-            qCDebug(LIBKLEO_LOG) << "Rejected enc key" << key.primaryFingerprint()
-                                    << "because it is not de-vs compliant.";
+            qCDebug(LIBKLEO_LOG) << "Rejected enc key" << key.primaryFingerprint() << "because it is not de-vs compliant.";
             return false;
         }
     }
@@ -179,7 +180,7 @@ bool KeyResolverCore::Private::isAcceptableEncryptionKey(const Key &key, const Q
     if (address.isEmpty()) {
         return true;
     }
-    for (const auto &uid: key.userIDs()) {
+    for (const auto &uid : key.userIDs()) {
         if (uid.addrSpec() == address.toStdString()) {
             if (uid.validity() >= mMinimumValidity) {
                 return true;
@@ -191,7 +192,7 @@ bool KeyResolverCore::Private::isAcceptableEncryptionKey(const Key &key, const Q
 
 void KeyResolverCore::Private::setSender(const QString &address)
 {
-    const auto normalized = UserID::addrSpecFromString (address.toUtf8().constData());
+    const auto normalized = UserID::addrSpecFromString(address.toUtf8().constData());
     if (normalized.empty()) {
         // should not happen bug in the caller, non localized
         // error for bug reporting.
@@ -211,9 +212,9 @@ void KeyResolverCore::Private::addRecipients(const QStringList &addresses)
 
     // Internally we work with normalized addresses. Normalization
     // matches the gnupg one.
-    for (const auto &addr: addresses) {
+    for (const auto &addr : addresses) {
         // PGP Uids are defined to be UTF-8 (RFC 4880 §5.11)
-        const auto normalized = UserID::addrSpecFromString (addr.toUtf8().constData());
+        const auto normalized = UserID::addrSpecFromString(addr.toUtf8().constData());
         if (normalized.empty()) {
             // should not happen bug in the caller, non localized
             // error for bug reporting.
@@ -248,11 +249,11 @@ namespace
 std::vector<Key> resolveOverride(const QString &address, Protocol protocol, const QStringList &fingerprints)
 {
     std::vector<Key> keys;
-    for (const auto &fprOrId: fingerprints) {
+    for (const auto &fprOrId : fingerprints) {
         const Key key = KeyCache::instance()->findByKeyIDOrFingerprint(fprOrId.toUtf8().constData());
         if (key.isNull()) {
             // FIXME: Report to caller
-            qCDebug (LIBKLEO_LOG) << "Failed to find override key for:" << address << "fpr:" << fprOrId;
+            qCDebug(LIBKLEO_LOG) << "Failed to find override key for:" << address << "fpr:" << fprOrId;
             continue;
         }
         if (protocol != UnknownProtocol && key.protocol() != protocol) {
@@ -279,7 +280,8 @@ void KeyResolverCore::Private::resolveOverrides()
 
         if (!mRecipients.contains(address)) {
             qCDebug(LIBKLEO_LOG) << "Overrides provided for an address that is "
-                "neither sender nor recipient. Address:" << address;
+                                    "neither sender nor recipient. Address:"
+                                 << address;
             continue;
         }
 
@@ -316,7 +318,9 @@ std::vector<Key> KeyResolverCore::Private::resolveSenderWithGroup(const QString 
 
     // take the first key matching the protocol
     const auto &keys = group.keys();
-    const auto it = std::find_if(std::begin(keys), std::end(keys), [protocol] (const auto &key) { return key.protocol() == protocol; });
+    const auto it = std::find_if(std::begin(keys), std::end(keys), [protocol](const auto &key) {
+        return key.protocol() == protocol;
+    });
     if (it == std::end(keys)) {
         qCDebug(LIBKLEO_LOG) << "group" << group.name() << "has no" << Formatting::displayName(protocol) << "signing key";
         return {};
@@ -375,7 +379,7 @@ void KeyResolverCore::Private::resolveSign(Protocol proto)
 void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
 {
     if (mSign) {
-        for (const auto &fpr: fingerprints) {
+        for (const auto &fpr : fingerprints) {
             const auto key = mCache->findByKeyIDOrFingerprint(fpr.toUtf8().constData());
             if (key.isNull()) {
                 qCDebug(LIBKLEO_LOG) << "Failed to find signing key with fingerprint" << fpr;
@@ -401,13 +405,14 @@ std::vector<Key> KeyResolverCore::Private::resolveRecipientWithGroup(const QStri
     // will also show unacceptable group keys so that the
     // user can see which key is not acceptable.
     const auto &keys = group.keys();
-    const bool allKeysAreAcceptable =
-        std::all_of(std::begin(keys), std::end(keys), [this] (const auto &key) { return isAcceptableEncryptionKey(key); });
+    const bool allKeysAreAcceptable = std::all_of(std::begin(keys), std::end(keys), [this](const auto &key) {
+        return isAcceptableEncryptionKey(key);
+    });
     if (!allKeysAreAcceptable) {
         qCDebug(LIBKLEO_LOG) << "group" << group.name() << "has at least one unacceptable key";
         return {};
     }
-    for (const auto &k: keys) {
+    for (const auto &k : keys) {
         qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << k.primaryFingerprint();
     }
     std::vector<Key> result;
@@ -465,8 +470,7 @@ std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &addre
         return {};
     }
     if (!isAcceptableEncryptionKey(key, address)) {
-        qCDebug(LIBKLEO_LOG) << "key for:" << address << key.primaryFingerprint()
-                             << "has not enough validity";
+        qCDebug(LIBKLEO_LOG) << "key for:" << address << key.primaryFingerprint() << "has not enough validity";
         return {};
     }
     qCDebug(LIBKLEO_LOG) << "Resolved encrypt to" << address << "with key" << key.primaryFingerprint();
@@ -542,18 +546,16 @@ bool hasUnresolvedSender(const QMap<Protocol, std::vector<Key>> &signingKeys, Pr
 
 bool hasUnresolvedRecipients(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol protocol)
 {
-    return std::any_of(std::cbegin(encryptionKeys), std::cend(encryptionKeys),
-                       [protocol] (const auto &protocolKeysMap) {
-                           return protocolKeysMap.value(protocol).empty();
-                       });
+    return std::any_of(std::cbegin(encryptionKeys), std::cend(encryptionKeys), [protocol](const auto &protocolKeysMap) {
+        return protocolKeysMap.value(protocol).empty();
+    });
 }
 
 bool anyCommonOverrideHasKeyOfType(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol protocol)
 {
-    return std::any_of(std::cbegin(encryptionKeys), std::cend(encryptionKeys),
-                       [protocol] (const auto &protocolKeysMap) {
-                           return anyKeyHasProtocol(protocolKeysMap.value(UnknownProtocol), protocol);
-                       });
+    return std::any_of(std::cbegin(encryptionKeys), std::cend(encryptionKeys), [protocol](const auto &protocolKeysMap) {
+        return anyKeyHasProtocol(protocolKeysMap.value(UnknownProtocol), protocol);
+    });
 }
 
 auto keysForProtocol(const QMap<QString, QMap<Protocol, std::vector<Key>>> &encryptionKeys, Protocol protocol)
@@ -592,8 +594,8 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     const bool commonOverridesNeedOpenPGP = anyCommonOverrideHasKeyOfType(mEncKeys, OpenPGP);
     const bool commonOverridesNeedCMS = anyCommonOverrideHasKeyOfType(mEncKeys, CMS);
     if ((mFormat == OpenPGP && commonOverridesNeedCMS) //
-            || (mFormat == CMS && commonOverridesNeedOpenPGP) //
-            || (!mAllowMixed && commonOverridesNeedOpenPGP && commonOverridesNeedCMS)) {
+        || (mFormat == CMS && commonOverridesNeedOpenPGP) //
+        || (!mAllowMixed && commonOverridesNeedOpenPGP && commonOverridesNeedCMS)) {
         // invalid protocol requirements -> clear intermediate result and abort resolution
         mEncKeys.clear();
         return {Error, {}, {}};
@@ -690,8 +692,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     const auto bestEncryptionKeys = getBestEncryptionKeys(mEncKeys, mPreferredProtocol);
     // we are in mixed mode, i.e. we need an OpenPGP signing key and an S/MIME signing key
     const bool senderIsResolved = (!mSign || (!hasUnresolvedSender(mSigKeys, OpenPGP) && !hasUnresolvedSender(mSigKeys, CMS)));
-    const bool allRecipientsAreResolved = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
-                                                      [] (const auto &keys) { return !keys.empty(); });
+    const bool allRecipientsAreResolved = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys), [](const auto &keys) {
+        return !keys.empty();
+    });
     if (senderIsResolved && allRecipientsAreResolved) {
         return {
             SolutionFlags(AllResolved | MixedProtocols),
@@ -700,8 +703,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         };
     }
 
-    const bool allKeysAreOpenPGP = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
-                                               [] (const auto &keys) { return allKeysHaveProtocol(keys, OpenPGP); });
+    const bool allKeysAreOpenPGP = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys), [](const auto &keys) {
+        return allKeysHaveProtocol(keys, OpenPGP);
+    });
     if (allKeysAreOpenPGP) {
         return {
             SolutionFlags(SomeUnresolved | OpenPGPOnly),
@@ -710,8 +714,9 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         };
     }
 
-    const bool allKeysAreCMS = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys),
-                                           [] (const auto &keys) { return allKeysHaveProtocol(keys, CMS); });
+    const bool allKeysAreCMS = std::all_of(std::begin(bestEncryptionKeys), std::end(bestEncryptionKeys), [](const auto &keys) {
+        return allKeysHaveProtocol(keys, CMS);
+    });
     if (allKeysAreCMS) {
         return {
             SolutionFlags(SomeUnresolved | CMSOnly),

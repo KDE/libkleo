@@ -7,21 +7,21 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
+#include <qgpgme/keylistjob.h>
 #include <qgpgme/protocol.h>
 #include <qgpgme/signjob.h>
-#include <qgpgme/keylistjob.h>
 
 #include <gpgme++/key.h>
-#include <gpgme++/signingresult.h>
 #include <gpgme++/keylistresult.h>
+#include <gpgme++/signingresult.h>
 
-#include <QDebug>
 #include <KAboutData>
+#include <QDebug>
 
-#include <memory>
-#include <QApplication>
 #include <KLocalizedString>
+#include <QApplication>
 #include <QCommandLineParser>
+#include <memory>
 
 static const char *protocol = nullptr;
 
@@ -34,13 +34,13 @@ static void testSign()
 
     std::vector<GpgME::Key> signingKeys;
 
-    std::unique_ptr<QGpgME::KeyListJob> listJob(proto->keyListJob(false, false, true));     // use validating keylisting
+    std::unique_ptr<QGpgME::KeyListJob> listJob(proto->keyListJob(false, false, true)); // use validating keylisting
     if (listJob.get()) {
         // ##### Adjust this to your own identity
         listJob->exec(QStringList(QStringLiteral("kloecker@kde.org")), true /*secret*/, signingKeys);
         Q_ASSERT(!signingKeys.empty());
     } else {
-        Q_ASSERT(0);   // job failed
+        Q_ASSERT(0); // job failed
     }
 
     QGpgME::SignJob *job = proto->signJob(true, true);
@@ -51,8 +51,7 @@ static void testSign()
     qDebug() << " signing with" << signingKeys[0].primaryFingerprint();
 
     QByteArray signature;
-    const GpgME::SigningResult res =
-        job->exec(signingKeys, plainText, GpgME::Clearsigned, signature);
+    const GpgME::SigningResult res = job->exec(signingKeys, plainText, GpgME::Clearsigned, signature);
     if (res.error().isCanceled()) {
         qDebug() << "signing was canceled by user";
         return;
@@ -61,8 +60,7 @@ static void testSign()
         qDebug() << "signing failed:" << res.error().asString();
         return;
     }
-    qDebug() << "signing resulted in signature="
-             << signature;
+    qDebug() << "signing resulted in signature=" << signature;
 }
 
 int main(int argc, char **argv)

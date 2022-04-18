@@ -12,33 +12,34 @@
 #include <KStandardGuiItem>
 
 #ifdef HAVE_PIMTEXTEDIT
-# include "kpimtextedit/richtexteditor.h"
+#include "kpimtextedit/richtexteditor.h"
 #else
-# include <QTextEdit>
+#include <QTextEdit>
 #endif
-#include <QSaveFile>
-#include <QFileDialog>
 #include <KConfigGroup>
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <KSharedConfig>
-#include <QTextStream>
 #include <QDialogButtonBox>
+#include <QFileDialog>
 #include <QPushButton>
+#include <QSaveFile>
+#include <QTextStream>
 #include <QVBoxLayout>
 
-#include <QStyle>
 #include <QDebug>
+#include <QStyle>
 
 using namespace Kleo::Private;
 
 AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
-    : QDialog(parent),
-      m_log(/* sic */),
+    : QDialog(parent)
+    , m_log(/* sic */)
+    ,
 #ifdef HAVE_PIMTEXTEDIT
-      m_textEdit(new KPIMTextEdit::RichTextEditorWidget(this))
+    m_textEdit(new KPIMTextEdit::RichTextEditorWidget(this))
 #else
-      m_textEdit(new QTextEdit(this))
+    m_textEdit(new QTextEdit(this))
 #endif
 {
     setWindowTitle(i18nc("@title:window", "View GnuPG Audit Log"));
@@ -108,21 +109,15 @@ void AuditLogViewer::slotSaveAs()
         QTextStream s(&file);
         s << "<html><head>";
         if (!windowTitle().isEmpty()) {
-            s << "\n<title>"
-              << windowTitle().toHtmlEscaped()
-              << "</title>\n";
+            s << "\n<title>" << windowTitle().toHtmlEscaped() << "</title>\n";
         }
-        s << "</head><body>\n"
-          << m_log
-          << "\n</body></html>\n";
+        s << "</head><body>\n" << m_log << "\n</body></html>\n";
         s.flush();
         file.commit();
     }
 
     if (const int err = file.error()) {
-        KMessageBox::error(this, i18n("Could not save to file \"%1\": %2",
-                                      file.fileName(), QString::fromLocal8Bit(strerror(err))),
-                           i18n("File Save Error"));
+        KMessageBox::error(this, i18n("Could not save to file \"%1\": %2", file.fileName(), QString::fromLocal8Bit(strerror(err))), i18n("File Save Error"));
     }
 }
 
@@ -156,4 +151,3 @@ void AuditLogViewer::writeConfig()
     group.writeEntry("Size", size());
     group.sync();
 }
-

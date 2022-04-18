@@ -17,7 +17,7 @@
 /* Does the given object comply with DE_VS?  This macro can be used to
    ensure that we can still build against older versions of GPGME
    without cluttering the code with preprocessor conditionals.  */
-#define IS_DE_VS(x)	(x).isDeVs()
+#define IS_DE_VS(x) (x).isDeVs()
 
 #include "kleo_export.h"
 
@@ -44,7 +44,7 @@ KLEO_EXPORT bool gpg4winSignedversion();
 KLEO_EXPORT QString gpg4winDescription();
 KLEO_EXPORT QString gpg4winLongDescription();
 KLEO_EXPORT QString gnupgInstallPath();
-KLEO_EXPORT const QString& paperKeyInstallPath();
+KLEO_EXPORT const QString &paperKeyInstallPath();
 
 KLEO_EXPORT QStringList gnupgFileWhitelist();
 KLEO_EXPORT int makeGnuPGError(int code);

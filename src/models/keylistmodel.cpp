@@ -12,38 +12,38 @@
 #include "keylistmodel.h"
 
 #include "keycache.h"
+#include "kleo/keyfilter.h"
+#include "kleo/keyfiltermanager.h"
 #include "kleo/keygroup.h"
 #include "kleo/predicates.h"
-#include "kleo/keyfiltermanager.h"
-#include "kleo/keyfilter.h"
 #include "utils/algorithm.h"
 #include "utils/formatting.h"
 
 #ifdef KLEO_MODEL_TEST
-# include <QAbstractItemModelTester>
+#include <QAbstractItemModelTester>
 #endif
 
-#include <Libkleo/KeyFilterManager>
 #include <Libkleo/KeyFilter>
+#include <Libkleo/KeyFilterManager>
 
 #include <KLocalizedString>
 
-#include <QFont>
 #include <QColor>
+#include <QDate>
+#include <QFont>
 #include <QHash>
 #include <QIcon>
-#include <QDate>
 #include <gpgme++/key.h>
 
 #ifndef Q_MOC_RUN // QTBUG-22829
-#include <boost/graph/topological_sort.hpp>
 #include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/topological_sort.hpp>
 #endif
 
 #include <algorithm>
+#include <iterator>
 #include <map>
 #include <set>
-#include <iterator>
 
 using namespace GpgME;
 using namespace Kleo;
@@ -55,6 +55,7 @@ Q_DECLARE_METATYPE(KeyGroup)
 class AbstractKeyListModel::Private
 {
     AbstractKeyListModel *const q;
+
 public:
     explicit Private(AbstractKeyListModel *qq);
 
@@ -103,13 +104,21 @@ QString AbstractKeyListModel::Private::getEMail(const Key &key) const
 }
 
 AbstractKeyListModel::AbstractKeyListModel(QObject *p)
-    : QAbstractItemModel(p), KeyListModelInterface(), d(new Private(this))
+    : QAbstractItemModel(p)
+    , KeyListModelInterface()
+    , d(new Private(this))
 {
-    connect(this, &QAbstractItemModel::modelAboutToBeReset, this, [this] () { d->m_modelResetInProgress = true; });
-    connect(this, &QAbstractItemModel::modelReset, this, [this] () { d->m_modelResetInProgress = false; });
+    connect(this, &QAbstractItemModel::modelAboutToBeReset, this, [this]() {
+        d->m_modelResetInProgress = true;
+    });
+    connect(this, &QAbstractItemModel::modelReset, this, [this]() {
+        d->m_modelResetInProgress = false;
+    });
 }
 
-AbstractKeyListModel::~AbstractKeyListModel() {}
+AbstractKeyListModel::~AbstractKeyListModel()
+{
+}
 
 void AbstractKeyListModel::setToolTipOptions(int opts)
 {
@@ -234,9 +243,7 @@ QList<QModelIndex> AbstractKeyListModel::addKeys(const std::vector<Key> &keys)
 {
     std::vector<Key> sorted;
     sorted.reserve(keys.size());
-    std::remove_copy_if(keys.begin(), keys.end(),
-                        std::back_inserter(sorted),
-                        std::mem_fn(&Key::isNull));
+    std::remove_copy_if(keys.begin(), keys.end(), std::back_inserter(sorted), std::mem_fn(&Key::isNull));
     std::sort(sorted.begin(), sorted.end(), _detail::ByFingerprint<std::less>());
     return doAddKeys(sorted);
 }
@@ -291,21 +298,36 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
     if (o == Qt::Horizontal) {
         if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::ToolTipRole) {
             switch (section) {
-            case PrettyName:       return i18n("Name");
-            case PrettyEMail:      return i18n("E-Mail");
-            case Validity:         return i18n("User-IDs");
-            case ValidFrom:        return i18n("Valid From");
-            case ValidUntil:       return i18n("Valid Until");
-            case TechnicalDetails: return i18n("Protocol");
-            case ShortKeyID:       return i18n("Key-ID");
-            case KeyID:            return i18n("Key-ID");
-            case Fingerprint:      return i18n("Fingerprint");
-            case Issuer:           return i18n("Issuer");
-            case SerialNumber:     return i18n("Serial Number");
-            case Origin:           return i18n("Origin");
-            case LastUpdate:       return i18n("Last Update");
-            case OwnerTrust:       return i18n("Certification Trust");
-            case Remarks:          return i18n("Tags");
+            case PrettyName:
+                return i18n("Name");
+            case PrettyEMail:
+                return i18n("E-Mail");
+            case Validity:
+                return i18n("User-IDs");
+            case ValidFrom:
+                return i18n("Valid From");
+            case ValidUntil:
+                return i18n("Valid Until");
+            case TechnicalDetails:
+                return i18n("Protocol");
+            case ShortKeyID:
+                return i18n("Key-ID");
+            case KeyID:
+                return i18n("Key-ID");
+            case Fingerprint:
+                return i18n("Fingerprint");
+            case Issuer:
+                return i18n("Issuer");
+            case SerialNumber:
+                return i18n("Serial Number");
+            case Origin:
+                return i18n("Origin");
+            case LastUpdate:
+                return i18n("Last Update");
+            case OwnerTrust:
+                return i18n("Certification Trust");
+            case Remarks:
+                return i18n("Tags");
             case NumColumns:;
             }
         }
@@ -348,7 +370,7 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
 
 QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
 {
-   if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole) {
+    if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole) {
         switch (column) {
         case PrettyName: {
             const auto name = Formatting::prettyName(key);
@@ -418,37 +440,35 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
             return QString::fromUtf8(key.issuerSerial());
         case OwnerTrust:
             return Formatting::ownerTrustShort(key.ownerTrust());
-        case Remarks:
-            {
-                const char *const fpr = key.primaryFingerprint();
-                if (fpr && key.protocol() == GpgME::OpenPGP && key.numUserIDs() &&
-                        d->m_remarkKeys.size()) {
-                    if (!(key.keyListMode() & GpgME::SignatureNotations)) {
-                        return i18n("Loading...");
-                    }
-                    const QHash<const char *, QVariant>::const_iterator it = d->remarksCache.constFind(fpr);
-                    if (it != d->remarksCache.constEnd()) {
-                        return *it;
-                    } else {
-                        GpgME::Error err;
-                        const auto remarks = key.userID(0).remarks(d->m_remarkKeys, err);
-                        if (remarks.size() == 1) {
-                            const auto remark = QString::fromStdString(remarks[0]);
-                            return d->remarksCache[fpr] = remark;
-                        } else {
-                            QStringList remarkList;
-                            remarkList.reserve(remarks.size());
-                            for (const auto &rem: remarks) {
-                                remarkList << QString::fromStdString(rem);
-                            }
-                            const auto remark = remarkList.join(QStringLiteral("; "));
-                            return d->remarksCache[fpr] = remark;
-                        }
-                    }
-                } else {
-                    return QVariant();
+        case Remarks: {
+            const char *const fpr = key.primaryFingerprint();
+            if (fpr && key.protocol() == GpgME::OpenPGP && key.numUserIDs() && d->m_remarkKeys.size()) {
+                if (!(key.keyListMode() & GpgME::SignatureNotations)) {
+                    return i18n("Loading...");
                 }
+                const QHash<const char *, QVariant>::const_iterator it = d->remarksCache.constFind(fpr);
+                if (it != d->remarksCache.constEnd()) {
+                    return *it;
+                } else {
+                    GpgME::Error err;
+                    const auto remarks = key.userID(0).remarks(d->m_remarkKeys, err);
+                    if (remarks.size() == 1) {
+                        const auto remark = QString::fromStdString(remarks[0]);
+                        return d->remarksCache[fpr] = remark;
+                    } else {
+                        QStringList remarkList;
+                        remarkList.reserve(remarks.size());
+                        for (const auto &rem : remarks) {
+                            remarkList << QString::fromStdString(rem);
+                        }
+                        const auto remark = remarkList.join(QStringLiteral("; "));
+                        return d->remarksCache[fpr] = remark;
+                    }
+                }
+            } else {
+                return QVariant();
             }
+        }
             return QVariant();
         case NumColumns:
             break;
@@ -456,7 +476,9 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
     } else if (role == Qt::ToolTipRole) {
         return Formatting::toolTip(key, toolTipOptions());
     } else if (role == Qt::FontRole) {
-        return KeyFilterManager::instance()->font(key, (column == ShortKeyID || column == KeyID || column == Fingerprint) ? QFont(QStringLiteral("monospace")) : QFont());
+        return KeyFilterManager::instance()->font(key,
+                                                  (column == ShortKeyID || column == KeyID || column == Fingerprint) ? QFont(QStringLiteral("monospace"))
+                                                                                                                     : QFont());
     } else if (role == Qt::DecorationRole) {
         return column == Icon ? returnIfValid(KeyFilterManager::instance()->icon(key)) : QVariant();
     } else if (role == Qt::BackgroundRole) {
@@ -482,7 +504,7 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
         case TechnicalDetails:
             return Formatting::type(group);
         case Summary:
-            return Formatting::summaryLine(group);  // used for filtering
+            return Formatting::summaryLine(group); // used for filtering
         case PrettyEMail:
         case ValidFrom:
         case ValidUntil:
@@ -535,12 +557,17 @@ bool AbstractKeyListModel::modelResetInProgress()
 
 namespace
 {
-template <typename Base>
+template<typename Base>
 class TableModelMixin : public Base
 {
 public:
-    explicit TableModelMixin(QObject *p = nullptr) : Base(p) {}
-    ~TableModelMixin() override {}
+    explicit TableModelMixin(QObject *p = nullptr)
+        : Base(p)
+    {
+    }
+    ~TableModelMixin() override
+    {
+    }
 
     using Base::index;
     QModelIndex index(int row, int column, const QModelIndex &pidx = QModelIndex()) const override
@@ -611,9 +638,7 @@ private:
 
     int groupIndex(const QModelIndex &index) const
     {
-        if (!index.isValid()
-                || index.row() < firstGroupRow() || index.row() > lastGroupRow()
-                || index.column() >= NumColumns) {
+        if (!index.isValid() || index.row() < firstGroupRow() || index.row() > lastGroupRow() || index.column() >= NumColumns) {
             return -1;
         }
         return index.row() - firstGroupRow();
@@ -668,9 +693,7 @@ private:
 
     int groupIndex(const QModelIndex &index) const
     {
-        if (!index.isValid()
-                || index.row() < firstGroupRow() || index.row() > lastGroupRow()
-                || index.column() >= NumColumns) {
+        if (!index.isValid() || index.row() < firstGroupRow() || index.row() > lastGroupRow() || index.column() >= NumColumns) {
             return -1;
         }
         return index.row() - firstGroupRow();
@@ -682,7 +705,7 @@ private:
     void addKeyWithoutParent(const char *issuer_fpr, const Key &key);
 
 private:
-    typedef std::map< std::string, std::vector<Key> > Map;
+    typedef std::map<std::string, std::vector<Key>> Map;
     std::vector<Key> mKeysByFingerprint; // all keys
     Map mKeysByExistingParent, mKeysByNonExistingParent; // parent->child map
     std::vector<Key> mTopLevels; // all roots + parent-less
@@ -691,7 +714,9 @@ private:
 
 class Issuers
 {
-    Issuers() {}
+    Issuers()
+    {
+    }
 
 public:
     static Issuers *instance()
@@ -738,13 +763,15 @@ FlatKeyListModel::FlatKeyListModel(QObject *p)
 {
 }
 
-FlatKeyListModel::~FlatKeyListModel() {}
+FlatKeyListModel::~FlatKeyListModel()
+{
+}
 
 Key FlatKeyListModel::doMapToKey(const QModelIndex &idx) const
 {
     Q_ASSERT(idx.isValid());
     if (static_cast<unsigned>(idx.row()) < mKeysByFingerprint.size() && idx.column() < NumColumns) {
-        return mKeysByFingerprint[ idx.row() ];
+        return mKeysByFingerprint[idx.row()];
     } else {
         return Key::null;
     }
@@ -753,9 +780,8 @@ Key FlatKeyListModel::doMapToKey(const QModelIndex &idx) const
 QModelIndex FlatKeyListModel::doMapFromKey(const Key &key, int col) const
 {
     Q_ASSERT(!key.isNull());
-    const std::vector<Key>::const_iterator it
-        = std::lower_bound(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                           key, _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::const_iterator it =
+        std::lower_bound(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), key, _detail::ByFingerprint<std::less>());
     if (it == mKeysByFingerprint.end() || !_detail::ByFingerprint<std::equal_to>()(*it, key)) {
         return {};
     } else {
@@ -772,7 +798,6 @@ QList<QModelIndex> FlatKeyListModel::doAddKeys(const std::vector<Key> &keys)
     }
 
     for (auto it = keys.begin(), end = keys.end(); it != end; ++it) {
-
         // find an insertion point:
         const std::vector<Key>::iterator pos = std::upper_bound(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), *it, _detail::ByFingerprint<std::less>());
         const unsigned int idx = std::distance(mKeysByFingerprint.begin(), pos);
@@ -800,9 +825,7 @@ QList<QModelIndex> FlatKeyListModel::doAddKeys(const std::vector<Key> &keys)
 
 void FlatKeyListModel::doRemoveKey(const Key &key)
 {
-    const std::vector<Key>::iterator it
-        = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                            key, _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::iterator it = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), key, _detail::ByFingerprint<std::less>());
     if (it == mKeysByFingerprint.end()) {
         return;
     }
@@ -820,10 +843,9 @@ void FlatKeyListModel::doRemoveKey(const Key &key)
 KeyGroup FlatKeyListModel::doMapToGroup(const QModelIndex &idx) const
 {
     Q_ASSERT(idx.isValid());
-    if (static_cast<unsigned>(idx.row()) >= mKeysByFingerprint.size()
-            && static_cast<unsigned>(idx.row()) < mKeysByFingerprint.size() + mGroups.size()
-            && idx.column() < NumColumns) {
-        return mGroups[ idx.row() - mKeysByFingerprint.size() ];
+    if (static_cast<unsigned>(idx.row()) >= mKeysByFingerprint.size() && static_cast<unsigned>(idx.row()) < mKeysByFingerprint.size() + mGroups.size()
+        && idx.column() < NumColumns) {
+        return mGroups[idx.row() - mKeysByFingerprint.size()];
     } else {
         return KeyGroup();
     }
@@ -832,10 +854,9 @@ KeyGroup FlatKeyListModel::doMapToGroup(const QModelIndex &idx) const
 QModelIndex FlatKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
 {
     Q_ASSERT(!group.isNull());
-    const auto it = std::find_if(mGroups.cbegin(), mGroups.cend(),
-                                 [group](const KeyGroup &g) {
-                                     return g.source() == group.source() && g.id() == group.id();
-                                 });
+    const auto it = std::find_if(mGroups.cbegin(), mGroups.cend(), [group](const KeyGroup &g) {
+        return g.source() == group.source() && g.id() == group.id();
+    });
     if (it == mGroups.cend()) {
         return QModelIndex();
     } else {
@@ -845,7 +866,7 @@ QModelIndex FlatKeyListModel::doMapFromGroup(const KeyGroup &group, int column) 
 
 void FlatKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
 {
-    Q_ASSERT(mGroups.empty());  // ensure that groups have been cleared
+    Q_ASSERT(mGroups.empty()); // ensure that groups have been cleared
     const int first = mKeysByFingerprint.size();
     const int last = first + groups.size() - 1;
     if (!modelResetInProgress()) {
@@ -908,20 +929,20 @@ bool FlatKeyListModel::doRemoveGroup(const KeyGroup &group)
 }
 
 HierarchicalKeyListModel::HierarchicalKeyListModel(QObject *p)
-    : AbstractKeyListModel(p),
-      mKeysByFingerprint(),
-      mKeysByExistingParent(),
-      mKeysByNonExistingParent(),
-      mTopLevels()
+    : AbstractKeyListModel(p)
+    , mKeysByFingerprint()
+    , mKeysByExistingParent()
+    , mKeysByNonExistingParent()
+    , mTopLevels()
 {
-
 }
 
-HierarchicalKeyListModel::~HierarchicalKeyListModel() {}
+HierarchicalKeyListModel::~HierarchicalKeyListModel()
+{
+}
 
 int HierarchicalKeyListModel::rowCount(const QModelIndex &pidx) const
 {
-
     // toplevel item:
     if (!pidx.isValid()) {
         return mTopLevels.size() + mGroups.size();
@@ -946,7 +967,6 @@ int HierarchicalKeyListModel::rowCount(const QModelIndex &pidx) const
 
 QModelIndex HierarchicalKeyListModel::index(int row, int col, const QModelIndex &pidx) const
 {
-
     if (row < 0 || col < 0 || col >= NumColumns) {
         return {};
     }
@@ -981,9 +1001,8 @@ QModelIndex HierarchicalKeyListModel::parent(const QModelIndex &idx) const
     if (key.isNull() || key.isRoot()) {
         return {};
     }
-    const std::vector<Key>::const_iterator it
-        = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                            cleanChainID(key), _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::const_iterator it =
+        Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), cleanChainID(key), _detail::ByFingerprint<std::less>());
     return it != mKeysByFingerprint.end() ? index(*it) : QModelIndex();
 }
 
@@ -1012,7 +1031,6 @@ Key HierarchicalKeyListModel::doMapToKey(const QModelIndex &idx) const
 
 QModelIndex HierarchicalKeyListModel::doMapFromKey(const Key &key, int col) const
 {
-
     if (key.isNull()) {
         return {};
     }
@@ -1022,30 +1040,29 @@ QModelIndex HierarchicalKeyListModel::doMapFromKey(const Key &key, int col) cons
     // we need to look in the toplevels list,...
     const std::vector<Key> *v = &mTopLevels;
     if (issuer_fpr && *issuer_fpr) {
-        const std::map< std::string, std::vector<Key> >::const_iterator it
-            = mKeysByExistingParent.find(issuer_fpr);
+        const std::map<std::string, std::vector<Key>>::const_iterator it = mKeysByExistingParent.find(issuer_fpr);
         // ...unless we find an existing parent:
         if (it != mKeysByExistingParent.end()) {
             v = &it->second;
         } else {
-            issuer_fpr = nullptr;    // force internalPointer to zero for toplevels
+            issuer_fpr = nullptr; // force internalPointer to zero for toplevels
         }
     }
 
-    const std::vector<Key>::const_iterator it
-        = std::lower_bound(v->begin(), v->end(), key, _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::const_iterator it = std::lower_bound(v->begin(), v->end(), key, _detail::ByFingerprint<std::less>());
     if (it == v->end() || !_detail::ByFingerprint<std::equal_to>()(*it, key)) {
         return QModelIndex();
     }
 
     const unsigned int row = std::distance(v->begin(), it);
-    return createIndex(row, col, const_cast<char * /* thanks, Trolls :/ */ >(issuer_fpr));
+    return createIndex(row, col, const_cast<char * /* thanks, Trolls :/ */>(issuer_fpr));
 }
 
 void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Key &key)
 {
-
-    Q_ASSERT(issuer_fpr); Q_ASSERT(*issuer_fpr); Q_ASSERT(!key.isNull());
+    Q_ASSERT(issuer_fpr);
+    Q_ASSERT(*issuer_fpr);
+    Q_ASSERT(!key.isNull());
 
     std::vector<Key> &subjects = mKeysByExistingParent[issuer_fpr];
 
@@ -1061,8 +1078,8 @@ void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Ke
         }
     } else {
         // doesn't exist -> insert
-        const std::vector<Key>::const_iterator pos = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                                                                       issuer_fpr, _detail::ByFingerprint<std::less>());
+        const std::vector<Key>::const_iterator pos =
+            Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
         Q_ASSERT(pos != mKeysByFingerprint.end());
         if (!modelResetInProgress()) {
             beginInsertRows(index(*pos), row, row);
@@ -1076,20 +1093,19 @@ void HierarchicalKeyListModel::addKeyWithParent(const char *issuer_fpr, const Ke
 
 void HierarchicalKeyListModel::addKeyWithoutParent(const char *issuer_fpr, const Key &key)
 {
-
-    Q_ASSERT(issuer_fpr); Q_ASSERT(*issuer_fpr); Q_ASSERT(!key.isNull());
+    Q_ASSERT(issuer_fpr);
+    Q_ASSERT(*issuer_fpr);
+    Q_ASSERT(!key.isNull());
 
     std::vector<Key> &subjects = mKeysByNonExistingParent[issuer_fpr];
 
     // find insertion point:
     const std::vector<Key>::iterator it = std::lower_bound(subjects.begin(), subjects.end(), key, _detail::ByFingerprint<std::less>());
 
-    if (it != subjects.end() && qstricmp(it->primaryFingerprint(), key.primaryFingerprint()) == 0)
-    {
+    if (it != subjects.end() && qstricmp(it->primaryFingerprint(), key.primaryFingerprint()) == 0) {
         // exists -> replace
         *it = key;
-    } else
-    {
+    } else {
         // doesn't exist -> insert
         subjects.insert(it, key);
     }
@@ -1099,7 +1115,6 @@ void HierarchicalKeyListModel::addKeyWithoutParent(const char *issuer_fpr, const
 
 void HierarchicalKeyListModel::addTopLevelKey(const Key &key)
 {
-
     // find insertion point:
     const std::vector<Key>::iterator it = std::lower_bound(mTopLevels.begin(), mTopLevels.end(), key, _detail::ByFingerprint<std::less>());
     const int row = std::distance(mTopLevels.begin(), it);
@@ -1120,22 +1135,20 @@ void HierarchicalKeyListModel::addTopLevelKey(const Key &key)
             endInsertRows();
         }
     }
-
 }
 
 namespace
 {
 
 // based on https://www.boost.org/doc/libs/1_77_0/libs/graph/doc/file_dependency_example.html#sec:cycles
-struct cycle_detector : public boost::dfs_visitor<>
-{
+struct cycle_detector : public boost::dfs_visitor<> {
     cycle_detector(bool &has_cycle)
         : _has_cycle{has_cycle}
     {
     }
 
-    template <class Edge, class Graph>
-    void back_edge(Edge, Graph&)
+    template<class Edge, class Graph>
+    void back_edge(Edge, Graph &)
     {
         _has_cycle = true;
     }
@@ -1162,8 +1175,7 @@ static void find_keys_causing_cycles_and_mask_their_issuers(const std::vector<Ke
         if (!issuer_fpr || !*issuer_fpr) {
             continue;
         }
-        const std::vector<Key>::const_iterator it
-            = Kleo::binary_find(keys.begin(), keys.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
+        const std::vector<Key>::const_iterator it = Kleo::binary_find(keys.begin(), keys.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
         if (it == keys.end()) {
             continue;
         }
@@ -1186,8 +1198,7 @@ static auto build_key_graph(const std::vector<Key> &keys)
         if (!issuer_fpr || !*issuer_fpr) {
             continue;
         }
-        const std::vector<Key>::const_iterator it
-            = Kleo::binary_find(keys.begin(), keys.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
+        const std::vector<Key>::const_iterator it = Kleo::binary_find(keys.begin(), keys.end(), issuer_fpr, _detail::ByFingerprint<std::less>());
         if (it == keys.end()) {
             continue;
         }
@@ -1231,9 +1242,12 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
 
     std::vector<Key> merged;
     merged.reserve(keys.size() + mKeysByFingerprint.size());
-    std::set_union(keys.begin(), keys.end(),
-                   mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                   std::back_inserter(merged), _detail::ByFingerprint<std::less>());
+    std::set_union(keys.begin(),
+                   keys.end(),
+                   mKeysByFingerprint.begin(),
+                   mKeysByFingerprint.end(),
+                   std::back_inserter(merged),
+                   _detail::ByFingerprint<std::less>());
 
     mKeysByFingerprint = merged;
 
@@ -1241,11 +1255,10 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
         find_keys_causing_cycles_and_mask_their_issuers(mKeysByFingerprint);
     }
 
-    std::set<Key, _detail::ByFingerprint<std::less> > changedParents;
+    std::set<Key, _detail::ByFingerprint<std::less>> changedParents;
 
     const auto topologicalSortedList = topological_sort(keys);
     for (const Key &key : topologicalSortedList) {
-
         // check to see whether this key is a parent for a previously parent-less group:
         const char *const fpr = key.primaryFingerprint();
         if (!fpr || !*fpr) {
@@ -1288,16 +1301,13 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
         // Step 2: add/update key
 
         const char *const issuer_fpr = cleanChainID(key);
-        if (!issuer_fpr || !*issuer_fpr)
-        {
+        if (!issuer_fpr || !*issuer_fpr) {
             // root or something...
             addTopLevelKey(key);
-        } else if (std::binary_search(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), issuer_fpr, _detail::ByFingerprint<std::less>()))
-        {
+        } else if (std::binary_search(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), issuer_fpr, _detail::ByFingerprint<std::less>())) {
             // parent exists...
             addKeyWithParent(issuer_fpr, key);
-        } else
-        {
+        } else {
             // parent doesn't exist yet...
             addKeyWithoutParent(issuer_fpr, key);
         }
@@ -1321,8 +1331,8 @@ QList<QModelIndex> HierarchicalKeyListModel::doAddKeys(const std::vector<Key> &k
             }
         }
     }
-    //Q_EMIT dataChanged for all parents with new children. This triggers KeyListSortFilterProxyModel to
-    //show a parent node if it just got children matching the proxy's filter
+    // Q_EMIT dataChanged for all parents with new children. This triggers KeyListSortFilterProxyModel to
+    // show a parent node if it just got children matching the proxy's filter
     if (!modelResetInProgress()) {
         for (const Key &i : std::as_const(changedParents)) {
             const QModelIndex idx = index(i);
@@ -1343,10 +1353,9 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
 
     const char *const fpr = key.primaryFingerprint();
     if (mKeysByExistingParent.find(fpr) != mKeysByExistingParent.end()) {
-        //handle non-leave nodes:
+        // handle non-leave nodes:
         std::vector<Key> keys = mKeysByFingerprint;
-        const std::vector<Key>::iterator it = Kleo::binary_find(keys.begin(), keys.end(),
-                                                                key, _detail::ByFingerprint<std::less>());
+        const std::vector<Key>::iterator it = Kleo::binary_find(keys.begin(), keys.end(), key, _detail::ByFingerprint<std::less>());
         if (it == keys.end()) {
             return;
         }
@@ -1358,10 +1367,9 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
         return;
     }
 
-    //handle leave nodes:
+    // handle leave nodes:
 
-    const std::vector<Key>::iterator it = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(),
-                                                            key, _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::iterator it = Kleo::binary_find(mKeysByFingerprint.begin(), mKeysByFingerprint.end(), key, _detail::ByFingerprint<std::less>());
 
     Q_ASSERT(it != mKeysByFingerprint.end());
     Q_ASSERT(mKeysByNonExistingParent.find(fpr) == mKeysByNonExistingParent.end());
@@ -1374,8 +1382,7 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
 
     const char *const issuer_fpr = cleanChainID(key);
 
-    const std::vector<Key>::iterator tlIt = Kleo::binary_find(mTopLevels.begin(), mTopLevels.end(),
-                                                              key, _detail::ByFingerprint<std::less>());
+    const std::vector<Key>::iterator tlIt = Kleo::binary_find(mTopLevels.begin(), mTopLevels.end(), key, _detail::ByFingerprint<std::less>());
     if (tlIt != mTopLevels.end()) {
         mTopLevels.erase(tlIt);
     }
@@ -1383,8 +1390,7 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
     if (issuer_fpr && *issuer_fpr) {
         const Map::iterator nexIt = mKeysByNonExistingParent.find(issuer_fpr);
         if (nexIt != mKeysByNonExistingParent.end()) {
-            const std::vector<Key>::iterator eit = Kleo::binary_find(nexIt->second.begin(), nexIt->second.end(),
-                                                                     key, _detail::ByFingerprint<std::less>());
+            const std::vector<Key>::iterator eit = Kleo::binary_find(nexIt->second.begin(), nexIt->second.end(), key, _detail::ByFingerprint<std::less>());
             if (eit != nexIt->second.end()) {
                 nexIt->second.erase(eit);
             }
@@ -1395,8 +1401,7 @@ void HierarchicalKeyListModel::doRemoveKey(const Key &key)
 
         const Map::iterator exIt = mKeysByExistingParent.find(issuer_fpr);
         if (exIt != mKeysByExistingParent.end()) {
-            const std::vector<Key>::iterator eit = Kleo::binary_find(exIt->second.begin(), exIt->second.end(),
-                                                                     key, _detail::ByFingerprint<std::less>());
+            const std::vector<Key>::iterator eit = Kleo::binary_find(exIt->second.begin(), exIt->second.end(), key, _detail::ByFingerprint<std::less>());
             if (eit != exIt->second.end()) {
                 exIt->second.erase(eit);
             }
@@ -1418,10 +1423,9 @@ KeyGroup HierarchicalKeyListModel::doMapToGroup(const QModelIndex &idx) const
         return KeyGroup();
     }
 
-    if (static_cast<unsigned>(idx.row()) >= mTopLevels.size()
-            && static_cast<unsigned>(idx.row()) < mTopLevels.size() + mGroups.size()
-            && idx.column() < NumColumns) {
-        return mGroups[ idx.row() - mTopLevels.size() ];
+    if (static_cast<unsigned>(idx.row()) >= mTopLevels.size() && static_cast<unsigned>(idx.row()) < mTopLevels.size() + mGroups.size()
+        && idx.column() < NumColumns) {
+        return mGroups[idx.row() - mTopLevels.size()];
     } else {
         return KeyGroup();
     }
@@ -1430,10 +1434,9 @@ KeyGroup HierarchicalKeyListModel::doMapToGroup(const QModelIndex &idx) const
 QModelIndex HierarchicalKeyListModel::doMapFromGroup(const KeyGroup &group, int column) const
 {
     Q_ASSERT(!group.isNull());
-    const auto it = std::find_if(mGroups.cbegin(), mGroups.cend(),
-                                 [group](const KeyGroup &g) {
-                                     return g.source() == group.source() && g.id() == group.id();
-                                 });
+    const auto it = std::find_if(mGroups.cbegin(), mGroups.cend(), [group](const KeyGroup &g) {
+        return g.source() == group.source() && g.id() == group.id();
+    });
     if (it == mGroups.cend()) {
         return QModelIndex();
     } else {
@@ -1443,7 +1446,7 @@ QModelIndex HierarchicalKeyListModel::doMapFromGroup(const KeyGroup &group, int 
 
 void HierarchicalKeyListModel::doSetGroups(const std::vector<KeyGroup> &groups)
 {
-    Q_ASSERT(mGroups.empty());  // ensure that groups have been cleared
+    Q_ASSERT(mGroups.empty()); // ensure that groups have been cleared
     const int first = mTopLevels.size();
     const int last = first + groups.size() - 1;
     if (!modelResetInProgress()) {
@@ -1528,8 +1531,9 @@ void AbstractKeyListModel::useKeyCache(bool value, KeyList::Options options)
     } else {
         d->updateFromKeyCache();
     }
-    connect(KeyCache::instance().get(), &KeyCache::keysMayHaveChanged,
-            this, [this] { d->updateFromKeyCache(); });
+    connect(KeyCache::instance().get(), &KeyCache::keysMayHaveChanged, this, [this] {
+        d->updateFromKeyCache();
+    });
 }
 
 // static

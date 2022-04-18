@@ -34,7 +34,9 @@ namespace Kleo
 class KLEO_EXPORT KeyFilter
 {
 public:
-    virtual ~KeyFilter() {}
+    virtual ~KeyFilter()
+    {
+    }
 
     enum MatchContext {
         // clang-format off
@@ -85,6 +87,7 @@ public:
             std::swap(this->d, other.d);
         }
         struct Private;
+
     private:
         std::unique_ptr<Private> d;
     };

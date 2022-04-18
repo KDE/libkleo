@@ -23,20 +23,32 @@ class KLEO_EXPORT Exception : public GpgME::Exception
 {
 public:
     Exception(gpg_error_t e, const std::string &msg, Options opt = NoOptions)
-        : GpgME::Exception(GpgME::Error(e), msg, opt) {}
+        : GpgME::Exception(GpgME::Error(e), msg, opt)
+    {
+    }
     Exception(gpg_error_t e, const char *msg, Options opt = NoOptions)
-        : GpgME::Exception(GpgME::Error(e), msg, opt) {}
+        : GpgME::Exception(GpgME::Error(e), msg, opt)
+    {
+    }
     Exception(gpg_error_t e, const QString &msg, Options opt = NoOptions)
-        : GpgME::Exception(GpgME::Error(e), msg.toLocal8Bit().constData(), opt) {}
+        : GpgME::Exception(GpgME::Error(e), msg.toLocal8Bit().constData(), opt)
+    {
+    }
 
     Exception(const GpgME::Error &e, const std::string &msg)
-        : GpgME::Exception(e, msg) {}
+        : GpgME::Exception(e, msg)
+    {
+    }
     Exception(const GpgME::Error &e, const char *msg)
-        : GpgME::Exception(e, msg) {}
+        : GpgME::Exception(e, msg)
+    {
+    }
     Exception(const GpgME::Error &e, const QString &msg)
-        : GpgME::Exception(e, msg.toLocal8Bit().constData()) {}
+        : GpgME::Exception(e, msg.toLocal8Bit().constData())
+    {
+    }
 
-    ~Exception() throw () override;
+    ~Exception() throw() override;
 
     const std::string &messageLocal8Bit() const
     {
@@ -54,4 +66,3 @@ public:
 };
 
 }
-

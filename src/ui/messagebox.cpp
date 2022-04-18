@@ -12,20 +12,18 @@
 
 #include "kleo_ui_debug.h"
 
-#include <gpgme++/signingresult.h>
 #include <gpgme++/encryptionresult.h>
+#include <gpgme++/signingresult.h>
 #include <qgpgme/job.h>
 
-
-#include <QPushButton>
+#include <KGuiItem>
+#include <KLocalizedString>
 #include <QDialog>
 #include <QDialogButtonBox>
-#include <KLocalizedString>
-#include <KGuiItem>
+#include <QPushButton>
 
-
-#include <gpg-error.h>
 #include <KSharedConfig>
+#include <gpg-error.h>
 
 using namespace Kleo;
 using namespace Kleo::Private;
@@ -35,22 +33,20 @@ using namespace QGpgME;
 // static
 void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &caption)
 {
-
     if (!job) {
         return;
     }
 
     if (!GpgME::hasFeature(AuditLogFeature, 0) || !job->isAuditLogSupported()) {
-        KMessageBox::information(parent, i18n("Your system does not have support for GnuPG Audit Logs"),
-                                 i18n("System Error"));
+        KMessageBox::information(parent, i18n("Your system does not have support for GnuPG Audit Logs"), i18n("System Error"));
         return;
     }
 
     const GpgME::Error err = job->auditLogError();
 
     if (err && err.code() != GPG_ERR_NO_DATA) {
-        KMessageBox::information(parent, i18n("An error occurred while trying to retrieve the GnuPG Audit Log:\n%1",
-                                              QString::fromLocal8Bit(err.asString())),
+        KMessageBox::information(parent,
+                                 i18n("An error occurred while trying to retrieve the GnuPG Audit Log:\n%1", QString::fromLocal8Bit(err.asString())),
                                  i18n("GnuPG Audit Log Error"));
         return;
     }
@@ -58,8 +54,7 @@ void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &captio
     const QString log = job->auditLogAsHtml();
 
     if (log.isEmpty()) {
-        KMessageBox::information(parent, i18n("No GnuPG Audit Log available for this operation."),
-                                 i18n("No GnuPG Audit Log"));
+        KMessageBox::information(parent, i18n("No GnuPG Audit Log available for this operation."), i18n("No GnuPG Audit Log"));
         return;
     }
 
@@ -91,8 +86,8 @@ void MessageBox::auditLog(QWidget *parent, const QString &log)
 static QString to_information_string(const SigningResult &result)
 {
     return (result.error() //
-            ? i18n("Signing failed: %1", QString::fromLocal8Bit(result.error().asString()))
-            : i18n("Signing successful"));
+                ? i18n("Signing failed: %1", QString::fromLocal8Bit(result.error().asString()))
+                : i18n("Signing successful"));
 }
 
 static QString to_error_string(const SigningResult &result)
@@ -103,8 +98,8 @@ static QString to_error_string(const SigningResult &result)
 static QString to_information_string(const EncryptionResult &result)
 {
     return (result.error() //
-            ? i18n("Encryption failed: %1", QString::fromLocal8Bit(result.error().asString()))
-            : i18n("Encryption successful"));
+                ? i18n("Encryption failed: %1", QString::fromLocal8Bit(result.error().asString()))
+                : i18n("Encryption successful"));
 }
 
 static QString to_error_string(const EncryptionResult &result)
@@ -177,7 +172,12 @@ void MessageBox::information(QWidget *parent, const SigningResult &sresult, cons
 }
 
 // static
-void MessageBox::information(QWidget *parent, const SigningResult &sresult, const EncryptionResult &eresult, const Job *job, const QString &caption, KMessageBox::Options options)
+void MessageBox::information(QWidget *parent,
+                             const SigningResult &sresult,
+                             const EncryptionResult &eresult,
+                             const Job *job,
+                             const QString &caption,
+                             KMessageBox::Options options)
 {
     make(parent, QMessageBox::Information, to_information_string(sresult, eresult), job, caption, options);
 }
@@ -189,7 +189,12 @@ void MessageBox::error(QWidget *parent, const SigningResult &sresult, const Encr
 }
 
 // static
-void MessageBox::error(QWidget *parent, const SigningResult &sresult, const EncryptionResult &eresult, const Job *job, const QString &caption, KMessageBox::Options options)
+void MessageBox::error(QWidget *parent,
+                       const SigningResult &sresult,
+                       const EncryptionResult &eresult,
+                       const Job *job,
+                       const QString &caption,
+                       KMessageBox::Options options)
 {
     make(parent, QMessageBox::Critical, to_error_string(sresult, eresult), job, caption, options);
 }
@@ -228,7 +233,7 @@ void MessageBox::make(QWidget *parent, QMessageBox::Icon icon, const QString &te
     QDialogButtonBox *box = new QDialogButtonBox(showAuditLogButton(job) ? (QDialogButtonBox::Yes | QDialogButtonBox::No) : QDialogButtonBox::Yes, parent);
     QPushButton *yesButton = box->button(QDialogButtonBox::Yes);
     yesButton->setDefault(true);
-    //dialog->setEscapeButton(KDialog::Yes);
+    // dialog->setEscapeButton(KDialog::Yes);
     dialog->setObjectName(QStringLiteral("error"));
     dialog->setModal(true);
     KGuiItem::assign(yesButton, KStandardGuiItem::ok());

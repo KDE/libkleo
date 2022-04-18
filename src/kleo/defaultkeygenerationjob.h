@@ -11,11 +11,13 @@
 #include "kleo_export.h"
 #include <memory>
 
-namespace GpgME {
+namespace GpgME
+{
 class KeyGenerationResult;
 }
 
-namespace Kleo {
+namespace Kleo
+{
 
 /**
  * Generates a PGP RSA/2048 bit key pair for given name and email address.
@@ -43,13 +45,11 @@ public:
     QString auditLogAsHtml() const override;
     GpgME::Error auditLogError() const override;
 
-
 public Q_SLOTS:
     void slotCancel() override;
 
 Q_SIGNALS:
-    void result(const GpgME::KeyGenerationResult &result, const QByteArray &pubkeyData,
-                const QString &auditLogAsHtml, const GpgME::Error &auditLogError);
+    void result(const GpgME::KeyGenerationResult &result, const QByteArray &pubkeyData, const QString &auditLogAsHtml, const GpgME::Error &auditLogError);
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
@@ -60,4 +60,3 @@ private:
 };
 
 }
-

@@ -14,8 +14,8 @@
 
 #include "kleo_export.h"
 
-#include <QtGlobal>
 #include <QMutex>
+#include <QtGlobal>
 
 #include <chrono>
 #include <memory>
@@ -24,23 +24,29 @@ namespace Kleo
 {
 
 /// Do not acquire ownership of the mutex.
-struct DeferLockType { explicit DeferLockType() = default; };
+struct DeferLockType {
+    explicit DeferLockType() = default;
+};
 
 /// Try to acquire ownership of the mutex without blocking.
-struct TryToLockType { explicit TryToLockType() = default; };
+struct TryToLockType {
+    explicit TryToLockType() = default;
+};
 
 /// Assume the calling thread has already obtained mutex ownership
 /// and manage it.
-struct AdoptLockType { explicit AdoptLockType() = default; };
+struct AdoptLockType {
+    explicit AdoptLockType() = default;
+};
 
 /// Tag used to prevent a scoped lock from acquiring ownership of a mutex.
-inline constexpr DeferLockType deferLock { };
+inline constexpr DeferLockType deferLock{};
 
 /// Tag used to prevent a scoped lock from blocking if a mutex is locked.
-inline constexpr TryToLockType tryToLock { };
+inline constexpr TryToLockType tryToLock{};
 
 /// Tag used to make a scoped lock take ownership of a locked mutex.
-inline constexpr AdoptLockType adoptLock { };
+inline constexpr AdoptLockType adoptLock{};
 
 /** @brief A movable scoped lock type for QMutex.
  *
@@ -121,15 +127,19 @@ public:
 
 private:
     QMutex *mMutex;
-    bool    mOwnsMutex;
+    bool mOwnsMutex;
 };
 
 } // namespace Kleo
 
-namespace std {
+namespace std
+{
 
 /// Swap overload for UniqueLock objects.
 /// @relates UniqueLock
-inline void swap(Kleo::UniqueLock &x, Kleo::UniqueLock &y) noexcept { x.swap(y); }
+inline void swap(Kleo::UniqueLock &x, Kleo::UniqueLock &y) noexcept
+{
+    x.swap(y);
+}
 
 }

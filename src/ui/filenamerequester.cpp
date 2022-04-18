@@ -11,14 +11,14 @@
 
 #include <KLocalizedString>
 
-#include <QHBoxLayout>
-#include <QToolButton>
 #include <QCompleter>
 #include <QDirModel>
-#include <QString>
-#include <QFileDialog>
 #include <QEvent>
+#include <QFileDialog>
+#include <QHBoxLayout>
 #include <QLineEdit>
+#include <QString>
+#include <QToolButton>
 
 using namespace Kleo;
 
@@ -26,6 +26,7 @@ class Q_DECL_HIDDEN FileNameRequester::FileNameRequesterPrivate
 {
     friend class ::Kleo::FileNameRequester;
     FileNameRequester *const q;
+
 public:
     explicit FileNameRequesterPrivate(FileNameRequester *qq);
     ~FileNameRequesterPrivate();
@@ -35,7 +36,7 @@ private:
 
 private:
 #ifndef QT_NO_DIRMODEL
-    QDirModel  dirmodel;
+    QDirModel dirmodel;
     QCompleter completer;
 #else
     QDir::Filters filter;
@@ -50,18 +51,21 @@ private:
 };
 
 FileNameRequester::FileNameRequesterPrivate::FileNameRequesterPrivate(FileNameRequester *qq)
-    : q(qq),
+    : q(qq)
+    ,
 #ifndef QT_NO_DIRMODEL
-      dirmodel(),
-      completer(&dirmodel),
+    dirmodel()
+    , completer(&dirmodel)
+    ,
 #else
-      filter(),
+    filter()
+    ,
 #endif
-      lineedit(q),
-      button(q),
-      hlay(q),
-      nameFilter(),
-      existingOnly(true)
+    lineedit(q)
+    , button(q)
+    , hlay(q)
+    , nameFilter()
+    , existingOnly(true)
 {
 #ifndef QT_NO_DIRMODEL
     dirmodel.setObjectName(QStringLiteral("dirmodel"));
@@ -84,20 +88,25 @@ FileNameRequester::FileNameRequesterPrivate::FileNameRequesterPrivate(FileNameRe
     q->setFocusPolicy(lineedit.focusPolicy());
     q->setFocusProxy(&lineedit);
 
-    connect(&button, &QToolButton::clicked, q, [this]() { slotButtonClicked(); });
+    connect(&button, &QToolButton::clicked, q, [this]() {
+        slotButtonClicked();
+    });
     connect(&lineedit, &QLineEdit::textChanged, q, &FileNameRequester::fileNameChanged);
 }
 
-FileNameRequester::FileNameRequesterPrivate::~FileNameRequesterPrivate() {}
+FileNameRequester::FileNameRequesterPrivate::~FileNameRequesterPrivate()
+{
+}
 
 FileNameRequester::FileNameRequester(QWidget *p)
-    : QWidget(p), d(new FileNameRequesterPrivate(this))
+    : QWidget(p)
+    , d(new FileNameRequesterPrivate(this))
 {
-
 }
 
 FileNameRequester::FileNameRequester(QDir::Filters f, QWidget *p)
-    : QWidget(p), d(new FileNameRequesterPrivate(this))
+    : QWidget(p)
+    , d(new FileNameRequesterPrivate(this))
 {
 #ifndef QT_NO_DIRMODEL
     d->dirmodel.setFilter(f);

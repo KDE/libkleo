@@ -19,21 +19,21 @@
 #include "utils/cryptoconfig.h"
 #include "utils/gnupg.h"
 
-#include <gpgme++/key.h>
 #include <gpgme++/importresult.h>
+#include <gpgme++/key.h>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
 
-#include <KLocalizedString>
 #include <KEmailAddress>
+#include <KLocalizedString>
 
-#include <QString>
 #include <QDateTime>
-#include <QTextDocument> // for Qt::escape
-#include <QLocale>
 #include <QIcon>
+#include <QLocale>
 #include <QRegularExpression>
+#include <QString>
+#include <QTextDocument> // for Qt::escape
 
 #include "models/keycache.h"
 
@@ -46,7 +46,6 @@ using namespace Kleo;
 
 QString Formatting::prettyName(int proto, const char *id, const char *name_, const char *comment_)
 {
-
     if (proto == GpgME::OpenPGP) {
         const QString name = QString::fromUtf8(name_);
         if (name.isEmpty()) {
@@ -78,7 +77,6 @@ QString Formatting::prettyNameAndEMail(int proto, const char *id, const char *na
 
 QString Formatting::prettyNameAndEMail(int proto, const QString &id, const QString &name, const QString &email, const QString &comment)
 {
-
     if (proto == GpgME::OpenPGP) {
         if (name.isEmpty()) {
             if (email.isEmpty()) {
@@ -123,8 +121,7 @@ QString Formatting::prettyUserID(const UserID &uid)
     if (id.startsWith('<')) {
         return prettyEMail(uid.email(), uid.id());
     }
-    if (id.startsWith('('))
-    {
+    if (id.startsWith('(')) {
         // ### parse uri/dns:
         return QString::fromUtf8(uid.id());
     } else {
@@ -195,8 +192,7 @@ QString Formatting::prettyEMail(const char *email_, const char *id)
     QString email;
     QString name;
     QString comment;
-    if (email_ && KEmailAddress::splitAddress(QString::fromUtf8(email_),
-                                              name, email, comment) == KEmailAddress::AddressOk) {
+    if (email_ && KEmailAddress::splitAddress(QString::fromUtf8(email_), name, email, comment) == KEmailAddress::AddressOk) {
         return email;
     } else {
         return DN(id)[QStringLiteral("EMAIL")].trimmed();
@@ -217,7 +213,7 @@ static QString protect_whitespace(QString s)
     return s.replace(SP, NBSP);
 }
 
-template <typename T_arg>
+template<typename T_arg>
 QString format_row(const QString &field, const T_arg &arg)
 {
     return QStringLiteral("<tr><th>%1:</th><td>%2</td></tr>").arg(protect_whitespace(field), arg);
@@ -245,10 +241,7 @@ QString format_subkeytype(const Subkey &subkey)
 {
     const auto algo = subkey.publicKeyAlgorithm();
 
-    if (algo == Subkey::AlgoECC ||
-        algo == Subkey::AlgoECDSA ||
-        algo == Subkey::AlgoECDH ||
-        algo == Subkey::AlgoEDDSA) {
+    if (algo == Subkey::AlgoECC || algo == Subkey::AlgoECDSA || algo == Subkey::AlgoECDH || algo == Subkey::AlgoEDDSA) {
         return QString::fromStdString(subkey.algoName());
     }
     return i18n("%1-bit %2", subkey.length(), QLatin1String(subkey.publicKeyAlgorithmAsString()));
@@ -331,7 +324,7 @@ QString Formatting::toolTip(const Key &key, int flags)
                 result = i18n("Disabled");
             } else if (key.keyListMode() & GpgME::Validate) {
                 unsigned int fullyTrusted = 0;
-                for (const auto &uid: key.userIDs()) {
+                for (const auto &uid : key.userIDs()) {
                     if (uid.validity() >= UserID::Validity::Full) {
                         fullyTrusted++;
                     }
@@ -368,9 +361,7 @@ QString Formatting::toolTip(const Key &key, int flags)
     if (flags & UserIDs) {
         const std::vector<UserID> uids = key.userIDs();
         if (!uids.empty()) {
-            result += format_row(key.protocol() == GpgME::CMS
-                                 ? i18n("Subject")
-                                 : i18n("User-ID"), prettyUserID(uids.front()));
+            result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User-ID"), prettyUserID(uids.front()));
         }
         if (uids.size() > 1) {
             for (auto it = uids.begin() + 1, end = uids.end(); it != end; ++it) {
@@ -405,9 +396,7 @@ QString Formatting::toolTip(const Key &key, int flags)
         if (key.protocol() == GpgME::OpenPGP) {
             result += format_row(i18n("Certification trust"), ownerTrustShort(key));
         } else if (key.isRoot()) {
-            result += format_row(i18n("Trusted issuer?"),
-                                 key.userID(0).validity() == UserID::Ultimate ? i18n("Yes") :
-                                                                                i18n("No"));
+            result += format_row(i18n("Trusted issuer?"), key.userID(0).validity() == UserID::Ultimate ? i18n("Yes") : i18n("No"));
         }
     }
 
@@ -419,7 +408,7 @@ QString Formatting::toolTip(const Key &key, int flags)
         }
     }
     if (flags & Subkeys) {
-        for (const auto &sub: key.subkeys()) {
+        for (const auto &sub : key.subkeys()) {
             result += QLatin1String("<hr/>");
             result += format_row(i18n("Subkey"), sub.fingerprint());
             if (sub.isRevoked()) {
@@ -459,11 +448,15 @@ QString Formatting::toolTip(const Key &key, int flags)
 
 namespace
 {
-template <typename Container>
+template<typename Container>
 QString getValidityStatement(const Container &keys)
 {
-    const bool allKeysAreOpenPGP = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.protocol() == GpgME::OpenPGP; });
-    const bool allKeysAreValidated = std::all_of(keys.cbegin(), keys.cend(), [] (const Key &key) { return key.keyListMode() & Validate; });
+    const bool allKeysAreOpenPGP = std::all_of(keys.cbegin(), keys.cend(), [](const Key &key) {
+        return key.protocol() == GpgME::OpenPGP;
+    });
+    const bool allKeysAreValidated = std::all_of(keys.cbegin(), keys.cend(), [](const Key &key) {
+        return key.keyListMode() & Validate;
+    });
     if (allKeysAreOpenPGP || allKeysAreValidated) {
         const bool someKeysAreBad = std::any_of(keys.cbegin(), keys.cend(), std::mem_fn(&Key::isBad));
         if (someKeysAreBad) {
@@ -550,17 +543,17 @@ static QString localized_long_format(const QDate &date)
     return date.isValid() ? QLocale().toString(date, QLocale::LongFormat) : QString{};
 }
 
-template <typename T>
+template<typename T>
 QString expiration_date_string(const T &tee)
 {
     return tee.neverExpires() ? QString() : date2string(time_t2date(tee.expirationTime()));
 }
-template <typename T>
+template<typename T>
 QDate creation_date(const T &tee)
 {
     return time_t2date(tee.creationTime());
 }
-template <typename T>
+template<typename T>
 QDate expiration_date(const T &tee)
 {
     return time_t2date(tee.expirationTime());
@@ -690,12 +683,18 @@ QString Formatting::ownerTrustShort(const Key &key)
 QString Formatting::ownerTrustShort(Key::OwnerTrust trust)
 {
     switch (trust) {
-    case Key::Unknown:   return i18nc("unknown trust level", "unknown");
-    case Key::Never:     return i18n("untrusted");
-    case Key::Marginal:  return i18nc("marginal trust", "marginal");
-    case Key::Full:      return i18nc("full trust", "full");
-    case Key::Ultimate:  return i18nc("ultimate trust", "ultimate");
-    case Key::Undefined: return i18nc("undefined trust", "undefined");
+    case Key::Unknown:
+        return i18nc("unknown trust level", "unknown");
+    case Key::Never:
+        return i18n("untrusted");
+    case Key::Marginal:
+        return i18nc("marginal trust", "marginal");
+    case Key::Full:
+        return i18nc("full trust", "full");
+    case Key::Ultimate:
+        return i18nc("ultimate trust", "ultimate");
+    case Key::Undefined:
+        return i18nc("undefined trust", "undefined");
     default:
         Q_ASSERT(!"unexpected owner trust value");
         break;
@@ -729,12 +728,18 @@ QString Formatting::validityShort(const UserID &uid)
         return i18n("invalid");
     }
     switch (uid.validity()) {
-    case UserID::Unknown:   return i18nc("unknown trust level", "unknown");
-    case UserID::Undefined: return i18nc("undefined trust", "undefined");
-    case UserID::Never:     return i18n("untrusted");
-    case UserID::Marginal:  return i18nc("marginal trust", "marginal");
-    case UserID::Full:      return i18nc("full trust", "full");
-    case UserID::Ultimate:  return i18nc("ultimate trust", "ultimate");
+    case UserID::Unknown:
+        return i18nc("unknown trust level", "unknown");
+    case UserID::Undefined:
+        return i18nc("undefined trust", "undefined");
+    case UserID::Never:
+        return i18n("untrusted");
+    case UserID::Marginal:
+        return i18nc("marginal trust", "marginal");
+    case UserID::Full:
+        return i18nc("full trust", "full");
+    case UserID::Ultimate:
+        return i18nc("ultimate trust", "ultimate");
     }
     return QString();
 }
@@ -761,25 +766,28 @@ QString Formatting::validityShort(const UserID::Signature &sig)
         // fall through:
     case UserID::Signature::GeneralError:
         return i18n("invalid");
-    case UserID::Signature::SigExpired:   return i18n("expired");
-    case UserID::Signature::KeyExpired:   return i18n("certificate expired");
-    case UserID::Signature::BadSignature: return i18nc("fake/invalid signature", "bad");
+    case UserID::Signature::SigExpired:
+        return i18n("expired");
+    case UserID::Signature::KeyExpired:
+        return i18n("certificate expired");
+    case UserID::Signature::BadSignature:
+        return i18nc("fake/invalid signature", "bad");
     case UserID::Signature::NoPublicKey: {
-            /* GnuPG returns the same error for no public key as for expired
-             * or revoked certificates. */
-            const auto key = KeyCache::instance()->findByKeyIDOrFingerprint (sig.signerKeyID());
-            if (key.isNull()) {
-                return i18n("no public key");
-            } else if (key.isExpired()) {
-                return i18n("key expired");
-            } else if (key.isRevoked()) {
-                return i18n("key revoked");
-            } else if (key.isDisabled()) {
-                return i18n("key disabled");
-            }
-            /* can't happen */
-            return QStringLiteral("unknown");
+        /* GnuPG returns the same error for no public key as for expired
+         * or revoked certificates. */
+        const auto key = KeyCache::instance()->findByKeyIDOrFingerprint(sig.signerKeyID());
+        if (key.isNull()) {
+            return i18n("no public key");
+        } else if (key.isExpired()) {
+            return i18n("key expired");
+        } else if (key.isRevoked()) {
+            return i18n("key revoked");
+        } else if (key.isDisabled()) {
+            return i18n("key disabled");
         }
+        /* can't happen */
+        return QStringLiteral("unknown");
+    }
     }
     return QString();
 }
@@ -839,7 +847,6 @@ namespace
 
 static QString keyToString(const Key &key)
 {
-
     Q_ASSERT(!key.isNull());
 
     const QString email = Formatting::prettyEMail(key);
@@ -873,7 +880,7 @@ QString Formatting::signatureToString(const Signature &sig, const Key &key)
         return QString();
     }
 
-    const bool red   = (sig.summary() & Signature::Red);
+    const bool red = (sig.summary() & Signature::Red);
     const bool valid = (sig.summary() & Signature::Valid);
 
     if (red) {
@@ -919,15 +926,12 @@ QString Formatting::importMetaData(const Import &import, const QStringList &ids)
     if (result.isEmpty()) {
         return QString();
     } else {
-        return result + QLatin1Char('\n') +
-               i18n("This certificate was imported from the following sources:") + QLatin1Char('\n') +
-               ids.join(QLatin1Char('\n'));
+        return result + QLatin1Char('\n') + i18n("This certificate was imported from the following sources:") + QLatin1Char('\n') + ids.join(QLatin1Char('\n'));
     }
 }
 
 QString Formatting::importMetaData(const Import &import)
 {
-
     if (import.isNull()) {
         return QString();
     }
@@ -936,15 +940,13 @@ QString Formatting::importMetaData(const Import &import)
         return i18n("The import of this certificate was canceled.");
     }
     if (import.error()) {
-        return i18n("An error occurred importing this certificate: %1",
-                    QString::fromLocal8Bit(import.error().asString()));
+        return i18n("An error occurred importing this certificate: %1", QString::fromLocal8Bit(import.error().asString()));
     }
 
     const unsigned int status = import.status();
     if (status & Import::NewKey) {
-        return (status & Import::ContainedSecretKey)
-               ? i18n("This certificate was new to your keystore. The secret key is available.")
-               : i18n("This certificate is new to your keystore.");
+        return (status & Import::ContainedSecretKey) ? i18n("This certificate was new to your keystore. The secret key is available.")
+                                                     : i18n("This certificate is new to your keystore.");
     }
 
     QStringList results;
@@ -958,9 +960,7 @@ QString Formatting::importMetaData(const Import &import)
         results.push_back(i18n("New subkeys were added to this certificate by the import."));
     }
 
-    return results.empty()
-           ? i18n("The import contained no new data for this certificate. It is unchanged.")
-           : results.join(QLatin1Char('\n'));
+    return results.empty() ? i18n("The import contained no new data for this certificate. It is unchanged.") : results.join(QLatin1Char('\n'));
 }
 
 //
@@ -992,30 +992,39 @@ QString Formatting::usageString(const Subkey &sub)
 
 QString Formatting::summaryLine(const Key &key)
 {
-    return keyToString(key) + QLatin1Char(' ') +
-           i18nc("(validity, protocol, creation date)",
-                 "(%1, %2, created: %3)",
-		 Formatting::complianceStringShort(key),
-		 displayName(key.protocol()),
-                 Formatting::creationDateString(key));
+    return keyToString(key) + QLatin1Char(' ')
+        + i18nc("(validity, protocol, creation date)",
+                "(%1, %2, created: %3)",
+                Formatting::complianceStringShort(key),
+                displayName(key.protocol()),
+                Formatting::creationDateString(key));
 }
 
 QString Formatting::summaryLine(const KeyGroup &group)
 {
     switch (group.source()) {
-        case KeyGroup::ApplicationConfig:
-        case KeyGroup::GnuPGConfig:
-            return i18ncp("name of group of keys (n key(s), validity)",
-                          "%2 (1 key, %3)", "%2 (%1 keys, %3)",
-                          group.keys().size(), group.name(), Formatting::complianceStringShort(group));
-        case KeyGroup::Tags:
-            return i18ncp("name of group of keys (n key(s), validity, tag)",
-                          "%2 (1 key, %3, tag)", "%2 (%1 keys, %3, tag)",
-                          group.keys().size(), group.name(), Formatting::complianceStringShort(group));
-        default:
-            return i18ncp("name of group of keys (n key(s), validity, group ...)",
-                          "%2 (1 key, %3, unknown origin)", "%2 (%1 keys, %3, unknown origin)",
-                          group.keys().size(), group.name(), Formatting::complianceStringShort(group));
+    case KeyGroup::ApplicationConfig:
+    case KeyGroup::GnuPGConfig:
+        return i18ncp("name of group of keys (n key(s), validity)",
+                      "%2 (1 key, %3)",
+                      "%2 (%1 keys, %3)",
+                      group.keys().size(),
+                      group.name(),
+                      Formatting::complianceStringShort(group));
+    case KeyGroup::Tags:
+        return i18ncp("name of group of keys (n key(s), validity, tag)",
+                      "%2 (1 key, %3, tag)",
+                      "%2 (%1 keys, %3, tag)",
+                      group.keys().size(),
+                      group.name(),
+                      Formatting::complianceStringShort(group));
+    default:
+        return i18ncp("name of group of keys (n key(s), validity, group ...)",
+                      "%2 (1 key, %3, unknown origin)",
+                      "%2 (%1 keys, %3, unknown origin)",
+                      group.keys().size(),
+                      group.name(),
+                      Formatting::complianceStringShort(group));
     }
 }
 
@@ -1024,16 +1033,16 @@ namespace
 QIcon iconForValidity(UserID::Validity validity)
 {
     switch (validity) {
-        case UserID::Ultimate:
-        case UserID::Full:
-        case UserID::Marginal:
-            return QIcon::fromTheme(QStringLiteral("emblem-success"));
-        case UserID::Never:
-            return QIcon::fromTheme(QStringLiteral("emblem-error"));
-        case UserID::Undefined:
-        case UserID::Unknown:
-        default:
-            return QIcon::fromTheme(QStringLiteral("emblem-information"));
+    case UserID::Ultimate:
+    case UserID::Full:
+    case UserID::Marginal:
+        return QIcon::fromTheme(QStringLiteral("emblem-success"));
+    case UserID::Never:
+        return QIcon::fromTheme(QStringLiteral("emblem-error"));
+    case UserID::Undefined:
+    case UserID::Unknown:
+    default:
+        return QIcon::fromTheme(QStringLiteral("emblem-information"));
     }
 }
 }
@@ -1047,18 +1056,18 @@ QIcon Formatting::iconForUid(const UserID &uid)
 QString Formatting::validity(const UserID &uid)
 {
     switch (uid.validity()) {
-        case UserID::Ultimate:
-            return i18n("The certificate is marked as your own.");
-        case UserID::Full:
-            return i18n("The certificate belongs to this recipient.");
-        case UserID::Marginal:
-            return i18n("The trust model indicates marginally that the certificate belongs to this recipient.");
-        case UserID::Never:
-            return i18n("This certificate should not be used.");
-        case UserID::Undefined:
-        case UserID::Unknown:
-        default:
-            return i18n("There is no indication that this certificate belongs to this recipient.");
+    case UserID::Ultimate:
+        return i18n("The certificate is marked as your own.");
+    case UserID::Full:
+        return i18n("The certificate belongs to this recipient.");
+    case UserID::Marginal:
+        return i18n("The trust model indicates marginally that the certificate belongs to this recipient.");
+    case UserID::Never:
+        return i18n("This certificate should not be used.");
+    case UserID::Undefined:
+    case UserID::Unknown:
+    default:
+        return i18n("There is no indication that this certificate belongs to this recipient.");
     }
 }
 
@@ -1082,20 +1091,18 @@ UserID::Validity minimalValidityOfNotRevokedUserIDs(const Key &key)
 {
     std::vector<UserID> userIDs = key.userIDs();
     const auto endOfNotRevokedUserIDs = std::remove_if(userIDs.begin(), userIDs.end(), std::mem_fn(&UserID::isRevoked));
-    const int minValidity = std::accumulate(userIDs.begin(), endOfNotRevokedUserIDs, UserID::Ultimate + 1,
-                                            [] (int validity, const UserID &userID) {
-                                                return std::min(validity, static_cast<int>(userID.validity()));
-                                            });
+    const int minValidity = std::accumulate(userIDs.begin(), endOfNotRevokedUserIDs, UserID::Ultimate + 1, [](int validity, const UserID &userID) {
+        return std::min(validity, static_cast<int>(userID.validity()));
+    });
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
 
-template <typename Container>
-UserID::Validity minimalValidity(const Container& keys)
+template<typename Container>
+UserID::Validity minimalValidity(const Container &keys)
 {
-    const int minValidity = std::accumulate(keys.cbegin(), keys.cend(), UserID::Ultimate + 1,
-                                            [] (int validity, const Key &key) {
-                                                return std::min<int>(validity, minimalValidityOfNotRevokedUserIDs(key));
-                                            });
+    const int minValidity = std::accumulate(keys.cbegin(), keys.cend(), UserID::Ultimate + 1, [](int validity, const Key &key) {
+        return std::min<int>(validity, minimalValidityOfNotRevokedUserIDs(key));
+    });
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
 }
@@ -1118,7 +1125,7 @@ QString Formatting::complianceMode()
 
 bool Formatting::isKeyDeVs(const GpgME::Key &key)
 {
-    for (const auto &sub: key.subkeys()) {
+    for (const auto &sub : key.subkeys()) {
         if (sub.isExpired() || sub.isRevoked()) {
             // Ignore old subkeys
             continue;
@@ -1137,10 +1144,14 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     if (Kleo::gnupgIsDeVsCompliant()) {
         if (uidsHaveFullValidity(key) && isKeyDeVs(key)) {
             return i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                         "May be used for %1 communication.", deVsString());
+                         "May be used for %1 communication.",
+                         deVsString());
         } else {
-            return i18nc("VS-NfD-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes if a key is compliant to that..",
-                         "May <b>not</b> be used for %1 communication.", deVsString());
+            return i18nc(
+                "VS-NfD-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes "
+                "if a key is compliant to that..",
+                "May <b>not</b> be used for %1 communication.",
+                deVsString());
         }
     }
     return QString();
@@ -1191,8 +1202,7 @@ QString Formatting::prettyID(const char *id)
     if (!id) {
         return QString();
     }
-    QString ret = QString::fromLatin1(id).toUpper().replace(QRegularExpression(QStringLiteral("(....)")),
-                                                            QStringLiteral("\\1 ")).trimmed();
+    QString ret = QString::fromLatin1(id).toUpper().replace(QRegularExpression(QStringLiteral("(....)")), QStringLiteral("\\1 ")).trimmed();
     // For the standard 10 group fingerprint let us use a double space in the
     // middle to increase readability
     if (ret.size() == 49) {
@@ -1216,30 +1226,28 @@ QString Formatting::accessibleHexID(const char *id)
 QString Formatting::origin(int o)
 {
     switch (o) {
-        case Key::OriginKS:
-            return i18n("Keyserver");
-        case Key::OriginDane:
-            return QStringLiteral("DANE");
-        case Key::OriginWKD:
-            return QStringLiteral("WKD");
-        case Key::OriginURL:
-            return QStringLiteral("URL");
-        case Key::OriginFile:
-            return i18n("File import");
-        case Key::OriginSelf:
-            return i18n("Generated");
-        case Key::OriginOther:
-        case Key::OriginUnknown:
-        default:
-          return i18n("Unknown");
+    case Key::OriginKS:
+        return i18n("Keyserver");
+    case Key::OriginDane:
+        return QStringLiteral("DANE");
+    case Key::OriginWKD:
+        return QStringLiteral("WKD");
+    case Key::OriginURL:
+        return QStringLiteral("URL");
+    case Key::OriginFile:
+        return i18n("File import");
+    case Key::OriginSelf:
+        return i18n("Generated");
+    case Key::OriginOther:
+    case Key::OriginUnknown:
+    default:
+        return i18n("Unknown");
     }
 }
 
 QString Formatting::deVsString(bool compliant)
 {
-    const auto filter = KeyFilterManager::instance()->keyFilterByID(compliant ?
-            QStringLiteral("de-vs-filter") :
-            QStringLiteral("not-de-vs-filter"));
+    const auto filter = KeyFilterManager::instance()->keyFilterByID(compliant ? QStringLiteral("de-vs-filter") : QStringLiteral("not-de-vs-filter"));
     if (!filter) {
         return compliant ? i18n("VS-NfD compliant") : i18n("Not VS-NfD compliant");
     }
@@ -1278,10 +1286,12 @@ QString Formatting::trustSignature(const GpgME::UserID::Signature &sig)
     switch (sig.trustValue()) {
     case TrustSignatureTrust::Partial:
         return i18nc("Certifies this key as partially trusted introducer for 'domain name'.",
-                     "Certifies this key as partially trusted introducer for '%1'.", trustSignatureDomain(sig));
+                     "Certifies this key as partially trusted introducer for '%1'.",
+                     trustSignatureDomain(sig));
     case TrustSignatureTrust::Complete:
         return i18nc("Certifies this key as fully trusted introducer for 'domain name'.",
-                     "Certifies this key as fully trusted introducer for '%1'.", trustSignatureDomain(sig));
+                     "Certifies this key as fully trusted introducer for '%1'.",
+                     trustSignatureDomain(sig));
     default:
         return {};
     }

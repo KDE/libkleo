@@ -20,4 +20,3 @@ class KeyGroup;
 class QDebug;
 
 KLEO_EXPORT QDebug operator<<(QDebug debug, const Kleo::KeyGroup &group);
-

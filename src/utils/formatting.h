@@ -108,7 +108,7 @@ KLEO_EXPORT QString ownerTrustShort(GpgME::Key::OwnerTrust trust);
 KLEO_EXPORT QString validityShort(const GpgME::Subkey &subkey);
 KLEO_EXPORT QString validityShort(const GpgME::UserID &uid);
 KLEO_EXPORT QString validityShort(const GpgME::UserID::Signature &sig);
-KLEO_EXPORT QIcon   validityIcon(const GpgME::UserID::Signature &sig);
+KLEO_EXPORT QIcon validityIcon(const GpgME::UserID::Signature &sig);
 /* A sentence about the validity of the UserID */
 KLEO_EXPORT QString validity(const GpgME::UserID &uid);
 KLEO_EXPORT QString validity(const Kleo::KeyGroup &group);
@@ -150,7 +150,7 @@ KLEO_EXPORT bool isKeyDeVs(const GpgME::Key &key);
  * a common request from users because VS-NfD compliance is called
  * differently in different environments. E.g NATO RESTRICTED or
  * EU RESTRICTED. */
-KLEO_EXPORT QString deVsString (bool compliant = true);
+KLEO_EXPORT QString deVsString(bool compliant = true);
 
 /* A sentence if the key confirms to the current compliance mode */
 KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
@@ -170,4 +170,3 @@ KLEO_EXPORT QString trustSignatureDomain(const GpgME::UserID::Signature &sig);
 KLEO_EXPORT QString trustSignature(const GpgME::UserID::Signature &sig);
 }
 }
-

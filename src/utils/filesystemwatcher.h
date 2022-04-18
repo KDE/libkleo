@@ -53,4 +53,3 @@ private:
     QScopedPointer<Private> const d;
 };
 }
-

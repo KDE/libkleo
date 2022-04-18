@@ -41,8 +41,7 @@ bool activeDirectoryIsSupported()
 
 bool isStandardActiveDirectory(const KeyserverConfig &keyserver)
 {
-    return (keyserver.authentication() == KeyserverAuthentication::ActiveDirectory)
-        && keyserver.host().isEmpty();
+    return (keyserver.authentication() == KeyserverAuthentication::ActiveDirectory) && keyserver.host().isEmpty();
 }
 
 bool keyserverIsEditable(const KeyserverConfig &keyserver)
@@ -184,19 +183,22 @@ public:
         ui.keyserverList->setModelColumn(0);
         ui.keyserverList->setSelectionBehavior(QAbstractItemView::SelectRows);
         ui.keyserverList->setSelectionMode(QAbstractItemView::SingleSelection);
-        ui.keyserverList->setWhatsThis(i18nc("@info:whatsthis",
-                                             "This is a list of all directory services that are configured for use with X.509."));
+        ui.keyserverList->setWhatsThis(i18nc("@info:whatsthis", "This is a list of all directory services that are configured for use with X.509."));
         gridLayout->addWidget(ui.keyserverList, 1, 0);
 
         auto groupsButtonLayout = new QVBoxLayout();
 
         auto menu = new QMenu{q};
-        ui.addActiveDirectoryAction = menu->addAction(i18n("Active Directory"), [this] () { addActiveDirectory(); });
+        ui.addActiveDirectoryAction = menu->addAction(i18n("Active Directory"), [this]() {
+            addActiveDirectory();
+        });
         ui.addActiveDirectoryAction->setToolTip(i18nc("@info:tooltip",
                                                       "Click to use a directory service running on your Active Directory. "
                                                       "This works only on Windows and requires GnuPG 2.2.28 or later."));
         ui.addActiveDirectoryAction->setEnabled(activeDirectoryIsSupported());
-        ui.addLdapServerAction = menu->addAction(i18n("LDAP Server"), [this] () { addLdapServer(); });
+        ui.addLdapServerAction = menu->addAction(i18n("LDAP Server"), [this]() {
+            addLdapServer();
+        });
         ui.addLdapServerAction->setToolTip(i18nc("@info:tooltip", "Click to add a directory service provided by an LDAP server."));
         ui.newButton = new QToolButton{q};
         ui.newButton->setText(i18n("Add"));
@@ -230,21 +232,31 @@ public:
 
         gridLayout->addLayout(groupsButtonLayout, 1, 1);
 
-        mainLayout->addLayout(gridLayout, /*stretch=*/ 1);
+        mainLayout->addLayout(gridLayout, /*stretch=*/1);
 
-        connect(keyserverModel, &QAbstractItemModel::dataChanged, q, [this] () { modelChanged(); });
-        connect(keyserverModel, &QAbstractItemModel::rowsInserted, q, [this] () { modelChanged(); });
-        connect(keyserverModel, &QAbstractItemModel::rowsRemoved, q, [this] () { modelChanged(); });
-        connect(ui.keyserverList->selectionModel(), &QItemSelectionModel::selectionChanged,
-                q, [this] () { selectionChanged(); });
-        connect(ui.keyserverList, &QListView::doubleClicked,
-                q, [this] (const QModelIndex &index) {
-                    if (!readOnly) {
-                        editKeyserver(index);
-                    }
-                });
-        connect(ui.editButton, &QPushButton::clicked, q, [this] () { editKeyserver(); });
-        connect(ui.deleteButton, &QPushButton::clicked, q, [this] () { deleteKeyserver(); });
+        connect(keyserverModel, &QAbstractItemModel::dataChanged, q, [this]() {
+            modelChanged();
+        });
+        connect(keyserverModel, &QAbstractItemModel::rowsInserted, q, [this]() {
+            modelChanged();
+        });
+        connect(keyserverModel, &QAbstractItemModel::rowsRemoved, q, [this]() {
+            modelChanged();
+        });
+        connect(ui.keyserverList->selectionModel(), &QItemSelectionModel::selectionChanged, q, [this]() {
+            selectionChanged();
+        });
+        connect(ui.keyserverList, &QListView::doubleClicked, q, [this](const QModelIndex &index) {
+            if (!readOnly) {
+                editKeyserver(index);
+            }
+        });
+        connect(ui.editButton, &QPushButton::clicked, q, [this]() {
+            editKeyserver();
+        });
+        connect(ui.deleteButton, &QPushButton::clicked, q, [this]() {
+            deleteKeyserver();
+        });
     }
 
     void setReadOnly(bool ro)

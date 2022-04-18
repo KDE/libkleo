@@ -12,8 +12,8 @@
 #include <qgpgme/keylistjob.h>
 #include <qgpgme/protocol.h>
 
-#include <gpgme++/keylistresult.h>
 #include <gpgme++/key.h>
+#include <gpgme++/keylistresult.h>
 
 #include <KAboutData>
 
@@ -23,8 +23,8 @@
 #include <QStringList>
 #include <QTimer>
 
-#include <QApplication>
 #include <KLocalizedString>
+#include <QApplication>
 #include <QCommandLineParser>
 #include <chrono>
 
@@ -35,7 +35,9 @@ namespace
 class TestColumnStrategy : public Kleo::KeyListView::ColumnStrategy
 {
 public:
-    ~TestColumnStrategy() override {}
+    ~TestColumnStrategy() override
+    {
+    }
     QString title(int col) const override;
     QString toolTip(const GpgME::Key &key, int col) const override;
     QString text(const GpgME::Key &key, int col) const override;
@@ -44,13 +46,20 @@ public:
 QString TestColumnStrategy::title(int col) const
 {
     switch (col) {
-    case 0: return QStringLiteral("Subject");
-    case 1: return QStringLiteral("EMail");
-    case 2: return QStringLiteral("Issuer");
-    case 3: return QStringLiteral("Serial");
-    case 4: return QStringLiteral("Protocol");
-    case 5: return QStringLiteral("Validity");
-    default: return QString();
+    case 0:
+        return QStringLiteral("Subject");
+    case 1:
+        return QStringLiteral("EMail");
+    case 2:
+        return QStringLiteral("Issuer");
+    case 3:
+        return QStringLiteral("Serial");
+    case 4:
+        return QStringLiteral("Protocol");
+    case 5:
+        return QStringLiteral("Validity");
+    default:
+        return QString();
     }
 }
 
@@ -65,13 +74,20 @@ QString TestColumnStrategy::text(const GpgME::Key &key, int col) const
         return QStringLiteral("<null>");
     }
     switch (col) {
-    case 0: return QString::fromUtf8(key.userID(0).id());
-    case 1: return QString::fromUtf8(key.userID(0).email());
-    case 2: return QString::fromUtf8(key.issuerName());
-    case 3: return QString::fromLatin1(key.issuerSerial());
-    case 4: return QString::fromLatin1(key.protocolAsString());
-    case 5: return QString(QLatin1Char(key.userID(0).validityAsString()));
-    default: return QString();
+    case 0:
+        return QString::fromUtf8(key.userID(0).id());
+    case 1:
+        return QString::fromUtf8(key.userID(0).email());
+    case 2:
+        return QString::fromUtf8(key.issuerName());
+    case 3:
+        return QString::fromLatin1(key.issuerSerial());
+    case 4:
+        return QString::fromLatin1(key.protocolAsString());
+    case 5:
+        return QString(QLatin1Char(key.userID(0).validityAsString()));
+    default:
+        return QString();
     }
 }
 }
@@ -83,7 +99,9 @@ CertListView::CertListView(QWidget *parent, Qt::WindowFlags f)
     setRootIsDecorated(true);
 }
 
-CertListView::~CertListView() {}
+CertListView::~CertListView()
+{
+}
 
 void CertListView::slotResult(const GpgME::KeyListResult &result)
 {
@@ -91,7 +109,8 @@ void CertListView::slotResult(const GpgME::KeyListResult &result)
     if (result.isNull()) {
         QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("KeyListResult is null!"));
     } else if (result.error()) {
-        QMessageBox::critical(this, QStringLiteral("Key Listing Result"),
+        QMessageBox::critical(this,
+                              QStringLiteral("Key Listing Result"),
                               QStringLiteral("KeyListResult Error: %1").arg(QString::fromLatin1(result.error().asString())));
     } else if (result.isTruncated()) {
         QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("KeyListResult is truncated!"));
@@ -118,7 +137,6 @@ void CertListView::slotStart()
 
 int main(int argc, char **argv)
 {
-
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("test_keylister"), i18n("KeyLister Test"), QStringLiteral("0.1"));
     QCommandLineParser parser;

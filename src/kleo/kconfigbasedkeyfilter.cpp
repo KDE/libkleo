@@ -12,8 +12,8 @@
 #include <KConfigBase>
 #include <KConfigGroup>
 
-#include <algorithm>
 #include <QDebug>
+#include <algorithm>
 
 using namespace Kleo;
 using namespace GpgME;
@@ -38,7 +38,6 @@ KeyFilter::FontDescription::FontDescription()
 KeyFilter::FontDescription::FontDescription(const FontDescription &other)
     : d(new Private(*other.d))
 {
-
 }
 
 KeyFilter::FontDescription::~FontDescription() = default;
@@ -152,10 +151,10 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
 #ifdef SET
 #undef SET
 #endif
-#define SET(member,key) \
-    if ( config.hasKey( key ) ) { \
-        set##member(config.readEntry( key, false ) ? Set : NotSet); \
-        setSpecificity(specificity() + 1); \
+#define SET(member, key)                                                                                                                                       \
+    if (config.hasKey(key)) {                                                                                                                                  \
+        set##member(config.readEntry(key, false) ? Set : NotSet);                                                                                              \
+        setSpecificity(specificity() + 1);                                                                                                                     \
     }
     SET(Revoked, "is-revoked");
     SET(Expired, "is-expired");
@@ -176,12 +175,12 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         const char *prefix;
         LevelState state;
     } prefixMap[] = {
-        { "is-", Is },
-        { "is-not-", IsNot },
-        { "is-at-least-", IsAtLeast },
-        { "is-at-most-", IsAtMost },
+        {"is-", Is},
+        {"is-not-", IsNot},
+        {"is-at-least-", IsAtLeast},
+        {"is-at-most-", IsAtMost},
     };
-    for (unsigned int i = 0; i < sizeof prefixMap / sizeof * prefixMap; ++i) {
+    for (unsigned int i = 0; i < sizeof prefixMap / sizeof *prefixMap; ++i) {
         const QString key = QLatin1String(prefixMap[i].prefix) + QLatin1String("ownertrust");
         if (config.hasKey(key)) {
             setOwnerTrust(prefixMap[i].state);
@@ -190,7 +189,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
             break;
         }
     }
-    for (unsigned int i = 0; i < sizeof prefixMap / sizeof * prefixMap; ++i) {
+    for (unsigned int i = 0; i < sizeof prefixMap / sizeof *prefixMap; ++i) {
         const QString key = QLatin1String(prefixMap[i].prefix) + QLatin1String("validity");
         if (config.hasKey(key)) {
             setValidity(prefixMap[i].state);
@@ -203,13 +202,13 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         const char *key;
         MatchContext context;
     } matchMap[] = {
-        { "any", AnyMatchContext },
-        { "appearance", Appearance },
-        { "filtering", Filtering },
+        {"any", AnyMatchContext},
+        {"appearance", Appearance},
+        {"filtering", Filtering},
     };
     const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(QRegExp(QLatin1String("[^a-zA-Z0-9_-!]+")), Qt::SkipEmptyParts);
     setMatchContexts(NoMatchContext);
-    for (const QString & ctx : contexts) {
+    for (const QString &ctx : contexts) {
         bool found = false;
         for (unsigned int i = 0; i < sizeof matchMap / sizeof *matchMap; ++i) {
             if (ctx == QLatin1String(matchMap[i].key)) {
@@ -227,8 +226,10 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         }
     }
     if (availableMatchContexts() == NoMatchContext) {
-        qWarning() << QStringLiteral("KConfigBasedKeyFilter: match context in group '%1' evaluates to NoMatchContext, "
-                                     "replaced by AnyMatchContext").arg(config.name());
+        qWarning() << QStringLiteral(
+                          "KConfigBasedKeyFilter: match context in group '%1' evaluates to NoMatchContext, "
+                          "replaced by AnyMatchContext")
+                          .arg(config.name());
         setMatchContexts(AnyMatchContext);
     }
 }

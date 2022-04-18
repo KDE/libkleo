@@ -30,7 +30,7 @@ ForwardIterator binary_find(ForwardIterator first, ForwardIterator last, const T
     return (it == last || comp(value, *it)) ? last : it;
 }
 
-template <typename Container, typename UnaryOperation>
+template<typename Container, typename UnaryOperation>
 Container transformInPlace(Container &&c, UnaryOperation op)
 {
     std::transform(std::begin(c), std::end(c), std::begin(c), op);
@@ -80,4 +80,3 @@ void erase_if(Vector &v, UnaryPredicate p)
 }
 
 }
-

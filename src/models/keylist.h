@@ -21,32 +21,31 @@ static const int KeyRole         = 0xF2;
 static const int GroupRole       = 0xF3;
 // clang-format on
 
-    enum Columns {
-        PrettyName,
-        PrettyEMail,
-        ValidFrom,
-        ValidUntil,
-        TechnicalDetails,
-        ShortKeyID,
-        KeyID,
-        Fingerprint,
-        Issuer,
-        SerialNumber,
-        OwnerTrust,
-        Origin,
-        LastUpdate,
-        Validity,
-        Summary, // Short summary line
-        Remarks, // Additional remark notations
-        NumColumns,
-        Icon = PrettyName, // which column shall the icon be displayed in?
-    };
+enum Columns {
+    PrettyName,
+    PrettyEMail,
+    ValidFrom,
+    ValidUntil,
+    TechnicalDetails,
+    ShortKeyID,
+    KeyID,
+    Fingerprint,
+    Issuer,
+    SerialNumber,
+    OwnerTrust,
+    Origin,
+    LastUpdate,
+    Validity,
+    Summary, // Short summary line
+    Remarks, // Additional remark notations
+    NumColumns,
+    Icon = PrettyName, // which column shall the icon be displayed in?
+};
 
-    enum Options {
-        AllKeys,
-        SecretKeysOnly,
-        IncludeGroups,
-    };
+enum Options {
+    AllKeys,
+    SecretKeysOnly,
+    IncludeGroups,
+};
 }
 }
-

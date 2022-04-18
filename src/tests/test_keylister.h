@@ -28,4 +28,3 @@ public Q_SLOTS:
     void slotResult(const GpgME::KeyListResult &result);
     void slotStart();
 };
-

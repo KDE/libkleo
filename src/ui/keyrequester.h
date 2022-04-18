@@ -19,8 +19,8 @@
 
 #include <qgpgme/protocol.h>
 
-#include <QWidget>
 #include <QLabel>
+#include <QWidget>
 
 #include <vector>
 
@@ -42,8 +42,7 @@ class KLEO_EXPORT KeyRequester : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KeyRequester(unsigned int allowedKeys, bool multipleKeys = false,
-                          QWidget *parent = nullptr);
+    explicit KeyRequester(unsigned int allowedKeys, bool multipleKeys = false, QWidget *parent = nullptr);
     // Constructor for Qt Designer
     explicit KeyRequester(QWidget *parent = nullptr);
     ~KeyRequester() override;
@@ -124,6 +123,7 @@ private:
 private:
     class Private;
     Private *const d;
+
 protected:
     virtual void virtual_hook(int, void *);
 };
@@ -153,6 +153,7 @@ public:
 private:
     class Private;
     Private *const d;
+
 protected:
     void virtual_hook(int, void *) override;
 };
@@ -175,7 +176,8 @@ public:
     explicit SigningKeyRequester(bool multipleKeys = false,
                                  unsigned int proto = AllProtocols,
                                  QWidget *parent = nullptr,
-                                 bool onlyTrusted = true, bool onlyValid = true);
+                                 bool onlyTrusted = true,
+                                 bool onlyValid = true);
     /**
      * Constructor for Qt designer
      */
@@ -193,9 +195,9 @@ public:
 private:
     class Private;
     Private *const d;
+
 protected:
     void virtual_hook(int, void *) override;
 };
 
 }
-

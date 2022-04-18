@@ -9,23 +9,23 @@
 
 #include "classify.h"
 
-#include "libkleo_debug.h"
 #include "kleo/checksumdefinition.h"
+#include "libkleo_debug.h"
 #include "utils/algorithm.h"
 
-#include <QString>
-#include <QStringList>
+#include <QByteArrayMatcher>
 #include <QFile>
 #include <QFileInfo>
-#include <QByteArrayMatcher>
 #include <QMap>
 #include <QRegularExpression>
+#include <QString>
+#include <QStringList>
 
 #include <gpgme++/data.h>
 #include <qgpgme/dataprovider.h>
 
-#include <iterator>
 #include <functional>
+#include <iterator>
 
 using namespace Kleo::Class;
 
@@ -39,25 +39,25 @@ static const struct _classification {
     unsigned int classification;
 } classifications[] = {
     // ordered by extension
-    { "arl", Kleo::Class::CMS    | Binary  | CertificateRevocationList },
-    { "asc", Kleo::Class::OpenPGP |  Ascii  | OpaqueSignature | DetachedSignature | CipherText | AnyCertStoreType | ExamineContentHint },
-    { "cer", Kleo::Class::CMS    | Binary  | Certificate },
-    { "crl", Kleo::Class::CMS    | Binary  | CertificateRevocationList },
-    { "crt", Kleo::Class::CMS    | Binary  | Certificate },
-    { "der", Kleo::Class::CMS    | Binary  | Certificate | CertificateRevocationList },
-    { "gpg", Kleo::Class::OpenPGP | Binary  | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
-    { "p10", Kleo::Class::CMS    |  Ascii  | CertificateRequest },
-    { "p12", Kleo::Class::CMS    | Binary  | ExportedPSM },
-    { "p7c", Kleo::Class::CMS    | Binary  | Certificate  },
-    { "p7m", Kleo::Class::CMS    | AnyFormat | CipherText },
-    { "p7s", Kleo::Class::CMS    | AnyFormat | AnySignature },
-    { "pem", Kleo::Class::CMS    |  Ascii  | AnyType | ExamineContentHint },
-    { "pfx", Kleo::Class::CMS    | Binary  | Certificate },
-    { "pgp", Kleo::Class::OpenPGP | Binary  | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
-    { "sig", Kleo::Class::OpenPGP | AnyFormat | DetachedSignature },
+    {"arl", Kleo::Class::CMS | Binary | CertificateRevocationList},
+    {"asc", Kleo::Class::OpenPGP | Ascii | OpaqueSignature | DetachedSignature | CipherText | AnyCertStoreType | ExamineContentHint},
+    {"cer", Kleo::Class::CMS | Binary | Certificate},
+    {"crl", Kleo::Class::CMS | Binary | CertificateRevocationList},
+    {"crt", Kleo::Class::CMS | Binary | Certificate},
+    {"der", Kleo::Class::CMS | Binary | Certificate | CertificateRevocationList},
+    {"gpg", Kleo::Class::OpenPGP | Binary | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
+    {"p10", Kleo::Class::CMS | Ascii | CertificateRequest},
+    {"p12", Kleo::Class::CMS | Binary | ExportedPSM},
+    {"p7c", Kleo::Class::CMS | Binary | Certificate},
+    {"p7m", Kleo::Class::CMS | AnyFormat | CipherText},
+    {"p7s", Kleo::Class::CMS | AnyFormat | AnySignature},
+    {"pem", Kleo::Class::CMS | Ascii | AnyType | ExamineContentHint},
+    {"pfx", Kleo::Class::CMS | Binary | Certificate},
+    {"pgp", Kleo::Class::OpenPGP | Binary | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
+    {"sig", Kleo::Class::OpenPGP | AnyFormat | DetachedSignature},
 };
 
-static const QMap<GpgME::Data::Type, unsigned int> gpgmeTypeMap {
+static const QMap<GpgME::Data::Type, unsigned int> gpgmeTypeMap{
     // clang-format off
     {GpgME::Data::PGPSigned,    Kleo::Class::OpenPGP | OpaqueSignature  },
     /* PGPOther might be just an unencrypted unsigned pgp message. Decrypt
@@ -77,21 +77,21 @@ static const QMap<GpgME::Data::Type, unsigned int> gpgmeTypeMap {
 
 static const unsigned int defaultClassification = NoClass;
 
-template <template <typename U> class Op>
+template<template<typename U> class Op>
 struct ByExtension {
     using result_type = bool;
 
-    template <typename T>
+    template<typename T>
     bool operator()(const T &lhs, const T &rhs) const
     {
         return Op<int>()(qstricmp(lhs.extension, rhs.extension), 0);
     }
-    template <typename T>
+    template<typename T>
     bool operator()(const T &lhs, const char *rhs) const
     {
         return Op<int>()(qstricmp(lhs.extension, rhs), 0);
     }
-    template <typename T>
+    template<typename T>
     bool operator()(const char *lhs, const T &rhs) const
     {
         return Op<int>()(qstricmp(lhs, rhs.extension), 0);
@@ -118,24 +118,27 @@ static const struct _content_classification {
     // clang-format on
 };
 
-template <template <typename U> class Op>
+template<template<typename U> class Op>
 struct ByContent {
     using result_type = bool;
 
     const unsigned int N;
-    explicit ByContent(unsigned int n) : N(n) {}
+    explicit ByContent(unsigned int n)
+        : N(n)
+    {
+    }
 
-    template <typename T>
+    template<typename T>
     bool operator()(const T &lhs, const T &rhs) const
     {
         return Op<int>()(qstrncmp(lhs.content, rhs.content, N), 0);
     }
-    template <typename T>
+    template<typename T>
     bool operator()(const T &lhs, const char *rhs) const
     {
         return Op<int>()(qstrncmp(lhs.content, rhs, N), 0);
     }
-    template <typename T>
+    template<typename T>
     bool operator()(const char *lhs, const T &rhs) const
     {
         return Op<int>()(qstrncmp(lhs, rhs.content, N), 0);
@@ -162,17 +165,15 @@ unsigned int Kleo::classify(const QStringList &fileNames)
 
 static unsigned int classifyExtension(const QFileInfo &fi)
 {
-    const _classification *const it = Kleo::binary_find(std::begin(classifications), std::end(classifications),
-                                                        fi.suffix().toLatin1().constData(),
-                                                        ByExtension<std::less>());
+    const _classification *const it =
+        Kleo::binary_find(std::begin(classifications), std::end(classifications), fi.suffix().toLatin1().constData(), ByExtension<std::less>());
     if (it != std::end(classifications)) {
         if (!(it->classification & ExamineContentHint)) {
             return it->classification;
         }
     }
 
-    return it == std::end(classifications) ? defaultClassification
-                                        : it->classification;
+    return it == std::end(classifications) ? defaultClassification : it->classification;
 }
 
 unsigned int Kleo::classify(const QString &filename)
@@ -188,8 +189,7 @@ unsigned int Kleo::classify(const QString &filename)
     QFile file(filename);
     /* The least reliable but always available classification */
     const unsigned int extClass = classifyExtension(fi);
-    if (!GpgME::hasFeature(0, GpgME::BinaryAndFineGrainedIdentify) &&
-        !(extClass & ExamineContentHint)) {
+    if (!GpgME::hasFeature(0, GpgME::BinaryAndFineGrainedIdentify) && !(extClass & ExamineContentHint)) {
         /* GpgME's identify and our internal Classify were so incomplete
          * before BinaryAndFineGrainedIdentify that we are better of
          * to just use the file extension if ExamineContentHint is not set. */
@@ -237,10 +237,8 @@ static unsigned int classifyContentInteral(const QByteArray &data)
         return defaultClassification;
     }
 
-    const _content_classification *const cit
-        = Kleo::binary_find(std::begin(content_classifications), std::end(content_classifications),
-                            data.data() + pos,
-                            ByContent<std::less>(epos - pos));
+    const _content_classification *const cit =
+        Kleo::binary_find(std::begin(content_classifications), std::end(content_classifications), data.data() + pos, ByContent<std::less>(epos - pos));
 
     if (cit != std::end(content_classifications)) {
         return cit->classification | (pgp ? Kleo::Class::OpenPGP : Kleo::Class::CMS);
@@ -357,9 +355,7 @@ QString Kleo::outputFileName(const QString &inputFileName)
 {
     const QFileInfo fi(inputFileName);
 
-    if (!std::binary_search(std::begin(classifications), std::end(classifications),
-                            fi.suffix().toLatin1().constData(),
-                            ByExtension<std::less>())) {
+    if (!std::binary_search(std::begin(classifications), std::end(classifications), fi.suffix().toLatin1().constData(), ByExtension<std::less>())) {
         return inputFileName + QLatin1String(".out");
     } else {
         return chopped(inputFileName, 4);
@@ -372,7 +368,6 @@ QString Kleo::outputFileName(const QString &inputFileName)
 */
 const char *Kleo::outputFileExtension(unsigned int classification, bool usePGPFileExt)
 {
-
     if (usePGPFileExt && (classification & Class::OpenPGP) && (classification & Class::Binary)) {
         return "pgp";
     }

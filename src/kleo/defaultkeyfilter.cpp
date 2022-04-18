@@ -23,37 +23,36 @@ using namespace Kleo;
 static bool is_card_key(const Key &key)
 {
     const std::vector<Subkey> sks = key.subkeys();
-    return std::find_if(sks.begin(), sks.end(),
-                        std::mem_fn(&Subkey::isCardKey)) != sks.end();
+    return std::find_if(sks.begin(), sks.end(), std::mem_fn(&Subkey::isCardKey)) != sks.end();
 }
 
 class DefaultKeyFilter::Private
 {
-
 public:
-    Private() :
-        mMatchContexts(AnyMatchContext),
-        mRevoked(DoesNotMatter),
-        mExpired(DoesNotMatter),
-        mInvalid(DoesNotMatter),
-        mDisabled(DoesNotMatter),
-        mRoot(DoesNotMatter),
-        mCanEncrypt(DoesNotMatter),
-        mCanSign(DoesNotMatter),
-        mCanCertify(DoesNotMatter),
-        mCanAuthenticate(DoesNotMatter),
-        mQualified(DoesNotMatter),
-        mCardKey(DoesNotMatter),
-        mHasSecret(DoesNotMatter),
-        mIsOpenPGP(DoesNotMatter),
-        mWasValidated(DoesNotMatter),
-        mIsDeVs(DoesNotMatter),
-        mBad(DoesNotMatter),
-        mOwnerTrust(LevelDoesNotMatter),
-        mOwnerTrustReferenceLevel(Key::Unknown),
-        mValidity(LevelDoesNotMatter),
-        mValidityReferenceLevel(UserID::Unknown)
-    {}
+    Private()
+        : mMatchContexts(AnyMatchContext)
+        , mRevoked(DoesNotMatter)
+        , mExpired(DoesNotMatter)
+        , mInvalid(DoesNotMatter)
+        , mDisabled(DoesNotMatter)
+        , mRoot(DoesNotMatter)
+        , mCanEncrypt(DoesNotMatter)
+        , mCanSign(DoesNotMatter)
+        , mCanCertify(DoesNotMatter)
+        , mCanAuthenticate(DoesNotMatter)
+        , mQualified(DoesNotMatter)
+        , mCardKey(DoesNotMatter)
+        , mHasSecret(DoesNotMatter)
+        , mIsOpenPGP(DoesNotMatter)
+        , mWasValidated(DoesNotMatter)
+        , mIsDeVs(DoesNotMatter)
+        , mBad(DoesNotMatter)
+        , mOwnerTrust(LevelDoesNotMatter)
+        , mOwnerTrustReferenceLevel(Key::Unknown)
+        , mValidity(LevelDoesNotMatter)
+        , mValidityReferenceLevel(UserID::Unknown)
+    {
+    }
     QColor mFgColor, mBgColor;
     QString mName;
     QString mIcon;
@@ -87,16 +86,17 @@ public:
     GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel;
     LevelState mValidity;
     GpgME::UserID::Validity mValidityReferenceLevel;
-
 };
 
 DefaultKeyFilter::DefaultKeyFilter()
-    : KeyFilter(),
-      d_ptr(new Private())
+    : KeyFilter()
+    , d_ptr(new Private())
 {
 }
 
-DefaultKeyFilter::~DefaultKeyFilter() {}
+DefaultKeyFilter::~DefaultKeyFilter()
+{
+}
 
 bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
 {
@@ -106,14 +106,14 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
 #ifdef MATCH
 #undef MATCH
 #endif
-#define MATCH(member,method) \
-    do { \
-        if ( member != DoesNotMatter && key.method() != bool( member == Set ) ) { \
-            return false; \
-        } \
+#define MATCH(member, method)                                                                                                                                  \
+    do {                                                                                                                                                       \
+        if (member != DoesNotMatter && key.method() != bool(member == Set)) {                                                                                  \
+            return false;                                                                                                                                      \
+        }                                                                                                                                                      \
     } while (false)
-#define IS_MATCH(what) MATCH( d_ptr->m##what, is##what )
-#define CAN_MATCH(what) MATCH( d_ptr->mCan##what, can##what )
+#define IS_MATCH(what) MATCH(d_ptr->m##what, is##what)
+#define CAN_MATCH(what) MATCH(d_ptr->mCan##what, can##what)
     IS_MATCH(Revoked);
     IS_MATCH(Expired);
     IS_MATCH(Invalid);
@@ -125,23 +125,19 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     CAN_MATCH(Authenticate);
     IS_MATCH(Qualified);
     if (d_ptr->mCardKey != DoesNotMatter) {
-        if ((d_ptr->mCardKey == Set    && !is_card_key(key)) ||
-                (d_ptr->mCardKey == NotSet &&  is_card_key(key))) {
+        if ((d_ptr->mCardKey == Set && !is_card_key(key)) || (d_ptr->mCardKey == NotSet && is_card_key(key))) {
             return false;
         }
     }
     MATCH(d_ptr->mHasSecret, hasSecret);
 #undef MATCH
-    if (d_ptr->mIsOpenPGP != DoesNotMatter &&
-            bool(key.protocol() == GpgME::OpenPGP) != bool(d_ptr->mIsOpenPGP == Set)) {
+    if (d_ptr->mIsOpenPGP != DoesNotMatter && bool(key.protocol() == GpgME::OpenPGP) != bool(d_ptr->mIsOpenPGP == Set)) {
         return false;
     }
-    if (d_ptr->mWasValidated != DoesNotMatter &&
-            bool(key.keyListMode() & GpgME::Validate) != bool(d_ptr->mWasValidated == Set)) {
+    if (d_ptr->mWasValidated != DoesNotMatter && bool(key.keyListMode() & GpgME::Validate) != bool(d_ptr->mWasValidated == Set)) {
         return false;
     }
-    if (d_ptr->mIsDeVs != DoesNotMatter &&
-            bool(Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d_ptr->mIsDeVs == Set)) {
+    if (d_ptr->mIsDeVs != DoesNotMatter && bool(Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d_ptr->mIsDeVs == Set)) {
         return false;
     }
     if (d_ptr->mBad != DoesNotMatter &&

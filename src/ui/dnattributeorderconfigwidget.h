@@ -52,6 +52,7 @@ private:
 private:
     class DNAttributeOrderConfigWidgetPrivate;
     std::unique_ptr<DNAttributeOrderConfigWidgetPrivate> const d;
+
 protected:
     virtual void virtual_hook(int, void *);
 };

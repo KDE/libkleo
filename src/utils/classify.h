@@ -271,4 +271,3 @@ inline GpgME::Protocol findProtocol(const QString &filename)
 }
 
 }
-

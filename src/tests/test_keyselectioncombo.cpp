@@ -5,18 +5,18 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include "ui/keyselectioncombo.h"
 #include "kleo/defaultkeyfilter.h"
+#include "ui/keyselectioncombo.h"
 #include <gpgme++/key.h>
 
 #include <KAboutData>
 #include <QDebug>
 
-#include <vector>
-#include <QApplication>
 #include <KLocalizedString>
+#include <QApplication>
 #include <QCommandLineParser>
 #include <QVBoxLayout>
+#include <vector>
 
 int main(int argc, char **argv)
 {
@@ -48,13 +48,17 @@ int main(int argc, char **argv)
     filter->setCanEncrypt(parser.isSet(encryptOption) ? Kleo::DefaultKeyFilter::Set : Kleo::DefaultKeyFilter::DoesNotMatter);
     filter->setIsOpenPGP(parser.isSet(openpgpOption) ? Kleo::DefaultKeyFilter::Set : Kleo::DefaultKeyFilter::NotSet);
     filter->setHasSecret(Kleo::DefaultKeyFilter::Set);
-    //filter->setOwnerTrust(Kleo::DefaultKeyFilter::IsAtLeast);
-    //filter->setOwnerTrustReferenceLevel(GpgME::Key::Ultimate);
+    // filter->setOwnerTrust(Kleo::DefaultKeyFilter::IsAtLeast);
+    // filter->setOwnerTrustReferenceLevel(GpgME::Key::Ultimate);
     combo.setKeyFilter(filter);
 
     combo.prependCustomItem(QIcon(), i18n("No key"), QStringLiteral("no-key"));
-    QObject::connect(&combo, &Kleo::KeySelectionCombo::currentKeyChanged, [](const GpgME::Key &key) { qDebug() << "Current key changed:" << key.keyID(); });
-    QObject::connect(&combo, &Kleo::KeySelectionCombo::customItemSelected, [](const QVariant &data) { qDebug() << "Custom item selected:" << data.toString(); });
+    QObject::connect(&combo, &Kleo::KeySelectionCombo::currentKeyChanged, [](const GpgME::Key &key) {
+        qDebug() << "Current key changed:" << key.keyID();
+    });
+    QObject::connect(&combo, &Kleo::KeySelectionCombo::customItemSelected, [](const QVariant &data) {
+        qDebug() << "Custom item selected:" << data.toString();
+    });
 
     window.show();
 
@@ -71,4 +75,3 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-

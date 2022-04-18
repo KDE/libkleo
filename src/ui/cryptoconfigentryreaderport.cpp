@@ -21,7 +21,7 @@
 
 #include <QGpgME/CryptoConfig>
 #if __has_include(<QGpgME/Debug>)
-# include <QGpgME/Debug>
+#include <QGpgME/Debug>
 #endif
 
 #include <QGridLayout>
@@ -42,16 +42,14 @@ CryptoConfigEntryReaderPort::CryptoConfigEntryReaderPort(CryptoConfigModule *mod
     : CryptoConfigEntryGUI{module, entry, entryName}
     , mReaderPort{new ReaderPortSelection{parent}}
 {
-    auto const label = new QLabel{i18nc("@label:listbox Reader for smart cards",
-                                        "Reader to connect to"), parent};
+    auto const label = new QLabel{i18nc("@label:listbox Reader for smart cards", "Reader to connect to"), parent};
     label->setBuddy(mReaderPort);
 
     if (entry->isReadOnly()) {
         label->setEnabled(false);
         mReaderPort->setEnabled(false);
     } else {
-        connect(mReaderPort, &ReaderPortSelection::valueChanged,
-                this, &CryptoConfigEntryReaderPort::slotChanged);
+        connect(mReaderPort, &ReaderPortSelection::valueChanged, this, &CryptoConfigEntryReaderPort::slotChanged);
     }
 
     const int row = layout->rowCount();

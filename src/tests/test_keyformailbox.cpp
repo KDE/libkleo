@@ -8,14 +8,13 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include <qgpgme/protocol.h>
 #include <qgpgme/keyformailboxjob.h>
+#include <qgpgme/protocol.h>
 
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
 
 #include <QDebug>
-
 
 int main(int argc, char **argv)
 {

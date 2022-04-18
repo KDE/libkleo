@@ -58,14 +58,12 @@ const char * auditlog =
 
 #include <KAboutData>
 
-
-#include <QApplication>
 #include <KLocalizedString>
+#include <QApplication>
 #include <QCommandLineParser>
 
 int main(int argc, char **argv)
 {
-
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("test_auditlog"), i18n("Auditlog Test"), QStringLiteral("0.1"));
     QCommandLineParser parser;
@@ -78,4 +76,3 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-

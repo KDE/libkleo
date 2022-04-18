@@ -24,21 +24,21 @@
 #include <gpgme++/error.h>
 #include <gpgme++/key.h>
 
-#include <QGpgME/Protocol>
 #include <QGpgME/CryptoConfig>
+#include <QGpgME/Protocol>
 
 #include "libkleo_debug.h"
 
+#include <QByteArray>
+#include <QCoreApplication>
 #include <QDateTime>
 #include <QDir>
 #include <QFile>
-#include <QString>
-#include <QProcess>
-#include <QByteArray>
-#include <QStandardPaths>
-#include <QCoreApplication>
-#include <QRegularExpression>
 #include <QPointer>
+#include <QProcess>
+#include <QRegularExpression>
+#include <QStandardPaths>
+#include <QString>
 #include <gpg-error.h>
 
 #ifdef Q_OS_WIN
@@ -90,28 +90,27 @@ QString Kleo::gpgPath()
 QStringList Kleo::gnupgFileWhitelist()
 {
     return QStringList()
-           // The obvious pubring
-           << QStringLiteral("pubring.gpg")
-           // GnuPG 2.1 pubring
-           << QStringLiteral("pubring.kbx")
-           // Trust in X509 Certificates
-           << QStringLiteral("trustlist.txt")
-           // Trustdb controls ownertrust and thus WOT validity
-           << QStringLiteral("trustdb.gpg")
-           // We want to update when smartcard status changes
-           << QStringLiteral("reader*.status")
-           // No longer used in 2.1 but for 2.0 we want this
-           << QStringLiteral("secring.gpg")
-           // Changes to the trustmodel / compliance mode might
-           // affect validity so we check this, too.
-           // Globbing for gpg.conf* here will trigger too often
-           // as gpgconf creates files like gpg.conf.bak or
-           // gpg.conf.tmp12312.gpgconf that should not trigger
-           // a change.
-           << QStringLiteral("gpg.conf") //
-           << QStringLiteral("gpg.conf-?") //
-           << QStringLiteral("gpg.conf-?.?")
-           ;
+        // The obvious pubring
+        << QStringLiteral("pubring.gpg")
+        // GnuPG 2.1 pubring
+        << QStringLiteral("pubring.kbx")
+        // Trust in X509 Certificates
+        << QStringLiteral("trustlist.txt")
+        // Trustdb controls ownertrust and thus WOT validity
+        << QStringLiteral("trustdb.gpg")
+        // We want to update when smartcard status changes
+        << QStringLiteral("reader*.status")
+        // No longer used in 2.1 but for 2.0 we want this
+        << QStringLiteral("secring.gpg")
+        // Changes to the trustmodel / compliance mode might
+        // affect validity so we check this, too.
+        // Globbing for gpg.conf* here will trigger too often
+        // as gpgconf creates files like gpg.conf.bak or
+        // gpg.conf.tmp12312.gpgconf that should not trigger
+        // a change.
+        << QStringLiteral("gpg.conf") //
+        << QStringLiteral("gpg.conf-?") //
+        << QStringLiteral("gpg.conf-?.?");
 }
 
 namespace
@@ -135,11 +134,11 @@ private:
     QString mDescLong;
     bool mSignedVersion;
 
-    Gpg4win() :
-        mVersion(QStringLiteral("Unknown Windows Version")),
-        mDescription(i18n("Certificate Manager and Unified Crypto GUI")),
-        mDescLong(QStringLiteral("<a href=https://www.gpg4win.org>Visit the Gpg4win homepage</a>")),
-        mSignedVersion(false)
+    Gpg4win()
+        : mVersion(QStringLiteral("Unknown Windows Version"))
+        , mDescription(i18n("Certificate Manager and Unified Crypto GUI"))
+        , mDescLong(QStringLiteral("<a href=https://www.gpg4win.org>Visit the Gpg4win homepage</a>"))
+        , mSignedVersion(false)
     {
         const QString instPath = Kleo::gpg4winInstallPath();
         const QString verPath = instPath + QStringLiteral("/../VERSION");
@@ -169,15 +168,10 @@ private:
             QProcess gpgv;
             gpgv.setProgram(Kleo::gpgPath().replace(QStringLiteral("gpg.exe"), QStringLiteral("gpgv.exe")));
             const QString keyringPath(QStringLiteral("%1/../share/gnupg/distsigkey.gpg").arg(Kleo::gnupgInstallPath()));
-            gpgv.setArguments(QStringList() << QStringLiteral("--keyring")
-                                            << keyringPath
-                                            << QStringLiteral("--")
-                                            << sigPath
-                                            << verPath);
+            gpgv.setArguments(QStringList() << QStringLiteral("--keyring") << keyringPath << QStringLiteral("--") << sigPath << verPath);
             gpgv.start();
             gpgv.waitForFinished();
-            if (gpgv.exitStatus() == QProcess::NormalExit &&
-                !gpgv.exitCode()) {
+            if (gpgv.exitStatus() == QProcess::NormalExit && !gpgv.exitCode()) {
                 qCDebug(LIBKLEO_LOG) << "Valid Version: " << versVersion;
                 mVersion = versVersion;
                 mDescription = versDescription;
@@ -193,6 +187,7 @@ private:
         // Also take Version information from unsigned Versions.
         mVersion = versVersion;
     }
+
 public:
     const QString &version() const
     {
@@ -224,8 +219,7 @@ QString Kleo::gpg4winVersionNumber()
     // we assume that Gpg4win::version() returns a version number (conforming to the semantic
     // versioning spec) optionally prefixed with some text followed by a dash,
     // e.g. "Gpg4win-3.1.15-beta15"; see https://dev.gnupg.org/T5663
-    static const QRegularExpression catchSemVerRegExp{
-        QLatin1String{R"(-([0-9]+(?:\.[0-9]+)*(?:-[.0-9A-Za-z-]+)?(?:\+[.0-9a-zA-Z-]+)?)$)"}};
+    static const QRegularExpression catchSemVerRegExp{QLatin1String{R"(-([0-9]+(?:\.[0-9]+)*(?:-[.0-9A-Za-z-]+)?(?:\+[.0-9a-zA-Z-]+)?)$)"}};
 
     QString ret;
     const auto match = catchSemVerRegExp.match(gpg4winVersion());
@@ -257,14 +251,10 @@ QString Kleo::gpg4winInstallPath()
     // QApplication::applicationDirPath is only used as a fallback
     // to support the case where Kleopatra is not installed from
     // Gpg4win but Gpg4win is also installed.
-    char *instDir = read_w32_registry_string("HKEY_LOCAL_MACHINE",
-                                             "Software\\GPG4Win",
-                                             "Install Directory");
+    char *instDir = read_w32_registry_string("HKEY_LOCAL_MACHINE", "Software\\GPG4Win", "Install Directory");
     if (!instDir) {
         // Fallback to HKCU
-        instDir = read_w32_registry_string("HKEY_CURRENT_USER",
-                                           "Software\\GPG4Win",
-                                           "Install Directory");
+        instDir = read_w32_registry_string("HKEY_CURRENT_USER", "Software\\GPG4Win", "Install Directory");
     }
     if (instDir) {
         QString ret = QString::fromLocal8Bit(instDir) + QStringLiteral("/bin");
@@ -278,19 +268,14 @@ QString Kleo::gpg4winInstallPath()
 
 QString Kleo::gnupgInstallPath()
 {
-
 #ifdef Q_OS_WIN
     // QApplication::applicationDirPath is only used as a fallback
     // to support the case where Kleopatra is not installed from
     // Gpg4win but Gpg4win is also installed.
-    char *instDir = read_w32_registry_string("HKEY_LOCAL_MACHINE",
-                                             "Software\\GnuPG",
-                                             "Install Directory");
+    char *instDir = read_w32_registry_string("HKEY_LOCAL_MACHINE", "Software\\GnuPG", "Install Directory");
     if (!instDir) {
         // Fallback to HKCU
-        instDir = read_w32_registry_string("HKEY_CURRENT_USER",
-                                           "Software\\GnuPG",
-                                           "Install Directory");
+        instDir = read_w32_registry_string("HKEY_CURRENT_USER", "Software\\GnuPG", "Install Directory");
     }
     if (instDir) {
         QString ret = QString::fromLocal8Bit(instDir) + QStringLiteral("/bin");
@@ -328,13 +313,13 @@ QString Kleo::gpgConfListDir(const char *which)
                 --end;
             }
             const QString result = QDir::fromNativeSeparators(QFile::decodeName(hexdecode(line.mid(begin, end - begin))));
-            qCDebug(LIBKLEO_LOG) << "gpgConfListDir: found " << qPrintable(result)
-                                   << " for '" << which << "'entry";
+            qCDebug(LIBKLEO_LOG) << "gpgConfListDir: found " << qPrintable(result) << " for '" << which << "'entry";
             return result;
         }
     }
     qCDebug(LIBKLEO_LOG) << "gpgConfListDir(): didn't find '" << which << "'"
-                           << "entry in output:\n" << gpgConf.readAllStandardError().constData();
+                         << "entry in output:\n"
+                         << gpgConf.readAllStandardError().constData();
     return QString();
 }
 
@@ -391,14 +376,12 @@ bool Kleo::versionIsAtLeast(const char *minimum, const char *actual)
         return false;
     }
 
-    return !std::lexicographical_compare(std::begin(actual_version), std::end(actual_version),
-                                         std::begin(minimum_version), std::end(minimum_version));
-
+    return !std::lexicographical_compare(std::begin(actual_version), std::end(actual_version), std::begin(minimum_version), std::end(minimum_version));
 }
 
 bool Kleo::engineIsVersion(int major, int minor, int patch, GpgME::Engine engine)
 {
-    static QMap<Engine, std::array<int, 3> > cachedVersions;
+    static QMap<Engine, std::array<int, 3>> cachedVersions;
     const int required_version[] = {major, minor, patch};
     // Gpgconf means spawning processes which is expensive on windows.
     std::array<int, 3> actual_version;
@@ -413,10 +396,7 @@ bool Kleo::engineIsVersion(int major, int minor, int patch, GpgME::Engine engine
         bool ok;
         actual_version = getVersionFromString(actual, ok);
 
-        qCDebug(LIBKLEO_LOG) << "Parsed" << actual << "as: "
-                               << actual_version[0] << '.'
-                               << actual_version[1] << '.'
-                               << actual_version[2] << '.';
+        qCDebug(LIBKLEO_LOG) << "Parsed" << actual << "as: " << actual_version[0] << '.' << actual_version[1] << '.' << actual_version[2] << '.';
         if (!ok) {
             return false;
         }
@@ -426,15 +406,14 @@ bool Kleo::engineIsVersion(int major, int minor, int patch, GpgME::Engine engine
     }
 
     // return ! ( actual_version < required_version )
-    return !std::lexicographical_compare(std::begin(actual_version), std::end(actual_version),
-                                         std::begin(required_version), std::end(required_version));
+    return !std::lexicographical_compare(std::begin(actual_version), std::end(actual_version), std::begin(required_version), std::end(required_version));
 }
 
-const QString& Kleo::paperKeyInstallPath()
+const QString &Kleo::paperKeyInstallPath()
 {
     static const QString pkPath = (QStandardPaths::findExecutable(QStringLiteral("paperkey"), QStringList() << QCoreApplication::applicationDirPath()).isEmpty()
-                                   ? QStandardPaths::findExecutable(QStringLiteral("paperkey"))
-                                   : QStandardPaths::findExecutable(QStringLiteral("paperkey"), QStringList() << QCoreApplication::applicationDirPath()));
+                                       ? QStandardPaths::findExecutable(QStringLiteral("paperkey"))
+                                       : QStandardPaths::findExecutable(QStringLiteral("paperkey"), QStringList() << QCoreApplication::applicationDirPath()));
     return pkPath;
 }
 
@@ -496,9 +475,8 @@ enum GpgME::UserID::Validity Kleo::keyValidity(const GpgME::Key &key)
 {
     enum UserID::Validity validity = UserID::Validity::Unknown;
 
-    for (const auto &uid: key.userIDs()) {
-        if (validity == UserID::Validity::Unknown
-            || validity > uid.validity()) {
+    for (const auto &uid : key.userIDs()) {
+        if (validity == UserID::Validity::Unknown || validity > uid.validity()) {
             validity = uid.validity();
         }
     }
@@ -507,14 +485,14 @@ enum GpgME::UserID::Validity Kleo::keyValidity(const GpgME::Key &key)
 }
 
 #ifdef Q_OS_WIN
-static QString fromEncoding (unsigned int src_encoding, const char *data)
+static QString fromEncoding(unsigned int src_encoding, const char *data)
 {
     int n = MultiByteToWideChar(src_encoding, 0, data, -1, NULL, 0);
     if (n < 0) {
         return QString();
     }
 
-    wchar_t *result = (wchar_t *) malloc ((n+1) * sizeof *result);
+    wchar_t *result = (wchar_t *)malloc((n + 1) * sizeof *result);
 
     n = MultiByteToWideChar(src_encoding, 0, data, -1, result, n);
     if (n < 0) {
@@ -539,7 +517,7 @@ QString Kleo::stringFromGpgOutput(const QByteArray &ba)
      * what GetConsoleOutputCP returns for a console application
      * it appears to be the OEMCP.
      */
-    unsigned int cpno = GetConsoleOutputCP ();
+    unsigned int cpno = GetConsoleOutputCP();
     if (!cpno) {
         cpno = GetOEMCP();
     }
@@ -589,43 +567,42 @@ QStringList Kleo::backendVersionInfo()
 namespace
 {
 
-template <typename Function1, typename Function2>
+template<typename Function1, typename Function2>
 auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 onFailure)
 {
     auto process = new QProcess;
     process->setProgram(Kleo::gpgConfPath());
     process->setArguments(arguments);
 
-    QObject::connect(process, &QProcess::started,
-                     [process]() {
-                         qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") was started successfully";
-                     });
-    QObject::connect(process, &QProcess::errorOccurred,
-                     [process, onFailure](auto error) {
-                         qCDebug(LIBKLEO_LOG).nospace() << "Error while running gpgconf (" << process << "): " << error;
-                         process->deleteLater();
-                         onFailure();
-                     });
-    QObject::connect(process, &QProcess::readyReadStandardError,
-                     [process]() {
-                         for (const auto &line : process->readAllStandardError().trimmed().split('\n')) {
-                            qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") stderr: " << line;
-                         }
-                     });
-    QObject::connect(process, &QProcess::readyReadStandardOutput,
-                     [process]() { (void)process->readAllStandardOutput(); /* ignore stdout */ });
-    QObject::connect(process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished),
+    QObject::connect(process, &QProcess::started, [process]() {
+        qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") was started successfully";
+    });
+    QObject::connect(process, &QProcess::errorOccurred, [process, onFailure](auto error) {
+        qCDebug(LIBKLEO_LOG).nospace() << "Error while running gpgconf (" << process << "): " << error;
+        process->deleteLater();
+        onFailure();
+    });
+    QObject::connect(process, &QProcess::readyReadStandardError, [process]() {
+        for (const auto &line : process->readAllStandardError().trimmed().split('\n')) {
+            qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") stderr: " << line;
+        }
+    });
+    QObject::connect(process, &QProcess::readyReadStandardOutput, [process]() {
+        (void)process->readAllStandardOutput(); /* ignore stdout */
+    });
+    QObject::connect(process,
+                     qOverload<int, QProcess::ExitStatus>(&QProcess::finished),
                      [process, onSuccess, onFailure](int exitCode, QProcess::ExitStatus exitStatus) {
                          if (exitStatus == QProcess::NormalExit) {
-                            qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") exited (exit code: " << exitCode << ")";
-                            if (exitCode == 0) {
-                                onSuccess();
-                            } else {
-                                onFailure();
-                            }
+                             qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") exited (exit code: " << exitCode << ")";
+                             if (exitCode == 0) {
+                                 onSuccess();
+                             } else {
+                                 onFailure();
+                             }
                          } else {
-                            qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") crashed (exit code: " << exitCode << ")";
-                            onFailure();
+                             qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") crashed (exit code: " << exitCode << ")";
+                             onFailure();
                          }
                          process->deleteLater();
                      });
@@ -638,7 +615,10 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
 
 static auto startGpgConf(const QStringList &arguments)
 {
-    return startGpgConf(arguments, [](){}, [](){});
+    return startGpgConf(
+        arguments,
+        []() {},
+        []() {});
 }
 
 }
@@ -668,9 +648,14 @@ void Kleo::launchGpgAgent()
         return;
     }
 
-    process = startGpgConf({QStringLiteral("--launch"), QStringLiteral("gpg-agent")},
-                           []() { numberOfFailedLaunches = 0; },
-                           []() { numberOfFailedLaunches++; });
+    process = startGpgConf(
+        {QStringLiteral("--launch"), QStringLiteral("gpg-agent")},
+        []() {
+            numberOfFailedLaunches = 0;
+        },
+        []() {
+            numberOfFailedLaunches++;
+        });
 }
 
 void Kleo::killDaemons()

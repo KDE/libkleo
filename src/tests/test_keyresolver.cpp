@@ -7,18 +7,17 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-
 #include "kleo/keyresolver.h"
 
 #include "utils/formatting.h"
 
-#include <QCommandLineParser>
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QTimer>
 
-#include <gpgme++/key.h>
 #include <chrono>
+#include <gpgme++/key.h>
 using namespace std::chrono_literals;
 using namespace Kleo;
 using namespace GpgME;
@@ -30,7 +29,7 @@ void dumpKeys(const QMap<QString, std::vector<Key>> &keysMap)
         const auto &keys = it.value();
         qDebug() << "Address:" << address;
         qDebug() << "Keys:";
-        for (const auto &key: keys) {
+        for (const auto &key : keys) {
             qDebug() << key.primaryFingerprint();
         }
     }
@@ -38,16 +37,19 @@ void dumpKeys(const QMap<QString, std::vector<Key>> &keysMap)
 
 void dumpSigKeys(const std::vector<Key> &keys)
 {
-    for (const auto &key: keys) {
+    for (const auto &key : keys) {
         qDebug() << key.primaryFingerprint();
     }
 }
 
-class SignalRecipient: public QObject
+class SignalRecipient : public QObject
 {
     Q_OBJECT
 public:
-    SignalRecipient(KeyResolver *res) : resolver(res) {}
+    SignalRecipient(KeyResolver *res)
+        : resolver(res)
+    {
+    }
 
     void keysResolved(bool success, bool sendUnencrypted)
     {
@@ -63,6 +65,7 @@ public:
         qDebug() << "Send Unencrypted:" << sendUnencrypted;
         exit(0);
     }
+
 private:
     KeyResolver *resolver;
 };
@@ -73,25 +76,18 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     parser.setApplicationDescription(QStringLiteral("Test KeyResolver class"));
     parser.addHelpOption();
-    parser.addPositionalArgument(QStringLiteral("recipients"),
-                                  QStringLiteral("Recipients to resolve"),
-                                  QStringLiteral("[mailboxes]"));
+    parser.addPositionalArgument(QStringLiteral("recipients"), QStringLiteral("Recipients to resolve"), QStringLiteral("[mailboxes]"));
     parser.addOption(QCommandLineOption({QStringLiteral("overrides"), QStringLiteral("o")},
                                         QStringLiteral("Override where format can be:\n"
                                                        "OpenPGP\n"
                                                        "SMIME\n"
                                                        "Auto"),
                                         QStringLiteral("mailbox:fpr,fpr,...[:format]")));
-    parser.addOption(QCommandLineOption({QStringLiteral("sender"), QStringLiteral("s")},
-                                        QStringLiteral("Mailbox of the sender"),
-                                        QStringLiteral("mailbox")));
-    parser.addOption(QCommandLineOption({QStringLiteral("sigkeys"), QStringLiteral("k")},
-                                        QStringLiteral("Explicit signing keys"),
-                                        QStringLiteral("signing key")));
-    parser.addOption(QCommandLineOption({QStringLiteral("encrypt"), QStringLiteral("e")},
-                                        QStringLiteral("Only select encryption keys")));
-    parser.addOption(QCommandLineOption({QStringLiteral("approval"), QStringLiteral("a")},
-                                        QStringLiteral("Always show approval dlg")));
+    parser.addOption(QCommandLineOption({QStringLiteral("sender"), QStringLiteral("s")}, QStringLiteral("Mailbox of the sender"), QStringLiteral("mailbox")));
+    parser.addOption(
+        QCommandLineOption({QStringLiteral("sigkeys"), QStringLiteral("k")}, QStringLiteral("Explicit signing keys"), QStringLiteral("signing key")));
+    parser.addOption(QCommandLineOption({QStringLiteral("encrypt"), QStringLiteral("e")}, QStringLiteral("Only select encryption keys")));
+    parser.addOption(QCommandLineOption({QStringLiteral("approval"), QStringLiteral("a")}, QStringLiteral("Always show approval dlg")));
 
     parser.process(app);
 
@@ -104,9 +100,9 @@ int main(int argc, char **argv)
     resolver.setRecipients(recps);
     resolver.setSender(parser.value(QStringLiteral("sender")));
 
-    QMap <Protocol, QMap <QString, QStringList> > overrides;
+    QMap<Protocol, QMap<QString, QStringList>> overrides;
 
-    for (const QString &oride: parser.values(QStringLiteral("overrides"))) {
+    for (const QString &oride : parser.values(QStringLiteral("overrides"))) {
         const QStringList split = oride.split(QLatin1Char(':'));
         Protocol fmt = UnknownProtocol;
         if (split.size() < 2 || split.size() > 3) {
@@ -134,7 +130,7 @@ int main(int argc, char **argv)
     resolver.setOverrideKeys(overrides);
 
     auto recp = new SignalRecipient(&resolver);
-    QObject::connect (&resolver, &KeyResolver::keysResolved, recp, &SignalRecipient::keysResolved);
+    QObject::connect(&resolver, &KeyResolver::keysResolved, recp, &SignalRecipient::keysResolved);
 
     QTimer::singleShot(1s, [&parser, &resolver]() {
         resolver.start(parser.isSet(QStringLiteral("approval")));

@@ -10,8 +10,8 @@
 #pragma once
 
 #include "kleo_export.h"
-#include <kpagedialog.h>
 #include <QList>
+#include <kpagedialog.h>
 
 namespace QGpgME
 {
@@ -57,4 +57,3 @@ private:
 };
 
 }
-

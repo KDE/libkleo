@@ -16,8 +16,8 @@
 #include "keylistview.h"
 #include "progressdialog.h"
 
-#include "libkleo/dn.h"
 #include "kleo_ui_debug.h"
+#include "libkleo/dn.h"
 
 // gpgme++
 #include <gpgme++/key.h>
@@ -86,44 +86,37 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString 
         }
     }
 
-    if (keyUsage & Kleo::KeySelectionDialog::EncryptionKeys &&
-            !key.canEncrypt()) {
+    if (keyUsage & Kleo::KeySelectionDialog::EncryptionKeys && !key.canEncrypt()) {
         qCDebug(KLEO_UI_LOG) << "key can't encrypt";
         setStatusString(i18n("The key is not designated for encryption."));
         return false;
     }
-    if (keyUsage & Kleo::KeySelectionDialog::SigningKeys &&
-            !key.canSign()) {
+    if (keyUsage & Kleo::KeySelectionDialog::SigningKeys && !key.canSign()) {
         qCDebug(KLEO_UI_LOG) << "key can't sign";
         setStatusString(i18n("The key is not designated for signing."));
         return false;
     }
-    if (keyUsage & Kleo::KeySelectionDialog::CertificationKeys &&
-            !key.canCertify()) {
+    if (keyUsage & Kleo::KeySelectionDialog::CertificationKeys && !key.canCertify()) {
         qCDebug(KLEO_UI_LOG) << "key can't certify";
         setStatusString(i18n("The key is not designated for certifying."));
         return false;
     }
-    if (keyUsage & Kleo::KeySelectionDialog::AuthenticationKeys &&
-            !key.canAuthenticate()) {
+    if (keyUsage & Kleo::KeySelectionDialog::AuthenticationKeys && !key.canAuthenticate()) {
         qCDebug(KLEO_UI_LOG) << "key can't authenticate";
         setStatusString(i18n("The key is not designated for authentication."));
         return false;
     }
 
-    if (keyUsage & Kleo::KeySelectionDialog::SecretKeys &&
-            !(keyUsage & Kleo::KeySelectionDialog::PublicKeys) &&
-            !key.hasSecret()) {
+    if (keyUsage & Kleo::KeySelectionDialog::SecretKeys && !(keyUsage & Kleo::KeySelectionDialog::PublicKeys) && !key.hasSecret()) {
         qCDebug(KLEO_UI_LOG) << "key isn't secret";
         setStatusString(i18n("The key is not secret."));
         return false;
     }
 
-    if (keyUsage & Kleo::KeySelectionDialog::TrustedKeys &&
-            key.protocol() == GpgME::OpenPGP &&
-            // only check this for secret keys for now.
-            // Seems validity isn't checked for secret keylistings...
-            !key.hasSecret()) {
+    if (keyUsage & Kleo::KeySelectionDialog::TrustedKeys && key.protocol() == GpgME::OpenPGP &&
+        // only check this for secret keys for now.
+        // Seems validity isn't checked for secret keylistings...
+        !key.hasSecret()) {
         std::vector<GpgME::UserID> uids = key.userIDs();
         for (std::vector<GpgME::UserID>::const_iterator it = uids.begin(); it != uids.end(); ++it) {
             if (!it->isRevoked() && it->validity() >= GpgME::UserID::Marginal) {
@@ -184,25 +177,27 @@ static QString iconPath(const QString &name)
 }
 
 ColumnStrategy::ColumnStrategy(unsigned int keyUsage)
-    : Kleo::KeyListView::ColumnStrategy(),
-      mKeyGoodPix(iconPath(QStringLiteral("key_ok"))),
-      mKeyBadPix(iconPath(QStringLiteral("key_bad"))),
-      mKeyUnknownPix(iconPath(QStringLiteral("key_unknown"))),
-      mKeyValidPix(iconPath(QStringLiteral("key"))),
-      mKeyUsage(keyUsage)
+    : Kleo::KeyListView::ColumnStrategy()
+    , mKeyGoodPix(iconPath(QStringLiteral("key_ok")))
+    , mKeyBadPix(iconPath(QStringLiteral("key_bad")))
+    , mKeyUnknownPix(iconPath(QStringLiteral("key_unknown")))
+    , mKeyValidPix(iconPath(QStringLiteral("key")))
+    , mKeyUsage(keyUsage)
 {
     if (keyUsage == 0) {
-        qCWarning(KLEO_UI_LOG)
-                << "KeySelectionDialog: keyUsage == 0. You want to use AllKeys instead.";
+        qCWarning(KLEO_UI_LOG) << "KeySelectionDialog: keyUsage == 0. You want to use AllKeys instead.";
     }
 }
 
 QString ColumnStrategy::title(int col) const
 {
     switch (col) {
-    case 0: return i18n("Key ID");
-    case 1: return i18n("User ID");
-    default: return QString();
+    case 0:
+        return i18n("Key ID");
+    case 1:
+        return i18n("User ID");
+    default:
+        return QString();
     }
 }
 
@@ -237,7 +232,8 @@ QString ColumnStrategy::text(const GpgME::Key &key, int col) const
             return Kleo::DN(uid).prettyDN();
         }
     }
-    default: return QString();
+    default:
+        return QString();
     }
 }
 
@@ -315,26 +311,26 @@ QIcon ColumnStrategy::icon(const GpgME::Key &key, int col) const
 static const int sCheckSelectionDelay = 250;
 
 Kleo::KeySelectionDialog::KeySelectionDialog(QWidget *parent, Options options)
-    : QDialog(parent),
-      mOpenPGPBackend(QGpgME::openpgp()),
-      mSMIMEBackend(QGpgME::smime()),
-      mKeyUsage(AllKeys)
+    : QDialog(parent)
+    , mOpenPGPBackend(QGpgME::openpgp())
+    , mSMIMEBackend(QGpgME::smime())
+    , mKeyUsage(AllKeys)
 {
-        qCDebug(KLEO_UI_LOG) << "mTruncated:" << mTruncated << "mSavedOffsetY:" << mSavedOffsetY;
+    qCDebug(KLEO_UI_LOG) << "mTruncated:" << mTruncated << "mSavedOffsetY:" << mSavedOffsetY;
     setUpUI(options, QString());
 }
 
 Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
-        const QString &text,
-        const std::vector<GpgME::Key> &selectedKeys,
-        unsigned int keyUsage,
-        bool extendedSelection,
-        bool rememberChoice,
-        QWidget *parent,
-        bool modal)
-    : QDialog(parent),
-      mSelectedKeys(selectedKeys),
-      mKeyUsage(keyUsage)
+                                             const QString &text,
+                                             const std::vector<GpgME::Key> &selectedKeys,
+                                             unsigned int keyUsage,
+                                             bool extendedSelection,
+                                             bool rememberChoice,
+                                             QWidget *parent,
+                                             bool modal)
+    : QDialog(parent)
+    , mSelectedKeys(selectedKeys)
+    , mKeyUsage(keyUsage)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -342,19 +338,19 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
 }
 
 Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
-        const QString &text,
-        const QString &initialQuery,
-        const std::vector<GpgME::Key> &selectedKeys,
-        unsigned int keyUsage,
-        bool extendedSelection,
-        bool rememberChoice,
-        QWidget *parent,
-        bool modal)
-    : QDialog(parent),
-      mSelectedKeys(selectedKeys),
-      mKeyUsage(keyUsage),
-      mSearchText(initialQuery),
-      mInitialQuery(initialQuery)
+                                             const QString &text,
+                                             const QString &initialQuery,
+                                             const std::vector<GpgME::Key> &selectedKeys,
+                                             unsigned int keyUsage,
+                                             bool extendedSelection,
+                                             bool rememberChoice,
+                                             QWidget *parent,
+                                             bool modal)
+    : QDialog(parent)
+    , mSelectedKeys(selectedKeys)
+    , mKeyUsage(keyUsage)
+    , mSearchText(initialQuery)
+    , mInitialQuery(initialQuery)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -362,17 +358,17 @@ Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
 }
 
 Kleo::KeySelectionDialog::KeySelectionDialog(const QString &title,
-        const QString &text,
-        const QString &initialQuery,
-        unsigned int keyUsage,
-        bool extendedSelection,
-        bool rememberChoice,
-        QWidget *parent,
-        bool modal)
-    : QDialog(parent),
-      mKeyUsage(keyUsage),
-      mSearchText(initialQuery),
-      mInitialQuery(initialQuery)
+                                             const QString &text,
+                                             const QString &initialQuery,
+                                             unsigned int keyUsage,
+                                             bool extendedSelection,
+                                             bool rememberChoice,
+                                             QWidget *parent,
+                                             bool modal)
+    : QDialog(parent)
+    , mKeyUsage(keyUsage)
+    , mSearchText(initialQuery)
+    , mInitialQuery(initialQuery)
 {
     setWindowTitle(title);
     setModal(modal);
@@ -407,8 +403,7 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
     mTopLayout->addWidget(mTextLabel);
     mTextLabel->hide();
 
-    QPushButton *const searchExternalPB =
-        new QPushButton(i18n("Search for &External Certificates"), page);
+    QPushButton *const searchExternalPB = new QPushButton(i18n("Search for &External Certificates"), page);
     mTopLayout->addWidget(searchExternalPB, 0, Qt::AlignLeft);
     connect(searchExternalPB, &QAbstractButton::clicked, this, &KeySelectionDialog::slotStartSearchForExternalCertificates);
     if (initialQuery.isEmpty()) {
@@ -422,15 +417,16 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
     le->setClearButtonEnabled(true);
     le->setText(initialQuery);
 
-    QLabel *lbSearchFor =  new QLabel(i18n("&Search for:"), page);
+    QLabel *lbSearchFor = new QLabel(i18n("&Search for:"), page);
     lbSearchFor->setBuddy(le);
 
     hlay->addWidget(lbSearchFor);
     hlay->addWidget(le, 1);
     le->setFocus();
 
-    connect(le, &QLineEdit::textChanged,
-            this, [this] (const QString &s) { slotSearch(s); });
+    connect(le, &QLineEdit::textChanged, this, [this](const QString &s) {
+        slotSearch(s);
+    });
     connect(mStartSearchTimer, &QTimer::timeout, this, &KeySelectionDialog::slotFilter);
 
     mKeyListView = new KeyListView(new ColumnStrategy(mKeyUsage), nullptr, page);
@@ -439,7 +435,7 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
     mKeyListView->setRootIsDecorated(true);
     mKeyListView->setSortingEnabled(true);
     mKeyListView->header()->setSortIndicatorShown(true);
-    mKeyListView->header()->setSortIndicator(1, Qt::AscendingOrder);   // sort by User ID
+    mKeyListView->header()->setSortIndicator(1, Qt::AscendingOrder); // sort by User ID
     if (options & ExtendedSelection) {
         mKeyListView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     }
@@ -454,8 +450,9 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
                  "</p></qt>"));
     }
 
-    connect(mCheckSelectionTimer, &QTimer::timeout,
-            this, [this] () { slotCheckSelection(); });
+    connect(mCheckSelectionTimer, &QTimer::timeout, this, [this]() {
+        slotCheckSelection();
+    });
     connectSignals();
 
     connect(mKeyListView, &Kleo::KeyListView::doubleClicked, this, &KeySelectionDialog::slotTryOk);
@@ -469,7 +466,9 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
     if (options & ExternalCertificateManager) {
         QPushButton *button = new QPushButton(i18n("&Start Certificate Manager"));
         buttonBox->addButton(button, QDialogButtonBox::ActionRole);
-        connect(button, &QPushButton::clicked, this, [this]() { slotStartCertificateManager(); });
+        connect(button, &QPushButton::clicked, this, [this]() {
+            slotStartCertificateManager();
+        });
     }
     connect(mOkButton, &QPushButton::clicked, this, &KeySelectionDialog::slotOk);
     connect(buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &KeySelectionDialog::slotCancel);
@@ -490,7 +489,7 @@ void Kleo::KeySelectionDialog::setUpUI(Options options, const QString &initialQu
 
 void Kleo::KeySelectionDialog::init(bool rememberChoice, bool extendedSelection, const QString &text, const QString &initialQuery)
 {
-    Options options = { RereadKeys, ExternalCertificateManager };
+    Options options = {RereadKeys, ExternalCertificateManager};
     options.setFlag(ExtendedSelection, extendedSelection);
     options.setFlag(RememberChoice, rememberChoice);
 
@@ -534,19 +533,22 @@ void Kleo::KeySelectionDialog::connectSignals()
     if (mKeyListView->isMultiSelection()) {
         connect(mKeyListView, &QTreeWidget::itemSelectionChanged, this, &KeySelectionDialog::slotSelectionChanged);
     } else {
-        connect(mKeyListView, qOverload<KeyListViewItem*>(&KeyListView::selectionChanged),
-                this, qOverload<KeyListViewItem*>(&KeySelectionDialog::slotCheckSelection));
+        connect(mKeyListView,
+                qOverload<KeyListViewItem *>(&KeyListView::selectionChanged),
+                this,
+                qOverload<KeyListViewItem *>(&KeySelectionDialog::slotCheckSelection));
     }
 }
 
 void Kleo::KeySelectionDialog::disconnectSignals()
 {
     if (mKeyListView->isMultiSelection()) {
-        disconnect(mKeyListView, &QTreeWidget::itemSelectionChanged,
-                   this, &KeySelectionDialog::slotSelectionChanged);
+        disconnect(mKeyListView, &QTreeWidget::itemSelectionChanged, this, &KeySelectionDialog::slotSelectionChanged);
     } else {
-        disconnect(mKeyListView, qOverload<KeyListViewItem*>(&KeyListView::selectionChanged),
-                   this, qOverload<KeyListViewItem*>(&KeySelectionDialog::slotCheckSelection));
+        disconnect(mKeyListView,
+                   qOverload<KeyListViewItem *>(&KeyListView::selectionChanged),
+                   this,
+                   qOverload<KeyListViewItem *>(&KeySelectionDialog::slotCheckSelection));
     }
 }
 
@@ -654,10 +656,11 @@ void Kleo::KeySelectionDialog::slotStartCertificateManager(const QString &query)
 static void showKeyListError(QWidget *parent, const GpgME::Error &err)
 {
     Q_ASSERT(err);
-    const QString msg = i18n("<qt><p>An error occurred while fetching "
-                             "the keys from the backend:</p>"
-                             "<p><b>%1</b></p></qt>",
-                             QString::fromLocal8Bit(err.asString()));
+    const QString msg = i18n(
+        "<qt><p>An error occurred while fetching "
+        "the keys from the backend:</p>"
+        "<p><b>%1</b></p></qt>",
+        QString::fromLocal8Bit(err.asString()));
 
     KMessageBox::error(parent, msg, i18n("Key Listing Failed"));
 }
@@ -676,7 +679,7 @@ struct ExtractFingerprint {
 void Kleo::KeySelectionDialog::startKeyListJobForBackend(const QGpgME::Protocol *backend, const std::vector<GpgME::Key> &keys, bool validate)
 {
     Q_ASSERT(backend);
-    QGpgME::KeyListJob *job = backend->keyListJob(false, false, validate);    // local, w/o sigs, validation as given
+    QGpgME::KeyListJob *job = backend->keyListJob(false, false, validate); // local, w/o sigs, validation as given
     if (!job) {
         return;
     }
@@ -725,7 +728,7 @@ void Kleo::KeySelectionDialog::slotKeyListResult(const GpgME::KeyListResult &res
     }
 
     if (--mListJobCount > 0) {
-        return;    // not yet finished...
+        return; // not yet finished...
     }
 
     if (mTruncated > 0) {
@@ -753,7 +756,8 @@ void Kleo::KeySelectionDialog::slotKeyListResult(const GpgME::KeyListResult &res
     slotSelectionChanged();
 
     // restore the saved position of the contents
-    mKeyListView->verticalScrollBar()->setValue(mSavedOffsetY); mSavedOffsetY = 0;
+    mKeyListView->verticalScrollBar()->setValue(mSavedOffsetY);
+    mSavedOffsetY = 0;
 }
 
 void Kleo::KeySelectionDialog::slotSelectionChanged()
@@ -797,12 +801,9 @@ void Kleo::KeySelectionDialog::slotCheckSelection(KeyListViewItem *item)
     }
 
     mKeysToCheck.clear();
-    std::remove_copy_if(mSelectedKeys.begin(), mSelectedKeys.end(),
-                        std::back_inserter(mKeysToCheck),
-                        AlreadyChecked());
+    std::remove_copy_if(mSelectedKeys.begin(), mSelectedKeys.end(), std::back_inserter(mKeysToCheck), AlreadyChecked());
     if (mKeysToCheck.empty()) {
-        mOkButton->setEnabled(!mSelectedKeys.empty() &&
-                              checkKeyUsage(mSelectedKeys, mKeyUsage));
+        mOkButton->setEnabled(!mSelectedKeys.empty() && checkKeyUsage(mSelectedKeys, mKeyUsage));
         return;
     }
 
@@ -885,7 +886,7 @@ void Kleo::KeySelectionDialog::slotOk()
     if (mCheckSelectionTimer->isActive()) {
         slotCheckSelection();
     }
-#if 0 //Laurent I don't understand why we returns here.
+#if 0 // Laurent I don't understand why we returns here.
     // button could be disabled again after checking the selected key1
     if (!mSelectedKeys.empty() && checkKeyUsage(mSelectedKeys, mKeyUsage)) {
         return;
@@ -925,11 +926,11 @@ void Kleo::KeySelectionDialog::slotFilter()
     QRegExp keyIdRegExp(QLatin1String("(?:0x)?[A-F0-9]{1,8}"), Qt::CaseInsensitive);
     if (keyIdRegExp.exactMatch(mSearchText)) {
         if (mSearchText.startsWith(QLatin1String("0X")))
-            // search for keyID only:
+        // search for keyID only:
         {
             filterByKeyID(mSearchText.mid(2));
         } else
-            // search for UID and keyID:
+        // search for UID and keyID:
         {
             filterByKeyIDOrUID(mSearchText);
         }
@@ -942,7 +943,7 @@ void Kleo::KeySelectionDialog::slotFilter()
 void Kleo::KeySelectionDialog::filterByKeyID(const QString &keyID)
 {
     Q_ASSERT(keyID.length() <= 8);
-    Q_ASSERT(!keyID.isEmpty());   // regexp in slotFilter should prevent these
+    Q_ASSERT(!keyID.isEmpty()); // regexp in slotFilter should prevent these
     if (keyID.isEmpty()) {
         showAllItems();
     } else {
@@ -977,7 +978,6 @@ void Kleo::KeySelectionDialog::filterByKeyIDOrUID(const QString &str)
     for (KeyListViewItem *item = mKeyListView->firstChild(); item; item = item->nextSibling()) {
         item->setHidden(!item->text(0).toUpper().startsWith(str) && !anyUIDMatches(item, rx));
     }
-
 }
 
 void Kleo::KeySelectionDialog::filterByUID(const QString &str)
@@ -998,4 +998,3 @@ void Kleo::KeySelectionDialog::showAllItems()
         item->setHidden(false);
     }
 }
-
