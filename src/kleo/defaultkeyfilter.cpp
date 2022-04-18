@@ -107,8 +107,11 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
 #undef MATCH
 #endif
 #define MATCH(member,method) \
-    if ( member != DoesNotMatter && key.method() != bool( member == Set ) ) \
-        return false
+    do { \
+        if ( member != DoesNotMatter && key.method() != bool( member == Set ) ) { \
+            return false; \
+        } \
+    } while (false)
 #define IS_MATCH(what) MATCH( d_ptr->m##what, is##what )
 #define CAN_MATCH(what) MATCH( d_ptr->mCan##what, can##what )
     IS_MATCH(Revoked);
