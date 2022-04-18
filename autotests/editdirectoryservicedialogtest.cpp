@@ -191,11 +191,15 @@ do { \
     button->setChecked(true); \
 } while (false)
 
-#define WHEN_USER_SELECTS_AUTHENTICATION( authentication ) \
-    WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("authenticationGroup", static_cast<int>(authentication));
+#define WHEN_USER_SELECTS_AUTHENTICATION(authentication) \
+    do { \
+        WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("authenticationGroup", static_cast<int>(authentication)); \
+    } while (false)
 
-#define WHEN_USER_SELECTS_CONNECTION( connection ) \
-    WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("connectionGroup", static_cast<int>(connection));
+#define WHEN_USER_SELECTS_CONNECTION(connection) \
+    do { \
+        WHEN_USER_SELECTS_BUTTON_WITH_ID_IN_BUTTON_GROUP("connectionGroup", static_cast<int>(connection)); \
+    } while (false)
 
 class EditDirectoryServiceDialogTest: public QObject
 {
