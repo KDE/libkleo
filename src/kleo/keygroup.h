@@ -38,7 +38,7 @@ public:
         UnknownSource,
         ApplicationConfig,
         GnuPGConfig,
-        Tags
+        Tags,
     };
 
     KeyGroup();
@@ -76,4 +76,3 @@ private:
 };
 
 }
-

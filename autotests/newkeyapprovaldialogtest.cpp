@@ -157,12 +157,12 @@ Widgets<T> visibleAndHiddenWidgets(const QList<T *> &widgets)
 
 enum Visibility {
     IsHidden,
-    IsVisible
+    IsVisible,
 };
 
 enum CheckedState {
     IsUnchecked,
-    IsChecked
+    IsChecked,
 };
 
 template <typename T>

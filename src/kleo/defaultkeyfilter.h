@@ -37,7 +37,7 @@ public:
     enum TriState {
         DoesNotMatter = 0,
         Set = 1,
-        NotSet = 2
+        NotSet = 2,
     };
 
     /** Used for level checks */
@@ -46,7 +46,7 @@ public:
         Is = 1,
         IsNot = 2,
         IsAtLeast = 3,
-        IsAtMost = 4
+        IsAtMost = 4,
     };
 
     bool matches(const GpgME::Key &key, MatchContexts ctx) const override;

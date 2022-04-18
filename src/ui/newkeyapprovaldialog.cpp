@@ -249,7 +249,7 @@ private:
 public:
     enum {
         OpenPGPButtonId = 1,
-        SMIMEButtonId = 2
+        SMIMEButtonId = 2,
     };
 
     Private(NewKeyApprovalDialog *qq,

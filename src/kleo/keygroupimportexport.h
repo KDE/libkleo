@@ -26,7 +26,7 @@ enum class WriteKeyGroups
 {
     Success,
     InvalidFilename,
-    Error
+    Error,
 };
 
 KLEO_EXPORT WriteKeyGroups writeKeyGroups(const QString &filename, const std::vector<KeyGroup> &groups);

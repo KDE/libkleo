@@ -37,13 +37,13 @@ namespace KeyList
         Summary, // Short summary line
         Remarks, // Additional remark notations
         NumColumns,
-        Icon = PrettyName // which column shall the icon be displayed in?
+        Icon = PrettyName, // which column shall the icon be displayed in?
     };
 
     enum Options {
         AllKeys,
         SecretKeysOnly,
-        IncludeGroups
+        IncludeGroups,
     };
 }
 }

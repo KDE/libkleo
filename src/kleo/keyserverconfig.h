@@ -24,14 +24,14 @@ namespace Kleo
 enum class KeyserverAuthentication {
     Anonymous,
     ActiveDirectory,
-    Password
+    Password,
 };
 
 enum class KeyserverConnection {
     Default,
     Plain,
     UseSTARTTLS,
-    TunnelThroughTLS
+    TunnelThroughTLS,
 };
 
 class KLEO_EXPORT KeyserverConfig

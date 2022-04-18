@@ -52,7 +52,7 @@ public:
         RereadKeys = 0x01,
         ExternalCertificateManager = 0x02,
         ExtendedSelection = 0x04,
-        RememberChoice = 0x08
+        RememberChoice = 0x08,
     };
     Q_DECLARE_FLAGS(Options, Option)
 

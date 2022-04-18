@@ -36,7 +36,7 @@ public:
     enum ItemType {
         Keys = 0x01,
         Groups = 0x02,
-        All = Keys | Groups
+        All = Keys | Groups,
     };
     Q_DECLARE_FLAGS(ItemTypes, ItemType)
 

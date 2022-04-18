@@ -157,7 +157,7 @@ public:
     enum Option {
         NoOption = 0,
         RecursiveSearch = 1,
-        IncludeSubject = 2
+        IncludeSubject = 2,
     };
     Q_DECLARE_FLAGS(Options, Option)
 
