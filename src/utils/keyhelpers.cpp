@@ -22,7 +22,7 @@ bool havePublicKeyForSignature(const GpgME::UserID::Signature &signature)
 {
     // GnuPG returns status "NoPublicKey" for missing signing keys, but also
     // for expired or revoked signing keys.
-    return (signature.status() != GpgME::UserID::Signature::NoPublicKey)
+    return (signature.status() != GpgME::UserID::Signature::NoPublicKey) //
         || !KeyCache::instance()->findByKeyIDOrFingerprint(signature.signerKeyID()).isNull();
 }
 

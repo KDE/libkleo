@@ -591,8 +591,8 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
     // check protocols needed for overrides
     const bool commonOverridesNeedOpenPGP = anyCommonOverrideHasKeyOfType(mEncKeys, OpenPGP);
     const bool commonOverridesNeedCMS = anyCommonOverrideHasKeyOfType(mEncKeys, CMS);
-    if ((mFormat == OpenPGP && commonOverridesNeedCMS)
-            || (mFormat == CMS && commonOverridesNeedOpenPGP)
+    if ((mFormat == OpenPGP && commonOverridesNeedCMS) //
+            || (mFormat == CMS && commonOverridesNeedOpenPGP) //
             || (!mAllowMixed && commonOverridesNeedOpenPGP && commonOverridesNeedCMS)) {
         // invalid protocol requirements -> clear intermediate result and abort resolution
         mEncKeys.clear();
@@ -612,8 +612,8 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         resolveSign(OpenPGP);
         resolveEnc(OpenPGP);
     }
-    const bool pgpOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, OpenPGP))
-                      && (!mSign || !hasUnresolvedSender(mSigKeys, OpenPGP));
+    const bool pgpOnly = ((!mEncrypt || !hasUnresolvedRecipients(mEncKeys, OpenPGP)) //
+                          && (!mSign || !hasUnresolvedSender(mSigKeys, OpenPGP)));
 
     if (mFormat == OpenPGP) {
         return {
@@ -627,8 +627,8 @@ KeyResolverCore::Result KeyResolverCore::Private::resolve()
         resolveSign(CMS);
         resolveEnc(CMS);
     }
-    const bool cmsOnly = (!mEncrypt || !hasUnresolvedRecipients(mEncKeys, CMS))
-                      && (!mSign || !hasUnresolvedSender(mSigKeys, CMS));
+    const bool cmsOnly = ((!mEncrypt || !hasUnresolvedRecipients(mEncKeys, CMS)) //
+                          && (!mSign || !hasUnresolvedSender(mSigKeys, CMS)));
 
     if (mFormat == CMS) {
         return {
