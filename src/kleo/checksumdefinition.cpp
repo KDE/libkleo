@@ -131,7 +131,7 @@ static void parse_command(QString cmdline, const QString &id, const QString &whi
     if (*method != ChecksumDefinition::CommandLine && cmdline.contains(FILE_PLACEHOLDER)) {
         throw ChecksumDefinitionError(id, i18n("Cannot use both %f and | in '%1'", whichCommand));
     }
-    cmdline.replace(FILE_PLACEHOLDER,        QLatin1String("__files_go_here__"))
+    cmdline.replace(FILE_PLACEHOLDER,        QLatin1String("__files_go_here__")) //
     .replace(INSTALLPATH_PLACEHOLDER, QStringLiteral("__path_goes_here__"));
     l = KShell::splitArgs(cmdline, KShell::AbortOnMeta | KShell::TildeExpand, &errors);
     l = l.replaceInStrings(QStringLiteral("__files_go_here__"), FILE_PLACEHOLDER);
