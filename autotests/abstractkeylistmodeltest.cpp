@@ -45,9 +45,9 @@ KeyGroup createGroup(const QString &name,
                      KeyGroup::Source source = KeyGroup::ApplicationConfig,
                      const QString &configName = QString())
 {
-    const KeyGroup::Id groupId = (source == KeyGroup::ApplicationConfig) ?
-                                 (configName.isEmpty() ? name : configName) :
-                                 name;
+    const KeyGroup::Id groupId = ((source == KeyGroup::ApplicationConfig) //
+                                      ? (configName.isEmpty() ? name : configName)
+                                      : name);
     KeyGroup g(groupId, name, keys, source);
     return g;
 }

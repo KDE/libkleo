@@ -374,7 +374,7 @@ bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
     const bool de_vs = Kleo::gnupgUsesDeVsCompliance();
     // Skip "dangerous" expert options if we are running in CO_DE_VS.
     // Otherwise, skip any options beyond "invisible" (== expert + 1) level.
-    const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced
+    const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced //
                                      : QGpgME::CryptoConfigEntry::Level_Expert + 1;
     // we ignore the group when looking up entries to exclude because entries
     // are uniquely identified by their name and their component
