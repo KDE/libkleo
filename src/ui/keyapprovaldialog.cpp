@@ -59,11 +59,11 @@ static int pref2cb(Kleo::EncryptionPreference p)
 
 static QStringList preferencesStrings()
 {
-    return QStringList() << xi18n("<placeholder>none</placeholder>")
-           << i18n("Never Encrypt with This Key")
-           << i18n("Always Encrypt with This Key")
-           << i18n("Encrypt Whenever Encryption is Possible")
-           << i18n("Always Ask")
+    return QStringList() << xi18n("<placeholder>none</placeholder>") //
+           << i18n("Never Encrypt with This Key") //
+           << i18n("Always Encrypt with This Key") //
+           << i18n("Encrypt Whenever Encryption is Possible") //
+           << i18n("Always Ask") //
            << i18n("Ask Whenever Encryption is Possible");
 }
 

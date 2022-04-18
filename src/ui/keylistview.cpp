@@ -205,7 +205,7 @@ void Kleo::KeyListView::deregisterItem(const KeyListViewItem *item)
     //Q_ASSERT( it->second == item );
     if (it->second != item) {
         qCWarning(KLEO_UI_LOG) << "deregisterItem:"
-                               << "item      " << item->key().primaryFingerprint()
+                               << "item      " << item->key().primaryFingerprint() //
                                << "it->second" << (it->second ? it->second->key().primaryFingerprint() : "is null");
         return;
     }

@@ -108,8 +108,8 @@ QStringList Kleo::gnupgFileWhitelist()
            // as gpgconf creates files like gpg.conf.bak or
            // gpg.conf.tmp12312.gpgconf that should not trigger
            // a change.
-           << QStringLiteral("gpg.conf")
-           << QStringLiteral("gpg.conf-?")
+           << QStringLiteral("gpg.conf") //
+           << QStringLiteral("gpg.conf-?") //
            << QStringLiteral("gpg.conf-?.?")
            ;
 }
