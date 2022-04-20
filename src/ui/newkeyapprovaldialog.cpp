@@ -844,17 +844,17 @@ public:
             }
         }
 
-        mOkButton->setIcon(QIcon::fromTheme(de_vs
-                    ? QStringLiteral("security-high")
-                    : QStringLiteral("security-medium")));
-        mOkButton->setStyleSheet(QStringLiteral("background-color: ") + (de_vs
-                    ? QStringLiteral("#D5FAE2")  // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name()
-                    : QStringLiteral("#FAE9EB"))); //KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name()));
-        mComplianceLbl->setText(de_vs
-                ? i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                    "%1 communication possible.", Formatting::deVsString())
-                : i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                    "%1 communication not possible.", Formatting::deVsString()));
+        if (de_vs) {
+            mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-high")));
+            mOkButton->setStyleSheet(QStringLiteral("background-color: ") + QStringLiteral("#D5FAE2")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name());
+            mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
+                                          "%1 communication possible.", Formatting::deVsString()));
+        } else {
+            mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-medium")));
+            mOkButton->setStyleSheet(QStringLiteral("background-color: ") + QStringLiteral("#FAE9EB")); //KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name()));
+            mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
+                                          "%1 communication not possible.", Formatting::deVsString()));
+        }
         mComplianceLbl->setVisible(true);
     }
 
