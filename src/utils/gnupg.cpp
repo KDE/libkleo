@@ -89,28 +89,31 @@ QString Kleo::gpgPath()
 
 QStringList Kleo::gnupgFileWhitelist()
 {
-    return QStringList()
+    return {
         // The obvious pubring
-        << QStringLiteral("pubring.gpg")
+        QStringLiteral("pubring.gpg"),
         // GnuPG 2.1 pubring
-        << QStringLiteral("pubring.kbx")
+        QStringLiteral("pubring.kbx"),
         // Trust in X509 Certificates
-        << QStringLiteral("trustlist.txt")
+        QStringLiteral("trustlist.txt"),
         // Trustdb controls ownertrust and thus WOT validity
-        << QStringLiteral("trustdb.gpg")
+        QStringLiteral("trustdb.gpg"),
         // We want to update when smartcard status changes
-        << QStringLiteral("reader*.status")
+        QStringLiteral("reader*.status"),
         // No longer used in 2.1 but for 2.0 we want this
-        << QStringLiteral("secring.gpg")
+        QStringLiteral("secring.gpg"),
+        // Secret keys (living under private-keys-v1.d/)
+        QStringLiteral("*.key"),
         // Changes to the trustmodel / compliance mode might
         // affect validity so we check this, too.
         // Globbing for gpg.conf* here will trigger too often
         // as gpgconf creates files like gpg.conf.bak or
         // gpg.conf.tmp12312.gpgconf that should not trigger
         // a change.
-        << QStringLiteral("gpg.conf") //
-        << QStringLiteral("gpg.conf-?") //
-        << QStringLiteral("gpg.conf-?.?");
+        QStringLiteral("gpg.conf"),
+        QStringLiteral("gpg.conf-?"),
+        QStringLiteral("gpg.conf-?.?"),
+    };
 }
 
 QStringList Kleo::gnupgFolderWhitelist()

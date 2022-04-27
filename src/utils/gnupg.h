@@ -46,6 +46,11 @@ KLEO_EXPORT QString gpg4winLongDescription();
 KLEO_EXPORT QString gnupgInstallPath();
 KLEO_EXPORT const QString &paperKeyInstallPath();
 
+/**
+ * Returns a list of filename globs of files in one of the whitelisted folders
+ * to watch for changes.
+ * \sa gnupgFolderWhitelist, Kleo::FileSystemWatcher
+ */
 KLEO_EXPORT QStringList gnupgFileWhitelist();
 /**
  * Returns a list of absolute paths of folders to watch for changes.
