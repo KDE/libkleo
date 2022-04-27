@@ -54,7 +54,7 @@ using namespace GpgME;
 
 QString Kleo::gnupgHomeDirectory()
 {
-    static QString homeDir = QString::fromUtf8(GpgME::dirInfo("homedir"));
+    static const QString homeDir = QString::fromUtf8(GpgME::dirInfo("homedir"));
     return homeDir;
 }
 
@@ -111,6 +111,15 @@ QStringList Kleo::gnupgFileWhitelist()
         << QStringLiteral("gpg.conf") //
         << QStringLiteral("gpg.conf-?") //
         << QStringLiteral("gpg.conf-?.?");
+}
+
+QStringList Kleo::gnupgFolderWhitelist()
+{
+    static const QDir gnupgHome{gnupgHomeDirectory()};
+    return {
+        gnupgHome.path(),
+        gnupgHome.filePath(QStringLiteral("private-keys-v1.d")),
+    };
 }
 
 namespace

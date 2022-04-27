@@ -47,6 +47,11 @@ KLEO_EXPORT QString gnupgInstallPath();
 KLEO_EXPORT const QString &paperKeyInstallPath();
 
 KLEO_EXPORT QStringList gnupgFileWhitelist();
+/**
+ * Returns a list of absolute paths of folders to watch for changes.
+ * \sa gnupgFileWhitelist, Kleo::FileSystemWatcher
+ */
+KLEO_EXPORT QStringList gnupgFolderWhitelist();
 KLEO_EXPORT int makeGnuPGError(int code);
 
 KLEO_EXPORT bool engineIsVersion(int major, int minor, int patch, GpgME::Engine = GpgME::GpgConfEngine);
