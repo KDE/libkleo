@@ -91,7 +91,11 @@ void FileSystemWatcher::Private::onFileChanged(const QString &path)
         return;
     }
     qCDebug(LIBKLEO_LOG) << path;
-    m_seenPaths.insert(path);
+    if (fi.exists()) {
+        m_seenPaths.insert(path);
+    } else {
+        m_seenPaths.erase(path);
+    }
     m_cachedFiles.insert(path);
     handleTimer();
 }
