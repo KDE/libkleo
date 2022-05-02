@@ -711,9 +711,9 @@ const Subkey &KeyCache::findSubkeyByKeyGrip(const char *grip, Protocol protocol)
     static const Subkey null;
     d->ensureCachePopulated();
     const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(), grip, _detail::ByKeyGrip<std::less>());
-    if (range.first == d->by.keygrip.end()) {
+    if (range.first == range.second) {
         return null;
-    } else if (protocol == UnknownProtocol && range.first != range.second) {
+    } else if (protocol == UnknownProtocol) {
         return *range.first;
     } else {
         for (auto it = range.first; it != range.second; ++it) {
