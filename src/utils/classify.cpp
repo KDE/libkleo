@@ -396,7 +396,7 @@ bool Kleo::isChecksumFile(const QString &file)
     }
     if (!initialized) {
         const auto getChecksumDefinitions = ChecksumDefinition::getChecksumDefinitions();
-        for (const std::shared_ptr<ChecksumDefinition> &cd : getChecksumDefinitions) {
+        for (const ChecksumDefinition::Ptr &cd : getChecksumDefinitions) {
             if (cd) {
                 const auto patternsList = cd->patterns();
                 for (const QString &pattern : patternsList) {

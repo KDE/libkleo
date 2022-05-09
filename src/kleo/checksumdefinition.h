@@ -28,6 +28,8 @@ protected:
     ChecksumDefinition(const QString &id, const QString &label, const QString &outputFileName, const QStringList &extensions);
 
 public:
+    using Ptr = std::shared_ptr<ChecksumDefinition>;
+
     virtual ~ChecksumDefinition();
 
     enum ArgumentPassingMethod {
@@ -74,11 +76,11 @@ public:
     static QString installPath();
     static void setInstallPath(const QString &ip);
 
-    static std::vector<std::shared_ptr<ChecksumDefinition>> getChecksumDefinitions();
-    static std::vector<std::shared_ptr<ChecksumDefinition>> getChecksumDefinitions(QStringList &errors);
+    static std::vector<Ptr> getChecksumDefinitions();
+    static std::vector<Ptr> getChecksumDefinitions(QStringList &errors);
 
-    static std::shared_ptr<ChecksumDefinition> getDefaultChecksumDefinition(const std::vector<std::shared_ptr<ChecksumDefinition>> &available);
-    static void setDefaultChecksumDefinition(const std::shared_ptr<ChecksumDefinition> &checksumDefinition);
+    static Ptr getDefaultChecksumDefinition(const std::vector<Ptr> &available);
+    static void setDefaultChecksumDefinition(const Ptr &checksumDefinition);
 
 protected:
     void setCreateCommandArgumentPassingMethod(ArgumentPassingMethod method)

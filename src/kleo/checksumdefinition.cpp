@@ -370,22 +370,22 @@ bool ChecksumDefinition::startVerifyCommand(QProcess *p, const QStringList &file
 }
 
 // static
-std::vector<std::shared_ptr<ChecksumDefinition>> ChecksumDefinition::getChecksumDefinitions()
+std::vector<ChecksumDefinition::Ptr> ChecksumDefinition::getChecksumDefinitions()
 {
     QStringList errors;
     return getChecksumDefinitions(errors);
 }
 
 // static
-std::vector<std::shared_ptr<ChecksumDefinition>> ChecksumDefinition::getChecksumDefinitions(QStringList &errors)
+std::vector<ChecksumDefinition::Ptr> ChecksumDefinition::getChecksumDefinitions(QStringList &errors)
 {
-    std::vector<std::shared_ptr<ChecksumDefinition>> result;
+    std::vector<ChecksumDefinition::Ptr> result;
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Checksum Definition #")));
     result.reserve(groups.size());
     for (const QString &group : groups) {
         try {
-            const std::shared_ptr<ChecksumDefinition> ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
+            const ChecksumDefinition::Ptr ad(new KConfigBasedChecksumDefinition(KConfigGroup(config, group)));
             result.push_back(ad);
         } catch (const std::exception &e) {
             qDebug() << e.what();
@@ -398,14 +398,13 @@ std::vector<std::shared_ptr<ChecksumDefinition>> ChecksumDefinition::getChecksum
 }
 
 // static
-std::shared_ptr<ChecksumDefinition>
-ChecksumDefinition::getDefaultChecksumDefinition(const std::vector<std::shared_ptr<ChecksumDefinition>> &checksumDefinitions)
+ChecksumDefinition::Ptr ChecksumDefinition::getDefaultChecksumDefinition(const std::vector<ChecksumDefinition::Ptr> &checksumDefinitions)
 {
     const KConfigGroup group(KSharedConfig::openConfig(), "ChecksumOperations");
     const QString checksumDefinitionId = group.readEntry(CHECKSUM_DEFINITION_ID_ENTRY, QStringLiteral("sha256sum"));
 
     if (!checksumDefinitionId.isEmpty()) {
-        for (const std::shared_ptr<ChecksumDefinition> &cd : checksumDefinitions) {
+        for (const ChecksumDefinition::Ptr &cd : checksumDefinitions) {
             if (cd && cd->id() == checksumDefinitionId) {
                 return cd;
             }
@@ -414,12 +413,12 @@ ChecksumDefinition::getDefaultChecksumDefinition(const std::vector<std::shared_p
     if (!checksumDefinitions.empty()) {
         return checksumDefinitions.front();
     } else {
-        return std::shared_ptr<ChecksumDefinition>();
+        return ChecksumDefinition::Ptr();
     }
 }
 
 // static
-void ChecksumDefinition::setDefaultChecksumDefinition(const std::shared_ptr<ChecksumDefinition> &checksumDefinition)
+void ChecksumDefinition::setDefaultChecksumDefinition(const ChecksumDefinition::Ptr &checksumDefinition)
 {
     if (!checksumDefinition) {
         return;
