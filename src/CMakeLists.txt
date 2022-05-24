@@ -174,7 +174,9 @@ target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt${QT_MAJOR_VERS
                                                 KF5::WidgetsAddons
                                                 KF5::ItemModels
                                                 KF5::Codecs)
-
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(KF5Libkleo PRIVATE Qt6Core5Compat)
+endif()
 # Boost::headers may not be available for old versions of Boost
 if (TARGET Boost::headers)
   target_link_libraries(KF5Libkleo PRIVATE Boost::headers)
