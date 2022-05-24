@@ -13,7 +13,6 @@
 #include "utils/algorithm.h"
 
 #include <QString>
-#include <QStringList>
 #include <QUrl>
 
 using namespace Kleo;

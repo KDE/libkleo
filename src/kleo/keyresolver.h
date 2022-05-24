@@ -14,7 +14,6 @@
 #include <QMap>
 #include <QObject>
 #include <QString>
-#include <QStringList>
 
 #include <gpgme++/global.h>
 
@@ -22,6 +21,8 @@
 #include <vector>
 
 #include "kleo_export.h"
+
+class QStringList;
 
 namespace GpgME
 {

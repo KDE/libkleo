@@ -14,7 +14,6 @@
 
 #include <QDir>
 #include <QFileSystemWatcher>
-#include <QRegExp>
 #include <QString>
 #include <QTimer>
 

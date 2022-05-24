@@ -14,7 +14,6 @@
 #include <Libkleo/KeyResolver>
 
 #include <QMap>
-#include <QStringList>
 
 #include <gpgme++/global.h>
 
@@ -24,6 +23,7 @@
 #include "kleo_export.h"
 
 class QString;
+class QStringList;
 
 namespace GpgME
 {
