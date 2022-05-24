@@ -14,7 +14,7 @@
 #include "keycache.h"
 #include "kleo/keyfilter.h"
 #include "kleo/keyfiltermanager.h"
-#include "kleo/keygroup.h"
+
 #include "kleo/predicates.h"
 #include "utils/algorithm.h"
 #include "utils/formatting.h"

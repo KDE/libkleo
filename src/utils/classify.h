@@ -10,12 +10,12 @@
 #pragma once
 
 #include "kleo_export.h"
+#include <QStringList>
 
 #include <gpgme++/global.h>
 
 class QByteArray;
 class QString;
-class QStringList;
 
 namespace Kleo
 {

@@ -17,6 +17,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QMap>
+#include <QRegExp>
 #include <QRegularExpression>
 #include <QString>
 #include <QStringList>

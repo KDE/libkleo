@@ -36,6 +36,7 @@
 #include <QFile>
 #include <QPointer>
 #include <QProcess>
+#include <QRegExp>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QString>

@@ -22,6 +22,8 @@
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
 
+#include <QStringList>
+
 #include <gpgme++/key.h>
 
 #include "libkleo_debug.h"

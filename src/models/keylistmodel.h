@@ -17,6 +17,7 @@
 
 #include "keylist.h"
 #include "keylistmodelinterface.h"
+#include "kleo/keygroup.h"
 
 #include <vector>
 
