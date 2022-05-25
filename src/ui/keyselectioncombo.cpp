@@ -547,14 +547,14 @@ std::shared_ptr<const KeyFilter> KeySelectionCombo::keyFilter() const
 
 void KeySelectionCombo::setIdFilter(const QString &id)
 {
-    d->sortFilterProxy->setFilterRegExp(id);
+    d->sortFilterProxy->setFilterRegularExpression(id);
     d->mPerfectMatchMbox = id;
     d->updateWithDefaultKey();
 }
 
 QString KeySelectionCombo::idFilter() const
 {
-    return d->sortFilterProxy->filterRegExp().pattern();
+    return d->sortFilterProxy->filterRegularExpression().pattern();
 }
 
 GpgME::Key Kleo::KeySelectionCombo::currentKey() const

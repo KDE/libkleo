@@ -186,7 +186,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     //
     const int role = filterRole();
     const int col = filterKeyColumn();
-    const QRegExp rx = filterRegExp();
+    const QRegularExpression rx = filterRegularExpression();
     const QModelIndex nameIndex = sourceModel()->index(source_row, KeyList::PrettyName, source_parent);
 
     const KeyListModelInterface *const klm = dynamic_cast<KeyListModelInterface *>(sourceModel());
