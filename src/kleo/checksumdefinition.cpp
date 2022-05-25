@@ -147,7 +147,8 @@ static void parse_command(QString cmdline,
         .replace(INSTALLPATH_PLACEHOLDER, QStringLiteral("__path_goes_here__"));
     l = KShell::splitArgs(cmdline, KShell::AbortOnMeta | KShell::TildeExpand, &errors);
     l = l.replaceInStrings(QStringLiteral("__files_go_here__"), FILE_PLACEHOLDER);
-    if (l.indexOf(QRegExp(QLatin1String(".*__path_goes_here__.*"))) >= 0) {
+    static const QRegularExpression regExpression(QLatin1String(".*__path_goes_here__.*"));
+    if (l.indexOf(regExpression) >= 0) {
         l = l.replaceInStrings(QStringLiteral("__path_goes_here__"), ChecksumDefinition::installPath());
     }
     if (errors == KShell::BadQuoting) {
