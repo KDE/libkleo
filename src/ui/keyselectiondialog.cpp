@@ -146,9 +146,7 @@ static bool checkKeyUsage(const std::vector<GpgME::Key> &keys, unsigned int keyU
 
 static inline QString time_t2string(time_t t)
 {
-    QDateTime dt;
-    dt.setTime_t(t);
-    return dt.toString();
+    return QDateTime::fromSecsSinceEpoch(t).toString();
 }
 
 namespace
