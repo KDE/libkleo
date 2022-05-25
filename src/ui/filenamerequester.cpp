@@ -12,9 +12,9 @@
 #include <KLocalizedString>
 
 #include <QCompleter>
-#include <QDirModel>
 #include <QEvent>
 #include <QFileDialog>
+#include <QFileSystemModel>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QString>
@@ -36,7 +36,7 @@ private:
 
 private:
 #ifndef QT_NO_DIRMODEL
-    QDirModel dirmodel;
+    QFileSystemModel dirmodel;
     QCompleter completer;
 #else
     QDir::Filters filter;
