@@ -11,11 +11,10 @@
 #pragma once
 
 #include "kleo_export.h"
-
+#include <QStringList>
 #include <memory>
 
 class QString;
-class QStringList;
 class QUrl;
 
 namespace Kleo
