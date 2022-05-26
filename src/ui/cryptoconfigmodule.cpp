@@ -29,10 +29,8 @@
 
 #include <QSpinBox>
 
-#include <QApplication>
 #include <QCheckBox>
 #include <QComboBox>
-#include <QDesktopWidget>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
@@ -40,9 +38,11 @@
 #include <QLayout>
 #include <QPushButton>
 #include <QRegExp>
+#include <QScreen>
 #include <QScrollArea>
 #include <QStyle>
 #include <QVBoxLayout>
+#include <QWindow>
 
 #include <gpgme.h>
 
@@ -198,7 +198,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
             scrollArea->setWidget(compGUI.release());
 
             // Set a nice startup size
-            const int deskHeight = QApplication::desktop()->height();
+            const int deskHeight = screen()->size().height();
             int dialogHeight;
             if (deskHeight > 1000) { // very big desktop ?
                 dialogHeight = 800;

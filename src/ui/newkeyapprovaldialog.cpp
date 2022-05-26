@@ -20,10 +20,8 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QApplication>
 #include <QButtonGroup>
 #include <QCheckBox>
-#include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QGroupBox>
 #include <QHBoxLayout>
@@ -31,9 +29,11 @@
 #include <QMap>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QScreen>
 #include <QScrollArea>
 #include <QToolTip>
 #include <QVBoxLayout>
+#include <QWindow>
 
 #include <QGpgME/DefaultKeyGenerationJob>
 #include <QGpgME/Job>
@@ -923,7 +923,7 @@ NewKeyApprovalDialog::NewKeyApprovalDialog(bool encrypt,
     d->updateOkButton();
 
     const auto size = sizeHint();
-    const auto desk = QApplication::desktop()->screenGeometry(this);
+    const auto desk = screen()->size();
     resize(QSize(desk.width() / 3, qMin(size.height(), desk.height() / 2)));
 }
 

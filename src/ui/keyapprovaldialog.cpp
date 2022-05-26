@@ -20,14 +20,15 @@
 
 #include <QApplication>
 #include <QComboBox>
-#include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QScreen>
 #include <QScrollArea>
 #include <QStringList>
 #include <QVBoxLayout>
+#include <QWindow>
 
 #include <gpgme++/key.h>
 #include <qgpgme/protocol.h>
@@ -166,7 +167,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients, 
     QSize size = sizeHint();
 
     // don't make the dialog too large
-    const QRect desk = QApplication::desktop()->screenGeometry(this);
+    const QSize desk = screen()->size();
     resize(QSize(qMin(size.width(), 3 * desk.width() / 4), qMin(size.height(), 7 * desk.height() / 8)));
 }
 
