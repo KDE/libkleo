@@ -37,6 +37,7 @@
 #include <QLayout>
 #include <QPushButton>
 #include <QRegExp>
+#include <QRegularExpression>
 #include <QScreen>
 #include <QScrollArea>
 #include <QSpinBox>
@@ -76,7 +77,8 @@ public:
 inline QIcon loadIcon(const QString &s)
 {
     QString ss = s;
-    return QIcon::fromTheme(ss.replace(QRegExp(QLatin1String("[^a-zA-Z0-9_]")), QStringLiteral("-")));
+    const static QRegularExpression reg(QRegularExpression(QLatin1String("[^a-zA-Z0-9_]")));
+    return QIcon::fromTheme(ss.replace(reg, QStringLiteral("-")));
 }
 
 static unsigned int num_components_with_options(const QGpgME::CryptoConfig *config)

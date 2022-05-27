@@ -13,6 +13,7 @@
 #include <KConfigGroup>
 
 #include <QDebug>
+#include <QRegularExpression>
 #include <algorithm>
 
 using namespace Kleo;
@@ -206,7 +207,8 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         {"appearance", Appearance},
         {"filtering", Filtering},
     };
-    const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(QRegExp(QLatin1String("[^a-zA-Z0-9_-!]+")), Qt::SkipEmptyParts);
+    static const QRegularExpression reg(QRegularExpression(QLatin1String("[^a-zA-Z0-9_-!]+")));
+    const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(reg, Qt::SkipEmptyParts);
     setMatchContexts(NoMatchContext);
     for (const QString &ctx : contexts) {
         bool found = false;
