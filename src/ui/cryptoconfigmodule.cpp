@@ -8,38 +8,38 @@
 */
 
 #include "cryptoconfigmodule.h"
+
 #include "cryptoconfigentryreaderport_p.h"
 #include "cryptoconfigmodule_p.h"
 #include "directoryserviceswidget.h"
 #include "filenamerequester.h"
 
 #include "kleo/keyserverconfig.h"
+#include "utils/formatting.h"
 #include "utils/gnupg.h"
 
-#include <qgpgme/cryptoconfig.h>
-
-#include "kleo_ui_debug.h"
+#include <KLazyLocalizedString>
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSeparator>
-#include <QDialogButtonBox>
-#include <QIcon>
-#include <utils/formatting.h>
 
-#include <QSpinBox>
+#include <QGpgME/CryptoConfig>
 
 #include <QCheckBox>
 #include <QComboBox>
+#include <QDialogButtonBox>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
+#include <QIcon>
 #include <QLabel>
 #include <QLayout>
 #include <QPushButton>
 #include <QRegExp>
 #include <QScreen>
 #include <QScrollArea>
+#include <QSpinBox>
 #include <QStyle>
 #include <QVBoxLayout>
 #include <QWindow>
@@ -51,7 +51,7 @@
 #include <memory>
 #include <set>
 
-#include <KLazyLocalizedString>
+#include <kleo_ui_debug.h>
 
 using namespace Kleo;
 
