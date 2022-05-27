@@ -131,8 +131,6 @@ target_sources(KF5Libkleo PRIVATE
    ui/editdirectoryservicedialog.h
    ui/filenamerequester.cpp
    ui/filenamerequester.h
-   ui/kdhorizontalline.cpp
-   ui/kdhorizontalline.h
    ui/messagebox.cpp
    ui/messagebox.h
    ui/progressbar.cpp
@@ -280,7 +278,6 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   DirectoryServicesWidget
   EditDirectoryServiceDialog
   FileNameRequester
-  KDHorizontalLine
   KeyApprovalDialog
   KeyRequester
   KeySelectionCombo
