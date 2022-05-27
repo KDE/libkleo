@@ -12,7 +12,6 @@
 #include "cryptoconfigmodule_p.h"
 #include "directoryserviceswidget.h"
 #include "filenamerequester.h"
-#include "kdhorizontalline.h"
 
 #include "kleo/keyserverconfig.h"
 #include "utils/gnupg.h"
@@ -23,6 +22,7 @@
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KSeparator>
 #include <QDialogButtonBox>
 #include <QIcon>
 #include <utils/formatting.h>
@@ -417,7 +417,7 @@ Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(CryptoConfigModule *mod
     auto glay = new QGridLayout(this);
     const QStringList groups = module->sortGroupList(mComponent->name(), mComponent->groupList());
     if (groups.size() > 1) {
-        glay->setColumnMinimumWidth(0, KDHorizontalLine::indentHint());
+        glay->setColumnMinimumWidth(0, 30);
         for (QStringList::const_iterator it = groups.begin(), end = groups.end(); it != end; ++it) {
             QGpgME::CryptoConfigGroup *group = mComponent->group(*it);
             Q_ASSERT(group);
@@ -430,9 +430,11 @@ Kleo::CryptoConfigComponentGUI::CryptoConfigComponentGUI(CryptoConfigModule *mod
                 continue;
             }
             const QString title = group->description();
-            auto hl = new KDHorizontalLine(title.isEmpty() ? *it : title, this);
+            auto hbox = new QHBoxLayout;
+            hbox->addWidget(new QLabel{title.isEmpty() ? *it : title, this});
+            hbox->addWidget(new KSeparator{Qt::Horizontal, this}, 1);
             const int row = glay->rowCount();
-            glay->addWidget(hl, row, 0, 1, 3);
+            glay->addLayout(hbox, row, 0, 1, 3);
             mGroupGUIs.append(new CryptoConfigGroupGUI(module, group, groupEntries, glay, this));
         }
     } else if (!groups.empty()) {
