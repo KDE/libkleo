@@ -12,10 +12,15 @@
 
 #include <QString>
 
-static const struct {
+#include <vector>
+
+namespace
+{
+struct NameAndOID {
     const char *name;
     const char *oid;
-} oidmap[] = {
+};
+static const std::vector<NameAndOID> oidmap = {
     // clang-format off
     // keep them ordered by oid:
     {"SP",                "ST"                  }, // hack to show the Sphinx-required/desired SP for
@@ -33,14 +38,14 @@ static const struct {
     {"Pseudo",            "2.5.4.65"            },
     // clang-format on
 };
-static const unsigned int numOidMaps = sizeof oidmap / sizeof *oidmap;
+}
 
 const char *Kleo::oidForAttributeName(const QString &attr)
 {
     QByteArray attrUtf8 = attr.toUtf8();
-    for (unsigned int i = 0; i < numOidMaps; ++i) {
-        if (qstricmp(attrUtf8.constData(), oidmap[i].name) == 0) {
-            return oidmap[i].oid;
+    for (const auto &m : oidmap) {
+        if (qstricmp(attrUtf8.constData(), m.name) == 0) {
+            return m.oid;
         }
     }
     return nullptr;
@@ -48,9 +53,9 @@ const char *Kleo::oidForAttributeName(const QString &attr)
 
 const char *Kleo::attributeNameForOID(const char *oid)
 {
-    for (unsigned int i = 0; i < numOidMaps; ++i) {
-        if (qstricmp(oid, oidmap[i].oid) == 0) {
-            return oidmap[i].name;
+    for (const auto &m : oidmap) {
+        if (qstricmp(oid, m.oid) == 0) {
+            return m.name;
         }
     }
     return nullptr;
