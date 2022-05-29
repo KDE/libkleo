@@ -170,12 +170,9 @@ static const unsigned char *parse_dn_part(DnPair *array, const unsigned char *st
     p[n] = 0;
     trim_trailing_spaces((char *)p);
     // map OIDs to their names:
-    for (unsigned int i = 0; i < numOidMaps; ++i) {
-        if (!strcasecmp((char *)p, oidmap[i].oid)) {
-            free(p);
-            p = strdup(oidmap[i].name);
-            break;
-        }
+    if (const char *name = attributeNameForOID(p)) {
+        free(p);
+        p = strdup(name);
     }
     array->key = p;
     string = s + 1;
