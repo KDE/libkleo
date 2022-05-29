@@ -15,7 +15,11 @@
 
 class QString;
 
+namespace Kleo
+{
 
 KLEO_EXPORT const char *oidForAttributeName(const QString &attr);
 
 KLEO_EXPORT const char *attributeNameForOID(const char *oid);
+
+}

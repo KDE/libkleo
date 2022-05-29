@@ -35,7 +35,7 @@ static const struct {
 };
 static const unsigned int numOidMaps = sizeof oidmap / sizeof *oidmap;
 
-const char *oidForAttributeName(const QString &attr)
+const char *Kleo::oidForAttributeName(const QString &attr)
 {
     QByteArray attrUtf8 = attr.toUtf8();
     for (unsigned int i = 0; i < numOidMaps; ++i) {
@@ -46,7 +46,7 @@ const char *oidForAttributeName(const QString &attr)
     return nullptr;
 }
 
-const char *attributeNameForOID(const char *oid)
+const char *Kleo::attributeNameForOID(const char *oid)
 {
     for (unsigned int i = 0; i < numOidMaps; ++i) {
         if (qstricmp(oid, oidmap[i].oid) == 0) {

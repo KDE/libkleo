@@ -170,7 +170,7 @@ static const unsigned char *parse_dn_part(DnPair *array, const unsigned char *st
     p[n] = 0;
     trim_trailing_spaces((char *)p);
     // map OIDs to their names:
-    if (const char *name = attributeNameForOID(p)) {
+    if (const char *name = Kleo::attributeNameForOID(p)) {
         free(p);
         p = strdup(name);
     }
