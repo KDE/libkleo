@@ -802,7 +802,7 @@ namespace
     }
 #define ACCEPT(meth) DO(!!, meth, !meth)
 #define REJECT(meth) DO(!, meth, meth)
-struct ready_for_signing : std::unary_function<Key, bool> {
+struct ready_for_signing {
     bool operator()(const Key &key) const
     {
 #if 1
@@ -820,13 +820,13 @@ struct ready_for_signing : std::unary_function<Key, bool> {
     }
 };
 
-struct ready_for_encryption : std::unary_function<Key, bool> {
 #define DO(op, meth, meth2)                                                                                                                                    \
     if (op key.meth()) {                                                                                                                                       \
     } else {                                                                                                                                                   \
         qDebug("rejecting for encrypting: %s: %s", #meth2, key.primaryFingerprint());                                                                          \
         return false;                                                                                                                                          \
     }
+struct ready_for_encryption {
     bool operator()(const Key &key) const
     {
 #if 1

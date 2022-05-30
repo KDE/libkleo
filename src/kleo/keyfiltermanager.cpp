@@ -277,11 +277,8 @@ std::vector<std::shared_ptr<KeyFilter>> KeyFilterManager::filtersMatching(const 
 
 namespace
 {
-struct ByDecreasingSpecificity : std::binary_function<std::shared_ptr<KeyFilter>, std::shared_ptr<KeyFilter>, bool> {
-    bool operator()(const std::shared_ptr<KeyFilter> &lhs, const std::shared_ptr<KeyFilter> &rhs) const
-    {
-        return lhs->specificity() > rhs->specificity();
-    }
+static const auto byDecreasingSpecificity = [](const std::shared_ptr<KeyFilter> &lhs, const std::shared_ptr<KeyFilter> &rhs) {
+    return lhs->specificity() > rhs->specificity();
 };
 }
 
@@ -302,7 +299,7 @@ void KeyFilterManager::reload()
         }
         d->filters.push_back(std::shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
     }
-    std::stable_sort(d->filters.begin(), d->filters.end(), ByDecreasingSpecificity());
+    std::stable_sort(d->filters.begin(), d->filters.end(), byDecreasingSpecificity);
 
     if (d->protocol != GpgME::UnknownProtocol) {
         // remove filters with conflicting isOpenPGP rule
@@ -354,7 +351,7 @@ QModelIndex KeyFilterManager::toModelIndex(const std::shared_ptr<KeyFilter> &kf)
     if (!kf) {
         return {};
     }
-    const auto pair = std::equal_range(d->filters.cbegin(), d->filters.cend(), kf, ByDecreasingSpecificity());
+    const auto pair = std::equal_range(d->filters.cbegin(), d->filters.cend(), kf, byDecreasingSpecificity);
     const auto it = std::find(pair.first, pair.second, kf);
     if (it != pair.second) {
         return d->model.index(it - d->filters.begin());
