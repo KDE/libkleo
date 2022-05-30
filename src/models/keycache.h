@@ -42,7 +42,6 @@ namespace Kleo
 class FileSystemWatcher;
 class KeyGroup;
 class KeyGroupConfig;
-enum class KeyUsage : char;
 
 class KeyCacheAutoRefreshSuspension;
 
@@ -54,6 +53,14 @@ protected:
     explicit KeyCache();
 
 public:
+    enum class KeyUsage {
+        AnyUsage,
+        Sign,
+        Encrypt,
+        Certify,
+        Authenticate,
+    };
+
     static std::shared_ptr<const KeyCache> instance();
     static std::shared_ptr<KeyCache> mutableInstance();
 

@@ -48,7 +48,7 @@ auto mapValidity(GpgME::UserID::Validity validity)
 
 GpgME::Key createTestKey(const char *uid,
                          GpgME::Protocol protocol = GpgME::UnknownProtocol,
-                         KeyUsage usage = KeyUsage::AnyUsage,
+                         KeyCache::KeyUsage usage = KeyCache::KeyUsage::AnyUsage,
                          GpgME::UserID::Validity validity = GpgME::UserID::Full)
 {
     static int count = 0;
@@ -66,8 +66,8 @@ GpgME::Key createTestKey(const char *uid,
     key->revoked = 0;
     key->expired = 0;
     key->disabled = 0;
-    key->can_encrypt = int(usage == KeyUsage::AnyUsage || usage == KeyUsage::Encrypt);
-    key->can_sign = int(usage == KeyUsage::AnyUsage || usage == KeyUsage::Sign);
+    key->can_encrypt = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Encrypt);
+    key->can_sign = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Sign);
     key->secret = 1;
     key->uids->validity = mapValidity(validity);
 
@@ -108,11 +108,11 @@ private Q_SLOTS:
         mKeyCache = KeyCache::instance();
 
         KeyCache::mutableInstance()->setKeys({
-            createTestKey("sender@example.net", GpgME::OpenPGP, KeyUsage::AnyUsage),
-            createTestKey("sender@example.net", GpgME::CMS, KeyUsage::AnyUsage),
-            createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP, KeyUsage::Encrypt),
-            createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS, KeyUsage::Encrypt),
-            createTestKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP, KeyUsage::Encrypt, GpgME::UserID::Marginal),
+            createTestKey("sender@example.net", GpgME::OpenPGP, KeyCache::KeyCache::KeyUsage::AnyUsage),
+            createTestKey("sender@example.net", GpgME::CMS, KeyCache::KeyCache::KeyUsage::AnyUsage),
+            createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP, KeyCache::KeyCache::KeyUsage::Encrypt),
+            createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS, KeyCache::KeyCache::KeyUsage::Encrypt),
+            createTestKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP, KeyCache::KeyCache::KeyUsage::Encrypt, GpgME::UserID::Marginal),
         });
     }
 

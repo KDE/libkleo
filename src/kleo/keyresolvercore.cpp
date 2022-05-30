@@ -308,9 +308,9 @@ void KeyResolverCore::Private::resolveOverrides()
 std::vector<Key> KeyResolverCore::Private::resolveSenderWithGroup(const QString &address, Protocol protocol)
 {
     // prefer single-protocol groups over mixed-protocol groups
-    auto group = mCache->findGroup(address, protocol, KeyUsage::Sign);
+    auto group = mCache->findGroup(address, protocol, KeyCache::KeyUsage::Sign);
     if (group.isNull()) {
-        group = mCache->findGroup(address, UnknownProtocol, KeyUsage::Sign);
+        group = mCache->findGroup(address, UnknownProtocol, KeyCache::KeyUsage::Sign);
     }
     if (group.isNull()) {
         return {};
@@ -364,7 +364,7 @@ void KeyResolverCore::Private::resolveSign(Protocol proto)
         // Explicitly set
         return;
     }
-    const auto key = mCache->findBestByMailBox(mSender.toUtf8().constData(), proto, KeyUsage::Sign);
+    const auto key = mCache->findBestByMailBox(mSender.toUtf8().constData(), proto, KeyCache::KeyUsage::Sign);
     if (key.isNull()) {
         qCDebug(LIBKLEO_LOG) << "Failed to find" << Formatting::displayName(proto) << "signing key for" << mSender;
         return;
@@ -392,7 +392,7 @@ void KeyResolverCore::Private::setSigningKeys(const QStringList &fingerprints)
 
 std::vector<Key> KeyResolverCore::Private::resolveRecipientWithGroup(const QString &address, Protocol protocol)
 {
-    const auto group = mCache->findGroup(address, protocol, KeyUsage::Encrypt);
+    const auto group = mCache->findGroup(address, protocol, KeyCache::KeyUsage::Encrypt);
     if (group.isNull()) {
         return {};
     }
@@ -464,7 +464,7 @@ void KeyResolverCore::Private::resolveEncryptionGroups()
 
 std::vector<Key> KeyResolverCore::Private::resolveRecipient(const QString &address, Protocol protocol)
 {
-    const auto key = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, KeyUsage::Encrypt);
+    const auto key = mCache->findBestByMailBox(address.toUtf8().constData(), protocol, KeyCache::KeyUsage::Encrypt);
     if (key.isNull()) {
         qCDebug(LIBKLEO_LOG) << "Failed to find any" << Formatting::displayName(protocol) << "key for:" << address;
         return {};

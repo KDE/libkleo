@@ -1571,17 +1571,17 @@ static bool subkeyIsOk(const Subkey &s)
 
 namespace
 {
-time_t creationTimeOfNewestSuitableSubKey(const Key &key, KeyUsage usage)
+time_t creationTimeOfNewestSuitableSubKey(const Key &key, KeyCache::KeyUsage usage)
 {
     time_t creationTime = 0;
     for (const Subkey &s : key.subkeys()) {
         if (!subkeyIsOk(s)) {
             continue;
         }
-        if (usage == KeyUsage::Sign && !s.canSign()) {
+        if (usage == KeyCache::KeyUsage::Sign && !s.canSign()) {
             continue;
         }
-        if (usage == KeyUsage::Encrypt && !s.canEncrypt()) {
+        if (usage == KeyCache::KeyUsage::Encrypt && !s.canEncrypt()) {
             continue;
         }
         if (s.creationTime() > creationTime) {
@@ -1658,18 +1658,18 @@ GpgME::Key KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, 
 namespace
 {
 template<typename T>
-bool allKeysAllowUsage(const T &keys, KeyUsage usage)
+bool allKeysAllowUsage(const T &keys, KeyCache::KeyUsage usage)
 {
     switch (usage) {
-    case KeyUsage::AnyUsage:
+    case KeyCache::KeyUsage::AnyUsage:
         return true;
-    case KeyUsage::Sign:
+    case KeyCache::KeyUsage::Sign:
         return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canSign));
-    case KeyUsage::Encrypt:
+    case KeyCache::KeyUsage::Encrypt:
         return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canEncrypt));
-    case KeyUsage::Certify:
+    case KeyCache::KeyUsage::Certify:
         return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canCertify));
-    case KeyUsage::Authenticate:
+    case KeyCache::KeyUsage::Authenticate:
         return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canAuthenticate));
     }
     qCDebug(LIBKLEO_LOG) << __func__ << "called with invalid usage" << int(usage);

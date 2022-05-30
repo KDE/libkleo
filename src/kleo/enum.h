@@ -23,14 +23,6 @@ class UserID;
 namespace Kleo
 {
 
-enum class KeyUsage : char {
-    AnyUsage,
-    Sign,
-    Encrypt,
-    Certify,
-    Authenticate,
-};
-
 enum CryptoMessageFormat {
     // clang-format off
     InlineOpenPGPFormat = 1,
