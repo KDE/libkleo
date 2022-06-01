@@ -12,8 +12,10 @@
 #include "newkeyapprovaldialog.h"
 
 #include "keyselectioncombo.h"
-#include "kleo/defaultkeyfilter.h"
 #include "progressdialog.h"
+
+#include "kleo/debug.h"
+#include "kleo/defaultkeyfilter.h"
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
 
@@ -45,16 +47,6 @@
 
 using namespace Kleo;
 using namespace GpgME;
-
-QDebug operator<<(QDebug debug, const GpgME::Key &key)
-{
-    if (key.isNull()) {
-        debug << "Null";
-    } else {
-        debug << Formatting::summaryLine(key);
-    }
-    return debug.maybeSpace();
-}
 
 namespace
 {
