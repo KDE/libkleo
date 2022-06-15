@@ -10,8 +10,9 @@
 #include "classify.h"
 
 #include "kleo/checksumdefinition.h"
-#include "libkleo_debug.h"
 #include "utils/algorithm.h"
+
+#include <libkleo_debug.h>
 
 #include <QByteArrayMatcher>
 #include <QFile>

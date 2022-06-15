@@ -16,13 +16,13 @@
 #include "utils/hex.h"
 #include "utils/stringutils.h"
 
+#include <libkleo_debug.h>
+
 #if __has_include(<QGpgME/Debug>)
 #include <QGpgME/Debug>
 #endif
 
 #include <gpgme++/context.h>
-
-#include "libkleo_debug.h"
 
 using namespace Kleo;
 using namespace GpgME;

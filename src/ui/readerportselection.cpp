@@ -14,6 +14,8 @@
 
 #include "utils/scdaemon.h"
 
+#include <libkleo_debug.h>
+
 #include <KLocalizedString>
 
 #if __has_include(<QGpgME/Debug>)
@@ -25,8 +27,6 @@
 #include <QLineEdit>
 
 #include <gpgme++/error.h>
-
-#include <libkleo_debug.h>
 
 using namespace Kleo;
 

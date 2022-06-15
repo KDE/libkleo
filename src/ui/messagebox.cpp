@@ -10,7 +10,7 @@
 #include "messagebox.h"
 #include "auditlogviewer.h"
 
-#include "kleo_ui_debug.h"
+#include <kleo_ui_debug.h>
 
 #include <gpgme++/encryptionresult.h>
 #include <gpgme++/signingresult.h>

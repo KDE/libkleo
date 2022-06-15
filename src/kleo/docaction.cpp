@@ -9,7 +9,7 @@
 */
 #include "docaction.h"
 
-#include "libkleo_debug.h"
+#include <libkleo_debug.h>
 
 #include <QCoreApplication>
 #include <QDesktopServices>
@@ -17,8 +17,6 @@
 #include <QFileInfo>
 #include <QString>
 #include <QUrl>
-
-#include "libkleo_debug.h"
 
 using namespace Kleo;
 

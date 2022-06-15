@@ -19,6 +19,8 @@
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
 
+#include <libkleo_debug.h>
+
 #include <KLocalizedString>
 #include <KMessageBox>
 
@@ -42,8 +44,6 @@
 
 #include <gpgme++/key.h>
 #include <gpgme++/keygenerationresult.h>
-
-#include "libkleo_debug.h"
 
 using namespace Kleo;
 using namespace GpgME;

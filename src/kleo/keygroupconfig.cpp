@@ -17,14 +17,14 @@
 #include "utils/keyhelpers.h"
 #include "utils/qtstlhelpers.h"
 
+#include <libkleo_debug.h>
+
 #include <KConfigGroup>
 #include <KSharedConfig>
 
 #include <QString>
 
 #include <gpgme++/key.h>
-
-#include "libkleo_debug.h"
 
 using namespace Kleo;
 using namespace GpgME;

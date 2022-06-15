@@ -5,7 +5,6 @@
 */
 
 #include "keyselectioncombo.h"
-#include <kleo_ui_debug.h>
 
 #include "kleo/defaultkeyfilter.h"
 #include "kleo/dn.h"
@@ -15,6 +14,8 @@
 #include "models/keylistsortfilterproxymodel.h"
 #include "progressbar.h"
 #include "utils/formatting.h"
+
+#include <kleo_ui_debug.h>
 
 #include <gpgme++/key.h>
 

@@ -16,8 +16,9 @@
 #include "keylistview.h"
 #include "progressdialog.h"
 
-#include "kleo_ui_debug.h"
 #include "libkleo/dn.h"
+
+#include <kleo_ui_debug.h>
 
 // gpgme++
 #include <gpgme++/key.h>

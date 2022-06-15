@@ -19,11 +19,11 @@
 #include "utils/keyhelpers.h"
 #include "utils/qtstlhelpers.h"
 
+#include <libkleo_debug.h>
+
 #include <QFile>
 #include <QSettings>
 #include <QString>
-
-#include "libkleo_debug.h"
 
 using namespace Kleo;
 using namespace GpgME;

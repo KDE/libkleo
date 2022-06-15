@@ -25,6 +25,8 @@
 #include "utils/filesystemwatcher.h"
 #include "utils/qtstlhelpers.h"
 
+#include <libkleo_debug.h>
+
 #include <KConfigGroup>
 #include <KSharedConfig>
 
@@ -53,7 +55,6 @@
 #include <utility>
 
 #include "kleo/debug.h"
-#include "libkleo_debug.h"
 #include <chrono>
 
 using namespace std::chrono_literals;

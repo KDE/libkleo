@@ -8,11 +8,12 @@
 */
 
 #include "progressdialog.h"
-#include "kleo_ui_debug.h"
 
 #ifndef QT_NO_PROGRESSDIALOG
 
 #include "progressbar.h"
+
+#include <kleo_ui_debug.h>
 
 #include <KLocalizedString>
 

@@ -22,9 +22,9 @@
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
 
-#include <gpgme++/key.h>
+#include <libkleo_debug.h>
 
-#include "libkleo_debug.h"
+#include <gpgme++/key.h>
 
 using namespace Kleo;
 using namespace GpgME;

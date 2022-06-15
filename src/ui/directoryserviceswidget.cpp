@@ -17,6 +17,8 @@
 #include "kleo/keyserverconfig.h"
 #include "utils/gnupg.h"
 
+#include <kleo_ui_debug.h>
+
 #include <KLocalizedString>
 
 #include <QInputDialog>
@@ -26,8 +28,6 @@
 #include <QPushButton>
 #include <QToolButton>
 #include <QVBoxLayout>
-
-#include "kleo_ui_debug.h"
 
 using namespace Kleo;
 

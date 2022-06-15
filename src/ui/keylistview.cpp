@@ -9,7 +9,7 @@
 
 #include "keylistview.h"
 
-#include "kleo_ui_debug.h"
+#include <kleo_ui_debug.h>
 
 #include <QColor>
 #include <QFont>

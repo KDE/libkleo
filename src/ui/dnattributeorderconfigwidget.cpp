@@ -10,7 +10,8 @@
 #include "dnattributeorderconfigwidget.h"
 
 #include "libkleo/dn.h"
-#include "libkleo_debug.h"
+
+#include <libkleo_debug.h>
 
 #include <KLocalizedString>
 #include <QIcon>

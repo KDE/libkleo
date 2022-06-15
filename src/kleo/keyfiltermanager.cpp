@@ -13,10 +13,11 @@
 
 #include "stl_util.h"
 
-#include "libkleo_debug.h"
 #include "utils/algorithm.h"
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
+
+#include <libkleo_debug.h>
 
 #include <KConfig>
 #include <KConfigGroup>

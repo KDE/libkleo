@@ -11,7 +11,7 @@
 
 #include "kleoexception.h"
 
-#include "libkleo_debug.h"
+#include <libkleo_debug.h>
 
 #include <KConfig>
 #include <KConfigGroup>

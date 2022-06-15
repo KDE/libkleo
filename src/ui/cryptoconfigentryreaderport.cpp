@@ -17,6 +17,8 @@
 
 #include "utils/scdaemon.h"
 
+#include <libkleo_debug.h>
+
 #include <KLocalizedString>
 
 #include <QGpgME/CryptoConfig>
@@ -28,8 +30,6 @@
 #include <QLabel>
 
 #include <gpgme++/error.h>
-
-#include <libkleo_debug.h>
 
 namespace Kleo
 {

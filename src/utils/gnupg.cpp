@@ -20,14 +20,14 @@
 #include "utils/cryptoconfig.h"
 #include "utils/hex.h"
 
+#include <libkleo_debug.h>
+
 #include <gpgme++/engineinfo.h>
 #include <gpgme++/error.h>
 #include <gpgme++/key.h>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
-
-#include "libkleo_debug.h"
 
 #include <QByteArray>
 #include <QCoreApplication>

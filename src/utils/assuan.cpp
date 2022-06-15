@@ -12,6 +12,8 @@
 
 #include "assuan.h"
 
+#include <libkleo_debug.h>
+
 #include <QThread>
 
 #if __has_include(<QGpgME/Debug>)
@@ -21,8 +23,6 @@
 #include <gpgme++/context.h>
 #include <gpgme++/defaultassuantransaction.h>
 #include <gpgme++/error.h>
-
-#include "libkleo_debug.h"
 
 using namespace GpgME;
 using namespace Kleo;

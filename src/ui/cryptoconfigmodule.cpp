@@ -18,6 +18,8 @@
 #include "utils/formatting.h"
 #include "utils/gnupg.h"
 
+#include <kleo_ui_debug.h>
+
 #include <KLazyLocalizedString>
 #include <KLineEdit>
 #include <KLocalizedString>
@@ -51,8 +53,6 @@
 #include <limits>
 #include <memory>
 #include <set>
-
-#include <kleo_ui_debug.h>
 
 using namespace Kleo;
 
