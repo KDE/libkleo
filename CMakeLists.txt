@@ -118,6 +118,7 @@ endif()
 add_subdirectory(src)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
+    add_subdirectory(tests)
 endif()
 
 ecm_qt_install_logging_categories(

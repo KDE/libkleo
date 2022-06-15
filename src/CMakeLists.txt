@@ -16,9 +16,6 @@ kde_enable_exceptions()
 add_definitions( -DGPGMEPP_ERR_SOURCE_DEFAULT=13 ) # 13 is GPG_ERR_SOURCE_KLEO, even if gpg-error's too old to know about
 
 add_subdirectory( pics )
-if (BUILD_TESTING)
-   add_subdirectory( tests )
-endif()
 add_library(KF5Libkleo)
 add_library(KF5::Libkleo ALIAS KF5Libkleo)
 
