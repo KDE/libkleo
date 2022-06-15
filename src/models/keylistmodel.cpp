@@ -25,9 +25,6 @@
 #include <QAbstractItemModelTester>
 #endif
 
-#include <Libkleo/KeyFilter>
-#include <Libkleo/KeyFilterManager>
-
 #include <KLocalizedString>
 
 #include <QColor>
