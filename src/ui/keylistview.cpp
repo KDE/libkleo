@@ -7,6 +7,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "keylistview.h"
 
 #include <kleo_ui_debug.h>

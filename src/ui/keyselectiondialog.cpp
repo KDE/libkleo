@@ -11,6 +11,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "keyselectiondialog.h"
 
 #include "keylistview.h"

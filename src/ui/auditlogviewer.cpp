@@ -6,6 +6,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "auditlogviewer.h"
 
 #include <KGuiItem>

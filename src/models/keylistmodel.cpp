@@ -9,6 +9,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "keylistmodel.h"
 
 #include "keycache.h"

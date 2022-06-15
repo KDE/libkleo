@@ -8,6 +8,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "test.h"
 
 #include "cryptoconfig_p.h"

@@ -14,6 +14,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "keyresolver.h"
 
 #include "keyresolvercore.h"
