@@ -12,7 +12,7 @@
 #include "kleo_export.h"
 #include <QObject>
 
-#include <libkleo/keyfilter.h>
+#include <Libkleo/KeyFilter>
 
 #include <gpgme++/global.h>
 

@@ -11,7 +11,8 @@
 #include <gpgme++/global.h>
 
 #include "kleo_export.h"
-#include <libkleo/enum.h>
+
+#include <Libkleo/Enum>
 
 #include <memory>
 
