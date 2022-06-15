@@ -17,10 +17,10 @@
 
 #include "gnupg.h"
 
-#include "utils/assuan.h"
-#include "utils/compat.h"
-#include "utils/cryptoconfig.h"
-#include "utils/hex.h"
+#include "assuan.h"
+#include "compat.h"
+#include "cryptoconfig.h"
+#include "hex.h"
 
 #include <libkleo_debug.h>
 

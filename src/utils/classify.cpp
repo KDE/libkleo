@@ -11,8 +11,9 @@
 
 #include "classify.h"
 
-#include "kleo/checksumdefinition.h"
-#include "utils/algorithm.h"
+#include "algorithm.h"
+
+#include <kleo/checksumdefinition.h>
 
 #include <libkleo_debug.h>
 

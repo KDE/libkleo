@@ -15,17 +15,17 @@
 #include "keycache.h"
 #include "keycache_p.h"
 
-#include "kleo/dn.h"
-#include "kleo/enum.h"
-#include "kleo/keygroup.h"
-#include "kleo/keygroupconfig.h"
-#include "kleo/predicates.h"
-#include "kleo/stl_util.h"
-
-#include "utils/algorithm.h"
-#include "utils/compat.h"
-#include "utils/filesystemwatcher.h"
-#include "utils/qtstlhelpers.h"
+#include <kleo/debug.h>
+#include <kleo/dn.h>
+#include <kleo/enum.h>
+#include <kleo/keygroup.h>
+#include <kleo/keygroupconfig.h>
+#include <kleo/predicates.h>
+#include <kleo/stl_util.h>
+#include <utils/algorithm.h>
+#include <utils/compat.h>
+#include <utils/filesystemwatcher.h>
+#include <utils/qtstlhelpers.h>
 
 #include <libkleo_debug.h>
 
@@ -56,7 +56,6 @@
 #include <iterator>
 #include <utility>
 
-#include "kleo/debug.h"
 #include <chrono>
 
 using namespace std::chrono_literals;

@@ -15,7 +15,7 @@
 #include "cryptoconfigmodule.h"
 #include "readerportselection.h"
 
-#include "utils/scdaemon.h"
+#include <utils/scdaemon.h>
 
 #include <libkleo_debug.h>
 

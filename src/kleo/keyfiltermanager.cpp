@@ -10,14 +10,14 @@
 #include <config-libkleo.h>
 
 #include "keyfiltermanager.h"
+
 #include "defaultkeyfilter.h"
 #include "kconfigbasedkeyfilter.h"
-
 #include "stl_util.h"
 
-#include "utils/algorithm.h"
-#include "utils/formatting.h"
-#include "utils/gnupg.h"
+#include <utils/algorithm.h>
+#include <utils/formatting.h>
+#include <utils/gnupg.h>
 
 #include <libkleo_debug.h>
 

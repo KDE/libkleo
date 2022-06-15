@@ -7,9 +7,8 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include "kleo/keyresolver.h"
-
-#include "utils/formatting.h"
+#include <kleo/keyresolver.h>
+#include <utils/formatting.h>
 
 #include <QApplication>
 #include <QCommandLineParser>

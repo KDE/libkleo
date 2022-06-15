@@ -10,7 +10,8 @@
 #include <config-libkleo.h>
 
 #include "subkeylistmodel.h"
-#include "utils/formatting.h"
+
+#include <utils/formatting.h>
 
 #include <gpgme++/key.h>
 

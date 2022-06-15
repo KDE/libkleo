@@ -9,7 +9,8 @@
 
 #include "test_keygen.h"
 
-#include "ui/progressdialog.h"
+#include <ui/progressdialog.h>
+
 #include <qgpgme/keygenerationjob.h>
 #include <qgpgme/keylistjob.h>
 #include <qgpgme/protocol.h>

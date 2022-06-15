@@ -16,8 +16,8 @@
 
 #include "editdirectoryservicedialog.h"
 
-#include "kleo/keyserverconfig.h"
-#include "utils/gnupg.h"
+#include <kleo/keyserverconfig.h>
+#include <utils/gnupg.h>
 
 #include <kleo_ui_debug.h>
 

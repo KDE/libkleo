@@ -15,9 +15,9 @@
 #include "debug.h"
 #include "keygroup.h"
 
-#include "models/keycache.h"
-#include "utils/keyhelpers.h"
-#include "utils/qtstlhelpers.h"
+#include <models/keycache.h>
+#include <utils/keyhelpers.h>
+#include <utils/qtstlhelpers.h>
 
 #include <libkleo_debug.h>
 

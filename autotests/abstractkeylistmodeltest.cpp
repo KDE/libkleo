@@ -10,8 +10,8 @@
 
 #include "abstractkeylistmodeltest.h"
 
-#include "kleo/keygroup.h"
-#include "models/keylistmodel.h"
+#include <kleo/keygroup.h>
+#include <models/keylistmodel.h>
 
 #include <gpgme++/key.h>
 

@@ -11,7 +11,7 @@
 
 #include "enum.h"
 
-#include "models/keycache.h"
+#include <models/keycache.h>
 
 #include <libkleo_debug.h>
 

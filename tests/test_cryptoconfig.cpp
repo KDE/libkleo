@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include "utils/compat.h"
+#include <utils/compat.h>
 
 #include <qgpgme/qgpgmenewcryptoconfig.h>
 

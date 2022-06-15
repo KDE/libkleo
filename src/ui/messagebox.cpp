@@ -10,6 +10,7 @@
 #include <config-libkleo.h>
 
 #include "messagebox.h"
+
 #include "auditlogviewer.h"
 
 #include <kleo_ui_debug.h>

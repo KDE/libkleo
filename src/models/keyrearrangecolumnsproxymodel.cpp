@@ -11,7 +11,7 @@
 
 #include "keyrearrangecolumnsproxymodel.h"
 
-#include "kleo/keygroup.h"
+#include <kleo/keygroup.h>
 
 #include <gpgme++/key.h>
 

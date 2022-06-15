@@ -12,7 +12,7 @@
 
 #include "keyserverconfig.h"
 
-#include "utils/algorithm.h"
+#include <utils/algorithm.h>
 
 #include <QString>
 #include <QUrl>

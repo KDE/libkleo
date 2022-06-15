@@ -12,9 +12,9 @@
 
 #include "scdaemon.h"
 
-#include "utils/assuan.h"
-#include "utils/hex.h"
-#include "utils/stringutils.h"
+#include "assuan.h"
+#include "hex.h"
+#include "stringutils.h"
 
 #include <libkleo_debug.h>
 

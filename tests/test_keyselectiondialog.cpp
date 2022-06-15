@@ -7,7 +7,8 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include "ui/keyselectiondialog.h"
+#include <ui/keyselectiondialog.h>
+
 #include <gpgme++/key.h>
 
 #include <KAboutData>

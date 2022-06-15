@@ -10,7 +10,8 @@
 #include <config-libkleo.h>
 
 #include "filesystemwatcher.h"
-#include "kleo/stl_util.h"
+
+#include <kleo/stl_util.h>
 
 #include <libkleo_debug.h>
 

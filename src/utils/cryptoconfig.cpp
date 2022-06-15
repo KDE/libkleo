@@ -13,7 +13,7 @@
 #include "cryptoconfig.h"
 #include "cryptoconfig_p.h"
 
-#include "utils/compat.h"
+#include "compat.h"
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>

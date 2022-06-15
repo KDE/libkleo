@@ -12,12 +12,14 @@
 #include <config-libkleo.h>
 
 #include "formatting.h"
-#include "kleo/dn.h"
-#include "kleo/keyfiltermanager.h"
-#include "kleo/keygroup.h"
 
-#include "utils/cryptoconfig.h"
-#include "utils/gnupg.h"
+#include "cryptoconfig.h"
+#include "gnupg.h"
+
+#include <kleo/dn.h>
+#include <kleo/keyfiltermanager.h>
+#include <kleo/keygroup.h>
+#include <models/keycache.h>
 
 #include <gpgme++/importresult.h>
 #include <gpgme++/key.h>
@@ -34,8 +36,6 @@
 #include <QRegularExpression>
 #include <QString>
 #include <QTextDocument> // for Qt::escape
-
-#include "models/keycache.h"
 
 using namespace GpgME;
 using namespace Kleo;

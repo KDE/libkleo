@@ -5,8 +5,9 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include "kleo/defaultkeyfilter.h"
-#include "ui/keyselectioncombo.h"
+#include <kleo/defaultkeyfilter.h>
+#include <ui/keyselectioncombo.h>
+
 #include <gpgme++/key.h>
 
 #include <KAboutData>

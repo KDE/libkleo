@@ -14,7 +14,7 @@
 
 #include "defaultkeyfilter.h"
 
-#include "utils/formatting.h"
+#include <utils/formatting.h>
 
 #include <functional>
 #include <memory>

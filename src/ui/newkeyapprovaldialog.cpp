@@ -16,10 +16,10 @@
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
 
-#include "kleo/debug.h"
-#include "kleo/defaultkeyfilter.h"
-#include "utils/formatting.h"
-#include "utils/gnupg.h"
+#include <kleo/debug.h>
+#include <kleo/defaultkeyfilter.h>
+#include <utils/formatting.h>
+#include <utils/gnupg.h>
 
 #include <libkleo_debug.h>
 

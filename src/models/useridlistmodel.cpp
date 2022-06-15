@@ -15,7 +15,8 @@
 #include "useridlistmodel.h"
 
 #include "keycache.h"
-#include "utils/formatting.h"
+
+#include <utils/formatting.h>
 
 #include <KLocalizedString>
 
