@@ -20,7 +20,6 @@
 #include <QRegExp>
 #include <QRegularExpression>
 #include <QString>
-#include <QStringList>
 
 #include <gpgme++/data.h>
 #include <qgpgme/dataprovider.h>
