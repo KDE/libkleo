@@ -532,6 +532,15 @@ static QDate time_t2date(time_t t)
     const QDateTime dt = QDateTime::fromSecsSinceEpoch(t);
     return dt.date();
 }
+static QString accessible_date_format()
+{
+    return i18nc(
+        "date format suitable for screen readers; "
+        "d: day as a number without a leading zero, "
+        "MMMM: localized month name, "
+        "yyyy: year as a four digit number",
+        "MMMM d, yyyy");
+}
 
 template<typename T>
 QString expiration_date_string(const T &tee, const QString &noExpiration)
@@ -567,7 +576,7 @@ QString Formatting::accessibleDate(time_t t)
 
 QString Formatting::accessibleDate(const QDate &date)
 {
-    return QLocale().toString(date, QLocale::LongFormat);
+    return QLocale().toString(date, accessible_date_format());
 }
 
 QString Formatting::expirationDateString(const Key &key, const QString &noExpiration)
