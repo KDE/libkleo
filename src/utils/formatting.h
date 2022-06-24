@@ -101,9 +101,11 @@ KLEO_EXPORT QDate creationDate(const GpgME::Subkey &subkey);
 KLEO_EXPORT QDate creationDate(const GpgME::UserID::Signature &sig);
 KLEO_EXPORT QString accessibleCreationDate(const GpgME::Key &key);
 
-/* Convert a GPGME style time to a localized string */
+/* Convert a GPGME style time or a QDate to a localized string */
 KLEO_EXPORT QString dateString(time_t t);
+KLEO_EXPORT QString dateString(const QDate &date);
 KLEO_EXPORT QString accessibleDate(time_t t);
+KLEO_EXPORT QString accessibleDate(const QDate &date);
 
 KLEO_EXPORT QString displayName(GpgME::Protocol prot);
 KLEO_EXPORT QString type(const GpgME::Key &key);

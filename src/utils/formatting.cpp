@@ -532,19 +532,11 @@ static QDate time_t2date(time_t t)
     const QDateTime dt = QDateTime::fromSecsSinceEpoch(t);
     return dt.date();
 }
-static QString date2string(const QDate &date)
-{
-    return QLocale().toString(date, QLocale::ShortFormat);
-}
-static QString localized_long_format(const QDate &date)
-{
-    return date.isValid() ? QLocale().toString(date, QLocale::LongFormat) : QString{};
-}
 
 template<typename T>
 QString expiration_date_string(const T &tee, const QString &noExpiration)
 {
-    return tee.neverExpires() ? noExpiration : date2string(time_t2date(tee.expirationTime()));
+    return tee.neverExpires() ? noExpiration : Formatting::dateString(time_t2date(tee.expirationTime()));
 }
 template<typename T>
 QDate creation_date(const T &tee)
@@ -560,12 +552,22 @@ QDate expiration_date(const T &tee)
 
 QString Formatting::dateString(time_t t)
 {
-    return date2string(time_t2date(t));
+    return dateString(time_t2date(t));
+}
+
+QString Formatting::dateString(const QDate &date)
+{
+    return QLocale().toString(date, QLocale::ShortFormat);
 }
 
 QString Formatting::accessibleDate(time_t t)
 {
-    return localized_long_format(time_t2date(t));
+    return accessibleDate(time_t2date(t));
+}
+
+QString Formatting::accessibleDate(const QDate &date)
+{
+    return QLocale().toString(date, QLocale::LongFormat);
 }
 
 QString Formatting::expirationDateString(const Key &key, const QString &noExpiration)
@@ -603,23 +605,23 @@ QString Formatting::accessibleExpirationDate(const Key &key, const QString &noEx
     if (key.subkey(0).neverExpires()) {
         return noExpiration.isEmpty() ? i18n("no expiration") : noExpiration;
     } else {
-        return localized_long_format(expirationDate(key));
+        return accessibleDate(expirationDate(key));
     }
 }
 
 QString Formatting::creationDateString(const Key &key)
 {
-    return date2string(creation_date(key.subkey(0)));
+    return dateString(creation_date(key.subkey(0)));
 }
 
 QString Formatting::creationDateString(const Subkey &subkey)
 {
-    return date2string(creation_date(subkey));
+    return dateString(creation_date(subkey));
 }
 
 QString Formatting::creationDateString(const UserID::Signature &sig)
 {
-    return date2string(creation_date(sig));
+    return dateString(creation_date(sig));
 }
 
 QDate Formatting::creationDate(const Key &key)
@@ -639,7 +641,7 @@ QDate Formatting::creationDate(const UserID::Signature &sig)
 
 QString Formatting::accessibleCreationDate(const Key &key)
 {
-    return localized_long_format(creationDate(key));
+    return accessibleDate(creationDate(key));
 }
 
 //
