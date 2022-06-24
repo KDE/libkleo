@@ -542,9 +542,9 @@ static QString localized_long_format(const QDate &date)
 }
 
 template<typename T>
-QString expiration_date_string(const T &tee)
+QString expiration_date_string(const T &tee, const QString &noExpiration)
 {
-    return tee.neverExpires() ? QString() : date2string(time_t2date(tee.expirationTime()));
+    return tee.neverExpires() ? noExpiration : date2string(time_t2date(tee.expirationTime()));
 }
 template<typename T>
 QDate creation_date(const T &tee)
@@ -568,19 +568,19 @@ QString Formatting::accessibleDate(time_t t)
     return localized_long_format(time_t2date(t));
 }
 
-QString Formatting::expirationDateString(const Key &key)
+QString Formatting::expirationDateString(const Key &key, const QString &noExpiration)
 {
-    return expiration_date_string(key.subkey(0));
+    return expiration_date_string(key.subkey(0), noExpiration);
 }
 
-QString Formatting::expirationDateString(const Subkey &subkey)
+QString Formatting::expirationDateString(const Subkey &subkey, const QString &noExpiration)
 {
-    return expiration_date_string(subkey);
+    return expiration_date_string(subkey, noExpiration);
 }
 
-QString Formatting::expirationDateString(const UserID::Signature &sig)
+QString Formatting::expirationDateString(const UserID::Signature &sig, const QString &noExpiration)
 {
-    return expiration_date_string(sig);
+    return expiration_date_string(sig, noExpiration);
 }
 
 QDate Formatting::expirationDate(const Key &key)
@@ -598,9 +598,13 @@ QDate Formatting::expirationDate(const UserID::Signature &sig)
     return expiration_date(sig);
 }
 
-QString Formatting::accessibleExpirationDate(const Key &key)
+QString Formatting::accessibleExpirationDate(const Key &key, const QString &noExpiration)
 {
-    return key.subkey(0).neverExpires() ? i18n("no expiration") : localized_long_format(expirationDate(key));
+    if (key.subkey(0).neverExpires()) {
+        return noExpiration.isEmpty() ? i18n("no expiration") : noExpiration;
+    } else {
+        return localized_long_format(expirationDate(key));
+    }
 }
 
 QString Formatting::creationDateString(const Key &key)
