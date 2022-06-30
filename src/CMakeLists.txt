@@ -5,7 +5,6 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${GPGME_INCLUDES}
 )
-
 add_definitions(-DTRANSLATION_DOMAIN=\"libkleopatra\")
 
 #add_definitions( -DQT_NO_CAST_FROM_ASCII )
@@ -161,7 +160,7 @@ target_sources(KF5Libkleo PRIVATE    # make this a separate lib.
     )
 
 
-target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt${QT_MAJOR_VERSION}::Widgets
+target_link_libraries(KF5Libkleo PUBLIC Gpgmepp PRIVATE Qt${QT_MAJOR_VERSION}::Widgets
                                                 KF5::I18n
                                                 KF5::Completion
                                                 KF5::ConfigCore
@@ -171,9 +170,9 @@ target_link_libraries(KF5Libkleo PUBLIC QGpgme Gpgmepp PRIVATE Qt${QT_MAJOR_VERS
                                                 KF5::Codecs)
 
 if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(KF5Libkleo PRIVATE Qt6::Core5Compat)
+    target_link_libraries(KF5Libkleo PRIVATE Qt6::Core5Compat PUBLIC QGpgmeQt6)
 else()
-
+    target_link_libraries(KF5Libkleo PUBLIC QGpgme)
 endif()
 # Boost::headers may not be available for old versions of Boost
 if (TARGET Boost::headers)
