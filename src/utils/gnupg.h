@@ -14,11 +14,6 @@
 #include <gpgme++/engineinfo.h>
 #include <gpgme++/key.h>
 
-/* Does the given object comply with DE_VS?  This macro can be used to
-   ensure that we can still build against older versions of GPGME
-   without cluttering the code with preprocessor conditionals.  */
-#define IS_DE_VS(x) (x).isDeVs()
-
 #include "kleo_export.h"
 
 class QString;
