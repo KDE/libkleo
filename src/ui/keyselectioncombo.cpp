@@ -7,6 +7,7 @@
 #include <config-libkleo.h>
 
 #include "keyselectioncombo.h"
+
 #include "progressbar.h"
 
 #include <kleo/defaultkeyfilter.h>
