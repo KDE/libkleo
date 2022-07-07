@@ -15,23 +15,23 @@
 
 #include "keycache.h"
 
-#include <kleo/keyfilter.h>
-#include <kleo/keyfiltermanager.h>
-#include <kleo/predicates.h>
-#include <utils/algorithm.h>
-#include <utils/formatting.h>
+#include <libkleo/algorithm.h>
+#include <libkleo/formatting.h>
+#include <libkleo/keyfilter.h>
+#include <libkleo/keyfiltermanager.h>
+#include <libkleo/predicates.h>
+
+#include <KLocalizedString>
 
 #ifdef KLEO_MODEL_TEST
 #include <QAbstractItemModelTester>
 #endif
-
-#include <KLocalizedString>
-
 #include <QColor>
 #include <QDate>
 #include <QFont>
 #include <QHash>
 #include <QIcon>
+
 #include <gpgme++/key.h>
 
 #ifndef Q_MOC_RUN // QTBUG-22829

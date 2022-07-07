@@ -11,10 +11,11 @@
 
 #include "kleo_export.h"
 
-#include <gpg-error.h>
+#include <QString>
+
 #include <gpgme++/exception.h>
 
-#include <QString>
+#include <gpg-error.h>
 
 namespace Kleo
 {

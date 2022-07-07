@@ -12,9 +12,9 @@
 
 #include "kleo_export.h"
 
-#include <memory>
-
 #include <QAction>
+
+#include <memory>
 
 class QIcon;
 class QString;

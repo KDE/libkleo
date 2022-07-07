@@ -16,15 +16,15 @@
 #include <QColor>
 #include <QFont>
 #include <QFontMetrics>
+#include <QKeyEvent>
 #include <QPoint>
 #include <QTimer>
 #include <QToolTip>
+
 #include <gpgme++/key.h>
 
 #include <map>
 #include <vector>
-
-#include <QKeyEvent>
 
 static const int updateDelayMilliSecs = 500;
 

@@ -10,12 +10,12 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <QList>
 
 #include <string>
 #include <vector>
-
-#include "kleo_export.h"
 
 class QString;
 

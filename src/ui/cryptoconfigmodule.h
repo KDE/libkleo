@@ -10,8 +10,10 @@
 #pragma once
 
 #include "kleo_export.h"
+
+#include <KPageWidget>
+
 #include <QList>
-#include <kpagedialog.h>
 
 namespace QGpgME
 {

@@ -21,9 +21,9 @@
 #include "enum.h"
 #include "keygroup.h"
 
-#include <models/keycache.h>
-#include <utils/formatting.h>
-#include <utils/gnupg.h>
+#include <libkleo/formatting.h>
+#include <libkleo/gnupg.h>
+#include <libkleo/keycache.h>
 
 #include <libkleo_debug.h>
 

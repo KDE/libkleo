@@ -20,9 +20,9 @@
 
 #include "keyresolvercore.h"
 
-#include <models/keycache.h>
-#include <ui/newkeyapprovaldialog.h>
-#include <utils/formatting.h>
+#include <libkleo/formatting.h>
+#include <libkleo/keycache.h>
+#include <libkleo/newkeyapprovaldialog.h>
 
 #include <libkleo_debug.h>
 

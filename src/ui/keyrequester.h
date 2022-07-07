@@ -17,9 +17,10 @@
 
 #include "kleo_export.h"
 
-#include <qgpgme/protocol.h>
+#include <QGpgME/Protocol>
 
 #include <QLabel>
+#include <QStringList>
 #include <QWidget>
 
 #include <vector>
@@ -30,7 +31,6 @@ class Key;
 class KeyListResult;
 }
 
-#include <QStringList>
 class QString;
 class QPushButton;
 

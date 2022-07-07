@@ -9,9 +9,8 @@
 
 #pragma once
 
-#include <QWidget>
-
 #include <QList>
+#include <QWidget>
 
 class KLineEdit;
 class QSpinBox;

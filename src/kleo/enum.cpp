@@ -11,20 +11,20 @@
 
 #include "enum.h"
 
-#include <models/keycache.h>
+#include <libkleo/keycache.h>
 
 #include <libkleo_debug.h>
-
-#include <functional>
 
 #include <KLazyLocalizedString>
 #include <KLocalizedString>
 
+#include <QEventLoop>
+#include <QString>
+
 #include <gpgme++/key.h>
 #include <gpgme++/tofuinfo.h>
 
-#include <QEventLoop>
-#include <QString>
+#include <functional>
 
 static const struct {
     Kleo::CryptoMessageFormat format;

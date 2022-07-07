@@ -10,23 +10,23 @@
 
 #include "progressbar.h"
 
-#include <kleo/defaultkeyfilter.h>
-#include <kleo/dn.h>
-#include <models/keycache.h>
-#include <models/keylist.h>
-#include <models/keylistmodel.h>
-#include <models/keylistsortfilterproxymodel.h>
-#include <utils/formatting.h>
+#include <libkleo/defaultkeyfilter.h>
+#include <libkleo/dn.h>
+#include <libkleo/formatting.h>
+#include <libkleo/keycache.h>
+#include <libkleo/keylist.h>
+#include <libkleo/keylistmodel.h>
+#include <libkleo/keylistsortfilterproxymodel.h>
 
 #include <kleo_ui_debug.h>
 
-#include <gpgme++/key.h>
+#include <KLocalizedString>
 
 #include <QSortFilterProxyModel>
 #include <QTimer>
 #include <QVector>
 
-#include <KLocalizedString>
+#include <gpgme++/key.h>
 
 using namespace Kleo;
 

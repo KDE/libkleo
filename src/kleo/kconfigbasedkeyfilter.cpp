@@ -16,6 +16,7 @@
 
 #include <QDebug>
 #include <QRegularExpression>
+
 #include <algorithm>
 
 using namespace Kleo;

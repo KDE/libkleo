@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <QMap>
 #include <QObject>
 #include <QString>
@@ -20,8 +22,6 @@
 
 #include <memory>
 #include <vector>
-
-#include "kleo_export.h"
 
 namespace GpgME
 {

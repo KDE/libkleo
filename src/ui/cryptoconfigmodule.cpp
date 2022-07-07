@@ -16,9 +16,9 @@
 #include "directoryserviceswidget.h"
 #include "filenamerequester.h"
 
-#include <kleo/keyserverconfig.h>
-#include <utils/formatting.h>
-#include <utils/gnupg.h>
+#include <libkleo/formatting.h>
+#include <libkleo/gnupg.h>
+#include <libkleo/keyserverconfig.h>
 
 #include <kleo_ui_debug.h>
 

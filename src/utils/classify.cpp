@@ -13,9 +13,11 @@
 
 #include "algorithm.h"
 
-#include <kleo/checksumdefinition.h>
+#include <libkleo/checksumdefinition.h>
 
 #include <libkleo_debug.h>
+
+#include <QGpgME/DataProvider>
 
 #include <QByteArrayMatcher>
 #include <QFile>
@@ -26,7 +28,6 @@
 #include <QString>
 
 #include <gpgme++/data.h>
-#include <qgpgme/dataprovider.h>
 
 #include <functional>
 #include <iterator>

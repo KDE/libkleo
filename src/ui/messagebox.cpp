@@ -15,17 +15,19 @@
 
 #include <kleo_ui_debug.h>
 
-#include <gpgme++/encryptionresult.h>
-#include <gpgme++/signingresult.h>
-#include <qgpgme/job.h>
-
 #include <KGuiItem>
 #include <KLocalizedString>
+#include <KSharedConfig>
+
+#include <QGpgME/Job>
+
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QPushButton>
 
-#include <KSharedConfig>
+#include <gpgme++/encryptionresult.h>
+#include <gpgme++/signingresult.h>
+
 #include <gpg-error.h>
 
 using namespace Kleo;

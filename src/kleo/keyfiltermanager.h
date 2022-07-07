@@ -10,9 +10,10 @@
 #pragma once
 
 #include "kleo_export.h"
-#include <QObject>
 
 #include <Libkleo/KeyFilter>
+
+#include <QObject>
 
 #include <gpgme++/global.h>
 

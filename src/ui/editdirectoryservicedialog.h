@@ -10,11 +10,11 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <QDialog>
 
 #include <memory>
-
-#include "kleo_export.h"
 
 namespace Kleo
 {

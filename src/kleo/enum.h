@@ -11,8 +11,9 @@
 
 #include "kleo_export.h"
 
-class QString;
 #include <QStringList>
+
+class QString;
 
 namespace GpgME
 {

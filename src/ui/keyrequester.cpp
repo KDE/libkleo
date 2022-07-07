@@ -19,25 +19,21 @@
 
 #include "keyselectiondialog.h"
 
-#include "libkleo/dn.h"
+#include <libkleo/dn.h>
 
-// gpgme++
-#include <gpgme++/key.h>
-#include <gpgme++/keylistresult.h>
-#include <qgpgme/keylistjob.h>
-
-// KDE
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <QDialog>
-#include <QPushButton>
 
-// Qt
+#include <QGpgME/KeyListJob>
+
 #include <QApplication>
-
+#include <QDialog>
+#include <QHBoxLayout>
+#include <QPushButton>
 #include <QString>
 
-#include <QHBoxLayout>
+#include <gpgme++/key.h>
+#include <gpgme++/keylistresult.h>
 
 using namespace QGpgME;
 

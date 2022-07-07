@@ -10,27 +10,27 @@
 
 #include "auditlogviewer.h"
 
-#include <KGuiItem>
-#include <KStandardGuiItem>
-
-#ifdef HAVE_PIMTEXTEDIT
-#include "kpimtextedit/richtexteditor.h"
-#else
-#include <QTextEdit>
-#endif
 #include <KConfigGroup>
+#include <KGuiItem>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
+#include <KStandardGuiItem>
+
+#ifdef HAVE_PIMTEXTEDIT
+#include <KPIMTextEdit/RichTextEditor>
+#else
+#include <QTextEdit>
+#endif
+
+#include <QDebug>
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QPushButton>
 #include <QSaveFile>
+#include <QStyle>
 #include <QTextStream>
 #include <QVBoxLayout>
-
-#include <QDebug>
-#include <QStyle>
 
 using namespace Kleo::Private;
 

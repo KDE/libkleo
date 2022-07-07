@@ -18,24 +18,18 @@
 #include "keylistview.h"
 #include "progressdialog.h"
 
-#include "libkleo/dn.h"
+#include <libkleo/dn.h>
 
 #include <kleo_ui_debug.h>
 
-// gpgme++
-#include <gpgme++/key.h>
-#include <gpgme++/keylistresult.h>
-
-#include <qgpgme/keylistjob.h>
-
-// KDE
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
 
-// Qt
+#include <QGpgME/KeyListJob>
+
 #include <QApplication>
 #include <QCheckBox>
 #include <QDateTime>
@@ -51,6 +45,9 @@
 #include <QScrollBar>
 #include <QTimer>
 #include <QVBoxLayout>
+
+#include <gpgme++/key.h>
+#include <gpgme++/keylistresult.h>
 
 #include <algorithm>
 #include <iterator>

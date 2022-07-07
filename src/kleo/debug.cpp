@@ -14,7 +14,7 @@
 
 #include "keygroup.h"
 
-#include <utils/formatting.h>
+#include <libkleo/formatting.h>
 
 #include <QDebug>
 

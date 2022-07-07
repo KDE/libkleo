@@ -11,12 +11,12 @@
 
 #include "kleo_export.h"
 
-#include <gpgme++/key.h>
-
 #include <QByteArray>
 #include <QHeaderView>
 #include <QIcon>
 #include <QTreeWidget>
+
+#include <gpgme++/key.h>
 
 class QFont;
 class QColor;

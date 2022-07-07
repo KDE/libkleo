@@ -10,10 +10,10 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <string>
 #include <vector>
-
-#include "kleo_export.h"
 
 namespace Kleo
 {

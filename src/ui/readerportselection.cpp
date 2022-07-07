@@ -12,7 +12,7 @@
 
 #include "readerportselection.h"
 
-#include <utils/scdaemon.h>
+#include <libkleo/scdaemon.h>
 
 #include <libkleo_debug.h>
 

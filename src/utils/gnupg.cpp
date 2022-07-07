@@ -24,9 +24,7 @@
 
 #include <libkleo_debug.h>
 
-#include <gpgme++/engineinfo.h>
-#include <gpgme++/error.h>
-#include <gpgme++/key.h>
+#include <KLocalizedString>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
@@ -42,6 +40,11 @@
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QString>
+
+#include <gpgme++/engineinfo.h>
+#include <gpgme++/error.h>
+#include <gpgme++/key.h>
+
 #include <gpg-error.h>
 
 #ifdef Q_OS_WIN
@@ -50,8 +53,6 @@
 
 #include <algorithm>
 #include <array>
-
-#include <KLocalizedString>
 
 using namespace GpgME;
 

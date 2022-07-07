@@ -10,6 +10,7 @@
 #pragma once
 
 #include "defaultkeyfilter.h"
+#include "kleo_export.h"
 
 class KConfigGroup;
 

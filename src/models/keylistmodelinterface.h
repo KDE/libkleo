@@ -11,9 +11,9 @@
 
 #pragma once
 
-#include <vector>
-
 #include "kleo_export.h"
+
+#include <vector>
 
 namespace GpgME
 {

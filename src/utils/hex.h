@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include <string>
-
 #include "kleo_export.h"
+
+#include <string>
 
 class QByteArray;
 

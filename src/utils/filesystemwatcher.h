@@ -9,12 +9,12 @@
 
 #pragma once
 
-#include <QObject>
-
 #include "kleo_export.h"
 
-class QString;
+#include <QObject>
 #include <QStringList>
+
+class QString;
 
 namespace Kleo
 {

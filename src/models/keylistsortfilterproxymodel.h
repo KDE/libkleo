@@ -9,11 +9,10 @@
 
 #pragma once
 
-#include <QSortFilterProxyModel>
-
 #include "keylistmodelinterface.h"
-
 #include "kleo_export.h"
+
+#include <QSortFilterProxyModel>
 
 #include <memory>
 

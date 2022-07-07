@@ -11,7 +11,7 @@
 
 #include "filesystemwatcher.h"
 
-#include <kleo/stl_util.h>
+#include <libkleo/stl_util.h>
 
 #include <libkleo_debug.h>
 

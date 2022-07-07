@@ -10,15 +10,15 @@
 
 #include "abstractkeylistmodeltest.h"
 
-#include <kleo/keygroup.h>
-#include <models/keylistmodel.h>
+#include <Libkleo/KeyGroup>
+#include <Libkleo/KeyListModel>
+
+#include <QSet>
+#include <QTest>
 
 #include <gpgme++/key.h>
 
 #include <gpgme.h>
-
-#include <QSet>
-#include <QTest>
 
 using namespace Kleo;
 using namespace GpgME;

@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <QComboBox>
-
-#include <gpgme++/global.h>
-
 #include "kleo_export.h"
 
 #include <Libkleo/Enum>
+
+#include <QComboBox>
+
+#include <gpgme++/global.h>
 
 #include <memory>
 

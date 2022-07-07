@@ -11,14 +11,13 @@
 
 #pragma once
 
-#include <QAbstractItemModel>
-
-#include "kleo_export.h"
-
 #include "keylist.h"
 #include "keylistmodelinterface.h"
+#include "kleo_export.h"
 
 #include <Libkleo/KeyGroup>
+
+#include <QAbstractItemModel>
 
 #include <vector>
 

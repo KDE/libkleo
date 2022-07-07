@@ -14,9 +14,9 @@
 #include "keylist.h"
 #include "keylistmodel.h"
 
-#include <kleo/keyfilter.h>
-#include <kleo/keygroup.h>
-#include <kleo/stl_util.h>
+#include <libkleo/keyfilter.h>
+#include <libkleo/keygroup.h>
+#include <libkleo/stl_util.h>
 
 #include <libkleo_debug.h>
 

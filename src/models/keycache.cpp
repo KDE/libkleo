@@ -15,22 +15,30 @@
 #include "keycache.h"
 #include "keycache_p.h"
 
-#include <kleo/debug.h>
-#include <kleo/dn.h>
-#include <kleo/enum.h>
-#include <kleo/keygroup.h>
-#include <kleo/keygroupconfig.h>
-#include <kleo/predicates.h>
-#include <kleo/stl_util.h>
-#include <utils/algorithm.h>
-#include <utils/compat.h>
-#include <utils/filesystemwatcher.h>
-#include <utils/qtstlhelpers.h>
+#include <libkleo/algorithm.h>
+#include <libkleo/compat.h>
+#include <libkleo/debug.h>
+#include <libkleo/dn.h>
+#include <libkleo/enum.h>
+#include <libkleo/filesystemwatcher.h>
+#include <libkleo/keygroup.h>
+#include <libkleo/keygroupconfig.h>
+#include <libkleo/predicates.h>
+#include <libkleo/qtstlhelpers.h>
+#include <libkleo/stl_util.h>
 
 #include <libkleo_debug.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
+
+#include <QGpgME/CryptoConfig>
+#include <QGpgME/ListAllKeysJob>
+#include <QGpgME/Protocol>
+
+#include <QEventLoop>
+#include <QPointer>
+#include <QTimer>
 
 #include <gpgme++/context.h>
 #include <gpgme++/decryptionresult.h>
@@ -39,24 +47,13 @@
 #include <gpgme++/keylistresult.h>
 #include <gpgme++/verificationresult.h>
 
-#include <qgpgme/cryptoconfig.h>
-#include <qgpgme/listallkeysjob.h>
-#include <qgpgme/protocol.h>
-
 #include <gpg-error.h>
 
-//#include <KMime/HeaderParsing>
-
-#include <QEventLoop>
-#include <QPointer>
-#include <QTimer>
-
 #include <algorithm>
+#include <chrono>
 #include <functional>
 #include <iterator>
 #include <utility>
-
-#include <chrono>
 
 using namespace std::chrono_literals;
 using namespace Kleo;

@@ -10,9 +10,9 @@
 
 #pragma once
 
-#include <QWidget>
-
 #include "kleo_export.h"
+
+#include <QWidget>
 
 namespace Kleo
 {

@@ -8,8 +8,8 @@
 
 #include "defaultkeygenerationjob.h"
 
-#include <qgpgme/keygenerationjob.h>
-#include <qgpgme/protocol.h>
+#include <QGpgME/KeyGenerationJob>
+#include <QGpgME/Protocol>
 
 #include <QEvent>
 #include <QPointer>

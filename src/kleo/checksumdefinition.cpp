@@ -18,6 +18,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <KShell>
 
 #include <QByteArray>
@@ -27,8 +28,6 @@
 #include <QMutex>
 #include <QProcess>
 #include <QRegularExpression>
-
-#include <KSharedConfig>
 #include <QStandardPaths>
 
 #ifdef stdin

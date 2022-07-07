@@ -11,9 +11,8 @@
 
 #include "kleo_export.h"
 
-#include <QWidget>
-
 #include <QDir>
+#include <QWidget>
 
 namespace Kleo
 {

@@ -15,11 +15,12 @@
 
 #include "kleo_export.h"
 
-#include <gpgme++/key.h>
-#include <qgpgme/protocol.h>
+#include <QGpgME/Protocol>
 
 #include <QDialog>
 #include <QPixmap>
+
+#include <gpgme++/key.h>
 
 #include <vector>
 

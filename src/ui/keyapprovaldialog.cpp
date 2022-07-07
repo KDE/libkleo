@@ -20,6 +20,8 @@
 #include <KLocalizedString>
 #include <KSeparator>
 
+#include <QGpgME/Protocol>
+
 #include <QApplication>
 #include <QComboBox>
 #include <QDialogButtonBox>
@@ -33,7 +35,6 @@
 #include <QWindow>
 
 #include <gpgme++/key.h>
-#include <qgpgme/protocol.h>
 
 static Kleo::EncryptionPreference cb2pref(int i)
 {

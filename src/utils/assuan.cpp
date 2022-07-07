@@ -14,11 +14,11 @@
 
 #include <libkleo_debug.h>
 
-#include <QThread>
-
 #if __has_include(<QGpgME/Debug>)
 #include <QGpgME/Debug>
 #endif
+
+#include <QThread>
 
 #include <gpgme++/context.h>
 #include <gpgme++/defaultassuantransaction.h>

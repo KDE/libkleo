@@ -14,7 +14,8 @@
 #pragma once
 
 #include "kleo_export.h"
-#include "libkleo/enum.h"
+
+#include <Libkleo/Enum>
 
 #include <QDialog>
 

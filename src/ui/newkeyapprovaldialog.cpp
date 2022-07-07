@@ -16,15 +16,18 @@
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
 
-#include <kleo/debug.h>
-#include <kleo/defaultkeyfilter.h>
-#include <utils/formatting.h>
-#include <utils/gnupg.h>
+#include <libkleo/debug.h>
+#include <libkleo/defaultkeyfilter.h>
+#include <libkleo/formatting.h>
+#include <libkleo/gnupg.h>
 
 #include <libkleo_debug.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
+
+#include <QGpgME/DefaultKeyGenerationJob>
+#include <QGpgME/Job>
 
 #include <QButtonGroup>
 #include <QCheckBox>
@@ -40,9 +43,6 @@
 #include <QToolTip>
 #include <QVBoxLayout>
 #include <QWindow>
-
-#include <QGpgME/DefaultKeyGenerationJob>
-#include <QGpgME/Job>
 
 #include <gpgme++/key.h>
 #include <gpgme++/keygenerationresult.h>

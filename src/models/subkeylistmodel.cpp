@@ -11,14 +11,14 @@
 
 #include "subkeylistmodel.h"
 
-#include <utils/formatting.h>
-
-#include <gpgme++/key.h>
+#include <libkleo/formatting.h>
 
 #include <KLocalizedString>
 
 #include <QDate>
 #include <QVariant>
+
+#include <gpgme++/key.h>
 
 #include <algorithm>
 #include <iterator>

@@ -15,9 +15,9 @@
 #include "kconfigbasedkeyfilter.h"
 #include "stl_util.h"
 
-#include <utils/algorithm.h>
-#include <utils/formatting.h>
-#include <utils/gnupg.h>
+#include <libkleo/algorithm.h>
+#include <libkleo/formatting.h>
+#include <libkleo/gnupg.h>
 
 #include <libkleo_debug.h>
 
@@ -25,10 +25,10 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <QIcon>
 
 #include <QAbstractListModel>
 #include <QCoreApplication>
+#include <QIcon>
 #include <QModelIndex>
 #include <QRegularExpression>
 #include <QStringList>

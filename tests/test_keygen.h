@@ -9,9 +9,8 @@
 
 #pragma once
 
-#include <QDialog>
-
 #include <QByteArray>
+#include <QDialog>
 
 namespace GpgME
 {

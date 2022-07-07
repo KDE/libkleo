@@ -11,12 +11,13 @@
 
 #pragma once
 
-#include <gpgme++/key.h>
-
 #include "kleo_export.h"
 
-class QString;
 #include <QStringList>
+
+#include <gpgme++/key.h>
+
+class QString;
 class QDate;
 class QIcon;
 

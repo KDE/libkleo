@@ -12,7 +12,7 @@
 
 #include "keyserverconfig.h"
 
-#include <utils/algorithm.h>
+#include <libkleo/algorithm.h>
 
 #include <QString>
 #include <QUrl>

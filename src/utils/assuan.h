@@ -10,10 +10,10 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <memory>
 #include <vector>
-
-#include "kleo_export.h"
 
 namespace GpgME
 {

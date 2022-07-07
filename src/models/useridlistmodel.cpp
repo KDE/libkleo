@@ -16,7 +16,7 @@
 
 #include "keycache.h"
 
-#include <utils/formatting.h>
+#include <libkleo/formatting.h>
 
 #include <KLocalizedString>
 

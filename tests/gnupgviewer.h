@@ -11,12 +11,13 @@
 
 #include <QProcess>
 #include <QString>
+#include <QStringList>
 #include <QTextEdit>
+
 namespace Kleo
 {
 class GnuPGProcessBase;
 }
-#include <QStringList>
 
 class GnuPGViewer : public QTextEdit
 {

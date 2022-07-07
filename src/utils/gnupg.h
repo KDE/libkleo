@@ -11,13 +11,14 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
+#include <QStringList>
+
 #include <gpgme++/engineinfo.h>
 #include <gpgme++/key.h>
 
-#include "kleo_export.h"
-
 class QString;
-#include <QStringList>
 class QByteArray;
 
 namespace Kleo

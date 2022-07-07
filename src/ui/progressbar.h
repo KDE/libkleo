@@ -10,7 +10,9 @@
 #pragma once
 
 #include "kleo_export.h"
+
 #include <QProgressBar>
+
 class QTimer;
 
 namespace Kleo

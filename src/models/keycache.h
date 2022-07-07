@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include <QObject>
-
 #include "kleo_export.h"
+
+#include <QObject>
 
 #include <gpgme++/global.h>
 

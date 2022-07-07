@@ -10,13 +10,15 @@
 #pragma once
 
 #include "kleo_export.h"
+
 #include <QProgressDialog>
 
 #ifndef QT_NO_PROGRESSDIALOG
 
+#include <QGpgME/Job>
+
 #include <QString>
 
-#include <qgpgme/job.h>
 namespace Kleo
 {
 

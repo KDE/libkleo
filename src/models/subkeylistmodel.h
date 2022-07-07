@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include <QAbstractTableModel>
-
 #include "kleo_export.h"
+
+#include <QAbstractTableModel>
 
 #include <vector>
 

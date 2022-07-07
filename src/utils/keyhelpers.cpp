@@ -12,7 +12,7 @@
 
 #include "keyhelpers.h"
 
-#include <models/keycache.h>
+#include <libkleo/keycache.h>
 
 #include <gpgme++/key.h>
 

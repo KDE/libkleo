@@ -13,7 +13,6 @@
 #pragma once
 
 #include "keyfilter.h"
-
 #include "kleo_export.h"
 
 #include <QColor>

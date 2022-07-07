@@ -9,12 +9,13 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <QFlags>
 
 #include <algorithm>
-
-#include "kleo_export.h"
 #include <memory>
+
 namespace GpgME
 {
 class Key;

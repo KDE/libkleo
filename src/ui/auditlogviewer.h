@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <QDialog>
-
 #include "kleo_export.h"
+
+#include <QDialog>
 
 #ifdef HAVE_PIMTEXTEDIT
 #include <KPIMTextEdit/RichTextEditorWidget>

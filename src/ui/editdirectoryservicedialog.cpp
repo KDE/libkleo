@@ -12,9 +12,9 @@
 
 #include "editdirectoryservicedialog.h"
 
-#include <kleo/keyserverconfig.h>
-#include <utils/algorithm.h>
-#include <utils/gnupg.h>
+#include <libkleo/algorithm.h>
+#include <libkleo/gnupg.h>
+#include <libkleo/keyserverconfig.h>
 
 #include <KCollapsibleGroupBox>
 #include <KConfigGroup>

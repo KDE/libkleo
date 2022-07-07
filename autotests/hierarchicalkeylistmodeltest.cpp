@@ -10,7 +10,7 @@
 
 #include "abstractkeylistmodeltest.h"
 
-#include <models/keylistmodel.h>
+#include <Libkleo/KeyListModel>
 
 #include <QTest>
 

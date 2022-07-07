@@ -11,7 +11,9 @@
 #pragma once
 
 #include "kleo_export.h"
+
 #include <QStringList>
+
 #include <memory>
 
 class QString;

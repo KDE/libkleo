@@ -11,13 +11,13 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <Libkleo/KeyResolver>
 
 #include <QDialog>
 
 #include <memory>
-
-#include "kleo_export.h"
 
 namespace Kleo
 {

@@ -8,6 +8,14 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
+#include <Libkleo/MessageBox>
+
+#include <KAboutData>
+#include <KLocalizedString>
+
+#include <QApplication>
+#include <QCommandLineParser>
+
 // clang-format off
 const char * auditlog =
 "<div class=\"GnuPGAuditLog\">"
@@ -53,14 +61,6 @@ const char * auditlog =
 "</table>"
 "</div>";
 // clang-format on
-
-#include "libkleo/messagebox.h"
-
-#include <KAboutData>
-
-#include <KLocalizedString>
-#include <QApplication>
-#include <QCommandLineParser>
 
 int main(int argc, char **argv)
 {

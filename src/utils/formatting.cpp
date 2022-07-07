@@ -16,19 +16,16 @@
 #include "cryptoconfig.h"
 #include "gnupg.h"
 
-#include <kleo/dn.h>
-#include <kleo/keyfiltermanager.h>
-#include <kleo/keygroup.h>
-#include <models/keycache.h>
-
-#include <gpgme++/importresult.h>
-#include <gpgme++/key.h>
-
-#include <QGpgME/CryptoConfig>
-#include <QGpgME/Protocol>
+#include <libkleo/dn.h>
+#include <libkleo/keycache.h>
+#include <libkleo/keyfiltermanager.h>
+#include <libkleo/keygroup.h>
 
 #include <KEmailAddress>
 #include <KLocalizedString>
+
+#include <QGpgME/CryptoConfig>
+#include <QGpgME/Protocol>
 
 #include <QDateTime>
 #include <QIcon>
@@ -36,6 +33,9 @@
 #include <QRegularExpression>
 #include <QString>
 #include <QTextDocument> // for Qt::escape
+
+#include <gpgme++/importresult.h>
+#include <gpgme++/key.h>
 
 using namespace GpgME;
 using namespace Kleo;

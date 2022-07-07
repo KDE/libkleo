@@ -10,6 +10,7 @@
 #pragma once
 
 #include "kleo_export.h"
+
 #include <QStringList>
 
 #include <gpgme++/global.h>

@@ -6,9 +6,10 @@
 
 #pragma once
 
-#include <qgpgme/job.h>
-
 #include "kleo_export.h"
+
+#include <QGpgME/Job>
+
 #include <memory>
 
 namespace GpgME

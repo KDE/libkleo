@@ -11,19 +11,18 @@
 
 #include "dnattributeorderconfigwidget.h"
 
-#include "libkleo/dn.h"
+#include <libkleo/dn.h>
 
 #include <libkleo_debug.h>
 
+#include <KLazyLocalizedString>
 #include <KLocalizedString>
-#include <QIcon>
 
 #include <QGridLayout>
+#include <QHeaderView>
+#include <QIcon>
 #include <QLabel>
 #include <QToolButton>
-
-#include <KLazyLocalizedString>
-#include <QHeaderView>
 #include <QTreeWidget>
 
 class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate

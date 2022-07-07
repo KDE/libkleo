@@ -10,7 +10,6 @@
 #pragma once
 
 #include "keylistmodelinterface.h"
-
 #include "kleo_export.h"
 
 #include <KRearrangeColumnsProxyModel>
