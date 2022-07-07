@@ -278,6 +278,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   EditDirectoryServiceDialog
   FileNameRequester
   KeyApprovalDialog
+  KeyListView
   KeyRequester
   KeySelectionCombo
   KeySelectionDialog

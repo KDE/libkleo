@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include <ui/keylistview.h>
+#include <Libkleo/KeyListView>
 
 namespace GpgME
 {
