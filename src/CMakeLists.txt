@@ -166,6 +166,7 @@ target_link_libraries(KF5Libkleo PUBLIC Gpgmepp PRIVATE Qt${QT_MAJOR_VERSION}::W
                                                 KF5::I18n
                                                 KF5::Completion
                                                 KF5::ConfigCore
+                                                KF5::ConfigWidgets
                                                 KF5::CoreAddons
                                                 KF5::WidgetsAddons
                                                 KF5::ItemModels
