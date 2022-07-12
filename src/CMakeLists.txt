@@ -100,6 +100,8 @@ target_sources(KF5Libkleo PRIVATE
    utils/scdaemon.h
    utils/stringutils.cpp
    utils/stringutils.h
+   utils/systeminfo.cpp
+   utils/systeminfo.h
    utils/test.cpp
    utils/test.h
    utils/uniquelock.cpp
@@ -263,6 +265,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   QtStlHelpers
   SCDaemon
   StringUtils
+  SystemInfo
   Test
   UniqueLock
   REQUIRED_HEADERS libkleo_utils_HEADERS

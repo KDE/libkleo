@@ -20,6 +20,7 @@
 #include <libkleo/defaultkeyfilter.h>
 #include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
+#include <libkleo/systeminfo.h>
 
 #include <libkleo_debug.h>
 
@@ -851,19 +852,23 @@ public:
 
         if (de_vs) {
             mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-high")));
-            mOkButton->setStyleSheet(
-                QStringLiteral("background-color: ")
-                + QStringLiteral(
-                    "#D5FAE2")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name());
+            if (!SystemInfo::isHighContrastModeActive()) {
+                mOkButton->setStyleSheet(
+                    QStringLiteral("background-color: ")
+                    + QStringLiteral(
+                        "#D5FAE2")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name());
+            }
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                                           "%1 communication possible.",
                                           Formatting::deVsString()));
         } else {
             mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-medium")));
-            mOkButton->setStyleSheet(
-                QStringLiteral("background-color: ")
-                + QStringLiteral(
-                    "#FAE9EB")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name()));
+            if (!SystemInfo::isHighContrastModeActive()) {
+                mOkButton->setStyleSheet(
+                    QStringLiteral("background-color: ")
+                    + QStringLiteral(
+                        "#FAE9EB")); // KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name()));
+            }
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                                           "%1 communication not possible.",
                                           Formatting::deVsString()));

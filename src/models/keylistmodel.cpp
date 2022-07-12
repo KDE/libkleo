@@ -20,6 +20,7 @@
 #include <libkleo/keyfilter.h>
 #include <libkleo/keyfiltermanager.h>
 #include <libkleo/predicates.h>
+#include <libkleo/systeminfo.h>
 
 #include <KLocalizedString>
 
@@ -481,9 +482,13 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
     } else if (role == Qt::DecorationRole) {
         return column == Icon ? returnIfValid(KeyFilterManager::instance()->icon(key)) : QVariant();
     } else if (role == Qt::BackgroundRole) {
-        return returnIfValid(KeyFilterManager::instance()->bgColor(key));
+        if (!SystemInfo::isHighContrastModeActive()) {
+            return returnIfValid(KeyFilterManager::instance()->bgColor(key));
+        }
     } else if (role == Qt::ForegroundRole) {
-        return returnIfValid(KeyFilterManager::instance()->fgColor(key));
+        if (!SystemInfo::isHighContrastModeActive()) {
+            return returnIfValid(KeyFilterManager::instance()->fgColor(key));
+        }
     } else if (role == FingerprintRole) {
         return QString::fromLatin1(key.primaryFingerprint());
     } else if (role == KeyRole) {
