@@ -154,14 +154,11 @@ KLEO_DEPRECATED_EXPORT QString complianceMode();
 
 /* Is the given key in compliance with CO_DE_VS?  */
 KLEO_EXPORT bool isKeyDeVs(const GpgME::Key &key);
-/* Localized string describing the name of the VS-NfD Compliance filter. If
- * compliant is false the name of the not Compliant filter.
- *
- * This is required to make the string configurable which is
- * a common request from users because VS-NfD compliance is called
- * differently in different environments. E.g NATO RESTRICTED or
- * EU RESTRICTED. */
-KLEO_EXPORT QString deVsString(bool compliant = true);
+
+/**
+ * Use Kleo::DeVSCompliance::name(bool) instead.
+ */
+KLEO_DEPRECATED_EXPORT QString deVsString(bool compliant = true);
 
 /* A sentence if the key confirms to the current compliance mode */
 KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);

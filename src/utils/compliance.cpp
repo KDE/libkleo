@@ -16,7 +16,10 @@
 #include "gnupg.h"
 #include "systeminfo.h"
 
+#include <libkleo/keyfiltermanager.h>
+
 #include <KColorScheme>
+#include <KLocalizedString>
 
 #include <QPushButton>
 
@@ -65,4 +68,18 @@ void Kleo::DeVSCompliance::decorate(QPushButton *button, bool compliant)
             button->setStyleSheet(QStringLiteral("QPushButton { background-color: %1; };").arg(bgColor));
         }
     }
+}
+
+QString Kleo::DeVSCompliance::name()
+{
+    return name(isCompliant());
+}
+
+QString Kleo::DeVSCompliance::name(bool compliant)
+{
+    const auto filterId = compliant ? QStringLiteral("de-vs-filter") : QStringLiteral("not-de-vs-filter");
+    if (auto filter = KeyFilterManager::instance()->keyFilterByID(filterId)) {
+        return filter->name();
+    }
+    return compliant ? i18n("VS-NfD compliant") : i18n("Not VS-NfD compliant");
 }

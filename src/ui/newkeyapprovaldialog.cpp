@@ -856,11 +856,11 @@ public:
         if (de_vs) {
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                                           "%1 communication possible.",
-                                          Formatting::deVsString()));
+                                          DeVSCompliance::name(true)));
         } else {
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                                           "%1 communication not possible.",
-                                          Formatting::deVsString()));
+                                          DeVSCompliance::name(true)));
         }
         mComplianceLbl->setVisible(true);
     }

@@ -13,6 +13,7 @@
 #include "kleo_export.h"
 
 class QPushButton;
+class QString;
 
 namespace Kleo::DeVSCompliance
 {
@@ -46,4 +47,22 @@ KLEO_EXPORT void decorate(QPushButton *button);
  */
 KLEO_EXPORT void decorate(QPushButton *button, bool compliant);
 
+/**
+ * \overload
+ *
+ * Returns a localized name for the compliance or non-compliance depending on
+ * the state of compliance.
+ */
+KLEO_EXPORT QString name();
+
+/**
+ * Returns a localized name for the compliance or non-compliance depending on
+ * the value of \p compliant.
+ *
+ * \note The localized name is taken from the de-vs-filter filter resp. the
+ * not-de-vs-filter. This allows the customization of the name for different
+ * users because VS-NfD compliance is called differently in different
+ * environments, e.g. NATO RESTRICTED or EU RESTRICTED.
+ */
+KLEO_EXPORT QString name(bool compliant);
 }

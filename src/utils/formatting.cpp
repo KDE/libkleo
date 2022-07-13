@@ -19,7 +19,6 @@
 
 #include <libkleo/dn.h>
 #include <libkleo/keycache.h>
-#include <libkleo/keyfiltermanager.h>
 #include <libkleo/keygroup.h>
 
 #include <KEmailAddress>
@@ -1159,13 +1158,13 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
         if (uidsHaveFullValidity(key) && isKeyDeVs(key)) {
             return i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                          "May be used for %1 communication.",
-                         deVsString());
+                         DeVSCompliance::name(true));
         } else {
             return i18nc(
                 "VS-NfD-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes "
                 "if a key is compliant to that..",
                 "May <b>not</b> be used for %1 communication.",
-                deVsString());
+                DeVSCompliance::name(true));
         }
     }
     return QString();
@@ -1176,7 +1175,7 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
     const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
     if (keyValidityChecked && Formatting::uidsHaveFullValidity(key)) {
         if (DeVSCompliance::isCompliant() && Formatting::isKeyDeVs(key)) {
-            return QStringLiteral("★ ") + deVsString(true);
+            return QStringLiteral("★ ") + DeVSCompliance::name(true);
         }
         return i18nc("As in all user IDs are valid.", "certified");
     }
@@ -1261,11 +1260,7 @@ QString Formatting::origin(int o)
 
 QString Formatting::deVsString(bool compliant)
 {
-    const auto filter = KeyFilterManager::instance()->keyFilterByID(compliant ? QStringLiteral("de-vs-filter") : QStringLiteral("not-de-vs-filter"));
-    if (!filter) {
-        return compliant ? i18n("VS-NfD compliant") : i18n("Not VS-NfD compliant");
-    }
-    return filter->name();
+    return DeVSCompliance::name(compliant);
 }
 
 namespace
