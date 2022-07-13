@@ -12,6 +12,8 @@
 
 #include "kleo_export.h"
 
+class QPushButton;
+
 namespace Kleo::DeVSCompliance
 {
 
@@ -27,5 +29,21 @@ KLEO_EXPORT bool isActive();
  * RNG are compliant.
  */
 KLEO_EXPORT bool isCompliant();
+
+/**
+ * \overload
+ *
+ * Sets the appropriate icon and, unless high-contrast mode is active, the
+ * appropriate background color of \p button depending on the state of
+ * compliance.
+ */
+KLEO_EXPORT void decorate(QPushButton *button);
+
+/**
+ * Sets the appropriate icon and, unless high-contrast mode is active, the
+ * appropriate background color of \p button depending on the value of
+ * \p compliant.
+ */
+KLEO_EXPORT void decorate(QPushButton *button, bool compliant);
 
 }

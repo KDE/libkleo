@@ -852,21 +852,12 @@ public:
             }
         }
 
+        DeVSCompliance::decorate(mOkButton, de_vs);
         if (de_vs) {
-            mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-high")));
-            if (!SystemInfo::isHighContrastModeActive()) {
-                mOkButton->setStyleSheet(QStringLiteral("background-color: ")
-                                         + KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name());
-            }
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                                           "%1 communication possible.",
                                           Formatting::deVsString()));
         } else {
-            mOkButton->setIcon(QIcon::fromTheme(QStringLiteral("security-medium")));
-            if (!SystemInfo::isHighContrastModeActive()) {
-                mOkButton->setStyleSheet(QStringLiteral("background-color: ")
-                                         + KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name());
-            }
             mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                                           "%1 communication not possible.",
                                           Formatting::deVsString()));

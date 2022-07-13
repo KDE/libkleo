@@ -14,6 +14,11 @@
 
 #include "cryptoconfig.h"
 #include "gnupg.h"
+#include "systeminfo.h"
+
+#include <KColorScheme>
+
+#include <QPushButton>
 
 bool Kleo::DeVSCompliance::isActive()
 {
@@ -35,4 +40,29 @@ bool Kleo::DeVSCompliance::isCompliant()
         return true;
     }
     return getCryptoConfigIntValue("gpg", "compliance_de_vs", 0) != 0;
+}
+
+void Kleo::DeVSCompliance::decorate(QPushButton *button)
+{
+    decorate(button, isCompliant());
+}
+
+void Kleo::DeVSCompliance::decorate(QPushButton *button, bool compliant)
+{
+    if (!button) {
+        return;
+    }
+    if (compliant) {
+        button->setIcon(QIcon::fromTheme(QStringLiteral("security-high")));
+        if (!SystemInfo::isHighContrastModeActive()) {
+            const auto bgColor = KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name();
+            button->setStyleSheet(QStringLiteral("QPushButton { background-color: %1; };").arg(bgColor));
+        }
+    } else {
+        button->setIcon(QIcon::fromTheme(QStringLiteral("security-medium")));
+        if (!SystemInfo::isHighContrastModeActive()) {
+            const auto bgColor = KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name();
+            button->setStyleSheet(QStringLiteral("QPushButton { background-color: %1; };").arg(bgColor));
+        }
+    }
 }
