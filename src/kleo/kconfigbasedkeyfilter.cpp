@@ -210,7 +210,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         {"appearance", Appearance},
         {"filtering", Filtering},
     };
-    static const QRegularExpression reg(QRegularExpression(QLatin1String("[^a-zA-Z0-9_-!]+")));
+    static const QRegularExpression reg(QRegularExpression(QLatin1String("[^a-z!]+")));
     const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(reg, Qt::SkipEmptyParts);
     setMatchContexts(NoMatchContext);
     for (const QString &ctx : contexts) {
