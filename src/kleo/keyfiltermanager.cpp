@@ -16,6 +16,7 @@
 #include "stl_util.h"
 
 #include <libkleo/algorithm.h>
+#include <libkleo/compliance.h>
 #include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
 
@@ -293,7 +294,7 @@ void KeyFilterManager::reload()
     KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
 
     const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
-    const bool ignoreDeVs = !Kleo::gnupgIsDeVsCompliant();
+    const bool ignoreDeVs = !DeVSCompliance::isCompliant();
     for (QStringList::const_iterator it = groups.begin(); it != groups.end(); ++it) {
         const KConfigGroup cfg(config, *it);
         if (cfg.hasKey("is-de-vs") && ignoreDeVs) {

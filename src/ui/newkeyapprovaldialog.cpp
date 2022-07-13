@@ -16,6 +16,7 @@
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
 
+#include <libkleo/compliance.h>
 #include <libkleo/debug.h>
 #include <libkleo/defaultkeyfilter.h>
 #include <libkleo/formatting.h>
@@ -823,12 +824,12 @@ public:
 
         mOkButton->setText(isGenerate ? i18n("Generate") : origOkText);
 
-        if (!Kleo::gnupgUsesDeVsCompliance()) {
+        if (!DeVSCompliance::isActive()) {
             return;
         }
 
         // Handle compliance
-        bool de_vs = Kleo::gnupgIsDeVsCompliant();
+        bool de_vs = DeVSCompliance::isCompliant();
 
         if (de_vs) {
             const GpgME::Protocol protocol = currentProtocol();

@@ -16,6 +16,7 @@
 #include "directoryserviceswidget.h"
 #include "filenamerequester.h"
 
+#include <libkleo/compliance.h>
 #include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
 #include <libkleo/keyserverconfig.h>
@@ -386,7 +387,7 @@ bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
         }
     }
 
-    const bool de_vs = Kleo::gnupgUsesDeVsCompliance();
+    const bool de_vs = DeVSCompliance::isActive();
     // Skip "dangerous" expert options if we are running in CO_DE_VS.
     // Otherwise, skip any options beyond "invisible" (== expert + 1) level.
     const auto maxEntryLevel = de_vs ? QGpgME::CryptoConfigEntry::Level_Advanced //

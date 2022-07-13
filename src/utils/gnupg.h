@@ -80,16 +80,15 @@ KLEO_EXPORT bool haveX509DirectoryServerConfigured();
 /* Use gnupgUsesDeVsCompliance() or gnupgIsDeVsCompliant() instead. */
 KLEO_DEPRECATED_EXPORT bool gpgComplianceP(const char *mode);
 
-/** Returns true, if compliance mode "de-vs" is configured for GnuPG.
- *  Note: It does not check whether the used GnuPG is actually compliant.
+/**
+ * Use Kleo::DeVSCompliance::isActive() instead.
  */
-KLEO_EXPORT bool gnupgUsesDeVsCompliance();
+KLEO_DEPRECATED_EXPORT bool gnupgUsesDeVsCompliance();
 
-/** Returns true, if compliance mode "de-vs" is configured for GnuPG and if
- *  GnuPG passes a basic compliance check, i.e. at least libgcrypt and the used
- *  RNG are compliant.
+/**
+ * Use Kleo::DeVSCompliance::isCompliant() instead.
  */
-KLEO_EXPORT bool gnupgIsDeVsCompliant();
+KLEO_DEPRECATED_EXPORT bool gnupgIsDeVsCompliant();
 
 KLEO_EXPORT enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key);
 

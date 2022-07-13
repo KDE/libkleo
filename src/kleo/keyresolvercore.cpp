@@ -21,6 +21,7 @@
 #include "enum.h"
 #include "keygroup.h"
 
+#include <libkleo/compliance.h>
 #include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
 #include <libkleo/keycache.h>
@@ -158,7 +159,7 @@ bool KeyResolverCore::Private::isAcceptableSigningKey(const Key &key)
     if (!ValidSigningKey(key)) {
         return false;
     }
-    if (Kleo::gnupgIsDeVsCompliant()) {
+    if (DeVSCompliance::isCompliant()) {
         if (!Formatting::isKeyDeVs(key)) {
             qCDebug(LIBKLEO_LOG) << "Rejected sig key" << key.primaryFingerprint() << "because it is not de-vs compliant.";
             return false;
@@ -173,7 +174,7 @@ bool KeyResolverCore::Private::isAcceptableEncryptionKey(const Key &key, const Q
         return false;
     }
 
-    if (Kleo::gnupgIsDeVsCompliant()) {
+    if (DeVSCompliance::isCompliant()) {
         if (!Formatting::isKeyDeVs(key)) {
             qCDebug(LIBKLEO_LOG) << "Rejected enc key" << key.primaryFingerprint() << "because it is not de-vs compliant.";
             return false;

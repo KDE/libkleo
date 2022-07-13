@@ -79,6 +79,8 @@ target_sources(KF5Libkleo PRIVATE
    utils/classify.h
    utils/compat.cpp
    utils/compat.h
+   utils/compliance.cpp
+   utils/compliance.h
    utils/cryptoconfig.cpp
    utils/cryptoconfig.h
    utils/cryptoconfig_p.h
@@ -257,6 +259,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   Assuan
   Classify
   Compat
+  Compliance
   CryptoConfig
   FileSystemWatcher
   Formatting
