@@ -78,8 +78,8 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     prepare(d->currentLV);
     glay->addWidget(d->currentLV, row, 2);
 
-    connect(d->availableLV, &QTreeWidget::itemClicked, this, &DNAttributeOrderConfigWidget::slotAvailableSelectionChanged);
-    connect(d->currentLV, &QTreeWidget::itemClicked, this, &DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged);
+    connect(d->availableLV, &QTreeWidget::itemSelectionChanged, this, &DNAttributeOrderConfigWidget::slotAvailableSelectionChanged);
+    connect(d->currentLV, &QTreeWidget::itemSelectionChanged, this, &DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged);
 
     d->placeHolderItem = new QTreeWidgetItem(d->availableLV);
     d->placeHolderItem->setText(0, QStringLiteral("_X_"));
@@ -225,14 +225,16 @@ QStringList Kleo::DNAttributeOrderConfigWidget::attributeOrder() const
     return order;
 }
 
-void Kleo::DNAttributeOrderConfigWidget::slotAvailableSelectionChanged(QTreeWidgetItem *item)
+void Kleo::DNAttributeOrderConfigWidget::slotAvailableSelectionChanged()
 {
-    d->navTB[DNAttributeOrderConfigWidgetPrivate::Right]->setEnabled(item);
+    d->navTB[DNAttributeOrderConfigWidgetPrivate::Right]->setEnabled(!d->availableLV->selectedItems().empty());
 }
 
-void Kleo::DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged(QTreeWidgetItem *item)
+void Kleo::DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged()
 {
-    enableDisableButtons(item);
+    const auto selectedItems = d->currentLV->selectedItems();
+    auto selectedItem = selectedItems.empty() ? nullptr : selectedItems.front();
+    enableDisableButtons(selectedItem);
 }
 
 void Kleo::DNAttributeOrderConfigWidget::enableDisableButtons(QTreeWidgetItem *item)

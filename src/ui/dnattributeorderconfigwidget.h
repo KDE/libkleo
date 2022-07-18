@@ -36,8 +36,8 @@ Q_SIGNALS:
     //
 
 private Q_SLOTS:
-    void slotAvailableSelectionChanged(QTreeWidgetItem *);
-    void slotCurrentOrderSelectionChanged(QTreeWidgetItem *);
+    void slotAvailableSelectionChanged();
+    void slotCurrentOrderSelectionChanged();
     void slotDoubleUpButtonClicked();
     void slotUpButtonClicked();
     void slotDownButtonClicked();
