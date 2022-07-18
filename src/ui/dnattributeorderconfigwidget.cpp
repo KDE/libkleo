@@ -25,13 +25,42 @@
 #include <QToolButton>
 #include <QTreeWidget>
 
+namespace
+{
+class TreeWidget : public QTreeWidget
+{
+    Q_OBJECT
+public:
+    using QTreeWidget::QTreeWidget;
+
+protected:
+    void focusInEvent(QFocusEvent *event) override
+    {
+        QTreeWidget::focusInEvent(event);
+        // queue the invokation, so that it happens after the widget itself got focus
+        QMetaObject::invokeMethod(this, &TreeWidget::forceAccessibleFocusEventForCurrentItem, Qt::QueuedConnection);
+    }
+
+private:
+    void forceAccessibleFocusEventForCurrentItem()
+    {
+        // force Qt to send a focus event for the current item to accessibility
+        // tools; otherwise, the user has no idea which item is selected when the
+        // list gets keyboard input focus
+        const auto current = currentItem();
+        setCurrentItem(nullptr);
+        setCurrentItem(current);
+    }
+};
+}
+
 class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate
 {
 public:
     enum { Right = 0, Left = 1, UUp = 2, Up = 3, Down = 4, DDown = 5 };
 
-    QTreeWidget *availableLV = nullptr;
-    QTreeWidget *currentLV = nullptr;
+    TreeWidget *availableLV = nullptr;
+    TreeWidget *currentLV = nullptr;
     std::vector<QToolButton *> navTB;
 
     QTreeWidgetItem *placeHolderItem = nullptr;
@@ -62,7 +91,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     ++row;
     glay->setRowStretch(row, 1);
 
-    d->availableLV = new QTreeWidget(this);
+    d->availableLV = new TreeWidget(this);
     d->availableLV->setAccessibleName(i18n("available attributes"));
     prepare(d->availableLV);
     d->availableLV->sortItems(0, Qt::AscendingOrder);
@@ -135,7 +164,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
         glay->addLayout(buttonCol, row, 1);
     }
 
-    d->currentLV = new QTreeWidget(this);
+    d->currentLV = new TreeWidget(this);
     d->currentLV->setAccessibleName(i18n("current attribute order"));
     prepare(d->currentLV);
     glay->addWidget(d->currentLV, row, 2);
@@ -367,3 +396,5 @@ void Kleo::DNAttributeOrderConfigWidget::slotRightButtonClicked()
 void Kleo::DNAttributeOrderConfigWidget::virtual_hook(int, void *)
 {
 }
+
+#include "dnattributeorderconfigwidget.moc"
