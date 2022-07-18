@@ -30,25 +30,19 @@ class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate
 public:
     enum { UUp = 0, Up = 1, Left = 2, Right = 3, Down = 4, DDown = 5 };
 
-#ifndef QT_NO_TREEWIDGET
     QTreeWidget *availableLV = nullptr;
     QTreeWidget *currentLV = nullptr;
-#endif
     std::vector<QToolButton *> navTB;
 
-#ifndef QT_NO_TREEWIDGET
     QTreeWidgetItem *placeHolderItem = nullptr;
-#endif
 };
 
-#ifndef QT_NO_TREEWIDGET
 static void prepare(QTreeWidget *lv)
 {
     lv->setAllColumnsShowFocus(true);
     lv->header()->setStretchLastSection(true);
     lv->setHeaderLabels(QStringList() << QString() << i18n("Description"));
 }
-#endif
 
 Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent, Qt::WindowFlags f)
     : QWidget(parent, f)
@@ -68,7 +62,6 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     ++row;
     glay->setRowStretch(row, 1);
 
-#ifndef QT_NO_TREEWIDGET
     d->availableLV = new QTreeWidget(this);
     prepare(d->availableLV);
     d->availableLV->sortItems(0, Qt::AscendingOrder);
@@ -84,7 +77,6 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     d->placeHolderItem = new QTreeWidgetItem(d->availableLV);
     d->placeHolderItem->setText(0, QStringLiteral("_X_"));
     d->placeHolderItem->setText(1, i18n("All others"));
-#endif
 
     // the up/down/left/right arrow cross:
 
@@ -165,7 +157,6 @@ Kleo::DNAttributeOrderConfigWidget::~DNAttributeOrderConfigWidget() = default;
 
 void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &order)
 {
-#ifndef QT_NO_TREEWIDGET
     // save the _X_ item:
     takePlaceHolderItem();
     // clear the rest:
@@ -202,26 +193,21 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
     if (!d->placeHolderItem->treeWidget()) {
         d->availableLV->addTopLevelItem(d->placeHolderItem);
     }
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::takePlaceHolderItem()
 {
-#ifndef QT_NO_TREEWIDGET
     if (QTreeWidget *lv = d->placeHolderItem->treeWidget()) {
         lv->takeTopLevelItem(lv->indexOfTopLevelItem(d->placeHolderItem));
     }
-#endif
 }
 
 QStringList Kleo::DNAttributeOrderConfigWidget::attributeOrder() const
 {
     QStringList order;
-#ifndef QT_NO_TREEWIDGET
     for (QTreeWidgetItemIterator it(d->currentLV); (*it); ++it) {
         order.push_back((*it)->text(0));
     }
-#endif
     return order;
 }
 
@@ -239,18 +225,15 @@ void Kleo::DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged()
 
 void Kleo::DNAttributeOrderConfigWidget::enableDisableButtons(QTreeWidgetItem *item)
 {
-#ifndef QT_NO_TREEWIDGET
     d->navTB[DNAttributeOrderConfigWidgetPrivate::UUp]->setEnabled(item && d->currentLV->itemAbove(item));
     d->navTB[DNAttributeOrderConfigWidgetPrivate::Up]->setEnabled(item && d->currentLV->itemAbove(item));
     d->navTB[DNAttributeOrderConfigWidgetPrivate::Left]->setEnabled(item);
     d->navTB[DNAttributeOrderConfigWidgetPrivate::Down]->setEnabled(item && d->currentLV->itemBelow(item));
     d->navTB[DNAttributeOrderConfigWidgetPrivate::DDown]->setEnabled(item && d->currentLV->itemBelow(item));
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotUpButtonClicked()
 {
-#ifndef QT_NO_TREEWIDGET
     if (d->currentLV->selectedItems().isEmpty()) {
         return;
     }
@@ -265,12 +248,10 @@ void Kleo::DNAttributeOrderConfigWidget::slotUpButtonClicked()
     item->setSelected(true);
     enableDisableButtons(item);
     Q_EMIT changed();
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked()
 {
-#ifndef QT_NO_TREEWIDGET
     if (d->currentLV->selectedItems().isEmpty()) {
         return;
     }
@@ -285,12 +266,10 @@ void Kleo::DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked()
     item->setSelected(true);
     enableDisableButtons(item);
     Q_EMIT changed();
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotDownButtonClicked()
 {
-#ifndef QT_NO_TREEWIDGET
     if (d->currentLV->selectedItems().isEmpty()) {
         return;
     }
@@ -305,12 +284,10 @@ void Kleo::DNAttributeOrderConfigWidget::slotDownButtonClicked()
     item->setSelected(true);
     enableDisableButtons(item);
     Q_EMIT changed();
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked()
 {
-#ifndef QT_NO_TREEWIDGET
     if (d->currentLV->selectedItems().isEmpty()) {
         return;
     }
@@ -325,12 +302,10 @@ void Kleo::DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked()
     item->setSelected(true);
     enableDisableButtons(item);
     Q_EMIT changed();
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotLeftButtonClicked()
 {
-#ifndef QT_NO_TREEWIDGET
     if (d->currentLV->selectedItems().isEmpty()) {
         return;
     }
@@ -347,12 +322,10 @@ void Kleo::DNAttributeOrderConfigWidget::slotLeftButtonClicked()
     }
     enableDisableButtons(next);
     Q_EMIT changed();
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::slotRightButtonClicked()
 {
-#ifndef QT_NO_TREEWIDGET
     if (d->availableLV->selectedItems().isEmpty()) {
         return;
     }
@@ -376,7 +349,6 @@ void Kleo::DNAttributeOrderConfigWidget::slotRightButtonClicked()
         next->setSelected(true);
     }
     Q_EMIT changed();
-#endif
 }
 
 void Kleo::DNAttributeOrderConfigWidget::virtual_hook(int, void *)
