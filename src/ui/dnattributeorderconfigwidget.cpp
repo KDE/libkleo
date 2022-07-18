@@ -71,6 +71,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     d->placeHolderItem = new QTreeWidgetItem(d->availableLV);
     d->placeHolderItem->setText(0, QStringLiteral("_X_"));
     d->placeHolderItem->setText(1, i18n("All others"));
+    d->placeHolderItem->setData(0, Qt::AccessibleTextRole, i18n("All others"));
 
     struct NavButtonInfo {
         const char *icon;
@@ -174,8 +175,8 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
 
     // fill the RHS listview:
     QTreeWidgetItem *last = nullptr;
-    for (QStringList::const_iterator it = order.begin(); it != order.end(); ++it) {
-        const QString attr = (*it).toUpper();
+    for (const auto &entry : order) {
+        const QString attr = entry.toUpper();
         if (attr == QLatin1String("_X_")) {
             takePlaceHolderItem();
             d->currentLV->insertTopLevelItem(d->currentLV->topLevelItemCount(), d->placeHolderItem);
@@ -183,7 +184,10 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
         } else {
             last = new QTreeWidgetItem(d->currentLV, last);
             last->setText(0, attr);
-            last->setText(1, DN::attributeNameToLabel(attr));
+            const auto label = DN::attributeNameToLabel(attr);
+            last->setText(1, label);
+            const QString accessibleName = label + QLatin1String(", ") + attr;
+            last->setData(0, Qt::AccessibleTextRole, accessibleName);
         }
     }
     d->currentLV->setCurrentItem(d->currentLV->topLevelItem(0));
@@ -191,12 +195,14 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
     // fill the LHS listview with what's left:
 
     const QStringList all = DN::attributeNames();
-    const QStringList::const_iterator end(all.end());
-    for (QStringList::const_iterator it = all.begin(); it != end; ++it) {
-        if (!order.contains(*it)) {
+    for (const auto &attr : all) {
+        if (!order.contains(attr, Qt::CaseInsensitive)) {
             auto item = new QTreeWidgetItem(d->availableLV);
-            item->setText(0, *it);
-            item->setText(1, DN::attributeNameToLabel(*it));
+            item->setText(0, attr);
+            const auto label = DN::attributeNameToLabel(attr);
+            item->setText(1, label);
+            const QString accessibleName = label + QLatin1String(", ") + attr;
+            item->setData(0, Qt::AccessibleTextRole, accessibleName);
         }
     }
 
