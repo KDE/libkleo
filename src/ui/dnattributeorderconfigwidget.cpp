@@ -28,7 +28,7 @@
 class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate
 {
 public:
-    enum { UUp = 0, Up = 1, Left = 2, Right = 3, Down = 4, DDown = 5 };
+    enum { Right = 0, Left = 1, UUp = 2, Up = 3, Down = 4, DDown = 5 };
 
     QTreeWidget *availableLV = nullptr;
     QTreeWidget *currentLV = nullptr;
@@ -67,90 +67,97 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     d->availableLV->sortItems(0, Qt::AscendingOrder);
     glay->addWidget(d->availableLV, row, 0);
 
-    d->currentLV = new QTreeWidget(this);
-    prepare(d->currentLV);
-    glay->addWidget(d->currentLV, row, 2);
-
-    connect(d->availableLV, &QTreeWidget::itemSelectionChanged, this, &DNAttributeOrderConfigWidget::slotAvailableSelectionChanged);
-    connect(d->currentLV, &QTreeWidget::itemSelectionChanged, this, &DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged);
-
     d->placeHolderItem = new QTreeWidgetItem(d->availableLV);
     d->placeHolderItem->setText(0, QStringLiteral("_X_"));
     d->placeHolderItem->setText(1, i18n("All others"));
 
-    // the up/down/left/right arrow cross:
-
-    auto xlay = new QGridLayout();
-    xlay->setSpacing(0);
-    xlay->setObjectName(QStringLiteral("xlay"));
-    xlay->setAlignment(Qt::AlignCenter);
-
     struct NavButtonInfo {
         const char *icon;
-        int row, col;
         const KLazyLocalizedString accessibleName;
         const KLazyLocalizedString tooltip;
         void (DNAttributeOrderConfigWidget::*slot)();
         bool autorepeat;
     };
     static const std::vector<NavButtonInfo> navButtons = {
+        {"go-next",
+         kli18nc("@action:button accessible name for 'Add to list'", "add"),
+         kli18n("Add to current attribute order"),
+         &DNAttributeOrderConfigWidget::slotRightButtonClicked,
+         false},
+        {"go-previous",
+         kli18nc("@action:button accessible name for 'Remove from list'", "remove"),
+         kli18n("Remove from current attribute order"),
+         &DNAttributeOrderConfigWidget::slotLeftButtonClicked,
+         false},
         {"go-top",
-         0,
-         1,
          kli18nc("@action:button accessible name for 'Move to top'", "top"),
          kli18n("Move to top"),
          &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked,
          false},
         {"go-up",
-         1,
-         1,
          kli18nc("@action:button accessible name for 'Move up'", "up"),
          kli18n("Move one up"),
          &DNAttributeOrderConfigWidget::slotUpButtonClicked,
          true},
-        {"go-previous",
-         2,
-         0,
-         kli18nc("@action:button accessible name for 'Remove from list'", "remove"),
-         kli18n("Remove from current attribute order"),
-         &DNAttributeOrderConfigWidget::slotLeftButtonClicked,
-         false},
-        {"go-next",
-         2,
-         2,
-         kli18nc("@action:button accessible name for 'Add to list'", "add"),
-         kli18n("Add to current attribute order"),
-         &DNAttributeOrderConfigWidget::slotRightButtonClicked,
-         false},
         {"go-down",
-         3,
-         1,
          kli18nc("@action:button accessible name for 'Move down'", "down"),
          kli18n("Move one down"),
          &DNAttributeOrderConfigWidget::slotDownButtonClicked,
          true},
         {"go-bottom",
-         4,
-         1,
          kli18nc("@action:button accessible name for 'Move to bottom'", "bottom"),
          kli18n("Move to bottom"),
          &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked,
          false},
     };
 
-    for (const auto &navButton : navButtons) {
+    const auto createToolButton = [this](const NavButtonInfo &navButton) {
         auto tb = new QToolButton{this};
         tb->setIcon(QIcon::fromTheme(QLatin1String(navButton.icon)));
         tb->setEnabled(false);
         tb->setAccessibleName(KLocalizedString{navButton.accessibleName}.toString());
         tb->setToolTip(KLocalizedString(navButton.tooltip).toString());
-        xlay->addWidget(tb, navButton.row, navButton.col);
         tb->setAutoRepeat(navButton.autorepeat);
         connect(tb, &QToolButton::clicked, this, navButton.slot);
         d->navTB.push_back(tb);
+        return tb;
+    };
+
+    {
+        auto buttonCol = new QVBoxLayout;
+        buttonCol->addStretch();
+        buttonCol->addWidget(createToolButton(navButtons[DNAttributeOrderConfigWidgetPrivate::Right]));
+        buttonCol->addWidget(createToolButton(navButtons[DNAttributeOrderConfigWidgetPrivate::Left]));
+        buttonCol->addStretch();
+
+        glay->addLayout(buttonCol, row, 1);
     }
 
-    glay->addLayout(xlay, row, 1);
+    d->currentLV = new QTreeWidget(this);
+    prepare(d->currentLV);
+    glay->addWidget(d->currentLV, row, 2);
+
+    {
+        auto buttonCol = new QVBoxLayout;
+        buttonCol->addStretch();
+        buttonCol->addWidget(createToolButton(navButtons[DNAttributeOrderConfigWidgetPrivate::UUp]));
+        buttonCol->addWidget(createToolButton(navButtons[DNAttributeOrderConfigWidgetPrivate::Up]));
+        buttonCol->addWidget(createToolButton(navButtons[DNAttributeOrderConfigWidgetPrivate::Down]));
+        buttonCol->addWidget(createToolButton(navButtons[DNAttributeOrderConfigWidgetPrivate::DDown]));
+        buttonCol->addStretch();
+
+        glay->addLayout(buttonCol, row, 3);
+    }
+
+#ifndef NDEBUG
+    Q_ASSERT(d->navTB.size() == navButtons.size());
+    for (uint i = 0; i < navButtons.size(); ++i) {
+        Q_ASSERT(d->navTB[i]->accessibleName() == KLocalizedString{navButtons[i].accessibleName}.toString());
+    }
+#endif
+
+    connect(d->availableLV, &QTreeWidget::itemSelectionChanged, this, &DNAttributeOrderConfigWidget::slotAvailableSelectionChanged);
+    connect(d->currentLV, &QTreeWidget::itemSelectionChanged, this, &DNAttributeOrderConfigWidget::slotCurrentOrderSelectionChanged);
 }
 
 Kleo::DNAttributeOrderConfigWidget::~DNAttributeOrderConfigWidget() = default;
