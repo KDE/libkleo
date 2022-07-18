@@ -85,13 +85,16 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     int row = -1;
 
     ++row;
-    glay->addWidget(new QLabel(i18n("Available attributes:"), this), row, 0);
-    glay->addWidget(new QLabel(i18n("Current attribute order:"), this), row, 2);
+    auto availableAttributesLabel = new QLabel(i18n("Available attributes:"), this);
+    glay->addWidget(availableAttributesLabel, row, 0);
+    auto currentAttributesLabel = new QLabel(i18n("Current attribute order:"), this);
+    glay->addWidget(currentAttributesLabel, row, 2);
 
     ++row;
     glay->setRowStretch(row, 1);
 
     d->availableLV = new TreeWidget(this);
+    availableAttributesLabel->setBuddy(d->availableLV);
     d->availableLV->setAccessibleName(i18n("available attributes"));
     prepare(d->availableLV);
     d->availableLV->sortItems(0, Qt::AscendingOrder);
@@ -165,6 +168,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     }
 
     d->currentLV = new TreeWidget(this);
+    currentAttributesLabel->setBuddy(d->currentLV);
     d->currentLV->setAccessibleName(i18n("current attribute order"));
     prepare(d->currentLV);
     glay->addWidget(d->currentLV, row, 2);
