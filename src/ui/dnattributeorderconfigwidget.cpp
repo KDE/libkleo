@@ -186,6 +186,7 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
             last->setText(1, DN::attributeNameToLabel(attr));
         }
     }
+    d->currentLV->setCurrentItem(d->currentLV->topLevelItem(0));
 
     // fill the LHS listview with what's left:
 
@@ -202,6 +203,7 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
     if (!d->placeHolderItem->treeWidget()) {
         d->availableLV->addTopLevelItem(d->placeHolderItem);
     }
+    d->availableLV->setCurrentItem(d->availableLV->topLevelItem(0));
 }
 
 void Kleo::DNAttributeOrderConfigWidget::takePlaceHolderItem()
