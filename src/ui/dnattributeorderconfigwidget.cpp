@@ -255,8 +255,7 @@ void Kleo::DNAttributeOrderConfigWidget::slotUpButtonClicked()
     }
     d->currentLV->takeTopLevelItem(itemIndex);
     d->currentLV->insertTopLevelItem(itemIndex - 1, item);
-    d->currentLV->clearSelection();
-    item->setSelected(true);
+    d->currentLV->setCurrentItem(item);
     enableDisableButtons(item);
     Q_EMIT changed();
 }
@@ -273,8 +272,7 @@ void Kleo::DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked()
     }
     d->currentLV->takeTopLevelItem(itemIndex);
     d->currentLV->insertTopLevelItem(0, item);
-    d->currentLV->clearSelection();
-    item->setSelected(true);
+    d->currentLV->setCurrentItem(item);
     enableDisableButtons(item);
     Q_EMIT changed();
 }
@@ -291,8 +289,7 @@ void Kleo::DNAttributeOrderConfigWidget::slotDownButtonClicked()
     }
     d->currentLV->takeTopLevelItem(itemIndex);
     d->currentLV->insertTopLevelItem(itemIndex + 1, item);
-    d->currentLV->clearSelection();
-    item->setSelected(true);
+    d->currentLV->setCurrentItem(item);
     enableDisableButtons(item);
     Q_EMIT changed();
 }
@@ -309,8 +306,7 @@ void Kleo::DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked()
     }
     d->currentLV->takeTopLevelItem(itemIndex);
     d->currentLV->addTopLevelItem(item);
-    d->currentLV->clearSelection();
-    item->setSelected(true);
+    d->currentLV->setCurrentItem(item);
     enableDisableButtons(item);
     Q_EMIT changed();
 }
@@ -328,8 +324,9 @@ void Kleo::DNAttributeOrderConfigWidget::slotLeftButtonClicked()
     d->currentLV->takeTopLevelItem(d->currentLV->indexOfTopLevelItem(right));
     d->availableLV->addTopLevelItem(right);
     d->availableLV->sortItems(0, Qt::AscendingOrder);
+    d->availableLV->setCurrentItem(right);
     if (next) {
-        next->setSelected(true);
+        d->currentLV->setCurrentItem(next);
     }
     enableDisableButtons(next);
     Q_EMIT changed();
@@ -350,14 +347,13 @@ void Kleo::DNAttributeOrderConfigWidget::slotRightButtonClicked()
     if (!d->currentLV->selectedItems().isEmpty()) {
         QTreeWidgetItem *right = d->currentLV->selectedItems().first();
         newRightIndex = d->currentLV->indexOfTopLevelItem(right);
-        right->setSelected(false);
     }
     d->currentLV->insertTopLevelItem(newRightIndex, left);
-    left->setSelected(true);
+    d->currentLV->setCurrentItem(left);
     enableDisableButtons(left);
     d->navTB[DNAttributeOrderConfigWidgetPrivate::Right]->setEnabled(next);
     if (next) {
-        next->setSelected(true);
+        d->availableLV->setCurrentItem(next);
     }
     Q_EMIT changed();
 }
