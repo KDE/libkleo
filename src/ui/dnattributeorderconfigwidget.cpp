@@ -96,23 +96,61 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     struct NavButtonInfo {
         const char *icon;
         int row, col;
+        const KLazyLocalizedString accessibleName;
         const KLazyLocalizedString tooltip;
         void (DNAttributeOrderConfigWidget::*slot)();
         bool autorepeat;
     };
     static const std::vector<NavButtonInfo> navButtons = {
-        {"go-top", 0, 1, kli18n("Move to top"), &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked, false},
-        {"go-up", 1, 1, kli18n("Move one up"), &DNAttributeOrderConfigWidget::slotUpButtonClicked, true},
-        {"go-previous", 2, 0, kli18n("Remove from current attribute order"), &DNAttributeOrderConfigWidget::slotLeftButtonClicked, false},
-        {"go-next", 2, 2, kli18n("Add to current attribute order"), &DNAttributeOrderConfigWidget::slotRightButtonClicked, false},
-        {"go-down", 3, 1, kli18n("Move one down"), &DNAttributeOrderConfigWidget::slotDownButtonClicked, true},
-        {"go-bottom", 4, 1, kli18n("Move to bottom"), &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked, false},
+        {"go-top",
+         0,
+         1,
+         kli18nc("@action:button accessible name for 'Move to top'", "top"),
+         kli18n("Move to top"),
+         &DNAttributeOrderConfigWidget::slotDoubleUpButtonClicked,
+         false},
+        {"go-up",
+         1,
+         1,
+         kli18nc("@action:button accessible name for 'Move up'", "up"),
+         kli18n("Move one up"),
+         &DNAttributeOrderConfigWidget::slotUpButtonClicked,
+         true},
+        {"go-previous",
+         2,
+         0,
+         kli18nc("@action:button accessible name for 'Remove from list'", "remove"),
+         kli18n("Remove from current attribute order"),
+         &DNAttributeOrderConfigWidget::slotLeftButtonClicked,
+         false},
+        {"go-next",
+         2,
+         2,
+         kli18nc("@action:button accessible name for 'Add to list'", "add"),
+         kli18n("Add to current attribute order"),
+         &DNAttributeOrderConfigWidget::slotRightButtonClicked,
+         false},
+        {"go-down",
+         3,
+         1,
+         kli18nc("@action:button accessible name for 'Move down'", "down"),
+         kli18n("Move one down"),
+         &DNAttributeOrderConfigWidget::slotDownButtonClicked,
+         true},
+        {"go-bottom",
+         4,
+         1,
+         kli18nc("@action:button accessible name for 'Move to bottom'", "bottom"),
+         kli18n("Move to bottom"),
+         &DNAttributeOrderConfigWidget::slotDoubleDownButtonClicked,
+         false},
     };
 
     for (const auto &navButton : navButtons) {
         auto tb = new QToolButton{this};
         tb->setIcon(QIcon::fromTheme(QLatin1String(navButton.icon)));
         tb->setEnabled(false);
+        tb->setAccessibleName(KLocalizedString{navButton.accessibleName}.toString());
         tb->setToolTip(KLocalizedString(navButton.tooltip).toString());
         xlay->addWidget(tb, navButton.row, navButton.col);
         tb->setAutoRepeat(navButton.autorepeat);
