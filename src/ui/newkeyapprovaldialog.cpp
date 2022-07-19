@@ -137,6 +137,7 @@ public:
         infoBtn->setIcon(QIcon::fromTheme(QStringLiteral("help-contextual")));
         infoBtn->setIconSize(QSize(22, 22));
         infoBtn->setFlat(true);
+        infoBtn->setAccessibleName(i18nc("@action:button", "Show Details"));
         hLay->addWidget(infoBtn);
         hLay->addWidget(combo, 1);
         hLay->addWidget(mFilterBtn, 0);
@@ -178,9 +179,11 @@ public:
     {
         if (mCombo->idFilter().isEmpty()) {
             mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-add-filters")));
+            mFilterBtn->setAccessibleName(i18nc("@action:button", "Show Matching Keys"));
             mFilterBtn->setToolTip(i18n("Show keys matching the email address"));
         } else {
             mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
+            mFilterBtn->setAccessibleName(i18nc("@action:button short for 'Show all keys'", "Show All"));
             mFilterBtn->setToolTip(i18n("Show all keys"));
         }
     }
