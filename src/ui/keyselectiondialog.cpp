@@ -43,6 +43,7 @@
 #include <QPushButton>
 #include <QRegExp>
 #include <QScrollBar>
+#include <QStringBuilder>
 #include <QTimer>
 #include <QVBoxLayout>
 
