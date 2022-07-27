@@ -93,6 +93,12 @@ KLEO_EXPORT QDate expirationDate(const GpgME::UserID::Signature &sig);
  * returns the localization of "no expiration".
  */
 KLEO_EXPORT QString accessibleExpirationDate(const GpgME::Key &key, const QString &noExpiration = {});
+/**
+ * Returns expiration date of @p subkey as string suitable for screen readers.
+ * If the subkey doesn't expire, then it returns @p noExpiration if @p noExpiration is not empty. Otherwise,
+ * returns the localization of "no expiration".
+ */
+KLEO_EXPORT QString accessibleExpirationDate(const GpgME::Subkey &subkey, const QString &noExpiration = {});
 
 KLEO_EXPORT QString creationDateString(const GpgME::Key &key);
 KLEO_EXPORT QString creationDateString(const GpgME::Subkey &subkey);
@@ -101,6 +107,7 @@ KLEO_EXPORT QDate creationDate(const GpgME::Key &key);
 KLEO_EXPORT QDate creationDate(const GpgME::Subkey &subkey);
 KLEO_EXPORT QDate creationDate(const GpgME::UserID::Signature &sig);
 KLEO_EXPORT QString accessibleCreationDate(const GpgME::Key &key);
+KLEO_EXPORT QString accessibleCreationDate(const GpgME::Subkey &subkey);
 
 /* Convert a GPGME style time or a QDate to a localized string */
 KLEO_EXPORT QString dateString(time_t t);

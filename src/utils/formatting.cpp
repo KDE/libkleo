@@ -611,10 +611,15 @@ QDate Formatting::expirationDate(const UserID::Signature &sig)
 
 QString Formatting::accessibleExpirationDate(const Key &key, const QString &noExpiration)
 {
-    if (key.subkey(0).neverExpires()) {
+    return accessibleExpirationDate(key.subkey(0), noExpiration);
+}
+
+QString Formatting::accessibleExpirationDate(const Subkey &subkey, const QString &noExpiration)
+{
+    if (subkey.neverExpires()) {
         return noExpiration.isEmpty() ? i18n("no expiration") : noExpiration;
     } else {
-        return accessibleDate(expirationDate(key));
+        return accessibleDate(expirationDate(subkey));
     }
 }
 
@@ -651,6 +656,11 @@ QDate Formatting::creationDate(const UserID::Signature &sig)
 QString Formatting::accessibleCreationDate(const Key &key)
 {
     return accessibleDate(creationDate(key));
+}
+
+QString Formatting::accessibleCreationDate(const Subkey &subkey)
+{
+    return accessibleDate(creationDate(subkey));
 }
 
 //
