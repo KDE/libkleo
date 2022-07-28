@@ -26,9 +26,11 @@
 #include <map>
 #include <vector>
 
+using namespace Kleo;
+
 static const int updateDelayMilliSecs = 500;
 
-class Q_DECL_HIDDEN Kleo::KeyListView::KeyListViewPrivate
+class Q_DECL_HIDDEN KeyListView::KeyListViewPrivate
 {
 public:
     KeyListViewPrivate()
@@ -62,7 +64,7 @@ static const struct {
 };
 static const int numSignalReplacements = sizeof signalReplacements / sizeof *signalReplacements;
 
-Kleo::KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const DisplayStrategy *displayStrategy, QWidget *parent, Qt::WindowFlags f)
+KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const DisplayStrategy *displayStrategy, QWidget *parent, Qt::WindowFlags f)
     : QTreeWidget(parent)
     , mColumnStrategy(columnStrategy)
     , mDisplayStrategy(displayStrategy)
@@ -98,7 +100,7 @@ Kleo::KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const Displ
     viewport()->setToolTip(QString()); // make double sure :)
 }
 
-Kleo::KeyListView::~KeyListView()
+KeyListView::~KeyListView()
 {
     d->updateTimer->stop();
     // need to clear here, since in ~QListView, our children won't have
@@ -113,7 +115,7 @@ Kleo::KeyListView::~KeyListView()
     mDisplayStrategy = nullptr;
 }
 
-void Kleo::KeyListView::takeItem(QTreeWidgetItem *qlvi)
+void KeyListView::takeItem(QTreeWidgetItem *qlvi)
 {
     // qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListView::takeItem(" << qlvi <<" )";
     if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
@@ -122,7 +124,7 @@ void Kleo::KeyListView::takeItem(QTreeWidgetItem *qlvi)
     takeTopLevelItem(indexOfTopLevelItem(qlvi));
 }
 
-void Kleo::KeyListView::setHierarchical(bool hier)
+void KeyListView::setHierarchical(bool hier)
 {
     if (hier == mHierarchical) {
         return;
@@ -135,7 +137,7 @@ void Kleo::KeyListView::setHierarchical(bool hier)
     }
 }
 
-void Kleo::KeyListView::slotAddKey(const GpgME::Key &key)
+void KeyListView::slotAddKey(const GpgME::Key &key)
 {
     if (key.isNull()) {
         return;
@@ -147,7 +149,7 @@ void Kleo::KeyListView::slotAddKey(const GpgME::Key &key)
     }
 }
 
-void Kleo::KeyListView::slotUpdateTimeout()
+void KeyListView::slotUpdateTimeout()
 {
     if (d->keyBuffer.empty()) {
         return;
@@ -174,7 +176,7 @@ void Kleo::KeyListView::slotUpdateTimeout()
     d->keyBuffer.clear();
 }
 
-void Kleo::KeyListView::clear()
+void KeyListView::clear()
 {
     d->updateTimer->stop();
     d->keyBuffer.clear();
@@ -184,7 +186,7 @@ void Kleo::KeyListView::clear()
     QTreeWidget::clear();
 }
 
-void Kleo::KeyListView::registerItem(KeyListViewItem *item)
+void KeyListView::registerItem(KeyListViewItem *item)
 {
     // qCDebug(KLEO_UI_LOG) <<"registerItem(" << item <<" )";
     if (!item) {
@@ -196,7 +198,7 @@ void Kleo::KeyListView::registerItem(KeyListViewItem *item)
     }
 }
 
-void Kleo::KeyListView::deregisterItem(const KeyListViewItem *item)
+void KeyListView::deregisterItem(const KeyListViewItem *item)
 {
     // qCDebug(KLEO_UI_LOG) <<"deregisterItem( KeyLVI:" << item <<" )";
     if (!item) {
@@ -218,7 +220,7 @@ void Kleo::KeyListView::deregisterItem(const KeyListViewItem *item)
     d->itemMap.erase(it);
 }
 
-void Kleo::KeyListView::doHierarchicalInsert(const GpgME::Key &key)
+void KeyListView::doHierarchicalInsert(const GpgME::Key &key)
 {
     const QByteArray fpr = key.primaryFingerprint();
     if (fpr.isEmpty()) {
@@ -238,7 +240,7 @@ void Kleo::KeyListView::doHierarchicalInsert(const GpgME::Key &key)
     d->itemMap.insert(std::make_pair(fpr, item));
 }
 
-void Kleo::KeyListView::gatherScattered()
+void KeyListView::gatherScattered()
 {
     KeyListViewItem *item = firstChild();
     while (item) {
@@ -257,19 +259,19 @@ void Kleo::KeyListView::gatherScattered()
     }
 }
 
-void Kleo::KeyListView::scatterGathered(KeyListViewItem *start)
+void KeyListView::scatterGathered(KeyListViewItem *start)
 {
     KeyListViewItem *item = start;
     while (item) {
         KeyListViewItem *cur = item;
         item = item->nextSibling();
 
-        scatterGathered(Kleo::lvi_cast<Kleo::KeyListViewItem>(cur->child(0)));
+        scatterGathered(lvi_cast<KeyListViewItem>(cur->child(0)));
         Q_ASSERT(cur->childCount() == 0);
 
         // ### todo: optimize by suppressing removing/adding the item to the itemMap...
         if (cur->parent()) {
-            static_cast<Kleo::KeyListViewItem *>(cur->parent())->takeItem(cur);
+            static_cast<KeyListViewItem *>(cur->parent())->takeItem(cur);
         } else {
             takeItem(cur);
         }
@@ -277,7 +279,7 @@ void Kleo::KeyListView::scatterGathered(KeyListViewItem *start)
     }
 }
 
-Kleo::KeyListViewItem *Kleo::KeyListView::itemByFingerprint(const QByteArray &s) const
+KeyListViewItem *KeyListView::itemByFingerprint(const QByteArray &s) const
 {
     if (s.isEmpty()) {
         return nullptr;
@@ -289,7 +291,7 @@ Kleo::KeyListViewItem *Kleo::KeyListView::itemByFingerprint(const QByteArray &s)
     return it->second;
 }
 
-void Kleo::KeyListView::slotRefreshKey(const GpgME::Key &key)
+void KeyListView::slotRefreshKey(const GpgME::Key &key)
 {
     const char *fpr = key.primaryFingerprint();
     if (!fpr) {
@@ -305,26 +307,26 @@ void Kleo::KeyListView::slotRefreshKey(const GpgME::Key &key)
 
 // slots for the emission of covariant Q_SIGNALS:
 
-void Kleo::KeyListView::slotEmitDoubleClicked(QTreeWidgetItem *item, int col)
+void KeyListView::slotEmitDoubleClicked(QTreeWidgetItem *item, int col)
 {
     if (!item || lvi_cast<KeyListViewItem>(item)) {
         Q_EMIT doubleClicked(static_cast<KeyListViewItem *>(item), col);
     }
 }
 
-void Kleo::KeyListView::slotEmitReturnPressed(QTreeWidgetItem *item)
+void KeyListView::slotEmitReturnPressed(QTreeWidgetItem *item)
 {
     if (!item || lvi_cast<KeyListViewItem>(item)) {
         Q_EMIT returnPressed(static_cast<KeyListViewItem *>(item));
     }
 }
 
-void Kleo::KeyListView::slotEmitSelectionChanged()
+void KeyListView::slotEmitSelectionChanged()
 {
     Q_EMIT selectionChanged(selectedItem());
 }
 
-void Kleo::KeyListView::slotEmitContextMenu(const QPoint &pos)
+void KeyListView::slotEmitContextMenu(const QPoint &pos)
 {
     QTreeWidgetItem *item = itemAt(pos);
     if (!item || lvi_cast<KeyListViewItem>(item)) {
@@ -338,35 +340,35 @@ void Kleo::KeyListView::slotEmitContextMenu(const QPoint &pos)
 //
 //
 
-Kleo::KeyListViewItem::KeyListViewItem(KeyListView *parent, const GpgME::Key &key)
+KeyListViewItem::KeyListViewItem(KeyListView *parent, const GpgME::Key &key)
     : QTreeWidgetItem(parent, RTTI)
 {
     Q_ASSERT(parent);
     setKey(key);
 }
 
-Kleo::KeyListViewItem::KeyListViewItem(KeyListView *parent, KeyListViewItem *after, const GpgME::Key &key)
+KeyListViewItem::KeyListViewItem(KeyListView *parent, KeyListViewItem *after, const GpgME::Key &key)
     : QTreeWidgetItem(parent, after, RTTI)
 {
     Q_ASSERT(parent);
     setKey(key);
 }
 
-Kleo::KeyListViewItem::KeyListViewItem(KeyListViewItem *parent, const GpgME::Key &key)
+KeyListViewItem::KeyListViewItem(KeyListViewItem *parent, const GpgME::Key &key)
     : QTreeWidgetItem(parent, RTTI)
 {
     Q_ASSERT(parent && parent->listView());
     setKey(key);
 }
 
-Kleo::KeyListViewItem::KeyListViewItem(KeyListViewItem *parent, KeyListViewItem *after, const GpgME::Key &key)
+KeyListViewItem::KeyListViewItem(KeyListViewItem *parent, KeyListViewItem *after, const GpgME::Key &key)
     : QTreeWidgetItem(parent, after, RTTI)
 {
     Q_ASSERT(parent && parent->listView());
     setKey(key);
 }
 
-Kleo::KeyListViewItem::~KeyListViewItem()
+KeyListViewItem::~KeyListViewItem()
 {
     // delete the children first... When children are deleted in the
     // QLVI dtor, they don't have listView() anymore, thus they don't
@@ -384,7 +386,7 @@ Kleo::KeyListViewItem::~KeyListViewItem()
     }
 }
 
-void Kleo::KeyListViewItem::setKey(const GpgME::Key &key)
+void KeyListViewItem::setKey(const GpgME::Key &key)
 {
     KeyListView *lv = listView();
     if (lv) {
@@ -397,7 +399,7 @@ void Kleo::KeyListViewItem::setKey(const GpgME::Key &key)
 
     // the ColumnStrategy operations might be very slow, so cache their
     // result here, where we're non-const :)
-    const Kleo::KeyListView::ColumnStrategy *cs = lv ? lv->columnStrategy() : nullptr;
+    const KeyListView::ColumnStrategy *cs = lv ? lv->columnStrategy() : nullptr;
     if (!cs) {
         return;
     }
@@ -418,12 +420,12 @@ void Kleo::KeyListViewItem::setKey(const GpgME::Key &key)
     }
 }
 
-QString Kleo::KeyListViewItem::toolTip(int col) const
+QString KeyListViewItem::toolTip(int col) const
 {
     return listView() && listView()->columnStrategy() ? listView()->columnStrategy()->toolTip(key(), col) : QString();
 }
 
-bool Kleo::KeyListViewItem::operator<(const QTreeWidgetItem &other) const
+bool KeyListViewItem::operator<(const QTreeWidgetItem &other) const
 {
     if (other.type() != RTTI || !listView() || !listView()->columnStrategy()) {
         return QTreeWidgetItem::operator<(other);
@@ -432,7 +434,7 @@ bool Kleo::KeyListViewItem::operator<(const QTreeWidgetItem &other) const
     return listView()->columnStrategy()->compare(this->key(), that->key(), treeWidget()->sortColumn()) < 0;
 }
 
-void Kleo::KeyListViewItem::takeItem(QTreeWidgetItem *qlvi)
+void KeyListViewItem::takeItem(QTreeWidgetItem *qlvi)
 {
     // qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListViewItem::takeItem(" << qlvi <<" )";
     if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
@@ -447,21 +449,21 @@ void Kleo::KeyListViewItem::takeItem(QTreeWidgetItem *qlvi)
 //
 //
 
-Kleo::KeyListView::ColumnStrategy::~ColumnStrategy()
+KeyListView::ColumnStrategy::~ColumnStrategy()
 {
 }
 
-int Kleo::KeyListView::ColumnStrategy::compare(const GpgME::Key &key1, const GpgME::Key &key2, const int col) const
+int KeyListView::ColumnStrategy::compare(const GpgME::Key &key1, const GpgME::Key &key2, const int col) const
 {
     return QString::localeAwareCompare(text(key1, col), text(key2, col));
 }
 
-int Kleo::KeyListView::ColumnStrategy::width(int col, const QFontMetrics &fm) const
+int KeyListView::ColumnStrategy::width(int col, const QFontMetrics &fm) const
 {
     return fm.horizontalAdvance(title(col)) * 2;
 }
 
-QString Kleo::KeyListView::ColumnStrategy::toolTip(const GpgME::Key &key, int col) const
+QString KeyListView::ColumnStrategy::toolTip(const GpgME::Key &key, int col) const
 {
     return text(key, col);
 }
@@ -472,24 +474,24 @@ QString Kleo::KeyListView::ColumnStrategy::toolTip(const GpgME::Key &key, int co
 //
 //
 
-Kleo::KeyListView::DisplayStrategy::~DisplayStrategy()
+KeyListView::DisplayStrategy::~DisplayStrategy()
 {
 }
 
 // font
-QFont Kleo::KeyListView::DisplayStrategy::keyFont(const GpgME::Key &, const QFont &font) const
+QFont KeyListView::DisplayStrategy::keyFont(const GpgME::Key &, const QFont &font) const
 {
     return font;
 }
 
 // foreground
-QColor Kleo::KeyListView::DisplayStrategy::keyForeground(const GpgME::Key &, const QColor &fg) const
+QColor KeyListView::DisplayStrategy::keyForeground(const GpgME::Key &, const QColor &fg) const
 {
     return fg;
 }
 
 // background
-QColor Kleo::KeyListView::DisplayStrategy::keyBackground(const GpgME::Key &, const QColor &bg) const
+QColor KeyListView::DisplayStrategy::keyBackground(const GpgME::Key &, const QColor &bg) const
 {
     return bg;
 }
@@ -501,27 +503,27 @@ QColor Kleo::KeyListView::DisplayStrategy::keyBackground(const GpgME::Key &, con
 //
 //
 
-Kleo::KeyListView *Kleo::KeyListViewItem::listView() const
+KeyListView *KeyListViewItem::listView() const
 {
-    return static_cast<Kleo::KeyListView *>(QTreeWidgetItem::treeWidget());
+    return static_cast<KeyListView *>(QTreeWidgetItem::treeWidget());
 }
 
-Kleo::KeyListViewItem *Kleo::KeyListViewItem::nextSibling() const
+KeyListViewItem *KeyListViewItem::nextSibling() const
 {
     if (parent()) {
         const int myIndex = parent()->indexOfChild(const_cast<KeyListViewItem *>(this));
-        return static_cast<Kleo::KeyListViewItem *>(parent()->child(myIndex + 1));
+        return static_cast<KeyListViewItem *>(parent()->child(myIndex + 1));
     }
     const int myIndex = treeWidget()->indexOfTopLevelItem(const_cast<KeyListViewItem *>(this));
-    return static_cast<Kleo::KeyListViewItem *>(treeWidget()->topLevelItem(myIndex + 1));
+    return static_cast<KeyListViewItem *>(treeWidget()->topLevelItem(myIndex + 1));
 }
 
-Kleo::KeyListViewItem *Kleo::KeyListView::firstChild() const
+KeyListViewItem *KeyListView::firstChild() const
 {
-    return static_cast<Kleo::KeyListViewItem *>(topLevelItem(0));
+    return static_cast<KeyListViewItem *>(topLevelItem(0));
 }
 
-Kleo::KeyListViewItem *Kleo::KeyListView::selectedItem() const
+KeyListViewItem *KeyListView::selectedItem() const
 {
     QList<KeyListViewItem *> selection = selectedItems();
     if (selection.isEmpty()) {
@@ -530,24 +532,24 @@ Kleo::KeyListViewItem *Kleo::KeyListView::selectedItem() const
     return selection.first();
 }
 
-QList<Kleo::KeyListViewItem *> Kleo::KeyListView::selectedItems() const
+QList<KeyListViewItem *> KeyListView::selectedItems() const
 {
     QList<KeyListViewItem *> result;
     const auto selectedItems = QTreeWidget::selectedItems();
     for (QTreeWidgetItem *selectedItem : selectedItems) {
-        if (auto *i = Kleo::lvi_cast<Kleo::KeyListViewItem>(selectedItem)) {
+        if (auto *i = lvi_cast<KeyListViewItem>(selectedItem)) {
             result.append(i);
         }
     }
     return result;
 }
 
-bool Kleo::KeyListView::isMultiSelection() const
+bool KeyListView::isMultiSelection() const
 {
     return selectionMode() == ExtendedSelection || selectionMode() == MultiSelection;
 }
 
-void Kleo::KeyListView::keyPressEvent(QKeyEvent *event)
+void KeyListView::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
         if (selectedItem()) {
