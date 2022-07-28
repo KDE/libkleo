@@ -133,6 +133,8 @@ target_sources(KF5Libkleo PRIVATE
    ui/filenamerequester.h
    ui/messagebox.cpp
    ui/messagebox.h
+   ui/navigatabletreeview.cpp
+   ui/navigatabletreeview.h
    ui/navigatabletreewidget.cpp
    ui/navigatabletreewidget.h
    ui/progressbar.cpp
@@ -292,6 +294,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   KeySelectionCombo
   KeySelectionDialog
   MessageBox
+  NavigatableTreeView
   NavigatableTreeWidget
   NewKeyApprovalDialog
   ProgressDialog

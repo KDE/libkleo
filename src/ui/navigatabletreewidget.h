@@ -18,11 +18,11 @@ namespace Kleo
 {
 
 /**
- * A tree view that allows extended keyboard navigation.
+ * A tree widget that allows accessible column by column keyboard navigation.
  *
- * The NavigatableTreeWidget allows column by column keyboard navigation even if
- * the selection behavior is set to SelectRows. Column by column navigation is
- * required to make a tree view accessible.
+ * This is the QTreeWidget-derived variant of NavigatableTreeView.
+ *
+ * \sa NavigatableTreeView
  */
 class KLEO_EXPORT NavigatableTreeWidget : public QTreeWidget
 {
