@@ -95,6 +95,7 @@ public:
         }
 
         virtual QString text(const GpgME::Key &key, int column) const = 0;
+        virtual QString accessibleText(const GpgME::Key &key, int column) const = 0;
         virtual QString toolTip(const GpgME::Key &key, int column) const;
         virtual QIcon icon(const GpgME::Key &, int) const
         {

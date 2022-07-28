@@ -41,6 +41,7 @@ public:
     QString title(int col) const override;
     QString toolTip(const GpgME::Key &key, int col) const override;
     QString text(const GpgME::Key &key, int col) const override;
+    QString accessibleText(const GpgME::Key &key, int col) const override;
 };
 
 QString TestColumnStrategy::title(int col) const
@@ -89,6 +90,11 @@ QString TestColumnStrategy::text(const GpgME::Key &key, int col) const
     default:
         return QString();
     }
+}
+
+QString TestColumnStrategy::accessibleText(const GpgME::Key &, int) const
+{
+    return {};
 }
 }
 

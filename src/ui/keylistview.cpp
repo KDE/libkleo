@@ -407,6 +407,10 @@ void KeyListViewItem::setKey(const GpgME::Key &key)
     const int numCols = lv ? lv->columnCount() : 0;
     for (int i = 0; i < numCols; ++i) {
         setText(i, cs->text(key, i));
+        const auto accessibleText = cs->accessibleText(key, i);
+        if (!accessibleText.isEmpty()) {
+            setData(i, Qt::AccessibleTextRole, accessibleText);
+        }
         setToolTip(i, cs->toolTip(key, i));
         const QIcon icon = cs->icon(key, i);
         if (!icon.isNull()) {

@@ -19,6 +19,7 @@
 #include "progressdialog.h"
 
 #include <libkleo/dn.h>
+#include <libkleo/formatting.h>
 
 #include <kleo_ui_debug.h>
 
@@ -164,6 +165,7 @@ public:
     int width(int col, const QFontMetrics &fm) const override;
 
     QString text(const GpgME::Key &key, int col) const override;
+    QString accessibleText(const GpgME::Key &key, int column) const override;
     QString toolTip(const GpgME::Key &key, int col) const override;
     QIcon icon(const GpgME::Key &key, int col) const override;
 
@@ -220,7 +222,7 @@ QString ColumnStrategy::text(const GpgME::Key &key, int col) const
     switch (col) {
     case 0: {
         if (key.shortKeyID()) {
-            return QString::fromUtf8(key.shortKeyID());
+            return Formatting::prettyID(key.shortKeyID());
         } else {
             return xi18n("<placeholder>unknown</placeholder>");
         }
@@ -235,6 +237,19 @@ QString ColumnStrategy::text(const GpgME::Key &key, int col) const
     }
     default:
         return QString();
+    }
+}
+
+QString ColumnStrategy::accessibleText(const GpgME::Key &key, int col) const
+{
+    switch (col) {
+    case 0: {
+        if (key.shortKeyID()) {
+            return Formatting::accessibleHexID(key.shortKeyID());
+        }
+    }
+    default:
+        return {};
     }
 }
 
