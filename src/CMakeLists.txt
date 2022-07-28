@@ -133,6 +133,8 @@ target_sources(KF5Libkleo PRIVATE
    ui/filenamerequester.h
    ui/messagebox.cpp
    ui/messagebox.h
+   ui/navigatabletreewidget.cpp
+   ui/navigatabletreewidget.h
    ui/progressbar.cpp
    ui/progressbar.h
    ui/progressdialog.cpp
