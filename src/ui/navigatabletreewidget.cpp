@@ -1,5 +1,5 @@
 /*
-    ui/navigatabletreewidget.h
+    ui/navigatabletreewidget.cpp
 
     This file is part of libkleopatra
     SPDX-FileCopyrightText: 2022 g10 Code GmbH
@@ -16,16 +16,24 @@ using namespace Kleo;
 
 QModelIndex NavigatableTreeWidget::moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
 {
-    // make keyboard navigation with Left/Right possible by switching the selection behavior to SelectItems
-    // before calling QTreeWidget::moveCursor, because QTreeWidget::moveCursor ignores MoveLeft/MoveRight
-    // if the selection behavior is SelectRows
-    if ((cursorAction == MoveLeft) || (cursorAction == MoveRight)) {
-        setSelectionBehavior(SelectItems);
+    // make column by column keyboard navigation with Left/Right possible by switching
+    // the selection behavior to SelectItems before calling the parent class's moveCursor,
+    // because it ignores MoveLeft/MoveRight if the selection behavior is SelectRows;
+    // moreover, temporarily disable exanding of items to prevent expanding/collapsing
+    // on MoveLeft/MoveRight
+    if ((cursorAction != MoveLeft) && (cursorAction != MoveRight)) {
+        return QTreeWidget::moveCursor(cursorAction, modifiers);
     }
+
+    const auto savedSelectionBehavior = selectionBehavior();
+    setSelectionBehavior(SelectItems);
+    const auto savedItemsExpandable = itemsExpandable();
+    setItemsExpandable(false);
+
     const auto result = QTreeWidget::moveCursor(cursorAction, modifiers);
-    if ((cursorAction == MoveLeft) || (cursorAction == MoveRight)) {
-        setSelectionBehavior(SelectRows);
-    }
+
+    setItemsExpandable(savedItemsExpandable);
+    setSelectionBehavior(savedSelectionBehavior);
+
     return result;
 }
-
