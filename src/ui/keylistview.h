@@ -11,10 +11,11 @@
 
 #include "kleo_export.h"
 
+#include "navigatabletreewidget.h"
+
 #include <QByteArray>
 #include <QHeaderView>
 #include <QIcon>
-#include <QTreeWidget>
 
 #include <gpgme++/key.h>
 
@@ -76,7 +77,7 @@ private:
     GpgME::Key mKey;
 };
 
-class KLEO_EXPORT KeyListView : public QTreeWidget
+class KLEO_EXPORT KeyListView : public NavigatableTreeWidget
 {
     Q_OBJECT
     friend class KeyListViewItem;

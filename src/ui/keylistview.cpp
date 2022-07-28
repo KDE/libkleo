@@ -65,7 +65,7 @@ static const struct {
 static const int numSignalReplacements = sizeof signalReplacements / sizeof *signalReplacements;
 
 KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const DisplayStrategy *displayStrategy, QWidget *parent, Qt::WindowFlags f)
-    : QTreeWidget(parent)
+    : NavigatableTreeWidget(parent)
     , mColumnStrategy(columnStrategy)
     , mDisplayStrategy(displayStrategy)
     , mHierarchical(false)
@@ -90,7 +90,7 @@ KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const DisplayStra
         header()->setSectionResizeMode(col, columnStrategy->resizeMode(col));
     }
 
-    setAllColumnsShowFocus(true);
+    setAllColumnsShowFocus(false);
 
     for (int i = 0; i < numSignalReplacements; ++i) {
         connect(this, signalReplacements[i].source, signalReplacements[i].target);
