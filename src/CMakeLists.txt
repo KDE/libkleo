@@ -292,6 +292,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   KeySelectionCombo
   KeySelectionDialog
   MessageBox
+  NavigatableTreeWidget
   NewKeyApprovalDialog
   ProgressDialog
   ReaderPortSelection
