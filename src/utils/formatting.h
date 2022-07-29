@@ -99,6 +99,12 @@ KLEO_EXPORT QString accessibleExpirationDate(const GpgME::Key &key, const QStrin
  * returns the localization of "no expiration".
  */
 KLEO_EXPORT QString accessibleExpirationDate(const GpgME::Subkey &subkey, const QString &noExpiration = {});
+/**
+ * Returns expiration date of @p sig as string suitable for screen readers.
+ * If the signature doesn't expire, then it returns @p noExpiration if @p noExpiration is not empty. Otherwise,
+ * returns the localization of "no expiration".
+ */
+KLEO_EXPORT QString accessibleExpirationDate(const GpgME::UserID::Signature &sig, const QString &noExpiration = {});
 
 KLEO_EXPORT QString creationDateString(const GpgME::Key &key);
 KLEO_EXPORT QString creationDateString(const GpgME::Subkey &subkey);
