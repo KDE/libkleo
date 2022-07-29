@@ -39,13 +39,15 @@ public:
         : mParentItem{parentItem}
         , mSig{sig}
     {
-        mItemData << QString::fromUtf8(sig.signerKeyID()) //
-                  << Formatting::prettyName(sig) //
-                  << Formatting::prettyEMail(sig) //
-                  << Formatting::creationDateString(sig) //
-                  << Formatting::expirationDateString(sig) //
-                  << Formatting::validityShort(sig) //
-                  << (sig.isExportable() ? QStringLiteral("✓") : QString());
+        mItemData = {
+            QString::fromUtf8(sig.signerKeyID()),
+            Formatting::prettyName(sig),
+            Formatting::prettyEMail(sig),
+            Formatting::creationDateString(sig),
+            Formatting::expirationDateString(sig),
+            Formatting::validityShort(sig),
+            sig.isExportable() ? QStringLiteral("✓") : QString{},
+        };
 
         QString lastNotation;
         if (showRemarks && parentItem) {
@@ -55,10 +57,10 @@ public:
                 }
             }
         }
-        mItemData << lastNotation;
+        mItemData.push_back(lastNotation);
 
 #ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
-        mItemData << Formatting::trustSignatureDomain(sig);
+        mItemData.push_back(Formatting::trustSignatureDomain(sig));
 #endif
     }
 
@@ -66,23 +68,25 @@ public:
         : mParentItem{parentItem}
         , mUid{uid}
     {
-        mItemData << Formatting::prettyUserID(uid);
+        mItemData = {Formatting::prettyUserID(uid)};
     }
 
     // The root item
     UIDModelItem()
     {
-        mItemData << i18n("ID") //
-                  << i18n("Name") //
-                  << i18n("E-Mail") //
-                  << i18n("Valid From") //
-                  << i18n("Valid Until") //
-                  << i18n("Status") //
-                  << i18n("Exportable") //
-                  << i18n("Tags");
+        mItemData = {
+            i18n("ID"),
+            i18n("Name"),
+            i18n("E-Mail"),
+            i18n("Valid From"),
+            i18n("Valid Until"),
+            i18n("Status"),
+            i18n("Exportable"),
+            i18n("Tags"),
 #ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
-        mItemData << i18n("Trust Signature For");
+            i18n("Trust Signature For"),
 #endif
+        };
     }
 
     ~UIDModelItem()
