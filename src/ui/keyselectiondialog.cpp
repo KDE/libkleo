@@ -247,6 +247,7 @@ QString ColumnStrategy::accessibleText(const GpgME::Key &key, int col) const
         if (key.shortKeyID()) {
             return Formatting::accessibleHexID(key.shortKeyID());
         }
+        [[fallthrough]];
     }
     default:
         return {};
