@@ -20,6 +20,7 @@
 
 #include <KLocalizedString>
 
+#include <QDate>
 #include <QIcon>
 #include <QVariant>
 
@@ -39,10 +40,12 @@ public:
         : mParentItem{parentItem}
         , mSig{sig}
     {
+        const auto name = Formatting::prettyName(sig);
+        const auto email = Formatting::prettyEMail(sig);
         mItemData = {
-            QString::fromUtf8(sig.signerKeyID()),
-            Formatting::prettyName(sig),
-            Formatting::prettyEMail(sig),
+            Formatting::prettyID(sig.signerKeyID()),
+            name,
+            email,
             Formatting::creationDateString(sig),
             Formatting::expirationDateString(sig),
             Formatting::validityShort(sig),
@@ -60,8 +63,23 @@ public:
         mItemData.push_back(lastNotation);
 
 #ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
-        mItemData.push_back(Formatting::trustSignatureDomain(sig));
+        const auto trustSignatureDomain = Formatting::trustSignatureDomain(sig);
+        mItemData.push_back(trustSignatureDomain);
 #endif
+        mAccessibleText = {
+            Formatting::accessibleHexID(sig.signerKeyID()),
+            name.isEmpty() ? i18nc("text for screen readers for an empty name", "no name") : QVariant{},
+            email.isEmpty() ? i18nc("text for screen readers for an empty email address", "no email") : QVariant{},
+            Formatting::accessibleDate(Formatting::creationDate(sig)),
+            Formatting::accessibleExpirationDate(sig),
+            {}, // display text is always okay
+            sig.isExportable() ? i18nc("yes, is exportable", "yes") : i18nc("no, is not exportable", "no"),
+            lastNotation.isEmpty() ? i18nc("accessible text for empty list of tags", "none") : QVariant{},
+#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+            trustSignatureDomain.isEmpty() ? i18n("not applicable") : QVariant{},
+#endif
+        };
+        Q_ASSERT(mAccessibleText.size() == mItemData.size());
     }
 
     explicit UIDModelItem(const UserID &uid, UIDModelItem *parentItem)
@@ -69,13 +87,14 @@ public:
         , mUid{uid}
     {
         mItemData = {Formatting::prettyUserID(uid)};
+        // mAccessibleText is explicitly left empty
     }
 
     // The root item
     UIDModelItem()
     {
         mItemData = {
-            i18n("ID"),
+            i18n("User ID / Certification Key ID"),
             i18n("Name"),
             i18n("E-Mail"),
             i18n("Valid From"),
@@ -87,6 +106,7 @@ public:
             i18n("Trust Signature For"),
 #endif
         };
+        // mAccessibleText is explicitly left empty
     }
 
     ~UIDModelItem()
@@ -128,6 +148,11 @@ public:
     QVariant data(int column) const
     {
         return mItemData.value(column);
+    }
+
+    QVariant accessibleText(int column) const
+    {
+        return mAccessibleText.value(column);
     }
 
     QVariant toolTip(int column) const
@@ -176,6 +201,7 @@ public:
 private:
     QList<UIDModelItem *> mChildItems;
     QList<QVariant> mItemData;
+    QList<QVariant> mAccessibleText;
     UIDModelItem *mParentItem = nullptr;
     UserID::Signature mSig;
     UserID mUid;
@@ -272,6 +298,8 @@ QVariant UserIDListModel::headerData(int section, Qt::Orientation o, int role) c
     if (o == Qt::Horizontal && mRootItem) {
         if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::ToolTipRole) {
             return mRootItem->data(section);
+        } else if (role == Qt::AccessibleTextRole) {
+            return mRootItem->accessibleText(section);
         }
     }
     return QVariant();
@@ -283,21 +311,22 @@ QVariant UserIDListModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    if (role != Qt::DisplayRole && role != Qt::EditRole && role != Qt::ToolTipRole && role != Qt::DecorationRole) {
-        return QVariant();
-    }
-
     auto item = static_cast<UIDModelItem *>(index.internalPointer());
 
-    if (role == Qt::ToolTipRole) {
+    switch (role) {
+    case Qt::DisplayRole:
+    case Qt::EditRole:
+        return item->data(index.column());
+    case Qt::AccessibleTextRole:
+        return item->accessibleText(index.column());
+    case Qt::ToolTipRole:
         return item->toolTip(index.column());
-    }
-
-    if (role == Qt::DecorationRole) {
+    case Qt::DecorationRole:
         return item->icon(index.column());
+    default:;
     }
 
-    return item->data(index.column());
+    return {};
 }
 
 UserID UserIDListModel::userID(const QModelIndex &index) const
