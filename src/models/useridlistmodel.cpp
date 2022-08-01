@@ -87,7 +87,20 @@ public:
         , mUid{uid}
     {
         mItemData = {Formatting::prettyUserID(uid)};
-        // mAccessibleText is explicitly left empty
+        // for the empty cells of the user ID rows we announce "User ID"
+        mAccessibleText = {
+            {}, // use displayed user ID
+            i18n("User ID"),
+            i18n("User ID"),
+            i18n("User ID"),
+            i18n("User ID"),
+            i18n("User ID"),
+            i18n("User ID"),
+            i18n("User ID"),
+#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
+            i18n("User ID"),
+#endif
+        };
     }
 
     // The root item
