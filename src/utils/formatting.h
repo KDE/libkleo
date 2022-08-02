@@ -90,19 +90,19 @@ KLEO_EXPORT QDate expirationDate(const GpgME::UserID::Signature &sig);
 /**
  * Returns expiration date of @p key as string suitable for screen readers.
  * If the key doesn't expire, then it returns @p noExpiration if @p noExpiration is not empty. Otherwise,
- * returns the localization of "no expiration".
+ * returns the localization of "unlimited".
  */
 KLEO_EXPORT QString accessibleExpirationDate(const GpgME::Key &key, const QString &noExpiration = {});
 /**
  * Returns expiration date of @p subkey as string suitable for screen readers.
  * If the subkey doesn't expire, then it returns @p noExpiration if @p noExpiration is not empty. Otherwise,
- * returns the localization of "no expiration".
+ * returns the localization of "unlimited".
  */
 KLEO_EXPORT QString accessibleExpirationDate(const GpgME::Subkey &subkey, const QString &noExpiration = {});
 /**
  * Returns expiration date of @p sig as string suitable for screen readers.
  * If the signature doesn't expire, then it returns @p noExpiration if @p noExpiration is not empty. Otherwise,
- * returns the localization of "no expiration".
+ * returns the localization of "unlimited".
  */
 KLEO_EXPORT QString accessibleExpirationDate(const GpgME::UserID::Signature &sig, const QString &noExpiration = {});
 

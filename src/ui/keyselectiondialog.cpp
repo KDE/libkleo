@@ -260,8 +260,8 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
     const char *fpr = key.primaryFingerprint();
     const char *issuer = key.issuerName();
     const GpgME::Subkey subkey = key.subkey(0);
-    const QString expiry = subkey.neverExpires() ? i18n("never") : time_t2string(subkey.expirationTime());
-    const QString creation = time_t2string(subkey.creationTime());
+    const QString expiry = Formatting::expirationDateString(subkey);
+    const QString creation = Formatting::creationDateString(subkey);
     QString keyStatusString;
     if (!checkKeyUsage(key, mKeyUsage, &keyStatusString)) {
         // Show the status in bold if there is a problem
@@ -279,8 +279,8 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
     const auto addRow = [&html](const QString &name, const QString &value) {
         html += QStringLiteral("<tr><td align=\"right\"><b>%1: </b></td><td>%2</td></tr>").arg(name, value);
     };
-    addRow(i18nc("Key creation date", "Created"), creation);
-    addRow(i18nc("Key Expiration date", "Expiry"), expiry);
+    addRow(i18n("Valid from"), creation);
+    addRow(i18n("Valid until"), expiry);
     addRow(i18nc("Key fingerprint", "Fingerprint"), fpr ? QString::fromLatin1(fpr) : i18n("unknown"));
     if (key.protocol() != GpgME::OpenPGP) {
         addRow(i18nc("Key issuer", "Issuer"), issuer ? DN(issuer).prettyDN() : i18n("unknown"));

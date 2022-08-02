@@ -371,12 +371,10 @@ QString Formatting::toolTip(const Key &key, int flags)
         }
     }
     if (flags & ExpiryDates) {
-        result += format_row(i18n("Created"), time_t2string(subkey.creationTime()));
+        result += format_row(i18n("Valid from"), time_t2string(subkey.creationTime()));
 
-        if (key.isExpired()) {
-            result += format_row(i18n("Expired"), time_t2string(subkey.expirationTime()));
-        } else if (!subkey.neverExpires()) {
-            result += format_row(i18n("Expires"), time_t2string(subkey.expirationTime()));
+        if (!subkey.neverExpires()) {
+            result += format_row(i18n("Valid until"), time_t2string(subkey.expirationTime()));
         }
     }
     if (flags & CertificateType) {
@@ -416,12 +414,10 @@ QString Formatting::toolTip(const Key &key, int flags)
                 result += format_row(i18n("Status"), i18n("Expired"));
             }
             if (flags & ExpiryDates) {
-                result += format_row(i18n("Created"), time_t2string(sub.creationTime()));
+                result += format_row(i18n("Valid from"), time_t2string(sub.creationTime()));
 
-                if (key.isExpired()) {
-                    result += format_row(i18n("Expired"), time_t2string(sub.expirationTime()));
-                } else if (!subkey.neverExpires()) {
-                    result += format_row(i18n("Expires"), time_t2string(sub.expirationTime()));
+                if (!sub.neverExpires()) {
+                    result += format_row(i18n("Valid until"), time_t2string(sub.expirationTime()));
                 }
             }
 
@@ -617,7 +613,7 @@ QString Formatting::accessibleExpirationDate(const Key &key, const QString &noEx
 QString Formatting::accessibleExpirationDate(const Subkey &subkey, const QString &noExpiration)
 {
     if (subkey.neverExpires()) {
-        return noExpiration.isEmpty() ? i18n("no expiration") : noExpiration;
+        return noExpiration.isEmpty() ? i18n("unlimited") : noExpiration;
     } else {
         return accessibleDate(expirationDate(subkey));
     }
@@ -626,7 +622,7 @@ QString Formatting::accessibleExpirationDate(const Subkey &subkey, const QString
 QString Formatting::accessibleExpirationDate(const UserID::Signature &sig, const QString &noExpiration)
 {
     if (sig.neverExpires()) {
-        return noExpiration.isEmpty() ? i18n("no expiration") : noExpiration;
+        return noExpiration.isEmpty() ? i18n("unlimited") : noExpiration;
     } else {
         return accessibleDate(expirationDate(sig));
     }
