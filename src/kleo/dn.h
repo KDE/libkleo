@@ -17,8 +17,6 @@
 #include <QStringList>
 #include <QVector>
 
-class QWidget;
-
 namespace Kleo
 {
 

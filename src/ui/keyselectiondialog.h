@@ -27,7 +27,6 @@
 class QCheckBox;
 class QLabel;
 class QPoint;
-class QRegExp;
 class QTimer;
 class QVBoxLayout;
 
