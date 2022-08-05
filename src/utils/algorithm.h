@@ -37,6 +37,16 @@ Container transformInPlace(Container &&c, UnaryOperation op)
     return std::move(c);
 }
 
+/** Convenience helper for checking if the predicate @p p returns @c true
+ *  for all elements in the range @p range. Returns @c true if the range is empty.
+ *  Use ranges::all_of() instead if you can use C++20.
+ */
+template<typename InputRange, typename UnaryPredicate>
+bool all_of(const InputRange &range, UnaryPredicate p)
+{
+    return std::all_of(std::begin(range), std::end(range), p);
+}
+
 /** Convenience helper for checking if a @p range contains at least one element
  *  for which predicate @p p returns @c true. Returns @c false if @p range is
  *  empty.
