@@ -79,6 +79,37 @@ bool contains_if(const Container &container, UnaryPredicate p)
 }
 
 /**
+ * Convenience helper for copying elements of @p range.
+ * Use std::ranges::copy_if() instead if you can use C++20.
+ */
+template<typename InputRange, typename OutputIterator, typename UnaryPredicate>
+OutputIterator copy(InputRange &&range, OutputIterator result)
+{
+    return std::copy(std::begin(range), std::end(range), result);
+}
+
+/**
+ * Convenience helper for copying elements of @p range for which predicate @p p
+ * returns @c true.
+ * Use std::ranges::copy_if() instead if you can use C++20.
+ */
+template<typename InputRange, typename OutputIterator, typename UnaryPredicate>
+OutputIterator copy_if(InputRange &&range, OutputIterator result, UnaryPredicate p)
+{
+    return std::copy_if(std::begin(range), std::end(range), result, p);
+}
+
+/**
+ * Convenience helper for transforming the elements of @p range.
+ * Use std::ranges::transform() instead if you can use C++20.
+ */
+template<typename InputRange, typename OutputIterator, typename UnaryOperation>
+OutputIterator transform(InputRange &&range, OutputIterator result, UnaryOperation op)
+{
+    return std::transform(std::begin(range), std::end(range), result, op);
+}
+
+/**
  * Convenience helper for removing elements from a vector @p v for which
  * predicate @p p returns @c true.
  * Use std::erase_if() instead if you can use C++20.
