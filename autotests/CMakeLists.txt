@@ -21,6 +21,7 @@ ecm_add_test(
 ecm_add_test(
     hierarchicalkeylistmodeltest.cpp
     abstractkeylistmodeltest.cpp
+    abstractkeylistmodeltest.h
     TEST_NAME hierarchicalkeylistmodeltest
     LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Test
 )
