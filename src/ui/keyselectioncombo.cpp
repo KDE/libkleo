@@ -447,6 +447,9 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget *parent)
     : QComboBox(parent)
     , d(new KeySelectionComboPrivate(this))
 {
+    // set a non-empty string as accessible description to prevent screen readers
+    // from reading the tool tip which isn't meant for screen readers
+    setAccessibleDescription(QStringLiteral(" "));
     d->model = Kleo::AbstractKeyListModel::createFlatKeyListModel(this);
     d->secretOnly = secretOnly;
 
