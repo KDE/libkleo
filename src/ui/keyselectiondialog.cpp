@@ -148,11 +148,6 @@ static bool checkKeyUsage(const std::vector<GpgME::Key> &keys, unsigned int keyU
     return true;
 }
 
-static inline QString time_t2string(time_t t)
-{
-    return QDateTime::fromSecsSinceEpoch(t).toString();
-}
-
 namespace
 {
 
