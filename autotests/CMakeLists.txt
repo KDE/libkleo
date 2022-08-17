@@ -6,7 +6,7 @@ include(ECMAddTests)
 
 find_package(Qt${QT_MAJOR_VERSION}Test ${REQUIRED_QT_VERSION} CONFIG QUIET)
 
-if(NOT TARGET Qt${QT_MAJOR_VERSION}::Test)
+if(NOT TARGET Qt::Test)
     message(STATUS "Qt${QT_MAJOR_VERSION}Test not found, autotests will not be built.")
     return()
 endif()
@@ -15,7 +15,7 @@ ecm_add_test(
     flatkeylistmodeltest.cpp
     abstractkeylistmodeltest.cpp
     TEST_NAME flatkeylistmodeltest
-    LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Test
 )
 
 ecm_add_test(
@@ -23,29 +23,29 @@ ecm_add_test(
     abstractkeylistmodeltest.cpp
     abstractkeylistmodeltest.h
     TEST_NAME hierarchicalkeylistmodeltest
-    LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Test
 )
 
 ecm_add_test(
     keyresolvercoretest.cpp
     keyresolvercoretest.qrc
     TEST_NAME keyresolvercoretest
-    LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Test
 )
 
 ecm_add_tests(
     editdirectoryservicedialogtest.cpp
-    LINK_LIBRARIES KF5::Libkleo KF5::WidgetsAddons Qt${QT_MAJOR_VERSION}::Widgets Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF5::Libkleo KF5::WidgetsAddons Qt::Widgets Qt::Test
 )
 
 ecm_add_tests(
     keyselectioncombotest.cpp
     keyserverconfigtest.cpp
     newkeyapprovaldialogtest.cpp
-    LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Widgets Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Widgets Qt::Test
 )
 
 ecm_add_tests(
     hextest.cpp
-    LINK_LIBRARIES KF5::Libkleo Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF5::Libkleo Qt::Test
 )

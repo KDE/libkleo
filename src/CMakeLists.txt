@@ -168,7 +168,7 @@ target_sources(KF5Libkleo PRIVATE    # make this a separate lib.
     )
 
 
-target_link_libraries(KF5Libkleo PUBLIC Gpgmepp PRIVATE Qt${QT_MAJOR_VERSION}::Widgets
+target_link_libraries(KF5Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
                                                 KF5::I18n
                                                 KF5::Completion
                                                 KF5::ConfigCore
