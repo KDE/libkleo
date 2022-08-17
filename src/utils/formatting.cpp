@@ -293,7 +293,7 @@ QString format_subkeyusage(const Subkey &subkey)
 
 static QString time_t2string(time_t t)
 {
-    const QDateTime dt = QDateTime::fromSecsSinceEpoch(t);
+    const QDateTime dt = QDateTime::fromSecsSinceEpoch(quint32(t));
     return QLocale().toString(dt, QLocale::ShortFormat);
 }
 
@@ -525,7 +525,7 @@ static QDate time_t2date(time_t t)
     if (!t) {
         return {};
     }
-    const QDateTime dt = QDateTime::fromSecsSinceEpoch(t);
+    const QDateTime dt = QDateTime::fromSecsSinceEpoch(quint32(t));
     return dt.date();
 }
 static QString accessible_date_format()
