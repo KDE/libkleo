@@ -209,7 +209,7 @@ set_target_properties(KF5Libkleo PROPERTIES
 
 install(TARGETS
     KF5Libkleo
-    EXPORT KF5LibkleoTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
+    EXPORT KF5LibkleoTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 target_include_directories(KF5Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo>")
