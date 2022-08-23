@@ -2,7 +2,7 @@
 
 include(CMakeFindDependencyMacro)
 find_dependency(Gpgmepp "@GPGME_REQUIRED_VERSION@")
-if (QT_MAJOR_VERSION STREQUAL "5")
+if ("@QT_MAJOR_VERSION@" STREQUAL "5")
     find_dependency(QGpgme "@GPGME_REQUIRED_VERSION@")
 else()
     find_dependency(QGpgmeQt6 "@GPGME_REQUIRED_VERSION@")
