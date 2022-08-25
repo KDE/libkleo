@@ -42,6 +42,9 @@ KLEO_EXPORT QString gpg4winLongDescription();
 KLEO_EXPORT QString gnupgInstallPath();
 KLEO_EXPORT const QString &paperKeyInstallPath();
 
+KLEO_EXPORT QString brandingWindowTitle();
+KLEO_EXPORT QString brandingIcon();
+
 /**
  * Returns a list of filename globs of files in one of the whitelisted folders
  * to watch for changes.

@@ -149,6 +149,8 @@ private:
     QString mVersion;
     QString mDescription;
     QString mDescLong;
+    QString mBrandingWindowTitle;
+    QString mBrandingIcon;
     bool mSignedVersion;
 
     Gpg4win()
@@ -161,21 +163,18 @@ private:
         const QString verPath = instPath + QStringLiteral("/../VERSION");
         QFile versionFile(verPath);
 
-        QString versVersion;
-        QString versDescription;
-        QString versDescLong;
         // Open the file first to avoid a verify and then read issue where
         // "auditors" might say its an issue,...
         if (!versionFile.open(QIODevice::ReadOnly)) {
-            // No need to translate this should only be the case in development
-            // builds.
             return;
-        } else {
-            // Expect a three line format of three HTML strings.
-            versVersion = QString::fromUtf8(versionFile.readLine()).trimmed();
-            versDescription = QString::fromUtf8(versionFile.readLine()).trimmed();
-            versDescLong = QString::fromUtf8(versionFile.readLine()).trimmed();
         }
+        // Expect a three line format of three HTML strings.
+        const auto versVersion = QString::fromUtf8(versionFile.readLine()).trimmed();
+        const auto versDescription = QString::fromUtf8(versionFile.readLine()).trimmed();
+        const auto versDescLong = QString::fromUtf8(versionFile.readLine()).trimmed();
+        // read optional two branding strings
+        const auto brandingWindowTitle = QString::fromUtf8(versionFile.readLine()).trimmed();
+        const auto brandingIcon = QString::fromUtf8(versionFile.readLine()).trimmed();
 
         const QString sigPath = verPath + QStringLiteral(".sig");
         QFileInfo versionSig(instPath + QStringLiteral("/../VERSION.sig"));
@@ -193,6 +192,8 @@ private:
                 mVersion = versVersion;
                 mDescription = versDescription;
                 mDescLong = versDescLong;
+                mBrandingWindowTitle = brandingWindowTitle;
+                mBrandingIcon = brandingIcon;
                 mSignedVersion = true;
             } else {
                 qCDebug(LIBKLEO_LOG) << "gpgv failed with stderr: " << gpgv.readAllStandardError();
@@ -221,6 +222,14 @@ public:
     bool isSignedVersion() const
     {
         return mSignedVersion;
+    }
+    const QString &brandingWindowTitle() const
+    {
+        return mBrandingWindowTitle;
+    }
+    const QString &brandingIcon() const
+    {
+        return mBrandingIcon;
     }
 };
 } // namespace
@@ -260,6 +269,15 @@ QString Kleo::gpg4winDescription()
 QString Kleo::gpg4winLongDescription()
 {
     return Gpg4win::instance()->longDescription();
+}
+
+QString Kleo::brandingWindowTitle()
+{
+    return Gpg4win::instance()->brandingWindowTitle();
+}
+QString Kleo::brandingIcon()
+{
+    return Gpg4win::instance()->brandingIcon();
 }
 
 QString Kleo::gpg4winInstallPath()
