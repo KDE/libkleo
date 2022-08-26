@@ -856,15 +856,7 @@ public:
         }
 
         DeVSCompliance::decorate(mOkButton, de_vs);
-        if (de_vs) {
-            mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                                          "%1 communication possible.",
-                                          DeVSCompliance::name(true)));
-        } else {
-            mComplianceLbl->setText(i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                                          "%1 communication not possible.",
-                                          DeVSCompliance::name(true)));
-        }
+        mComplianceLbl->setText(DeVSCompliance::name(de_vs));
         mComplianceLbl->setVisible(true);
     }
 

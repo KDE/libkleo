@@ -1170,17 +1170,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     // There will likely be more in the future for other institutions
     // for now we only have DE-VS
     if (DeVSCompliance::isCompliant()) {
-        if (uidsHaveFullValidity(key) && isKeyDeVs(key)) {
-            return i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
-                         "May be used for %1 communication.",
-                         DeVSCompliance::name(true));
-        } else {
-            return i18nc(
-                "VS-NfD-conforming is a German standard for restricted documents. For which special restrictions about algorithms apply. The string describes "
-                "if a key is compliant to that..",
-                "May <b>not</b> be used for %1 communication.",
-                DeVSCompliance::name(true));
-        }
+        return DeVSCompliance::name(uidsHaveFullValidity(key) && isKeyDeVs(key));
     }
     return QString();
 }
