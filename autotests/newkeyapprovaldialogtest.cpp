@@ -14,6 +14,7 @@
 #include <Libkleo/NewKeyApprovalDialog>
 #include <Libkleo/Predicates>
 #include <Libkleo/Test>
+#include <Libkleo/Compliance>
 
 #include <QCheckBox>
 #include <QGroupBox>
@@ -824,7 +825,7 @@ private Q_SLOTS:
 
         const auto complianceLabel = dialog->findChild<QLabel *>(QStringLiteral("compliance label"));
         verifyWidgetVisibility(complianceLabel, IsVisible);
-        QVERIFY(!complianceLabel->text().contains(" not "));
+        QVERIFY(!complianceLabel->text().contains(DeVSCompliance::name(false)));
     }
 
     void test__vs_de_compliance__not_all_keys_fully_valid()
@@ -850,7 +851,7 @@ private Q_SLOTS:
 
         const auto complianceLabel = dialog->findChild<QLabel *>(QStringLiteral("compliance label"));
         verifyWidgetVisibility(complianceLabel, IsVisible);
-        QVERIFY(complianceLabel->text().contains(" not "));
+        QVERIFY(complianceLabel->text().contains(DeVSCompliance::name(false)));
     }
 
     void test__vs_de_compliance__null_keys_are_ignored()
@@ -876,7 +877,7 @@ private Q_SLOTS:
 
         const auto complianceLabel = dialog->findChild<QLabel *>(QStringLiteral("compliance label"));
         verifyWidgetVisibility(complianceLabel, IsVisible);
-        QVERIFY(!complianceLabel->text().contains(" not "));
+        QVERIFY(!complianceLabel->text().contains(DeVSCompliance::name(false)));
     }
 
     void test__sign_and_encrypt_to_self_only()
