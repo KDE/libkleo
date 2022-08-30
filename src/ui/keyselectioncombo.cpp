@@ -269,7 +269,8 @@ public:
         }
 
         switch (role) {
-        case Qt::DisplayRole: {
+        case Qt::DisplayRole:
+        case Qt::AccessibleTextRole: {
             const auto userID = key.userID(0);
             QString name;
             QString email;
