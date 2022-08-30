@@ -37,7 +37,7 @@ w32_shgetfolderpath(HWND a, int b, HANDLE c, DWORD d, LPSTR e)
     static HRESULT(WINAPI * func)(HWND, int, HANDLE, DWORD, LPSTR);
 
     if (!initialized) {
-        static char *dllnames[] = {"shell32.dll", "shfolder.dll", NULL};
+        static const char *dllnames[] = {"shell32.dll", "shfolder.dll", NULL};
         void *handle;
         int i;
 
