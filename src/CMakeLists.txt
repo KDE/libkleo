@@ -167,6 +167,10 @@ target_sources(KF5Libkleo PRIVATE    # make this a separate lib.
     ui/newkeyapprovaldialog.h
     )
 
+if(MINGW)
+    # we do not care about different signedness of passed pointer arguments
+    set_source_files_properties(utils/gnupg-registry.c PROPERTIES COMPILE_OPTIONS "-Wno-pointer-sign")
+endif()
 
 target_link_libraries(KF5Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
                                                 KF5::I18n
