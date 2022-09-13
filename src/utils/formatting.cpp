@@ -16,6 +16,7 @@
 #include "compliance.h"
 #include "cryptoconfig.h"
 #include "gnupg.h"
+#include "keyhelpers.h"
 
 #include <libkleo/dn.h>
 #include <libkleo/keycache.h>
