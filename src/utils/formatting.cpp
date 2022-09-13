@@ -577,7 +577,12 @@ QString Formatting::accessibleDate(const QDate &date)
 
 QString Formatting::expirationDateString(const Key &key, const QString &noExpiration)
 {
-    return expiration_date_string(key.subkey(0), noExpiration);
+    // if key is remote but has a non-zero expiration date (e.g. a key looked up via WKD),
+    // then we assume that the date is valid; if the date is zero for a remote key, then
+    // we don't know if it's unknown or unlimited
+    return isRemoteKey(key) && (key.subkey(0).expirationTime() == 0) //
+        ? i18nc("@info the expiration date of the key is unknown", "unknown")
+        : expiration_date_string(key.subkey(0), noExpiration);
 }
 
 QString Formatting::expirationDateString(const Subkey &subkey, const QString &noExpiration)
@@ -607,7 +612,12 @@ QDate Formatting::expirationDate(const UserID::Signature &sig)
 
 QString Formatting::accessibleExpirationDate(const Key &key, const QString &noExpiration)
 {
-    return accessibleExpirationDate(key.subkey(0), noExpiration);
+    // if key is remote but has a non-zero expiration date (e.g. a key looked up via WKD),
+    // then we assume that the date is valid; if the date is zero for a remote key, then
+    // we don't know if it's unknown or unlimited
+    return isRemoteKey(key) && (key.subkey(0).expirationTime() == 0) //
+        ? i18nc("@info the expiration date of the key is unknown", "unknown")
+        : accessibleExpirationDate(key.subkey(0), noExpiration);
 }
 
 QString Formatting::accessibleExpirationDate(const Subkey &subkey, const QString &noExpiration)
@@ -1170,7 +1180,9 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     // There will likely be more in the future for other institutions
     // for now we only have DE-VS
     if (DeVSCompliance::isCompliant()) {
-        return DeVSCompliance::name(uidsHaveFullValidity(key) && isKeyDeVs(key));
+        return isRemoteKey(key) //
+            ? i18nc("@info the compliance of the key with certain requirements is unknown", "unknown")
+            : DeVSCompliance::name(uidsHaveFullValidity(key) && isKeyDeVs(key));
     }
     return QString();
 }
