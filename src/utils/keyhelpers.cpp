@@ -60,3 +60,9 @@ std::set<QString> Kleo::getMissingSignerKeyIds(const std::vector<GpgME::Key> &ke
         return keyIds;
     });
 }
+
+bool Kleo::isRemoteKey(const GpgME::Key &key)
+{
+    // a remote key looked up via WKD has key list mode Local; therefore we also look for the key in the local key ring
+    return (key.keyListMode() == GpgME::Extern) || KeyCache::instance()->findByFingerprint(key.primaryFingerprint()).isNull();
+}

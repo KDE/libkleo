@@ -44,4 +44,10 @@ KLEO_EXPORT std::set<QString> getMissingSignerKeyIds(const std::vector<GpgME::Us
 
 KLEO_EXPORT std::set<QString> getMissingSignerKeyIds(const std::vector<GpgME::Key> &keys);
 
+/**
+ * Returns true, if the key \p key is the result of a lookup which is not present
+ * in the local key ring.
+ */
+KLEO_EXPORT bool isRemoteKey(const GpgME::Key &key);
+
 }
