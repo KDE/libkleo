@@ -16,8 +16,6 @@
 
 #include <libkleo_debug.h>
 
-#include <QDebug>
-
 namespace Kleo
 {
 

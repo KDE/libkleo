@@ -18,7 +18,6 @@
 #include <QGpgME/Protocol>
 
 #include <QDialog>
-#include <QPixmap>
 
 #include <gpgme++/key.h>
 

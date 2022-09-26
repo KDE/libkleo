@@ -23,7 +23,6 @@
 
 #include <KLocalizedString>
 
-#include <QInputDialog>
 #include <QListView>
 #include <QMenu>
 #include <QPointer>

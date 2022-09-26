@@ -18,7 +18,6 @@
 #include <QCheckBox>
 #include <QDialogButtonBox>
 #include <QLineEdit>
-#include <QList>
 #include <QObject>
 #include <QPushButton>
 #include <QSpinBox>

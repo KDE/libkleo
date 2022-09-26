@@ -48,7 +48,6 @@
 #include <QSpinBox>
 #include <QStyle>
 #include <QVBoxLayout>
-#include <QWindow>
 
 #include <gpgme.h>
 

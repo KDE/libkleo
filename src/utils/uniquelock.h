@@ -15,7 +15,6 @@
 #include "kleo_export.h"
 
 #include <QMutex>
-#include <QtGlobal>
 
 #include <chrono>
 #include <memory>

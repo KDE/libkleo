@@ -22,7 +22,6 @@
 
 #include <QGpgME/Protocol>
 
-#include <QApplication>
 #include <QComboBox>
 #include <QDialogButtonBox>
 #include <QGridLayout>
@@ -32,7 +31,6 @@
 #include <QScrollArea>
 #include <QStringList>
 #include <QVBoxLayout>
-#include <QWindow>
 
 #include <gpgme++/key.h>
 

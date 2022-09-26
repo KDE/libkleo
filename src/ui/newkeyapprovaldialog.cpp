@@ -45,7 +45,6 @@
 #include <QScrollArea>
 #include <QToolTip>
 #include <QVBoxLayout>
-#include <QWindow>
 
 #include <gpgme++/key.h>
 #include <gpgme++/keygenerationresult.h>

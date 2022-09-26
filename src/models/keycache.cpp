@@ -29,7 +29,6 @@
 
 #include <libkleo_debug.h>
 
-#include <KConfigGroup>
 #include <KSharedConfig>
 
 #include <QGpgME/CryptoConfig>

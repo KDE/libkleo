@@ -14,7 +14,6 @@
 
 #include <QByteArray>
 #include <QtGlobal>
-#include <QOperatingSystemVersion>
 
 // #include "libkleo_debug.h"
 #ifdef Q_OS_WIN

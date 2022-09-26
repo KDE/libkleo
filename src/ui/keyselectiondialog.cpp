@@ -33,7 +33,6 @@
 
 #include <QApplication>
 #include <QCheckBox>
-#include <QDateTime>
 #include <QDialogButtonBox>
 #include <QFrame>
 #include <QHBoxLayout>
@@ -44,7 +43,6 @@
 #include <QPushButton>
 #include <QRegExp>
 #include <QScrollBar>
-#include <QStringBuilder>
 #include <QTimer>
 #include <QVBoxLayout>
 
