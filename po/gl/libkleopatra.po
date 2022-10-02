@@ -1,0 +1,2645 @@
+# translation of libkleopatra.po to galician
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# mvillarino <mvillarino@users.sourceforge.net>, 2007, 2009.
+# Xosé <xosecalvo@gmail.com>, 2008.
+# Xosé <xosecalvo@gmail.com>, 2009, 2010, 2012.
+# Marce Villarino <mvillarino@kde-espana.org>, 2013, 2014.
+# Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2017.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkleopatra\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:46+0000\n"
+"PO-Revision-Date: 2019-11-26 23:18+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.08.3\n"
+
+#: kleo/checksumdefinition.cpp:84
+#, kde-format
+msgid "Error in checksum definition %1: %2"
+msgstr "Produciuse un erro na definición da suma de comprobación %1: %2"
+
+#: kleo/checksumdefinition.cpp:144
+#, kde-format
+msgid "Cannot use both %f and | in '%1'"
+msgstr "Non se pode empregar %f e | xuntos en «%1»"
+
+#: kleo/checksumdefinition.cpp:156
+#, kde-format
+msgid "Quoting error in '%1' entry"
+msgstr "Erro de citado na entrada «%1»"
+
+#: kleo/checksumdefinition.cpp:159
+#, kde-format
+msgid "'%1' too complex (would need shell)"
+msgstr "«%1» é complexa de máis (precisaría dun intérprete de ordes)"
+
+#: kleo/checksumdefinition.cpp:163
+#, kde-format
+msgid "'%1' entry is empty/missing"
+msgstr "A entrada «%1» falta ou está baleira"
+
+#: kleo/checksumdefinition.cpp:172
+#, kde-format
+msgid "'%1' empty or not found"
+msgstr "«%1» está baleira ou non se atopou"
+
+#: kleo/checksumdefinition.cpp:211
+#, kde-format
+msgid "'id' entry is empty/missing"
+msgstr "Falta, ou está baleira, a entrada \"id\""
+
+#: kleo/checksumdefinition.cpp:214
+#, kde-format
+msgid "'output-file' entry is empty/missing"
+msgstr "Falta, ou está baleira, a entrada \"output-file\""
+
+#: kleo/checksumdefinition.cpp:217
+#, kde-format
+msgid "'file-patterns' entry is empty/missing"
+msgstr "Falta, ou está baleira, a entrada \"padróns de ficheiro\""
+
+#: kleo/checksumdefinition.cpp:396
+#, kde-format
+msgid "Caught unknown exception in group %1"
+msgstr "Recolleuse unha excepción descoñecida no grupo %1"
+
+#: kleo/dn.cpp:518
+msgid "Common name"
+msgstr "Nome normal"
+
+#: kleo/dn.cpp:519
+msgid "Surname"
+msgstr "Apelido"
+
+#: kleo/dn.cpp:520
+msgid "Given name"
+msgstr "Nome de pía"
+
+#: kleo/dn.cpp:521
+msgid "Location"
+msgstr "Lugar"
+
+#: kleo/dn.cpp:522
+msgid "Title"
+msgstr "Título"
+
+#: kleo/dn.cpp:523
+msgid "Organizational unit"
+msgstr "Unidade da organización"
+
+#: kleo/dn.cpp:524
+msgid "Organization"
+msgstr "Organización"
+
+#: kleo/dn.cpp:525
+msgid "Postal code"
+msgstr "Código postal"
+
+#: kleo/dn.cpp:526
+msgid "Country code"
+msgstr "Código do país"
+
+#: kleo/dn.cpp:527
+msgid "State or province"
+msgstr "Estado ou provincia"
+
+#: kleo/dn.cpp:528
+msgid "Domain component"
+msgstr "Compoñente de dominio"
+
+#: kleo/dn.cpp:529
+msgid "Business category"
+msgstr "Categoría de negocios"
+
+#: kleo/dn.cpp:530
+msgid "Email address"
+msgstr "Enderezo de correo electrónico"
+
+#: kleo/dn.cpp:531
+msgid "Mail address"
+msgstr "Enderezo de correo"
+
+#: kleo/dn.cpp:532
+msgid "Mobile phone number"
+msgstr "Número de teléfono móbil"
+
+#: kleo/dn.cpp:533
+msgid "Telephone number"
+msgstr "Número de teléfono"
+
+#: kleo/dn.cpp:534
+msgid "Fax number"
+msgstr "Número de fax"
+
+#: kleo/dn.cpp:535
+msgid "Street address"
+msgstr "Enderezo"
+
+#: kleo/dn.cpp:536
+msgid "Unique ID"
+msgstr "Identificador único"
+
+#: kleo/enum.cpp:35
+msgid "Inline OpenPGP (deprecated)"
+msgstr "OpenPGP interno (obsoleto)"
+
+#: kleo/enum.cpp:36
+msgid "OpenPGP/MIME"
+msgstr "OpenPGP/MIME"
+
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:322
+#: ui/newkeyapprovaldialog.cpp:325
+#, kde-format
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: kleo/enum.cpp:38
+msgid "S/MIME Opaque"
+msgstr "S/MIME opaco"
+
+#: kleo/enum.cpp:39
+msgid "Any S/MIME"
+msgstr "Calquera S/MIME"
+
+#: kleo/enum.cpp:40
+msgid "Any OpenPGP"
+msgstr "Calquera OpenPGP"
+
+#: kleo/enum.cpp:72
+#, kde-format
+msgid "Any"
+msgstr "Calquera"
+
+#: kleo/enum.cpp:147
+#, kde-format
+msgid "Never Encrypt"
+msgstr "Non cifrar nunca"
+
+#: kleo/enum.cpp:149
+#, kde-format
+msgid "Always Encrypt"
+msgstr "Cifrar sempre"
+
+#: kleo/enum.cpp:151
+#, kde-format
+msgid "Always Encrypt If Possible"
+msgstr "Cifrar sempre que for posíbel"
+
+#: kleo/enum.cpp:153 kleo/enum.cpp:210
+#, kde-format
+msgid "Ask"
+msgstr "Preguntar"
+
+#: kleo/enum.cpp:155 kleo/enum.cpp:212
+#, kde-format
+msgid "Ask Whenever Possible"
+msgstr "Preguntar cando for posíbel"
+
+#: kleo/enum.cpp:157
+#, kde-kuit-format
+msgctxt "no specific preference"
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>ningún</placeholder>"
+
+#: kleo/enum.cpp:204
+#, kde-format
+msgid "Never Sign"
+msgstr "Non asinar nunca"
+
+#: kleo/enum.cpp:206
+#, kde-format
+msgid "Always Sign"
+msgstr "Asinar sempre"
+
+#: kleo/enum.cpp:208
+#, kde-format
+msgid "Always Sign If Possible"
+msgstr "Asinar sempre que for posíbel"
+
+#: kleo/enum.cpp:214
+#, kde-format
+msgctxt "no specific preference"
+msgid "<none>"
+msgstr "<ningunha>"
+
+#: kleo/keyfiltermanager.cpp:71
+#, kde-format
+msgid "All Certificates"
+msgstr "Todos os certificados"
+
+#: kleo/keyfiltermanager.cpp:86
+#, kde-format
+msgid "My Certificates"
+msgstr "Os meus certificados"
+
+#: kleo/keyfiltermanager.cpp:104
+#, kde-format
+msgid "Trusted Certificates"
+msgstr "Certificados de confianza"
+
+#: kleo/keyfiltermanager.cpp:121
+#, kde-format
+msgid "Fully Trusted Certificates"
+msgstr "Certificados de confianza absoluta"
+
+#: kleo/keyfiltermanager.cpp:138
+#, kde-format
+msgid "Other Certificates"
+msgstr "Outros certificados"
+
+#: kleo/keyfiltermanager.cpp:153
+#, fuzzy, kde-format
+#| msgid "Not validated Certificates"
+msgid "Not Certified Certificates"
+msgstr "Certificados sen validar"
+
+#: kleo/keyfiltermanager.cpp:176
+#, fuzzy, kde-format
+#| msgid "Not validated Certificates"
+msgid "Not Validated Certificates"
+msgstr "Certificados sen validar"
+
+#: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:111
+#, kde-format
+msgid "Name"
+msgstr "Nome"
+
+#: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:112
+#, kde-format
+msgid "E-Mail"
+msgstr "Correo electrónico"
+
+#: models/keylistmodel.cpp:306
+#, kde-format
+msgid "User-IDs"
+msgstr "Identificadores de usuario"
+
+#: models/keylistmodel.cpp:308 models/subkeylistmodel.cpp:159
+#: models/useridlistmodel.cpp:113
+#, kde-format
+msgid "Valid From"
+msgstr "Correcto desde"
+
+#: models/keylistmodel.cpp:310 models/subkeylistmodel.cpp:161
+#: models/useridlistmodel.cpp:114
+#, kde-format
+msgid "Valid Until"
+msgstr "Correcto ata"
+
+#: models/keylistmodel.cpp:312
+#, kde-format
+msgid "Protocol"
+msgstr "Protocolo"
+
+#: models/keylistmodel.cpp:314 models/keylistmodel.cpp:316
+#: utils/formatting.cpp:388
+#, kde-format
+msgid "Key-ID"
+msgstr "ID da chave"
+
+#: models/keylistmodel.cpp:318 utils/formatting.cpp:391
+#, kde-format
+msgid "Fingerprint"
+msgstr "Pegada dixital"
+
+#: models/keylistmodel.cpp:320 utils/formatting.cpp:358
+#, kde-format
+msgid "Issuer"
+msgstr "Emisor"
+
+#: models/keylistmodel.cpp:322
+#, kde-format
+msgid "Serial Number"
+msgstr "Número de serie"
+
+#: models/keylistmodel.cpp:324
+#, kde-format
+msgid "Origin"
+msgstr "Orixe"
+
+#: models/keylistmodel.cpp:326
+#, kde-format
+msgid "Last Update"
+msgstr "Última actualización"
+
+#: models/keylistmodel.cpp:328
+#, kde-format
+msgid "Certification Trust"
+msgstr "Confianza na certificación"
+
+#: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:117
+#, kde-format
+msgid "Tags"
+msgstr ""
+
+#: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:71
+#, fuzzy, kde-format
+#| msgid "Given name"
+msgctxt "text for screen readers for an empty name"
+msgid "no name"
+msgstr "Nome de pía"
+
+#: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:72
+#, kde-format
+msgctxt "text for screen readers for an empty email address"
+msgid "no email"
+msgstr ""
+
+#: models/keylistmodel.cpp:447
+#, fuzzy, kde-format
+#| msgid "Loading keys ..."
+msgid "Loading..."
+msgstr "Cargando as chaves…"
+
+#: models/keylistmodel.cpp:525
+#, kde-format
+msgctxt "text for screen readers"
+msgid "not applicable"
+msgstr ""
+
+#: models/subkeylistmodel.cpp:155
+#, kde-format
+msgid "ID"
+msgstr "Identificador"
+
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:382
+#: utils/formatting.cpp:426
+#, kde-format
+msgid "Type"
+msgstr "Tipo"
+
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:115
+#: utils/formatting.cpp:413 utils/formatting.cpp:415
+#, kde-format
+msgid "Status"
+msgstr "Estado"
+
+#: models/subkeylistmodel.cpp:165
+#, kde-format
+msgid "Strength"
+msgstr "Forza"
+
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:385
+#: utils/formatting.cpp:429
+#, kde-format
+msgid "Usage"
+msgstr "Uso"
+
+#: models/useridlistmodel.cpp:76
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
+#| "whether your language uses Sentence style capitalization in GUI labels "
+#| "(yes) or not (no). Context: We get some backend strings in that have the "
+#| "wrong capitalization (in English, at least) so we need to force the first "
+#| "character to upper-case. It is this behaviour you can control for your "
+#| "language with this translation."
+#| msgid "yes"
+msgctxt "yes, is exportable"
+msgid "yes"
+msgstr "si"
+
+#: models/useridlistmodel.cpp:76
+#, kde-format
+msgctxt "no, is not exportable"
+msgid "no"
+msgstr ""
+
+#: models/useridlistmodel.cpp:77
+#, fuzzy, kde-format
+#| msgctxt "no specific preference"
+#| msgid "<none>"
+msgctxt "accessible text for empty list of tags"
+msgid "none"
+msgstr "<ningunha>"
+
+#: models/useridlistmodel.cpp:79
+#, kde-format
+msgid "not applicable"
+msgstr ""
+
+#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
+#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
+#: models/useridlistmodel.cpp:97 models/useridlistmodel.cpp:98
+#: models/useridlistmodel.cpp:99 models/useridlistmodel.cpp:101
+#: ui/keyselectiondialog.cpp:194
+#, kde-format
+msgid "User ID"
+msgstr "Identificador de usuario"
+
+#: models/useridlistmodel.cpp:110
+#, kde-format
+msgid "User ID / Certification Key ID"
+msgstr ""
+
+#: models/useridlistmodel.cpp:116
+#, kde-format
+msgid "Exportable"
+msgstr ""
+
+#: models/useridlistmodel.cpp:119
+#, kde-format
+msgid "Trust Signature For"
+msgstr ""
+
+#: models/useridlistmodel.cpp:175 utils/formatting.cpp:801
+#, kde-format
+msgid "class %1"
+msgstr "clase %1"
+
+#: ui/auditlogviewer.cpp:47
+#, fuzzy, kde-format
+#| msgid "View GnuPG Audit Log"
+msgctxt "@title:window"
+msgid "View GnuPG Audit Log"
+msgstr "Ver o rexistro da auditoría de GnuPG"
+
+#: ui/auditlogviewer.cpp:50
+#, kde-format
+msgid "&Copy to Clipboard"
+msgstr "&Copiar no portapapeis"
+
+#: ui/auditlogviewer.cpp:55
+#, kde-format
+msgid "&Save to Disk..."
+msgstr "Gardar no di&sco…"
+
+#: ui/auditlogviewer.cpp:103
+#, kde-format
+msgid "Choose File to Save GnuPG Audit Log to"
+msgstr "Escoller o ficheiro no que gardar o ficheiro de auditoría de GnuPG"
+
+#: ui/auditlogviewer.cpp:122
+#, kde-format
+msgid "Could not save to file \"%1\": %2"
+msgstr "Non se puido gardar no ficheiro «%1»: %2"
+
+#: ui/auditlogviewer.cpp:122
+#, kde-format
+msgid "File Save Error"
+msgstr "Ocorreu un erro ao gardar o ficheiro"
+
+#: ui/cryptoconfigentryreaderport.cpp:45
+#, kde-format
+msgctxt "@label:listbox Reader for smart cards"
+msgid "Reader to connect to"
+msgstr ""
+
+#: ui/cryptoconfigmodule.cpp:165
+#, kde-format
+msgid "GpgConf Error"
+msgstr "Erro de GpgConf"
+
+#: ui/cryptoconfigmodule.cpp:222
+#, kde-format
+msgid ""
+"The gpgconf tool used to provide the information for this dialog does not "
+"seem to be installed properly. It did not return any components. Try running "
+"\"%1\" on the command line for more information."
+msgstr ""
+"Parece que a ferramenta gpgconf empregada para fornecer a información deste "
+"diálogo non está instalada axeitadamente. Non devolveu ningún compoñente. "
+"Intente executar «%1» na liña de ordes para máis información."
+
+#: ui/cryptoconfigmodule.cpp:651
+#, kde-format
+msgctxt ""
+"Translate this to 'yes' or 'no' (use the English words!) depending on "
+"whether your language uses Sentence style capitalization in GUI labels (yes) "
+"or not (no). Context: We get some backend strings in that have the wrong "
+"capitalization (in English, at least) so we need to force the first "
+"character to upper-case. It is this behaviour you can control for your "
+"language with this translation."
+msgid "yes"
+msgstr "si"
+
+#: ui/cryptoconfigmodule.cpp:705
+msgid "0 - None"
+msgstr "0 - Nada"
+
+#: ui/cryptoconfigmodule.cpp:706
+msgid "1 - Basic"
+msgstr "1 - Básico"
+
+#: ui/cryptoconfigmodule.cpp:707
+msgid "2 - Verbose"
+msgstr "2 - Detallado"
+
+#: ui/cryptoconfigmodule.cpp:708
+msgid "3 - More Verbose"
+msgstr "3 - Máis detallado"
+
+#: ui/cryptoconfigmodule.cpp:709
+msgid "4 - All"
+msgstr "4 - Todo"
+
+#: ui/cryptoconfigmodule.cpp:721
+#, kde-format
+msgid "Set the debugging level to"
+msgstr "Configurar o nivel de depuración como"
+
+#: ui/cryptoconfigmodule.cpp:944
+#, kde-format
+msgid "Show..."
+msgstr "Mostrar…"
+
+#: ui/cryptoconfigmodule.cpp:944
+#, kde-format
+msgid "Edit..."
+msgstr "Editar…"
+
+#: ui/cryptoconfigmodule.cpp:997
+#, kde-format
+msgid ""
+"Configuration of directory services is not possible because the used gpgme "
+"libraries are too old."
+msgstr ""
+
+#: ui/cryptoconfigmodule.cpp:999
+#, kde-format
+msgid "Sorry"
+msgstr ""
+
+#: ui/cryptoconfigmodule.cpp:1006
+#, fuzzy, kde-format
+#| msgid "Add or Change Directory Service"
+msgctxt "@title:window"
+msgid "Configure Directory Services"
+msgstr "Engadir ou mudar o servizo de directorio"
+
+#: ui/cryptoconfigmodule.cpp:1035
+#, kde-format
+msgid "None configured"
+msgstr "Ningún configurado"
+
+#: ui/cryptoconfigmodule.cpp:1037
+#, kde-format
+msgid "1 server configured"
+msgid_plural "%1 servers configured"
+msgstr[0] "configurouse un servidor"
+msgstr[1] "Configuráronse %1 servidores"
+
+#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
+#, kde-format
+msgid "Active Directory"
+msgstr ""
+
+#: ui/directoryserviceswidget.cpp:187
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is a list of all directory services that are configured for use with "
+#| "X.509."
+msgctxt "@info:whatsthis"
+msgid ""
+"This is a list of all directory services that are configured for use with "
+"X.509."
+msgstr ""
+"Esta é unha lista de todos os servizos de directorio configurados para usar "
+"con X.509."
+
+#: ui/directoryserviceswidget.cpp:197
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Click to use a directory service running on your Active Directory. This "
+"works only on Windows and requires GnuPG 2.2.28 or later."
+msgstr ""
+
+#: ui/directoryserviceswidget.cpp:200
+#, fuzzy, kde-format
+#| msgid "Configure LDAP Servers"
+msgid "LDAP Server"
+msgstr "Configurar os servidores de LDAP"
+
+#: ui/directoryserviceswidget.cpp:203
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service provided by an LDAP server."
+msgstr ""
+
+#: ui/directoryserviceswidget.cpp:205
+#, kde-format
+msgid "Add"
+msgstr ""
+
+#: ui/directoryserviceswidget.cpp:206
+#, fuzzy, kde-format
+#| msgid "Click to add a service"
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service."
+msgstr "Prema para engadir un servizo"
+
+#: ui/directoryserviceswidget.cpp:208
+#, fuzzy, kde-format
+#| msgid ""
+#| "Click this button to remove the currently selected directory service. The "
+#| "change will only take effect once you acknowledge the main configuration "
+#| "dialog."
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to add a directory service to the list of services. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+"Prema este botón para retirar o servizo de directorio agora escollido. O "
+"cambio só será efectivo cando confirme o diálogo de configuración principal."
+
+#: ui/directoryserviceswidget.cpp:216
+#, fuzzy, kde-format
+#| msgid "Edit..."
+msgid "Edit"
+msgstr "Editar…"
+
+#: ui/directoryserviceswidget.cpp:217
+#, fuzzy, kde-format
+#| msgid "Click to remove the currently selected service"
+msgctxt "@info:tooltip"
+msgid "Click to edit the selected service."
+msgstr "Prema para retirar o servizo actualmente escollido"
+
+#: ui/directoryserviceswidget.cpp:219
+#, fuzzy, kde-format
+#| msgid ""
+#| "Click this button to remove the currently selected directory service. The "
+#| "change will only take effect once you acknowledge the main configuration "
+#| "dialog."
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to edit the settings of the currently selected directory "
+"service. The changes will only take effect once you acknowledge the "
+"configuration dialog."
+msgstr ""
+"Prema este botón para retirar o servizo de directorio agora escollido. O "
+"cambio só será efectivo cando confirme o diálogo de configuración principal."
+
+#: ui/directoryserviceswidget.cpp:224
+#, kde-format
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ui/directoryserviceswidget.cpp:225
+#, fuzzy, kde-format
+#| msgid "Click to remove the currently selected service"
+msgctxt "@info:tooltip"
+msgid "Click to remove the selected service."
+msgstr "Prema para retirar o servizo actualmente escollido"
+
+#: ui/directoryserviceswidget.cpp:227
+#, fuzzy, kde-format
+#| msgid ""
+#| "Click this button to remove the currently selected directory service. The "
+#| "change will only take effect once you acknowledge the main configuration "
+#| "dialog."
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to remove the currently selected directory service. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+"Prema este botón para retirar o servizo de directorio agora escollido. O "
+"cambio só será efectivo cando confirme o diálogo de configuración principal."
+
+#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
+#, fuzzy, kde-format
+#| msgid "X509 Directory services:"
+msgctxt "@title:window"
+msgid "LDAP Directory Service"
+msgstr "Servizos de directorio de X509:"
+
+#: ui/dnattributeorderconfigwidget.cpp:73
+#, kde-format
+msgid "Description"
+msgstr "Descrición"
+
+#: ui/dnattributeorderconfigwidget.cpp:88
+#, kde-format
+msgid "Available attributes:"
+msgstr "Atributos dispoñíbeis:"
+
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgid "Current attribute order:"
+msgstr "Orde actual dos atributos:"
+
+#: ui/dnattributeorderconfigwidget.cpp:98
+#, fuzzy, kde-format
+#| msgid "Available attributes:"
+msgid "available attributes"
+msgstr "Atributos dispoñíbeis:"
+
+#: ui/dnattributeorderconfigwidget.cpp:105
+#: ui/dnattributeorderconfigwidget.cpp:106
+#, kde-format
+msgid "All others"
+msgstr "Todos os demais"
+
+#: ui/dnattributeorderconfigwidget.cpp:118
+#, fuzzy
+#| msgctxt "fake/invalid signature"
+#| msgid "bad"
+msgctxt "@action:button"
+msgid "Add"
+msgstr "malo"
+
+#: ui/dnattributeorderconfigwidget.cpp:119
+msgid "Add to current attribute order"
+msgstr "Engadir á orde actual de atributos"
+
+#: ui/dnattributeorderconfigwidget.cpp:125
+#, fuzzy
+#| msgid "Remove Filter"
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "Retirar o filtro"
+
+#: ui/dnattributeorderconfigwidget.cpp:126
+msgid "Remove from current attribute order"
+msgstr "Retirar da orde actual de atributos"
+
+#: ui/dnattributeorderconfigwidget.cpp:132
+#, fuzzy
+#| msgid "Move to top"
+msgctxt "@action:button"
+msgid "Move to Top"
+msgstr "Mover ao inicio"
+
+#: ui/dnattributeorderconfigwidget.cpp:133
+msgid "Move to top"
+msgstr "Mover ao inicio"
+
+#: ui/dnattributeorderconfigwidget.cpp:139
+#, fuzzy
+#| msgid "Move to top"
+msgctxt "@action:button"
+msgid "Move Up"
+msgstr "Mover ao inicio"
+
+#: ui/dnattributeorderconfigwidget.cpp:140
+msgid "Move one up"
+msgstr "Subir"
+
+#: ui/dnattributeorderconfigwidget.cpp:146
+#, fuzzy
+#| msgid "Move one down"
+msgctxt "@action:button"
+msgid "Move Down"
+msgstr "Baixar"
+
+#: ui/dnattributeorderconfigwidget.cpp:147
+msgid "Move one down"
+msgstr "Baixar"
+
+#: ui/dnattributeorderconfigwidget.cpp:153
+#, fuzzy
+#| msgid "Move to bottom"
+msgctxt "@action:button"
+msgid "Move to Bottom"
+msgstr "Mover á fin"
+
+#: ui/dnattributeorderconfigwidget.cpp:154
+msgid "Move to bottom"
+msgstr "Mover á fin"
+
+#: ui/dnattributeorderconfigwidget.cpp:184
+#, fuzzy, kde-format
+#| msgid "Current attribute order:"
+msgid "current attribute order"
+msgstr "Orde actual dos atributos:"
+
+#: ui/editdirectoryservicedialog.cpp:99
+#, kde-format
+msgid "Host:"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:100
+#, fuzzy, kde-format
+#| msgid ""
+#| "Enter the name or IP address of the server hosting the directory service."
+msgctxt "@info:tooltip"
+msgid ""
+"Enter the name or IP address of the server hosting the directory service."
+msgstr ""
+"Insira o nome ou enderezo de IP do servidor que alberga o servizo de "
+"directorio."
+
+#: ui/editdirectoryservicedialog.cpp:104
+#, fuzzy, kde-format
+#| msgid "&Port:"
+msgid "Port:"
+msgstr "&Porto:"
+
+#: ui/editdirectoryservicedialog.cpp:107
+#, fuzzy, kde-format
+#| msgid ""
+#| "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
+#| "the directory service is listening on."
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, the default is fine in most cases)</b> Pick the port number "
+"the directory service is listening on."
+msgstr ""
+"<b>(Opcional, o predeterminado vai ben na maioría dos casos)</b> Escolla o "
+"número do porto do polo que escoita o servizo de directorio."
+
+#: ui/editdirectoryservicedialog.cpp:110
+#, kde-format
+msgid "Use default"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:116
+#, fuzzy, kde-format
+#| msgid "SSH Authentication"
+msgid "Authentication"
+msgstr "Autenticación SSH"
+
+#: ui/editdirectoryservicedialog.cpp:120
+#, kde-format
+msgid "Anonymous"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:121
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Use an anonymous LDAP server that does not require authentication."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:127
+#, kde-format
+msgid "Authenticate via Active Directory"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:129
+#, kde-format
+msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:132
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"On Windows, authenticate to the LDAP server using the Active Directory with "
+"the current user."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:137
+#, kde-format
+msgid "Authenticate with user and password"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:138
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Authenticate to the LDAP server with your LDAP credentials."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:148
+#, fuzzy, kde-format
+#| msgid "User ID"
+msgid "User:"
+msgstr "Identificador de usuario"
+
+#: ui/editdirectoryservicedialog.cpp:149
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:153
+#, fuzzy, kde-format
+#| msgid "Password"
+msgid "Password:"
+msgstr "Contrasinal"
+
+#: ui/editdirectoryservicedialog.cpp:155
+#, fuzzy, kde-kuit-format
+#| msgid ""
+#| "<b>(Optional, not recommended)</b> Enter your password here, if needed. "
+#| "Note that the password will be saved in the clear in a config file in "
+#| "your home directory."
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your password for authenticating to the LDAP server.<nl/><warning>The "
+"password will be saved in the clear in a configuration file in your home "
+"directory.</warning>"
+msgstr ""
+"<b>(Opcional, non recomendado)</b> Insira aquí o seu contrasinal, se o "
+"precisa. Teña en conta que o contrasinal se gardará sen cifrar nun ficheiro "
+"de configuración no seu directorio persoal."
+
+#: ui/editdirectoryservicedialog.cpp:165
+#, kde-format
+msgid "Connection Security"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:167
+#, kde-format
+msgid "Connection Security (requires GnuPG 2.2.28 or later)"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:172
+#, kde-format
+msgid "Use default connection (probably not TLS secured)"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:174
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
+"earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:182
+#, kde-format
+msgid "Do not use a TLS secured connection"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:184
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a plain, not TLS secured connection to connect to the LDAP server. "
+"<b>(Not recommended)</b>"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:190
+#, kde-format
+msgid "Use TLS secured connection"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:192
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a standard TLS secured connection (initiated with STARTTLS) to connect "
+"to the LDAP server. <b>(Recommended)</b>"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:199
+#, kde-format
+msgid "Tunnel LDAP through a TLS connection"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:201
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a TLS secured connection through which the connection to the LDAP server "
+"is tunneled. <b>(Not recommended)</b>"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:210
+#, kde-format
+msgid "Advanced Settings"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:215
+#, fuzzy, kde-format
+#| msgid "&Base DN:"
+msgid "Base DN:"
+msgstr "DN &base:"
+
+#: ui/editdirectoryservicedialog.cpp:217
+#, fuzzy, kde-format
+#| msgid ""
+#| "<b>(Only for LDAP)</b> Enter the base DN for this LDAP server to limit "
+#| "searches to only that subtree of the directory."
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
+"server to limit searches to only that subtree of the directory."
+msgstr ""
+"<b>(Só para LDAP)</b> Insira o DN base deste servidor de LDAP para que "
+"limite as buscas só a esa subárbore do directorio."
+
+#: ui/editdirectoryservicedialog.cpp:223
+#, kde-format
+msgid "Additional flags:"
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:225
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Here you can enter additional flags that are not yet (or no longer) "
+"supported by Kleopatra. For example, older versions of GnuPG use "
+"<code>ldaps</code> to request a TLS secured connection."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:395
+#, fuzzy, kde-format
+#| msgid "X509 Directory services:"
+msgctxt "@title:window"
+msgid "Edit Directory Service"
+msgstr "Servizos de directorio de X509:"
+
+#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#, kde-format
+msgid "Open file dialog"
+msgstr ""
+
+#: ui/keyapprovaldialog.cpp:76
+#, kde-kuit-format
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>ningún</placeholder>"
+
+#: ui/keyapprovaldialog.cpp:77
+#, kde-format
+msgid "Never Encrypt with This Key"
+msgstr "Non cifrar nunca con esta chave"
+
+#: ui/keyapprovaldialog.cpp:78
+#, kde-format
+msgid "Always Encrypt with This Key"
+msgstr "Cifrar sempre con esta chave"
+
+#: ui/keyapprovaldialog.cpp:79
+#, kde-format
+msgid "Encrypt Whenever Encryption is Possible"
+msgstr "Cifrar cando o cifrado for posíbel"
+
+#: ui/keyapprovaldialog.cpp:80
+#, kde-format
+msgid "Always Ask"
+msgstr "Preguntar sempre"
+
+#: ui/keyapprovaldialog.cpp:81
+#, kde-format
+msgid "Ask Whenever Encryption is Possible"
+msgstr "Preguntar cando o cifrado for posíbel"
+
+#: ui/keyapprovaldialog.cpp:102
+#, fuzzy, kde-format
+#| msgid "Encryption Key Approval"
+msgctxt "@title:window"
+msgid "Encryption Key Approval"
+msgstr "Aprobación da chave de cifrado"
+
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgid "The following keys will be used for encryption:"
+msgstr "Empregaranse as seguintes chaves para o cifrado:"
+
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgid "Your keys:"
+msgstr "As súas chaves:"
+
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgid "Recipient:"
+msgstr "Destinatario:"
+
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgid "Encryption keys:"
+msgstr "Chaves de cifrado:"
+
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgid "Encryption preference:"
+msgstr "Preferencia de cifrado:"
+
+#: ui/keyrequester.cpp:79
+#, kde-format
+msgid "Clear"
+msgstr "Limpar"
+
+#: ui/keyrequester.cpp:82
+#, kde-format
+msgid "Change..."
+msgstr "Cambiar…"
+
+#: ui/keyrequester.cpp:194 ui/keyselectiondialog.cpp:220
+#, kde-kuit-format
+msgid "<placeholder>unknown</placeholder>"
+msgstr "<placeholder>descoñecido</placeholder>"
+
+#: ui/keyrequester.cpp:209 ui/keyselectiondialog.cpp:670
+#, kde-format
+msgid ""
+"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
+"%1</b></p></qt>"
+msgstr ""
+"<qt><p>Produciuse un erro ao obter as chaves da infraestrutura:</p><p><b>%1</"
+"b></p></qt>"
+
+#: ui/keyrequester.cpp:214 ui/keyrequester.cpp:247 ui/keyrequester.cpp:269
+#: ui/keyselectiondialog.cpp:639 ui/keyselectiondialog.cpp:675
+#, kde-format
+msgid "Key Listing Failed"
+msgstr "Fallou o listar as chaves"
+
+#: ui/keyrequester.cpp:245
+#, kde-format
+msgid ""
+"The OpenPGP backend does not support listing keys. Check your installation."
+msgstr ""
+"A infraestrutura de OpenPGP non admite listar as chaves. Comprobe a "
+"instalación."
+
+#: ui/keyrequester.cpp:267
+#, kde-format
+msgid ""
+"The S/MIME backend does not support listing keys. Check your installation."
+msgstr ""
+"A infraestrutura de S/MIME non admite listar as chaves. Comprobe a "
+"instalación."
+
+#: ui/keyrequester.cpp:387
+#, kde-format
+msgid "OpenPGP Key Selection"
+msgstr "Escolla de chave OpenPGP"
+
+#: ui/keyrequester.cpp:388
+#, kde-format
+msgid "Please select an OpenPGP key to use."
+msgstr "Por favor, escolla unha chave OpenPGP para empregala."
+
+#: ui/keyrequester.cpp:390
+#, kde-format
+msgid "S/MIME Key Selection"
+msgstr "Escolla de chave S/MIME"
+
+#: ui/keyrequester.cpp:391
+#, kde-format
+msgid "Please select an S/MIME key to use."
+msgstr "Por favor, escolla unha chave S/MIME para empregala."
+
+#: ui/keyrequester.cpp:393
+#, kde-format
+msgid "Key Selection"
+msgstr "Escolla de chave"
+
+#: ui/keyrequester.cpp:394
+#, kde-format
+msgid "Please select an (OpenPGP or S/MIME) key to use."
+msgstr "Por favor, escolla unha chave (OpenPGP ou S/MIME) para empregala."
+
+#: ui/keyselectioncombo.cpp:286
+#, kde-format
+msgctxt "Name <email>"
+msgid "%1 <%2>"
+msgstr "%1 <%2>"
+
+#: ui/keyselectioncombo.cpp:289
+#, fuzzy, kde-format
+#| msgctxt "(validity, protocol, creation date)"
+#| msgid "(%1, %2, created: %3)"
+msgctxt "Name <email> (validity, created: date)"
+msgid "%1 (%2, created: %3)"
+msgstr "(%1, %2, creado: %3)"
+
+#: ui/keyselectioncombo.cpp:295
+#, fuzzy, kde-format
+#| msgctxt "Name <email> (validity, type, created: date)"
+#| msgid "%1 (%2, %3 created: %4)"
+msgctxt "Name <email> (validity, type, created: date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1 (%2, %3 creado: %4)"
+
+#: ui/keyselectioncombo.cpp:608
+#, kde-format
+msgid "Loading keys ..."
+msgstr "Cargando as chaves…"
+
+#: ui/keyselectiondialog.cpp:70
+#, kde-format
+msgid "The key is not valid."
+msgstr "A chave non é válida."
+
+#: ui/keyselectiondialog.cpp:78
+#, kde-format
+msgid "The key is expired."
+msgstr "A chave caducou."
+
+#: ui/keyselectiondialog.cpp:82
+#, kde-format
+msgid "The key is revoked."
+msgstr "A chave está revogada."
+
+#: ui/keyselectiondialog.cpp:86
+#, kde-format
+msgid "The key is disabled."
+msgstr "Desactivouse a chave."
+
+#: ui/keyselectiondialog.cpp:93
+#, kde-format
+msgid "The key is not designated for encryption."
+msgstr "A chave non está designada para cifrar."
+
+#: ui/keyselectiondialog.cpp:98
+#, kde-format
+msgid "The key is not designated for signing."
+msgstr "A chave non está designada para asinar."
+
+#: ui/keyselectiondialog.cpp:103
+#, kde-format
+msgid "The key is not designated for certifying."
+msgstr "A chave non está designada para certificar."
+
+#: ui/keyselectiondialog.cpp:108
+#, kde-format
+msgid "The key is not designated for authentication."
+msgstr "A chave non está designada para autenticar."
+
+#: ui/keyselectiondialog.cpp:114
+#, kde-format
+msgid "The key is not secret."
+msgstr "A chave non é secreta."
+
+#: ui/keyselectiondialog.cpp:129
+#, kde-format
+msgid "The key is not trusted enough."
+msgstr "Non se confía dabondo na chave."
+
+#: ui/keyselectiondialog.cpp:135
+#, kde-format
+msgid "The key can be used."
+msgstr "A chave pode usarse."
+
+#: ui/keyselectiondialog.cpp:192
+#, kde-format
+msgid "Key ID"
+msgstr "Identificador da chave"
+
+#: ui/keyselectiondialog.cpp:266 ui/keyselectiondialog.cpp:268
+#: ui/keyselectiondialog.cpp:277 ui/keyselectiondialog.cpp:279
+#, kde-format
+msgid "unknown"
+msgstr "descoñecido"
+
+#: ui/keyselectiondialog.cpp:266
+#, kde-format
+msgid "OpenPGP key for <b>%1</b>"
+msgstr "Chave OpenPGP para <b>%1</b>"
+
+#: ui/keyselectiondialog.cpp:268
+#, kde-format
+msgid "S/MIME key for <b>%1</b>"
+msgstr "Chave S/MIME para <b>%1</b>"
+
+#: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
+#: utils/formatting.cpp:418
+#, fuzzy, kde-format
+#| msgid "Valid From"
+msgid "Valid from"
+msgstr "Correcto desde"
+
+#: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
+#: utils/formatting.cpp:421
+#, fuzzy, kde-format
+#| msgid "Valid Until"
+msgid "Valid until"
+msgstr "Correcto ata"
+
+#: ui/keyselectiondialog.cpp:277
+#, kde-format
+msgctxt "Key fingerprint"
+msgid "Fingerprint"
+msgstr "Pegada dixital"
+
+#: ui/keyselectiondialog.cpp:279
+#, kde-format
+msgctxt "Key issuer"
+msgid "Issuer"
+msgstr "Emisor"
+
+#: ui/keyselectiondialog.cpp:281
+#, kde-format
+msgctxt "Key status"
+msgid "Status"
+msgstr "Estado"
+
+#: ui/keyselectiondialog.cpp:416
+#, kde-format
+msgid "Search for &External Certificates"
+msgstr "Buscar certificados &externos"
+
+#: ui/keyselectiondialog.cpp:430
+#, kde-format
+msgid "&Search for:"
+msgstr "Bu&scar:"
+
+#: ui/keyselectiondialog.cpp:455
+#, kde-format
+msgid "&Remember choice"
+msgstr "Lembra&r a escolla"
+
+#: ui/keyselectiondialog.cpp:458
+#, kde-format
+msgid ""
+"<qt><p>If you check this box your choice will be stored and you will not be "
+"asked again.</p></qt>"
+msgstr ""
+"<qt><p>Se marca esta opción, a súa escolla almacenarase e non se lle volverá "
+"preguntar de novo.</p></qt>"
+
+#: ui/keyselectiondialog.cpp:472
+#, kde-format
+msgid "&Reread Keys"
+msgstr "Rele&r as chaves"
+
+#: ui/keyselectiondialog.cpp:477
+#, kde-format
+msgid "&Start Certificate Manager"
+msgstr "Iniciar o xe&stor de certificados"
+
+#: ui/keyselectiondialog.cpp:637
+#, kde-format
+msgid "No backends found for listing keys. Check your installation."
+msgstr ""
+"Non se atoparon infraestruturas para listar as chaves. Comprobe a "
+"instalación."
+
+#: ui/keyselectiondialog.cpp:655
+#, kde-format
+msgid "Could not start certificate manager; please check your installation."
+msgstr "Non se puido iniciar o xestor de certificados, comprobe a instalación."
+
+#: ui/keyselectiondialog.cpp:657
+#, kde-format
+msgid "Certificate Manager Error"
+msgstr "Produciuse un erro no xestor de certificados"
+
+#: ui/keyselectiondialog.cpp:714
+#, kde-format
+msgid "Checking selected keys..."
+msgstr "Estanse a comprobar as chaves escollidas…"
+
+#: ui/keyselectiondialog.cpp:714
+#, kde-format
+msgid "Fetching keys..."
+msgstr "Estanse a obter as chaves…"
+
+#: ui/keyselectiondialog.cpp:746
+#, kde-format
+msgid ""
+"<qt>One backend returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgid_plural ""
+"<qt>%1 backends returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgstr[0] ""
+"<qt>Unha infraestrutura devolveu unha saída cortada.<p>Non se mostran todas "
+"as chaves dispoñíbeis</p></qt>"
+msgstr[1] ""
+"<qt>%1 infraestruturas devolveron unha saída cortada.<p>Non se mostran todas "
+"as chaves dispoñíbeis</p></qt>"
+
+#: ui/keyselectiondialog.cpp:751
+#, kde-format
+msgid "Key List Result"
+msgstr "Resultado de listar as chaves"
+
+#: ui/keyselectiondialog.cpp:873
+#, kde-format
+msgid "Recheck Key"
+msgstr "Volver comprobar a chave"
+
+#: ui/messagebox.cpp:46
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "O seu sistema non admite os rexistros de auditoría de GnuPG"
+
+#: ui/messagebox.cpp:46
+#, kde-format
+msgid "System Error"
+msgstr "Erro do sistema"
+
+#: ui/messagebox.cpp:54
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"Produciuse un erro ao intentar recuperar o rexistro de auditoría de GnuPG:\n"
+"%1"
+
+#: ui/messagebox.cpp:55
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "Erro de rexistros de auditoría de GnuPG"
+
+#: ui/messagebox.cpp:62
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "Non se dispón de rexistro de auditoría de GnuPG para esta operación."
+
+#: ui/messagebox.cpp:62
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Non hai rexistros de auditoría de GnuPG"
+
+#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "Visor de rexistros de auditoría de GnuPG"
+
+#: ui/messagebox.cpp:94
+#, kde-format
+msgid "Signing failed: %1"
+msgstr "Fallou a sinatura: %1"
+
+#: ui/messagebox.cpp:95
+#, kde-format
+msgid "Signing successful"
+msgstr "Asinouse sen problemas"
+
+#: ui/messagebox.cpp:106
+#, kde-format
+msgid "Encryption failed: %1"
+msgstr "Fallou o cifrado: %1"
+
+#: ui/messagebox.cpp:107
+#, kde-format
+msgid "Encryption successful"
+msgstr "Completouse o cifrado"
+
+#: ui/messagebox.cpp:128
+#, kde-format
+msgid "Signing Result"
+msgstr "Resultado da sinatura"
+
+#: ui/messagebox.cpp:140
+#, kde-format
+msgid "Signing Error"
+msgstr "Produciuse un erro de sinatura"
+
+#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
+#, kde-format
+msgid "Encryption Result"
+msgstr "Resultado do cifrado"
+
+#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
+#, kde-format
+msgid "Encryption Error"
+msgstr "Produciuse un erro de cifrado"
+
+#: ui/messagebox.cpp:246
+#, kde-format
+msgid "&Show Audit Log"
+msgstr "Mo&strar o rexistro da auditoría"
+
+#: ui/newkeyapprovaldialog.cpp:139
+#, fuzzy, kde-format
+#| msgid "Details"
+msgctxt "@action:button"
+msgid "Show Details"
+msgstr "Detalles"
+
+#: ui/newkeyapprovaldialog.cpp:181
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Matching Keys"
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:182
+#, kde-format
+msgid "Show keys matching the email address"
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:185
+#, kde-format
+msgctxt "@action:button short for 'Show all keys'"
+msgid "Show All"
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:186
+#, kde-format
+msgid "Show all keys"
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:289
+#, kde-format
+msgctxt ""
+"@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
+"does not yet have an OpenPGP or S/MIME key."
+msgid ""
+"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
+"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"this key and the protected key will be stored in your home directory."
+msgstr ""
+"Xerar unha nova chave usando o seu enderezo de correo electrónico.<br/><br/> "
+"A chave necesítase para descifrar e asinar mensaxes de correo electrónico. "
+"Solicitaráselle unha frase de paso para protexer a chave e a chave protexida "
+"almacenarase no seu directorio persoal."
+
+#: ui/newkeyapprovaldialog.cpp:314
+#, fuzzy, kde-format
+#| msgid "Security approval"
+msgctxt "@title:window"
+msgid "Security approval"
+msgstr "Aprobación seguranza"
+
+#: ui/newkeyapprovaldialog.cpp:321 ui/newkeyapprovaldialog.cpp:324
+#: utils/formatting.cpp:692
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:408
+#, kde-format
+msgid "Generating key for '%1'..."
+msgstr "Xerando unha chave para «%1»…"
+
+#: ui/newkeyapprovaldialog.cpp:408
+#, kde-format
+msgid "This can take several minutes."
+msgstr "Isto pode tardar varios minutos…"
+
+#: ui/newkeyapprovaldialog.cpp:410
+#, fuzzy, kde-format
+#| msgid "Key generation"
+msgctxt "@title:window"
+msgid "Key generation"
+msgstr "Xeración de chaves"
+
+#: ui/newkeyapprovaldialog.cpp:441
+#, kde-format
+msgid "Operation Failed"
+msgstr "A operación fallou"
+
+#: ui/newkeyapprovaldialog.cpp:556 ui/newkeyapprovaldialog.cpp:652
+#, kde-format
+msgid "Generate a new key pair"
+msgstr "Xerar unha nova parella de chaves"
+
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgid "Don't confirm identity and integrity"
+msgstr "Non confirmar a identidade e a integridade"
+
+#: ui/newkeyapprovaldialog.cpp:561
+#, kde-format
+msgctxt "@info:tooltip for not selecting a key for signing."
+msgid "The E-Mail will not be cryptographically signed."
+msgstr ""
+"A mensaxe de correo electrónico non se asinará de maneira criptográfica."
+
+#: ui/newkeyapprovaldialog.cpp:579
+#, kde-format
+msgctxt "Caption for signing key selection"
+msgid "Confirm identity '%1' as:"
+msgstr "Confirmar a identidade «%1» como:"
+
+#: ui/newkeyapprovaldialog.cpp:656
+#, kde-format
+msgid "No key. Recipient will be unable to decrypt."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:659
+#, kde-format
+msgctxt "@info:tooltip for No Key selected for a specific recipient."
+msgid ""
+"Do not select a key for this recipient.<br/><br/>The recipient will receive "
+"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"selected in this dialog."
+msgstr ""
+"Non seleccionar unha chave para este destinatario.<br/><br/> O destinatario "
+"recibirá a mensaxe de correo electrónico cifrada, pero só pode descifrarse "
+"co resto de chaves seleccionadas neste diálogo."
+
+#: ui/newkeyapprovaldialog.cpp:776
+#, fuzzy, kde-format
+#| msgid "Encrypt to:"
+msgctxt "Encrypt to self (email address):"
+msgid "Encrypt to self (%1):"
+msgstr "Cifrar para:"
+
+#: ui/newkeyapprovaldialog.cpp:793
+#, fuzzy, kde-format
+#| msgid "Encrypt to:"
+msgid "Encrypt to others:"
+msgstr "Cifrar para:"
+
+#: ui/newkeyapprovaldialog.cpp:827
+#, kde-format
+msgid "Generate"
+msgstr "Xerar"
+
+#: ui/progressdialog.cpp:65
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: ui/readerportselection.cpp:58
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Default reader"
+msgstr ""
+
+#: ui/readerportselection.cpp:73
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"<para>Select the smart card reader that GnuPG shall use.<list><item>The "
+"first item will make GnuPG use the first reader that is found.</"
+"item><item>The last item allows you to enter a custom reader ID or reader "
+"port number.</item><item>All other items represent readers that were found "
+"by GnuPG.</item></list></para>"
+msgstr ""
+
+#: ui/readerportselection.cpp:114
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Custom reader ID or port number"
+msgstr ""
+
+#: utils/compliance.cpp:84
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "VS-NfD-conforming is a German standard for restricted documents for which "
+#| "special restrictions about algorithms apply.  The string states that a "
+#| "key is compliant with that."
+#| msgid "VS-NfD-compliant"
+msgid "VS-NfD compliant"
+msgstr "Cumpre con VS-NfD"
+
+#: utils/compliance.cpp:84
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "VS-NfD-conforming is a German standard for restricted documents for which "
+#| "special restrictions about algorithms apply.  The string states that a "
+#| "key is compliant with that."
+#| msgid "VS-NfD-compliant"
+msgid "Not VS-NfD compliant"
+msgstr "Cumpre con VS-NfD"
+
+#: utils/formatting.cpp:235
+#, kde-format
+msgid "%1-bit %2 (secret key available)"
+msgstr "%2 de %1 bits (chave secreta dispoñíbel)"
+
+#: utils/formatting.cpp:237 utils/formatting.cpp:248
+#, kde-format
+msgid "%1-bit %2"
+msgstr "%2 de %1 bits"
+
+#: utils/formatting.cpp:256 utils/formatting.cpp:278
+#, kde-format
+msgid "Signing (Qualified)"
+msgstr "Asinar (cúmprense os requisitos)"
+
+#: utils/formatting.cpp:258 utils/formatting.cpp:280
+#, kde-format
+msgid "Signing"
+msgstr "Sinatura"
+
+#: utils/formatting.cpp:262 utils/formatting.cpp:284
+#, kde-format
+msgid "Encryption"
+msgstr "Cifrado"
+
+#: utils/formatting.cpp:265 utils/formatting.cpp:287
+#, kde-format
+msgid "Certifying User-IDs"
+msgstr "Certificando identificadores de usuario"
+
+#: utils/formatting.cpp:268 utils/formatting.cpp:290
+#, kde-format
+msgid "SSH Authentication"
+msgstr "Autenticación SSH"
+
+#: utils/formatting.cpp:320 utils/formatting.cpp:413
+#, kde-format
+msgid "Revoked"
+msgstr "Revogada"
+
+#: utils/formatting.cpp:322 utils/formatting.cpp:415
+#, kde-format
+msgid "Expired"
+msgstr "Caducada"
+
+#: utils/formatting.cpp:324
+#, kde-format
+msgid "Disabled"
+msgstr "Desactivada"
+
+#: utils/formatting.cpp:333
+#, kde-format
+msgid "All User-IDs are certified."
+msgstr "Todos os identificadores de usuario están certificados."
+
+#: utils/formatting.cpp:339
+#, kde-format
+msgid "One User-ID is not certified."
+msgid_plural "%1 User-IDs are not certified."
+msgstr[0] "Un identificador de usuario non está certificado."
+msgstr[1] "%1 identificadores de usuario non están certificados."
+
+#: utils/formatting.cpp:342 utils/formatting.cpp:345
+#, kde-format
+msgid "The validity cannot be checked at the moment."
+msgstr "A validez non pode comprobarse neste momento."
+
+#: utils/formatting.cpp:355
+#, kde-format
+msgid "Serial number"
+msgstr "Número de serie"
+
+#: utils/formatting.cpp:364
+#, kde-format
+msgid "Subject"
+msgstr "Asunto"
+
+#: utils/formatting.cpp:364
+#, kde-format
+msgid "User-ID"
+msgstr "Identificador de usuario"
+
+#: utils/formatting.cpp:369
+#, kde-format
+msgid "a.k.a."
+msgstr "tamén coñecido como"
+
+#: utils/formatting.cpp:395
+#, kde-format
+msgid "Certification trust"
+msgstr "Confianza na certificación"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Trusted issuer?"
+msgstr "Emisor de confianza?"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Yes"
+msgstr "Si"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "No"
+msgstr "Non"
+
+#: utils/formatting.cpp:403 utils/formatting.cpp:405 utils/formatting.cpp:433
+#: utils/formatting.cpp:435
+#, kde-format
+msgid "Stored"
+msgstr "Almacenado"
+
+#: utils/formatting.cpp:403 utils/formatting.cpp:433
+#, kde-format
+msgctxt "stored..."
+msgid "on SmartCard with serial no. %1"
+msgstr "na SmartCard co número de serie %1"
+
+#: utils/formatting.cpp:405 utils/formatting.cpp:435
+#, kde-format
+msgctxt "stored..."
+msgid "on this computer"
+msgstr "neste computador"
+
+#: utils/formatting.cpp:411
+#, kde-format
+msgid "Subkey"
+msgstr "Subchave"
+
+#: utils/formatting.cpp:459
+#, kde-format
+msgid "Some keys are revoked, expired, disabled, or invalid."
+msgstr ""
+
+#: utils/formatting.cpp:463
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "All keys are certified."
+msgstr "Todos os identificadores de usuario están certificados."
+
+#: utils/formatting.cpp:465
+#, fuzzy, kde-format
+#| msgid "One User-ID is not certified."
+#| msgid_plural "%1 User-IDs are not certified."
+msgid "Some keys are not certified."
+msgstr "Un identificador de usuario non está certificado."
+
+#: utils/formatting.cpp:469
+#, fuzzy, kde-format
+#| msgid "The validity cannot be checked at the moment."
+msgid "The validity of the keys cannot be checked at the moment."
+msgstr "A validez non pode comprobarse neste momento."
+
+#: utils/formatting.cpp:483
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This group does not contain any keys."
+msgstr ""
+
+#: utils/formatting.cpp:503
+#, kde-format
+msgid "Keys:"
+msgstr ""
+
+#: utils/formatting.cpp:511
+#, kde-format
+msgctxt "this follows a list of keys"
+msgid "and 1 more key"
+msgid_plural "and %1 more keys"
+msgstr[0] ""
+msgstr[1] ""
+
+#: utils/formatting.cpp:539
+#, kde-format
+msgctxt ""
+"date format suitable for screen readers; d: day as a number without a "
+"leading zero, MMMM: localized month name, yyyy: year as a four digit number"
+msgid "MMMM d, yyyy"
+msgstr ""
+
+#: utils/formatting.cpp:585 utils/formatting.cpp:620
+#, fuzzy, kde-format
+#| msgid "unknown"
+msgctxt "@info the expiration date of the key is unknown"
+msgid "unknown"
+msgstr "descoñecido"
+
+#: utils/formatting.cpp:627 utils/formatting.cpp:636
+#, kde-format
+msgid "unlimited"
+msgstr ""
+
+#: utils/formatting.cpp:689
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "X.509/CMS encryption standard"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: utils/formatting.cpp:694
+#, kde-format
+msgctxt "Unknown encryption protocol"
+msgid "Unknown"
+msgstr "Descoñecido"
+
+#: utils/formatting.cpp:710
+#, kde-format
+msgctxt "a group of keys/certificates"
+msgid "Group"
+msgstr ""
+
+#: utils/formatting.cpp:726 utils/formatting.cpp:771
+#, kde-format
+msgctxt "unknown trust level"
+msgid "unknown"
+msgstr "descoñecido"
+
+#: utils/formatting.cpp:728 utils/formatting.cpp:775
+#, kde-format
+msgid "untrusted"
+msgstr "nulo"
+
+#: utils/formatting.cpp:730 utils/formatting.cpp:777
+#, kde-format
+msgctxt "marginal trust"
+msgid "marginal"
+msgstr "parcial"
+
+#: utils/formatting.cpp:732 utils/formatting.cpp:779
+#, kde-format
+msgctxt "full trust"
+msgid "full"
+msgstr "completo"
+
+#: utils/formatting.cpp:734 utils/formatting.cpp:781
+#, kde-format
+msgctxt "ultimate trust"
+msgid "ultimate"
+msgstr "definitivo"
+
+#: utils/formatting.cpp:736 utils/formatting.cpp:773
+#, kde-format
+msgctxt "undefined trust"
+msgid "undefined"
+msgstr "sen definir"
+
+#: utils/formatting.cpp:747 utils/formatting.cpp:764 utils/formatting.cpp:799
+#: utils/formatting.cpp:1204
+#, kde-format
+msgid "revoked"
+msgstr "revogado"
+
+#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1201
+#, kde-format
+msgid "expired"
+msgstr "caducado"
+
+#: utils/formatting.cpp:753 utils/formatting.cpp:1207
+#, kde-format
+msgid "disabled"
+msgstr "desactivado"
+
+#: utils/formatting.cpp:756 utils/formatting.cpp:767 utils/formatting.cpp:807
+#: utils/formatting.cpp:1210
+#, kde-format
+msgid "invalid"
+msgstr "incorrecto"
+
+#: utils/formatting.cpp:758
+#, kde-format
+msgctxt "as in good/valid signature"
+msgid "good"
+msgstr "bo"
+
+#: utils/formatting.cpp:797
+#, kde-format
+msgid "valid"
+msgstr "correcto"
+
+#: utils/formatting.cpp:811
+#, kde-format
+msgid "certificate expired"
+msgstr "o certificado caducou"
+
+#: utils/formatting.cpp:813
+#, kde-format
+msgctxt "fake/invalid signature"
+msgid "bad"
+msgstr "malo"
+
+#: utils/formatting.cpp:819
+#, kde-format
+msgid "no public key"
+msgstr "sen chave pública"
+
+#: utils/formatting.cpp:821
+#, kde-format
+msgid "key expired"
+msgstr "a chave caducou"
+
+#: utils/formatting.cpp:823
+#, kde-format
+msgid "key revoked"
+msgstr "a chave revogouse"
+
+#: utils/formatting.cpp:825
+#, kde-format
+msgid "key disabled"
+msgstr "a chave desactivouse"
+
+#: utils/formatting.cpp:881
+#, kde-format
+msgctxt "name, email, key id"
+msgid "%1 %2 (%3)"
+msgstr "%1 %2 (%3)"
+
+#: utils/formatting.cpp:928
+#, kde-format
+msgid "Bad signature by unknown certificate %1: %2"
+msgstr "Sinatura mala dun certificado descoñecido %1: %2"
+
+#: utils/formatting.cpp:930
+#, kde-format
+msgid "Bad signature by an unknown certificate: %1"
+msgstr "Sinatura mala dun certificado descoñecido: %1"
+
+#: utils/formatting.cpp:933
+#, kde-format
+msgid "Bad signature by %1: %2"
+msgstr "Sinatura mala de %1: %2"
+
+#: utils/formatting.cpp:939
+#, kde-format
+msgid "Good signature by unknown certificate %1."
+msgstr "Sinatura boa dun certificado descoñecido %1."
+
+#: utils/formatting.cpp:941
+#, kde-format
+msgid "Good signature by an unknown certificate."
+msgstr "Sinatura boa dun certificado descoñecido."
+
+#: utils/formatting.cpp:944
+#, kde-format
+msgid "Good signature by %1."
+msgstr "Sinatura boa de %1."
+
+#: utils/formatting.cpp:949
+#, kde-format
+msgid "Invalid signature by unknown certificate %1: %2"
+msgstr "Sinatura incorrecta dun certificado descoñecido %1: %2"
+
+#: utils/formatting.cpp:951
+#, kde-format
+msgid "Invalid signature by an unknown certificate: %1"
+msgstr "Sinatura incorrecta dun certificado descoñecido: %1"
+
+#: utils/formatting.cpp:954
+#, kde-format
+msgid "Invalid signature by %1: %2"
+msgstr "Sinatura incorrecta de %1: %2"
+
+#: utils/formatting.cpp:968
+#, kde-format
+msgid "This certificate was imported from the following sources:"
+msgstr "O certificado importouse das seguintes fontes:"
+
+#: utils/formatting.cpp:979
+#, kde-format
+msgid "The import of this certificate was canceled."
+msgstr "Cancelouse a importación deste certificado."
+
+#: utils/formatting.cpp:982
+#, kde-format
+msgid "An error occurred importing this certificate: %1"
+msgstr "Produciuse un erro ao importar o certificado: %1"
+
+#: utils/formatting.cpp:987
+#, kde-format
+msgid "This certificate was new to your keystore. The secret key is available."
+msgstr ""
+"O certificado era novo para o seu almacenamento de chaves. A chave secreta "
+"está dispoñíbel."
+
+#: utils/formatting.cpp:988
+#, kde-format
+msgid "This certificate is new to your keystore."
+msgstr "O certificado é novo para o seu almacenamento de chaves."
+
+#: utils/formatting.cpp:993
+#, kde-format
+msgid "New user-ids were added to this certificate by the import."
+msgstr ""
+"A importación engadiu os novos identificadores de usuario a este certificado."
+
+#: utils/formatting.cpp:996
+#, kde-format
+msgid "New signatures were added to this certificate by the import."
+msgstr "A importación engadiu as novas sinaturas a este certificado."
+
+#: utils/formatting.cpp:999
+#, kde-format
+msgid "New subkeys were added to this certificate by the import."
+msgstr "A importación engadiu as novas subchaves a este certificado."
+
+#: utils/formatting.cpp:1002
+#, kde-format
+msgid "The import contained no new data for this certificate. It is unchanged."
+msgstr ""
+"A importación non contiña ningún dato novo para este certificado. Non "
+"cambiou."
+
+#: utils/formatting.cpp:1018
+#, kde-format
+msgid "Certify"
+msgstr "Certificar"
+
+#: utils/formatting.cpp:1021
+#, kde-format
+msgid "Sign"
+msgstr "Asinar"
+
+#: utils/formatting.cpp:1024
+#, kde-format
+msgid "Encrypt"
+msgstr "Cifrar"
+
+#: utils/formatting.cpp:1027
+#, kde-format
+msgid "Authenticate"
+msgstr "Autenticar"
+
+#: utils/formatting.cpp:1036
+#, kde-format
+msgctxt "(validity, protocol, creation date)"
+msgid "(%1, %2, created: %3)"
+msgstr "(%1, %2, creado: %3)"
+
+#: utils/formatting.cpp:1048
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity)"
+msgid "%2 (1 key, %3)"
+msgid_plural "%2 (%1 keys, %3)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: utils/formatting.cpp:1055
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, tag)"
+msgid "%2 (1 key, %3, tag)"
+msgid_plural "%2 (%1 keys, %3, tag)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: utils/formatting.cpp:1062
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, group ...)"
+msgid "%2 (1 key, %3, unknown origin)"
+msgid_plural "%2 (%1 keys, %3, unknown origin)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: utils/formatting.cpp:1099
+#, kde-format
+msgid "The certificate is marked as your own."
+msgstr "O certificado está marcado como seu."
+
+#: utils/formatting.cpp:1101
+#, kde-format
+msgid "The certificate belongs to this recipient."
+msgstr "O certificado pertence a este destinatario."
+
+#: utils/formatting.cpp:1103
+#, kde-format
+msgid ""
+"The trust model indicates marginally that the certificate belongs to this "
+"recipient."
+msgstr ""
+"O modelo de confianza indica parcialmente que o certificado pertence a este "
+"destinatario."
+
+#: utils/formatting.cpp:1105
+#, kde-format
+msgid "This certificate should not be used."
+msgstr "Este certificado non debería usarse."
+
+#: utils/formatting.cpp:1109
+#, kde-format
+msgid "There is no indication that this certificate belongs to this recipient."
+msgstr ""
+"Non hai ningunha indicación de que este certificado pertenza a este "
+"destinatario."
+
+#: utils/formatting.cpp:1121
+#, kde-format
+msgid "This group does not contain any keys."
+msgstr ""
+
+#: utils/formatting.cpp:1185
+#, fuzzy, kde-format
+#| msgid "unknown"
+msgctxt "@info the compliance of the key with certain requirements is unknown"
+msgid "unknown"
+msgstr "descoñecido"
+
+#: utils/formatting.cpp:1198
+#, kde-format
+msgctxt "As in all user IDs are valid."
+msgid "certified"
+msgstr "certificado"
+
+#: utils/formatting.cpp:1213
+#, kde-format
+msgctxt "As in not all user IDs are valid."
+msgid "not certified"
+msgstr "non certificado"
+
+#: utils/formatting.cpp:1216
+#, fuzzy, kde-format
+#| msgctxt "As in not all user IDs are valid."
+#| msgid "not certified"
+msgctxt "The validity of the user IDs has not been/could not be checked"
+msgid "not checked"
+msgstr "non certificado"
+
+#: utils/formatting.cpp:1225
+#, fuzzy, kde-format
+#| msgctxt "As in all user IDs are valid."
+#| msgid "certified"
+msgctxt "As in all keys are valid."
+msgid "all certified"
+msgstr "certificado"
+
+#: utils/formatting.cpp:1228
+#, fuzzy, kde-format
+#| msgctxt "As in not all user IDs are valid."
+#| msgid "not certified"
+msgctxt "As in not all keys are valid."
+msgid "not all certified"
+msgstr "non certificado"
+
+#: utils/formatting.cpp:1261
+#, kde-format
+msgid "Keyserver"
+msgstr "Servidor de chaves"
+
+#: utils/formatting.cpp:1269
+#, kde-format
+msgid "File import"
+msgstr "Importación de ficheiro"
+
+#: utils/formatting.cpp:1271
+#, kde-format
+msgid "Generated"
+msgstr "Xerada"
+
+#: utils/formatting.cpp:1275
+#, kde-format
+msgid "Unknown"
+msgstr "Descoñecido"
+
+#: utils/formatting.cpp:1316
+#, kde-format
+msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
+msgid "Certifies this key as partially trusted introducer for '%1'."
+msgstr ""
+
+#: utils/formatting.cpp:1320
+#, kde-format
+msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
+msgid "Certifies this key as fully trusted introducer for '%1'."
+msgstr ""
+
+#: utils/gnupg.cpp:158
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgid "Certificate Manager and Unified Crypto GUI"
+msgstr "Produciuse un erro no xestor de certificados"
+
+#: utils/hex.cpp:35
+#, kde-format
+msgid "Invalid hex char '%1' in input stream."
+msgstr ""
+
+#: utils/hex.cpp:47 utils/hex.cpp:52
+#, kde-format
+msgid "Premature end of hex-encoded char in input stream"
+msgstr ""
+
+#, fuzzy
+#~| msgctxt ""
+#~| "VS-NfD-conforming is a German standard for restricted documents for "
+#~| "which special restrictions about algorithms apply.  The string states "
+#~| "that all cryptographic operations necessary for the communication are "
+#~| "compliant with that."
+#~| msgid "VS-NfD-compliant communication possible."
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "%1 communication possible."
+#~ msgstr "Pódese usar unha comunicación que cumpra con VS-NfD."
+
+#, fuzzy
+#~| msgctxt ""
+#~| "VS-NfD-conforming is a German standard for restricted documents for "
+#~| "which special restrictions about algorithms apply.  The string states "
+#~| "that all cryptographic operations necessary for the communication are "
+#~| "compliant with that."
+#~| msgid "VS-NfD-compliant communication not possible."
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "%1 communication not possible."
+#~ msgstr "Non se pode usar unha comunicación que cumpra con VS-NfD."
+
+#, fuzzy
+#~| msgctxt ""
+#~| "VS-NfD conforming is a German standard for restricted documents. For "
+#~| "which special restrictions about algorithms apply. The string describes "
+#~| "if a key is compliant with that.."
+#~| msgid "May be used for VS-NfD-compliant communication."
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "May be used for %1 communication."
+#~ msgstr "Poderíase usar unha comunicación que cumpra con VS-NfD."
+
+#, fuzzy
+#~| msgctxt ""
+#~| "VS-NfD-conforming is a German standard for restricted documents. For "
+#~| "which special restrictions about algorithms apply. The string describes "
+#~| "if a key is compliant to that.."
+#~| msgid "May <b>not</b> be used for VS-NfD-compliant communication."
+#~ msgctxt ""
+#~ "VS-NfD-conforming is a German standard for restricted documents. For "
+#~ "which special restrictions about algorithms apply. The string describes "
+#~ "if a key is compliant to that.."
+#~ msgid "May <b>not</b> be used for %1 communication."
+#~ msgstr "<b>Non</b> se podería usar unha comunicación que cumpra con VS-NfD."
+
+#~ msgid "never"
+#~ msgstr "nunca"
+
+#~ msgctxt "Key creation date"
+#~ msgid "Created"
+#~ msgstr "Creado"
+
+#~ msgctxt "Key Expiration date"
+#~ msgid "Expiry"
+#~ msgstr "Caducidade"
+
+#~ msgid "Created"
+#~ msgstr "Creado"
+
+#~ msgid "Expires"
+#~ msgstr "Caduca"
+
+#, fuzzy
+#~| msgid "ftp"
+#~ msgctxt "@action:button accessible name for 'Move to top'"
+#~ msgid "top"
+#~ msgstr "ftp"
+
+#, fuzzy
+#~| msgid "Move to bottom"
+#~ msgctxt "@action:button accessible name for 'Move to bottom'"
+#~ msgid "bottom"
+#~ msgstr "Mover á fin"
+
+#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
+#~ msgid "server"
+#~ msgstr "servidor"
+
+#~ msgid "hkp"
+#~ msgstr "hkp"
+
+#~ msgid "http"
+#~ msgstr "http"
+
+#~ msgid "https"
+#~ msgstr "https"
+
+#~ msgid "ftps"
+#~ msgstr "ftps"
+
+#~ msgid "ldap"
+#~ msgstr "ldap"
+
+#~ msgid "ldaps"
+#~ msgstr "ldaps"
+
+#~ msgid "Server Name"
+#~ msgstr "Nome do servidor"
+
+#~ msgid "Server Port"
+#~ msgstr "Porto do servidor"
+
+#~ msgid "Base DN"
+#~ msgstr "DN base"
+
+#~ msgid "User Name"
+#~ msgstr "Nome de usuario"
+
+#~ msgid "(read-only)"
+#~ msgstr "(só lectura)"
+
+#~ msgctxt "amended tooltip; %1: original tooltip"
+#~ msgid "%1 (read-only)"
+#~ msgstr "%1 (só lectura)"
+
+#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
+#~ msgstr "<b>(Opcional)</b> Insira aquí o seu nome de usuario, se o precisa."
+
+#~ msgid "Directory Services Configuration"
+#~ msgstr "Configuración de servizos de directorio"
+
+#~ msgid "OpenPGP Keyserver:"
+#~ msgstr "Servidor de chaves de OpenPGP:"
+
+#~ msgid ""
+#~ "Click this button to create a new directory service entry as a clone of "
+#~ "the currently selected one (or with default values, if no other is "
+#~ "selected). You can then configure details in the table on the left hand."
+#~ msgstr ""
+#~ "Prema este botón para crear unha nova entrada de servizo de directorio "
+#~ "como clon do escollido actualmente (ou con valores predeterminados, se "
+#~ "non escolle ningún). A continuación poderá configurar os detalles na "
+#~ "táboa da esquerda."
+
+#~ msgid "New"
+#~ msgstr "Novo"
+
+#~ msgid ""
+#~ "Use this option to switch display of username and password information on "
+#~ "or off in the above table."
+#~ msgstr ""
+#~ "Use esta opción para alternar entre que se mostre ou non a información de "
+#~ "nome de usuario e contrasinal na táboa de enriba."
+
+#~ msgid "Show user and password information"
+#~ msgstr "Mostrar a información sobre o usuario e o contrasinal"
+
+#, fuzzy
+#~| msgid "Configure GnuPG Backend"
+#~ msgctxt "@title:window"
+#~ msgid "Configure GnuPG Backend"
+#~ msgstr "Configurar a infraestrutura de GnuPG"
+
+#~ msgid "&Reset"
+#~ msgstr "&Restaurar"
+
+#~ msgid "Use keyserver at"
+#~ msgstr "Usar o servidor de chaves en"
+
+#, fuzzy
+#~| msgid "Configure Keyservers"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Keyservers"
+#~ msgstr "Configurar os servidores de chaves"
+
+#~ msgctxt "Caption for signing key selection, no key found"
+#~ msgid "No key found for the address '%1':"
+#~ msgstr "Non se atopou ningunha chave para o enderezo «%1»:"
+
+#~ msgid "Add Filter"
+#~ msgstr "Engadir un filtro"
+
+#~ msgctxt "X.509/CMS encryption standard"
+#~ msgid "X.509"
+#~ msgstr "X.509"
+
+#~ msgid "No Key"
+#~ msgstr "Sen chave"
+
+#~ msgid "Ignore recipient"
+#~ msgstr "Ignorar o destinatario"
+
+#~ msgid "VS-NfD-compliant Certificates"
+#~ msgstr "Certificados que cumpren con VS-NfD"
+
+#~ msgctxt "New X.509 Directory Server"
+#~ msgid "X.509"
+#~ msgstr "X.509"
+
+#~ msgctxt "New OpenPGP Directory Server"
+#~ msgid "OpenPGP"
+#~ msgstr "OpenPGP"
+
+#~ msgid "Scheme"
+#~ msgstr "Esquema"
+
+#~ msgid ""
+#~ "Select the access scheme (scheme) that the directory service is available "
+#~ "through."
+#~ msgstr ""
+#~ "Escolla o esquema de acceso (esquema) a través do cal está dispoñíbel o "
+#~ "servizo de directorio."
+
+#~ msgid ""
+#~ "Check this column if this directory service is providing S/MIME (X.509) "
+#~ "certificates."
+#~ msgstr ""
+#~ "Escolla esta columna se este servizo de directorio fornece certificados S/"
+#~ "MIME (X.509)."
+
+#~ msgid ""
+#~ "Check this column if this directory service is providing OpenPGP "
+#~ "certificates."
+#~ msgstr ""
+#~ "Escolla esta columna se este servizo de directorio fornece certificados "
+#~ "OpenPGP (X.509)."
+
+#~ msgid "0 - None (no debugging at all)"
+#~ msgstr "0 - Ningunha (sen depurar nada)"
+
+#~ msgid "1 - Basic (some basic debug messages)"
+#~ msgstr "1 - Básica (mensaxes de depuración básicas)"
+
+#~ msgid "2 - Advanced (more verbose debug messages)"
+#~ msgstr "2 - Avanzada (mensaxes de depuración máis explicativas)"
+
+#~ msgid "3 - Expert (even more detailed messages)"
+#~ msgstr "3 - Experta (mensaxes de depuración aínda máis detalladas)"
+
+#~ msgid "4 - Guru (all of the debug messages you can get)"
+#~ msgstr "4 - Gurú (todas as mensaxes de depuración que se poidan obter)"
+
+#~ msgid "Chiasmus"
+#~ msgstr "Chiasmus"
+
+#~ msgid "Chiasmus command line tool"
+#~ msgstr "Utilidade da liña de comandos Chiasmus"
+
+#~ msgid "Unsupported protocol \"%1\""
+#~ msgstr "Non se recoñece o protocolo «%1»"
+
+#~ msgid "File \"%1\" does not exist or is not executable."
+#~ msgstr "O ficheiro «%1» non existe ou non é executábel."
+
+#~ msgid "Output from chiasmus"
+#~ msgstr "Saída de chiasmus"
+
+#~ msgid ""
+#~ "The following was received on stderr:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Recibiuse o seguinte en stderr:\n"
+#~ "%1"
+
+#~ msgid "Failed to load %1: %2"
+#~ msgstr "Fallou a carga de %1: %2"
+
+#~ msgid "Library does not contain the symbol \"Chiasmus\"."
+#~ msgstr "A biblioteca non contén o símbolo «Chiasmus»."
+
+#~ msgid "Scanning directory %1..."
+#~ msgstr "Estase a examinar o directorio %1..."
+
+#~ msgid "GpgME"
+#~ msgstr "GpgME"
+
+#~ msgid "GPGME was compiled without support for %1."
+#~ msgstr "Compilouse GPGME sen soporte para %1."
+
+#~ msgid "Engine %1 is not installed properly."
+#~ msgstr "O motor %1 non está instalado axeitadamente."
+
+#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
+#~ msgstr ""
+#~ "Ten a versión %2 do motor %1 instalada, pero requírese polo menos a "
+#~ "versión %3."
+
+#~ msgid "Unknown problem with engine for protocol %1."
+#~ msgstr "Aconteceu un problema descoñecido co motor para o protocolo %1."
+
+#~ msgid "program terminated unexpectedly"
+#~ msgstr "o programa rematou inesperadamente"
+
+#~ msgid "program not found or cannot be started"
+#~ msgstr "non foi posíbel atopar ou iniciar o programa"
+
+#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
+#~ msgstr "<qt>Fallou a execución de gpgconf:<p>%1</p></qt>"
+
+#~ msgid ""
+#~ "Could not start gpgconf.\n"
+#~ "Check that gpgconf is in the PATH and that it can be started."
+#~ msgstr ""
+#~ "Non foi posíbel iniciar gpgconf\n"
+#~ "Comprobe que gpgconf está na súa PATH e que se pode iniciar."
+
+#~ msgid "Error from gpgconf while saving configuration: %1"
+#~ msgstr "Recibiuse un erro desde gpgconf ao gravar a configuración: %1"
+
+#~ msgid "Generating ElGamal key..."
+#~ msgstr "Estase a xerar a chave ElGamal..."
+
+#~ msgid "Searching for a large prime number..."
+#~ msgstr "Estase a procurar un número primo grande..."
+
+#~ msgid ""
+#~ "Waiting for new entropy from random number generator (you might want to "
+#~ "exercise the harddisks or move the mouse)..."
+#~ msgstr ""
+#~ "Estase a agardar pola nova entropía do xerador de números aleatorias "
+#~ "(pode mover o rato ou facer traballar o disco duro para isto)..."
+
+#~ msgid "Please wait..."
+#~ msgstr "Agarde..."
+
+#~ msgid ""
+#~ "Starting gpg-agent (you should consider starting a global instance "
+#~ "instead)..."
+#~ msgstr ""
+#~ "Estase a iniciar o gpg-agent (debería considerar iniciar unha instancia "
+#~ "global no canto)..."
+
+#~ msgid "While scanning for %1 support in backend %2:"
+#~ msgstr "Mentres se procuraba soporte para %1 no mecanismo %2:"
+
+#~ msgctxt "progress info: \"%1 of %2\""
+#~ msgid "%1/%2"
+#~ msgstr "%1/%2"
+
+#~ msgid ""
+#~ "OpenPGP key for %1\n"
+#~ "Created: %2\n"
+#~ "Expiry: %3\n"
+#~ "Fingerprint: %4"
+#~ msgstr ""
+#~ "Chave OpenPGP para %1\n"
+#~ "Creada: %2\n"
+#~ "Caduca: %3\n"
+#~ "Pegada dixital: %4"
+
+#~ msgid ""
+#~ "S/MIME key for %1\n"
+#~ "Created: %2\n"
+#~ "Expiry: %3\n"
+#~ "Fingerprint: %4\n"
+#~ "Issuer: %5"
+#~ msgstr ""
+#~ "Chave S/MIME para %1\n"
+#~ "Creada: %2\n"
+#~ "Caduca: %3\n"
+#~ "Pegada dixital: %4\n"
+#~ "Expendedor: %5"
+
+#~ msgid "Copy Audit Log to Clipboard"
+#~ msgstr "Copiar o rexistro da auditoría no portarretallos"
+
+#~ msgid "&Server name:"
+#~ msgstr "Nome do &servidor:"
+
+#~ msgid "389"
+#~ msgstr "389"
+
+#~ msgid "&User name (optional):"
+#~ msgstr "Nome de &usuario (opcional):"
+
+#~ msgid "Pass&word (optional):"
+#~ msgstr "Contras&inal (opcional):"
+
+#~ msgid "&OK"
+#~ msgstr "&Aceptar"
+
+#~ msgid "&Cancel"
+#~ msgstr "&Cancelar"

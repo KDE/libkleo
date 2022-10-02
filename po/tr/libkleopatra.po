@@ -1,0 +1,2242 @@
+# translation of libkleopatra.po to Türkçe
+# translation of libkleopatra.po to Turkish
+# Görkem Çetin <gorkem@gorkemcetin.com>, 2004.
+# Yaşar ŞENTÜRK <yasar@kde.org.tr>, 2005.
+# Serdar Soytetir <tulliana@gmail.com>, 2008, 2009.
+# H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2010.
+# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkleopatra\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:46+0000\n"
+"PO-Revision-Date: 2022-09-14 16:51+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.08.0\n"
+
+#: kleo/checksumdefinition.cpp:84
+#, kde-format
+msgid "Error in checksum definition %1: %2"
+msgstr "%1 sağlama toplamı tanımında hata: %2"
+
+#: kleo/checksumdefinition.cpp:144
+#, kde-format
+msgid "Cannot use both %f and | in '%1'"
+msgstr "'%1' içinde %f ve | aynı anda kullanılamaz"
+
+#: kleo/checksumdefinition.cpp:156
+#, kde-format
+msgid "Quoting error in '%1' entry"
+msgstr "'%1' girdisinde alıntı hatası"
+
+#: kleo/checksumdefinition.cpp:159
+#, kde-format
+msgid "'%1' too complex (would need shell)"
+msgstr "'%1', çok karmaşık (kabuk gerekebilir)"
+
+#: kleo/checksumdefinition.cpp:163
+#, kde-format
+msgid "'%1' entry is empty/missing"
+msgstr "'%1' girdisi boş/eksik"
+
+#: kleo/checksumdefinition.cpp:172
+#, kde-format
+msgid "'%1' empty or not found"
+msgstr "'%1' boş veya bulunamadı"
+
+#: kleo/checksumdefinition.cpp:211
+#, kde-format
+msgid "'id' entry is empty/missing"
+msgstr "'id' girdisi boş/eksik"
+
+#: kleo/checksumdefinition.cpp:214
+#, kde-format
+msgid "'output-file' entry is empty/missing"
+msgstr "'output-file' girdisi boş/eksik"
+
+#: kleo/checksumdefinition.cpp:217
+#, kde-format
+msgid "'file-patterns' entry is empty/missing"
+msgstr "'file-patterns' girdisi boş/eksik"
+
+#: kleo/checksumdefinition.cpp:396
+#, kde-format
+msgid "Caught unknown exception in group %1"
+msgstr "%1 grubu içinde bilinmeyen durum yakalandı"
+
+#: kleo/dn.cpp:518
+msgid "Common name"
+msgstr "Ortak ad"
+
+#: kleo/dn.cpp:519
+msgid "Surname"
+msgstr "Soyad"
+
+#: kleo/dn.cpp:520
+msgid "Given name"
+msgstr "Verilen ad"
+
+#: kleo/dn.cpp:521
+msgid "Location"
+msgstr "Konum"
+
+#: kleo/dn.cpp:522
+msgid "Title"
+msgstr "Unvan"
+
+#: kleo/dn.cpp:523
+msgid "Organizational unit"
+msgstr "Organizasyon birimi"
+
+#: kleo/dn.cpp:524
+msgid "Organization"
+msgstr "Organizasyon"
+
+#: kleo/dn.cpp:525
+msgid "Postal code"
+msgstr "Posta kodu"
+
+#: kleo/dn.cpp:526
+msgid "Country code"
+msgstr "Ülke kodu"
+
+#: kleo/dn.cpp:527
+msgid "State or province"
+msgstr "Eyalet veya il"
+
+#: kleo/dn.cpp:528
+msgid "Domain component"
+msgstr "Alan bileşeni"
+
+#: kleo/dn.cpp:529
+msgid "Business category"
+msgstr "İş kategorisi"
+
+#: kleo/dn.cpp:530
+msgid "Email address"
+msgstr "E-posta adresi"
+
+#: kleo/dn.cpp:531
+msgid "Mail address"
+msgstr "Posta adresi"
+
+#: kleo/dn.cpp:532
+msgid "Mobile phone number"
+msgstr "Cep telefonu numarası"
+
+#: kleo/dn.cpp:533
+msgid "Telephone number"
+msgstr "Telefon numarası"
+
+#: kleo/dn.cpp:534
+msgid "Fax number"
+msgstr "Faks numarası"
+
+#: kleo/dn.cpp:535
+msgid "Street address"
+msgstr "Cadde adresi"
+
+#: kleo/dn.cpp:536
+msgid "Unique ID"
+msgstr "Benzersiz Kimlik"
+
+#: kleo/enum.cpp:35
+msgid "Inline OpenPGP (deprecated)"
+msgstr "Dahili OpenPGP (eski)"
+
+#: kleo/enum.cpp:36
+msgid "OpenPGP/MIME"
+msgstr "OpenPGP/MIME"
+
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:322
+#: ui/newkeyapprovaldialog.cpp:325
+#, kde-format
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: kleo/enum.cpp:38
+msgid "S/MIME Opaque"
+msgstr "S/MIME Mat"
+
+#: kleo/enum.cpp:39
+msgid "Any S/MIME"
+msgstr "Herhangi bir S/MIME"
+
+#: kleo/enum.cpp:40
+msgid "Any OpenPGP"
+msgstr "Herhangi bir OpenPGP"
+
+#: kleo/enum.cpp:72
+#, kde-format
+msgid "Any"
+msgstr "Herhangi biri"
+
+#: kleo/enum.cpp:147
+#, kde-format
+msgid "Never Encrypt"
+msgstr "Asla Şifreleme"
+
+#: kleo/enum.cpp:149
+#, kde-format
+msgid "Always Encrypt"
+msgstr "Daima Şifrele"
+
+#: kleo/enum.cpp:151
+#, kde-format
+msgid "Always Encrypt If Possible"
+msgstr "Olanaklıysa Daima Şifrele"
+
+#: kleo/enum.cpp:153 kleo/enum.cpp:210
+#, kde-format
+msgid "Ask"
+msgstr "Sor"
+
+#: kleo/enum.cpp:155 kleo/enum.cpp:212
+#, kde-format
+msgid "Ask Whenever Possible"
+msgstr "Olanaklı Olduğunda Sor"
+
+#: kleo/enum.cpp:157
+#, kde-kuit-format
+msgctxt "no specific preference"
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>hiçbiri</placeholder>"
+
+#: kleo/enum.cpp:204
+#, kde-format
+msgid "Never Sign"
+msgstr "Asla İmzalama"
+
+#: kleo/enum.cpp:206
+#, kde-format
+msgid "Always Sign"
+msgstr "Daima İmzala"
+
+#: kleo/enum.cpp:208
+#, kde-format
+msgid "Always Sign If Possible"
+msgstr "Olanaklıysa Daima İmzala"
+
+#: kleo/enum.cpp:214
+#, kde-format
+msgctxt "no specific preference"
+msgid "<none>"
+msgstr "<none>"
+
+#: kleo/keyfiltermanager.cpp:71
+#, kde-format
+msgid "All Certificates"
+msgstr "Tüm Sertifikalar"
+
+#: kleo/keyfiltermanager.cpp:86
+#, kde-format
+msgid "My Certificates"
+msgstr "Sertifikalarım"
+
+#: kleo/keyfiltermanager.cpp:104
+#, kde-format
+msgid "Trusted Certificates"
+msgstr "Güvenilir Sertifikalar"
+
+#: kleo/keyfiltermanager.cpp:121
+#, kde-format
+msgid "Fully Trusted Certificates"
+msgstr "Tamamen Güvenilir Sertifikalar"
+
+#: kleo/keyfiltermanager.cpp:138
+#, kde-format
+msgid "Other Certificates"
+msgstr "Diğer Sertifikalar"
+
+#: kleo/keyfiltermanager.cpp:153
+#, kde-format
+msgid "Not Certified Certificates"
+msgstr "Sertifikalanmamış Sertifikalar"
+
+#: kleo/keyfiltermanager.cpp:176
+#, kde-format
+msgid "Not Validated Certificates"
+msgstr "Doğrulanmamış Sertifikalar"
+
+#: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:111
+#, kde-format
+msgid "Name"
+msgstr "Ad"
+
+#: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:112
+#, kde-format
+msgid "E-Mail"
+msgstr "E-Posta"
+
+#: models/keylistmodel.cpp:306
+#, kde-format
+msgid "User-IDs"
+msgstr "Kullanıcı Kimlikleri"
+
+#: models/keylistmodel.cpp:308 models/subkeylistmodel.cpp:159
+#: models/useridlistmodel.cpp:113
+#, kde-format
+msgid "Valid From"
+msgstr "Geçerlilik Süresinin Başlangıcı"
+
+#: models/keylistmodel.cpp:310 models/subkeylistmodel.cpp:161
+#: models/useridlistmodel.cpp:114
+#, kde-format
+msgid "Valid Until"
+msgstr "Geçerlilik Süresinin Sonu"
+
+#: models/keylistmodel.cpp:312
+#, kde-format
+msgid "Protocol"
+msgstr "Protokol"
+
+#: models/keylistmodel.cpp:314 models/keylistmodel.cpp:316
+#: utils/formatting.cpp:388
+#, kde-format
+msgid "Key-ID"
+msgstr "Anahtar Kimliği"
+
+#: models/keylistmodel.cpp:318 utils/formatting.cpp:391
+#, kde-format
+msgid "Fingerprint"
+msgstr "Parmak İzi"
+
+#: models/keylistmodel.cpp:320 utils/formatting.cpp:358
+#, kde-format
+msgid "Issuer"
+msgstr "Düzenleyen"
+
+#: models/keylistmodel.cpp:322
+#, kde-format
+msgid "Serial Number"
+msgstr "Seri Numarası"
+
+#: models/keylistmodel.cpp:324
+#, kde-format
+msgid "Origin"
+msgstr "Köken"
+
+#: models/keylistmodel.cpp:326
+#, kde-format
+msgid "Last Update"
+msgstr "Son Güncelleme"
+
+#: models/keylistmodel.cpp:328
+#, kde-format
+msgid "Certification Trust"
+msgstr "Sertifikalama Güveni"
+
+#: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:117
+#, kde-format
+msgid "Tags"
+msgstr "Etiketler"
+
+#: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:71
+#, kde-format
+msgctxt "text for screen readers for an empty name"
+msgid "no name"
+msgstr "adsız"
+
+#: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:72
+#, kde-format
+msgctxt "text for screen readers for an empty email address"
+msgid "no email"
+msgstr "e-posta yok"
+
+#: models/keylistmodel.cpp:447
+#, kde-format
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: models/keylistmodel.cpp:525
+#, kde-format
+msgctxt "text for screen readers"
+msgid "not applicable"
+msgstr "uygulanamaz"
+
+#: models/subkeylistmodel.cpp:155
+#, kde-format
+msgid "ID"
+msgstr "ID"
+
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:382
+#: utils/formatting.cpp:426
+#, kde-format
+msgid "Type"
+msgstr "Tür"
+
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:115
+#: utils/formatting.cpp:413 utils/formatting.cpp:415
+#, kde-format
+msgid "Status"
+msgstr "Durum"
+
+#: models/subkeylistmodel.cpp:165
+#, kde-format
+msgid "Strength"
+msgstr "Uzunluk"
+
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:385
+#: utils/formatting.cpp:429
+#, kde-format
+msgid "Usage"
+msgstr "Kullanım"
+
+#: models/useridlistmodel.cpp:76
+#, kde-format
+msgctxt "yes, is exportable"
+msgid "yes"
+msgstr "evet"
+
+#: models/useridlistmodel.cpp:76
+#, kde-format
+msgctxt "no, is not exportable"
+msgid "no"
+msgstr "hayır"
+
+#: models/useridlistmodel.cpp:77
+#, kde-format
+msgctxt "accessible text for empty list of tags"
+msgid "none"
+msgstr "yok"
+
+#: models/useridlistmodel.cpp:79
+#, kde-format
+msgid "not applicable"
+msgstr "geçerli değil"
+
+#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
+#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
+#: models/useridlistmodel.cpp:97 models/useridlistmodel.cpp:98
+#: models/useridlistmodel.cpp:99 models/useridlistmodel.cpp:101
+#: ui/keyselectiondialog.cpp:194
+#, kde-format
+msgid "User ID"
+msgstr "Kullanıcı Kimliği"
+
+#: models/useridlistmodel.cpp:110
+#, kde-format
+msgid "User ID / Certification Key ID"
+msgstr "Kullanıcı Kimliği / Sertifikasyon Anahtar Kimliği"
+
+#: models/useridlistmodel.cpp:116
+#, kde-format
+msgid "Exportable"
+msgstr "Dışa Aktarılabilir"
+
+#: models/useridlistmodel.cpp:119
+#, kde-format
+msgid "Trust Signature For"
+msgstr "Güvenilecek İmzalar"
+
+#: models/useridlistmodel.cpp:175 utils/formatting.cpp:801
+#, kde-format
+msgid "class %1"
+msgstr "sınıf %1"
+
+#: ui/auditlogviewer.cpp:47
+#, kde-format
+msgctxt "@title:window"
+msgid "View GnuPG Audit Log"
+msgstr "GnuPG Denetim Günlük Kaydını Göster"
+
+#: ui/auditlogviewer.cpp:50
+#, kde-format
+msgid "&Copy to Clipboard"
+msgstr "Panoya &Kopyala"
+
+#: ui/auditlogviewer.cpp:55
+#, kde-format
+msgid "&Save to Disk..."
+msgstr "&Diske Kaydet..."
+
+#: ui/auditlogviewer.cpp:103
+#, kde-format
+msgid "Choose File to Save GnuPG Audit Log to"
+msgstr "GnuPG Audit Günlük Kaydının Kaydedileceği dosyayı seçin"
+
+#: ui/auditlogviewer.cpp:122
+#, kde-format
+msgid "Could not save to file \"%1\": %2"
+msgstr "\"%1\" dosyasına kaydedilemedi: %2"
+
+#: ui/auditlogviewer.cpp:122
+#, kde-format
+msgid "File Save Error"
+msgstr "Dosya Kaydetme Hatası"
+
+#: ui/cryptoconfigentryreaderport.cpp:45
+#, kde-format
+msgctxt "@label:listbox Reader for smart cards"
+msgid "Reader to connect to"
+msgstr "Bağlanılacak Okuyucu"
+
+#: ui/cryptoconfigmodule.cpp:165
+#, kde-format
+msgid "GpgConf Error"
+msgstr "GpgConf Hatası"
+
+#: ui/cryptoconfigmodule.cpp:222
+#, kde-format
+msgid ""
+"The gpgconf tool used to provide the information for this dialog does not "
+"seem to be installed properly. It did not return any components. Try running "
+"\"%1\" on the command line for more information."
+msgstr ""
+"Bu pencere için bilgi sağlayan gpgconf uygulaması düzgün kurulmamış gibi "
+"görünüyor. Uygulamadan herhangi bir bileşen alınamadı. Daha fazla bilgi "
+"almak için \"%1\" uygulamasını komut satırından çalıştırmayı deneyin."
+
+#: ui/cryptoconfigmodule.cpp:651
+#, kde-format
+msgctxt ""
+"Translate this to 'yes' or 'no' (use the English words!) depending on "
+"whether your language uses Sentence style capitalization in GUI labels (yes) "
+"or not (no). Context: We get some backend strings in that have the wrong "
+"capitalization (in English, at least) so we need to force the first "
+"character to upper-case. It is this behaviour you can control for your "
+"language with this translation."
+msgid "yes"
+msgstr "evet"
+
+#: ui/cryptoconfigmodule.cpp:705
+msgid "0 - None"
+msgstr "0 - Hiç"
+
+#: ui/cryptoconfigmodule.cpp:706
+msgid "1 - Basic"
+msgstr "1 - Temel"
+
+#: ui/cryptoconfigmodule.cpp:707
+msgid "2 - Verbose"
+msgstr "2 - Ayrıntılı"
+
+#: ui/cryptoconfigmodule.cpp:708
+msgid "3 - More Verbose"
+msgstr "3 - Daha Ayrıntılı"
+
+#: ui/cryptoconfigmodule.cpp:709
+msgid "4 - All"
+msgstr "4 - Tümü"
+
+#: ui/cryptoconfigmodule.cpp:721
+#, kde-format
+msgid "Set the debugging level to"
+msgstr "Hata ayıklama düzeyini şuna ayarla"
+
+#: ui/cryptoconfigmodule.cpp:944
+#, kde-format
+msgid "Show..."
+msgstr "Göster..."
+
+#: ui/cryptoconfigmodule.cpp:944
+#, kde-format
+msgid "Edit..."
+msgstr "Düzenle..."
+
+#: ui/cryptoconfigmodule.cpp:997
+#, kde-format
+msgid ""
+"Configuration of directory services is not possible because the used gpgme "
+"libraries are too old."
+msgstr ""
+"Dizin hizmetlerinin yapılandırılması olanaklı değil; çünkü kullanılan gpgme "
+"kitaplıkları pek eski."
+
+#: ui/cryptoconfigmodule.cpp:999
+#, kde-format
+msgid "Sorry"
+msgstr "Üzgünüm"
+
+#: ui/cryptoconfigmodule.cpp:1006
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Directory Services"
+msgstr "Dizin Hizmetlerini Yapılandır"
+
+#: ui/cryptoconfigmodule.cpp:1035
+#, kde-format
+msgid "None configured"
+msgstr "Hiç yapılandırılmış"
+
+#: ui/cryptoconfigmodule.cpp:1037
+#, kde-format
+msgid "1 server configured"
+msgid_plural "%1 servers configured"
+msgstr[0] "1 sunucu ayarlandı"
+msgstr[1] "%1 sunucu ayarlandı"
+
+#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
+#, kde-format
+msgid "Active Directory"
+msgstr "Active Directory"
+
+#: ui/directoryserviceswidget.cpp:187
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"This is a list of all directory services that are configured for use with "
+"X.509."
+msgstr ""
+"Bu liste, X.509 ile kullanılması için yapılandırılmış tüm dizin "
+"hizmetlerinin listesidir."
+
+#: ui/directoryserviceswidget.cpp:197
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Click to use a directory service running on your Active Directory. This "
+"works only on Windows and requires GnuPG 2.2.28 or later."
+msgstr ""
+"Active Directory'nizde çalışan bir dizin hizmeti kullanmak için tıklayın. Bu "
+"yalnızca Windows'ta çalışır ve GnuPG 2.2.28 veya sonrasını gerektirir."
+
+#: ui/directoryserviceswidget.cpp:200
+#, kde-format
+msgid "LDAP Server"
+msgstr "LDAP Sunucusu"
+
+#: ui/directoryserviceswidget.cpp:203
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service provided by an LDAP server."
+msgstr "Bir LDAP sunucusu tarafından sağlanan bir dizin eklemek için tıklayın."
+
+#: ui/directoryserviceswidget.cpp:205
+#, kde-format
+msgid "Add"
+msgstr "Ekle"
+
+#: ui/directoryserviceswidget.cpp:206
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service."
+msgstr "Bir dizin hizmeti eklemek için tıklayın."
+
+#: ui/directoryserviceswidget.cpp:208
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to add a directory service to the list of services. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+"Hizmet listesine bir dizin hizmeti eklemek için bu düğmeye tıklayın. "
+"Değişiklik, yalnızca yapılandırma penceresini onayladığınızda etkin olur."
+
+#: ui/directoryserviceswidget.cpp:216
+#, kde-format
+msgid "Edit"
+msgstr "Düzenle"
+
+#: ui/directoryserviceswidget.cpp:217
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to edit the selected service."
+msgstr "Seçili hizmeti düzenlemek için tıklayın."
+
+#: ui/directoryserviceswidget.cpp:219
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to edit the settings of the currently selected directory "
+"service. The changes will only take effect once you acknowledge the "
+"configuration dialog."
+msgstr ""
+"Şu anda seçili dizin hizmetini düzenlemek için bu düğmeye tıklayın. "
+"Değişiklik, yalnızca yapılandırma penceresini onayladığınızda etkin olur."
+
+#: ui/directoryserviceswidget.cpp:224
+#, kde-format
+msgid "Delete"
+msgstr "Sil"
+
+#: ui/directoryserviceswidget.cpp:225
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to remove the selected service."
+msgstr "Seçili hizmeti kaldırmak için tıklayın."
+
+#: ui/directoryserviceswidget.cpp:227
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to remove the currently selected directory service. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+"Şu anda seçili dizin hizmetini kaldırmak için bu düğmeye tıklayın. "
+"Değişiklik, yalnızca yapılandırma penceresini onayladığınızda etkin olur."
+
+#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
+#, kde-format
+msgctxt "@title:window"
+msgid "LDAP Directory Service"
+msgstr "LDAP Dizin Hizmeti"
+
+#: ui/dnattributeorderconfigwidget.cpp:73
+#, kde-format
+msgid "Description"
+msgstr "Açıklama"
+
+#: ui/dnattributeorderconfigwidget.cpp:88
+#, kde-format
+msgid "Available attributes:"
+msgstr "Kullanılabilir öznitelikler:"
+
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgid "Current attribute order:"
+msgstr "Geçerli öznitelik sıralaması:"
+
+#: ui/dnattributeorderconfigwidget.cpp:98
+#, kde-format
+msgid "available attributes"
+msgstr "kullanılabilir öznitelikler"
+
+#: ui/dnattributeorderconfigwidget.cpp:105
+#: ui/dnattributeorderconfigwidget.cpp:106
+#, kde-format
+msgid "All others"
+msgstr "Diğer tümü"
+
+#: ui/dnattributeorderconfigwidget.cpp:118
+msgctxt "@action:button"
+msgid "Add"
+msgstr "Ekle"
+
+#: ui/dnattributeorderconfigwidget.cpp:119
+msgid "Add to current attribute order"
+msgstr "Geçerli öznitelik sıralamasına ekle"
+
+#: ui/dnattributeorderconfigwidget.cpp:125
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "Kaldır"
+
+#: ui/dnattributeorderconfigwidget.cpp:126
+msgid "Remove from current attribute order"
+msgstr "Geçerli öznitelik sıralamasından kaldır"
+
+#: ui/dnattributeorderconfigwidget.cpp:132
+msgctxt "@action:button"
+msgid "Move to Top"
+msgstr "Üste Taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:133
+msgid "Move to top"
+msgstr "En üste taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:139
+msgctxt "@action:button"
+msgid "Move Up"
+msgstr "Yukarı Taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:140
+msgid "Move one up"
+msgstr "Bir üste taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:146
+msgctxt "@action:button"
+msgid "Move Down"
+msgstr "Aşağı Taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:147
+msgid "Move one down"
+msgstr "Bir alta taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:153
+msgctxt "@action:button"
+msgid "Move to Bottom"
+msgstr "Alta Taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:154
+msgid "Move to bottom"
+msgstr "En alta taşı"
+
+#: ui/dnattributeorderconfigwidget.cpp:184
+#, kde-format
+msgid "current attribute order"
+msgstr "geçerli öznitelik sıralaması"
+
+#: ui/editdirectoryservicedialog.cpp:99
+#, kde-format
+msgid "Host:"
+msgstr "Makine:"
+
+#: ui/editdirectoryservicedialog.cpp:100
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter the name or IP address of the server hosting the directory service."
+msgstr "Dizin hizmetini barındıran sunucunun adını veya IP adresini girin."
+
+#: ui/editdirectoryservicedialog.cpp:104
+#, kde-format
+msgid "Port:"
+msgstr "Ka&pı:"
+
+#: ui/editdirectoryservicedialog.cpp:107
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, the default is fine in most cases)</b> Pick the port number "
+"the directory service is listening on."
+msgstr ""
+"<b>(İsteğe bağlı, çoğu durumda öntanımlı değer uygundur)</b> Dizin "
+"hizmetinin dinlediği kapı numarasını seçin."
+
+#: ui/editdirectoryservicedialog.cpp:110
+#, kde-format
+msgid "Use default"
+msgstr "Öntanımlıyı kullan"
+
+#: ui/editdirectoryservicedialog.cpp:116
+#, kde-format
+msgid "Authentication"
+msgstr "Kimlik Doğrulama"
+
+#: ui/editdirectoryservicedialog.cpp:120
+#, kde-format
+msgid "Anonymous"
+msgstr "Anonim"
+
+#: ui/editdirectoryservicedialog.cpp:121
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Use an anonymous LDAP server that does not require authentication."
+msgstr "Kimilk doğrulama gerektirmeyen bir anonim LDAP sunucusu kullanın."
+
+#: ui/editdirectoryservicedialog.cpp:127
+#, kde-format
+msgid "Authenticate via Active Directory"
+msgstr "Active Directory ile kimlik doğrula"
+
+#: ui/editdirectoryservicedialog.cpp:129
+#, kde-format
+msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
+msgstr ""
+"Active Directory ile Kimlik Doğrula (GnuPG 2.2.28 veya sonrası gerektirir)"
+
+#: ui/editdirectoryservicedialog.cpp:132
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"On Windows, authenticate to the LDAP server using the Active Directory with "
+"the current user."
+msgstr ""
+"Windows üzerinde, geçerli kullanıcıyla LDAP sunucusuna Active Directory "
+"kullanarak kimilk doğrulayın."
+
+#: ui/editdirectoryservicedialog.cpp:137
+#, kde-format
+msgid "Authenticate with user and password"
+msgstr "Kullanıcı adı ve parola ile kimlik doğrula"
+
+#: ui/editdirectoryservicedialog.cpp:138
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Authenticate to the LDAP server with your LDAP credentials."
+msgstr "LDAP sunucusuna, LDAP oturum açma bilgileriniz ile kimlik doğrulayın."
+
+#: ui/editdirectoryservicedialog.cpp:148
+#, kde-format
+msgid "User:"
+msgstr "Kullanıcı:"
+
+#: ui/editdirectoryservicedialog.cpp:149
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
+msgstr ""
+"LDAP sunucusuna kimlik doğrulamak için gereken kullanıcı LDAP Bind DN'nizi "
+"girin."
+
+#: ui/editdirectoryservicedialog.cpp:153
+#, kde-format
+msgid "Password:"
+msgstr "Parola:"
+
+#: ui/editdirectoryservicedialog.cpp:155
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your password for authenticating to the LDAP server.<nl/><warning>The "
+"password will be saved in the clear in a configuration file in your home "
+"directory.</warning>"
+msgstr ""
+"LDAP sunucusuna kimlik doğrulamak için parolanızı girin.<nl/"
+"><warning>Parola, ev dizininizdeki bir yapılandırma dosyasına açık biçimde "
+"kaydedilecektir.</warning>"
+
+#: ui/editdirectoryservicedialog.cpp:165
+#, kde-format
+msgid "Connection Security"
+msgstr "Bağlantı Güvenliği"
+
+#: ui/editdirectoryservicedialog.cpp:167
+#, kde-format
+msgid "Connection Security (requires GnuPG 2.2.28 or later)"
+msgstr "Bağlantı Güvenliği (GnuPG 2.2.28 veya sonrası gerektirir)"
+
+#: ui/editdirectoryservicedialog.cpp:172
+#, kde-format
+msgid "Use default connection (probably not TLS secured)"
+msgstr "Öntanımlı bağlantıyı kullan (büyük olasılıkla TLS güvenliği yok)"
+
+#: ui/editdirectoryservicedialog.cpp:174
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
+"earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
+msgstr ""
+"LDAP sunucusuna bağlanmak için GnuPG'nin öntanımlılarını kullan. Öntanımlı "
+"olarak, GnuPG 2.3 ve öncesi düz, TLS ile güvenlileştirilmemiş bir bağlantı "
+"kullanır. <b>(Önerilmez)</b>"
+
+#: ui/editdirectoryservicedialog.cpp:182
+#, kde-format
+msgid "Do not use a TLS secured connection"
+msgstr "TLS güvenlikli bir bağlantı kullanma"
+
+#: ui/editdirectoryservicedialog.cpp:184
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a plain, not TLS secured connection to connect to the LDAP server. "
+"<b>(Not recommended)</b>"
+msgstr ""
+"LDAP sunucusuna bağlanmak için düz, TLS ile güvenlileştirilmemiş bir "
+"bağlantı kullan. <b>(Önerilmez)</b>"
+
+#: ui/editdirectoryservicedialog.cpp:190
+#, kde-format
+msgid "Use TLS secured connection"
+msgstr "TLS güvenlikli bağlantı kullan"
+
+#: ui/editdirectoryservicedialog.cpp:192
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a standard TLS secured connection (initiated with STARTTLS) to connect "
+"to the LDAP server. <b>(Recommended)</b>"
+msgstr ""
+"LDAP sunucusuna bağlanmak için standart TLS güvenlikli bir bağlantı kullan "
+"(STARTTLS ile başlatılır). <b>(Önerilir)</b>"
+
+#: ui/editdirectoryservicedialog.cpp:199
+#, kde-format
+msgid "Tunnel LDAP through a TLS connection"
+msgstr "LDAP'ı bir TLS bağlantısı ile tünelle"
+
+#: ui/editdirectoryservicedialog.cpp:201
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a TLS secured connection through which the connection to the LDAP server "
+"is tunneled. <b>(Not recommended)</b>"
+msgstr ""
+"LDAP sunucusuna olan bağlantının tünellendiği, TLS güvenlikli bir bağlantı "
+"kullanın. <b>(Önerilmez)</b>"
+
+#: ui/editdirectoryservicedialog.cpp:210
+#, kde-format
+msgid "Advanced Settings"
+msgstr "Gelişmiş Ayarlar"
+
+#: ui/editdirectoryservicedialog.cpp:215
+#, kde-format
+msgid "Base DN:"
+msgstr "Taban DN:"
+
+#: ui/editdirectoryservicedialog.cpp:217
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
+"server to limit searches to only that subtree of the directory."
+msgstr ""
+"<b>(İsteği bağlı, genelde boş bırakılabilir)</b> Aramaları yalnızca dizinin "
+"o alt ağacına sınırlamak için bu LDAP sunucusunun taban DN'sini girin."
+
+#: ui/editdirectoryservicedialog.cpp:223
+#, kde-format
+msgid "Additional flags:"
+msgstr "Ek bayraklar:"
+
+#: ui/editdirectoryservicedialog.cpp:225
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Here you can enter additional flags that are not yet (or no longer) "
+"supported by Kleopatra. For example, older versions of GnuPG use "
+"<code>ldaps</code> to request a TLS secured connection."
+msgstr ""
+"Buraya Kleopatra tarafından henüz desteklenmeyen (veya artık desteklenmeyen) "
+"ek bayraklar girebilirsiniz. Örneğin, GnuPG'nin eski sürümleri, bir TLS "
+"güvenlikli bağlantı istemek için <code>ldaps</code> kullanır."
+
+#: ui/editdirectoryservicedialog.cpp:395
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Directory Service"
+msgstr "Dizin Hizmetini Düzenle"
+
+#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#, kde-format
+msgid "Open file dialog"
+msgstr "Dosya penceresini aç"
+
+#: ui/keyapprovaldialog.cpp:76
+#, kde-kuit-format
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>hiçbiri</placeholder>"
+
+#: ui/keyapprovaldialog.cpp:77
+#, kde-format
+msgid "Never Encrypt with This Key"
+msgstr "Bu Anahtarla Asla Şifreleme"
+
+#: ui/keyapprovaldialog.cpp:78
+#, kde-format
+msgid "Always Encrypt with This Key"
+msgstr "Daima Bu Anahtarla Şifrele"
+
+#: ui/keyapprovaldialog.cpp:79
+#, kde-format
+msgid "Encrypt Whenever Encryption is Possible"
+msgstr "Şifreleme Olanaklıysa Şifrele"
+
+#: ui/keyapprovaldialog.cpp:80
+#, kde-format
+msgid "Always Ask"
+msgstr "Daima Sor"
+
+#: ui/keyapprovaldialog.cpp:81
+#, kde-format
+msgid "Ask Whenever Encryption is Possible"
+msgstr "Şifreleme Olanaklıysa Sor"
+
+#: ui/keyapprovaldialog.cpp:102
+#, kde-format
+msgctxt "@title:window"
+msgid "Encryption Key Approval"
+msgstr "Şifreleme Anahtarı Onama"
+
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgid "The following keys will be used for encryption:"
+msgstr "Aşağıdaki anahtarlar şifreleme için kullanılacaktır:"
+
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgid "Your keys:"
+msgstr "Anahtarlarınız:"
+
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgid "Recipient:"
+msgstr "Alıcı:"
+
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgid "Encryption keys:"
+msgstr "Şifreleme anahtarları:"
+
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgid "Encryption preference:"
+msgstr "Şifreleme tercihi:"
+
+#: ui/keyrequester.cpp:79
+#, kde-format
+msgid "Clear"
+msgstr "Temizle"
+
+#: ui/keyrequester.cpp:82
+#, kde-format
+msgid "Change..."
+msgstr "Değiştir..."
+
+#: ui/keyrequester.cpp:194 ui/keyselectiondialog.cpp:220
+#, kde-kuit-format
+msgid "<placeholder>unknown</placeholder>"
+msgstr "<placeholder>bilinmeyen</placeholder>"
+
+#: ui/keyrequester.cpp:209 ui/keyselectiondialog.cpp:670
+#, kde-format
+msgid ""
+"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
+"%1</b></p></qt>"
+msgstr ""
+"<qt><p>Arka uçtan anahtarlar alınırken bir hata oluştu:</p><p><b>%1</b></p></"
+"qt>"
+
+#: ui/keyrequester.cpp:214 ui/keyrequester.cpp:247 ui/keyrequester.cpp:269
+#: ui/keyselectiondialog.cpp:639 ui/keyselectiondialog.cpp:675
+#, kde-format
+msgid "Key Listing Failed"
+msgstr "Anahtarla Listeleme Başarısız"
+
+#: ui/keyrequester.cpp:245
+#, kde-format
+msgid ""
+"The OpenPGP backend does not support listing keys. Check your installation."
+msgstr ""
+"OpenPGP arka ucu anahtar listelemeyi desteklemiyor. Kurulumunuzu gözden "
+"geçirin."
+
+#: ui/keyrequester.cpp:267
+#, kde-format
+msgid ""
+"The S/MIME backend does not support listing keys. Check your installation."
+msgstr ""
+"S/MIME arka ucu anahtar listelemeyi desteklemiyor. Kurulumunuzu gözden "
+"geçirin."
+
+#: ui/keyrequester.cpp:387
+#, kde-format
+msgid "OpenPGP Key Selection"
+msgstr "OpenPGP Anahtar Seçimi"
+
+#: ui/keyrequester.cpp:388
+#, kde-format
+msgid "Please select an OpenPGP key to use."
+msgstr "Lütfen kullanmak için bir OpenPGP anahtarı seçin."
+
+#: ui/keyrequester.cpp:390
+#, kde-format
+msgid "S/MIME Key Selection"
+msgstr "S/MIME Anahtar Seçimi"
+
+#: ui/keyrequester.cpp:391
+#, kde-format
+msgid "Please select an S/MIME key to use."
+msgstr "Lütfen kullanmak için bir S/MIME anahtarı seçin."
+
+#: ui/keyrequester.cpp:393
+#, kde-format
+msgid "Key Selection"
+msgstr "Anahtar Seçimi"
+
+#: ui/keyrequester.cpp:394
+#, kde-format
+msgid "Please select an (OpenPGP or S/MIME) key to use."
+msgstr "Lütfen kullanmak için bir (OpenPGP veya S/MIME) anahtarı seçin."
+
+#: ui/keyselectioncombo.cpp:286
+#, kde-format
+msgctxt "Name <email>"
+msgid "%1 <%2>"
+msgstr "%1 <%2>"
+
+#: ui/keyselectioncombo.cpp:289
+#, kde-format
+msgctxt "Name <email> (validity, created: date)"
+msgid "%1 (%2, created: %3)"
+msgstr "%1 (%2, oluşturma: %3)"
+
+#: ui/keyselectioncombo.cpp:295
+#, kde-format
+msgctxt "Name <email> (validity, type, created: date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1 (%2, %3, oluşturma: %4)"
+
+#: ui/keyselectioncombo.cpp:608
+#, kde-format
+msgid "Loading keys ..."
+msgstr "Anahtarlar yükleniyor..."
+
+#: ui/keyselectiondialog.cpp:70
+#, kde-format
+msgid "The key is not valid."
+msgstr "Anahtar geçerli değil."
+
+#: ui/keyselectiondialog.cpp:78
+#, kde-format
+msgid "The key is expired."
+msgstr "Anahtar zaman aşımına uğramış."
+
+#: ui/keyselectiondialog.cpp:82
+#, kde-format
+msgid "The key is revoked."
+msgstr "Anahtar yürürlükten kaldırılmış."
+
+#: ui/keyselectiondialog.cpp:86
+#, kde-format
+msgid "The key is disabled."
+msgstr "Anahtar devre dışı bırakılmış."
+
+#: ui/keyselectiondialog.cpp:93
+#, kde-format
+msgid "The key is not designated for encryption."
+msgstr "Anahtar, şifreleme için tasarlanmamış."
+
+#: ui/keyselectiondialog.cpp:98
+#, kde-format
+msgid "The key is not designated for signing."
+msgstr "Anahtar, imzalama için tasarlanmamış."
+
+#: ui/keyselectiondialog.cpp:103
+#, kde-format
+msgid "The key is not designated for certifying."
+msgstr "Anahtar, sertifikalandırma için tasarlanmamış."
+
+#: ui/keyselectiondialog.cpp:108
+#, kde-format
+msgid "The key is not designated for authentication."
+msgstr "Anahtar, kimlik doğrulama için tasarlanmamış."
+
+#: ui/keyselectiondialog.cpp:114
+#, kde-format
+msgid "The key is not secret."
+msgstr "Anahtar, gizli değil."
+
+#: ui/keyselectiondialog.cpp:129
+#, kde-format
+msgid "The key is not trusted enough."
+msgstr "Anahtar, yeteri kadar güvenilir değil."
+
+#: ui/keyselectiondialog.cpp:135
+#, kde-format
+msgid "The key can be used."
+msgstr "Anahtar, kullanılabilir."
+
+#: ui/keyselectiondialog.cpp:192
+#, kde-format
+msgid "Key ID"
+msgstr "Anahtar Kimliği"
+
+#: ui/keyselectiondialog.cpp:266 ui/keyselectiondialog.cpp:268
+#: ui/keyselectiondialog.cpp:277 ui/keyselectiondialog.cpp:279
+#, kde-format
+msgid "unknown"
+msgstr "bilinmeyen"
+
+#: ui/keyselectiondialog.cpp:266
+#, kde-format
+msgid "OpenPGP key for <b>%1</b>"
+msgstr "<b>%1</b> için OpenPGP anahtarı"
+
+#: ui/keyselectiondialog.cpp:268
+#, kde-format
+msgid "S/MIME key for <b>%1</b>"
+msgstr "<b>%1</b> için S/MIME anahtarı"
+
+#: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
+#: utils/formatting.cpp:418
+#, kde-format
+msgid "Valid from"
+msgstr "Geçerlilik başlangıcı"
+
+#: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
+#: utils/formatting.cpp:421
+#, kde-format
+msgid "Valid until"
+msgstr "Geçerlilik sonu"
+
+#: ui/keyselectiondialog.cpp:277
+#, kde-format
+msgctxt "Key fingerprint"
+msgid "Fingerprint"
+msgstr "Parmakizi"
+
+#: ui/keyselectiondialog.cpp:279
+#, kde-format
+msgctxt "Key issuer"
+msgid "Issuer"
+msgstr "Yayıncı"
+
+#: ui/keyselectiondialog.cpp:281
+#, kde-format
+msgctxt "Key status"
+msgid "Status"
+msgstr "Durum"
+
+#: ui/keyselectiondialog.cpp:416
+#, kde-format
+msgid "Search for &External Certificates"
+msgstr "&Harici Serfitikaları Ara"
+
+#: ui/keyselectiondialog.cpp:430
+#, kde-format
+msgid "&Search for:"
+msgstr "&Ara:"
+
+#: ui/keyselectiondialog.cpp:455
+#, kde-format
+msgid "&Remember choice"
+msgstr "Seçimi &hatırla"
+
+#: ui/keyselectiondialog.cpp:458
+#, kde-format
+msgid ""
+"<qt><p>If you check this box your choice will be stored and you will not be "
+"asked again.</p></qt>"
+msgstr ""
+"<qt> <p>Eğer bu onay kutusunu işaretlerseniz, seçiminiz kaydedilecek ve size "
+"tekrar sorulmayacak.</p></qt>"
+
+#: ui/keyselectiondialog.cpp:472
+#, kde-format
+msgid "&Reread Keys"
+msgstr "Anahtarları &Tekrar Oku"
+
+#: ui/keyselectiondialog.cpp:477
+#, kde-format
+msgid "&Start Certificate Manager"
+msgstr "&Sertifika Yöneticisini Başlat"
+
+#: ui/keyselectiondialog.cpp:637
+#, kde-format
+msgid "No backends found for listing keys. Check your installation."
+msgstr ""
+"Anahtarları listelemek için arka uç bulunamadı. Kurulumunuzu gözden geçirin."
+
+#: ui/keyselectiondialog.cpp:655
+#, kde-format
+msgid "Could not start certificate manager; please check your installation."
+msgstr "Sertifika yöneticisi başlatılamıyor; kurulumunuzu kontrol edin."
+
+#: ui/keyselectiondialog.cpp:657
+#, kde-format
+msgid "Certificate Manager Error"
+msgstr "Sertifika Yöneticisi Hatası"
+
+#: ui/keyselectiondialog.cpp:714
+#, kde-format
+msgid "Checking selected keys..."
+msgstr "Seçili anahtarlar kontrol ediliyor..."
+
+#: ui/keyselectiondialog.cpp:714
+#, kde-format
+msgid "Fetching keys..."
+msgstr "Anahtarlar alınıyor..."
+
+#: ui/keyselectiondialog.cpp:746
+#, kde-format
+msgid ""
+"<qt>One backend returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgid_plural ""
+"<qt>%1 backends returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgstr[0] ""
+"<qt>Bir arka uç, kesik çıktıyı geri gönderdi.<p>Mevcut tüm anahtarlar "
+"gösterilmiyor</p></qt>"
+msgstr[1] ""
+"<qt>%1 arka uç, kesik çıktıyı geri gönderdi.<p>Mevcut tüm anahtarlar "
+"gösterilmiyor</p></qt>"
+
+#: ui/keyselectiondialog.cpp:751
+#, kde-format
+msgid "Key List Result"
+msgstr "Anahtar Liste Sonucu"
+
+#: ui/keyselectiondialog.cpp:873
+#, kde-format
+msgid "Recheck Key"
+msgstr "Anahtarı Tekrar Kontrol Et"
+
+#: ui/messagebox.cpp:46
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "Sisteminiz GnuPG Audit Günlük Kayıtlarını desteklemiyor"
+
+#: ui/messagebox.cpp:46
+#, kde-format
+msgid "System Error"
+msgstr "Sistem Hatası"
+
+#: ui/messagebox.cpp:54
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"GnuPG Audit Gümlük kaydı alınırken bir hata oluştu:\n"
+"%1"
+
+#: ui/messagebox.cpp:55
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "GnuPG Audit Günlük Kaydı Hatası"
+
+#: ui/messagebox.cpp:62
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "Bu işlem için GnuPG Audit Kaydı mevcut değil."
+
+#: ui/messagebox.cpp:62
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Audit Günlük Kaydı Yok"
+
+#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "GnuPG Günlük Kaydı Gösterici"
+
+#: ui/messagebox.cpp:94
+#, kde-format
+msgid "Signing failed: %1"
+msgstr "İmzalama başarısız: %1"
+
+#: ui/messagebox.cpp:95
+#, kde-format
+msgid "Signing successful"
+msgstr "İmzalama işlemi başarılı"
+
+#: ui/messagebox.cpp:106
+#, kde-format
+msgid "Encryption failed: %1"
+msgstr "Şifreleme başarısız: %1"
+
+#: ui/messagebox.cpp:107
+#, kde-format
+msgid "Encryption successful"
+msgstr "Şifreleme işlemi başarılı"
+
+#: ui/messagebox.cpp:128
+#, kde-format
+msgid "Signing Result"
+msgstr "İmzalama Sonuçları"
+
+#: ui/messagebox.cpp:140
+#, kde-format
+msgid "Signing Error"
+msgstr "İmzalama Hatası"
+
+#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
+#, kde-format
+msgid "Encryption Result"
+msgstr "Şifreleme Sonuçları"
+
+#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
+#, kde-format
+msgid "Encryption Error"
+msgstr "Şifreleme Hatası"
+
+#: ui/messagebox.cpp:246
+#, kde-format
+msgid "&Show Audit Log"
+msgstr "&Audit Günlük Kaydını Göster"
+
+#: ui/newkeyapprovaldialog.cpp:139
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Details"
+msgstr "Ayrıntıları Göster"
+
+#: ui/newkeyapprovaldialog.cpp:181
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Matching Keys"
+msgstr "Eşleşen Anahtarları Göster"
+
+#: ui/newkeyapprovaldialog.cpp:182
+#, kde-format
+msgid "Show keys matching the email address"
+msgstr "E-posta adresi ile eşleşen anahtarları göster"
+
+#: ui/newkeyapprovaldialog.cpp:185
+#, kde-format
+msgctxt "@action:button short for 'Show all keys'"
+msgid "Show All"
+msgstr "Tümünü Göster"
+
+#: ui/newkeyapprovaldialog.cpp:186
+#, kde-format
+msgid "Show all keys"
+msgstr "Tüm anahtarları göster"
+
+#: ui/newkeyapprovaldialog.cpp:289
+#, kde-format
+msgctxt ""
+"@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
+"does not yet have an OpenPGP or S/MIME key."
+msgid ""
+"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
+"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"this key and the protected key will be stored in your home directory."
+msgstr ""
+"E-posta adresinizi kullanarak yeni bir anahtar oluşturun.<br/><br/>Bu "
+"anahtar, e-postaların şifresini çözmek ve onları imzalamak için gereklidir. "
+"Bu anahtarı korumak için bir anahtar parolası girmeniz istenecektir ve "
+"korunan anahtar ev dizininizde depolanacaktır."
+
+#: ui/newkeyapprovaldialog.cpp:314
+#, kde-format
+msgctxt "@title:window"
+msgid "Security approval"
+msgstr "Güvenlik onayı"
+
+#: ui/newkeyapprovaldialog.cpp:321 ui/newkeyapprovaldialog.cpp:324
+#: utils/formatting.cpp:692
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:408
+#, kde-format
+msgid "Generating key for '%1'..."
+msgstr "'%1' için anahtar oluşturuluyor..."
+
+#: ui/newkeyapprovaldialog.cpp:408
+#, kde-format
+msgid "This can take several minutes."
+msgstr "Bu, birkaç dakika sürebilir."
+
+#: ui/newkeyapprovaldialog.cpp:410
+#, kde-format
+msgctxt "@title:window"
+msgid "Key generation"
+msgstr "Anahtar oluşturma"
+
+#: ui/newkeyapprovaldialog.cpp:441
+#, kde-format
+msgid "Operation Failed"
+msgstr "İşlem başarısız"
+
+#: ui/newkeyapprovaldialog.cpp:556 ui/newkeyapprovaldialog.cpp:652
+#, kde-format
+msgid "Generate a new key pair"
+msgstr "Yeni bir anahtar çifti oluştur"
+
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgid "Don't confirm identity and integrity"
+msgstr "Kimliği ve bütünlüğü onaylama"
+
+#: ui/newkeyapprovaldialog.cpp:561
+#, kde-format
+msgctxt "@info:tooltip for not selecting a key for signing."
+msgid "The E-Mail will not be cryptographically signed."
+msgstr "Bu e-posta, kriptografik olarak imzalanmayacak."
+
+#: ui/newkeyapprovaldialog.cpp:579
+#, kde-format
+msgctxt "Caption for signing key selection"
+msgid "Confirm identity '%1' as:"
+msgstr "'%1' kimliğini farklı onayla:"
+
+#: ui/newkeyapprovaldialog.cpp:656
+#, kde-format
+msgid "No key. Recipient will be unable to decrypt."
+msgstr "Anahtar yok. Alıcı, şifre çözümü yapamayacak."
+
+#: ui/newkeyapprovaldialog.cpp:659
+#, kde-format
+msgctxt "@info:tooltip for No Key selected for a specific recipient."
+msgid ""
+"Do not select a key for this recipient.<br/><br/>The recipient will receive "
+"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"selected in this dialog."
+msgstr ""
+"Bu alıcı için bir anahtar seçmeyin.<br/><br/>Alıcı, şifreli e-postayı "
+"alacaktır; ancak onun yalnızca bu pencerede seçili diğer anahtarlar "
+"tarafından şifresi çözülebilir."
+
+#: ui/newkeyapprovaldialog.cpp:776
+#, kde-format
+msgctxt "Encrypt to self (email address):"
+msgid "Encrypt to self (%1):"
+msgstr "Özüne şifrele (%1):"
+
+#: ui/newkeyapprovaldialog.cpp:793
+#, kde-format
+msgid "Encrypt to others:"
+msgstr "Başkasına şifrele:"
+
+#: ui/newkeyapprovaldialog.cpp:827
+#, kde-format
+msgid "Generate"
+msgstr "Oluştur"
+
+#: ui/progressdialog.cpp:65
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: ui/readerportselection.cpp:58
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Default reader"
+msgstr "Öntanımlı okuyucu"
+
+#: ui/readerportselection.cpp:73
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"<para>Select the smart card reader that GnuPG shall use.<list><item>The "
+"first item will make GnuPG use the first reader that is found.</"
+"item><item>The last item allows you to enter a custom reader ID or reader "
+"port number.</item><item>All other items represent readers that were found "
+"by GnuPG.</item></list></para>"
+msgstr ""
+"<para>GnuPG'nin kullanacağı akıllı kart okuyucuyu seçin.<list><item>İlk öge, "
+"GnuPG'nin bulunan ilk okuyucuyu kullanmasını sağlayacaktır.</item><item>Son "
+"öge, özel bir okuyucu kimliği veya okuyucu kapı numarası girmenize izin "
+"verir.</item><item>Tüm diğer ögeler, GnuPG tarafından bulunan diğer "
+"okuyucuları temsil eder.</item></list></para>"
+
+#: ui/readerportselection.cpp:114
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Custom reader ID or port number"
+msgstr "Özel okuyucu kimliği veya kapı numarası"
+
+#: utils/compliance.cpp:84
+#, kde-format
+msgid "VS-NfD compliant"
+msgstr "VS-NfD uyumlu"
+
+#: utils/compliance.cpp:84
+#, kde-format
+msgid "Not VS-NfD compliant"
+msgstr "VS-NfD uyumlu değil"
+
+#: utils/formatting.cpp:235
+#, kde-format
+msgid "%1-bit %2 (secret key available)"
+msgstr "%1-bit %2 (gizli anahtar kullanılabilir)"
+
+#: utils/formatting.cpp:237 utils/formatting.cpp:248
+#, kde-format
+msgid "%1-bit %2"
+msgstr "%1-bit %2"
+
+#: utils/formatting.cpp:256 utils/formatting.cpp:278
+#, kde-format
+msgid "Signing (Qualified)"
+msgstr "İmzalama (Nitelikli)"
+
+#: utils/formatting.cpp:258 utils/formatting.cpp:280
+#, kde-format
+msgid "Signing"
+msgstr "İmzalama"
+
+#: utils/formatting.cpp:262 utils/formatting.cpp:284
+#, kde-format
+msgid "Encryption"
+msgstr "Şifreleme"
+
+#: utils/formatting.cpp:265 utils/formatting.cpp:287
+#, kde-format
+msgid "Certifying User-IDs"
+msgstr "Kullanıcı Kimlikleri Sertikalandırma"
+
+#: utils/formatting.cpp:268 utils/formatting.cpp:290
+#, kde-format
+msgid "SSH Authentication"
+msgstr "SSH Kimlik Doğrulama"
+
+#: utils/formatting.cpp:320 utils/formatting.cpp:413
+#, kde-format
+msgid "Revoked"
+msgstr "Yürürlükten Kaldırılmış"
+
+#: utils/formatting.cpp:322 utils/formatting.cpp:415
+#, kde-format
+msgid "Expired"
+msgstr "Süresi Dolmuş"
+
+#: utils/formatting.cpp:324
+#, kde-format
+msgid "Disabled"
+msgstr "Kapalı"
+
+#: utils/formatting.cpp:333
+#, kde-format
+msgid "All User-IDs are certified."
+msgstr "Tüm Kullanıcı Kimlikleri onaylandı."
+
+#: utils/formatting.cpp:339
+#, kde-format
+msgid "One User-ID is not certified."
+msgid_plural "%1 User-IDs are not certified."
+msgstr[0] "Bir Kullanıcı Kimliği onaylı değil."
+msgstr[1] "%1 Kullanıcı Kimliği onaylı değil."
+
+#: utils/formatting.cpp:342 utils/formatting.cpp:345
+#, kde-format
+msgid "The validity cannot be checked at the moment."
+msgstr "Geçerlilik bu aşamada kontrol edilmeyecektir."
+
+#: utils/formatting.cpp:355
+#, kde-format
+msgid "Serial number"
+msgstr "Seri numarası"
+
+#: utils/formatting.cpp:364
+#, kde-format
+msgid "Subject"
+msgstr "Başlık"
+
+#: utils/formatting.cpp:364
+#, kde-format
+msgid "User-ID"
+msgstr "Kullanıcı Kimliği"
+
+#: utils/formatting.cpp:369
+#, kde-format
+msgid "a.k.a."
+msgstr "a.k.a."
+
+#: utils/formatting.cpp:395
+#, kde-format
+msgid "Certification trust"
+msgstr "Sertifikalandırma güveni"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Trusted issuer?"
+msgstr "Güvenilir yayıncı?"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Yes"
+msgstr "Evet"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "No"
+msgstr "Hayır"
+
+#: utils/formatting.cpp:403 utils/formatting.cpp:405 utils/formatting.cpp:433
+#: utils/formatting.cpp:435
+#, kde-format
+msgid "Stored"
+msgstr "Saklanmış"
+
+#: utils/formatting.cpp:403 utils/formatting.cpp:433
+#, kde-format
+msgctxt "stored..."
+msgid "on SmartCard with serial no. %1"
+msgstr "%1 seri numarası ile SmartCard üstünde"
+
+#: utils/formatting.cpp:405 utils/formatting.cpp:435
+#, kde-format
+msgctxt "stored..."
+msgid "on this computer"
+msgstr "bu bilgisayarda"
+
+#: utils/formatting.cpp:411
+#, kde-format
+msgid "Subkey"
+msgstr "Alt anahtar"
+
+#: utils/formatting.cpp:459
+#, kde-format
+msgid "Some keys are revoked, expired, disabled, or invalid."
+msgstr "Bazı anahtarlar yürürlükten kaldırılmış, süresi dolmuş veya geçersiz."
+
+#: utils/formatting.cpp:463
+#, kde-format
+msgid "All keys are certified."
+msgstr "Tüm anahtarlar sertifikalı."
+
+#: utils/formatting.cpp:465
+#, kde-format
+msgid "Some keys are not certified."
+msgstr "Bazı anahtarlar sertifikalı değil."
+
+#: utils/formatting.cpp:469
+#, kde-format
+msgid "The validity of the keys cannot be checked at the moment."
+msgstr "Anahtarların geçerliliği şu anda denetlenemiyor."
+
+#: utils/formatting.cpp:483
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This group does not contain any keys."
+msgstr "Bu grup, hiçbir anahtar içermiyor."
+
+#: utils/formatting.cpp:503
+#, kde-format
+msgid "Keys:"
+msgstr "Anahtarlar:"
+
+#: utils/formatting.cpp:511
+#, kde-format
+msgctxt "this follows a list of keys"
+msgid "and 1 more key"
+msgid_plural "and %1 more keys"
+msgstr[0] "ve 1 anahtar daha"
+msgstr[1] "ve %1 anahtar daha"
+
+#: utils/formatting.cpp:539
+#, kde-format
+msgctxt ""
+"date format suitable for screen readers; d: day as a number without a "
+"leading zero, MMMM: localized month name, yyyy: year as a four digit number"
+msgid "MMMM d, yyyy"
+msgstr "AAAA g, yyyy"
+
+#: utils/formatting.cpp:585 utils/formatting.cpp:620
+#, kde-format
+msgctxt "@info the expiration date of the key is unknown"
+msgid "unknown"
+msgstr "bilinmiyor"
+
+#: utils/formatting.cpp:627 utils/formatting.cpp:636
+#, kde-format
+msgid "unlimited"
+msgstr "sınırsız"
+
+#: utils/formatting.cpp:689
+#, kde-format
+msgctxt "X.509/CMS encryption standard"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: utils/formatting.cpp:694
+#, kde-format
+msgctxt "Unknown encryption protocol"
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: utils/formatting.cpp:710
+#, kde-format
+msgctxt "a group of keys/certificates"
+msgid "Group"
+msgstr "Grup"
+
+#: utils/formatting.cpp:726 utils/formatting.cpp:771
+#, kde-format
+msgctxt "unknown trust level"
+msgid "unknown"
+msgstr "bilinmeyen"
+
+#: utils/formatting.cpp:728 utils/formatting.cpp:775
+#, kde-format
+msgid "untrusted"
+msgstr "güvenilmez"
+
+#: utils/formatting.cpp:730 utils/formatting.cpp:777
+#, kde-format
+msgctxt "marginal trust"
+msgid "marginal"
+msgstr "değişken"
+
+#: utils/formatting.cpp:732 utils/formatting.cpp:779
+#, kde-format
+msgctxt "full trust"
+msgid "full"
+msgstr "tam"
+
+#: utils/formatting.cpp:734 utils/formatting.cpp:781
+#, kde-format
+msgctxt "ultimate trust"
+msgid "ultimate"
+msgstr "sınırsız"
+
+#: utils/formatting.cpp:736 utils/formatting.cpp:773
+#, kde-format
+msgctxt "undefined trust"
+msgid "undefined"
+msgstr "tanımsız"
+
+#: utils/formatting.cpp:747 utils/formatting.cpp:764 utils/formatting.cpp:799
+#: utils/formatting.cpp:1204
+#, kde-format
+msgid "revoked"
+msgstr "yürürlükten kaldırılmış"
+
+#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1201
+#, kde-format
+msgid "expired"
+msgstr "süresi dolmuş"
+
+#: utils/formatting.cpp:753 utils/formatting.cpp:1207
+#, kde-format
+msgid "disabled"
+msgstr "devre dışı"
+
+#: utils/formatting.cpp:756 utils/formatting.cpp:767 utils/formatting.cpp:807
+#: utils/formatting.cpp:1210
+#, kde-format
+msgid "invalid"
+msgstr "geçersiz"
+
+#: utils/formatting.cpp:758
+#, kde-format
+msgctxt "as in good/valid signature"
+msgid "good"
+msgstr "iyi"
+
+#: utils/formatting.cpp:797
+#, kde-format
+msgid "valid"
+msgstr "geçerli"
+
+#: utils/formatting.cpp:811
+#, kde-format
+msgid "certificate expired"
+msgstr "sertifika süresi dolmuş"
+
+#: utils/formatting.cpp:813
+#, kde-format
+msgctxt "fake/invalid signature"
+msgid "bad"
+msgstr "kötü"
+
+#: utils/formatting.cpp:819
+#, kde-format
+msgid "no public key"
+msgstr "genel anahtar yok"
+
+#: utils/formatting.cpp:821
+#, kde-format
+msgid "key expired"
+msgstr "anahtarın süresi dolmuş"
+
+#: utils/formatting.cpp:823
+#, kde-format
+msgid "key revoked"
+msgstr "anahtar yürürlükten kaldırılmış"
+
+#: utils/formatting.cpp:825
+#, kde-format
+msgid "key disabled"
+msgstr "anahtar devre dışı"
+
+#: utils/formatting.cpp:881
+#, kde-format
+msgctxt "name, email, key id"
+msgid "%1 %2 (%3)"
+msgstr "%1 %2 (%3)"
+
+#: utils/formatting.cpp:928
+#, kde-format
+msgid "Bad signature by unknown certificate %1: %2"
+msgstr "Bilinmeyen sertifika %1 tarafından kötü imza: %2"
+
+#: utils/formatting.cpp:930
+#, kde-format
+msgid "Bad signature by an unknown certificate: %1"
+msgstr "Bilinmeyen bir sertifika tarafından kötü imza: %1"
+
+#: utils/formatting.cpp:933
+#, kde-format
+msgid "Bad signature by %1: %2"
+msgstr "%1 tarafından kötü imza: %2"
+
+#: utils/formatting.cpp:939
+#, kde-format
+msgid "Good signature by unknown certificate %1."
+msgstr "Bilinmeyen sertifika %1 tarafından iyi bir imza."
+
+#: utils/formatting.cpp:941
+#, kde-format
+msgid "Good signature by an unknown certificate."
+msgstr "Bilinmeyen bir sertifika tarafından iyi bir imza."
+
+#: utils/formatting.cpp:944
+#, kde-format
+msgid "Good signature by %1."
+msgstr "%1 tarafında iyi bir imza."
+
+#: utils/formatting.cpp:949
+#, kde-format
+msgid "Invalid signature by unknown certificate %1: %2"
+msgstr "Bilinmeyen sertifika %1 tarafından geçersiz imza: %2"
+
+#: utils/formatting.cpp:951
+#, kde-format
+msgid "Invalid signature by an unknown certificate: %1"
+msgstr "Bilinmeyen bir sertifika tarafından geçersiz bir imza: %1"
+
+#: utils/formatting.cpp:954
+#, kde-format
+msgid "Invalid signature by %1: %2"
+msgstr "%1 tarafından geçersiz imza: %2"
+
+#: utils/formatting.cpp:968
+#, kde-format
+msgid "This certificate was imported from the following sources:"
+msgstr "Sertifika aşağıdaki kaynaklardan içe aktarılmış:"
+
+#: utils/formatting.cpp:979
+#, kde-format
+msgid "The import of this certificate was canceled."
+msgstr "Bu sertifkanın içe aktarılması iptal edilmiş."
+
+#: utils/formatting.cpp:982
+#, kde-format
+msgid "An error occurred importing this certificate: %1"
+msgstr "Sertifika içe aktarılırken hata oluştur: %1"
+
+#: utils/formatting.cpp:987
+#, kde-format
+msgid "This certificate was new to your keystore. The secret key is available."
+msgstr ""
+"Bu sertifika, anahtar deponuz için yenidir. Gizli anahtar kullanılabilir."
+
+#: utils/formatting.cpp:988
+#, kde-format
+msgid "This certificate is new to your keystore."
+msgstr "Bu sertifika, anahtar deponuz için yenidir."
+
+#: utils/formatting.cpp:993
+#, kde-format
+msgid "New user-ids were added to this certificate by the import."
+msgstr "Yeni kullanıcı kimlikleri, içe aktarma ile bu sertifikaya eklendi."
+
+#: utils/formatting.cpp:996
+#, kde-format
+msgid "New signatures were added to this certificate by the import."
+msgstr "Yeni imzalar, içe aktarma ile bu sertifikaya eklendi."
+
+#: utils/formatting.cpp:999
+#, kde-format
+msgid "New subkeys were added to this certificate by the import."
+msgstr "Yeni alt anahtarlar, içe aktarma ile bu sertifikaya eklendi."
+
+#: utils/formatting.cpp:1002
+#, kde-format
+msgid "The import contained no new data for this certificate. It is unchanged."
+msgstr ""
+"İçe aktarma, bu sertifika için yeni bir veri içermiyor. Değiştirilmedi."
+
+#: utils/formatting.cpp:1018
+#, kde-format
+msgid "Certify"
+msgstr "Onayla"
+
+#: utils/formatting.cpp:1021
+#, kde-format
+msgid "Sign"
+msgstr "İmzala"
+
+#: utils/formatting.cpp:1024
+#, kde-format
+msgid "Encrypt"
+msgstr "Şifrele"
+
+#: utils/formatting.cpp:1027
+#, kde-format
+msgid "Authenticate"
+msgstr "Doğrula"
+
+#: utils/formatting.cpp:1036
+#, kde-format
+msgctxt "(validity, protocol, creation date)"
+msgid "(%1, %2, created: %3)"
+msgstr "(%1 %2, oluşturuldu: %3)"
+
+#: utils/formatting.cpp:1048
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity)"
+msgid "%2 (1 key, %3)"
+msgid_plural "%2 (%1 keys, %3)"
+msgstr[0] "%2 (1 anahtar, %3)"
+msgstr[1] "%2 (%1 anahtar, %3)"
+
+#: utils/formatting.cpp:1055
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, tag)"
+msgid "%2 (1 key, %3, tag)"
+msgid_plural "%2 (%1 keys, %3, tag)"
+msgstr[0] "%2 (1 anahtar, %3, etiket)"
+msgstr[1] "%2 (%1 anahtar, %3, etiket)"
+
+#: utils/formatting.cpp:1062
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, group ...)"
+msgid "%2 (1 key, %3, unknown origin)"
+msgid_plural "%2 (%1 keys, %3, unknown origin)"
+msgstr[0] "%2 (1 anahtar, %3, bilinmeyen köken)"
+msgstr[1] "%2 (%1 anahtar, %3, bilinmeyen köken)"
+
+#: utils/formatting.cpp:1099
+#, kde-format
+msgid "The certificate is marked as your own."
+msgstr "Sertifika sizin olarak işaretlendi."
+
+#: utils/formatting.cpp:1101
+#, kde-format
+msgid "The certificate belongs to this recipient."
+msgstr "Sertifika, bu alıcıya ait."
+
+#: utils/formatting.cpp:1103
+#, kde-format
+msgid ""
+"The trust model indicates marginally that the certificate belongs to this "
+"recipient."
+msgstr ""
+"Güven modeli, sertifkanın bu alıcıya ait olduğunu kararlı olarak işaret eder."
+
+#: utils/formatting.cpp:1105
+#, kde-format
+msgid "This certificate should not be used."
+msgstr "Bu sertifika kullanılmamalı."
+
+#: utils/formatting.cpp:1109
+#, kde-format
+msgid "There is no indication that this certificate belongs to this recipient."
+msgstr "Bu sertifikanın bu alıcıya ait olduğuna dair bir gösterge yok."
+
+#: utils/formatting.cpp:1121
+#, kde-format
+msgid "This group does not contain any keys."
+msgstr "Bu grup, hiçbir anahtar içermiyor."
+
+#: utils/formatting.cpp:1185
+#, kde-format
+msgctxt "@info the compliance of the key with certain requirements is unknown"
+msgid "unknown"
+msgstr "bilinmiyor"
+
+#: utils/formatting.cpp:1198
+#, kde-format
+msgctxt "As in all user IDs are valid."
+msgid "certified"
+msgstr "sertifikalı"
+
+#: utils/formatting.cpp:1213
+#, kde-format
+msgctxt "As in not all user IDs are valid."
+msgid "not certified"
+msgstr "sertifikasız"
+
+#: utils/formatting.cpp:1216
+#, kde-format
+msgctxt "The validity of the user IDs has not been/could not be checked"
+msgid "not checked"
+msgstr "denetlenmemiş"
+
+#: utils/formatting.cpp:1225
+#, kde-format
+msgctxt "As in all keys are valid."
+msgid "all certified"
+msgstr "tümü sertifikalı"
+
+#: utils/formatting.cpp:1228
+#, kde-format
+msgctxt "As in not all keys are valid."
+msgid "not all certified"
+msgstr "hepsi sertifikalı değil"
+
+#: utils/formatting.cpp:1261
+#, kde-format
+msgid "Keyserver"
+msgstr "Anahtar Sunucusu"
+
+#: utils/formatting.cpp:1269
+#, kde-format
+msgid "File import"
+msgstr "Dosya içe aktar"
+
+#: utils/formatting.cpp:1271
+#, kde-format
+msgid "Generated"
+msgstr "Oluşturulmuş"
+
+#: utils/formatting.cpp:1275
+#, kde-format
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: utils/formatting.cpp:1316
+#, kde-format
+msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
+msgid "Certifies this key as partially trusted introducer for '%1'."
+msgstr ""
+"Bu anahtarı, '%1' için kısmi olarak güvenilen bir tanıştırıcı olarak "
+"sertifikalar."
+
+#: utils/formatting.cpp:1320
+#, kde-format
+msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
+msgid "Certifies this key as fully trusted introducer for '%1'."
+msgstr ""
+"Bu anahtarı, '%1' için tümüyle güvenilen bir tanıştırıcı olarak sertifikalar."
+
+#: utils/gnupg.cpp:158
+#, kde-format
+msgid "Certificate Manager and Unified Crypto GUI"
+msgstr "Sertifika Yöneticisi ve Yekpare Kripto Kullanıcı Arabirimi"
+
+#: utils/hex.cpp:35
+#, kde-format
+msgid "Invalid hex char '%1' in input stream."
+msgstr "Girdi akışında geçersiz onaltılık karakter '%1'."
+
+#: utils/hex.cpp:47 utils/hex.cpp:52
+#, kde-format
+msgid "Premature end of hex-encoded char in input stream"
+msgstr "Girdi akışında onaltılık olarak kodlanan karakterin beklenmedik bitişi"
+
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "%1 communication possible."
+#~ msgstr "%1 iletişim olanaklı."
+
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "%1 communication not possible."
+#~ msgstr "%1 iletişim olanaklı değil."
+
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "May be used for %1 communication."
+#~ msgstr "%1 iletişim için kullanılabilir."
+
+#~ msgctxt ""
+#~ "VS-NfD-conforming is a German standard for restricted documents. For "
+#~ "which special restrictions about algorithms apply. The string describes "
+#~ "if a key is compliant to that.."
+#~ msgid "May <b>not</b> be used for %1 communication."
+#~ msgstr "%1 iletişim için <b>kullanılamaz</b>."
+
+#~ msgid "never"
+#~ msgstr "hiç"
+
+#~ msgctxt "Key creation date"
+#~ msgid "Created"
+#~ msgstr "Oluşturulma Tarihi"
+
+#~ msgctxt "Key Expiration date"
+#~ msgid "Expiry"
+#~ msgstr "Son Kullanma Tarihi"
+
+#~ msgid "Created"
+#~ msgstr "Oluşturulma Tarihi"
+
+#~ msgid "Expires"
+#~ msgstr "Son Kullanma Tarihi"
+
+#~ msgid "no expiration"
+#~ msgstr "süre dolumu yok"
+
+#~ msgctxt "@action:button accessible name for 'Add to list'"
+#~ msgid "add"
+#~ msgstr "ekle"
+
+#~ msgctxt "@action:button accessible name for 'Move to top'"
+#~ msgid "top"
+#~ msgstr "üst"
+
+#~ msgctxt "@action:button accessible name for 'Move up'"
+#~ msgid "up"
+#~ msgstr "yukarı"
+
+#~ msgctxt "@action:button accessible name for 'Move down'"
+#~ msgid "down"
+#~ msgstr "aşağı"
+
+#~ msgctxt "@action:button accessible name for 'Move to bottom'"
+#~ msgid "bottom"
+#~ msgstr "alt"
