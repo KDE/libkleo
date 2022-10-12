@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:46+0000\n"
-"PO-Revision-Date: 2022-02-18 11:48+0300\n"
+"PO-Revision-Date: 2022-10-11 12:02+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.1\n"
+"X-Generator: Lokalize 22.04.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -265,10 +265,9 @@ msgid "Other Certificates"
 msgstr "Прочие сертификаты"
 
 #: kleo/keyfiltermanager.cpp:153
-#, fuzzy, kde-format
-#| msgid "Not Validated Certificates"
+#, kde-format
 msgid "Not Certified Certificates"
-msgstr "Непроверенные сертификаты"
+msgstr "Несертифицированные сертификаты"
 
 #: kleo/keyfiltermanager.cpp:176
 #, kde-format
@@ -349,19 +348,16 @@ msgid "Tags"
 msgstr "Метки"
 
 #: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Given name"
+#, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
-msgstr "Имя"
+msgstr "без имени"
 
 #: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
+#, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr "olegbatalov@mail.ru,skull@kde.ru"
+msgstr "без эл. почты"
 
 #: models/keylistmodel.cpp:447
 #, kde-format
@@ -372,7 +368,7 @@ msgstr "Загрузка..."
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
-msgstr ""
+msgstr "неприменимо"
 
 #: models/subkeylistmodel.cpp:155
 #, kde-format
@@ -404,14 +400,6 @@ msgstr "Применение"
 
 #: models/useridlistmodel.cpp:76
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalization in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalization (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "no"
@@ -424,15 +412,14 @@ msgstr ""
 
 #: models/useridlistmodel.cpp:77
 #, fuzzy, kde-format
-#| msgid "<none>"
 msgctxt "accessible text for empty list of tags"
 msgid "none"
 msgstr "<нет>"
 
 #: models/useridlistmodel.cpp:79
-#, kde-format
+#, fuzzy, kde-format
 msgid "not applicable"
-msgstr ""
+msgstr "неприменимо"
 
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
@@ -721,7 +708,6 @@ msgstr "Текущий порядок атрибутов:"
 
 #: ui/dnattributeorderconfigwidget.cpp:98
 #, fuzzy, kde-format
-#| msgid "Available attributes:"
 msgid "available attributes"
 msgstr "Доступные атрибуты:"
 
@@ -733,7 +719,6 @@ msgstr "Все остальные"
 
 #: ui/dnattributeorderconfigwidget.cpp:118
 #, fuzzy
-#| msgid "Add"
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Добавить"
@@ -744,7 +729,6 @@ msgstr "Добавить в текущий порядок атрибутов"
 
 #: ui/dnattributeorderconfigwidget.cpp:125
 #, fuzzy
-#| msgid "Remove Filter"
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Убрать фильтр"
@@ -755,7 +739,6 @@ msgstr "Удалить из текущего порядка атрибутов"
 
 #: ui/dnattributeorderconfigwidget.cpp:132
 #, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Переместить наверх"
@@ -766,7 +749,6 @@ msgstr "Переместить наверх"
 
 #: ui/dnattributeorderconfigwidget.cpp:139
 #, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "Переместить наверх"
@@ -777,7 +759,6 @@ msgstr "Переместить выше"
 
 #: ui/dnattributeorderconfigwidget.cpp:146
 #, fuzzy
-#| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Переместить ниже"
@@ -788,7 +769,6 @@ msgstr "Переместить ниже"
 
 #: ui/dnattributeorderconfigwidget.cpp:153
 #, fuzzy
-#| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Переместить вниз"
@@ -799,7 +779,6 @@ msgstr "Переместить вниз"
 
 #: ui/dnattributeorderconfigwidget.cpp:184
 #, fuzzy, kde-format
-#| msgid "Current attribute order:"
 msgid "current attribute order"
 msgstr "Текущий порядок атрибутов:"
 
@@ -1178,20 +1157,16 @@ msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
 #: ui/keyselectioncombo.cpp:289
-#, fuzzy, kde-format
-#| msgctxt "(validity, protocol, creation date)"
-#| msgid "(%1, %2, created: %3)"
+#, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
-msgstr "(%1, %2, создан: %3)"
+msgstr "%1 (%2, создан: %3)"
 
 #: ui/keyselectioncombo.cpp:295
-#, fuzzy, kde-format
-#| msgctxt "Name <email> (validity, type, created: date)"
-#| msgid "%1 (%2, %3 created: %4)"
+#, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3 создан: %4)"
+msgstr "%1 (%2, %3, создан: %4)"
 
 #: ui/keyselectioncombo.cpp:608
 #, kde-format
@@ -1277,14 +1252,12 @@ msgstr "Ключ S/MIME для <b>%1</b>"
 #: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
 #: utils/formatting.cpp:418
 #, fuzzy, kde-format
-#| msgid "Valid From"
 msgid "Valid from"
 msgstr "Действителен с"
 
 #: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
 #: utils/formatting.cpp:421
 #, fuzzy, kde-format
-#| msgid "Valid Until"
 msgid "Valid until"
 msgstr "Действителен до"
 
@@ -1482,14 +1455,12 @@ msgstr "Показать &журнал аудита"
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, fuzzy, kde-format
-#| msgid "Details"
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "Подробно"
 
 #: ui/newkeyapprovaldialog.cpp:181
 #, fuzzy, kde-format
-#| msgid "Show all keys"
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "Показать все ключи"
@@ -1501,7 +1472,6 @@ msgstr "Показать ключи, привязанные к этой элек
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, fuzzy, kde-format
-#| msgid "Show all keys"
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "Показать все ключи"
@@ -1638,7 +1608,7 @@ msgstr ""
 "<para>Выберите устройство чтения смарт-карт, которое должен использовать "
 "GnuPG.<list><item>При выборе первого элемента GnuPG будет использовать "
 "первое найденное устройство чтения.</item><item>При выборе последнего пункта "
-"возможно ввести пользовательский идентификатор устройства чтения или его "
+"возможно ввести идентификатор пользовательского устройства чтения или его "
 "номер порта.</item><item>Все остальные пункты предлагают устройства чтения, "
 "найденные GnuPG.</item></list></para>"
 
@@ -1646,7 +1616,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "Идентификатор или номер порта пользовательского устройства чтения"
 
 #: utils/compliance.cpp:84
 #, kde-format
@@ -1840,11 +1810,10 @@ msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
 "leading zero, MMMM: localized month name, yyyy: year as a four digit number"
 msgid "MMMM d, yyyy"
-msgstr ""
+msgstr "MMMM d, yyyy"
 
 #: utils/formatting.cpp:585 utils/formatting.cpp:620
 #, fuzzy, kde-format
-#| msgid "unknown"
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "неизвестно"
@@ -2162,7 +2131,6 @@ msgstr "Эта группа не содержит ключей."
 
 #: utils/formatting.cpp:1185
 #, fuzzy, kde-format
-#| msgid "unknown"
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "неизвестно"
@@ -2287,19 +2255,16 @@ msgstr "Неожиданное окончание во входящем шифр
 #~ msgstr "Действителен до"
 
 #, fuzzy
-#~| msgid "Add"
 #~ msgctxt "@action:button accessible name for 'Add to list'"
 #~ msgid "add"
 #~ msgstr "Добавить"
 
 #, fuzzy
-#~| msgid "ftp"
 #~ msgctxt "@action:button accessible name for 'Move to top'"
 #~ msgid "top"
 #~ msgstr "ftp"
 
 #, fuzzy
-#~| msgid "Move to bottom"
 #~ msgctxt "@action:button accessible name for 'Move to bottom'"
 #~ msgid "bottom"
 #~ msgstr "Переместить вниз"
@@ -2759,3 +2724,6 @@ msgstr "Неожиданное окончание во входящем шифр
 
 #~ msgid "Please enter your passphrase:"
 #~ msgstr "Введите секретное слово:"
+
+#~ msgid "no expiration"
+#~ msgstr "без срока действия"
