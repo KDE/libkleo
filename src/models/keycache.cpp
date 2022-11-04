@@ -1488,6 +1488,12 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
     if (!job) {
         return Error();
     }
+#ifdef QGPGME_LISTALLKEYSJOB_HAS_OPTIONS
+    if (!m_cache->initialized()) {
+        // avoid delays during the initial key listing
+        job->setOptions(QGpgME::ListAllKeysJob::DisableAutomaticTrustDatabaseCheck);
+    }
+#endif
 
 #if 0
     aheinecke: 2017.01.12:
