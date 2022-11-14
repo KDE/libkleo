@@ -118,6 +118,12 @@ public:
     void setWasValidated(const TriState) const;
     void setIsDeVs(const TriState) const;
     void setIsBad(const TriState) const;
+    /**
+     * If \p value is \c Set, then invalid S/MIME certificates do not match.
+     * If \p value is \c NotSet, then valid S/MIME certificates do not match.
+     */
+    void setValidIfSMIME(TriState value);
+    TriState validIfSMIME() const;
 
     void setOwnerTrust(const LevelState) const;
     void setOwnerTrustReferenceLevel(const GpgME::Key::OwnerTrust) const;

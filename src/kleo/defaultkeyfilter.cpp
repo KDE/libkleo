@@ -83,6 +83,7 @@ public:
     TriState mWasValidated;
     TriState mIsDeVs;
     TriState mBad;
+    TriState mValidIfSMIME = DoesNotMatter;
 
     LevelState mOwnerTrust;
     GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel;
@@ -147,6 +148,12 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
         bool(key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || key.isInvalid()) != bool(d_ptr->mBad == Set)) {
         return false;
     }
+    const UserID uid = key.userID(0);
+    if ((key.protocol() == GpgME::CMS) //
+        && (d_ptr->mValidIfSMIME != DoesNotMatter) //
+        && (bool(uid.validity() >= UserID::Full) != bool(d_ptr->mValidIfSMIME == Set))) {
+        return false;
+    }
     switch (d_ptr->mOwnerTrust) {
     default:
     case LevelDoesNotMatter:
@@ -172,7 +179,6 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
         }
         break;
     }
-    const UserID uid = key.userID(0);
     switch (d_ptr->mValidity) {
     default:
     case LevelDoesNotMatter:
@@ -370,6 +376,11 @@ void DefaultKeyFilter::setIsBad(DefaultKeyFilter::TriState value) const
     d_ptr->mBad = value;
 }
 
+void DefaultKeyFilter::setValidIfSMIME(DefaultKeyFilter::TriState value)
+{
+    d_ptr->mValidIfSMIME = value;
+}
+
 QColor DefaultKeyFilter::fgColor() const
 {
     return d_ptr->mFgColor;
@@ -528,4 +539,9 @@ DefaultKeyFilter::TriState DefaultKeyFilter::isDeVS() const
 DefaultKeyFilter::TriState DefaultKeyFilter::isBad() const
 {
     return d_ptr->mBad;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::validIfSMIME() const
+{
+    return d_ptr->mValidIfSMIME;
 }
