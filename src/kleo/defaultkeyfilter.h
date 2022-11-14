@@ -17,10 +17,11 @@
 
 #include <QColor>
 #include <QFont>
-#include <QScopedPointer>
 #include <QString>
 
 #include <gpgme++/key.h>
+
+#include <memory>
 
 namespace Kleo
 {
@@ -55,25 +56,25 @@ public:
     bool matches(const GpgME::Key &key, MatchContexts ctx) const override;
 
     unsigned int specificity() const override;
-    void setSpecificity(unsigned int value) const;
+    void setSpecificity(unsigned int value);
     QString id() const override;
-    void setId(const QString &value) const;
+    void setId(const QString &value);
     KeyFilter::MatchContexts availableMatchContexts() const override;
-    void setMatchContexts(KeyFilter::MatchContexts value) const;
+    void setMatchContexts(KeyFilter::MatchContexts value);
 
     QColor fgColor() const override;
-    void setFgColor(const QColor &value) const;
+    void setFgColor(const QColor &value);
 
     QColor bgColor() const override;
-    void setBgColor(const QColor &value) const;
+    void setBgColor(const QColor &value);
 
     FontDescription fontDescription() const override;
     QString name() const override;
-    void setName(const QString &value) const;
+    void setName(const QString &value);
     QString icon() const override;
-    void setIcon(const QString &value) const;
+    void setIcon(const QString &value);
     QFont font() const;
-    void setFont(const QFont &value) const;
+    void setFont(const QFont &value);
 
     TriState revoked() const;
     TriState expired() const;
@@ -102,22 +103,22 @@ public:
     bool strikeOut() const;
     bool useFullFont() const;
 
-    void setRevoked(const TriState) const;
-    void setExpired(const TriState) const;
-    void setInvalid(const TriState) const;
-    void setDisabled(const TriState) const;
-    void setRoot(const TriState) const;
-    void setCanEncrypt(const TriState) const;
-    void setCanSign(const TriState) const;
-    void setCanCertify(const TriState) const;
-    void setCanAuthenticate(const TriState) const;
-    void setQualified(const TriState) const;
-    void setCardKey(const TriState) const;
-    void setHasSecret(const TriState) const;
-    void setIsOpenPGP(const TriState) const;
-    void setWasValidated(const TriState) const;
-    void setIsDeVs(const TriState) const;
-    void setIsBad(const TriState) const;
+    void setRevoked(const TriState);
+    void setExpired(const TriState);
+    void setInvalid(const TriState);
+    void setDisabled(const TriState);
+    void setRoot(const TriState);
+    void setCanEncrypt(const TriState);
+    void setCanSign(const TriState);
+    void setCanCertify(const TriState);
+    void setCanAuthenticate(const TriState);
+    void setQualified(const TriState);
+    void setCardKey(const TriState);
+    void setHasSecret(const TriState);
+    void setIsOpenPGP(const TriState);
+    void setWasValidated(const TriState);
+    void setIsDeVs(const TriState);
+    void setIsBad(const TriState);
     /**
      * If \p value is \c Set, then invalid S/MIME certificates do not match.
      * If \p value is \c NotSet, then valid S/MIME certificates do not match.
@@ -125,20 +126,20 @@ public:
     void setValidIfSMIME(TriState value);
     TriState validIfSMIME() const;
 
-    void setOwnerTrust(const LevelState) const;
-    void setOwnerTrustReferenceLevel(const GpgME::Key::OwnerTrust) const;
+    void setOwnerTrust(const LevelState);
+    void setOwnerTrustReferenceLevel(const GpgME::Key::OwnerTrust);
 
-    void setValidity(const LevelState) const;
-    void setValidityReferenceLevel(const GpgME::UserID::Validity) const;
+    void setValidity(const LevelState);
+    void setValidityReferenceLevel(const GpgME::UserID::Validity);
 
-    void setItalic(bool value) const;
-    void setBold(bool value) const;
-    void setStrikeOut(bool value) const;
-    void setUseFullFont(bool value) const;
+    void setItalic(bool value);
+    void setBold(bool value);
+    void setStrikeOut(bool value);
+    void setUseFullFont(bool value);
 
 private:
     class Private;
-    const QScopedPointer<Private> d_ptr;
+    const std::unique_ptr<Private> d;
 };
 
 } // namespace Kleo

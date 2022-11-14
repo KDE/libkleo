@@ -44,7 +44,7 @@ int main(int argc, char **argv)
     Kleo::KeySelectionCombo combo;
     layout.addWidget(&combo);
 
-    std::shared_ptr<const Kleo::DefaultKeyFilter> filter(new Kleo::DefaultKeyFilter);
+    std::shared_ptr<Kleo::DefaultKeyFilter> filter(new Kleo::DefaultKeyFilter);
     filter->setCanSign(parser.isSet(signingOption) ? Kleo::DefaultKeyFilter::Set : Kleo::DefaultKeyFilter::DoesNotMatter);
     filter->setCanEncrypt(parser.isSet(encryptOption) ? Kleo::DefaultKeyFilter::Set : Kleo::DefaultKeyFilter::DoesNotMatter);
     filter->setIsOpenPGP(parser.isSet(openpgpOption) ? Kleo::DefaultKeyFilter::Set : Kleo::DefaultKeyFilter::NotSet);

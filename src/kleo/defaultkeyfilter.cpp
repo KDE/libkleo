@@ -32,34 +32,15 @@ class DefaultKeyFilter::Private
 {
 public:
     Private()
-        : mMatchContexts(AnyMatchContext)
-        , mRevoked(DoesNotMatter)
-        , mExpired(DoesNotMatter)
-        , mInvalid(DoesNotMatter)
-        , mDisabled(DoesNotMatter)
-        , mRoot(DoesNotMatter)
-        , mCanEncrypt(DoesNotMatter)
-        , mCanSign(DoesNotMatter)
-        , mCanCertify(DoesNotMatter)
-        , mCanAuthenticate(DoesNotMatter)
-        , mQualified(DoesNotMatter)
-        , mCardKey(DoesNotMatter)
-        , mHasSecret(DoesNotMatter)
-        , mIsOpenPGP(DoesNotMatter)
-        , mWasValidated(DoesNotMatter)
-        , mIsDeVs(DoesNotMatter)
-        , mBad(DoesNotMatter)
-        , mOwnerTrust(LevelDoesNotMatter)
-        , mOwnerTrustReferenceLevel(Key::Unknown)
-        , mValidity(LevelDoesNotMatter)
-        , mValidityReferenceLevel(UserID::Unknown)
     {
     }
-    QColor mFgColor, mBgColor;
+
+    QColor mFgColor;
+    QColor mBgColor;
     QString mName;
     QString mIcon;
     QString mId;
-    MatchContexts mMatchContexts;
+    MatchContexts mMatchContexts = AnyMatchContext;
     unsigned int mSpecificity = 0;
     bool mItalic = false;
     bool mBold = false;
@@ -67,43 +48,41 @@ public:
     bool mUseFullFont = false;
     QFont mFont;
 
-    TriState mRevoked;
-    TriState mExpired;
-    TriState mInvalid;
-    TriState mDisabled;
-    TriState mRoot;
-    TriState mCanEncrypt;
-    TriState mCanSign;
-    TriState mCanCertify;
-    TriState mCanAuthenticate;
-    TriState mQualified;
-    TriState mCardKey;
-    TriState mHasSecret;
-    TriState mIsOpenPGP;
-    TriState mWasValidated;
-    TriState mIsDeVs;
-    TriState mBad;
+    TriState mRevoked = DoesNotMatter;
+    TriState mExpired = DoesNotMatter;
+    TriState mInvalid = DoesNotMatter;
+    TriState mDisabled = DoesNotMatter;
+    TriState mRoot = DoesNotMatter;
+    TriState mCanEncrypt = DoesNotMatter;
+    TriState mCanSign = DoesNotMatter;
+    TriState mCanCertify = DoesNotMatter;
+    TriState mCanAuthenticate = DoesNotMatter;
+    TriState mQualified = DoesNotMatter;
+    TriState mCardKey = DoesNotMatter;
+    TriState mHasSecret = DoesNotMatter;
+    TriState mIsOpenPGP = DoesNotMatter;
+    TriState mWasValidated = DoesNotMatter;
+    TriState mIsDeVs = DoesNotMatter;
+    TriState mBad = DoesNotMatter;
     TriState mValidIfSMIME = DoesNotMatter;
 
-    LevelState mOwnerTrust;
-    GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel;
-    LevelState mValidity;
-    GpgME::UserID::Validity mValidityReferenceLevel;
+    LevelState mOwnerTrust = LevelDoesNotMatter;
+    GpgME::Key::OwnerTrust mOwnerTrustReferenceLevel = Key::OwnerTrust::Unknown;
+    LevelState mValidity = LevelDoesNotMatter;
+    GpgME::UserID::Validity mValidityReferenceLevel = UserID::Validity::Unknown;
 };
 
 DefaultKeyFilter::DefaultKeyFilter()
-    : KeyFilter()
-    , d_ptr(new Private())
+    : KeyFilter{}
+    , d{new Private}
 {
 }
 
-DefaultKeyFilter::~DefaultKeyFilter()
-{
-}
+DefaultKeyFilter::~DefaultKeyFilter() = default;
 
 bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
 {
-    if (!(d_ptr->mMatchContexts & contexts)) {
+    if (!(d->mMatchContexts & contexts)) {
         return false;
     }
 #ifdef MATCH
@@ -115,8 +94,8 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
             return false;                                                                                                                                      \
         }                                                                                                                                                      \
     } while (false)
-#define IS_MATCH(what) MATCH(d_ptr->m##what, is##what)
-#define CAN_MATCH(what) MATCH(d_ptr->mCan##what, can##what)
+#define IS_MATCH(what) MATCH(d->m##what, is##what)
+#define CAN_MATCH(what) MATCH(d->mCan##what, can##what)
     IS_MATCH(Revoked);
     IS_MATCH(Expired);
     IS_MATCH(Invalid);
@@ -127,79 +106,79 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     CAN_MATCH(Certify);
     CAN_MATCH(Authenticate);
     IS_MATCH(Qualified);
-    if (d_ptr->mCardKey != DoesNotMatter) {
-        if ((d_ptr->mCardKey == Set && !is_card_key(key)) || (d_ptr->mCardKey == NotSet && is_card_key(key))) {
+    if (d->mCardKey != DoesNotMatter) {
+        if ((d->mCardKey == Set && !is_card_key(key)) || (d->mCardKey == NotSet && is_card_key(key))) {
             return false;
         }
     }
-    MATCH(d_ptr->mHasSecret, hasSecret);
+    MATCH(d->mHasSecret, hasSecret);
 #undef MATCH
-    if (d_ptr->mIsOpenPGP != DoesNotMatter && bool(key.protocol() == GpgME::OpenPGP) != bool(d_ptr->mIsOpenPGP == Set)) {
+    if (d->mIsOpenPGP != DoesNotMatter && bool(key.protocol() == GpgME::OpenPGP) != bool(d->mIsOpenPGP == Set)) {
         return false;
     }
-    if (d_ptr->mWasValidated != DoesNotMatter && bool(key.keyListMode() & GpgME::Validate) != bool(d_ptr->mWasValidated == Set)) {
+    if (d->mWasValidated != DoesNotMatter && bool(key.keyListMode() & GpgME::Validate) != bool(d->mWasValidated == Set)) {
         return false;
     }
-    if (d_ptr->mIsDeVs != DoesNotMatter && bool(Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d_ptr->mIsDeVs == Set)) {
+    if (d->mIsDeVs != DoesNotMatter && bool(Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d->mIsDeVs == Set)) {
         return false;
     }
-    if (d_ptr->mBad != DoesNotMatter &&
+    if (d->mBad != DoesNotMatter &&
         /* This is similar to GPGME::Key::isBad which was introduced in GPGME 1.13.0 */
-        bool(key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || key.isInvalid()) != bool(d_ptr->mBad == Set)) {
+        bool(key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || key.isInvalid()) != bool(d->mBad == Set)) {
         return false;
     }
     const UserID uid = key.userID(0);
     if ((key.protocol() == GpgME::CMS) //
-        && (d_ptr->mValidIfSMIME != DoesNotMatter) //
-        && (bool(uid.validity() >= UserID::Full) != bool(d_ptr->mValidIfSMIME == Set))) {
+        && (d->mValidIfSMIME != DoesNotMatter) //
+        && (bool(uid.validity() >= UserID::Full) != bool(d->mValidIfSMIME == Set))) {
         return false;
     }
-    switch (d_ptr->mOwnerTrust) {
+    switch (d->mOwnerTrust) {
     default:
     case LevelDoesNotMatter:
         break;
     case Is:
-        if (key.ownerTrust() != d_ptr->mOwnerTrustReferenceLevel) {
+        if (key.ownerTrust() != d->mOwnerTrustReferenceLevel) {
             return false;
         }
         break;
     case IsNot:
-        if (key.ownerTrust() == d_ptr->mOwnerTrustReferenceLevel) {
+        if (key.ownerTrust() == d->mOwnerTrustReferenceLevel) {
             return false;
         }
         break;
     case IsAtLeast:
-        if (static_cast<int>(key.ownerTrust()) < static_cast<int>(d_ptr->mOwnerTrustReferenceLevel)) {
+        if (static_cast<int>(key.ownerTrust()) < static_cast<int>(d->mOwnerTrustReferenceLevel)) {
             return false;
         }
         break;
     case IsAtMost:
-        if (static_cast<int>(key.ownerTrust()) > static_cast<int>(d_ptr->mOwnerTrustReferenceLevel)) {
+        if (static_cast<int>(key.ownerTrust()) > static_cast<int>(d->mOwnerTrustReferenceLevel)) {
             return false;
         }
         break;
     }
-    switch (d_ptr->mValidity) {
+    switch (d->mValidity) {
     default:
     case LevelDoesNotMatter:
         break;
     case Is:
-        if (uid.validity() != d_ptr->mValidityReferenceLevel) {
+        if (uid.validity() != d->mValidityReferenceLevel) {
             return false;
         }
         break;
     case IsNot:
-        if (uid.validity() == d_ptr->mValidityReferenceLevel) {
+        if (uid.validity() == d->mValidityReferenceLevel) {
             return false;
         }
         break;
     case IsAtLeast:
-        if (static_cast<int>(uid.validity()) < static_cast<int>(d_ptr->mValidityReferenceLevel)) {
+        if (static_cast<int>(uid.validity()) < static_cast<int>(d->mValidityReferenceLevel)) {
             return false;
         }
         break;
     case IsAtMost:
-        if (static_cast<int>(uid.validity()) > static_cast<int>(d_ptr->mValidityReferenceLevel)) {
+        if (static_cast<int>(uid.validity()) > static_cast<int>(d->mValidityReferenceLevel)) {
             return false;
         }
         break;
@@ -209,339 +188,339 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
 
 KeyFilter::FontDescription DefaultKeyFilter::fontDescription() const
 {
-    if (d_ptr->mUseFullFont) {
+    if (d->mUseFullFont) {
         return FontDescription::create(font(), bold(), italic(), strikeOut());
     } else {
         return FontDescription::create(bold(), italic(), strikeOut());
     }
 }
 
-void DefaultKeyFilter::setFgColor(const QColor &value) const
+void DefaultKeyFilter::setFgColor(const QColor &value)
 {
-    d_ptr->mFgColor = value;
+    d->mFgColor = value;
 }
 
-void DefaultKeyFilter::setBgColor(const QColor &value) const
+void DefaultKeyFilter::setBgColor(const QColor &value)
 {
-    d_ptr->mBgColor = value;
+    d->mBgColor = value;
 }
 
-void DefaultKeyFilter::setName(const QString &value) const
+void DefaultKeyFilter::setName(const QString &value)
 {
-    d_ptr->mName = value;
+    d->mName = value;
 }
 
-void DefaultKeyFilter::setIcon(const QString &value) const
+void DefaultKeyFilter::setIcon(const QString &value)
 {
-    d_ptr->mIcon = value;
+    d->mIcon = value;
 }
 
-void DefaultKeyFilter::setId(const QString &value) const
+void DefaultKeyFilter::setId(const QString &value)
 {
-    d_ptr->mId = value;
+    d->mId = value;
 }
 
-void DefaultKeyFilter::setMatchContexts(MatchContexts value) const
+void DefaultKeyFilter::setMatchContexts(MatchContexts value)
 {
-    d_ptr->mMatchContexts = value;
+    d->mMatchContexts = value;
 }
 
-void DefaultKeyFilter::setSpecificity(unsigned int value) const
+void DefaultKeyFilter::setSpecificity(unsigned int value)
 {
-    d_ptr->mSpecificity = value;
+    d->mSpecificity = value;
 }
 
-void DefaultKeyFilter::setItalic(bool value) const
+void DefaultKeyFilter::setItalic(bool value)
 {
-    d_ptr->mItalic = value;
+    d->mItalic = value;
 }
 
-void DefaultKeyFilter::setBold(bool value) const
+void DefaultKeyFilter::setBold(bool value)
 {
-    d_ptr->mBold = value;
+    d->mBold = value;
 }
 
-void DefaultKeyFilter::setStrikeOut(bool value) const
+void DefaultKeyFilter::setStrikeOut(bool value)
 {
-    d_ptr->mStrikeOut = value;
+    d->mStrikeOut = value;
 }
 
-void DefaultKeyFilter::setUseFullFont(bool value) const
+void DefaultKeyFilter::setUseFullFont(bool value)
 {
-    d_ptr->mUseFullFont = value;
+    d->mUseFullFont = value;
 }
 
-void DefaultKeyFilter::setFont(const QFont &value) const
+void DefaultKeyFilter::setFont(const QFont &value)
 {
-    d_ptr->mFont = value;
+    d->mFont = value;
 }
 
-void DefaultKeyFilter::setRevoked(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setRevoked(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mRevoked = value;
+    d->mRevoked = value;
 }
 
-void DefaultKeyFilter::setExpired(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setExpired(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mExpired = value;
+    d->mExpired = value;
 }
 
-void DefaultKeyFilter::setInvalid(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setInvalid(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mInvalid = value;
+    d->mInvalid = value;
 }
 
-void DefaultKeyFilter::setDisabled(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setDisabled(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mDisabled = value;
+    d->mDisabled = value;
 }
 
-void DefaultKeyFilter::setRoot(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setRoot(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mRoot = value;
+    d->mRoot = value;
 }
 
-void DefaultKeyFilter::setCanEncrypt(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setCanEncrypt(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mCanEncrypt = value;
+    d->mCanEncrypt = value;
 }
 
-void DefaultKeyFilter::setCanSign(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setCanSign(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mCanSign = value;
+    d->mCanSign = value;
 }
 
-void DefaultKeyFilter::setCanCertify(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setCanCertify(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mCanCertify = value;
+    d->mCanCertify = value;
 }
 
-void DefaultKeyFilter::setCanAuthenticate(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setCanAuthenticate(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mCanAuthenticate = value;
+    d->mCanAuthenticate = value;
 }
 
-void DefaultKeyFilter::setQualified(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setQualified(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mQualified = value;
+    d->mQualified = value;
 }
 
-void DefaultKeyFilter::setCardKey(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setCardKey(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mCardKey = value;
+    d->mCardKey = value;
 }
 
-void DefaultKeyFilter::setHasSecret(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setHasSecret(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mHasSecret = value;
+    d->mHasSecret = value;
 }
 
-void DefaultKeyFilter::setIsOpenPGP(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setIsOpenPGP(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mIsOpenPGP = value;
+    d->mIsOpenPGP = value;
 }
 
-void DefaultKeyFilter::setWasValidated(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setWasValidated(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mWasValidated = value;
+    d->mWasValidated = value;
 }
 
-void DefaultKeyFilter::setOwnerTrust(DefaultKeyFilter::LevelState value) const
+void DefaultKeyFilter::setOwnerTrust(DefaultKeyFilter::LevelState value)
 {
-    d_ptr->mOwnerTrust = value;
+    d->mOwnerTrust = value;
 }
 
-void DefaultKeyFilter::setOwnerTrustReferenceLevel(GpgME::Key::OwnerTrust value) const
+void DefaultKeyFilter::setOwnerTrustReferenceLevel(GpgME::Key::OwnerTrust value)
 {
-    d_ptr->mOwnerTrustReferenceLevel = value;
+    d->mOwnerTrustReferenceLevel = value;
 }
 
-void DefaultKeyFilter::setValidity(DefaultKeyFilter::LevelState value) const
+void DefaultKeyFilter::setValidity(DefaultKeyFilter::LevelState value)
 {
-    d_ptr->mValidity = value;
+    d->mValidity = value;
 }
 
-void DefaultKeyFilter::setValidityReferenceLevel(GpgME::UserID::Validity value) const
+void DefaultKeyFilter::setValidityReferenceLevel(GpgME::UserID::Validity value)
 {
-    d_ptr->mValidityReferenceLevel = value;
+    d->mValidityReferenceLevel = value;
 }
 
-void DefaultKeyFilter::setIsDeVs(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setIsDeVs(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mIsDeVs = value;
+    d->mIsDeVs = value;
 }
 
-void DefaultKeyFilter::setIsBad(DefaultKeyFilter::TriState value) const
+void DefaultKeyFilter::setIsBad(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mBad = value;
+    d->mBad = value;
 }
 
 void DefaultKeyFilter::setValidIfSMIME(DefaultKeyFilter::TriState value)
 {
-    d_ptr->mValidIfSMIME = value;
+    d->mValidIfSMIME = value;
 }
 
 QColor DefaultKeyFilter::fgColor() const
 {
-    return d_ptr->mFgColor;
+    return d->mFgColor;
 }
 
 QColor DefaultKeyFilter::bgColor() const
 {
-    return d_ptr->mBgColor;
+    return d->mBgColor;
 }
 
 QString DefaultKeyFilter::name() const
 {
-    return d_ptr->mName;
+    return d->mName;
 }
 
 QString DefaultKeyFilter::icon() const
 {
-    return d_ptr->mIcon;
+    return d->mIcon;
 }
 
 QString DefaultKeyFilter::id() const
 {
-    return d_ptr->mId;
+    return d->mId;
 }
 
 QFont DefaultKeyFilter::font() const
 {
-    return d_ptr->mFont;
+    return d->mFont;
 }
 
 KeyFilter::MatchContexts DefaultKeyFilter::availableMatchContexts() const
 {
-    return d_ptr->mMatchContexts;
+    return d->mMatchContexts;
 }
 
 unsigned int DefaultKeyFilter::specificity() const
 {
-    return d_ptr->mSpecificity;
+    return d->mSpecificity;
 }
 
 bool DefaultKeyFilter::italic() const
 {
-    return d_ptr->mItalic;
+    return d->mItalic;
 }
 
 bool DefaultKeyFilter::bold() const
 {
-    return d_ptr->mBold;
+    return d->mBold;
 }
 
 bool DefaultKeyFilter::strikeOut() const
 {
-    return d_ptr->mStrikeOut;
+    return d->mStrikeOut;
 }
 
 bool DefaultKeyFilter::useFullFont() const
 {
-    return d_ptr->mUseFullFont;
+    return d->mUseFullFont;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::revoked() const
 {
-    return d_ptr->mRevoked;
+    return d->mRevoked;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::expired() const
 {
-    return d_ptr->mExpired;
+    return d->mExpired;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::invalid() const
 {
-    return d_ptr->mInvalid;
+    return d->mInvalid;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::disabled() const
 {
-    return d_ptr->mDisabled;
+    return d->mDisabled;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::root() const
 {
-    return d_ptr->mRoot;
+    return d->mRoot;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::canEncrypt() const
 {
-    return d_ptr->mCanEncrypt;
+    return d->mCanEncrypt;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::canSign() const
 {
-    return d_ptr->mCanSign;
+    return d->mCanSign;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::canCertify() const
 {
-    return d_ptr->mCanCertify;
+    return d->mCanCertify;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::canAuthenticate() const
 {
-    return d_ptr->mCanAuthenticate;
+    return d->mCanAuthenticate;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::qualified() const
 {
-    return d_ptr->mQualified;
+    return d->mQualified;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::cardKey() const
 {
-    return d_ptr->mCardKey;
+    return d->mCardKey;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::hasSecret() const
 {
-    return d_ptr->mHasSecret;
+    return d->mHasSecret;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::isOpenPGP() const
 {
-    return d_ptr->mIsOpenPGP;
+    return d->mIsOpenPGP;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::wasValidated() const
 {
-    return d_ptr->mWasValidated;
+    return d->mWasValidated;
 }
 
 DefaultKeyFilter::LevelState DefaultKeyFilter::ownerTrust() const
 {
-    return d_ptr->mOwnerTrust;
+    return d->mOwnerTrust;
 }
 
 GpgME::Key::OwnerTrust DefaultKeyFilter::ownerTrustReferenceLevel() const
 {
-    return d_ptr->mOwnerTrustReferenceLevel;
+    return d->mOwnerTrustReferenceLevel;
 }
 
 DefaultKeyFilter::LevelState DefaultKeyFilter::validity() const
 {
-    return d_ptr->mValidity;
+    return d->mValidity;
 }
 
 GpgME::UserID::Validity DefaultKeyFilter::validityReferenceLevel() const
 {
-    return d_ptr->mValidityReferenceLevel;
+    return d->mValidityReferenceLevel;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::isDeVS() const
 {
-    return d_ptr->mIsDeVs;
+    return d->mIsDeVs;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::isBad() const
 {
-    return d_ptr->mBad;
+    return d->mBad;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::validIfSMIME() const
 {
-    return d_ptr->mValidIfSMIME;
+    return d->mValidIfSMIME;
 }
