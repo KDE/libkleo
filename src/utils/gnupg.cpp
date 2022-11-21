@@ -63,6 +63,12 @@ QString Kleo::gnupgHomeDirectory()
     return homeDir;
 }
 
+QString Kleo::gnupgPrivateKeysDirectory()
+{
+    static const QString dir = QDir{gnupgHomeDirectory()}.filePath(QStringLiteral("private-keys-v1.d"));
+    return dir;
+}
+
 int Kleo::makeGnuPGError(int code)
 {
     return gpg_error(static_cast<gpg_err_code_t>(code));
@@ -126,7 +132,7 @@ QStringList Kleo::gnupgFolderWhitelist()
     static const QDir gnupgHome{gnupgHomeDirectory()};
     return {
         gnupgHome.path(),
-        gnupgHome.filePath(QStringLiteral("private-keys-v1.d")),
+        gnupgPrivateKeysDirectory(),
     };
 }
 

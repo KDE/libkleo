@@ -25,6 +25,7 @@ namespace Kleo
 {
 
 KLEO_EXPORT QString gnupgHomeDirectory();
+KLEO_EXPORT QString gnupgPrivateKeysDirectory();
 
 KLEO_EXPORT QString gpgConfPath();
 KLEO_EXPORT QString gpgSmPath();
