@@ -62,10 +62,8 @@ public:
         }
         mItemData.push_back(lastNotation);
 
-#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
         const auto trustSignatureDomain = Formatting::trustSignatureDomain(sig);
         mItemData.push_back(trustSignatureDomain);
-#endif
         mAccessibleText = {
             Formatting::accessibleHexID(sig.signerKeyID()),
             name.isEmpty() ? i18nc("text for screen readers for an empty name", "no name") : QVariant{},
@@ -75,9 +73,7 @@ public:
             {}, // display text is always okay
             sig.isExportable() ? i18nc("yes, is exportable", "yes") : i18nc("no, is not exportable", "no"),
             lastNotation.isEmpty() ? i18nc("accessible text for empty list of tags", "none") : QVariant{},
-#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
             trustSignatureDomain.isEmpty() ? i18n("not applicable") : QVariant{},
-#endif
         };
         Q_ASSERT(mAccessibleText.size() == mItemData.size());
     }
@@ -97,9 +93,7 @@ public:
             i18n("User ID"),
             i18n("User ID"),
             i18n("User ID"),
-#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
             i18n("User ID"),
-#endif
         };
     }
 
@@ -115,9 +109,7 @@ public:
             i18n("Status"),
             i18n("Exportable"),
             i18n("Tags"),
-#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
             i18n("Trust Signature For"),
-#endif
         };
         // mAccessibleText is explicitly left empty
     }

@@ -1300,16 +1300,11 @@ QString formatTrustScope(const char *trustScope)
 
 QString Formatting::trustSignatureDomain(const GpgME::UserID::Signature &sig)
 {
-#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
     return formatTrustScope(sig.trustScope());
-#else
-    return {};
-#endif
 }
 
 QString Formatting::trustSignature(const GpgME::UserID::Signature &sig)
 {
-#ifdef GPGMEPP_SUPPORTS_TRUST_SIGNATURES
     switch (sig.trustValue()) {
     case TrustSignatureTrust::Partial:
         return i18nc("Certifies this key as partially trusted introducer for 'domain name'.",
@@ -1322,7 +1317,4 @@ QString Formatting::trustSignature(const GpgME::UserID::Signature &sig)
     default:
         return {};
     }
-#else
-    return {};
-#endif
 }
