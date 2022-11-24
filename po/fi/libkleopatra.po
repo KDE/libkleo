@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:48+0000\n"
+"POT-Creation-Date: 2022-11-24 00:46+0000\n"
 "PO-Revision-Date: 2022-08-05 10:55+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -266,12 +266,12 @@ msgstr "Vahvistamattomia varmenteita"
 msgid "Not Validated Certificates"
 msgstr "Ei vahvistettuja varmenteita"
 
-#: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:111
+#: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Nimi"
 
-#: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:112
+#: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "E-Mail"
 msgstr "Sähköposti"
@@ -282,13 +282,13 @@ msgid "User-IDs"
 msgstr "Käyttäjätunnukset"
 
 #: models/keylistmodel.cpp:308 models/subkeylistmodel.cpp:159
-#: models/useridlistmodel.cpp:113
+#: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Valid From"
 msgstr "Voimassa alkaen"
 
 #: models/keylistmodel.cpp:310 models/subkeylistmodel.cpp:161
-#: models/useridlistmodel.cpp:114
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid Until"
 msgstr "Vanhenee"
@@ -334,18 +334,18 @@ msgstr "Päivitetty viimeksi"
 msgid "Certification Trust"
 msgstr "Varmenteen luottamus"
 
-#: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:117
+#: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Tags"
 msgstr "Tunnisteet"
 
-#: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:71
+#: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "ei nimeä"
 
-#: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:72
+#: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
@@ -373,7 +373,7 @@ msgstr "Tunniste"
 msgid "Type"
 msgstr "Tyyppi"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:115
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
 #: utils/formatting.cpp:413 utils/formatting.cpp:415
 #, kde-format
 msgid "Status"
@@ -390,55 +390,55 @@ msgstr "Vahvuus"
 msgid "Usage"
 msgstr "Käyttö"
 
-#: models/useridlistmodel.cpp:76
+#: models/useridlistmodel.cpp:74
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "kyllä"
 
-#: models/useridlistmodel.cpp:76
+#: models/useridlistmodel.cpp:74
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
 msgstr "ei"
 
-#: models/useridlistmodel.cpp:77
+#: models/useridlistmodel.cpp:75
 #, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
 msgstr "ei mitään"
 
-#: models/useridlistmodel.cpp:79
+#: models/useridlistmodel.cpp:76
 #, kde-format
 msgid "not applicable"
 msgstr "ei käytettävissä"
 
+#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
+#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: models/useridlistmodel.cpp:97 models/useridlistmodel.cpp:98
-#: models/useridlistmodel.cpp:99 models/useridlistmodel.cpp:101
 #: ui/keyselectiondialog.cpp:194
 #, kde-format
 msgid "User ID"
 msgstr "Käyttäjätunnus"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
 msgstr "Käyttäjän tai varmenneavaimen tunniste"
 
-#: models/useridlistmodel.cpp:116
+#: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Exportable"
 msgstr "Vietävissä"
 
 # *** TARKISTA: Vai ”luottamusallekirjoitus” (?) + miten kääntää ”for”, mitä seuraa?
-#: models/useridlistmodel.cpp:119
+#: models/useridlistmodel.cpp:112
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Luota allekirjoitukseen"
 
-#: models/useridlistmodel.cpp:175 utils/formatting.cpp:801
+#: models/useridlistmodel.cpp:167 utils/formatting.cpp:801
 #, kde-format
 msgid "class %1"
 msgstr "luokka %1"
@@ -2143,13 +2143,13 @@ msgstr "Luotu"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: utils/formatting.cpp:1316
+#: utils/formatting.cpp:1311
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Varmentaa tämän avaimen nimen ”%1” osin luotetuksi esittelijäksi."
 
-#: utils/formatting.cpp:1320
+#: utils/formatting.cpp:1315
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."

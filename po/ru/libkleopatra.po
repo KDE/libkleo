@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:48+0000\n"
+"POT-Creation-Date: 2022-11-24 00:46+0000\n"
 "PO-Revision-Date: 2022-10-11 12:02+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -274,12 +274,12 @@ msgstr "Несертифицированные сертификаты"
 msgid "Not Validated Certificates"
 msgstr "Непроверенные сертификаты"
 
-#: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:111
+#: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Имя"
 
-#: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:112
+#: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "E-Mail"
 msgstr "Адрес эл. почты"
@@ -290,13 +290,13 @@ msgid "User-IDs"
 msgstr "Идентификаторы пользователя"
 
 #: models/keylistmodel.cpp:308 models/subkeylistmodel.cpp:159
-#: models/useridlistmodel.cpp:113
+#: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Valid From"
 msgstr "Действителен с"
 
 #: models/keylistmodel.cpp:310 models/subkeylistmodel.cpp:161
-#: models/useridlistmodel.cpp:114
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid Until"
 msgstr "Действителен до"
@@ -342,18 +342,18 @@ msgstr "Последнее обновление"
 msgid "Certification Trust"
 msgstr "Уровень доверия"
 
-#: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:117
+#: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Tags"
 msgstr "Метки"
 
-#: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:71
+#: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "без имени"
 
-#: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:72
+#: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
@@ -381,7 +381,7 @@ msgstr "Идентификатор"
 msgid "Type"
 msgstr "Тип"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:115
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
 #: utils/formatting.cpp:413 utils/formatting.cpp:415
 #, kde-format
 msgid "Status"
@@ -398,54 +398,54 @@ msgstr "Длина"
 msgid "Usage"
 msgstr "Применение"
 
-#: models/useridlistmodel.cpp:76
+#: models/useridlistmodel.cpp:74
 #, fuzzy, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "no"
 
-#: models/useridlistmodel.cpp:76
+#: models/useridlistmodel.cpp:74
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
 msgstr ""
 
-#: models/useridlistmodel.cpp:77
+#: models/useridlistmodel.cpp:75
 #, fuzzy, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
 msgstr "<нет>"
 
-#: models/useridlistmodel.cpp:79
+#: models/useridlistmodel.cpp:76
 #, fuzzy, kde-format
 msgid "not applicable"
 msgstr "неприменимо"
 
+#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
+#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: models/useridlistmodel.cpp:97 models/useridlistmodel.cpp:98
-#: models/useridlistmodel.cpp:99 models/useridlistmodel.cpp:101
 #: ui/keyselectiondialog.cpp:194
 #, kde-format
 msgid "User ID"
 msgstr "Идентификатор пользователя"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
 msgstr ""
 
-#: models/useridlistmodel.cpp:116
+#: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Exportable"
 msgstr "Экспортируемый"
 
-#: models/useridlistmodel.cpp:119
+#: models/useridlistmodel.cpp:112
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Доверять подписи для"
 
-#: models/useridlistmodel.cpp:175 utils/formatting.cpp:801
+#: models/useridlistmodel.cpp:167 utils/formatting.cpp:801
 #, kde-format
 msgid "class %1"
 msgstr "класс %1"
@@ -2185,13 +2185,13 @@ msgstr "Создание"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: utils/formatting.cpp:1316
+#: utils/formatting.cpp:1311
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Заверяет этот ключ как частично доверенного представителя для «%1»."
 
-#: utils/formatting.cpp:1320
+#: utils/formatting.cpp:1315
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
