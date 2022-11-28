@@ -209,19 +209,6 @@ private:
     GpgME::Protocol mFixedProtocol = GpgME::UnknownProtocol;
 };
 
-static enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key)
-{
-    enum GpgME::UserID::Validity validity = GpgME::UserID::Validity::Unknown;
-
-    for (const auto &uid : key.userIDs()) {
-        if (validity == GpgME::UserID::Validity::Unknown || validity > uid.validity()) {
-            validity = uid.validity();
-        }
-    }
-
-    return validity;
-}
-
 static bool key_has_addr(const GpgME::Key &key, const QString &addr)
 {
     for (const auto &uid : key.userIDs()) {
@@ -847,7 +834,7 @@ public:
                 if (protocol != GpgME::UnknownProtocol && key.protocol() != protocol) {
                     continue;
                 }
-                if (!Formatting::isKeyDeVs(key) || keyValidity(key) < GpgME::UserID::Validity::Full) {
+                if (!Formatting::isKeyDeVs(key) || !Formatting::uidsHaveFullValidity(key)) {
                     de_vs = false;
                     break;
                 }
