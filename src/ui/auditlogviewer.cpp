@@ -10,6 +10,8 @@
 
 #include "auditlogviewer.h"
 
+#include <kleo/auditlogentry.h>
+
 #include <KConfigGroup>
 #include <KGuiItem>
 #include <KLocalizedString>
@@ -31,6 +33,8 @@
 #include <QStyle>
 #include <QTextStream>
 #include <QVBoxLayout>
+
+#include <gpgme++/error.h>
 
 using namespace Kleo;
 
@@ -87,6 +91,31 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
 AuditLogViewer::~AuditLogViewer()
 {
     writeConfig();
+}
+
+// static
+void AuditLogViewer::showAuditLog(QWidget *parent, const AuditLogEntry &auditLog, const QString &title)
+{
+    const GpgME::Error err = auditLog.error();
+    if (err.code() == GPG_ERR_NOT_IMPLEMENTED) {
+        KMessageBox::information(parent, i18n("Your system does not have support for GnuPG Audit Logs"), i18n("System Error"));
+        return;
+    }
+    if (err && err.code() != GPG_ERR_NO_DATA) {
+        KMessageBox::information(parent,
+                                 i18n("An error occurred while trying to retrieve the GnuPG Audit Log:\n%1", QString::fromLocal8Bit(err.asString())),
+                                 i18n("GnuPG Audit Log Error"));
+        return;
+    }
+    if (auditLog.text().isEmpty()) {
+        KMessageBox::information(parent, i18n("No GnuPG Audit Log available for this operation."), i18n("No GnuPG Audit Log"));
+        return;
+    }
+
+    const auto alv = new AuditLogViewer{auditLog.text(), parent};
+    alv->setAttribute(Qt::WA_DeleteOnClose);
+    alv->setWindowTitle(title.isEmpty() ? i18n("GnuPG Audit Log Viewer") : title);
+    alv->show();
 }
 
 void AuditLogViewer::setAuditLog(const QString &log)

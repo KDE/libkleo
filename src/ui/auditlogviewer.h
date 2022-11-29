@@ -24,6 +24,7 @@ class QTextEdit;
 
 namespace Kleo
 {
+class AuditLogEntry;
 
 class KLEO_EXPORT AuditLogViewer : public QDialog
 {
@@ -32,6 +33,8 @@ public:
     explicit AuditLogViewer(const QString &log, QWidget *parent = nullptr);
 
     ~AuditLogViewer() override;
+
+    static void showAuditLog(QWidget *parent, const AuditLogEntry &auditLog, const QString &title = {});
 
     void setAuditLog(const QString &log);
 
