@@ -107,3 +107,11 @@ QUrl AuditLogEntry::asUrl(const QUrl &urlTemplate) const
     url.setQuery(urlQuery);
     return url;
 }
+
+QDebug operator<<(QDebug debug, const AuditLogEntry &auditLog)
+{
+    const bool oldSetting = debug.autoInsertSpaces();
+    debug.nospace() << "AuditLogEntry(" << auditLog.error().asString() << ", " << auditLog.text() << ')';
+    debug.setAutoInsertSpaces(oldSetting);
+    return debug.maybeSpace();
+}

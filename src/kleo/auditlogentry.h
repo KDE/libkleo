@@ -58,3 +58,5 @@ private:
 };
 
 }
+
+KLEO_EXPORT QDebug operator<<(QDebug debug, const Kleo::AuditLogEntry &auditLog);
