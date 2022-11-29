@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra.po 1638891 2022-11-24 01:38:02Z scripty $
+# $Id: libkleopatra.po 1639166 2022-11-29 01:36:55Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:46+0000\n"
+"POT-Creation-Date: 2022-11-29 00:47+0000\n"
 "PO-Revision-Date: 2022-09-15 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -160,8 +160,8 @@ msgstr "Znotrajvrstični OpenPGP (opuščeno)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:322
-#: ui/newkeyapprovaldialog.cpp:325
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:309
+#: ui/newkeyapprovaldialog.cpp:312
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -1465,7 +1465,7 @@ msgstr "Prikaži vse"
 msgid "Show all keys"
 msgstr "Prikaži vse ključe"
 
-#: ui/newkeyapprovaldialog.cpp:289
+#: ui/newkeyapprovaldialog.cpp:276
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -1479,67 +1479,67 @@ msgstr ""
 "dešifriranje in podpisovanje e-pošte. Za zaščito boste vprašani po geslu za "
 "ta ključ. Vaš ključ bo shranjen v vašem domačem imeniku."
 
-#: ui/newkeyapprovaldialog.cpp:314
+#: ui/newkeyapprovaldialog.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Varnostna odobritev"
 
-#: ui/newkeyapprovaldialog.cpp:321 ui/newkeyapprovaldialog.cpp:324
+#: ui/newkeyapprovaldialog.cpp:308 ui/newkeyapprovaldialog.cpp:311
 #: utils/formatting.cpp:692
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:408
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Ustvarjanje ključa za '%1'..."
 
-#: ui/newkeyapprovaldialog.cpp:408
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgid "This can take several minutes."
 msgstr "To lahko traja nekaj minut."
 
-#: ui/newkeyapprovaldialog.cpp:410
+#: ui/newkeyapprovaldialog.cpp:397
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Generiranje ključa"
 
-#: ui/newkeyapprovaldialog.cpp:441
+#: ui/newkeyapprovaldialog.cpp:428
 #, kde-format
 msgid "Operation Failed"
 msgstr "Operacija ni uspela"
 
-#: ui/newkeyapprovaldialog.cpp:556 ui/newkeyapprovaldialog.cpp:652
+#: ui/newkeyapprovaldialog.cpp:543 ui/newkeyapprovaldialog.cpp:639
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Ustvari nov par ključev"
 
-#: ui/newkeyapprovaldialog.cpp:559
+#: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr "Ne potrjujte identitete in integritete"
 
-#: ui/newkeyapprovaldialog.cpp:561
+#: ui/newkeyapprovaldialog.cpp:548
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "E-pošta ne bo kriptografsko podpisana."
 
-#: ui/newkeyapprovaldialog.cpp:579
+#: ui/newkeyapprovaldialog.cpp:566
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Potrdite identiteto '%1' kot:"
 
-#: ui/newkeyapprovaldialog.cpp:656
+#: ui/newkeyapprovaldialog.cpp:643
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Ni ključa. Prejemnik ne bo mogel dešifrirati."
 
-#: ui/newkeyapprovaldialog.cpp:659
+#: ui/newkeyapprovaldialog.cpp:646
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1551,18 +1551,18 @@ msgstr ""
 "šifrirano e-pošto, ki jo je mogoče dešifrirati z drugimi ključiizbranimi v "
 "tem pogovornem oknu."
 
-#: ui/newkeyapprovaldialog.cpp:776
+#: ui/newkeyapprovaldialog.cpp:763
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Šifriraj zase (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:793
+#: ui/newkeyapprovaldialog.cpp:780
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Šifriraj za druge:"
 
-#: ui/newkeyapprovaldialog.cpp:827
+#: ui/newkeyapprovaldialog.cpp:814
 #, kde-format
 msgid "Generate"
 msgstr "Generiraj"
