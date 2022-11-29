@@ -194,14 +194,6 @@ unsigned int Kleo::classify(const QString &filename)
     QFile file(filename);
     /* The least reliable but always available classification */
     const unsigned int extClass = classifyExtension(fi);
-    if (!GpgME::hasFeature(0, GpgME::BinaryAndFineGrainedIdentify) && !(extClass & ExamineContentHint)) {
-        /* GpgME's identify and our internal Classify were so incomplete
-         * before BinaryAndFineGrainedIdentify that we are better of
-         * to just use the file extension if ExamineContentHint is not set. */
-        qCDebug(LIBKLEO_LOG) << "Classified based only on extension.";
-        return extClass;
-    }
-
     if (!file.open(QIODevice::ReadOnly)) {
         qCDebug(LIBKLEO_LOG) << "Failed to open file: " << filename << " for classification.";
         return extClass;
@@ -214,59 +206,14 @@ unsigned int Kleo::classify(const QString &filename)
         return contentClass;
     }
 
-    /* Probably some X509 Stuff that GpgME in it's wisdom does not handle. Again
+    /* Probably some X509 Stuff that GpgME in its wisdom does not handle. Again
      * file extension is probably more reliable as the last resort. */
     qCDebug(LIBKLEO_LOG) << "No classification based on content.";
     return extClass;
 }
 
-static unsigned int classifyContentInteral(const QByteArray &data)
-{
-    Q_ASSERT(std::is_sorted(std::begin(content_classifications), std::end(content_classifications), ByContent<std::less>(100)));
-
-    static const char beginString[] = "-----BEGIN ";
-    static const QByteArrayMatcher beginMatcher(beginString);
-    int pos = beginMatcher.indexIn(data);
-    if (pos < 0) {
-        return defaultClassification;
-    }
-    pos += sizeof beginString - 1;
-
-    const bool pgp = qstrncmp(data.data() + pos, "PGP ", 4) == 0;
-    if (pgp) {
-        pos += 4;
-    }
-
-    const int epos = data.indexOf("-----\n", pos);
-    if (epos < 0) {
-        return defaultClassification;
-    }
-
-    const _content_classification *const cit =
-        Kleo::binary_find(std::begin(content_classifications), std::end(content_classifications), data.data() + pos, ByContent<std::less>(epos - pos));
-
-    if (cit != std::end(content_classifications)) {
-        return cit->classification | (pgp ? Kleo::Class::OpenPGP : Kleo::Class::CMS);
-    }
-    return defaultClassification;
-}
-
 unsigned int Kleo::classifyContent(const QByteArray &data)
 {
-    /* As of Version 1.6.0 GpgME does not distinguish between detached
-     * signatures and signatures. So we prefer kleo's classification and
-     * only use gpgme as fallback.
-     * With newer versions we have a better identify that really inspects
-     * the PGP Packages. Which is by far the most reliable classification.
-     * So this is already used for the default classification. File extensions
-     * and our classifyinternal is only used as a fallback.
-     */
-    if (!GpgME::hasFeature(0, GpgME::BinaryAndFineGrainedIdentify)) {
-        unsigned int ourClassification = classifyContentInteral(data);
-        if (ourClassification != defaultClassification) {
-            return ourClassification;
-        }
-    }
     QGpgME::QByteArrayDataProvider dp(data);
     GpgME::Data gpgmeData(&dp);
     GpgME::Data::Type type = gpgmeData.type();
