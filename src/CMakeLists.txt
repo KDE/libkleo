@@ -20,6 +20,8 @@ add_library(KF5::Libkleo ALIAS KF5Libkleo)
 
 ########### next target ###############
 target_sources(KF5Libkleo PRIVATE
+   kleo/auditlogentry.cpp
+   kleo/auditlogentry.h
    kleo/checksumdefinition.cpp
    kleo/checksumdefinition.h
    kleo/debug.cpp
@@ -221,6 +223,7 @@ target_include_directories(KF5Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
   HEADER_NAMES
+  AuditLogEntry
   ChecksumDefinition
   Debug
   DefaultKeyFilter
