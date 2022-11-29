@@ -202,7 +202,14 @@ endif()
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KF5Libkleo PROPERTIES UNITY_BUILD ON)
 endif()
-generate_export_header(KF5Libkleo BASE_NAME kleo)
+
+ecm_generate_export_header(KF5Libkleo
+    BASE_NAME kleo
+    VERSION ${PIM_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.23
+)
+
 if(WIN32)
     target_link_libraries(KF5Libkleo ${GPGME_VANILLA_LIBRARIES} )
 endif()
