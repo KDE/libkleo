@@ -36,6 +36,48 @@ using namespace Kleo;
 using namespace GpgME;
 using namespace QGpgME;
 
+namespace
+{
+bool showAuditLogButton(const AuditLogEntry &auditLog)
+{
+    if (auditLog.error().code() == GPG_ERR_NOT_IMPLEMENTED) {
+        qCDebug(KLEO_UI_LOG) << "not showing audit log button (not supported)";
+        return false;
+    }
+    if (auditLog.error().code() == GPG_ERR_NO_DATA) {
+        qCDebug(KLEO_UI_LOG) << "not showing audit log button (GPG_ERR_NO_DATA)";
+        return false;
+    }
+    if (!auditLog.error() && auditLog.text().isEmpty()) {
+        qCDebug(KLEO_UI_LOG) << "not showing audit log button (success, but result empty)";
+        return false;
+    }
+    return true;
+}
+
+void showMessageBox(QWidget *parent,
+                    QMessageBox::Icon icon,
+                    const QString &text,
+                    const AuditLogEntry &auditLog,
+                    const QString &caption,
+                    KMessageBox::Options options)
+{
+    QDialog *dialog = new QDialog(parent);
+    dialog->setWindowTitle(caption);
+    QDialogButtonBox *box = new QDialogButtonBox(showAuditLogButton(auditLog) ? (QDialogButtonBox::Yes | QDialogButtonBox::No) : QDialogButtonBox::Yes, parent);
+    QPushButton *yesButton = box->button(QDialogButtonBox::Yes);
+    yesButton->setDefault(true);
+    dialog->setObjectName(QStringLiteral("error"));
+    dialog->setModal(true);
+    KGuiItem::assign(yesButton, KStandardGuiItem::ok());
+    KGuiItem::assign(box->button(QDialogButtonBox::No), KGuiItem(i18n("&Show Audit Log")));
+
+    if (QDialogButtonBox::No == KMessageBox::createKMessageBox(dialog, box, icon, text, QStringList(), QString(), nullptr, options)) {
+        AuditLogViewer::showAuditLog(parent, auditLog);
+    }
+}
+}
+
 // static
 void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &caption)
 {
@@ -109,7 +151,7 @@ void MessageBox::information(QWidget *parent, const SigningResult &result, const
 // static
 void MessageBox::information(QWidget *parent, const SigningResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
-    make(parent, QMessageBox::Information, to_information_string(result), job, caption, options);
+    showMessageBox(parent, QMessageBox::Information, to_information_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
 // static
@@ -121,7 +163,7 @@ void MessageBox::error(QWidget *parent, const SigningResult &result, const Job *
 // static
 void MessageBox::error(QWidget *parent, const SigningResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
-    make(parent, QMessageBox::Critical, to_error_string(result), job, caption, options);
+    showMessageBox(parent, QMessageBox::Critical, to_error_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
 // static
@@ -133,7 +175,7 @@ void MessageBox::information(QWidget *parent, const EncryptionResult &result, co
 // static
 void MessageBox::information(QWidget *parent, const EncryptionResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
-    make(parent, QMessageBox::Information, to_information_string(result), job, caption, options);
+    showMessageBox(parent, QMessageBox::Information, to_information_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
 // static
@@ -145,7 +187,7 @@ void MessageBox::error(QWidget *parent, const EncryptionResult &result, const Jo
 // static
 void MessageBox::error(QWidget *parent, const EncryptionResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
-    make(parent, QMessageBox::Critical, to_error_string(result), job, caption, options);
+    showMessageBox(parent, QMessageBox::Critical, to_error_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
 // static
@@ -162,7 +204,7 @@ void MessageBox::information(QWidget *parent,
                              const QString &caption,
                              KMessageBox::Options options)
 {
-    make(parent, QMessageBox::Information, to_information_string(sresult, eresult), job, caption, options);
+    showMessageBox(parent, QMessageBox::Information, to_information_string(sresult, eresult), AuditLogEntry::fromJob(job), caption, options);
 }
 
 // static
@@ -179,7 +221,7 @@ void MessageBox::error(QWidget *parent,
                        const QString &caption,
                        KMessageBox::Options options)
 {
-    make(parent, QMessageBox::Critical, to_error_string(sresult, eresult), job, caption, options);
+    showMessageBox(parent, QMessageBox::Critical, to_error_string(sresult, eresult), AuditLogEntry::fromJob(job), caption, options);
 }
 
 // static
@@ -189,42 +231,5 @@ bool MessageBox::showAuditLogButton(const QGpgME::Job *job)
         qCDebug(KLEO_UI_LOG) << "not showing audit log button (no job instance)";
         return false;
     }
-    if (!GpgME::hasFeature(GpgME::AuditLogFeature, 0)) {
-        qCDebug(KLEO_UI_LOG) << "not showing audit log button (gpgme too old)";
-        return false;
-    }
-    if (!job->isAuditLogSupported()) {
-        qCDebug(KLEO_UI_LOG) << "not showing audit log button (not supported)";
-        return false;
-    }
-    if (job->auditLogError().code() == GPG_ERR_NO_DATA) {
-        qCDebug(KLEO_UI_LOG) << "not showing audit log button (GPG_ERR_NO_DATA)";
-        return false;
-    }
-    if (!job->auditLogError() && job->auditLogAsHtml().isEmpty()) {
-        qCDebug(KLEO_UI_LOG) << "not showing audit log button (success, but result empty)";
-        return false;
-    }
-    return true;
-}
-
-// static
-void MessageBox::make(QWidget *parent, QMessageBox::Icon icon, const QString &text, const Job *job, const QString &caption, KMessageBox::Options options)
-{
-    QDialog *dialog = new QDialog(parent);
-    dialog->setWindowTitle(caption);
-    QDialogButtonBox *box = new QDialogButtonBox(showAuditLogButton(job) ? (QDialogButtonBox::Yes | QDialogButtonBox::No) : QDialogButtonBox::Yes, parent);
-    QPushButton *yesButton = box->button(QDialogButtonBox::Yes);
-    yesButton->setDefault(true);
-    // dialog->setEscapeButton(KDialog::Yes);
-    dialog->setObjectName(QStringLiteral("error"));
-    dialog->setModal(true);
-    KGuiItem::assign(yesButton, KStandardGuiItem::ok());
-    if (GpgME::hasFeature(GpgME::AuditLogFeature, 0)) {
-        KGuiItem::assign(box->button(QDialogButtonBox::No), KGuiItem(i18n("&Show Audit Log")));
-    }
-
-    if (QDialogButtonBox::No == KMessageBox::createKMessageBox(dialog, box, icon, text, QStringList(), QString(), nullptr, options)) {
-        auditLog(nullptr, job);
-    }
+    return ::showAuditLogButton(AuditLogEntry::fromJob(job));
 }

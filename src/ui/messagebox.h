@@ -94,10 +94,6 @@ public:
     static void auditLog(QWidget *parent, const QString &log);
 
     static bool showAuditLogButton(const QGpgME::Job *job);
-
-private:
-    static void
-    make(QWidget *parent, QMessageBox::Icon icon, const QString &text, const QGpgME::Job *job, const QString &caption, KMessageBox::Options options);
 };
 
 }
