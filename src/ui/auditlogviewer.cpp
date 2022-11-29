@@ -32,7 +32,7 @@
 #include <QTextStream>
 #include <QVBoxLayout>
 
-using namespace Kleo::Private;
+using namespace Kleo;
 
 AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     : QDialog(parent)

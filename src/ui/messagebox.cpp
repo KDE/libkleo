@@ -31,7 +31,6 @@
 #include <gpg-error.h>
 
 using namespace Kleo;
-using namespace Kleo::Private;
 using namespace GpgME;
 using namespace QGpgME;
 

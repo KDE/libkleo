@@ -290,6 +290,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   HEADER_NAMES
+  AuditLogViewer
   CryptoConfigModule
   DNAttributeOrderConfigWidget
   DirectoryServicesWidget

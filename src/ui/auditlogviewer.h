@@ -24,8 +24,6 @@ class QTextEdit;
 
 namespace Kleo
 {
-namespace Private
-{
 
 class KLEO_EXPORT AuditLogViewer : public QDialog
 {
@@ -53,5 +51,4 @@ private:
 #endif
 };
 
-}
 }
