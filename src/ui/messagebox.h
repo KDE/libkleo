@@ -31,69 +31,96 @@ class QString;
 
 namespace Kleo
 {
-
-class KLEO_EXPORT MessageBox
+namespace MessageBox
 {
-public:
-    static void information(QWidget *parent,
-                            const GpgME::SigningResult &result,
-                            const QGpgME::Job *job,
-                            const QString &caption,
-                            KMessageBox::Options options = KMessageBox::Notify);
-    static void information(QWidget *parent, const GpgME::SigningResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
-    static void error(QWidget *parent,
-                      const GpgME::SigningResult &result,
-                      const QGpgME::Job *job,
-                      const QString &caption,
-                      KMessageBox::Options options = KMessageBox::Notify);
-    static void error(QWidget *parent, const GpgME::SigningResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
 
-    static void information(QWidget *parent,
-                            const GpgME::EncryptionResult &result,
-                            const QGpgME::Job *job,
-                            const QString &caption,
-                            KMessageBox::Options options = KMessageBox::Notify);
-    static void information(QWidget *parent, const GpgME::EncryptionResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
-    static void error(QWidget *parent,
-                      const GpgME::EncryptionResult &result,
-                      const QGpgME::Job *job,
-                      const QString &caption,
-                      KMessageBox::Options options = KMessageBox::Notify);
-    static void error(QWidget *parent, const GpgME::EncryptionResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
+KLEO_EXPORT
+void information(QWidget *parent,
+                 const GpgME::SigningResult &result,
+                 const QGpgME::Job *job,
+                 const QString &caption,
+                 KMessageBox::Options options = KMessageBox::Notify);
 
-    static void information(QWidget *parent,
-                            const GpgME::SigningResult &sresult,
-                            const GpgME::EncryptionResult &eresult,
-                            const QGpgME::Job *job,
-                            const QString &caption,
-                            KMessageBox::Options options = KMessageBox::Notify);
-    static void information(QWidget *parent,
-                            const GpgME::SigningResult &sresult,
-                            const GpgME::EncryptionResult &eresult,
-                            const QGpgME::Job *job,
-                            KMessageBox::Options options = KMessageBox::Notify);
-    static void error(QWidget *parent,
-                      const GpgME::SigningResult &sresult,
-                      const GpgME::EncryptionResult &eresult,
-                      const QGpgME::Job *job,
-                      const QString &caption,
-                      KMessageBox::Options options = KMessageBox::Notify);
-    static void error(QWidget *parent,
-                      const GpgME::SigningResult &sresult,
-                      const GpgME::EncryptionResult &eresult,
-                      const QGpgME::Job *job,
-                      KMessageBox::Options options = KMessageBox::Notify);
+KLEO_EXPORT
+void information(QWidget *parent, const GpgME::SigningResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
 
-    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-    static void auditLog(QWidget *parent, const QGpgME::Job *job, const QString &caption);
-    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-    static void auditLog(QWidget *parent, const QGpgME::Job *job);
-    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-    static void auditLog(QWidget *parent, const QString &log, const QString &caption);
-    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-    static void auditLog(QWidget *parent, const QString &log);
+KLEO_EXPORT
+void error(QWidget *parent,
+           const GpgME::SigningResult &result,
+           const QGpgME::Job *job,
+           const QString &caption,
+           KMessageBox::Options options = KMessageBox::Notify);
 
-    static bool showAuditLogButton(const QGpgME::Job *job);
-};
+KLEO_EXPORT
+void error(QWidget *parent, const GpgME::SigningResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
 
+KLEO_EXPORT
+void information(QWidget *parent,
+                 const GpgME::EncryptionResult &result,
+                 const QGpgME::Job *job,
+                 const QString &caption,
+                 KMessageBox::Options options = KMessageBox::Notify);
+KLEO_EXPORT
+void information(QWidget *parent, const GpgME::EncryptionResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void error(QWidget *parent,
+           const GpgME::EncryptionResult &result,
+           const QGpgME::Job *job,
+           const QString &caption,
+           KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void error(QWidget *parent, const GpgME::EncryptionResult &result, const QGpgME::Job *job, KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void information(QWidget *parent,
+                 const GpgME::SigningResult &sresult,
+                 const GpgME::EncryptionResult &eresult,
+                 const QGpgME::Job *job,
+                 const QString &caption,
+                 KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void information(QWidget *parent,
+                 const GpgME::SigningResult &sresult,
+                 const GpgME::EncryptionResult &eresult,
+                 const QGpgME::Job *job,
+                 KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void error(QWidget *parent,
+           const GpgME::SigningResult &sresult,
+           const GpgME::EncryptionResult &eresult,
+           const QGpgME::Job *job,
+           const QString &caption,
+           KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void error(QWidget *parent,
+           const GpgME::SigningResult &sresult,
+           const GpgME::EncryptionResult &eresult,
+           const QGpgME::Job *job,
+           KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
+void auditLog(QWidget *parent, const QGpgME::Job *job, const QString &caption);
+
+KLEO_EXPORT
+KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
+void auditLog(QWidget *parent, const QGpgME::Job *job);
+
+KLEO_EXPORT
+KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
+void auditLog(QWidget *parent, const QString &log, const QString &caption);
+
+KLEO_EXPORT
+KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
+void auditLog(QWidget *parent, const QString &log);
+
+KLEO_EXPORT
+bool showAuditLogButton(const QGpgME::Job *job);
+
+}
 }

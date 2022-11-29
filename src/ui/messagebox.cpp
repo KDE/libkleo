@@ -78,7 +78,6 @@ void showMessageBox(QWidget *parent,
 }
 }
 
-// static
 void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &caption)
 {
     if (!job) {
@@ -87,13 +86,11 @@ void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &captio
     AuditLogViewer::showAuditLog(parent, AuditLogEntry::fromJob(job), caption);
 }
 
-// static
 void MessageBox::auditLog(QWidget *parent, const QString &log, const QString &caption)
 {
     AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}}, caption);
 }
 
-// static
 void MessageBox::auditLog(QWidget *parent, const Job *job)
 {
     if (!job) {
@@ -102,7 +99,6 @@ void MessageBox::auditLog(QWidget *parent, const Job *job)
     AuditLogViewer::showAuditLog(parent, AuditLogEntry::fromJob(job));
 }
 
-// static
 void MessageBox::auditLog(QWidget *parent, const QString &log)
 {
     AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}});
@@ -142,61 +138,51 @@ static QString to_error_string(const SigningResult &sresult, const EncryptionRes
     return to_information_string(sresult, eresult);
 }
 
-// static
 void MessageBox::information(QWidget *parent, const SigningResult &result, const Job *job, KMessageBox::Options options)
 {
     information(parent, result, job, i18n("Signing Result"), options);
 }
 
-// static
 void MessageBox::information(QWidget *parent, const SigningResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
     showMessageBox(parent, QMessageBox::Information, to_information_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
-// static
 void MessageBox::error(QWidget *parent, const SigningResult &result, const Job *job, KMessageBox::Options options)
 {
     error(parent, result, job, i18n("Signing Error"), options);
 }
 
-// static
 void MessageBox::error(QWidget *parent, const SigningResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
     showMessageBox(parent, QMessageBox::Critical, to_error_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
-// static
 void MessageBox::information(QWidget *parent, const EncryptionResult &result, const Job *job, KMessageBox::Options options)
 {
     information(parent, result, job, i18n("Encryption Result"), options);
 }
 
-// static
 void MessageBox::information(QWidget *parent, const EncryptionResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
     showMessageBox(parent, QMessageBox::Information, to_information_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
-// static
 void MessageBox::error(QWidget *parent, const EncryptionResult &result, const Job *job, KMessageBox::Options options)
 {
     error(parent, result, job, i18n("Encryption Error"), options);
 }
 
-// static
 void MessageBox::error(QWidget *parent, const EncryptionResult &result, const Job *job, const QString &caption, KMessageBox::Options options)
 {
     showMessageBox(parent, QMessageBox::Critical, to_error_string(result), AuditLogEntry::fromJob(job), caption, options);
 }
 
-// static
 void MessageBox::information(QWidget *parent, const SigningResult &sresult, const EncryptionResult &eresult, const Job *job, KMessageBox::Options options)
 {
     information(parent, sresult, eresult, job, i18n("Encryption Result"), options);
 }
 
-// static
 void MessageBox::information(QWidget *parent,
                              const SigningResult &sresult,
                              const EncryptionResult &eresult,
@@ -207,13 +193,11 @@ void MessageBox::information(QWidget *parent,
     showMessageBox(parent, QMessageBox::Information, to_information_string(sresult, eresult), AuditLogEntry::fromJob(job), caption, options);
 }
 
-// static
 void MessageBox::error(QWidget *parent, const SigningResult &sresult, const EncryptionResult &eresult, const Job *job, KMessageBox::Options options)
 {
     error(parent, sresult, eresult, job, i18n("Encryption Error"), options);
 }
 
-// static
 void MessageBox::error(QWidget *parent,
                        const SigningResult &sresult,
                        const EncryptionResult &eresult,
@@ -224,7 +208,6 @@ void MessageBox::error(QWidget *parent,
     showMessageBox(parent, QMessageBox::Critical, to_error_string(sresult, eresult), AuditLogEntry::fromJob(job), caption, options);
 }
 
-// static
 bool MessageBox::showAuditLogButton(const QGpgME::Job *job)
 {
     if (!job) {
