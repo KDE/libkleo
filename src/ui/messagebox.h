@@ -84,9 +84,13 @@ public:
                       const QGpgME::Job *job,
                       KMessageBox::Options options = KMessageBox::Notify);
 
+    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
     static void auditLog(QWidget *parent, const QGpgME::Job *job, const QString &caption);
+    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
     static void auditLog(QWidget *parent, const QGpgME::Job *job);
+    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
     static void auditLog(QWidget *parent, const QString &log, const QString &caption);
+    KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
     static void auditLog(QWidget *parent, const QString &log);
 
     static bool showAuditLogButton(const QGpgME::Job *job);

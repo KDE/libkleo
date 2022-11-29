@@ -13,6 +13,8 @@
 
 #include "auditlogviewer.h"
 
+#include <kleo/auditlogentry.h>
+
 #include <kleo_ui_debug.h>
 
 #include <KGuiItem>
@@ -40,51 +42,28 @@ void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &captio
     if (!job) {
         return;
     }
-
-    if (!GpgME::hasFeature(AuditLogFeature, 0) || !job->isAuditLogSupported()) {
-        KMessageBox::information(parent, i18n("Your system does not have support for GnuPG Audit Logs"), i18n("System Error"));
-        return;
-    }
-
-    const GpgME::Error err = job->auditLogError();
-
-    if (err && err.code() != GPG_ERR_NO_DATA) {
-        KMessageBox::information(parent,
-                                 i18n("An error occurred while trying to retrieve the GnuPG Audit Log:\n%1", QString::fromLocal8Bit(err.asString())),
-                                 i18n("GnuPG Audit Log Error"));
-        return;
-    }
-
-    const QString log = job->auditLogAsHtml();
-
-    if (log.isEmpty()) {
-        KMessageBox::information(parent, i18n("No GnuPG Audit Log available for this operation."), i18n("No GnuPG Audit Log"));
-        return;
-    }
-
-    auditLog(parent, log, caption);
+    AuditLogViewer::showAuditLog(parent, AuditLogEntry::fromJob(job), caption);
 }
 
 // static
 void MessageBox::auditLog(QWidget *parent, const QString &log, const QString &caption)
 {
-    auto const alv = new AuditLogViewer(log, parent);
-    alv->setAttribute(Qt::WA_DeleteOnClose);
-    alv->setObjectName(QStringLiteral("alv"));
-    alv->setWindowTitle(caption);
-    alv->show();
+    AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}}, caption);
 }
 
 // static
 void MessageBox::auditLog(QWidget *parent, const Job *job)
 {
-    auditLog(parent, job, i18n("GnuPG Audit Log Viewer"));
+    if (!job) {
+        return;
+    }
+    AuditLogViewer::showAuditLog(parent, AuditLogEntry::fromJob(job));
 }
 
 // static
 void MessageBox::auditLog(QWidget *parent, const QString &log)
 {
-    auditLog(parent, log, i18n("GnuPG Audit Log Viewer"));
+    AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}});
 }
 
 static QString to_information_string(const SigningResult &result)
