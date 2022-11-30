@@ -59,21 +59,29 @@ void showMessageBox(QWidget *parent,
                     QMessageBox::Icon icon,
                     const QString &text,
                     const AuditLogEntry &auditLog,
-                    const QString &caption,
+                    const QString &title,
                     KMessageBox::Options options)
 {
-    QDialog *dialog = new QDialog(parent);
-    dialog->setWindowTitle(caption);
-    QDialogButtonBox *box = new QDialogButtonBox(showAuditLogButton(auditLog) ? (QDialogButtonBox::Yes | QDialogButtonBox::No) : QDialogButtonBox::Yes, parent);
-    QPushButton *yesButton = box->button(QDialogButtonBox::Yes);
-    yesButton->setDefault(true);
-    dialog->setObjectName(QStringLiteral("error"));
-    dialog->setModal(true);
-    KGuiItem::assign(yesButton, KStandardGuiItem::ok());
-    KGuiItem::assign(box->button(QDialogButtonBox::No), KGuiItem(i18n("&Show Audit Log")));
+    if (showAuditLogButton(auditLog)) {
+        QDialog *dialog = new QDialog{parent};
+        dialog->setWindowTitle(title);
+        QDialogButtonBox *box = new QDialogButtonBox(QDialogButtonBox::Yes | QDialogButtonBox::No, dialog);
+        KGuiItem::assign(box->button(QDialogButtonBox::Yes), KGuiItem{i18nc("@action:button", "Show Audit Log")});
+        KGuiItem::assign(box->button(QDialogButtonBox::No), KStandardGuiItem::ok());
 
-    if (QDialogButtonBox::No == KMessageBox::createKMessageBox(dialog, box, icon, text, QStringList(), QString(), nullptr, options)) {
-        AuditLogViewer::showAuditLog(parent, auditLog);
+        if (options & KMessageBox::WindowModal) {
+            dialog->setWindowModality(Qt::WindowModal);
+        }
+        dialog->setModal(true);
+
+        // Flag as Dangerous to make the Ok button the default button
+        const auto choice = KMessageBox::createKMessageBox(dialog, box, icon, text, QStringList{}, QString{}, nullptr, options | KMessageBox::Dangerous);
+        if (choice == QDialogButtonBox::Yes) {
+            AuditLogViewer::showAuditLog(parent, auditLog);
+        }
+    } else {
+        const auto dialogType = (icon == QMessageBox::Information) ? KMessageBox::Information : KMessageBox::Error;
+        KMessageBox::messageBox(parent, dialogType, text, title, {}, {}, {}, QString{}, options);
     }
 }
 }
