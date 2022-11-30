@@ -78,6 +78,16 @@ void showMessageBox(QWidget *parent,
 }
 }
 
+void MessageBox::information(QWidget *parent, const QString &text, const Kleo::AuditLogEntry &auditLog, const QString &title, KMessageBox::Options options)
+{
+    showMessageBox(parent, QMessageBox::Information, text, auditLog, title.isEmpty() ? i18nc("@title:window", "Information") : title, options);
+}
+
+void MessageBox::error(QWidget *parent, const QString &text, const Kleo::AuditLogEntry &auditLog, const QString &title, KMessageBox::Options options)
+{
+    showMessageBox(parent, QMessageBox::Critical, text, auditLog, title.isEmpty() ? i18nc("@title:window", "Error") : title, options);
+}
+
 void MessageBox::auditLog(QWidget *parent, const QString &log, const QString &title)
 {
     AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}}, title);

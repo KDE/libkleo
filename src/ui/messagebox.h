@@ -15,6 +15,9 @@
 
 #undef MessageBox // Windows
 
+class QString;
+class QWidget;
+
 namespace GpgME
 {
 class SigningResult;
@@ -26,13 +29,26 @@ namespace QGpgME
 class Job;
 }
 
-class QWidget;
-class QString;
-
 namespace Kleo
 {
+class AuditLogEntry;
+
 namespace MessageBox
 {
+
+KLEO_EXPORT
+void information(QWidget *parent,
+                 const QString &text,
+                 const Kleo::AuditLogEntry &auditLog,
+                 const QString &title = {},
+                 KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void error(QWidget *parent,
+           const QString &text,
+           const Kleo::AuditLogEntry &auditLog,
+           const QString &title = {},
+           KMessageBox::Options options = KMessageBox::Notify);
 
 KLEO_EXPORT
 KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
