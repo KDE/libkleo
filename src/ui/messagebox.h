@@ -36,22 +36,7 @@ namespace MessageBox
 
 KLEO_EXPORT
 KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-void auditLog(QWidget *parent, const QGpgME::Job *job, const QString &caption);
-
-KLEO_EXPORT
-KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-void auditLog(QWidget *parent, const QGpgME::Job *job);
-
-KLEO_EXPORT
-KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-void auditLog(QWidget *parent, const QString &log, const QString &caption);
-
-KLEO_EXPORT
-KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-void auditLog(QWidget *parent, const QString &log);
-
-KLEO_EXPORT
-bool showAuditLogButton(const QGpgME::Job *job);
+void auditLog(QWidget *parent, const QString &log, const QString &title = {});
 
 }
 }

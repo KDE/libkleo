@@ -78,28 +78,7 @@ void showMessageBox(QWidget *parent,
 }
 }
 
-void MessageBox::auditLog(QWidget *parent, const Job *job, const QString &caption)
+void MessageBox::auditLog(QWidget *parent, const QString &log, const QString &title)
 {
-    if (!job) {
-        return;
-    }
-    AuditLogViewer::showAuditLog(parent, AuditLogEntry::fromJob(job), caption);
-}
-
-void MessageBox::auditLog(QWidget *parent, const QString &log, const QString &caption)
-{
-    AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}}, caption);
-}
-
-void MessageBox::auditLog(QWidget *parent, const Job *job)
-{
-    if (!job) {
-        return;
-    }
-    AuditLogViewer::showAuditLog(parent, AuditLogEntry::fromJob(job));
-}
-
-void MessageBox::auditLog(QWidget *parent, const QString &log)
-{
-    AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}});
+    AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}}, title);
 }
