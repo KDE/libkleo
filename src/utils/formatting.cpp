@@ -1126,16 +1126,6 @@ QString Formatting::validity(const KeyGroup &group)
 
 namespace
 {
-UserID::Validity minimalValidityOfNotRevokedUserIDs(const Key &key)
-{
-    std::vector<UserID> userIDs = key.userIDs();
-    const auto endOfNotRevokedUserIDs = std::remove_if(userIDs.begin(), userIDs.end(), std::mem_fn(&UserID::isRevoked));
-    const int minValidity = std::accumulate(userIDs.begin(), endOfNotRevokedUserIDs, UserID::Ultimate + 1, [](int validity, const UserID &userID) {
-        return std::min(validity, static_cast<int>(userID.validity()));
-    });
-    return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
-}
-
 template<typename Container>
 UserID::Validity minimalValidity(const Container &keys)
 {

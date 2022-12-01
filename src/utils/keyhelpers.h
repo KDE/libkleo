@@ -14,6 +14,8 @@
 
 #include <QStringList>
 
+#include <gpgme++/key.h>
+
 #include <algorithm>
 #include <set>
 #include <vector>
@@ -49,5 +51,7 @@ KLEO_EXPORT std::set<QString> getMissingSignerKeyIds(const std::vector<GpgME::Ke
  * in the local key ring.
  */
 KLEO_EXPORT bool isRemoteKey(const GpgME::Key &key);
+
+KLEO_EXPORT GpgME::UserID::Validity minimalValidityOfNotRevokedUserIDs(const GpgME::Key &key);
 
 }

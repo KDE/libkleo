@@ -14,9 +14,8 @@
 
 #include <libkleo/keycache.h>
 
-#include <gpgme++/key.h>
-
 using namespace Kleo;
+using namespace GpgME;
 
 namespace
 {
@@ -65,4 +64,14 @@ bool Kleo::isRemoteKey(const GpgME::Key &key)
 {
     // a remote key looked up via WKD has key list mode Local; therefore we also look for the key in the local key ring
     return (key.keyListMode() == GpgME::Extern) || KeyCache::instance()->findByFingerprint(key.primaryFingerprint()).isNull();
+}
+
+GpgME::UserID::Validity Kleo::minimalValidityOfNotRevokedUserIDs(const Key &key)
+{
+    std::vector<UserID> userIDs = key.userIDs();
+    const auto endOfNotRevokedUserIDs = std::remove_if(userIDs.begin(), userIDs.end(), std::mem_fn(&UserID::isRevoked));
+    const int minValidity = std::accumulate(userIDs.begin(), endOfNotRevokedUserIDs, UserID::Ultimate + 1, [](int validity, const UserID &userID) {
+        return std::min(validity, static_cast<int>(userID.validity()));
+    });
+    return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
