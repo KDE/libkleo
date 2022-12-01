@@ -54,4 +54,5 @@ KLEO_EXPORT bool isRemoteKey(const GpgME::Key &key);
 
 KLEO_EXPORT GpgME::UserID::Validity minimalValidityOfNotRevokedUserIDs(const GpgME::Key &key);
 
+KLEO_EXPORT GpgME::UserID::Validity maximalValidityOfUserIDs(const GpgME::Key &key);
 }

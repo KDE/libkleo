@@ -74,3 +74,12 @@ GpgME::UserID::Validity Kleo::minimalValidityOfNotRevokedUserIDs(const Key &key)
     });
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
+
+GpgME::UserID::Validity Kleo::maximalValidityOfUserIDs(const Key &key)
+{
+    const auto userIDs = key.userIDs();
+    const int maxValidity = std::accumulate(userIDs.begin(), userIDs.end(), 0, [](int validity, const UserID &userID) {
+        return std::max(validity, static_cast<int>(userID.validity()));
+    });
+    return static_cast<UserID::Validity>(maxValidity);
+}
