@@ -68,10 +68,9 @@ bool Kleo::isRemoteKey(const GpgME::Key &key)
 
 GpgME::UserID::Validity Kleo::minimalValidityOfNotRevokedUserIDs(const Key &key)
 {
-    std::vector<UserID> userIDs = key.userIDs();
-    const auto endOfNotRevokedUserIDs = std::remove_if(userIDs.begin(), userIDs.end(), std::mem_fn(&UserID::isRevoked));
-    const int minValidity = std::accumulate(userIDs.begin(), endOfNotRevokedUserIDs, UserID::Ultimate + 1, [](int validity, const UserID &userID) {
-        return std::min(validity, static_cast<int>(userID.validity()));
+    const std::vector<UserID> userIDs = key.userIDs();
+    const int minValidity = std::accumulate(userIDs.begin(), userIDs.end(), UserID::Ultimate + 1, [](int validity, const UserID &userID) {
+        return userID.isRevoked() ? validity : std::min(validity, static_cast<int>(userID.validity()));
     });
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
