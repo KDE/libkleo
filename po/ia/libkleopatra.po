@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:47+0000\n"
+"POT-Creation-Date: 2022-12-01 00:47+0000\n"
 "PO-Revision-Date: 2022-03-21 09:38+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -445,33 +445,70 @@ msgstr ""
 msgid "class %1"
 msgstr "classe %1"
 
-#: ui/auditlogviewer.cpp:47
+#: ui/auditlogviewer.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Monstrar Registro de Audit de GnuGPG"
 
-#: ui/auditlogviewer.cpp:50
+#: ui/auditlogviewer.cpp:54
 #, kde-format
 msgid "&Copy to Clipboard"
 msgstr "&Copia in area de transferentia"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:59
 #, kde-format
 msgid "&Save to Disk..."
 msgstr ""
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "System Error"
+msgstr "Error de systema"
+
+#: ui/auditlogviewer.cpp:106
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr ""
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:117
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Il non poteva salveguardar in file %1\": %2"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "File Save Error"
 msgstr ""
@@ -1317,87 +1354,25 @@ msgstr ""
 msgid "Recheck Key"
 msgstr ""
 
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr ""
-
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "System Error"
-msgstr "Error de systema"
-
-#: ui/messagebox.cpp:54
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-
-#: ui/messagebox.cpp:55
-#, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr ""
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr ""
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log"
-msgstr ""
-
-#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
-#, kde-format
-msgid "GnuPG Audit Log Viewer"
-msgstr ""
-
-#: ui/messagebox.cpp:94
-#, kde-format
-msgid "Signing failed: %1"
-msgstr "Signar falleva: %1"
-
-#: ui/messagebox.cpp:95
-#, kde-format
-msgid "Signing successful"
-msgstr ""
-
-#: ui/messagebox.cpp:106
-#, kde-format
-msgid "Encryption failed: %1"
-msgstr "Cryptation falleva: %1"
-
-#: ui/messagebox.cpp:107
-#, kde-format
-msgid "Encryption successful"
-msgstr ""
-
-#: ui/messagebox.cpp:128
-#, kde-format
-msgid "Signing Result"
-msgstr ""
-
-#: ui/messagebox.cpp:140
-#, kde-format
-msgid "Signing Error"
-msgstr ""
-
-#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
-#, kde-format
-msgid "Encryption Result"
-msgstr ""
-
-#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
-#, kde-format
-msgid "Encryption Error"
-msgstr "Error de Encryption"
-
-#: ui/messagebox.cpp:246
-#, kde-format
-msgid "&Show Audit Log"
+#: ui/messagebox.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Show Audit Log"
+msgctxt "@action:button"
+msgid "Show Audit Log"
 msgstr "Mon&strar Registro de Audit"
+
+#: ui/messagebox.cpp:91
+#, fuzzy, kde-format
+#| msgid "Location"
+msgctxt "@title:window"
+msgid "Information"
+msgstr "Location"
+
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, kde-format
@@ -2128,6 +2103,15 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fin premature de char codificate de hex in fluxo de ingresso"
+
+#~ msgid "Signing failed: %1"
+#~ msgstr "Signar falleva: %1"
+
+#~ msgid "Encryption failed: %1"
+#~ msgstr "Cryptation falleva: %1"
+
+#~ msgid "Encryption Error"
+#~ msgstr "Error de Encryption"
 
 #~ msgid "never"
 #~ msgstr "jammais"

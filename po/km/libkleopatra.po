@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:47+0000\n"
+"POT-Creation-Date: 2022-12-01 00:47+0000\n"
 "PO-Revision-Date: 2012-07-09 10:59+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -459,34 +459,73 @@ msgstr ""
 msgid "class %1"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:47
+#: ui/auditlogviewer.cpp:51
 #, fuzzy, kde-format
 #| msgid "View GnuPG Audit Log"
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "មើល​កំណត់ហេតុ​ត្រួតពិនិត្យ GnuPG"
 
-#: ui/auditlogviewer.cpp:50
+#: ui/auditlogviewer.cpp:54
 #, kde-format
 msgid "&Copy to Clipboard"
 msgstr "ចម្លង​ទៅ​ក្ដារតម្បៀតខ្ទាស់"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:59
 #, kde-format
 msgid "&Save to Disk..."
 msgstr "រក្សាទុក​ទៅ​ថាស..."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "ប្រព័ន្ធ​របស់​អ្នក​មិន​មានការ​គាំទ្រ​សម្រាប់​កំណត់ហេតុ GnuPG Audit"
+
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "System Error"
+msgstr "កំហុស​ប្រព័ន្ធ"
+
+#: ui/auditlogviewer.cpp:106
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"មាន​កំហុស បាន​កើតឡើង​នៅពេល​ទៅ​ប្រមូល​យក​កំណត់ហេតុ​ត្រួតពិនិត្យ GnuPG ៖\n"
+"%1"
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "កំហុស​កំណត់​ហេតុ​ត្រួតពិនិត្យ GnuPG"
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "មិនមាន​កំណត់​ហេតុ GnuPG Audit សម្រាប់​ប្រតិបត្តិការ​នេះ ។"
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "គ្មានកំណត់ហេតុ GnuPG Audit"
+
+#: ui/auditlogviewer.cpp:117
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "កម្មវិធី​មើល​កំណត់ហេតុ GnuPG Audit"
+
+#: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "ជ្រើស​ឯកសារ​ត្រូវ​រក្សាទុក​កំណត់​ហេតុ GnuPG Audit"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "មិនអាច​រក្សាទុក​ឯកសារ​ទៅកាន់​ឯកសារ \"%1\" ៖ %2"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "File Save Error"
 msgstr "កំហុស​ក្នុងការ​រក្សាទុក​ឯកសារ"
@@ -1392,89 +1431,25 @@ msgstr "លទ្ធផ​ល​នៃ​បញ្ជី​កូនសោ"
 msgid "Recheck Key"
 msgstr "ពិនិត្យ​​កូនសោ​ឡើង​វិញ"
 
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr "ប្រព័ន្ធ​របស់​អ្នក​មិន​មានការ​គាំទ្រ​សម្រាប់​កំណត់ហេតុ GnuPG Audit"
-
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "System Error"
-msgstr "កំហុស​ប្រព័ន្ធ"
-
-#: ui/messagebox.cpp:54
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-"មាន​កំហុស បាន​កើតឡើង​នៅពេល​ទៅ​ប្រមូល​យក​កំណត់ហេតុ​ត្រួតពិនិត្យ GnuPG ៖\n"
-"%1"
-
-#: ui/messagebox.cpp:55
-#, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr "កំហុស​កំណត់​ហេតុ​ត្រួតពិនិត្យ GnuPG"
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr "មិនមាន​កំណត់​ហេតុ GnuPG Audit សម្រាប់​ប្រតិបត្តិការ​នេះ ។"
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log"
-msgstr "គ្មានកំណត់ហេតុ GnuPG Audit"
-
-#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
-#, kde-format
-msgid "GnuPG Audit Log Viewer"
-msgstr "កម្មវិធី​មើល​កំណត់ហេតុ GnuPG Audit"
-
-#: ui/messagebox.cpp:94
-#, kde-format
-msgid "Signing failed: %1"
-msgstr "ការ​ចុះហត្ថលេខា​បាន​បរាជ័យ ៖ %1"
-
-#: ui/messagebox.cpp:95
-#, kde-format
-msgid "Signing successful"
-msgstr "ចុះហត្ថលេខា​ដោយ​ជោគជ័យ"
-
-#: ui/messagebox.cpp:106
-#, kde-format
-msgid "Encryption failed: %1"
-msgstr "ការ​អ៊ិនគ្រីប​បាន​បរាជ័យ ៖ %1"
-
-#: ui/messagebox.cpp:107
-#, kde-format
-msgid "Encryption successful"
-msgstr "អ៊ិគ្រីប​ដោយ​ជោគជ័យ"
-
-#: ui/messagebox.cpp:128
-#, kde-format
-msgid "Signing Result"
-msgstr "ចុះហត្ថលេខា​លទ្ធផល"
-
-#: ui/messagebox.cpp:140
-#, kde-format
-msgid "Signing Error"
-msgstr "កំហុស​ក្នុងកា​រចុះហត្ថលេខា"
-
-#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
-#, kde-format
-msgid "Encryption Result"
-msgstr "​លទ្ធផល​អ៊ិនគ្រីប"
-
-#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
-#, kde-format
-msgid "Encryption Error"
-msgstr "កំហុស​អ៊ិនគ្រីប"
-
-#: ui/messagebox.cpp:246
-#, kde-format
-msgid "&Show Audit Log"
+#: ui/messagebox.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Show Audit Log"
+msgctxt "@action:button"
+msgid "Show Audit Log"
 msgstr "បង្ហាញ​កំណត់ហេតុ​ត្រួតពិនិត្យ"
+
+#: ui/messagebox.cpp:91
+#, fuzzy, kde-format
+#| msgid "Location"
+msgctxt "@title:window"
+msgid "Information"
+msgstr "ទីតាំង"
+
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, kde-format
@@ -2235,6 +2210,30 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "Signing failed: %1"
+#~ msgstr "ការ​ចុះហត្ថលេខា​បាន​បរាជ័យ ៖ %1"
+
+#~ msgid "Signing successful"
+#~ msgstr "ចុះហត្ថលេខា​ដោយ​ជោគជ័យ"
+
+#~ msgid "Encryption failed: %1"
+#~ msgstr "ការ​អ៊ិនគ្រីប​បាន​បរាជ័យ ៖ %1"
+
+#~ msgid "Encryption successful"
+#~ msgstr "អ៊ិគ្រីប​ដោយ​ជោគជ័យ"
+
+#~ msgid "Signing Result"
+#~ msgstr "ចុះហត្ថលេខា​លទ្ធផល"
+
+#~ msgid "Signing Error"
+#~ msgstr "កំហុស​ក្នុងកា​រចុះហត្ថលេខា"
+
+#~ msgid "Encryption Result"
+#~ msgstr "​លទ្ធផល​អ៊ិនគ្រីប"
+
+#~ msgid "Encryption Error"
+#~ msgstr "កំហុស​អ៊ិនគ្រីប"
 
 #, fuzzy
 #~| msgid "All Certificates"

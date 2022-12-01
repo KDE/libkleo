@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:47+0000\n"
+"POT-Creation-Date: 2022-12-01 00:47+0000\n"
 "PO-Revision-Date: 2020-02-12 22:57+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -452,33 +452,72 @@ msgstr ""
 msgid "class %1"
 msgstr "klass %1"
 
-#: ui/auditlogviewer.cpp:47
+#: ui/auditlogviewer.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "GnuPG auditi logi näitamine"
 
-#: ui/auditlogviewer.cpp:50
+#: ui/auditlogviewer.cpp:54
 #, kde-format
 msgid "&Copy to Clipboard"
 msgstr "&Kopeeri lõikepuhvrisse"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:59
 #, kde-format
 msgid "&Save to Disk..."
 msgstr "&Salvesta kettale..."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "Sinu süsteem ei toeta GnuPG auditi logi"
+
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "System Error"
+msgstr "Süsteemi viga"
+
+#: ui/auditlogviewer.cpp:106
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"GnuPG auditi logi hankimisel tekkis viga:\n"
+"%1"
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "GnuPG auditi logi viga"
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "Selleks toiminguks pole saadaval GnuPG auditi logi."
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "GnuPG auditi logi puudub"
+
+#: ui/auditlogviewer.cpp:117
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "GnuPG auditi logi näitaja"
+
+#: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "GnuPG auditi logi salvestamiseks kasutatava faili valik"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Faili \"%1\" salvestamine nurjus: %2"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "File Save Error"
 msgstr "Faili salvestamise viga"
@@ -1397,89 +1436,25 @@ msgstr "Võtmete hankimise tulemus"
 msgid "Recheck Key"
 msgstr "Võtmete uus kontroll"
 
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr "Sinu süsteem ei toeta GnuPG auditi logi"
-
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "System Error"
-msgstr "Süsteemi viga"
-
-#: ui/messagebox.cpp:54
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-"GnuPG auditi logi hankimisel tekkis viga:\n"
-"%1"
-
-#: ui/messagebox.cpp:55
-#, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr "GnuPG auditi logi viga"
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr "Selleks toiminguks pole saadaval GnuPG auditi logi."
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log"
-msgstr "GnuPG auditi logi puudub"
-
-#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
-#, kde-format
-msgid "GnuPG Audit Log Viewer"
-msgstr "GnuPG auditi logi näitaja"
-
-#: ui/messagebox.cpp:94
-#, kde-format
-msgid "Signing failed: %1"
-msgstr "Signeerimine nurjus: %1"
-
-#: ui/messagebox.cpp:95
-#, kde-format
-msgid "Signing successful"
-msgstr "Signeerimine oli edukas"
-
-#: ui/messagebox.cpp:106
-#, kde-format
-msgid "Encryption failed: %1"
-msgstr "Krüptimine nurjus: %1"
-
-#: ui/messagebox.cpp:107
-#, kde-format
-msgid "Encryption successful"
-msgstr "Krüptimine oli edukas"
-
-#: ui/messagebox.cpp:128
-#, kde-format
-msgid "Signing Result"
-msgstr "Signeerimise tulemused"
-
-#: ui/messagebox.cpp:140
-#, kde-format
-msgid "Signing Error"
-msgstr "Signeerimise viga"
-
-#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
-#, kde-format
-msgid "Encryption Result"
-msgstr "Krüptimise tulemus"
-
-#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
-#, kde-format
-msgid "Encryption Error"
-msgstr "Krüptimise viga"
-
-#: ui/messagebox.cpp:246
-#, kde-format
-msgid "&Show Audit Log"
+#: ui/messagebox.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Show Audit Log"
+msgctxt "@action:button"
+msgid "Show Audit Log"
 msgstr "&Näita auditi logi"
+
+#: ui/messagebox.cpp:91
+#, fuzzy, kde-format
+#| msgid "Location"
+msgctxt "@title:window"
+msgid "Information"
+msgstr "Asukoht"
+
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, kde-format
@@ -2244,6 +2219,30 @@ msgstr "Vigane 16ndkoodis märk '%1' sisendvoos."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "16ndkoodis märgi enneaegne lõpp sisendvoos"
+
+#~ msgid "Signing failed: %1"
+#~ msgstr "Signeerimine nurjus: %1"
+
+#~ msgid "Signing successful"
+#~ msgstr "Signeerimine oli edukas"
+
+#~ msgid "Encryption failed: %1"
+#~ msgstr "Krüptimine nurjus: %1"
+
+#~ msgid "Encryption successful"
+#~ msgstr "Krüptimine oli edukas"
+
+#~ msgid "Signing Result"
+#~ msgstr "Signeerimise tulemused"
+
+#~ msgid "Signing Error"
+#~ msgstr "Signeerimise viga"
+
+#~ msgid "Encryption Result"
+#~ msgstr "Krüptimise tulemus"
+
+#~ msgid "Encryption Error"
+#~ msgstr "Krüptimise viga"
 
 #, fuzzy
 #~| msgctxt ""

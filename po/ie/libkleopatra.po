@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:47+0000\n"
+"POT-Creation-Date: 2022-12-01 00:47+0000\n"
 "PO-Revision-Date: 2022-11-01 00:29+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -446,33 +446,70 @@ msgstr "Signature"
 msgid "class %1"
 msgstr "classe %1"
 
-#: ui/auditlogviewer.cpp:47
+#: ui/auditlogviewer.cpp:51
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "D_iarium..."
 
-#: ui/auditlogviewer.cpp:50
+#: ui/auditlogviewer.cpp:54
 #, fuzzy, kde-format
 msgid "&Copy to Clipboard"
 msgstr "&Copiar al Paperiere"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:59
 #, fuzzy, kde-format
 msgid "&Save to Disk..."
 msgstr "Ne successat gardar li actiones sur li disco."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "System Error"
+msgstr "Errore de sistema"
+
+#: ui/auditlogviewer.cpp:106
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:107
+#, fuzzy, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "Errore de GnuPG"
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr ""
+
+#: ui/auditlogviewer.cpp:111
+#, fuzzy, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Aperter"
+
+#: ui/auditlogviewer.cpp:117
+#, fuzzy, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "Un visor de diariums por MATE."
+
+#: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, fuzzy, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Ne successat gardar li file «%1$s»: %2$s"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, fuzzy, kde-format
 msgid "File Save Error"
 msgstr "Gardar li file quam..."
@@ -1318,87 +1355,24 @@ msgstr "Liste del resultates"
 msgid "Recheck Key"
 msgstr "Clave manca!"
 
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr ""
-
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "System Error"
-msgstr "Errore de sistema"
-
-#: ui/messagebox.cpp:54
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-
-#: ui/messagebox.cpp:55
+#: ui/messagebox.cpp:69
 #, fuzzy, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr "Errore de GnuPG"
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr ""
-
-#: ui/messagebox.cpp:62
-#, fuzzy, kde-format
-msgid "No GnuPG Audit Log"
-msgstr "Aperter"
-
-#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
-#, fuzzy, kde-format
-msgid "GnuPG Audit Log Viewer"
-msgstr "Un visor de diariums por MATE."
-
-#: ui/messagebox.cpp:94
-#, fuzzy, kde-format
-msgid "Signing failed: %1"
-msgstr "%1 ne successat"
-
-#: ui/messagebox.cpp:95
-#, fuzzy, kde-format
-msgid "Signing successful"
-msgstr "Verification successat"
-
-#: ui/messagebox.cpp:106
-#, fuzzy, kde-format
-msgid "Encryption failed: %1"
-msgstr "Ciffration"
-
-#: ui/messagebox.cpp:107
-#, fuzzy, kde-format
-msgid "Encryption successful"
-msgstr "Ciffration"
-
-#: ui/messagebox.cpp:128
-#, fuzzy, kde-format
-msgid "Signing Result"
-msgstr "Resultate"
-
-#: ui/messagebox.cpp:140
-#, fuzzy, kde-format
-msgid "Signing Error"
-msgstr "Signation"
-
-#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
-#, fuzzy, kde-format
-msgid "Encryption Result"
-msgstr "Ciffration"
-
-#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
-#, fuzzy, kde-format
-msgid "Encryption Error"
-msgstr "Ciffration"
-
-#: ui/messagebox.cpp:246
-#, fuzzy, kde-format
-msgid "&Show Audit Log"
+msgctxt "@action:button"
+msgid "Show Audit Log"
 msgstr "Diarium in /var/log/asunder.log"
+
+#: ui/messagebox.cpp:91
+#, fuzzy, kde-format
+#| msgid "Location"
+msgctxt "@title:window"
+msgid "Information"
+msgstr "Loc"
+
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, fuzzy, kde-format
@@ -2127,3 +2101,35 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Signing failed: %1"
+#~ msgstr "%1 ne successat"
+
+#, fuzzy
+#~ msgid "Signing successful"
+#~ msgstr "Verification successat"
+
+#, fuzzy
+#~ msgid "Encryption failed: %1"
+#~ msgstr "Ciffration"
+
+#, fuzzy
+#~ msgid "Encryption successful"
+#~ msgstr "Ciffration"
+
+#, fuzzy
+#~ msgid "Signing Result"
+#~ msgstr "Resultate"
+
+#, fuzzy
+#~ msgid "Signing Error"
+#~ msgstr "Signation"
+
+#, fuzzy
+#~ msgid "Encryption Result"
+#~ msgstr "Ciffration"
+
+#, fuzzy
+#~ msgid "Encryption Error"
+#~ msgstr "Ciffration"

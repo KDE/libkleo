@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:47+0000\n"
+"POT-Creation-Date: 2022-12-01 00:47+0000\n"
 "PO-Revision-Date: 2005-03-21 04:03-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -451,33 +451,70 @@ msgstr ""
 msgid "class %1"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:47
+#: ui/auditlogviewer.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:50
+#: ui/auditlogviewer.cpp:54
 #, kde-format
 msgid "&Copy to Clipboard"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:59
 #, kde-format
 msgid "&Save to Disk..."
 msgstr ""
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "System Error"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:106
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr ""
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:117
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "File Save Error"
 msgstr ""
@@ -1336,90 +1373,23 @@ msgstr "விசை பட்டியல் முடிவு"
 msgid "Recheck Key"
 msgstr "மீண்டும் சரிபார்த்தல் விசை"
 
-#: ui/messagebox.cpp:46
+#: ui/messagebox.cpp:69
 #, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
+msgctxt "@action:button"
+msgid "Show Audit Log"
 msgstr ""
 
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "System Error"
-msgstr ""
-
-#: ui/messagebox.cpp:54
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-
-#: ui/messagebox.cpp:55
-#, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr ""
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr ""
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log"
-msgstr ""
-
-#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
-#, kde-format
-msgid "GnuPG Audit Log Viewer"
-msgstr ""
-
-#: ui/messagebox.cpp:94
-#, kde-format
-msgid "Signing failed: %1"
-msgstr "குறிக்க இயலவில்லை: %1"
-
-#: ui/messagebox.cpp:95
-#, kde-format
-msgid "Signing successful"
-msgstr ""
-
-#: ui/messagebox.cpp:106
-#, kde-format
-msgid "Encryption failed: %1"
-msgstr "மறையாக்கம் செய்ய இயலவில்லை: %1"
-
-#: ui/messagebox.cpp:107
+#: ui/messagebox.cpp:91
 #, fuzzy, kde-format
-#| msgid "Encryption keys:"
-msgid "Encryption successful"
-msgstr "மறையாக்க விசைகள்:"
+#| msgid "Location"
+msgctxt "@title:window"
+msgid "Information"
+msgstr "இடம்"
 
-#: ui/messagebox.cpp:128
-#, fuzzy, kde-format
-#| msgid "Scan Results"
-msgid "Signing Result"
-msgstr "வருடல் முடிவுகள்"
-
-#: ui/messagebox.cpp:140
+#: ui/messagebox.cpp:96
 #, kde-format
-msgid "Signing Error"
-msgstr ""
-
-#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
-msgid "Encryption Result"
-msgstr "மறையாக்க விசைகள்:"
-
-#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
-msgid "Encryption Error"
-msgstr "மறையாக்க விசைகள்:"
-
-#: ui/messagebox.cpp:246
-#, kde-format
-msgid "&Show Audit Log"
+msgctxt "@title:window"
+msgid "Error"
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
@@ -2167,6 +2137,32 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "Signing failed: %1"
+#~ msgstr "குறிக்க இயலவில்லை: %1"
+
+#~ msgid "Encryption failed: %1"
+#~ msgstr "மறையாக்கம் செய்ய இயலவில்லை: %1"
+
+#, fuzzy
+#~| msgid "Encryption keys:"
+#~ msgid "Encryption successful"
+#~ msgstr "மறையாக்க விசைகள்:"
+
+#, fuzzy
+#~| msgid "Scan Results"
+#~ msgid "Signing Result"
+#~ msgstr "வருடல் முடிவுகள்"
+
+#, fuzzy
+#~| msgid "Encryption keys:"
+#~ msgid "Encryption Result"
+#~ msgstr "மறையாக்க விசைகள்:"
+
+#, fuzzy
+#~| msgid "Encryption keys:"
+#~ msgid "Encryption Error"
+#~ msgstr "மறையாக்க விசைகள்:"
 
 #~ msgid "never"
 #~ msgstr "எப்போதும் இல்லை"

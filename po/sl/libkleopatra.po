@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra.po 1639166 2022-11-29 01:36:55Z scripty $
+# $Id: libkleopatra.po 1639248 2022-12-01 01:36:40Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:47+0000\n"
+"POT-Creation-Date: 2022-12-01 00:47+0000\n"
 "PO-Revision-Date: 2022-09-15 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -446,33 +446,72 @@ msgstr "Zaupaj podpisu za"
 msgid "class %1"
 msgstr "razred %1"
 
-#: ui/auditlogviewer.cpp:47
+#: ui/auditlogviewer.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Ogled dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:50
+#: ui/auditlogviewer.cpp:54
 #, kde-format
 msgid "&Copy to Clipboard"
 msgstr "Kopiraj v odložišče"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:59
 #, kde-format
 msgid "&Save to Disk..."
 msgstr "&Shrani na disk..."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "Vaš sistem ne podpira dnevnikov presoje varnosti GnuPG"
+
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "System Error"
+msgstr "Sistemska napaka"
+
+#: ui/auditlogviewer.cpp:106
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"Med pridobivanjem dnevnika presoje varnosti GnuPG je prišlo do napake:\n"
+"%1"
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "Napaka dnevnika presoje varnosti GnuPG"
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "Za to dejanje ni na voljo dnevnika presoje varnosti GnuPG."
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Ni dnevnika presoje varnosti GnuPG"
+
+#: ui/auditlogviewer.cpp:117
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "Pregledovalnik dnevnika presoje varnosti GnuPG"
+
+#: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Izberite datoteko za shranitev dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Ni bilo mogoče shraniti v datoteko \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "File Save Error"
 msgstr "Napaka med shranjevanjem datoteke"
@@ -1353,89 +1392,25 @@ msgstr "Rezultati izpisovanja ključev"
 msgid "Recheck Key"
 msgstr "Znova preveri ključ"
 
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr "Vaš sistem ne podpira dnevnikov presoje varnosti GnuPG"
-
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "System Error"
-msgstr "Sistemska napaka"
-
-#: ui/messagebox.cpp:54
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-"Med pridobivanjem dnevnika presoje varnosti GnuPG je prišlo do napake:\n"
-"%1"
-
-#: ui/messagebox.cpp:55
-#, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr "Napaka dnevnika presoje varnosti GnuPG"
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr "Za to dejanje ni na voljo dnevnika presoje varnosti GnuPG."
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log"
-msgstr "Ni dnevnika presoje varnosti GnuPG"
-
-#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
-#, kde-format
-msgid "GnuPG Audit Log Viewer"
-msgstr "Pregledovalnik dnevnika presoje varnosti GnuPG"
-
-#: ui/messagebox.cpp:94
-#, kde-format
-msgid "Signing failed: %1"
-msgstr "Podpisovanje ni uspelo: %1"
-
-#: ui/messagebox.cpp:95
-#, kde-format
-msgid "Signing successful"
-msgstr "Podpisovanje je bilo uspešno"
-
-#: ui/messagebox.cpp:106
-#, kde-format
-msgid "Encryption failed: %1"
-msgstr "Šifriranje ni uspelo: %1"
-
-#: ui/messagebox.cpp:107
-#, kde-format
-msgid "Encryption successful"
-msgstr "Šifriranje je bilo uspešno"
-
-#: ui/messagebox.cpp:128
-#, kde-format
-msgid "Signing Result"
-msgstr "Rezultat podpisovanja"
-
-#: ui/messagebox.cpp:140
-#, kde-format
-msgid "Signing Error"
-msgstr "Napaka med podpisovanjem"
-
-#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
-#, kde-format
-msgid "Encryption Result"
-msgstr "Rezultat šifriranja"
-
-#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
-#, kde-format
-msgid "Encryption Error"
-msgstr "Napaka šifriranja"
-
-#: ui/messagebox.cpp:246
-#, kde-format
-msgid "&Show Audit Log"
+#: ui/messagebox.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Show Audit Log"
+msgctxt "@action:button"
+msgid "Show Audit Log"
 msgstr "Pokaži dnevnik pre&soje varnosti"
+
+#: ui/messagebox.cpp:91
+#, fuzzy, kde-format
+#| msgid "no expiration"
+msgctxt "@title:window"
+msgid "Information"
+msgstr "ni roka izteka"
+
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, kde-format
@@ -2190,6 +2165,30 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
 
+#~ msgid "Signing failed: %1"
+#~ msgstr "Podpisovanje ni uspelo: %1"
+
+#~ msgid "Signing successful"
+#~ msgstr "Podpisovanje je bilo uspešno"
+
+#~ msgid "Encryption failed: %1"
+#~ msgstr "Šifriranje ni uspelo: %1"
+
+#~ msgid "Encryption successful"
+#~ msgstr "Šifriranje je bilo uspešno"
+
+#~ msgid "Signing Result"
+#~ msgstr "Rezultat podpisovanja"
+
+#~ msgid "Signing Error"
+#~ msgstr "Napaka med podpisovanjem"
+
+#~ msgid "Encryption Result"
+#~ msgstr "Rezultat šifriranja"
+
+#~ msgid "Encryption Error"
+#~ msgstr "Napaka šifriranja"
+
 #~ msgctxt ""
 #~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
 #~ "RESTRICTED compliant or VS-NfD compliant"
@@ -2231,9 +2230,6 @@ msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
 
 #~ msgid "Expires"
 #~ msgstr "Preteče"
-
-#~ msgid "no expiration"
-#~ msgstr "ni roka izteka"
 
 #~| msgid "Add"
 #~ msgctxt "@action:button accessible name for 'Add to list'"

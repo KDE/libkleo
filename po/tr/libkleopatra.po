@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:47+0000\n"
+"POT-Creation-Date: 2022-12-01 00:47+0000\n"
 "PO-Revision-Date: 2022-11-24 17:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -442,33 +442,72 @@ msgstr "Güvenilecek İmzalar"
 msgid "class %1"
 msgstr "sınıf %1"
 
-#: ui/auditlogviewer.cpp:47
+#: ui/auditlogviewer.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "GnuPG Denetim Günlük Kaydını Göster"
 
-#: ui/auditlogviewer.cpp:50
+#: ui/auditlogviewer.cpp:54
 #, kde-format
 msgid "&Copy to Clipboard"
 msgstr "Panoya Ko&pyala"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:59
 #, kde-format
 msgid "&Save to Disk..."
 msgstr "&Diske Kaydet..."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "Sisteminiz GnuPG Audit Günlük Kayıtlarını desteklemiyor"
+
+#: ui/auditlogviewer.cpp:101
+#, kde-format
+msgid "System Error"
+msgstr "Sistem Hatası"
+
+#: ui/auditlogviewer.cpp:106
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"GnuPG Audit Gümlük kaydı alınırken bir hata oluştu:\n"
+"%1"
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "GnuPG Audit Günlük Kaydı Hatası"
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "Bu işlem için GnuPG Audit Kaydı mevcut değil."
+
+#: ui/auditlogviewer.cpp:111
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Audit Günlük Kaydı Yok"
+
+#: ui/auditlogviewer.cpp:117
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "GnuPG Günlük Kaydı Gösterici"
+
+#: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "GnuPG Audit Günlük Kaydının Kaydedileceği dosyayı seçin"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "\"%1\" dosyasına kaydedilemedi: %2"
 
-#: ui/auditlogviewer.cpp:122
+#: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "File Save Error"
 msgstr "Dosya Kaydetme Hatası"
@@ -1346,89 +1385,25 @@ msgstr "Anahtar Liste Sonucu"
 msgid "Recheck Key"
 msgstr "Anahtarı Tekrar Kontrol Et"
 
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr "Sisteminiz GnuPG Audit Günlük Kayıtlarını desteklemiyor"
-
-#: ui/messagebox.cpp:46
-#, kde-format
-msgid "System Error"
-msgstr "Sistem Hatası"
-
-#: ui/messagebox.cpp:54
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-"GnuPG Audit Gümlük kaydı alınırken bir hata oluştu:\n"
-"%1"
-
-#: ui/messagebox.cpp:55
-#, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr "GnuPG Audit Günlük Kaydı Hatası"
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr "Bu işlem için GnuPG Audit Kaydı mevcut değil."
-
-#: ui/messagebox.cpp:62
-#, kde-format
-msgid "No GnuPG Audit Log"
-msgstr "Audit Günlük Kaydı Yok"
-
-#: ui/messagebox.cpp:82 ui/messagebox.cpp:88
-#, kde-format
-msgid "GnuPG Audit Log Viewer"
-msgstr "GnuPG Günlük Kaydı Gösterici"
-
-#: ui/messagebox.cpp:94
-#, kde-format
-msgid "Signing failed: %1"
-msgstr "İmzalama başarısız: %1"
-
-#: ui/messagebox.cpp:95
-#, kde-format
-msgid "Signing successful"
-msgstr "İmzalama işlemi başarılı"
-
-#: ui/messagebox.cpp:106
-#, kde-format
-msgid "Encryption failed: %1"
-msgstr "Şifreleme başarısız: %1"
-
-#: ui/messagebox.cpp:107
-#, kde-format
-msgid "Encryption successful"
-msgstr "Şifreleme işlemi başarılı"
-
-#: ui/messagebox.cpp:128
-#, kde-format
-msgid "Signing Result"
-msgstr "İmzalama Sonuçları"
-
-#: ui/messagebox.cpp:140
-#, kde-format
-msgid "Signing Error"
-msgstr "İmzalama Hatası"
-
-#: ui/messagebox.cpp:152 ui/messagebox.cpp:176
-#, kde-format
-msgid "Encryption Result"
-msgstr "Şifreleme Sonuçları"
-
-#: ui/messagebox.cpp:164 ui/messagebox.cpp:193
-#, kde-format
-msgid "Encryption Error"
-msgstr "Şifreleme Hatası"
-
-#: ui/messagebox.cpp:246
-#, kde-format
-msgid "&Show Audit Log"
+#: ui/messagebox.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Show Audit Log"
+msgctxt "@action:button"
+msgid "Show Audit Log"
 msgstr "&Audit Günlük Kaydını Göster"
+
+#: ui/messagebox.cpp:91
+#, fuzzy, kde-format
+#| msgid "no expiration"
+msgctxt "@title:window"
+msgid "Information"
+msgstr "süre dolumu yok"
+
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, kde-format
@@ -2176,6 +2151,30 @@ msgstr "Girdi akışında geçersiz onaltılık karakter '%1'."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Girdi akışında onaltılık olarak kodlanan karakterin beklenmedik bitişi"
 
+#~ msgid "Signing failed: %1"
+#~ msgstr "İmzalama başarısız: %1"
+
+#~ msgid "Signing successful"
+#~ msgstr "İmzalama işlemi başarılı"
+
+#~ msgid "Encryption failed: %1"
+#~ msgstr "Şifreleme başarısız: %1"
+
+#~ msgid "Encryption successful"
+#~ msgstr "Şifreleme işlemi başarılı"
+
+#~ msgid "Signing Result"
+#~ msgstr "İmzalama Sonuçları"
+
+#~ msgid "Signing Error"
+#~ msgstr "İmzalama Hatası"
+
+#~ msgid "Encryption Result"
+#~ msgstr "Şifreleme Sonuçları"
+
+#~ msgid "Encryption Error"
+#~ msgstr "Şifreleme Hatası"
+
 #~ msgctxt ""
 #~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
 #~ "RESTRICTED compliant or VS-NfD compliant"
@@ -2217,9 +2216,6 @@ msgstr "Girdi akışında onaltılık olarak kodlanan karakterin beklenmedik bit
 
 #~ msgid "Expires"
 #~ msgstr "Son Kullanma Tarihi"
-
-#~ msgid "no expiration"
-#~ msgstr "süre dolumu yok"
 
 #~ msgctxt "@action:button accessible name for 'Add to list'"
 #~ msgid "add"
