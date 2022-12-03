@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra.po 1639248 2022-12-01 01:36:40Z scripty $
+# $Id: libkleopatra.po 1639353 2022-12-03 01:41:59Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -14,17 +14,17 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:47+0000\n"
-"PO-Revision-Date: 2022-09-15 06:48+0200\n"
+"PO-Revision-Date: 2022-12-02 06:41+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -1393,24 +1393,22 @@ msgid "Recheck Key"
 msgstr "Znova preveri ključ"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "Pokaži dnevnik pre&soje varnosti"
+msgstr "Pokaži dnevnik presoje"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "no expiration"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "ni roka izteka"
+msgstr "Informacije"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "Napaka"
 
 #: ui/newkeyapprovaldialog.cpp:139
 #, kde-format

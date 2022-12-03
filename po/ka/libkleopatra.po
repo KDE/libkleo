@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:47+0000\n"
-"PO-Revision-Date: 2022-09-27 08:06+0200\n"
+"PO-Revision-Date: 2022-12-02 07:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,57 +16,57 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
-msgstr ""
+msgstr "შეცდომა საკონტროლო ჯამის (%1) აღწერაში: %2"
 
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
 msgid "Cannot use both %f and | in '%1'"
-msgstr ""
+msgstr "ორივე, %f და |-ს ერთად, \"%1\"-ში ვერ გამოიყენებთ"
 
 #: kleo/checksumdefinition.cpp:156
 #, kde-format
 msgid "Quoting error in '%1' entry"
-msgstr ""
+msgstr "'%1' ჩანაწერში შეცდომის ციტირება"
 
 #: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
-msgstr ""
+msgstr "'%1' მეტისმეტად რთულია (სჭირება გარსი)"
 
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
 msgid "'%1' entry is empty/missing"
-msgstr ""
+msgstr "'%1' ჩანაწერი ცარიელია ან არ არსებობს"
 
 #: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
-msgstr ""
+msgstr "'%1' ჩანაწერი ცარიელია ან არ არსებობს"
 
 #: kleo/checksumdefinition.cpp:211
 #, kde-format
 msgid "'id' entry is empty/missing"
-msgstr ""
+msgstr "'id' ჩანაწერი ცარიელია ან არ არსებობს"
 
 #: kleo/checksumdefinition.cpp:214
 #, kde-format
 msgid "'output-file' entry is empty/missing"
-msgstr ""
+msgstr "'output-file' ელემენტი ცარიელია ან არ არსებობს"
 
 #: kleo/checksumdefinition.cpp:217
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
-msgstr ""
+msgstr "'file-patterns' ელემენტი ცარიელია ან არ არსებობს"
 
 #: kleo/checksumdefinition.cpp:396
 #, kde-format
 msgid "Caught unknown exception in group %1"
-msgstr ""
+msgstr "უცნობი გამონაკლისის ჯგუფიში %1"
 
 #: kleo/dn.cpp:518
 msgid "Common name"
@@ -146,11 +146,11 @@ msgstr "უნიკალური ID"
 
 #: kleo/enum.cpp:35
 msgid "Inline OpenPGP (deprecated)"
-msgstr ""
+msgstr "იქვე OpenPGP (მოძველებული)"
 
 #: kleo/enum.cpp:36
 msgid "OpenPGP/MIME"
-msgstr ""
+msgstr "OpenPGP/MIME"
 
 #: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:309
 #: ui/newkeyapprovaldialog.cpp:312
@@ -160,15 +160,15 @@ msgstr "S/MIME"
 
 #: kleo/enum.cpp:38
 msgid "S/MIME Opaque"
-msgstr ""
+msgstr "S/MIME გაუმჭვირვალე"
 
 #: kleo/enum.cpp:39
 msgid "Any S/MIME"
-msgstr ""
+msgstr "ნებისმიერი S/MIME"
 
 #: kleo/enum.cpp:40
 msgid "Any OpenPGP"
-msgstr ""
+msgstr "ნებისმიერი OpenPGP"
 
 #: kleo/enum.cpp:72
 #, kde-format
@@ -178,17 +178,17 @@ msgstr "ნებისმიერი"
 #: kleo/enum.cpp:147
 #, kde-format
 msgid "Never Encrypt"
-msgstr ""
+msgstr "არასდროს დაშიფრო"
 
 #: kleo/enum.cpp:149
 #, kde-format
 msgid "Always Encrypt"
-msgstr ""
+msgstr "ყოველთვის დაშიფრე"
 
 #: kleo/enum.cpp:151
 #, kde-format
 msgid "Always Encrypt If Possible"
-msgstr ""
+msgstr "როცა შესაძლებელია, დაშიფვრა"
 
 #: kleo/enum.cpp:153 kleo/enum.cpp:210
 #, kde-format
@@ -198,7 +198,7 @@ msgstr "კითხვა"
 #: kleo/enum.cpp:155 kleo/enum.cpp:212
 #, kde-format
 msgid "Ask Whenever Possible"
-msgstr ""
+msgstr "როცა შესაძლებელია, კითხვა"
 
 #: kleo/enum.cpp:157
 #, kde-kuit-format
@@ -209,17 +209,17 @@ msgstr "<placeholder>არცერთი</placeholder>"
 #: kleo/enum.cpp:204
 #, kde-format
 msgid "Never Sign"
-msgstr ""
+msgstr "არასდროს შესვლა"
 
 #: kleo/enum.cpp:206
 #, kde-format
 msgid "Always Sign"
-msgstr ""
+msgstr "ყოველთვის შესვლა"
 
 #: kleo/enum.cpp:208
 #, kde-format
 msgid "Always Sign If Possible"
-msgstr ""
+msgstr "როცა შესაძლებელია, ყოველთვის შესვლა"
 
 #: kleo/enum.cpp:214
 #, kde-format
@@ -230,37 +230,37 @@ msgstr "<არცერთი>"
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
 msgid "All Certificates"
-msgstr ""
+msgstr "ყველა სერტიფიკატი"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
 msgid "My Certificates"
-msgstr ""
+msgstr "ჩემი სერტიფიკატები"
 
 #: kleo/keyfiltermanager.cpp:104
 #, kde-format
 msgid "Trusted Certificates"
-msgstr ""
+msgstr "სანდო სერტიფიკატები"
 
 #: kleo/keyfiltermanager.cpp:121
 #, kde-format
 msgid "Fully Trusted Certificates"
-msgstr ""
+msgstr "სრულად სანდო სერტიფიკატები"
 
 #: kleo/keyfiltermanager.cpp:138
 #, kde-format
 msgid "Other Certificates"
-msgstr ""
+msgstr "სხვა სერტიფიკატები"
 
 #: kleo/keyfiltermanager.cpp:153
 #, kde-format
 msgid "Not Certified Certificates"
-msgstr ""
+msgstr "არასანდო სერტიფიკატები"
 
 #: kleo/keyfiltermanager.cpp:176
 #, kde-format
 msgid "Not Validated Certificates"
-msgstr ""
+msgstr "გადაუმოწმებელი სერტიფიკატები"
 
 #: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:105
 #, kde-format
@@ -287,7 +287,7 @@ msgstr "Ძალაშია"
 #: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid Until"
-msgstr ""
+msgstr "მოქმედების ვადა"
 
 #: models/keylistmodel.cpp:312
 #, kde-format
@@ -328,7 +328,7 @@ msgstr "ბოლო განახლება"
 #: models/keylistmodel.cpp:328
 #, kde-format
 msgid "Certification Trust"
-msgstr ""
+msgstr "სერტიფიცირების ნდობა"
 
 #: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:111
 #, kde-format
@@ -345,7 +345,7 @@ msgstr "სახელის გარეშე"
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr ""
+msgstr "ელფოსტის გარეშე"
 
 #: models/keylistmodel.cpp:447
 #, kde-format
@@ -421,7 +421,7 @@ msgstr "მომხმარებლის ID"
 #: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
-msgstr ""
+msgstr "მომხმარებლის ID / სერტიფიცირების გასაღების ID"
 
 #: models/useridlistmodel.cpp:110
 #, kde-format
@@ -431,18 +431,18 @@ msgstr "გადატანადი"
 #: models/useridlistmodel.cpp:112
 #, kde-format
 msgid "Trust Signature For"
-msgstr ""
+msgstr "ხელმოწერის ნდობა"
 
 #: models/useridlistmodel.cpp:167 utils/formatting.cpp:801
 #, kde-format
 msgid "class %1"
-msgstr ""
+msgstr "კლასი %1"
 
 #: ui/auditlogviewer.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
-msgstr ""
+msgstr "GnuPG -ის აუდიტის ჟურნალის ნახვა"
 
 #: ui/auditlogviewer.cpp:54
 #, kde-format
@@ -452,7 +452,7 @@ msgstr "ბუფერში კოპირება"
 #: ui/auditlogviewer.cpp:59
 #, kde-format
 msgid "&Save to Disk..."
-msgstr ""
+msgstr "&დისკზე შენახვა..."
 
 #: ui/auditlogviewer.cpp:101
 #, kde-format
@@ -474,37 +474,37 @@ msgstr ""
 #: ui/auditlogviewer.cpp:107
 #, kde-format
 msgid "GnuPG Audit Log Error"
-msgstr ""
+msgstr "GnuPG -ის აუდიტის ჟურნალის შეცდომა"
 
 #: ui/auditlogviewer.cpp:111
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
-msgstr ""
+msgstr "GnuPG -ის აუდიტის ჟურნალი ამ ოპერაციისთვის მიუწვდომელია."
 
 #: ui/auditlogviewer.cpp:111
 #, kde-format
 msgid "No GnuPG Audit Log"
-msgstr ""
+msgstr "GnuPG -ის აუდიტის ჟურნალი არ არსბეობს"
 
 #: ui/auditlogviewer.cpp:117
 #, kde-format
 msgid "GnuPG Audit Log Viewer"
-msgstr ""
+msgstr "GnuPG აუდიტის ჟურნალის დათვალიერება"
 
 #: ui/auditlogviewer.cpp:132
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
-msgstr ""
+msgstr "აირჩიეთ, რომელ ფილში ჩაიწერება GnuPG -ის აუდიტის ჟურნალი"
 
 #: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
-msgstr ""
+msgstr "\"%1\"-იში ჩაწერის შეცდომა: %2"
 
 #: ui/auditlogviewer.cpp:151
 #, kde-format
 msgid "File Save Error"
-msgstr ""
+msgstr "ფაილის შენახვის შეცდომა"
 
 #: ui/cryptoconfigentryreaderport.cpp:45
 #, kde-format
@@ -515,7 +515,7 @@ msgstr ""
 #: ui/cryptoconfigmodule.cpp:165
 #, kde-format
 msgid "GpgConf Error"
-msgstr ""
+msgstr "GpgConf -ის შეცდომა"
 
 #: ui/cryptoconfigmodule.cpp:222
 #, kde-format
@@ -539,23 +539,23 @@ msgstr "yes"
 
 #: ui/cryptoconfigmodule.cpp:705
 msgid "0 - None"
-msgstr ""
+msgstr "0 - არაფერი"
 
 #: ui/cryptoconfigmodule.cpp:706
 msgid "1 - Basic"
-msgstr ""
+msgstr "1 - საბაზისო"
 
 #: ui/cryptoconfigmodule.cpp:707
 msgid "2 - Verbose"
-msgstr ""
+msgstr "2 - დამატებითი"
 
 #: ui/cryptoconfigmodule.cpp:708
 msgid "3 - More Verbose"
-msgstr ""
+msgstr "3 - კიდევ მეტად დამატებით"
 
 #: ui/cryptoconfigmodule.cpp:709
 msgid "4 - All"
-msgstr ""
+msgstr "4 - ყველა"
 
 #: ui/cryptoconfigmodule.cpp:721
 #, kde-format
@@ -588,24 +588,24 @@ msgstr "უკაცრავად"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
-msgstr ""
+msgstr "დირექტორიის სერვისების მორგება"
 
 #: ui/cryptoconfigmodule.cpp:1035
 #, kde-format
 msgid "None configured"
-msgstr ""
+msgstr "არ მორგებულა"
 
 #: ui/cryptoconfigmodule.cpp:1037
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "მორგებულია 1 სერვერი"
+msgstr[1] "მორგებულია %1 სერვერი"
 
 #: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
 #, kde-format
 msgid "Active Directory"
-msgstr ""
+msgstr "Active Directory"
 
 #: ui/directoryserviceswidget.cpp:187
 #, kde-format
@@ -643,7 +643,7 @@ msgstr "დამატება"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr ""
+msgstr "დააწკაპუნეთ დირექტორიის სერვისის დასამატებლად."
 
 #: ui/directoryserviceswidget.cpp:208
 #, kde-format
@@ -662,7 +662,7 @@ msgstr "ჩასწორება"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
-msgstr ""
+msgstr "დააწკაპუნეთ მონიშნული სერვისის ჩასასწორებლად."
 
 #: ui/directoryserviceswidget.cpp:219
 #, kde-format
@@ -682,7 +682,7 @@ msgstr "წაშლა"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
-msgstr ""
+msgstr "დააწკაპუნეთ მონიშნული სერვისის წასაშლელად."
 
 #: ui/directoryserviceswidget.cpp:227
 #, kde-format
@@ -696,7 +696,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
-msgstr ""
+msgstr "LDAP დირექტორიის სერვისი"
 
 #: ui/dnattributeorderconfigwidget.cpp:73
 #, kde-format
@@ -706,23 +706,23 @@ msgstr "აღწერა"
 #: ui/dnattributeorderconfigwidget.cpp:88
 #, kde-format
 msgid "Available attributes:"
-msgstr ""
+msgstr "ხელმისაწვდომი ატრიბუტები:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
 msgid "Current attribute order:"
-msgstr ""
+msgstr "მიმდინარე ატრიბუტების მიმდევრობა:"
 
 #: ui/dnattributeorderconfigwidget.cpp:98
 #, kde-format
 msgid "available attributes"
-msgstr ""
+msgstr "ხელმისაწვდომი ატრიბუტები"
 
 #: ui/dnattributeorderconfigwidget.cpp:105
 #: ui/dnattributeorderconfigwidget.cpp:106
 #, kde-format
 msgid "All others"
-msgstr ""
+msgstr "ყველა დანარჩენი"
 
 #: ui/dnattributeorderconfigwidget.cpp:118
 msgctxt "@action:button"
@@ -731,21 +731,21 @@ msgstr "დამატება"
 
 #: ui/dnattributeorderconfigwidget.cpp:119
 msgid "Add to current attribute order"
-msgstr ""
+msgstr "მიმდინარე ატრიბუტების მიმდევრობაში ჩამატება"
 
 #: ui/dnattributeorderconfigwidget.cpp:125
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "წაშლა"
 
 #: ui/dnattributeorderconfigwidget.cpp:126
 msgid "Remove from current attribute order"
-msgstr ""
+msgstr "მიმდინარე ატრიბუტების მიმდევრობიდან წაშლა"
 
 #: ui/dnattributeorderconfigwidget.cpp:132
 msgctxt "@action:button"
 msgid "Move to Top"
-msgstr ""
+msgstr "თავში ატანა"
 
 #: ui/dnattributeorderconfigwidget.cpp:133
 msgid "Move to top"
@@ -758,7 +758,7 @@ msgstr "აწევა"
 
 #: ui/dnattributeorderconfigwidget.cpp:140
 msgid "Move one up"
-msgstr ""
+msgstr "ერთით მაღლა"
 
 #: ui/dnattributeorderconfigwidget.cpp:146
 msgctxt "@action:button"
@@ -767,21 +767,21 @@ msgstr "ჩამოწევა"
 
 #: ui/dnattributeorderconfigwidget.cpp:147
 msgid "Move one down"
-msgstr ""
+msgstr "ერთით დაბლა"
 
 #: ui/dnattributeorderconfigwidget.cpp:153
 msgctxt "@action:button"
 msgid "Move to Bottom"
-msgstr ""
+msgstr "ბოლოში ჩამოტანა"
 
 #: ui/dnattributeorderconfigwidget.cpp:154
 msgid "Move to bottom"
-msgstr ""
+msgstr "ბოლოში ჩამოტანა"
 
 #: ui/dnattributeorderconfigwidget.cpp:184
 #, kde-format
 msgid "current attribute order"
-msgstr ""
+msgstr "ატრიბუტების მიმდინარე მიმდევრობა"
 
 #: ui/editdirectoryservicedialog.cpp:99
 #, kde-format
@@ -832,7 +832,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:127
 #, kde-format
 msgid "Authenticate via Active Directory"
-msgstr ""
+msgstr "Active Directory-ით ავთენტიკაცია"
 
 #: ui/editdirectoryservicedialog.cpp:129
 #, kde-format
@@ -850,7 +850,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:137
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr ""
+msgstr "მომხმარებლითა და პაროლით ავთენტიკაცია"
 
 #: ui/editdirectoryservicedialog.cpp:138
 #, kde-format
@@ -887,7 +887,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Connection Security"
-msgstr ""
+msgstr "შეერთების უსაფრთხოება"
 
 #: ui/editdirectoryservicedialog.cpp:167
 #, kde-format
@@ -1033,7 +1033,7 @@ msgstr ""
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
 msgid "Your keys:"
-msgstr ""
+msgstr "თქვენი გასაღებები:"
 
 #: ui/keyapprovaldialog.cpp:146
 #, kde-format
@@ -1048,7 +1048,7 @@ msgstr "დაშიფვრის გასაღებები:"
 #: ui/keyapprovaldialog.cpp:158
 #, kde-format
 msgid "Encryption preference:"
-msgstr ""
+msgstr "დაშიფვრის მორგება:"
 
 #: ui/keyrequester.cpp:79
 #, kde-format
@@ -1063,7 +1063,7 @@ msgstr "შეცვლა..."
 #: ui/keyrequester.cpp:194 ui/keyselectiondialog.cpp:220
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
-msgstr ""
+msgstr "<placeholder>უცნობი</placeholder>"
 
 #: ui/keyrequester.cpp:209 ui/keyselectiondialog.cpp:670
 #, kde-format
@@ -1076,7 +1076,7 @@ msgstr ""
 #: ui/keyselectiondialog.cpp:639 ui/keyselectiondialog.cpp:675
 #, kde-format
 msgid "Key Listing Failed"
-msgstr ""
+msgstr "გასაღებების ჩამონათვლის შეცდომა"
 
 #: ui/keyrequester.cpp:245
 #, kde-format
@@ -1093,7 +1093,7 @@ msgstr ""
 #: ui/keyrequester.cpp:387
 #, kde-format
 msgid "OpenPGP Key Selection"
-msgstr ""
+msgstr "OpenPGP -ის გასაღების არჩევანი"
 
 #: ui/keyrequester.cpp:388
 #, kde-format
@@ -1103,7 +1103,7 @@ msgstr ""
 #: ui/keyrequester.cpp:390
 #, kde-format
 msgid "S/MIME Key Selection"
-msgstr ""
+msgstr "S/MIME -ის გასაღების არჩევანი"
 
 #: ui/keyrequester.cpp:391
 #, kde-format
@@ -1113,7 +1113,7 @@ msgstr ""
 #: ui/keyrequester.cpp:393
 #, kde-format
 msgid "Key Selection"
-msgstr ""
+msgstr "გასაღების არჩევანი"
 
 #: ui/keyrequester.cpp:394
 #, kde-format
@@ -1130,13 +1130,13 @@ msgstr "%1 <%2>"
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
-msgstr ""
+msgstr "%1 (%2, შეიქმნა: %3)"
 
 #: ui/keyselectioncombo.cpp:295
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "%1 (%2, %3, შეიქმნა: %4)"
 
 #: ui/keyselectioncombo.cpp:608
 #, kde-format
@@ -1146,22 +1146,22 @@ msgstr "გასაღებების ჩატვირთვა..."
 #: ui/keyselectiondialog.cpp:70
 #, kde-format
 msgid "The key is not valid."
-msgstr ""
+msgstr "გასაღები მიუღებელია."
 
 #: ui/keyselectiondialog.cpp:78
 #, kde-format
 msgid "The key is expired."
-msgstr ""
+msgstr "გასაღები ვადაგასულია."
 
 #: ui/keyselectiondialog.cpp:82
 #, kde-format
 msgid "The key is revoked."
-msgstr ""
+msgstr "გასაღები გაუქმებულია."
 
 #: ui/keyselectiondialog.cpp:86
 #, kde-format
 msgid "The key is disabled."
-msgstr ""
+msgstr "გასაღები გამორთულია."
 
 #: ui/keyselectiondialog.cpp:93
 #, kde-format
@@ -1334,11 +1334,10 @@ msgid "Show Audit Log"
 msgstr ""
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "მდებარეობა"
+msgstr "ინფორმაცია"
 
 #: ui/messagebox.cpp:96
 #, kde-format
@@ -1593,7 +1592,7 @@ msgstr "მომხმარებლის-ID"
 #: utils/formatting.cpp:369
 #, kde-format
 msgid "a.k.a."
-msgstr "ასევე ცნობილი, როგორც"
+msgstr "ასევე ცნობილია, როგორც."
 
 #: utils/formatting.cpp:395
 #, kde-format
