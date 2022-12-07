@@ -514,6 +514,37 @@ enum GpgME::UserID::Validity Kleo::keyValidity(const GpgME::Key &key)
 }
 
 #ifdef Q_OS_WIN
+static unsigned int gpgConfGetConsoleOutputCodePage()
+{
+    // calls `gpgconf --show-codepages` to determine the console output codepage used by gpg on Windows;
+    // for other OSs gpgconf returns nothing
+    const auto gpgConfPath = Kleo::gpgConfPath();
+    if (gpgConfPath.isEmpty()) {
+        return 0;
+    }
+    QProcess gpgConf;
+    qCDebug(LIBKLEO_LOG) << __func__ << "starting" << gpgConfPath << "--show-codepages";
+    gpgConf.start(gpgConfPath, {QStringLiteral("--show-codepages")});
+    if (!gpgConf.waitForFinished()) {
+        qCDebug(LIBKLEO_LOG) << __func__ << "failed to execute gpgconf:" << gpgConf.errorString() << "\nstderr:" << gpgConf.readAllStandardError();
+        return 0;
+    }
+
+    unsigned int cpno = 0;
+    const auto lines = gpgConf.readAllStandardOutput().split('\n');
+    // look for a line of the form "Console: CP%u" or "Console: CP%u/CP%u"
+    for (const auto &l : lines) {
+        if (l.startsWith("Console: CP")) {
+            // the console output codepage is the second CP value if there are two
+            cpno = l.mid(l.lastIndexOf("CP") + 2).toUInt();
+            break;
+        }
+    }
+
+    qCDebug(LIBKLEO_LOG) << __func__ << "returns" << cpno;
+    return cpno;
+}
+
 static QString fromEncoding(unsigned int src_encoding, const char *data)
 {
     int n = MultiByteToWideChar(src_encoding, 0, data, -1, NULL, 0);
@@ -537,31 +568,18 @@ static QString fromEncoding(unsigned int src_encoding, const char *data)
 QString Kleo::stringFromGpgOutput(const QByteArray &ba)
 {
 #ifdef Q_OS_WIN
-    /* Qt on Windows uses GetACP while GnuPG prefers
-     * GetConsoleOutputCP.
-     *
-     * As we are not a console application GetConsoleOutputCP
-     * usually returns 0.
-     * From experience the closest thing that let's us guess
-     * what GetConsoleOutputCP returns for a console application
-     * it appears to be the OEMCP.
-     */
-    unsigned int cpno = GetConsoleOutputCP();
-    if (!cpno) {
-        cpno = GetOEMCP();
-    }
-    if (!cpno) {
-        cpno = GetACP();
-    }
-    if (!cpno) {
-        qCDebug(LIBKLEO_LOG) << "Failed to find native codepage";
-        return QString();
-    }
+    static const unsigned int cpno = gpgConfGetConsoleOutputCodePage();
 
-    return fromEncoding(cpno, ba.constData());
-#else
-    return QString::fromLocal8Bit(ba);
+    if (cpno) {
+        qCDebug(LIBKLEO_LOG) << __func__ << "trying to decode" << ba << "using codepage" << cpno;
+        const auto s = fromEncoding(cpno, ba.constData());
+        if (!s.isEmpty() || ba.isEmpty()) {
+            return s;
+        }
+        qCDebug(LIBKLEO_LOG) << __func__ << "decoding output failed; falling back to QString::fromLocal8Bit()";
+    }
 #endif
+    return QString::fromLocal8Bit(ba);
 }
 
 QStringList Kleo::backendVersionInfo()
