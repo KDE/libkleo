@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1639248 $
+# Version: $Revision: 1639675 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 #
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:47+0000\n"
+"POT-Creation-Date: 2022-12-09 00:47+0000\n"
 "PO-Revision-Date: 2022-10-18 17:57+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1834,23 +1834,23 @@ msgid "undefined"
 msgstr "nieokreślony"
 
 #: utils/formatting.cpp:747 utils/formatting.cpp:764 utils/formatting.cpp:799
-#: utils/formatting.cpp:1204
+#: utils/formatting.cpp:1194
 #, kde-format
 msgid "revoked"
 msgstr "unieważniony"
 
-#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1201
+#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1191
 #, kde-format
 msgid "expired"
 msgstr "przedawniony"
 
-#: utils/formatting.cpp:753 utils/formatting.cpp:1207
+#: utils/formatting.cpp:753 utils/formatting.cpp:1197
 #, kde-format
 msgid "disabled"
 msgstr "wyłączony"
 
 #: utils/formatting.cpp:756 utils/formatting.cpp:767 utils/formatting.cpp:807
-#: utils/formatting.cpp:1210
+#: utils/formatting.cpp:1200
 #, kde-format
 msgid "invalid"
 msgstr "nieprawidłowy"
@@ -2086,69 +2086,69 @@ msgstr "Nic nie wskazuje na to, że ten certyfikat należy do tego odbiorcy."
 msgid "This group does not contain any keys."
 msgstr "Ta grupa nie zawiera żadnych kluczy."
 
-#: utils/formatting.cpp:1185
+#: utils/formatting.cpp:1175
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "nieznany"
 
-#: utils/formatting.cpp:1198
+#: utils/formatting.cpp:1188
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "certyfikowane"
 
-#: utils/formatting.cpp:1213
+#: utils/formatting.cpp:1203
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "nie certyfikowane"
 
-#: utils/formatting.cpp:1216
+#: utils/formatting.cpp:1206
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "niesprawdzone"
 
-#: utils/formatting.cpp:1225
+#: utils/formatting.cpp:1215
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "wszystkie certyfikowane"
 
-#: utils/formatting.cpp:1228
+#: utils/formatting.cpp:1218
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "nie wszystkie certyfikowane"
 
-#: utils/formatting.cpp:1261
+#: utils/formatting.cpp:1251
 #, kde-format
 msgid "Keyserver"
 msgstr "Serwer kluczy"
 
-#: utils/formatting.cpp:1269
+#: utils/formatting.cpp:1259
 #, kde-format
 msgid "File import"
 msgstr "Import z pliku"
 
-#: utils/formatting.cpp:1271
+#: utils/formatting.cpp:1261
 #, kde-format
 msgid "Generated"
 msgstr "Utworzony"
 
-#: utils/formatting.cpp:1275
+#: utils/formatting.cpp:1265
 #, kde-format
 msgid "Unknown"
 msgstr "Nieznany"
 
-#: utils/formatting.cpp:1311
+#: utils/formatting.cpp:1301
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Certyfikuje ten klucz jako częściowo zaufany wprowadzający dla '%1'."
 
-#: utils/formatting.cpp:1315
+#: utils/formatting.cpp:1305
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
