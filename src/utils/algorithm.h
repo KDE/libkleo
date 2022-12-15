@@ -58,6 +58,16 @@ bool any_of(const InputRange &range, UnaryPredicate p)
     return std::any_of(std::begin(range), std::end(range), p);
 }
 
+/** Convenience helper for applying the function @p f on all elements of the
+ *  range @p range.
+ *  Use ranges::for_each() instead if you can use C++20.
+ */
+template<typename InputRange, typename UnaryFunction>
+UnaryFunction for_each(const InputRange &range, UnaryFunction f)
+{
+    return std::for_each(std::begin(range), std::end(range), f);
+}
+
 /** Convenience helper for checking if a @p container contains an element
  *  with key equivalent to @p key. This is mainly meant to be used for the
  *  associative standard containers until we can use their corresponding
