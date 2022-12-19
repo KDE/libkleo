@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:46+0000\n"
-"PO-Revision-Date: 2022-03-21 09:38+0100\n"
+"PO-Revision-Date: 2022-12-18 22:16+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -229,7 +229,7 @@ msgstr ""
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
 msgid "All Certificates"
-msgstr ""
+msgstr "Omne Certificatos"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
@@ -386,30 +386,22 @@ msgid "Usage"
 msgstr "Uso"
 
 #: models/useridlistmodel.cpp:76
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalization in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalization (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
-msgstr "no"
+msgstr "si"
 
 #: models/useridlistmodel.cpp:76
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "no"
 
 #: models/useridlistmodel.cpp:77
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr ""
+msgstr "nulle"
 
 #: models/useridlistmodel.cpp:79
 #, kde-format
@@ -695,8 +687,6 @@ msgid "All others"
 msgstr "Omne alteres"
 
 #: ui/dnattributeorderconfigwidget.cpp:118
-#, fuzzy
-#| msgid "Add"
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Adde"
@@ -706,19 +696,15 @@ msgid "Add to current attribute order"
 msgstr ""
 
 #: ui/dnattributeorderconfigwidget.cpp:125
-#, fuzzy
-#| msgid "Remove Filter"
 msgctxt "@action:button"
 msgid "Remove"
-msgstr "Remove filtro"
+msgstr "Remove"
 
 #: ui/dnattributeorderconfigwidget.cpp:126
 msgid "Remove from current attribute order"
 msgstr ""
 
 #: ui/dnattributeorderconfigwidget.cpp:132
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Move a culmine"
@@ -728,33 +714,27 @@ msgid "Move to top"
 msgstr "Move a culmine"
 
 #: ui/dnattributeorderconfigwidget.cpp:139
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr "Move a culmine"
+msgstr "Move in alto"
 
 #: ui/dnattributeorderconfigwidget.cpp:140
 msgid "Move one up"
 msgstr ""
 
 #: ui/dnattributeorderconfigwidget.cpp:146
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Down"
-msgstr "Move a culmine"
+msgstr "Move a basso "
 
 #: ui/dnattributeorderconfigwidget.cpp:147
 msgid "Move one down"
 msgstr ""
 
 #: ui/dnattributeorderconfigwidget.cpp:153
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Bottom"
-msgstr "Move a culmine"
+msgstr "Move a fundo"
 
 #: ui/dnattributeorderconfigwidget.cpp:154
 msgid "Move to bottom"
@@ -1109,20 +1089,16 @@ msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
 #: ui/keyselectioncombo.cpp:289
-#, fuzzy, kde-format
-#| msgctxt "(validity, protocol, creation date)"
-#| msgid "(%1, %2, created: %3)"
+#, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
-msgstr "(%1 %2, create: %3)"
+msgstr "%1 (%2, create: %3)"
 
 #: ui/keyselectioncombo.cpp:295
-#, fuzzy, kde-format
-#| msgctxt "Name <email> (validity, type, created: date)"
-#| msgid "%1 (%2, %3 created: %4)"
+#, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3 Create: %4)"
+msgstr "%1 (%2, %3, create: %4)"
 
 #: ui/keyselectioncombo.cpp:608
 #, kde-format
@@ -1207,15 +1183,13 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
 #: utils/formatting.cpp:418
-#, fuzzy, kde-format
-#| msgid "Valid From"
+#, kde-format
 msgid "Valid from"
-msgstr "Valide ab:"
+msgstr "Valide ab"
 
 #: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "Valid Until"
+#, kde-format
 msgid "Valid until"
 msgstr "Valide usque"
 
@@ -1292,9 +1266,9 @@ msgid "Checking selected keys..."
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:714
-#, kde-format
+#, fuzzy, kde-format
 msgid "Fetching keys..."
-msgstr ""
+msgstr "Reportante claves"
 
 #: ui/keyselectiondialog.cpp:746
 #, kde-format
@@ -1400,10 +1374,10 @@ msgid "&Show Audit Log"
 msgstr "Mon&strar Registro de Audit"
 
 #: ui/newkeyapprovaldialog.cpp:139
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
-msgstr ""
+msgstr "Monstra Detalios"
 
 #: ui/newkeyapprovaldialog.cpp:181
 #, kde-format
@@ -1417,10 +1391,10 @@ msgid "Show keys matching the email address"
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
-msgstr ""
+msgstr "Monstra omne"
 
 #: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
@@ -1739,16 +1713,15 @@ msgid "MMMM d, yyyy"
 msgstr ""
 
 #: utils/formatting.cpp:585 utils/formatting.cpp:620
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "incognite"
 
 #: utils/formatting.cpp:627 utils/formatting.cpp:636
-#, kde-format
+#, fuzzy, kde-format
 msgid "unlimited"
-msgstr ""
+msgstr "sin limite"
 
 #: utils/formatting.cpp:689
 #, kde-format
@@ -2046,8 +2019,7 @@ msgid "This group does not contain any keys."
 msgstr ""
 
 #: utils/formatting.cpp:1185
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "incognite"
