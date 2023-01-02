@@ -295,6 +295,14 @@ QStringList Kleo::findSignatures(const QString &signedDataFileName)
     return result;
 }
 
+#ifdef Q_OS_WIN
+static QString stripOutlookAttachmentNumbering(const QString &s)
+{
+    static const QRegularExpression attachmentNumbering{QStringLiteral(R"(\s\([0-9]+\)$)")};
+    return QString{s}.remove(attachmentNumbering);
+}
+#endif
+
 /*!
   \return the (likely) output filename for \a inputFileName, or
   "inputFileName.out" if none can be determined.
@@ -307,7 +315,11 @@ QString Kleo::outputFileName(const QString &inputFileName)
     if (!std::binary_search(std::begin(classifications), std::end(classifications), suffix.toLatin1().constData(), ByExtension<std::less>())) {
         return inputFileName + QLatin1String(".out");
     } else {
+#ifdef Q_OS_WIN
+        return stripOutlookAttachmentNumbering(inputFileName.chopped(suffix.size() + 1));
+#else
         return inputFileName.chopped(suffix.size() + 1);
+#endif
     }
 }
 
