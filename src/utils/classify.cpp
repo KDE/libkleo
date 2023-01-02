@@ -260,12 +260,6 @@ QString Kleo::printableClassification(unsigned int classification)
     return parts.join(QLatin1String(", "));
 }
 
-static QString chopped(QString s, unsigned int n)
-{
-    s.chop(n);
-    return s;
-}
-
 /*!
   \return the data file that corresponds to the signature file \a
   signatureFileName, or QString(), if no such file can be found.
@@ -275,7 +269,9 @@ QString Kleo::findSignedData(const QString &signatureFileName)
     if (!mayBeDetachedSignature(signatureFileName)) {
         return QString();
     }
-    const QString baseName = chopped(signatureFileName, 4);
+
+    const QFileInfo fi{signatureFileName};
+    const QString baseName = signatureFileName.chopped(fi.suffix().size() + 1);
     return QFile::exists(baseName) ? baseName : QString();
 }
 
@@ -306,11 +302,12 @@ QStringList Kleo::findSignatures(const QString &signedDataFileName)
 QString Kleo::outputFileName(const QString &inputFileName)
 {
     const QFileInfo fi(inputFileName);
+    const QString suffix = fi.suffix();
 
-    if (!std::binary_search(std::begin(classifications), std::end(classifications), fi.suffix().toLatin1().constData(), ByExtension<std::less>())) {
+    if (!std::binary_search(std::begin(classifications), std::end(classifications), suffix.toLatin1().constData(), ByExtension<std::less>())) {
         return inputFileName + QLatin1String(".out");
     } else {
-        return chopped(inputFileName, 4);
+        return inputFileName.chopped(suffix.size() + 1);
     }
 }
 
