@@ -1611,7 +1611,7 @@ GpgME::Key KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, 
 
     // support lookup of email addresses enclosed in angle brackets
     QByteArray address(addr);
-    if (address[0] == '<' && address[address.size() - 1] == '>') {
+    if (address.size() > 1 && address[0] == '<' && address[address.size() - 1] == '>') {
         address = address.mid(1, address.size() - 2);
     }
     address = address.toLower();
