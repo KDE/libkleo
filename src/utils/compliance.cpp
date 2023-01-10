@@ -14,6 +14,7 @@
 
 #include "cryptoconfig.h"
 #include "gnupg.h"
+#include "stringutils.h"
 #include "systeminfo.h"
 
 #include <libkleo/keyfiltermanager.h>
@@ -43,6 +44,19 @@ bool Kleo::DeVSCompliance::isCompliant()
         return true;
     }
     return getCryptoConfigIntValue("gpg", "compliance_de_vs", 0) != 0;
+}
+
+bool Kleo::DeVSCompliance::algorithmIsCompliant(std::string_view algo)
+{
+    using namespace std::literals;
+
+    if (!isActive()) {
+        return true;
+    }
+    if (Kleo::startsWith(algo, "rsa"sv)) {
+        return algo == "rsa3072"sv || algo == "rsa4096"sv;
+    }
+    return !algo.empty();
 }
 
 void Kleo::DeVSCompliance::decorate(QPushButton *button)

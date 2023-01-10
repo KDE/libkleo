@@ -12,6 +12,8 @@
 
 #include "kleo_export.h"
 
+#include <string_view>
+
 class QPushButton;
 class QString;
 
@@ -30,6 +32,12 @@ KLEO_EXPORT bool isActive();
  * RNG are compliant.
  */
 KLEO_EXPORT bool isCompliant();
+
+/**
+ * Returns true, if the given algorithm is compliant with compliance mode
+ * "de-vs". Always returns true, if compliance mode "de-vs" is not active.
+ */
+KLEO_EXPORT bool algorithmIsCompliant(std::string_view algo);
 
 /**
  * \overload
