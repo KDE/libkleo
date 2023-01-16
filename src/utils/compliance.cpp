@@ -12,6 +12,7 @@
 
 #include "compliance.h"
 
+#include "algorithm.h"
 #include "cryptoconfig.h"
 #include "gnupg.h"
 #include "stringutils.h"
@@ -48,15 +49,15 @@ bool Kleo::DeVSCompliance::isCompliant()
 
 bool Kleo::DeVSCompliance::algorithmIsCompliant(std::string_view algo)
 {
-    using namespace std::literals;
+    static const std::vector<std::string> compliantAlgorithms = {
+        "brainpoolP256r1",
+        "brainpoolP384r1",
+        "brainpoolP512r1",
+        "rsa3072",
+        "rsa4096",
+    };
 
-    if (!isActive()) {
-        return true;
-    }
-    if (Kleo::startsWith(algo, "rsa"sv)) {
-        return algo == "rsa3072"sv || algo == "rsa4096"sv;
-    }
-    return !algo.empty();
+    return !isActive() || Kleo::contains(compliantAlgorithms, algo);
 }
 
 void Kleo::DeVSCompliance::decorate(QPushButton *button)
