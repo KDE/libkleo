@@ -30,7 +30,7 @@ target_sources(KF5Libkleo PRIVATE
    kleo/defaultkeyfilter.h
    kleo/defaultkeygenerationjob.cpp
    kleo/defaultkeygenerationjob.h
-   kleo/docaction.cpp
+   kleo/docaction.cpp kleo/docaction.h
    kleo/dn.cpp
    kleo/dn.h
    kleo/enum.cpp
