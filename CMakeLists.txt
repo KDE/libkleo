@@ -5,12 +5,12 @@ set(PIM_VERSION "5.22.45")
 
 project(libkleo VERSION ${PIM_VERSION})
 
-set(KF5_MIN_VERSION "5.102.0")
+set(KF_MIN_VERSION "5.102.0")
 
 if (WIN32)
   set(KF5_WANT_VERSION "5.70.0")
 else ()
-  set(KF5_WANT_VERSION ${KF5_MIN_VERSION})
+  set(KF5_WANT_VERSION ${KF_MIN_VERSION})
 endif ()
 
 find_package(ECM ${KF5_WANT_VERSION} CONFIG REQUIRED)
