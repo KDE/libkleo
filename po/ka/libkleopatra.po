@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-17 00:59+0000\n"
-"PO-Revision-Date: 2022-12-16 16:45+0100\n"
+"PO-Revision-Date: 2023-01-21 09:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -910,7 +910,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:182
 #, kde-format
 msgid "Do not use a TLS secured connection"
-msgstr ""
+msgstr "TLS-ით დაცული მიერთება გამოყენებული არ იქნება"
 
 #: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
@@ -923,7 +923,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:190
 #, kde-format
 msgid "Use TLS secured connection"
-msgstr ""
+msgstr "TLS-ით დაცული მიერთების გამოყენება"
 
 #: ui/editdirectoryservicedialog.cpp:192
 #, kde-format
@@ -936,7 +936,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:199
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "LDAP-ის TLS მიერთების გვირაბში გატარება"
 
 #: ui/editdirectoryservicedialog.cpp:201
 #, kde-format
@@ -982,7 +982,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
-msgstr ""
+msgstr "დირექტორიის სერვისის ჩასწორება"
 
 #: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
 #, kde-format
@@ -997,17 +997,17 @@ msgstr "<placeholder>არცერთი</placeholder>"
 #: ui/keyapprovaldialog.cpp:77
 #, kde-format
 msgid "Never Encrypt with This Key"
-msgstr ""
+msgstr "არასდროს დაშიფრო ამ გასაღებით"
 
 #: ui/keyapprovaldialog.cpp:78
 #, kde-format
 msgid "Always Encrypt with This Key"
-msgstr ""
+msgstr "ყოველთვის ამ გასაღებით დაშიფვრა"
 
 #: ui/keyapprovaldialog.cpp:79
 #, kde-format
 msgid "Encrypt Whenever Encryption is Possible"
-msgstr ""
+msgstr "დაშიფვრა, როცა ეს შესაძლებელია"
 
 #: ui/keyapprovaldialog.cpp:80
 #, kde-format
@@ -1017,18 +1017,18 @@ msgstr "ყოველთვის კითხვა"
 #: ui/keyapprovaldialog.cpp:81
 #, kde-format
 msgid "Ask Whenever Encryption is Possible"
-msgstr ""
+msgstr "კითხვა, შესაძლებელია თუ არა დაშიფვრა"
 
 #: ui/keyapprovaldialog.cpp:102
 #, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
-msgstr ""
+msgstr "დაშიფვრის გასაღების დადასტურება"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
 msgid "The following keys will be used for encryption:"
-msgstr ""
+msgstr "დასაშიფრად გამოყენებული იქნება შემდეგი გასაღებები:"
 
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
@@ -1098,7 +1098,7 @@ msgstr "OpenPGP -ის გასაღების არჩევანი"
 #: ui/keyrequester.cpp:388
 #, kde-format
 msgid "Please select an OpenPGP key to use."
-msgstr ""
+msgstr "აირჩიეთ OpenGPG-ს გასაღები."
 
 #: ui/keyrequester.cpp:390
 #, kde-format
@@ -1108,7 +1108,7 @@ msgstr "S/MIME -ის გასაღების არჩევანი"
 #: ui/keyrequester.cpp:391
 #, kde-format
 msgid "Please select an S/MIME key to use."
-msgstr ""
+msgstr "აირჩიეთ S/MIME-ის გასაღები."
 
 #: ui/keyrequester.cpp:393
 #, kde-format
@@ -1118,7 +1118,7 @@ msgstr "გასაღების არჩევანი"
 #: ui/keyrequester.cpp:394
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
-msgstr ""
+msgstr "აირჩიეთ OpenPGP-ის ან S/MIME-ის გასაღები."
 
 #: ui/keyselectioncombo.cpp:286
 #, kde-format
@@ -1166,37 +1166,37 @@ msgstr "გასაღები გამორთულია."
 #: ui/keyselectiondialog.cpp:93
 #, kde-format
 msgid "The key is not designated for encryption."
-msgstr ""
+msgstr "გასაღები დაშიფვრისთვის განკუთვნილი არაა."
 
 #: ui/keyselectiondialog.cpp:98
 #, kde-format
 msgid "The key is not designated for signing."
-msgstr ""
+msgstr "გასაღები ხელმოწერისთვის განკუთვნილი არაა."
 
 #: ui/keyselectiondialog.cpp:103
 #, kde-format
 msgid "The key is not designated for certifying."
-msgstr ""
+msgstr "გასაღები სერტიფიცირებისთვის არაა განკუთვნილი."
 
 #: ui/keyselectiondialog.cpp:108
 #, kde-format
 msgid "The key is not designated for authentication."
-msgstr ""
+msgstr "გასაღები ავთენტიკაციისთვის არაა განკუთვნილი."
 
 #: ui/keyselectiondialog.cpp:114
 #, kde-format
 msgid "The key is not secret."
-msgstr ""
+msgstr "გასაღები საიდუმლო არაა."
 
 #: ui/keyselectiondialog.cpp:129
 #, kde-format
 msgid "The key is not trusted enough."
-msgstr ""
+msgstr "გასაღები საკმარისად სანდო არაა."
 
 #: ui/keyselectiondialog.cpp:135
 #, kde-format
 msgid "The key can be used."
-msgstr ""
+msgstr "გასაღების გამოყენება შესაძლებელია."
 
 #: ui/keyselectiondialog.cpp:192
 #, kde-format
@@ -1252,7 +1252,7 @@ msgstr "სტატუსი"
 #: ui/keyselectiondialog.cpp:416
 #, kde-format
 msgid "Search for &External Certificates"
-msgstr ""
+msgstr "გარე &სერტიფიკატების მოძებნა"
 
 #: ui/keyselectiondialog.cpp:430
 #, kde-format
@@ -1274,12 +1274,12 @@ msgstr ""
 #: ui/keyselectiondialog.cpp:472
 #, kde-format
 msgid "&Reread Keys"
-msgstr ""
+msgstr "&გასაღებების თავიდან წაკითხვა"
 
 #: ui/keyselectiondialog.cpp:477
 #, kde-format
 msgid "&Start Certificate Manager"
-msgstr ""
+msgstr "სერტფიკატების მმართველის &გაშვება"
 
 #: ui/keyselectiondialog.cpp:637
 #, kde-format
@@ -1294,17 +1294,17 @@ msgstr ""
 #: ui/keyselectiondialog.cpp:657
 #, kde-format
 msgid "Certificate Manager Error"
-msgstr ""
+msgstr "სერტფიკატების მმართველის შეცდომა"
 
 #: ui/keyselectiondialog.cpp:714
 #, kde-format
 msgid "Checking selected keys..."
-msgstr ""
+msgstr "მონიშნული გასაღებების შემოწმება..."
 
 #: ui/keyselectiondialog.cpp:714
 #, kde-format
 msgid "Fetching keys..."
-msgstr ""
+msgstr "გასაღებების გამოთხოვა...."
 
 #: ui/keyselectiondialog.cpp:746
 #, kde-format
@@ -1320,7 +1320,7 @@ msgstr[1] ""
 #: ui/keyselectiondialog.cpp:751
 #, kde-format
 msgid "Key List Result"
-msgstr ""
+msgstr "გასაღებების სიის შედეგი"
 
 #: ui/keyselectiondialog.cpp:873
 #, kde-format
@@ -1355,7 +1355,7 @@ msgstr "დეტალების ჩვენება"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
-msgstr ""
+msgstr "შესაბამისი გასაღებების ჩვენება"
 
 #: ui/newkeyapprovaldialog.cpp:182
 #, kde-format
@@ -1399,12 +1399,12 @@ msgstr "OpenPGP"
 #: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr ""
+msgstr "'%1'-სთვის გასაღების გენერაცია..."
 
 #: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgid "This can take several minutes."
-msgstr ""
+msgstr "ამას რამდენიმე წუთი შეიძლება დასჭირდეს."
 
 #: ui/newkeyapprovaldialog.cpp:397
 #, kde-format
@@ -1437,12 +1437,12 @@ msgstr ""
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
-msgstr ""
+msgstr "'%1'-ის იდენტიფიცირება, როგორც:"
 
 #: ui/newkeyapprovaldialog.cpp:643
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
+msgstr "გასაღების გარეშე. მიმღებების გაშიფვრა შეუძლებელია."
 
 #: ui/newkeyapprovaldialog.cpp:646
 #, kde-format
@@ -1457,12 +1457,12 @@ msgstr ""
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr ""
+msgstr "თავის თავში დაშიფვრა (%1):"
 
 #: ui/newkeyapprovaldialog.cpp:780
 #, kde-format
 msgid "Encrypt to others:"
-msgstr ""
+msgstr "სხვებისთვის დაშიფვრა:"
 
 #: ui/newkeyapprovaldialog.cpp:814
 #, kde-format
@@ -1510,7 +1510,7 @@ msgstr "VS-NfD შეუთავსებელი"
 #: utils/formatting.cpp:235
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
-msgstr ""
+msgstr "%1-ბიტიანი %2 (საიდუმლო გასაღები ხელმისაწვდომია)"
 
 #: utils/formatting.cpp:237 utils/formatting.cpp:248
 #, kde-format
@@ -1535,7 +1535,7 @@ msgstr "დაშიფვრა"
 #: utils/formatting.cpp:265 utils/formatting.cpp:287
 #, kde-format
 msgid "Certifying User-IDs"
-msgstr ""
+msgstr "User-ID-ების სერტიფიცირება"
 
 #: utils/formatting.cpp:268 utils/formatting.cpp:290
 #, kde-format
@@ -1597,12 +1597,12 @@ msgstr "ასევე ცნობილია, როგორც."
 #: utils/formatting.cpp:395
 #, kde-format
 msgid "Certification trust"
-msgstr ""
+msgstr "სერტიფიცირების ნდობა"
 
 #: utils/formatting.cpp:397
 #, kde-format
 msgid "Trusted issuer?"
-msgstr ""
+msgstr "გამომქვეყნებელი სანდოა?"
 
 #: utils/formatting.cpp:397
 #, kde-format
@@ -1645,12 +1645,12 @@ msgstr ""
 #: utils/formatting.cpp:463
 #, kde-format
 msgid "All keys are certified."
-msgstr ""
+msgstr "ყველა გასაღები სერტიფიცირებულია."
 
 #: utils/formatting.cpp:465
 #, kde-format
 msgid "Some keys are not certified."
-msgstr ""
+msgstr "ზოგიერთი გასაღები სერტიფიცირებული არაა."
 
 #: utils/formatting.cpp:469
 #, kde-format
@@ -1673,8 +1673,8 @@ msgstr "გასაღებები:"
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "და კიდევ 1 გასაღები"
+msgstr[1] "და კიდევ %1 გასაღები"
 
 #: utils/formatting.cpp:539
 #, kde-format
@@ -1682,7 +1682,7 @@ msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
 "leading zero, MMMM: localized month name, yyyy: year as a four digit number"
 msgid "MMMM d, yyyy"
-msgstr ""
+msgstr "თთთთ, დ, წწწწ"
 
 #: utils/formatting.cpp:585 utils/formatting.cpp:620
 #, kde-format
@@ -1728,7 +1728,7 @@ msgstr "არასანდო"
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
-msgstr ""
+msgstr "საბოლოო"
 
 #: utils/formatting.cpp:732 utils/formatting.cpp:779
 #, kde-format
@@ -1740,7 +1740,7 @@ msgstr "მთლიანი"
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
-msgstr ""
+msgstr "უკანასკნელი"
 
 #: utils/formatting.cpp:736 utils/formatting.cpp:773
 #, kde-format
@@ -1795,22 +1795,22 @@ msgstr "ცუდი"
 #: utils/formatting.cpp:819
 #, kde-format
 msgid "no public key"
-msgstr ""
+msgstr "საჯარო გასაღების გარეშე"
 
 #: utils/formatting.cpp:821
 #, kde-format
 msgid "key expired"
-msgstr ""
+msgstr "ვადაგასული გასაღები"
 
 #: utils/formatting.cpp:823
 #, kde-format
 msgid "key revoked"
-msgstr ""
+msgstr "გასაღები გაუქმებულია"
 
 #: utils/formatting.cpp:825
 #, kde-format
 msgid "key disabled"
-msgstr ""
+msgstr "გასაღები გამორთულია"
 
 #: utils/formatting.cpp:881
 #, kde-format
@@ -1821,57 +1821,57 @@ msgstr "%1 %2 (%3)"
 #: utils/formatting.cpp:928
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "არასწორი ხელმოწერა უცნობი სერტიფიკატით %1: %2"
 
 #: utils/formatting.cpp:930
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
-msgstr ""
+msgstr "არასწორი ხელმოწერა უცნობი სერტიფიკატით: %1"
 
 #: utils/formatting.cpp:933
 #, kde-format
 msgid "Bad signature by %1: %2"
-msgstr ""
+msgstr "არასწორი ხელმოწერა %1-სგან: %2"
 
 #: utils/formatting.cpp:939
 #, kde-format
 msgid "Good signature by unknown certificate %1."
-msgstr ""
+msgstr "სწორი ხელმოწერა უცნობი სერტიფიკატით %1."
 
 #: utils/formatting.cpp:941
 #, kde-format
 msgid "Good signature by an unknown certificate."
-msgstr ""
+msgstr "სწორი ხელმოწერა უცნობი სერტიფიკატით."
 
 #: utils/formatting.cpp:944
 #, kde-format
 msgid "Good signature by %1."
-msgstr ""
+msgstr "სწორი ხელმოწერა %1-ის მიერ."
 
 #: utils/formatting.cpp:949
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "ხელმოწერა არასწორია უცნობი სერტიფიკატით %1: %2"
 
 #: utils/formatting.cpp:951
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
-msgstr ""
+msgstr "ხელმოწერა არასწორია უცნობი სერტიფიკატით: %1"
 
 #: utils/formatting.cpp:954
 #, kde-format
 msgid "Invalid signature by %1: %2"
-msgstr ""
+msgstr "არასწორი ხელმოწერა %1-ის მიერ: %2"
 
 #: utils/formatting.cpp:968
 #, kde-format
 msgid "This certificate was imported from the following sources:"
-msgstr ""
+msgstr "სერტიფიკატი შემოტანილია შემდეგი წყაროებიდან:"
 
 #: utils/formatting.cpp:979
 #, kde-format
 msgid "The import of this certificate was canceled."
-msgstr ""
+msgstr "სერტიფიკატის შემოტანა გაუქმდა."
 
 #: utils/formatting.cpp:982
 #, kde-format
@@ -1978,7 +1978,7 @@ msgstr ""
 #: utils/formatting.cpp:1105
 #, kde-format
 msgid "This certificate should not be used."
-msgstr ""
+msgstr "ამ სერტიფიკატს არ უნდა ენდოთ."
 
 #: utils/formatting.cpp:1109
 #, kde-format
@@ -1988,7 +1988,7 @@ msgstr ""
 #: utils/formatting.cpp:1121
 #, kde-format
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "ეს ჯგუფი გასაღებებს არ შეიცავს."
 
 #: utils/formatting.cpp:1175
 #, kde-format
@@ -2012,19 +2012,19 @@ msgstr "არასერტიფიცირებული"
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "შემოწმებული არაა"
 
 #: utils/formatting.cpp:1215
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
-msgstr ""
+msgstr "ყველა სერტიფიცირებულია"
 
 #: utils/formatting.cpp:1218
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
-msgstr ""
+msgstr "ყველა სერტიფიცირებული არაა"
 
 #: utils/formatting.cpp:1251
 #, kde-format
