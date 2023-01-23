@@ -175,14 +175,14 @@ if(MINGW)
 endif()
 
 target_link_libraries(KF5Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
-                                                KF5::I18n
-                                                KF5::Completion
-                                                KF5::ConfigCore
-                                                KF5::ConfigWidgets
-                                                KF5::CoreAddons
-                                                KF5::WidgetsAddons
-                                                KF5::ItemModels
-                                                KF5::Codecs)
+                                                KF${KF_MAJOR_VERSION}::I18n
+                                                KF${KF_MAJOR_VERSION}::Completion
+                                                KF${KF_MAJOR_VERSION}::ConfigCore
+                                                KF${KF_MAJOR_VERSION}::ConfigWidgets
+                                                KF${KF_MAJOR_VERSION}::CoreAddons
+                                                KF${KF_MAJOR_VERSION}::WidgetsAddons
+                                                KF${KF_MAJOR_VERSION}::ItemModels
+                                                KF${KF_MAJOR_VERSION}::Codecs)
 
 if (QT_MAJOR_VERSION STREQUAL "6")
     target_link_libraries(KF5Libkleo PRIVATE Qt6::Core5Compat PUBLIC QGpgmeQt6)

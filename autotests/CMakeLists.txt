@@ -35,7 +35,7 @@ ecm_add_test(
 
 ecm_add_tests(
     editdirectoryservicedialogtest.cpp
-    LINK_LIBRARIES KF5::Libkleo KF5::WidgetsAddons Qt::Widgets Qt::Test
+    LINK_LIBRARIES KF5::Libkleo KF${KF_MAJOR_VERSION}::WidgetsAddons Qt::Widgets Qt::Test
 )
 
 ecm_add_tests(
