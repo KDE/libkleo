@@ -1,6 +1,9 @@
-# translation of libkleopatra.po to Euskara
-# translation of libkleopatra.po to Basque
+# Translation fo libkleopatra.po to Euskara/Basque (eu)
+# Copyright (C) 2005-2023 This file is copyright:
+# This file is distributed under the same license as the original file.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
+# Translators:
 # Marcos  <marcos@euskalgnu.org>, 2005.
 # Ion Gaztañaga <ion_g_m@hotmail.com>, 2005.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
@@ -10,9 +13,9 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:46+0000\n"
-"PO-Revision-Date: 2023-01-24 23:16+0100\n"
+"PO-Revision-Date: 2023-01-25 08:18+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -871,9 +874,9 @@ msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr "Konexioaren segurtasuna (GnuPG 2.2.28 edo berriagoa eskatzen du)"
 
 #: ui/editdirectoryservicedialog.cpp:172
-#, fuzzy, kde-format
+#, kde-format
 msgid "Use default connection (probably not TLS secured)"
-msgstr "Erabili konexio lehenetsia ("
+msgstr "Erabili konexio lehenetsia (ziurrenik TLS bidez segurtatu gabe)"
 
 #: ui/editdirectoryservicedialog.cpp:174
 #, kde-format
@@ -882,11 +885,14 @@ msgid ""
 "Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
+"Erabili «GnuPG»ren lehenespenak LDAP zerbitzarira konektatzeko. Era "
+"lehenetsian, GnuPG 2.3 eta aurrekoek agerikoa, TLS bidez segurtatu gabeko "
+"konexioa erabiltzen dute. <b>(Ez gomendatua)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:182
 #, kde-format
 msgid "Do not use a TLS secured connection"
-msgstr ""
+msgstr "Ez erabili TLS bidez segurtatutako konexioa"
 
 #: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
@@ -895,11 +901,13 @@ msgid ""
 "Use a plain, not TLS secured connection to connect to the LDAP server. "
 "<b>(Not recommended)</b>"
 msgstr ""
+"Erabili agerikoa, TLS bidez segurtatu gabeko konexioa LDAP zerbitzarira "
+"konektatzeko. <b>(Ez gomendatua)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:190
 #, kde-format
 msgid "Use TLS secured connection"
-msgstr ""
+msgstr "Erabili TLS bidez segurtatutako konexioa"
 
 #: ui/editdirectoryservicedialog.cpp:192
 #, kde-format
@@ -908,11 +916,13 @@ msgid ""
 "Use a standard TLS secured connection (initiated with STARTTLS) to connect "
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr ""
+"Erabili TLS bidez segurtatutako konexio estandarra (STARTTLS bidez hasia) "
+"LDAP zerbitzarira konektatzeko. <b>(Gomendatua</b>"
 
 #: ui/editdirectoryservicedialog.cpp:199
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "«LDAP»erako tunela TLS konexio batean barrena"
 
 #: ui/editdirectoryservicedialog.cpp:201
 #, kde-format
@@ -921,6 +931,8 @@ msgid ""
 "Use a TLS secured connection through which the connection to the LDAP server "
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
+"Erabili TLS bidez segurtatutako konexio bat, haren barrenetik LDAP "
+"zerbitzarirako konexioaren tunela gauzatzeko. <b>(Ez gomendatua)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:210
 #, kde-format
@@ -928,10 +940,9 @@ msgid "Advanced Settings"
 msgstr "Ezarpen aurreratuak"
 
 #: ui/editdirectoryservicedialog.cpp:215
-#, fuzzy, kde-format
-#| msgid "&Base DN:"
+#, kde-format
 msgid "Base DN:"
-msgstr "Baseko DN-a"
+msgstr "DN oinarria:"
 
 #: ui/editdirectoryservicedialog.cpp:217
 #, kde-format
@@ -954,6 +965,10 @@ msgid ""
 "supported by Kleopatra. For example, older versions of GnuPG use "
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
+"Hemen, Kleopatrak oraindik (edo dagoeneko) onartzen ez dituen bandera "
+"osagarriak sar ditzakezu. Adibidez, «GnuPG»ren bertsio zaharragoek "
+"<code>ldaps</code> erabiltzen dute TLS bidez segurtatutako konexio bat "
+"eskatzeko."
 
 #: ui/editdirectoryservicedialog.cpp:395
 #, kde-format
