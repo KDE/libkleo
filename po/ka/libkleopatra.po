@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:46+0000\n"
-"PO-Revision-Date: 2023-01-25 07:26+0100\n"
+"PO-Revision-Date: 2023-01-28 11:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -473,7 +473,7 @@ msgstr "ფაილის შენახვის შეცდომა"
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
-msgstr ""
+msgstr "წამკითხავი დასაკავშირებლად"
 
 #: ui/cryptoconfigmodule.cpp:165
 #, kde-format
@@ -576,7 +576,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "This is a list of all directory services that are configured for use with "
 "X.509."
-msgstr ""
+msgstr "ეს დირექტორიის სერვისების სიაა, რომლებიც X.509-ითაა მორგებული."
 
 #: ui/directoryserviceswidget.cpp:197
 #, kde-format
@@ -596,6 +596,7 @@ msgstr "LDAP სერვერი"
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
+"დააწკაპუნეთ LDAP სერვერის მიერ მოწოდებული დირექტორიის სერვისის დასამატებლად."
 
 #: ui/directoryserviceswidget.cpp:205
 #, kde-format
@@ -790,7 +791,7 @@ msgstr "ანონიმურად"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
+msgstr "ანონიმური LDAP სერვერის გამოყენება, რომელსაც ავთენტიკაცია არ სჭირდება."
 
 #: ui/editdirectoryservicedialog.cpp:127
 #, kde-format
@@ -820,7 +821,7 @@ msgstr "მომხმარებლითა და პაროლით ა
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
-msgstr ""
+msgstr "LDAP სერვერთან თქვენი LDAP ავტორიზაციის დეტალებით ავთენტიკაცია."
 
 #: ui/editdirectoryservicedialog.cpp:148
 #, kde-format
@@ -833,6 +834,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
+"შეიყვანეთ თქვენი LDAP მომხმარებლის მიმაგრების DN-ი LDAP სერვერთან "
+"ავთენტიკაციისთვის."
 
 #: ui/editdirectoryservicedialog.cpp:153
 #, kde-format
@@ -861,7 +864,7 @@ msgstr "მიერთების უსაფრთხოება (მოი
 #: ui/editdirectoryservicedialog.cpp:172
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
-msgstr ""
+msgstr "ნაგულისხმები მიერთების გამოყენება (ალბათ TLS-ით დაცული არაა)"
 
 #: ui/editdirectoryservicedialog.cpp:174
 #, kde-format
@@ -1047,12 +1050,16 @@ msgstr "გასაღებების ჩამონათვლის შ�
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
+"OpenPGP-ის უკანაბოლოს გასაღებების ჩამოთვლის მხარდაჭერა არ გააჩნია. "
+"გადაამოწმეთ ფაილები."
 
 #: ui/keyrequester.cpp:267
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr ""
+"S/MIME-ის უკანაბოლოს გასაღებების ჩამოთვლის მხარდაჭერა არ გააჩნია. "
+"გადაამოწმეთ ფაილები."
 
 #: ui/keyrequester.cpp:387
 #, kde-format
@@ -1248,12 +1255,12 @@ msgstr "სერტფიკატების მმართველის &
 #: ui/keyselectiondialog.cpp:637
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
-msgstr ""
+msgstr "გასაღებების სიის გამოსატანად უკანაბოლო ვერ ვიპოვე. შეამოწმეთ ფაილები."
 
 #: ui/keyselectiondialog.cpp:655
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
-msgstr ""
+msgstr "სერტიფიკატების მმართველის გაშვები შეცდომა. გადაამოწმეთ ფაილები."
 
 #: ui/keyselectiondialog.cpp:657
 #, kde-format
@@ -1388,7 +1395,7 @@ msgstr "შესაბამისი გასაღებების ჩვ�
 #: ui/newkeyapprovaldialog.cpp:182
 #, kde-format
 msgid "Show keys matching the email address"
-msgstr ""
+msgstr "ელფოსტის შესაბამისი გასაღებების ჩვენება"
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
@@ -1453,13 +1460,13 @@ msgstr "გასაღების ახალი წყვილის გე
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
 msgid "Don't confirm identity and integrity"
-msgstr ""
+msgstr "იდენტიფიკატორი და სიმთელე არ დადასტურდება"
 
 #: ui/newkeyapprovaldialog.cpp:561
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
-msgstr ""
+msgstr "ელფოსტა კრიპტოგრაფიულად ხელმოწერილი არ იქნება."
 
 #: ui/newkeyapprovaldialog.cpp:579
 #, kde-format
@@ -1523,7 +1530,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "ხელით მითითებული წამკითხავის ID ან პორტის ნომერი"
 
 #: utils/compliance.cpp:84
 #, kde-format
@@ -1588,19 +1595,19 @@ msgstr "გამორთულია"
 #: utils/formatting.cpp:333
 #, kde-format
 msgid "All User-IDs are certified."
-msgstr ""
+msgstr "მომხმარებლის ყველა იდენტიფიკატორი გადამოწმდა."
 
 #: utils/formatting.cpp:339
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 მომხმარებლის იდენტიფიკატორი არ გადამოწმებულა."
+msgstr[1] "%1 მომხმარებლის იდენტიფიკატორი არ გადამოწმებულა."
 
 #: utils/formatting.cpp:342 utils/formatting.cpp:345
 #, kde-format
 msgid "The validity cannot be checked at the moment."
-msgstr ""
+msgstr "სისწორის გადამოწმება ახლა შეუძლებელია."
 
 #: utils/formatting.cpp:355
 #, kde-format
@@ -1652,7 +1659,7 @@ msgstr "დამახსოვრებული"
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
-msgstr ""
+msgstr "სმარტ-ბარათზე სერიული ნომრით %1"
 
 #: utils/formatting.cpp:405 utils/formatting.cpp:435
 #, kde-format
@@ -1668,7 +1675,7 @@ msgstr "ქვეგასაღები"
 #: utils/formatting.cpp:459
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
-msgstr ""
+msgstr "ზოგიერთი გასაღები გაუქმებული, ვადაგასული, გამორთული ან არასწორია."
 
 #: utils/formatting.cpp:463
 #, kde-format
@@ -1904,17 +1911,18 @@ msgstr "სერტიფიკატის შემოტანა გაუ�
 #: utils/formatting.cpp:982
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
-msgstr ""
+msgstr "შეცდომა სერტიფიკატის შემოტანისას: %1"
 
 #: utils/formatting.cpp:987
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
+"ეს სერტიფიკატი თქვენი საცავისთვის ახალია. საიდუმლო გასაღები ხელმისაწვდომია."
 
 #: utils/formatting.cpp:988
 #, kde-format
 msgid "This certificate is new to your keystore."
-msgstr ""
+msgstr "ეს სერტიფიკატი ახალია თქვენი საცავისთვის."
 
 #: utils/formatting.cpp:993
 #, kde-format
@@ -1935,6 +1943,7 @@ msgstr ""
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
+"შემოტანილს ამ სერტიფიკატისთვის ახალი მონაცემები არ გააჩნია. ის არ შეცვლილა."
 
 #: utils/formatting.cpp:1018
 #, kde-format
@@ -1989,12 +1998,12 @@ msgstr[1] "%2 (%1 გასაღები, %3, უცნობი წარმ�
 #: utils/formatting.cpp:1099
 #, kde-format
 msgid "The certificate is marked as your own."
-msgstr ""
+msgstr "სერტიფიკატი მონიშნულია, როგორც თქვენი საკუთარი."
 
 #: utils/formatting.cpp:1101
 #, kde-format
 msgid "The certificate belongs to this recipient."
-msgstr ""
+msgstr "სერტიფიკატი ამ მიმღებს ეკუთვნის."
 
 #: utils/formatting.cpp:1103
 #, kde-format
