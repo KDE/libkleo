@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-17 00:59+0000\n"
-"PO-Revision-Date: 2023-01-28 10:56+0100\n"
+"PO-Revision-Date: 2023-01-30 10:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -470,6 +470,8 @@ msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
 "%1"
 msgstr ""
+"შეცდომა GnuPG-ის აუდიტის ჟურნალის მიღების მცდელობისას:\n"
+"%1"
 
 #: ui/auditlogviewer.cpp:107
 #, kde-format
@@ -578,6 +580,8 @@ msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
 msgstr ""
+"დირექტორიის სერვისების მორგება შეუძლებელია, რადგან გამოყენებული gpgme-ის "
+"ბიბლიოთეკები მეტისმეტად ძველია."
 
 #: ui/cryptoconfigmodule.cpp:999
 #, kde-format
@@ -622,6 +626,9 @@ msgid ""
 "Click to use a directory service running on your Active Directory. This "
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
+"Active Directory-ზე გაშვებული დირექტორიის სერვისის გამოსაყენებლად "
+"დააწკაპუნეთ. იმუშავებს მხოლოდ Windows-ზე და GnuPG-ის 2.2.28 ან უფრო ახალ "
+"ვერსიას მოითხოვს."
 
 #: ui/directoryserviceswidget.cpp:200
 #, kde-format
@@ -795,6 +802,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
 msgstr ""
+"შეიყვანეთ IP მისამართი ან სახელი ჰოსტისა, სადაც დირექტორიის სერვისია "
+"გაშვებული."
 
 #: ui/editdirectoryservicedialog.cpp:104
 #, kde-format
@@ -1663,7 +1672,7 @@ msgstr "ზოგიერთი გასაღები სერტიფი�
 #: utils/formatting.cpp:469
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
+msgstr "გასაღებების სისწორის გადამოწმება ახლა შეუძლებელია."
 
 #: utils/formatting.cpp:483
 #, kde-format
@@ -1900,17 +1909,17 @@ msgstr "ეს სერტიფიკატი ახალია თქვე
 #: utils/formatting.cpp:993
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
-msgstr ""
+msgstr "შემოტანამ ამ სერტიფიკატში ახალი user-id-ები ჩაამატა."
 
 #: utils/formatting.cpp:996
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
-msgstr ""
+msgstr "შემოტანამ ამ სერტიფიკატში ახალი ხელმოწერები ჩაამატა."
 
 #: utils/formatting.cpp:999
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
-msgstr ""
+msgstr "შემოტანამ ამ სერტიფიკატში ახალი ქვეგასაღებები ჩაამატა."
 
 #: utils/formatting.cpp:1002
 #, kde-format
@@ -1993,7 +2002,7 @@ msgstr "ამ სერტიფიკატს არ უნდა ენდ�
 #: utils/formatting.cpp:1109
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
-msgstr ""
+msgstr "ნიშანი, რომ სერტიფიკატი ამ მიმღებს ეკუთვნის, არ არსებობს."
 
 #: utils/formatting.cpp:1121
 #, kde-format
@@ -2076,12 +2085,13 @@ msgstr "სერტიფიკატების მმართველი �
 #: utils/hex.cpp:35
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr ""
+msgstr "არასწორი სიმბოლო '%1' შემოტანის ნაკადში."
 
 #: utils/hex.cpp:47 utils/hex.cpp:52
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+"შეყვანის ნაკადში თექვსმეტობითში კოდირებული სიმბოლოს მოულოდნელი დასასრული"
 
 #~ msgid "Signing Error"
 #~ msgstr "ხელმოწერის შეცდომა"
