@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2014, 2016, 2017, 2018, 2019, 2020.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
-# Vit Pelcak <vit@pelcak.org>, 2021, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-17 00:59+0000\n"
-"PO-Revision-Date: 2022-09-21 15:55+0200\n"
+"PO-Revision-Date: 2023-02-03 16:10+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -147,7 +147,7 @@ msgstr "Unikátní ID"
 
 #: kleo/enum.cpp:35
 msgid "Inline OpenPGP (deprecated)"
-msgstr "Vložen OpenPGP (zastaralé)"
+msgstr "Vložený OpenPGP (zastaralé)"
 
 #: kleo/enum.cpp:36
 msgid "OpenPGP/MIME"
@@ -398,18 +398,18 @@ msgstr "ano"
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "ne"
 
 #: models/useridlistmodel.cpp:75
 #, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr ""
+msgstr "žádný"
 
 #: models/useridlistmodel.cpp:76
 #, kde-format
 msgid "not applicable"
-msgstr ""
+msgstr "nepoužitelné"
 
 #: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
@@ -423,7 +423,7 @@ msgstr "ID uživatele"
 #: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
-msgstr ""
+msgstr "ID uživatele / ID klíče certifikátu"
 
 #: models/useridlistmodel.cpp:110
 #, kde-format
@@ -721,7 +721,7 @@ msgstr "Současné pořadí atributů:"
 #: ui/dnattributeorderconfigwidget.cpp:98
 #, kde-format
 msgid "available attributes"
-msgstr ""
+msgstr "dostupné atributy"
 
 #: ui/dnattributeorderconfigwidget.cpp:105
 #: ui/dnattributeorderconfigwidget.cpp:106
@@ -750,7 +750,7 @@ msgstr "Odstranit ze současného pořadí atributů"
 #: ui/dnattributeorderconfigwidget.cpp:132
 msgctxt "@action:button"
 msgid "Move to Top"
-msgstr ""
+msgstr "Přesunout nahoru"
 
 #: ui/dnattributeorderconfigwidget.cpp:133
 msgid "Move to top"
@@ -777,7 +777,7 @@ msgstr "Přesunout dolů"
 #: ui/dnattributeorderconfigwidget.cpp:153
 msgctxt "@action:button"
 msgid "Move to Bottom"
-msgstr ""
+msgstr "Přesunout dolů"
 
 #: ui/dnattributeorderconfigwidget.cpp:154
 msgid "Move to bottom"
@@ -786,7 +786,7 @@ msgstr "Přesunout dospodu"
 #: ui/dnattributeorderconfigwidget.cpp:184
 #, kde-format
 msgid "current attribute order"
-msgstr ""
+msgstr "současné pořadí atributů"
 
 #: ui/editdirectoryservicedialog.cpp:99
 #, kde-format
@@ -1349,7 +1349,7 @@ msgstr "Znovu zkontrolovat klíč"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr ""
+msgstr "Zobrazit záznam Auditu"
 
 #: ui/messagebox.cpp:91
 #, kde-format
@@ -1373,7 +1373,7 @@ msgstr "Zobrazit podrobnosti"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
-msgstr ""
+msgstr "Zobrazovat odpovídající klíče"
 
 #: ui/newkeyapprovaldialog.cpp:182
 #, kde-format
@@ -1384,7 +1384,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
-msgstr ""
+msgstr "Zobrazit vše"
 
 #: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
@@ -1708,7 +1708,7 @@ msgstr "MMMM d, rrrr"
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
-msgstr ""
+msgstr "neznámý"
 
 #: utils/formatting.cpp:627 utils/formatting.cpp:636
 #, kde-format
@@ -2017,7 +2017,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
-msgstr ""
+msgstr "neznámý"
 
 #: utils/formatting.cpp:1188
 #, kde-format
