@@ -25,6 +25,7 @@
 #include <libkleo/gnupg.h>
 #include <libkleo/keycache.h>
 
+#include "kleo/debug.h"
 #include <libkleo_debug.h>
 
 #include <gpgme++/key.h>
@@ -34,16 +35,6 @@ using namespace GpgME;
 
 namespace
 {
-
-QDebug operator<<(QDebug debug, const GpgME::Key &key)
-{
-    if (key.isNull()) {
-        debug << "Null";
-    } else {
-        debug << Formatting::summaryLine(key);
-    }
-    return debug.maybeSpace();
-}
 
 static inline bool ValidEncryptionKey(const Key &key)
 {
