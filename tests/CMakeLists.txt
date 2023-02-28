@@ -8,7 +8,8 @@ macro( add_kleo_test _source )
   get_filename_component( _name ${_source} NAME_WE )
   add_executable( ${_name} ${_test} )
   ecm_mark_as_test(kleo-${_name})
-  target_link_libraries(${_name} KF5::Libkleo Qt::Widgets KF${KF_MAJOR_VERSION}::CoreAddons KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::WidgetsAddons)
+  target_link_libraries(${_name} KPim${KF_MAJOR_VERSION}::Libkleo Qt::Widgets KF${KF_MAJOR_VERSION}::CoreAddons
+      KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::WidgetsAddons)
 endmacro()
 
 

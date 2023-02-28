@@ -86,7 +86,7 @@ set_package_properties(KPim${KF_MAJOR_VERSION}PimTextEdit PROPERTIES DESCRIPTION
 
 ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfigVersion.cmake"
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KPim${KF_MAJOR_VERSION}LibkleoConfigVersion.cmake"
                         SOVERSION 5
 )
 
@@ -96,26 +96,26 @@ ecm_set_disabled_deprecation_versions(QT 5.15.2  KF 5.103.0)
 remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
 ########### CMake Config Files ###########
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Libkleo")
-
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim${KF_MAJOR_VERSION}Libkleo")
+set(LIBKLEO_KF5_COMPAT FALSE)
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5LibkleoConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KPimLibkleoConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KPim${KF_MAJOR_VERSION}LibkleoConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KPim${KF_MAJOR_VERSION}LibkleoConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KPim${KF_MAJOR_VERSION}LibkleoConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KF5LibkleoTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5LibkleoTargets.cmake NAMESPACE KF5::)
+install(EXPORT KPim${KF_MAJOR_VERSION}LibkleoTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KPim${KF_MAJOR_VERSION}LibkleoTargets.cmake NAMESPACE KPim${KF_MAJOR_VERSION}::)
 
 install(FILES
    ${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/Libkleo COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/Libkleo COMPONENT Devel
 )
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-libkleo.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-libkleo.h)
@@ -144,12 +144,12 @@ ecm_qt_install_logging_categories(
 ki18n_install(po)
 if (BUILD_QCH)
     ecm_install_qch_export(
-        TARGETS KF5Libkleo_QCH
-        FILE KF5LibkleoQchTargets.cmake
+        TARGETS KPim${KF_MAJOR_VERSION}Libkleo_QCH
+        FILE KPim${KF_MAJOR_VERSION}LibkleoQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5LibkleoQchTargets.cmake\")")
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KPim${KF_MAJOR_VERSION}LibkleoQchTargets.cmake\")")
 endif()
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -157,3 +157,33 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+
+#if (QT_MAJOR_VERSION STREQUAL "5")
+##
+# TODO: Backwards compatiblity. Remove in next major version
+##
+set(CMAKECONFIG_INSTALL_DIR_KF5 "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Libkleo")
+set(LIBKLEO_KF5_COMPAT TRUE)
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/KPimLibkleoConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfig.cmake"
+    INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR_KF5}
+)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/KF5LibkleoConfig.cmake"
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR_KF5}"
+    COMPONENT Devel
+)
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/KPim${KF_MAJOR_VERSION}LibkleoConfigVersion.cmake"
+    RENAME "KF5LibkleoConfigVersion.cmake"
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR_KF5}"
+    COMPONENT Devel
+)
+install(EXPORT KPim${KF_MAJOR_VERSION}LibkleoTargets
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR_KF5}"
+    FILE KPim${KF_MAJOR_VERSION}LibkleoTargets.cmake
+    NAMESPACE KF5::
+)
+#endif()

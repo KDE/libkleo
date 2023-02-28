@@ -1,0 +1,22 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(Gpgmepp "@GPGME_REQUIRED_VERSION@")
+if ("@QT_MAJOR_VERSION@" STREQUAL "5")
+    find_dependency(QGpgme "@GPGME_REQUIRED_VERSION@")
+else()
+    find_dependency(QGpgmeQt6 "@GPGME_REQUIRED_VERSION@")
+endif()
+
+if (@LIBKLEO_KF5_COMPAT@)
+    message(WARNING "\n"
+                    "************* DEPRECATION WARNING *************\n"
+		    "Using find_package(KF5LibKleo) and KF5::LibKleo targets is deprecated. "
+		    "Please use find_package(KPim@KF_MAJOR_VERSION@LibKleo) and KPim@KF_MAJOR_VERSION@::LibKleo instead. This backwards "
+                    "compatibility will be removed in the next major version.\n"
+                    "***********************************************\n")
+endif()
+
+
+include("${CMAKE_CURRENT_LIST_DIR}/KPim@KF_MAJOR_VERSION@LibkleoTargets.cmake")
+@PACKAGE_INCLUDE_QCHTARGETS@

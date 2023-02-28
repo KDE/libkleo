@@ -15,7 +15,7 @@ ecm_add_test(
     flatkeylistmodeltest.cpp
     abstractkeylistmodeltest.cpp
     TEST_NAME flatkeylistmodeltest
-    LINK_LIBRARIES KF5::Libkleo Qt::Test
+    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}::Libkleo Qt::Test
 )
 
 ecm_add_test(
@@ -23,29 +23,29 @@ ecm_add_test(
     abstractkeylistmodeltest.cpp
     abstractkeylistmodeltest.h
     TEST_NAME hierarchicalkeylistmodeltest
-    LINK_LIBRARIES KF5::Libkleo Qt::Test
+    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}::Libkleo Qt::Test
 )
 
 ecm_add_test(
     keyresolvercoretest.cpp
     keyresolvercoretest.qrc
     TEST_NAME keyresolvercoretest
-    LINK_LIBRARIES KF5::Libkleo Qt::Test
+    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}::Libkleo Qt::Test
 )
 
 ecm_add_tests(
     editdirectoryservicedialogtest.cpp
-    LINK_LIBRARIES KF5::Libkleo KF${KF_MAJOR_VERSION}::WidgetsAddons Qt::Widgets Qt::Test
+    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}::Libkleo KF${KF_MAJOR_VERSION}::WidgetsAddons Qt::Widgets Qt::Test
 )
 
 ecm_add_tests(
     keyselectioncombotest.cpp
     keyserverconfigtest.cpp
     newkeyapprovaldialogtest.cpp
-    LINK_LIBRARIES KF5::Libkleo Qt::Widgets Qt::Test
+    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}::Libkleo Qt::Widgets Qt::Test
 )
 
 ecm_add_tests(
     hextest.cpp
-    LINK_LIBRARIES KF5::Libkleo Qt::Test
+    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}::Libkleo Qt::Test
 )
