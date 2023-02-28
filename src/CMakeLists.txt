@@ -194,9 +194,9 @@ if (TARGET Boost::headers)
   target_link_libraries(KF5Libkleo PRIVATE Boost::headers)
 endif()
 
-if (KF5PimTextEdit_FOUND)
+if (KPim${KF_MAJOR_VERSION}PimTextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
-  target_link_libraries(KF5Libkleo PRIVATE KF5::PimTextEdit)
+  target_link_libraries(KF5Libkleo PRIVATE KPim${KF_MAJOR_VERSION}::PimTextEdit)
 endif()
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
