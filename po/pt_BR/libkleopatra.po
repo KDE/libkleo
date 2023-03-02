@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2019.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2010, 2018, 2019, 2020, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2010, 2018, 2019, 2020, 2021, 2022, 2023.
 # Marcus Vinícius de Andrade Gama <marcus.gama@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-17 00:59+0000\n"
-"PO-Revision-Date: 2022-07-13 15:03-0300\n"
+"PO-Revision-Date: 2023-02-28 10:56-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -390,37 +390,25 @@ msgid "Usage"
 msgstr "Uso"
 
 #: models/useridlistmodel.cpp:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalization in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalization (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
-msgstr "yes"
+msgstr "sim"
 
 #: models/useridlistmodel.cpp:74
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "não"
 
 #: models/useridlistmodel.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "no specific preference"
-#| msgid "<none>"
+#, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr "<nenhuma>"
+msgstr "nenhum"
 
 #: models/useridlistmodel.cpp:76
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers"
-#| msgid "not applicable"
+#, kde-format
 msgid "not applicable"
 msgstr "não aplicável"
 
@@ -751,10 +739,9 @@ msgid "Current attribute order:"
 msgstr "Ordem atual de atributos:"
 
 #: ui/dnattributeorderconfigwidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgid "available attributes"
-msgstr "Atributos disponíveis:"
+msgstr "atributos disponíveis"
 
 #: ui/dnattributeorderconfigwidget.cpp:105
 #: ui/dnattributeorderconfigwidget.cpp:106
@@ -763,8 +750,6 @@ msgid "All others"
 msgstr "Todos os outros"
 
 #: ui/dnattributeorderconfigwidget.cpp:118
-#, fuzzy
-#| msgid "Add"
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Adicionar"
@@ -774,19 +759,15 @@ msgid "Add to current attribute order"
 msgstr "Adicionar para a ordem atual de atributos"
 
 #: ui/dnattributeorderconfigwidget.cpp:125
-#, fuzzy
-#| msgid "Remove Filter"
 msgctxt "@action:button"
 msgid "Remove"
-msgstr "Remover filtro"
+msgstr "Remover"
 
 #: ui/dnattributeorderconfigwidget.cpp:126
 msgid "Remove from current attribute order"
 msgstr "Remover da ordem atual de atributos"
 
 #: ui/dnattributeorderconfigwidget.cpp:132
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Mover para o topo"
@@ -796,19 +777,15 @@ msgid "Move to top"
 msgstr "Mover para o topo"
 
 #: ui/dnattributeorderconfigwidget.cpp:139
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr "Mover para o topo"
+msgstr "Mover para cima"
 
 #: ui/dnattributeorderconfigwidget.cpp:140
 msgid "Move one up"
 msgstr "Mover para cima"
 
 #: ui/dnattributeorderconfigwidget.cpp:146
-#, fuzzy
-#| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Mover para baixo"
@@ -818,8 +795,6 @@ msgid "Move one down"
 msgstr "Mover para baixo"
 
 #: ui/dnattributeorderconfigwidget.cpp:153
-#, fuzzy
-#| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Mover para o inferior"
@@ -829,10 +804,9 @@ msgid "Move to bottom"
 msgstr "Mover para o inferior"
 
 #: ui/dnattributeorderconfigwidget.cpp:184
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgid "current attribute order"
-msgstr "Ordem atual de atributos:"
+msgstr "ordem atual de atributos"
 
 #: ui/editdirectoryservicedialog.cpp:99
 #, kde-format
@@ -1298,15 +1272,13 @@ msgstr "Chave S/MIME para <b>%1</b>"
 
 #: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
 #: utils/formatting.cpp:418
-#, fuzzy, kde-format
-#| msgid "Valid From"
+#, kde-format
 msgid "Valid from"
 msgstr "Válido a partir de"
 
 #: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "Valid Until"
+#, kde-format
 msgid "Valid until"
 msgstr "Válido até"
 
@@ -1424,11 +1396,10 @@ msgid "Show Audit Log"
 msgstr "&Mostrar log de auditoria"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "no expiration"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "sem expiração"
+msgstr "Informações"
 
 #: ui/messagebox.cpp:96
 #, kde-format
@@ -1437,11 +1408,10 @@ msgid "Error"
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:139
-#, fuzzy, kde-format
-#| msgid "Details"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
-msgstr "Detalhes"
+msgstr "Mostrar detalhes"
 
 #: ui/newkeyapprovaldialog.cpp:181
 #, fuzzy, kde-format
@@ -1456,11 +1426,10 @@ msgid "Show keys matching the email address"
 msgstr "Mostrar chaves que correspondam ao endereço de e-mail"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, fuzzy, kde-format
-#| msgid "Show all keys"
+#, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
-msgstr "Mostrar todas as chaves"
+msgstr "Mostrar tudo"
 
 #: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
@@ -1786,8 +1755,7 @@ msgid "MMMM d, yyyy"
 msgstr ""
 
 #: utils/formatting.cpp:585 utils/formatting.cpp:620
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "desconhecido"
@@ -2100,8 +2068,7 @@ msgid "This group does not contain any keys."
 msgstr "Este grupo não contém qualquer chave."
 
 #: utils/formatting.cpp:1175
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "desconhecido"
