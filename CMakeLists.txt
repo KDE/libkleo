@@ -31,6 +31,7 @@ include(ECMDeprecationSettings)
 include(ECMAddQch)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
+option(BUILD_WITH_COMPAT_LIBS "Generate compat cmake file (Set at false will allow to co-install lib)" ON)
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
@@ -158,6 +159,7 @@ file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 
+if (BUILD_WITH_COMPAT_LIBS)
 #if (QT_MAJOR_VERSION STREQUAL "5")
 ##
 # TODO: Backwards compatiblity. Remove in next major version
@@ -187,3 +189,4 @@ install(EXPORT KPim${KF_MAJOR_VERSION}LibkleoTargets
     NAMESPACE KF5::
 )
 #endif()
+endif()
