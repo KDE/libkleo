@@ -18,6 +18,7 @@
 #include "keylistview.h"
 #include "progressdialog.h"
 
+#include <libkleo/compliance.h>
 #include <libkleo/dn.h>
 #include <libkleo/formatting.h>
 
@@ -280,6 +281,9 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
         addRow(i18nc("Key issuer", "Issuer"), issuer ? DN(issuer).prettyDN() : i18n("unknown"));
     }
     addRow(i18nc("Key status", "Status"), keyStatusString);
+    if (DeVSCompliance::isActive()) {
+        addRow(i18nc("Compliance of key", "Compliance"), DeVSCompliance::name(key.isDeVs()));
+    }
     html += QStringLiteral("</table></qt>");
 
     return html;
