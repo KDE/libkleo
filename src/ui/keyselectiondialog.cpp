@@ -122,6 +122,7 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString 
         std::vector<GpgME::UserID> uids = key.userIDs();
         for (std::vector<GpgME::UserID>::const_iterator it = uids.begin(); it != uids.end(); ++it) {
             if (!it->isRevoked() && it->validity() >= GpgME::UserID::Marginal) {
+                setStatusString(i18n("The key can be used."));
                 return true;
             }
         }
