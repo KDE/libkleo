@@ -316,8 +316,12 @@ QIcon ColumnStrategy::icon(const GpgME::Key &key, int col) const
         return mKeyValidPix;
     case GpgME::UserID::Marginal:
     case GpgME::UserID::Full:
-    case GpgME::UserID::Ultimate:
+    case GpgME::UserID::Ultimate: {
+        if (DeVSCompliance::isActive() && !key.isDeVs()) {
+            return mKeyValidPix;
+        }
         return mKeyGoodPix;
+    }
     }
 }
 
