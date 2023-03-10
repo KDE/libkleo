@@ -110,6 +110,7 @@ private Q_SLOTS:
 private:
     const QGpgME::Protocol *mOpenPGPBackend = nullptr;
     const QGpgME::Protocol *mSMIMEBackend = nullptr;
+    QLabel *mComplianceIcon = nullptr;
     QLabel *mLabel = nullptr;
     QPushButton *mEraseButton = nullptr;
     QPushButton *mDialogButton = nullptr;

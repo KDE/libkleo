@@ -19,7 +19,10 @@
 
 #include "keyselectiondialog.h"
 
+#include <libkleo/algorithm.h>
+#include <libkleo/compliance.h>
 #include <libkleo/dn.h>
+#include <libkleo/formatting.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -36,6 +39,7 @@
 #include <gpgme++/keylistresult.h>
 
 using namespace QGpgME;
+using namespace Kleo;
 
 Kleo::KeyRequester::KeyRequester(unsigned int allowedKeys, bool multipleKeys, QWidget *parent)
     : QWidget(parent)
@@ -66,6 +70,11 @@ void Kleo::KeyRequester::init()
     auto hlay = new QHBoxLayout(this);
     hlay->setContentsMargins(0, 0, 0, 0);
 
+    if (DeVSCompliance::isCompliant()) {
+        mComplianceIcon = new QLabel{this};
+        mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-question")).pixmap(22));
+    }
+
     // the label where the key id is to be displayed:
     mLabel = new QLabel(this);
     mLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
@@ -82,6 +91,9 @@ void Kleo::KeyRequester::init()
     mDialogButton = new QPushButton(i18n("Change..."), this);
     mDialogButton->setAutoDefault(false);
 
+    if (mComplianceIcon) {
+        hlay->addWidget(mComplianceIcon);
+    }
     hlay->addWidget(mLabel, 1);
     hlay->addWidget(mEraseButton);
     hlay->addWidget(mDialogButton);
@@ -165,9 +177,20 @@ void Kleo::KeyRequester::setFingerprints(const QStringList &fingerprints)
     startKeyListJob(fingerprints);
 }
 
+static bool keyIsCompliant(const GpgME::Key &key)
+{
+    return (key.keyListMode() & GpgME::Validate) //
+        && Formatting::uidsHaveFullValidity(key) //
+        && Formatting::isKeyDeVs(key);
+}
+
 void Kleo::KeyRequester::updateKeys()
 {
     if (mKeys.empty()) {
+        if (mComplianceIcon) {
+            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-unavailable")).pixmap(22));
+            mComplianceIcon->setToolTip(QString{});
+        }
         mLabel->clear();
         return;
     }
@@ -195,7 +218,15 @@ void Kleo::KeyRequester::updateKeys()
         }
         toolTipText += QLatin1Char('\n');
     }
-
+    if (mComplianceIcon) {
+        if (Kleo::all_of(mKeys, &keyIsCompliant)) {
+            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-success")).pixmap(22));
+            mComplianceIcon->setToolTip(DeVSCompliance::name(true));
+        } else {
+            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-information")).pixmap(22));
+            mComplianceIcon->setToolTip(DeVSCompliance::name(false));
+        }
+    }
     mLabel->setText(labelTexts.join(QLatin1String(", ")));
     mLabel->setToolTip(toolTipText);
 }
