@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:59+0000\n"
+"POT-Creation-Date: 2023-03-11 00:50+0000\n"
 "PO-Revision-Date: 2023-02-03 17:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -413,7 +413,7 @@ msgstr "არ განეკუთვნება"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:194
+#: ui/keyselectiondialog.cpp:196
 #, kde-format
 msgid "User ID"
 msgstr "მომხმარებლის ID"
@@ -1063,35 +1063,35 @@ msgstr "დაშიფვრის გასაღებები:"
 msgid "Encryption preference:"
 msgstr "დაშიფვრის მორგება:"
 
-#: ui/keyrequester.cpp:79
+#: ui/keyrequester.cpp:88
 #, kde-format
 msgid "Clear"
 msgstr "გასუფთავება"
 
-#: ui/keyrequester.cpp:82
+#: ui/keyrequester.cpp:91
 #, kde-format
 msgid "Change..."
 msgstr "შეცვლა..."
 
-#: ui/keyrequester.cpp:194 ui/keyselectiondialog.cpp:220
+#: ui/keyrequester.cpp:217 ui/keyselectiondialog.cpp:222
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>უცნობი</placeholder>"
 
-#: ui/keyrequester.cpp:209 ui/keyselectiondialog.cpp:670
+#: ui/keyrequester.cpp:240 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr ""
 
-#: ui/keyrequester.cpp:214 ui/keyrequester.cpp:247 ui/keyrequester.cpp:269
-#: ui/keyselectiondialog.cpp:639 ui/keyselectiondialog.cpp:675
+#: ui/keyrequester.cpp:245 ui/keyrequester.cpp:278 ui/keyrequester.cpp:300
+#: ui/keyselectiondialog.cpp:648 ui/keyselectiondialog.cpp:684
 #, kde-format
 msgid "Key Listing Failed"
 msgstr "გასაღებების ჩამონათვლის შეცდომა"
 
-#: ui/keyrequester.cpp:245
+#: ui/keyrequester.cpp:276
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
@@ -1099,7 +1099,7 @@ msgstr ""
 "OpenPGP-ის უკანაბოლოს გასაღებების ჩამოთვლის მხარდაჭერა არ გააჩნია. "
 "გადაამოწმეთ ფაილები."
 
-#: ui/keyrequester.cpp:267
+#: ui/keyrequester.cpp:298
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
@@ -1107,32 +1107,32 @@ msgstr ""
 "S/MIME-ის უკანაბოლოს გასაღებების ჩამოთვლის მხარდაჭერა არ გააჩნია. "
 "გადაამოწმეთ ფაილები."
 
-#: ui/keyrequester.cpp:387
+#: ui/keyrequester.cpp:418
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "OpenPGP -ის გასაღების არჩევანი"
 
-#: ui/keyrequester.cpp:388
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "აირჩიეთ OpenGPG-ს გასაღები."
 
-#: ui/keyrequester.cpp:390
+#: ui/keyrequester.cpp:421
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "S/MIME -ის გასაღების არჩევანი"
 
-#: ui/keyrequester.cpp:391
+#: ui/keyrequester.cpp:422
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "აირჩიეთ S/MIME-ის გასაღები."
 
-#: ui/keyrequester.cpp:393
+#: ui/keyrequester.cpp:424
 #, kde-format
 msgid "Key Selection"
 msgstr "გასაღების არჩევანი"
 
-#: ui/keyrequester.cpp:394
+#: ui/keyrequester.cpp:425
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "აირჩიეთ OpenPGP-ის ან S/MIME-ის გასაღები."
@@ -1160,170 +1160,176 @@ msgstr "%1 (%2, %3, შეიქმნა: %4)"
 msgid "Loading keys ..."
 msgstr "გასაღებების ჩატვირთვა..."
 
-#: ui/keyselectiondialog.cpp:70
+#: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
 msgstr "გასაღები მიუღებელია."
 
-#: ui/keyselectiondialog.cpp:78
+#: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
 msgstr "გასაღები ვადაგასულია."
 
-#: ui/keyselectiondialog.cpp:82
+#: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
 msgstr "გასაღები გაუქმებულია."
 
-#: ui/keyselectiondialog.cpp:86
+#: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
 msgstr "გასაღები გამორთულია."
 
-#: ui/keyselectiondialog.cpp:93
+#: ui/keyselectiondialog.cpp:94
 #, kde-format
 msgid "The key is not designated for encryption."
 msgstr "გასაღები დაშიფვრისთვის განკუთვნილი არაა."
 
-#: ui/keyselectiondialog.cpp:98
+#: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
 msgstr "გასაღები ხელმოწერისთვის განკუთვნილი არაა."
 
-#: ui/keyselectiondialog.cpp:103
+#: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
 msgstr "გასაღები სერტიფიცირებისთვის არაა განკუთვნილი."
 
-#: ui/keyselectiondialog.cpp:108
+#: ui/keyselectiondialog.cpp:109
 #, kde-format
 msgid "The key is not designated for authentication."
 msgstr "გასაღები ავთენტიკაციისთვის არაა განკუთვნილი."
 
-#: ui/keyselectiondialog.cpp:114
+#: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
 msgstr "გასაღები საიდუმლო არაა."
 
-#: ui/keyselectiondialog.cpp:129
-#, kde-format
-msgid "The key is not trusted enough."
-msgstr "გასაღები საკმარისად სანდო არაა."
-
-#: ui/keyselectiondialog.cpp:135
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
 msgstr "გასაღების გამოყენება შესაძლებელია."
 
-#: ui/keyselectiondialog.cpp:192
+#: ui/keyselectiondialog.cpp:131
+#, kde-format
+msgid "The key is not trusted enough."
+msgstr "გასაღები საკმარისად სანდო არაა."
+
+#: ui/keyselectiondialog.cpp:194
 #, kde-format
 msgid "Key ID"
 msgstr "გასაღების ID"
 
-#: ui/keyselectiondialog.cpp:266 ui/keyselectiondialog.cpp:268
-#: ui/keyselectiondialog.cpp:277 ui/keyselectiondialog.cpp:279
+#: ui/keyselectiondialog.cpp:268 ui/keyselectiondialog.cpp:270
+#: ui/keyselectiondialog.cpp:279 ui/keyselectiondialog.cpp:281
 #, kde-format
 msgid "unknown"
 msgstr "უცნობია"
 
-#: ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:268
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "OpenPGP გასაღები <b>%1</b>-სთვის"
 
-#: ui/keyselectiondialog.cpp:268
+#: ui/keyselectiondialog.cpp:270
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "S/MIME გასაღები <b>%1</b>-სთვის"
 
-#: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
+#: ui/keyselectiondialog.cpp:277 utils/formatting.cpp:375
 #: utils/formatting.cpp:418
 #, kde-format
 msgid "Valid from"
 msgstr "Ძალაშია"
 
-#: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:378
 #: utils/formatting.cpp:421
 #, kde-format
 msgid "Valid until"
 msgstr "ვადა"
 
-#: ui/keyselectiondialog.cpp:277
+#: ui/keyselectiondialog.cpp:279
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "თითის ანაბეჭდი"
 
-#: ui/keyselectiondialog.cpp:279
+#: ui/keyselectiondialog.cpp:281
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "გამომცემელი"
 
-#: ui/keyselectiondialog.cpp:281
+#: ui/keyselectiondialog.cpp:283
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "სტატუსი"
 
-#: ui/keyselectiondialog.cpp:416
+#: ui/keyselectiondialog.cpp:285
+#, kde-format
+msgctxt "Compliance of key"
+msgid "Compliance"
+msgstr ""
+
+#: ui/keyselectiondialog.cpp:425
 #, kde-format
 msgid "Search for &External Certificates"
 msgstr "გარე &სერტიფიკატების მოძებნა"
 
-#: ui/keyselectiondialog.cpp:430
+#: ui/keyselectiondialog.cpp:439
 #, kde-format
 msgid "&Search for:"
 msgstr "&ძებნა:"
 
-#: ui/keyselectiondialog.cpp:455
+#: ui/keyselectiondialog.cpp:464
 #, kde-format
 msgid "&Remember choice"
 msgstr "არჩევანის &დამახსოვრება"
 
-#: ui/keyselectiondialog.cpp:458
+#: ui/keyselectiondialog.cpp:467
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
 "asked again.</p></qt>"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:472
+#: ui/keyselectiondialog.cpp:481
 #, kde-format
 msgid "&Reread Keys"
 msgstr "&გასაღებების თავიდან წაკითხვა"
 
-#: ui/keyselectiondialog.cpp:477
+#: ui/keyselectiondialog.cpp:486
 #, kde-format
 msgid "&Start Certificate Manager"
 msgstr "სერტფიკატების მმართველის &გაშვება"
 
-#: ui/keyselectiondialog.cpp:637
+#: ui/keyselectiondialog.cpp:646
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr "გასაღებების სიის გამოსატანად უკანაბოლო ვერ ვიპოვე. შეამოწმეთ ფაილები."
 
-#: ui/keyselectiondialog.cpp:655
+#: ui/keyselectiondialog.cpp:664
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr "სერტიფიკატების მმართველის გაშვები შეცდომა. გადაამოწმეთ ფაილები."
 
-#: ui/keyselectiondialog.cpp:657
+#: ui/keyselectiondialog.cpp:666
 #, kde-format
 msgid "Certificate Manager Error"
 msgstr "სერტფიკატების მმართველის შეცდომა"
 
-#: ui/keyselectiondialog.cpp:714
+#: ui/keyselectiondialog.cpp:723
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "მონიშნული გასაღებების შემოწმება..."
 
-#: ui/keyselectiondialog.cpp:714
+#: ui/keyselectiondialog.cpp:723
 #, kde-format
 msgid "Fetching keys..."
 msgstr "გასაღებების გამოთხოვა...."
 
-#: ui/keyselectiondialog.cpp:746
+#: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -1334,12 +1340,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/keyselectiondialog.cpp:751
+#: ui/keyselectiondialog.cpp:760
 #, kde-format
 msgid "Key List Result"
 msgstr "გასაღებების სიის შედეგი"
 
-#: ui/keyselectiondialog.cpp:873
+#: ui/keyselectiondialog.cpp:882
 #, kde-format
 msgid "Recheck Key"
 msgstr "გასაღების თავიდან შემოწმება"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:59+0000\n"
+"POT-Creation-Date: 2023-03-11 00:50+0000\n"
 "PO-Revision-Date: 2022-12-01 17:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -417,7 +417,7 @@ msgstr "geçerli değil"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:194
+#: ui/keyselectiondialog.cpp:196
 #, kde-format
 msgid "User ID"
 msgstr "Kullanıcı Kimliği"
@@ -1095,22 +1095,22 @@ msgstr "Şifreleme anahtarları:"
 msgid "Encryption preference:"
 msgstr "Şifreleme tercihi:"
 
-#: ui/keyrequester.cpp:79
+#: ui/keyrequester.cpp:88
 #, kde-format
 msgid "Clear"
 msgstr "Temizle"
 
-#: ui/keyrequester.cpp:82
+#: ui/keyrequester.cpp:91
 #, kde-format
 msgid "Change..."
 msgstr "Değiştir..."
 
-#: ui/keyrequester.cpp:194 ui/keyselectiondialog.cpp:220
+#: ui/keyrequester.cpp:217 ui/keyselectiondialog.cpp:222
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>bilinmeyen</placeholder>"
 
-#: ui/keyrequester.cpp:209 ui/keyselectiondialog.cpp:670
+#: ui/keyrequester.cpp:240 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1119,13 +1119,13 @@ msgstr ""
 "<qt><p>Arka uçtan anahtarlar alınırken bir hata oluştu:</p><p><b>%1</b></p></"
 "qt>"
 
-#: ui/keyrequester.cpp:214 ui/keyrequester.cpp:247 ui/keyrequester.cpp:269
-#: ui/keyselectiondialog.cpp:639 ui/keyselectiondialog.cpp:675
+#: ui/keyrequester.cpp:245 ui/keyrequester.cpp:278 ui/keyrequester.cpp:300
+#: ui/keyselectiondialog.cpp:648 ui/keyselectiondialog.cpp:684
 #, kde-format
 msgid "Key Listing Failed"
 msgstr "Anahtarla Listeleme Başarısız"
 
-#: ui/keyrequester.cpp:245
+#: ui/keyrequester.cpp:276
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
@@ -1133,7 +1133,7 @@ msgstr ""
 "OpenPGP arka ucu anahtar listelemeyi desteklemiyor. Kurulumunuzu gözden "
 "geçirin."
 
-#: ui/keyrequester.cpp:267
+#: ui/keyrequester.cpp:298
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
@@ -1141,32 +1141,32 @@ msgstr ""
 "S/MIME arka ucu anahtar listelemeyi desteklemiyor. Kurulumunuzu gözden "
 "geçirin."
 
-#: ui/keyrequester.cpp:387
+#: ui/keyrequester.cpp:418
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "OpenPGP Anahtar Seçimi"
 
-#: ui/keyrequester.cpp:388
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Lütfen kullanmak için bir OpenPGP anahtarı seçin."
 
-#: ui/keyrequester.cpp:390
+#: ui/keyrequester.cpp:421
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "S/MIME Anahtar Seçimi"
 
-#: ui/keyrequester.cpp:391
+#: ui/keyrequester.cpp:422
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Lütfen kullanmak için bir S/MIME anahtarı seçin."
 
-#: ui/keyrequester.cpp:393
+#: ui/keyrequester.cpp:424
 #, kde-format
 msgid "Key Selection"
 msgstr "Anahtar Seçimi"
 
-#: ui/keyrequester.cpp:394
+#: ui/keyrequester.cpp:425
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Lütfen kullanmak için bir (OpenPGP veya S/MIME) anahtarı seçin."
@@ -1194,128 +1194,134 @@ msgstr "%1 (%2, %3, oluşturma: %4)"
 msgid "Loading keys ..."
 msgstr "Anahtarlar yükleniyor..."
 
-#: ui/keyselectiondialog.cpp:70
+#: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
 msgstr "Anahtar geçerli değil."
 
-#: ui/keyselectiondialog.cpp:78
+#: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
 msgstr "Anahtar zaman aşımına uğramış."
 
-#: ui/keyselectiondialog.cpp:82
+#: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
 msgstr "Anahtar yürürlükten kaldırılmış."
 
-#: ui/keyselectiondialog.cpp:86
+#: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
 msgstr "Anahtar devre dışı bırakılmış."
 
-#: ui/keyselectiondialog.cpp:93
+#: ui/keyselectiondialog.cpp:94
 #, kde-format
 msgid "The key is not designated for encryption."
 msgstr "Anahtar, şifreleme için tasarlanmamış."
 
-#: ui/keyselectiondialog.cpp:98
+#: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
 msgstr "Anahtar, imzalama için tasarlanmamış."
 
-#: ui/keyselectiondialog.cpp:103
+#: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
 msgstr "Anahtar, sertifikalandırma için tasarlanmamış."
 
-#: ui/keyselectiondialog.cpp:108
+#: ui/keyselectiondialog.cpp:109
 #, kde-format
 msgid "The key is not designated for authentication."
 msgstr "Anahtar, kimlik doğrulama için tasarlanmamış."
 
-#: ui/keyselectiondialog.cpp:114
+#: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
 msgstr "Anahtar, gizli değil."
 
-#: ui/keyselectiondialog.cpp:129
-#, kde-format
-msgid "The key is not trusted enough."
-msgstr "Anahtar, yeteri kadar güvenilir değil."
-
-#: ui/keyselectiondialog.cpp:135
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
 msgstr "Anahtar, kullanılabilir."
 
-#: ui/keyselectiondialog.cpp:192
+#: ui/keyselectiondialog.cpp:131
+#, kde-format
+msgid "The key is not trusted enough."
+msgstr "Anahtar, yeteri kadar güvenilir değil."
+
+#: ui/keyselectiondialog.cpp:194
 #, kde-format
 msgid "Key ID"
 msgstr "Anahtar Kimliği"
 
-#: ui/keyselectiondialog.cpp:266 ui/keyselectiondialog.cpp:268
-#: ui/keyselectiondialog.cpp:277 ui/keyselectiondialog.cpp:279
+#: ui/keyselectiondialog.cpp:268 ui/keyselectiondialog.cpp:270
+#: ui/keyselectiondialog.cpp:279 ui/keyselectiondialog.cpp:281
 #, kde-format
 msgid "unknown"
 msgstr "bilinmeyen"
 
-#: ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:268
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "<b>%1</b> için OpenPGP anahtarı"
 
-#: ui/keyselectiondialog.cpp:268
+#: ui/keyselectiondialog.cpp:270
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b> için S/MIME anahtarı"
 
-#: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
+#: ui/keyselectiondialog.cpp:277 utils/formatting.cpp:375
 #: utils/formatting.cpp:418
 #, kde-format
 msgid "Valid from"
 msgstr "Geçerlilik başlangıcı"
 
-#: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:378
 #: utils/formatting.cpp:421
 #, kde-format
 msgid "Valid until"
 msgstr "Geçerlilik sonu"
 
-#: ui/keyselectiondialog.cpp:277
+#: ui/keyselectiondialog.cpp:279
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "Parmakizi"
 
-#: ui/keyselectiondialog.cpp:279
+#: ui/keyselectiondialog.cpp:281
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "Yayıncı"
 
-#: ui/keyselectiondialog.cpp:281
+#: ui/keyselectiondialog.cpp:283
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "Durum"
 
-#: ui/keyselectiondialog.cpp:416
+#: ui/keyselectiondialog.cpp:285
+#, kde-format
+msgctxt "Compliance of key"
+msgid "Compliance"
+msgstr ""
+
+#: ui/keyselectiondialog.cpp:425
 #, kde-format
 msgid "Search for &External Certificates"
 msgstr "&Harici Serfitikaları Ara"
 
-#: ui/keyselectiondialog.cpp:430
+#: ui/keyselectiondialog.cpp:439
 #, kde-format
 msgid "&Search for:"
 msgstr "&Ara:"
 
-#: ui/keyselectiondialog.cpp:455
+#: ui/keyselectiondialog.cpp:464
 #, kde-format
 msgid "&Remember choice"
 msgstr "Seçimi &hatırla"
 
-#: ui/keyselectiondialog.cpp:458
+#: ui/keyselectiondialog.cpp:467
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -1324,43 +1330,43 @@ msgstr ""
 "<qt> <p>Eğer bu onay kutusunu işaretlerseniz, seçiminiz kaydedilecek ve size "
 "tekrar sorulmayacak.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:472
+#: ui/keyselectiondialog.cpp:481
 #, kde-format
 msgid "&Reread Keys"
 msgstr "Anahtarları &Tekrar Oku"
 
-#: ui/keyselectiondialog.cpp:477
+#: ui/keyselectiondialog.cpp:486
 #, kde-format
 msgid "&Start Certificate Manager"
 msgstr "&Sertifika Yöneticisini Başlat"
 
-#: ui/keyselectiondialog.cpp:637
+#: ui/keyselectiondialog.cpp:646
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr ""
 "Anahtarları listelemek için arka uç bulunamadı. Kurulumunuzu gözden geçirin."
 
-#: ui/keyselectiondialog.cpp:655
+#: ui/keyselectiondialog.cpp:664
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr "Sertifika yöneticisi başlatılamıyor; kurulumunuzu kontrol edin."
 
-#: ui/keyselectiondialog.cpp:657
+#: ui/keyselectiondialog.cpp:666
 #, kde-format
 msgid "Certificate Manager Error"
 msgstr "Sertifika Yöneticisi Hatası"
 
-#: ui/keyselectiondialog.cpp:714
+#: ui/keyselectiondialog.cpp:723
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "Seçili anahtarlar kontrol ediliyor..."
 
-#: ui/keyselectiondialog.cpp:714
+#: ui/keyselectiondialog.cpp:723
 #, kde-format
 msgid "Fetching keys..."
 msgstr "Anahtarlar alınıyor..."
 
-#: ui/keyselectiondialog.cpp:746
+#: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -1375,12 +1381,12 @@ msgstr[1] ""
 "<qt>%1 arka uç, kesik çıktıyı geri gönderdi.<p>Mevcut tüm anahtarlar "
 "gösterilmiyor</p></qt>"
 
-#: ui/keyselectiondialog.cpp:751
+#: ui/keyselectiondialog.cpp:760
 #, kde-format
 msgid "Key List Result"
 msgstr "Anahtar Liste Sonucu"
 
-#: ui/keyselectiondialog.cpp:873
+#: ui/keyselectiondialog.cpp:882
 #, kde-format
 msgid "Recheck Key"
 msgstr "Anahtarı Tekrar Kontrol Et"

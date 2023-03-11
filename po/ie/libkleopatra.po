@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:59+0000\n"
+"POT-Creation-Date: 2023-03-11 00:50+0000\n"
 "PO-Revision-Date: 2022-11-01 00:29+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -421,7 +421,7 @@ msgstr "ínaplicabil"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:194
+#: ui/keyselectiondialog.cpp:196
 #, fuzzy, kde-format
 msgid "User ID"
 msgstr "ID de usator:"
@@ -1075,72 +1075,72 @@ msgstr "Claves de ciffration:"
 msgid "Encryption preference:"
 msgstr "Preferenties"
 
-#: ui/keyrequester.cpp:79
+#: ui/keyrequester.cpp:88
 #, kde-format
 msgid "Clear"
 msgstr "Vacuar"
 
-#: ui/keyrequester.cpp:82
+#: ui/keyrequester.cpp:91
 #, fuzzy, kde-format
 msgid "Change..."
 msgstr "C_ambiar a:"
 
-#: ui/keyrequester.cpp:194 ui/keyselectiondialog.cpp:220
+#: ui/keyrequester.cpp:217 ui/keyselectiondialog.cpp:222
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>ínconosset</placeholder>"
 
-#: ui/keyrequester.cpp:209 ui/keyselectiondialog.cpp:670
+#: ui/keyrequester.cpp:240 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr ""
 
-#: ui/keyrequester.cpp:214 ui/keyrequester.cpp:247 ui/keyrequester.cpp:269
-#: ui/keyselectiondialog.cpp:639 ui/keyselectiondialog.cpp:675
+#: ui/keyrequester.cpp:245 ui/keyrequester.cpp:278 ui/keyrequester.cpp:300
+#: ui/keyselectiondialog.cpp:648 ui/keyselectiondialog.cpp:684
 #, fuzzy, kde-format
 msgid "Key Listing Failed"
 msgstr "Formate de liste"
 
-#: ui/keyrequester.cpp:245
+#: ui/keyrequester.cpp:276
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
 
-#: ui/keyrequester.cpp:267
+#: ui/keyrequester.cpp:298
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr ""
 
-#: ui/keyrequester.cpp:387
+#: ui/keyrequester.cpp:418
 #, fuzzy, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "Crear un clave OpenPGP"
 
-#: ui/keyrequester.cpp:388
+#: ui/keyrequester.cpp:419
 #, fuzzy, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Ples selecter un clave (OpenPGP o S/MIME) a usar."
 
-#: ui/keyrequester.cpp:390
+#: ui/keyrequester.cpp:421
 #, fuzzy, kde-format
 msgid "S/MIME Key Selection"
 msgstr "Clave S/MIME por <b>%1</b>"
 
-#: ui/keyrequester.cpp:391
+#: ui/keyrequester.cpp:422
 #, fuzzy, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Ples selecter un clave (OpenPGP o S/MIME) a usar."
 
-#: ui/keyrequester.cpp:393
+#: ui/keyrequester.cpp:424
 #, kde-format
 msgid "Key Selection"
 msgstr "Selection de un clave"
 
-#: ui/keyrequester.cpp:394
+#: ui/keyrequester.cpp:425
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Ples selecter un clave (OpenPGP o S/MIME) a usar."
@@ -1168,47 +1168,47 @@ msgstr "%1 (%2, %3, creat: %4)"
 msgid "Loading keys ..."
 msgstr "Claves:"
 
-#: ui/keyselectiondialog.cpp:70
+#: ui/keyselectiondialog.cpp:71
 #, fuzzy, kde-format
 msgid "The key is not valid."
 msgstr "Clave manca!"
 
-#: ui/keyselectiondialog.cpp:78
+#: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
 msgstr "Li clave ha expirat."
 
-#: ui/keyselectiondialog.cpp:82
+#: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
 msgstr "Li clave es revocat."
 
-#: ui/keyselectiondialog.cpp:86
+#: ui/keyselectiondialog.cpp:87
 #, fuzzy, kde-format
 msgid "The key is disabled."
 msgstr "Publication de claves depermisset"
 
-#: ui/keyselectiondialog.cpp:93
+#: ui/keyselectiondialog.cpp:94
 #, fuzzy, kde-format
 msgid "The key is not designated for encryption."
 msgstr "Errore obtenente li clave de ciffration: %s"
 
-#: ui/keyselectiondialog.cpp:98
+#: ui/keyselectiondialog.cpp:99
 #, fuzzy, kde-format
 msgid "The key is not designated for signing."
 msgstr "Clave de signature ne existe in li porta-clave."
 
-#: ui/keyselectiondialog.cpp:103
+#: ui/keyselectiondialog.cpp:104
 #, fuzzy, kde-format
 msgid "The key is not designated for certifying."
 msgstr "Clave"
 
-#: ui/keyselectiondialog.cpp:108
+#: ui/keyselectiondialog.cpp:109
 #, fuzzy, kde-format
 msgid "The key is not designated for authentication."
 msgstr "Autentication"
 
-#: ui/keyselectiondialog.cpp:114
+#: ui/keyselectiondialog.cpp:115
 #, fuzzy, kde-format
 msgid "The key is not secret."
 msgstr ""
@@ -1216,125 +1216,131 @@ msgstr ""
 "\n"
 "Vos besona un clave de API de AWS por usar ti-ci plugin."
 
-#: ui/keyselectiondialog.cpp:129
-#, fuzzy, kde-format
-msgid "The key is not trusted enough."
-msgstr "Ne fidet"
-
-#: ui/keyselectiondialog.cpp:135
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, fuzzy, kde-format
 msgid "The key can be used."
 msgstr "Usa quam un variabile:"
 
-#: ui/keyselectiondialog.cpp:192
+#: ui/keyselectiondialog.cpp:131
+#, fuzzy, kde-format
+msgid "The key is not trusted enough."
+msgstr "Ne fidet"
+
+#: ui/keyselectiondialog.cpp:194
 #, kde-format
 msgid "Key ID"
 msgstr "Clave ID"
 
-#: ui/keyselectiondialog.cpp:266 ui/keyselectiondialog.cpp:268
-#: ui/keyselectiondialog.cpp:277 ui/keyselectiondialog.cpp:279
+#: ui/keyselectiondialog.cpp:268 ui/keyselectiondialog.cpp:270
+#: ui/keyselectiondialog.cpp:279 ui/keyselectiondialog.cpp:281
 #, kde-format
 msgid "unknown"
 msgstr "ínconosset"
 
-#: ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:268
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "Clave OpenPGP por <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:268
+#: ui/keyselectiondialog.cpp:270
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "Clave S/MIME por <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:275 utils/formatting.cpp:375
+#: ui/keyselectiondialog.cpp:277 utils/formatting.cpp:375
 #: utils/formatting.cpp:418
 #, kde-format
 msgid "Valid from"
 msgstr "Valid de"
 
-#: ui/keyselectiondialog.cpp:276 utils/formatting.cpp:378
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:378
 #: utils/formatting.cpp:421
 #, kde-format
 msgid "Valid until"
 msgstr "Valid til"
 
-#: ui/keyselectiondialog.cpp:277
+#: ui/keyselectiondialog.cpp:279
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "Fingre-print"
 
-#: ui/keyselectiondialog.cpp:279
+#: ui/keyselectiondialog.cpp:281
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "Emissor"
 
-#: ui/keyselectiondialog.cpp:281
+#: ui/keyselectiondialog.cpp:283
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "Statu"
 
-#: ui/keyselectiondialog.cpp:416
+#: ui/keyselectiondialog.cpp:285
+#, kde-format
+msgctxt "Compliance of key"
+msgid "Compliance"
+msgstr ""
+
+#: ui/keyselectiondialog.cpp:425
 #, fuzzy, kde-format
 msgid "Search for &External Certificates"
 msgstr "Certificates"
 
-#: ui/keyselectiondialog.cpp:430
+#: ui/keyselectiondialog.cpp:439
 #, fuzzy, kde-format
 msgid "&Search for:"
 msgstr "_Serchar por:"
 
-#: ui/keyselectiondialog.cpp:455
+#: ui/keyselectiondialog.cpp:464
 #, fuzzy, kde-format
 msgid "&Remember choice"
 msgstr "Memorar mi selection"
 
-#: ui/keyselectiondialog.cpp:458
+#: ui/keyselectiondialog.cpp:467
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
 "asked again.</p></qt>"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:472
+#: ui/keyselectiondialog.cpp:481
 #, fuzzy, kde-format
 msgid "&Reread Keys"
 msgstr "Claves:"
 
-#: ui/keyselectiondialog.cpp:477
+#: ui/keyselectiondialog.cpp:486
 #, fuzzy, kde-format
 msgid "&Start Certificate Manager"
 msgstr "Gerente de certificates e integrat interfacie de criptografie"
 
-#: ui/keyselectiondialog.cpp:637
+#: ui/keyselectiondialog.cpp:646
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:655
+#: ui/keyselectiondialog.cpp:664
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:657
+#: ui/keyselectiondialog.cpp:666
 #, fuzzy, kde-format
 msgid "Certificate Manager Error"
 msgstr "Errore del gerente de session"
 
-#: ui/keyselectiondialog.cpp:714
+#: ui/keyselectiondialog.cpp:723
 #, fuzzy, kde-format
 msgid "Checking selected keys..."
 msgstr "Claves:"
 
-#: ui/keyselectiondialog.cpp:714
+#: ui/keyselectiondialog.cpp:723
 #, fuzzy, kde-format
 msgid "Fetching keys..."
 msgstr "Descargante li textu..."
 
-#: ui/keyselectiondialog.cpp:746
+#: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -1345,12 +1351,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/keyselectiondialog.cpp:751
+#: ui/keyselectiondialog.cpp:760
 #, fuzzy, kde-format
 msgid "Key List Result"
 msgstr "Liste del resultates"
 
-#: ui/keyselectiondialog.cpp:873
+#: ui/keyselectiondialog.cpp:882
 #, fuzzy, kde-format
 msgid "Recheck Key"
 msgstr "Clave manca!"
