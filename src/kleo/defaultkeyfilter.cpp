@@ -15,6 +15,7 @@
 #include "defaultkeyfilter.h"
 
 #include <libkleo/formatting.h>
+#include <libkleo/keyhelpers.h>
 
 #include <functional>
 #include <memory>
@@ -119,7 +120,7 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     if (d->mWasValidated != DoesNotMatter && bool(key.keyListMode() & GpgME::Validate) != bool(d->mWasValidated == Set)) {
         return false;
     }
-    if (d->mIsDeVs != DoesNotMatter && bool(Formatting::uidsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d->mIsDeVs == Set)) {
+    if (d->mIsDeVs != DoesNotMatter && bool(Kleo::allUserIDsHaveFullValidity(key) && Formatting::isKeyDeVs(key)) != bool(d->mIsDeVs == Set)) {
         return false;
     }
     if (d->mBad != DoesNotMatter &&

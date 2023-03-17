@@ -458,7 +458,7 @@ QString getValidityStatement(const Container &keys)
         if (someKeysAreBad) {
             return i18n("Some keys are revoked, expired, disabled, or invalid.");
         } else {
-            const bool allKeysAreFullyValid = std::all_of(keys.cbegin(), keys.cend(), &Formatting::uidsHaveFullValidity);
+            const bool allKeysAreFullyValid = std::all_of(keys.cbegin(), keys.cend(), &Kleo::allUserIDsHaveFullValidity);
             if (allKeysAreFullyValid) {
                 return i18n("All keys are certified.");
             } else {
@@ -1143,7 +1143,7 @@ QIcon Formatting::validityIcon(const KeyGroup &group)
 
 bool Formatting::uidsHaveFullValidity(const Key &key)
 {
-    return minimalValidityOfNotRevokedUserIDs(key) >= UserID::Full;
+    return allUserIDsHaveFullValidity(key);
 }
 
 QString Formatting::complianceMode()
@@ -1173,7 +1173,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     if (DeVSCompliance::isCompliant()) {
         return isRemoteKey(key) //
             ? i18nc("@info the compliance of the key with certain requirements is unknown", "unknown")
-            : DeVSCompliance::name(uidsHaveFullValidity(key) && isKeyDeVs(key));
+            : DeVSCompliance::name(Kleo::allUserIDsHaveFullValidity(key) && isKeyDeVs(key));
     }
     return QString();
 }
@@ -1181,7 +1181,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
 QString Formatting::complianceStringShort(const GpgME::Key &key)
 {
     const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
-    if (keyValidityChecked && Formatting::uidsHaveFullValidity(key)) {
+    if (keyValidityChecked && Kleo::allUserIDsHaveFullValidity(key)) {
         if (DeVSCompliance::isCompliant() && Formatting::isKeyDeVs(key)) {
             return QStringLiteral("★ ") + DeVSCompliance::name(true);
         }
@@ -1210,7 +1210,7 @@ QString Formatting::complianceStringShort(const KeyGroup &group)
 {
     const KeyGroup::Keys &keys = group.keys();
 
-    const bool allKeysFullyValid = std::all_of(keys.cbegin(), keys.cend(), &Formatting::uidsHaveFullValidity);
+    const bool allKeysFullyValid = std::all_of(keys.cbegin(), keys.cend(), &Kleo::allUserIDsHaveFullValidity);
     if (allKeysFullyValid) {
         return i18nc("As in all keys are valid.", "all certified");
     }

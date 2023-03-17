@@ -55,4 +55,7 @@ KLEO_EXPORT bool isRemoteKey(const GpgME::Key &key);
 KLEO_EXPORT GpgME::UserID::Validity minimalValidityOfNotRevokedUserIDs(const GpgME::Key &key);
 
 KLEO_EXPORT GpgME::UserID::Validity maximalValidityOfUserIDs(const GpgME::Key &key);
+
+/* Is the key valid i.e. are all not revoked uids fully trusted?  */
+KLEO_EXPORT bool allUserIDsHaveFullValidity(const GpgME::Key &key);
 }

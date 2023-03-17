@@ -17,8 +17,8 @@
 
 #include <libkleo/algorithm.h>
 #include <libkleo/compliance.h>
-#include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
+#include <libkleo/keyhelpers.h>
 
 #include <libkleo_debug.h>
 
@@ -159,7 +159,7 @@ public:
     }
     bool matches(const Key &key, MatchContexts contexts) const override
     {
-        return DefaultKeyFilter::matches(key, contexts) && !Formatting::uidsHaveFullValidity(key);
+        return DefaultKeyFilter::matches(key, contexts) && !Kleo::allUserIDsHaveFullValidity(key);
     }
 };
 
@@ -179,7 +179,7 @@ public:
     }
     bool matches(const Key &key, MatchContexts contexts) const override
     {
-        return DefaultKeyFilter::matches(key, contexts) && !Formatting::uidsHaveFullValidity(key);
+        return DefaultKeyFilter::matches(key, contexts) && !Kleo::allUserIDsHaveFullValidity(key);
     }
 };
 

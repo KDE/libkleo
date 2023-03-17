@@ -21,6 +21,7 @@
 #include <libkleo/defaultkeyfilter.h>
 #include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
+#include <libkleo/keyhelpers.h>
 #include <libkleo/systeminfo.h>
 
 #include <libkleo_debug.h>
@@ -834,7 +835,7 @@ public:
                 if (protocol != GpgME::UnknownProtocol && key.protocol() != protocol) {
                     continue;
                 }
-                if (!Formatting::isKeyDeVs(key) || !Formatting::uidsHaveFullValidity(key)) {
+                if (!Formatting::isKeyDeVs(key) || !Kleo::allUserIDsHaveFullValidity(key)) {
                     de_vs = false;
                     break;
                 }

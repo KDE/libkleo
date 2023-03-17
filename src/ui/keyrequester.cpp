@@ -23,6 +23,7 @@
 #include <libkleo/compliance.h>
 #include <libkleo/dn.h>
 #include <libkleo/formatting.h>
+#include <libkleo/keyhelpers.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -180,7 +181,7 @@ void Kleo::KeyRequester::setFingerprints(const QStringList &fingerprints)
 static bool keyIsCompliant(const GpgME::Key &key)
 {
     return (key.keyListMode() & GpgME::Validate) //
-        && Formatting::uidsHaveFullValidity(key) //
+        && Kleo::allUserIDsHaveFullValidity(key) //
         && Formatting::isKeyDeVs(key);
 }
 

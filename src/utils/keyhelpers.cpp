@@ -83,3 +83,8 @@ GpgME::UserID::Validity Kleo::maximalValidityOfUserIDs(const Key &key)
     });
     return static_cast<UserID::Validity>(maxValidity);
 }
+
+bool Kleo::allUserIDsHaveFullValidity(const GpgME::Key &key)
+{
+    return minimalValidityOfNotRevokedUserIDs(key) >= UserID::Full;
+}
