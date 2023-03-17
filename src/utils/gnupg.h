@@ -94,8 +94,6 @@ KLEO_DEPRECATED_EXPORT bool gnupgUsesDeVsCompliance();
  */
 KLEO_DEPRECATED_EXPORT bool gnupgIsDeVsCompliant();
 
-KLEO_EXPORT enum GpgME::UserID::Validity keyValidity(const GpgME::Key &key);
-
 /* Convert GnuPG output to a QString with proper encoding.
  * Takes Gpg Quirks into account and might handle future
  * changes in GnuPG Output. */

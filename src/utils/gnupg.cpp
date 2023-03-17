@@ -500,19 +500,6 @@ bool Kleo::gnupgIsDeVsCompliant()
     return DeVSCompliance::isCompliant();
 }
 
-enum GpgME::UserID::Validity Kleo::keyValidity(const GpgME::Key &key)
-{
-    enum UserID::Validity validity = UserID::Validity::Unknown;
-
-    for (const auto &uid : key.userIDs()) {
-        if (validity == UserID::Validity::Unknown || validity > uid.validity()) {
-            validity = uid.validity();
-        }
-    }
-
-    return validity;
-}
-
 #ifdef Q_OS_WIN
 static unsigned int gpgConfGetConsoleOutputCodePage()
 {
