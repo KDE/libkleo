@@ -217,7 +217,7 @@ void Kleo::KeyRequester::updateKeys()
             mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-success")).pixmap(22));
             mComplianceIcon->setToolTip(DeVSCompliance::name(true));
         } else {
-            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-information")).pixmap(22));
+            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-warning")).pixmap(22));
             mComplianceIcon->setToolTip(DeVSCompliance::name(false));
         }
     }
