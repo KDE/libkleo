@@ -18,12 +18,17 @@
 #include "stringutils.h"
 #include "systeminfo.h"
 
+#include <libkleo/debug.h>
 #include <libkleo/keyfiltermanager.h>
+
+#include <libkleo_debug.h>
 
 #include <KColorScheme>
 #include <KLocalizedString>
 
 #include <QPushButton>
+
+#include <gpgme++/key.h>
 
 bool Kleo::DeVSCompliance::isActive()
 {
@@ -58,6 +63,25 @@ bool Kleo::DeVSCompliance::algorithmIsCompliant(std::string_view algo)
     };
 
     return !isActive() || Kleo::contains(compliantAlgorithms, algo);
+}
+
+bool Kleo::DeVSCompliance::allSubkeysAreCompliant(const GpgME::Key &key)
+{
+    if (!isActive()) {
+        return true;
+    }
+    // there is at least one usable subkey
+    const auto usableSubkeys = Kleo::count_if(key.subkeys(), [](const auto &sub) {
+        return !sub.isExpired() && !sub.isRevoked();
+    });
+    if (usableSubkeys == 0) {
+        qCDebug(LIBKLEO_LOG) << __func__ << "No usable subkeys found for key" << key;
+        return false;
+    }
+    // and all usable subkeys are compliant
+    return Kleo::all_of(key.subkeys(), [](const auto &sub) {
+        return sub.isDeVs() || sub.isExpired() || sub.isRevoked();
+    });
 }
 
 void Kleo::DeVSCompliance::decorate(QPushButton *button)

@@ -8,13 +8,13 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <Libkleo/Compliance>
 #include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
 #include <Libkleo/KeySelectionCombo>
 #include <Libkleo/NewKeyApprovalDialog>
 #include <Libkleo/Predicates>
 #include <Libkleo/Test>
-#include <Libkleo/Compliance>
 
 #include <QCheckBox>
 #include <QGroupBox>
@@ -90,6 +90,27 @@ auto mapValidity(GpgME::UserID::Validity validity)
     }
 }
 
+// copied from gpgme; slightly modified
+void _gpgme_key_add_subkey(gpgme_key_t key, gpgme_subkey_t *r_subkey)
+{
+    gpgme_subkey_t subkey;
+
+    subkey = static_cast<gpgme_subkey_t>(calloc(1, sizeof *subkey));
+    Q_ASSERT(subkey);
+    subkey->keyid = subkey->_keyid;
+    subkey->_keyid[16] = '\0';
+
+    if (!key->subkeys) {
+        key->subkeys = subkey;
+    }
+    if (key->_last_subkey) {
+        key->_last_subkey->next = subkey;
+    }
+    key->_last_subkey = subkey;
+
+    *r_subkey = subkey;
+}
+
 GpgME::Key createTestKey(const char *uid,
                          GpgME::Protocol protocol = GpgME::UnknownProtocol,
                          KeyCache::KeyUsage usage = KeyCache::KeyUsage::AnyUsage,
@@ -114,6 +135,11 @@ GpgME::Key createTestKey(const char *uid,
     key->can_sign = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Sign);
     key->secret = 1;
     key->uids->validity = mapValidity(validity);
+
+    // add a usable VS-NfD-compliant subkey
+    gpgme_subkey_t subkey;
+    _gpgme_key_add_subkey(key, &subkey);
+    subkey->is_de_vs = 1;
 
     return GpgME::Key(key, false);
 }

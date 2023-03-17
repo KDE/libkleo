@@ -1154,16 +1154,7 @@ QString Formatting::complianceMode()
 
 bool Formatting::isKeyDeVs(const GpgME::Key &key)
 {
-    for (const auto &sub : key.subkeys()) {
-        if (sub.isExpired() || sub.isRevoked()) {
-            // Ignore old subkeys
-            continue;
-        }
-        if (!sub.isDeVs()) {
-            return false;
-        }
-    }
-    return true;
+    return DeVSCompliance::allSubkeysAreCompliant(key);
 }
 
 QString Formatting::complianceStringForKey(const GpgME::Key &key)
@@ -1173,7 +1164,7 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     if (DeVSCompliance::isCompliant()) {
         return isRemoteKey(key) //
             ? i18nc("@info the compliance of the key with certain requirements is unknown", "unknown")
-            : DeVSCompliance::name(Kleo::allUserIDsHaveFullValidity(key) && isKeyDeVs(key));
+            : DeVSCompliance::name(Kleo::allUserIDsHaveFullValidity(key) && DeVSCompliance::allSubkeysAreCompliant(key));
     }
     return QString();
 }
@@ -1182,7 +1173,7 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
 {
     const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
     if (keyValidityChecked && Kleo::allUserIDsHaveFullValidity(key)) {
-        if (DeVSCompliance::isCompliant() && Formatting::isKeyDeVs(key)) {
+        if (DeVSCompliance::isCompliant() && DeVSCompliance::allSubkeysAreCompliant(key)) {
             return QStringLiteral("★ ") + DeVSCompliance::name(true);
         }
         return i18nc("As in all user IDs are valid.", "certified");

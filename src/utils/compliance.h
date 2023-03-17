@@ -17,6 +17,11 @@
 class QPushButton;
 class QString;
 
+namespace GpgME
+{
+class Key;
+}
+
 namespace Kleo::DeVSCompliance
 {
 
@@ -38,6 +43,15 @@ KLEO_EXPORT bool isCompliant();
  * "de-vs". Always returns true, if compliance mode "de-vs" is not active.
  */
 KLEO_EXPORT bool algorithmIsCompliant(std::string_view algo);
+
+/**
+ * Returns true, if all usable subkeys of the key \p key are compliant with
+ * compliance mode "de-vs". Usable subkeys are those that are neither revoked
+ * nor expired. If the key doesn't have any usable subkeys, then false is
+ * returned.
+ * Always returns true, if compliance mode "de-vs" is not active.
+ */
+KLEO_EXPORT bool allSubkeysAreCompliant(const GpgME::Key &key);
 
 /**
  * \overload

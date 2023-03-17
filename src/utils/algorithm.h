@@ -58,6 +58,16 @@ bool any_of(const InputRange &range, UnaryPredicate p)
     return std::any_of(std::begin(range), std::end(range), p);
 }
 
+/** Convenience helper for counting the number of elements in the range @p range
+ *  for which the predicate @p p returns @c true.
+ *  Use ranges::count_if() instead if you can use C++20.
+ */
+template<typename InputRange, typename UnaryPredicate>
+auto count_if(const InputRange &range, UnaryPredicate p)
+{
+    return std::count_if(std::begin(range), std::end(range), p);
+}
+
 /** Convenience helper for applying the function @p f on all elements of the
  *  range @p range.
  *  Use ranges::for_each() instead if you can use C++20.

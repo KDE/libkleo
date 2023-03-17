@@ -182,7 +182,7 @@ static bool keyIsCompliant(const GpgME::Key &key)
 {
     return (key.keyListMode() & GpgME::Validate) //
         && Kleo::allUserIDsHaveFullValidity(key) //
-        && Formatting::isKeyDeVs(key);
+        && DeVSCompliance::allSubkeysAreCompliant(key);
 }
 
 void Kleo::KeyRequester::updateKeys()

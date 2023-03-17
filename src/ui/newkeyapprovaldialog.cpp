@@ -835,7 +835,7 @@ public:
                 if (protocol != GpgME::UnknownProtocol && key.protocol() != protocol) {
                     continue;
                 }
-                if (!Formatting::isKeyDeVs(key) || !Kleo::allUserIDsHaveFullValidity(key)) {
+                if (!DeVSCompliance::allSubkeysAreCompliant(key) || !Kleo::allUserIDsHaveFullValidity(key)) {
                     de_vs = false;
                     break;
                 }
