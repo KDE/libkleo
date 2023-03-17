@@ -135,6 +135,7 @@ GpgME::Key createTestKey(const char *uid,
     key->can_sign = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Sign);
     key->secret = 1;
     key->uids->validity = mapValidity(validity);
+    key->keylist_mode = GPGME_KEYLIST_MODE_VALIDATE;
 
     // add a usable VS-NfD-compliant subkey
     gpgme_subkey_t subkey;

@@ -15,6 +15,7 @@
 #include "algorithm.h"
 #include "cryptoconfig.h"
 #include "gnupg.h"
+#include "keyhelpers.h"
 #include "stringutils.h"
 #include "systeminfo.h"
 
@@ -82,6 +83,16 @@ bool Kleo::DeVSCompliance::allSubkeysAreCompliant(const GpgME::Key &key)
     return Kleo::all_of(key.subkeys(), [](const auto &sub) {
         return sub.isDeVs() || sub.isExpired() || sub.isRevoked();
     });
+}
+
+bool Kleo::DeVSCompliance::keyIsCompliant(const GpgME::Key &key)
+{
+    if (!isActive()) {
+        return true;
+    }
+    return (key.keyListMode() & GpgME::Validate) //
+        && allUserIDsHaveFullValidity(key) //
+        && allSubkeysAreCompliant(key);
 }
 
 void Kleo::DeVSCompliance::decorate(QPushButton *button)

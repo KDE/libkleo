@@ -178,13 +178,6 @@ void Kleo::KeyRequester::setFingerprints(const QStringList &fingerprints)
     startKeyListJob(fingerprints);
 }
 
-static bool keyIsCompliant(const GpgME::Key &key)
-{
-    return (key.keyListMode() & GpgME::Validate) //
-        && Kleo::allUserIDsHaveFullValidity(key) //
-        && DeVSCompliance::allSubkeysAreCompliant(key);
-}
-
 void Kleo::KeyRequester::updateKeys()
 {
     if (mKeys.empty()) {
@@ -220,7 +213,7 @@ void Kleo::KeyRequester::updateKeys()
         toolTipText += QLatin1Char('\n');
     }
     if (mComplianceIcon) {
-        if (Kleo::all_of(mKeys, &keyIsCompliant)) {
+        if (Kleo::all_of(mKeys, &Kleo::DeVSCompliance::keyIsCompliant)) {
             mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-success")).pixmap(22));
             mComplianceIcon->setToolTip(DeVSCompliance::name(true));
         } else {

@@ -121,7 +121,7 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     if (d->mWasValidated != DoesNotMatter && bool(key.keyListMode() & GpgME::Validate) != bool(d->mWasValidated == Set)) {
         return false;
     }
-    if (d->mIsDeVs != DoesNotMatter && bool(Kleo::allUserIDsHaveFullValidity(key) && DeVSCompliance::allSubkeysAreCompliant(key)) != bool(d->mIsDeVs == Set)) {
+    if (d->mIsDeVs != DoesNotMatter && bool(DeVSCompliance::keyIsCompliant(key)) != bool(d->mIsDeVs == Set)) {
         return false;
     }
     if (d->mBad != DoesNotMatter &&

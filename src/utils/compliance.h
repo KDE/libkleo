@@ -54,6 +54,17 @@ KLEO_EXPORT bool algorithmIsCompliant(std::string_view algo);
 KLEO_EXPORT bool allSubkeysAreCompliant(const GpgME::Key &key);
 
 /**
+ * Returns true, if the key \p key is compliant with compliance mode "de-vs".
+ * A key is considered compliant if all usable subkeys are compliant and if
+ * all not revoked user IDs have at least full validity. The second condition
+ * requires that the key has been validated.
+ * Always returns true, if compliance mode "de-vs" is not active.
+ *
+ * \see allSubkeysAreCompliant
+ */
+KLEO_EXPORT bool keyIsCompliant(const GpgME::Key &key);
+
+/**
  * \overload
  *
  * Sets the appropriate icon and, unless high-contrast mode is active, the

@@ -1164,18 +1164,18 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
     if (DeVSCompliance::isCompliant()) {
         return isRemoteKey(key) //
             ? i18nc("@info the compliance of the key with certain requirements is unknown", "unknown")
-            : DeVSCompliance::name(Kleo::allUserIDsHaveFullValidity(key) && DeVSCompliance::allSubkeysAreCompliant(key));
+            : DeVSCompliance::name(DeVSCompliance::keyIsCompliant(key));
     }
     return QString();
 }
 
 QString Formatting::complianceStringShort(const GpgME::Key &key)
 {
+    if (DeVSCompliance::isCompliant() && DeVSCompliance::keyIsCompliant(key)) {
+        return QStringLiteral("★ ") + DeVSCompliance::name(true);
+    }
     const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
     if (keyValidityChecked && Kleo::allUserIDsHaveFullValidity(key)) {
-        if (DeVSCompliance::isCompliant() && DeVSCompliance::allSubkeysAreCompliant(key)) {
-            return QStringLiteral("★ ") + DeVSCompliance::name(true);
-        }
         return i18nc("As in all user IDs are valid.", "certified");
     }
     if (key.isExpired()) {
