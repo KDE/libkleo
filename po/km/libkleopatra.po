@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-11 00:50+0000\n"
+"POT-Creation-Date: 2023-03-18 01:00+0000\n"
 "PO-Revision-Date: 2012-07-09 10:59+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -150,8 +150,8 @@ msgstr "OpenPGP ក្នុង​តួ (បាន​បង្ក​វិន�
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:309
-#: ui/newkeyapprovaldialog.cpp:312
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:310
+#: ui/newkeyapprovaldialog.cpp:313
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -1148,22 +1148,22 @@ msgstr "សោ​អ៊ិនគ្រីប ៖"
 msgid "Encryption preference:"
 msgstr "ចំណង់​ចំណូល​ចិត្ត​អ៊ិនគ្រីប ៖"
 
-#: ui/keyrequester.cpp:88
+#: ui/keyrequester.cpp:89
 #, kde-format
 msgid "Clear"
 msgstr "ជម្រះ"
 
-#: ui/keyrequester.cpp:91
+#: ui/keyrequester.cpp:92
 #, kde-format
 msgid "Change..."
 msgstr "ផ្លាស់ប្ដូរ..."
 
-#: ui/keyrequester.cpp:217 ui/keyselectiondialog.cpp:222
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:222
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>មិនស្គាល់</placeholder>"
 
-#: ui/keyrequester.cpp:240 ui/keyselectiondialog.cpp:679
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1171,50 +1171,50 @@ msgid ""
 msgstr ""
 "<qt><p>កំហុស​មួយ​បាន​កើតឡើង​នៅពេល​ទៅ​យក​សោ​ពី​កម្មវិធី​ខាងក្រោយ ៖</p><p><b>%1</b></p></qt>"
 
-#: ui/keyrequester.cpp:245 ui/keyrequester.cpp:278 ui/keyrequester.cpp:300
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:648 ui/keyselectiondialog.cpp:684
 #, kde-format
 msgid "Key Listing Failed"
 msgstr "ការ​រាយ​កូនសោ​បាន​បរាជ័យ"
 
-#: ui/keyrequester.cpp:276
+#: ui/keyrequester.cpp:270
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr "កមវិធី​ខាងក្រោយ OpenPGP មិន​គាំទ្រ​ការ​រាយ​កូនសោ​ទេ ។ ពិនិត្យ​ការ​ដំឡើង​របស់អ្នក ។"
 
-#: ui/keyrequester.cpp:298
+#: ui/keyrequester.cpp:292
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr "កម្មវិធី​ខាងក្រោយ S/MIME មិន​គាំទ្រ​ការរាយ​កូនសោ ។ ពិនិត្យ​ការ​ដំឡើង​របស់អ្នក ។"
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:412
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "ជម្រើស​កូនសោ OpenPGP"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "សូម​ជ្រើស​កូនសោ​ OpenPGP ដើម្បី​​​ប្រើ​ប្រាស់ ។"
 
-#: ui/keyrequester.cpp:421
+#: ui/keyrequester.cpp:415
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "ជម្រើស​កូនសោ S/MIME"
 
-#: ui/keyrequester.cpp:422
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "សូម​ជ្រើស​កូនសោ​ S/MIME ដើម្បី​ប្រើ​ប្រាស់ ។​"
 
-#: ui/keyrequester.cpp:424
+#: ui/keyrequester.cpp:418
 #, kde-format
 msgid "Key Selection"
 msgstr "ជម្រើស​កូនសោ"
 
-#: ui/keyrequester.cpp:425
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "សូម​ជ្រើស​កូនសោ (OpenPGP ឬ S/MIME) ដើម្បី​ប្រើ​ប្រាស់ ។"
@@ -1457,35 +1457,35 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:139
+#: ui/newkeyapprovaldialog.cpp:140
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:181
+#: ui/newkeyapprovaldialog.cpp:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:182
+#: ui/newkeyapprovaldialog.cpp:183
 #, kde-format
 msgid "Show keys matching the email address"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:185
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:186
+#: ui/newkeyapprovaldialog.cpp:187
 #, kde-format
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:276
+#: ui/newkeyapprovaldialog.cpp:277
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -1496,71 +1496,71 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:301
+#: ui/newkeyapprovaldialog.cpp:302
 #, fuzzy, kde-format
 #| msgid "Encryption Key Approval"
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "ការ​អនុញ្ញាត​កូនសោ​អ៊ិនគ្រីប​"
 
-#: ui/newkeyapprovaldialog.cpp:308 ui/newkeyapprovaldialog.cpp:311
+#: ui/newkeyapprovaldialog.cpp:309 ui/newkeyapprovaldialog.cpp:312
 #: utils/formatting.cpp:692
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:395
+#: ui/newkeyapprovaldialog.cpp:396
 #, fuzzy, kde-format
 #| msgid "Generating DSA key..."
 msgid "Generating key for '%1'..."
 msgstr "កំពុង​បង្កើត​កូនសោ DSA..."
 
-#: ui/newkeyapprovaldialog.cpp:395
+#: ui/newkeyapprovaldialog.cpp:396
 #, kde-format
 msgid "This can take several minutes."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:397
+#: ui/newkeyapprovaldialog.cpp:398
 #, fuzzy, kde-format
 #| msgid "Key Selection"
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "ជម្រើស​កូនសោ"
 
-#: ui/newkeyapprovaldialog.cpp:428
+#: ui/newkeyapprovaldialog.cpp:429
 #, fuzzy, kde-format
 #| msgid "Decryption failed: %1"
 msgid "Operation Failed"
 msgstr "ការ​ឌិគ្រីប​បាន​បរាជ័យ ៖ %1"
 
-#: ui/newkeyapprovaldialog.cpp:543 ui/newkeyapprovaldialog.cpp:639
+#: ui/newkeyapprovaldialog.cpp:544 ui/newkeyapprovaldialog.cpp:640
 #, kde-format
 msgid "Generate a new key pair"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:546
+#: ui/newkeyapprovaldialog.cpp:547
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:548
+#: ui/newkeyapprovaldialog.cpp:549
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:566
+#: ui/newkeyapprovaldialog.cpp:567
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:643
+#: ui/newkeyapprovaldialog.cpp:644
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:647
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1569,20 +1569,20 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:763
+#: ui/newkeyapprovaldialog.cpp:764
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "កុំ​អ៊ិនគ្រីប"
 
-#: ui/newkeyapprovaldialog.cpp:780
+#: ui/newkeyapprovaldialog.cpp:781
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt to others:"
 msgstr "កុំ​អ៊ិនគ្រីប"
 
-#: ui/newkeyapprovaldialog.cpp:814
+#: ui/newkeyapprovaldialog.cpp:815
 #, fuzzy, kde-format
 #| msgid "General"
 msgid "Generate"
@@ -1616,13 +1616,13 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: utils/compliance.cpp:99
+#: utils/compliance.cpp:134
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgid "VS-NfD compliant"
 msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
 
-#: utils/compliance.cpp:99
+#: utils/compliance.cpp:134
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgid "Not VS-NfD compliant"
@@ -1886,23 +1886,23 @@ msgid "undefined"
 msgstr ""
 
 #: utils/formatting.cpp:747 utils/formatting.cpp:764 utils/formatting.cpp:799
-#: utils/formatting.cpp:1194
+#: utils/formatting.cpp:1185
 #, kde-format
 msgid "revoked"
 msgstr ""
 
-#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1191
+#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1182
 #, kde-format
 msgid "expired"
 msgstr ""
 
-#: utils/formatting.cpp:753 utils/formatting.cpp:1197
+#: utils/formatting.cpp:753 utils/formatting.cpp:1188
 #, kde-format
 msgid "disabled"
 msgstr ""
 
 #: utils/formatting.cpp:756 utils/formatting.cpp:767 utils/formatting.cpp:807
-#: utils/formatting.cpp:1200
+#: utils/formatting.cpp:1191
 #, kde-format
 msgid "invalid"
 msgstr ""
@@ -2126,76 +2126,76 @@ msgstr ""
 msgid "This group does not contain any keys."
 msgstr ""
 
-#: utils/formatting.cpp:1175
+#: utils/formatting.cpp:1166
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "​មិន​ស្គាល់"
 
-#: utils/formatting.cpp:1188
+#: utils/formatting.cpp:1179
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr ""
 
-#: utils/formatting.cpp:1203
+#: utils/formatting.cpp:1194
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr ""
 
-#: utils/formatting.cpp:1206
+#: utils/formatting.cpp:1197
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr ""
 
-#: utils/formatting.cpp:1215
+#: utils/formatting.cpp:1206
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
 
-#: utils/formatting.cpp:1218
+#: utils/formatting.cpp:1209
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
 
-#: utils/formatting.cpp:1251
+#: utils/formatting.cpp:1242
 #, fuzzy, kde-format
 #| msgctxt "default server name, keep it a valid domain name, ie. no spaces"
 #| msgid "server"
 msgid "Keyserver"
 msgstr "ម៉ាស៊ីន​បម្រើ"
 
-#: utils/formatting.cpp:1259
+#: utils/formatting.cpp:1250
 #, kde-format
 msgid "File import"
 msgstr ""
 
-#: utils/formatting.cpp:1261
+#: utils/formatting.cpp:1252
 #, fuzzy, kde-format
 #| msgid "General"
 msgid "Generated"
 msgstr "ទូទៅ"
 
-#: utils/formatting.cpp:1265
+#: utils/formatting.cpp:1256
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgid "Unknown"
 msgstr "​មិន​ស្គាល់"
 
-#: utils/formatting.cpp:1301
+#: utils/formatting.cpp:1292
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1305
+#: utils/formatting.cpp:1296
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."

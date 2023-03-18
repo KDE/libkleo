@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-11 00:50+0000\n"
+"POT-Creation-Date: 2023-03-18 01:00+0000\n"
 "PO-Revision-Date: 2023-03-07 21:50+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -156,8 +156,8 @@ msgstr "Upotettu OpenPGP (vanhentunut)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:309
-#: ui/newkeyapprovaldialog.cpp:312
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:310
+#: ui/newkeyapprovaldialog.cpp:313
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -1092,22 +1092,22 @@ msgstr "Salausavaimet:"
 msgid "Encryption preference:"
 msgstr "Suosittu salaus:"
 
-#: ui/keyrequester.cpp:88
+#: ui/keyrequester.cpp:89
 #, kde-format
 msgid "Clear"
 msgstr "Tyhjennä"
 
-#: ui/keyrequester.cpp:91
+#: ui/keyrequester.cpp:92
 #, kde-format
 msgid "Change..."
 msgstr "Muuta…"
 
-#: ui/keyrequester.cpp:217 ui/keyselectiondialog.cpp:222
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:222
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>tuntematon</placeholder>"
 
-#: ui/keyrequester.cpp:240 ui/keyselectiondialog.cpp:679
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1115,50 +1115,50 @@ msgid ""
 msgstr ""
 "<qt><p>Tapahtui virhe haettaessa avaimia ajurilta: </p><p><b>%1</b></p></qt>"
 
-#: ui/keyrequester.cpp:245 ui/keyrequester.cpp:278 ui/keyrequester.cpp:300
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:648 ui/keyselectiondialog.cpp:684
 #, kde-format
 msgid "Key Listing Failed"
 msgstr "Avainten luettelointi epäonnistui"
 
-#: ui/keyrequester.cpp:276
+#: ui/keyrequester.cpp:270
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr "OpenPGP-ajuri ei tue avainten luettelemista: tarkista asennus."
 
-#: ui/keyrequester.cpp:298
+#: ui/keyrequester.cpp:292
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr "S/MIME-ajuri ei tue avainten luettelemista: tarkista asennus."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:412
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "OpenPGP-avainvalinta"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Valitse käytettävä OpenPGP-avain."
 
-#: ui/keyrequester.cpp:421
+#: ui/keyrequester.cpp:415
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "S/MIME-avainvalinta"
 
-#: ui/keyrequester.cpp:422
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Valitse käytettävä S/MIME-avain"
 
-#: ui/keyrequester.cpp:424
+#: ui/keyrequester.cpp:418
 #, kde-format
 msgid "Key Selection"
 msgstr "Avaimen valinta"
 
-#: ui/keyrequester.cpp:425
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Valitse käytettävä avain (OpenPGP tai S/MIME)."
@@ -1401,35 +1401,35 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Virhe"
 
-#: ui/newkeyapprovaldialog.cpp:139
+#: ui/newkeyapprovaldialog.cpp:140
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "Näytä yksityiskohdat"
 
-#: ui/newkeyapprovaldialog.cpp:181
+#: ui/newkeyapprovaldialog.cpp:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "Näytä vastaavat avaimet"
 
-#: ui/newkeyapprovaldialog.cpp:182
+#: ui/newkeyapprovaldialog.cpp:183
 #, kde-format
 msgid "Show keys matching the email address"
 msgstr "Näytä sähköpostiosoitetta vastaavat avaimet"
 
-#: ui/newkeyapprovaldialog.cpp:185
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "Näytä kaikki"
 
-#: ui/newkeyapprovaldialog.cpp:186
+#: ui/newkeyapprovaldialog.cpp:187
 #, kde-format
 msgid "Show all keys"
 msgstr "Näytä kaikki avaimet"
 
-#: ui/newkeyapprovaldialog.cpp:276
+#: ui/newkeyapprovaldialog.cpp:277
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -1443,68 +1443,68 @@ msgstr ""
 "viestien salauksen purkamiseen ja allekirjoittamiseen. Sinulta kysytään "
 "avainta varten salasana, ja suojattu avain tallennetaan kotikansioosi."
 
-#: ui/newkeyapprovaldialog.cpp:301
+#: ui/newkeyapprovaldialog.cpp:302
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Turvallisuushyväksyntä"
 
-#: ui/newkeyapprovaldialog.cpp:308 ui/newkeyapprovaldialog.cpp:311
+#: ui/newkeyapprovaldialog.cpp:309 ui/newkeyapprovaldialog.cpp:312
 #: utils/formatting.cpp:692
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:395
+#: ui/newkeyapprovaldialog.cpp:396
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Luodaan avainta ”%1”…"
 
-#: ui/newkeyapprovaldialog.cpp:395
+#: ui/newkeyapprovaldialog.cpp:396
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Tämä voi viedä joitakin minuutteja."
 
-#: ui/newkeyapprovaldialog.cpp:397
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Avaimen luonti"
 
-#: ui/newkeyapprovaldialog.cpp:428
+#: ui/newkeyapprovaldialog.cpp:429
 #, kde-format
 msgid "Operation Failed"
 msgstr "Toimenpide epäonnistui"
 
-#: ui/newkeyapprovaldialog.cpp:543 ui/newkeyapprovaldialog.cpp:639
+#: ui/newkeyapprovaldialog.cpp:544 ui/newkeyapprovaldialog.cpp:640
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Luo uusi avainpari"
 
 # *** TARKISTA: Vai ”vahvistuta” – onko kyse automaattisesta vahvistamista vai kyselyikkunan näyttämisestä?
-#: ui/newkeyapprovaldialog.cpp:546
+#: ui/newkeyapprovaldialog.cpp:547
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr "Älä vahvista henkilöyttä ja eheyttä"
 
-#: ui/newkeyapprovaldialog.cpp:548
+#: ui/newkeyapprovaldialog.cpp:549
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "Sähköpostiviestiä ei allekirjoiteta kryptografisesti."
 
-#: ui/newkeyapprovaldialog.cpp:566
+#: ui/newkeyapprovaldialog.cpp:567
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Vahvista henkilöys ”%1”:"
 
-#: ui/newkeyapprovaldialog.cpp:643
+#: ui/newkeyapprovaldialog.cpp:644
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Ei avainta: vastaanottaja ei voi purkaa salausta."
 
-#: ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:647
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1516,18 +1516,18 @@ msgstr ""
 "salatun sähköpostiviestin mutta voi avata salauksen vain tämän ikkunan "
 "muilla avaimilla."
 
-#: ui/newkeyapprovaldialog.cpp:763
+#: ui/newkeyapprovaldialog.cpp:764
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Salaa itselle (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:780
+#: ui/newkeyapprovaldialog.cpp:781
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Salaa muille:"
 
-#: ui/newkeyapprovaldialog.cpp:814
+#: ui/newkeyapprovaldialog.cpp:815
 #, kde-format
 msgid "Generate"
 msgstr "Luo"
@@ -1565,12 +1565,12 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Mukautettu lukijatunniste tai porttinumero"
 
-#: utils/compliance.cpp:99
+#: utils/compliance.cpp:134
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "Vs-NfD-yhteensopiva"
 
-#: utils/compliance.cpp:99
+#: utils/compliance.cpp:134
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Ei Vs-NfD-yhteensopiva"
@@ -1819,23 +1819,23 @@ msgid "undefined"
 msgstr "epämääräinen"
 
 #: utils/formatting.cpp:747 utils/formatting.cpp:764 utils/formatting.cpp:799
-#: utils/formatting.cpp:1194
+#: utils/formatting.cpp:1185
 #, kde-format
 msgid "revoked"
 msgstr "peruttu"
 
-#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1191
+#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1182
 #, kde-format
 msgid "expired"
 msgstr "vanhentunut"
 
-#: utils/formatting.cpp:753 utils/formatting.cpp:1197
+#: utils/formatting.cpp:753 utils/formatting.cpp:1188
 #, kde-format
 msgid "disabled"
 msgstr "käytöstä poistettu"
 
 #: utils/formatting.cpp:756 utils/formatting.cpp:767 utils/formatting.cpp:807
-#: utils/formatting.cpp:1200
+#: utils/formatting.cpp:1191
 #, kde-format
 msgid "invalid"
 msgstr "virheellinen"
@@ -2064,69 +2064,69 @@ msgstr ""
 msgid "This group does not contain any keys."
 msgstr "Tässä ryhmässä ei ole avaimia."
 
-#: utils/formatting.cpp:1175
+#: utils/formatting.cpp:1166
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "tuntematon"
 
-#: utils/formatting.cpp:1188
+#: utils/formatting.cpp:1179
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "varmennettu"
 
-#: utils/formatting.cpp:1203
+#: utils/formatting.cpp:1194
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "ei varmennettu"
 
-#: utils/formatting.cpp:1206
+#: utils/formatting.cpp:1197
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "ei tarkistettu"
 
-#: utils/formatting.cpp:1215
+#: utils/formatting.cpp:1206
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "kaikki varmennettu"
 
-#: utils/formatting.cpp:1218
+#: utils/formatting.cpp:1209
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "kaikkia ei varmennettu"
 
-#: utils/formatting.cpp:1251
+#: utils/formatting.cpp:1242
 #, kde-format
 msgid "Keyserver"
 msgstr "Avainpalvelin"
 
-#: utils/formatting.cpp:1259
+#: utils/formatting.cpp:1250
 #, kde-format
 msgid "File import"
 msgstr "Tiedoston tuonti"
 
-#: utils/formatting.cpp:1261
+#: utils/formatting.cpp:1252
 #, kde-format
 msgid "Generated"
 msgstr "Luotu"
 
-#: utils/formatting.cpp:1265
+#: utils/formatting.cpp:1256
 #, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: utils/formatting.cpp:1301
+#: utils/formatting.cpp:1292
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Varmentaa tämän avaimen nimen ”%1” osin luotetuksi esittelijäksi."
 
-#: utils/formatting.cpp:1305
+#: utils/formatting.cpp:1296
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
