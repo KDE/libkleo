@@ -8,9 +8,8 @@
 #include "../src/kleo/expirychecker_p.h"
 
 #include <Libkleo/ExpiryChecker>
-
-#include <QGpgME/KeyListJob>
-#include <QGpgME/Protocol>
+#include <Libkleo/Formatting>
+#include <Libkleo/KeyCache>
 
 #include <QDebug>
 #include <QProcess>
@@ -18,44 +17,8 @@
 #include <QTemporaryDir>
 #include <QTest>
 
-#include <gpgme++/keylistresult.h>
-
 using namespace Kleo;
-
-static std::vector<GpgME::Key, std::allocator<GpgME::Key>> getKeys(bool smime = false)
-{
-    QGpgME::KeyListJob *job = nullptr;
-
-    if (smime) {
-        const QGpgME::Protocol *const backend = QGpgME::smime();
-        Q_ASSERT(backend);
-        job = backend->keyListJob(false);
-    } else {
-        const QGpgME::Protocol *const backend = QGpgME::openpgp();
-        Q_ASSERT(backend);
-        job = backend->keyListJob(false);
-    }
-    Q_ASSERT(job);
-
-    std::vector<GpgME::Key> keys;
-    GpgME::KeyListResult res = job->exec(QStringList(), true, keys);
-
-    Q_ASSERT(!res.error());
-
-    /*
-    qDebug() << "got private keys:" << keys.size();
-
-    for (std::vector< GpgME::Key >::iterator i = keys.begin(); i != keys.end(); ++i) {
-        qDebug() << "key isnull:" << i->isNull() << "isexpired:" << i->isExpired();
-        qDebug() << "key numuserIds:" << i->numUserIDs();
-        for (uint k = 0; k < i->numUserIDs(); ++k) {
-            qDebug() << "userIDs:" << i->userID(k).email();
-        }
-    }
-    */
-
-    return keys;
-}
+using namespace GpgME;
 
 class ExpiryCheckerTest : public QObject
 {
@@ -68,10 +31,19 @@ private Q_SLOTS:
 
         mGnupgHome = QTest::qExtractTestData(QStringLiteral("/fixtures/expirycheckertest"));
         qputenv("GNUPGHOME", mGnupgHome->path().toLocal8Bit());
+
+        // hold a reference to the key cache to avoid rebuilding while the test is running
+        mKeyCache = KeyCache::instance();
+        // make sure that the key cache has been populated
+        (void)mKeyCache->keys();
     }
 
     void cleanupTestCase()
     {
+        // verify that nobody else holds a reference to the key cache
+        QVERIFY(mKeyCache.use_count() == 1);
+        mKeyCache.reset();
+
         (void)QProcess::execute(QStringLiteral("gpgconf"), {"--kill", "all"});
 
         mGnupgHome.reset();
@@ -82,17 +54,9 @@ private Q_SLOTS:
     {
         QTest::addColumn<GpgME::Key>("key");
         QTest::addColumn<int>("difftime");
-        QTest::newRow("neverExpire") << getKeys()[0] << -1;
-
-        const auto backend = QGpgME::openpgp();
-        Q_ASSERT(backend);
-        const auto job = backend->keyListJob(false);
-        Q_ASSERT(job);
-
-        std::vector<GpgME::Key> keys;
-        job->exec(QStringList() << QStringLiteral("EB85BB5FA33A75E15E944E63F231550C4F47E38E"), false, keys);
-        QTest::newRow("openpgp") << keys[0] << 2 * 24 * 60 * 60;
-        QTest::newRow("smime") << getKeys(true)[0] << 2 * 24 * 60 * 60;
+        QTest::newRow("neverExpire") << testKey("test@kolab.org", GpgME::OpenPGP) << -1;
+        QTest::newRow("openpgp") << testKey("alice@autocrypt.example", GpgME::OpenPGP) << 2 * 24 * 60 * 60;
+        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) << 2 * 24 * 60 * 60;
     }
 
     void valid()
@@ -116,15 +80,8 @@ private Q_SLOTS:
         QTest::addColumn<QString>("msgOwnKey");
         QTest::addColumn<QString>("msgOwnSigningKey");
 
-        const auto backend = QGpgME::openpgp();
-        Q_ASSERT(backend);
-        const auto job = backend->keyListJob(false);
-        Q_ASSERT(job);
-
-        std::vector<GpgME::Key> keys;
-        job->exec(QStringList() << QStringLiteral("EB85BB5FA33A75E15E944E63F231550C4F47E38E"), false, keys);
         QTest::newRow("openpgp")
-            << keys[0]
+            << testKey("alice@autocrypt.example", GpgME::OpenPGP)
             << QStringLiteral(
                    "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day ago.</p>")
             << QStringLiteral(
@@ -133,7 +90,7 @@ private Q_SLOTS:
             << QStringLiteral(
                    "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day "
                    "ago.</p>");
-        QTest::newRow("smime") << getKeys(true)[0]
+        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS)
                                << QStringLiteral(
                                       "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
                                       "number 00D345203A186385C9)</p><p>expired less than a day ago.</p>")
@@ -193,15 +150,8 @@ private Q_SLOTS:
         QTest::addColumn<QString>("msgOwnKey");
         QTest::addColumn<QString>("msgOwnSigningKey");
 
-        const auto backend = QGpgME::openpgp();
-        Q_ASSERT(backend);
-        const auto job = backend->keyListJob(false);
-        Q_ASSERT(job);
-
-        std::vector<GpgME::Key> keys;
-        job->exec(QStringList() << QStringLiteral("EB85BB5FA33A75E15E944E63F231550C4F47E38E"), false, keys);
         QTest::newRow("openpgp")
-            << keys[0]
+            << testKey("alice@autocrypt.example", GpgME::OpenPGP)
             << QStringLiteral(
                    "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in less than 6 days.</p>")
             << QStringLiteral(
@@ -210,7 +160,7 @@ private Q_SLOTS:
             << QStringLiteral(
                    "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in less than 6 "
                    "days.</p>");
-        QTest::newRow("smime") << getKeys(true)[0]
+        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS)
                                << QStringLiteral(
                                       "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
                                       "number 00D345203A186385C9);</p><p>expires in less than 6 days.</p>")
@@ -275,7 +225,21 @@ private Q_SLOTS:
     }
 
 private:
+    Key testKey(const char *email, Protocol protocol = UnknownProtocol)
+    {
+        const std::vector<Key> keys = KeyCache::instance()->findByEMailAddress(email);
+        for (const auto &key : keys) {
+            if (protocol == UnknownProtocol || key.protocol() == protocol) {
+                return key;
+            }
+        }
+        qWarning() << "No" << Formatting::displayName(protocol) << "test key found for" << email;
+        return {};
+    }
+
+private:
     QSharedPointer<QTemporaryDir> mGnupgHome;
+    std::shared_ptr<const KeyCache> mKeyCache;
 };
 
 QTEST_MAIN(ExpiryCheckerTest)
