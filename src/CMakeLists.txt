@@ -194,7 +194,7 @@ if (TARGET Boost::headers)
   target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE Boost::headers)
 endif()
 
-if (KPim${KF_MAJOR_VERSION}PimTextEdit_FOUND)
+if (KPim${KF_MAJOR_VERSION}TextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
   target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE KPim${KF_MAJOR_VERSION}::PimTextEdit)
 endif()

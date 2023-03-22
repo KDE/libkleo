@@ -62,7 +62,7 @@ find_package(KF${KF_MAJOR_VERSION}Completion ${KF5_WANT_VERSION} CONFIG REQUIRED
 find_package(KF${KF_MAJOR_VERSION}CoreAddons ${KF5_WANT_VERSION} CONFIG REQUIRED)
 find_package(KF${KF_MAJOR_VERSION}Codecs ${KF5_WANT_VERSION} CONFIG REQUIRED)
 find_package(KF${KF_MAJOR_VERSION}ItemModels ${KF5_WANT_VERSION} CONFIG REQUIRED)
-find_package(KPim${KF_MAJOR_VERSION}PimTextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
+find_package(KPim${KF_MAJOR_VERSION}TextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
 
 find_package(Gpgmepp ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
@@ -80,7 +80,7 @@ find_package(Boost 1.34.0)
 set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "https://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")
 
 
-set_package_properties(KPim${KF_MAJOR_VERSION}PimTextEdit PROPERTIES DESCRIPTION
+set_package_properties(KPim${KF_MAJOR_VERSION}TextEdit PROPERTIES DESCRIPTION
                        "A textedit with PIM-specific features."
                        URL "https://commits.kde.org/kpimtextedit"
                        TYPE OPTIONAL PURPOSE "Improved audit log viewer.")
