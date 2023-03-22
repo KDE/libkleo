@@ -35,6 +35,9 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    kleo/dn.h
    kleo/enum.cpp
    kleo/enum.h
+   kleo/expirychecker.cpp
+   kleo/expirychecker.h
+   kleo/expirychecker_p.h
    kleo/kconfigbasedkeyfilter.cpp
    kleo/kconfigbasedkeyfilter.h
    kleo/keyfilter.h
@@ -238,6 +241,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   DocAction
   Dn
   Enum
+  ExpiryChecker
   KConfigBasedKeyFilter
   KeyFilter
   KeyFilterManager
