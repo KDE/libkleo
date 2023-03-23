@@ -22,18 +22,23 @@
 
 #include <memory>
 
-class ExpiryCheckerTest;
-
 namespace Kleo
 {
 
 class ExpiryCheckerPrivate;
 
+class KLEO_EXPORT TimeProvider
+{
+public:
+    virtual ~TimeProvider() = default;
+
+    virtual time_t getTime() const = 0;
+};
+
 class KLEO_EXPORT ExpiryChecker : public QObject
 {
     Q_OBJECT
 public:
-    using Ptr = QSharedPointer<ExpiryChecker>;
     explicit ExpiryChecker(int encrOwnKeyNearExpiryThresholdDays,
                            int encrKeyNearExpiryThresholdDays,
                            int encrRootCertNearExpiryThresholdDays,
@@ -61,19 +66,11 @@ public:
 Q_SIGNALS:
     void expiryMessage(const GpgME::Key &key, QString msg, Kleo::ExpiryChecker::ExpiryInformation info, bool isNewMessage) const;
 
+public:
+    void setTimeProviderForTest(const std::shared_ptr<TimeProvider> &);
+
 private:
-    friend class ::ExpiryCheckerTest;
-
     std::unique_ptr<ExpiryCheckerPrivate> const d;
-
-    Q_REQUIRED_RESULT double calculateSecsTillExpiriy(const GpgME::Subkey &key) const;
-
-    void checkKeyNearExpiry(const GpgME::Key &key,
-                            bool isOwnKey,
-                            bool isSigningKey,
-                            bool ca = false,
-                            int recur_limit = 100,
-                            const GpgME::Key &orig_key = GpgME::Key::null) const;
 };
 }
 Q_DECLARE_METATYPE(GpgME::Key)

@@ -13,7 +13,6 @@
 */
 
 #include "expirychecker.h"
-#include "expirychecker_p.h"
 
 #include "dn.h"
 
@@ -26,13 +25,46 @@
 
 #include <gpgme++/keylistresult.h>
 
+#include <set>
+
+#include <ctime>
+
 using namespace Kleo;
+
+class Kleo::ExpiryCheckerPrivate
+{
+    Kleo::ExpiryChecker *q;
+
+public:
+    ExpiryCheckerPrivate(ExpiryChecker *qq)
+        : q{qq}
+    {
+    }
+
+    Q_REQUIRED_RESULT double calculateSecsTillExpiry(const GpgME::Subkey &key) const;
+
+    void checkKeyNearExpiry(const GpgME::Key &key,
+                            bool isOwnKey,
+                            bool isSigningKey,
+                            bool ca = false,
+                            int recur_limit = 100,
+                            const GpgME::Key &orig_key = GpgME::Key::null);
+
+    int encryptOwnKeyNearExpiryWarningThreshold;
+    int encryptKeyNearExpiryWarningThreshold;
+    int encryptRootCertNearExpiryWarningThreshold;
+    int encryptChainCertNearExpiryWarningThreshold;
+
+    std::set<QByteArray> alreadyWarnedFingerprints;
+
+    std::shared_ptr<TimeProvider> timeProvider;
+};
 
 ExpiryChecker::ExpiryChecker(int encrOwnKeyNearExpiryThresholdDays,
                              int encrKeyNearExpiryThresholdDays,
                              int encrRootCertNearExpiryThresholdDays,
                              int encrChainCertNearExpiryThresholdDays)
-    : d(new ExpiryCheckerPrivate)
+    : d{new ExpiryCheckerPrivate{this}}
 {
     d->encryptOwnKeyNearExpiryWarningThreshold = encrOwnKeyNearExpiryThresholdDays;
     d->encryptKeyNearExpiryWarningThreshold = encrKeyNearExpiryThresholdDays;
@@ -287,16 +319,13 @@ QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, in
     }
 }
 
-double ExpiryChecker::calculateSecsTillExpiriy(const GpgME::Subkey &key) const
+double ExpiryCheckerPrivate::calculateSecsTillExpiry(const GpgME::Subkey &key) const
 {
-    if (d->testMode) {
-        return d->difftime;
-    }
-
-    return ::difftime(key.expirationTime(), time(nullptr));
+    const auto t = timeProvider ? timeProvider->getTime() : std::time(nullptr);
+    return std::difftime(key.expirationTime(), t);
 }
 
-void ExpiryChecker::checkKeyNearExpiry(const GpgME::Key &key, bool isOwnKey, bool isSigningKey, bool ca, int recur_limit, const GpgME::Key &orig_key) const
+void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &key, bool isOwnKey, bool isSigningKey, bool ca, int recur_limit, const GpgME::Key &orig_key)
 {
     if (recur_limit <= 0) {
         qCDebug(LIBKLEO_LOG) << "Key chain too long (>100 certs)";
@@ -304,27 +333,27 @@ void ExpiryChecker::checkKeyNearExpiry(const GpgME::Key &key, bool isOwnKey, boo
     }
     const GpgME::Subkey subkey = key.subkey(0);
 
-    const bool newMessage = !d->alreadyWarnedFingerprints.count(subkey.fingerprint());
+    const bool newMessage = !alreadyWarnedFingerprints.count(subkey.fingerprint());
 
     if (subkey.neverExpires()) {
         return;
     }
     static const double secsPerDay = 24 * 60 * 60;
-    const double secsTillExpiry = calculateSecsTillExpiriy(subkey);
+    const double secsTillExpiry = calculateSecsTillExpiry(subkey);
     if (secsTillExpiry <= 0) {
         const QString msg = key.protocol() == GpgME::OpenPGP ? formatOpenPGPMessage(key, secsTillExpiry, isOwnKey, isSigningKey)
                                                              : formatSMIMEMessage(key, orig_key, secsTillExpiry, isOwnKey, isSigningKey, ca);
-        d->alreadyWarnedFingerprints.insert(subkey.fingerprint());
-        Q_EMIT expiryMessage(key, msg, isOwnKey ? OwnKeyExpired : OtherKeyExpired, newMessage);
+        alreadyWarnedFingerprints.insert(subkey.fingerprint());
+        Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyExpired : ExpiryChecker::OtherKeyExpired, newMessage);
     } else {
         const int daysTillExpiry = 1 + int(secsTillExpiry / secsPerDay);
-        const int threshold = ca ? (key.isRoot() ? encryptRootCertNearExpiryWarningThresholdInDays() : encryptChainCertNearExpiryWarningThresholdInDays())
-                                 : (isOwnKey ? encryptOwnKeyNearExpiryWarningThresholdInDays() : encryptKeyNearExpiryWarningThresholdInDays());
+        const int threshold = ca ? (key.isRoot() ? encryptRootCertNearExpiryWarningThreshold : encryptChainCertNearExpiryWarningThreshold)
+                                 : (isOwnKey ? encryptOwnKeyNearExpiryWarningThreshold : encryptKeyNearExpiryWarningThreshold);
         if (threshold > -1 && daysTillExpiry <= threshold) {
             const QString msg = key.protocol() == GpgME::OpenPGP ? formatOpenPGPMessage(key, secsTillExpiry, isOwnKey, isSigningKey)
                                                                  : formatSMIMEMessage(key, orig_key, secsTillExpiry, isOwnKey, isSigningKey, ca);
-            d->alreadyWarnedFingerprints.insert(subkey.fingerprint());
-            Q_EMIT expiryMessage(key, msg, isOwnKey ? OwnKeyNearExpiry : OtherKeyNearExpiry, newMessage);
+            alreadyWarnedFingerprints.insert(subkey.fingerprint());
+            Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
         }
     }
     if (key.isRoot()) {
@@ -347,15 +376,20 @@ void ExpiryChecker::checkKeyNearExpiry(const GpgME::Key &key, bool isOwnKey, boo
 
 void ExpiryChecker::checkOwnSigningKey(const GpgME::Key &key) const
 {
-    checkKeyNearExpiry(key, /*isOwnKey*/ true, /*isSigningKey*/ true);
+    d->checkKeyNearExpiry(key, /*isOwnKey*/ true, /*isSigningKey*/ true);
 }
 
 void ExpiryChecker::checkOwnKey(const GpgME::Key &key) const
 {
-    checkKeyNearExpiry(key, /*isOwnKey*/ true, /*isSigningKey*/ false);
+    d->checkKeyNearExpiry(key, /*isOwnKey*/ true, /*isSigningKey*/ false);
 }
 
 void ExpiryChecker::checkKey(const GpgME::Key &key) const
 {
-    checkKeyNearExpiry(key, false, false);
+    d->checkKeyNearExpiry(key, false, false);
+}
+
+void ExpiryChecker::setTimeProviderForTest(const std::shared_ptr<TimeProvider> &timeProvider)
+{
+    d->timeProvider = timeProvider;
 }

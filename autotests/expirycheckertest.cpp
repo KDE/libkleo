@@ -1,11 +1,11 @@
 /*
     This file is part of libkleopatra's test suite.
     SPDX-FileCopyrightText: 2022 Sandro Knauß <knauss@kde.org>
+    SPDX-FileCopyrightText: 2023 g10 Code GmbH
+    SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
-
-#include "../src/kleo/expirychecker_p.h"
 
 #include <Libkleo/ExpiryChecker>
 #include <Libkleo/Formatting>
@@ -19,6 +19,23 @@
 
 using namespace Kleo;
 using namespace GpgME;
+
+class FakeTimeProvider : public Kleo::TimeProvider
+{
+public:
+    explicit FakeTimeProvider(const QDate &date)
+        : mTime{date.startOfDay(Qt::UTC).toSecsSinceEpoch()}
+    {
+    }
+
+    time_t getTime() const override
+    {
+        return mTime;
+    }
+
+private:
+    time_t mTime;
+};
 
 class ExpiryCheckerTest : public QObject
 {
@@ -53,21 +70,21 @@ private Q_SLOTS:
     void valid_data()
     {
         QTest::addColumn<GpgME::Key>("key");
-        QTest::addColumn<int>("difftime");
-        QTest::newRow("neverExpire") << testKey("test@kolab.org", GpgME::OpenPGP) << -1;
-        QTest::newRow("openpgp") << testKey("alice@autocrypt.example", GpgME::OpenPGP) << 2 * 24 * 60 * 60;
-        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) << 2 * 24 * 60 * 60;
+        QTest::addColumn<QDate>("fakedate");
+        // use dates between creation date and expiration date (if there is one) of the test keys/certificates
+        QTest::newRow("neverExpire") << testKey("test@kolab.org", GpgME::OpenPGP) << QDate{2012, 1, 1};
+        QTest::newRow("openpgp") << testKey("alice@autocrypt.example", GpgME::OpenPGP) << QDate{2020, 1, 1};
+        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) << QDate{2012, 1, 1};
     }
 
     void valid()
     {
         QFETCH(GpgME::Key, key);
-        QFETCH(int, difftime);
+        QFETCH(QDate, fakedate);
 
         ExpiryChecker checker(1, 1, 1, 1);
+        checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
         QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
-        checker.d->testMode = true;
-        checker.d->difftime = difftime;
 
         checker.checkKey(key);
         QCOMPARE(spy.count(), 0);
@@ -76,12 +93,15 @@ private Q_SLOTS:
     void expired_data()
     {
         QTest::addColumn<GpgME::Key>("key");
+        QTest::addColumn<QDate>("fakedate");
         QTest::addColumn<QString>("msg");
         QTest::addColumn<QString>("msgOwnKey");
         QTest::addColumn<QString>("msgOwnSigningKey");
 
+        // use the day after the expiration date of the test keys/certificates as fake date
         QTest::newRow("openpgp")
-            << testKey("alice@autocrypt.example", GpgME::OpenPGP)
+            << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
+            << QDate{2021, 1, 22}
             << QStringLiteral(
                    "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day ago.</p>")
             << QStringLiteral(
@@ -90,7 +110,8 @@ private Q_SLOTS:
             << QStringLiteral(
                    "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day "
                    "ago.</p>");
-        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS)
+        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) //
+                               << QDate{2013, 3, 26}
                                << QStringLiteral(
                                       "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
                                       "number 00D345203A186385C9)</p><p>expired less than a day ago.</p>")
@@ -105,14 +126,14 @@ private Q_SLOTS:
     void expired()
     {
         QFETCH(GpgME::Key, key);
+        QFETCH(QDate, fakedate);
         QFETCH(QString, msg);
         QFETCH(QString, msgOwnKey);
         QFETCH(QString, msgOwnSigningKey);
 
-        ExpiryChecker checker(1, 1, 1, 1);
-        checker.d->testMode = true;
-        checker.d->difftime = -1;
         {
+            ExpiryChecker checker(1, 1, 1, 1);
+            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             checker.checkKey(key);
             QCOMPARE(spy.count(), 1);
@@ -121,8 +142,9 @@ private Q_SLOTS:
             QCOMPARE(arguments.at(1).toString(), msg);
             QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OtherKeyExpired);
         }
-        checker.d->alreadyWarnedFingerprints.clear();
         {
+            ExpiryChecker checker(1, 1, 1, 1);
+            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             checker.checkOwnKey(key);
             QCOMPARE(spy.count(), 1);
@@ -131,8 +153,9 @@ private Q_SLOTS:
             QCOMPARE(arguments.at(1).toString(), msgOwnKey);
             QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OwnKeyExpired);
         }
-        checker.d->alreadyWarnedFingerprints.clear();
         {
+            ExpiryChecker checker(1, 1, 1, 1);
+            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             checker.checkOwnSigningKey(key);
             QCOMPARE(spy.count(), 1);
@@ -146,12 +169,15 @@ private Q_SLOTS:
     void nearexpiry_data()
     {
         QTest::addColumn<GpgME::Key>("key");
+        QTest::addColumn<QDate>("fakedate");
         QTest::addColumn<QString>("msg");
         QTest::addColumn<QString>("msgOwnKey");
         QTest::addColumn<QString>("msgOwnSigningKey");
 
+        // use the day 5 days before the expiration date of the test keys/certificates as fake date
         QTest::newRow("openpgp")
-            << testKey("alice@autocrypt.example", GpgME::OpenPGP)
+            << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
+            << QDate{2021, 1, 16}
             << QStringLiteral(
                    "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in less than 6 days.</p>")
             << QStringLiteral(
@@ -160,7 +186,8 @@ private Q_SLOTS:
             << QStringLiteral(
                    "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in less than 6 "
                    "days.</p>");
-        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS)
+        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) //
+                               << QDate{2013, 3, 20}
                                << QStringLiteral(
                                       "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
                                       "number 00D345203A186385C9);</p><p>expires in less than 6 days.</p>")
@@ -175,14 +202,14 @@ private Q_SLOTS:
     void nearexpiry()
     {
         QFETCH(GpgME::Key, key);
+        QFETCH(QDate, fakedate);
         QFETCH(QString, msg);
         QFETCH(QString, msgOwnKey);
         QFETCH(QString, msgOwnSigningKey);
 
         {
             ExpiryChecker checker(1, 10, 1, 1);
-            checker.d->testMode = true;
-            checker.d->difftime = 5 * 24 * 3600; // 5 days
+            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
             checker.checkKey(key);
@@ -196,8 +223,7 @@ private Q_SLOTS:
         }
         {
             ExpiryChecker checker(10, 1, 1, 1);
-            checker.d->testMode = true;
-            checker.d->difftime = 5 * 24 * 3600; // 5 days
+            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
             checker.checkKey(key);
@@ -210,8 +236,7 @@ private Q_SLOTS:
         }
         {
             ExpiryChecker checker(10, 1, 1, 1);
-            checker.d->testMode = true;
-            checker.d->difftime = 5 * 24 * 3600; // 5 days
+            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
             checker.checkKey(key);
@@ -225,6 +250,30 @@ private Q_SLOTS:
     }
 
 private:
+    // OpenPGP keys
+    //
+    // pub   rsa2048 2009-11-13 [SC]
+    //       1BA323932B3FAA826132C79E8D9860C58F246DE6
+    // uid           [ultimate] unittest key (no password) <test@kolab.org>
+    // sub   rsa2048 2009-11-13 [E]
+    //
+    // pub   ed25519 2019-01-22 [SC] [expired: 2021-01-21]
+    //       EB85BB5FA33A75E15E944E63F231550C4F47E38E
+    // uid           [ expired] alice@autocrypt.example
+    //
+    // S/MIME certificates
+    //
+    //           ID: 0x212B49DC
+    //          S/N: 00D345203A186385C9
+    //        (dec): 15223609549285197257
+    //       Issuer: /CN=unittest cert/O=KDAB/C=US/EMail=test@example.com
+    //      Subject: /CN=unittest cert/O=KDAB/C=US/EMail=test@example.com
+    //     validity: 2010-06-29 13:48:23 through 2013-03-25 13:48:23
+    //     key type: rsa1024
+    // chain length: unlimited
+    //     sha1 fpr: 24:D2:FC:A2:2E:B3:B8:0A:1E:37:71:D1:4C:C6:58:E3:21:2B:49:DC
+    //     sha2 fpr: 62:4B:A4:B8:7D:8F:99:AA:6B:46:E3:C8:C5:BE:BF:30:29:B6:EC:4E:CC:7D:1F:9F:A8:39:B6:CE:03:6F:C7:FB
+
     Key testKey(const char *email, Protocol protocol = UnknownProtocol)
     {
         const std::vector<Key> keys = KeyCache::instance()->findByEMailAddress(email);

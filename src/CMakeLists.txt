@@ -37,7 +37,6 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    kleo/enum.h
    kleo/expirychecker.cpp
    kleo/expirychecker.h
-   kleo/expirychecker_p.h
    kleo/kconfigbasedkeyfilter.cpp
    kleo/kconfigbasedkeyfilter.h
    kleo/keyfilter.h
