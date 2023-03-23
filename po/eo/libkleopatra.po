@@ -1,4 +1,5 @@
 # Translation of libkleopatra into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
 #
 msgid ""
@@ -6,8 +7,8 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-18 01:00+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-22 19:14+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -71,11 +72,8 @@ msgid "Common name"
 msgstr "Komuna nomo"
 
 #: kleo/dn.cpp:519
-#, fuzzy
-#| msgctxt "City name (optional, probably does not need a translation)"
-#| msgid "Hungnam"
 msgid "Surname"
-msgstr "Hungnam"
+msgstr ""
 
 #: kleo/dn.cpp:520
 msgid "Given name"
@@ -164,16 +162,12 @@ msgid "S/MIME Opaque"
 msgstr ""
 
 #: kleo/enum.cpp:39
-#, fuzzy
-#| msgid "S/MIME"
 msgid "Any S/MIME"
-msgstr "S/MIME"
+msgstr ""
 
 #: kleo/enum.cpp:40
-#, fuzzy
-#| msgid "OpenPGP"
 msgid "Any OpenPGP"
-msgstr "OpenPGP"
+msgstr ""
 
 #: kleo/enum.cpp:72
 #, kde-format
@@ -268,10 +262,9 @@ msgid "Not Validated Certificates"
 msgstr ""
 
 #: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:105
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgid "Name"
-msgstr "Uzantonomo"
+msgstr ""
 
 #: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:106
 #, kde-format
@@ -279,10 +272,9 @@ msgid "E-Mail"
 msgstr ""
 
 #: models/keylistmodel.cpp:306
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User-IDs"
-msgstr "Uzant-ID"
+msgstr ""
 
 #: models/keylistmodel.cpp:308 models/subkeylistmodel.cpp:159
 #: models/useridlistmodel.cpp:107
@@ -318,10 +310,9 @@ msgid "Issuer"
 msgstr ""
 
 #: models/keylistmodel.cpp:322
-#, fuzzy, kde-format
-#| msgid "Telephone number"
+#, kde-format
 msgid "Serial Number"
-msgstr "Telefonnumero"
+msgstr ""
 
 #: models/keylistmodel.cpp:324
 #, kde-format
@@ -344,19 +335,16 @@ msgid "Tags"
 msgstr ""
 
 #: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:69
-#, fuzzy, kde-format
-#| msgid "Given name"
+#, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
-msgstr "Donita nomo:"
+msgstr ""
 
 #: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
+#, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr "axel@esperanto-jeunes.org"
+msgstr ""
 
 #: models/keylistmodel.cpp:447
 #, kde-format
@@ -398,15 +386,7 @@ msgid "Usage"
 msgstr ""
 
 #: models/useridlistmodel.cpp:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "yes"
@@ -545,15 +525,7 @@ msgid ""
 msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:651
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
 "whether your language uses Sentence style capitalization in GUI labels (yes) "
@@ -681,10 +653,9 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgid "Edit"
-msgstr "Redakti..."
+msgstr "Redakti"
 
 #: ui/directoryserviceswidget.cpp:217
 #, kde-format
@@ -824,10 +795,9 @@ msgid ""
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:104
-#, fuzzy, kde-format
-#| msgid "&Port:"
+#, kde-format
 msgid "Port:"
-msgstr "&Pordo:"
+msgstr "Pordo:"
 
 #: ui/editdirectoryservicedialog.cpp:107
 #, kde-format
@@ -888,10 +858,9 @@ msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:148
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User:"
-msgstr "Uzant-ID"
+msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
@@ -901,10 +870,9 @@ msgid ""
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:153
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Password:"
-msgstr "Pasvorto"
+msgstr "Pasvorto:"
 
 #: ui/editdirectoryservicedialog.cpp:155
 #, kde-kuit-format
@@ -1051,11 +1019,10 @@ msgid "Ask Whenever Encryption is Possible"
 msgstr ""
 
 #: ui/keyapprovaldialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
-msgstr "Priskribo"
+msgstr ""
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
@@ -1372,11 +1339,10 @@ msgid "Show Audit Log"
 msgstr ""
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "Loko"
+msgstr ""
 
 #: ui/messagebox.cpp:96
 #, kde-format
@@ -1493,23 +1459,20 @@ msgid ""
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:764
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr "Priskribo"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:781
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Encrypt to others:"
-msgstr "Priskribo"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:815
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generate"
-msgstr "Ĝeneralo"
+msgstr ""
 
 #: ui/progressdialog.cpp:65
 #, kde-format
@@ -1570,10 +1533,9 @@ msgid "Signing"
 msgstr ""
 
 #: utils/formatting.cpp:262 utils/formatting.cpp:284
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Encryption"
-msgstr "Priskribo"
+msgstr ""
 
 #: utils/formatting.cpp:265 utils/formatting.cpp:287
 #, kde-format
@@ -1618,10 +1580,9 @@ msgid "The validity cannot be checked at the moment."
 msgstr ""
 
 #: utils/formatting.cpp:355
-#, fuzzy, kde-format
-#| msgid "Telephone number"
+#, kde-format
 msgid "Serial number"
-msgstr "Telefonnumero"
+msgstr ""
 
 #: utils/formatting.cpp:364
 #, kde-format
@@ -1629,8 +1590,7 @@ msgid "Subject"
 msgstr ""
 
 #: utils/formatting.cpp:364
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User-ID"
 msgstr "Uzant-ID"
 
@@ -1650,17 +1610,9 @@ msgid "Trusted issuer?"
 msgstr ""
 
 #: utils/formatting.cpp:397
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgid "Yes"
-msgstr "yes"
+msgstr ""
 
 #: utils/formatting.cpp:397
 #, kde-format
@@ -1738,8 +1690,7 @@ msgid "MMMM d, yyyy"
 msgstr ""
 
 #: utils/formatting.cpp:585 utils/formatting.cpp:620
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "nekonata"
@@ -1750,18 +1701,16 @@ msgid "unlimited"
 msgstr ""
 
 #: utils/formatting.cpp:689
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: utils/formatting.cpp:694
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
-msgstr "nekonata"
+msgstr ""
 
 #: utils/formatting.cpp:710
 #, kde-format
@@ -1770,8 +1719,7 @@ msgid "Group"
 msgstr ""
 
 #: utils/formatting.cpp:726 utils/formatting.cpp:771
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "nekonata"
@@ -2048,8 +1996,7 @@ msgid "This group does not contain any keys."
 msgstr ""
 
 #: utils/formatting.cpp:1166
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "nekonata"
@@ -2095,16 +2042,14 @@ msgid "File import"
 msgstr ""
 
 #: utils/formatting.cpp:1252
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generated"
-msgstr "Ĝeneralo"
+msgstr ""
 
 #: utils/formatting.cpp:1256
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgid "Unknown"
-msgstr "nekonata"
+msgstr ""
 
 #: utils/formatting.cpp:1292
 #, kde-format
@@ -2132,93 +2077,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#, fuzzy
-#~ msgid "Server Name"
-#~ msgstr "Servilonomo:"
-
-#, fuzzy
-#~ msgid "Server Port"
-#~ msgstr "St. Peter Port"
-
-#~ msgid "User Name"
-#~ msgstr "Uzantonomo"
-
-#~ msgid "New"
-#~ msgstr "Nova"
-
-#~ msgid "&Reset"
-#~ msgstr "&Reagordu"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&OK"
-#~ msgstr "&Bone"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Rezigni"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Axel Rousseau"
-
-#~ msgctxt ""
-#~ "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#~ "implementation name)"
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "A&gordi..."
-
-#~ msgid "Rescan"
-#~ msgstr "Reserĉi"
