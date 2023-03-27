@@ -28,6 +28,7 @@ namespace Kleo
 {
 
 class ExpiryCheckerPrivate;
+class ExpiryCheckerSettings;
 
 class KLEO_EXPORT TimeProvider
 {
@@ -41,17 +42,11 @@ class KLEO_EXPORT ExpiryChecker : public QObject
 {
     Q_OBJECT
 public:
-    ExpiryChecker(Kleo::chrono::days ownKeyThreshold,
-                  Kleo::chrono::days otherKeyThreshold,
-                  Kleo::chrono::days rootCertThreshold,
-                  Kleo::chrono::days chainCertThreshold);
+    explicit ExpiryChecker(const ExpiryCheckerSettings &settings);
 
     ~ExpiryChecker() override;
 
-    Q_REQUIRED_RESULT Kleo::chrono::days ownKeyThreshold() const;
-    Q_REQUIRED_RESULT Kleo::chrono::days otherKeyThreshold() const;
-    Q_REQUIRED_RESULT Kleo::chrono::days rootCertThreshold() const;
-    Q_REQUIRED_RESULT Kleo::chrono::days chainCertThreshold() const;
+    Q_REQUIRED_RESULT ExpiryCheckerSettings settings() const;
 
     enum ExpiryInformation {
         OwnKeyExpired,

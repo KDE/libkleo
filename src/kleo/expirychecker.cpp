@@ -16,6 +16,7 @@
 
 #include "debug.h"
 #include "dn.h"
+#include "expirycheckersettings.h"
 
 #include <libkleo_debug.h>
 
@@ -53,8 +54,9 @@ class Kleo::ExpiryCheckerPrivate
     Kleo::ExpiryChecker *q;
 
 public:
-    ExpiryCheckerPrivate(ExpiryChecker *qq)
+    ExpiryCheckerPrivate(ExpiryChecker *qq, const ExpiryCheckerSettings &settings_)
         : q{qq}
+        , settings{settings_}
     {
     }
 
@@ -67,46 +69,21 @@ public:
                             int recur_limit = 100,
                             const GpgME::Key &orig_key = GpgME::Key::null);
 
-    Kleo::chrono::days ownKeyThreshold;
-    Kleo::chrono::days otherKeyThreshold;
-    Kleo::chrono::days rootCertThreshold;
-    Kleo::chrono::days chainCertThreshold;
+    ExpiryCheckerSettings settings;
     std::set<QByteArray> alreadyWarnedFingerprints;
     std::shared_ptr<TimeProvider> timeProvider;
 };
 
-ExpiryChecker::ExpiryChecker(Kleo::chrono::days ownKeyThreshold,
-                             Kleo::chrono::days otherKeyThreshold,
-                             Kleo::chrono::days rootCertThreshold,
-                             Kleo::chrono::days chainCertThreshold)
-    : d{new ExpiryCheckerPrivate{this}}
+ExpiryChecker::ExpiryChecker(const ExpiryCheckerSettings &settings)
+    : d{new ExpiryCheckerPrivate{this, settings}}
 {
-    d->ownKeyThreshold = ownKeyThreshold;
-    d->otherKeyThreshold = otherKeyThreshold;
-    d->rootCertThreshold = rootCertThreshold;
-    d->chainCertThreshold = chainCertThreshold;
 }
 
 ExpiryChecker::~ExpiryChecker() = default;
 
-Kleo::chrono::days ExpiryChecker::ownKeyThreshold() const
+ExpiryCheckerSettings ExpiryChecker::settings() const
 {
-    return d->ownKeyThreshold;
-}
-
-Kleo::chrono::days ExpiryChecker::otherKeyThreshold() const
-{
-    return d->otherKeyThreshold;
-}
-
-Kleo::chrono::days ExpiryChecker::rootCertThreshold() const
-{
-    return d->rootCertThreshold;
-}
-
-Kleo::chrono::days ExpiryChecker::chainCertThreshold() const
-{
-    return d->chainCertThreshold;
+    return d->settings;
 }
 
 QString formatOpenPGPMessage(const GpgME::Key &key, Expiration expiration, bool isOwnKey, bool isSigningKey)
@@ -427,7 +404,9 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &key, bool isOwnK
         alreadyWarnedFingerprints.insert(subkey.fingerprint());
         Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyExpired : ExpiryChecker::OtherKeyExpired, newMessage);
     } else {
-        const auto threshold = ca ? (key.isRoot() ? rootCertThreshold : chainCertThreshold) : (isOwnKey ? ownKeyThreshold : otherKeyThreshold);
+        const auto threshold = ca //
+            ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
+            : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
         if (threshold >= Kleo::chrono::days::zero() && expiration.duration <= threshold) {
             const QString msg = key.protocol() == GpgME::OpenPGP ? formatOpenPGPMessage(key, expiration, isOwnKey, isSigningKey)
                                                                  : formatSMIMEMessage(key, orig_key, expiration, isOwnKey, isSigningKey, ca);

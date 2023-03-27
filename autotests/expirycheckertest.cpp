@@ -9,6 +9,7 @@
 
 #include <Libkleo/Chrono>
 #include <Libkleo/ExpiryChecker>
+#include <Libkleo/ExpiryCheckerSettings>
 #include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
 
@@ -85,7 +86,7 @@ private Q_SLOTS:
         QFETCH(GpgME::Key, key);
         QFETCH(QDate, fakedate);
 
-        ExpiryChecker checker(days{1}, days{1}, days{1}, days{1});
+        ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
         checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
         QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
 
@@ -135,7 +136,7 @@ private Q_SLOTS:
         QFETCH(QString, msgOwnSigningKey);
 
         {
-            ExpiryChecker checker(days{1}, days{1}, days{1}, days{1});
+            ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             checker.checkKey(key);
@@ -146,7 +147,7 @@ private Q_SLOTS:
             QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OtherKeyExpired);
         }
         {
-            ExpiryChecker checker(days{1}, days{1}, days{1}, days{1});
+            ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             checker.checkOwnKey(key);
@@ -157,7 +158,7 @@ private Q_SLOTS:
             QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OwnKeyExpired);
         }
         {
-            ExpiryChecker checker(days{1}, days{1}, days{1}, days{1});
+            ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             checker.checkOwnSigningKey(key);
@@ -211,7 +212,7 @@ private Q_SLOTS:
         QFETCH(QString, msgOwnSigningKey);
 
         {
-            ExpiryChecker checker(days{1}, days{10}, days{1}, days{1});
+            ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{10}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
@@ -225,7 +226,7 @@ private Q_SLOTS:
             QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OtherKeyNearExpiry);
         }
         {
-            ExpiryChecker checker(days{10}, days{1}, days{1}, days{1});
+            ExpiryChecker checker(ExpiryCheckerSettings{days{10}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
@@ -238,7 +239,7 @@ private Q_SLOTS:
             QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OwnKeyNearExpiry);
         }
         {
-            ExpiryChecker checker(days{10}, days{1}, days{1}, days{1});
+            ExpiryChecker checker(ExpiryCheckerSettings{days{10}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
