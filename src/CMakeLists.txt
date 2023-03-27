@@ -79,6 +79,7 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    utils/algorithm.h
    utils/assuan.cpp
    utils/assuan.h
+   utils/chrono.h
    utils/classify.cpp
    utils/classify.h
    utils/compat.cpp
@@ -278,6 +279,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   HEADER_NAMES
   Algorithm
   Assuan
+  Chrono
   Classify
   Compat
   Compliance

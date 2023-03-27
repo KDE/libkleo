@@ -16,6 +16,8 @@
 
 #include "kleo_export.h"
 
+#include <Libkleo/Chrono>
+
 #include <QObject>
 
 #include <gpgme++/key.h>
@@ -39,17 +41,17 @@ class KLEO_EXPORT ExpiryChecker : public QObject
 {
     Q_OBJECT
 public:
-    explicit ExpiryChecker(int encrOwnKeyNearExpiryThresholdDays,
-                           int encrKeyNearExpiryThresholdDays,
-                           int encrRootCertNearExpiryThresholdDays,
-                           int encrChainCertNearExpiryThresholdDays);
+    ExpiryChecker(Kleo::chrono::days ownKeyThreshold,
+                  Kleo::chrono::days otherKeyThreshold,
+                  Kleo::chrono::days rootCertThreshold,
+                  Kleo::chrono::days chainCertThreshold);
 
     ~ExpiryChecker() override;
 
-    Q_REQUIRED_RESULT int encryptOwnKeyNearExpiryWarningThresholdInDays() const;
-    Q_REQUIRED_RESULT int encryptKeyNearExpiryWarningThresholdInDays() const;
-    Q_REQUIRED_RESULT int encryptRootCertNearExpiryWarningThresholdInDays() const;
-    Q_REQUIRED_RESULT int encryptChainCertNearExpiryWarningThresholdInDays() const;
+    Q_REQUIRED_RESULT Kleo::chrono::days ownKeyThreshold() const;
+    Q_REQUIRED_RESULT Kleo::chrono::days otherKeyThreshold() const;
+    Q_REQUIRED_RESULT Kleo::chrono::days rootCertThreshold() const;
+    Q_REQUIRED_RESULT Kleo::chrono::days chainCertThreshold() const;
 
     enum ExpiryInformation {
         OwnKeyExpired,
