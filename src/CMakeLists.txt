@@ -37,6 +37,8 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    kleo/enum.h
    kleo/expirychecker.cpp
    kleo/expirychecker.h
+   kleo/expirycheckerconfig.cpp
+   kleo/expirycheckerconfig.h
    kleo/expirycheckersettings.cpp
    kleo/expirycheckersettings.h
    kleo/kconfigbasedkeyfilter.cpp
@@ -244,6 +246,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   Dn
   Enum
   ExpiryChecker
+  ExpiryCheckerConfig
   ExpiryCheckerSettings
   KConfigBasedKeyFilter
   KeyFilter
@@ -339,6 +342,12 @@ ecm_generate_pri_file(BASE_NAME Libkleo
 )
 endif()
 
+kconfig_add_kcfg_files(KPim${KF_MAJOR_VERSION}Libkleo
+  kcfg/expirycheckerconfigbase.kcfgc
+)
+# copy generated header to libkleo subdirectory, so that it can be included as if installed
+file(COPY ${CMAKE_CURRENT_BINARY_DIR}/expirycheckerconfigbase.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/libkleo)
+
 install(FILES
     ${libkleo_CamelCase_HEADERS}
     ${libkleo_CamelCase_models_HEADERS}
@@ -349,6 +358,7 @@ install(FILES
 )
 
 install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/expirycheckerconfigbase.h
     ${CMAKE_CURRENT_BINARY_DIR}/kleo_export.h
     ${libkleo_HEADERS}
     ${libkleo_models_HEADERS}
