@@ -42,6 +42,15 @@ class KLEO_EXPORT ExpiryChecker : public QObject
 {
     Q_OBJECT
 public:
+    enum KeyFlag {
+        OtherKey = 0,
+        OwnKey = 1,
+        SigningKey = 2,
+        OwnEncryptionKey = OwnKey,
+        OwnSigningKey = OwnKey | SigningKey,
+    };
+    Q_DECLARE_FLAGS(KeyFlags, KeyFlag)
+
     explicit ExpiryChecker(const ExpiryCheckerSettings &settings);
 
     ~ExpiryChecker() override;
@@ -56,9 +65,7 @@ public:
     };
     Q_ENUM(ExpiryInformation)
 
-    void checkOwnSigningKey(const GpgME::Key &key) const;
-    void checkOwnKey(const GpgME::Key &key) const;
-    void checkKey(const GpgME::Key &key) const;
+    void checkKey(const GpgME::Key &key, KeyFlags flags) const;
 
 Q_SIGNALS:
     void expiryMessage(const GpgME::Key &key, QString msg, Kleo::ExpiryChecker::ExpiryInformation info, bool isNewMessage) const;
@@ -69,5 +76,7 @@ public:
 private:
     std::unique_ptr<ExpiryCheckerPrivate> const d;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(ExpiryChecker::KeyFlags)
 }
 Q_DECLARE_METATYPE(GpgME::Key)

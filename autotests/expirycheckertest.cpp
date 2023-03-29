@@ -90,7 +90,7 @@ private Q_SLOTS:
         checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
         QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
 
-        checker.checkKey(key);
+        checker.checkKey(key, ExpiryChecker::OtherKey);
         QCOMPARE(spy.count(), 0);
     }
 
@@ -139,7 +139,7 @@ private Q_SLOTS:
             ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
-            checker.checkKey(key);
+            checker.checkKey(key, ExpiryChecker::OtherKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
@@ -150,7 +150,7 @@ private Q_SLOTS:
             ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
-            checker.checkOwnKey(key);
+            checker.checkKey(key, ExpiryChecker::OwnKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
@@ -161,7 +161,7 @@ private Q_SLOTS:
             ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
-            checker.checkOwnSigningKey(key);
+            checker.checkKey(key, ExpiryChecker::OwnSigningKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
@@ -216,9 +216,9 @@ private Q_SLOTS:
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
-            checker.checkKey(key);
-            checker.checkOwnKey(key);
-            checker.checkOwnSigningKey(key);
+            checker.checkKey(key, ExpiryChecker::OtherKey);
+            checker.checkKey(key, ExpiryChecker::OwnKey);
+            checker.checkKey(key, ExpiryChecker::OwnSigningKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
@@ -230,8 +230,8 @@ private Q_SLOTS:
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
-            checker.checkKey(key);
-            checker.checkOwnKey(key);
+            checker.checkKey(key, ExpiryChecker::OtherKey);
+            checker.checkKey(key, ExpiryChecker::OwnKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
@@ -243,8 +243,8 @@ private Q_SLOTS:
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
-            checker.checkKey(key);
-            checker.checkOwnSigningKey(key);
+            checker.checkKey(key, ExpiryChecker::OtherKey);
+            checker.checkKey(key, ExpiryChecker::OwnSigningKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
