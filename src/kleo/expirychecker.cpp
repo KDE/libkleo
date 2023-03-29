@@ -18,6 +18,7 @@
 #include "dn.h"
 #include "expirycheckersettings.h"
 
+#include <libkleo/algorithm.h>
 #include <libkleo/keycache.h>
 #include <libkleo_debug.h>
 
@@ -389,8 +390,12 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
     static const int maximumCertificateChainLength = 100;
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
 
+    // use vector instead of set because certificate chains are usually very short
+    std::vector<std::string> checkedCertificates;
     auto key = orig_key;
     for (int chainCount = 0; chainCount < maximumCertificateChainLength; ++chainCount) {
+        checkedCertificates.push_back(key.primaryFingerprint());
+
         const GpgME::Subkey subkey = key.subkey(0);
 
         const bool newMessage = !alreadyWarnedFingerprints.count(subkey.fingerprint());
@@ -427,6 +432,9 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
             break;
         }
         key = keys.front();
+        if (Kleo::contains(checkedCertificates, key.primaryFingerprint())) {
+            break; // this certificate was already checked (looks like a circle in the chain)
+        }
     }
 }
 

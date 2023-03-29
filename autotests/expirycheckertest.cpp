@@ -264,7 +264,7 @@ private Q_SLOTS:
         QTest::newRow("certificate near expiry; issuer okay")
             << testKey("3193786A48BDF2D4D20B8FC6501F4DE8BE231B05", GpgME::CMS) //
             << QDate{2019, 6, 19} // 5 days before expiration date of the certificate
-            << 50 // expect 50 signal emissions because of a 2-certificate loop with 1 cert near expiry and a recursion limit of 100
+            << 1 // expect 1 signal emission because of a 2-certificate chain with 1 cert near expiry
             << QByteArray{"501F4DE8BE231B05"} // first signal emission references the certificate
             << QStringLiteral(
                    "<p>The S/MIME certificate for</p><p align=center><b>CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust AB,C=SE</b> "
@@ -272,7 +272,7 @@ private Q_SLOTS:
         QTest::newRow("certificate okay; issuer near expiry")
             << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
             << QDate{2019, 6, 19} // 5 days before expiration date of the issuer certificate
-            << 50 // expect 50 signal emissions because of a 2-certificate loop with 1 cert near expiry and a recursion limit of 100
+            << 1 // expect 1 signal emission because of a 2-certificate chain with 1 cert near expiry
             << QByteArray{"501F4DE8BE231B05"} // first signal emission references the isser certificate
             << QStringLiteral(
                    "<p>The intermediate CA certificate</p><p align=center><b>CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust "
@@ -282,7 +282,7 @@ private Q_SLOTS:
         QTest::newRow("certificate near expiry; issuer expired")
             << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
             << QDate{2020, 5, 25} // 5 days before expiration date of the certificate
-            << 100 // expect 100 signal emissions because both certificates in the 2-certificate loop are either expired or near expiry
+            << 2 // expect 2 signal emissions because both certificates in the 2-certificate chain are either expired or near expiry
             << QByteArray{"492EDA1DCE2E4C63"} // first signal emission references the certificate
             << QStringLiteral(
                    "<p>The S/MIME certificate for</p><p align=center><b>CN=UTN - DATACorp SGC,L=Salt Lake City,SP=UT,OU=http://www.usertrust.com,O=The "
