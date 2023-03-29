@@ -97,76 +97,79 @@ private Q_SLOTS:
     void expired_data()
     {
         QTest::addColumn<GpgME::Key>("key");
+        QTest::addColumn<ExpiryChecker::KeyFlags>("checkFlags");
         QTest::addColumn<QDate>("fakedate");
+        QTest::addColumn<ExpiryChecker::ExpiryInformation>("expiryInfo");
         QTest::addColumn<QString>("msg");
-        QTest::addColumn<QString>("msgOwnKey");
-        QTest::addColumn<QString>("msgOwnSigningKey");
 
-        // use the day after the expiration date of the test keys/certificates as fake date
-        QTest::newRow("openpgp")
+        QTest::newRow("openpgp - other; < 1 day ago") //
             << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
-            << QDate{2021, 1, 22}
+            << ExpiryChecker::KeyFlags{ExpiryChecker::OtherKey} //
+            << QDate{2021, 1, 22} // the day after the expiration date of the key
+            << ExpiryChecker::OtherKeyExpired
             << QStringLiteral(
-                   "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day ago.</p>")
-            << QStringLiteral(
-                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day "
-                   "ago.</p>")
-            << QStringLiteral(
-                   "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day "
+                   "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired less than a day "
                    "ago.</p>");
-        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) //
-                               << QDate{2013, 3, 26}
-                               << QStringLiteral(
-                                      "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
-                                      "number 00D345203A186385C9)</p><p>expired less than a day ago.</p>")
-                               << QStringLiteral(
-                                      "<p>Your S/MIME encryption certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
-                                      "(serial number 00D345203A186385C9)</p><p>expired less than a day ago.</p>")
-                               << QStringLiteral(
-                                      "<p>Your S/MIME signing certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
-                                      "(serial number 00D345203A186385C9)</p><p>expired less than a day ago.</p>");
+        QTest::newRow("openpgp - own; 1 day ago") //
+            << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
+            << ExpiryChecker::KeyFlags{ExpiryChecker::OwnKey} //
+            << QDate{2021, 1, 23} // the second day after the expiration date of the key
+            << ExpiryChecker::OwnKeyExpired
+            << QStringLiteral(
+                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired one day "
+                   "ago.</p>");
+        QTest::newRow("openpgp - own signing; 2 days ago") //
+            << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
+            << ExpiryChecker::KeyFlags{ExpiryChecker::OwnSigningKey} //
+            << QDate{2021, 1, 24} // the third day after the expiration date of the key
+            << ExpiryChecker::OwnKeyExpired
+            << QStringLiteral(
+                   "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired 2 days ago.</p>");
+
+        QTest::newRow("smime - other; < 1 day ago") //
+            << testKey("test@example.com", GpgME::CMS) //
+            << ExpiryChecker::KeyFlags{ExpiryChecker::OtherKey} //
+            << QDate{2013, 3, 26} // the day after the expiration date of the key
+            << ExpiryChecker::OtherKeyExpired
+            << QStringLiteral(
+                   "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
+                   "number 00D345203A186385C9)</p><p>expired less than a day ago.</p>");
+        QTest::newRow("smime - own; 1 day ago") //
+            << testKey("test@example.com", GpgME::CMS) //
+            << ExpiryChecker::KeyFlags{ExpiryChecker::OwnKey} //
+            << QDate{2013, 3, 27} // the second day after the expiration date of the key
+            << ExpiryChecker::OwnKeyExpired
+            << QStringLiteral(
+                   "<p>Your S/MIME encryption certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
+                   "(serial number 00D345203A186385C9)</p><p>expired one day ago.</p>");
+        QTest::newRow("smime - own signing; 2 days ago") //
+            << testKey("test@example.com", GpgME::CMS) //
+            << ExpiryChecker::KeyFlags{ExpiryChecker::OwnSigningKey} //
+            << QDate{2013, 3, 28} // the third day after the expiration date of the key
+            << ExpiryChecker::OwnKeyExpired
+            << QStringLiteral(
+                   "<p>Your S/MIME signing certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
+                   "(serial number 00D345203A186385C9)</p><p>expired 2 days ago.</p>");
     }
 
     void expired()
     {
         QFETCH(GpgME::Key, key);
+        QFETCH(ExpiryChecker::KeyFlags, checkFlags);
         QFETCH(QDate, fakedate);
+        QFETCH(ExpiryChecker::ExpiryInformation, expiryInfo);
         QFETCH(QString, msg);
-        QFETCH(QString, msgOwnKey);
-        QFETCH(QString, msgOwnSigningKey);
 
         {
             ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
-            checker.checkKey(key, ExpiryChecker::OtherKey);
+            checker.checkKey(key, checkFlags);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
             QCOMPARE(arguments.at(1).toString(), msg);
-            QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OtherKeyExpired);
-        }
-        {
-            ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
-            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
-            QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
-            checker.checkKey(key, ExpiryChecker::OwnKey);
-            QCOMPARE(spy.count(), 1);
-            QList<QVariant> arguments = spy.takeFirst();
-            QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
-            QCOMPARE(arguments.at(1).toString(), msgOwnKey);
-            QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OwnKeyExpired);
-        }
-        {
-            ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
-            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
-            QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
-            checker.checkKey(key, ExpiryChecker::OwnSigningKey);
-            QCOMPARE(spy.count(), 1);
-            QList<QVariant> arguments = spy.takeFirst();
-            QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
-            QCOMPARE(arguments.at(1).toString(), msgOwnSigningKey);
-            QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OwnKeyExpired);
+            QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), expiryInfo);
         }
     }
 

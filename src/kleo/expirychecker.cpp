@@ -234,7 +234,7 @@ QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Ex
                     msg = ki18np(
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
-                        "<p>expired less than a day ago.</p>",
+                        "<p>expired one day ago.</p>",
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -242,7 +242,7 @@ QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Ex
                     msg = ki18np(
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
-                        "<p>expired less than a day ago.</p>",
+                        "<p>expired one day ago.</p>",
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -250,7 +250,7 @@ QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Ex
                     msg = ki18np(
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
-                        "<p>expired less than a day ago.</p>",
+                        "<p>expired one day ago.</p>",
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -273,19 +273,19 @@ QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Ex
             if (isSigningKey) {
                 msg = ki18np(
                     "<p>Your S/MIME signing certificate</p><p align=center>%2</p>"
-                    "<p>expired less than a day ago.</p>",
+                    "<p>expired one day ago.</p>",
                     "<p>Your S/MIME signing certificate</p><p align=center>%2</p>"
                     "<p>expired %1 days ago.</p>");
             } else if (isOwnKey) {
                 msg = ki18np(
                     "<p>Your S/MIME encryption certificate</p><p align=center>%2</p>"
-                    "<p>expired less than a day ago.</p>",
+                    "<p>expired one day ago.</p>",
                     "<p>Your S/MIME encryption certificate</p><p align=center>%2</p>"
                     "<p>expired %1 days ago.</p>");
             } else {
                 msg = ki18np(
                     "<p>The S/MIME certificate for</p><p align=center>%2</p>"
-                    "<p>expired less than a day ago.</p>",
+                    "<p>expired one day ago.</p>",
                     "<p>The S/MIME certificate for</p><p align=center>%2</p>"
                     "<p>expired %1 days ago.</p>");
             }

@@ -79,4 +79,6 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(ExpiryChecker::KeyFlags)
 }
+Q_DECLARE_METATYPE(Kleo::ExpiryChecker::KeyFlags)
+Q_DECLARE_METATYPE(Kleo::ExpiryChecker::ExpiryInformation)
 Q_DECLARE_METATYPE(GpgME::Key)
