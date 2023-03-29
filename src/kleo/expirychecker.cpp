@@ -63,11 +63,7 @@ public:
 
     Expiration calculateExpiration(const GpgME::Subkey &key) const;
 
-    void checkKeyNearExpiry(const GpgME::Key &key,
-                            ExpiryChecker::KeyFlags flags,
-                            bool ca = false,
-                            int recur_limit = 100,
-                            const GpgME::Key &orig_key = GpgME::Key::null);
+    void checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::KeyFlags flags);
 
     ExpiryCheckerSettings settings;
     std::set<QByteArray> alreadyWarnedFingerprints;
@@ -388,47 +384,49 @@ Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Subkey &subkey
             std::chrono::duration_cast<Kleo::chrono::days>(std::chrono::seconds{std::abs(secsTillExpiry)})};
 }
 
-void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::KeyFlags flags, bool ca, int recur_limit, const GpgME::Key &orig_key)
+void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, ExpiryChecker::KeyFlags flags)
 {
+    static const int maximumCertificateChainLength = 100;
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
-    if (recur_limit <= 0) {
-        qCDebug(LIBKLEO_LOG) << "Key chain too long (>100 certs)";
-        return;
-    }
-    const GpgME::Subkey subkey = key.subkey(0);
 
-    const bool newMessage = !alreadyWarnedFingerprints.count(subkey.fingerprint());
+    auto key = orig_key;
+    for (int chainCount = 0; chainCount < maximumCertificateChainLength; ++chainCount) {
+        const GpgME::Subkey subkey = key.subkey(0);
 
-    const auto expiration = calculateExpiration(subkey);
-    if (expiration.status == Expiration::NeverExpires) {
-        return;
-    }
-    if (expiration.status == Expiration::Expired) {
-        const QString msg = key.protocol() == GpgME::OpenPGP //
-            ? formatOpenPGPMessage(key, expiration, flags)
-            : formatSMIMEMessage(key, orig_key, expiration, flags, ca);
-        alreadyWarnedFingerprints.insert(subkey.fingerprint());
-        Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyExpired : ExpiryChecker::OtherKeyExpired, newMessage);
-    } else {
-        const auto threshold = ca //
-            ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
-            : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
-        if (threshold >= Kleo::chrono::days::zero() && expiration.duration <= threshold) {
+        const bool newMessage = !alreadyWarnedFingerprints.count(subkey.fingerprint());
+
+        const auto expiration = calculateExpiration(subkey);
+        if (expiration.status == Expiration::NeverExpires) {
+            break;
+        }
+        if (expiration.status == Expiration::Expired) {
             const QString msg = key.protocol() == GpgME::OpenPGP //
                 ? formatOpenPGPMessage(key, expiration, flags)
-                : formatSMIMEMessage(key, orig_key, expiration, flags, ca);
+                : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
             alreadyWarnedFingerprints.insert(subkey.fingerprint());
-            Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
+            Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyExpired : ExpiryChecker::OtherKeyExpired, newMessage);
+        } else {
+            const auto threshold = chainCount > 0 //
+                ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
+                : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
+            if (threshold >= Kleo::chrono::days::zero() && expiration.duration <= threshold) {
+                const QString msg = key.protocol() == GpgME::OpenPGP //
+                    ? formatOpenPGPMessage(key, expiration, flags)
+                    : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
+                alreadyWarnedFingerprints.insert(subkey.fingerprint());
+                Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
+            }
         }
-    }
-    if (key.isRoot()) {
-        return;
-    } else if (key.protocol() != GpgME::CMS) { // Key chaining is only possible in SMIME
-        return;
-    }
-    const auto keys = KeyCache::instance()->findIssuers(key, KeyCache::NoOption);
-    if (!keys.empty()) {
-        return checkKeyNearExpiry(keys.front(), flags, true, recur_limit - 1, ca ? orig_key : key);
+        if (key.isRoot()) {
+            break;
+        } else if (key.protocol() != GpgME::CMS) { // Key chaining is only possible in SMIME
+            break;
+        }
+        const auto keys = KeyCache::instance()->findIssuers(key, KeyCache::NoOption);
+        if (keys.empty()) {
+            break;
+        }
+        key = keys.front();
     }
 }
 
