@@ -18,6 +18,7 @@
 #include "dn.h"
 #include "expirycheckersettings.h"
 
+#include <libkleo/keycache.h>
 #include <libkleo_debug.h>
 
 #include <KLocalizedString>
@@ -424,17 +425,10 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &key, ExpiryCheck
         return;
     } else if (key.protocol() != GpgME::CMS) { // Key chaining is only possible in SMIME
         return;
-    } else if (const char *chain_id = key.chainID()) {
-        QGpgME::Protocol *p = QGpgME::smime();
-        Q_ASSERT(p);
-        std::unique_ptr<QGpgME::KeyListJob> job(p->keyListJob(false, false, true));
-        if (job.get()) {
-            std::vector<GpgME::Key> keys;
-            job->exec(QStringList(QLatin1String(chain_id)), false, keys);
-            if (!keys.empty()) {
-                return checkKeyNearExpiry(keys.front(), flags, true, recur_limit - 1, ca ? orig_key : key);
-            }
-        }
+    }
+    const auto keys = KeyCache::instance()->findIssuers(key, KeyCache::NoOption);
+    if (!keys.empty()) {
+        return checkKeyNearExpiry(keys.front(), flags, true, recur_limit - 1, ca ? orig_key : key);
     }
 }
 

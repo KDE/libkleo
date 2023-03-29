@@ -253,6 +253,63 @@ private Q_SLOTS:
         }
     }
 
+    void circularCertificateChain_data()
+    {
+        QTest::addColumn<GpgME::Key>("key");
+        QTest::addColumn<QDate>("fakedate");
+        QTest::addColumn<int>("emissions");
+        QTest::addColumn<QByteArray>("keyID");
+        QTest::addColumn<QString>("msg");
+
+        QTest::newRow("certificate near expiry; issuer okay")
+            << testKey("3193786A48BDF2D4D20B8FC6501F4DE8BE231B05", GpgME::CMS) //
+            << QDate{2019, 6, 19} // 5 days before expiration date of the certificate
+            << 50 // expect 50 signal emissions because of a 2-certificate loop with 1 cert near expiry and a recursion limit of 100
+            << QByteArray{"501F4DE8BE231B05"} // first signal emission references the certificate
+            << QStringLiteral(
+                   "<p>The S/MIME certificate for</p><p align=center><b>CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust AB,C=SE</b> "
+                   "(serial number 51260A931CE27F9CC3A55F79E072AE82)</p><p>expires in less than 6 days.</p>");
+        QTest::newRow("certificate okay; issuer near expiry")
+            << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
+            << QDate{2019, 6, 19} // 5 days before expiration date of the issuer certificate
+            << 50 // expect 50 signal emissions because of a 2-certificate loop with 1 cert near expiry and a recursion limit of 100
+            << QByteArray{"501F4DE8BE231B05"} // first signal emission references the isser certificate
+            << QStringLiteral(
+                   "<p>The intermediate CA certificate</p><p align=center><b>CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust "
+                   "AB,C=SE</b></p><p>for S/MIME certificate</p><p align=center><b>CN=UTN - DATACorp SGC,L=Salt Lake "
+                   "City,SP=UT,OU=http://www.usertrust.com,O=The USERTRUST Network,C=US</b> (serial number 46EAF096054CC5E3FA65EA6E9F42C664)</p><p>expires in "
+                   "less than 6 days.</p>");
+        QTest::newRow("certificate near expiry; issuer expired")
+            << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
+            << QDate{2020, 5, 25} // 5 days before expiration date of the certificate
+            << 100 // expect 100 signal emissions because both certificates in the 2-certificate loop are either expired or near expiry
+            << QByteArray{"492EDA1DCE2E4C63"} // first signal emission references the certificate
+            << QStringLiteral(
+                   "<p>The S/MIME certificate for</p><p align=center><b>CN=UTN - DATACorp SGC,L=Salt Lake City,SP=UT,OU=http://www.usertrust.com,O=The "
+                   "USERTRUST Network,C=US</b> (serial number 46EAF096054CC5E3FA65EA6E9F42C664)</p><p>expires in less than 6 days.</p>");
+    }
+
+    void circularCertificateChain()
+    {
+        QFETCH(GpgME::Key, key);
+        QFETCH(QDate, fakedate);
+        QFETCH(int, emissions);
+        QFETCH(QByteArray, keyID);
+        QFETCH(QString, msg);
+
+        {
+            ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{10}, days{10}, days{10}});
+            checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
+            QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
+            checker.checkKey(key, ExpiryChecker::OtherKey);
+            QCOMPARE(spy.count(), emissions);
+            QList<QVariant> arguments = spy.takeFirst();
+            QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), keyID);
+            QCOMPARE(arguments.at(1).toString(), msg);
+            QCOMPARE(arguments.at(2).value<ExpiryChecker::ExpiryInformation>(), ExpiryChecker::OtherKeyNearExpiry);
+        }
+    }
+
 private:
     // OpenPGP keys
     //
@@ -277,17 +334,49 @@ private:
     // chain length: unlimited
     //     sha1 fpr: 24:D2:FC:A2:2E:B3:B8:0A:1E:37:71:D1:4C:C6:58:E3:21:2B:49:DC
     //     sha2 fpr: 62:4B:A4:B8:7D:8F:99:AA:6B:46:E3:C8:C5:BE:BF:30:29:B6:EC:4E:CC:7D:1F:9F:A8:39:B6:CE:03:6F:C7:FB
+    //
+    // S/MIME certificates building a circular chain
+    //
+    //            ID: 0xBE231B05
+    //           S/N: 51260A931CE27F9CC3A55F79E072AE82
+    //         (dec): 107864989418777835411218143713715990146
+    //        Issuer: /CN=UTN - DATACorp SGC/OU=http:\x2f\x2fwww.usertrust.com/O=The USERTRUST Network/L=Salt Lake City/ST=UT/C=US
+    //       Subject: /CN=AddTrust External CA Root/OU=AddTrust External TTP Network/O=AddTrust AB/C=SE
+    //      validity: 2005-06-07 08:09:10 through 2019-06-24 19:06:30
+    //      key type: rsa2048
+    //     key usage: certSign crlSign
+    // ext key usage: ms-serverGatedCrypto (suggested), serverGatedCrypto.ns (suggested)
+    //  chain length: unlimited
+    //      sha1 fpr: 31:93:78:6A:48:BD:F2:D4:D2:0B:8F:C6:50:1F:4D:E8:BE:23:1B:05
+    //      sha2 fpr: 92:5E:4B:37:2B:A3:2E:5E:87:30:22:84:B2:D7:C9:DF:BF:82:00:FF:CB:A0:D1:66:03:A1:A0:6F:F7:6C:D3:53
+    //
+    //            ID: 0xCE2E4C63
+    //           S/N: 46EAF096054CC5E3FA65EA6E9F42C664
+    //         (dec): 94265836834010752231943569188608722532
+    //        Issuer: /CN=AddTrust External CA Root/OU=AddTrust External TTP Network/O=AddTrust AB/C=SE
+    //       Subject: /CN=UTN - DATACorp SGC/OU=http:\x2f\x2fwww.usertrust.com/O=The USERTRUST Network/L=Salt Lake City/ST=UT/C=US
+    //      validity: 2005-06-07 08:09:10 through 2020-05-30 10:48:38
+    //      key type: rsa2048
+    //     key usage: certSign crlSign
+    // ext key usage: ms-serverGatedCrypto (suggested), serverGatedCrypto.ns (suggested)
+    //      policies: 2.5.29.32.0:N:
+    //  chain length: unlimited
+    //      sha1 fpr: 9E:99:81:7D:12:28:0C:96:77:67:44:30:49:2E:DA:1D:CE:2E:4C:63
+    //      sha2 fpr: 21:3F:AD:03:B1:C5:23:47:E9:A8:0F:29:9A:F0:89:9B:CA:FF:3F:62:B3:4E:B0:60:66:F4:D7:EE:A5:EE:1A:73
 
-    Key testKey(const char *email, Protocol protocol = UnknownProtocol)
+    Key testKey(const char *pattern, Protocol protocol = UnknownProtocol)
     {
-        const std::vector<Key> keys = KeyCache::instance()->findByEMailAddress(email);
+        const std::vector<Key> keys = KeyCache::instance()->findByEMailAddress(pattern);
         for (const auto &key : keys) {
             if (protocol == UnknownProtocol || key.protocol() == protocol) {
                 return key;
             }
         }
-        qWarning() << "No" << Formatting::displayName(protocol) << "test key found for" << email;
-        return {};
+        const auto key = KeyCache::instance()->findByKeyIDOrFingerprint(pattern);
+        if (key.isNull()) {
+            qWarning() << "No" << Formatting::displayName(protocol) << "test key found for" << pattern;
+        }
+        return key;
     }
 
 private:
