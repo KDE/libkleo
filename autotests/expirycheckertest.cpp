@@ -194,13 +194,13 @@ private Q_SLOTS:
                                << QDate{2013, 3, 20}
                                << QStringLiteral(
                                       "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
-                                      "number 00D345203A186385C9);</p><p>expires in less than 6 days.</p>")
+                                      "number 00D345203A186385C9)</p><p>expires in less than 6 days.</p>")
                                << QStringLiteral(
                                       "<p>Your S/MIME encryption certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
-                                      "(serial number 00D345203A186385C9);</p><p>expires in less than 6 days.</p>")
+                                      "(serial number 00D345203A186385C9)</p><p>expires in less than 6 days.</p>")
                                << QStringLiteral(
                                       "<p>Your S/MIME signing certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
-                                      "(serial number 00D345203A186385C9);</p><p>expires in less than 6 days.</p>");
+                                      "(serial number 00D345203A186385C9)</p><p>expires in less than 6 days.</p>");
     }
 
     void nearexpiry()
