@@ -411,7 +411,7 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
             const auto threshold = chainCount > 0 //
                 ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
                 : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
-            if (threshold >= Kleo::chrono::days::zero() && expiration.duration <= threshold) {
+            if (expiration.duration <= threshold) {
                 const QString msg = key.protocol() == GpgME::OpenPGP //
                     ? formatOpenPGPMessage(key, expiration, flags)
                     : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
