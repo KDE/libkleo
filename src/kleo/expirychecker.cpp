@@ -40,13 +40,14 @@ namespace
 {
 struct Expiration {
     enum Status {
-        NeverExpires,
-        Expires,
+        NotNearExpiry,
+        ExpiresSoon,
         Expired,
+        Expires = ExpiresSoon, // alias for temporary status
     } status;
     // duration is full days until expiry if status is Expires,
     // full days since expiry if status is Expired,
-    // undefined if status is NeverExpires
+    // undefined if status is NotNearExpiry
     Kleo::chrono::days duration;
 };
 }
@@ -63,6 +64,7 @@ public:
     }
 
     Expiration calculateExpiration(const GpgME::Subkey &key) const;
+    Expiration checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const;
 
     void checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::CheckFlags flags);
 
@@ -375,7 +377,7 @@ QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Ex
 Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Subkey &subkey) const
 {
     if (subkey.neverExpires()) {
-        return {Expiration::NeverExpires, Kleo::chrono::days::zero()};
+        return {Expiration::NotNearExpiry, Kleo::chrono::days::zero()};
     }
     const time_t t = timeProvider ? timeProvider->getTime() : std::time(nullptr);
     // casting the double-valued difference (returned by std::difftime) of two non-negative time_t to a time_t is no problem;
@@ -383,6 +385,16 @@ Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Subkey &subkey
     const time_t secsTillExpiry = static_cast<time_t>(std::difftime(subkey.expirationTime(), t));
     return {secsTillExpiry <= 0 ? Expiration::Expired : Expiration::Expires,
             std::chrono::duration_cast<Kleo::chrono::days>(std::chrono::seconds{std::abs(secsTillExpiry)})};
+}
+
+Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const
+{
+    Expiration expiration = calculateExpiration(key.subkey(0));
+    if ((expiration.status == Expiration::Expires) && (expiration.duration > threshold)) {
+        // key expires, but not too soon
+        expiration.status = Expiration::NotNearExpiry;
+    }
+    return expiration;
 }
 
 void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, ExpiryChecker::CheckFlags flags)
@@ -400,24 +412,22 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
 
         const bool newMessage = !alreadyWarnedFingerprints.count(subkey.fingerprint());
 
-        const auto expiration = calculateExpiration(subkey);
+        const auto threshold = chainCount > 0 //
+            ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
+            : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
+        const auto expiration = checkForExpiration(key, threshold);
         if (expiration.status == Expiration::Expired) {
             const QString msg = key.protocol() == GpgME::OpenPGP //
                 ? formatOpenPGPMessage(key, expiration, flags)
                 : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
             alreadyWarnedFingerprints.insert(subkey.fingerprint());
             Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyExpired : ExpiryChecker::OtherKeyExpired, newMessage);
-        } else if (expiration.status == Expiration::Expires) {
-            const auto threshold = chainCount > 0 //
-                ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
-                : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
-            if (expiration.duration <= threshold) {
-                const QString msg = key.protocol() == GpgME::OpenPGP //
-                    ? formatOpenPGPMessage(key, expiration, flags)
-                    : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
-                alreadyWarnedFingerprints.insert(subkey.fingerprint());
-                Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
-            }
+        } else if (expiration.status == Expiration::ExpiresSoon) {
+            const QString msg = key.protocol() == GpgME::OpenPGP //
+                ? formatOpenPGPMessage(key, expiration, flags)
+                : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
+            alreadyWarnedFingerprints.insert(subkey.fingerprint());
+            Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
         }
         if (!(flags & ExpiryChecker::CheckChain) || key.isRoot() || (key.protocol() != GpgME::CMS)) {
             break;
