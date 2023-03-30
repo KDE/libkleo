@@ -64,7 +64,7 @@ public:
 
     Expiration calculateExpiration(const GpgME::Subkey &key) const;
 
-    void checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::KeyFlags flags);
+    void checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::CheckFlags flags);
 
     ExpiryCheckerSettings settings;
     std::set<QByteArray> alreadyWarnedFingerprints;
@@ -83,7 +83,7 @@ ExpiryCheckerSettings ExpiryChecker::settings() const
     return d->settings;
 }
 
-QString formatOpenPGPMessage(const GpgME::Key &key, Expiration expiration, ExpiryChecker::KeyFlags flags)
+QString formatOpenPGPMessage(const GpgME::Key &key, Expiration expiration, ExpiryChecker::CheckFlags flags)
 {
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
     const bool isSigningKey = flags & ExpiryChecker::SigningKey;
@@ -149,7 +149,7 @@ QString formatOpenPGPMessage(const GpgME::Key &key, Expiration expiration, Expir
     return msg.subs(expiration.duration.count() + 1).subs(keyInfo).toString();
 }
 
-QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Expiration expiration, ExpiryChecker::KeyFlags flags, bool ca)
+QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Expiration expiration, ExpiryChecker::CheckFlags flags, bool ca)
 {
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
     const bool isSigningKey = flags & ExpiryChecker::SigningKey;
@@ -385,7 +385,7 @@ Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Subkey &subkey
             std::chrono::duration_cast<Kleo::chrono::days>(std::chrono::seconds{std::abs(secsTillExpiry)})};
 }
 
-void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, ExpiryChecker::KeyFlags flags)
+void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, ExpiryChecker::CheckFlags flags)
 {
     static const int maximumCertificateChainLength = 100;
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
@@ -422,9 +422,7 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
                 Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
             }
         }
-        if (key.isRoot()) {
-            break;
-        } else if (key.protocol() != GpgME::CMS) { // Key chaining is only possible in SMIME
+        if (!(flags & ExpiryChecker::CheckChain) || key.isRoot() || (key.protocol() != GpgME::CMS)) {
             break;
         }
         const auto keys = KeyCache::instance()->findIssuers(key, KeyCache::NoOption);
@@ -438,7 +436,7 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
     }
 }
 
-void ExpiryChecker::checkKey(const GpgME::Key &key, KeyFlags flags) const
+void ExpiryChecker::checkKey(const GpgME::Key &key, CheckFlags flags) const
 {
     d->checkKeyNearExpiry(key, flags);
 }
