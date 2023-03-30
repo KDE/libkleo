@@ -401,16 +401,13 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
         const bool newMessage = !alreadyWarnedFingerprints.count(subkey.fingerprint());
 
         const auto expiration = calculateExpiration(subkey);
-        if (expiration.status == Expiration::NeverExpires) {
-            break;
-        }
         if (expiration.status == Expiration::Expired) {
             const QString msg = key.protocol() == GpgME::OpenPGP //
                 ? formatOpenPGPMessage(key, expiration, flags)
                 : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
             alreadyWarnedFingerprints.insert(subkey.fingerprint());
             Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyExpired : ExpiryChecker::OtherKeyExpired, newMessage);
-        } else {
+        } else if (expiration.status == Expiration::Expires) {
             const auto threshold = chainCount > 0 //
                 ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
                 : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
