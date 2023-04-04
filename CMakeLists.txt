@@ -31,7 +31,6 @@ include(ECMDeprecationSettings)
 include(ECMAddQch)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
-option(BUILD_WITH_COMPAT_LIBS "Generate compat cmake file (Set at false will allow to co-install lib)" ON)
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
@@ -158,41 +157,3 @@ file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 
-if (BUILD_WITH_COMPAT_LIBS)
-#if (QT_MAJOR_VERSION STREQUAL "5")
-##
-# TODO: Backwards compatiblity. Remove in next major version
-##
-set(CMAKECONFIG_INSTALL_DIR_KF6 "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Libkleo")
-set(LIBKLEO_KF6_COMPAT TRUE)
-configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/KPimLibkleoConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF6LibkleoConfig.cmake"
-    INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR_KF6}
-)
-
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/KF6LibkleoConfig.cmake"
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR_KF6}"
-    COMPONENT Devel
-)
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfigVersion.cmake"
-    RENAME "KF6LibkleoConfigVersion.cmake"
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR_KF6}"
-    COMPONENT Devel
-)
-install(EXPORT KPim6LibkleoTargets
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR_KF6}"
-    FILE KPim6LibkleoTargets.cmake
-    NAMESPACE KF6::
-)
-if (BUILD_QCH)
-    install(FILES
-        "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoQchTargets.cmake"
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR_KF6}"
-        COMPONENT Devel
-    )
-endif()
-#endif()
-endif()
