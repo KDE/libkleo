@@ -15,11 +15,11 @@ kde_enable_exceptions()
 add_definitions( -DGPGMEPP_ERR_SOURCE_DEFAULT=13 ) # 13 is GPG_ERR_SOURCE_KLEO, even if gpg-error's too old to know about
 
 add_subdirectory( pics )
-add_library(KPim${KF_MAJOR_VERSION}Libkleo)
-add_library(KPim${KF_MAJOR_VERSION}::Libkleo ALIAS KPim${KF_MAJOR_VERSION}Libkleo)
+add_library(KPim6Libkleo)
+add_library(KPim6::Libkleo ALIAS KPim6Libkleo)
 
 ########### next target ###############
-target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
+target_sources(KPim6Libkleo PRIVATE
    kleo/auditlogentry.cpp
    kleo/auditlogentry.h
    kleo/checksumdefinition.cpp
@@ -111,13 +111,13 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    utils/uniquelock.cpp
    utils/uniquelock.h
    )
-ecm_qt_declare_logging_category(KPim${KF_MAJOR_VERSION}Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
+ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
         EXPORT LIBKLEO
     )
 
 
-target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
+target_sources(KPim6Libkleo PRIVATE
    ui/auditlogviewer.cpp
    ui/auditlogviewer.h
    ui/cryptoconfigentryreaderport.cpp
@@ -147,14 +147,14 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    ui/readerportselection.h
 )
 
-ecm_qt_declare_logging_category(KPim${KF_MAJOR_VERSION}Libkleo HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui
+ecm_qt_declare_logging_category(KPim6Libkleo HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui
         DESCRIPTION "libkleo (kleo_ui)"
         OLD_CATEGORY_NAMES log_kleo_ui
         EXPORT LIBKLEO
     )
 
 
-target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE    # make this a separate lib.
+target_sources(KPim6Libkleo PRIVATE    # make this a separate lib.
     ui/keyapprovaldialog.cpp
     ui/keyapprovaldialog.h
     ui/keylistview.cpp
@@ -174,36 +174,36 @@ if(MINGW)
     set_source_files_properties(utils/gnupg-registry.c PROPERTIES COMPILE_OPTIONS "-Wno-pointer-sign")
 endif()
 
-target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
-                                                KF${KF_MAJOR_VERSION}::I18n
-                                                KF${KF_MAJOR_VERSION}::Completion
-                                                KF${KF_MAJOR_VERSION}::ConfigCore
-                                                KF${KF_MAJOR_VERSION}::ConfigWidgets
-                                                KF${KF_MAJOR_VERSION}::CoreAddons
-                                                KF${KF_MAJOR_VERSION}::WidgetsAddons
-                                                KF${KF_MAJOR_VERSION}::ItemModels
-                                                KF${KF_MAJOR_VERSION}::Codecs)
+target_link_libraries(KPim6Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
+                                                KF6::I18n
+                                                KF6::Completion
+                                                KF6::ConfigCore
+                                                KF6::ConfigWidgets
+                                                KF6::CoreAddons
+                                                KF6::WidgetsAddons
+                                                KF6::ItemModels
+                                                KF6::Codecs)
 
 if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE Qt6::Core5Compat PUBLIC QGpgmeQt6)
+    target_link_libraries(KPim6Libkleo PRIVATE Qt6::Core5Compat PUBLIC QGpgmeQt6)
 else()
-    target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PUBLIC QGpgme)
+    target_link_libraries(KPim6Libkleo PUBLIC QGpgme)
 endif()
 # Boost::headers may not be available for old versions of Boost
 if (TARGET Boost::headers)
-  target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE Boost::headers)
+  target_link_libraries(KPim6Libkleo PRIVATE Boost::headers)
 endif()
 
-if (KPim${KF_MAJOR_VERSION}TextEdit_FOUND)
+if (KPim6TextEdit_FOUND)
   add_definitions(-DHAVE_PIMTEXTEDIT)
-  target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE KPim${KF_MAJOR_VERSION}::PimTextEdit)
+  target_link_libraries(KPim6Libkleo PRIVATE KPim6::PimTextEdit)
 endif()
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(KPim${KF_MAJOR_VERSION}Libkleo PROPERTIES UNITY_BUILD ON)
+    set_target_properties(KPim6Libkleo PROPERTIES UNITY_BUILD ON)
 endif()
 
-ecm_generate_export_header(KPim${KF_MAJOR_VERSION}Libkleo
+ecm_generate_export_header(KPim6Libkleo
     BASE_NAME kleo
     VERSION ${PIM_VERSION}
     DEPRECATED_BASE_VERSION 0
@@ -211,22 +211,22 @@ ecm_generate_export_header(KPim${KF_MAJOR_VERSION}Libkleo
 )
 
 if(WIN32)
-    target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo ${GPGME_VANILLA_LIBRARIES} )
+    target_link_libraries(KPim6Libkleo ${GPGME_VANILLA_LIBRARIES} )
 endif()
 
-set_target_properties(KPim${KF_MAJOR_VERSION}Libkleo PROPERTIES
+set_target_properties(KPim6Libkleo PROPERTIES
     VERSION ${LIBKLEO_VERSION}
     SOVERSION ${LIBKLEO_SOVERSION}
     EXPORT_NAME Libkleo
 )
 
 install(TARGETS
-    KPim${KF_MAJOR_VERSION}Libkleo
-    EXPORT KPim${KF_MAJOR_VERSION}LibkleoTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+    KPim6Libkleo
+    EXPORT KPim6LibkleoTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
-target_include_directories(KPim${KF_MAJOR_VERSION}Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/Libkleo>")
-target_include_directories(KPim${KF_MAJOR_VERSION}Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src;${libkleo_BINARY_DIR}/src>")
+target_include_directories(KPim6Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo>")
+target_include_directories(KPim6Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src;${libkleo_BINARY_DIR}/src>")
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
   HEADER_NAMES
@@ -321,13 +321,13 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
 
 if (QT_MAJOR_VERSION STREQUAL "6")
 ecm_generate_pri_file(BASE_NAME Libkleo
-    LIB_NAME KPim${KF_MAJOR_VERSION}Libkleo
-    DEPS "QGpgme" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/Libkleo
+    LIB_NAME KPim6Libkleo
+    DEPS "QGpgme" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo
 )
 else()
 ecm_generate_pri_file(BASE_NAME Libkleo
-    LIB_NAME KPim${KF_MAJOR_VERSION}Libkleo
-    DEPS "QGpgmeQt6" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/Libkleo
+    LIB_NAME KPim6Libkleo
+    DEPS "QGpgmeQt6" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo
 )
 endif()
 
@@ -336,7 +336,7 @@ install(FILES
     ${libkleo_CamelCase_models_HEADERS}
     ${libkleo_CamelCase_ui_HEADERS}
     ${libkleo_CamelCase_utils_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/Libkleo/Libkleo
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo/Libkleo
     COMPONENT Devel
 )
 
@@ -346,7 +346,7 @@ install(FILES
     ${libkleo_models_HEADERS}
     ${libkleo_ui_HEADERS}
     ${libkleo_utils_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/Libkleo/libkleo
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo/libkleo
     COMPONENT Devel
 )
 install(FILES
@@ -362,9 +362,9 @@ endif ()
 
 if (BUILD_QCH)
     ecm_add_qch(
-        KPim${KF_MAJOR_VERSION}Libkleo_QCH
-        NAME KPim${KF_MAJOR_VERSION}Libkleo
-        BASE_NAME KPim${KF_MAJOR_VERSION}Libkleo
+        KPim6Libkleo_QCH
+        NAME KPim6Libkleo
+        BASE_NAME KPim6Libkleo
         VERSION ${PIM_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
@@ -375,9 +375,9 @@ if (BUILD_QCH)
         #MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
         #IMAGE_DIRS "${CMAKE_SOURCE_DIR}/docs/pics"
         LINK_QCHS
-            Qt${QT_MAJOR_VERSION}Core_QCH
-            Qt${QT_MAJOR_VERSION}Gui_QCH
-            Qt${QT_MAJOR_VERSION}Widgets_QCH
+            Qt6Core_QCH
+            Qt6Gui_QCH
+            Qt6Widgets_QCH
         INCLUDE_DIRS
             ${CMAKE_CURRENT_BINARY_DIR}
         BLANK_MACROS
