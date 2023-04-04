@@ -22,9 +22,9 @@
 
 #include <KLocalizedString>
 
+#include <QList>
 #include <QSortFilterProxyModel>
 #include <QTimer>
-#include <QVector>
 
 #include <gpgme++/key.h>
 
@@ -311,8 +311,8 @@ public:
     }
 
 private:
-    QVector<CustomItem *> mFrontItems;
-    QVector<CustomItem *> mBackItems;
+    QList<CustomItem *> mFrontItems;
+    QList<CustomItem *> mBackItems;
 };
 
 } // anonymous namespace

@@ -343,9 +343,9 @@ UserID UserIDListModel::userID(const QModelIndex &index) const
     return item->uid();
 }
 
-QVector<UserID> UserIDListModel::userIDs(const QModelIndexList &indexes) const
+QList<UserID> UserIDListModel::userIDs(const QModelIndexList &indexes) const
 {
-    QVector<GpgME::UserID> ret;
+    QList<GpgME::UserID> ret;
     for (const QModelIndex &idx : indexes) {
         if (!idx.isValid()) {
             continue;
@@ -367,9 +367,9 @@ UserID::Signature UserIDListModel::signature(const QModelIndex &index) const
     return item->signature();
 }
 
-QVector<UserID::Signature> UserIDListModel::signatures(const QModelIndexList &indexes) const
+QList<UserID::Signature> UserIDListModel::signatures(const QModelIndexList &indexes) const
 {
-    QVector<GpgME::UserID::Signature> ret;
+    QList<GpgME::UserID::Signature> ret;
     for (const QModelIndex &idx : indexes) {
         if (!idx.isValid()) {
             continue;

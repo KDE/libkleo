@@ -1370,7 +1370,7 @@ public:
     void updateKeyCache();
 
     QPointer<KeyCache> m_cache;
-    QVector<QGpgME::ListAllKeysJob *> m_jobsPending;
+    QList<QGpgME::ListAllKeysJob *> m_jobsPending;
     std::vector<Key> m_keys;
     KeyListResult m_mergedResult;
     bool m_canceled;

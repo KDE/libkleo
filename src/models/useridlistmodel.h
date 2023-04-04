@@ -48,9 +48,9 @@ public:
 
 public:
     GpgME::UserID userID(const QModelIndex &index) const;
-    QVector<GpgME::UserID> userIDs(const QModelIndexList &indexes) const;
+    QList<GpgME::UserID> userIDs(const QModelIndexList &indexes) const;
     GpgME::UserID::Signature signature(const QModelIndex &index) const;
-    QVector<GpgME::UserID::Signature> signatures(const QModelIndexList &indexes) const;
+    QList<GpgME::UserID::Signature> signatures(const QModelIndexList &indexes) const;
     void enableRemarks(bool value);
 
 public Q_SLOTS:

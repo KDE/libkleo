@@ -245,10 +245,10 @@ static const unsigned char *parse_dn_part(DnPair *array, const unsigned char *st
 static Kleo::DN::Attribute::List parse_dn(const unsigned char *string)
 {
     if (!string) {
-        return QVector<Kleo::DN::Attribute>();
+        return QList<Kleo::DN::Attribute>();
     }
 
-    QVector<Kleo::DN::Attribute> result;
+    QList<Kleo::DN::Attribute> result;
     while (*string) {
         while (*string == ' ') {
             string++;
@@ -281,10 +281,10 @@ static Kleo::DN::Attribute::List parse_dn(const unsigned char *string)
     return result;
 
 failure:
-    return QVector<Kleo::DN::Attribute>();
+    return QList<Kleo::DN::Attribute>();
 }
 
-static QVector<Kleo::DN::Attribute> parse_dn(const QString &dn)
+static QList<Kleo::DN::Attribute> parse_dn(const QString &dn)
 {
     return parse_dn((const unsigned char *)dn.toUtf8().data());
 }
@@ -312,10 +312,10 @@ static QString dn_escape(const QString &s)
     return result;
 }
 
-static QString serialise(const QVector<Kleo::DN::Attribute> &dn, const QString &sep)
+static QString serialise(const QList<Kleo::DN::Attribute> &dn, const QString &sep)
 {
     QStringList result;
-    for (QVector<Kleo::DN::Attribute>::const_iterator it = dn.begin(); it != dn.end(); ++it) {
+    for (QList<Kleo::DN::Attribute>::const_iterator it = dn.begin(); it != dn.end(); ++it) {
         if (!(*it).name().isEmpty() && !(*it).value().isEmpty()) {
             result.push_back((*it).name().trimmed() + QLatin1Char('=') + dn_escape((*it).value().trimmed()));
         }
@@ -489,7 +489,7 @@ QString Kleo::DN::operator[](const QString &attr) const
         return QString();
     }
     const QString attrUpper = attr.toUpper();
-    for (QVector<Attribute>::const_iterator it = d->attributes.constBegin(); it != d->attributes.constEnd(); ++it) {
+    for (QList<Attribute>::const_iterator it = d->attributes.constBegin(); it != d->attributes.constEnd(); ++it) {
         if ((*it).name() == attrUpper) {
             return (*it).value();
         }
@@ -497,7 +497,7 @@ QString Kleo::DN::operator[](const QString &attr) const
     return QString();
 }
 
-static QVector<Kleo::DN::Attribute> empty;
+static QList<Kleo::DN::Attribute> empty;
 
 Kleo::DN::const_iterator Kleo::DN::begin() const
 {

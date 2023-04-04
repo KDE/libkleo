@@ -13,9 +13,9 @@
 
 #include "kleo_export.h"
 
+#include <QList>
 #include <QString>
 #include <QStringList>
-#include <QVector>
 
 namespace Kleo
 {
@@ -27,7 +27,7 @@ class KLEO_EXPORT DN
 {
 public:
     class Attribute;
-    using AttributeList = QVector<Attribute>;
+    using AttributeList = QList<Attribute>;
     using const_iterator = AttributeList::const_iterator;
 
     DN();
