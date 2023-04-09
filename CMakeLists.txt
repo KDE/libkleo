@@ -82,7 +82,6 @@ remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim6Libkleo")
-set(LIBKLEO_KF6_COMPAT FALSE)
 configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KPimLibkleoConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfig.cmake"
