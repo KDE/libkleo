@@ -36,22 +36,6 @@
 
 using namespace Kleo;
 
-namespace
-{
-struct Expiration {
-    enum Status {
-        NotNearExpiry,
-        ExpiresSoon,
-        Expired,
-        Expires = ExpiresSoon, // alias for temporary status
-    } status;
-    // duration is full days until expiry if status is Expires,
-    // full days since expiry if status is Expired,
-    // undefined if status is NotNearExpiry
-    Kleo::chrono::days duration;
-};
-}
-
 class Kleo::ExpiryCheckerPrivate
 {
     Kleo::ExpiryChecker *q;
@@ -63,10 +47,10 @@ public:
     {
     }
 
-    Expiration calculateExpiration(const GpgME::Subkey &key) const;
-    Expiration checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const;
+    ExpiryChecker::Expiration calculateExpiration(const GpgME::Key &key) const;
+    ExpiryChecker::Expiration checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const;
 
-    void checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::CheckFlags flags);
+    ExpiryChecker::Result checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::CheckFlags flags);
 
     ExpiryCheckerSettings settings;
     std::set<QByteArray> alreadyWarnedFingerprints;
@@ -85,14 +69,15 @@ ExpiryCheckerSettings ExpiryChecker::settings() const
     return d->settings;
 }
 
-QString formatOpenPGPMessage(const GpgME::Key &key, Expiration expiration, ExpiryChecker::CheckFlags flags)
+QString formatOpenPGPMessage(ExpiryChecker::Expiration expiration, ExpiryChecker::CheckFlags flags)
 {
+    const GpgME::Key key = expiration.certificate;
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
     const bool isSigningKey = flags & ExpiryChecker::SigningKey;
     const auto keyInfo = ki18nc("<b>User ID of key</b> (KeyID key ID of key in hex notation)", "<b>%1</b> (KeyID 0x%2)")
                              .subs(QString::fromUtf8(key.userID(0).id()))
                              .subs(QString::fromLatin1(key.keyID()));
-    if (expiration.status == Expiration::Expired) {
+    if (expiration.status == ExpiryChecker::Expired) {
         qCDebug(LIBKLEO_LOG) << "Key" << key << "expired" << expiration.duration.count() << "days ago";
         if (expiration.duration.count() == 0) {
             KLocalizedString msg;
@@ -151,15 +136,16 @@ QString formatOpenPGPMessage(const GpgME::Key &key, Expiration expiration, Expir
     return msg.subs(expiration.duration.count() + 1).subs(keyInfo).toString();
 }
 
-QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Expiration expiration, ExpiryChecker::CheckFlags flags, bool ca)
+QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration expiration, ExpiryChecker::CheckFlags flags, bool ca)
 {
+    const GpgME::Key key = expiration.certificate;
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
     const bool isSigningKey = flags & ExpiryChecker::SigningKey;
     const auto userCert = orig_key.isNull() ? key : orig_key;
     const auto userCertInfo = ki18nc("<b>User ID of certificate</b> (serial number serial no. of certificate)", "<b>%1</b> (serial number %2)")
                                   .subs(Kleo::DN(userCert.userID(0).id()).prettyDN())
                                   .subs(QString::fromLatin1(userCert.issuerSerial()));
-    if (expiration.status == Expiration::Expired) {
+    if (expiration.status == ExpiryChecker::Expired) {
         qCDebug(LIBKLEO_LOG) << "Certificate" << key << "expired" << expiration.duration.count() << "days ago";
         if (ca) {
             if (key.isRoot()) {
@@ -374,33 +360,39 @@ QString formatSMIMEMessage(const GpgME::Key &key, const GpgME::Key &orig_key, Ex
     return msg.subs(expiration.duration.count() + 1).subs(userCertInfo).toString();
 }
 
-Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Subkey &subkey) const
+ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Key &key) const
 {
+    const GpgME::Subkey subkey = key.subkey(0);
     if (subkey.neverExpires()) {
-        return {Expiration::NotNearExpiry, Kleo::chrono::days::zero()};
+        return {key, ExpiryChecker::NotNearExpiry, Kleo::chrono::days::zero()};
     }
     const time_t t = timeProvider ? timeProvider->getTime() : std::time(nullptr);
     // casting the double-valued difference (returned by std::difftime) of two non-negative time_t to a time_t is no problem;
     // negative values for expiration time and current time can be safely ignored
     const time_t secsTillExpiry = static_cast<time_t>(std::difftime(subkey.expirationTime(), t));
-    return {secsTillExpiry <= 0 ? Expiration::Expired : Expiration::Expires,
+    return {key,
+            secsTillExpiry <= 0 ? ExpiryChecker::Expired : ExpiryChecker::Expires,
             std::chrono::duration_cast<Kleo::chrono::days>(std::chrono::seconds{std::abs(secsTillExpiry)})};
 }
 
-Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const
+ExpiryChecker::Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const
 {
-    Expiration expiration = calculateExpiration(key.subkey(0));
-    if ((expiration.status == Expiration::Expires) && (expiration.duration > threshold)) {
+    ExpiryChecker::Expiration expiration = calculateExpiration(key);
+    if ((expiration.status == ExpiryChecker::Expires) && (expiration.duration > threshold)) {
         // key expires, but not too soon
-        expiration.status = Expiration::NotNearExpiry;
+        expiration.status = ExpiryChecker::NotNearExpiry;
     }
     return expiration;
 }
 
-void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, ExpiryChecker::CheckFlags flags)
+ExpiryChecker::Result ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, ExpiryChecker::CheckFlags flags)
 {
     static const int maximumCertificateChainLength = 100;
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
+
+    ExpiryChecker::Result result;
+    result.checkFlags = flags;
+    result.expiration.certificate = orig_key;
 
     // use vector instead of set because certificate chains are usually very short
     std::vector<std::string> checkedCertificates;
@@ -416,16 +408,21 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
             ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
             : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
         const auto expiration = checkForExpiration(key, threshold);
-        if (expiration.status == Expiration::Expired) {
+        if (chainCount == 0) {
+            result.expiration = expiration;
+        } else if (expiration.status != ExpiryChecker::NotNearExpiry) {
+            result.chainExpiration.push_back(expiration);
+        }
+        if (expiration.status == ExpiryChecker::Expired) {
             const QString msg = key.protocol() == GpgME::OpenPGP //
-                ? formatOpenPGPMessage(key, expiration, flags)
-                : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
+                ? formatOpenPGPMessage(expiration, flags)
+                : formatSMIMEMessage(orig_key, expiration, flags, chainCount > 0);
             alreadyWarnedFingerprints.insert(subkey.fingerprint());
             Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyExpired : ExpiryChecker::OtherKeyExpired, newMessage);
-        } else if (expiration.status == Expiration::ExpiresSoon) {
+        } else if (expiration.status == ExpiryChecker::ExpiresSoon) {
             const QString msg = key.protocol() == GpgME::OpenPGP //
-                ? formatOpenPGPMessage(key, expiration, flags)
-                : formatSMIMEMessage(key, orig_key, expiration, flags, chainCount > 0);
+                ? formatOpenPGPMessage(expiration, flags)
+                : formatSMIMEMessage(orig_key, expiration, flags, chainCount > 0);
             alreadyWarnedFingerprints.insert(subkey.fingerprint());
             Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
         }
@@ -441,11 +438,12 @@ void ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key &orig_key, Expiry
             break; // this certificate was already checked (looks like a circle in the chain)
         }
     }
+    return result;
 }
 
-void ExpiryChecker::checkKey(const GpgME::Key &key, CheckFlags flags) const
+ExpiryChecker::Result ExpiryChecker::checkKey(const GpgME::Key &key, CheckFlags flags) const
 {
-    d->checkKeyNearExpiry(key, flags);
+    return d->checkKeyNearExpiry(key, flags);
 }
 
 void ExpiryChecker::setTimeProviderForTest(const std::shared_ptr<TimeProvider> &timeProvider)

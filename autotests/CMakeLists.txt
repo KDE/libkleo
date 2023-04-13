@@ -48,6 +48,7 @@ ecm_add_tests(
 ecm_add_test(
     expirycheckertest.cpp
     expirycheckertest.qrc
+    testhelpers.h
     TEST_NAME expirycheckertest
     LINK_LIBRARIES
         KPim${KF_MAJOR_VERSION}::Libkleo

@@ -50,7 +50,32 @@ public:
         OwnSigningKey = OwnKey | SigningKey,
         CheckChain = 4,
     };
+    Q_FLAG(CheckFlag)
     Q_DECLARE_FLAGS(CheckFlags, CheckFlag)
+    Q_FLAG(CheckFlags)
+
+    enum ExpirationStatus {
+        NotNearExpiry,
+        ExpiresSoon,
+        Expired,
+        Expires = ExpiresSoon, // alias used internally
+    };
+    Q_ENUM(ExpirationStatus)
+
+    struct Expiration {
+        GpgME::Key certificate;
+        ExpirationStatus status;
+        // duration is full days until expiry if status is Expires,
+        // full days since expiry if status is Expired,
+        // undefined if status is NotNearExpiry
+        Kleo::chrono::days duration;
+    };
+
+    struct Result {
+        CheckFlags checkFlags;
+        Expiration expiration; // result for the checked certificate
+        std::vector<Expiration> chainExpiration; // results for expired or soon expiring chain certificates
+    };
 
     explicit ExpiryChecker(const ExpiryCheckerSettings &settings);
 
@@ -66,7 +91,7 @@ public:
     };
     Q_ENUM(ExpiryInformation)
 
-    void checkKey(const GpgME::Key &key, CheckFlags flags) const;
+    Result checkKey(const GpgME::Key &key, CheckFlags flags) const;
 
 Q_SIGNALS:
     void expiryMessage(const GpgME::Key &key, QString msg, Kleo::ExpiryChecker::ExpiryInformation info, bool isNewMessage) const;

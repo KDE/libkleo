@@ -10,6 +10,8 @@
 
 #pragma once
 
+#include <QMetaType>
+
 #include <chrono>
 
 namespace Kleo::chrono
@@ -17,3 +19,5 @@ namespace Kleo::chrono
 // typedef for duration in days (defined in C++20)
 using days = std::chrono::duration<std::chrono::seconds::rep, std::ratio<86400>>;
 }
+
+Q_DECLARE_METATYPE(Kleo::chrono::days)
