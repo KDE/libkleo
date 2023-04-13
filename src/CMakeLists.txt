@@ -345,8 +345,6 @@ endif()
 kconfig_add_kcfg_files(KPim${KF_MAJOR_VERSION}Libkleo
   kcfg/expirycheckerconfigbase.kcfgc
 )
-# copy generated header to libkleo subdirectory, so that it can be included as if installed
-file(COPY ${CMAKE_CURRENT_BINARY_DIR}/expirycheckerconfigbase.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/libkleo)
 
 install(FILES
     ${libkleo_CamelCase_HEADERS}
