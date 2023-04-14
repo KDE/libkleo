@@ -137,7 +137,7 @@ private Q_SLOTS:
             << days{1} //
             << ExpiryChecker::OwnKeyExpired
             << QStringLiteral(
-                   "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired yesterday.</p>");
+                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired yesterday.</p>");
         QTest::newRow("openpgp - own signing; 2 days ago") //
             << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
             << ExpiryChecker::CheckFlags{ExpiryChecker::OwnSigningKey} //
@@ -145,7 +145,7 @@ private Q_SLOTS:
             << days{2} //
             << ExpiryChecker::OwnKeyExpired
             << QStringLiteral(
-                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired 2 days "
+                   "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired 2 days "
                    "ago.</p>");
 
         QTest::newRow("smime - other; 0 days ago") //
