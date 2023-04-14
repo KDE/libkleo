@@ -12,7 +12,7 @@
 
 #include "kleo_export.h"
 
-#ifdef KPim5Libkleo_EXPORTS
+#ifdef KPim6Libkleo_EXPORTS
 #include <expirycheckerconfigbase.h>
 #else
 #include <libkleo/expirycheckerconfigbase.h>

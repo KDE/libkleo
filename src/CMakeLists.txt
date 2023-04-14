@@ -330,19 +330,12 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   RELATIVE ui
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-ecm_generate_pri_file(BASE_NAME Libkleo
-    LIB_NAME KPim6Libkleo
-    DEPS "QGpgme" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo
-)
-else()
 ecm_generate_pri_file(BASE_NAME Libkleo
     LIB_NAME KPim6Libkleo
     DEPS "QGpgmeQt6" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo
 )
-endif()
 
-kconfig_add_kcfg_files(KPim${KF_MAJOR_VERSION}Libkleo
+kconfig_add_kcfg_files(KPim6Libkleo
   kcfg/expirycheckerconfigbase.kcfgc
 )
 

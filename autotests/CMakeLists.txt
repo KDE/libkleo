@@ -51,7 +51,7 @@ ecm_add_test(
     testhelpers.h
     TEST_NAME expirycheckertest
     LINK_LIBRARIES
-        KPim${KF_MAJOR_VERSION}::Libkleo
+        KPim6::Libkleo
         Qt::Test
 )
 
