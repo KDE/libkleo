@@ -77,7 +77,7 @@ public:
         std::vector<Expiration> chainExpiration; // results for expired or soon expiring chain certificates
     };
 
-    explicit ExpiryChecker(const ExpiryCheckerSettings &settings);
+    explicit ExpiryChecker(const ExpiryCheckerSettings &settings, QObject *parent = nullptr);
 
     ~ExpiryChecker() override;
 

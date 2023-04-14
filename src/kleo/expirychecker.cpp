@@ -57,8 +57,9 @@ public:
     std::shared_ptr<TimeProvider> timeProvider;
 };
 
-ExpiryChecker::ExpiryChecker(const ExpiryCheckerSettings &settings)
-    : d{new ExpiryCheckerPrivate{this, settings}}
+ExpiryChecker::ExpiryChecker(const ExpiryCheckerSettings &settings, QObject *parent)
+    : QObject{parent}
+    , d{new ExpiryCheckerPrivate{this, settings}}
 {
 }
 
