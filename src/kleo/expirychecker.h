@@ -18,6 +18,7 @@
 
 #include <Libkleo/Chrono>
 
+#include <QDate>
 #include <QObject>
 
 #include <gpgme++/key.h>
@@ -35,7 +36,9 @@ class KLEO_EXPORT TimeProvider
 public:
     virtual ~TimeProvider() = default;
 
-    virtual time_t getTime() const = 0;
+    virtual time_t currentTime() const = 0;
+    virtual QDate currentDate() const = 0;
+    virtual Qt::TimeSpec timeSpec() const = 0;
 };
 
 class KLEO_EXPORT ExpiryChecker : public QObject
@@ -65,8 +68,9 @@ public:
     struct Expiration {
         GpgME::Key certificate;
         ExpirationStatus status;
-        // duration is full days until expiry if status is Expires,
-        // full days since expiry if status is Expired,
+        // duration is days until expiry if status is ExpiresSoon (i.e. 0
+        // if expiry is today, 1 if it's tomorrow, etc.),
+        // days since expiry if status is Expired, and
         // undefined if status is NotNearExpiry
         Kleo::chrono::days duration;
     };
