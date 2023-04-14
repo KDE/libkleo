@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SPDX-License-Identifier: GPL-2.0-or-later
+  SPDX-FileCopyrightText: 2023 g10 Code GmbH
+  SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
+-->
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="kleo-expirycheckerrc" />
+    <group name="General">
+    <entry key="ownKeyThresholdInDays" type="Int">
+      <label>Threshold for own certificates</label>
+      <whatsthis>This is the number of days you will be warned in advanced, if your own certificate is about to expire soon.</whatsthis>
+      <default>30</default>
+    </entry>
+    <entry key="otherKeyThresholdInDays" type="Int">
+      <label>Threshold for other certificates</label>
+      <whatsthis>This is the number of days you will be warned in advanced, if the certificate of another person that is used by you is about to expire soon.</whatsthis>
+      <default>14</default>
+    </entry>
+    <entry key="rootCertificateThresholdInDays" type="Int">
+      <label>Threshold for root certificates</label>
+      <whatsthis>This is the number of days you will be warned in advanced, if a root certificate that is used by you is about to expire soon.</whatsthis>
+      <default>14</default>
+    </entry>
+    <entry key="intermediateCertificateThresholdInDays" type="Int">
+      <label>Threshold for intermediate certificates</label>
+      <whatsthis>This is the number of days you will be warned in advanced, if an intermediate certificate that is used by you is about to expire soon.</whatsthis>
+      <default>14</default>
+    </entry>
+  </group>
+</kcfg>

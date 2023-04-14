@@ -35,6 +35,12 @@ target_sources(KPim6Libkleo PRIVATE
    kleo/dn.h
    kleo/enum.cpp
    kleo/enum.h
+   kleo/expirychecker.cpp
+   kleo/expirychecker.h
+   kleo/expirycheckerconfig.cpp
+   kleo/expirycheckerconfig.h
+   kleo/expirycheckersettings.cpp
+   kleo/expirycheckersettings.h
    kleo/kconfigbasedkeyfilter.cpp
    kleo/kconfigbasedkeyfilter.h
    kleo/keyfilter.h
@@ -77,6 +83,7 @@ target_sources(KPim6Libkleo PRIVATE
    utils/algorithm.h
    utils/assuan.cpp
    utils/assuan.h
+   utils/chrono.h
    utils/classify.cpp
    utils/classify.h
    utils/compat.cpp
@@ -238,6 +245,9 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   DocAction
   Dn
   Enum
+  ExpiryChecker
+  ExpiryCheckerConfig
+  ExpiryCheckerSettings
   KConfigBasedKeyFilter
   KeyFilter
   KeyFilterManager
@@ -275,6 +285,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   HEADER_NAMES
   Algorithm
   Assuan
+  Chrono
   Classify
   Compat
   Compliance
@@ -331,6 +342,10 @@ ecm_generate_pri_file(BASE_NAME Libkleo
 )
 endif()
 
+kconfig_add_kcfg_files(KPim${KF_MAJOR_VERSION}Libkleo
+  kcfg/expirycheckerconfigbase.kcfgc
+)
+
 install(FILES
     ${libkleo_CamelCase_HEADERS}
     ${libkleo_CamelCase_models_HEADERS}
@@ -341,6 +356,7 @@ install(FILES
 )
 
 install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/expirycheckerconfigbase.h
     ${CMAKE_CURRENT_BINARY_DIR}/kleo_export.h
     ${libkleo_HEADERS}
     ${libkleo_models_HEADERS}

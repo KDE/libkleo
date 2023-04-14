@@ -1,0 +1,12 @@
+# Code generation options for kconfig_compiler
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2023 g10 Code GmbH
+# SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
+File=expirycheckerconfigbase.kcfg
+ClassName=ExpiryCheckerConfigBase
+NameSpace=Kleo
+DefaultValueGetters=true
+Mutators=true
+Visibility=KLEO_EXPORT
+IncludeFiles=\"kleo_export.h\"
+TranslationSystem=kde
