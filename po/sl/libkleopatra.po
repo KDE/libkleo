@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra.po 1649427 2023-04-15 01:30:55Z scripty $
+# $Id: libkleopatra.po 1649504 2023-04-16 01:29:34Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -14,15 +14,15 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-15 00:50+0000\n"
-"PO-Revision-Date: 2023-03-20 08:35+0100\n"
+"PO-Revision-Date: 2023-04-15 10:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.2.2\n"
 
@@ -239,7 +239,7 @@ msgstr "<brez>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (ID ključa 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -247,6 +247,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%1</p><p>je potekel "
+"pred manj kot enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -254,6 +256,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%1</p><p>je potekel pred "
+"manj kot enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -261,6 +265,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Ključ OpenPGP za </p><p align=center>%1</p><p>je potekel pred manj kot "
+"enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -271,9 +277,17 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
+"pred %1 dnevom.</p>"
 msgstr[1] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
+"pred %1 dnevoma.</p>"
 msgstr[2] ""
+"<p><p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
+"pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p><p><p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je "
+"potekel pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -284,9 +298,17 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
+"%1 dnevom.</p>"
 msgstr[1] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
+"%1 dnevoma.</p>"
 msgstr[2] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
+"%1 dnevi.</p>"
 msgstr[3] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
+"%1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -295,26 +317,35 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevom.</"
+"p>"
 msgstr[1] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevoma.</"
+"p>"
 msgstr[2] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%1</p><p>poteče danes.</"
+"p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%1</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>Ključ OpenPGP za</p><p align=center>%1</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -324,9 +355,17 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dan.</p>"
 msgstr[1] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dni.</p>"
 msgstr[2] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dni.</p>"
 msgstr[3] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dni.</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -337,9 +376,17 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dan.</p>"
 msgstr[1] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dni.</p>"
 msgstr[2] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dni.</p>"
 msgstr[3] ""
+"<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
+"dni.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -348,16 +395,20 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[2] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (serijska številka %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -366,6 +417,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>Korensko potrdilo</p><p align=center><b>%2</b></p><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot "
+"enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -374,6 +428,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Korensko potrdilo</p><p align=center><b>%2</b></p><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot enim "
+"dnevom.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -381,6 +438,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>Korensko potrdilo</p><p align=center><b>%2</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%1</p><p>je poteklo pred manj kot enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -391,9 +450,19 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</"
+"p>"
 msgstr[1] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</"
+"p>"
 msgstr[2] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -404,9 +473,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[1] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[2] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -417,9 +494,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[1] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[2] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -428,6 +513,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%2</b></p><p>za vaše potrdilo "
+"podpisovanja S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot "
+"enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -436,6 +524,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%2</b></p><p>za vaše potrdilo "
+"šifriranja S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot enim "
+"dnevom.</p>"
 
 #: kleo/expirychecker.cpp:208
 #, kde-format
@@ -443,6 +534,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%2</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%1</p><p>je poteklo pred manj kot enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -455,9 +548,19 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</"
+"p>"
 msgstr[1] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</"
+"p>"
 msgstr[2] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:225
 #, kde-format
@@ -470,9 +573,17 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[1] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[2] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
+"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:233
 #, kde-format
@@ -483,9 +594,17 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[1] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[2] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:246
 #, kde-format
@@ -493,6 +612,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%1</b></"
+"p><p>je poteklo pred manj kot enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -500,6 +621,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%1</b></p><p>je "
+"poteklo pred manj kot enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -507,6 +630,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Potrdilo S/MIME za </p><p align=center><b>%1</b></p><p>je poteklo pred "
+"manj kot enim dnevom.</p>"
 
 #: kleo/expirychecker.cpp:256
 #, kde-format
@@ -517,9 +642,17 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[1] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[2] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>je poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -530,9 +663,17 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
+"poteklo pred %1 dnevom.</p>"
 msgstr[1] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
+"poteklo pred %1 dnevoma.</p>"
 msgstr[2] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
+"poteklo pred %1 dnevi.</p>"
 msgstr[3] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
+"poteklo pred %1 dnevi.</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -543,9 +684,17 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
+"dnevom.</p>"
 msgstr[1] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
+"dnevoma.</p>"
 msgstr[2] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
+"dnevi.</p>"
 msgstr[3] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
+"dnevi.</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -553,6 +702,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -560,6 +711,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -567,6 +720,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
+"za</p><p align=center>%2</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -577,9 +732,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -590,9 +753,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -603,9 +774,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
+"za</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
+"za</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
+"za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
+"za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -614,6 +793,8 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -622,6 +803,8 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -629,6 +812,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
+"p><p align=center>%2</p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -641,9 +826,17 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -656,9 +849,17 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -669,9 +870,17 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
+"p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
+"p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
+"p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
+"p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -679,6 +888,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -686,12 +897,15 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče danes.</p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -702,9 +916,17 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:386
 #, kde-format
@@ -715,9 +937,17 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dan.</p>"
 msgstr[1] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dneva.</p>"
 msgstr[2] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dni.</p>"
 msgstr[3] ""
+"<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
+"p><p>poteče čez %1 dni.</p>"
 
 #: kleo/expirychecker.cpp:392
 #, kde-format
@@ -728,9 +958,17 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dan.</"
+"p>"
 msgstr[1] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dneva."
+"</p>"
 msgstr[2] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dni.</"
+"p>"
 msgstr[3] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dni.</"
+"p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
