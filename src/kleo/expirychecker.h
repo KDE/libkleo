@@ -46,12 +46,12 @@ class KLEO_EXPORT ExpiryChecker : public QObject
     Q_OBJECT
 public:
     enum CheckFlag {
-        NoCheckFlags = 0,
-        OwnKey = 1,
-        OwnEncryptionKey = OwnKey,
-        SigningKey = 2,
+        EncryptionKey = 0x01,
+        SigningKey = 0x02,
+        OwnKey = 0x04,
+        OwnEncryptionKey = OwnKey | EncryptionKey,
         OwnSigningKey = OwnKey | SigningKey,
-        CheckChain = 4,
+        CheckChain = 0x08,
     };
     Q_FLAG(CheckFlag)
     Q_DECLARE_FLAGS(CheckFlags, CheckFlag)
