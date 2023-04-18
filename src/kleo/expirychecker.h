@@ -48,11 +48,12 @@ public:
     enum CheckFlag {
         EncryptionKey = 0x01,
         SigningKey = 0x02,
-        OwnKey = 0x04,
+        CertificationKey = 0x04,
+        OwnKey = 0x08,
         OwnEncryptionKey = OwnKey | EncryptionKey,
         OwnSigningKey = OwnKey | SigningKey,
-        CheckChain = 0x08,
-        UsageMask = EncryptionKey | SigningKey,
+        CheckChain = 0x10,
+        UsageMask = EncryptionKey | SigningKey | CertificationKey,
     };
     Q_FLAG(CheckFlag)
     Q_DECLARE_FLAGS(CheckFlags, CheckFlag)
@@ -62,6 +63,7 @@ public:
         NotNearExpiry,
         ExpiresSoon,
         Expired,
+        NoSuitableSubkey,
         InvalidKey,
         InvalidCheckFlags,
     };

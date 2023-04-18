@@ -47,8 +47,8 @@ public:
     {
     }
 
-    ExpiryChecker::Expiration calculateExpiration(const GpgME::Key &key) const;
-    ExpiryChecker::Expiration checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const;
+    ExpiryChecker::Expiration calculateExpiration(const GpgME::Subkey &subkey) const;
+    ExpiryChecker::Expiration checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold, ExpiryChecker::CheckFlags flags) const;
 
     ExpiryChecker::Result checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::CheckFlags flags);
 
@@ -397,11 +397,41 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
     return msg.subs(expiration.duration.count()).subs(userCertInfo).toString();
 }
 
-ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Key &key) const
+static GpgME::Subkey findBestSubkey(const GpgME::Key &key, ExpiryChecker::CheckFlags usageFlags)
 {
-    const GpgME::Subkey subkey = key.subkey(0);
+    // find the subkey with the latest expiration date for the given usage flags
+    if (!(usageFlags & ExpiryChecker::UsageMask)) {
+        // return primary key if no specific usage is specified (as for chain certificates)
+        return key.subkey(0);
+    }
+    GpgME::Subkey result;
+    for (unsigned int i = 0; i < key.numSubkeys(); ++i) {
+        const auto subkey = key.subkey(i);
+        if (subkey.isRevoked() || subkey.isInvalid() || subkey.isDisabled()) {
+            // unusable subkey
+            continue;
+        }
+        if (((usageFlags & ExpiryChecker::EncryptionKey) && !subkey.canEncrypt()) //
+            || ((usageFlags & ExpiryChecker::SigningKey) && !subkey.canSign()) //
+            || ((usageFlags & ExpiryChecker::CertificationKey) && !subkey.canCertify())) {
+            // unsuitable subkey for requested usage
+            continue;
+        }
+        if (subkey.neverExpires()) {
+            // stop looking for the best subkey if we found a suitable subkey that doesn't expire
+            return subkey;
+        }
+        if (quint32(subkey.expirationTime()) > quint32(result.expirationTime())) {
+            result = subkey;
+        }
+    }
+    return result;
+}
+
+ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Subkey &subkey) const
+{
     if (subkey.neverExpires()) {
-        return {key, ExpiryChecker::NotNearExpiry, Kleo::chrono::days::zero()};
+        return {subkey.parent(), ExpiryChecker::NotNearExpiry, Kleo::chrono::days::zero()};
     }
     const time_t currentTime = timeProvider ? timeProvider->currentTime() : std::time(nullptr);
     const auto currentDate = timeProvider ? timeProvider->currentDate() : QDate::currentDate();
@@ -410,15 +440,21 @@ ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME:
     const auto expirationDate = QDateTime::fromSecsSinceEpoch(quint32(expirationTime), timeSpec).date();
     // use std::difftime to avoid problems with negative values on 32-bit systems
     if (std::difftime(expirationTime, currentTime) <= 0) {
-        return {key, ExpiryChecker::Expired, Kleo::chrono::days{expirationDate.daysTo(currentDate)}};
+        return {subkey.parent(), ExpiryChecker::Expired, Kleo::chrono::days{expirationDate.daysTo(currentDate)}};
     } else {
-        return {key, ExpiryChecker::ExpiresSoon, Kleo::chrono::days{currentDate.daysTo(expirationDate)}};
+        return {subkey.parent(), ExpiryChecker::ExpiresSoon, Kleo::chrono::days{currentDate.daysTo(expirationDate)}};
     }
 }
 
-ExpiryChecker::Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const
+ExpiryChecker::Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, //
+                                                                   Kleo::chrono::days threshold,
+                                                                   ExpiryChecker::CheckFlags usageFlags) const
 {
-    ExpiryChecker::Expiration expiration = calculateExpiration(key);
+    const auto subkey = findBestSubkey(key, usageFlags);
+    if (subkey.isNull()) {
+        return {key, ExpiryChecker::NoSuitableSubkey, {}};
+    }
+    ExpiryChecker::Expiration expiration = calculateExpiration(subkey);
     if ((expiration.status == ExpiryChecker::ExpiresSoon) && (expiration.duration > threshold)) {
         // key expires, but not too soon
         expiration.status = ExpiryChecker::NotNearExpiry;
@@ -448,7 +484,8 @@ ExpiryChecker::Result ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key 
         const auto threshold = chainCount > 0 //
             ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
             : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
-        const auto expiration = checkForExpiration(key, threshold);
+        const auto usageFlags = (chainCount == 0) ? (flags & ExpiryChecker::UsageMask) : ExpiryChecker::CheckFlags{};
+        const auto expiration = checkForExpiration(key, threshold, usageFlags);
         if (chainCount == 0) {
             result.expiration = expiration;
         } else if (expiration.status != ExpiryChecker::NotNearExpiry) {
@@ -466,6 +503,8 @@ ExpiryChecker::Result ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key 
                 : formatSMIMEMessage(orig_key, expiration, flags, chainCount > 0);
             alreadyWarnedFingerprints.insert(subkey.fingerprint());
             Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
+        } else if (expiration.status == ExpiryChecker::NoSuitableSubkey) {
+            break;
         }
         if (!(flags & ExpiryChecker::CheckChain) || key.isRoot() || (key.protocol() != GpgME::CMS)) {
             break;
