@@ -412,14 +412,14 @@ ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME:
     if (std::difftime(expirationTime, currentTime) <= 0) {
         return {key, ExpiryChecker::Expired, Kleo::chrono::days{expirationDate.daysTo(currentDate)}};
     } else {
-        return {key, ExpiryChecker::Expires, Kleo::chrono::days{currentDate.daysTo(expirationDate)}};
+        return {key, ExpiryChecker::ExpiresSoon, Kleo::chrono::days{currentDate.daysTo(expirationDate)}};
     }
 }
 
 ExpiryChecker::Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const
 {
     ExpiryChecker::Expiration expiration = calculateExpiration(key);
-    if ((expiration.status == ExpiryChecker::Expires) && (expiration.duration > threshold)) {
+    if ((expiration.status == ExpiryChecker::ExpiresSoon) && (expiration.duration > threshold)) {
         // key expires, but not too soon
         expiration.status = ExpiryChecker::NotNearExpiry;
     }

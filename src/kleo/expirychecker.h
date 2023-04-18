@@ -61,7 +61,6 @@ public:
         NotNearExpiry,
         ExpiresSoon,
         Expired,
-        Expires = ExpiresSoon, // alias used internally
     };
     Q_ENUM(ExpirationStatus)
 
