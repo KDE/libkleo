@@ -484,6 +484,14 @@ ExpiryChecker::Result ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key 
 
 ExpiryChecker::Result ExpiryChecker::checkKey(const GpgME::Key &key, CheckFlags flags) const
 {
+    if (key.isNull()) {
+        qWarning(LIBKLEO_LOG) << __func__ << "called with null key";
+        return {flags, {key, InvalidKey, {}}, {}};
+    }
+    if (!(flags & UsageMask)) {
+        qWarning(LIBKLEO_LOG) << __func__ << "called with invalid flags:" << flags;
+        return {flags, {key, InvalidCheckFlags, {}}, {}};
+    }
     return d->checkKeyNearExpiry(key, flags);
 }
 

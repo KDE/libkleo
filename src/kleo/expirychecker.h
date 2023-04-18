@@ -52,6 +52,7 @@ public:
         OwnEncryptionKey = OwnKey | EncryptionKey,
         OwnSigningKey = OwnKey | SigningKey,
         CheckChain = 0x08,
+        UsageMask = EncryptionKey | SigningKey,
     };
     Q_FLAG(CheckFlag)
     Q_DECLARE_FLAGS(CheckFlags, CheckFlag)
@@ -61,6 +62,8 @@ public:
         NotNearExpiry,
         ExpiresSoon,
         Expired,
+        InvalidKey,
+        InvalidCheckFlags,
     };
     Q_ENUM(ExpirationStatus)
 
@@ -70,7 +73,7 @@ public:
         // duration is days until expiry if status is ExpiresSoon (i.e. 0
         // if expiry is today, 1 if it's tomorrow, etc.),
         // days since expiry if status is Expired, and
-        // undefined if status is NotNearExpiry
+        // undefined otherwise
         Kleo::chrono::days duration;
     };
 
