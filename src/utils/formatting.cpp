@@ -251,7 +251,11 @@ QString format_subkeytype(const Subkey &subkey)
 QString format_keyusage(const Key &key)
 {
     QStringList capabilities;
+#if GPGMEPP_KEY_CANSIGN_IS_FIXED
+    if (key.canSign()) {
+#else
     if (key.canReallySign()) {
+#endif
         if (key.isQualified()) {
             capabilities.push_back(i18n("Signing (Qualified)"));
         } else {
