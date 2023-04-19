@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-15 00:50+0000\n"
-"PO-Revision-Date: 2023-04-17 18:22+0100\n"
+"PO-Revision-Date: 2023-04-18 09:27+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POFile-Allow: 2\n"
+"X-POFile-Allow: 3\n"
 "X-POFile-SpellExtra: DN CRLs Kpgp gpg agent gpgconf gnupg pgp GpgME ID\n"
 "X-POFile-SpellExtra: GPGME DSA ElGamal Chiasmus chiasmus stderr https hkp\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-POFile-IgnoreConsistency: Type\n"
 "X-POFile-IgnoreConsistency: Name\n"
 "X-POFile-SpellExtra: conf Directory STARTTLS Kleopatra gpgme smart cards\n"
-"X-POFile-SpellExtra: MMMM yyyy\n"
+"X-POFile-SpellExtra: MMMM yyyy CA\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -575,7 +575,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>O seu certificado S/MIME de assinatura</p><p align=center>%2</"
+"p><p>expirou ontem.</p>"
 msgstr[1] ""
+"<p>O seu certificado S/MIME de assinatura</p><p align=center>%2</"
+"p><p>expirou há %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -586,7 +590,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>O seu certificado S/MIME de encriptação</p><p align=center>%2</"
+"p><p>expirou ontem.</p>"
 msgstr[1] ""
+"<p>O seu certificado S/MIME de encriptação</p><p align=center>%2</"
+"p><p>expirou há %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -597,7 +605,9 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>O certificado S/MIME</p><p align=center>%2</p><p>expirou ontem.</p>"
 msgstr[1] ""
+"<p>O certificado S/MIME</p><p align=center>%2</p><p>expirou há %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -605,6 +615,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o seu "
+"certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira hoje.</p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -612,6 +624,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o seu "
+"certificado S/MIME de encriptação</p><p align=center>%2</p><p>expira hoje.</"
+"p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -619,6 +634,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o "
+"certificado S/MIME</p><p align=center>%2</p><p>expira hoje.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -629,7 +646,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o seu "
+"certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira amanhã.</"
+"p>"
 msgstr[1] ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o seu "
+"certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira daqui a "
+"%1 dias.</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -640,7 +663,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o seu "
+"certificado S/MIME de encriptação</p><p align=center>%2</p><p>expira amanhã."
+"</p>"
 msgstr[1] ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o seu "
+"certificado S/MIME de encriptação</p><p align=center>%2</p><p>expira daqui a "
+"%1 dias.</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -651,7 +680,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o "
+"certificado S/MIME</p><p align=center>%2</p><p>expira amanhã.</p>"
 msgstr[1] ""
+"<p>O certificado de raiz</p><p align=center><b>%3</b></p><p>para o "
+"certificado S/MIME</p><p align=center>%2</p><p>expira daqui a %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -660,6 +693,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"seu certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira hoje."
+"</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -668,6 +704,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"seu certificado S/MIME de encriptação</p><p align=center>%2</p><p>expira "
+"hoje.</p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -675,6 +714,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"certificado S/MIME</p><p align=center>%2</p><p>expira hoje.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -687,7 +728,13 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"seu certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira "
+"amanhã.</p>"
 msgstr[1] ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"seu certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira "
+"daqui a %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -700,7 +747,13 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"seu certificado S/MIME de encriptação</p><p align=center>%2</p><p>expira "
+"amanhã.</p>"
 msgstr[1] ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"seu certificado S/MIME de encriptação</p><p align=center>%2</p><p>expira "
+"daqui a %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -711,7 +764,11 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"certificado S/MIME</p><p align=center>%2</p><p>expira amanhã.</p>"
 msgstr[1] ""
+"<p>O certificado da CA intermédia</p><p align=center><b>%3</b></p><p>para o "
+"certificado S/MIME</p><p align=center>%2</p><p>expira daqui a %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -719,6 +776,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>O seu certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira "
+"hoje.</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -726,12 +785,14 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>O seu certificado S/MIME de encriptação</p><p align=center>%2</"
+"p><p>expira hoje.</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>O certificado S/MIME</p><p align=center>%2</p><p>expira hoje.</p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -742,7 +803,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>O seu certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira "
+"amanhã.</p>"
 msgstr[1] ""
+"<p>O seu certificado S/MIME de assinatura</p><p align=center>%2</p><p>expira "
+"daqui a %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:386
 #, kde-format
@@ -753,7 +818,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>O seu certificado S/MIME de encriptação</p><p align=center>%2</"
+"p><p>expira amanhã.</p>"
 msgstr[1] ""
+"<p>O seu certificado S/MIME de encriptação</p><p align=center>%2</"
+"p><p>expira daqui a %1 dias.</p>"
 
 #: kleo/expirychecker.cpp:392
 #, kde-format
@@ -764,7 +833,10 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>O certificado S/MIME de</p><p align=center>%2</p><p>expira amanhã.</p>"
 msgstr[1] ""
+"<p>O certificado S/MIME de</p><p align=center>%2</p><p>expira daqui a %1 "
+"dias.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
