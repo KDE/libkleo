@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-15 00:50+0000\n"
+"POT-Creation-Date: 2023-04-20 00:49+0000\n"
 "PO-Revision-Date: 2023-04-16 12:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -719,17 +719,17 @@ msgid "Protocol"
 msgstr "协议"
 
 #: models/keylistmodel.cpp:314 models/keylistmodel.cpp:316
-#: utils/formatting.cpp:388
+#: utils/formatting.cpp:392
 #, kde-format
 msgid "Key-ID"
 msgstr "密钥 ID"
 
-#: models/keylistmodel.cpp:318 utils/formatting.cpp:391
+#: models/keylistmodel.cpp:318 utils/formatting.cpp:395
 #, kde-format
 msgid "Fingerprint"
 msgstr "指纹"
 
-#: models/keylistmodel.cpp:320 utils/formatting.cpp:358
+#: models/keylistmodel.cpp:320 utils/formatting.cpp:362
 #, kde-format
 msgid "Issuer"
 msgstr "颁发者"
@@ -787,14 +787,14 @@ msgstr "不适用"
 msgid "ID"
 msgstr "ID"
 
-#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:382
-#: utils/formatting.cpp:426
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:386
+#: utils/formatting.cpp:430
 #, kde-format
 msgid "Type"
 msgstr "文件系统"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:413 utils/formatting.cpp:415
+#: utils/formatting.cpp:417 utils/formatting.cpp:419
 #, kde-format
 msgid "Status"
 msgstr "状态"
@@ -804,8 +804,8 @@ msgstr "状态"
 msgid "Strength"
 msgstr "强度"
 
-#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:385
-#: utils/formatting.cpp:429
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:389
+#: utils/formatting.cpp:433
 #, kde-format
 msgid "Usage"
 msgstr "用途"
@@ -857,7 +857,7 @@ msgstr "可导出"
 msgid "Trust Signature For"
 msgstr "信任签名"
 
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:801
+#: models/useridlistmodel.cpp:167 utils/formatting.cpp:805
 #, kde-format
 msgid "class %1"
 msgstr "%1 类"
@@ -1657,14 +1657,14 @@ msgstr "<b>%1</b> 的 OpenPGP 密钥"
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b> 的 S/MIME 密钥"
 
-#: ui/keyselectiondialog.cpp:277 utils/formatting.cpp:375
-#: utils/formatting.cpp:418
+#: ui/keyselectiondialog.cpp:277 utils/formatting.cpp:379
+#: utils/formatting.cpp:422
 #, kde-format
 msgid "Valid from"
 msgstr "有效期自"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:378
-#: utils/formatting.cpp:421
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:382
+#: utils/formatting.cpp:425
 #, kde-format
 msgid "Valid until"
 msgstr "有效期至"
@@ -1837,7 +1837,7 @@ msgid "Security approval"
 msgstr "安全批准"
 
 #: ui/newkeyapprovaldialog.cpp:309 ui/newkeyapprovaldialog.cpp:312
-#: utils/formatting.cpp:692
+#: utils/formatting.cpp:696
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
@@ -1969,164 +1969,164 @@ msgstr "%1 位 %2(绝密密钥可用)"
 msgid "%1-bit %2"
 msgstr "%1 位 %2"
 
-#: utils/formatting.cpp:256 utils/formatting.cpp:278
+#: utils/formatting.cpp:260 utils/formatting.cpp:282
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "签名 (合格)"
 
-#: utils/formatting.cpp:258 utils/formatting.cpp:280
+#: utils/formatting.cpp:262 utils/formatting.cpp:284
 #, kde-format
 msgid "Signing"
 msgstr "签名"
 
-#: utils/formatting.cpp:262 utils/formatting.cpp:284
+#: utils/formatting.cpp:266 utils/formatting.cpp:288
 #, kde-format
 msgid "Encryption"
 msgstr "仅加密"
 
-#: utils/formatting.cpp:265 utils/formatting.cpp:287
+#: utils/formatting.cpp:269 utils/formatting.cpp:291
 #, kde-format
 msgid "Certifying User-IDs"
 msgstr "正在认证的用户编号"
 
-#: utils/formatting.cpp:268 utils/formatting.cpp:290
+#: utils/formatting.cpp:272 utils/formatting.cpp:294
 #, kde-format
 msgid "SSH Authentication"
 msgstr "SSH 认证"
 
-#: utils/formatting.cpp:320 utils/formatting.cpp:413
+#: utils/formatting.cpp:324 utils/formatting.cpp:417
 #, kde-format
 msgid "Revoked"
 msgstr "已吊销"
 
-#: utils/formatting.cpp:322 utils/formatting.cpp:415
+#: utils/formatting.cpp:326 utils/formatting.cpp:419
 #, kde-format
 msgid "Expired"
 msgstr "已过期"
 
-#: utils/formatting.cpp:324
+#: utils/formatting.cpp:328
 #, kde-format
 msgid "Disabled"
 msgstr "禁止"
 
-#: utils/formatting.cpp:333
+#: utils/formatting.cpp:337
 #, kde-format
 msgid "All User-IDs are certified."
 msgstr "所有用户编号已被验证。"
 
-#: utils/formatting.cpp:339
+#: utils/formatting.cpp:343
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
 msgstr[0] "%1 个用户编号没有被验证。"
 
-#: utils/formatting.cpp:342 utils/formatting.cpp:345
+#: utils/formatting.cpp:346 utils/formatting.cpp:349
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "目前不能检查有效性。"
 
-#: utils/formatting.cpp:355
+#: utils/formatting.cpp:359
 #, kde-format
 msgid "Serial number"
 msgstr "序列号"
 
-#: utils/formatting.cpp:364
+#: utils/formatting.cpp:368
 #, kde-format
 msgid "Subject"
 msgstr "主体"
 
-#: utils/formatting.cpp:364
+#: utils/formatting.cpp:368
 #, kde-format
 msgid "User-ID"
 msgstr "用户编号"
 
-#: utils/formatting.cpp:369
+#: utils/formatting.cpp:373
 #, kde-format
 msgid "a.k.a."
 msgstr "又名"
 
-#: utils/formatting.cpp:395
+#: utils/formatting.cpp:399
 #, kde-format
 msgid "Certification trust"
 msgstr "证书信任级别"
 
-#: utils/formatting.cpp:397
+#: utils/formatting.cpp:401
 #, kde-format
 msgid "Trusted issuer?"
 msgstr "受信任的颁发者？"
 
-#: utils/formatting.cpp:397
+#: utils/formatting.cpp:401
 #, kde-format
 msgid "Yes"
 msgstr "是"
 
-#: utils/formatting.cpp:397
+#: utils/formatting.cpp:401
 #, kde-format
 msgid "No"
 msgstr "否"
 
-#: utils/formatting.cpp:403 utils/formatting.cpp:405 utils/formatting.cpp:433
-#: utils/formatting.cpp:435
+#: utils/formatting.cpp:407 utils/formatting.cpp:409 utils/formatting.cpp:437
+#: utils/formatting.cpp:439
 #, kde-format
 msgid "Stored"
 msgstr "已存储"
 
-#: utils/formatting.cpp:403 utils/formatting.cpp:433
+#: utils/formatting.cpp:407 utils/formatting.cpp:437
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "于智能卡上，序列号 no. %1"
 
-#: utils/formatting.cpp:405 utils/formatting.cpp:435
+#: utils/formatting.cpp:409 utils/formatting.cpp:439
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "在此电脑上"
 
-#: utils/formatting.cpp:411
+#: utils/formatting.cpp:415
 #, kde-format
 msgid "Subkey"
 msgstr "子密钥"
 
-#: utils/formatting.cpp:459
+#: utils/formatting.cpp:463
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr "部分密钥已过期、无效、被吊销或被禁用。"
 
-#: utils/formatting.cpp:463
+#: utils/formatting.cpp:467
 #, kde-format
 msgid "All keys are certified."
 msgstr "所有密钥都已被认证。"
 
-#: utils/formatting.cpp:465
+#: utils/formatting.cpp:469
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "部分密钥未被认证。"
 
-#: utils/formatting.cpp:469
+#: utils/formatting.cpp:473
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "目前无法检查密钥的有效性。"
 
-#: utils/formatting.cpp:483
+#: utils/formatting.cpp:487
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "此分组不包含任何密钥。"
 
-#: utils/formatting.cpp:503
+#: utils/formatting.cpp:507
 #, kde-format
 msgid "Keys:"
 msgstr "密钥："
 
-#: utils/formatting.cpp:511
+#: utils/formatting.cpp:515
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
 msgstr[0] "及其他 %1 个密钥"
 
-#: utils/formatting.cpp:539
+#: utils/formatting.cpp:543
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2134,372 +2134,372 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "yyyy 年 MMMM d 日"
 
-#: utils/formatting.cpp:585 utils/formatting.cpp:620
+#: utils/formatting.cpp:589 utils/formatting.cpp:624
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:627 utils/formatting.cpp:636
+#: utils/formatting.cpp:631 utils/formatting.cpp:640
 #, kde-format
 msgid "unlimited"
 msgstr "无限制"
 
-#: utils/formatting.cpp:689
+#: utils/formatting.cpp:693
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:694
+#: utils/formatting.cpp:698
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:710
+#: utils/formatting.cpp:714
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "分组"
 
-#: utils/formatting.cpp:726 utils/formatting.cpp:771
+#: utils/formatting.cpp:730 utils/formatting.cpp:775
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:728 utils/formatting.cpp:775
+#: utils/formatting.cpp:732 utils/formatting.cpp:779
 #, kde-format
 msgid "untrusted"
 msgstr "不信任"
 
-#: utils/formatting.cpp:730 utils/formatting.cpp:777
+#: utils/formatting.cpp:734 utils/formatting.cpp:781
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr "勉强"
 
-#: utils/formatting.cpp:732 utils/formatting.cpp:779
+#: utils/formatting.cpp:736 utils/formatting.cpp:783
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "完全"
 
-#: utils/formatting.cpp:734 utils/formatting.cpp:781
+#: utils/formatting.cpp:738 utils/formatting.cpp:785
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "绝对"
 
-#: utils/formatting.cpp:736 utils/formatting.cpp:773
+#: utils/formatting.cpp:740 utils/formatting.cpp:777
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "未定义"
 
-#: utils/formatting.cpp:747 utils/formatting.cpp:764 utils/formatting.cpp:799
-#: utils/formatting.cpp:1185
+#: utils/formatting.cpp:751 utils/formatting.cpp:768 utils/formatting.cpp:803
+#: utils/formatting.cpp:1189
 #, kde-format
 msgid "revoked"
 msgstr "已吊销"
 
-#: utils/formatting.cpp:750 utils/formatting.cpp:809 utils/formatting.cpp:1182
+#: utils/formatting.cpp:754 utils/formatting.cpp:813 utils/formatting.cpp:1186
 #, kde-format
 msgid "expired"
 msgstr "已过期"
 
-#: utils/formatting.cpp:753 utils/formatting.cpp:1188
+#: utils/formatting.cpp:757 utils/formatting.cpp:1192
 #, kde-format
 msgid "disabled"
 msgstr "已禁用"
 
-#: utils/formatting.cpp:756 utils/formatting.cpp:767 utils/formatting.cpp:807
-#: utils/formatting.cpp:1191
+#: utils/formatting.cpp:760 utils/formatting.cpp:771 utils/formatting.cpp:811
+#: utils/formatting.cpp:1195
 #, kde-format
 msgid "invalid"
 msgstr "无效"
 
-#: utils/formatting.cpp:758
+#: utils/formatting.cpp:762
 #, kde-format
 msgctxt "as in good/valid signature"
 msgid "good"
 msgstr "良好"
 
-#: utils/formatting.cpp:797
+#: utils/formatting.cpp:801
 #, kde-format
 msgid "valid"
 msgstr "有效"
 
-#: utils/formatting.cpp:811
+#: utils/formatting.cpp:815
 #, kde-format
 msgid "certificate expired"
 msgstr "证书已过期"
 
-#: utils/formatting.cpp:813
+#: utils/formatting.cpp:817
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "损坏"
 
-#: utils/formatting.cpp:819
+#: utils/formatting.cpp:823
 #, kde-format
 msgid "no public key"
 msgstr "无公钥"
 
-#: utils/formatting.cpp:821
+#: utils/formatting.cpp:825
 #, kde-format
 msgid "key expired"
 msgstr "密钥已过期"
 
-#: utils/formatting.cpp:823
+#: utils/formatting.cpp:827
 #, kde-format
 msgid "key revoked"
 msgstr "密钥已被吊销"
 
-#: utils/formatting.cpp:825
+#: utils/formatting.cpp:829
 #, kde-format
 msgid "key disabled"
 msgstr "密钥已被禁用"
 
-#: utils/formatting.cpp:881
+#: utils/formatting.cpp:885
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:928
+#: utils/formatting.cpp:932
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "损坏的签名，由未知证书 %1 签署：%2"
 
-#: utils/formatting.cpp:930
+#: utils/formatting.cpp:934
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "损坏的签名，由未知证书签署：%1"
 
-#: utils/formatting.cpp:933
+#: utils/formatting.cpp:937
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "损坏的签名，签署自 %1：%2"
 
-#: utils/formatting.cpp:939
+#: utils/formatting.cpp:943
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "完好的签名，由未知证书签署 %1。"
 
-#: utils/formatting.cpp:941
+#: utils/formatting.cpp:945
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "完好的签名，由未知证书签署。"
 
-#: utils/formatting.cpp:944
+#: utils/formatting.cpp:948
 #, kde-format
 msgid "Good signature by %1."
 msgstr "完好的签名，签署自 %1。"
 
-#: utils/formatting.cpp:949
+#: utils/formatting.cpp:953
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "无效的签名，由未知证书 %1 签署：%2"
 
-#: utils/formatting.cpp:951
+#: utils/formatting.cpp:955
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "无效的签名，由未知证书签署：%1"
 
-#: utils/formatting.cpp:954
+#: utils/formatting.cpp:958
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "无效的签名，签署自 %1：%2"
 
-#: utils/formatting.cpp:968
+#: utils/formatting.cpp:972
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "此证书导入自以下来源："
 
-#: utils/formatting.cpp:979
+#: utils/formatting.cpp:983
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "已中止导入此证书。"
 
-#: utils/formatting.cpp:982
+#: utils/formatting.cpp:986
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "导入证书 %1 时出错"
 
-#: utils/formatting.cpp:987
+#: utils/formatting.cpp:991
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr "此证书是新的，可使用绝密密钥。"
 
-#: utils/formatting.cpp:988
+#: utils/formatting.cpp:992
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "此证书是新的。"
 
-#: utils/formatting.cpp:993
+#: utils/formatting.cpp:997
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr "经过导入，新的用户编号已被添加到此证书内。"
 
-#: utils/formatting.cpp:996
+#: utils/formatting.cpp:1000
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "经过导入，新的签名已被添加到此证书内。"
 
-#: utils/formatting.cpp:999
+#: utils/formatting.cpp:1003
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "经过导入，新的子密钥已被添加到此证书内。"
 
-#: utils/formatting.cpp:1002
+#: utils/formatting.cpp:1006
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr "导入内容未给证书引入新数据，证书未改变。"
 
-#: utils/formatting.cpp:1018
+#: utils/formatting.cpp:1022
 #, kde-format
 msgid "Certify"
 msgstr "认证"
 
-#: utils/formatting.cpp:1021
+#: utils/formatting.cpp:1025
 #, kde-format
 msgid "Sign"
 msgstr "签名"
 
-#: utils/formatting.cpp:1024
+#: utils/formatting.cpp:1028
 #, kde-format
 msgid "Encrypt"
 msgstr "加密"
 
-#: utils/formatting.cpp:1027
+#: utils/formatting.cpp:1031
 #, kde-format
 msgid "Authenticate"
 msgstr "验证"
 
-#: utils/formatting.cpp:1036
+#: utils/formatting.cpp:1040
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1，%2，创建于：%3)"
 
-#: utils/formatting.cpp:1048
+#: utils/formatting.cpp:1052
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] "%2 (%1 个密钥，%3)"
 
-#: utils/formatting.cpp:1055
+#: utils/formatting.cpp:1059
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] "%2 (%1 个密钥，%3，标签)"
 
-#: utils/formatting.cpp:1062
+#: utils/formatting.cpp:1066
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] "%2 (%1 密钥，%3，未知来源)"
 
-#: utils/formatting.cpp:1099
+#: utils/formatting.cpp:1103
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "证书被标记为您自己拥有的。"
 
-#: utils/formatting.cpp:1101
+#: utils/formatting.cpp:1105
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "证书属于此收件人。"
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1107
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr "信任模型勉强标明此证书属于此收件人。"
 
-#: utils/formatting.cpp:1105
+#: utils/formatting.cpp:1109
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "不应使用此证书。"
 
-#: utils/formatting.cpp:1109
+#: utils/formatting.cpp:1113
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr "并无迹象标明此证书输入此收件人。"
 
-#: utils/formatting.cpp:1121
+#: utils/formatting.cpp:1125
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "此分组不包含任何密钥。"
 
-#: utils/formatting.cpp:1166
+#: utils/formatting.cpp:1170
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:1179
+#: utils/formatting.cpp:1183
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "认证的"
 
-#: utils/formatting.cpp:1194
+#: utils/formatting.cpp:1198
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "未认证的"
 
-#: utils/formatting.cpp:1197
+#: utils/formatting.cpp:1201
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "未检查"
 
-#: utils/formatting.cpp:1206
+#: utils/formatting.cpp:1210
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "全部都已被认证"
 
-#: utils/formatting.cpp:1209
+#: utils/formatting.cpp:1213
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "部分未被认证"
 
-#: utils/formatting.cpp:1242
+#: utils/formatting.cpp:1246
 #, kde-format
 msgid "Keyserver"
 msgstr "密钥服务器"
 
-#: utils/formatting.cpp:1250
+#: utils/formatting.cpp:1254
 #, kde-format
 msgid "File import"
 msgstr "文件导入"
 
-#: utils/formatting.cpp:1252
+#: utils/formatting.cpp:1256
 #, kde-format
 msgid "Generated"
 msgstr "已生成"
 
-#: utils/formatting.cpp:1256
+#: utils/formatting.cpp:1260
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:1292
+#: utils/formatting.cpp:1296
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "验证此密钥为“%1”部分信任的导入密钥。"
 
-#: utils/formatting.cpp:1296
+#: utils/formatting.cpp:1300
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
