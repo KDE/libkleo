@@ -234,7 +234,7 @@ static void showKeyListError(QWidget *parent, const GpgME::Error &err)
         "<qt><p>An error occurred while fetching "
         "the keys from the backend:</p>"
         "<p><b>%1</b></p></qt>",
-        QString::fromLocal8Bit(err.asString()));
+        Formatting::errorAsString(err));
 
     KMessageBox::error(parent, msg, i18n("Key Listing Failed"));
 }

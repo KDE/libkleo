@@ -803,17 +803,17 @@ namespace
 struct ready_for_signing {
     bool operator()(const Key &key) const
     {
-#if 1
         ACCEPT(hasSecret);
+#if GPGMEPP_KEY_CANSIGN_IS_FIXED
+        ACCEPT(canSign);
+#else
         ACCEPT(canReallySign);
+#endif
         REJECT(isRevoked);
         REJECT(isExpired);
         REJECT(isDisabled);
         REJECT(isInvalid);
         return true;
-#else
-        return key.hasSecret() && key.canReallySign() && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
-#endif
 #undef DO
     }
 };

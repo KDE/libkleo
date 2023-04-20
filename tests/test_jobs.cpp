@@ -7,6 +7,8 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
+#include <libkleo/formatting.h>
+
 #include <qgpgme/keylistjob.h>
 #include <qgpgme/protocol.h>
 #include <qgpgme/signjob.h>
@@ -57,7 +59,7 @@ static void testSign()
         return;
     }
     if (res.error()) {
-        qDebug() << "signing failed:" << res.error().asString();
+        qDebug() << "signing failed:" << Kleo::Formatting::errorAsString(res.error());
         return;
     }
     qDebug() << "signing resulted in signature=" << signature;

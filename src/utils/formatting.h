@@ -23,6 +23,7 @@ class QIcon;
 
 namespace GpgME
 {
+class Error;
 class Import;
 }
 
@@ -189,5 +190,10 @@ KLEO_EXPORT QString origin(int o);
 KLEO_EXPORT QString trustSignatureDomain(const GpgME::UserID::Signature &sig);
 /* Summary of trust signature properties */
 KLEO_EXPORT QString trustSignature(const GpgME::UserID::Signature &sig);
+
+/**
+ * Returns the value of Error::asString() for the error \p error as Unicode string.
+ */
+KLEO_EXPORT QString errorAsString(const GpgME::Error &error);
 }
 }

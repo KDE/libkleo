@@ -13,6 +13,7 @@
 
 #include "auditlogentry.h"
 
+#include <libkleo/formatting.h>
 #include <libkleo_debug.h>
 
 #include <QGpgME/Job>
@@ -92,7 +93,7 @@ QUrl AuditLogEntry::asUrl(const QUrl &urlTemplate) const
         } else if (code == GPG_ERR_NO_DATA) {
             qCDebug(LIBKLEO_LOG) << "not showing link (not available)";
         } else {
-            qCDebug(LIBKLEO_LOG) << "Error Retrieving Audit Log:" << QString::fromLocal8Bit(d->error.asString());
+            qCDebug(LIBKLEO_LOG) << "Error Retrieving Audit Log:" << Formatting::errorAsString(d->error);
         }
         return {};
     }
@@ -111,7 +112,7 @@ QUrl AuditLogEntry::asUrl(const QUrl &urlTemplate) const
 QDebug operator<<(QDebug debug, const AuditLogEntry &auditLog)
 {
     const bool oldSetting = debug.autoInsertSpaces();
-    debug.nospace() << "AuditLogEntry(" << auditLog.error().asString() << ", " << auditLog.text() << ')';
+    debug.nospace() << "AuditLogEntry(" << Formatting::errorAsString(auditLog.error()) << ", " << auditLog.text() << ')';
     debug.setAutoInsertSpaces(oldSetting);
     return debug.maybeSpace();
 }

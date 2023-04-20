@@ -17,6 +17,7 @@
 
 #include <QDebug>
 #include <QProcess>
+#include <QRegularExpression>
 #include <QSignalSpy>
 #include <QTemporaryDir>
 #include <QTest>
@@ -29,18 +30,31 @@ using days = Kleo::chrono::days;
 class FakeTimeProvider : public Kleo::TimeProvider
 {
 public:
-    explicit FakeTimeProvider(const QDate &date)
-        : mTime{date.startOfDay(Qt::UTC).toSecsSinceEpoch()}
+    explicit FakeTimeProvider(const QDateTime &dateTime)
+        : mCurrentDate{dateTime.date()}
+        , mCurrentTime{dateTime.toSecsSinceEpoch()}
     {
     }
 
-    time_t getTime() const override
+    time_t currentTime() const override
     {
-        return mTime;
+        return mCurrentTime;
+    }
+
+    QDate currentDate() const override
+    {
+        return mCurrentDate;
+    }
+
+    Qt::TimeSpec timeSpec() const override
+    {
+        // use UTC to avoid test failures caused by "wrong" local timezone
+        return Qt::UTC;
     }
 
 private:
-    time_t mTime;
+    QDate mCurrentDate;
+    time_t mCurrentTime;
 };
 
 class ExpiryCheckerTest : public QObject
@@ -73,27 +87,60 @@ private Q_SLOTS:
         qunsetenv("GNUPGHOME");
     }
 
+    void errorHandling_data()
+    {
+        QTest::addColumn<GpgME::Key>("key");
+        QTest::addColumn<ExpiryChecker::CheckFlags>("checkFlags");
+        QTest::addColumn<ExpiryChecker::ExpirationStatus>("expectedStatus");
+
+        QTest::newRow("invalid key") //
+            << GpgME::Key{} //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::EncryptionKey} //
+            << ExpiryChecker::InvalidKey;
+        QTest::newRow("invalid flags - no flags") //
+            << testKey("test@kolab.org", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{} //
+            << ExpiryChecker::InvalidCheckFlags;
+        QTest::newRow("invalid flags - no usage flags") //
+            << testKey("test@kolab.org", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnKey | ExpiryChecker::CheckChain} //
+            << ExpiryChecker::InvalidCheckFlags;
+    }
+
+    void errorHandling()
+    {
+        QFETCH(GpgME::Key, key);
+        QFETCH(ExpiryChecker::CheckFlags, checkFlags);
+        QFETCH(ExpiryChecker::ExpirationStatus, expectedStatus);
+
+        ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
+        QTest::ignoreMessage(QtWarningMsg, QRegularExpression{QStringLiteral("checkKey called with")});
+        const auto result = checker.checkKey(key, checkFlags);
+        QCOMPARE(result.expiration.certificate, key);
+        QCOMPARE(result.expiration.status, expectedStatus);
+    }
+
     void valid_data()
     {
         QTest::addColumn<GpgME::Key>("key");
-        QTest::addColumn<QDate>("fakedate");
+        QTest::addColumn<QDateTime>("fakedate");
         // use dates between creation date and expiration date (if there is one) of the test keys/certificates
-        QTest::newRow("neverExpire") << testKey("test@kolab.org", GpgME::OpenPGP) << QDate{2012, 1, 1};
-        QTest::newRow("openpgp") << testKey("alice@autocrypt.example", GpgME::OpenPGP) << QDate{2020, 1, 1};
-        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) << QDate{2012, 1, 1};
+        QTest::newRow("neverExpire") << testKey("test@kolab.org", GpgME::OpenPGP) << QDateTime{{2012, 1, 1}, {}, Qt::UTC};
+        QTest::newRow("openpgp") << testKey("alice@autocrypt.example", GpgME::OpenPGP) << QDateTime{{2020, 1, 1}, {}, Qt::UTC};
+        QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) << QDateTime{{2012, 1, 1}, {}, Qt::UTC};
     }
 
     void valid()
     {
         QFETCH(GpgME::Key, key);
-        QFETCH(QDate, fakedate);
+        QFETCH(QDateTime, fakedate);
 
         ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
         checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
         QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
 
-        const auto result = checker.checkKey(key, ExpiryChecker::NoCheckFlags);
-        QCOMPARE(result.checkFlags, ExpiryChecker::NoCheckFlags);
+        const auto result = checker.checkKey(key, ExpiryChecker::EncryptionKey);
+        QCOMPARE(result.checkFlags, ExpiryChecker::EncryptionKey);
         QCOMPARE(result.expiration.certificate, key);
         QCOMPARE(result.expiration.status, ExpiryChecker::NotNearExpiry);
         QCOMPARE(spy.count(), 0);
@@ -103,15 +150,15 @@ private Q_SLOTS:
     {
         QTest::addColumn<GpgME::Key>("key");
         QTest::addColumn<ExpiryChecker::CheckFlags>("checkFlags");
-        QTest::addColumn<QDate>("fakedate");
+        QTest::addColumn<QDateTime>("fakedate");
         QTest::addColumn<Kleo::chrono::days>("expectedDuration");
         QTest::addColumn<ExpiryChecker::ExpiryInformation>("expiryInfo");
         QTest::addColumn<QString>("msg");
 
-        QTest::newRow("openpgp - other; < 1 day ago") //
+        QTest::newRow("openpgp - other; 0 days ago") //
             << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::NoCheckFlags} //
-            << QDate{2021, 1, 22} // the day after the expiration date of the key
+            << ExpiryChecker::CheckFlags{ExpiryChecker::EncryptionKey} //
+            << QDateTime{{2021, 1, 21}, {23, 59, 59}, Qt::UTC} // the last second of the day the key expired
             << days{0} //
             << ExpiryChecker::OtherKeyExpired
             << QStringLiteral(
@@ -119,26 +166,26 @@ private Q_SLOTS:
                    "ago.</p>");
         QTest::newRow("openpgp - own; 1 day ago") //
             << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnKey} //
-            << QDate{2021, 1, 23} // the second day after the expiration date of the key
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnEncryptionKey} //
+            << QDateTime{{2021, 1, 22}, {}, Qt::UTC} // the day after the expiration date of the key
             << days{1} //
             << ExpiryChecker::OwnKeyExpired
             << QStringLiteral(
-                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired one day "
-                   "ago.</p>");
+                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired yesterday.</p>");
         QTest::newRow("openpgp - own signing; 2 days ago") //
             << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
             << ExpiryChecker::CheckFlags{ExpiryChecker::OwnSigningKey} //
-            << QDate{2021, 1, 24} // the third day after the expiration date of the key
+            << QDateTime{{2021, 1, 23}, {}, Qt::UTC} // the second day after the expiration date of the key
             << days{2} //
             << ExpiryChecker::OwnKeyExpired
             << QStringLiteral(
-                   "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired 2 days ago.</p>");
+                   "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expired 2 days "
+                   "ago.</p>");
 
-        QTest::newRow("smime - other; < 1 day ago") //
+        QTest::newRow("smime - other; 0 days ago") //
             << testKey("test@example.com", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::NoCheckFlags} //
-            << QDate{2013, 3, 26} // the day after the expiration date of the key
+            << ExpiryChecker::CheckFlags{ExpiryChecker::EncryptionKey} //
+            << QDateTime{{2013, 3, 25}, {23, 59, 59}, Qt::UTC} // the last second of the day the key expired
             << days{0} //
             << ExpiryChecker::OtherKeyExpired
             << QStringLiteral(
@@ -146,17 +193,17 @@ private Q_SLOTS:
                    "number 00D345203A186385C9)</p><p>expired less than a day ago.</p>");
         QTest::newRow("smime - own; 1 day ago") //
             << testKey("test@example.com", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnKey} //
-            << QDate{2013, 3, 27} // the second day after the expiration date of the key
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnEncryptionKey} //
+            << QDateTime{{2013, 3, 26}, {}, Qt::UTC} // the day after the expiration date of the key
             << days{1} //
             << ExpiryChecker::OwnKeyExpired
             << QStringLiteral(
                    "<p>Your S/MIME encryption certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
-                   "(serial number 00D345203A186385C9)</p><p>expired one day ago.</p>");
+                   "(serial number 00D345203A186385C9)</p><p>expired yesterday.</p>");
         QTest::newRow("smime - own signing; 2 days ago") //
             << testKey("test@example.com", GpgME::CMS) //
             << ExpiryChecker::CheckFlags{ExpiryChecker::OwnSigningKey} //
-            << QDate{2013, 3, 28} // the third day after the expiration date of the key
+            << QDateTime{{2013, 3, 27}, {}, Qt::UTC} // the second day after the expiration date of the key
             << days{2} //
             << ExpiryChecker::OwnKeyExpired
             << QStringLiteral(
@@ -168,7 +215,7 @@ private Q_SLOTS:
     {
         QFETCH(GpgME::Key, key);
         QFETCH(ExpiryChecker::CheckFlags, checkFlags);
-        QFETCH(QDate, fakedate);
+        QFETCH(QDateTime, fakedate);
         QFETCH(Kleo::chrono::days, expectedDuration);
         QFETCH(ExpiryChecker::ExpiryInformation, expiryInfo);
         QFETCH(QString, msg);
@@ -193,7 +240,7 @@ private Q_SLOTS:
     void nearexpiry_data()
     {
         QTest::addColumn<GpgME::Key>("key");
-        QTest::addColumn<QDate>("fakedate");
+        QTest::addColumn<QDateTime>("fakedate");
         QTest::addColumn<Kleo::chrono::days>("expectedDuration");
         QTest::addColumn<QString>("msg");
         QTest::addColumn<QString>("msgOwnKey");
@@ -202,34 +249,34 @@ private Q_SLOTS:
         // use the day 5 days before the expiration date of the test keys/certificates as fake date
         QTest::newRow("openpgp")
             << testKey("alice@autocrypt.example", GpgME::OpenPGP) //
-            << QDate{2021, 1, 16} //
+            << QDateTime{{2021, 1, 16}, {}, Qt::UTC} //
             << days{5}
             << QStringLiteral(
-                   "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in less than 6 days.</p>")
+                   "<p>The OpenPGP key for</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in 5 days.</p>")
             << QStringLiteral(
-                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in less than 6 "
+                   "<p>Your OpenPGP encryption key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in 5 "
                    "days.</p>")
             << QStringLiteral(
-                   "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in less than 6 "
+                   "<p>Your OpenPGP signing key</p><p align=center><b>alice@autocrypt.example</b> (KeyID 0xF231550C4F47E38E)</p><p>expires in 5 "
                    "days.</p>");
         QTest::newRow("smime") << testKey("test@example.com", GpgME::CMS) //
-                               << QDate{2013, 3, 20} //
+                               << QDateTime{{2013, 3, 20}, {}, Qt::UTC} //
                                << days{5}
                                << QStringLiteral(
                                       "<p>The S/MIME certificate for</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> (serial "
-                                      "number 00D345203A186385C9)</p><p>expires in less than 6 days.</p>")
+                                      "number 00D345203A186385C9)</p><p>expires in 5 days.</p>")
                                << QStringLiteral(
                                       "<p>Your S/MIME encryption certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
-                                      "(serial number 00D345203A186385C9)</p><p>expires in less than 6 days.</p>")
+                                      "(serial number 00D345203A186385C9)</p><p>expires in 5 days.</p>")
                                << QStringLiteral(
                                       "<p>Your S/MIME signing certificate</p><p align=center><b>CN=unittest cert,EMAIL=test@example.com,O=KDAB,C=US</b> "
-                                      "(serial number 00D345203A186385C9)</p><p>expires in less than 6 days.</p>");
+                                      "(serial number 00D345203A186385C9)</p><p>expires in 5 days.</p>");
     }
 
     void nearexpiry()
     {
         QFETCH(GpgME::Key, key);
-        QFETCH(QDate, fakedate);
+        QFETCH(QDateTime, fakedate);
         QFETCH(Kleo::chrono::days, expectedDuration);
         QFETCH(QString, msg);
         QFETCH(QString, msgOwnKey);
@@ -241,16 +288,16 @@ private Q_SLOTS:
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct threshold is taken
             {
-                const auto result = checker.checkKey(key, ExpiryChecker::NoCheckFlags);
-                QCOMPARE(result.checkFlags, ExpiryChecker::NoCheckFlags);
+                const auto result = checker.checkKey(key, ExpiryChecker::EncryptionKey);
+                QCOMPARE(result.checkFlags, ExpiryChecker::EncryptionKey);
                 QCOMPARE(result.expiration.certificate, key);
                 QCOMPARE(result.expiration.status, ExpiryChecker::ExpiresSoon);
                 QCOMPARE(result.expiration.duration, expectedDuration);
                 QCOMPARE(spy.count(), 1);
             }
             {
-                const auto result = checker.checkKey(key, ExpiryChecker::OwnKey);
-                QCOMPARE(result.checkFlags, ExpiryChecker::OwnKey);
+                const auto result = checker.checkKey(key, ExpiryChecker::OwnEncryptionKey);
+                QCOMPARE(result.checkFlags, ExpiryChecker::OwnEncryptionKey);
                 QCOMPARE(result.expiration.certificate, key);
                 QCOMPARE(result.expiration.status, ExpiryChecker::NotNearExpiry);
                 QCOMPARE(result.expiration.duration, expectedDuration);
@@ -274,8 +321,8 @@ private Q_SLOTS:
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
-            checker.checkKey(key, ExpiryChecker::NoCheckFlags);
-            checker.checkKey(key, ExpiryChecker::OwnKey);
+            checker.checkKey(key, ExpiryChecker::EncryptionKey);
+            checker.checkKey(key, ExpiryChecker::OwnEncryptionKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
             QCOMPARE(arguments.at(0).value<GpgME::Key>().keyID(), key.keyID());
@@ -287,7 +334,7 @@ private Q_SLOTS:
             checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
             QSignalSpy spy(&checker, &ExpiryChecker::expiryMessage);
             // Test if the correct treshold is taken
-            checker.checkKey(key, ExpiryChecker::NoCheckFlags);
+            checker.checkKey(key, ExpiryChecker::EncryptionKey);
             checker.checkKey(key, ExpiryChecker::OwnSigningKey);
             QCOMPARE(spy.count(), 1);
             QList<QVariant> arguments = spy.takeFirst();
@@ -297,11 +344,95 @@ private Q_SLOTS:
         }
     }
 
+    void expiringEncryptionSubkey_data()
+    {
+        QTest::addColumn<GpgME::Key>("key");
+        QTest::addColumn<ExpiryChecker::CheckFlags>("checkFlags");
+        QTest::addColumn<QDateTime>("fakedate");
+        QTest::addColumn<ExpiryChecker::ExpirationStatus>("expectedStatus");
+        QTest::addColumn<Kleo::chrono::days>("expectedDuration");
+
+        QTest::newRow("valid - sign") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnSigningKey} //
+            << QDateTime{{2023, 4, 18}, {}, Qt::UTC} // 9 days before expiration of encryption subkey
+            << ExpiryChecker::NotNearExpiry //
+            << days{0}; // ignored
+        QTest::newRow("valid - encrypt to self") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnEncryptionKey} //
+            << QDateTime{{2023, 4, 18}, {}, Qt::UTC} // 9 days before expiration of encryption subkey
+            << ExpiryChecker::NotNearExpiry //
+            << days{0}; // ignored
+        QTest::newRow("valid - encrypt to others") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::EncryptionKey} //
+            << QDateTime{{2023, 4, 18}, {}, Qt::UTC} // 9 days before expiration of encryption subkey
+            << ExpiryChecker::NotNearExpiry //
+            << days{0}; // ignored
+        QTest::newRow("near expiry - sign") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnSigningKey} //
+            << QDateTime{{2023, 4, 26}, {}, Qt::UTC} // 1 day before expiration of encryption subkey
+            << ExpiryChecker::NotNearExpiry // signing key doesn't expire
+            << days{0}; // ignored
+        QTest::newRow("near expiry - encrypt to self") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnEncryptionKey} //
+            << QDateTime{{2023, 4, 26}, {}, Qt::UTC} // 1 day before expiration of encryption subkey
+            << ExpiryChecker::ExpiresSoon //
+            << days{1};
+        QTest::newRow("near expiry - encrypt to others") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::EncryptionKey} //
+            << QDateTime{{2023, 4, 26}, {}, Qt::UTC} // 1 day before expiration of encryption subkey
+            << ExpiryChecker::ExpiresSoon //
+            << days{1};
+        QTest::newRow("expired - sign") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnSigningKey} //
+            << QDateTime{{2023, 4, 28}, {}, Qt::UTC} // 1 day after expiration of encryption subkey
+            << ExpiryChecker::NotNearExpiry // signing key doesn't expire
+            << days{0}; // ignored
+        QTest::newRow("expired - encrypt to self") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::OwnEncryptionKey} //
+            << QDateTime{{2023, 4, 28}, {}, Qt::UTC} // 1 day after expiration of encryption subkey
+            << ExpiryChecker::Expired //
+            << days{1};
+        QTest::newRow("expired - encrypt to others") //
+            << testKey("encr-expires@example.net", GpgME::OpenPGP) //
+            << ExpiryChecker::CheckFlags{ExpiryChecker::EncryptionKey} //
+            << QDateTime{{2023, 4, 28}, {}, Qt::UTC} // 1 day after expiration of encryption subkey
+            << ExpiryChecker::Expired //
+            << days{1};
+    }
+
+    void expiringEncryptionSubkey()
+    {
+        QFETCH(GpgME::Key, key);
+        QFETCH(ExpiryChecker::CheckFlags, checkFlags);
+        QFETCH(QDateTime, fakedate);
+        QFETCH(ExpiryChecker::ExpirationStatus, expectedStatus);
+        QFETCH(Kleo::chrono::days, expectedDuration);
+
+        ExpiryChecker checker(ExpiryCheckerSettings{days{5}, days{5}, days{5}, days{5}});
+        checker.setTimeProviderForTest(std::make_shared<FakeTimeProvider>(fakedate));
+        const auto result = checker.checkKey(key, checkFlags);
+        QCOMPARE(result.checkFlags, checkFlags);
+        QCOMPARE(result.expiration.certificate, key);
+        QCOMPARE(result.expiration.status, expectedStatus);
+        if (expectedStatus != ExpiryChecker::NotNearExpiry) {
+            // duration is undefined if status is NotNearExpiry
+            QCOMPARE(result.expiration.duration, expectedDuration);
+        }
+    }
+
     void certificateChain_data()
     {
         QTest::addColumn<GpgME::Key>("key");
         QTest::addColumn<ExpiryChecker::CheckFlags>("checkFlags");
-        QTest::addColumn<QDate>("fakedate");
+        QTest::addColumn<QDateTime>("fakedate");
         QTest::addColumn<ExpiryChecker::ExpirationStatus>("expectedStatus");
         QTest::addColumn<Kleo::chrono::days>("expectedDuration");
         QTest::addColumn<int>("expectedChainResults");
@@ -314,8 +445,8 @@ private Q_SLOTS:
 
         QTest::newRow("certificate near expiry; issuer okay") //
             << testKey("3193786A48BDF2D4D20B8FC6501F4DE8BE231B05", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::CheckChain} //
-            << QDate{2019, 6, 19} // 5 days before expiration date of the certificate
+            << ExpiryChecker::CheckFlags{ExpiryChecker::CertificationKey | ExpiryChecker::CheckChain} //
+            << QDateTime{{2019, 6, 19}, {}, Qt::UTC} // 5 days before expiration date of the certificate
             << ExpiryChecker::ExpiresSoon //
             << days{5} //
             << 0 // no expired or expiring certificates in issuer chain
@@ -326,11 +457,11 @@ private Q_SLOTS:
             << QByteArray{"501F4DE8BE231B05"} // first signal emission references the certificate
             << QStringLiteral(
                    "<p>The S/MIME certificate for</p><p align=center><b>CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust AB,C=SE</b> "
-                   "(serial number 51260A931CE27F9CC3A55F79E072AE82)</p><p>expires in less than 6 days.</p>");
+                   "(serial number 51260A931CE27F9CC3A55F79E072AE82)</p><p>expires in 5 days.</p>");
         QTest::newRow("certificate near expiry; issuer not checked") //
             << testKey("3193786A48BDF2D4D20B8FC6501F4DE8BE231B05", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::NoCheckFlags} //
-            << QDate{2019, 6, 19} // 5 days before expiration date of the certificate
+            << ExpiryChecker::CheckFlags{ExpiryChecker::CertificationKey} //
+            << QDateTime{{2019, 6, 19}, {}, Qt::UTC} // 5 days before expiration date of the certificate
             << ExpiryChecker::ExpiresSoon //
             << days{5} //
             << 0 // issuer chain not checked
@@ -341,11 +472,11 @@ private Q_SLOTS:
             << QByteArray{"501F4DE8BE231B05"} // signal emission references the certificate
             << QStringLiteral(
                    "<p>The S/MIME certificate for</p><p align=center><b>CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust AB,C=SE</b> "
-                   "(serial number 51260A931CE27F9CC3A55F79E072AE82)</p><p>expires in less than 6 days.</p>");
+                   "(serial number 51260A931CE27F9CC3A55F79E072AE82)</p><p>expires in 5 days.</p>");
         QTest::newRow("certificate okay; issuer near expiry") //
             << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::CheckChain} //
-            << QDate{2019, 6, 19} // 5 days before expiration date of the issuer certificate
+            << ExpiryChecker::CheckFlags{ExpiryChecker::CertificationKey | ExpiryChecker::CheckChain} //
+            << QDateTime{{2019, 6, 19}, {}, Qt::UTC} // 5 days before expiration date of the issuer certificate
             << ExpiryChecker::NotNearExpiry //
             << days{346} //
             << 1 // one expiring certificate in issuer chain
@@ -358,11 +489,11 @@ private Q_SLOTS:
                    "<p>The intermediate CA certificate</p><p align=center><b>CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust "
                    "AB,C=SE</b></p><p>for S/MIME certificate</p><p align=center><b>CN=UTN - DATACorp SGC,L=Salt Lake "
                    "City,SP=UT,OU=http://www.usertrust.com,O=The USERTRUST Network,C=US</b> (serial number 46EAF096054CC5E3FA65EA6E9F42C664)</p><p>expires in "
-                   "less than 6 days.</p>");
+                   "5 days.</p>");
         QTest::newRow("certificate okay; issuer not checked") //
             << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::NoCheckFlags} //
-            << QDate{2019, 6, 19} // 5 days before expiration date of the issuer certificate
+            << ExpiryChecker::CheckFlags{ExpiryChecker::CertificationKey} //
+            << QDateTime{{2019, 6, 19}, {}, Qt::UTC} // 5 days before expiration date of the issuer certificate
             << ExpiryChecker::NotNearExpiry //
             << days{346} //
             << 0 // issuer chain not checked
@@ -374,23 +505,23 @@ private Q_SLOTS:
             << QString{};
         QTest::newRow("certificate near expiry; issuer expired") //
             << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::CheckChain} //
-            << QDate{2020, 5, 25} // 5 days before expiration date of the certificate
+            << ExpiryChecker::CheckFlags{ExpiryChecker::CertificationKey | ExpiryChecker::CheckChain} //
+            << QDateTime{{2020, 5, 25}, {}, Qt::UTC} // 5 days before expiration date of the certificate
             << ExpiryChecker::ExpiresSoon //
             << days{5} //
             << 1 // one expired certificate in issuer chain
             << testKey("3193786A48BDF2D4D20B8FC6501F4DE8BE231B05", GpgME::CMS) //
             << ExpiryChecker::Expired //
-            << days{335} //
+            << days{336} //
             << 2 // expect 2 signal emissions because both certificates in the 2-certificate chain are either expired or near expiry
             << QByteArray{"492EDA1DCE2E4C63"} // first signal emission references the certificate
             << QStringLiteral(
                    "<p>The S/MIME certificate for</p><p align=center><b>CN=UTN - DATACorp SGC,L=Salt Lake City,SP=UT,OU=http://www.usertrust.com,O=The "
-                   "USERTRUST Network,C=US</b> (serial number 46EAF096054CC5E3FA65EA6E9F42C664)</p><p>expires in less than 6 days.</p>");
+                   "USERTRUST Network,C=US</b> (serial number 46EAF096054CC5E3FA65EA6E9F42C664)</p><p>expires in 5 days.</p>");
         QTest::newRow("certificate near expiry; issuer not checked")
             << testKey("9E99817D12280C9677674430492EDA1DCE2E4C63", GpgME::CMS) //
-            << ExpiryChecker::CheckFlags{ExpiryChecker::NoCheckFlags} //
-            << QDate{2020, 5, 25} // 5 days before expiration date of the certificate
+            << ExpiryChecker::CheckFlags{ExpiryChecker::CertificationKey} //
+            << QDateTime{{2020, 5, 25}, {}, Qt::UTC} // 5 days before expiration date of the certificate
             << ExpiryChecker::ExpiresSoon //
             << days{5} //
             << 0 // issuer chain not checked
@@ -401,14 +532,14 @@ private Q_SLOTS:
             << QByteArray{"492EDA1DCE2E4C63"} // first signal emission references the certificate
             << QStringLiteral(
                    "<p>The S/MIME certificate for</p><p align=center><b>CN=UTN - DATACorp SGC,L=Salt Lake City,SP=UT,OU=http://www.usertrust.com,O=The "
-                   "USERTRUST Network,C=US</b> (serial number 46EAF096054CC5E3FA65EA6E9F42C664)</p><p>expires in less than 6 days.</p>");
+                   "USERTRUST Network,C=US</b> (serial number 46EAF096054CC5E3FA65EA6E9F42C664)</p><p>expires in 5 days.</p>");
     }
 
     void certificateChain()
     {
         QFETCH(GpgME::Key, key);
         QFETCH(ExpiryChecker::CheckFlags, checkFlags);
-        QFETCH(QDate, fakedate);
+        QFETCH(QDateTime, fakedate);
         QFETCH(ExpiryChecker::ExpirationStatus, expectedStatus);
         QFETCH(Kleo::chrono::days, expectedDuration);
         QFETCH(int, expectedChainResults);
@@ -444,6 +575,30 @@ private Q_SLOTS:
         }
     }
 
+    void noSuitableSubkey_data()
+    {
+        QTest::addColumn<GpgME::Key>("key");
+        QTest::addColumn<ExpiryChecker::CheckFlags>("checkFlags");
+
+        QTest::newRow("no encryption (sub)key") //
+            << testKey("3193786A48BDF2D4D20B8FC6501F4DE8BE231B05", GpgME::CMS) // certification-only key
+            << ExpiryChecker::CheckFlags{ExpiryChecker::EncryptionKey};
+        QTest::newRow("no signing (sub)key") //
+            << testKey("3193786A48BDF2D4D20B8FC6501F4DE8BE231B05", GpgME::CMS) // certification-only key
+            << ExpiryChecker::CheckFlags{ExpiryChecker::SigningKey};
+    }
+
+    void noSuitableSubkey()
+    {
+        QFETCH(GpgME::Key, key);
+        QFETCH(ExpiryChecker::CheckFlags, checkFlags);
+
+        ExpiryChecker checker(ExpiryCheckerSettings{days{1}, days{1}, days{1}, days{1}});
+        const auto result = checker.checkKey(key, checkFlags);
+        QCOMPARE(result.expiration.certificate, key);
+        QCOMPARE(result.expiration.status, ExpiryChecker::NoSuitableSubkey);
+    }
+
 private:
     // OpenPGP keys
     //
@@ -455,6 +610,12 @@ private:
     // pub   ed25519 2019-01-22 [SC] [expired: 2021-01-21]
     //       EB85BB5FA33A75E15E944E63F231550C4F47E38E
     // uid           [ expired] alice@autocrypt.example
+    //
+    // pub   ed25519 2023-04-17 [SC]
+    //   C1218845DEEDA5432198FA7AF78A0834BB3C4A16
+    // uid           [ultimate] encr-expires@example.net
+    // sub   cv25519 2023-04-17 [E] [expires: 2023-04-27]
+    //
     //
     // S/MIME certificates
     //

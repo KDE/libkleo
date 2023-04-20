@@ -18,6 +18,7 @@
 
 #include <Libkleo/Chrono>
 
+#include <QDate>
 #include <QObject>
 
 #include <gpgme++/key.h>
@@ -35,7 +36,9 @@ class KLEO_EXPORT TimeProvider
 public:
     virtual ~TimeProvider() = default;
 
-    virtual time_t getTime() const = 0;
+    virtual time_t currentTime() const = 0;
+    virtual QDate currentDate() const = 0;
+    virtual Qt::TimeSpec timeSpec() const = 0;
 };
 
 class KLEO_EXPORT ExpiryChecker : public QObject
@@ -43,12 +46,14 @@ class KLEO_EXPORT ExpiryChecker : public QObject
     Q_OBJECT
 public:
     enum CheckFlag {
-        NoCheckFlags = 0,
-        OwnKey = 1,
-        OwnEncryptionKey = OwnKey,
-        SigningKey = 2,
+        EncryptionKey = 0x01,
+        SigningKey = 0x02,
+        CertificationKey = 0x04,
+        OwnKey = 0x08,
+        OwnEncryptionKey = OwnKey | EncryptionKey,
         OwnSigningKey = OwnKey | SigningKey,
-        CheckChain = 4,
+        CheckChain = 0x10,
+        UsageMask = EncryptionKey | SigningKey | CertificationKey,
     };
     Q_FLAG(CheckFlag)
     Q_DECLARE_FLAGS(CheckFlags, CheckFlag)
@@ -58,16 +63,19 @@ public:
         NotNearExpiry,
         ExpiresSoon,
         Expired,
-        Expires = ExpiresSoon, // alias used internally
+        NoSuitableSubkey,
+        InvalidKey,
+        InvalidCheckFlags,
     };
     Q_ENUM(ExpirationStatus)
 
     struct Expiration {
         GpgME::Key certificate;
         ExpirationStatus status;
-        // duration is full days until expiry if status is Expires,
-        // full days since expiry if status is Expired,
-        // undefined if status is NotNearExpiry
+        // duration is days until expiry if status is ExpiresSoon (i.e. 0
+        // if expiry is today, 1 if it's tomorrow, etc.),
+        // days since expiry if status is Expired, and
+        // undefined otherwise
         Kleo::chrono::days duration;
     };
 
@@ -77,7 +85,7 @@ public:
         std::vector<Expiration> chainExpiration; // results for expired or soon expiring chain certificates
     };
 
-    explicit ExpiryChecker(const ExpiryCheckerSettings &settings);
+    explicit ExpiryChecker(const ExpiryCheckerSettings &settings, QObject *parent = nullptr);
 
     ~ExpiryChecker() override;
 

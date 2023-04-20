@@ -47,8 +47,8 @@ public:
     {
     }
 
-    ExpiryChecker::Expiration calculateExpiration(const GpgME::Key &key) const;
-    ExpiryChecker::Expiration checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const;
+    ExpiryChecker::Expiration calculateExpiration(const GpgME::Subkey &subkey) const;
+    ExpiryChecker::Expiration checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold, ExpiryChecker::CheckFlags flags) const;
 
     ExpiryChecker::Result checkKeyNearExpiry(const GpgME::Key &key, ExpiryChecker::CheckFlags flags);
 
@@ -57,8 +57,9 @@ public:
     std::shared_ptr<TimeProvider> timeProvider;
 };
 
-ExpiryChecker::ExpiryChecker(const ExpiryCheckerSettings &settings)
-    : d{new ExpiryCheckerPrivate{this, settings}}
+ExpiryChecker::ExpiryChecker(const ExpiryCheckerSettings &settings, QObject *parent)
+    : QObject{parent}
+    , d{new ExpiryCheckerPrivate{this, settings}}
 {
 }
 
@@ -92,48 +93,41 @@ QString formatOpenPGPMessage(ExpiryChecker::Expiration expiration, ExpiryChecker
         }
         KLocalizedString msg;
         if (isSigningKey) {
-            msg = ki18np(
-                "<p>Your OpenPGP signing key</p><p align=center>%2</p>"
-                "<p>expired one day ago.</p>",
-                "<p>Your OpenPGP signing key</p><p align=center>%2</p>"
-                "<p>expired %1 days ago.</p>");
+            msg = ki18np("<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</p>",
+                         "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago.</p>");
         } else if (isOwnKey) {
-            msg = ki18np(
-                "<p>Your OpenPGP encryption key</p><p align=center>%2</p>"
-                "<p>expired one day ago.</p>",
-                "<p>Your OpenPGP encryption key</p><p align=center>%2</p>"
-                "<p>expired %1 days ago.</p>");
+            msg = ki18np("<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday.</p>",
+                         "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days ago.</p>");
         } else {
-            msg = ki18np(
-                "<p>The OpenPGP key for</p><p align=center>%2</p>"
-                "<p>expired one day ago.</p>",
-                "<p>The OpenPGP key for</p><p align=center>%2</p>"
-                "<p>expired %1 days ago.</p>");
+            msg = ki18np("<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>",
+                         "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>");
         }
         return msg.subs(expiration.duration.count()).subs(keyInfo).toString();
     }
-    qCDebug(LIBKLEO_LOG) << "Key" << key << "expires in less than" << expiration.duration.count() + 1 << "days";
+    qCDebug(LIBKLEO_LOG) << "Key" << key << "expires in" << expiration.duration.count() << "days";
+    if (expiration.duration.count() == 0) {
+        KLocalizedString msg;
+        if (isSigningKey) {
+            msg = ki18n("<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>");
+        } else if (isOwnKey) {
+            msg = ki18n("<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>");
+        } else {
+            msg = ki18n("<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>");
+        }
+        return msg.subs(keyInfo).toString();
+    }
     KLocalizedString msg;
     if (isSigningKey) {
-        msg = ki18np(
-            "<p>Your OpenPGP signing key</p><p align=center>%2</p>"
-            "<p>expires in less than a day.</p>",
-            "<p>Your OpenPGP signing key</p><p align=center>%2</p>"
-            "<p>expires in less than %1 days.</p>");
+        msg = ki18np("<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>",
+                     "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</p>");
     } else if (isOwnKey) {
-        msg = ki18np(
-            "<p>Your OpenPGP encryption key</p><p align=center>%2</p>"
-            "<p>expires in less than a day.</p>",
-            "<p>Your OpenPGP encryption key</p><p align=center>%2</p>"
-            "<p>expires in less than %1 days.</p>");
+        msg = ki18np("<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow.</p>",
+                     "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 days.</p>");
     } else {
-        msg = ki18np(
-            "<p>The OpenPGP key for</p><p align=center>%2</p>"
-            "<p>expires in less than a day.</p>",
-            "<p>The OpenPGP key for</p><p align=center>%2</p>"
-            "<p>expires in less than %1 days.</p>");
+        msg = ki18np("<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>",
+                     "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>");
     }
-    return msg.subs(expiration.duration.count() + 1).subs(keyInfo).toString();
+    return msg.subs(expiration.duration.count()).subs(keyInfo).toString();
 }
 
 QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration expiration, ExpiryChecker::CheckFlags flags, bool ca)
@@ -174,7 +168,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                     msg = ki18np(
                         "<p>The root certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
-                        "<p>expired one day ago.</p>",
+                        "<p>expired yesterday.</p>",
                         "<p>The root certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -182,7 +176,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                     msg = ki18np(
                         "<p>The root certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
-                        "<p>expired one day ago.</p>",
+                        "<p>expired yesterday.</p>",
                         "<p>The root certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -190,7 +184,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                     msg = ki18np(
                         "<p>The root certificate</p><p align=center><b>%3</b></p>"
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
-                        "<p>expired one day ago.</p>",
+                        "<p>expired yesterday.</p>",
                         "<p>The root certificate</p><p align=center><b>%3</b></p>"
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -222,7 +216,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                     msg = ki18np(
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
-                        "<p>expired one day ago.</p>",
+                        "<p>expired yesterday.</p>",
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -230,7 +224,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                     msg = ki18np(
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
-                        "<p>expired one day ago.</p>",
+                        "<p>expired yesterday.</p>",
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -238,7 +232,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                     msg = ki18np(
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
-                        "<p>expired one day ago.</p>",
+                        "<p>expired yesterday.</p>",
                         "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
@@ -259,126 +253,209 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
             }
             KLocalizedString msg;
             if (isSigningKey) {
-                msg = ki18np(
-                    "<p>Your S/MIME signing certificate</p><p align=center>%2</p>"
-                    "<p>expired one day ago.</p>",
-                    "<p>Your S/MIME signing certificate</p><p align=center>%2</p>"
-                    "<p>expired %1 days ago.</p>");
+                msg = ki18np("<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired yesterday.</p>",
+                             "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>");
             } else if (isOwnKey) {
-                msg = ki18np(
-                    "<p>Your S/MIME encryption certificate</p><p align=center>%2</p>"
-                    "<p>expired one day ago.</p>",
-                    "<p>Your S/MIME encryption certificate</p><p align=center>%2</p>"
-                    "<p>expired %1 days ago.</p>");
+                msg = ki18np("<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired yesterday.</p>",
+                             "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>");
             } else {
-                msg = ki18np(
-                    "<p>The S/MIME certificate for</p><p align=center>%2</p>"
-                    "<p>expired one day ago.</p>",
-                    "<p>The S/MIME certificate for</p><p align=center>%2</p>"
-                    "<p>expired %1 days ago.</p>");
+                msg = ki18np("<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday.</p>",
+                             "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days ago.</p>");
             }
             return msg.subs(expiration.duration.count()).subs(userCertInfo).toString();
         }
     }
-    qCDebug(LIBKLEO_LOG) << "Certificate" << key << "expires in less than" << expiration.duration.count() + 1 << "days";
-    KLocalizedString msg;
+    qCDebug(LIBKLEO_LOG) << "Certificate" << key << "expires in" << expiration.duration.count() << "days";
     if (ca) {
         if (key.isRoot()) {
-            if (isSigningKey) {
-                msg = ki18np(
-                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
-                    "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than a day.</p>",
-                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
-                    "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than %1 days.</p>");
-            } else if (isOwnKey) {
-                msg = ki18np(
-                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
-                    "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than a day.</p>",
-                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
-                    "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than %1 days.</p>");
-            } else {
-                msg = ki18np(
-                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
-                    "<p>for S/MIME certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than a day.</p>",
-                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
-                    "<p>for S/MIME certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than %1 days.</p>");
+            if (expiration.duration.count() == 0) {
+                KLocalizedString msg;
+                if (isSigningKey) {
+                    msg = ki18n(
+                        "<p>The root certificate</p><p align=center><b>%3</b></p>"
+                        "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
+                        "<p>expires today.</p>");
+                } else if (isOwnKey) {
+                    msg = ki18n(
+                        "<p>The root certificate</p><p align=center><b>%3</b></p>"
+                        "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
+                        "<p>expires today.</p>");
+                } else {
+                    msg = ki18n(
+                        "<p>The root certificate</p><p align=center><b>%3</b></p>"
+                        "<p>for S/MIME certificate</p><p align=center>%2</p>"
+                        "<p>expires today.</p>");
+                }
+                return msg.subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
             }
-        } else {
+            KLocalizedString msg;
             if (isSigningKey) {
                 msg = ki18np(
-                    "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
                     "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than a day.</p>",
-                    "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                    "<p>expires tomorrow.</p>",
+                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
                     "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than %1 days.</p>");
+                    "<p>expires in %1 days.</p>");
             } else if (isOwnKey) {
                 msg = ki18np(
-                    "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
                     "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than a day.</p>",
-                    "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                    "<p>expires tomorrow.</p>",
+                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
                     "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than %1 days.</p>");
+                    "<p>expires in %1 days.</p>");
             } else {
                 msg = ki18np(
+                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
+                    "<p>for S/MIME certificate</p><p align=center>%2</p>"
+                    "<p>expires tomorrow.</p>",
+                    "<p>The root certificate</p><p align=center><b>%3</b></p>"
+                    "<p>for S/MIME certificate</p><p align=center>%2</p>"
+                    "<p>expires in %1 days.</p>");
+            }
+            return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+        }
+        if (expiration.duration.count() == 0) {
+            KLocalizedString msg;
+            if (isSigningKey) {
+                msg = ki18n(
+                    "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                    "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
+                    "<p>expires today.</p>");
+            } else if (isOwnKey) {
+                msg = ki18n(
+                    "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                    "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
+                    "<p>expires today.</p>");
+            } else {
+                msg = ki18n(
                     "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
                     "<p>for S/MIME certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than a day.</p>",
-                    "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
-                    "<p>for S/MIME certificate</p><p align=center>%2</p>"
-                    "<p>expires in less than %1 days.</p>");
+                    "<p>expires today.</p>");
             }
         }
-        return msg.subs(expiration.duration.count() + 1).subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+        KLocalizedString msg;
+        if (isSigningKey) {
+            msg = ki18np(
+                "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
+                "<p>expires tomorrow.</p>",
+                "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                "<p>for your S/MIME signing certificate</p><p align=center>%2</p>"
+                "<p>expires in %1 days.</p>");
+        } else if (isOwnKey) {
+            msg = ki18np(
+                "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
+                "<p>expires tomorrow.</p>",
+                "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                "<p>for your S/MIME encryption certificate</p><p align=center>%2</p>"
+                "<p>expires in %1 days.</p>");
+        } else {
+            msg = ki18np(
+                "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                "<p>for S/MIME certificate</p><p align=center>%2</p>"
+                "<p>expires tomorrow.</p>",
+                "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p>"
+                "<p>for S/MIME certificate</p><p align=center>%2</p>"
+                "<p>expires in %1 days.</p>");
+        }
+        return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
     }
+    if (expiration.duration.count() == 0) {
+        KLocalizedString msg;
+        if (isSigningKey) {
+            msg = ki18n("<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</p>");
+        } else if (isOwnKey) {
+            msg = ki18n("<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today.</p>");
+        } else {
+            msg = ki18n("<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>");
+        }
+        return msg.subs(userCertInfo).toString();
+    }
+    KLocalizedString msg;
     if (isSigningKey) {
         msg = ki18np(
             "<p>Your S/MIME signing certificate</p><p align=center>%2</p>"
-            "<p>expires in less than a day.</p>",
+            "<p>expires tomorrow.</p>",
             "<p>Your S/MIME signing certificate</p><p align=center>%2</p>"
-            "<p>expires in less than %1 days.</p>");
+            "<p>expires in %1 days.</p>");
     } else if (isOwnKey) {
         msg = ki18np(
             "<p>Your S/MIME encryption certificate</p><p align=center>%2</p>"
-            "<p>expires in less than a day.</p>",
+            "<p>expires tomorrow.</p>",
             "<p>Your S/MIME encryption certificate</p><p align=center>%2</p>"
-            "<p>expires in less than %1 days.</p>");
+            "<p>expires in %1 days.</p>");
     } else {
         msg = ki18np(
             "<p>The S/MIME certificate for</p><p align=center>%2</p>"
-            "<p>expires in less than a day.</p>",
+            "<p>expires tomorrow.</p>",
             "<p>The S/MIME certificate for</p><p align=center>%2</p>"
-            "<p>expires in less than %1 days.</p>");
+            "<p>expires in %1 days.</p>");
     }
-    return msg.subs(expiration.duration.count() + 1).subs(userCertInfo).toString();
+    return msg.subs(expiration.duration.count()).subs(userCertInfo).toString();
 }
 
-ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Key &key) const
+static GpgME::Subkey findBestSubkey(const GpgME::Key &key, ExpiryChecker::CheckFlags usageFlags)
 {
-    const GpgME::Subkey subkey = key.subkey(0);
+    // find the subkey with the latest expiration date for the given usage flags
+    if (!(usageFlags & ExpiryChecker::UsageMask)) {
+        // return primary key if no specific usage is specified (as for chain certificates)
+        return key.subkey(0);
+    }
+    GpgME::Subkey result;
+    for (unsigned int i = 0; i < key.numSubkeys(); ++i) {
+        const auto subkey = key.subkey(i);
+        if (subkey.isRevoked() || subkey.isInvalid() || subkey.isDisabled()) {
+            // unusable subkey
+            continue;
+        }
+        if (((usageFlags & ExpiryChecker::EncryptionKey) && !subkey.canEncrypt()) //
+            || ((usageFlags & ExpiryChecker::SigningKey) && !subkey.canSign()) //
+            || ((usageFlags & ExpiryChecker::CertificationKey) && !subkey.canCertify())) {
+            // unsuitable subkey for requested usage
+            continue;
+        }
+        if (subkey.neverExpires()) {
+            // stop looking for the best subkey if we found a suitable subkey that doesn't expire
+            return subkey;
+        }
+        if (quint32(subkey.expirationTime()) > quint32(result.expirationTime())) {
+            result = subkey;
+        }
+    }
+    return result;
+}
+
+ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME::Subkey &subkey) const
+{
     if (subkey.neverExpires()) {
-        return {key, ExpiryChecker::NotNearExpiry, Kleo::chrono::days::zero()};
+        return {subkey.parent(), ExpiryChecker::NotNearExpiry, Kleo::chrono::days::zero()};
     }
-    const time_t t = timeProvider ? timeProvider->getTime() : std::time(nullptr);
-    // casting the double-valued difference (returned by std::difftime) of two non-negative time_t to a time_t is no problem;
-    // negative values for expiration time and current time can be safely ignored
-    const time_t secsTillExpiry = static_cast<time_t>(std::difftime(subkey.expirationTime(), t));
-    return {key,
-            secsTillExpiry <= 0 ? ExpiryChecker::Expired : ExpiryChecker::Expires,
-            std::chrono::duration_cast<Kleo::chrono::days>(std::chrono::seconds{std::abs(secsTillExpiry)})};
+    const time_t currentTime = timeProvider ? timeProvider->currentTime() : std::time(nullptr);
+    const auto currentDate = timeProvider ? timeProvider->currentDate() : QDate::currentDate();
+    const auto timeSpec = timeProvider ? timeProvider->timeSpec() : Qt::LocalTime;
+    const time_t expirationTime = subkey.expirationTime();
+    const auto expirationDate = QDateTime::fromSecsSinceEpoch(quint32(expirationTime), timeSpec).date();
+    // use std::difftime to avoid problems with negative values on 32-bit systems
+    if (std::difftime(expirationTime, currentTime) <= 0) {
+        return {subkey.parent(), ExpiryChecker::Expired, Kleo::chrono::days{expirationDate.daysTo(currentDate)}};
+    } else {
+        return {subkey.parent(), ExpiryChecker::ExpiresSoon, Kleo::chrono::days{currentDate.daysTo(expirationDate)}};
+    }
 }
 
-ExpiryChecker::Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, Kleo::chrono::days threshold) const
+ExpiryChecker::Expiration ExpiryCheckerPrivate::checkForExpiration(const GpgME::Key &key, //
+                                                                   Kleo::chrono::days threshold,
+                                                                   ExpiryChecker::CheckFlags usageFlags) const
 {
-    ExpiryChecker::Expiration expiration = calculateExpiration(key);
-    if ((expiration.status == ExpiryChecker::Expires) && (expiration.duration > threshold)) {
+    const auto subkey = findBestSubkey(key, usageFlags);
+    if (subkey.isNull()) {
+        return {key, ExpiryChecker::NoSuitableSubkey, {}};
+    }
+    ExpiryChecker::Expiration expiration = calculateExpiration(subkey);
+    if ((expiration.status == ExpiryChecker::ExpiresSoon) && (expiration.duration > threshold)) {
         // key expires, but not too soon
         expiration.status = ExpiryChecker::NotNearExpiry;
     }
@@ -407,7 +484,8 @@ ExpiryChecker::Result ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key 
         const auto threshold = chainCount > 0 //
             ? (key.isRoot() ? settings.rootCertThreshold() : settings.chainCertThreshold()) //
             : (isOwnKey ? settings.ownKeyThreshold() : settings.otherKeyThreshold());
-        const auto expiration = checkForExpiration(key, threshold);
+        const auto usageFlags = (chainCount == 0) ? (flags & ExpiryChecker::UsageMask) : ExpiryChecker::CheckFlags{};
+        const auto expiration = checkForExpiration(key, threshold, usageFlags);
         if (chainCount == 0) {
             result.expiration = expiration;
         } else if (expiration.status != ExpiryChecker::NotNearExpiry) {
@@ -425,6 +503,8 @@ ExpiryChecker::Result ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key 
                 : formatSMIMEMessage(orig_key, expiration, flags, chainCount > 0);
             alreadyWarnedFingerprints.insert(subkey.fingerprint());
             Q_EMIT q->expiryMessage(key, msg, isOwnKey ? ExpiryChecker::OwnKeyNearExpiry : ExpiryChecker::OtherKeyNearExpiry, newMessage);
+        } else if (expiration.status == ExpiryChecker::NoSuitableSubkey) {
+            break;
         }
         if (!(flags & ExpiryChecker::CheckChain) || key.isRoot() || (key.protocol() != GpgME::CMS)) {
             break;
@@ -443,6 +523,14 @@ ExpiryChecker::Result ExpiryCheckerPrivate::checkKeyNearExpiry(const GpgME::Key 
 
 ExpiryChecker::Result ExpiryChecker::checkKey(const GpgME::Key &key, CheckFlags flags) const
 {
+    if (key.isNull()) {
+        qWarning(LIBKLEO_LOG) << __func__ << "called with null key";
+        return {flags, {key, InvalidKey, {}}, {}};
+    }
+    if (!(flags & UsageMask)) {
+        qWarning(LIBKLEO_LOG) << __func__ << "called with invalid flags:" << flags;
+        return {flags, {key, InvalidCheckFlags, {}}, {}};
+    }
     return d->checkKeyNearExpiry(key, flags);
 }
 

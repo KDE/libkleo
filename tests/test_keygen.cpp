@@ -9,7 +9,8 @@
 
 #include "test_keygen.h"
 
-#include <ui/progressdialog.h>
+#include <libkleo/formatting.h>
+#include <libkleo/progressdialog.h>
 
 #include <qgpgme/keygenerationjob.h>
 #include <qgpgme/keylistjob.h>
@@ -134,7 +135,7 @@ void KeyGenerator::slotStartKeyGeneration()
 void KeyGenerator::showError(const GpgME::Error &err)
 {
     KMessageBox::error(this,
-                       QStringLiteral("Could not start key generation: %1").arg(QString::fromLocal8Bit(err.asString())),
+                       QStringLiteral("Could not start key generation: %1").arg(Kleo::Formatting::errorAsString(err)),
                        QStringLiteral("Key Generation Error"));
 }
 

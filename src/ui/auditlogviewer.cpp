@@ -10,7 +10,8 @@
 
 #include "auditlogviewer.h"
 
-#include <kleo/auditlogentry.h>
+#include <libkleo/auditlogentry.h>
+#include <libkleo/formatting.h>
 
 #include <KConfigGroup>
 #include <KGuiItem>
@@ -103,7 +104,7 @@ void AuditLogViewer::showAuditLog(QWidget *parent, const AuditLogEntry &auditLog
     }
     if (err && err.code() != GPG_ERR_NO_DATA) {
         KMessageBox::information(parent,
-                                 i18n("An error occurred while trying to retrieve the GnuPG Audit Log:\n%1", QString::fromLocal8Bit(err.asString())),
+                                 i18n("An error occurred while trying to retrieve the GnuPG Audit Log:\n%1", Formatting::errorAsString(err)),
                                  i18n("GnuPG Audit Log Error"));
         return;
     }

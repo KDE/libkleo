@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(PIM_VERSION "5.23.41")
+set(PIM_VERSION "5.23.44")
 
 project(libkleo VERSION ${PIM_VERSION})
 
@@ -54,7 +54,11 @@ find_package(KPim6TextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
 
 find_package(Gpgmepp ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
-    find_package(QGpgmeQt6 ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
+if (Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.19.1")
+    set(GPGMEPP_KEY_CANSIGN_IS_FIXED 1)
+    set(GPGMEPP_ERROR_ASSTRING_RETURNS_UTF8_ON_WINDOWS 1)
+endif()
+find_package(QGpgmeQt6 ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
 message(STATUS "GpgME++ Version ${Gpgmepp_VERSION}")
 if (QGpgme_VERSION VERSION_GREATER_EQUAL "1.18.1")
     set(QGPGME_LISTALLKEYSJOB_HAS_OPTIONS 1)
