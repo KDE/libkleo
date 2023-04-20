@@ -929,12 +929,12 @@ QString Formatting::signatureToString(const Signature &sig, const Key &key)
     if (red) {
         if (key.isNull()) {
             if (const char *fpr = sig.fingerprint()) {
-                return i18n("Bad signature by unknown certificate %1: %2", QString::fromLatin1(fpr), QString::fromLocal8Bit(sig.status().asString()));
+                return i18n("Bad signature by unknown certificate %1: %2", QString::fromLatin1(fpr), Formatting::errorAsString(sig.status()));
             } else {
-                return i18n("Bad signature by an unknown certificate: %1", QString::fromLocal8Bit(sig.status().asString()));
+                return i18n("Bad signature by an unknown certificate: %1", Formatting::errorAsString(sig.status()));
             }
         } else {
-            return i18n("Bad signature by %1: %2", keyToString(key), QString::fromLocal8Bit(sig.status().asString()));
+            return i18n("Bad signature by %1: %2", keyToString(key), Formatting::errorAsString(sig.status()));
         }
 
     } else if (valid) {
@@ -950,12 +950,12 @@ QString Formatting::signatureToString(const Signature &sig, const Key &key)
 
     } else if (key.isNull()) {
         if (const char *fpr = sig.fingerprint()) {
-            return i18n("Invalid signature by unknown certificate %1: %2", QString::fromLatin1(fpr), QString::fromLocal8Bit(sig.status().asString()));
+            return i18n("Invalid signature by unknown certificate %1: %2", QString::fromLatin1(fpr), Formatting::errorAsString(sig.status()));
         } else {
-            return i18n("Invalid signature by an unknown certificate: %1", QString::fromLocal8Bit(sig.status().asString()));
+            return i18n("Invalid signature by an unknown certificate: %1", Formatting::errorAsString(sig.status()));
         }
     } else {
-        return i18n("Invalid signature by %1: %2", keyToString(key), QString::fromLocal8Bit(sig.status().asString()));
+        return i18n("Invalid signature by %1: %2", keyToString(key), Formatting::errorAsString(sig.status()));
     }
 }
 
@@ -983,7 +983,7 @@ QString Formatting::importMetaData(const Import &import)
         return i18n("The import of this certificate was canceled.");
     }
     if (import.error()) {
-        return i18n("An error occurred importing this certificate: %1", QString::fromLocal8Bit(import.error().asString()));
+        return i18n("An error occurred importing this certificate: %1", Formatting::errorAsString(import.error()));
     }
 
     const unsigned int status = import.status();
@@ -1302,4 +1302,13 @@ QString Formatting::trustSignature(const GpgME::UserID::Signature &sig)
     default:
         return {};
     }
+}
+
+QString Formatting::errorAsString(const GpgME::Error &error)
+{
+#if defined(Q_OS_WIN) && GPGMEPP_ERROR_ASSTRING_RETURNS_UTF8_ON_WINDOWS
+    return QString::fromUtf8(error.asString());
+#else
+    return QString::fromLocal8Bit(error.asString());
+#endif
 }

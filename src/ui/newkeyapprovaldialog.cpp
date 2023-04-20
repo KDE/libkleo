@@ -426,7 +426,7 @@ public:
     void checkAccepted()
     {
         if (mLastError || mLastError.isCanceled()) {
-            KMessageBox::error(q, QString::fromLocal8Bit(mLastError.asString()), i18n("Operation Failed"));
+            KMessageBox::error(q, Formatting::errorAsString(mLastError), i18n("Operation Failed"));
             mRunningJobs.clear();
             return;
         }

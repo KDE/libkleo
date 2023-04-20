@@ -9,6 +9,8 @@
 
 #include "test_keylister.h"
 
+#include <libkleo/formatting.h>
+
 #include <qgpgme/keylistjob.h>
 #include <qgpgme/protocol.h>
 
@@ -117,7 +119,7 @@ void CertListView::slotResult(const GpgME::KeyListResult &result)
     } else if (result.error()) {
         QMessageBox::critical(this,
                               QStringLiteral("Key Listing Result"),
-                              QStringLiteral("KeyListResult Error: %1").arg(QString::fromLatin1(result.error().asString())));
+                              QStringLiteral("KeyListResult Error: %1").arg(Kleo::Formatting::errorAsString(result.error())));
     } else if (result.isTruncated()) {
         QMessageBox::information(this, QStringLiteral("Key Listing Result"), QStringLiteral("KeyListResult is truncated!"));
     } else {
