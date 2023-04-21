@@ -29,6 +29,11 @@ public:
     using ExpiryCheckerConfigBase::ExpiryCheckerConfigBase;
 
     ExpiryCheckerSettings settings() const;
+
+    const KConfigSkeletonItem *ownKeyThresholdInDaysItem() const;
+    const KConfigSkeletonItem *otherKeyThresholdInDaysItem() const;
+    const KConfigSkeletonItem *rootCertificateThresholdInDaysItem() const;
+    const KConfigSkeletonItem *intermediateCertificateThresholdInDaysItem() const;
 };
 
 }
