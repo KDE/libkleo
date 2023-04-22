@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-20 00:49+0000\n"
-"PO-Revision-Date: 2023-03-01 01:45+0100\n"
+"POT-Creation-Date: 2023-04-21 00:49+0000\n"
+"PO-Revision-Date: 2023-04-22 00:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -233,7 +233,7 @@ msgstr "<없음>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b>(키 ID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -241,6 +241,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%1</p><p>이(가) 1일 미만 전에 만료되"
+"었습니다.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -248,6 +250,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%1</p><p>이(가) 1일 미만 전에 만료"
+"되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -255,6 +259,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p align=center>%1</p><p>의 OpenPGP 키가</p><p>1일 미만 전에 만료되었습니다."
+"</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -265,6 +271,8 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%2</p><p>이(가) %1일 전에 만료되었습"
+"니다.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -275,6 +283,8 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%2</p><p>이(가) %1일 전에 만료되었"
+"습니다.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -283,23 +293,27 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p align=center>%2</p><p>의 OpenPGP 키가</p><p>%1일 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%1</p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%1</p><p>이(가) 오늘 만료됩니다.</"
+"p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p align=center>%1</p><p>의 OpenPGP 키가</p><p>오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -309,6 +323,8 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩니"
+"다.</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -319,6 +335,8 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩니"
+"다.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -327,13 +345,14 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p align=center>%2</p><p>의 OpenPGP 키가</p><p>%1일 안에 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b>(일련 번호 %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -342,6 +361,8 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%1</p><p>의 루트 인증서</p><p "
+"align=center><b>%2</b></p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -350,6 +371,8 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%1</p><p>의 루트 인증서</p><p "
+"align=center><b>%2</b></p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -357,6 +380,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%1</p><p>의 루트 인증서</p><p "
+"align=center><b>%2</b></p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -367,6 +392,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b></p><p>이(가) %1일 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -377,6 +404,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b></p><p>이(가) %1일 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -387,6 +416,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b></p><p>이(가) %1일 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -395,6 +426,8 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%1</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%2</p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -403,6 +436,8 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%1</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%2</p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:208
 #, kde-format
@@ -410,6 +445,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME 서명 인증서</p><p align=center>%1</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%2</p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -422,6 +459,8 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</p><p>이(가) %1일 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:225
 #, kde-format
@@ -434,6 +473,8 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%3</p><p>이(가) %1일 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:233
 #, kde-format
@@ -444,6 +485,8 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</p><p>이(가) %1일 전에 만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:246
 #, kde-format
@@ -451,6 +494,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%1</p><p>이(가) 1일 미만 전에 만"
+"료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -458,6 +503,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%1</p><p>이(가) 1일 미만 전에 "
+"만료되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -465,6 +512,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p align=center>%1</p><p>의 S/MIME 인증서가</p><p>1일 미만 전에 만료되었습니"
+"다.</p>"
 
 #: kleo/expirychecker.cpp:256
 #, kde-format
@@ -475,6 +524,8 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) %1일 전에 만료되"
+"었습니다.</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -485,6 +536,8 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>이(가) %1일 전에 만료"
+"되었습니다.</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -495,6 +548,8 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p align=center>%2</p><p>의 S/MIME 인증서가</p><p>%1일 전에 만료되었습니다.</"
+"p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -502,6 +557,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -509,6 +566,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -516,6 +575,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -526,6 +587,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -536,6 +599,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -546,6 +611,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -554,6 +621,8 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -562,6 +631,8 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -569,6 +640,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -581,6 +654,8 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -593,6 +668,8 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -603,6 +680,8 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -610,6 +689,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) 오늘 만료됩니다."
+"</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -617,12 +698,15 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>이(가) 오늘 만료됩니"
+"다.</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>이(가) 오늘 만료됩니다.</p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -633,6 +717,8 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩"
+"니다.</p>"
 
 #: kleo/expirychecker.cpp:386
 #, kde-format
@@ -643,6 +729,8 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>이(가) %1일 안에 만료"
+"됩니다.</p>"
 
 #: kleo/expirychecker.cpp:392
 #, kde-format
@@ -653,6 +741,8 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩니"
+"다.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
@@ -865,33 +955,33 @@ msgstr "다음으로 인증서 시ᄅᅠᆫㅚ"
 msgid "class %1"
 msgstr "클래스 %1"
 
-#: ui/auditlogviewer.cpp:51
+#: ui/auditlogviewer.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "GnuPG 감사 기록 표시"
 
-#: ui/auditlogviewer.cpp:54
+#: ui/auditlogviewer.cpp:55
 #, kde-format
 msgid "&Copy to Clipboard"
 msgstr "클립보드에 복사(&C)"
 
-#: ui/auditlogviewer.cpp:59
+#: ui/auditlogviewer.cpp:60
 #, kde-format
 msgid "&Save to Disk..."
 msgstr "디스크에 저장(&S)..."
 
-#: ui/auditlogviewer.cpp:101
+#: ui/auditlogviewer.cpp:102
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "GnuPG 감사 기록을 지원하지 않는 것 같습니다"
 
-#: ui/auditlogviewer.cpp:101
+#: ui/auditlogviewer.cpp:102
 #, kde-format
 msgid "System Error"
 msgstr "시스템 오류"
 
-#: ui/auditlogviewer.cpp:106
+#: ui/auditlogviewer.cpp:107
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -900,37 +990,37 @@ msgstr ""
 "GnuPG 감사 기록을 가져오는 중 오류 발생:\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:107
+#: ui/auditlogviewer.cpp:108
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "GnuPG 감사 기록 오류"
 
-#: ui/auditlogviewer.cpp:111
+#: ui/auditlogviewer.cpp:112
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "이 작업에 대한 GnuPG 감사 기록을 사용할 수 없습니다."
 
-#: ui/auditlogviewer.cpp:111
+#: ui/auditlogviewer.cpp:112
 #, kde-format
 msgid "No GnuPG Audit Log"
 msgstr "GnuPG 감사 기록 없음"
 
-#: ui/auditlogviewer.cpp:117
+#: ui/auditlogviewer.cpp:118
 #, kde-format
 msgid "GnuPG Audit Log Viewer"
 msgstr "GnuPG 감사 기록 뷰어"
 
-#: ui/auditlogviewer.cpp:132
+#: ui/auditlogviewer.cpp:133
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "GnuPG 감사 기록을 저장할 파일 선택"
 
-#: ui/auditlogviewer.cpp:151
+#: ui/auditlogviewer.cpp:152
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "파일 \"%1\"에 저장할 수 없음: %2"
 
-#: ui/auditlogviewer.cpp:151
+#: ui/auditlogviewer.cpp:152
 #, kde-format
 msgid "File Save Error"
 msgstr "파일 저장 오류"
@@ -1713,7 +1803,7 @@ msgstr "상태"
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "준수"
 
 #: ui/keyselectiondialog.cpp:425
 #, kde-format

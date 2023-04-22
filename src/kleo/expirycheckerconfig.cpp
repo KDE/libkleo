@@ -24,3 +24,23 @@ ExpiryCheckerSettings ExpiryCheckerConfig::settings() const
                                  days{rootCertificateThresholdInDays()},
                                  days{intermediateCertificateThresholdInDays()}};
 }
+
+const KConfigSkeletonItem *ExpiryCheckerConfig::ownKeyThresholdInDaysItem() const
+{
+    return findItem(QStringLiteral("ownKeyThresholdInDays"));
+}
+
+const KConfigSkeletonItem *ExpiryCheckerConfig::otherKeyThresholdInDaysItem() const
+{
+    return findItem(QStringLiteral("otherKeyThresholdInDays"));
+}
+
+const KConfigSkeletonItem *ExpiryCheckerConfig::rootCertificateThresholdInDaysItem() const
+{
+    return findItem(QStringLiteral("rootCertificateThresholdInDays"));
+}
+
+const KConfigSkeletonItem *ExpiryCheckerConfig::intermediateCertificateThresholdInDaysItem() const
+{
+    return findItem(QStringLiteral("intermediateCertificateThresholdInDays"));
+}
