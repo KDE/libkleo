@@ -12,28 +12,28 @@
     <group name="General">
     <entry key="ownKeyThresholdInDays" type="Int">
       <label>Threshold for own certificates</label>
-      <whatsthis>This is the number of days you will be warned in advanced, if your own certificate is about to expire soon.</whatsthis>
+      <whatsthis>This is the number of days you will be warned in advance, if your own certificate is about to expire soon.</whatsthis>
       <default>30</default>
       <min>-1</min>
       <max>999</max>
     </entry>
     <entry key="otherKeyThresholdInDays" type="Int">
       <label>Threshold for other certificates</label>
-      <whatsthis>This is the number of days you will be warned in advanced, if the certificate of another person that is used by you is about to expire soon.</whatsthis>
+      <whatsthis>This is the number of days you will be warned in advance, if the certificate of another person that is used by you is about to expire soon.</whatsthis>
       <default>14</default>
       <min>-1</min>
       <max>999</max>
     </entry>
     <entry key="rootCertificateThresholdInDays" type="Int">
       <label>Threshold for root certificates</label>
-      <whatsthis>This is the number of days you will be warned in advanced, if a root certificate that is used by you is about to expire soon.</whatsthis>
+      <whatsthis>This is the number of days you will be warned in advance, if a root certificate that is used by you is about to expire soon.</whatsthis>
       <default>14</default>
       <min>-1</min>
       <max>999</max>
     </entry>
     <entry key="intermediateCertificateThresholdInDays" type="Int">
       <label>Threshold for intermediate certificates</label>
-      <whatsthis>This is the number of days you will be warned in advanced, if an intermediate certificate that is used by you is about to expire soon.</whatsthis>
+      <whatsthis>This is the number of days you will be warned in advance, if an intermediate certificate that is used by you is about to expire soon.</whatsthis>
       <default>14</default>
       <min>-1</min>
       <max>999</max>
