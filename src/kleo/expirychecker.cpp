@@ -418,8 +418,9 @@ static GpgME::Subkey findBestSubkey(const GpgME::Key &key, ExpiryChecker::CheckF
             continue;
         }
         if (subkey.neverExpires()) {
-            // stop looking for the best subkey if we found a suitable subkey that doesn't expire
-            return subkey;
+            // stop looking for the best subkey if we found a suitable subkey that doesn't expire;
+            // return the primary key because a non-expiring subkey inherits the primary key's expiration
+            return key.subkey(0);
         }
         if (quint32(subkey.expirationTime()) > quint32(result.expirationTime())) {
             result = subkey;
