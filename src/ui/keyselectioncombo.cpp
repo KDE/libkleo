@@ -68,6 +68,23 @@ private:
     QString mFingerprint;
 };
 
+static QString formatUserID(const GpgME::Key &key)
+{
+    const auto userID = key.userID(0);
+    QString name;
+    QString email;
+
+    if (key.protocol() == GpgME::OpenPGP) {
+        name = QString::fromUtf8(userID.name());
+        email = QString::fromUtf8(userID.email());
+    } else {
+        const Kleo::DN dn(userID.id());
+        name = dn[QStringLiteral("CN")];
+        email = dn[QStringLiteral("EMAIL")];
+    }
+    return email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email);
+}
+
 class SortAndFormatCertificatesProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -98,7 +115,9 @@ private:
         if (rUid.isNull()) {
             return true;
         }
-        int cmp = strcmp(lUid.id(), rUid.id());
+        const auto leftNameAndEmail = formatUserID(leftKey);
+        const auto rightNameAndEmail = formatUserID(rightKey);
+        const int cmp = QString::localeAwareCompare(leftNameAndEmail, rightNameAndEmail);
         if (cmp) {
             return cmp < 0;
         }
@@ -144,19 +163,7 @@ protected:
         switch (role) {
         case Qt::DisplayRole:
         case Qt::AccessibleTextRole: {
-            const auto userID = key.userID(0);
-            QString name;
-            QString email;
-
-            if (key.protocol() == GpgME::OpenPGP) {
-                name = QString::fromUtf8(userID.name());
-                email = QString::fromUtf8(userID.email());
-            } else {
-                const Kleo::DN dn(userID.id());
-                name = dn[QStringLiteral("CN")];
-                email = dn[QStringLiteral("EMAIL")];
-            }
-            const auto nameAndEmail = email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email);
+            const auto nameAndEmail = formatUserID(key);
             if (Kleo::KeyCache::instance()->pgpOnly()) {
                 return i18nc("Name <email> (validity, created: date)",
                              "%1 (%2, created: %3)",
