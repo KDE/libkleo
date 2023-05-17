@@ -197,13 +197,14 @@ public:
 
     QModelIndex mapToSource(const QModelIndex &index) const override
     {
-        if (!isCustomItem(index.row())) {
-            const int row = index.row() - mFrontItems.count();
-
-            return sourceModel()->index(row, index.column());
-        } else {
+        if (!index.isValid()) {
             return {};
         }
+        if (!isCustomItem(index.row())) {
+            const int sourceRow = index.row() - mFrontItems.count();
+            return QSortFilterProxyModel::mapToSource(createIndex(sourceRow, index.column(), index.internalPointer()));
+        }
+        return {};
     }
 
     QModelIndex mapFromSource(const QModelIndex &source_index) const override
