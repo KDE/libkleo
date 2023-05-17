@@ -68,30 +68,17 @@ private:
     QString mFingerprint;
 };
 
-class ProxyModel : public QSortFilterProxyModel
+class SortAndFormatCertificatesProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-private:
-    struct CustomItem {
-        QIcon icon;
-        QString text;
-        QVariant data;
-        QString toolTip;
-    };
-
 public:
-    ProxyModel(QObject *parent = nullptr)
-        : QSortFilterProxyModel(parent)
+    SortAndFormatCertificatesProxyModel(QObject *parent = nullptr)
+        : QSortFilterProxyModel{parent}
     {
     }
 
-    ~ProxyModel() override
-    {
-        qDeleteAll(mFrontItems);
-        qDeleteAll(mBackItems);
-    }
-
+private:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
     {
         const auto leftKey = sourceModel()->data(left, KeyList::KeyRole).value<GpgME::Key>();
@@ -139,6 +126,86 @@ public:
             return newTime < oldTime;
         }
         return lUid.validity() > rUid.validity();
+    }
+
+protected:
+    QVariant data(const QModelIndex &index, int role) const override
+    {
+        if (!index.isValid()) {
+            return QVariant();
+        }
+
+        const auto key = QSortFilterProxyModel::data(index, KeyList::KeyRole).value<GpgME::Key>();
+        Q_ASSERT(!key.isNull());
+        if (key.isNull()) {
+            return QVariant();
+        }
+
+        switch (role) {
+        case Qt::DisplayRole:
+        case Qt::AccessibleTextRole: {
+            const auto userID = key.userID(0);
+            QString name;
+            QString email;
+
+            if (key.protocol() == GpgME::OpenPGP) {
+                name = QString::fromUtf8(userID.name());
+                email = QString::fromUtf8(userID.email());
+            } else {
+                const Kleo::DN dn(userID.id());
+                name = dn[QStringLiteral("CN")];
+                email = dn[QStringLiteral("EMAIL")];
+            }
+            const auto nameAndEmail = email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email);
+            if (Kleo::KeyCache::instance()->pgpOnly()) {
+                return i18nc("Name <email> (validity, created: date)",
+                             "%1 (%2, created: %3)",
+                             nameAndEmail,
+                             Kleo::Formatting::complianceStringShort(key),
+                             Kleo::Formatting::creationDateString(key));
+            } else {
+                return i18nc("Name <email> (validity, type, created: date)",
+                             "%1 (%2, %3, created: %4)",
+                             nameAndEmail,
+                             Kleo::Formatting::complianceStringShort(key),
+                             Formatting::displayName(key.protocol()),
+                             Kleo::Formatting::creationDateString(key));
+            }
+        }
+        case Qt::ToolTipRole: {
+            using namespace Kleo::Formatting;
+            return Kleo::Formatting::toolTip(key, Validity | Issuer | Subject | Fingerprint | ExpiryDates | UserIDs);
+        }
+        case Qt::DecorationRole:
+            return Kleo::Formatting::iconForUid(key.userID(0));
+        default:
+            return QSortFilterProxyModel::data(index, role);
+        }
+    }
+};
+
+class CustomItemsProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+
+private:
+    struct CustomItem {
+        QIcon icon;
+        QString text;
+        QVariant data;
+        QString toolTip;
+    };
+
+public:
+    CustomItemsProxyModel(QObject *parent = nullptr)
+        : QSortFilterProxyModel(parent)
+    {
+    }
+
+    ~CustomItemsProxyModel() override
+    {
+        qDeleteAll(mFrontItems);
+        qDeleteAll(mBackItems);
     }
 
     bool isCustomItem(const int row) const
@@ -263,52 +330,7 @@ public:
             }
         }
 
-        const auto key = QSortFilterProxyModel::data(index, KeyList::KeyRole).value<GpgME::Key>();
-        Q_ASSERT(!key.isNull());
-        if (key.isNull()) {
-            return QVariant();
-        }
-
-        switch (role) {
-        case Qt::DisplayRole:
-        case Qt::AccessibleTextRole: {
-            const auto userID = key.userID(0);
-            QString name;
-            QString email;
-
-            if (key.protocol() == GpgME::OpenPGP) {
-                name = QString::fromUtf8(userID.name());
-                email = QString::fromUtf8(userID.email());
-            } else {
-                const Kleo::DN dn(userID.id());
-                name = dn[QStringLiteral("CN")];
-                email = dn[QStringLiteral("EMAIL")];
-            }
-            const auto nameAndEmail = email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email);
-            if (Kleo::KeyCache::instance()->pgpOnly()) {
-                return i18nc("Name <email> (validity, created: date)",
-                             "%1 (%2, created: %3)",
-                             nameAndEmail,
-                             Kleo::Formatting::complianceStringShort(key),
-                             Kleo::Formatting::creationDateString(key));
-            } else {
-                return i18nc("Name <email> (validity, type, created: date)",
-                             "%1 (%2, %3, created: %4)",
-                             nameAndEmail,
-                             Kleo::Formatting::complianceStringShort(key),
-                             Formatting::displayName(key.protocol()),
-                             Kleo::Formatting::creationDateString(key));
-            }
-        }
-        case Qt::ToolTipRole: {
-            using namespace Kleo::Formatting;
-            return Kleo::Formatting::toolTip(key, Validity | Issuer | Subject | Fingerprint | ExpiryDates | UserIDs);
-        }
-        case Qt::DecorationRole:
-            return Kleo::Formatting::iconForUid(key.userID(0));
-        default:
-            return QSortFilterProxyModel::data(index, role);
-        }
+        return QSortFilterProxyModel::data(index, role);
     }
 
 private:
@@ -421,7 +443,8 @@ public:
 
     Kleo::AbstractKeyListModel *model = nullptr;
     SortFilterProxyModel *sortFilterProxy = nullptr;
-    ProxyModel *proxyModel = nullptr;
+    SortAndFormatCertificatesProxyModel *sortAndFormatProxy = nullptr;
+    CustomItemsProxyModel *proxyModel = nullptr;
     std::shared_ptr<Kleo::KeyCache> cache;
     QMap<GpgME::Protocol, QString> defaultKeys;
     bool wasEnabled = false;
@@ -458,8 +481,13 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget *parent)
     d->sortFilterProxy = new SortFilterProxyModel(this);
     d->sortFilterProxy->setSourceModel(d->model);
 
-    d->proxyModel = new ProxyModel(this);
-    d->proxyModel->setSourceModel(d->sortFilterProxy);
+    d->sortAndFormatProxy = new SortAndFormatCertificatesProxyModel{this};
+    d->sortAndFormatProxy->setSourceModel(d->sortFilterProxy);
+    // initialize dynamic sorting
+    d->sortAndFormatProxy->sort(0);
+
+    d->proxyModel = new CustomItemsProxyModel{this};
+    d->proxyModel->setSourceModel(d->sortAndFormatProxy);
 
     setModel(d->proxyModel);
     connect(this, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int row) {
@@ -545,7 +573,6 @@ void KeySelectionCombo::init()
 void KeySelectionCombo::setKeyFilter(const std::shared_ptr<const KeyFilter> &kf)
 {
     d->sortFilterProxy->setKeyFilter(kf);
-    d->proxyModel->sort(0);
     d->updateWithDefaultKey();
 }
 
