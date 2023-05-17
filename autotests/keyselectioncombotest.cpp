@@ -102,6 +102,12 @@ class KeySelectionComboTest : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
+    void initTestCase()
+    {
+        // force C locale for sorting
+        QLocale::setDefault(QLocale::c());
+    }
+
     void init()
     {
         // hold a reference to the key cache to avoid rebuilding while the test is running
@@ -109,9 +115,9 @@ private Q_SLOTS:
 
         KeyCache::mutableInstance()->setKeys({
             createTestKey("sender@example.net", GpgME::OpenPGP, KeyCache::KeyCache::KeyUsage::AnyUsage),
-            createTestKey("sender@example.net", GpgME::CMS, KeyCache::KeyCache::KeyUsage::AnyUsage),
+            createTestKey("CN=,EMAIL=sender@example.net", GpgME::CMS, KeyCache::KeyCache::KeyUsage::AnyUsage),
             createTestKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP, KeyCache::KeyCache::KeyUsage::Encrypt),
-            createTestKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS, KeyCache::KeyCache::KeyUsage::Encrypt),
+            createTestKey("CN=Trusted S/MIME,EMAIL=prefer-smime@example.net", GpgME::CMS, KeyCache::KeyCache::KeyUsage::Encrypt),
             createTestKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP, KeyCache::KeyCache::KeyUsage::Encrypt, GpgME::UserID::Marginal),
         });
     }
@@ -132,22 +138,32 @@ private Q_SLOTS:
         QVERIFY(!testKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP).isNull());
     }
 
+    void test__certificates_are_sorted_alphabetically()
+    {
+        const auto combo = std::make_unique<KeySelectionCombo>();
+        waitForKeySelectionComboBeingInitialized(combo.get());
+        QCOMPARE(combo->itemText(0).left(combo->itemText(0).indexOf(" (")), "Full Trust <prefer-openpgp@example.net>");
+        QCOMPARE(combo->itemText(1).left(combo->itemText(1).indexOf(" (")), "Marginal Validity <marginal-openpgp@example.net>");
+        QCOMPARE(combo->itemText(2).left(combo->itemText(2).indexOf(" (")), "Trusted S/MIME <prefer-smime@example.net>");
+        // we don't check the order of the two "sender@example.net" keys
+    }
+
     void test__after_initialization_default_key_is_current_key()
     {
         const auto combo = std::make_unique<KeySelectionCombo>();
-        combo->setDefaultKey(QString::fromLatin1(testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP).primaryFingerprint()));
+        combo->setDefaultKey(QString::fromLatin1(testKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP).primaryFingerprint()));
         waitForKeySelectionComboBeingInitialized(combo.get());
 
-        QCOMPARE(combo->currentKey().primaryFingerprint(), testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP).primaryFingerprint());
+        QCOMPARE(combo->currentKey().primaryFingerprint(), testKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP).primaryFingerprint());
     }
 
     void test__currently_selected_key_is_retained_if_cache_is_updated()
     {
         const auto combo = std::make_unique<KeySelectionCombo>();
-        combo->setDefaultKey(QString::fromLatin1(testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP).primaryFingerprint()));
+        combo->setDefaultKey(QString::fromLatin1(testKey("Marginal Validity <marginal-openpgp@example.net>", GpgME::OpenPGP).primaryFingerprint()));
         waitForKeySelectionComboBeingInitialized(combo.get());
 
-        combo->setCurrentIndex(3);
+        combo->setCurrentKey(testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS));
 
         QCOMPARE(combo->currentKey().primaryFingerprint(), testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS).primaryFingerprint());
 
@@ -162,7 +178,7 @@ private Q_SLOTS:
         combo->setDefaultKey(QString::fromLatin1(testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP).primaryFingerprint()));
         waitForKeySelectionComboBeingInitialized(combo.get());
 
-        combo->setCurrentIndex(3);
+        combo->setCurrentKey(testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS));
 
         QCOMPARE(combo->currentKey().primaryFingerprint(), testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS).primaryFingerprint());
 
