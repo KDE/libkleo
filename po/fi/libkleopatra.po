@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-18 00:49+0000\n"
-"PO-Revision-Date: 2023-04-02 18:16+0300\n"
+"PO-Revision-Date: 2023-05-02 18:25+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:25:10+0000\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -235,7 +235,7 @@ msgstr "<ei asetettu>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (avaintunniste 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -243,6 +243,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>OpenPGP-allekirjoitusavaimesi</p><p align=\"center\">%1</p><p>vanheni "
+"alle päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -250,6 +252,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>OpenPGP-salausavaimesi</p><p align=\"center\">%1</p><p>vanheni alle päivä "
+"sitten.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -257,6 +261,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Käyttäjän</p><p align=\"center\">%1</p><p>OpenPGP-avain vanheni alle "
+"päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -267,7 +273,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>OpenPGP-allekirjoitusavaimesi</p><p align=\"center\">%2</p><p>vanheni "
+"eilen.</p>"
 msgstr[1] ""
+"<p>OpenPGP-allekirjoitusavaimesi</p><p align=\"center\">%2</p><p>vanheni %1 "
+"päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -278,7 +288,10 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>OpenPGP-salausavaimesi</p><p align=\"center\">%2</p><p>vanheni eilen.</p>"
 msgstr[1] ""
+"<p>OpenPGP-salausavaimesi</p><p align=\"center\">%2</p><p>vanheni %1 päivää "
+"sitten.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -287,24 +300,33 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>OpenPGP-avain vanheni eilen.</p>"
 msgstr[1] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>OpenPGP-avain vanheni %1 päivää "
+"sitten.</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>OpenPGP-allekirjoitusavaimesi</p><p align=\"center\">%1</p><p>vanhenee "
+"tänään.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>OpenPGP-salausavaimesi</p><p align=\"center\">%1</p><p>vanhenee tänään.</"
+"p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Käyttäjän</p><p align=\"center\">%1</p><p>OpenPGP-avain vanhenee tänään.</"
+"p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -314,7 +336,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>OpenPGP-allekirjoitusavaimesi</p><p align=\"center\">%2</p><p>vanhenee "
+"huomenna.</p>"
 msgstr[1] ""
+"<p>OpenPGP-allekirjoitusavaimesi</p><p align=\"center\">%2</p><p>vanhenee %1 "
+"päivässä.</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -325,7 +351,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>OpenPGP-salausavaimesi</p><p align=\"center\">%2</p><p>vanhenee huomenna."
+"</p>"
 msgstr[1] ""
+"<p>OpenPGP-salausavaimesi</p><p align=\"center\">%2</p><p>vanhenee %1 "
+"päivässä.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -334,14 +364,18 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>OpenPGP-avain vanhenee huomenna."
+"</p>"
 msgstr[1] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>OpenPGP-avain vanhenee %1 "
+"päivässä.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</p> (sarjanumero %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -350,6 +384,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%1</"
+"p><p>juurivarmenne</p><p align=\"center\"><b>%2</b></p><p>vanheni alle päivä "
+"sitten.</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -358,6 +395,8 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%1</p><p>juurivarmenne</"
+"p><p align=\"center\"><b>%2</b></p><p>vanheni alle päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -365,6 +404,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME-varmenteesi</p><p align=\"center\">%1</p><p>juurivarmenne</p><p "
+"align=\"center\"><b>%2</b></p><p>vanheni alle päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -375,7 +416,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>juurivarmenne</p><p align=\"center\"><b>%3</b></p><p>vanheni eilen.</p>"
 msgstr[1] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>juurivarmenne</p><p align=\"center\"><b>%3</b></p><p>vanheni %1 päivää "
+"sitten.</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -386,7 +432,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-salausvarmenteen</p><p align=\"center\">%2</p><p>juurivarmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanheni eilen.</p>"
 msgstr[1] ""
+"<p>S/MIME-salausvarmenteen</p><p align=\"center\">%2</p><p>juurivarmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanheni %1 päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -397,7 +447,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-varmenteen</p><p align=\"center\">%2</p><p>juurivarmenne</p><p "
+"align=\"center\"><b>%3</b></p><p>vanheni eilen.</p>"
 msgstr[1] ""
+"<p>S/MIME-varmenteen</p><p align=\"center\">%2</p><p>juurivarmenne</p><p "
+"align=\"center\"><b>%3</b></p><p>vanheni %1 päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -406,6 +460,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%1</"
+"p><p>välillinen CA-varmenne</p><p align=\"center\"><b>%2</b></p><p>vanheni "
+"alle päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -414,6 +471,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%1</p><p>välillinen CA-"
+"varmenne</p><p align=\"center\"><b>%2</b></p><p>vanheni alle päivä sitten.</"
+"p>"
 
 #: kleo/expirychecker.cpp:208
 #, kde-format
@@ -421,6 +481,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME-varmenteen</p><p align=\"center\">%1</p><p>välillinen CA-varmenne</"
+"p><p align=\"center\"><b>%2</b></p><p>vanheni alle päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -433,7 +495,13 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>välillinen CA-varmenne</p><p align=\"center\"><b>%3</b></p><p>vanheni "
+"eilen.</p>"
 msgstr[1] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>välillinen CA-varmenne</p><p align=\"center\"><b>%3</b></p><p>vanheni "
+"%1 päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:225
 #, kde-format
@@ -446,7 +514,11 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>välillinen CA-"
+"varmenne</p><p align=\"center\"><b>%3</b></p><p>vanheni eilen.</p>"
 msgstr[1] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>välillinen CA-"
+"varmenne</p><p align=\"center\"><b>%3</b></p><p>vanheni %1 päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:233
 #, kde-format
@@ -457,7 +529,11 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-varmenteen</p><p align=\"center\">%2</p><p>välillinen CA-varmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanheni eilen.</p>"
 msgstr[1] ""
+"<p>S/MIME-varmenteen</p><p align=\"center\">%2</p><p>välillinen CA-varmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanheni %1 päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:246
 #, kde-format
@@ -465,6 +541,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%1</p><p>vanheni "
+"alle päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -472,6 +550,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%1</p><p>vanheni alle "
+"päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -479,6 +559,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Käyttäjän</p><p align=\"center\">%1</p><p>S/MIME-varmenne vanheni alle "
+"päivä sitten.</p>"
 
 #: kleo/expirychecker.cpp:256
 #, kde-format
@@ -489,7 +571,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</p><p>vanheni "
+"eilen.</p>"
 msgstr[1] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</p><p>vanheni "
+"%1 päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -500,7 +586,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>vanheni eilen.</"
+"p>"
 msgstr[1] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>vanheni %1 "
+"päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -511,7 +601,11 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>S/MIME-varmenne vanheni eilen.</"
+"p>"
 msgstr[1] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>S/MIME-varmenne vanheni %1 "
+"päivää sitten.</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -519,6 +613,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>juurivarmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee tänään.</"
+"p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -526,6 +623,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>juurivarmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanhenee tänään.</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -533,6 +632,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME-varmenteesi</p><p align=\"center\">%2</p><p>juurivarmenne</p><p "
+"align=\"center\"><b>%3</b></p><p>vanhenee tänään.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -543,7 +644,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>juurivarmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee huomenna."
+"</p>"
 msgstr[1] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>juurivarmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee %1 "
+"päivässä.</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -554,7 +661,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>juurivarmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanhenee huomenna.</p>"
 msgstr[1] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>juurivarmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanhenee %1 päivässä.</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -565,7 +676,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME-varmenteesi</p><p align=\"center\">%2</p><p>juurivarmenne</p><p "
+"align=\"center\"><b>%3</b></p><p>vanhenee huomenna.</p>"
 msgstr[1] ""
+"<p>S/MIME-varmenteesi</p><p align=\"center\">%2</p><p>juurivarmenne</p><p "
+"align=\"center\"><b>%3</b></p><p>vanhenee %1 päivässä.</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -574,6 +689,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>välillinen CA-varmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee "
+"tänään.</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -582,6 +700,8 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>välillinen CA-"
+"varmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee tänään.</p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -589,6 +709,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME-varmenteesi</p><p align=\"center\">%2</p><p>välillinen CA-"
+"varmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee tänään.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -601,7 +723,13 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>välillinen CA-varmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee "
+"huomenna.</p>"
 msgstr[1] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</"
+"p><p>välillinen CA-varmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee "
+"%1 päivässä.</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -614,7 +742,11 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>välillinen CA-"
+"varmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee huomenna.</p>"
 msgstr[1] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>välillinen CA-"
+"varmenne</p><p align=\"center\"><b>%3</b></p><p>vanhenee %1 päivässä.</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -625,7 +757,11 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME-varmenteen</p><p align=\"center\">%2</p><p>välillinen CA-varmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanhenee huomenna.</p>"
 msgstr[1] ""
+"<p>S/MIME-varmenteen</p><p align=\"center\">%2</p><p>välillinen CA-varmenne</"
+"p><p align=\"center\"><b>%3</b></p><p>vanhenee %1 päivässä.</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -633,6 +769,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</p><p>vanhenee "
+"tänään.</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -640,12 +778,16 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>vanhenee tänään."
+"</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>S/MIME-varmenne vanhenee "
+"huomenna.</p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -656,7 +798,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</p><p>vanhenee "
+"huomenna.</p>"
 msgstr[1] ""
+"<p>S/MIME-allekirjoitusvarmenteesi</p><p align=\"center\">%2</p><p>vanhenee "
+"%1 päivässä.</p>"
 
 #: kleo/expirychecker.cpp:386
 #, kde-format
@@ -667,7 +813,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>vanhenee "
+"huomenna.</p>"
 msgstr[1] ""
+"<p>S/MIME-salausvarmenteesi</p><p align=\"center\">%2</p><p>vanhenee %1 "
+"päivässä.</p>"
 
 #: kleo/expirychecker.cpp:392
 #, kde-format
@@ -678,7 +828,11 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>S/MIME-varmenne vanhenee "
+"huomenna.</p>"
 msgstr[1] ""
+"<p>Käyttäjän</p><p align=\"center\">%2</p><p>S/MIME-varmenne vanhenee %1 "
+"päivässä.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
