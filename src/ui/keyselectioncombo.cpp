@@ -145,7 +145,12 @@ private:
                 rightTime = s.creationTime();
             }
         }
-        return leftTime > rightTime;
+        if (rightTime != leftTime) {
+            return leftTime > rightTime;
+        }
+
+        // as final resort we compare the fingerprints
+        return strcmp(leftKey.primaryFingerprint(), rightKey.primaryFingerprint()) < 0;
     }
 
 protected:
