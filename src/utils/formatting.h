@@ -154,6 +154,7 @@ KLEO_EXPORT QString formatOverview(const GpgME::Key &key);
 KLEO_EXPORT QString usageString(const GpgME::Subkey &subkey);
 KLEO_EXPORT QString summaryLine(const GpgME::Key &key);
 KLEO_EXPORT QString summaryLine(const KeyGroup &group);
+KLEO_EXPORT QString nameAndEmailForSummaryLine(const GpgME::Key &key);
 
 KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
 
