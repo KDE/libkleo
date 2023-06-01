@@ -126,26 +126,26 @@ private:
             return lUid.validity() > rUid.validity();
         }
 
-        /* Both are the same check which one is newer. */
-        time_t oldTime = 0;
+        /* Both have the same validity, check which one is newer. */
+        time_t leftTime = 0;
         for (const GpgME::Subkey &s : leftKey.subkeys()) {
-            if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
+            if (s.isBad()) {
                 continue;
             }
-            if (s.creationTime() > oldTime) {
-                oldTime = s.creationTime();
+            if (s.creationTime() > leftTime) {
+                leftTime = s.creationTime();
             }
         }
-        time_t newTime = 0;
+        time_t rightTime = 0;
         for (const GpgME::Subkey &s : rightKey.subkeys()) {
-            if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
+            if (s.isBad()) {
                 continue;
             }
-            if (s.creationTime() > newTime) {
-                newTime = s.creationTime();
+            if (s.creationTime() > rightTime) {
+                rightTime = s.creationTime();
             }
         }
-        return newTime < oldTime;
+        return leftTime > rightTime;
     }
 
 protected:
