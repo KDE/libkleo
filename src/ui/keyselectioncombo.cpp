@@ -122,29 +122,30 @@ private:
             return cmp < 0;
         }
 
-        if (lUid.validity() == rUid.validity()) {
-            /* Both are the same check which one is newer. */
-            time_t oldTime = 0;
-            for (const GpgME::Subkey &s : leftKey.subkeys()) {
-                if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
-                    continue;
-                }
-                if (s.creationTime() > oldTime) {
-                    oldTime = s.creationTime();
-                }
-            }
-            time_t newTime = 0;
-            for (const GpgME::Subkey &s : rightKey.subkeys()) {
-                if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
-                    continue;
-                }
-                if (s.creationTime() > newTime) {
-                    newTime = s.creationTime();
-                }
-            }
-            return newTime < oldTime;
+        if (lUid.validity() != rUid.validity()) {
+            return lUid.validity() > rUid.validity();
         }
-        return lUid.validity() > rUid.validity();
+
+        /* Both are the same check which one is newer. */
+        time_t oldTime = 0;
+        for (const GpgME::Subkey &s : leftKey.subkeys()) {
+            if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
+                continue;
+            }
+            if (s.creationTime() > oldTime) {
+                oldTime = s.creationTime();
+            }
+        }
+        time_t newTime = 0;
+        for (const GpgME::Subkey &s : rightKey.subkeys()) {
+            if (s.isRevoked() || s.isInvalid() || s.isDisabled()) {
+                continue;
+            }
+            if (s.creationTime() > newTime) {
+                newTime = s.creationTime();
+            }
+        }
+        return newTime < oldTime;
     }
 
 protected:
