@@ -885,10 +885,7 @@ QString Formatting::formatForComboBox(const GpgME::Key &key)
     return i18nc("name, email, key id", "%1 %2 (%3)", name, mail, QLatin1String(key.shortKeyID())).simplified();
 }
 
-namespace
-{
-
-static QString keyToString(const Key &key)
+QString Formatting::nameAndEmailForSummaryLine(const Key &key)
 {
     Q_ASSERT(!key.isNull());
 
@@ -902,8 +899,6 @@ static QString keyToString(const Key &key)
     } else {
         return QStringLiteral("%1 <%2>").arg(name, email);
     }
-}
-
 }
 
 const char *Formatting::summaryToString(const Signature::Summary summary)
@@ -934,7 +929,7 @@ QString Formatting::signatureToString(const Signature &sig, const Key &key)
                 return i18n("Bad signature by an unknown certificate: %1", Formatting::errorAsString(sig.status()));
             }
         } else {
-            return i18n("Bad signature by %1: %2", keyToString(key), Formatting::errorAsString(sig.status()));
+            return i18n("Bad signature by %1: %2", nameAndEmailForSummaryLine(key), Formatting::errorAsString(sig.status()));
         }
 
     } else if (valid) {
@@ -945,7 +940,7 @@ QString Formatting::signatureToString(const Signature &sig, const Key &key)
                 return i18n("Good signature by an unknown certificate.");
             }
         } else {
-            return i18n("Good signature by %1.", keyToString(key));
+            return i18n("Good signature by %1.", nameAndEmailForSummaryLine(key));
         }
 
     } else if (key.isNull()) {
@@ -955,7 +950,7 @@ QString Formatting::signatureToString(const Signature &sig, const Key &key)
             return i18n("Invalid signature by an unknown certificate: %1", Formatting::errorAsString(sig.status()));
         }
     } else {
-        return i18n("Invalid signature by %1: %2", keyToString(key), Formatting::errorAsString(sig.status()));
+        return i18n("Invalid signature by %1: %2", nameAndEmailForSummaryLine(key), Formatting::errorAsString(sig.status()));
     }
 }
 
@@ -1035,7 +1030,7 @@ QString Formatting::usageString(const Subkey &sub)
 
 QString Formatting::summaryLine(const Key &key)
 {
-    return keyToString(key) + QLatin1Char(' ')
+    return nameAndEmailForSummaryLine(key) + QLatin1Char(' ')
         + i18nc("(validity, protocol, creation date)",
                 "(%1, %2, created: %3)",
                 Formatting::complianceStringShort(key),
