@@ -25,6 +25,8 @@
 using namespace Kleo;
 using namespace GpgME;
 
+Q_DECLARE_METATYPE(GpgME::Key)
+
 using days = Kleo::chrono::days;
 
 class FakeTimeProvider : public Kleo::TimeProvider
