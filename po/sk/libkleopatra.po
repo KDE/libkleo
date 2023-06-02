@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-18 00:49+0000\n"
+"POT-Creation-Date: 2023-06-02 00:49+0000\n"
 "PO-Revision-Date: 2021-01-26 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -1693,7 +1693,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:169
+#: ui/keyselectioncombo.cpp:175
 #, fuzzy, kde-format
 #| msgctxt "(validity, protocol, creation date)"
 #| msgid "(%1, %2, created: %3)"
@@ -1701,7 +1701,7 @@ msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr "(%1, %2, vytvorené: %3)"
 
-#: ui/keyselectioncombo.cpp:175
+#: ui/keyselectioncombo.cpp:181
 #, fuzzy, kde-format
 #| msgctxt "Name <email> (validity, type, created: date)"
 #| msgid "%1 (%2, %3 created: %4)"
@@ -1709,7 +1709,7 @@ msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3 vytvorené: %4)"
 
-#: ui/keyselectioncombo.cpp:643
+#: ui/keyselectioncombo.cpp:649
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Získavam kľúče..."
@@ -2357,23 +2357,23 @@ msgid "undefined"
 msgstr "nedefinované"
 
 #: utils/formatting.cpp:751 utils/formatting.cpp:768 utils/formatting.cpp:803
-#: utils/formatting.cpp:1189
+#: utils/formatting.cpp:1184
 #, kde-format
 msgid "revoked"
 msgstr "zrušená platnosť"
 
-#: utils/formatting.cpp:754 utils/formatting.cpp:813 utils/formatting.cpp:1186
+#: utils/formatting.cpp:754 utils/formatting.cpp:813 utils/formatting.cpp:1181
 #, kde-format
 msgid "expired"
 msgstr "vypršané"
 
-#: utils/formatting.cpp:757 utils/formatting.cpp:1192
+#: utils/formatting.cpp:757 utils/formatting.cpp:1187
 #, kde-format
 msgid "disabled"
 msgstr "nedostupné"
 
 #: utils/formatting.cpp:760 utils/formatting.cpp:771 utils/formatting.cpp:811
-#: utils/formatting.cpp:1195
+#: utils/formatting.cpp:1190
 #, kde-format
 msgid "invalid"
 msgstr "neplatný"
@@ -2426,126 +2426,126 @@ msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:932
+#: utils/formatting.cpp:927
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "Zlý podpis neznámym certifikátom %1: %2"
 
-#: utils/formatting.cpp:934
+#: utils/formatting.cpp:929
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "Zlý podpis neznámym certifikátom: %1"
 
-#: utils/formatting.cpp:937
+#: utils/formatting.cpp:932
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "Zlý podpis od %1: %2"
 
-#: utils/formatting.cpp:943
+#: utils/formatting.cpp:938
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "Dobrý podpis neznámym certifikátom %1."
 
-#: utils/formatting.cpp:945
+#: utils/formatting.cpp:940
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "Dobrý podpis neznámym certifikátom."
 
-#: utils/formatting.cpp:948
+#: utils/formatting.cpp:943
 #, kde-format
 msgid "Good signature by %1."
 msgstr "Dobrý podpis od %1."
 
-#: utils/formatting.cpp:953
+#: utils/formatting.cpp:948
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "Neplatný podpis neznámym certifikátom %1: %2"
 
-#: utils/formatting.cpp:955
+#: utils/formatting.cpp:950
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "Neplatný podpis neznámym certifikátom: %1"
 
-#: utils/formatting.cpp:958
+#: utils/formatting.cpp:953
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "Neplatný podpis používateľa %1: %2"
 
-#: utils/formatting.cpp:972
+#: utils/formatting.cpp:967
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "Tento certifikát bol importovaný z nasledujúcich zdrojov:"
 
-#: utils/formatting.cpp:983
+#: utils/formatting.cpp:978
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "Import tohto certifikátu bol zrušený."
 
-#: utils/formatting.cpp:986
+#: utils/formatting.cpp:981
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "Pri importovaní tohto certifikátu sa vyskytla chyba: %1"
 
-#: utils/formatting.cpp:991
+#: utils/formatting.cpp:986
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "Tento certifikát bol pre váš sklad kľúčov nový. K dispozícii je tajný kľúč."
 
-#: utils/formatting.cpp:992
+#: utils/formatting.cpp:987
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "Tento certifikát je pre váš sklad kľúčov nový."
 
-#: utils/formatting.cpp:997
+#: utils/formatting.cpp:992
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr ""
 "Importom boli do tohto certifikátu pridané nové užívateľské identifikátory."
 
-#: utils/formatting.cpp:1000
+#: utils/formatting.cpp:995
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "Importom do tohto certifikátu boli pridané nové podpisy."
 
-#: utils/formatting.cpp:1003
+#: utils/formatting.cpp:998
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "Importom do tohto certifikátu boli pridané nové podkľúče."
 
-#: utils/formatting.cpp:1006
+#: utils/formatting.cpp:1001
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 "Import neobsahoval žiadne nové údaje pre tento certifikát. Ten sa nemení."
 
-#: utils/formatting.cpp:1022
+#: utils/formatting.cpp:1017
 #, kde-format
 msgid "Certify"
 msgstr "Certifikovať"
 
-#: utils/formatting.cpp:1025
+#: utils/formatting.cpp:1020
 #, kde-format
 msgid "Sign"
 msgstr "Podpis"
 
-#: utils/formatting.cpp:1028
+#: utils/formatting.cpp:1023
 #, kde-format
 msgid "Encrypt"
 msgstr "Šifrovať"
 
-#: utils/formatting.cpp:1031
+#: utils/formatting.cpp:1026
 #, kde-format
 msgid "Authenticate"
 msgstr "Overiť totožnosť"
 
-#: utils/formatting.cpp:1040
+#: utils/formatting.cpp:1035
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1, %2, vytvorené: %3)"
 
-#: utils/formatting.cpp:1052
+#: utils/formatting.cpp:1047
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -2554,7 +2554,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: utils/formatting.cpp:1059
+#: utils/formatting.cpp:1054
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -2563,7 +2563,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: utils/formatting.cpp:1066
+#: utils/formatting.cpp:1061
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -2572,58 +2572,58 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1098
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "Certifikát je označený ako váš vlastný."
 
-#: utils/formatting.cpp:1105
+#: utils/formatting.cpp:1100
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "Certifikát patrí tomuto príjemcovi."
 
-#: utils/formatting.cpp:1107
+#: utils/formatting.cpp:1102
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr "Model dôveryhodnosti naznačuje, že certifikát patrí tomuto príjemcovi."
 
-#: utils/formatting.cpp:1109
+#: utils/formatting.cpp:1104
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "Tento certifikát by sa nemal používať."
 
-#: utils/formatting.cpp:1113
+#: utils/formatting.cpp:1108
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr "Neexistuje žiadny náznak, že tento certifikát patrí tomuto príjemcovi."
 
-#: utils/formatting.cpp:1125
+#: utils/formatting.cpp:1120
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr ""
 
-#: utils/formatting.cpp:1170
+#: utils/formatting.cpp:1165
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "neznámy"
 
-#: utils/formatting.cpp:1183
+#: utils/formatting.cpp:1178
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "certifikované"
 
-#: utils/formatting.cpp:1198
+#: utils/formatting.cpp:1193
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "necertifikované"
 
-#: utils/formatting.cpp:1201
+#: utils/formatting.cpp:1196
 #, fuzzy, kde-format
 #| msgctxt "As in not all user IDs are valid."
 #| msgid "not certified"
@@ -2631,7 +2631,7 @@ msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "necertifikované"
 
-#: utils/formatting.cpp:1210
+#: utils/formatting.cpp:1205
 #, fuzzy, kde-format
 #| msgctxt "As in all user IDs are valid."
 #| msgid "certified"
@@ -2639,7 +2639,7 @@ msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "certifikované"
 
-#: utils/formatting.cpp:1213
+#: utils/formatting.cpp:1208
 #, fuzzy, kde-format
 #| msgctxt "As in not all user IDs are valid."
 #| msgid "not certified"
@@ -2647,33 +2647,33 @@ msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "necertifikované"
 
-#: utils/formatting.cpp:1246
+#: utils/formatting.cpp:1241
 #, kde-format
 msgid "Keyserver"
 msgstr "Keyserver"
 
-#: utils/formatting.cpp:1254
+#: utils/formatting.cpp:1249
 #, kde-format
 msgid "File import"
 msgstr "Import súboru"
 
-#: utils/formatting.cpp:1256
+#: utils/formatting.cpp:1251
 #, kde-format
 msgid "Generated"
 msgstr "Generované"
 
-#: utils/formatting.cpp:1260
+#: utils/formatting.cpp:1255
 #, kde-format
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: utils/formatting.cpp:1296
+#: utils/formatting.cpp:1291
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1300
+#: utils/formatting.cpp:1295
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."

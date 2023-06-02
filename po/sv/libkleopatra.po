@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-18 00:49+0000\n"
+"POT-Creation-Date: 2023-06-02 00:49+0000\n"
 "PO-Revision-Date: 2022-09-24 16:08+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1629,19 +1629,19 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:169
+#: ui/keyselectioncombo.cpp:175
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr "%1 (%2, skapad: %3)"
 
-#: ui/keyselectioncombo.cpp:175
+#: ui/keyselectioncombo.cpp:181
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, skapad: %4)"
 
-#: ui/keyselectioncombo.cpp:643
+#: ui/keyselectioncombo.cpp:649
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Läser in nycklar..."
@@ -2279,23 +2279,23 @@ msgid "undefined"
 msgstr "odefinierad"
 
 #: utils/formatting.cpp:751 utils/formatting.cpp:768 utils/formatting.cpp:803
-#: utils/formatting.cpp:1189
+#: utils/formatting.cpp:1184
 #, kde-format
 msgid "revoked"
 msgstr "återkallad"
 
-#: utils/formatting.cpp:754 utils/formatting.cpp:813 utils/formatting.cpp:1186
+#: utils/formatting.cpp:754 utils/formatting.cpp:813 utils/formatting.cpp:1181
 #, kde-format
 msgid "expired"
 msgstr "utgången"
 
-#: utils/formatting.cpp:757 utils/formatting.cpp:1192
+#: utils/formatting.cpp:757 utils/formatting.cpp:1187
 #, kde-format
 msgid "disabled"
 msgstr "inaktiverad"
 
 #: utils/formatting.cpp:760 utils/formatting.cpp:771 utils/formatting.cpp:811
-#: utils/formatting.cpp:1195
+#: utils/formatting.cpp:1190
 #, kde-format
 msgid "invalid"
 msgstr "ogiltig"
@@ -2348,126 +2348,126 @@ msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:932
+#: utils/formatting.cpp:927
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "Falsk signatur av okänt certifikat %1: %2"
 
-#: utils/formatting.cpp:934
+#: utils/formatting.cpp:929
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "Falsk signatur av ett okänt certifikat: %1"
 
-#: utils/formatting.cpp:937
+#: utils/formatting.cpp:932
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "Falsk signatur av %1: %2"
 
-#: utils/formatting.cpp:943
+#: utils/formatting.cpp:938
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "God signatur av okänt certifikat %1."
 
-#: utils/formatting.cpp:945
+#: utils/formatting.cpp:940
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "God signatur av ett okänt certifikat."
 
-#: utils/formatting.cpp:948
+#: utils/formatting.cpp:943
 #, kde-format
 msgid "Good signature by %1."
 msgstr "God signatur av %1."
 
-#: utils/formatting.cpp:953
+#: utils/formatting.cpp:948
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "Ogiltig signatur av okänt certifikat %1: %2"
 
-#: utils/formatting.cpp:955
+#: utils/formatting.cpp:950
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "Ogiltig signatur av ett okänt certifikat: %1"
 
-#: utils/formatting.cpp:958
+#: utils/formatting.cpp:953
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "Ogiltig signatur av %1: %2"
 
-#: utils/formatting.cpp:972
+#: utils/formatting.cpp:967
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "Det här certifikatet importerades från följande källor:"
 
-#: utils/formatting.cpp:983
+#: utils/formatting.cpp:978
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "Importen av certifikatet har avbrutits."
 
-#: utils/formatting.cpp:986
+#: utils/formatting.cpp:981
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "Ett fel uppstod vid försök att importera certifikat: %1"
 
-#: utils/formatting.cpp:991
+#: utils/formatting.cpp:986
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "Certifikatet är nytt i din nyckellagring. Den hemliga nyckeln är tillgänglig."
 
-#: utils/formatting.cpp:992
+#: utils/formatting.cpp:987
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "Certifikatet är nytt i din nyckellagring."
 
-#: utils/formatting.cpp:997
+#: utils/formatting.cpp:992
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr "Nya användar-id har lagts till i det här certifikatet vid import."
 
-#: utils/formatting.cpp:1000
+#: utils/formatting.cpp:995
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "Nya signaturer har lagts till i det här certifikatet vid import."
 
-#: utils/formatting.cpp:1003
+#: utils/formatting.cpp:998
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "Nya delnycklar har lagts till i det här certifikatet vid import."
 
-#: utils/formatting.cpp:1006
+#: utils/formatting.cpp:1001
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 "Importen innehöll inte någon ny data för det här certifikatet. Det är "
 "oförändrat."
 
-#: utils/formatting.cpp:1022
+#: utils/formatting.cpp:1017
 #, kde-format
 msgid "Certify"
 msgstr "Certifiera"
 
-#: utils/formatting.cpp:1025
+#: utils/formatting.cpp:1020
 #, kde-format
 msgid "Sign"
 msgstr "Signera"
 
-#: utils/formatting.cpp:1028
+#: utils/formatting.cpp:1023
 #, kde-format
 msgid "Encrypt"
 msgstr "Kryptera"
 
-#: utils/formatting.cpp:1031
+#: utils/formatting.cpp:1026
 #, kde-format
 msgid "Authenticate"
 msgstr "Kontrollera behörighet"
 
-#: utils/formatting.cpp:1040
+#: utils/formatting.cpp:1035
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1, %2, Skapad: %3)"
 
-#: utils/formatting.cpp:1052
+#: utils/formatting.cpp:1047
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -2475,7 +2475,7 @@ msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] "%2 (1 nyckel, %3)"
 msgstr[1] "%2 (%1 nycklar, %3)"
 
-#: utils/formatting.cpp:1059
+#: utils/formatting.cpp:1054
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -2483,7 +2483,7 @@ msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] "%2 (1 nyckel, %3, etikett)"
 msgstr[1] "%2 (%1 nycklar, %3, etikett)"
 
-#: utils/formatting.cpp:1066
+#: utils/formatting.cpp:1061
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -2491,17 +2491,17 @@ msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] "%2 (1 nyckel, %3, okänt ursprung)"
 msgstr[1] "%2 (%1 nycklar, %3, okända ursprung)"
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1098
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "Certifikatet är markerat som ditt eget."
 
-#: utils/formatting.cpp:1105
+#: utils/formatting.cpp:1100
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "Certifikatet hör till mottagaren."
 
-#: utils/formatting.cpp:1107
+#: utils/formatting.cpp:1102
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
@@ -2510,84 +2510,84 @@ msgstr ""
 "Pålitlighetsmodellen indikerar att certifikatet marginellt hör till "
 "mottagaren."
 
-#: utils/formatting.cpp:1109
+#: utils/formatting.cpp:1104
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "Certifikatet ska inte användas."
 
-#: utils/formatting.cpp:1113
+#: utils/formatting.cpp:1108
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr "Det finns ingen indikering att certifikatet hör till mottagaren."
 
-#: utils/formatting.cpp:1125
+#: utils/formatting.cpp:1120
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "Gruppen innehåller inte några nycklar."
 
-#: utils/formatting.cpp:1170
+#: utils/formatting.cpp:1165
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "okänd"
 
-#: utils/formatting.cpp:1183
+#: utils/formatting.cpp:1178
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "certifierad"
 
-#: utils/formatting.cpp:1198
+#: utils/formatting.cpp:1193
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "inte certifierad"
 
-#: utils/formatting.cpp:1201
+#: utils/formatting.cpp:1196
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "inte kontrollerad"
 
-#: utils/formatting.cpp:1210
+#: utils/formatting.cpp:1205
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "alla certifierade"
 
-#: utils/formatting.cpp:1213
+#: utils/formatting.cpp:1208
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "inte alla certifierade"
 
-#: utils/formatting.cpp:1246
+#: utils/formatting.cpp:1241
 #, kde-format
 msgid "Keyserver"
 msgstr "Nyckelserver"
 
-#: utils/formatting.cpp:1254
+#: utils/formatting.cpp:1249
 #, kde-format
 msgid "File import"
 msgstr "Filimport"
 
-#: utils/formatting.cpp:1256
+#: utils/formatting.cpp:1251
 #, kde-format
 msgid "Generated"
 msgstr "Genererad"
 
-#: utils/formatting.cpp:1260
+#: utils/formatting.cpp:1255
 #, kde-format
 msgid "Unknown"
 msgstr "Okänd"
 
-#: utils/formatting.cpp:1296
+#: utils/formatting.cpp:1291
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Certifierar nyckeln som en delvis pålitlig introduktör för '%1'."
 
-#: utils/formatting.cpp:1300
+#: utils/formatting.cpp:1295
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
