@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-02 00:49+0000\n"
-"PO-Revision-Date: 2023-04-14 21:57+0200\n"
+"PO-Revision-Date: 2023-04-18 14:13+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
-msgstr ""
+msgstr "Chyba v definici kontrolního součtu %1: %2"
 
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
@@ -249,6 +249,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Váš šifrovací OpenPGP klíč</p><p align=\"center\">%1</p>vypršel méně než "
+"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -258,10 +260,7 @@ msgid ""
 msgstr ""
 
 #: kleo/expirychecker.cpp:96
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</"
 "p>"
@@ -269,20 +268,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:99
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday."
 "</p>"
@@ -290,91 +280,49 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:102
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:111
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:113
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:115
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:121
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>"
 msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:124
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow."
 "</p>"
@@ -382,33 +330,18 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
@@ -561,10 +494,7 @@ msgid ""
 msgstr ""
 
 #: kleo/expirychecker.cpp:256
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
 "yesterday.</p>"
@@ -572,20 +502,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:259
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
 "yesterday.</p>"
@@ -593,20 +514,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:262
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday."
 "</p>"
@@ -614,14 +526,8 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -744,45 +650,27 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: kleo/expirychecker.cpp:369
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:380
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires "
 "tomorrow.</p>"
@@ -790,20 +678,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:386
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "tomorrow.</p>"
@@ -811,20 +690,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/expirychecker.cpp:392
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than "
-#| "a day ago.</p>"
+#, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires tomorrow.</"
 "p>"
@@ -832,14 +702,8 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[1] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 msgstr[2] ""
-"<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
-"před dnem.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
