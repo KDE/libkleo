@@ -61,3 +61,5 @@ DocAction::DocAction(const QIcon &icon, const QString &text, const QString &file
 }
 
 DocAction::~DocAction() = default;
+
+#include "moc_docaction.cpp"

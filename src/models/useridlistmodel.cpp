@@ -386,3 +386,5 @@ void UserIDListModel::enableRemarks(bool value)
 {
     mRemarksEnabled = value;
 }
+
+#include "moc_useridlistmodel.cpp"

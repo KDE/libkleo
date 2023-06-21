@@ -562,3 +562,5 @@ void KeyListView::keyPressEvent(QKeyEvent *event)
     }
     QTreeView::keyPressEvent(event);
 }
+
+#include "moc_keylistview.cpp"

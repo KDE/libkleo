@@ -409,3 +409,5 @@ void DirectoryServicesWidget::clear()
 }
 
 #include "directoryserviceswidget.moc"
+
+#include "moc_directoryserviceswidget.cpp"

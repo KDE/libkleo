@@ -1017,3 +1017,5 @@ void KeySelectionDialog::showAllItems()
         item->setHidden(false);
     }
 }
+
+#include "moc_keyselectiondialog.cpp"

@@ -457,3 +457,5 @@ QIcon KeyFilterManager::icon(const Key &key) const
     const QString icon = get_string(d->filters, key, &KeyFilter::icon);
     return icon.isEmpty() ? QIcon() : QIcon::fromTheme(icon);
 }
+
+#include "moc_keyfiltermanager.cpp"

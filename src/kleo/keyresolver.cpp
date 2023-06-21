@@ -162,3 +162,5 @@ void KeyResolver::setMinimumValidity(int validity)
 {
     d->mCore.setMinimumValidity(validity);
 }
+
+#include "moc_keyresolver.cpp"

@@ -37,3 +37,5 @@ QModelIndex NavigatableTreeWidget::moveCursor(QAbstractItemView::CursorAction cu
 
     return result;
 }
+
+#include "moc_navigatabletreewidget.cpp"

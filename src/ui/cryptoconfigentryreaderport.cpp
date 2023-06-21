@@ -71,3 +71,5 @@ void CryptoConfigEntryReaderPort::doLoad()
 }
 
 } // namespace Kleo
+
+#include "moc_cryptoconfigentryreaderport_p.cpp"

@@ -98,3 +98,5 @@ void Kleo::ProgressBar::fixup(bool newValue)
         }
     }
 }
+
+#include "moc_progressbar.cpp"

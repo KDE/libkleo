@@ -160,3 +160,5 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
+
+#include "moc_test_keylister.cpp"

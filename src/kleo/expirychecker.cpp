@@ -539,3 +539,5 @@ void ExpiryChecker::setTimeProviderForTest(const std::shared_ptr<TimeProvider> &
 {
     d->timeProvider = timeProvider;
 }
+
+#include "moc_expirychecker.cpp"

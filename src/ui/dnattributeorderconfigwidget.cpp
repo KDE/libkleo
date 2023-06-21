@@ -414,3 +414,5 @@ void Kleo::DNAttributeOrderConfigWidget::virtual_hook(int, void *)
 }
 
 #include "dnattributeorderconfigwidget.moc"
+
+#include "moc_dnattributeorderconfigwidget.cpp"

@@ -142,3 +142,5 @@ QString ReaderPortSelection::value() const
 {
     return d->value();
 }
+
+#include "moc_readerportselection.cpp"

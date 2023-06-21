@@ -406,3 +406,5 @@ KeyserverConfig EditDirectoryServiceDialog::keyserver() const
 {
     return d->keyserver();
 }
+
+#include "moc_editdirectoryservicedialog.cpp"

@@ -37,3 +37,5 @@ QModelIndex NavigatableTreeView::moveCursor(QAbstractItemView::CursorAction curs
 
     return result;
 }
+
+#include "moc_navigatabletreeview.cpp"

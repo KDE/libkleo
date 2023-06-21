@@ -1598,3 +1598,5 @@ AbstractKeyListModel *AbstractKeyListModel::createHierarchicalKeyListModel(QObje
 
   See rowAboutToBeMoved()
 */
+
+#include "moc_keylistmodel.cpp"

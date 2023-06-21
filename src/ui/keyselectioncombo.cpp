@@ -698,3 +698,5 @@ QString Kleo::KeySelectionCombo::defaultKey() const
     return defaultKey(GpgME::UnknownProtocol);
 }
 #include "keyselectioncombo.moc"
+
+#include "moc_keyselectioncombo.cpp"

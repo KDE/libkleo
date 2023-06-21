@@ -282,3 +282,5 @@ void AbstractKeyListModelTest::testClear()
     model->clear(AbstractKeyListModel::Groups);
     QCOMPARE(model->rowCount(), 0);
 }
+
+#include "moc_abstractkeylistmodeltest.cpp"

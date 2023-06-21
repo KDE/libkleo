@@ -905,3 +905,5 @@ KeyResolver::Solution NewKeyApprovalDialog::result()
 }
 
 #include "newkeyapprovaldialog.moc"
+
+#include "moc_newkeyapprovaldialog.cpp"

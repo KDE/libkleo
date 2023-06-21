@@ -183,3 +183,5 @@ void AuditLogViewer::writeConfig()
     group.writeEntry("Size", size());
     group.sync();
 }
+
+#include "moc_auditlogviewer.cpp"

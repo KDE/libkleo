@@ -1039,3 +1039,5 @@ void Kleo::CryptoConfigEntryLDAPURL::setURLList(const QList<QUrl> &urlList)
 }
 
 #include "moc_cryptoconfigmodule_p.cpp"
+
+#include "moc_cryptoconfigmodule.cpp"
