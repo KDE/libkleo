@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -618,10 +618,11 @@ msgid "None configured"
 msgstr "هنوز کارسازی پیکربندی نشده"
 
 #: ui/cryptoconfigmodule.cpp:1037
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
 msgstr[0] "%1 کارساز پیکربندی شده"
+msgstr[1] ""
 
 #: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
 #, kde-format
@@ -1371,7 +1372,7 @@ msgid "Fetching keys..."
 msgstr "در حال واکشی کلیدها..."
 
 #: ui/keyselectiondialog.cpp:755
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
 "shown</p></qt>"
@@ -1381,6 +1382,7 @@ msgid_plural ""
 msgstr[0] ""
 "<qt>%1 پایانه پشتیبانی، خروجی برش‌دار را بازگرداند.<p>همه کلیدهای موجود نمایش "
 "داده نمی‌شوند</p></qt>"
+msgstr[1] ""
 
 #: ui/keyselectiondialog.cpp:760
 #, kde-format
@@ -1645,6 +1647,7 @@ msgstr ""
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
 msgstr[0] ""
+msgstr[1] ""
 
 #: utils/formatting.cpp:342 utils/formatting.cpp:345
 #, kde-format
@@ -1754,6 +1757,7 @@ msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
 msgstr[0] ""
+msgstr[1] ""
 
 #: utils/formatting.cpp:539
 #, kde-format
@@ -2025,6 +2029,7 @@ msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: utils/formatting.cpp:1055
 #, kde-format
@@ -2032,6 +2037,7 @@ msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: utils/formatting.cpp:1062
 #, kde-format
@@ -2039,6 +2045,7 @@ msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: utils/formatting.cpp:1099
 #, kde-format
