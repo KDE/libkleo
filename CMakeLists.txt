@@ -86,20 +86,7 @@ remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim6Libkleo")
-configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KPimLibkleoConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfig.cmake"
-  INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
-)
 
-install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfigVersion.cmake"
-  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-  COMPONENT Devel
-)
-
-install(EXPORT KPim6LibkleoTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KPim6LibkleoTargets.cmake NAMESPACE KPim6::)
 
 install(FILES
    ${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h
@@ -139,6 +126,22 @@ if (BUILD_QCH)
     )
     set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KPim6LibkleoQchTargets.cmake\")")
 endif()
+
+configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/KPimLibkleoConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfig.cmake"
+  INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+)
+
+install(FILES
+  "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfigVersion.cmake"
+  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+  COMPONENT Devel
+)
+
+install(EXPORT KPim6LibkleoTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KPim6LibkleoTargets.cmake NAMESPACE KPim6::)
+
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 # add clang-format target for all our real source files
