@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(PIM_VERSION "5.23.47")
+set(PIM_VERSION "5.23.80")
 
 project(libkleo VERSION ${PIM_VERSION})
 
@@ -46,7 +46,7 @@ else()
     set(KF_MAJOR_VERSION "5")
 endif()
 
-set(KDEPIMTEXTEDIT_VERSION "5.23.40")
+set(KDEPIMTEXTEDIT_VERSION "5.23.80")
 set(GPGME_REQUIRED_VERSION "1.16.0")
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
