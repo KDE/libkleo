@@ -36,7 +36,7 @@ option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, 
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
-set(QT_REQUIRED_VERSION "6.4.0")
+set(QT_REQUIRED_VERSION "6.5.0")
 set(KDEPIMTEXTEDIT_VERSION "5.240.40")
 set(GPGME_REQUIRED_VERSION "1.16.0")
 
