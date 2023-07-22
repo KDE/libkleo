@@ -320,6 +320,10 @@ public:
         mFormatBtns->addButton(smimeBtn, SMIMEButtonId);
         mFormatBtns->setExclusive(!mAllowMixed);
 
+        connect(mFormatBtns, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), q, [this]() {
+            updateOkButton();
+        });
+
         fmtLayout->addStretch(-1);
         fmtLayout->addWidget(pgpBtn);
         fmtLayout->addWidget(smimeBtn);
