@@ -1,12 +1,12 @@
 # translation of libkleopatra.po to Swedish
 # Stefan Asserhäll <stefan.asserhall@bredband.net>, 2004, 2007, 2008, 2009, 2010.
-# Stefan Asserhall <stefan.asserhall@bredband.net>, 2005, 2014, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Stefan Asserhall <stefan.asserhall@bredband.net>, 2005, 2014, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-02 00:49+0000\n"
-"PO-Revision-Date: 2022-09-24 16:08+0200\n"
+"PO-Revision-Date: 2023-07-25 20:18+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -229,7 +229,7 @@ msgstr "<ingen>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (nyckel-id 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -237,6 +237,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>OpenPGP-signeringsnyckeln</p><p align=center>%1</p><p>gick ut för mindre "
+"än en dag sedan.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -244,6 +246,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>OpenPGP-krypteringsnyckeln</p><p align=center>%1</p></p>gick ut för "
+"mindre än en dag sedan.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -251,6 +255,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>OpenPGP-nyckeln för</p><p align=center>%1</p><p>gick ut för mindre än en "
+"dag sedan.</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -261,7 +267,10 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p><p>OpenPGP-signeringsnyckeln</p><p align=center>%2</p><p>gick ut igår.</p>"
 msgstr[1] ""
+"<p>OpenPGP-signeringsnyckeln</p><p align=center>%2</p><p>gick ut för %1 "
+"dagar sedan.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -272,7 +281,10 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>OpenPGP-krypteringsnyckeln</p><p align=center>%2</p><p>gick ut igår.</p>"
 msgstr[1] ""
+"<p>OpenPGP-krypteringsnyckeln</p><p align=center>%2</p><p>gick ut för %1 "
+"dagar sedan.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -281,24 +293,29 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>OpenPGP-nyckeln för</p><p align=center>%2</p><p>gick ut igår.</p>"
 msgstr[1] ""
+"<p>OpenPGP-nyckeln för</p><p align=center>%2</p><p>gick ut för %1 dagar "
+"sedan.</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>OpenPGP-signeringsnyckeln</p><p align=center>%1</p><p>går ut idag.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>OpenPGP-krypteringsnyckeln</p><p align=center>%1</p><p>går ut idag.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>OpenPGP-nyckeln för</p><p align=center>%1</p><p>går ut idag.</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -308,7 +325,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p><p>OpenPGP-signeringsnyckeln</p><p align=center>%2</p><p>går ut imorgon.</"
+"p>"
 msgstr[1] ""
+"<p><p>OpenPGP-signeringsnyckeln</p><p align=center>%2</p><p>går ut om %1 "
+"dagar.</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -319,7 +340,10 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"OpenPGP-krypteringsnyckeln</p><p align=center>%2</p><p>går ut imorgon.</p>"
 msgstr[1] ""
+"<p>OpenPGP-krypteringsnyckeln</p><p align=center>%2</p><p>går ut om %1 dagar."
+"</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -328,14 +352,16 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>OpenPGP-nyckeln för</p><p align=center>%2</p><p>går ut imorgon.</p>"
 msgstr[1] ""
+"<p>OpenPGP-nyckeln för</p><p align=center>%2</p><p>går ut om %1 dagar.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (serienummer %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -344,6 +370,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>Rotcertifikatet</p><p align=center><b>%2</b></p><p>för S/MIME "
+"signeringscertifikatet</p><p align=center>%1</p><p>gick ut för mindre än en "
+"dag sedan.</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -352,6 +381,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Rotcertifikatet</p><p align=center><b>%2</b></p><p>för S/MIME "
+"krypteringscertifikatet</p><p align=center>%1</p><p>gick ut för mindre än en "
+"dag sedan.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -359,6 +391,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>Rotcertifikatet</p><p align=center><b>%2</b></p><p>för S/MIME "
+"certifikatet</p><p align=center>%1</p><p>gick ut för mindre än en dag sedan."
+"</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -369,7 +404,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Rotcertifikatet</p><p align=center><b>%3</b></p><p>för S/MIME "
+"signeringscertifikatet</p><p align=center>%2</p><p>gick ut igår.</p>"
 msgstr[1] ""
+"<p>Rotcertifikatet</p><p align=center><b>%3</b></p><p>för S/MIME "
+"signeringscertifikatet</p><p align=center>%2</p><p>gick ut för %1 dagar "
+"sedan.</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -380,7 +420,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Rotcertifikatet</p><p align=center><b>%3</b></p><p>för S/MIME "
+"krypteringscertifikatet</p><p align=center>%2</p><p>gick ut igår.</p>"
 msgstr[1] ""
+"<p>Rotcertifikatet</p><p align=center><b>%3</b></p><p>för S/MIME "
+"krypteringscertifikatet</p><p align=center>%2</p><p>gick ut för %1 dagar "
+"sedan.</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -391,7 +436,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Rotcertifikatet</p><p align=center><b>%3</b></p><p>för S/MIME "
+"certifikatet</p><p align=center>%2</p><p>gick ut igår.</p>"
 msgstr[1] ""
+"<p>Rotcertifikatet</p><p align=center><b>%3</b></p><p>för S/MIME "
+"certifikatet</p><p align=center>%2</p><p>gick ut för %1 dagar sedan.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -1756,7 +1805,7 @@ msgstr "Status"
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "Efterlevnad"
 
 #: ui/keyselectiondialog.cpp:425
 #, kde-format
@@ -1844,24 +1893,22 @@ msgid "Recheck Key"
 msgstr "Kontrollera nyckel igen"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "Vi&sa övervakningslogg"
+msgstr "Visa övervakningslogg"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "no expiration"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "inget utgångsdatum"
+msgstr "Information"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "Fel"
 
 #: ui/newkeyapprovaldialog.cpp:140
 #, kde-format
