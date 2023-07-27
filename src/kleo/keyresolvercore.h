@@ -58,7 +58,7 @@ public:
     };
 
     explicit KeyResolverCore(bool encrypt, bool sign, GpgME::Protocol format = GpgME::UnknownProtocol);
-    ~KeyResolverCore();
+    virtual ~KeyResolverCore();
 
     void setSender(const QString &sender);
     QString normalizedSender() const;
@@ -75,7 +75,7 @@ public:
 
     void setMinimumValidity(int validity);
 
-    Result resolve();
+    virtual Result resolve();
 
 private:
     class Private;
