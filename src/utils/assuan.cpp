@@ -35,13 +35,6 @@ static const auto maxConnectionAttempts = 10;
 
 namespace
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
-static QDebug operator<<(QDebug s, const std::string &string)
-{
-    return s << QString::fromStdString(string);
-}
-#endif
-
 static QDebug operator<<(QDebug s, const std::vector<std::pair<std::string, std::string>> &v)
 {
     using pair = std::pair<std::string, std::string>;
