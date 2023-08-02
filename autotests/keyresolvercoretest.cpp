@@ -39,7 +39,7 @@ inline char *toString(const KeyResolverCore::SolutionFlags &flags)
     if (flags & KeyResolverCore::AllResolved) {
         v.append(QStringLiteral("KeyResolverCore::AllResolved"));
     } else {
-        v.append(QStringLiteral("KeyResolverCore::SomeResolved"));
+        v.append(QStringLiteral("KeyResolverCore::SomeUnresolved"));
     }
     if ((flags & KeyResolverCore::MixedProtocols) == KeyResolverCore::MixedProtocols) {
         v.append(QStringLiteral("KeyResolverCore::MixedProtocols"));
