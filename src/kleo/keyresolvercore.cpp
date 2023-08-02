@@ -25,6 +25,7 @@
 #include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
 #include <libkleo/keycache.h>
+#include <libkleo/keyhelpers.h>
 
 #include "kleo/debug.h"
 #include <libkleo_debug.h>
@@ -169,7 +170,8 @@ bool KeyResolverCore::Private::isAcceptableEncryptionKey(const Key &key, const Q
     }
 
     if (address.isEmpty()) {
-        return true;
+        // group key must satisfy minimum validity for all user IDs
+        return Kleo::minimalValidityOfNotRevokedUserIDs(key) >= mMinimumValidity;
     }
     for (const auto &uid : key.userIDs()) {
         if (uid.addrSpec() == address.toStdString()) {
