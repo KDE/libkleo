@@ -12,6 +12,7 @@
 #include <Libkleo/KeyCache>
 #include <Libkleo/KeyGroup>
 #include <Libkleo/KeyResolverCore>
+#include <Libkleo/Test>
 
 #include <QObject>
 #include <QProcess>
@@ -1241,6 +1242,78 @@ private Q_SLOTS:
         QCOMPARE(result.solution.protocol, CMS);
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(), testKey("sender-smime@example.net", CMS).primaryFingerprint());
+    }
+
+    void test_groups__group_with_marginally_valid_key_is_accepted_by_default()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-openpgp@example.net", OpenPGP),
+                            testKey("prefer-smime@example.net", OpenPGP),
+                        }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
+        resolver.setPreferredProtocol(OpenPGP);
+        resolver.setRecipients({"group@example.net"});
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.encryptionKeys.size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 2);
+    }
+
+    void test_groups__group_with_marginally_valid_key_is_ignored_if_full_validity_required()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-openpgp@example.net", OpenPGP),
+                            testKey("prefer-smime@example.net", OpenPGP),
+                        }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
+        resolver.setMinimumValidity(UserID::Full);
+        resolver.setPreferredProtocol(OpenPGP);
+        resolver.setRecipients({"group@example.net"});
+
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.encryptionKeys.size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 0);
+    }
+
+    void test_groups__group_with_marginally_valid_key_is_ignored_in_de_vs_mode()
+    {
+        const std::vector<KeyGroup> groups = {
+            createGroup("group@example.net",
+                        {
+                            testKey("prefer-openpgp@example.net", OpenPGP),
+                            testKey("prefer-smime@example.net", OpenPGP),
+                        }),
+        };
+        KeyCache::mutableInstance()->setGroups(groups);
+        KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
+        resolver.setPreferredProtocol(OpenPGP);
+        resolver.setRecipients({"group@example.net"});
+
+        Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
+        Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
+        const auto result = resolver.resolve();
+
+        QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
+        QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
+        QCOMPARE(result.solution.protocol, OpenPGP);
+        QCOMPARE(result.solution.encryptionKeys.size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 0);
     }
 
     void test_sender_is_set__encrypt_only_mode()
