@@ -22,6 +22,7 @@
 
 #include <libkleo/formatting.h>
 #include <libkleo/keycache.h>
+#include <libkleo/keygroup.h>
 #include <libkleo/newkeyapprovaldialog.h>
 
 #include <libkleo_debug.h>
@@ -50,6 +51,7 @@ public:
 
     ~Private() = default;
 
+    KeyResolver::Solution expandUnresolvedGroups(KeyResolver::Solution solution);
     void showApprovalDialog(KeyResolverCore::Result result, QWidget *parent);
     void dialogAccepted();
 
@@ -69,14 +71,65 @@ public:
     Protocol mPreferredProtocol;
 };
 
+static bool lessThan(const Key &leftKey, const Key &rightKey)
+{
+    // shouldn't happen, but still put null keys at the end
+    if (leftKey.isNull()) {
+        return false;
+    }
+    if (rightKey.isNull()) {
+        return true;
+    }
+
+    // first sort by the displayed name and/or email address
+    const auto leftNameAndOrEmail = Formatting::nameAndEmailForSummaryLine(leftKey);
+    const auto rightNameAndOrEmail = Formatting::nameAndEmailForSummaryLine(rightKey);
+    const int cmp = QString::localeAwareCompare(leftNameAndOrEmail, rightNameAndOrEmail);
+    if (cmp) {
+        return cmp < 0;
+    }
+
+    // sort certificates with identical name/email address by their fingerprints
+    return strcmp(leftKey.primaryFingerprint(), rightKey.primaryFingerprint()) < 0;
+}
+
+KeyResolver::Solution KeyResolver::Private::expandUnresolvedGroups(KeyResolver::Solution solution)
+{
+    for (auto it = solution.encryptionKeys.begin(); it != solution.encryptionKeys.end(); ++it) {
+        const auto &address = it.key();
+        if (!it.value().empty()) {
+            continue;
+        }
+        const auto keyMatchingAddress = mCache->findBestByMailBox(address.toUtf8().constData(), solution.protocol, KeyCache::KeyUsage::Encrypt);
+        if (!keyMatchingAddress.isNull()) {
+            continue;
+        }
+        const auto groupMatchingAddress = mCache->findGroup(address, solution.protocol, KeyCache::KeyUsage::Encrypt);
+        if (!groupMatchingAddress.isNull()) {
+            qCDebug(LIBKLEO_LOG) << __func__ << "Expanding unresolved" << address << "with matching group";
+            const auto &groupKeys = groupMatchingAddress.keys();
+            std::vector<Key> keys;
+            keys.reserve(groupKeys.size());
+            std::copy(groupKeys.begin(), groupKeys.end(), std::back_inserter(keys));
+            std::sort(keys.begin(), keys.end(), lessThan);
+            it.value() = keys;
+        }
+    }
+
+    return solution;
+}
+
 void KeyResolver::Private::showApprovalDialog(KeyResolverCore::Result result, QWidget *parent)
 {
+    const auto preferredSolution = expandUnresolvedGroups(std::move(result.solution));
+    const auto alternativeSolution = expandUnresolvedGroups(std::move(result.alternative));
+
     const QString sender = mCore.normalizedSender();
     mDialog = std::make_unique<NewKeyApprovalDialog>(mEncrypt,
                                                      mSign,
                                                      sender,
-                                                     std::move(result.solution),
-                                                     std::move(result.alternative),
+                                                     std::move(preferredSolution),
+                                                     std::move(alternativeSolution),
                                                      mAllowMixed,
                                                      mFormat,
                                                      parent,
