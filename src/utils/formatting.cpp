@@ -326,11 +326,7 @@ QString format_subkeytype(const Subkey &subkey)
 QString format_keyusage(const Key &key)
 {
     QStringList capabilities;
-#if GPGMEPP_KEY_CANSIGN_IS_FIXED
     if (Kleo::keyHasSign(key)) {
-#else
-    if (key.canReallySign()) {
-#endif
         if (key.isQualified()) {
             capabilities.push_back(i18n("Signing (Qualified)"));
         } else {
@@ -1372,7 +1368,8 @@ QString Formatting::trustSignature(const GpgME::UserID::Signature &sig)
 
 QString Formatting::errorAsString(const GpgME::Error &error)
 {
-#if defined(Q_OS_WIN) && GPGMEPP_ERROR_ASSTRING_RETURNS_UTF8_ON_WINDOWS
+#ifdef Q_OS_WIN
+    // On Windows, we set GpgME resp. libgpg-error to return (translated) error messages as UTF-8
     return QString::fromUtf8(error.asString());
 #else
     return QString::fromLocal8Bit(error.asString());

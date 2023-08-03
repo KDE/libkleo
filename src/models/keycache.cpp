@@ -808,14 +808,10 @@ struct ready_for_signing {
     bool operator()(const Key &key) const
     {
         ACCEPT(hasSecret);
-#if GPGMEPP_KEY_CANSIGN_IS_FIXED
 #if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
         ACCEPT(hasSign);
 #else
         ACCEPT(canSign);
-#endif
-#else
-        ACCEPT(canReallySign);
 #endif
         REJECT(isRevoked);
         REJECT(isExpired);
@@ -1500,12 +1496,10 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
     if (!job) {
         return Error();
     }
-#ifdef QGPGME_LISTALLKEYSJOB_HAS_OPTIONS
     if (!m_cache->initialized()) {
         // avoid delays during the initial key listing
         job->setOptions(QGpgME::ListAllKeysJob::DisableAutomaticTrustDatabaseCheck);
     }
-#endif
 
 #if 0
     aheinecke: 2017.01.12:
