@@ -35,13 +35,7 @@ Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText, 
     setModal(false);
     setRange(0, 0); // activate busy indicator
 
-#if QGPGME_JOB_HAS_NEW_PROGRESS_SIGNALS
     connect(job, &QGpgME::Job::jobProgress, this, &ProgressDialog::slotProgress);
-#else
-    connect(job, &QGpgME::Job::progress, this, [this](const QString &, int current, int total) {
-        slotProgress(current, total);
-    });
-#endif
     connect(job, &QGpgME::Job::done, this, &ProgressDialog::slotDone);
     connect(this, &QProgressDialog::canceled, job, &QGpgME::Job::slotCancel);
 
