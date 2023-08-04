@@ -7,8 +7,10 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include <kleo/keyresolver.h>
-#include <utils/formatting.h>
+#include <libkleo/formatting.h>
+#include <libkleo/keycache.h>
+#include <libkleo/keygroupconfig.h>
+#include <libkleo/keyresolver.h>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -87,12 +89,19 @@ int main(int argc, char **argv)
         QCommandLineOption({QStringLiteral("sigkeys"), QStringLiteral("k")}, QStringLiteral("Explicit signing keys"), QStringLiteral("signing key")));
     parser.addOption(QCommandLineOption({QStringLiteral("encrypt"), QStringLiteral("e")}, QStringLiteral("Only select encryption keys")));
     parser.addOption(QCommandLineOption({QStringLiteral("approval"), QStringLiteral("a")}, QStringLiteral("Always show approval dlg")));
+    parser.addOption(QCommandLineOption({QStringLiteral("group-config")}, QStringLiteral("Path of group config"), QStringLiteral("groupsrc")));
 
     parser.process(app);
 
     const QStringList recps = parser.positionalArguments();
     if (recps.size() < 1) {
         parser.showHelp(1);
+    }
+
+    auto cache = Kleo::KeyCache::mutableInstance();
+    if (parser.isSet(QStringLiteral("group-config"))) {
+        cache->setGroupConfig(std::make_shared<Kleo::KeyGroupConfig>(parser.value(QStringLiteral("group-config"))));
+        cache->setGroupsEnabled(true);
     }
 
     KeyResolver resolver(true, !parser.isSet(QStringLiteral("encrypt")));
