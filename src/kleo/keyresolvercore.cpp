@@ -732,6 +732,21 @@ KeyResolverCore::KeyResolverCore(bool encrypt, bool sign, Protocol fmt)
 
 KeyResolverCore::~KeyResolverCore() = default;
 
+bool KeyResolverCore::encrypt() const
+{
+    return d->mEncrypt;
+}
+
+bool KeyResolverCore::sign() const
+{
+    return d->mSign;
+}
+
+GpgME::Protocol KeyResolverCore::format() const
+{
+    return d->mFormat;
+}
+
 void KeyResolverCore::setSender(const QString &address)
 {
     d->setSender(address);

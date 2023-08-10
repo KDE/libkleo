@@ -30,6 +30,7 @@ class Key;
 
 namespace Kleo
 {
+class KeyResolverCore;
 /**
  * Class to find Keys for E-Mail signing and encryption.
  *
@@ -86,6 +87,14 @@ public:
      **/
     explicit KeyResolver(bool encrypt, bool sign, GpgME::Protocol protocol = GpgME::UnknownProtocol, bool allowMixed = true);
 
+    /**
+     * Creates a new key resolver object using a custom key resolver implementation.
+     *
+     * @param keyResolverCore: A custom key resolver implementation
+     * @param allowMixed: Specify if multiple message formats may be resolved.
+     **/
+    explicit KeyResolver(std::unique_ptr<KeyResolverCore> keyResolverCore, bool allowMixed = true);
+
     ~KeyResolver() override;
 
     /**
@@ -105,6 +114,11 @@ public:
      * @param sender: The sender of this message.
      */
     void setSender(const QString &sender);
+
+    /**
+     * Get the normalized sender email address
+     */
+    QString normalizedSender() const;
 
     /**
      * Set up possible override keys for recipients addresses.

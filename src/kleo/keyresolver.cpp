@@ -37,7 +37,7 @@ class KeyResolver::Private
 public:
     Private(KeyResolver *qq, bool enc, bool sig, Protocol fmt, bool allowMixed)
         : q(qq)
-        , mCore(enc, sig, fmt)
+        , mCore(std::make_unique<KeyResolverCore>(enc, sig, fmt))
         , mFormat(fmt)
         , mEncrypt(enc)
         , mSign(sig)
@@ -46,7 +46,23 @@ public:
         , mDialogWindowFlags(Qt::WindowFlags())
         , mPreferredProtocol(UnknownProtocol)
     {
-        mCore.setAllowMixedProtocols(allowMixed);
+        Q_ASSERT(mCore);
+        mCore->setAllowMixedProtocols(allowMixed);
+    }
+
+    Private(KeyResolver *qq, std::unique_ptr<KeyResolverCore> core, bool allowMixed)
+        : q(qq)
+        , mCore(std::move(core))
+        , mFormat(mCore->format())
+        , mEncrypt(mCore->encrypt())
+        , mSign(mCore->sign())
+        , mAllowMixed(allowMixed)
+        , mCache(KeyCache::instance())
+        , mDialogWindowFlags(Qt::WindowFlags())
+        , mPreferredProtocol(UnknownProtocol)
+    {
+        Q_ASSERT(mCore);
+        mCore->setAllowMixedProtocols(allowMixed);
     }
 
     ~Private() = default;
@@ -56,7 +72,7 @@ public:
     void dialogAccepted();
 
     KeyResolver *const q;
-    KeyResolverCore mCore;
+    std::unique_ptr<KeyResolverCore> const mCore;
     Solution mResult;
 
     Protocol mFormat;
@@ -124,7 +140,7 @@ void KeyResolver::Private::showApprovalDialog(KeyResolverCore::Result result, QW
     const auto preferredSolution = expandUnresolvedGroups(std::move(result.solution));
     const auto alternativeSolution = expandUnresolvedGroups(std::move(result.alternative));
 
-    const QString sender = mCore.normalizedSender();
+    const QString sender = mCore->normalizedSender();
     mDialog = std::make_unique<NewKeyApprovalDialog>(mEncrypt,
                                                      mSign,
                                                      sender,
@@ -156,7 +172,7 @@ void KeyResolver::start(bool showApproval, QWidget *parentWidget)
         // nothing to do
         return Q_EMIT keysResolved(true, true);
     }
-    const auto result = d->mCore.resolve();
+    const auto result = d->mCore->resolve();
     const bool success = (result.flags & KeyResolverCore::AllResolved);
     if (success && !showApproval) {
         d->mResult = std::move(result.solution);
@@ -174,26 +190,36 @@ KeyResolver::KeyResolver(bool encrypt, bool sign, Protocol fmt, bool allowMixed)
 {
 }
 
+KeyResolver::KeyResolver(std::unique_ptr<KeyResolverCore> keyResolverCore, bool allowMixed)
+    : d(new Private(this, std::move(keyResolverCore), allowMixed))
+{
+}
+
 Kleo::KeyResolver::~KeyResolver() = default;
 
 void KeyResolver::setRecipients(const QStringList &addresses)
 {
-    d->mCore.setRecipients(addresses);
+    d->mCore->setRecipients(addresses);
 }
 
 void KeyResolver::setSender(const QString &address)
 {
-    d->mCore.setSender(address);
+    d->mCore->setSender(address);
+}
+
+QString KeyResolver::normalizedSender() const
+{
+    return d->mCore->normalizedSender();
 }
 
 void KeyResolver::setOverrideKeys(const QMap<Protocol, QMap<QString, QStringList>> &overrides)
 {
-    d->mCore.setOverrideKeys(overrides);
+    d->mCore->setOverrideKeys(overrides);
 }
 
 void KeyResolver::setSigningKeys(const QStringList &fingerprints)
 {
-    d->mCore.setSigningKeys(fingerprints);
+    d->mCore->setSigningKeys(fingerprints);
 }
 
 KeyResolver::Solution KeyResolver::result() const
@@ -208,10 +234,10 @@ void KeyResolver::setDialogWindowFlags(Qt::WindowFlags flags)
 
 void KeyResolver::setPreferredProtocol(Protocol proto)
 {
-    d->mCore.setPreferredProtocol(proto);
+    d->mCore->setPreferredProtocol(proto);
 }
 
 void KeyResolver::setMinimumValidity(int validity)
 {
-    d->mCore.setMinimumValidity(validity);
+    d->mCore->setMinimumValidity(validity);
 }

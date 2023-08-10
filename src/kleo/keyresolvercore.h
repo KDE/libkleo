@@ -33,6 +33,9 @@ class Key;
 namespace Kleo
 {
 
+/**
+ * Key resolver
+ */
 class KLEO_EXPORT KeyResolverCore
 {
 public:
@@ -59,6 +62,12 @@ public:
 
     explicit KeyResolverCore(bool encrypt, bool sign, GpgME::Protocol format = GpgME::UnknownProtocol);
     ~KeyResolverCore();
+
+    bool encrypt() const;
+
+    bool sign() const;
+
+    GpgME::Protocol format() const;
 
     void setSender(const QString &sender);
     QString normalizedSender() const;
