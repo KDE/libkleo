@@ -346,8 +346,12 @@ void KeyResolverCore::Private::resolveSigningGroups()
         }
         protocolKeysMap[CMS] = resolveSenderWithGroup(mSender, CMS);
     } else {
-        protocolKeysMap[OpenPGP] = resolveSenderWithGroup(mSender, OpenPGP);
-        protocolKeysMap[CMS] = resolveSenderWithGroup(mSender, CMS);
+        if (protocolKeysMap[OpenPGP].empty()) {
+            protocolKeysMap[OpenPGP] = resolveSenderWithGroup(mSender, OpenPGP);
+        }
+        if (protocolKeysMap[CMS].empty()) {
+            protocolKeysMap[CMS] = resolveSenderWithGroup(mSender, CMS);
+        }
     }
 }
 
