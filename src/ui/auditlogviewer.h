@@ -11,7 +11,7 @@
 #include <QDialog>
 
 #ifdef HAVE_PIMTEXTEDIT
-#include <KPIMTextEdit/RichTextEditorWidget>
+#include <TextCustomEditor/RichTextEditorWidget>
 
 namespace KPIMTextEdit
 {
@@ -48,7 +48,7 @@ private:
 
     QString m_log;
 #ifdef HAVE_PIMTEXTEDIT
-    KPIMTextEdit::RichTextEditorWidget *m_textEdit = nullptr;
+    TextCustomEditor::RichTextEditorWidget *m_textEdit = nullptr;
 #else
     QTextEdit *m_textEdit = nullptr;
 #endif

@@ -198,9 +198,9 @@ if (TARGET Boost::headers)
   target_link_libraries(KPim6Libkleo PRIVATE Boost::headers)
 endif()
 
-if (KPim6TextEdit_FOUND)
+if (TARGET KF6::TextCustomEditor)
   add_definitions(-DHAVE_PIMTEXTEDIT)
-  target_link_libraries(KPim6Libkleo PRIVATE KPim6::PimTextEdit)
+  target_link_libraries(KPim6Libkleo PRIVATE KF6::TextCustomEditor)
 endif()
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)

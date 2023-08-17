@@ -21,7 +21,7 @@
 #include <KStandardGuiItem>
 
 #ifdef HAVE_PIMTEXTEDIT
-#include <KPIMTextEdit/RichTextEditor>
+#include <TextCustomEditor/RichTextEditor>
 #else
 #include <QTextEdit>
 #endif
@@ -44,7 +44,7 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     , m_log(/* sic */)
     ,
 #ifdef HAVE_PIMTEXTEDIT
-    m_textEdit(new KPIMTextEdit::RichTextEditorWidget(this))
+    m_textEdit(new TextCustomEditor::RichTextEditorWidget(this))
 #else
     m_textEdit(new QTextEdit(this))
 #endif

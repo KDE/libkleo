@@ -37,8 +37,8 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "6.5.0")
-set(KDEPIMTEXTEDIT_VERSION "5.240.40")
 set(GPGME_REQUIRED_VERSION "1.16.0")
+set(KTEXTADDONS_MIN_VERSION "1.4.42")
 
 find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
 find_package(Qt6Core5Compat)
@@ -50,7 +50,7 @@ find_package(KF6Completion ${KF6_WANT_VERSION} CONFIG REQUIRED)
 find_package(KF6CoreAddons ${KF6_WANT_VERSION} CONFIG REQUIRED)
 find_package(KF6Codecs ${KF6_WANT_VERSION} CONFIG REQUIRED)
 find_package(KF6ItemModels ${KF6_WANT_VERSION} CONFIG REQUIRED)
-find_package(KPim6TextEdit ${KDEPIMTEXTEDIT_VERSION} CONFIG)
+find_package(KF6TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG)
 
 find_package(Gpgmepp ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
