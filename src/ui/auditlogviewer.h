@@ -12,11 +12,6 @@
 
 #ifdef HAVE_PIMTEXTEDIT
 #include <TextCustomEditor/RichTextEditorWidget>
-
-namespace KPIMTextEdit
-{
-class RichTextEditorWidget;
-}
 #else
 
 class QTextEdit;
