@@ -62,6 +62,8 @@ enum {
 
     CertificateRevocationList = 0x1000,
 
+    MimeFile                  = 0x2000,
+
     AnyType                   = AnyMessageType | AnyCertStoreType | CertificateRequest | CertificateRevocationList,
     TypeMask                  = AnyType
     // clang-format on
@@ -254,6 +256,11 @@ inline bool mayBeAnyCertStoreType(const QString &filename)
 inline bool mayBeAnyCertStoreType(const unsigned int classification)
 {
     return classification & Class::AnyCertStoreType;
+}
+
+inline bool isMimeFile(const unsigned int classification)
+{
+    return classification & Class::MimeFile;
 }
 
 inline GpgME::Protocol findProtocol(const unsigned int classification)

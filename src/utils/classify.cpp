@@ -47,7 +47,10 @@ static const QHash<QString, unsigned int> classifications{
     {QStringLiteral("crl"), Kleo::Class::CMS | Binary | CertificateRevocationList},
     {QStringLiteral("crt"), Kleo::Class::CMS | Binary | Certificate},
     {QStringLiteral("der"), Kleo::Class::CMS | Binary | Certificate | CertificateRevocationList},
+    {QStringLiteral("eml"), Kleo::Class::MimeFile | Ascii},
     {QStringLiteral("gpg"), Kleo::Class::OpenPGP | Binary | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
+    {QStringLiteral("mime"), Kleo::Class::MimeFile | Ascii},
+    {QStringLiteral("mbox"), Kleo::Class::MimeFile | Ascii},
     {QStringLiteral("p10"), Kleo::Class::CMS | Ascii | CertificateRequest},
     {QStringLiteral("p12"), Kleo::Class::CMS | Binary | ExportedPSM},
     {QStringLiteral("p7c"), Kleo::Class::CMS | Binary | Certificate},
@@ -208,6 +211,9 @@ QString Kleo::printableClassification(unsigned int classification)
     }
     if (classification & Kleo::Class::CertificateRequest) {
         parts.push_back(QStringLiteral("CertificateRequest"));
+    }
+    if (classification & Kleo::Class::MimeFile) {
+        parts.push_back(QStringLiteral("MimeFile"));
     }
     return parts.join(QLatin1String(", "));
 }

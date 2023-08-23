@@ -59,3 +59,10 @@ ecm_add_tests(
     hextest.cpp
     LINK_LIBRARIES KPim${KF_MAJOR_VERSION}::Libkleo Qt::Test
 )
+
+ecm_add_test(
+    classifytest.cpp
+    LINK_LIBRARIES
+        KPim${KF_MAJOR_VERSION}::Libkleo
+        Qt::Test
+)
