@@ -82,7 +82,7 @@ KLEO_EXPORT bool isFingerprint(const QString &fpr);
 /** Check if a filename matches a ChecksumDefinition pattern */
 KLEO_EXPORT bool isChecksumFile(const QString &file);
 
-KLEO_EXPORT const char *outputFileExtension(unsigned int classification, bool usePGPFileExt);
+KLEO_EXPORT QString outputFileExtension(unsigned int classification, bool usePGPFileExt);
 
 KLEO_EXPORT QString printableClassification(unsigned int classification);
 
