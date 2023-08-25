@@ -7,6 +7,7 @@
 */
 
 #include <Libkleo/Classify>
+#include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTest>
 
@@ -21,6 +22,25 @@ private Q_SLOTS:
 
     void cleanupTestCase()
     {
+    }
+
+    void identifyFileName()
+    {
+        QTemporaryDir dir;
+
+        const auto fileName = dir.filePath(QStringLiteral("msg.asc"));
+        const auto fileName1 = dir.filePath(QStringLiteral("msg(1).asc"));
+        {
+            QFile asc(fileName);
+            QVERIFY(asc.open(QIODevice::WriteOnly));
+
+            QFile asc1(fileName1);
+            QVERIFY(asc1.open(QIODevice::WriteOnly));
+        }
+
+        qWarning() << fileName;
+        QVERIFY(Kleo::isMimeFile(Kleo::classify(fileName)));
+        QVERIFY(Kleo::isMimeFile(Kleo::classify(fileName1)));
     }
 
     void identifyMimeFileExtensionTest()

@@ -49,6 +49,7 @@ static const QHash<QString, unsigned int> classifications{
     {QStringLiteral("der"), Kleo::Class::CMS | Binary | Certificate | CertificateRevocationList},
     {QStringLiteral("eml"), Kleo::Class::MimeFile | Ascii},
     {QStringLiteral("gpg"), Kleo::Class::OpenPGP | Binary | OpaqueSignature | CipherText | AnyCertStoreType | ExamineContentHint},
+    {QStringLiteral("mim"), Kleo::Class::MimeFile | Ascii},
     {QStringLiteral("mime"), Kleo::Class::MimeFile | Ascii},
     {QStringLiteral("mbox"), Kleo::Class::MimeFile | Ascii},
     {QStringLiteral("p10"), Kleo::Class::CMS | Ascii | CertificateRequest},
@@ -78,6 +79,13 @@ static const QHash<GpgME::Data::Type, unsigned int> gpgmeTypeMap{
     {GpgME::Data::PGPEncrypted, Kleo::Class::OpenPGP | CipherText       },
     {GpgME::Data::PGPSignature, Kleo::Class::OpenPGP | DetachedSignature},
     // clang-format on
+};
+
+static const QSet<QString> mimeFileNames{
+    QStringLiteral("msg.asc"),
+    QStringLiteral("smime.p7m"),
+    QStringLiteral("OpenPGP_encrypted_message.asc"),
+    QStringLiteral("OpenPGP_encrypted_message.mim"),
 };
 
 static const unsigned int defaultClassification = NoClass;
@@ -133,6 +141,17 @@ unsigned int Kleo::classify(const QStringList &fileNames)
     return result;
 }
 
+static unsigned int classifyFileName(const QFileInfo &fi)
+{
+    static const QRegularExpression attachmentNumbering{QStringLiteral(R"(\([0-9]+\))")};
+    const auto fileName = fi.fileName().remove(attachmentNumbering);
+
+    if (mimeFileNames.contains(fileName)) {
+        return Kleo::Class::MimeFile | Ascii;
+    }
+    return defaultClassification;
+}
+
 static unsigned int classifyExtension(const QFileInfo &fi)
 {
     return classifications.value(fi.suffix(), defaultClassification);
@@ -144,6 +163,11 @@ unsigned int Kleo::classify(const QString &filename)
 
     if (!fi.exists()) {
         return 0;
+    }
+
+    const unsigned int fileNameClass = classifyFileName(fi);
+    if (fileNameClass != defaultClassification) {
+        return fileNameClass;
     }
 
     QFile file(filename);
