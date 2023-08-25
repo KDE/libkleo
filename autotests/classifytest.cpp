@@ -38,9 +38,8 @@ private Q_SLOTS:
             QVERIFY(asc1.open(QIODevice::WriteOnly));
         }
 
-        qWarning() << fileName;
         QVERIFY(Kleo::isMimeFile(Kleo::classify(fileName)));
-        QVERIFY(Kleo::isMimeFile(Kleo::classify(fileName1)));
+        QVERIFY(Kleo::isMimeFile(fileName1));
     }
 
     void identifyMimeFileExtensionTest()
@@ -48,12 +47,12 @@ private Q_SLOTS:
         QTemporaryFile mbox;
         mbox.setFileTemplate("XXXXXX.mbox");
         QVERIFY(mbox.open());
-        QVERIFY(Kleo::isMimeFile(Kleo::classify(mbox.fileName())));
+        QVERIFY(Kleo::mayBeMimeFile(Kleo::classify(mbox.fileName())));
 
         QTemporaryFile eml;
         eml.setFileTemplate("XXXXXX.eml");
         QVERIFY(eml.open());
-        QVERIFY(Kleo::isMimeFile(Kleo::classify(eml.fileName())));
+        QVERIFY(Kleo::mayBeMimeFile(eml.fileName()));
 
         QCOMPARE(QStringLiteral("Ascii, MimeFile"), Kleo::printableClassification(Kleo::classify(eml.fileName())));
     }

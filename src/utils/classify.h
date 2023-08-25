@@ -65,7 +65,7 @@ enum {
     MimeFile                  = 0x2000,
 
     AnyType                   = AnyMessageType | AnyCertStoreType | CertificateRequest | CertificateRevocationList,
-    TypeMask                  = AnyType
+    TypeMask                  = AnyType | MimeFile
     // clang-format on
 };
 }
@@ -259,6 +259,20 @@ inline bool mayBeAnyCertStoreType(const unsigned int classification)
 }
 
 inline bool isMimeFile(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::MimeFile;
+}
+
+inline bool isMimeFile(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::MimeFile;
+}
+
+inline bool mayBeMimeFile(const QString &filename)
+{
+    return classify(filename) & Class::MimeFile;
+}
+inline bool mayBeMimeFile(const unsigned int classification)
 {
     return classification & Class::MimeFile;
 }
