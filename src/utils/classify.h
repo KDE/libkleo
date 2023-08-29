@@ -62,8 +62,10 @@ enum {
 
     CertificateRevocationList = 0x1000,
 
+    MimeFile                  = 0x2000,
+
     AnyType                   = AnyMessageType | AnyCertStoreType | CertificateRequest | CertificateRevocationList,
-    TypeMask                  = AnyType
+    TypeMask                  = AnyType | MimeFile
     // clang-format on
 };
 }
@@ -82,7 +84,7 @@ KLEO_EXPORT bool isFingerprint(const QString &fpr);
 /** Check if a filename matches a ChecksumDefinition pattern */
 KLEO_EXPORT bool isChecksumFile(const QString &file);
 
-KLEO_EXPORT const char *outputFileExtension(unsigned int classification, bool usePGPFileExt);
+KLEO_EXPORT QString outputFileExtension(unsigned int classification, bool usePGPFileExt);
 
 KLEO_EXPORT QString printableClassification(unsigned int classification);
 
@@ -254,6 +256,25 @@ inline bool mayBeAnyCertStoreType(const QString &filename)
 inline bool mayBeAnyCertStoreType(const unsigned int classification)
 {
     return classification & Class::AnyCertStoreType;
+}
+
+inline bool isMimeFile(const unsigned int classification)
+{
+    return (classification & Class::TypeMask) == Class::MimeFile;
+}
+
+inline bool isMimeFile(const QString &filename)
+{
+    return (classify(filename) & Class::TypeMask) == Class::MimeFile;
+}
+
+inline bool mayBeMimeFile(const QString &filename)
+{
+    return classify(filename) & Class::MimeFile;
+}
+inline bool mayBeMimeFile(const unsigned int classification)
+{
+    return classification & Class::MimeFile;
 }
 
 inline GpgME::Protocol findProtocol(const unsigned int classification)
