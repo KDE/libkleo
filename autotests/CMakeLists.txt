@@ -63,6 +63,6 @@ ecm_add_tests(
 ecm_add_test(
     classifytest.cpp
     LINK_LIBRARIES
-        KPim${KF_MAJOR_VERSION}::Libkleo
+        KPim6::Libkleo
         Qt::Test
 )
