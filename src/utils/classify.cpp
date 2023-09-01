@@ -23,6 +23,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QMap>
+#include <QMimeDatabase>
 #include <QRegExp>
 #include <QRegularExpression>
 #include <QString>
@@ -127,6 +128,12 @@ public:
 private:
     T &m_data;
 };
+
+bool mimeTypeInherits(const QMimeType &mimeType, const QString &mimeTypeName)
+{
+    // inherits is expensive on an invalid mimeType
+    return mimeType.isValid() && mimeType.inherits(mimeTypeName);
+}
 }
 
 unsigned int Kleo::classify(const QStringList &fileNames)
@@ -165,6 +172,7 @@ unsigned int Kleo::classify(const QString &filename)
         return 0;
     }
 
+    // Very reliable but only for email files
     const unsigned int fileNameClass = classifyFileName(fi);
     if (fileNameClass != defaultClassification) {
         return fileNameClass;
@@ -193,6 +201,16 @@ unsigned int Kleo::classify(const QString &filename)
 
 unsigned int Kleo::classifyContent(const QByteArray &data)
 {
+    QMimeDatabase mimeDatabase;
+    const auto mimeType = mimeDatabase.mimeTypeForData(data);
+    if (mimeTypeInherits(mimeType, QStringLiteral("message/rfc822"))) {
+        return Kleo::Class::MimeFile | Ascii;
+    }
+
+    if (mimeTypeInherits(mimeType, QStringLiteral("application/mbox"))) {
+        return Kleo::Class::MimeFile | Ascii;
+    }
+
     QGpgME::QByteArrayDataProvider dp(data);
     GpgME::Data gpgmeData(&dp);
     GpgME::Data::Type type = gpgmeData.type();
