@@ -74,7 +74,7 @@ void writeStringList(QSettings &settings, const QString &key, const QStringList 
 
 KeyGroup readGroup(const QSettings &groupsConfig, const QString &groupId)
 {
-    const auto configGroupPath = keyGroupNamePrefix + groupId + QLatin1Char{'/'};
+    const QString configGroupPath = keyGroupNamePrefix + groupId + QLatin1Char{'/'};
 
     const auto groupName = readString(groupsConfig, configGroupPath + QLatin1String{"Name"});
     const auto fingerprints = readStringList(groupsConfig, configGroupPath + QLatin1String{"Keys"});
@@ -93,9 +93,9 @@ void writeGroup(QSettings &groupsConfig, const KeyGroup &group)
         return;
     }
 
-    const auto configGroupName = keyGroupNamePrefix + group.id();
+    const QString configGroupName = keyGroupNamePrefix + group.id();
     qCDebug(LIBKLEO_LOG) << __func__ << "Writing config group" << configGroupName;
-    const auto configGroupPath = configGroupName + QLatin1Char{'/'};
+    const QString configGroupPath = configGroupName + QLatin1Char{'/'};
     writeString(groupsConfig, configGroupPath + QLatin1String{"Name"}, group.name());
     writeStringList(groupsConfig, configGroupPath + QLatin1String{"Keys"}, Kleo::getFingerprints(group.keys()));
 }
