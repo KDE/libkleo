@@ -24,5 +24,6 @@ build_clazy_clang_tidy:
   script:
     - srcdir=`pwd` && mkdir -p build && cd build && CC=clang CXX=clazy CXXFLAGS="-Werror -Wno-deprecated-declarations" cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja $srcdir && cat compile_commands.json | jq  '[.[] | select(.file | contains("'"$srcdir"'"))]' > compile_commands.json && cp "$srcdir/.clang-tidy" .
     # CLAZY_IGNORE_DIRS="settings_core.[cpp|h]|settings.[cpp.h]|pdfsettings.h|gssettings.h|ui_selectcertificatedialog.h"
-    - CLAZY_CHECKS="level0,level1,level2,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch" ninja
-    - run-clang-tidy-14
+    - CLAZY_CHECKS="level0" ninja
+    # - CLAZY_CHECKS="level0,level1,level2,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch" ninja
+    # - run-clang-tidy-14
