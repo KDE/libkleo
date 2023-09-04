@@ -102,7 +102,7 @@ QUrl KeyserverConfig::toUrl() const
 
     url.setScheme(QStringLiteral("ldap"));
     // set host to empty string if it's a null string; this ensures that the URL has an authority and always gets a "//" after the scheme
-    url.setHost(d->host.isNull() ? QStringLiteral("") : d->host);
+    url.setHost(d->host.isNull() ? QLatin1String{""} : d->host);
     if (d->port != -1) {
         url.setPort(d->port);
     }
