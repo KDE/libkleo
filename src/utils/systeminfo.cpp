@@ -75,7 +75,7 @@ bool win_isDarkModeActive()
 
 bool Kleo::SystemInfo::isHighContrastModeActive()
 {
-    static bool forceHighContrastMode = qgetenv("KLEO_HIGH_CONTRAST_MODE").toInt();
+    static bool forceHighContrastMode = qEnvironmentVariableIntValue("KLEO_HIGH_CONTRAST_MODE");
 #ifdef Q_OS_WIN
     static bool highContrastModeActive = forceHighContrastMode || win_isHighContrastModeActive();
     return highContrastModeActive;
