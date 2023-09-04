@@ -182,9 +182,8 @@ static const unsigned char *parse_dn_part(DnPair *array, const unsigned char *st
     if (*string == '#') {
         /* hexstring */
         string++;
-        for (s = string; hexdigitp(s); s++) {
-            s++;
-        }
+        for (s = string; hexdigitp(s); s++)
+            ;
         n = s - string;
         if (!n || (n & 1)) {
             return nullptr; /* empty or odd number of digits */
