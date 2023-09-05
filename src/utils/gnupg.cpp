@@ -527,6 +527,17 @@ static unsigned int gpgConfGetConsoleOutputCodePage()
             break;
         }
     }
+    // if ConsoleOutputCP is 0 fall back to ACP (as gpg does in set_native_charset)
+    if (cpno == 0) {
+        qCDebug(LIBKLEO_LOG) << __func__ << "ConsoleOutputCP is" << cpno << "- use ACP";
+        // look for a line of the form "ANSI: CP%u"
+        for (const auto &l : lines) {
+            if (l.startsWith("ANSI: CP")) {
+                cpno = l.mid(l.indexOf("CP") + 2).toUInt();
+                break;
+            }
+        }
+    }
 
     qCDebug(LIBKLEO_LOG) << __func__ << "returns" << cpno;
     return cpno;
