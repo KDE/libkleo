@@ -13,25 +13,25 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-05 00:46+0000\n"
-"PO-Revision-Date: 2023-01-30 07:25+0100\n"
+"PO-Revision-Date: 2023-09-05 21:05+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
-msgstr "Errorea %1 egiaztapen-baturaren definizioan: %2"
+msgstr "Errorea %1 egiaztapen baturaren definizioan: %2"
 
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
 msgid "Cannot use both %f and | in '%1'"
-msgstr "Ezin dira biak erabili, %f eta | '%1'(e)an"
+msgstr "Ezin dira %f eta | biak '%1'(e)an erabili"
 
 #: kleo/checksumdefinition.cpp:156
 #, kde-format
@@ -41,32 +41,32 @@ msgstr "Aipu errorea '%1' sarreran"
 #: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
-msgstr "'%1' korapilotsuegia (oskola beharko litzateke)"
+msgstr "'%1' korapilotsuegia (oskola beharko luke)"
 
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
 msgid "'%1' entry is empty/missing"
-msgstr "'%1' sarrera hutsi dago/falta da"
+msgstr "'%1' sarrera hutsik dago/falta da"
 
 #: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
-msgstr "'%1' hutsik edo ez da aurkitu"
+msgstr "'%1' hutsik dago edo ez da aurkitu"
 
 #: kleo/checksumdefinition.cpp:211
 #, kde-format
 msgid "'id' entry is empty/missing"
-msgstr "'id' sarrera hutsi dago/falta da"
+msgstr "'id' sarrera hutsik dago/falta da"
 
 #: kleo/checksumdefinition.cpp:214
 #, kde-format
 msgid "'output-file' entry is empty/missing"
-msgstr "'irteerako-fitxategia' sarrera hutsik dago/falta da"
+msgstr "'output-file' sarrera hutsik dago/falta da"
 
 #: kleo/checksumdefinition.cpp:217
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
-msgstr "'fitxategi-ereduak' sarrera hutsik dago/falta da"
+msgstr "'file-patterns' sarrera hutsik dago/falta da"
 
 #: kleo/checksumdefinition.cpp:396
 #, kde-format
@@ -95,7 +95,7 @@ msgstr "Izenburua"
 
 #: kleo/dn.cpp:522
 msgid "Organizational unit"
-msgstr "Erakundeko saila"
+msgstr "Antolakuntza unitatea"
 
 #: kleo/dn.cpp:523
 msgid "Organization"
@@ -107,7 +107,7 @@ msgstr "Posta-kodea"
 
 #: kleo/dn.cpp:525
 msgid "Country code"
-msgstr "Estatuaren kodea"
+msgstr "Herrialde-kodea"
 
 #: kleo/dn.cpp:526
 msgid "State or province"
@@ -119,7 +119,7 @@ msgstr "Domeinu osagaia"
 
 #: kleo/dn.cpp:528
 msgid "Business category"
-msgstr "Lan kategoria"
+msgstr "Negozio kategoria"
 
 #: kleo/dn.cpp:529
 msgid "Email address"
@@ -131,7 +131,7 @@ msgstr "Posta helbidea"
 
 #: kleo/dn.cpp:531
 msgid "Mobile phone number"
-msgstr "Mugikorraren zenbakia"
+msgstr "Telefono mugikor zenbakia"
 
 #: kleo/dn.cpp:532
 msgid "Telephone number"
@@ -143,7 +143,7 @@ msgstr "Fax zenbakia"
 
 #: kleo/dn.cpp:534
 msgid "Street address"
-msgstr "Helbidea"
+msgstr "Kale helbidea"
 
 #: kleo/dn.cpp:535
 msgid "Unique ID"
@@ -151,7 +151,7 @@ msgstr "ID bakarra"
 
 #: kleo/enum.cpp:35
 msgid "Inline OpenPGP (deprecated)"
-msgstr "OpenPGP tartekatua (zaharkitua)"
+msgstr "Lerro barruko OpenPGP (zaharkitua)"
 
 #: kleo/enum.cpp:36
 msgid "OpenPGP/MIME"
@@ -165,7 +165,7 @@ msgstr "S/MIME"
 
 #: kleo/enum.cpp:38
 msgid "S/MIME Opaque"
-msgstr "S/MIME opakoa"
+msgstr "S/MIME opakua"
 
 #: kleo/enum.cpp:39
 msgid "Any S/MIME"
@@ -183,17 +183,17 @@ msgstr "Edozein"
 #: kleo/enum.cpp:147
 #, kde-format
 msgid "Never Encrypt"
-msgstr "Ez inoiz enkriptatu"
+msgstr "Ez inoiz zifratu"
 
 #: kleo/enum.cpp:149
 #, kde-format
 msgid "Always Encrypt"
-msgstr "Beti enkriptatu"
+msgstr "Beti zifratu"
 
 #: kleo/enum.cpp:151
 #, kde-format
 msgid "Always Encrypt If Possible"
-msgstr "Beti enkriptatu posible bada"
+msgstr "Ahal denean beti zifratu"
 
 #: kleo/enum.cpp:153 kleo/enum.cpp:210
 #, kde-format
@@ -203,7 +203,7 @@ msgstr "Galdetu"
 #: kleo/enum.cpp:155 kleo/enum.cpp:212
 #, kde-format
 msgid "Ask Whenever Possible"
-msgstr "Galdu posible denean"
+msgstr "Galdu ahal denean"
 
 #: kleo/enum.cpp:157
 #, kde-kuit-format
@@ -224,7 +224,7 @@ msgstr "Sinatu beti"
 #: kleo/enum.cpp:208
 #, kde-format
 msgid "Always Sign If Possible"
-msgstr "Sinatu beti posible bada"
+msgstr "Sinatu beti ahal bada"
 
 #: kleo/enum.cpp:214
 #, kde-format
@@ -236,7 +236,7 @@ msgstr "<bat ere ez>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (KeyID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -244,6 +244,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>Sinatzeko zure OpenPGP gakoa</p><p align=center>%1</p><p>duela egun bat "
+"baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -251,6 +253,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Zifratzeko zure OpenPGP gakoa</p><p align=center>%1</p><p>duela egun bat "
+"baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -258,6 +262,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p align=center>%1(e)rako</p><p>OpenPGP gakoa</p><p>duela egun bat baino "
+"gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -268,7 +274,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>Sinatzeko zure OpenPGP gakoa</p><p align=center>%2</p><p>atzo iraungi zen."
+"</p>"
 msgstr[1] ""
+"<p>Sinatzeko zure OpenPGP gakoa</p><p align=center>%2</p><p>duela %1 egun "
+"iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -279,7 +289,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Zifratzeko zure OpenPGP gakoa</p><p align=center>%2</p><p>atzo iraungi "
+"zen.</p>"
 msgstr[1] ""
+"<p>Zifratzeko zure OpenPGP gakoa</p><p align=center>%2</p><p>duela %1 egun "
+"iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -288,24 +302,32 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>atzo iraungi zen.</p>"
 msgstr[1] ""
+"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>duela %1 egun iraungi "
+"zen.</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Sinatzeko zure OpenPGP gakoa</p><p align=center>%1</p><p>gaur iraungiko "
+"da.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Zifratzeko zure OpenPGP gakoa</p><p align=center>%1</p><p>gaur iraungiko "
+"da.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p align=center>%1(e)rako</p><p>OpenPGP gakoa</p><p>gaur iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -315,7 +337,10 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>Sinatzeko zureOpenPGP gakoa</p><p align=center>%2<p>bihar iraungiko da</p>"
 msgstr[1] ""
+"<p>Sinatzeko zure OpenPGP gakoa</p><p align=center>%2<p>%1 egun barru "
+"iraungiko da</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -326,7 +351,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Zifratzeko zure OpenPGP gakoa</p><p align=center>%2<p>bihar iraungiko da."
+"</p>"
 msgstr[1] ""
+"<p>Zifratzeko zure OpenPGP gakoa</p><p align=center>%2<p>%1 egun barru "
+"iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -335,14 +364,17 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>gaur iraungiko da</p>"
 msgstr[1] ""
+"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>%1 egun barru iraungiko "
+"da.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (serie zenbakia %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -351,6 +383,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>Sinatzeko zure S/MIME ziurtagiriaren</p><p align=center><b>%1</b></"
+"p><p>erro ziurtagiria</p><p align=center>%2</p><p>duela egun bat baino "
+"gutxiago iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -359,6 +394,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Zifratzeko zure S/MIME ziurtagiriaren</p><p align=center><b>%1</b></"
+"p><p>erro ziurtagiria</p><p align=center>%2</p><p>duela egun bat baino "
+"gutxiago iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -366,6 +404,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME ziurtagiriaren</p><p align=center><b>%1</b></p><p>erro "
+"ziurtagiria</p><p align=center>%2</p><p>duela egun bat baino gutxiago "
+"iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -376,7 +417,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Sinatzeko zure S/MIME ziurtagiriaren</p><p align=center><b>%2</b></"
+"p><p>erro ziurtagiria</p><p align=center>%3<p>atzo iraungi zen.</p>"
 msgstr[1] ""
+"<p>Sinatzeko zure S/MIME ziurtagiriaren</p><p align=center><b>%2</b></"
+"p><p>erro ziurtagiria</p><p align=center>%3<p>duela %1 egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -387,7 +432,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Zifratzeko zure S/MIME ziurtagiriaren</p><p align=center><b>%2</b></"
+"p><p>erro ziurtagiria</p><p align=center>%3<p>atzo iraungi zen.</p>"
 msgstr[1] ""
+"<p>Zifratzeko zure S/MIME ziurtagiriaren</p><p align=center><b>%2</b></"
+"p><p>erro ziurtagiria</p><p align=center>%3</p><p>duela %1 egun iraungi zen."
+"</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -398,7 +448,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME ziurtagiriaren</p><p align=center><b>%2</b></p><p>erro "
+"ziurtagiria</p><p align=center>%3<p>atzo iraungi zen.</p>"
 msgstr[1] ""
+"<p>S/MIME ziurtagiriaren</p><p align=center><b>%2</b></p><p>erro "
+"ziurtagiria</p><p align=center>%3<p>duela %1 egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -870,7 +924,7 @@ msgstr "ez da aplikagarria"
 #: ui/keyselectiondialog.cpp:196
 #, kde-format
 msgid "User ID"
-msgstr "Erabiltzaile ID-a"
+msgstr "Erabiltzaile ID"
 
 #: models/useridlistmodel.cpp:104
 #, kde-format
@@ -1005,7 +1059,7 @@ msgstr "2 - Berritsua"
 
 #: ui/cryptoconfigmodule.cpp:708
 msgid "3 - More Verbose"
-msgstr "3 - Berritsuagoa"
+msgstr "3 - Berritsuago"
 
 #: ui/cryptoconfigmodule.cpp:709
 msgid "4 - All"
