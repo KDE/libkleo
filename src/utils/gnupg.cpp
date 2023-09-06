@@ -570,7 +570,8 @@ QString Kleo::stringFromGpgOutput(const QByteArray &ba)
 
     if (cpno) {
         qCDebug(LIBKLEO_LOG) << __func__ << "trying to decode" << ba << "using codepage" << cpno;
-        const auto s = fromEncoding(cpno, ba.replace("\r\n", "\n").constData());
+        const auto rawData = QByteArray{ba}.replace("\r\n", "\n");
+        const auto s = fromEncoding(cpno, rawData.constData());
         if (!s.isEmpty() || ba.isEmpty()) {
             return s;
         }
