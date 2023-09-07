@@ -90,22 +90,6 @@ static const QSet<QString> mimeFileNames{
 
 static const unsigned int defaultClassification = NoClass;
 
-static const struct _content_classification {
-    char content[28];
-    unsigned int classification;
-} content_classifications[] = {
-    // clang-format off
-    {"CERTIFICATE",       Certificate                           },
-    {"ENCRYPTED MESSAGE", CipherText                            },
-    {"MESSAGE",           OpaqueSignature | CipherText          },
-    {"PKCS12",            ExportedPSM                           },
-    {"PRIVATE KEY BLOCK", ExportedPSM                           },
-    {"PUBLIC KEY BLOCK",  Certificate                           },
-    {"SIGNATURE",         DetachedSignature                     },
-    {"SIGNED MESSAGE",    ClearsignedMessage | DetachedSignature},
-    // clang-format on
-};
-
 template<typename T>
 class asKeyValueRange
 {
