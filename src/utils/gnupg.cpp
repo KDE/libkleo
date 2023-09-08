@@ -545,19 +545,22 @@ static unsigned int gpgConfGetConsoleOutputCodePage()
 
 static QString fromEncoding(unsigned int src_encoding, const char *data)
 {
+    // returns necessary buffer size including the terminating null character
     int n = MultiByteToWideChar(src_encoding, 0, data, -1, NULL, 0);
-    if (n < 0) {
+    if (n <= 0) {
+        qCDebug(LIBKLEO_LOG) << __func__ << "determining necessary buffer size failed with error code" << GetLastError();
         return QString();
     }
 
     wchar_t *result = (wchar_t *)malloc((n + 1) * sizeof *result);
 
     n = MultiByteToWideChar(src_encoding, 0, data, -1, result, n);
-    if (n < 0) {
+    if (n <= 0) {
         free(result);
+        qCDebug(LIBKLEO_LOG) << __func__ << "conversion failed with error code" << GetLastError();
         return QString();
     }
-    const auto ret = QString::fromWCharArray(result, n);
+    const auto ret = QString::fromWCharArray(result, n - 1);
     free(result);
     return ret;
 }
