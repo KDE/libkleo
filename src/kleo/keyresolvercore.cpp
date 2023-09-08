@@ -78,20 +78,6 @@ static int minimumValidity(const std::vector<Key> &keys, const QString &address)
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
 
-bool allKeysHaveProtocol(const std::vector<Key> &keys, Protocol protocol)
-{
-    return std::all_of(keys.cbegin(), keys.cend(), [protocol](const Key &key) {
-        return key.protocol() == protocol;
-    });
-}
-
-bool anyKeyHasProtocol(const std::vector<Key> &keys, Protocol protocol)
-{
-    return std::any_of(std::begin(keys), std::end(keys), [protocol](const Key &key) {
-        return key.protocol() == protocol;
-    });
-}
-
 } // namespace
 
 class KeyResolverCore::Private

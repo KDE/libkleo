@@ -23,6 +23,7 @@
 #include <libkleo/filesystemwatcher.h>
 #include <libkleo/keygroup.h>
 #include <libkleo/keygroupconfig.h>
+#include <libkleo/keyhelpers.h>
 #include <libkleo/predicates.h>
 #include <libkleo/qtstlhelpers.h>
 #include <libkleo/stl_util.h>
@@ -1678,14 +1679,6 @@ bool allKeysAllowUsage(const T &keys, KeyCache::KeyUsage usage)
     }
     qCDebug(LIBKLEO_LOG) << __func__ << "called with invalid usage" << int(usage);
     return false;
-}
-
-template<typename T>
-bool allKeysHaveProtocol(const T &keys, Protocol protocol)
-{
-    return std::all_of(std::begin(keys), std::end(keys), [protocol](const auto &key) {
-        return key.protocol() == protocol;
-    });
 }
 }
 
