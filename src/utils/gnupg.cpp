@@ -545,6 +545,10 @@ static unsigned int gpgConfGetConsoleOutputCodePage()
 
 static QString fromEncoding(unsigned int src_encoding, const char *data)
 {
+    if (!data || !*data) {
+        return {};
+    }
+
     // returns necessary buffer size including the terminating null character
     int n = MultiByteToWideChar(src_encoding, 0, data, -1, NULL, 0);
     if (n <= 0) {
