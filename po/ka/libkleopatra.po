@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:46+0000\n"
+"POT-Creation-Date: 2023-09-09 00:47+0000\n"
 "PO-Revision-Date: 2023-02-03 17:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -152,8 +152,8 @@ msgstr "იქვე OpenPGP (მოძველებული)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:310
-#: ui/newkeyapprovaldialog.cpp:313
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:303
+#: ui/newkeyapprovaldialog.cpp:306
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -1845,7 +1845,7 @@ msgstr "ყველას ჩვენება"
 msgid "Show all keys"
 msgstr "ყველა გასაღების ჩვენება"
 
-#: ui/newkeyapprovaldialog.cpp:277
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -1856,67 +1856,67 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:302
+#: ui/newkeyapprovaldialog.cpp:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "უსაფრთხოების დადასტურება"
 
-#: ui/newkeyapprovaldialog.cpp:309 ui/newkeyapprovaldialog.cpp:312
+#: ui/newkeyapprovaldialog.cpp:302 ui/newkeyapprovaldialog.cpp:305
 #: utils/formatting.cpp:696
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1'-სთვის გასაღების გენერაცია..."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "This can take several minutes."
 msgstr "ამას რამდენიმე წუთი შეიძლება დასჭირდეს."
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "გასაღების გენერაცია"
 
-#: ui/newkeyapprovaldialog.cpp:433
+#: ui/newkeyapprovaldialog.cpp:426
 #, kde-format
 msgid "Operation Failed"
 msgstr "ოპერაციის შეცდომა"
 
-#: ui/newkeyapprovaldialog.cpp:548 ui/newkeyapprovaldialog.cpp:644
+#: ui/newkeyapprovaldialog.cpp:541 ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "გასაღების ახალი წყვილის გენერაცია"
 
-#: ui/newkeyapprovaldialog.cpp:551
+#: ui/newkeyapprovaldialog.cpp:544
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr "იდენტიფიკატორი და სიმთელე არ დადასტურდება"
 
-#: ui/newkeyapprovaldialog.cpp:553
+#: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "ელფოსტა კრიპტოგრაფიულად ხელმოწერილი არ იქნება."
 
-#: ui/newkeyapprovaldialog.cpp:571
+#: ui/newkeyapprovaldialog.cpp:564
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "'%1'-ის იდენტიფიცირება, როგორც:"
 
-#: ui/newkeyapprovaldialog.cpp:648
+#: ui/newkeyapprovaldialog.cpp:641
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "გასაღების გარეშე. მიმღებების გაშიფვრა შეუძლებელია."
 
-#: ui/newkeyapprovaldialog.cpp:651
+#: ui/newkeyapprovaldialog.cpp:644
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1925,18 +1925,18 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:768
+#: ui/newkeyapprovaldialog.cpp:761
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "თავის თავში დაშიფვრა (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:778
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "სხვებისთვის დაშიფვრა:"
 
-#: ui/newkeyapprovaldialog.cpp:819
+#: ui/newkeyapprovaldialog.cpp:812
 #, kde-format
 msgid "Generate"
 msgstr "გენერაცია"

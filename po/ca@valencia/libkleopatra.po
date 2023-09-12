@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:46+0000\n"
+"POT-Creation-Date: 2023-09-09 00:47+0000\n"
 "PO-Revision-Date: 2023-06-21 18:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -156,8 +156,8 @@ msgstr "OpenPGP inclòs (desaprovat)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:310
-#: ui/newkeyapprovaldialog.cpp:313
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:303
+#: ui/newkeyapprovaldialog.cpp:306
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2056,7 +2056,7 @@ msgstr "Mostra-les totes"
 msgid "Show all keys"
 msgstr "Mostra totes les claus"
 
-#: ui/newkeyapprovaldialog.cpp:277
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2071,67 +2071,67 @@ msgstr ""
 "demanarà una frase de pas per protegir esta clau i la clau protegida "
 "s'emmagatzemarà al vostre directori personal."
 
-#: ui/newkeyapprovaldialog.cpp:302
+#: ui/newkeyapprovaldialog.cpp:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Aprovació de la seguretat"
 
-#: ui/newkeyapprovaldialog.cpp:309 ui/newkeyapprovaldialog.cpp:312
+#: ui/newkeyapprovaldialog.cpp:302 ui/newkeyapprovaldialog.cpp:305
 #: utils/formatting.cpp:696
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "S'està generant la clau per a «%1»..."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Açò pot tardar diversos minuts."
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Generació de claus"
 
-#: ui/newkeyapprovaldialog.cpp:433
+#: ui/newkeyapprovaldialog.cpp:426
 #, kde-format
 msgid "Operation Failed"
 msgstr "No s'ha pogut fer l'operació"
 
-#: ui/newkeyapprovaldialog.cpp:548 ui/newkeyapprovaldialog.cpp:644
+#: ui/newkeyapprovaldialog.cpp:541 ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Genera un parell nou de claus"
 
-#: ui/newkeyapprovaldialog.cpp:551
+#: ui/newkeyapprovaldialog.cpp:544
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr "No confirmes la identitat i la integritat"
 
-#: ui/newkeyapprovaldialog.cpp:553
+#: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "Este correu electrònic no se signarà criptogràficament."
 
-#: ui/newkeyapprovaldialog.cpp:571
+#: ui/newkeyapprovaldialog.cpp:564
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Confirma la identitat «%1» com a:"
 
-#: ui/newkeyapprovaldialog.cpp:648
+#: ui/newkeyapprovaldialog.cpp:641
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "No hi ha clau. El destinatari no podrà desencriptar."
 
-#: ui/newkeyapprovaldialog.cpp:651
+#: ui/newkeyapprovaldialog.cpp:644
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2143,18 +2143,18 @@ msgstr ""
 "el correu electrònic encriptat, però només es podrà desencriptar amb les "
 "altres claus seleccionades en este diàleg."
 
-#: ui/newkeyapprovaldialog.cpp:768
+#: ui/newkeyapprovaldialog.cpp:761
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Encripta a mi mateix (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:778
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Encripta a altres:"
 
-#: ui/newkeyapprovaldialog.cpp:819
+#: ui/newkeyapprovaldialog.cpp:812
 #, kde-format
 msgid "Generate"
 msgstr "Genera"

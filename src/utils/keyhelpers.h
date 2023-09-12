@@ -58,4 +58,20 @@ KLEO_EXPORT GpgME::UserID::Validity maximalValidityOfUserIDs(const GpgME::Key &k
 
 /* Is the key valid i.e. are all not revoked uids fully trusted?  */
 KLEO_EXPORT bool allUserIDsHaveFullValidity(const GpgME::Key &key);
+
+template<typename RangeOfKeys>
+bool allKeysHaveProtocol(const RangeOfKeys &keys, GpgME::Protocol protocol)
+{
+    return std::all_of(std::begin(keys), std::end(keys), [protocol](const auto &key) {
+        return key.protocol() == protocol;
+    });
+}
+
+template<typename RangeOfKeys>
+bool anyKeyHasProtocol(const RangeOfKeys &keys, GpgME::Protocol protocol)
+{
+    return std::any_of(std::begin(keys), std::end(keys), [protocol](const auto &key) {
+        return key.protocol() == protocol;
+    });
+}
 }

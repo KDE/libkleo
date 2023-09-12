@@ -220,13 +220,6 @@ static bool key_has_addr(const GpgME::Key &key, const QString &addr)
     return false;
 }
 
-bool anyKeyHasProtocol(const std::vector<Key> &keys, GpgME::Protocol protocol)
-{
-    return std::any_of(std::begin(keys), std::end(keys), [protocol](const auto &key) {
-        return key.protocol() == protocol;
-    });
-}
-
 Key findfirstKeyOfType(const std::vector<Key> &keys, GpgME::Protocol protocol)
 {
     const auto it = std::find_if(std::begin(keys), std::end(keys), [protocol](const auto &key) {

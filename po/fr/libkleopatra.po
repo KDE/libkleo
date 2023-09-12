@@ -1,6 +1,7 @@
 # traduction de libkleopatra.po en français
 # translation of libkleopatra.po to Français
 # traduction de libkleopatra.po en Français
+# SPDX-FileCopyrightText: 2013, 2020, 2021, 2022, 2023 xavier <xavier.besnard@neuf.fr>
 # Matthieu Robin <kde@macolu.org>, 2004.
 # Joëlle Cornavin <jcornavi@kde-france.org>, 2004.
 # Delafond <gerard@delafond.org>, 2004.
@@ -8,7 +9,6 @@
 # Matthieu Robin <matthieu@macolu.org>, 2005.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2007, 2008.
 # Sébastien Renard <renard@kde.org>, 2011, 2015.
-# xavier <xavier.besnard@neuf.fr>, 2013, 2020, 2021, 2022.
 # Vincent Pinon <vpinon@kde.org>, 2017, 2018.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
@@ -16,19 +16,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:46+0000\n"
-"PO-Revision-Date: 2023-03-12 09:44+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"POT-Creation-Date: 2023-09-09 00:47+0000\n"
+"PO-Revision-Date: 2023-09-09 19:10+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 23.08.0\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 22.12.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -164,8 +164,8 @@ msgstr "OpenPGP intégré (déconseillé)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP / MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:310
-#: ui/newkeyapprovaldialog.cpp:313
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:303
+#: ui/newkeyapprovaldialog.cpp:306
 #, kde-format
 msgid "S/MIME"
 msgstr "S / MIME"
@@ -243,7 +243,7 @@ msgstr "<aucune>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (KeyID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -265,6 +265,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p> La clé « OpenPGP » pour </p> <p align = center>%1 </p> <p> a expiré il y "
+"a moins d'un jour. </p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -302,6 +304,8 @@ msgstr[1] ""
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Votre clé de signature « OpenPGP » </p><p align = center>%1</p> <p> "
+"expire aujourd'hui. </p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
@@ -313,6 +317,8 @@ msgstr ""
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>La clé « OpenPGP » pour </p> <p align = center>%1</p> <p> expire "
+"aujourd'hui. </p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -349,7 +355,7 @@ msgstr[1] ""
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (Numéro de série %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -641,6 +647,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Votre certificat de signature « S / MIME  » </p> <p align = Center>%2 </"
+"p><p> expire aujourd'hui. </p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -1909,7 +1917,7 @@ msgstr "Afficher tout"
 msgid "Show all keys"
 msgstr "Afficher toutes les clés"
 
-#: ui/newkeyapprovaldialog.cpp:277
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -1924,67 +1932,67 @@ msgstr ""
 "courriels. Vous devrez saisir un mot de passe pour protéger cette clé, qui "
 "sera stockée dans votre dossier personnel."
 
-#: ui/newkeyapprovaldialog.cpp:302
+#: ui/newkeyapprovaldialog.cpp:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Autorisation de sécurité"
 
-#: ui/newkeyapprovaldialog.cpp:309 ui/newkeyapprovaldialog.cpp:312
+#: ui/newkeyapprovaldialog.cpp:302 ui/newkeyapprovaldialog.cpp:305
 #: utils/formatting.cpp:696
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Génération d'une nouvelle clé pour « %1 »..."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Ceci peut prendre plusieurs minutes."
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Génération de clés"
 
-#: ui/newkeyapprovaldialog.cpp:433
+#: ui/newkeyapprovaldialog.cpp:426
 #, kde-format
 msgid "Operation Failed"
 msgstr "Échec de l'opération"
 
-#: ui/newkeyapprovaldialog.cpp:548 ui/newkeyapprovaldialog.cpp:644
+#: ui/newkeyapprovaldialog.cpp:541 ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Générer une nouvelle paire de clés"
 
-#: ui/newkeyapprovaldialog.cpp:551
+#: ui/newkeyapprovaldialog.cpp:544
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr "Ne pas confirmer l'identité et l'intégrité"
 
-#: ui/newkeyapprovaldialog.cpp:553
+#: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "Le courrier électronique ne sera pas signé par chiffrement."
 
-#: ui/newkeyapprovaldialog.cpp:571
+#: ui/newkeyapprovaldialog.cpp:564
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Confirmer l'identité « %1 » comme :"
 
-#: ui/newkeyapprovaldialog.cpp:648
+#: ui/newkeyapprovaldialog.cpp:641
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Aucune clé. Le destinataire ne pourra pas déchiffrer."
 
-#: ui/newkeyapprovaldialog.cpp:651
+#: ui/newkeyapprovaldialog.cpp:644
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1997,18 +2005,18 @@ msgstr ""
 "déchiffré à l'aide des autres clés sélectionnées dans cette boîte de "
 "dialogue."
 
-#: ui/newkeyapprovaldialog.cpp:768
+#: ui/newkeyapprovaldialog.cpp:761
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Chiffrer pour soi même (%1) :"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:778
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Chiffrer pour les autres :"
 
-#: ui/newkeyapprovaldialog.cpp:819
+#: ui/newkeyapprovaldialog.cpp:812
 #, kde-format
 msgid "Generate"
 msgstr "Générer"
