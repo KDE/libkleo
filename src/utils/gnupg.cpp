@@ -501,42 +501,26 @@ bool Kleo::gnupgIsDeVsCompliant()
 }
 
 #ifdef Q_OS_WIN
-static unsigned int gpgConfGetConsoleOutputCodePage()
+static unsigned int guessConsoleOutputCodePage()
 {
-    // calls `gpgconf --show-codepages` to determine the console output codepage used by gpg on Windows;
-    // for other OSs gpgconf returns nothing
-    const auto gpgConfPath = Kleo::gpgConfPath();
-    if (gpgConfPath.isEmpty()) {
-        return 0;
+    /* Qt on Windows uses GetACP while GnuPG prefers
+     * GetConsoleOutputCP.
+     *
+     * As we are not a console application GetConsoleOutputCP
+     * usually returns 0.
+     * From experience the closest thing that let's us guess
+     * what GetConsoleOutputCP returns for a console application
+     * it appears to be the OEMCP.
+     */
+    unsigned int cpno = GetConsoleOutputCP();
+    if (!cpno) {
+        cpno = GetOEMCP();
     }
-    QProcess gpgConf;
-    qCDebug(LIBKLEO_LOG) << __func__ << "starting" << gpgConfPath << "--show-codepages";
-    gpgConf.start(gpgConfPath, {QStringLiteral("--show-codepages")});
-    if (!gpgConf.waitForFinished()) {
-        qCDebug(LIBKLEO_LOG) << __func__ << "failed to execute gpgconf:" << gpgConf.errorString() << "\nstderr:" << gpgConf.readAllStandardError();
-        return 0;
+    if (!cpno) {
+        cpno = GetACP();
     }
-
-    unsigned int cpno = 0;
-    const auto lines = gpgConf.readAllStandardOutput().split('\n');
-    // look for a line of the form "Console: CP%u" or "Console: CP%u/CP%u"
-    for (const auto &l : lines) {
-        if (l.startsWith("Console: CP")) {
-            // the console output codepage is the second CP value if there are two
-            cpno = l.mid(l.lastIndexOf("CP") + 2).toUInt();
-            break;
-        }
-    }
-    // if ConsoleOutputCP is 0 fall back to ACP (as gpg does in set_native_charset)
-    if (cpno == 0) {
-        qCDebug(LIBKLEO_LOG) << __func__ << "ConsoleOutputCP is" << cpno << "- use ACP";
-        // look for a line of the form "ANSI: CP%u"
-        for (const auto &l : lines) {
-            if (l.startsWith("ANSI: CP")) {
-                cpno = l.mid(l.indexOf("CP") + 2).toUInt();
-                break;
-            }
-        }
+    if (!cpno) {
+        qCDebug(LIBKLEO_LOG) << __func__ << "Failed to find native codepage";
     }
 
     qCDebug(LIBKLEO_LOG) << __func__ << "returns" << cpno;
@@ -568,12 +552,10 @@ static QString fromEncoding(unsigned int src_encoding, const char *data)
     free(result);
     return ret;
 }
-#endif
 
-QString Kleo::stringFromGpgOutput(const QByteArray &ba)
+static QString stringFromGpgOutput_legacy(const QByteArray &ba)
 {
-#ifdef Q_OS_WIN
-    static const unsigned int cpno = gpgConfGetConsoleOutputCodePage();
+    static const unsigned int cpno = guessConsoleOutputCodePage();
 
     if (cpno) {
         qCDebug(LIBKLEO_LOG) << __func__ << "trying to decode" << ba << "using codepage" << cpno;
@@ -584,8 +566,23 @@ QString Kleo::stringFromGpgOutput(const QByteArray &ba)
         }
         qCDebug(LIBKLEO_LOG) << __func__ << "decoding output failed; falling back to QString::fromLocal8Bit()";
     }
-#endif
+    qCDebug(LIBKLEO_LOG) << __func__ << "decoding from local encoding:" << ba;
     return QString::fromLocal8Bit(ba);
+}
+#endif
+
+QString Kleo::stringFromGpgOutput(const QByteArray &ba)
+{
+#ifdef Q_OS_WIN
+    // since 2.2.28, GnuPG always uses UTF-8 for console output (and input)
+    if (Kleo::engineIsVersion(2, 2, 28, GpgME::GpgEngine)) {
+        return QString::fromUtf8(ba);
+    } else {
+        return stringFromGpgOutput_legacy(ba);
+    }
+#else
+    return QString::fromLocal8Bit(ba);
+#endif
 }
 
 QStringList Kleo::backendVersionInfo()
