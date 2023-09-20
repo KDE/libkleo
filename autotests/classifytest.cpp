@@ -97,6 +97,24 @@ private Q_SLOTS:
 
         QCOMPARE(fi.path() + QLatin1Char('/') + fi.baseName(), Kleo::outputFileName(sig.fileName()));
     }
+
+    void test_outputFileExtension()
+    {
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::CipherText | Kleo::Class::Binary, false), QStringLiteral("gpg"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::CipherText | Kleo::Class::Binary, true), QStringLiteral("pgp"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::CipherText | Kleo::Class::Ascii, false), QStringLiteral("asc"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::CipherText | Kleo::Class::Ascii, true), QStringLiteral("asc"));
+
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::DetachedSignature | Kleo::Class::Binary, false), QStringLiteral("sig"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::DetachedSignature | Kleo::Class::Binary, true), QStringLiteral("pgp"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::DetachedSignature | Kleo::Class::Ascii, false), QStringLiteral("asc"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::OpenPGP | Kleo::Class::DetachedSignature | Kleo::Class::Ascii, true), QStringLiteral("asc"));
+
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::CMS | Kleo::Class::CipherText | Kleo::Class::Binary, false), QStringLiteral("p7m"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::CMS | Kleo::Class::CipherText | Kleo::Class::Ascii, false), QStringLiteral("p7m"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::CMS | Kleo::Class::DetachedSignature | Kleo::Class::Binary, false), QStringLiteral("p7s"));
+        QCOMPARE(Kleo::outputFileExtension(Kleo::Class::CMS | Kleo::Class::DetachedSignature | Kleo::Class::Ascii, false), QStringLiteral("p7s"));
+    }
 };
 
 QTEST_MAIN(ClassifyTest)
