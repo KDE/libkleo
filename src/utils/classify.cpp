@@ -39,8 +39,8 @@ namespace
 
 const unsigned int ExamineContentHint = 0x8000;
 
-static const QHash<QString, unsigned int> classifications{
-    // ordered by extension
+static const QMap<QString, unsigned int> classifications{
+    // using QMap to keep ordering by extension which incidentally is also the prioritized order for outputFileExtension()
     {QStringLiteral("arl"), Kleo::Class::CMS | Binary | CertificateRevocationList},
     {QStringLiteral("asc"), Kleo::Class::OpenPGP | Ascii | OpaqueSignature | DetachedSignature | CipherText | AnyCertStoreType | ExamineContentHint},
     {QStringLiteral("cer"), Kleo::Class::CMS | Binary | Certificate},
@@ -299,8 +299,8 @@ QString Kleo::outputFileExtension(unsigned int classification, bool usePGPFileEx
         return QStringLiteral("pgp");
     }
 
-    for (const auto &[extension, classification] : asKeyValueRange(classifications)) {
-        if ((classification & classification) == classification) {
+    for (const auto &[extension, classification_] : asKeyValueRange(classifications)) {
+        if ((classification_ & classification) == classification) {
             return extension;
         }
     }
