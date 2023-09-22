@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:50+0000\n"
+"POT-Creation-Date: 2023-09-09 00:47+0000\n"
 "PO-Revision-Date: 2006-01-10 20:35+0100\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -69,79 +69,79 @@ msgstr ""
 msgid "Caught unknown exception in group %1"
 msgstr ""
 
-#: kleo/dn.cpp:518
+#: kleo/dn.cpp:517
 msgid "Common name"
 msgstr "Dábáláš namma"
 
-#: kleo/dn.cpp:519
+#: kleo/dn.cpp:518
 msgid "Surname"
 msgstr ""
 
-#: kleo/dn.cpp:520
+#: kleo/dn.cpp:519
 msgid "Given name"
 msgstr "Ovdanamma"
 
-#: kleo/dn.cpp:521
+#: kleo/dn.cpp:520
 msgid "Location"
 msgstr "Báiki"
 
-#: kleo/dn.cpp:522
+#: kleo/dn.cpp:521
 msgid "Title"
 msgstr "Namahus"
 
-#: kleo/dn.cpp:523
+#: kleo/dn.cpp:522
 msgid "Organizational unit"
 msgstr ""
 
-#: kleo/dn.cpp:524
+#: kleo/dn.cpp:523
 msgid "Organization"
 msgstr "Organisašuvdna"
 
-#: kleo/dn.cpp:525
+#: kleo/dn.cpp:524
 msgid "Postal code"
 msgstr "Boastanummir"
 
-#: kleo/dn.cpp:526
+#: kleo/dn.cpp:525
 msgid "Country code"
 msgstr ""
 
-#: kleo/dn.cpp:527
+#: kleo/dn.cpp:526
 msgid "State or province"
 msgstr ""
 
-#: kleo/dn.cpp:528
+#: kleo/dn.cpp:527
 msgid "Domain component"
 msgstr ""
 
-#: kleo/dn.cpp:529
+#: kleo/dn.cpp:528
 msgid "Business category"
 msgstr ""
 
-#: kleo/dn.cpp:530
+#: kleo/dn.cpp:529
 msgid "Email address"
 msgstr ""
 
-#: kleo/dn.cpp:531
+#: kleo/dn.cpp:530
 msgid "Mail address"
 msgstr ""
 
-#: kleo/dn.cpp:532
+#: kleo/dn.cpp:531
 msgid "Mobile phone number"
 msgstr ""
 
-#: kleo/dn.cpp:533
+#: kleo/dn.cpp:532
 msgid "Telephone number"
 msgstr "Telefuvdnanummir"
 
-#: kleo/dn.cpp:534
+#: kleo/dn.cpp:533
 msgid "Fax number"
 msgstr "Fáksanummir"
 
-#: kleo/dn.cpp:535
+#: kleo/dn.cpp:534
 msgid "Street address"
 msgstr ""
 
-#: kleo/dn.cpp:536
+#: kleo/dn.cpp:535
 msgid "Unique ID"
 msgstr ""
 
@@ -153,8 +153,8 @@ msgstr ""
 msgid "OpenPGP/MIME"
 msgstr ""
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:310
-#: ui/newkeyapprovaldialog.cpp:313
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:303
+#: ui/newkeyapprovaldialog.cpp:306
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -1518,8 +1518,8 @@ msgstr ""
 #: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</"
-"p><p><b>%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
+"%1</b></p></qt>"
 msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
@@ -1829,7 +1829,7 @@ msgstr ""
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:277
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -1840,67 +1840,67 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:302
+#: ui/newkeyapprovaldialog.cpp:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:309 ui/newkeyapprovaldialog.cpp:312
+#: ui/newkeyapprovaldialog.cpp:302 ui/newkeyapprovaldialog.cpp:305
 #: utils/formatting.cpp:696
 #, kde-format
 msgid "OpenPGP"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "This can take several minutes."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:433
+#: ui/newkeyapprovaldialog.cpp:426
 #, kde-format
 msgid "Operation Failed"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:548 ui/newkeyapprovaldialog.cpp:644
+#: ui/newkeyapprovaldialog.cpp:541 ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgid "Generate a new key pair"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:551
+#: ui/newkeyapprovaldialog.cpp:544
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:553
+#: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:571
+#: ui/newkeyapprovaldialog.cpp:564
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:648
+#: ui/newkeyapprovaldialog.cpp:641
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:651
+#: ui/newkeyapprovaldialog.cpp:644
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1909,18 +1909,18 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:768
+#: ui/newkeyapprovaldialog.cpp:761
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:778
 #, kde-format
 msgid "Encrypt to others:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:819
+#: ui/newkeyapprovaldialog.cpp:812
 #, kde-format
 msgid "Generate"
 msgstr "Ráhkat"
