@@ -23,6 +23,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QMap>
+#include <QMimeDatabase>
 #include <QRegExp>
 #include <QRegularExpression>
 #include <QString>
@@ -125,15 +126,26 @@ unsigned int Kleo::classify(const QStringList &fileNames)
     return result;
 }
 
-static unsigned int classifyFileName(const QFileInfo &fi)
+static bool mimeTypeInherits(const QMimeType &mimeType, const QString &mimeTypeName)
+{
+    // inherits is expensive on an invalid mimeType
+    return mimeType.isValid() && mimeType.inherits(mimeTypeName);
+}
+
+/// Detect either a complete mail file (e.g. mbox or eml file) or a encrypted attachment
+/// corresponding to a mail file
+static bool isMailFile(const QFileInfo &fi)
 {
     static const QRegularExpression attachmentNumbering{QStringLiteral(R"(\([0-9]+\))")};
     const auto fileName = fi.fileName().remove(attachmentNumbering);
 
     if (mimeFileNames.contains(fileName)) {
-        return Kleo::Class::MimeFile | Ascii;
+        return true;
     }
-    return defaultClassification;
+
+    QMimeDatabase mimeDatabase;
+    const auto mimeType = mimeDatabase.mimeTypeForFile(fi);
+    return mimeTypeInherits(mimeType, QStringLiteral("message/rfc822")) || mimeTypeInherits(mimeType, QStringLiteral("application/mbox"));
 }
 
 static unsigned int classifyExtension(const QFileInfo &fi)
@@ -149,9 +161,8 @@ unsigned int Kleo::classify(const QString &filename)
         return 0;
     }
 
-    const unsigned int fileNameClass = classifyFileName(fi);
-    if (fileNameClass != defaultClassification) {
-        return fileNameClass;
+    if (isMailFile(fi)) {
+        return Kleo::Class::MimeFile | Ascii;
     }
 
     QFile file(filename);
