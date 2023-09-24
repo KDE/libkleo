@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-09 00:47+0000\n"
-"PO-Revision-Date: 2023-09-22 21:33+0200\n"
+"PO-Revision-Date: 2023-09-23 06:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -231,7 +231,7 @@ msgstr "<არცერთი>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (KeyID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -239,6 +239,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>თქვენი OpenPGP ხელმოწერის გასაღების</p><p align=center>%1</p><p>ვადა ერთ "
+"დღეზე ნაკლები ხნის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -246,6 +248,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>თქვენი OpenPGP დაშიფვრის გასაღები</p><p align=center>%1</p><p> დღეზე "
+"ნაკლები დროის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -253,6 +257,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>OpenPGP-ის გასაღები</p><p align=center>%1-სთვის</p><p>დღეზე ნაკლების წინ "
+"ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -263,7 +269,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>თქვენი OpenPGP-ის ხელმოწერის გასაღების</p><p align=center>%2</p><p> ვადა "
+"გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>თქვენი OpenPGP-ის ხელმოწერის გასაღების</p><p align=center>%2</p><p> ვადა "
+"%1 დღის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -274,7 +284,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>თქვენი OpenPGP-ის დაშიფვრის გასაღების </p><p align=center>%2</p><p> ვადა "
+"გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>თქვენი OpenPGP-ის დაშიფვრის გასაღების </p><p align=center>%2</p><p> ვადა "
+"%1 დღის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -283,24 +297,34 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>OpenPGP-ის გასაღების ვადა ელემენტისთვის </p><p align=center>%2</"
+"p><p>გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>OpenPGP-ის გასაღების ვადა ელემენტისთვის </p><p align=center>%2</p><p>%1 "
+"დღის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>თქვენი OpenPGP ხელმოწერის გასაღების </p><p align=center>%1</p><p>ვადა "
+"დღეს იწურება.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>თქვენი OpenPGP დაშიფვრის გასაღები </p><p align=center>%1</p><p>დღეს "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>OpenPGP-ის გასაღების ვადა ელემენტისთვის </p><p align=center>%1</p><p>დღეს "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -310,7 +334,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>თქვენი OpenPGP ხელმოწერის გასაღების</p><p align=center>%2</p><p>ვადა ხვალ "
+"იწურება.</p>"
 msgstr[1] ""
+"<p>თქვენი OpenPGP ხელმოწერის გასაღების</p><p align=center>%2</p><p>ვადა %1 "
+"დღეში იწურება.</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -321,7 +349,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>თქვენი OpenPGP-ის დაშიფვრის გასაღების</p><p align=center>%2</p><p>ვადა "
+"ხვალ იწურება.</p>"
 msgstr[1] ""
+"<p>თქვენი OpenPGP-ის დაშიფვრის გასაღების</p><p align=center>%2</p><p>ვადა %1 "
+"დღეში იწურება.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -330,14 +362,18 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>OpenPGP გასაღების ვადა ელემენტისთვის</p><p align=center>%2</p><p>ხვალ "
+"იწურება.</p>"
 msgstr[1] ""
+"<p>OpenPGP გასაღების ვადა ელემენტისთვის</p><p align=center>%2</p><p>%1 დღეში "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (სერიული ნომერი %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -346,6 +382,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%2</b></p><p>თქვენი S/"
+"MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%1</p><p>დღეზე ნაკლების "
+"წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -354,6 +393,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%2</b></p><p>თქვენი S/"
+"MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%1</p><p>დღეზე ნაკლების "
+"წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -361,6 +403,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%2</b></p><p>S/MIME "
+"სერტიფიკატისთვის</p><p align=center>%1</p><p>დღეზე ნაკლების წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -371,7 +415,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>გუშინ ამოიწურა."
+"</p>"
 msgstr[1] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღის წინ "
+"ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -382,7 +432,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>გუშინ ამოიწურა.</"
+"p>"
 msgstr[1] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღის წინ "
+"ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -393,7 +449,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>ძირითადი სერიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>ძირითადი სერიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -402,6 +462,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>შუალედური CA სერტიტიფიკატის ვადა</p><p align=center><b>%2</b></"
+"p><p>თქვენი S/MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%1</"
+"p><p>დღეზე ნაკლების წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -410,6 +473,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>შუალედური CA სერტიტიფიკატის ვადა</p><p align=center><b>%2</b></"
+"p><p>თქვენი S/MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%1</"
+"p><p>დღეზე ნაკლების წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:208
 #, kde-format
@@ -417,6 +483,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>შუალედური CA სერტიტიფიკატის ვადა</p><p align=center><b>%2</b></p><p>S/"
+"MIME სერტიფიკატისთვის</p><p align=center>%1</p><p>დღეზე ნაკლების წინ "
+"ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -429,7 +498,13 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>გუშინ "
+"ამოიწურა.</p>"
 msgstr[1] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღის წინ "
+"ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:225
 #, kde-format
@@ -442,7 +517,12 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>S/MIME "
+"დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>S/MIME "
+"დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღის წინ ამოიწურა."
+"</p>"
 
 #: kleo/expirychecker.cpp:233
 #, kde-format
@@ -453,7 +533,11 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>შუალედური CA სერტიფიკატი</p><p align=center><b>%3</b></p><p>S/MIME "
+"სერტიფიკატისთვის</p><p align=center>%2</p><p>გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>შუალედური CA სერტიფიკატი</p><p align=center><b>%3</b></p><p>S/MIME "
+"სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:246
 #, kde-format
@@ -461,6 +545,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>თქვენი S/MIME ხელმოწერის სერტიფიკატის,</p><p align=center>%1</p><p>,ვადა "
+"დღეზე ნაკლების წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -468,6 +554,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>თქვენი S/MIME დაშიფვრის სერტიფიკატის,</p><p align=center>%1</p><p>,ვადა "
+"დღეზე ნაკლების წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -475,6 +563,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>თქვენი S/MIME სერტიფიკატის,</p><p align=center>%1</p><p>,ვადა დღეზე "
+"ნაკლების წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:256
 #, kde-format
@@ -485,7 +575,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>თქვენი S/MIME ხელმოწერის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>თქვენი S/MIME ხელმოწერის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"%1 დღის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -496,7 +590,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>თქვენი S/MIME დაშიფვრის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"გუშინ ამოიწურა.</p>"
 msgstr[1] ""
+"<p>თქვენი S/MIME დაშიფვრის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"%1 დღის წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -507,7 +605,11 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>თქვენი S/MIME სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა გუშინ "
+"ამოიწურა.</p>"
 msgstr[1] ""
+"<p>თქვენი S/MIME სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა %1 დღის "
+"წინ ამოიწურა.</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -515,6 +617,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>დღეს იწურება.</"
+"p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -522,6 +627,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>დღეს იწურება.</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -529,6 +636,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>დღეს იწურება.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -539,7 +648,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>1 დღეში იწურება."
+"</p>"
 msgstr[1] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღეში "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -550,7 +665,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>1 დღეში იწურება."
+"</p>"
 msgstr[1] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღეში "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -561,7 +682,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>1 დღეში იწურება.</p>"
 msgstr[1] ""
+"<p>ძირითადი სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი S/"
+"MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღეში იწურება.</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -570,6 +695,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>დღეს იწურება."
+"</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -578,6 +706,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>დღეს იწურება.</"
+"p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -585,6 +716,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>დღეს იწურება.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -597,7 +730,13 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>1 დღეში "
+"იწურება.</p>"
 msgstr[1] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME ხელმოწერის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღეში "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -610,7 +749,13 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>1 დღეში "
+"იწურება.</p>"
 msgstr[1] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME დაშიფვრის სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღეში "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -621,7 +766,11 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>1 დღეში იწურება.</p>"
 msgstr[1] ""
+"<p>შუალედური CA სერტიფიკატის ვადა</p><p align=center><b>%3</b></p><p>თქვენი "
+"S/MIME სერტიფიკატისთვის</p><p align=center>%2</p><p>%1 დღეში იწურება.</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -629,6 +778,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>თქვენი S/MIME ხელმოწერის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"დღეს იწურება.</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -636,12 +787,16 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>თქვენი S/MIME დაშიფვრის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"დღეს იწურება.</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>თქვენი S/MIME სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა დღეს "
+"იწურება.</p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -652,7 +807,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>თქვენი S/MIME ხელმოწერის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"1 დღეში იწურება.</p>"
 msgstr[1] ""
+"<p>თქვენი S/MIME ხელმოწერის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"%1 დღეში იწურება.</p>"
 
 #: kleo/expirychecker.cpp:386
 #, kde-format
@@ -663,7 +822,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>თქვენი S/MIME დაშიფვრის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"1 დღეში იწურება.</p>"
 msgstr[1] ""
+"<p>თქვენი S/MIME დაშიფვრის სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა "
+"%1 დღეში იწურება.</p>"
 
 #: kleo/expirychecker.cpp:392
 #, kde-format
@@ -674,7 +837,11 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>თქვენი S/MIME სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა 1 დღეში "
+"იწურება.</p>"
 msgstr[1] ""
+"<p>თქვენი S/MIME სერტიფიკატის,</p><p align=center>%2</p><p>, ვადა %1 დღეში "
+"იწურება.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
@@ -975,6 +1142,10 @@ msgid ""
 "seem to be installed properly. It did not return any components. Try running "
 "\"%1\" on the command line for more information."
 msgstr ""
+"პროგრამა gpgconf, რომელიც ამ დიალოგისთვის ინფორმაციის მოსაძიებლად "
+"გამოიყენება, როგორც ჩანს, სწორად არაა დაყენებული. მან კომპონენტები არ "
+"დააბრუნა. მეტი ინფორმაციის მისაღებად, სცადეთ, \"%1\" ბრძანების სტრიქონიდან "
+"გაუშვათ."
 
 #: ui/cryptoconfigmodule.cpp:651
 #, kde-format
@@ -1109,6 +1280,9 @@ msgid ""
 "Click this button to add a directory service to the list of services. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
+"დააწკაპუნეთ ამ ღილაკზე სერვისების სიაში კატალოგის სერვისის დასამატებლად. "
+"ცვლილება ძალაში მხოლოდ მას შემდეგ შევა, რაც კონფიგურაციის ფანჯარას "
+"დაეთანხმებით."
 
 #: ui/directoryserviceswidget.cpp:216
 #, kde-format
@@ -1129,6 +1303,9 @@ msgid ""
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
+"დააწკაპუნეთ ამ ღილაკზე ამჟამად მონიშნული კატალოგის სერვისის პარამეტრების "
+"მოსარგებად. ცვლილებები ძალაში მხოლოდ მორგების ფანჯრის დადასტურების შემდეგ "
+"შევა."
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
@@ -1148,6 +1325,8 @@ msgid ""
 "Click this button to remove the currently selected directory service. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
+"დააწკაპუნეთ ამ ღილაკზე ამჟამად მონიშნული კატალოგის სერვისის წასაშლელად. "
+"ცვლილებები ძალაში მხოლოდ მორგების ფანჯრის დადასტურების შემდეგ შევა."
 
 #: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
 #, kde-format
@@ -1266,6 +1445,8 @@ msgid ""
 "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
 "the directory service is listening on."
 msgstr ""
+"<b>(არასავალდებულო. ნაგულისხმევი მნიშვნელობა, როგორც წესი, საკმარისია)</b> "
+"აირჩიეთ პორტის ნომერი, რომელზედაც კატალოგის სერვისი უსმენს.."
 
 #: ui/editdirectoryservicedialog.cpp:110
 #, kde-format
@@ -1306,6 +1487,8 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
+"Windows-ზე LDAP ავთენტიკაციის Active Directory-ში მიმდინარე მომხმარებლით "
+"გავლა."
 
 #: ui/editdirectoryservicedialog.cpp:137
 #, kde-format
@@ -1345,6 +1528,9 @@ msgid ""
 "password will be saved in the clear in a configuration file in your home "
 "directory.</warning>"
 msgstr ""
+"შეიყვანეთ პაროლი LDAP სერვერზე ავთენტიკაციისთვის.<nl/><warning>პაროლი ღია "
+"ფორმაში იქნება შენახული, კონფიგურაციის ფაილში, რომელიც თქვენს ძირითად "
+"საქაღალდეშია.</warning>"
 
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
@@ -1368,6 +1554,9 @@ msgid ""
 "Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
+"GnuPG-ის ნაგულისხმევის, LDAP სერვერთან მიერთების გამოყენება. ნაგულისხმევად, "
+"GnuPG 2.3 და უფრო ძველები უბრალო, არა-TLS-ით დაშიფრულ მიერთებას იყენებენ. "
+"<b>(რეკომენდებული არაა)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:182
 #, kde-format
@@ -1381,6 +1570,8 @@ msgid ""
 "Use a plain, not TLS secured connection to connect to the LDAP server. "
 "<b>(Not recommended)</b>"
 msgstr ""
+"LDAP სერვერთან მიერთებისას უბრალო და არა TLS-ით დაცული კავშირის გამოყენება. "
+"<b>(რეკომენდებული არაა)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:190
 #, kde-format
@@ -1394,6 +1585,8 @@ msgid ""
 "Use a standard TLS secured connection (initiated with STARTTLS) to connect "
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr ""
+"LDAP სერვერთან მიერთებისას სტანდარტული TLS-ით დაცული კავშირის გამოყენება "
+"(იწყება STARTTLS-ით). <b>(რეკომენდებულია)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:199
 #, kde-format
@@ -1407,6 +1600,8 @@ msgid ""
 "Use a TLS secured connection through which the connection to the LDAP server "
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
+"TLS-ით დაცული კავშირის გამოყენება, სადაც LDAP სერვერამდე კავშირი გვირაბით "
+"ხდება. <b>(რეკომენდებული არაა)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:210
 #, kde-format
@@ -1425,6 +1620,8 @@ msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
+"<b>(არასავალდებულო, ჩვეულებრივ, ცარიელი)</b> ძებნის კატალოგის მხოლოდ ერთ "
+"ხეზე შესაზღუდად შეიყვანეთ ამ LDAP სერვერის ძირითადი DN."
 
 #: ui/editdirectoryservicedialog.cpp:223
 #, kde-format
@@ -1439,6 +1636,9 @@ msgid ""
 "supported by Kleopatra. For example, older versions of GnuPG use "
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
+"აქ შეგიძლიათ შეიყვანოთ დამატებითი ალმები, რომლებიც Kleopatra-ის მიერ (ჯერ) "
+"მხარდაჭერილი არაა. მაგალითად, GnuPG-ის ძველი ვერსიები TLS-ით დაცული "
+"მიერთების მისათითებლად <code>ldaps</code>-ს იყენებენ."
 
 #: ui/editdirectoryservicedialog.cpp:395
 #, kde-format
@@ -1533,6 +1733,8 @@ msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr ""
+"<qt><p>აღმოჩენილია შეცდომა გასაღებების გამოთხოვისას უკანაბოლოდან:</p><p><b>"
+"%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:648 ui/keyselectiondialog.cpp:684
@@ -1742,6 +1944,8 @@ msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
 "asked again.</p></qt>"
 msgstr ""
+"<qt><p>თუ ამას ჩართავთ, თქვენი არჩევანი დამახსოვრებული იქნება და აღარ "
+"გკითხავთ.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:481
 #, kde-format
@@ -1787,7 +1991,11 @@ msgid_plural ""
 "<qt>%1 backends returned truncated output.<p>Not all available keys are "
 "shown</p></qt>"
 msgstr[0] ""
+"<qt>ერთმა უკანაბოლომ წაკვეთილი პასუხი დააბრუნა.<p>ყველა ხელმისაწვდომი "
+"გასაღები ნაჩვენები არაა</p></qt>"
 msgstr[1] ""
+"<qt>%1-მა უკანაბოლომ წაკვეთილი პასუხი დააბრუნა.<p>ყველა ხელმისაწვდომი "
+"გასაღები ნაჩვენები არაა</p></qt>"
 
 #: ui/keyselectiondialog.cpp:760
 #, kde-format
@@ -1855,6 +2063,10 @@ msgid ""
 "to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
+"ელფოსტის მისამართის გამოყენებისას ახალი გასაღების გენერაცია<br/><br/>ეს "
+"გასაღები აუცილებელია ელფოსტების გაშიფვრისა და ხელმოწერისთვის. გკითხავთ "
+"საკვანძო ფრაზას, რათა ეს გასაღები დავიცვათ და დაცვის გასაღები თქვენს საწყის "
+"საქაღალდეში იქნება შენახული."
 
 #: ui/newkeyapprovaldialog.cpp:295
 #, kde-format
@@ -1924,6 +2136,9 @@ msgid ""
 "the encrypted E-Mail, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
+"ამ მიმღებისთვის გასაღები არ აირჩიოთ.<br/><br/>ეს მიმღები მიიღებს დაშიფრულ "
+"ელფოსტას, მაგრამ მისი გაშიფვრა, მხოლოდ, ამ დიალოგში არჩეული სხვა "
+"გასაღებებითაა შესაძლებელი."
 
 #: ui/newkeyapprovaldialog.cpp:761
 #, kde-format
@@ -1962,6 +2177,12 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
+"<para>აირჩიეთ ჭკვიანი ბარათის წამკითხველი, რომელიც გნებავთ, GnuPG-მა "
+"გამოყენოს. <list><item>პირველი ელემენტი აიძულებს GnuPG-ს პირველი ნაპოვნი "
+"თავსართი გამოიყენოს.</item><item>ბოლო ელემენტი საშუალებას გაძლევთ, შეიყვანოთ "
+"თქვენი წამკითხველის ID ან პორტის ნომერი.</item><item>ყველა დანარჩენი "
+"ელემენტი წარმოადენს წამკითხველებს, რომლებიც GnuPG-მა უკვე იპოვა.</item></"
+"list></para>"
 
 #: ui/readerportselection.cpp:114
 #, kde-format
@@ -2447,7 +2668,7 @@ msgstr "სერტიფიკატი ამ მიმღებს ეკუ
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
-msgstr ""
+msgstr "ნდობის მოდელი აჩვენებს, რომ სერტიფიკატი ამ მიმღებს ეკუთვნის."
 
 #: utils/formatting.cpp:1104
 #, kde-format
@@ -2524,13 +2745,13 @@ msgstr "უცნობი"
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
-msgstr ""
+msgstr "ადასტურებს ამ გასაღები ნაწილობრივ სანდო წარმომდგენს '%1'-სთვის."
 
 #: utils/formatting.cpp:1295
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
-msgstr ""
+msgstr "ადასტურებს ამ გასაღები სრულად სანდო წარმომდგენს '%1'-სთვის."
 
 #: utils/gnupg.cpp:164
 #, kde-format
