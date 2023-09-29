@@ -327,11 +327,6 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   RELATIVE ui
 )
 
-ecm_generate_pri_file(BASE_NAME Libkleo
-    LIB_NAME KPim6Libkleo
-    DEPS "QGpgmeQt6" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo
-)
-
 kconfig_add_kcfg_files(KPim6Libkleo
   kcfg/expirycheckerconfigbase.kcfgc
 )
@@ -355,10 +350,6 @@ install(FILES
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo/libkleo
     COMPONENT Devel
 )
-install(FILES
-    ${PRI_FILENAME}
-    DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
-
 
 if ( WIN32 )
     install ( FILES libkleopatrarc-win32.desktop DESTINATION ${KDE_INSTALL_CONFDIR} RENAME libkleopatrarc )

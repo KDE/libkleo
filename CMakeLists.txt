@@ -23,7 +23,6 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
-include(ECMGeneratePriFile)
 
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
