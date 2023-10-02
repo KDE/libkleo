@@ -503,7 +503,7 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget *parent)
     d->proxyModel->setSourceModel(d->sortAndFormatProxy);
 
     setModel(d->proxyModel);
-    connect(this, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int row) {
+    connect(this, &QComboBox::currentIndexChanged, this, [this](int row) {
         if (row >= 0 && row < d->proxyModel->rowCount()) {
             if (d->proxyModel->isCustomItem(row)) {
                 Q_EMIT customItemSelected(currentData(Qt::UserRole));
@@ -578,7 +578,7 @@ void KeySelectionCombo::init()
         Q_EMIT keyListingFinished();
     }
 
-    connect(this, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
+    connect(this, &QComboBox::currentIndexChanged, this, [this]() {
         setToolTip(currentData(Qt::ToolTipRole).toString());
     });
 }

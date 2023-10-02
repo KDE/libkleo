@@ -729,7 +729,7 @@ Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModul
         label->setEnabled(false);
         mComboBox->setEnabled(false);
     } else {
-        connect(mComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, &CryptoConfigEntryDebugLevel::slotChanged);
+        connect(mComboBox, &QComboBox::currentIndexChanged, this, &CryptoConfigEntryDebugLevel::slotChanged);
     }
 
     const int row = glay->rowCount();
@@ -866,7 +866,7 @@ Kleo::CryptoConfigEntrySpinBox::CryptoConfigEntrySpinBox(CryptoConfigModule *mod
     } else {
         mNumInput->setMinimum(mKind == Int ? std::numeric_limits<int>::min() : 0);
         mNumInput->setMaximum(std::numeric_limits<int>::max());
-        connect(mNumInput, qOverload<int>(&QSpinBox::valueChanged), this, &CryptoConfigEntrySpinBox::slotChanged);
+        connect(mNumInput, &QSpinBox::valueChanged, this, &CryptoConfigEntrySpinBox::slotChanged);
     }
 }
 

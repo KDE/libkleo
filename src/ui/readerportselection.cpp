@@ -76,7 +76,7 @@ ReaderPortSelection::Private::Private(Kleo::ReaderPortSelection *qq)
                                  "<item>All other items represent readers that were found by GnuPG.</item>"
                                  "</list></para>"));
 
-    connect(mComboBox, qOverload<int>(&QComboBox::currentIndexChanged), q, [this](int index) {
+    connect(mComboBox, &QComboBox::currentIndexChanged, q, [this](int index) {
         onCurrentIndexChanged(index);
         Q_EMIT q->valueChanged(q->value());
     });
