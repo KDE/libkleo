@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-09 00:47+0000\n"
-"PO-Revision-Date: 2023-09-24 10:32+0100\n"
+"PO-Revision-Date: 2023-10-02 09:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -348,7 +348,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Via ĉifradŝlosilo de OpenPGP</p><p align=center>%2</p><p>eksvalidiĝas "
+"morgaŭ.</p>"
 msgstr[1] ""
+"<p>Via ĉifradŝlosilo de OpenPGP</p><p align=center>%2</p><p>eksvalidiĝas "
+"post %1 tagoj.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -357,7 +361,11 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>La OpenPGP-ĉifradŝlosilo por</p><p align=center>%2</p><p>eksvalidiĝas "
+"morgaŭ.</p>"
 msgstr[1] ""
+"<p>La OpenPGP-ĉifradŝlosilo por</p><p align=center>%2</p><p>eksvalidiĝas "
+"post %1 tagoj.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
@@ -374,7 +382,7 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>La radika atestilo</p><p align=center><b>%2</b></p><p>por via subskriba "
-"atestilo S/MIME</p><p align=center>%1</p><p>ekvalidiĝis antaŭ malpli ol unu "
+"atestilo S/MIME</p><p align=center>%1</p><p>eksvalidiĝis antaŭ malpli ol unu "
 "tago.</p>"
 
 #: kleo/expirychecker.cpp:155
@@ -385,7 +393,7 @@ msgid ""
 "ago.</p>"
 msgstr ""
 "<p>La radika atestilo</p><p align=center><b>%2</b></p><p>por via S/MIME-"
-"ĉifratestilo</p><p align=center>%1</p><p>ekvalidiĝis antaŭ malpli ol unu "
+"ĉifratestilo</p><p align=center>%1</p><p>eksvalidiĝis antaŭ malpli ol unu "
 "tago.</p>"
 
 #: kleo/expirychecker.cpp:160
@@ -395,7 +403,7 @@ msgid ""
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
 "<p>La radika atestilo</p><p align=center><b>%2</b></p><p>por S/MIME-"
-"atestilo</p><p align=center>%1< /p><p>ekvalidiĝis antaŭ malpli ol unu tago.</"
+"atestilo</p><p align=center>%1</p><p>eksvalidiĝis antaŭ malpli ol unu tago.</"
 "p>"
 
 #: kleo/expirychecker.cpp:169
@@ -407,7 +415,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>La radika atestilo</p><p align=center><b>%3</b></p><p>por via S/MIME-"
+"subskribatestilo</p><p align=center>%2</p><p>eksvalidiĝis hieraŭ.</"
 msgstr[1] ""
+"<p>La radika atestilo</p><p align=center><b>%3</b></p><p>por via S/MIME-"
+"subskribatestilo</p><p align=center>%2</p><p>eksvalidiĝis antaŭ %1 tagoj.</"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -439,8 +451,8 @@ msgid ""
 "than a day ago.</p>"
 msgstr ""
 "<p>La meza CA-atestilo</p><p align=center><b>%2</b></p><p>por via atestilo "
-"de subskribo S/MIME</p><p align=center> %1</p><p>ekvalidiĝis antaŭ malpli ol "
-"unu tago.</p>"
+"de subskribo S/MIME</p><p align=center> %1</p><p>eksvalidiĝis antaŭ malpli "
+"ol unu tago.</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -450,7 +462,7 @@ msgid ""
 "than a day ago.</p>"
 msgstr ""
 "<p>La meza CA-atestilo</p><p align=center><b>%2</b></p><p>por via S/MIME-"
-"ĉifratestilo</p><p align=center> %1</p><p>ekvalidiĝis antaŭ malpli ol unu "
+"ĉifratestilo</p><p align=center> %1</p><p>eksvalidiĝis antaŭ malpli ol unu "
 "tago.</p>"
 
 #: kleo/expirychecker.cpp:208
@@ -460,8 +472,8 @@ msgid ""
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
 "<p>La meza CA-atestilo</p><p align=center><b>%2</b></p><p>por S/MIME-"
-"atestilo</p><p align=center>%1 </p><p>ekvalidiĝis antaŭ malpli ol unu tago.</"
-"p>"
+"atestilo</p><p align=center>%1 </p><p>eksvalidiĝis antaŭ malpli ol unu tago."
+"</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -506,7 +518,7 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
-"<p>Via subskriba atestilo S/MIME</p><p align=center>%1</p><p>ekvalidiĝis "
+"<p>Via subskriba atestilo S/MIME</p><p align=center>%1</p><p>eksvalidiĝis "
 "antaŭ malpli ol unu tago.</p>"
 
 #: kleo/expirychecker.cpp:248
@@ -515,7 +527,7 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
-"<p>Via S/MIME-ĉifratestilo</p><p align=center>%1</p><p>ekvalidiĝis antaŭ "
+"<p>Via S/MIME-ĉifratestilo</p><p align=center>%1</p><p>eksvalidiĝis antaŭ "
 "malpli ol tago.</p>"
 
 #: kleo/expirychecker.cpp:250
@@ -524,7 +536,7 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>La S/MIME-atestilo por</p><p align=center>%1</p><p>ekvalidiĝis antaŭ "
+"<p>La S/MIME-atestilo por</p><p align=center>%1</p><p>eksvalidiĝis antaŭ "
 "malpli ol tago.</p>"
 
 #: kleo/expirychecker.cpp:256
@@ -536,7 +548,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Via S/MIME-subskribatestilo</p><p align=center>%2</p><p>eksvalidiĝis "
+"hieraŭ</p>"
 msgstr[1] ""
+"<p>Via S/MIME-subskribatestilo</p><p align=center>%2</p><p>eksvalidiĝis "
+"antaŭ %1 tagoj.</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -547,7 +563,10 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Via S/MIME-ĉifratestilo</p><p align=center>%2</p><p>eksvalidiĝis hieraŭ."
 msgstr[1] ""
+"<p>Via S/MIME-ĉifratestilo</p><p align=center>%2</p><p>eksvalidiĝis antaŭ %1 "
+"tagoj.</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -558,7 +577,11 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>La S/MIME-ĉifratestilo por </p><p align=center>%2</p><p>eksvalidiĝis "
+"hieraŭ."
 msgstr[1] ""
+"<p>La S/MIME-ĉifratestilo por </p><p align=center>%2</p><p>eksvalidiĝis "
+"antaŭ %1 tagoj.</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -567,7 +590,7 @@ msgid ""
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 "<p>La radika atestilo</p><p align=center><b>%3</b></p><p>por via subskriba "
-"atestilo S/MIME</p><p align=center>%2</p><p>ekvalidiĝas hodiaŭ.</p>"
+"atestilo S/MIME</p><p align=center>%2</p><p>eksvalidiĝas hodiaŭ.</p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -576,7 +599,7 @@ msgid ""
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 "<p>La radika atestilo</p><p align=center><b>%3</b></p><p>por via S/MIME-"
-"ĉifratestilo</p><p align=center>%2</p><p>ekvalidiĝas hodiaŭ.</p>"
+"ĉifratestilo</p><p align=center>%2</p><p>eksvalidiĝas hodiaŭ.</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -585,7 +608,7 @@ msgid ""
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 "<p>La radika atestilo</p><p align=center><b>%3</b></p><p>por S/MIME-"
-"atestilo</p><p align=center>%2< /p><p>ekvalidiĝas hodiaŭ.</p>"
+"atestilo</p><p align=center>%2</p><p>eksvalidiĝas hodiaŭ.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -628,7 +651,7 @@ msgid ""
 "p>"
 msgstr ""
 "<p>La meza CA-atestilo</p><p align=center><b>%3</b></p><p>por via subskriba "
-"atestilo S/MIME</p><p align=center> %2</p><p>ekvalidiĝas hodiaŭ.</p>"
+"atestilo S/MIME</p><p align=center> %2</p><p>eksvalidiĝas hodiaŭ.</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -638,7 +661,7 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>La meza CA-atestilo</p><p align=center><b>%3</b></p><p>por via S/MIME-"
-"ĉifratestilo</p><p align=center> %2</p><p>ekvalidiĝas hodiaŭ.</p>"
+"ĉifratestilo</p><p align=center> %2</p><p>eksvalidiĝas hodiaŭ.</p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -647,7 +670,7 @@ msgid ""
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 "<p>La meza CA-atestilo</p><p align=center><b>%3</b></p><p>por S/MIME-"
-"atestilo</p><p align=center>%2 </p><p>ekvalidiĝas hodiaŭ.</p>"
+"atestilo</p><p align=center>%2 </p><p>eksvalidiĝas hodiaŭ.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -692,7 +715,7 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
-"<p>Via subskriba atestilo S/MIME</p><p align=center>%2</p><p>ekvalidiĝas "
+"<p>Via subskriba atestilo S/MIME</p><p align=center>%2</p><p>eksvalidiĝas "
 "hodiaŭ.</p>"
 
 #: kleo/expirychecker.cpp:371
@@ -701,7 +724,7 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
-"<p>Via S/MIME-ĉifratestilo</p><p align=center>%2</p><p>ekvalidiĝas hodiaŭ.</"
+"<p>Via S/MIME-ĉifratestilo</p><p align=center>%2</p><p>eksvalidiĝas hodiaŭ.</"
 "p>"
 
 #: kleo/expirychecker.cpp:373
@@ -709,7 +732,8 @@ msgstr ""
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>La S/MIME-atestilo por</p><p align=center>%2</p><p>ekvalidiĝas hodiaŭ.</p>"
+"<p>La S/MIME-atestilo por</p><p align=center>%2</p><p>eksvalidiĝas hodiaŭ.</"
+"p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
