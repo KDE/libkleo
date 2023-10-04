@@ -83,10 +83,13 @@ static const QHash<GpgME::Data::Type, unsigned int> gpgmeTypeMap{
 };
 
 static const QSet<QString> mimeFileNames{
+    /* KMail standard name */
     QStringLiteral("msg.asc"),
     QStringLiteral("smime.p7m"),
-    QStringLiteral("OpenPGP_encrypted_message.asc"),
-    QStringLiteral("OpenPGP_encrypted_message.mim"),
+    /* Old names of GpgOL attachments newer versions
+     * should use .mim file ending. */
+    QStringLiteral("openpgp-encrypted-message.asc"),
+    QStringLiteral("GpgOL_MIME_structure.txt"),
 };
 
 static const unsigned int defaultClassification = NoClass;
