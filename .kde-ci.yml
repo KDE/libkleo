@@ -5,7 +5,6 @@ Dependencies:
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@latest'
-    'pim/kpimtextedit' : '@latest'
     'frameworks/ki18n': '@latest'
     'frameworks/kconfig': '@latest'
     'frameworks/kwidgetsaddons': '@latest'
@@ -13,6 +12,7 @@ Dependencies:
     'frameworks/kcoreaddons': '@latest'
     'frameworks/kcodecs': '@latest'
     'frameworks/kitemmodels': '@latest'
+    'pim/kpimtextedit' : 'release/23.08'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
