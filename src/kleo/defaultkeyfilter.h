@@ -85,6 +85,10 @@ public:
     TriState canSign() const;
     TriState canCertify() const;
     TriState canAuthenticate() const;
+    TriState hasEncrypt() const;
+    TriState hasSign() const;
+    TriState hasCertify() const;
+    TriState hasAuthenticate() const;
     TriState qualified() const;
     TriState cardKey() const;
     TriState hasSecret() const;
@@ -112,6 +116,10 @@ public:
     void setCanSign(const TriState);
     void setCanCertify(const TriState);
     void setCanAuthenticate(const TriState);
+    void setHasEncrypt(const TriState);
+    void setHasSign(const TriState);
+    void setHasCertify(const TriState);
+    void setHasAuthenticate(const TriState);
     void setQualified(const TriState);
     void setCardKey(const TriState);
     void setHasSecret(const TriState);
