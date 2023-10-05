@@ -14,10 +14,7 @@
 
 #include <QGpgME/CryptoConfig>
 
-#include <qgpgme/qgpgme_version.h>
-#if QGPGME_VERSION >= 0x11000 // 1.16.0
-#define CRYPTOCONFIG_HAS_GROUPLESS_ENTRY_OVERLOAD
-#endif
+#include <gpgme++/key.h>
 
 using namespace QGpgME;
 
@@ -26,20 +23,5 @@ QGpgME::CryptoConfigEntry *Kleo::getCryptoConfigEntry(const CryptoConfig *config
     if (!config) {
         return nullptr;
     }
-#ifdef CRYPTOCONFIG_HAS_GROUPLESS_ENTRY_OVERLOAD
     return config->entry(QString::fromLatin1(componentName), QString::fromLatin1(entryName));
-#else
-    const CryptoConfigComponent *const comp = config->component(QString::fromLatin1(componentName));
-    if (!comp) {
-        return nullptr;
-    }
-    const QStringList groupNames = comp->groupList();
-    for (const auto &groupName : groupNames) {
-        const CryptoConfigGroup *const group = comp->group(groupName);
-        if (CryptoConfigEntry *const entry = group->entry(QString::fromLatin1(entryName))) {
-            return entry;
-        }
-    }
-    return nullptr;
-#endif
 }
