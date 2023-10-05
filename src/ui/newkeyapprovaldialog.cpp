@@ -61,7 +61,7 @@ public:
     EncryptFilter()
         : DefaultKeyFilter()
     {
-        setCanEncrypt(DefaultKeyFilter::Set);
+        setHasEncrypt(DefaultKeyFilter::Set);
     }
 };
 static std::shared_ptr<KeyFilter> s_encryptFilter = std::shared_ptr<KeyFilter>(new EncryptFilter);
@@ -73,7 +73,7 @@ public:
         : DefaultKeyFilter()
     {
         setIsOpenPGP(DefaultKeyFilter::Set);
-        setCanEncrypt(DefaultKeyFilter::Set);
+        setHasEncrypt(DefaultKeyFilter::Set);
     }
 };
 static std::shared_ptr<KeyFilter> s_pgpEncryptFilter = std::shared_ptr<KeyFilter>(new OpenPGPFilter);
@@ -102,7 +102,7 @@ public:
         : DefaultKeyFilter()
     {
         setIsOpenPGP(DefaultKeyFilter::NotSet);
-        setCanEncrypt(DefaultKeyFilter::Set);
+        setHasEncrypt(DefaultKeyFilter::Set);
     }
 };
 static std::shared_ptr<KeyFilter> s_smimeEncryptFilter = std::shared_ptr<KeyFilter>(new SMIMEFilter);
