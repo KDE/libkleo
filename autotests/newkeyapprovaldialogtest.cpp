@@ -32,6 +32,13 @@
 #include <memory>
 #include <set>
 
+#include <gpgme++/gpgmepp_version.h>
+#if GPGMEPP_VERSION >= 0x11700 // 1.23.0
+#define GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE 1
+#else
+#define GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE 0
+#endif
+
 using namespace Kleo;
 
 namespace QTest
@@ -133,6 +140,10 @@ GpgME::Key createTestKey(const char *uid,
     key->disabled = 0;
     key->can_encrypt = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Encrypt);
     key->can_sign = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Sign);
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+    key->has_encrypt = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Encrypt);
+    key->has_sign = int(usage == KeyCache::KeyUsage::AnyUsage || usage == KeyCache::KeyUsage::Sign);
+#endif
     key->secret = 1;
     key->uids->validity = mapValidity(validity);
     key->keylist_mode = GPGME_KEYLIST_MODE_VALIDATE;
@@ -141,6 +152,8 @@ GpgME::Key createTestKey(const char *uid,
     gpgme_subkey_t subkey;
     _gpgme_key_add_subkey(key, &subkey);
     subkey->is_de_vs = 1;
+    subkey->can_encrypt = key->can_encrypt;
+    subkey->can_sign = key->can_sign;
 
     return GpgME::Key(key, false);
 }

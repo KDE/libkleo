@@ -18,6 +18,7 @@
 #include "keylistview.h"
 #include "progressdialog.h"
 
+#include <libkleo/compat.h>
 #include <libkleo/compliance.h>
 #include <libkleo/dn.h>
 #include <libkleo/formatting.h>
@@ -89,22 +90,22 @@ static bool checkKeyUsage(const GpgME::Key &key, unsigned int keyUsage, QString 
         }
     }
 
-    if (keyUsage & KeySelectionDialog::EncryptionKeys && !key.canEncrypt()) {
+    if (keyUsage & KeySelectionDialog::EncryptionKeys && !Kleo::keyHasEncrypt(key)) {
         qCDebug(KLEO_UI_LOG) << "key can't encrypt";
         setStatusString(i18n("The key is not designated for encryption."));
         return false;
     }
-    if (keyUsage & KeySelectionDialog::SigningKeys && !key.canSign()) {
+    if (keyUsage & KeySelectionDialog::SigningKeys && !Kleo::keyHasSign(key)) {
         qCDebug(KLEO_UI_LOG) << "key can't sign";
         setStatusString(i18n("The key is not designated for signing."));
         return false;
     }
-    if (keyUsage & KeySelectionDialog::CertificationKeys && !key.canCertify()) {
+    if (keyUsage & KeySelectionDialog::CertificationKeys && !Kleo::keyHasCertify(key)) {
         qCDebug(KLEO_UI_LOG) << "key can't certify";
         setStatusString(i18n("The key is not designated for certifying."));
         return false;
     }
-    if (keyUsage & KeySelectionDialog::AuthenticationKeys && !key.canAuthenticate()) {
+    if (keyUsage & KeySelectionDialog::AuthenticationKeys && !Kleo::keyHasAuthenticate(key)) {
         qCDebug(KLEO_UI_LOG) << "key can't authenticate";
         setStatusString(i18n("The key is not designated for authentication."));
         return false;

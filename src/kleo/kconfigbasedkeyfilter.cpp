@@ -168,6 +168,10 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
     SET(CanSign, "can-sign");
     SET(CanCertify, "can-certify");
     SET(CanAuthenticate, "can-authenticate");
+    SET(HasEncrypt, "has-encrypt");
+    SET(HasSign, "has-sign");
+    SET(HasCertify, "has-certify");
+    SET(HasAuthenticate, "has-authenticate");
     SET(Qualified, "is-qualified");
     SET(CardKey, "is-cardkey");
     SET(HasSecret, "has-secret-key");

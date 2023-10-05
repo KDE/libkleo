@@ -12,12 +12,11 @@
 
 #include "compat.h"
 
+#include "algorithm.h"
+
 #include <QGpgME/CryptoConfig>
 
-#include <qgpgme/qgpgme_version.h>
-#if QGPGME_VERSION >= 0x11000 // 1.16.0
-#define CRYPTOCONFIG_HAS_GROUPLESS_ENTRY_OVERLOAD
-#endif
+#include <gpgme++/key.h>
 
 using namespace QGpgME;
 
@@ -26,20 +25,49 @@ QGpgME::CryptoConfigEntry *Kleo::getCryptoConfigEntry(const CryptoConfig *config
     if (!config) {
         return nullptr;
     }
-#ifdef CRYPTOCONFIG_HAS_GROUPLESS_ENTRY_OVERLOAD
     return config->entry(QString::fromLatin1(componentName), QString::fromLatin1(entryName));
+}
+
+bool Kleo::keyHasCertify(const GpgME::Key &key)
+{
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+    return key.hasCertify();
 #else
-    const CryptoConfigComponent *const comp = config->component(QString::fromLatin1(componentName));
-    if (!comp) {
-        return nullptr;
-    }
-    const QStringList groupNames = comp->groupList();
-    for (const auto &groupName : groupNames) {
-        const CryptoConfigGroup *const group = comp->group(groupName);
-        if (CryptoConfigEntry *const entry = group->entry(QString::fromLatin1(entryName))) {
-            return entry;
-        }
-    }
-    return nullptr;
+    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
+        return subkey.canCertify();
+    });
+#endif
+}
+
+bool Kleo::keyHasSign(const GpgME::Key &key)
+{
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+    return key.hasSign();
+#else
+    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
+        return subkey.canSign();
+    });
+#endif
+}
+
+bool Kleo::keyHasEncrypt(const GpgME::Key &key)
+{
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+    return key.hasEncrypt();
+#else
+    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
+        return subkey.canEncrypt();
+    });
+#endif
+}
+
+bool Kleo::keyHasAuthenticate(const GpgME::Key &key)
+{
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+    return key.hasAuthenticate();
+#else
+    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
+        return subkey.canAuthenticate();
+    });
 #endif
 }

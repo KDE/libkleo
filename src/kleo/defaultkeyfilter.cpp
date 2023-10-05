@@ -14,6 +14,10 @@
 
 #include "defaultkeyfilter.h"
 
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+#else
+#include <libkleo/compat.h>
+#endif
 #include <libkleo/compliance.h>
 #include <libkleo/formatting.h>
 #include <libkleo/keyhelpers.h>
@@ -59,6 +63,10 @@ public:
     TriState mCanSign = DoesNotMatter;
     TriState mCanCertify = DoesNotMatter;
     TriState mCanAuthenticate = DoesNotMatter;
+    TriState mHasEncrypt = DoesNotMatter;
+    TriState mHasSign = DoesNotMatter;
+    TriState mHasCertify = DoesNotMatter;
+    TriState mHasAuthenticate = DoesNotMatter;
     TriState mQualified = DoesNotMatter;
     TriState mCardKey = DoesNotMatter;
     TriState mHasSecret = DoesNotMatter;
@@ -98,6 +106,16 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     } while (false)
 #define IS_MATCH(what) MATCH(d->m##what, is##what)
 #define CAN_MATCH(what) MATCH(d->mCan##what, can##what)
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+#define HAS_MATCH(what) MATCH(d->mHas##what, has##what)
+#else
+#define HAS_MATCH(what)                                                                                                                                        \
+    do {                                                                                                                                                       \
+        if (d->mHas##what != DoesNotMatter && Kleo::keyHas##what(key) != bool(d->mHas##what == Set)) {                                                         \
+            return false;                                                                                                                                      \
+        }                                                                                                                                                      \
+    } while (false)
+#endif
     IS_MATCH(Revoked);
     IS_MATCH(Expired);
     IS_MATCH(Invalid);
@@ -107,6 +125,10 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     CAN_MATCH(Sign);
     CAN_MATCH(Certify);
     CAN_MATCH(Authenticate);
+    HAS_MATCH(Encrypt);
+    HAS_MATCH(Sign);
+    HAS_MATCH(Certify);
+    HAS_MATCH(Authenticate);
     IS_MATCH(Qualified);
     if (d->mCardKey != DoesNotMatter) {
         if ((d->mCardKey == Set && !is_card_key(key)) || (d->mCardKey == NotSet && is_card_key(key))) {
@@ -302,6 +324,26 @@ void DefaultKeyFilter::setCanAuthenticate(DefaultKeyFilter::TriState value)
     d->mCanAuthenticate = value;
 }
 
+void DefaultKeyFilter::setHasEncrypt(DefaultKeyFilter::TriState value)
+{
+    d->mHasEncrypt = value;
+}
+
+void DefaultKeyFilter::setHasSign(DefaultKeyFilter::TriState value)
+{
+    d->mHasSign = value;
+}
+
+void DefaultKeyFilter::setHasCertify(DefaultKeyFilter::TriState value)
+{
+    d->mHasCertify = value;
+}
+
+void DefaultKeyFilter::setHasAuthenticate(DefaultKeyFilter::TriState value)
+{
+    d->mHasAuthenticate = value;
+}
+
 void DefaultKeyFilter::setQualified(DefaultKeyFilter::TriState value)
 {
     d->mQualified = value;
@@ -465,6 +507,26 @@ DefaultKeyFilter::TriState DefaultKeyFilter::canCertify() const
 DefaultKeyFilter::TriState DefaultKeyFilter::canAuthenticate() const
 {
     return d->mCanAuthenticate;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::hasEncrypt() const
+{
+    return d->mHasEncrypt;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::hasSign() const
+{
+    return d->mHasSign;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::hasCertify() const
+{
+    return d->mHasCertify;
+}
+
+DefaultKeyFilter::TriState DefaultKeyFilter::hasAuthenticate() const
+{
+    return d->mHasAuthenticate;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::qualified() const

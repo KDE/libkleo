@@ -13,6 +13,7 @@
 
 #include "formatting.h"
 
+#include "compat.h"
 #include "compliance.h"
 #include "cryptoconfig.h"
 #include "gnupg.h"
@@ -252,7 +253,7 @@ QString format_keyusage(const Key &key)
 {
     QStringList capabilities;
 #if GPGMEPP_KEY_CANSIGN_IS_FIXED
-    if (key.canSign()) {
+    if (Kleo::keyHasSign(key)) {
 #else
     if (key.canReallySign()) {
 #endif
@@ -262,13 +263,13 @@ QString format_keyusage(const Key &key)
             capabilities.push_back(i18n("Signing"));
         }
     }
-    if (key.canEncrypt()) {
+    if (Kleo::keyHasEncrypt(key)) {
         capabilities.push_back(i18n("Encryption"));
     }
-    if (key.canCertify()) {
+    if (Kleo::keyHasCertify(key)) {
         capabilities.push_back(i18n("Certifying User-IDs"));
     }
-    if (key.canAuthenticate()) {
+    if (Kleo::keyHasAuthenticate(key)) {
         capabilities.push_back(i18n("SSH Authentication"));
     }
     return capabilities.join(QLatin1String(", "));

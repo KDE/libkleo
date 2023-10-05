@@ -1622,10 +1622,10 @@ GpgME::Key KeyCache::findBestByMailBox(const char *addr, GpgME::Protocol proto, 
         if (proto != Protocol::UnknownProtocol && k.protocol() != proto) {
             continue;
         }
-        if (usage == KeyUsage::Encrypt && !k.canEncrypt()) {
+        if (usage == KeyUsage::Encrypt && !keyHasEncrypt(k)) {
             continue;
         }
-        if (usage == KeyUsage::Sign && (!k.canSign() || !k.hasSecret())) {
+        if (usage == KeyUsage::Sign && (!keyHasSign(k) || !k.hasSecret())) {
             continue;
         }
         const time_t creationTime = creationTimeOfNewestSuitableSubKey(k, usage);
@@ -1669,13 +1669,41 @@ bool allKeysAllowUsage(const T &keys, KeyCache::KeyUsage usage)
     case KeyCache::KeyUsage::AnyUsage:
         return true;
     case KeyCache::KeyUsage::Sign:
-        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canSign));
+        return std::all_of(std::begin(keys),
+                           std::end(keys),
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+                           std::mem_fn(&Key::hasSign)
+#else
+                           Kleo::keyHasSign
+#endif
+        );
     case KeyCache::KeyUsage::Encrypt:
-        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canEncrypt));
+        return std::all_of(std::begin(keys),
+                           std::end(keys),
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+                           std::mem_fn(&Key::hasEncrypt)
+#else
+                           Kleo::keyHasEncrypt
+#endif
+        );
     case KeyCache::KeyUsage::Certify:
-        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canCertify));
+        return std::all_of(std::begin(keys),
+                           std::end(keys),
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+                           std::mem_fn(&Key::hasCertify)
+#else
+                           Kleo::keyHasCertify
+#endif
+        );
     case KeyCache::KeyUsage::Authenticate:
-        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::canAuthenticate));
+        return std::all_of(std::begin(keys),
+                           std::end(keys),
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+                           std::mem_fn(&Key::hasAuthenticate)
+#else
+                           Kleo::keyHasAuthenticate
+#endif
+        );
     }
     qCDebug(LIBKLEO_LOG) << __func__ << "called with invalid usage" << int(usage);
     return false;
