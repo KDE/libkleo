@@ -89,7 +89,7 @@ public:
 
     ~ExpiryChecker() override;
 
-    Q_REQUIRED_RESULT ExpiryCheckerSettings settings() const;
+    [[nodiscard]] ExpiryCheckerSettings settings() const;
 
     enum ExpiryInformation {
         OwnKeyExpired,

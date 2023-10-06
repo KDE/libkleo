@@ -37,16 +37,16 @@ public:
     ExpiryCheckerSettings &operator=(ExpiryCheckerSettings &&other);
 
     void setOwnKeyThreshold(Kleo::chrono::days threshold);
-    Q_REQUIRED_RESULT Kleo::chrono::days ownKeyThreshold() const;
+    [[nodiscard]] Kleo::chrono::days ownKeyThreshold() const;
 
     void setOtherKeyThreshold(Kleo::chrono::days threshold);
-    Q_REQUIRED_RESULT Kleo::chrono::days otherKeyThreshold() const;
+    [[nodiscard]] Kleo::chrono::days otherKeyThreshold() const;
 
     void setRootCertThreshold(Kleo::chrono::days threshold);
-    Q_REQUIRED_RESULT Kleo::chrono::days rootCertThreshold() const;
+    [[nodiscard]] Kleo::chrono::days rootCertThreshold() const;
 
     void setChainCertThreshold(Kleo::chrono::days threshold);
-    Q_REQUIRED_RESULT Kleo::chrono::days chainCertThreshold() const;
+    [[nodiscard]] Kleo::chrono::days chainCertThreshold() const;
 
 private:
     class Private;
