@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-06 00:43+0000\n"
-"PO-Revision-Date: 2012-01-28 16:20-0800\n"
-"Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
+"PO-Revision-Date: 2023-01-06 09:39+0900\n"
+"Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
-msgstr ""
+msgstr "チェックサム定義のエラー %1: %2"
 
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
@@ -35,42 +35,42 @@ msgstr "「%1」で %f と | の両方を使用することはできません"
 #: kleo/checksumdefinition.cpp:156
 #, kde-format
 msgid "Quoting error in '%1' entry"
-msgstr ""
+msgstr "エントリ '%1' で引用符のエラー"
 
 #: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
-msgstr ""
+msgstr "'%1’ は複雑すぎです (shell が必要でしょう)"
 
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
 msgid "'%1' entry is empty/missing"
-msgstr ""
+msgstr "エントリ '%1' が空/欠落しています"
 
 #: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
-msgstr ""
+msgstr "'%1' が空か見つかりません"
 
 #: kleo/checksumdefinition.cpp:211
 #, kde-format
 msgid "'id' entry is empty/missing"
-msgstr ""
+msgstr "エントリ 'id' が空/欠落しています"
 
 #: kleo/checksumdefinition.cpp:214
 #, kde-format
 msgid "'output-file' entry is empty/missing"
-msgstr ""
+msgstr "エントリ 'output-file' が空/欠落しています"
 
 #: kleo/checksumdefinition.cpp:217
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
-msgstr ""
+msgstr "エントリ 'file-patterns' が空/欠落しています"
 
 #: kleo/checksumdefinition.cpp:396
 #, kde-format
 msgid "Caught unknown exception in group %1"
-msgstr ""
+msgstr "グループ %1 で不明の例外を捕捉しました"
 
 #: kleo/dn.cpp:517
 msgid "Common name"
@@ -167,21 +167,17 @@ msgid "S/MIME Opaque"
 msgstr "S/MIME オペイク (Opaque)"
 
 #: kleo/enum.cpp:39
-#, fuzzy
-#| msgid "S/MIME"
 msgid "Any S/MIME"
-msgstr "S/MIME"
+msgstr "S/MIME どれでも"
 
 #: kleo/enum.cpp:40
-#, fuzzy
-#| msgid "OpenPGP"
 msgid "Any OpenPGP"
-msgstr "OpenPGP"
+msgstr "OpenPGP どれでも"
 
 #: kleo/enum.cpp:72
 #, kde-format
 msgid "Any"
-msgstr "任意の"
+msgstr "どれでも"
 
 #: kleo/enum.cpp:147
 #, kde-format
@@ -676,10 +672,9 @@ msgid "Trusted Certificates"
 msgstr "信頼された証明書"
 
 #: kleo/keyfiltermanager.cpp:121
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgid "Fully Trusted Certificates"
-msgstr "信頼された証明書"
+msgstr "完全に信頼された証明書"
 
 #: kleo/keyfiltermanager.cpp:138
 #, kde-format
@@ -687,31 +682,27 @@ msgid "Other Certificates"
 msgstr "その他の証明書"
 
 #: kleo/keyfiltermanager.cpp:153
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgid "Not Certified Certificates"
-msgstr "信頼された証明書"
+msgstr "証明されていない証明書"
 
 #: kleo/keyfiltermanager.cpp:176
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgid "Not Validated Certificates"
-msgstr "信頼された証明書"
+msgstr "検証されていない証明書"
 
 #: models/keylistmodel.cpp:302 models/useridlistmodel.cpp:105
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgid "Name"
-msgstr "ユーザ名"
+msgstr "名前"
 
 #: models/keylistmodel.cpp:304 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "E-Mail"
-msgstr ""
+msgstr "メール"
 
 #: models/keylistmodel.cpp:306
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User-IDs"
 msgstr "ユーザ ID"
 
@@ -719,147 +710,133 @@ msgstr "ユーザ ID"
 #: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Valid From"
-msgstr ""
+msgstr "ここから有効"
 
 #: models/keylistmodel.cpp:310 models/subkeylistmodel.cpp:161
 #: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid Until"
-msgstr ""
+msgstr "ここまで有効"
 
 #: models/keylistmodel.cpp:312
 #, kde-format
 msgid "Protocol"
-msgstr ""
+msgstr "プロトコル"
 
 #: models/keylistmodel.cpp:314 models/keylistmodel.cpp:316
 #: utils/formatting.cpp:393
 #, kde-format
 msgid "Key-ID"
-msgstr ""
+msgstr "鍵ID"
 
 #: models/keylistmodel.cpp:318 utils/formatting.cpp:396
 #, kde-format
 msgid "Fingerprint"
-msgstr ""
+msgstr "フィンガープリント"
 
 #: models/keylistmodel.cpp:320 utils/formatting.cpp:363
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "発行者"
 
 #: models/keylistmodel.cpp:322
-#, fuzzy, kde-format
-#| msgid "Fax number"
+#, kde-format
 msgid "Serial Number"
-msgstr "ファクス番号"
+msgstr "シリアル番号"
 
 #: models/keylistmodel.cpp:324
 #, kde-format
 msgid "Origin"
-msgstr ""
+msgstr "(鍵の入手)元"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
 msgid "Last Update"
-msgstr ""
+msgstr "最終更新"
 
 #: models/keylistmodel.cpp:328
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Certification Trust"
-msgstr "自分の証明書"
+msgstr "証明の信頼"
 
 #: models/keylistmodel.cpp:330 models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "タグ"
 
 #: models/keylistmodel.cpp:378 models/useridlistmodel.cpp:69
-#, fuzzy, kde-format
-#| msgid "Given name"
+#, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
-msgstr "名"
+msgstr "名無し"
 
 #: models/keylistmodel.cpp:385 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr ""
+msgstr "メール無し"
 
 #: models/keylistmodel.cpp:447
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading..."
-msgstr "鍵を取得中..."
+msgstr "ロードしてます..."
 
 #: models/keylistmodel.cpp:525
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
-msgstr ""
+msgstr "適用外"
 
 #: models/subkeylistmodel.cpp:155
 #, kde-format
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: models/subkeylistmodel.cpp:157 utils/formatting.cpp:387
 #: utils/formatting.cpp:431
 #, kde-format
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
 #: utils/formatting.cpp:418 utils/formatting.cpp:420
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "ステータス"
 
 #: models/subkeylistmodel.cpp:165
 #, kde-format
 msgid "Strength"
-msgstr ""
+msgstr "強度"
 
 #: models/subkeylistmodel.cpp:167 utils/formatting.cpp:390
 #: utils/formatting.cpp:434
 #, kde-format
 msgid "Usage"
-msgstr ""
+msgstr "用途"
 
 #: models/useridlistmodel.cpp:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
-msgstr "no"
+msgstr "はい"
 
 #: models/useridlistmodel.cpp:74
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "いいえ"
 
 #: models/useridlistmodel.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "no specific preference"
-#| msgid "<none>"
+#, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr "<設定なし>"
+msgstr "なし"
 
 #: models/useridlistmodel.cpp:76
 #, kde-format
 msgid "not applicable"
-msgstr ""
+msgstr "適用外"
 
 #: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
@@ -873,26 +850,25 @@ msgstr "ユーザ ID"
 #: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
-msgstr ""
+msgstr "ユーザ ID / 証明書 鍵 ID"
 
 #: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Exportable"
-msgstr ""
+msgstr "エクスポート可"
 
 #: models/useridlistmodel.cpp:112
 #, kde-format
 msgid "Trust Signature For"
-msgstr ""
+msgstr "証明署名"
 
 #: models/useridlistmodel.cpp:167 utils/formatting.cpp:806
 #, kde-format
 msgid "class %1"
-msgstr ""
+msgstr "クラス %1"
 
 #: ui/auditlogviewer.cpp:52
-#, fuzzy, kde-format
-#| msgid "View GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "GnuPG 監査ログを表示"
@@ -965,7 +941,7 @@ msgstr "ファイルの保存エラー"
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
-msgstr ""
+msgstr "接続するスマートカードリーダ"
 
 #: ui/cryptoconfigmodule.cpp:165
 #, kde-format
@@ -984,15 +960,7 @@ msgstr ""
 "細を確認してください。"
 
 #: ui/cryptoconfigmodule.cpp:651
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
 "whether your language uses Sentence style capitalization in GUI labels (yes) "
@@ -1005,23 +973,23 @@ msgstr "no"
 
 #: ui/cryptoconfigmodule.cpp:705
 msgid "0 - None"
-msgstr ""
+msgstr "0 - なし"
 
 #: ui/cryptoconfigmodule.cpp:706
 msgid "1 - Basic"
-msgstr ""
+msgstr "1 - 基本"
 
 #: ui/cryptoconfigmodule.cpp:707
 msgid "2 - Verbose"
-msgstr ""
+msgstr "2 - 詳細"
 
 #: ui/cryptoconfigmodule.cpp:708
 msgid "3 - More Verbose"
-msgstr ""
+msgstr "3 - より詳細"
 
 #: ui/cryptoconfigmodule.cpp:709
 msgid "4 - All"
-msgstr ""
+msgstr "4 - すべて"
 
 #: ui/cryptoconfigmodule.cpp:721
 #, kde-format
@@ -1043,25 +1011,23 @@ msgstr "編集..."
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
-msgstr ""
+msgstr "ディレクトリサービスの設定ができません。gpgme ライブラリが古すぎます。"
 
 #: ui/cryptoconfigmodule.cpp:999
 #, kde-format
 msgid "Sorry"
-msgstr ""
+msgstr "すみません"
 
 #: ui/cryptoconfigmodule.cpp:1006
-#, fuzzy, kde-format
-#| msgid "Configure LDAP Servers"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
-msgstr "LDAP サーバを設定"
+msgstr "ディレクトリサービスを設定"
 
 #: ui/cryptoconfigmodule.cpp:1035
-#, fuzzy, kde-format
-#| msgid "No server configured yet"
+#, kde-format
 msgid "None configured"
-msgstr "設定済みのサーバがありません"
+msgstr "設定なし"
 
 #: ui/cryptoconfigmodule.cpp:1037
 #, kde-format
@@ -1072,20 +1038,15 @@ msgstr[0] "設定済みのサーバ %1 個"
 #: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
 #, kde-format
 msgid "Active Directory"
-msgstr ""
+msgstr "アクティブディレクトリ"
 
 #: ui/directoryserviceswidget.cpp:187
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a list of all directory services that are configured for use with "
-#| "X.509 and OpenPGP."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "This is a list of all directory services that are configured for use with "
 "X.509."
-msgstr ""
-"X.509 と OpenPGP で使用するために設定されているディレクトリサービスの一覧で"
-"す。"
+msgstr "X.509 で使用するために設定されているディレクトリサービスの一覧です。"
 
 #: ui/directoryserviceswidget.cpp:197
 #, kde-format
@@ -1094,72 +1055,64 @@ msgid ""
 "Click to use a directory service running on your Active Directory. This "
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
+"このボタンを押し、あなたのアクティブディレクトリで動いているディレクトリサー"
+"ビスを使います。これは Windows でのみ動き、GnuPG 2.2.28 以降が必要です。"
 
 #: ui/directoryserviceswidget.cpp:200
-#, fuzzy, kde-format
-#| msgid "Configure LDAP Servers"
+#, kde-format
 msgid "LDAP Server"
-msgstr "LDAP サーバを設定"
+msgstr "LDAP サーバ"
 
 #: ui/directoryserviceswidget.cpp:203
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
+"このボタンを押して LDAP サーバで提供されるディレクトリサービスを追加します。"
 
 #: ui/directoryserviceswidget.cpp:205
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: ui/directoryserviceswidget.cpp:206
-#, fuzzy, kde-format
-#| msgid "Click to add a service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr "クリックしてサービスを追加"
+msgstr "クリックしてディレクトリサービスを追加"
 
 #: ui/directoryserviceswidget.cpp:208
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to add a directory service to the list of services. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
-"このボタンを押して選択したディレクトリサービスを削除します。変更はこの設定ダ"
-"イアログの「適用」または「OK」ボタンを押して初めて有効になります。"
+"このボタンを押してディレクトリサービスをサービスリストに追加します。変更はこ"
+"の設定ダイアログの「適用」または「OK」ボタンを押して初めて有効になります。"
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgid "Edit"
-msgstr "編集..."
+msgstr "編集"
 
 #: ui/directoryserviceswidget.cpp:217
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
-msgstr "クリックして現在選択されているサービスを削除"
+msgstr "クリックして現在選択されているサービスを編集。"
 
 #: ui/directoryserviceswidget.cpp:219
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to edit the settings of the currently selected directory "
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
-"このボタンを押して選択したディレクトリサービスを削除します。変更はこの設定ダ"
-"イアログの「適用」または「OK」ボタンを押して初めて有効になります。"
+"このボタンを押して現在選択されたディレクトリサービスの設定を編集します。変更"
+"はこの設定ダイアログの「適用」または「OK」ボタンを押して初めて有効になりま"
+"す。"
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
@@ -1167,32 +1120,26 @@ msgid "Delete"
 msgstr "削除"
 
 #: ui/directoryserviceswidget.cpp:225
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
-msgstr "クリックして現在選択されているサービスを削除"
+msgstr "クリックして選択されているサービスを削除"
 
 #: ui/directoryserviceswidget.cpp:227
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to remove the currently selected directory service. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
-"このボタンを押して選択したディレクトリサービスを削除します。変更はこの設定ダ"
-"イアログの「適用」または「OK」ボタンを押して初めて有効になります。"
+"このボタンを押して現在選択されたディレクトリサービスを削除します。変更はこの"
+"設定ダイアログの「適用」または「OK」ボタンを押して初めて有効になります。"
 
 #: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
-msgstr "ディレクトリサービス:"
+msgstr "LDAP ディレクトリサービス:"
 
 #: ui/dnattributeorderconfigwidget.cpp:73
 #, kde-format
@@ -1210,8 +1157,7 @@ msgid "Current attribute order:"
 msgstr "現在の属性順位:"
 
 #: ui/dnattributeorderconfigwidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgid "available attributes"
 msgstr "利用可能な属性:"
 
@@ -1224,7 +1170,7 @@ msgstr "他のすべて"
 #: ui/dnattributeorderconfigwidget.cpp:118
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: ui/dnattributeorderconfigwidget.cpp:119
 msgid "Add to current attribute order"
@@ -1233,15 +1179,13 @@ msgstr "現在の属性順位に追加"
 #: ui/dnattributeorderconfigwidget.cpp:125
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
 #: ui/dnattributeorderconfigwidget.cpp:126
 msgid "Remove from current attribute order"
 msgstr "現在の属性順位から削除"
 
 #: ui/dnattributeorderconfigwidget.cpp:132
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "最上位へ移動"
@@ -1251,30 +1195,24 @@ msgid "Move to top"
 msgstr "最上位へ移動"
 
 #: ui/dnattributeorderconfigwidget.cpp:139
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr "最上位へ移動"
+msgstr "上へ移動"
 
 #: ui/dnattributeorderconfigwidget.cpp:140
 msgid "Move one up"
 msgstr "一つ上へ移動"
 
 #: ui/dnattributeorderconfigwidget.cpp:146
-#, fuzzy
-#| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
-msgstr "一つ下へ移動"
+msgstr "下へ移動"
 
 #: ui/dnattributeorderconfigwidget.cpp:147
 msgid "Move one down"
 msgstr "一つ下へ移動"
 
 #: ui/dnattributeorderconfigwidget.cpp:153
-#, fuzzy
-#| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "最下位へ移動"
@@ -1284,20 +1222,17 @@ msgid "Move to bottom"
 msgstr "最下位へ移動"
 
 #: ui/dnattributeorderconfigwidget.cpp:184
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgid "current attribute order"
 msgstr "現在の属性順位:"
 
 #: ui/editdirectoryservicedialog.cpp:99
 #, kde-format
 msgid "Host:"
-msgstr ""
+msgstr "ホスト:"
 
 #: ui/editdirectoryservicedialog.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
@@ -1308,13 +1243,10 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:104
 #, kde-format
 msgid "Port:"
-msgstr ""
+msgstr "ポート:"
 
 #: ui/editdirectoryservicedialog.cpp:107
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
-#| "the directory service is listening on."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
@@ -1326,34 +1258,33 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:110
 #, kde-format
 msgid "Use default"
-msgstr ""
+msgstr "デフォルトを使用"
 
 #: ui/editdirectoryservicedialog.cpp:116
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authentication"
-msgstr "その他の証明書"
+msgstr "認証"
 
 #: ui/editdirectoryservicedialog.cpp:120
 #, kde-format
 msgid "Anonymous"
-msgstr ""
+msgstr "匿名"
 
 #: ui/editdirectoryservicedialog.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
+msgstr "認証を必要としない匿名 LDAP サーバを使う。"
 
 #: ui/editdirectoryservicedialog.cpp:127
 #, kde-format
 msgid "Authenticate via Active Directory"
-msgstr ""
+msgstr "アクティブディレクトリを通じて認証する"
 
 #: ui/editdirectoryservicedialog.cpp:129
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "アクティブディレクトリを通じて認証する (GnuPG 2.2.28 以降が必要)"
 
 #: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
@@ -1362,23 +1293,24 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
+"Windowsで、LDAP サーバで、アクティブディレクトリを使って現在のユーザで認証す"
+"る。"
 
 #: ui/editdirectoryservicedialog.cpp:137
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr ""
+msgstr "ユーザとパスワードで認証する"
 
 #: ui/editdirectoryservicedialog.cpp:138
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
-msgstr ""
+msgstr "LDAP サーバであなたの LDAP クレデンシャルを使って認証する。"
 
 #: ui/editdirectoryservicedialog.cpp:148
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User:"
-msgstr "ユーザ ID"
+msgstr "ユーザ:"
 
 #: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
@@ -1386,43 +1318,39 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
+"あなたの LDAP ユーザ等を入力。LDAP サーバで認証するために DN をバインド。"
 
 #: ui/editdirectoryservicedialog.cpp:153
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Password:"
-msgstr "パスワード"
+msgstr "パスワード:"
 
 #: ui/editdirectoryservicedialog.cpp:155
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<b>(Optional, not recommended)</b> Enter your password here, if needed. "
-#| "Note that the password will be saved in the clear in a config file in "
-#| "your home directory."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your password for authenticating to the LDAP server.<nl/><warning>The "
 "password will be saved in the clear in a configuration file in your home "
 "directory.</warning>"
 msgstr ""
-"必要であればパスワードを入力します (オプション、非推奨)。パスワードはあなたの"
-"ホームディレクトリの設定ファイルにクリアテキストで保存されるので注意してくだ"
-"さい。"
+"LDAPサーバで認証するためのパスワードを入力します。<nl/><warning>。パスワード"
+"はあなたのホームディレクトリの設定ファイルにクリアテキストで保存されるので注"
+"意してください。</warning>"
 
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Connection Security"
-msgstr ""
+msgstr "接続のセキュリティ"
 
 #: ui/editdirectoryservicedialog.cpp:167
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "接続のセキュリティ (GnuPG 2.2.28 以降が必要)"
 
 #: ui/editdirectoryservicedialog.cpp:172
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
-msgstr ""
+msgstr "デフォルトの接続を使う (TLS のセキュアな接続ではないかも)"
 
 #: ui/editdirectoryservicedialog.cpp:174
 #, kde-format
@@ -1431,11 +1359,13 @@ msgid ""
 "Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
+"GnuPGのデフォルトで LDAP サーバに接続します。デフォルトでは GnuPG 以前は素の"
+"接続であり、TLS のセキュアな接続を使わずに接続します。<b>(推奨しません)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:182
 #, kde-format
 msgid "Do not use a TLS secured connection"
-msgstr ""
+msgstr "TLS のセキュアな接続を使わない"
 
 #: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
@@ -1444,11 +1374,13 @@ msgid ""
 "Use a plain, not TLS secured connection to connect to the LDAP server. "
 "<b>(Not recommended)</b>"
 msgstr ""
+"素の接続、つまり、TLS のセキュアな接続を使わずに、LDAP サーバへ接続します。"
+"<b>(推奨しません)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:190
 #, kde-format
 msgid "Use TLS secured connection"
-msgstr ""
+msgstr "TLS のセキュアな接続を使う"
 
 #: ui/editdirectoryservicedialog.cpp:192
 #, kde-format
@@ -1457,11 +1389,13 @@ msgid ""
 "Use a standard TLS secured connection (initiated with STARTTLS) to connect "
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr ""
+"標準の TLS のセキュアな接続を使い (STARTTLS で始められる)、LDAP サーバに接続"
+"する。<b>(推奨)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:199
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "TLS 接続を通じて LDAP をトンネルする"
 
 #: ui/editdirectoryservicedialog.cpp:201
 #, kde-format
@@ -1470,35 +1404,33 @@ msgid ""
 "Use a TLS secured connection through which the connection to the LDAP server "
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
+"TLS のセキュアな接続を使い、LDAP サーバへの接続をトンネルする。<b>(推奨しませ"
+"ん)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:210
 #, kde-format
 msgid "Advanced Settings"
-msgstr ""
+msgstr "高度な設定"
 
 #: ui/editdirectoryservicedialog.cpp:215
-#, fuzzy, kde-format
-#| msgid "Base DN"
+#, kde-format
 msgid "Base DN:"
-msgstr "ベース DN"
+msgstr "ベース DN:"
 
 #: ui/editdirectoryservicedialog.cpp:217
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Only for LDAP)</b> Enter the base DN for this LDAP server to limit "
-#| "searches to only that subtree of the directory."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
 "LDAP サーバのベース DN を入力して検索をそのディレクトリのサブツリーに限定しま"
-"す (LDAP の場合のみ)。"
+"す (オプション、通常は空でよし)。"
 
 #: ui/editdirectoryservicedialog.cpp:223
 #, kde-format
 msgid "Additional flags:"
-msgstr ""
+msgstr "追加のフラグ:"
 
 #: ui/editdirectoryservicedialog.cpp:225
 #, kde-format
@@ -1508,18 +1440,20 @@ msgid ""
 "supported by Kleopatra. For example, older versions of GnuPG use "
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
+"Kleopatraではまだサポートされない(またはもうサポートされない)追加のフラグをこ"
+"こで入力できます。たとえば、古いバージョンの GnuPG は<code>ldaps</code>を使っ"
+"てTLS のセキュアな接続を指定します。"
 
 #: ui/editdirectoryservicedialog.cpp:395
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
-msgstr "ディレクトリサービス:"
+msgstr "ディレクトリサービスを編集"
 
 #: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
-msgstr ""
+msgstr "ファイル・ダイアログを開く"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1552,8 +1486,7 @@ msgid "Ask Whenever Encryption is Possible"
 msgstr "暗号化が可能なときは常に確認する"
 
 #: ui/keyapprovaldialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
 msgstr "暗号化鍵の承認"
@@ -1662,81 +1595,79 @@ msgstr "使用する (OpenPGP or S/MIME) 鍵を選択してください。"
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
-msgstr ""
+msgstr "%1 <%2>"
 
 #: ui/keyselectioncombo.cpp:175
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
-msgstr ""
+msgstr "%1 (%2, 作成: %3)"
 
 #: ui/keyselectioncombo.cpp:181
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "%1 (%2, %3, 作成: %4)"
 
 #: ui/keyselectioncombo.cpp:649
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading keys ..."
-msgstr "鍵を取得中..."
+msgstr "鍵をロード中..."
 
 #: ui/keyselectiondialog.cpp:72
 #, kde-format
 msgid "The key is not valid."
-msgstr ""
+msgstr "この鍵は有効ではありません。"
 
 #: ui/keyselectiondialog.cpp:80
 #, kde-format
 msgid "The key is expired."
-msgstr ""
+msgstr "この鍵は失効しています。"
 
 #: ui/keyselectiondialog.cpp:84
 #, kde-format
 msgid "The key is revoked."
-msgstr ""
+msgstr "この鍵は取り消されています。"
 
 #: ui/keyselectiondialog.cpp:88
 #, kde-format
 msgid "The key is disabled."
-msgstr ""
+msgstr "この鍵は無効です。"
 
 #: ui/keyselectiondialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgid "The key is not designated for encryption."
-msgstr "以下の鍵を暗号化に使用します:"
+msgstr "この鍵は暗号化のために指定されていません。"
 
 #: ui/keyselectiondialog.cpp:100
 #, kde-format
 msgid "The key is not designated for signing."
-msgstr ""
+msgstr "この鍵は署名のために指定されていません。"
 
 #: ui/keyselectiondialog.cpp:105
 #, kde-format
 msgid "The key is not designated for certifying."
-msgstr ""
+msgstr "この鍵は証明のために指定されていません。"
 
 #: ui/keyselectiondialog.cpp:110
 #, kde-format
 msgid "The key is not designated for authentication."
-msgstr ""
+msgstr "この鍵は認証のために指定されていません。"
 
 #: ui/keyselectiondialog.cpp:116
 #, kde-format
 msgid "The key is not secret."
-msgstr ""
+msgstr "この鍵は秘密ではありません。"
 
 #: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
 #, kde-format
 msgid "The key can be used."
-msgstr ""
+msgstr "この鍵は使えません。"
 
 #: ui/keyselectiondialog.cpp:132
 #, kde-format
 msgid "The key is not trusted enough."
-msgstr ""
+msgstr "この鍵は充分に信頼できません。"
 
 #: ui/keyselectiondialog.cpp:195
 #, kde-format
@@ -1752,42 +1683,42 @@ msgstr "不明"
 #: ui/keyselectiondialog.cpp:269
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b> の OpenPGP 鍵"
 
 #: ui/keyselectiondialog.cpp:271
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b> の S/MIME 鍵"
 
 #: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:380
 #: utils/formatting.cpp:423
 #, kde-format
 msgid "Valid from"
-msgstr ""
+msgstr "ここから有効"
 
 #: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:383
 #: utils/formatting.cpp:426
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "ここまで有効"
 
 #: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
-msgstr ""
+msgstr "フィンガープリント"
 
 #: ui/keyselectiondialog.cpp:282
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
-msgstr ""
+msgstr "発行者"
 
 #: ui/keyselectiondialog.cpp:284
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
-msgstr ""
+msgstr "ステータス"
 
 #: ui/keyselectiondialog.cpp:286
 #, kde-format
@@ -1828,7 +1759,7 @@ msgstr "鍵を再読み込み(&R)"
 #: ui/keyselectiondialog.cpp:487
 #, kde-format
 msgid "&Start Certificate Manager"
-msgstr "証明書マネージャを起動(&M)"
+msgstr "証明書マネージャを起動(&S)"
 
 #: ui/keyselectiondialog.cpp:647
 #, kde-format
@@ -1867,8 +1798,8 @@ msgid_plural ""
 "<qt>%1 backends returned truncated output.<p>Not all available keys are "
 "shown</p></qt>"
 msgstr[0] ""
-"<qt><p>%1 個のバックエンドの出力は一部切り捨てられています。</p><p>すべての利"
-"用可能な鍵は表示されていません。</p></qt>"
+"<qt>%1 個のバックエンドの出力は一部切り捨てられています。<p>すべての利用可能"
+"な鍵は表示されていません。</p></qt>"
 
 #: ui/keyselectiondialog.cpp:761
 #, kde-format
@@ -1881,52 +1812,50 @@ msgid "Recheck Key"
 msgstr "鍵を再チェック"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "監査ログを表示(&S)"
+msgstr "監査ログを表示"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "場所"
+msgstr "情報"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: ui/newkeyapprovaldialog.cpp:140
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
-msgstr ""
+msgstr "詳細を見る"
 
 #: ui/newkeyapprovaldialog.cpp:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
-msgstr ""
+msgstr "マッチする鍵を見る"
 
 #: ui/newkeyapprovaldialog.cpp:183
 #, kde-format
 msgid "Show keys matching the email address"
-msgstr ""
+msgstr "メールアドレスにマッチする鍵を見る"
 
 #: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
-msgstr ""
+msgstr "すべてを見る"
 
 #: ui/newkeyapprovaldialog.cpp:187
 #, kde-format
 msgid "Show all keys"
-msgstr ""
+msgstr "すべての鍵を見る"
 
 #: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
@@ -1938,13 +1867,15 @@ msgid ""
 "to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
+"あなたのメールアドレスを使って新しい鍵を生成する。<br/><br/>この鍵はメールを"
+"復号し、署名するのに必要です。この鍵を保護するためにパスフレーズの問い合わせ"
+"があります。保護された鍵はあなたのホームディレクトリに保管されます。"
 
 #: ui/newkeyapprovaldialog.cpp:295
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
-msgstr "暗号化鍵の承認"
+msgstr "セキュリティの承認"
 
 #: ui/newkeyapprovaldialog.cpp:302 ui/newkeyapprovaldialog.cpp:305
 #: utils/formatting.cpp:697
@@ -1955,52 +1886,50 @@ msgstr "OpenPGP"
 #: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr ""
+msgstr "'%1' の鍵を生成..."
 
 #: ui/newkeyapprovaldialog.cpp:393
 #, kde-format
 msgid "This can take several minutes."
-msgstr ""
+msgstr "数分かかることがあります。"
 
 #: ui/newkeyapprovaldialog.cpp:395
-#, fuzzy, kde-format
-#| msgid "Key Selection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
-msgstr "鍵の選択"
+msgstr "鍵生成"
 
 #: ui/newkeyapprovaldialog.cpp:426
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgid "Operation Failed"
-msgstr "鍵の一覧表示に失敗しました"
+msgstr "操作に失敗しました"
 
 #: ui/newkeyapprovaldialog.cpp:541 ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgid "Generate a new key pair"
-msgstr ""
+msgstr "新しい鍵ペアを生成"
 
 #: ui/newkeyapprovaldialog.cpp:544
 #, kde-format
 msgid "Don't confirm identity and integrity"
-msgstr ""
+msgstr "アイデンティティと一貫性を確かめない"
 
 #: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
-msgstr ""
+msgstr "このメールは暗号的に署名されません。"
 
 #: ui/newkeyapprovaldialog.cpp:564
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
-msgstr ""
+msgstr "'%1' のアイデンティティを確認する:"
 
 #: ui/newkeyapprovaldialog.cpp:641
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
+msgstr "鍵がありません。宛先では復号できないでしょう。"
 
 #: ui/newkeyapprovaldialog.cpp:644
 #, kde-format
@@ -2010,24 +1939,24 @@ msgid ""
 "the encrypted E-Mail, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
+"この宛先に鍵を選定しない。<br/><br/>この宛先は暗号化されたメールを受けとりま"
+"すが、このダイアログで選定されたほかの鍵でしか復号できません。"
 
 #: ui/newkeyapprovaldialog.cpp:761
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr "暗号化しない"
+msgstr "自分宛に暗号化する (%1):"
 
 #: ui/newkeyapprovaldialog.cpp:778
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt to others:"
-msgstr "暗号化しない"
+msgstr "ほかの人向けに暗号化する:"
 
 #: ui/newkeyapprovaldialog.cpp:812
 #, kde-format
 msgid "Generate"
-msgstr ""
+msgstr "生成"
 
 #: ui/progressdialog.cpp:65
 #, kde-format
@@ -2038,7 +1967,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Default reader"
-msgstr ""
+msgstr "デフォルト・リーダ"
 
 #: ui/readerportselection.cpp:73
 #, kde-kuit-format
@@ -2050,205 +1979,196 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
+"<para>GnuPGが使うスマートカードリーダを選定する。<list><item>最初のアイテムで"
+"はGnuPGが見つける最初のスマートカードリーダを使います。</item><item>最後のア"
+"イテムでは特定のスマートカードリーダ、あるいはポート番号を設定できます。</"
+"item><item>ほかのすべてのアイテムは GnuPG が見つけたスマートカードリーダで"
+"す。</item></list></para>"
 
 #: ui/readerportselection.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "特定のスマートカードリーダ ID またはポートナンバー"
 
 #: utils/compliance.cpp:134
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "VS-NfD compliant"
-msgstr "すべての証明書"
+msgstr "VS-NfD 準拠"
 
 #: utils/compliance.cpp:134
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "Not VS-NfD compliant"
-msgstr "すべての証明書"
+msgstr "VS-NfD 準拠ではない"
 
 #: utils/formatting.cpp:236
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
-msgstr ""
+msgstr "%1-bit %2 (秘密鍵が利用可能)"
 
 #: utils/formatting.cpp:238 utils/formatting.cpp:249
 #, kde-format
 msgid "%1-bit %2"
-msgstr ""
+msgstr "%1-bit %2"
 
 #: utils/formatting.cpp:261 utils/formatting.cpp:283
-#, fuzzy, kde-format
-#| msgid "Signing failed: %1"
+#, kde-format
 msgid "Signing (Qualified)"
-msgstr "署名に失敗しました: %1"
+msgstr "署名 (資格あり)"
 
 #: utils/formatting.cpp:263 utils/formatting.cpp:285
-#, fuzzy, kde-format
-#| msgid "Signing Error"
+#, kde-format
 msgid "Signing"
-msgstr "署名のエラー"
+msgstr "署名"
 
 #: utils/formatting.cpp:267 utils/formatting.cpp:289
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgid "Encryption"
-msgstr "暗号化鍵:"
+msgstr "暗号化"
 
 #: utils/formatting.cpp:270 utils/formatting.cpp:292
 #, kde-format
 msgid "Certifying User-IDs"
-msgstr ""
+msgstr "ユーザ ID を証明する"
 
 #: utils/formatting.cpp:273 utils/formatting.cpp:295
 #, kde-format
 msgid "SSH Authentication"
-msgstr ""
+msgstr "SSH 認証"
 
 #: utils/formatting.cpp:325 utils/formatting.cpp:418
 #, kde-format
 msgid "Revoked"
-msgstr ""
+msgstr "取り消し済み"
 
 #: utils/formatting.cpp:327 utils/formatting.cpp:420
 #, kde-format
 msgid "Expired"
-msgstr ""
+msgstr "失効"
 
 #: utils/formatting.cpp:329
 #, kde-format
 msgid "Disabled"
-msgstr ""
+msgstr "無効"
 
 #: utils/formatting.cpp:338
 #, kde-format
 msgid "All User-IDs are certified."
-msgstr ""
+msgstr "すべてのユーザ ID は証明されました。"
 
 #: utils/formatting.cpp:344
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
-msgstr[0] ""
+msgstr[0] "%1 User-ID が証明されてません。"
 
 #: utils/formatting.cpp:347 utils/formatting.cpp:350
 #, kde-format
 msgid "The validity cannot be checked at the moment."
-msgstr ""
+msgstr "いまのところ有効性は確認できません。"
 
 #: utils/formatting.cpp:360
-#, fuzzy, kde-format
-#| msgid "Fax number"
+#, kde-format
 msgid "Serial number"
-msgstr "ファクス番号"
+msgstr "シリアル番号"
 
 #: utils/formatting.cpp:369
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "サブジェクト"
 
 #: utils/formatting.cpp:369
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User-ID"
 msgstr "ユーザ ID"
 
 #: utils/formatting.cpp:374
 #, kde-format
 msgid "a.k.a."
-msgstr ""
+msgstr "別名"
 
 #: utils/formatting.cpp:400
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Certification trust"
-msgstr "自分の証明書"
+msgstr "証明の信頼"
 
 #: utils/formatting.cpp:402
 #, kde-format
 msgid "Trusted issuer?"
-msgstr ""
+msgstr "信頼される発行者?"
 
 #: utils/formatting.cpp:402
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgid "Yes"
-msgstr "no"
+msgstr "はい"
 
 #: utils/formatting.cpp:402
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "いいえ"
 
 #: utils/formatting.cpp:408 utils/formatting.cpp:410 utils/formatting.cpp:438
 #: utils/formatting.cpp:440
 #, kde-format
 msgid "Stored"
-msgstr ""
+msgstr "保管先"
 
 #: utils/formatting.cpp:408 utils/formatting.cpp:438
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
-msgstr ""
+msgstr "スマートカード上、シリアルナンバー %1"
 
 #: utils/formatting.cpp:410 utils/formatting.cpp:440
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
-msgstr ""
+msgstr "このコンピュータ"
 
 #: utils/formatting.cpp:416
 #, kde-format
 msgid "Subkey"
-msgstr ""
+msgstr "副鍵"
 
 #: utils/formatting.cpp:464
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
+"ある鍵は取り消されているか、失効しているか、無効とされているか有効ではありま"
+"せん。"
 
 #: utils/formatting.cpp:468
 #, kde-format
 msgid "All keys are certified."
-msgstr ""
+msgstr "すべての鍵が証明されています。"
 
 #: utils/formatting.cpp:470
 #, kde-format
 msgid "Some keys are not certified."
-msgstr ""
+msgstr "ある鍵は証明されていません。"
 
 #: utils/formatting.cpp:474
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
+msgstr "この鍵の有効性はいまのところ確認できません。"
 
 #: utils/formatting.cpp:488
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "このグループにはなにも鍵がありません。"
 
 #: utils/formatting.cpp:508
 #, kde-format
 msgid "Keys:"
-msgstr ""
+msgstr "鍵:"
 
 #: utils/formatting.cpp:516
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
-msgstr[0] ""
+msgstr[0] "と %1 個の鍵"
 
 #: utils/formatting.cpp:544
 #, kde-format
@@ -2256,11 +2176,10 @@ msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
 "leading zero, MMMM: localized month name, yyyy: year as a four digit number"
 msgid "MMMM d, yyyy"
-msgstr ""
+msgstr "MMMM d, yyyy"
 
 #: utils/formatting.cpp:590 utils/formatting.cpp:625
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "不明"
@@ -2268,18 +2187,16 @@ msgstr "不明"
 #: utils/formatting.cpp:632 utils/formatting.cpp:641
 #, kde-format
 msgid "unlimited"
-msgstr ""
+msgstr "無制限"
 
 #: utils/formatting.cpp:694
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: utils/formatting.cpp:699
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "不明"
@@ -2288,11 +2205,10 @@ msgstr "不明"
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
-msgstr ""
+msgstr "グループ"
 
 #: utils/formatting.cpp:731 utils/formatting.cpp:776
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "不明"
@@ -2300,250 +2216,250 @@ msgstr "不明"
 #: utils/formatting.cpp:733 utils/formatting.cpp:780
 #, kde-format
 msgid "untrusted"
-msgstr ""
+msgstr "信頼されていない"
 
 #: utils/formatting.cpp:735 utils/formatting.cpp:782
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
-msgstr ""
+msgstr "ギリギリ"
 
 #: utils/formatting.cpp:737 utils/formatting.cpp:784
 #, kde-format
 msgctxt "full trust"
 msgid "full"
-msgstr ""
+msgstr "完全"
 
 #: utils/formatting.cpp:739 utils/formatting.cpp:786
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
-msgstr ""
+msgstr "究極"
 
 #: utils/formatting.cpp:741 utils/formatting.cpp:778
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
-msgstr ""
+msgstr "未定義"
 
 #: utils/formatting.cpp:752 utils/formatting.cpp:769 utils/formatting.cpp:804
 #: utils/formatting.cpp:1185
 #, kde-format
 msgid "revoked"
-msgstr ""
+msgstr "取り消された"
 
 #: utils/formatting.cpp:755 utils/formatting.cpp:814 utils/formatting.cpp:1182
 #, kde-format
 msgid "expired"
-msgstr ""
+msgstr "失効した"
 
 #: utils/formatting.cpp:758 utils/formatting.cpp:1188
 #, kde-format
 msgid "disabled"
-msgstr ""
+msgstr "無効"
 
 #: utils/formatting.cpp:761 utils/formatting.cpp:772 utils/formatting.cpp:812
 #: utils/formatting.cpp:1191
 #, kde-format
 msgid "invalid"
-msgstr ""
+msgstr "有効でない"
 
 #: utils/formatting.cpp:763
 #, kde-format
 msgctxt "as in good/valid signature"
 msgid "good"
-msgstr ""
+msgstr "正しい"
 
 #: utils/formatting.cpp:802
 #, kde-format
 msgid "valid"
-msgstr ""
+msgstr "有効"
 
 #: utils/formatting.cpp:816
 #, kde-format
 msgid "certificate expired"
-msgstr ""
+msgstr "証明が失効しています"
 
 #: utils/formatting.cpp:818
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
-msgstr ""
+msgstr "不正"
 
 #: utils/formatting.cpp:824
 #, kde-format
 msgid "no public key"
-msgstr ""
+msgstr "公開鍵がありません"
 
 #: utils/formatting.cpp:826
 #, kde-format
 msgid "key expired"
-msgstr ""
+msgstr "鍵が失効しています"
 
 #: utils/formatting.cpp:828
 #, kde-format
 msgid "key revoked"
-msgstr ""
+msgstr "鍵が取り消されています"
 
 #: utils/formatting.cpp:830
 #, kde-format
 msgid "key disabled"
-msgstr ""
+msgstr "鍵が無効です"
 
 #: utils/formatting.cpp:886
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
-msgstr ""
+msgstr "%1 %2 (%3)"
 
 #: utils/formatting.cpp:928
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "不明の証明書 %1 による不正の署名: %2"
 
 #: utils/formatting.cpp:930
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
-msgstr ""
+msgstr "不明の証明書による不正の署名: %1"
 
 #: utils/formatting.cpp:933
 #, kde-format
 msgid "Bad signature by %1: %2"
-msgstr ""
+msgstr "%1 による不正の署名: %2"
 
 #: utils/formatting.cpp:939
 #, kde-format
 msgid "Good signature by unknown certificate %1."
-msgstr ""
+msgstr "不明の証明書 %1 による正しい署名。"
 
 #: utils/formatting.cpp:941
 #, kde-format
 msgid "Good signature by an unknown certificate."
-msgstr ""
+msgstr "不明の証明書による正しい署名"
 
 #: utils/formatting.cpp:944
 #, kde-format
 msgid "Good signature by %1."
-msgstr ""
+msgstr "%1 による正しい署名。"
 
 #: utils/formatting.cpp:949
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "不明の証明書 %1 による有効でない署名: %2"
 
 #: utils/formatting.cpp:951
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
-msgstr ""
+msgstr "不明の証明書による有効でない署名: %1"
 
 #: utils/formatting.cpp:954
 #, kde-format
 msgid "Invalid signature by %1: %2"
-msgstr ""
+msgstr "%1 による有効でない署名: %2"
 
 #: utils/formatting.cpp:968
 #, kde-format
 msgid "This certificate was imported from the following sources:"
-msgstr ""
+msgstr "この証明書は以下のソースからインポートされました:"
 
 #: utils/formatting.cpp:979
 #, kde-format
 msgid "The import of this certificate was canceled."
-msgstr ""
+msgstr "この証明書のインポートはキャンセルされました。"
 
 #: utils/formatting.cpp:982
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
-msgstr ""
+msgstr "この証明書をインポートする際にエラーが起きました: %1"
 
 #: utils/formatting.cpp:987
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
-msgstr ""
+msgstr "この証明書はあなたの鍵保管では新しいものでした。秘密鍵が利用可能です。"
 
 #: utils/formatting.cpp:988
 #, kde-format
 msgid "This certificate is new to your keystore."
-msgstr ""
+msgstr "この証明書はあなたの鍵保管では新しいものです。"
 
 #: utils/formatting.cpp:993
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
-msgstr ""
+msgstr "インポートでこの証明書に対し新しいユーザ ID が追加されました。"
 
 #: utils/formatting.cpp:996
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
-msgstr ""
+msgstr "インポートでこの証明書に対し新しい署名が追加されました。"
 
 #: utils/formatting.cpp:999
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
-msgstr ""
+msgstr "インポートでこの証明書に対し新しい副鍵が追加されました。"
 
 #: utils/formatting.cpp:1002
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
+"インポートに際し、この証明書のためには新しいデータがなにもありませんでした。"
+"変更はありません。"
 
 #: utils/formatting.cpp:1018
 #, kde-format
 msgid "Certify"
-msgstr ""
+msgstr "証明"
 
 #: utils/formatting.cpp:1021
 #, kde-format
 msgid "Sign"
-msgstr ""
+msgstr "署名"
 
 #: utils/formatting.cpp:1024
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt"
-msgstr "暗号化しない"
+msgstr "暗号化"
 
 #: utils/formatting.cpp:1027
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authenticate"
-msgstr "その他の証明書"
+msgstr "認証"
 
 #: utils/formatting.cpp:1036
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
-msgstr ""
+msgstr "(%1, %2, 作成: %3)"
 
 #: utils/formatting.cpp:1048
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
-msgstr[0] ""
+msgstr[0] "%2 (%1 個の鍵, %3)"
 
 #: utils/formatting.cpp:1055
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] ""
+msgstr[0] "%2 (%1 個の鍵, %3, タグ)"
 
 #: utils/formatting.cpp:1062
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] ""
+msgstr[0] "%2 (%1 個の鍵, %3, 入手先不明)"
 
 #: utils/formatting.cpp:1099
 #, kde-format
 msgid "The certificate is marked as your own."
-msgstr ""
+msgstr "この証明書はあなた自身のものとしるされています。"
 
 #: utils/formatting.cpp:1101
 #, kde-format
 msgid "The certificate belongs to this recipient."
-msgstr ""
+msgstr "この証明書はこの宛先に属します。"
 
 #: utils/formatting.cpp:1103
 #, kde-format
@@ -2551,25 +2467,25 @@ msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
+"この信頼モデルでは、この宛先に対してこの証明書が属するかどうかギリギリです。"
 
 #: utils/formatting.cpp:1105
 #, kde-format
 msgid "This certificate should not be used."
-msgstr ""
+msgstr "この証明書は使うべきではありません。"
 
 #: utils/formatting.cpp:1109
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
-msgstr ""
+msgstr "この宛先に対してこの証明書が属するという徴候はなにもありません。"
 
 #: utils/formatting.cpp:1121
 #, kde-format
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "このグループにはなにも鍵がありません。"
 
 #: utils/formatting.cpp:1166
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "不明"
@@ -2578,54 +2494,49 @@ msgstr "不明"
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
-msgstr ""
+msgstr "証明済"
 
 #: utils/formatting.cpp:1194
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
-msgstr ""
+msgstr "証明されてません"
 
 #: utils/formatting.cpp:1197
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "未確認"
 
 #: utils/formatting.cpp:1206
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
-msgstr "すべての証明書"
+msgstr "すべてが証明されています"
 
 #: utils/formatting.cpp:1209
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
-msgstr "すべての証明書"
+msgstr "すべてを証明はされていません"
 
 #: utils/formatting.cpp:1242
-#, fuzzy, kde-format
-#| msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#| msgid "server"
+#, kde-format
 msgid "Keyserver"
-msgstr "server"
+msgstr "鍵サーバ"
 
 #: utils/formatting.cpp:1250
 #, kde-format
 msgid "File import"
-msgstr ""
+msgstr "ファイルからインポート"
 
 #: utils/formatting.cpp:1252
 #, kde-format
 msgid "Generated"
-msgstr ""
+msgstr "生成されたもの"
 
 #: utils/formatting.cpp:1256
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgid "Unknown"
 msgstr "不明"
 
@@ -2633,26 +2544,25 @@ msgstr "不明"
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
-msgstr ""
+msgstr "この鍵を '%1' に対して部分的に信頼できる紹介者としてこの鍵を証明する。"
 
 #: utils/formatting.cpp:1296
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
-msgstr ""
+msgstr "この鍵を '%1' に対して完全に信頼できる紹介者として証明する。"
 
 #: utils/gnupg.cpp:164
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgid "Certificate Manager and Unified Crypto GUI"
-msgstr "証明書マネージャのエラー"
+msgstr "証明書マネージャと統合Crypto GUI"
 
 #: utils/hex.cpp:35
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr ""
+msgstr "入力ストリームで無効な16進文字 '%1'"
 
 #: utils/hex.cpp:47 utils/hex.cpp:52
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
-msgstr ""
+msgstr "入力ストリームで16進エンコードの文字が途中で終了しました"
