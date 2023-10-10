@@ -21,6 +21,7 @@
 #include "enum.h"
 #include "keygroup.h"
 
+#include <libkleo/compat.h>
 #include <libkleo/compliance.h>
 #include <libkleo/formatting.h>
 #include <libkleo/gnupg.h>
@@ -40,7 +41,7 @@ namespace
 
 static inline bool ValidEncryptionKey(const Key &key)
 {
-    if (key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || !key.canEncrypt()) {
+    if (key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || !Kleo::keyHasEncrypt(key)) {
         return false;
     }
     return true;
@@ -48,7 +49,7 @@ static inline bool ValidEncryptionKey(const Key &key)
 
 static inline bool ValidSigningKey(const Key &key)
 {
-    if (key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || !key.canSign() || !key.hasSecret()) {
+    if (key.isNull() || key.isRevoked() || key.isExpired() || key.isDisabled() || !Kleo::keyHasSign(key) || !key.hasSecret()) {
         return false;
     }
     return true;

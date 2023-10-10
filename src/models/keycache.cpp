@@ -806,7 +806,11 @@ struct ready_for_signing {
     {
         ACCEPT(hasSecret);
 #if GPGMEPP_KEY_CANSIGN_IS_FIXED
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+        ACCEPT(hasSign);
+#else
         ACCEPT(canSign);
+#endif
 #else
         ACCEPT(canReallySign);
 #endif
@@ -829,14 +833,18 @@ struct ready_for_encryption {
     bool operator()(const Key &key) const
     {
 #if 1
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+        ACCEPT(hasEncrypt);
+#else
         ACCEPT(canEncrypt);
+#endif
         REJECT(isRevoked);
         REJECT(isExpired);
         REJECT(isDisabled);
         REJECT(isInvalid);
         return true;
 #else
-        return key.canEncrypt() && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
+        return key.hasEncrypt() && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
 #endif
     }
 #undef DO

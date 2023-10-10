@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(PIM_VERSION "5.240.47")
+set(PIM_VERSION "5.240.48")
 
 project(libkleo VERSION ${PIM_VERSION})
 
@@ -65,6 +65,9 @@ endif()
 find_package(${QGPGME_NAME} ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
 if (${QGPGME_NAME}_VERSION VERSION_GREATER_EQUAL "1.18.1")
     set(QGPGME_LISTALLKEYSJOB_HAS_OPTIONS 1)
+endif()
+if (${QGPGME_NAME}_VERSION VERSION_GREATER_EQUAL "1.19.0")
+    set(QGPGME_JOB_HAS_NEW_PROGRESS_SIGNALS 1)
 endif()
 
 find_package(Boost 1.34.0)
