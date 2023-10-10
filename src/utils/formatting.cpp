@@ -1119,6 +1119,9 @@ QIcon iconForValidity(UserID::Validity validity)
 // Icon for certificate selection indication
 QIcon Formatting::iconForUid(const UserID &uid)
 {
+    if (Kleo::isRevokedOrExpired(uid)) {
+        return Formatting::errorIcon();
+    }
     return iconForValidity(uid.validity());
 }
 

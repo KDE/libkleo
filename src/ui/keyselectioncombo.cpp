@@ -189,8 +189,12 @@ protected:
             using namespace Kleo::Formatting;
             return Kleo::Formatting::toolTip(key, Validity | Issuer | Subject | Fingerprint | ExpiryDates | UserIDs);
         }
-        case Qt::DecorationRole:
+        case Qt::DecorationRole: {
+            if (key.isBad()) {
+                return Formatting::errorIcon();
+            }
             return Kleo::Formatting::iconForUid(key.userID(0));
+        }
         default:
             return QSortFilterProxyModel::data(index, role);
         }
