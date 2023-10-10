@@ -806,7 +806,7 @@ QString Formatting::validityShort(const UserID::Signature &sig)
                 return i18n("class %1", sig.certClass());
             }
         }
-        Q_FALLTHROUGH();
+        [[fallthrough]];
         // fall through:
     case UserID::Signature::GeneralError:
         return i18n("invalid");
@@ -854,7 +854,7 @@ QIcon Formatting::validityIcon(const UserID::Signature &sig)
                 return QIcon();
             }
         }
-        Q_FALLTHROUGH();
+        [[fallthrough]];
         // fall through:
     case UserID::Signature::BadSignature:
     case UserID::Signature::GeneralError:

@@ -303,7 +303,7 @@ static QString dn_escape(const QString &s)
         case ';':
             result += QLatin1Char('\\');
             // fall through
-            Q_FALLTHROUGH();
+            [[fallthrough]];
         default:
             result += ch;
         }
