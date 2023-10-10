@@ -42,6 +42,36 @@
 using namespace GpgME;
 using namespace Kleo;
 
+QIcon Formatting::successIcon()
+{
+    return QIcon::fromTheme(QStringLiteral("emblem-success"));
+}
+
+QIcon Formatting::infoIcon()
+{
+    return QIcon::fromTheme(QStringLiteral("emblem-information"));
+}
+
+QIcon Formatting::questionIcon()
+{
+    return QIcon::fromTheme(QStringLiteral("emblem-question"));
+}
+
+QIcon Formatting::unavailableIcon()
+{
+    return QIcon::fromTheme(QStringLiteral("emblem-unavailable"));
+}
+
+QIcon Formatting::warningIcon()
+{
+    return QIcon::fromTheme(QStringLiteral("emblem-warning"));
+}
+
+QIcon Formatting::errorIcon()
+{
+    return QIcon::fromTheme(QStringLiteral("emblem-error"));
+}
+
 //
 // Name
 //
@@ -847,9 +877,9 @@ QIcon Formatting::validityIcon(const UserID::Signature &sig)
             case 0x11: /* Persona */
             case 0x12: /* Casual */
             case 0x13: /* Positive */
-                return QIcon::fromTheme(QStringLiteral("emblem-success"));
+                return Formatting::successIcon();
             case 0x30:
-                return QIcon::fromTheme(QStringLiteral("emblem-error"));
+                return Formatting::errorIcon();
             default:
                 return QIcon();
             }
@@ -858,12 +888,12 @@ QIcon Formatting::validityIcon(const UserID::Signature &sig)
         // fall through:
     case UserID::Signature::BadSignature:
     case UserID::Signature::GeneralError:
-        return QIcon::fromTheme(QStringLiteral("emblem-error"));
+        return Formatting::errorIcon();
     case UserID::Signature::SigExpired:
     case UserID::Signature::KeyExpired:
-        return QIcon::fromTheme(QStringLiteral("emblem-information"));
+        return Formatting::infoIcon();
     case UserID::Signature::NoPublicKey:
-        return QIcon::fromTheme(QStringLiteral("emblem-question"));
+        return Formatting::questionIcon();
     }
     return QIcon();
 }
@@ -1075,13 +1105,13 @@ QIcon iconForValidity(UserID::Validity validity)
     case UserID::Ultimate:
     case UserID::Full:
     case UserID::Marginal:
-        return QIcon::fromTheme(QStringLiteral("emblem-success"));
+        return Formatting::successIcon();
     case UserID::Never:
-        return QIcon::fromTheme(QStringLiteral("emblem-error"));
+        return Formatting::errorIcon();
     case UserID::Undefined:
     case UserID::Unknown:
     default:
-        return QIcon::fromTheme(QStringLiteral("emblem-information"));
+        return Formatting::infoIcon();
     }
 }
 }

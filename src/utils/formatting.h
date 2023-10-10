@@ -34,6 +34,13 @@ class KeyGroup;
 namespace Formatting
 {
 
+KLEO_EXPORT QIcon successIcon();
+KLEO_EXPORT QIcon infoIcon();
+KLEO_EXPORT QIcon questionIcon();
+KLEO_EXPORT QIcon unavailableIcon();
+KLEO_EXPORT QIcon warningIcon();
+KLEO_EXPORT QIcon errorIcon();
+
 KLEO_EXPORT QString prettyNameAndEMail(int proto, const char *id, const char *name, const char *email, const char *comment = nullptr);
 KLEO_EXPORT QString prettyNameAndEMail(int proto, const QString &id, const QString &name, const QString &email, const QString &comment = {});
 KLEO_EXPORT QString prettyNameAndEMail(const GpgME::Key &key);

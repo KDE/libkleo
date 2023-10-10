@@ -540,7 +540,7 @@ public:
         if (key.isNull() && protocol == OpenPGP) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Generate a new key pair"), GenerateKey, mGenerateTooltip);
         }
-        combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
+        combo->appendCustomItem(Formatting::unavailableIcon(),
                                 i18n("Don't confirm identity and integrity"),
                                 IgnoreKey,
                                 i18nc("@info:tooltip for not selecting a key for signing.", "The E-Mail will not be cryptographically signed."));
@@ -637,7 +637,7 @@ public:
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Generate a new key pair"), GenerateKey, mGenerateTooltip);
         }
 
-        combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
+        combo->appendCustomItem(Formatting::unavailableIcon(),
                                 i18n("No key. Recipient will be unable to decrypt."),
                                 IgnoreKey,
                                 i18nc("@info:tooltip for No Key selected for a specific recipient.",
