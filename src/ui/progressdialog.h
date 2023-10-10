@@ -37,7 +37,7 @@ public Q_SLOTS:
     void setMinimumDuration(int ms);
 
 private Q_SLOTS:
-    void slotProgress(const QString &what, int current, int total);
+    void slotProgress(int current, int total);
     void slotDone();
 
 private:

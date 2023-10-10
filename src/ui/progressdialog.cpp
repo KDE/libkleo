@@ -35,7 +35,13 @@ Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText, 
     setModal(false);
     setRange(0, 0); // activate busy indicator
 
-    connect(job, &QGpgME::Job::progress, this, &ProgressDialog::slotProgress);
+#if QGPGME_JOB_HAS_NEW_PROGRESS_SIGNALS
+    connect(job, &QGpgME::Job::jobProgress, this, &ProgressDialog::slotProgress);
+#else
+    connect(job, &QGpgME::Job::progress, this, [this](const QString &, int current, int total) {
+        slotProgress(current, total);
+    });
+#endif
     connect(job, &QGpgME::Job::done, this, &ProgressDialog::slotDone);
     connect(this, &QProgressDialog::canceled, job, &QGpgME::Job::slotCancel);
 
@@ -54,16 +60,9 @@ void Kleo::ProgressDialog::setMinimumDuration(int ms)
     QProgressDialog::setMinimumDuration(ms);
 }
 
-void Kleo::ProgressDialog::slotProgress(const QString &what, int current, int total)
+void Kleo::ProgressDialog::slotProgress(int current, int total)
 {
-    qCDebug(KLEO_UI_LOG) << "Kleo::ProgressDialog::slotProgress( \"" << what << "\"," << current << "," << total << ")";
-    if (mBaseText.isEmpty()) {
-        setLabelText(what);
-    } else if (what.isEmpty()) {
-        setLabelText(mBaseText);
-    } else {
-        setLabelText(i18n("%1: %2", mBaseText, what));
-    }
+    qCDebug(KLEO_UI_LOG) << "Kleo::ProgressDialog::slotProgress(" << current << "," << total << ")";
     setRange(current, total);
 }
 
