@@ -20,11 +20,7 @@
 #include <set>
 #include <vector>
 
-namespace GpgME
-{
-class Key;
-class UserID;
-}
+class QDate;
 
 namespace Kleo
 {
@@ -74,4 +70,103 @@ bool anyKeyHasProtocol(const RangeOfKeys &keys, GpgME::Protocol protocol)
         return key.protocol() == protocol;
     });
 }
+
+/** Returns true if \p signature is a self-signature. */
+KLEO_EXPORT bool isSelfSignature(const GpgME::UserID::Signature &signature);
+
+/**
+ * Returns true if the most recent self-signature of \p userId is a revocation
+ * signature or if it has expired.
+ */
+KLEO_EXPORT bool isRevokedOrExpired(const GpgME::UserID &userId);
+
+/**
+ * Returns true if \p key can be used to certify user IDs, i.e. if the key
+ * has the required capability and if the secret key of the (primary)
+ * certification subkey is available in the keyring or on a smart card.
+ */
+KLEO_EXPORT bool canCreateCertifications(const GpgME::Key &key);
+
+/**
+ * Returns true if the key \p key can be certified, i.e. it is an OpenPGP key
+ * which is neither revoked nor expired and which has at least one user ID
+ * that is neither revoked nor expired.
+ */
+KLEO_EXPORT bool canBeCertified(const GpgME::Key &key);
+
+/**
+ * Returns true if \p key can be used for operations requiring the secret key,
+ * i.e. if the secret key of the primary key pair is available in the keyring
+ * or on a smart card.
+ *
+ * \note Key::hasSecret() also returns true if a secret key stub, e.g. of an
+ * offline key, is available in the keyring.
+ */
+KLEO_EXPORT bool canBeUsedForSecretKeyOperations(const GpgME::Key &key);
+
+/**
+ * Returns true if \p userId can be revoked, i.e. if it isn't the last valid
+ * user ID of an OpenPGP key.
+ */
+KLEO_EXPORT bool canRevokeUserID(const GpgME::UserID &userId);
+
+/**
+ * Returns true if the secret key of the primary key pair of \p key is stored
+ * in the keyring.
+ */
+KLEO_EXPORT bool isSecretKeyStoredInKeyRing(const GpgME::Key &key);
+
+/**
+ * Returns true if any keys suitable for certifying user IDs are available in
+ * the keyring or on a smart card.
+ *
+ * \sa canCreateCertifications
+ */
+KLEO_EXPORT bool userHasCertificationKey();
+
+enum CertificationRevocationFeasibility {
+    CertificationCanBeRevoked = 0,
+    CertificationNotMadeWithOwnKey,
+    CertificationIsSelfSignature,
+    CertificationIsRevocation,
+    CertificationIsExpired,
+    CertificationIsInvalid,
+    CertificationKeyNotAvailable,
+};
+
+/**
+ * Checks if the user can revoke the given \p certification.
+ */
+KLEO_EXPORT CertificationRevocationFeasibility userCanRevokeCertification(const GpgME::UserID::Signature &certification);
+
+/**
+ * Returns true if the user can revoke any of the certifications of the \p userId.
+ *
+ * \sa userCanRevokeCertification
+ */
+KLEO_EXPORT bool userCanRevokeCertifications(const GpgME::UserID &userId);
+
+/**
+ * Returns true, if the user ID \p userID belongs to the key \p key.
+ */
+KLEO_EXPORT bool userIDBelongsToKey(const GpgME::UserID &userID, const GpgME::Key &key);
+
+/**
+ * Returns a unary predicate to check if a user ID belongs to the key \p key.
+ */
+inline auto userIDBelongsToKey(const GpgME::Key &key)
+{
+    return [key](const GpgME::UserID &userID) {
+        return userIDBelongsToKey(userID, key);
+    };
+}
+
+/**
+ * Returns true, if the two user IDs \p lhs and \p rhs are equal.
+ *
+ * Equality means that both user IDs belong to the same key, contain identical
+ * text, and have the same creation date (i.e. the creation date of the first
+ * self-signature is the same).
+ */
+KLEO_EXPORT bool userIDsAreEqual(const GpgME::UserID &lhs, const GpgME::UserID &rhs);
 }
