@@ -42,6 +42,44 @@
 using namespace GpgME;
 using namespace Kleo;
 
+namespace
+{
+QIcon iconForValidity(UserID::Validity validity)
+{
+    switch (validity) {
+    case UserID::Ultimate:
+    case UserID::Full:
+    case UserID::Marginal:
+        // TODO: check compliance
+        return Formatting::successIcon();
+    case UserID::Never:
+        return Formatting::errorIcon();
+    case UserID::Undefined:
+    case UserID::Unknown:
+    default:
+        return Formatting::infoIcon();
+    }
+}
+}
+
+QIcon Formatting::IconProvider::icon(const GpgME::Key &key) const
+{
+    if (usage.canEncrypt() && !Kleo::canBeUsedForEncryption(key)) {
+        return Formatting::errorIcon();
+    }
+    if (usage.canSign() && !Kleo::canBeUsedForSigning(key)) {
+        return Formatting::errorIcon();
+    }
+    if (key.isBad()) {
+        return Formatting::errorIcon();
+    }
+    const auto primaryUserId = key.userID(0);
+    if (Kleo::isRevokedOrExpired(primaryUserId)) {
+        return Formatting::errorIcon();
+    }
+    return iconForValidity(primaryUserId.validity());
+}
+
 QIcon Formatting::successIcon()
 {
     return QIcon::fromTheme(QStringLiteral("emblem-success"));
@@ -1095,25 +1133,6 @@ QString Formatting::summaryLine(const KeyGroup &group)
                       group.name(),
                       Formatting::complianceStringShort(group));
     }
-}
-
-namespace
-{
-QIcon iconForValidity(UserID::Validity validity)
-{
-    switch (validity) {
-    case UserID::Ultimate:
-    case UserID::Full:
-    case UserID::Marginal:
-        return Formatting::successIcon();
-    case UserID::Never:
-        return Formatting::errorIcon();
-    case UserID::Undefined:
-    case UserID::Unknown:
-    default:
-        return Formatting::infoIcon();
-    }
-}
 }
 
 // Icon for certificate selection indication

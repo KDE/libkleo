@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include "keyusage.h"
+
 #include "kleo_export.h"
 
 #include <QStringList>
@@ -33,6 +35,20 @@ class KeyGroup;
 
 namespace Formatting
 {
+
+class KLEO_EXPORT IconProvider
+{
+public:
+    inline explicit IconProvider(KeyUsage::Flags requiredUsages)
+        : usage{requiredUsages}
+    {
+    }
+
+    QIcon icon(const GpgME::Key &key) const;
+
+private:
+    KeyUsage usage;
+};
 
 KLEO_EXPORT QIcon successIcon();
 KLEO_EXPORT QIcon infoIcon();
