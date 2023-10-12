@@ -520,7 +520,7 @@ public:
         Q_ASSERT(!key.isNull() || protocol != UnknownProtocol);
         protocol = !key.isNull() ? key.protocol() : protocol;
 
-        auto combo = new KeySelectionCombo();
+        auto combo = new KeySelectionCombo{true, KeyUsage::Sign};
         auto comboWidget = new ComboWidget(combo);
 #ifndef NDEBUG
         combo->setObjectName(QStringLiteral("signing key"));
@@ -613,7 +613,7 @@ public:
 
     ComboWidget *createEncryptionCombo(const QString &addr, const GpgME::Key &key, GpgME::Protocol fixedProtocol)
     {
-        auto combo = new KeySelectionCombo(false);
+        auto combo = new KeySelectionCombo{false, KeyUsage::Encrypt};
         auto comboWidget = new ComboWidget(combo);
 #ifndef NDEBUG
         combo->setObjectName(QStringLiteral("encryption key"));
