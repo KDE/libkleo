@@ -8,7 +8,8 @@
 
 #include "kleo_export.h"
 
-#include <Libkleo/Enum>
+#include <libkleo/enum.h>
+#include <libkleo/keyusage.h>
 
 #include <QComboBox>
 
@@ -33,6 +34,18 @@ class KLEO_EXPORT KeySelectionCombo : public QComboBox
 public:
     explicit KeySelectionCombo(QWidget *parent = nullptr);
     explicit KeySelectionCombo(bool secretOnly, QWidget *parent = nullptr);
+    /**
+     * @param usage the desired usage of the certificate
+     *
+     * \a usage is used to mark certificates that cannot be used for the desired
+     * usage with an appropriate icon. This is useful in combination with a suitable
+     * key filter.
+     * For example, the key filter could filter out any certificates without
+     * encryption subkeys and the usage flags would mark certificates with expired
+     * encryption subkeys as unusable, so that the users see that there is a
+     * certificate, but that it cannot be used.
+     */
+    explicit KeySelectionCombo(bool secretOnly, KeyUsage::Flags usage, QWidget *parent = nullptr);
     ~KeySelectionCombo() override;
 
     void setKeyFilter(const std::shared_ptr<const KeyFilter> &kf);
