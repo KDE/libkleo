@@ -154,15 +154,37 @@ bool Kleo::canBeCertified(const GpgME::Key &key)
         && hasValidUserID(key);
 }
 
-bool Kleo::canBeUsedForSecretKeyOperations(const GpgME::Key &key)
+namespace
+{
+static inline bool subkeyHasSecret(const GpgME::Subkey &subkey)
 {
 #if GPGME_VERSION_NUMBER >= 0x011102 // 1.17.2
     // we need to check the primary subkey because Key::hasSecret() is also true if just the secret key stub of an offline key is available
-    return key.subkey(0).isSecret();
+    return subkey.isSecret();
 #else
     // older versions of GpgME did not always set the secret flag for card keys
-    return key.subkey(0).isSecret() || key.subkey(0).isCardKey();
+    return subkey.isSecret() || subkey.isCardKey();
 #endif
+}
+}
+
+bool Kleo::canBeUsedForEncryption(const GpgME::Key &key)
+{
+    return !key.isBad() && Kleo::any_of(key.subkeys(), [](const auto &subkey) {
+        return subkey.canEncrypt() && !subkey.isBad();
+    });
+}
+
+bool Kleo::canBeUsedForSigning(const GpgME::Key &key)
+{
+    return !key.isBad() && Kleo::any_of(key.subkeys(), [](const auto &subkey) {
+        return subkey.canSign() && !subkey.isBad() && subkeyHasSecret(subkey);
+    });
+}
+
+bool Kleo::canBeUsedForSecretKeyOperations(const GpgME::Key &key)
+{
+    return subkeyHasSecret(key.subkey(0));
 }
 
 bool Kleo::canRevokeUserID(const GpgME::UserID &userId)

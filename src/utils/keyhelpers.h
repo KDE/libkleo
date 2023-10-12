@@ -95,6 +95,20 @@ KLEO_EXPORT bool canCreateCertifications(const GpgME::Key &key);
 KLEO_EXPORT bool canBeCertified(const GpgME::Key &key);
 
 /**
+ * Returns true if the certificate \p key can be used for encryption, i.e. if
+ * it has at least one encryption subkey that is neither expired nor revoked
+ * nor otherwise invalid.
+ */
+KLEO_EXPORT bool canBeUsedForEncryption(const GpgME::Key &key);
+
+/**
+ * Returns true if the certificate \p key can be used for signing data, i.e. if
+ * it has at least one signing subkey that is neither expired nor revoked
+ * nor otherwise invalid and for which the secret key is available.
+ */
+KLEO_EXPORT bool canBeUsedForSigning(const GpgME::Key &key);
+
+/**
  * Returns true if \p key can be used for operations requiring the secret key,
  * i.e. if the secret key of the primary key pair is available in the keyring
  * or on a smart card.
