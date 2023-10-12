@@ -16,6 +16,7 @@
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
 
+#include <libkleo/algorithm.h>
 #include <libkleo/compliance.h>
 #include <libkleo/debug.h>
 #include <libkleo/defaultkeyfilter.h>
@@ -801,13 +802,16 @@ public:
     {
         static QString origOkText = mOkButton->text();
         const bool isGenerate = bool(findVisibleKeySelectionComboWithGenerateKey());
-        const bool allVisibleEncryptionKeysAreIgnored = std::all_of(std::begin(mEncCombos), std::end(mEncCombos), [](auto combo) {
+        const bool allVisibleEncryptionKeysAreIgnored = Kleo::all_of(mEncCombos, [](auto combo) {
             return !combo->isVisible() || combo->currentData(Qt::UserRole).toInt() == IgnoreKey;
+        });
+        const bool allVisibleEncryptionKeysAreUsable = Kleo::all_of(mEncCombos, [](auto combo) {
+            return !combo->isVisible() || combo->currentKey().isNull() || Kleo::canBeUsedForEncryption(combo->currentKey());
         });
 
         // If we don't encrypt the ok button is always enabled. But otherwise
         // we only enable it if we encrypt to at least one recipient.
-        mOkButton->setEnabled(!mEncrypt || !allVisibleEncryptionKeysAreIgnored);
+        mOkButton->setEnabled(!mEncrypt || (!allVisibleEncryptionKeysAreIgnored && allVisibleEncryptionKeysAreUsable));
 
         mOkButton->setText(isGenerate ? i18n("Generate") : origOkText);
 
