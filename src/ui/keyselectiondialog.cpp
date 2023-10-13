@@ -401,7 +401,7 @@ void KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setDefault(true);
-    mOkButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    mOkButton->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Return));
 
     mCheckSelectionTimer = new QTimer(this);
     mStartSearchTimer = new QTimer(this);
