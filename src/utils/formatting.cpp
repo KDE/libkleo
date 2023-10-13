@@ -13,6 +13,7 @@
 
 #include "formatting.h"
 
+#include "algorithm.h"
 #include "compat.h"
 #include "compliance.h"
 #include "cryptoconfig.h"
@@ -44,14 +45,13 @@ using namespace Kleo;
 
 namespace
 {
-QIcon iconForValidity(UserID::Validity validity)
+QIcon iconForValidityAndCompliance(UserID::Validity validity, bool isCompliant)
 {
     switch (validity) {
     case UserID::Ultimate:
     case UserID::Full:
     case UserID::Marginal:
-        // TODO: check compliance
-        return Formatting::successIcon();
+        return isCompliant ? Formatting::successIcon() : Formatting::infoIcon();
     case UserID::Never:
         return Formatting::errorIcon();
     case UserID::Undefined:
@@ -59,6 +59,12 @@ QIcon iconForValidity(UserID::Validity validity)
     default:
         return Formatting::infoIcon();
     }
+}
+QIcon iconForValidity(const UserID &userId)
+{
+    const bool keyIsCompliant = !DeVSCompliance::isActive() || //
+        (DeVSCompliance::isCompliant() && DeVSCompliance::keyIsCompliant(userId.parent()));
+    return iconForValidityAndCompliance(userId.validity(), keyIsCompliant);
 }
 }
 
@@ -77,7 +83,7 @@ QIcon Formatting::IconProvider::icon(const GpgME::Key &key) const
     if (Kleo::isRevokedOrExpired(primaryUserId)) {
         return Formatting::errorIcon();
     }
-    return iconForValidity(primaryUserId.validity());
+    return iconForValidity(primaryUserId);
 }
 
 QIcon Formatting::successIcon()
@@ -1141,7 +1147,7 @@ QIcon Formatting::iconForUid(const UserID &uid)
     if (Kleo::isRevokedOrExpired(uid)) {
         return Formatting::errorIcon();
     }
-    return iconForValidity(uid.validity());
+    return iconForValidity(uid);
 }
 
 QString Formatting::validity(const UserID &uid)
@@ -1186,11 +1192,23 @@ UserID::Validity minimalValidity(const Container &keys)
     });
     return minValidity <= UserID::Ultimate ? static_cast<UserID::Validity>(minValidity) : UserID::Unknown;
 }
+
+template<typename Container>
+bool allKeysAreCompliant(const Container &keys)
+{
+    if (!DeVSCompliance::isActive()) {
+        return true;
+    }
+    if (!DeVSCompliance::isCompliant()) {
+        return false;
+    }
+    return Kleo::all_of(keys, DeVSCompliance::keyIsCompliant);
+}
 }
 
 QIcon Formatting::validityIcon(const KeyGroup &group)
 {
-    return iconForValidity(minimalValidity(group.keys()));
+    return iconForValidityAndCompliance(minimalValidity(group.keys()), allKeysAreCompliant(group.keys()));
 }
 
 bool Formatting::uidsHaveFullValidity(const Key &key)
