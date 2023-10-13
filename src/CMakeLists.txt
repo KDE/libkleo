@@ -105,6 +105,7 @@ target_sources(KPim6Libkleo PRIVATE
    utils/hex.h
    utils/keyhelpers.cpp
    utils/keyhelpers.h
+   utils/keyusage.h
    utils/qtstlhelpers.cpp
    utils/qtstlhelpers.h
    utils/scdaemon.cpp
@@ -292,6 +293,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   GnuPG
   Hex
   KeyHelpers
+  KeyUsage
   QtStlHelpers
   SCDaemon
   StringUtils

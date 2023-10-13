@@ -90,8 +90,9 @@ class SortAndFormatCertificatesProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 
 public:
-    SortAndFormatCertificatesProxyModel(QObject *parent = nullptr)
+    SortAndFormatCertificatesProxyModel(KeyUsage::Flags usageFlags, QObject *parent = nullptr)
         : QSortFilterProxyModel{parent}
+        , mIconProvider{usageFlags}
     {
     }
 
@@ -189,12 +190,16 @@ protected:
             using namespace Kleo::Formatting;
             return Kleo::Formatting::toolTip(key, Validity | Issuer | Subject | Fingerprint | ExpiryDates | UserIDs);
         }
-        case Qt::DecorationRole:
-            return Kleo::Formatting::iconForUid(key.userID(0));
+        case Qt::DecorationRole: {
+            return mIconProvider.icon(key);
+        }
         default:
             return QSortFilterProxyModel::data(index, role);
         }
     }
+
+private:
+    Formatting::IconProvider mIconProvider;
 };
 
 class CustomItemsProxyModel : public QSortFilterProxyModel
@@ -358,9 +363,11 @@ namespace Kleo
 class KeySelectionComboPrivate
 {
 public:
-    KeySelectionComboPrivate(KeySelectionCombo *parent)
+    KeySelectionComboPrivate(KeySelectionCombo *parent, bool secretOnly_, KeyUsage::Flags usage)
         : wasEnabled(true)
-        , q(parent)
+        , secretOnly{secretOnly_}
+        , usageFlags{usage}
+        , q{parent}
     {
     }
 
@@ -467,6 +474,7 @@ public:
     QString mPerfectMatchMbox;
     GpgME::Key keyBeforeModelChange;
     QVariant customItemBeforeModelChange;
+    KeyUsage::Flags usageFlags;
 
 private:
     KeySelectionCombo *const q;
@@ -477,24 +485,28 @@ private:
 using namespace Kleo;
 
 KeySelectionCombo::KeySelectionCombo(QWidget *parent)
-    : KeySelectionCombo(true, parent)
+    : KeySelectionCombo(true, KeyUsage::None, parent)
 {
 }
 
 KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget *parent)
+    : KeySelectionCombo(secretOnly, KeyUsage::None, parent)
+{
+}
+
+KeySelectionCombo::KeySelectionCombo(bool secretOnly, KeyUsage::Flags usage, QWidget *parent)
     : QComboBox(parent)
-    , d(new KeySelectionComboPrivate(this))
+    , d(new KeySelectionComboPrivate(this, secretOnly, usage))
 {
     // set a non-empty string as accessible description to prevent screen readers
     // from reading the tool tip which isn't meant for screen readers
     setAccessibleDescription(QStringLiteral(" "));
     d->model = Kleo::AbstractKeyListModel::createFlatKeyListModel(this);
-    d->secretOnly = secretOnly;
 
     d->sortFilterProxy = new SortFilterProxyModel(this);
     d->sortFilterProxy->setSourceModel(d->model);
 
-    d->sortAndFormatProxy = new SortAndFormatCertificatesProxyModel{this};
+    d->sortAndFormatProxy = new SortAndFormatCertificatesProxyModel{usage, this};
     d->sortAndFormatProxy->setSourceModel(d->sortFilterProxy);
     // initialize dynamic sorting
     d->sortAndFormatProxy->sort(0);

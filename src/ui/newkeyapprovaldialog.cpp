@@ -16,6 +16,7 @@
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
 
+#include <libkleo/algorithm.h>
 #include <libkleo/compliance.h>
 #include <libkleo/debug.h>
 #include <libkleo/defaultkeyfilter.h>
@@ -520,7 +521,7 @@ public:
         Q_ASSERT(!key.isNull() || protocol != UnknownProtocol);
         protocol = !key.isNull() ? key.protocol() : protocol;
 
-        auto combo = new KeySelectionCombo();
+        auto combo = new KeySelectionCombo{true, KeyUsage::Sign};
         auto comboWidget = new ComboWidget(combo);
 #ifndef NDEBUG
         combo->setObjectName(QStringLiteral("signing key"));
@@ -540,7 +541,7 @@ public:
         if (key.isNull() && protocol == OpenPGP) {
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Generate a new key pair"), GenerateKey, mGenerateTooltip);
         }
-        combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
+        combo->appendCustomItem(Formatting::unavailableIcon(),
                                 i18n("Don't confirm identity and integrity"),
                                 IgnoreKey,
                                 i18nc("@info:tooltip for not selecting a key for signing.", "The E-Mail will not be cryptographically signed."));
@@ -613,7 +614,7 @@ public:
 
     ComboWidget *createEncryptionCombo(const QString &addr, const GpgME::Key &key, GpgME::Protocol fixedProtocol)
     {
-        auto combo = new KeySelectionCombo(false);
+        auto combo = new KeySelectionCombo{false, KeyUsage::Encrypt};
         auto comboWidget = new ComboWidget(combo);
 #ifndef NDEBUG
         combo->setObjectName(QStringLiteral("encryption key"));
@@ -637,7 +638,7 @@ public:
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Generate a new key pair"), GenerateKey, mGenerateTooltip);
         }
 
-        combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("emblem-unavailable")),
+        combo->appendCustomItem(Formatting::unavailableIcon(),
                                 i18n("No key. Recipient will be unable to decrypt."),
                                 IgnoreKey,
                                 i18nc("@info:tooltip for No Key selected for a specific recipient.",
@@ -801,13 +802,16 @@ public:
     {
         static QString origOkText = mOkButton->text();
         const bool isGenerate = bool(findVisibleKeySelectionComboWithGenerateKey());
-        const bool allVisibleEncryptionKeysAreIgnored = std::all_of(std::begin(mEncCombos), std::end(mEncCombos), [](auto combo) {
+        const bool allVisibleEncryptionKeysAreIgnored = Kleo::all_of(mEncCombos, [](auto combo) {
             return !combo->isVisible() || combo->currentData(Qt::UserRole).toInt() == IgnoreKey;
+        });
+        const bool allVisibleEncryptionKeysAreUsable = Kleo::all_of(mEncCombos, [](auto combo) {
+            return !combo->isVisible() || combo->currentKey().isNull() || Kleo::canBeUsedForEncryption(combo->currentKey());
         });
 
         // If we don't encrypt the ok button is always enabled. But otherwise
         // we only enable it if we encrypt to at least one recipient.
-        mOkButton->setEnabled(!mEncrypt || !allVisibleEncryptionKeysAreIgnored);
+        mOkButton->setEnabled(!mEncrypt || (!allVisibleEncryptionKeysAreIgnored && allVisibleEncryptionKeysAreUsable));
 
         mOkButton->setText(isGenerate ? i18n("Generate") : origOkText);
 

@@ -73,7 +73,7 @@ void Kleo::KeyRequester::init()
 
     if (DeVSCompliance::isCompliant()) {
         mComplianceIcon = new QLabel{this};
-        mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-question")).pixmap(22));
+        mComplianceIcon->setPixmap(Formatting::questionIcon().pixmap(22));
     }
 
     // the label where the key id is to be displayed:
@@ -182,7 +182,7 @@ void Kleo::KeyRequester::updateKeys()
 {
     if (mKeys.empty()) {
         if (mComplianceIcon) {
-            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-unavailable")).pixmap(22));
+            mComplianceIcon->setPixmap(Formatting::unavailableIcon().pixmap(22));
             mComplianceIcon->setToolTip(QString{});
         }
         mLabel->clear();
@@ -214,10 +214,10 @@ void Kleo::KeyRequester::updateKeys()
     }
     if (mComplianceIcon) {
         if (Kleo::all_of(mKeys, &Kleo::DeVSCompliance::keyIsCompliant)) {
-            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-success")).pixmap(22));
+            mComplianceIcon->setPixmap(Formatting::successIcon().pixmap(22));
             mComplianceIcon->setToolTip(DeVSCompliance::name(true));
         } else {
-            mComplianceIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-warning")).pixmap(22));
+            mComplianceIcon->setPixmap(Formatting::warningIcon().pixmap(22));
             mComplianceIcon->setToolTip(DeVSCompliance::name(false));
         }
     }
