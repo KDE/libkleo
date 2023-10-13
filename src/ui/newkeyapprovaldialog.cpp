@@ -809,9 +809,10 @@ public:
             return !combo->isVisible() || combo->currentKey().isNull() || Kleo::canBeUsedForEncryption(combo->currentKey());
         });
 
-        // If we don't encrypt the ok button is always enabled. But otherwise
+        // If we don't encrypt, then the OK button is always enabled. Likewise,
+        // if the "generate key" option is selected. Otherwise,
         // we only enable it if we encrypt to at least one recipient.
-        mOkButton->setEnabled(!mEncrypt || (!allVisibleEncryptionKeysAreIgnored && allVisibleEncryptionKeysAreUsable));
+        mOkButton->setEnabled(isGenerate || !mEncrypt || (!allVisibleEncryptionKeysAreIgnored && allVisibleEncryptionKeysAreUsable));
 
         mOkButton->setText(isGenerate ? i18n("Generate") : origOkText);
 
