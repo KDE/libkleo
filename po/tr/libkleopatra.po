@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-13 00:43+0000\n"
+"POT-Creation-Date: 2023-10-14 00:44+0000\n"
 "PO-Revision-Date: 2023-07-14 00:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -899,17 +899,17 @@ msgid "Protocol"
 msgstr "Protokol"
 
 #: models/keylistmodel.cpp:314 models/keylistmodel.cpp:316
-#: utils/formatting.cpp:461
+#: utils/formatting.cpp:467
 #, kde-format
 msgid "Key-ID"
 msgstr "Anahtar Kimliği"
 
-#: models/keylistmodel.cpp:318 utils/formatting.cpp:464
+#: models/keylistmodel.cpp:318 utils/formatting.cpp:470
 #, kde-format
 msgid "Fingerprint"
 msgstr "Parmak İzi"
 
-#: models/keylistmodel.cpp:320 utils/formatting.cpp:431
+#: models/keylistmodel.cpp:320 utils/formatting.cpp:437
 #, kde-format
 msgid "Issuer"
 msgstr "Düzenleyen"
@@ -967,14 +967,14 @@ msgstr "uygulanamaz"
 msgid "ID"
 msgstr "ID"
 
-#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:455
-#: utils/formatting.cpp:499
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:461
+#: utils/formatting.cpp:505
 #, kde-format
 msgid "Type"
 msgstr "Tür"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:486 utils/formatting.cpp:488
+#: utils/formatting.cpp:492 utils/formatting.cpp:494
 #, kde-format
 msgid "Status"
 msgstr "Durum"
@@ -984,8 +984,8 @@ msgstr "Durum"
 msgid "Strength"
 msgstr "Uzunluk"
 
-#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:458
-#: utils/formatting.cpp:502
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:464
+#: utils/formatting.cpp:508
 #, kde-format
 msgid "Usage"
 msgstr "Kullanım"
@@ -1037,7 +1037,7 @@ msgstr "Dışa Aktarılabilir"
 msgid "Trust Signature For"
 msgstr "Güvenilecek İmzalar"
 
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:874
+#: models/useridlistmodel.cpp:167 utils/formatting.cpp:880
 #, kde-format
 msgid "class %1"
 msgstr "sınıf %1"
@@ -1870,14 +1870,14 @@ msgstr "<b>%1</b> için OpenPGP anahtarı"
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b> için S/MIME anahtarı"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:448
-#: utils/formatting.cpp:491
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:454
+#: utils/formatting.cpp:497
 #, kde-format
 msgid "Valid from"
 msgstr "Geçerlilik başlangıcı"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:451
-#: utils/formatting.cpp:494
+#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:457
+#: utils/formatting.cpp:500
 #, kde-format
 msgid "Valid until"
 msgstr "Geçerlilik sonu"
@@ -2059,7 +2059,7 @@ msgid "Security approval"
 msgstr "Güvenlik onayı"
 
 #: ui/newkeyapprovaldialog.cpp:303 ui/newkeyapprovaldialog.cpp:306
-#: utils/formatting.cpp:765
+#: utils/formatting.cpp:771
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
@@ -2135,7 +2135,7 @@ msgstr "Özüne şifrele (%1):"
 msgid "Encrypt to others:"
 msgstr "Başkasına şifrele:"
 
-#: ui/newkeyapprovaldialog.cpp:816
+#: ui/newkeyapprovaldialog.cpp:817
 #, kde-format
 msgid "Generate"
 msgstr "Oluştur"
@@ -2178,168 +2178,168 @@ msgstr "VS-NfD uyumlu"
 msgid "Not VS-NfD compliant"
 msgstr "VS-NfD uyumlu değil"
 
-#: utils/formatting.cpp:304
+#: utils/formatting.cpp:310
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
 msgstr "%1-bit %2 (gizli anahtar kullanılabilir)"
 
-#: utils/formatting.cpp:306 utils/formatting.cpp:317
+#: utils/formatting.cpp:312 utils/formatting.cpp:323
 #, kde-format
 msgid "%1-bit %2"
 msgstr "%1-bit %2"
 
-#: utils/formatting.cpp:329 utils/formatting.cpp:351
+#: utils/formatting.cpp:335 utils/formatting.cpp:357
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "İmzalama (Nitelikli)"
 
-#: utils/formatting.cpp:331 utils/formatting.cpp:353
+#: utils/formatting.cpp:337 utils/formatting.cpp:359
 #, kde-format
 msgid "Signing"
 msgstr "İmzalama"
 
-#: utils/formatting.cpp:335 utils/formatting.cpp:357
+#: utils/formatting.cpp:341 utils/formatting.cpp:363
 #, kde-format
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: utils/formatting.cpp:338 utils/formatting.cpp:360
+#: utils/formatting.cpp:344 utils/formatting.cpp:366
 #, kde-format
 msgid "Certifying User-IDs"
 msgstr "Kullanıcı Kimlikleri Sertikalandırma"
 
-#: utils/formatting.cpp:341 utils/formatting.cpp:363
+#: utils/formatting.cpp:347 utils/formatting.cpp:369
 #, kde-format
 msgid "SSH Authentication"
 msgstr "SSH Kimlik Doğrulama"
 
-#: utils/formatting.cpp:393 utils/formatting.cpp:486
+#: utils/formatting.cpp:399 utils/formatting.cpp:492
 #, kde-format
 msgid "Revoked"
 msgstr "Yürürlükten Kaldırılmış"
 
-#: utils/formatting.cpp:395 utils/formatting.cpp:488
+#: utils/formatting.cpp:401 utils/formatting.cpp:494
 #, kde-format
 msgid "Expired"
 msgstr "Süresi Dolmuş"
 
-#: utils/formatting.cpp:397
+#: utils/formatting.cpp:403
 #, kde-format
 msgid "Disabled"
 msgstr "Kapalı"
 
-#: utils/formatting.cpp:406
+#: utils/formatting.cpp:412
 #, kde-format
 msgid "All User-IDs are certified."
 msgstr "Tüm Kullanıcı Kimlikleri onaylandı."
 
-#: utils/formatting.cpp:412
+#: utils/formatting.cpp:418
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
 msgstr[0] "Bir Kullanıcı Kimliği onaylı değil."
 msgstr[1] "%1 Kullanıcı Kimliği onaylı değil."
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:418
+#: utils/formatting.cpp:421 utils/formatting.cpp:424
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "Geçerlilik bu aşamada kontrol edilmeyecektir."
 
-#: utils/formatting.cpp:428
+#: utils/formatting.cpp:434
 #, kde-format
 msgid "Serial number"
 msgstr "Seri numarası"
 
-#: utils/formatting.cpp:437
+#: utils/formatting.cpp:443
 #, kde-format
 msgid "Subject"
 msgstr "Başlık"
 
-#: utils/formatting.cpp:437
+#: utils/formatting.cpp:443
 #, kde-format
 msgid "User-ID"
 msgstr "Kullanıcı Kimliği"
 
-#: utils/formatting.cpp:442
+#: utils/formatting.cpp:448
 #, kde-format
 msgid "a.k.a."
 msgstr "a.k.a."
 
-#: utils/formatting.cpp:468
+#: utils/formatting.cpp:474
 #, kde-format
 msgid "Certification trust"
 msgstr "Sertifikalandırma güveni"
 
-#: utils/formatting.cpp:470
+#: utils/formatting.cpp:476
 #, kde-format
 msgid "Trusted issuer?"
 msgstr "Güvenilir yayıncı?"
 
-#: utils/formatting.cpp:470
+#: utils/formatting.cpp:476
 #, kde-format
 msgid "Yes"
 msgstr "Evet"
 
-#: utils/formatting.cpp:470
+#: utils/formatting.cpp:476
 #, kde-format
 msgid "No"
 msgstr "Hayır"
 
-#: utils/formatting.cpp:476 utils/formatting.cpp:478 utils/formatting.cpp:506
-#: utils/formatting.cpp:508
+#: utils/formatting.cpp:482 utils/formatting.cpp:484 utils/formatting.cpp:512
+#: utils/formatting.cpp:514
 #, kde-format
 msgid "Stored"
 msgstr "Saklanmış"
 
-#: utils/formatting.cpp:476 utils/formatting.cpp:506
+#: utils/formatting.cpp:482 utils/formatting.cpp:512
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "%1 seri numarası ile SmartCard üstünde"
 
-#: utils/formatting.cpp:478 utils/formatting.cpp:508
+#: utils/formatting.cpp:484 utils/formatting.cpp:514
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "bu bilgisayarda"
 
-#: utils/formatting.cpp:484
+#: utils/formatting.cpp:490
 #, kde-format
 msgid "Subkey"
 msgstr "Alt anahtar"
 
-#: utils/formatting.cpp:532
+#: utils/formatting.cpp:538
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr "Bazı anahtarlar yürürlükten kaldırılmış, süresi dolmuş veya geçersiz."
 
-#: utils/formatting.cpp:536
+#: utils/formatting.cpp:542
 #, kde-format
 msgid "All keys are certified."
 msgstr "Tüm anahtarlar sertifikalı."
 
-#: utils/formatting.cpp:538
+#: utils/formatting.cpp:544
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "Bazı anahtarlar sertifikalı değil."
 
-#: utils/formatting.cpp:542
+#: utils/formatting.cpp:548
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "Anahtarların geçerliliği şu anda denetlenemiyor."
 
-#: utils/formatting.cpp:556
+#: utils/formatting.cpp:562
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "Bu grup, hiçbir anahtar içermiyor."
 
-#: utils/formatting.cpp:576
+#: utils/formatting.cpp:582
 #, kde-format
 msgid "Keys:"
 msgstr "Anahtarlar:"
 
-#: utils/formatting.cpp:584
+#: utils/formatting.cpp:590
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
@@ -2347,7 +2347,7 @@ msgid_plural "and %1 more keys"
 msgstr[0] "ve 1 anahtar daha"
 msgstr[1] "ve %1 anahtar daha"
 
-#: utils/formatting.cpp:612
+#: utils/formatting.cpp:618
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2355,259 +2355,259 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "AAAA g, yyyy"
 
-#: utils/formatting.cpp:658 utils/formatting.cpp:693
+#: utils/formatting.cpp:664 utils/formatting.cpp:699
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "bilinmiyor"
 
-#: utils/formatting.cpp:700 utils/formatting.cpp:709
+#: utils/formatting.cpp:706 utils/formatting.cpp:715
 #, kde-format
 msgid "unlimited"
 msgstr "sınırsız"
 
-#: utils/formatting.cpp:762
+#: utils/formatting.cpp:768
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:767
+#: utils/formatting.cpp:773
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: utils/formatting.cpp:783
+#: utils/formatting.cpp:789
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "Grup"
 
-#: utils/formatting.cpp:799 utils/formatting.cpp:844
+#: utils/formatting.cpp:805 utils/formatting.cpp:850
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "bilinmeyen"
 
-#: utils/formatting.cpp:801 utils/formatting.cpp:848
+#: utils/formatting.cpp:807 utils/formatting.cpp:854
 #, kde-format
 msgid "untrusted"
 msgstr "güvenilmez"
 
-#: utils/formatting.cpp:803 utils/formatting.cpp:850
+#: utils/formatting.cpp:809 utils/formatting.cpp:856
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr "değişken"
 
-#: utils/formatting.cpp:805 utils/formatting.cpp:852
+#: utils/formatting.cpp:811 utils/formatting.cpp:858
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "tam"
 
-#: utils/formatting.cpp:807 utils/formatting.cpp:854
+#: utils/formatting.cpp:813 utils/formatting.cpp:860
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "sınırsız"
 
-#: utils/formatting.cpp:809 utils/formatting.cpp:846
+#: utils/formatting.cpp:815 utils/formatting.cpp:852
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "tanımsız"
 
-#: utils/formatting.cpp:820 utils/formatting.cpp:837 utils/formatting.cpp:872
-#: utils/formatting.cpp:1237
+#: utils/formatting.cpp:826 utils/formatting.cpp:843 utils/formatting.cpp:878
+#: utils/formatting.cpp:1255
 #, kde-format
 msgid "revoked"
 msgstr "yürürlükten kaldırılmış"
 
-#: utils/formatting.cpp:823 utils/formatting.cpp:882 utils/formatting.cpp:1234
+#: utils/formatting.cpp:829 utils/formatting.cpp:888 utils/formatting.cpp:1252
 #, kde-format
 msgid "expired"
 msgstr "süresi dolmuş"
 
-#: utils/formatting.cpp:826 utils/formatting.cpp:1240
+#: utils/formatting.cpp:832 utils/formatting.cpp:1258
 #, kde-format
 msgid "disabled"
 msgstr "devre dışı"
 
-#: utils/formatting.cpp:829 utils/formatting.cpp:840 utils/formatting.cpp:880
-#: utils/formatting.cpp:1243
+#: utils/formatting.cpp:835 utils/formatting.cpp:846 utils/formatting.cpp:886
+#: utils/formatting.cpp:1261
 #, kde-format
 msgid "invalid"
 msgstr "geçersiz"
 
-#: utils/formatting.cpp:831
+#: utils/formatting.cpp:837
 #, kde-format
 msgctxt "as in good/valid signature"
 msgid "good"
 msgstr "iyi"
 
-#: utils/formatting.cpp:870
+#: utils/formatting.cpp:876
 #, kde-format
 msgid "valid"
 msgstr "geçerli"
 
-#: utils/formatting.cpp:884
+#: utils/formatting.cpp:890
 #, kde-format
 msgid "certificate expired"
 msgstr "sertifika süresi dolmuş"
 
-#: utils/formatting.cpp:886
+#: utils/formatting.cpp:892
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "kötü"
 
-#: utils/formatting.cpp:892
+#: utils/formatting.cpp:898
 #, kde-format
 msgid "no public key"
 msgstr "genel anahtar yok"
 
-#: utils/formatting.cpp:894
+#: utils/formatting.cpp:900
 #, kde-format
 msgid "key expired"
 msgstr "anahtarın süresi dolmuş"
 
-#: utils/formatting.cpp:896
+#: utils/formatting.cpp:902
 #, kde-format
 msgid "key revoked"
 msgstr "anahtar yürürlükten kaldırılmış"
 
-#: utils/formatting.cpp:898
+#: utils/formatting.cpp:904
 #, kde-format
 msgid "key disabled"
 msgstr "anahtar devre dışı"
 
-#: utils/formatting.cpp:954
+#: utils/formatting.cpp:960
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:996
+#: utils/formatting.cpp:1002
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "Bilinmeyen sertifika %1 tarafından kötü imza: %2"
 
-#: utils/formatting.cpp:998
+#: utils/formatting.cpp:1004
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "Bilinmeyen bir sertifika tarafından kötü imza: %1"
 
-#: utils/formatting.cpp:1001
+#: utils/formatting.cpp:1007
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "%1 tarafından kötü imza: %2"
 
-#: utils/formatting.cpp:1007
+#: utils/formatting.cpp:1013
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "Bilinmeyen sertifika %1 tarafından iyi bir imza."
 
-#: utils/formatting.cpp:1009
+#: utils/formatting.cpp:1015
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "Bilinmeyen bir sertifika tarafından iyi bir imza."
 
-#: utils/formatting.cpp:1012
+#: utils/formatting.cpp:1018
 #, kde-format
 msgid "Good signature by %1."
 msgstr "%1 tarafında iyi bir imza."
 
-#: utils/formatting.cpp:1017
+#: utils/formatting.cpp:1023
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "Bilinmeyen sertifika %1 tarafından geçersiz imza: %2"
 
-#: utils/formatting.cpp:1019
+#: utils/formatting.cpp:1025
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "Bilinmeyen bir sertifika tarafından geçersiz bir imza: %1"
 
-#: utils/formatting.cpp:1022
+#: utils/formatting.cpp:1028
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "%1 tarafından geçersiz imza: %2"
 
-#: utils/formatting.cpp:1036
+#: utils/formatting.cpp:1042
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "Sertifika aşağıdaki kaynaklardan içe aktarılmış:"
 
-#: utils/formatting.cpp:1047
+#: utils/formatting.cpp:1053
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "Bu sertifkanın içe aktarılması iptal edilmiş."
 
-#: utils/formatting.cpp:1050
+#: utils/formatting.cpp:1056
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "Sertifika içe aktarılırken hata oluştur: %1"
 
-#: utils/formatting.cpp:1055
+#: utils/formatting.cpp:1061
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "Bu sertifika, anahtar deponuz için yenidir. Gizli anahtar kullanılabilir."
 
-#: utils/formatting.cpp:1056
+#: utils/formatting.cpp:1062
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "Bu sertifika, anahtar deponuz için yenidir."
 
-#: utils/formatting.cpp:1061
+#: utils/formatting.cpp:1067
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr "Yeni kullanıcı kimlikleri, içe aktarma ile bu sertifikaya eklendi."
 
-#: utils/formatting.cpp:1064
+#: utils/formatting.cpp:1070
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "Yeni imzalar, içe aktarma ile bu sertifikaya eklendi."
 
-#: utils/formatting.cpp:1067
+#: utils/formatting.cpp:1073
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "Yeni alt anahtarlar, içe aktarma ile bu sertifikaya eklendi."
 
-#: utils/formatting.cpp:1070
+#: utils/formatting.cpp:1076
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 "İçe aktarma, bu sertifika için yeni bir veri içermiyor. Değiştirilmedi."
 
-#: utils/formatting.cpp:1086
+#: utils/formatting.cpp:1092
 #, kde-format
 msgid "Certify"
 msgstr "Onayla"
 
-#: utils/formatting.cpp:1089
+#: utils/formatting.cpp:1095
 #, kde-format
 msgid "Sign"
 msgstr "İmzala"
 
-#: utils/formatting.cpp:1092
+#: utils/formatting.cpp:1098
 #, kde-format
 msgid "Encrypt"
 msgstr "Şifrele"
 
-#: utils/formatting.cpp:1095
+#: utils/formatting.cpp:1101
 #, kde-format
 msgid "Authenticate"
 msgstr "Doğrula"
 
-#: utils/formatting.cpp:1104
+#: utils/formatting.cpp:1110
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1 %2, oluşturuldu: %3)"
 
-#: utils/formatting.cpp:1116
+#: utils/formatting.cpp:1122
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -2615,7 +2615,7 @@ msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] "%2 (1 anahtar, %3)"
 msgstr[1] "%2 (%1 anahtar, %3)"
 
-#: utils/formatting.cpp:1123
+#: utils/formatting.cpp:1129
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -2623,7 +2623,7 @@ msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] "%2 (1 anahtar, %3, etiket)"
 msgstr[1] "%2 (%1 anahtar, %3, etiket)"
 
-#: utils/formatting.cpp:1130
+#: utils/formatting.cpp:1136
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -2631,17 +2631,17 @@ msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] "%2 (1 anahtar, %3, bilinmeyen köken)"
 msgstr[1] "%2 (%1 anahtar, %3, bilinmeyen köken)"
 
-#: utils/formatting.cpp:1151
+#: utils/formatting.cpp:1157
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "Sertifika sizin olarak işaretlendi."
 
-#: utils/formatting.cpp:1153
+#: utils/formatting.cpp:1159
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "Sertifika, bu alıcıya ait."
 
-#: utils/formatting.cpp:1155
+#: utils/formatting.cpp:1161
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
@@ -2649,78 +2649,78 @@ msgid ""
 msgstr ""
 "Güven modeli, sertifkanın bu alıcıya ait olduğunu kararlı olarak işaret eder."
 
-#: utils/formatting.cpp:1157
+#: utils/formatting.cpp:1163
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "Bu sertifika kullanılmamalı."
 
-#: utils/formatting.cpp:1161
+#: utils/formatting.cpp:1167
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr "Bu sertifikanın bu alıcıya ait olduğuna dair bir gösterge yok."
 
-#: utils/formatting.cpp:1173
+#: utils/formatting.cpp:1179
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "Bu grup, hiçbir anahtar içermiyor."
 
-#: utils/formatting.cpp:1218
+#: utils/formatting.cpp:1236
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "bilinmiyor"
 
-#: utils/formatting.cpp:1231
+#: utils/formatting.cpp:1249
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "sertifikalı"
 
-#: utils/formatting.cpp:1246
+#: utils/formatting.cpp:1264
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "sertifikasız"
 
-#: utils/formatting.cpp:1249
+#: utils/formatting.cpp:1267
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "denetlenmemiş"
 
-#: utils/formatting.cpp:1258
+#: utils/formatting.cpp:1276
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "tümü sertifikalı"
 
-#: utils/formatting.cpp:1261
+#: utils/formatting.cpp:1279
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "hepsi sertifikalı değil"
 
-#: utils/formatting.cpp:1294
+#: utils/formatting.cpp:1312
 #, kde-format
 msgid "Keyserver"
 msgstr "Anahtar Sunucusu"
 
-#: utils/formatting.cpp:1302
+#: utils/formatting.cpp:1320
 #, kde-format
 msgid "File import"
 msgstr "Dosya içe aktar"
 
-#: utils/formatting.cpp:1304
+#: utils/formatting.cpp:1322
 #, kde-format
 msgid "Generated"
 msgstr "Oluşturulmuş"
 
-#: utils/formatting.cpp:1308
+#: utils/formatting.cpp:1326
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: utils/formatting.cpp:1344
+#: utils/formatting.cpp:1362
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
@@ -2728,7 +2728,7 @@ msgstr ""
 "Bu anahtarı, '%1' için kısmi olarak güvenilen bir tanıştırıcı olarak "
 "sertifikalar."
 
-#: utils/formatting.cpp:1348
+#: utils/formatting.cpp:1366
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
