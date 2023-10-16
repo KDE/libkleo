@@ -14,8 +14,6 @@
 
 #include <Libkleo/Chrono>
 
-#include <QtGlobal>
-
 #include <memory>
 
 namespace Kleo

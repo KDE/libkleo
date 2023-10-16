@@ -13,7 +13,7 @@
 #include "systeminfo.h"
 
 #include <QByteArray>
-#include <QtGlobal>
+#include <QtSystemDetection>
 
 // #include "libkleo_debug.h"
 #ifdef Q_OS_WIN
