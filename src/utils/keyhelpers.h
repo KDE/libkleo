@@ -183,4 +183,10 @@ inline auto userIDBelongsToKey(const GpgME::Key &key)
  * self-signature is the same).
  */
 KLEO_EXPORT bool userIDsAreEqual(const GpgME::UserID &lhs, const GpgME::UserID &rhs);
+
+/**
+ * Returns true, if the user ID \p userId has a valid, exportable certification
+ * that was made with one of the available ultimately trusted OpenPGP keys.
+ */
+KLEO_EXPORT bool userIDIsCertifiedByUser(const GpgME::UserID &userId);
 }

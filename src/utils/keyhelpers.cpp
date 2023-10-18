@@ -260,3 +260,36 @@ bool Kleo::userIDsAreEqual(const GpgME::UserID &lhs, const GpgME::UserID &rhs)
             && qstrcmp(lhs.id(), rhs.id()) == 0 //
             && creationDate(lhs) == creationDate(rhs));
 }
+
+static inline bool isOpenPGPCertification(const GpgME::UserID::Signature &sig)
+{
+    // certification class is 0x10, ..., 0x13
+    return (sig.certClass() & ~0x03) == 0x10;
+}
+
+static bool isOpenPGPCertificationByUser(const GpgME::UserID::Signature &sig)
+{
+    if (!isOpenPGPCertification(sig)) {
+        return false;
+    }
+    const auto certificationKey = KeyCache::instance()->findByKeyIDOrFingerprint(sig.signerKeyID());
+    return certificationKey.ownerTrust() == Key::Ultimate;
+}
+
+bool Kleo::userIDIsCertifiedByUser(const GpgME::UserID &userId)
+{
+    if (userId.parent().protocol() != GpgME::OpenPGP) {
+        qCWarning(LIBKLEO_LOG) << __func__ << "not called with OpenPGP key";
+        return false;
+    }
+    if (userId.numSignatures() == 0) {
+        qCWarning(LIBKLEO_LOG) << __func__ << "- Error: Signatures of user ID" << QString::fromUtf8(userId.id()) << "not available";
+    }
+    for (unsigned int i = 0, numSignatures = userId.numSignatures(); i < numSignatures; ++i) {
+        const auto sig = userId.signature(i);
+        if ((sig.status() == UserID::Signature::NoError) && !sig.isBad() && sig.isExportable() && isOpenPGPCertificationByUser(sig)) {
+            return true;
+        }
+    }
+    return false;
+}
