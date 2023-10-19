@@ -551,13 +551,6 @@ void KeyCache::enableRemarks(bool value)
         if (d->m_initalized && !d->m_refreshJob) {
             qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
             reload();
-        } else {
-            connect(d->m_refreshJob.data(), &RefreshKeysJob::done, this, [this](const GpgME::KeyListResult &) {
-                qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
-                QTimer::singleShot(1s, this, [this]() {
-                    reload();
-                });
-            });
         }
     } else {
         d->m_remarks_enabled = value;
@@ -573,6 +566,16 @@ void KeyCache::Private::refreshJobDone(const KeyListResult &result)
 {
     m_refreshJob.clear();
     q->enableFileSystemWatcher(true);
+    if (!m_initalized && q->remarksEnabled()) {
+        // trigger another key listing to read signatures and signature notations
+        QMetaObject::invokeMethod(
+            q,
+            [this]() {
+                qCDebug(LIBKLEO_LOG) << "Reloading keycache with remarks enabled";
+                q->reload();
+            },
+            Qt::QueuedConnection);
+    }
     m_initalized = true;
     updateGroupCache();
     Q_EMIT q->keyListingDone(result);
