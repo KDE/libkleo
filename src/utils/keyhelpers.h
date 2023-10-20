@@ -189,4 +189,22 @@ KLEO_EXPORT bool userIDsAreEqual(const GpgME::UserID &lhs, const GpgME::UserID &
  * that was made with one of the available ultimately trusted OpenPGP keys.
  */
 KLEO_EXPORT bool userIDIsCertifiedByUser(const GpgME::UserID &userId);
+
+struct KLEO_EXPORT KeysByProtocol {
+    std::vector<GpgME::Key> openpgp;
+    std::vector<GpgME::Key> cms;
+};
+
+/**
+ * Partitions the keys \p keys into OpenPGP keys and CMS certificates.
+ */
+template<typename KeyContainer>
+KeysByProtocol partitionKeysByProtocol(const KeyContainer &keys)
+{
+    KeysByProtocol result;
+    std::partition_copy(std::begin(keys), std::end(keys), std::back_inserter(result.openpgp), std::back_inserter(result.cms), [](const auto &key) {
+        return key.protocol() == GpgME::OpenPGP;
+    });
+    return result;
+}
 }
