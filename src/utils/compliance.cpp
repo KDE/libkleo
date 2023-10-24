@@ -55,15 +55,7 @@ bool Kleo::DeVSCompliance::isCompliant()
 
 bool Kleo::DeVSCompliance::algorithmIsCompliant(std::string_view algo)
 {
-    static const std::vector<std::string> compliantAlgorithms = {
-        "brainpoolP256r1",
-        "brainpoolP384r1",
-        "brainpoolP512r1",
-        "rsa3072",
-        "rsa4096",
-    };
-
-    return !isActive() || Kleo::contains(compliantAlgorithms, algo);
+    return !isActive() || Kleo::contains(compliantAlgorithms(), algo);
 }
 
 bool Kleo::DeVSCompliance::allSubkeysAreCompliant(const GpgME::Key &key)
@@ -93,6 +85,29 @@ bool Kleo::DeVSCompliance::keyIsCompliant(const GpgME::Key &key)
     return (key.keyListMode() & GpgME::Validate) //
         && allUserIDsHaveFullValidity(key) //
         && allSubkeysAreCompliant(key);
+}
+
+const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms()
+{
+    static const std::vector<std::string> compliantAlgos = {
+        "brainpoolP256r1",
+        "brainpoolP384r1",
+        "brainpoolP512r1",
+        "rsa3072",
+        "rsa4096",
+    };
+    return isActive() ? compliantAlgos : Kleo::availableAlgorithms();
+}
+
+const std::vector<std::string> &Kleo::DeVSCompliance::preferredCompliantAlgorithms()
+{
+    static std::vector<std::string> result;
+    if (result.empty()) {
+        const auto &preferredAlgos = Kleo::preferredAlgorithms();
+        result.reserve(preferredAlgos.size());
+        Kleo::copy_if(preferredAlgos, std::back_inserter(result), Kleo::DeVSCompliance::algorithmIsCompliant);
+    }
+    return result;
 }
 
 void Kleo::DeVSCompliance::decorate(QPushButton *button)

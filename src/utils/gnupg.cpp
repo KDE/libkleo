@@ -719,3 +719,41 @@ void Kleo::killDaemons()
 
     process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")});
 }
+
+const std::vector<std::string> &Kleo::availableAlgorithms()
+{
+    static const std::vector<std::string> algos = {
+        "brainpoolP256r1",
+        "brainpoolP384r1",
+        "brainpoolP512r1",
+        "curve25519",
+        "curve448",
+        "nistp256",
+        "nistp384",
+        "nistp521",
+        "rsa2048",
+        "rsa3072",
+        "rsa4096",
+        // "secp256k1", // Curve secp256k1 is explicitly ignored
+    };
+    return algos;
+}
+
+const std::vector<std::string> &Kleo::preferredAlgorithms()
+{
+    static const std::vector<std::string> algos = {
+        "curve25519",
+        "brainpoolP256r1",
+        "rsa3072",
+        "rsa2048",
+    };
+    return algos;
+}
+
+const std::vector<std::string> &Kleo::ignoredAlgorithms()
+{
+    static const std::vector<std::string> algos = {
+        "secp256k1", // Curve secp256k1 is not useful
+    };
+    return algos;
+}

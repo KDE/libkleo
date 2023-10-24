@@ -116,4 +116,18 @@ KLEO_EXPORT void launchGpgAgent();
  */
 KLEO_EXPORT void killDaemons();
 
+/**
+ * Returns a static list of the available algorithms.
+ */
+KLEO_EXPORT const std::vector<std::string> &availableAlgorithms();
+
+/**
+ * Returns a static list of the preferred algorithms with decreasing preference.
+ */
+KLEO_EXPORT const std::vector<std::string> &preferredAlgorithms();
+
+/**
+ * Returns a static list of algorithms that are explicitly not supported.
+ */
+KLEO_EXPORT const std::vector<std::string> &ignoredAlgorithms();
 }
