@@ -13,6 +13,7 @@
 #include "kleo_export.h"
 
 #include <string_view>
+#include <vector>
 
 class QPushButton;
 class QString;
@@ -63,6 +64,18 @@ KLEO_EXPORT bool allSubkeysAreCompliant(const GpgME::Key &key);
  * \see allSubkeysAreCompliant
  */
 KLEO_EXPORT bool keyIsCompliant(const GpgME::Key &key);
+
+/**
+ * Returns a static list of the available compliant algorithms.
+ */
+KLEO_EXPORT const std::vector<std::string> &compliantAlgorithms();
+
+/**
+ * Returns a static list of the preferred compliant algorithms with decreasing
+ * preference.
+ * Can be used to determine the default algorithm for generating new keys.
+ */
+KLEO_EXPORT const std::vector<std::string> &preferredCompliantAlgorithms();
 
 /**
  * \overload
