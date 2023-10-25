@@ -68,6 +68,16 @@ auto count_if(const InputRange &range, UnaryPredicate p)
     return std::count_if(std::begin(range), std::end(range), p);
 }
 
+/** Convenience helper for finding the first element in the range @p range
+ *  for which predicate @p p returns @c true.
+ *  Use ranges::find_if() instead if you can use C++20.
+ */
+template<typename InputRange, typename UnaryPredicate>
+auto find_if(const InputRange &range, UnaryPredicate p)
+{
+    return std::find_if(std::begin(range), std::end(range), p);
+}
+
 /** Convenience helper for applying the function @p f on all elements of the
  *  range @p range.
  *  Use ranges::for_each() instead if you can use C++20.
@@ -89,13 +99,13 @@ bool contains(const Container &container, const Key &key)
     return std::find(std::begin(container), std::end(container), key) != std::end(container);
 }
 
-/** Convenience helper for checking if a @p container contains an element
+/** Convenience helper for checking if a range @p range contains an element
  *  for which predicate @p p returns @c true.
  */
-template<typename Container, typename UnaryPredicate>
-bool contains_if(const Container &container, UnaryPredicate p)
+template<typename InputRange, typename UnaryPredicate>
+bool contains_if(const InputRange &range, UnaryPredicate p)
 {
-    return std::find_if(std::begin(container), std::end(container), p) != std::end(container);
+    return Kleo::find_if(range, p) != std::end(range);
 }
 
 /**
