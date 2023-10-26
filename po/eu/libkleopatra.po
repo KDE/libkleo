@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 00:44+0000\n"
+"POT-Creation-Date: 2023-10-26 00:43+0000\n"
 "PO-Revision-Date: 2023-09-20 20:55+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -906,17 +906,17 @@ msgid "Protocol"
 msgstr "Protokoloa"
 
 #: models/keylistmodel.cpp:314 models/keylistmodel.cpp:316
-#: utils/formatting.cpp:467
+#: utils/formatting.cpp:463
 #, kde-format
 msgid "Key-ID"
 msgstr "Gako-ID"
 
-#: models/keylistmodel.cpp:318 utils/formatting.cpp:470
+#: models/keylistmodel.cpp:318 utils/formatting.cpp:466
 #, kde-format
 msgid "Fingerprint"
 msgstr "Hatz-marka"
 
-#: models/keylistmodel.cpp:320 utils/formatting.cpp:437
+#: models/keylistmodel.cpp:320 utils/formatting.cpp:433
 #, kde-format
 msgid "Issuer"
 msgstr "Jaulkitzailea"
@@ -974,14 +974,14 @@ msgstr "ez da aplikagarria"
 msgid "ID"
 msgstr "ID"
 
-#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:461
-#: utils/formatting.cpp:505
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:457
+#: utils/formatting.cpp:501
 #, kde-format
 msgid "Type"
 msgstr "Mota"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:492 utils/formatting.cpp:494
+#: utils/formatting.cpp:488 utils/formatting.cpp:490
 #, kde-format
 msgid "Status"
 msgstr "Egoera"
@@ -991,8 +991,8 @@ msgstr "Egoera"
 msgid "Strength"
 msgstr "Sendotasuna"
 
-#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:464
-#: utils/formatting.cpp:508
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:460
+#: utils/formatting.cpp:504
 #, kde-format
 msgid "Usage"
 msgstr "Erabilera"
@@ -1044,7 +1044,7 @@ msgstr "Esportagarria"
 msgid "Trust Signature For"
 msgstr "Sinaduran fidatu honetarako,"
 
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:880
+#: models/useridlistmodel.cpp:167 utils/formatting.cpp:876
 #, kde-format
 msgid "class %1"
 msgstr "%1 klasea"
@@ -1888,14 +1888,14 @@ msgstr "<b>%1</b>(e)rako OpenGPG gakoa"
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b>(e)rako S/MIME gakoa"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:454
-#: utils/formatting.cpp:497
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:450
+#: utils/formatting.cpp:493
 #, kde-format
 msgid "Valid from"
 msgstr "Balioduna noiztik"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:457
-#: utils/formatting.cpp:500
+#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:453
+#: utils/formatting.cpp:496
 #, kde-format
 msgid "Valid until"
 msgstr "Balioduna noiz arte"
@@ -2080,7 +2080,7 @@ msgid "Security approval"
 msgstr "Segurtasun onarpena"
 
 #: ui/newkeyapprovaldialog.cpp:303 ui/newkeyapprovaldialog.cpp:306
-#: utils/formatting.cpp:771
+#: utils/formatting.cpp:767
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
@@ -2190,12 +2190,12 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Neurrira ipinitako irakurgailu ID edo ataka zenbakia"
 
-#: utils/compliance.cpp:134
+#: utils/compliance.cpp:149
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "«VS-NfD»rekin manakorra"
 
-#: utils/compliance.cpp:134
+#: utils/compliance.cpp:149
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "«VS-NfD»rekin ez manakorra"
@@ -2210,159 +2210,159 @@ msgstr "%1-bit %2 (gako sekretua erabilgarri)"
 msgid "%1-bit %2"
 msgstr "%1-bit %2"
 
-#: utils/formatting.cpp:335 utils/formatting.cpp:357
+#: utils/formatting.cpp:331 utils/formatting.cpp:353
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "Sinatzea (kualifikatuta)"
 
-#: utils/formatting.cpp:337 utils/formatting.cpp:359
+#: utils/formatting.cpp:333 utils/formatting.cpp:355
 #, kde-format
 msgid "Signing"
 msgstr "Sinatzea"
 
-#: utils/formatting.cpp:341 utils/formatting.cpp:363
+#: utils/formatting.cpp:337 utils/formatting.cpp:359
 #, kde-format
 msgid "Encryption"
 msgstr "Zifratzea"
 
-#: utils/formatting.cpp:344 utils/formatting.cpp:366
+#: utils/formatting.cpp:340 utils/formatting.cpp:362
 #, kde-format
 msgid "Certifying User-IDs"
 msgstr "Erabiltzaile-IDak ziurtatzen"
 
-#: utils/formatting.cpp:347 utils/formatting.cpp:369
+#: utils/formatting.cpp:343 utils/formatting.cpp:365
 #, kde-format
 msgid "SSH Authentication"
 msgstr "SSH autentifikazioa"
 
-#: utils/formatting.cpp:399 utils/formatting.cpp:492
+#: utils/formatting.cpp:395 utils/formatting.cpp:488
 #, kde-format
 msgid "Revoked"
 msgstr "Indargetuta"
 
-#: utils/formatting.cpp:401 utils/formatting.cpp:494
+#: utils/formatting.cpp:397 utils/formatting.cpp:490
 #, kde-format
 msgid "Expired"
 msgstr "Iraungita"
 
-#: utils/formatting.cpp:403
+#: utils/formatting.cpp:399
 #, kde-format
 msgid "Disabled"
 msgstr "Ezgaituta"
 
-#: utils/formatting.cpp:412
+#: utils/formatting.cpp:408
 #, kde-format
 msgid "All User-IDs are certified."
 msgstr "Erabiltzaile-ID guztiak ziurtatuta daude."
 
-#: utils/formatting.cpp:418
+#: utils/formatting.cpp:414
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
 msgstr[0] "Erabiltzaile-ID bat ez dago ziurtatuta"
 msgstr[1] "%1 erabiltzaile-ID ez daude ziurtatuta."
 
-#: utils/formatting.cpp:421 utils/formatting.cpp:424
+#: utils/formatting.cpp:417 utils/formatting.cpp:420
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "Baliozkotasuna ezin da egiaztatu une honetan."
 
-#: utils/formatting.cpp:434
+#: utils/formatting.cpp:430
 #, kde-format
 msgid "Serial number"
 msgstr "Serie-zenbakia"
 
-#: utils/formatting.cpp:443
+#: utils/formatting.cpp:439
 #, kde-format
 msgid "Subject"
 msgstr "Gaia"
 
-#: utils/formatting.cpp:443
+#: utils/formatting.cpp:439
 #, kde-format
 msgid "User-ID"
 msgstr "Erabiltzaile-ID"
 
-#: utils/formatting.cpp:448
+#: utils/formatting.cpp:444
 #, kde-format
 msgid "a.k.a."
 msgstr "ezizena"
 
-#: utils/formatting.cpp:474
+#: utils/formatting.cpp:470
 #, kde-format
 msgid "Certification trust"
 msgstr "Ziurtapenaren konfiantza"
 
-#: utils/formatting.cpp:476
+#: utils/formatting.cpp:472
 #, kde-format
 msgid "Trusted issuer?"
 msgstr "Konfiantzazko igorlea?"
 
-#: utils/formatting.cpp:476
+#: utils/formatting.cpp:472
 #, kde-format
 msgid "Yes"
 msgstr "Bai"
 
-#: utils/formatting.cpp:476
+#: utils/formatting.cpp:472
 #, kde-format
 msgid "No"
 msgstr "Ez"
 
-#: utils/formatting.cpp:482 utils/formatting.cpp:484 utils/formatting.cpp:512
-#: utils/formatting.cpp:514
+#: utils/formatting.cpp:478 utils/formatting.cpp:480 utils/formatting.cpp:508
+#: utils/formatting.cpp:510
 #, kde-format
 msgid "Stored"
 msgstr "Gordeta"
 
-#: utils/formatting.cpp:482 utils/formatting.cpp:512
+#: utils/formatting.cpp:478 utils/formatting.cpp:508
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "Serie zk. %1 duen txartel-adimendunean"
 
-#: utils/formatting.cpp:484 utils/formatting.cpp:514
+#: utils/formatting.cpp:480 utils/formatting.cpp:510
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "ordenagailu honetan"
 
-#: utils/formatting.cpp:490
+#: utils/formatting.cpp:486
 #, kde-format
 msgid "Subkey"
 msgstr "Azpigakoa"
 
-#: utils/formatting.cpp:538
+#: utils/formatting.cpp:534
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
 "Gako batzuk indargetuta, iraungita, ezgaituta daude, edo baliogabeak dira."
 
-#: utils/formatting.cpp:542
+#: utils/formatting.cpp:538
 #, kde-format
 msgid "All keys are certified."
 msgstr "Gako guztiak ziurtatuta daude."
 
-#: utils/formatting.cpp:544
+#: utils/formatting.cpp:540
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "Gako batzuk ez daude ziurtatuta."
 
-#: utils/formatting.cpp:548
+#: utils/formatting.cpp:544
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "Gakoen baliozkotasuna ezin da egiaztatu une honetan."
 
-#: utils/formatting.cpp:562
+#: utils/formatting.cpp:558
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "Talde honek ez dauka gakorik."
 
-#: utils/formatting.cpp:582
+#: utils/formatting.cpp:578
 #, kde-format
 msgid "Keys:"
 msgstr "Gakoak:"
 
-#: utils/formatting.cpp:590
+#: utils/formatting.cpp:586
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
@@ -2370,7 +2370,7 @@ msgid_plural "and %1 more keys"
 msgstr[0] "eta gako 1 gehiago"
 msgstr[1] "eta %1 gako gehiago"
 
-#: utils/formatting.cpp:618
+#: utils/formatting.cpp:614
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2378,262 +2378,262 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "yyyy, MMMM d"
 
-#: utils/formatting.cpp:664 utils/formatting.cpp:699
+#: utils/formatting.cpp:660 utils/formatting.cpp:695
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "ezezaguna"
 
-#: utils/formatting.cpp:706 utils/formatting.cpp:715
+#: utils/formatting.cpp:702 utils/formatting.cpp:711
 #, kde-format
 msgid "unlimited"
 msgstr "mugagabea"
 
-#: utils/formatting.cpp:768
+#: utils/formatting.cpp:764
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:773
+#: utils/formatting.cpp:769
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: utils/formatting.cpp:789
+#: utils/formatting.cpp:785
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "Taldea"
 
-#: utils/formatting.cpp:805 utils/formatting.cpp:850
+#: utils/formatting.cpp:801 utils/formatting.cpp:846
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "ezezaguna"
 
-#: utils/formatting.cpp:807 utils/formatting.cpp:854
+#: utils/formatting.cpp:803 utils/formatting.cpp:850
 #, kde-format
 msgid "untrusted"
 msgstr "konfiantza gabea"
 
-#: utils/formatting.cpp:809 utils/formatting.cpp:856
+#: utils/formatting.cpp:805 utils/formatting.cpp:852
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr "bazterrekoa"
 
-#: utils/formatting.cpp:811 utils/formatting.cpp:858
+#: utils/formatting.cpp:807 utils/formatting.cpp:854
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "osoa"
 
-#: utils/formatting.cpp:813 utils/formatting.cpp:860
+#: utils/formatting.cpp:809 utils/formatting.cpp:856
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "erabatekoa"
 
-#: utils/formatting.cpp:815 utils/formatting.cpp:852
+#: utils/formatting.cpp:811 utils/formatting.cpp:848
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "definitu gabe"
 
-#: utils/formatting.cpp:826 utils/formatting.cpp:843 utils/formatting.cpp:878
-#: utils/formatting.cpp:1255
+#: utils/formatting.cpp:822 utils/formatting.cpp:839 utils/formatting.cpp:874
+#: utils/formatting.cpp:1251
 #, kde-format
 msgid "revoked"
 msgstr "indargabetuta"
 
-#: utils/formatting.cpp:829 utils/formatting.cpp:888 utils/formatting.cpp:1252
+#: utils/formatting.cpp:825 utils/formatting.cpp:884 utils/formatting.cpp:1248
 #, kde-format
 msgid "expired"
 msgstr "iraungita"
 
-#: utils/formatting.cpp:832 utils/formatting.cpp:1258
+#: utils/formatting.cpp:828 utils/formatting.cpp:1254
 #, kde-format
 msgid "disabled"
 msgstr "ezgaituta"
 
-#: utils/formatting.cpp:835 utils/formatting.cpp:846 utils/formatting.cpp:886
-#: utils/formatting.cpp:1261
+#: utils/formatting.cpp:831 utils/formatting.cpp:842 utils/formatting.cpp:882
+#: utils/formatting.cpp:1257
 #, kde-format
 msgid "invalid"
 msgstr "baliogabea"
 
-#: utils/formatting.cpp:837
+#: utils/formatting.cpp:833
 #, kde-format
 msgctxt "as in good/valid signature"
 msgid "good"
 msgstr "ona"
 
-#: utils/formatting.cpp:876
+#: utils/formatting.cpp:872
 #, kde-format
 msgid "valid"
 msgstr "baliozkoa"
 
-#: utils/formatting.cpp:890
+#: utils/formatting.cpp:886
 #, kde-format
 msgid "certificate expired"
 msgstr "ziurtagiria iraungita"
 
-#: utils/formatting.cpp:892
+#: utils/formatting.cpp:888
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "txarra"
 
-#: utils/formatting.cpp:898
+#: utils/formatting.cpp:894
 #, kde-format
 msgid "no public key"
 msgstr "gako publikorik gabe"
 
-#: utils/formatting.cpp:900
+#: utils/formatting.cpp:896
 #, kde-format
 msgid "key expired"
 msgstr "gakoa iraungita"
 
-#: utils/formatting.cpp:902
+#: utils/formatting.cpp:898
 #, kde-format
 msgid "key revoked"
 msgstr "gakoa indargabetuta"
 
-#: utils/formatting.cpp:904
+#: utils/formatting.cpp:900
 #, kde-format
 msgid "key disabled"
 msgstr "gakoa ezgaituta"
 
-#: utils/formatting.cpp:960
+#: utils/formatting.cpp:956
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:1002
+#: utils/formatting.cpp:998
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "%1 ziurtagiri ezezagunaren sinadura txarra: %2"
 
-#: utils/formatting.cpp:1004
+#: utils/formatting.cpp:1000
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "Ziurtagiri ezezagun baten sinadura txarra: %1"
 
-#: utils/formatting.cpp:1007
+#: utils/formatting.cpp:1003
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "%1(e)ren sinadura txarra: %2"
 
-#: utils/formatting.cpp:1013
+#: utils/formatting.cpp:1009
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "%1 ziurtagiri ezezagunaren sinadura ona."
 
-#: utils/formatting.cpp:1015
+#: utils/formatting.cpp:1011
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "Ziurtagiri ezezagun baten sinadura ona."
 
-#: utils/formatting.cpp:1018
+#: utils/formatting.cpp:1014
 #, kde-format
 msgid "Good signature by %1."
 msgstr "%1(e)ren sinadura ona."
 
-#: utils/formatting.cpp:1023
+#: utils/formatting.cpp:1019
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "%1 ziurtagiri ezezagunaren sinadura baliogabea: %2"
 
-#: utils/formatting.cpp:1025
+#: utils/formatting.cpp:1021
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "Ziurtagiri ezezagunaren sinadura baliogabea: %1"
 
-#: utils/formatting.cpp:1028
+#: utils/formatting.cpp:1024
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "%1(e)ren sinadura baliogabea: %2"
 
-#: utils/formatting.cpp:1042
+#: utils/formatting.cpp:1038
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "Ziurtagiri hori ondoko sorburutik inportatu da:"
 
-#: utils/formatting.cpp:1053
+#: utils/formatting.cpp:1049
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "Ziurtagiri hori inportatzea bertan behera utzi da."
 
-#: utils/formatting.cpp:1056
+#: utils/formatting.cpp:1052
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "Errore bat gertatu da ziurtagiri hori inportatzean: %1"
 
-#: utils/formatting.cpp:1061
+#: utils/formatting.cpp:1057
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "Ziurtagiri hori zure gako-biltegirako berria da. Gako sekretua erabilgarri "
 "dago."
 
-#: utils/formatting.cpp:1062
+#: utils/formatting.cpp:1058
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "Ziurtagiri hori zure gako-biltegirako berria da."
 
-#: utils/formatting.cpp:1067
+#: utils/formatting.cpp:1063
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr ""
 "Ziurtagiri horri, inportatzean, erabiltzaile-ID berriak gehitu zaizkio."
 
-#: utils/formatting.cpp:1070
+#: utils/formatting.cpp:1066
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "Ziurtagiri horri, inportatzean, sinadura berriak gehitu zaizkio."
 
-#: utils/formatting.cpp:1073
+#: utils/formatting.cpp:1069
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "Ziurtagiri horri, inportatzean, azpigako berriak gehitu zaizkio."
 
-#: utils/formatting.cpp:1076
+#: utils/formatting.cpp:1072
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 "Inportatzeak ez zeukan ziurtagiri horrentzako datu berririk. Aldatu gabe "
 "dago."
 
-#: utils/formatting.cpp:1092
+#: utils/formatting.cpp:1088
 #, kde-format
 msgid "Certify"
 msgstr "Ziurtatu"
 
-#: utils/formatting.cpp:1095
+#: utils/formatting.cpp:1091
 #, kde-format
 msgid "Sign"
 msgstr "Sinatu"
 
-#: utils/formatting.cpp:1098
+#: utils/formatting.cpp:1094
 #, kde-format
 msgid "Encrypt"
 msgstr "Zifratu"
 
-#: utils/formatting.cpp:1101
+#: utils/formatting.cpp:1097
 #, kde-format
 msgid "Authenticate"
 msgstr "Egiaztatu"
 
-#: utils/formatting.cpp:1110
+#: utils/formatting.cpp:1106
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1, %2, sorrera: %3)"
 
-#: utils/formatting.cpp:1122
+#: utils/formatting.cpp:1118
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -2641,7 +2641,7 @@ msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] "%2 (gako 1, %3)"
 msgstr[1] "%2 (%1 gako, %3)"
 
-#: utils/formatting.cpp:1129
+#: utils/formatting.cpp:1125
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -2649,7 +2649,7 @@ msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] "%2 (gako 1, %3, etiketa)"
 msgstr[1] "%2 (%1 gako, %3, etiketa)"
 
-#: utils/formatting.cpp:1136
+#: utils/formatting.cpp:1132
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -2657,17 +2657,17 @@ msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] "%2 (gako 1, %3, jatorri ezezaguna)"
 msgstr[1] "%2 (%1 gako, %3, jatorri ezezaguna)"
 
-#: utils/formatting.cpp:1157
+#: utils/formatting.cpp:1153
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "Ziurtagiria zure propio gisa markatuta dago."
 
-#: utils/formatting.cpp:1159
+#: utils/formatting.cpp:1155
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "Ziurtagiria hartzaile honi dagokio."
 
-#: utils/formatting.cpp:1161
+#: utils/formatting.cpp:1157
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
@@ -2676,86 +2676,86 @@ msgstr ""
 "Konfiantza ereduak bazterretik adierazten du ziurtagiria hartzaile honi "
 "dagokiola."
 
-#: utils/formatting.cpp:1163
+#: utils/formatting.cpp:1159
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "Ziurtagiri hau ez litzateke erabili behar."
 
-#: utils/formatting.cpp:1167
+#: utils/formatting.cpp:1163
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
 "Ez dago, ziurtagiri hori hartzaile horrena denik adierazten duen zantzurik."
 
-#: utils/formatting.cpp:1179
+#: utils/formatting.cpp:1175
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "Talde honek ez dauka gakorik."
 
-#: utils/formatting.cpp:1236
+#: utils/formatting.cpp:1232
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "ezezaguna"
 
-#: utils/formatting.cpp:1249
+#: utils/formatting.cpp:1245
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "ziurtatuta"
 
-#: utils/formatting.cpp:1264
+#: utils/formatting.cpp:1260
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "ziurtatu gabe"
 
-#: utils/formatting.cpp:1267
+#: utils/formatting.cpp:1263
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "egiaztatu gabe"
 
-#: utils/formatting.cpp:1276
+#: utils/formatting.cpp:1272
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "denak ziurtatuta"
 
-#: utils/formatting.cpp:1279
+#: utils/formatting.cpp:1275
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "denak ez daude ziurtatuta"
 
-#: utils/formatting.cpp:1312
+#: utils/formatting.cpp:1308
 #, kde-format
 msgid "Keyserver"
 msgstr "Gako-zerbitzaria"
 
-#: utils/formatting.cpp:1320
+#: utils/formatting.cpp:1316
 #, kde-format
 msgid "File import"
 msgstr "Fitxategi inportatzea"
 
-#: utils/formatting.cpp:1322
+#: utils/formatting.cpp:1318
 #, kde-format
 msgid "Generated"
 msgstr "Sortuta"
 
-#: utils/formatting.cpp:1326
+#: utils/formatting.cpp:1322
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: utils/formatting.cpp:1362
+#: utils/formatting.cpp:1358
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
 "Gako hori, '%1' aurkezteko, hein batean konfiantzadun gisa ziurtatzen du."
 
-#: utils/formatting.cpp:1366
+#: utils/formatting.cpp:1362
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
