@@ -305,7 +305,11 @@ static QByteArray make_input(const QStringList &files, char sep)
 {
     QByteArray result;
     for (const QString &file : files) {
+#ifdef Q_OS_WIN
+        result += file.toUtf8();
+#else
         result += QFile::encodeName(file);
+#endif
         result += sep;
     }
     return result;
