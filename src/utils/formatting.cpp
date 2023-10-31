@@ -86,6 +86,17 @@ QIcon Formatting::IconProvider::icon(const GpgME::Key &key) const
     return iconForValidity(primaryUserId);
 }
 
+QIcon Formatting::IconProvider::icon(const KeyGroup &group) const
+{
+    if (usage.canEncrypt() && !Kleo::all_of(group.keys(), Kleo::canBeUsedForEncryption)) {
+        return Formatting::errorIcon();
+    }
+    if (usage.canSign() && !Kleo::all_of(group.keys(), Kleo::canBeUsedForSigning)) {
+        return Formatting::errorIcon();
+    }
+    return validityIcon(group);
+}
+
 QIcon Formatting::successIcon()
 {
     return QIcon::fromTheme(QStringLiteral("emblem-success"));
