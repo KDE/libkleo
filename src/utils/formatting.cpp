@@ -1204,6 +1204,9 @@ bool allKeysAreCompliant(const Container &keys)
 
 QIcon Formatting::validityIcon(const KeyGroup &group)
 {
+    if (Kleo::any_of(group.keys(), std::mem_fn(&Key::isBad))) {
+        return Formatting::errorIcon();
+    }
     return iconForValidityAndCompliance(minimalValidity(group.keys()), allKeysAreCompliant(group.keys()));
 }
 
