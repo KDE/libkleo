@@ -45,6 +45,7 @@ public:
     }
 
     QIcon icon(const GpgME::Key &key) const;
+    QIcon icon(const KeyGroup &group) const;
 
 private:
     KeyUsage usage;
