@@ -86,6 +86,17 @@ QIcon Formatting::IconProvider::icon(const GpgME::Key &key) const
     return iconForValidity(primaryUserId);
 }
 
+QIcon Formatting::IconProvider::icon(const KeyGroup &group) const
+{
+    if (usage.canEncrypt() && !Kleo::all_of(group.keys(), Kleo::canBeUsedForEncryption)) {
+        return Formatting::errorIcon();
+    }
+    if (usage.canSign() && !Kleo::all_of(group.keys(), Kleo::canBeUsedForSigning)) {
+        return Formatting::errorIcon();
+    }
+    return validityIcon(group);
+}
+
 QIcon Formatting::successIcon()
 {
     return QIcon::fromTheme(QStringLiteral("emblem-success"));
@@ -1204,6 +1215,9 @@ bool allKeysAreCompliant(const Container &keys)
 
 QIcon Formatting::validityIcon(const KeyGroup &group)
 {
+    if (Kleo::any_of(group.keys(), std::mem_fn(&Key::isBad))) {
+        return Formatting::errorIcon();
+    }
     return iconForValidityAndCompliance(minimalValidity(group.keys()), allKeysAreCompliant(group.keys()));
 }
 
