@@ -45,7 +45,12 @@ public:
      * encryption subkeys as unusable, so that the users see that there is a
      * certificate, but that it cannot be used.
      */
-    explicit KeySelectionCombo(bool secretOnly, KeyUsage::Flags usage, QWidget *parent = nullptr);
+    explicit KeySelectionCombo(KeyUsage::Flags usage, QWidget *parent = nullptr);
+    /* Overload to help the compiler choose the correct overload if a KeyUsage::Flag is passed as first argument.
+     * Without this overload the compiler tries to use the bool-overload instead of the KeyUsage::Flags-overload
+     * and throws an error. */
+    explicit KeySelectionCombo(KeyUsage::Flag usage, QWidget *parent = nullptr);
+    KeySelectionCombo(bool secretOnly, KeyUsage::Flags usage, QWidget *parent = nullptr);
     ~KeySelectionCombo() override;
 
     void setKeyFilter(const std::shared_ptr<const KeyFilter> &kf);
