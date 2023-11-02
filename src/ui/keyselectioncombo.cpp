@@ -494,6 +494,16 @@ KeySelectionCombo::KeySelectionCombo(bool secretOnly, QWidget *parent)
 {
 }
 
+KeySelectionCombo::KeySelectionCombo(KeyUsage::Flags usage, QWidget *parent)
+    : KeySelectionCombo{false, usage, parent}
+{
+}
+
+KeySelectionCombo::KeySelectionCombo(KeyUsage::Flag usage, QWidget *parent)
+    : KeySelectionCombo{false, usage, parent}
+{
+}
+
 KeySelectionCombo::KeySelectionCombo(bool secretOnly, KeyUsage::Flags usage, QWidget *parent)
     : QComboBox(parent)
     , d(new KeySelectionComboPrivate(this, secretOnly, usage))
