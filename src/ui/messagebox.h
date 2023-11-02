@@ -18,17 +18,6 @@
 class QString;
 class QWidget;
 
-namespace GpgME
-{
-class SigningResult;
-class EncryptionResult;
-}
-
-namespace QGpgME
-{
-class Job;
-}
-
 namespace Kleo
 {
 class AuditLogEntry;

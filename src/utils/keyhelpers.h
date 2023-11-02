@@ -20,8 +20,6 @@
 #include <set>
 #include <vector>
 
-class QDate;
-
 namespace Kleo
 {
 
