@@ -146,6 +146,11 @@ static bool isMailFile(const QFileInfo &fi)
         return true;
     }
 
+    if (fileName.endsWith(QStringLiteral(".p7m")) && fi.completeSuffix() == fi.suffix()) {
+        // match "myfile.p7m" but not "myfile.pdf.p7m"
+        return true;
+    }
+
     QMimeDatabase mimeDatabase;
     const auto mimeType = mimeDatabase.mimeTypeForFile(fi);
     return mimeTypeInherits(mimeType, QStringLiteral("message/rfc822")) || mimeTypeInherits(mimeType, QStringLiteral("application/mbox"));
