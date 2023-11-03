@@ -44,17 +44,35 @@ private Q_SLOTS:
 
     void identifyMimeFileExtensionTest()
     {
-        QTemporaryFile mbox;
-        mbox.setFileTemplate("XXXXXX.mbox");
-        QVERIFY(mbox.open());
-        QVERIFY(Kleo::mayBeMimeFile(Kleo::classify(mbox.fileName())));
+        {
+            QTemporaryFile mbox;
+            mbox.setFileTemplate("XXXXXX.mbox");
+            QVERIFY(mbox.open());
+            QVERIFY(Kleo::mayBeMimeFile(Kleo::classify(mbox.fileName())));
+        }
 
-        QTemporaryFile eml;
-        eml.setFileTemplate("XXXXXX.eml");
-        QVERIFY(eml.open());
-        QVERIFY(Kleo::mayBeMimeFile(eml.fileName()));
+        {
+            QTemporaryFile eml;
+            eml.setFileTemplate("XXXXXX.eml");
+            QVERIFY(eml.open());
+            QVERIFY(Kleo::mayBeMimeFile(eml.fileName()));
 
-        QCOMPARE(QStringLiteral("Ascii, MimeFile"), Kleo::printableClassification(Kleo::classify(eml.fileName())));
+            QCOMPARE(QStringLiteral("Ascii, MimeFile"), Kleo::printableClassification(Kleo::classify(eml.fileName())));
+        }
+
+        {
+            QTemporaryFile myFile;
+            myFile.setFileTemplate("XXXXXX.p7m");
+            QVERIFY(myFile.open());
+            QVERIFY(Kleo::mayBeMimeFile(myFile.fileName()));
+        }
+
+        {
+            QTemporaryFile myPdfFile;
+            myPdfFile.setFileTemplate("XXXXXX.pdf.p7m");
+            QVERIFY(myPdfFile.open());
+            QVERIFY(!Kleo::mayBeMimeFile(myPdfFile.fileName()));
+        }
     }
 
     void identifyCertificateStoreExtensionTest()
