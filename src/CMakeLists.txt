@@ -331,6 +331,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
 
 kconfig_add_kcfg_files(KPim6Libkleo
   kcfg/expirycheckerconfigbase.kcfgc
+  kcfg/classifyconfig.kcfgc
 )
 
 install(FILES
@@ -349,6 +350,7 @@ install(FILES
     ${libkleo_models_HEADERS}
     ${libkleo_ui_HEADERS}
     ${libkleo_utils_HEADERS}
+    ${CMAKE_CURRENT_BINARY_DIR}/classifyconfig.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo/libkleo
     COMPONENT Devel
 )
