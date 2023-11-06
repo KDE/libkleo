@@ -142,7 +142,7 @@ bool KeyGroupConfig::Private::removeGroup(const KeyGroup &group)
     KConfigGroup configGroup = groupsConfig->group(groupNamePrefix + group.id());
 
     qCDebug(LIBKLEO_LOG) << __func__ << "Removing config group" << configGroup.name();
-    configGroup.deleteGroup();
+    configGroup.deleteGroup(QLatin1String());
 
     return true;
 }
