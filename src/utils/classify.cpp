@@ -12,6 +12,7 @@
 #include "classify.h"
 
 #include "algorithm.h"
+#include "classifyconfig.h"
 
 #include <libkleo/checksumdefinition.h>
 
@@ -146,9 +147,13 @@ static bool isMailFile(const QFileInfo &fi)
         return true;
     }
 
-    if (fileName.endsWith(QStringLiteral(".p7m")) && fi.completeSuffix() == fi.suffix()) {
-        // match "myfile.p7m" but not "myfile.pdf.p7m"
-        return true;
+    {
+        Kleo::ClassifyConfig classifyConfig;
+
+        if (classifyConfig.p7mWithoutExtensionAreEmail() && fileName.endsWith(QStringLiteral(".p7m")) && fi.completeSuffix() == fi.suffix()) {
+            // match "myfile.p7m" but not "myfile.pdf.p7m"
+            return true;
+        }
     }
 
     QMimeDatabase mimeDatabase;
