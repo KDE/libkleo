@@ -239,11 +239,6 @@ bool hasTrustedSignature(const GpgME::UserID &uid)
     if (!keyCache) {
         keyCache = Kleo::KeyCache::instance();
     }
-    if (!keyCache->initialized()) {
-        QEventLoop el;
-        QObject::connect(keyCache.get(), &Kleo::KeyCache::keyListingDone, &el, &QEventLoop::quit);
-        el.exec();
-    }
 
     const auto signatures = uid.signatures();
     std::vector<std::string> sigKeyIDs;
