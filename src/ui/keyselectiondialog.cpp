@@ -497,7 +497,7 @@ void KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
 
     if (qApp) {
         QSize dialogSize(sizeHint());
-        KConfigGroup dialogConfig(KSharedConfig::openStateConfig(), QLatin1String("Key Selection Dialog"));
+        KConfigGroup dialogConfig(KSharedConfig::openStateConfig(), QStringLiteral("Key Selection Dialog"));
         dialogSize = dialogConfig.readEntry("Dialog size", dialogSize);
         const QByteArray headerState = dialogConfig.readEntry("header", QByteArray());
         if (!headerState.isEmpty()) {
@@ -529,7 +529,7 @@ void KeySelectionDialog::init(bool rememberChoice, bool extendedSelection, const
 KeySelectionDialog::~KeySelectionDialog()
 {
     disconnectSignals();
-    KConfigGroup dialogConfig(KSharedConfig::openStateConfig(), QLatin1String("Key Selection Dialog"));
+    KConfigGroup dialogConfig(KSharedConfig::openStateConfig(), QStringLiteral("Key Selection Dialog"));
     dialogConfig.writeEntry("Dialog size", size());
     dialogConfig.writeEntry("header", mKeyListView->header()->saveState());
     dialogConfig.sync();

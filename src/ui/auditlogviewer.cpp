@@ -168,7 +168,7 @@ void AuditLogViewer::slotCopyClip()
 
 void AuditLogViewer::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String("AuditLogViewer"));
+    KConfigGroup group(KSharedConfig::openConfig(), QStringLiteral("AuditLogViewer"));
     const QSize size = group.readEntry("Size", QSize());
     if (size.isValid()) {
         resize(size);
@@ -179,7 +179,7 @@ void AuditLogViewer::readConfig()
 
 void AuditLogViewer::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String("AuditLogViewer"));
+    KConfigGroup group(KSharedConfig::openConfig(), QStringLiteral("AuditLogViewer"));
     group.writeEntry("Size", size());
     group.sync();
 }
