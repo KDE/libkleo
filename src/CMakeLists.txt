@@ -332,6 +332,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   RELATIVE ui
 )
 
+
 if (QT_MAJOR_VERSION STREQUAL "6")
 ecm_generate_pri_file(BASE_NAME Libkleo
     LIB_NAME KPim${KF_MAJOR_VERSION}Libkleo
@@ -346,6 +347,7 @@ endif()
 
 kconfig_add_kcfg_files(KPim${KF_MAJOR_VERSION}Libkleo
   kcfg/expirycheckerconfigbase.kcfgc
+  kcfg/classifyconfig.kcfgc
 )
 
 install(FILES
@@ -364,9 +366,11 @@ install(FILES
     ${libkleo_models_HEADERS}
     ${libkleo_ui_HEADERS}
     ${libkleo_utils_HEADERS}
+    ${CMAKE_CURRENT_BINARY_DIR}/classifyconfig.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/Libkleo/libkleo
     COMPONENT Devel
 )
+
 install(FILES
     ${PRI_FILENAME}
     DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
