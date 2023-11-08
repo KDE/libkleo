@@ -199,9 +199,6 @@ public Q_SLOTS:
     void cancelKeyListing();
 
 Q_SIGNALS:
-    // void changed( const GpgME::Key & key );
-    void aboutToRemove(const GpgME::Key &key);
-    void added(const GpgME::Key &key);
     void keyListingDone(const GpgME::KeyListResult &result);
     void keysMayHaveChanged();
     void groupAdded(const Kleo::KeyGroup &group);

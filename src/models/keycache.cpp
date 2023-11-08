@@ -1004,8 +1004,6 @@ void KeyCache::remove(const Key &key)
         return;
     }
 
-    Q_EMIT aboutToRemove(key);
-
     {
         const auto range = std::equal_range(d->by.fpr.begin(), d->by.fpr.end(), fpr, _detail::ByFingerprint<std::less>());
         d->by.fpr.erase(range.first, range.second);
@@ -1337,7 +1335,6 @@ void KeyCache::insert(const std::vector<Key> &keys)
 
     for (const Key &key : std::as_const(sorted)) {
         d->m_pgpOnly &= key.protocol() == GpgME::OpenPGP;
-        Q_EMIT added(key);
     }
 
     Q_EMIT keysMayHaveChanged();
