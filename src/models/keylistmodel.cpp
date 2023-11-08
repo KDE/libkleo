@@ -81,9 +81,16 @@ AbstractKeyListModel::Private::Private(Kleo::AbstractKeyListModel *qq)
 void AbstractKeyListModel::Private::updateFromKeyCache()
 {
     if (m_useKeyCache) {
+        const bool inReset = q->modelResetInProgress();
+        if (!inReset) {
+            q->beginResetModel();
+        }
         q->setKeys(m_keyListOptions == SecretKeysOnly ? KeyCache::instance()->secretKeys() : KeyCache::instance()->keys());
         if (m_keyListOptions == IncludeGroups) {
             q->setGroups(KeyCache::instance()->groups());
+        }
+        if (!inReset) {
+            q->endResetModel();
         }
     }
 }
@@ -216,10 +223,15 @@ QModelIndex AbstractKeyListModel::index(const KeyGroup &group, int col) const
 
 void AbstractKeyListModel::setKeys(const std::vector<Key> &keys)
 {
-    beginResetModel();
+    const bool inReset = modelResetInProgress();
+    if (!inReset) {
+        beginResetModel();
+    }
     clear(Keys);
     addKeys(keys);
-    endResetModel();
+    if (!inReset) {
+        endResetModel();
+    }
 }
 
 QModelIndex AbstractKeyListModel::addKey(const Key &key)
@@ -250,10 +262,15 @@ QList<QModelIndex> AbstractKeyListModel::addKeys(const std::vector<Key> &keys)
 
 void AbstractKeyListModel::setGroups(const std::vector<KeyGroup> &groups)
 {
-    beginResetModel();
+    const bool inReset = modelResetInProgress();
+    if (!inReset) {
+        beginResetModel();
+    }
     clear(Groups);
     doSetGroups(groups);
-    endResetModel();
+    if (!inReset) {
+        endResetModel();
+    }
 }
 
 QModelIndex AbstractKeyListModel::addGroup(const KeyGroup &group)
