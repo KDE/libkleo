@@ -9,12 +9,14 @@ set(KF_MIN_VERSION "5.105.0")
 
 if (WIN32)
   set(KF5_WANT_VERSION "5.104.0")
+  add_compile_definitions(GPG_ERR_ENABLE_GETTEXT_MACROS=1)
 else ()
   set(KF5_WANT_VERSION ${KF_MIN_VERSION})
 endif ()
 
 find_package(ECM ${KF5_WANT_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -48,6 +50,7 @@ endif()
 
 set(KDEPIMTEXTEDIT_VERSION "5.24.0")
 set(GPGME_REQUIRED_VERSION "1.20.0")
+set(GPG_ERROR_REQUIRED_VERSION "1.36")
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
 if (QT_MAJOR_VERSION STREQUAL "6")
@@ -71,6 +74,11 @@ if (Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.23.0")
 endif()
 set(QGPGME_NAME "QGpgme")
 find_package(${QGPGME_NAME} ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
+
+find_package(LibGpgError ${GPG_ERROR_REQUIRED_VERSION} REQUIRED)
+set_package_properties(LibGpgError PROPERTIES
+  TYPE REQUIRED
+)
 
 find_package(Boost 1.34.0)
 set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "https://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")

@@ -190,7 +190,8 @@ target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PUBLIC Gpgmepp PRIVATE Qt::
                                                 KF${KF_MAJOR_VERSION}::CoreAddons
                                                 KF${KF_MAJOR_VERSION}::WidgetsAddons
                                                 KF${KF_MAJOR_VERSION}::ItemModels
-                                                KF${KF_MAJOR_VERSION}::Codecs)
+                                                KF${KF_MAJOR_VERSION}::Codecs
+                                                LibGpgError::LibGpgError)
 
 if (QT_MAJOR_VERSION STREQUAL "6")
     target_link_libraries(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE Qt6::Core5Compat PUBLIC QGpgmeQt6)
