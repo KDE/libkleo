@@ -24,6 +24,8 @@
 #include <libkleo/keycache.h>
 #include <libkleo/keygroup.h>
 
+#include <libkleo_debug.h>
+
 #include <KEmailAddress>
 #include <KLocalizedString>
 
@@ -39,6 +41,8 @@
 
 #include <gpgme++/importresult.h>
 #include <gpgme++/key.h>
+
+#include <gpg-error.h>
 
 using namespace GpgME;
 using namespace Kleo;
@@ -1384,7 +1388,11 @@ QString Formatting::errorAsString(const GpgME::Error &error)
 {
 #ifdef Q_OS_WIN
     // On Windows, we set GpgME resp. libgpg-error to return (translated) error messages as UTF-8
-    return QString::fromUtf8(error.asString());
+    const char *s = error.asString();
+    qCDebug(LIBKLEO_LOG) << __func__ << "gettext_use_utf8(-1) returns" << gettext_use_utf8(-1);
+    qCDebug(LIBKLEO_LOG) << __func__ << "error:" << s;
+    qCDebug(LIBKLEO_LOG) << __func__ << "error (percent-encoded):" << QByteArray{s}.toPercentEncoding();
+    return QString::fromUtf8(s);
 #else
     return QString::fromLocal8Bit(error.asString());
 #endif
