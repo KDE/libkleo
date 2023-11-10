@@ -31,8 +31,8 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QGpgME/DefaultKeyGenerationJob>
-#include <QGpgME/Job>
+#include <QGpgME/Protocol>
+#include <QGpgME/QuickJob>
 
 #include <QButtonGroup>
 #include <QCheckBox>
@@ -48,6 +48,7 @@
 #include <QToolTip>
 #include <QVBoxLayout>
 
+#include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keygenerationresult.h>
 
@@ -389,7 +390,7 @@ public:
     void generateKey(KeySelectionCombo *combo)
     {
         const auto &addr = combo->property("address").toString();
-        auto job = new QGpgME::DefaultKeyGenerationJob(q);
+        auto job = QGpgME::openpgp()->quickJob();
         auto progress =
             new Kleo::ProgressDialog(job, i18n("Generating key for '%1'...", addr) + QStringLiteral("\n\n") + i18n("This can take several minutes."), q);
         progress->setWindowFlags(progress->windowFlags() & ~Qt::WindowContextHelpButtonHint);
@@ -400,10 +401,10 @@ public:
         progress->setValue(0);
 
         mRunningJobs << job;
-        connect(job, &QGpgME::DefaultKeyGenerationJob::result, q, [this, job, combo](const GpgME::KeyGenerationResult &result) {
-            handleKeyGenResult(result, job, combo);
+        connect(job, &QGpgME::QuickJob::result, q, [this, job, combo]() {
+            handleKeyGenResult(QGpgME::Job::context(job)->keyGenerationResult(), job, combo);
         });
-        job->start(addr, QString());
+        job->startCreate(addr, nullptr);
         return;
     }
 
