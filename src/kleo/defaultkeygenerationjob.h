@@ -24,8 +24,12 @@ namespace Kleo
  * Generates a PGP RSA/2048 bit key pair for given name and email address.
  *
  * @since 5.4
+ *
+ * This class is deprecated. GnuPG defaults to ECC keys and RSA 2048 is no
+ * longer allowed by some entities. Use QuickJob::startCreate from QGpgME
+ * instead.
  */
-class KLEO_EXPORT DefaultKeyGenerationJob : public QGpgME::Job
+class KLEO_DEPRECATED_EXPORT DefaultKeyGenerationJob : public QGpgME::Job
 {
     Q_OBJECT
 public:
