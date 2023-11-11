@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:43+0000\n"
+"POT-Creation-Date: 2023-11-11 00:43+0000\n"
 "PO-Revision-Date: 2023-07-14 00:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -156,8 +156,8 @@ msgstr "Dahili OpenPGP (eski)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:304
-#: ui/newkeyapprovaldialog.cpp:307
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2009,35 +2009,35 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Hata"
 
-#: ui/newkeyapprovaldialog.cpp:141
+#: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "Ayrıntıları Göster"
 
-#: ui/newkeyapprovaldialog.cpp:183
+#: ui/newkeyapprovaldialog.cpp:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "Eşleşen Anahtarları Göster"
 
-#: ui/newkeyapprovaldialog.cpp:184
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgid "Show keys matching the email address"
 msgstr "E-posta adresi ile eşleşen anahtarları göster"
 
-#: ui/newkeyapprovaldialog.cpp:187
+#: ui/newkeyapprovaldialog.cpp:188
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "Tümünü Göster"
 
-#: ui/newkeyapprovaldialog.cpp:188
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgid "Show all keys"
 msgstr "Tüm anahtarları göster"
 
-#: ui/newkeyapprovaldialog.cpp:271
+#: ui/newkeyapprovaldialog.cpp:272
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2052,67 +2052,67 @@ msgstr ""
 "Bu anahtarı korumak için bir anahtar parolası girmeniz istenecektir ve "
 "korunan anahtar ana dizininizde depolanacaktır."
 
-#: ui/newkeyapprovaldialog.cpp:296
+#: ui/newkeyapprovaldialog.cpp:297
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Güvenlik onayı"
 
-#: ui/newkeyapprovaldialog.cpp:303 ui/newkeyapprovaldialog.cpp:306
+#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
 #: utils/formatting.cpp:782
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:394
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1' için anahtar oluşturuluyor..."
 
-#: ui/newkeyapprovaldialog.cpp:394
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Bu, birkaç dakika sürebilir."
 
-#: ui/newkeyapprovaldialog.cpp:396
+#: ui/newkeyapprovaldialog.cpp:397
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Anahtar oluşturma"
 
-#: ui/newkeyapprovaldialog.cpp:427
+#: ui/newkeyapprovaldialog.cpp:428
 #, kde-format
 msgid "Operation Failed"
 msgstr "İşlem başarısız"
 
-#: ui/newkeyapprovaldialog.cpp:542 ui/newkeyapprovaldialog.cpp:638
+#: ui/newkeyapprovaldialog.cpp:543 ui/newkeyapprovaldialog.cpp:639
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Yeni bir anahtar çifti oluştur"
 
-#: ui/newkeyapprovaldialog.cpp:545
+#: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr "Kimliği ve bütünlüğü onaylama"
 
-#: ui/newkeyapprovaldialog.cpp:547
+#: ui/newkeyapprovaldialog.cpp:548
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "Bu e-posta, kriptografik olarak imzalanmayacak."
 
-#: ui/newkeyapprovaldialog.cpp:565
+#: ui/newkeyapprovaldialog.cpp:566
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "'%1' kimliğini farklı onayla:"
 
-#: ui/newkeyapprovaldialog.cpp:642
+#: ui/newkeyapprovaldialog.cpp:643
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Anahtar yok. Alıcı, şifre çözümü yapamayacak."
 
-#: ui/newkeyapprovaldialog.cpp:645
+#: ui/newkeyapprovaldialog.cpp:646
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2124,18 +2124,18 @@ msgstr ""
 "alacaktır; ancak onun yalnızca bu pencerede seçili diğer anahtarlar "
 "tarafından şifresi çözülebilir."
 
-#: ui/newkeyapprovaldialog.cpp:762
+#: ui/newkeyapprovaldialog.cpp:763
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Özüne şifrele (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:779
+#: ui/newkeyapprovaldialog.cpp:780
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Başkasına şifrele:"
 
-#: ui/newkeyapprovaldialog.cpp:817
+#: ui/newkeyapprovaldialog.cpp:818
 #, kde-format
 msgid "Generate"
 msgstr "Oluştur"

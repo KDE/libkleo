@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:43+0000\n"
+"POT-Creation-Date: 2023-11-11 00:43+0000\n"
 "PO-Revision-Date: 2005-09-17 12:47+0500\n"
 "Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
 "Language-Team: Tajik\n"
@@ -155,8 +155,8 @@ msgstr "Inline OpenPGP (deprecated)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:304
-#: ui/newkeyapprovaldialog.cpp:307
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -1848,35 +1848,35 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:141
+#: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:183
+#: ui/newkeyapprovaldialog.cpp:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:184
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgid "Show keys matching the email address"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:187
+#: ui/newkeyapprovaldialog.cpp:188
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:188
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:271
+#: ui/newkeyapprovaldialog.cpp:272
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -1887,70 +1887,70 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:296
+#: ui/newkeyapprovaldialog.cpp:297
 #, fuzzy, kde-format
 #| msgid "Encryption Key Approval"
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Таҳсини калиди рамзгузорӣ"
 
-#: ui/newkeyapprovaldialog.cpp:303 ui/newkeyapprovaldialog.cpp:306
+#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
 #: utils/formatting.cpp:782
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:394
+#: ui/newkeyapprovaldialog.cpp:395
 #, fuzzy, kde-format
 #| msgid "Generating DSA key..."
 msgid "Generating key for '%1'..."
 msgstr "Эҷоди калиди DSA..."
 
-#: ui/newkeyapprovaldialog.cpp:394
+#: ui/newkeyapprovaldialog.cpp:395
 #, kde-format
 msgid "This can take several minutes."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:396
+#: ui/newkeyapprovaldialog.cpp:397
 #, fuzzy, kde-format
 #| msgid "Key Selection"
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Интихоби калид "
 
-#: ui/newkeyapprovaldialog.cpp:427
+#: ui/newkeyapprovaldialog.cpp:428
 #, fuzzy, kde-format
 msgid "Operation Failed"
 msgstr "Хатои рамзгузорӣ: %1"
 
-#: ui/newkeyapprovaldialog.cpp:542 ui/newkeyapprovaldialog.cpp:638
+#: ui/newkeyapprovaldialog.cpp:543 ui/newkeyapprovaldialog.cpp:639
 #, kde-format
 msgid "Generate a new key pair"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:545
+#: ui/newkeyapprovaldialog.cpp:546
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:547
+#: ui/newkeyapprovaldialog.cpp:548
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:565
+#: ui/newkeyapprovaldialog.cpp:566
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:642
+#: ui/newkeyapprovaldialog.cpp:643
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:645
+#: ui/newkeyapprovaldialog.cpp:646
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1959,20 +1959,20 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:762
+#: ui/newkeyapprovaldialog.cpp:763
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Ҳеҷ гоҳ рамзгузорӣ накунед"
 
-#: ui/newkeyapprovaldialog.cpp:779
+#: ui/newkeyapprovaldialog.cpp:780
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt to others:"
 msgstr "Ҳеҷ гоҳ рамзгузорӣ накунед"
 
-#: ui/newkeyapprovaldialog.cpp:817
+#: ui/newkeyapprovaldialog.cpp:818
 #, fuzzy, kde-format
 msgid "Generate"
 msgstr "Хатои умумӣ."
