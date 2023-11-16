@@ -412,11 +412,16 @@ public:
     {
         mLastError = result.error();
         if (!mLastError || mLastError.isCanceled()) {
-            combo->setDefaultKey(QString::fromLatin1(result.fingerprint()), GpgME::OpenPGP);
             connect(combo, &KeySelectionCombo::keyListingFinished, q, [this, job]() {
                 mRunningJobs.removeAll(job);
             });
-            combo->refreshKeys();
+            // update all combos showing the GenerateKey item
+            for (auto c : std::as_const(mAllCombos)) {
+                if (c->currentData(Qt::UserRole).toInt() == GenerateKey) {
+                    c->setDefaultKey(QString::fromLatin1(result.fingerprint()), GpgME::OpenPGP);
+                    c->refreshKeys();
+                }
+            }
         } else {
             mRunningJobs.removeAll(job);
         }
