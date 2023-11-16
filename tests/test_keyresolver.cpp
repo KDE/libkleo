@@ -94,9 +94,6 @@ int main(int argc, char **argv)
     parser.process(app);
 
     const QStringList recps = parser.positionalArguments();
-    if (recps.size() < 1) {
-        parser.showHelp(1);
-    }
 
     auto cache = Kleo::KeyCache::mutableInstance();
     if (parser.isSet(QStringLiteral("group-config"))) {
@@ -104,7 +101,7 @@ int main(int argc, char **argv)
         cache->setGroupsEnabled(true);
     }
 
-    KeyResolver resolver(true, !parser.isSet(QStringLiteral("encrypt")));
+    KeyResolver resolver(!recps.empty(), !parser.isSet(QStringLiteral("encrypt")));
     resolver.setRecipients(recps);
     resolver.setSender(parser.value(QStringLiteral("sender")));
 

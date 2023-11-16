@@ -411,12 +411,17 @@ public:
     void handleKeyGenResult(const GpgME::KeyGenerationResult &result, QGpgME::Job *job, KeySelectionCombo *combo)
     {
         mLastError = result.error();
-        if (!mLastError || mLastError.isCanceled()) {
-            combo->setDefaultKey(QString::fromLatin1(result.fingerprint()), GpgME::OpenPGP);
+        if (!mLastError) {
             connect(combo, &KeySelectionCombo::keyListingFinished, q, [this, job]() {
                 mRunningJobs.removeAll(job);
             });
-            combo->refreshKeys();
+            // update all combos showing the GenerateKey item
+            for (auto c : std::as_const(mAllCombos)) {
+                if (c->currentData(Qt::UserRole).toInt() == GenerateKey) {
+                    c->setDefaultKey(QString::fromLatin1(result.fingerprint()), GpgME::OpenPGP);
+                    c->refreshKeys();
+                }
+            }
         } else {
             mRunningJobs.removeAll(job);
         }
@@ -424,7 +429,7 @@ public:
 
     void checkAccepted()
     {
-        if (mLastError || mLastError.isCanceled()) {
+        if (mLastError) {
             KMessageBox::error(q, Formatting::errorAsString(mLastError), i18n("Operation Failed"));
             mRunningJobs.clear();
             return;
