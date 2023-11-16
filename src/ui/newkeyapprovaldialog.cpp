@@ -411,7 +411,7 @@ public:
     void handleKeyGenResult(const GpgME::KeyGenerationResult &result, QGpgME::Job *job, KeySelectionCombo *combo)
     {
         mLastError = result.error();
-        if (!mLastError || mLastError.isCanceled()) {
+        if (!mLastError) {
             connect(combo, &KeySelectionCombo::keyListingFinished, q, [this, job]() {
                 mRunningJobs.removeAll(job);
             });
@@ -429,7 +429,7 @@ public:
 
     void checkAccepted()
     {
-        if (mLastError || mLastError.isCanceled()) {
+        if (mLastError) {
             KMessageBox::error(q, Formatting::errorAsString(mLastError), i18n("Operation Failed"));
             mRunningJobs.clear();
             return;
