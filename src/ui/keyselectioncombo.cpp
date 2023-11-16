@@ -568,8 +568,8 @@ void KeySelectionCombo::init()
         // so this can be a blocking call if the cache is not initialized
         if (!d->initialKeyListingDone) {
             d->model->useKeyCache(true, d->secretOnly ? KeyList::SecretKeysOnly : KeyList::AllKeys);
-            d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
         }
+        d->proxyModel->removeCustomItem(QStringLiteral("-libkleo-loading-keys"));
 
         // We use the useWasEnabled state variable to decide if we should
         // change the enable / disable state based on the keylist done signal.
