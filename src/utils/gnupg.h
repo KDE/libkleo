@@ -33,18 +33,33 @@ KLEO_EXPORT QString gpgPath();
 
 KLEO_EXPORT QString gpgConfListDir(const char *which);
 KLEO_EXPORT QString gpg4winInstallPath();
-// Returns the version number.
-KLEO_EXPORT QString gpg4winVersionNumber();
-// Returns the version number with an optional product specific prefix.
-KLEO_EXPORT QString gpg4winVersion();
-KLEO_EXPORT bool gpg4winSignedversion();
-KLEO_EXPORT QString gpg4winDescription();
-KLEO_EXPORT QString gpg4winLongDescription();
 KLEO_EXPORT QString gnupgInstallPath();
 KLEO_EXPORT const QString &paperKeyInstallPath();
 
-KLEO_EXPORT QString brandingWindowTitle();
-KLEO_EXPORT QString brandingIcon();
+/* Deprecated. Better read this from a settings file which
+ * can optionally be verified with gpgvVerify. */
+KLEO_DEPRECATED_EXPORT QString gpg4winVersionNumber();
+KLEO_DEPRECATED_EXPORT QString gpg4winVersion();
+KLEO_DEPRECATED_EXPORT bool gpg4winSignedversion();
+KLEO_DEPRECATED_EXPORT QString gpg4winDescription();
+KLEO_DEPRECATED_EXPORT QString gpg4winLongDescription();
+KLEO_DEPRECATED_EXPORT QString brandingWindowTitle();
+KLEO_DEPRECATED_EXPORT QString brandingIcon();
+
+/**
+ * Verify \p filePath using gpgv. If \p sigPath is provided it uses
+ * this signature, otherwise it adds .sig to the \p filePath. If
+ * \p keyring is provided that is the keyring where the signature is
+ * checked against. Otherwise it uses the default of gpgv.
+ * \p additionalSearchPaths can be used to specify where gpgv is
+ * searched for first.
+ *
+ * Blocks until the verification is done which can be indefinetly to
+ * allow for very large files.
+ *
+ * Returns true if the verification was successful, false if any problem
+ * occured. */
+KLEO_EXPORT bool gpgvVerify(const QString &filePath, const QString &sigPath = {}, const QString &keyring = {}, const QStringList &additionalSearchPaths = {});
 
 /**
  * Returns a list of filename globs of files in one of the whitelisted folders
