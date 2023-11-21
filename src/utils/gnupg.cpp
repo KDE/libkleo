@@ -757,3 +757,54 @@ const std::vector<std::string> &Kleo::ignoredAlgorithms()
     };
     return algos;
 }
+
+bool Kleo::gpgvVerify(const QString &filePath, const QString &sigPath, const QString &keyring, const QStringList &additionalSearchPaths)
+{
+    const QFileInfo verifyFi(filePath);
+    if (!verifyFi.isReadable()) {
+        return false;
+    } else {
+        qCDebug(LIBKLEO_LOG) << "Verifying" << filePath;
+    }
+
+    const auto gpgvPath = QStandardPaths::findExecutable(QStringLiteral("gpgv"), additionalSearchPaths);
+    if (gpgvPath.isEmpty()) {
+        qCDebug(LIBKLEO_LOG) << "Could not find gpgv";
+        return false;
+    }
+
+    QFileInfo sigFi;
+    if (!sigPath.isEmpty()) {
+        sigFi.setFile(sigPath);
+    } else {
+        sigFi.setFile(filePath + QStringLiteral(".sig"));
+    }
+
+    if (!sigFi.isReadable()) {
+        qCDebug(LIBKLEO_LOG) << "No signature found at" << sigFi.absoluteFilePath();
+        return false;
+    }
+
+    auto process = QProcess();
+    process.setProgram(gpgvPath);
+    QStringList args;
+    if (!keyring.isEmpty()) {
+        args << QStringLiteral("--keyring") << keyring;
+    }
+    args << QStringLiteral("--") << sigFi.absoluteFilePath() << verifyFi.absoluteFilePath();
+    process.setArguments(args);
+    qCDebug(LIBKLEO_LOG).nospace() << "Starting gpgv (" << gpgvPath << ") with arguments " << args.join(QLatin1Char(' ')) << " ...";
+    process.start();
+
+    if (!process.waitForFinished(-1)) {
+        qCDebug(LIBKLEO_LOG) << "Failed to execute gpgv" << process.errorString();
+    }
+    bool ret = (process.exitStatus() == QProcess::NormalExit && process.exitCode() == 0);
+
+    if (!ret) {
+        qCDebug(LIBKLEO_LOG) << "Failed to verify file";
+        qCDebug(LIBKLEO_LOG) << "gpgv stdout:" << QString::fromUtf8(process.readAllStandardOutput());
+        qCDebug(LIBKLEO_LOG) << "gpgv stderr:" << QString::fromUtf8(process.readAllStandardError());
+    }
+    return ret;
+}
