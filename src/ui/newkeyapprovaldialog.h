@@ -71,6 +71,9 @@ public:
     /** @brief The selected signing and/or encryption keys. Only valid after the dialog was accepted. */
     KeyResolver::Solution result();
 
+private Q_SLOTS:
+    void handleKeyGenResult();
+
 private:
     class Private;
     std::unique_ptr<Private> d;

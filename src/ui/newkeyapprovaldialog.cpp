@@ -389,6 +389,9 @@ public:
 
     void generateKey(KeySelectionCombo *combo)
     {
+        if (!mRunningJobs.empty()) {
+            return;
+        }
         const auto &addr = combo->property("address").toString();
         auto job = QGpgME::openpgp()->quickJob();
         auto progress =
@@ -401,9 +404,12 @@ public:
         progress->setValue(0);
 
         mRunningJobs << job;
-        connect(job, &QGpgME::QuickJob::result, q, [this, job, combo]() {
-            handleKeyGenResult(QGpgME::Job::context(job)->keyGenerationResult(), job, combo);
-        });
+        if (!connect(job, &QGpgME::QuickJob::result, q, [this, job, combo]() {
+                handleKeyGenResult(QGpgME::Job::context(job)->keyGenerationResult(), job, combo);
+            })) {
+            qCWarning(LIBKLEO_LOG) << "new-style connect failed; connecting to QGpgME::QuickJob::result the old way";
+            connect(job, SIGNAL(result(const GpgME::Error &)), q, SLOT(handleKeyGenResult()));
+        }
         job->startCreate(addr, nullptr);
         return;
     }
@@ -910,6 +916,17 @@ Kleo::NewKeyApprovalDialog::~NewKeyApprovalDialog() = default;
 KeyResolver::Solution NewKeyApprovalDialog::result()
 {
     return d->mAcceptedResult;
+}
+
+void NewKeyApprovalDialog::handleKeyGenResult()
+{
+    if (d->mRunningJobs.empty()) {
+        qCWarning(LIBKLEO_LOG) << __func__ << "No running job";
+    }
+    const auto job = d->mRunningJobs.front();
+    const auto result = QGpgME::Job::context(job)->keyGenerationResult();
+    const auto combo = d->findVisibleKeySelectionComboWithGenerateKey();
+    d->handleKeyGenResult(result, job, combo);
 }
 
 #include "newkeyapprovaldialog.moc"
