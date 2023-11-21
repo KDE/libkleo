@@ -35,8 +35,14 @@ Kleo::ProgressDialog::ProgressDialog(QGpgME::Job *job, const QString &baseText, 
     setModal(false);
     setRange(0, 0); // activate busy indicator
 
-    connect(job, &QGpgME::Job::jobProgress, this, &ProgressDialog::slotProgress);
-    connect(job, &QGpgME::Job::done, this, &ProgressDialog::slotDone);
+    if (!connect(job, &QGpgME::Job::jobProgress, this, &ProgressDialog::slotProgress)) {
+        qCWarning(KLEO_UI_LOG) << "new-style connect failed; connecting to QGpgME::Job::jobProgress the old way";
+        connect(job, SIGNAL(jobProgress(int, int)), this, SLOT(slotProgress(int, int)));
+    }
+    if (!connect(job, &QGpgME::Job::done, this, &ProgressDialog::slotDone)) {
+        qCWarning(KLEO_UI_LOG) << "new-style connect failed; connecting to QGpgME::Job::done the old way";
+        connect(job, SIGNAL(done()), this, SLOT(slotDone()));
+    }
     connect(this, &QProgressDialog::canceled, job, &QGpgME::Job::slotCancel);
 
     QTimer::singleShot(minimumDuration(), this, &ProgressDialog::forceShow);
