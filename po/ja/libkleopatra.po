@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 01:38+0000\n"
+"POT-Creation-Date: 2023-11-22 01:36+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1883,55 +1883,55 @@ msgstr "セキュリティの承認"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:395
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1' の鍵を生成..."
 
-#: ui/newkeyapprovaldialog.cpp:395
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "This can take several minutes."
 msgstr "数分かかることがあります。"
 
-#: ui/newkeyapprovaldialog.cpp:397
+#: ui/newkeyapprovaldialog.cpp:400
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "鍵生成"
 
-#: ui/newkeyapprovaldialog.cpp:433
+#: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
 msgid "Operation Failed"
 msgstr "操作に失敗しました"
 
-#: ui/newkeyapprovaldialog.cpp:548 ui/newkeyapprovaldialog.cpp:644
+#: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "新しい鍵ペアを生成"
 
-#: ui/newkeyapprovaldialog.cpp:551
+#: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Don't confirm identity and integrity"
 msgstr "アイデンティティと一貫性を確かめない"
 
-#: ui/newkeyapprovaldialog.cpp:553
+#: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "このメールは暗号的に署名されません。"
 
-#: ui/newkeyapprovaldialog.cpp:571
+#: ui/newkeyapprovaldialog.cpp:577
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "'%1' のアイデンティティを確認する:"
 
-#: ui/newkeyapprovaldialog.cpp:648
+#: ui/newkeyapprovaldialog.cpp:654
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "鍵がありません。宛先では復号できないでしょう。"
 
-#: ui/newkeyapprovaldialog.cpp:651
+#: ui/newkeyapprovaldialog.cpp:657
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -1942,18 +1942,18 @@ msgstr ""
 "この宛先に鍵を選定しない。<br/><br/>この宛先は暗号化されたメールを受けとりま"
 "すが、このダイアログで選定されたほかの鍵でしか復号できません。"
 
-#: ui/newkeyapprovaldialog.cpp:768
+#: ui/newkeyapprovaldialog.cpp:774
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "自分宛に暗号化する (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:791
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "ほかの人向けに暗号化する:"
 
-#: ui/newkeyapprovaldialog.cpp:823
+#: ui/newkeyapprovaldialog.cpp:829
 #, kde-format
 msgid "Generate"
 msgstr "生成"
