@@ -36,16 +36,6 @@ KLEO_EXPORT QString gpg4winInstallPath();
 KLEO_EXPORT QString gnupgInstallPath();
 KLEO_EXPORT const QString &paperKeyInstallPath();
 
-/* Deprecated. Better read this from a settings file which
- * can optionally be verified with gpgvVerify. */
-KLEO_DEPRECATED_EXPORT QString gpg4winVersionNumber();
-KLEO_DEPRECATED_EXPORT QString gpg4winVersion();
-KLEO_DEPRECATED_EXPORT bool gpg4winSignedversion();
-KLEO_DEPRECATED_EXPORT QString gpg4winDescription();
-KLEO_DEPRECATED_EXPORT QString gpg4winLongDescription();
-KLEO_DEPRECATED_EXPORT QString brandingWindowTitle();
-KLEO_DEPRECATED_EXPORT QString brandingIcon();
-
 /**
  * Verify \p filePath using gpgv. If \p sigPath is provided it uses
  * this signature, otherwise it adds .sig to the \p filePath. If
