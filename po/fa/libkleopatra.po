@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 00:43+0000\n"
+"POT-Creation-Date: 2023-11-23 00:42+0000\n"
 "PO-Revision-Date: 2007-08-20 16:45+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2597,12 +2597,6 @@ msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr ""
 
-#: utils/gnupg.cpp:164
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
-msgid "Certificate Manager and Unified Crypto GUI"
-msgstr "خطای مدیر گواهی‌نامه"
-
 #: utils/hex.cpp:35
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
@@ -2612,6 +2606,11 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Certificate Manager Error"
+#~ msgid "Certificate Manager and Unified Crypto GUI"
+#~ msgstr "خطای مدیر گواهی‌نامه"
 
 #~ msgid "Signing failed: %1"
 #~ msgstr "خرابی در امضا: %1"
