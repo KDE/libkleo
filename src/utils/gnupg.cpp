@@ -37,7 +37,6 @@
 #include <QFile>
 #include <QPointer>
 #include <QProcess>
-#include <QRegExp>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QString>
@@ -226,9 +225,11 @@ static std::array<int, 3> getVersionFromString(const char *actual, bool &ok)
     QString versionString = QString::fromLatin1(actual);
 
     // Try to fix it up
-    QRegExp rx(QLatin1String(R"((\d+)\.(\d+)\.(\d+)(?:-svn\d+)?.*)"));
+    QRegularExpression rx(QRegularExpression::anchoredPattern(QLatin1String(R"((\d+)\.(\d+)\.(\d+)(?:-svn\d+)?.*)")));
+    QRegularExpressionMatch match;
     for (int i = 0; i < 3; i++) {
-        if (!rx.exactMatch(versionString)) {
+        match = rx.match(versionString);
+        if (!match.hasMatch()) {
             versionString += QStringLiteral(".0");
         } else {
             ok = true;
@@ -242,7 +243,7 @@ static std::array<int, 3> getVersionFromString(const char *actual, bool &ok)
     }
 
     for (int i = 0; i < 3; ++i) {
-        ret[i] = rx.cap(i + 1).toUInt(&ok);
+        ret[i] = match.capturedView(i + 1).toUInt(&ok);
         if (!ok) {
             return ret;
         }
