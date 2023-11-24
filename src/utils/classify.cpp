@@ -25,7 +25,6 @@
 #include <QFileInfo>
 #include <QMap>
 #include <QMimeDatabase>
-#include <QRegExp>
 #include <QRegularExpression>
 #include <QString>
 
@@ -340,7 +339,7 @@ bool Kleo::isFingerprint(const QString &fpr)
 bool Kleo::isChecksumFile(const QString &file)
 {
     static bool initialized;
-    static QList<QRegExp> patterns;
+    static QList<QRegularExpression> patterns;
     const QFileInfo fi(file);
     if (!fi.exists()) {
         return false;
@@ -352,9 +351,9 @@ bool Kleo::isChecksumFile(const QString &file)
                 const auto patternsList = cd->patterns();
                 for (const QString &pattern : patternsList) {
 #ifdef Q_OS_WIN
-                    patterns << QRegExp(pattern, Qt::CaseInsensitive);
+                    patterns << QRegularExpression(QRegularExpression::anchoredPattern(pattern), QRegularExpression::CaseInsensitiveOption);
 #else
-                    patterns << QRegExp(pattern, Qt::CaseSensitive);
+                    patterns << QRegularExpression(QRegularExpression::anchoredPattern(pattern));
 #endif
                 }
             }
@@ -363,8 +362,8 @@ bool Kleo::isChecksumFile(const QString &file)
     }
 
     const QString fileName = fi.fileName();
-    for (const QRegExp &pattern : std::as_const(patterns)) {
-        if (pattern.exactMatch(fileName)) {
+    for (const QRegularExpression &pattern : std::as_const(patterns)) {
+        if (pattern.match(fileName).hasMatch()) {
             return true;
         }
     }
