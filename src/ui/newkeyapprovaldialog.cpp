@@ -232,6 +232,22 @@ Key findfirstKeyOfType(const std::vector<Key> &keys, GpgME::Protocol protocol)
 
 } // namespace
 
+class ScrollArea : public QScrollArea
+{
+public:
+    QSize sizeHint() const override
+    {
+        return viewportSizeHint();
+    }
+
+    QSize minimumSizeHint() const override
+    {
+        const auto size = viewportSizeHint();
+        const auto desk = screen()->size();
+        return QSize(desk.width() / 3, qMin(size.height(), (int)(desk.height() * 0.90))); // max 90% of screen height
+    }
+};
+
 class NewKeyApprovalDialog::Private
 {
 private:
@@ -285,7 +301,7 @@ public:
         });
         QObject::connect(btnBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
 
-        mScrollArea = new QScrollArea;
+        mScrollArea = new ScrollArea;
         mScrollArea->setWidget(new QWidget);
         mScrollLayout = new QVBoxLayout;
         mScrollArea->widget()->setLayout(mScrollLayout);
