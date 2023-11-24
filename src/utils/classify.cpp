@@ -87,10 +87,14 @@ static const QSet<QString> mimeFileNames{
     /* KMail standard name */
     QStringLiteral("msg.asc"),
     QStringLiteral("smime.p7m"),
-    /* Old names of GpgOL attachments newer versions
-     * should use .mim file ending. */
     QStringLiteral("openpgp-encrypted-message.asc"),
+    /* Old names of internal GpgOL attachments newer versions
+     * should use .mime file ending as it is connected with
+     * Kleopatra. */
     QStringLiteral("GpgOL_MIME_structure.txt"),
+    QStringLiteral("GpgOL_MIME_structure.mime"),
+    /* This is gpgtools take on the filename */
+    QStringLiteral("OpenPGP encrypted message.asc"),
 };
 
 static const unsigned int defaultClassification = NoClass;
