@@ -165,7 +165,7 @@ int main(int argc, char **argv)
     aboutData.processCommandLine(&parser);
 
     auto keygen = new KeyGenerator(nullptr);
-    keygen->setObjectName(QStringLiteral("KeyGenerator top-level"));
+    keygen->setObjectName(QLatin1StringView("KeyGenerator top-level"));
     keygen->show();
 
     return app.exec();

@@ -53,20 +53,20 @@ AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     QDialogButtonBox *buttonBox = new QDialogButtonBox{};
 
     auto copyClipBtn = buttonBox->addButton(i18n("&Copy to Clipboard"), QDialogButtonBox::ActionRole);
-    copyClipBtn->setObjectName(QStringLiteral("copyClipBtn"));
+    copyClipBtn->setObjectName(QLatin1StringView("copyClipBtn"));
     copyClipBtn->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     connect(copyClipBtn, &QPushButton::clicked, this, &AuditLogViewer::slotCopyClip);
 
     auto saveAsBtn = buttonBox->addButton(i18n("&Save to Disk..."), QDialogButtonBox::ActionRole);
-    saveAsBtn->setObjectName(QStringLiteral("saveAsBtn"));
+    saveAsBtn->setObjectName(QLatin1StringView("saveAsBtn"));
     saveAsBtn->setIcon(QIcon::fromTheme(QStringLiteral("document-save-as")));
     connect(saveAsBtn, &QPushButton::clicked, this, &AuditLogViewer::slotSaveAs);
 
     auto closeBtn = buttonBox->addButton(QString{}, QDialogButtonBox::AcceptRole);
-    closeBtn->setObjectName(QStringLiteral("Close"));
+    closeBtn->setObjectName(QLatin1StringView("Close"));
     KGuiItem::assign(closeBtn, KStandardGuiItem::close());
 
-    m_textEdit->setObjectName(QStringLiteral("m_textEdit"));
+    m_textEdit->setObjectName(QLatin1StringView("m_textEdit"));
     m_textEdit->setReadOnly(true);
 
     auto mainLayout = new QVBoxLayout(this);

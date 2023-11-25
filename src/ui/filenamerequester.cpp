@@ -70,12 +70,12 @@ FileNameRequester::FileNameRequesterPrivate::FileNameRequesterPrivate(FileNameRe
     , existingOnly(true)
 {
 #ifndef QT_NO_DIRMODEL
-    dirmodel.setObjectName(QStringLiteral("dirmodel"));
-    completer.setObjectName(QStringLiteral("completer"));
+    dirmodel.setObjectName(QLatin1StringView("dirmodel"));
+    completer.setObjectName(QLatin1StringView("completer"));
 #endif
-    lineedit.setObjectName(QStringLiteral("lineedit"));
-    button.setObjectName(QStringLiteral("button"));
-    hlay.setObjectName(QStringLiteral("hlay"));
+    lineedit.setObjectName(QLatin1StringView("lineedit"));
+    button.setObjectName(QLatin1StringView("button"));
+    hlay.setObjectName(QLatin1StringView("hlay"));
 
     button.setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     button.setToolTip(i18n("Open file dialog"));

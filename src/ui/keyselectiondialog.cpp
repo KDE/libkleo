@@ -450,7 +450,7 @@ void KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
     connect(mStartSearchTimer, &QTimer::timeout, this, &KeySelectionDialog::slotFilter);
 
     mKeyListView = new KeyListView(new ColumnStrategy(mKeyUsage), nullptr, page);
-    mKeyListView->setObjectName(QStringLiteral("mKeyListView"));
+    mKeyListView->setObjectName(QLatin1StringView("mKeyListView"));
     mKeyListView->header()->stretchLastSection();
     mKeyListView->setRootIsDecorated(true);
     mKeyListView->setSortingEnabled(true);
