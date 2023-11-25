@@ -126,6 +126,8 @@ ecm_qt_declare_logging_category(KPim${KF_MAJOR_VERSION}Libkleo HEADER libkleo_de
 
 
 target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
+   ui/adjustingscrollarea.cpp
+   ui/adjustingscrollarea.h
    ui/auditlogviewer.cpp
    ui/auditlogviewer.h
    ui/cryptoconfigentryreaderport.cpp
@@ -311,6 +313,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   HEADER_NAMES
+  AdjustingScrollArea
   AuditLogViewer
   CryptoConfigModule
   DNAttributeOrderConfigWidget
