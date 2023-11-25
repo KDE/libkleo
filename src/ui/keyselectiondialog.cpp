@@ -43,7 +43,7 @@
 #include <QMenu>
 #include <QProcess>
 #include <QPushButton>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QScrollBar>
 #include <QTimer>
 #include <QVBoxLayout>
@@ -943,8 +943,8 @@ void KeySelectionDialog::slotFilter()
     }
 
     // OK, so we need to filter:
-    QRegExp keyIdRegExp(QLatin1String("(?:0x)?[A-F0-9]{1,8}"), Qt::CaseInsensitive);
-    if (keyIdRegExp.exactMatch(mSearchText)) {
+    QRegularExpression keyIdRegExp(QRegularExpression::anchoredPattern(QLatin1String("(?:0x)?[A-F0-9]{1,8}")), QRegularExpression::CaseInsensitiveOption);
+    if (keyIdRegExp.match(mSearchText).hasMatch()) {
         if (mSearchText.startsWith(QLatin1String("0X")))
         // search for keyID only:
         {
@@ -973,7 +973,7 @@ void KeySelectionDialog::filterByKeyID(const QString &keyID)
     }
 }
 
-static bool anyUIDMatches(const KeyListViewItem *item, QRegExp &rx)
+static bool anyUIDMatches(const KeyListViewItem *item, const QRegularExpression &rx)
 {
     if (!item) {
         return false;
@@ -981,7 +981,7 @@ static bool anyUIDMatches(const KeyListViewItem *item, QRegExp &rx)
 
     const std::vector<GpgME::UserID> uids = item->key().userIDs();
     for (auto it = uids.begin(); it != uids.end(); ++it) {
-        if (it->id() && rx.indexIn(QString::fromUtf8(it->id())) >= 0) {
+        if (it->id() && rx.match(QString::fromUtf8(it->id())).hasMatch()) {
             return true;
         }
     }
@@ -993,7 +993,7 @@ void KeySelectionDialog::filterByKeyIDOrUID(const QString &str)
     Q_ASSERT(!str.isEmpty());
 
     // match beginnings of words:
-    QRegExp rx(QLatin1String("\\b") + QRegExp::escape(str), Qt::CaseInsensitive);
+    QRegularExpression rx(QLatin1String("\\b") + QRegularExpression::escape(str), QRegularExpression::CaseInsensitiveOption);
 
     for (KeyListViewItem *item = mKeyListView->firstChild(); item; item = item->nextSibling()) {
         item->setHidden(!item->text(0).toUpper().startsWith(str) && !anyUIDMatches(item, rx));
@@ -1005,7 +1005,7 @@ void KeySelectionDialog::filterByUID(const QString &str)
     Q_ASSERT(!str.isEmpty());
 
     // match beginnings of words:
-    QRegExp rx(QLatin1String("\\b") + QRegExp::escape(str), Qt::CaseInsensitive);
+    QRegularExpression rx(QLatin1String("\\b") + QRegularExpression::escape(str), QRegularExpression::CaseInsensitiveOption);
 
     for (KeyListViewItem *item = mKeyListView->firstChild(); item; item = item->nextSibling()) {
         item->setHidden(!anyUIDMatches(item, rx));
