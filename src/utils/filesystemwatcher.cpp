@@ -17,7 +17,7 @@
 
 #include <QDir>
 #include <QFileSystemWatcher>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QString>
 #include <QTimer>
 
@@ -65,7 +65,7 @@ FileSystemWatcher::Private::Private(FileSystemWatcher *qq, const QStringList &pa
 static bool is_matching(const QString &file, const QStringList &list)
 {
     for (const QString &entry : list) {
-        if (QRegExp(entry, Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(file)) {
+        if (QRegularExpression::fromWildcard(entry, Qt::CaseInsensitive).match(file).hasMatch()) {
             return true;
         }
     }

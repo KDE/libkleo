@@ -41,7 +41,6 @@
 #include <QLabel>
 #include <QLayout>
 #include <QPushButton>
-#include <QRegExp>
 #include <QRegularExpression>
 #include <QScreen>
 #include <QScrollArea>
@@ -599,7 +598,7 @@ CryptoConfigEntryGUI *Kleo::CryptoConfigEntryGUIFactory::createEntryGUI(CryptoCo
     // try to lookup by path:
     const QString path = entry->path();
     for (unsigned int i = 0; i < numWidgetsByEntryName; ++i) {
-        if (QRegExp(QLatin1String(widgetsByEntryName[i].entryGlob), Qt::CaseSensitive, QRegExp::Wildcard).exactMatch(path)) {
+        if (QRegularExpression::fromWildcard(QString::fromLatin1(widgetsByEntryName[i].entryGlob), Qt::CaseSensitive).match(path).hasMatch()) {
             return widgetsByEntryName[i].create(module, entry, entryName, glay, widget);
         }
     }
