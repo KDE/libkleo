@@ -1,5 +1,5 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
-    utils/adjustingscrollarea.cpp
+    ui/adjustingscrollarea.cpp
 
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
