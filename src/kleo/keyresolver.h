@@ -61,19 +61,33 @@ class KLEO_EXPORT KeyResolver : public QObject
 public:
     /**
      * Solution represents the solution found by the KeyResolver.
-     * @a protocol hints at the protocol of the signing and encryption keys,
-     * i.e. if @a protocol is either @c GpgME::OpenPGP or @c GpgME::CMS, then
-     * all keys have the corresponding protocol. Otherwise, the keys have
-     * mixed protocols.
-     * @a signingKeys contains the signing keys to use. It contains
-     * zero or one OpenPGP key and zero or one S/MIME key.
-     * @a encryptionKeys contains the encryption keys to use for the
-     * different recipients. The keys of the map represent the normalized
-     * email addresses of the recipients.
      */
     struct Solution {
+        /**
+         * This property holds a hint at the protocol of the signing and encryption
+         * keys, i.e. if @p protocol is either @c GpgME::OpenPGP or @c GpgME::CMS,
+         * then all keys have the corresponding protocol. Otherwise, the keys have
+         * mixed protocols.
+         */
         GpgME::Protocol protocol = GpgME::UnknownProtocol;
+
+        /**
+         * This property contains the signing keys to use. It contains zero or one
+         * OpenPGP key and zero or one S/MIME key.
+         */
         std::vector<GpgME::Key> signingKeys;
+
+        /**
+         * This property contains the encryption keys to use for the different recipients.
+         *
+         * The list of keys will contains for regular users either one S/MIME key
+         * or one OpenPGP key. For group of users, the list of keys will instead returns
+         * the key required to encrypt for every member of the group.
+         *
+         * The keys of the map represent the normalized email addresses of the recipients.
+         *
+         * @see Kleo::KeyGroup
+         */
         QMap<QString, std::vector<GpgME::Key>> encryptionKeys;
     };
 
