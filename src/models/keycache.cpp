@@ -929,7 +929,7 @@ std::vector<Key> KeyCache::findIssuers(const Key &key, Options options) const
         return result;
     }
 
-    const Key &issuer = findByFingerprint(key.chainID());
+    Key issuer = findByFingerprint(key.chainID());
 
     if (issuer.isNull()) {
         return result;
@@ -941,8 +941,8 @@ std::vector<Key> KeyCache::findIssuers(const Key &key, Options options) const
         return result;
     }
 
-    while (true) {
-        const Key &issuer = findByFingerprint(result.back().chainID());
+    while (!issuer.isRoot()) {
+        issuer = findByFingerprint(result.back().chainID());
         if (issuer.isNull()) {
             break;
         }
@@ -950,9 +950,10 @@ std::vector<Key> KeyCache::findIssuers(const Key &key, Options options) const
             return _detail::ByFingerprint<std::equal_to>()(issuer, key);
         });
         // we also add the issuer if the chain already contains it, so that
-        // the user can spot the recursion
+        // the user can spot the cycle
         result.push_back(issuer);
-        if (issuer.isRoot() || chainAlreadyContainsIssuer) {
+        if (chainAlreadyContainsIssuer) {
+            // break on cycle in chain
             break;
         }
     }
