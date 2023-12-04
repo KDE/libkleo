@@ -80,9 +80,9 @@ public:
         /**
          * This property contains the encryption keys to use for the different recipients.
          *
-         * The list of keys will contains for regular users either one S/MIME key
-         * or one OpenPGP key. For group of users, the list of keys will instead returns
-         * the key required to encrypt for every member of the group.
+         * The list of keys will contain for regular users either one S/MIME key
+         * or one OpenPGP key. For a group address, the list of keys will instead contain
+         * the keys required to encrypt for every member of the group.
          *
          * The keys of the map represent the normalized email addresses of the recipients.
          *
