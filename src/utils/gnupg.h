@@ -78,16 +78,24 @@ KLEO_EXPORT bool engineIsVersion(int major, int minor, int patch, GpgME::Engine 
 
 /** Returns true, if GnuPG knows which keyserver to use for keyserver
  *  operations.
+ *
+ *  Since GnuPG 2.2.42/2.4.4 dirmngr supports the special value "none"
+ *  to disable usage of the default keyserver. If this value is configured
+ *  and GnuPG is new enough then this function returns false.
  *  Since version 2.1.19 GnuPG has a builtin default keyserver, so that this
- *  function always returns true. For older versions of GnuPG it checks if
- *  a keyserver has been configured.
+ *  function always returns true (unless the above applies).
+ *  For older versions of GnuPG it checks if a keyserver has been configured.
  */
 KLEO_EXPORT bool haveKeyserverConfigured();
 
 /** Returns the configured keyserver or an empty string if no keyserver is
- *  configured.
+ *  configured. The special value "none" indicates that no keyserver shall
+ *  be used.
+ *
  *  Note: Since GnuPG 2.1.19 gpg/dirmngr uses a default keyserver if no
  *        keyserver is configured.
+ *        Since GnuPG 2.2.42/2.4.4 dirmngr supports the special value "none"
+ *        to disable usage of the default keyserver.
  */
 KLEO_EXPORT QString keyserver();
 
