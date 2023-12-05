@@ -310,6 +310,10 @@ const QString &Kleo::paperKeyInstallPath()
 
 bool Kleo::haveKeyserverConfigured()
 {
+    if (engineIsVersion(2, 4, 4) //
+        || (engineIsVersion(2, 2, 42) && !engineIsVersion(2, 3, 0))) {
+        return Kleo::keyserver() != QLatin1String{"none"};
+    }
     if (engineIsVersion(2, 1, 19)) {
         // since 2.1.19 there is a builtin keyserver
         return true;
@@ -322,6 +326,10 @@ QString Kleo::keyserver()
     QString result = getCryptoConfigStringValue("gpg", "keyserver");
     if (result.isEmpty()) {
         result = getCryptoConfigStringValue("dirmngr", "keyserver");
+    }
+    if (result.endsWith(QLatin1String{"://none"})) {
+        // map hkps://none, etc., to "none"; see https://dev.gnupg.org/T6708
+        result = QStringLiteral("none");
     }
     return result;
 }
