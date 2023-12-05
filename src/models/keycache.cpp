@@ -872,42 +872,49 @@ std::vector<Key> KeyCache::Private::find_mailbox(const QString &email, bool sign
 
 std::vector<Key> KeyCache::findSubjects(const GpgME::Key &key, Options options) const
 {
+    if (key.isNull()) {
+        return {};
+    }
+
     return findSubjects(std::vector<Key>(1, key), options);
 }
 
 std::vector<Key> KeyCache::findSubjects(const std::vector<Key> &keys, Options options) const
 {
-    return findSubjects(keys.begin(), keys.end(), options);
-}
-
-std::vector<Key> KeyCache::findSubjects(std::vector<Key>::const_iterator first, std::vector<Key>::const_iterator last, Options options) const
-{
-    if (first == last) {
-        return std::vector<Key>();
-    }
-
     std::vector<Key> result;
-    while (first != last) {
-        const auto pair = d->find_subjects(first->primaryFingerprint());
-        result.insert(result.end(), pair.first, pair.second);
-        ++first;
+
+    if (keys.empty()) {
+        return result;
     }
 
-    std::sort(result.begin(), result.end(), _detail::ByFingerprint<std::less>());
-    result.erase(std::unique(result.begin(), result.end(), _detail::ByFingerprint<std::equal_to>()), result.end());
+    // get the immediate subjects
+    for (const auto &key : keys) {
+        const auto firstAndLastSubject = d->find_subjects(key.primaryFingerprint());
+        result.insert(result.end(), firstAndLastSubject.first, firstAndLastSubject.second);
+    }
+    // remove duplicates
+    _detail::sort_by_fpr(result);
+    _detail::remove_duplicates_by_fpr(result);
 
     if (options & RecursiveSearch) {
-        const std::vector<Key> furtherSubjects = findSubjects(result, options);
-        std::vector<Key> combined;
-        combined.reserve(result.size() + furtherSubjects.size());
-        std::merge(result.begin(),
-                   result.end(),
-                   furtherSubjects.begin(),
-                   furtherSubjects.end(),
-                   std::back_inserter(combined),
-                   _detail::ByFingerprint<std::less>());
-        combined.erase(std::unique(combined.begin(), combined.end(), _detail::ByFingerprint<std::equal_to>()), combined.end());
-        result.swap(combined);
+        for (std::vector<Key> furtherSubjects = findSubjects(result, NoOption); //
+             !furtherSubjects.empty();
+             furtherSubjects = findSubjects(furtherSubjects, NoOption)) {
+            std::vector<Key> combined;
+            combined.reserve(result.size() + furtherSubjects.size());
+            std::merge(result.begin(),
+                       result.end(),
+                       furtherSubjects.begin(),
+                       furtherSubjects.end(),
+                       std::back_inserter(combined),
+                       _detail::ByFingerprint<std::less>());
+            _detail::remove_duplicates_by_fpr(combined);
+            if (result.size() == combined.size()) {
+                // no new subjects were found; this happens if a chain has a cycle
+                break;
+            }
+            result.swap(combined);
+        }
     }
 
     return result;
