@@ -80,6 +80,8 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    models/subkeylistmodel.h
    models/useridlistmodel.cpp
    models/useridlistmodel.h
+   models/useridproxymodel.cpp
+   models/useridproxymodel.h
    utils/algorithm.h
    utils/assuan.cpp
    utils/assuan.h
@@ -280,6 +282,7 @@ ecm_generate_headers(libkleo_CamelCase_models_HEADERS
   KeyRearrangeColumnsProxyModel
   SubkeyListModel
   UserIDListModel
+  UserIDProxyModel
   REQUIRED_HEADERS libkleo_models_HEADERS
   PREFIX Libkleo
   RELATIVE models

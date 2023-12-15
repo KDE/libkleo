@@ -23,6 +23,7 @@
 namespace GpgME
 {
 class Key;
+class UserID;
 }
 
 class QAbstractItemModel;
@@ -68,7 +69,9 @@ public:
 
     QFont font(const GpgME::Key &key, const QFont &baseFont) const;
     QColor bgColor(const GpgME::Key &key) const;
+    QColor bgColor(const GpgME::UserID &userID) const;
     QColor fgColor(const GpgME::Key &key) const;
+    QColor fgColor(const GpgME::UserID &userID) const;
     QIcon icon(const GpgME::Key &key) const;
 
     class Private;

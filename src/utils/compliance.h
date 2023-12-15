@@ -21,6 +21,7 @@ class QString;
 namespace GpgME
 {
 class Key;
+class UserID;
 }
 
 namespace Kleo::DeVSCompliance
@@ -53,6 +54,14 @@ KLEO_EXPORT bool algorithmIsCompliant(std::string_view algo);
  * Always returns true, if compliance mode "de-vs" is not active.
  */
 KLEO_EXPORT bool allSubkeysAreCompliant(const GpgME::Key &key);
+
+/**
+ * Returns true, if the key \p key is compliant with compliance mode "de-vs".
+ * This function behaves like DeVSCompliance::keyIsCompliant, but only considers
+ * user id \p id; all other user ids are ignored.
+ * \see keyIsCompliant
+ */
+bool userIDIsCompliant(const GpgME::UserID &id);
 
 /**
  * Returns true, if the key \p key is compliant with compliance mode "de-vs".

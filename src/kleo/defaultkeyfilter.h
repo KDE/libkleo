@@ -54,6 +54,7 @@ public:
     };
 
     bool matches(const GpgME::Key &key, MatchContexts ctx) const override;
+    bool matches(const GpgME::UserID &userID, MatchContexts ctx) const override;
 
     unsigned int specificity() const override;
     void setSpecificity(unsigned int value);

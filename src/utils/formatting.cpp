@@ -971,6 +971,22 @@ QString Formatting::formatForComboBox(const GpgME::Key &key)
     return i18nc("name, email, key id", "%1 %2 (%3)", name, mail, QLatin1String(key.shortKeyID())).simplified();
 }
 
+QString Formatting::nameAndEmailForSummaryLine(const UserID &id)
+{
+    Q_ASSERT(!id.isNull());
+
+    const QString email = Formatting::prettyEMail(id);
+    const QString name = Formatting::prettyName(id);
+
+    if (name.isEmpty()) {
+        return email;
+    } else if (email.isEmpty()) {
+        return name;
+    } else {
+        return QStringLiteral("%1 <%2>").arg(name, email);
+    }
+}
+
 QString Formatting::nameAndEmailForSummaryLine(const Key &key)
 {
     Q_ASSERT(!key.isNull());
@@ -1117,6 +1133,16 @@ QString Formatting::usageString(const Subkey &sub)
     return usageStrings.join(QLatin1String(", "));
 }
 
+QString Formatting::summaryLine(const UserID &id)
+{
+    return i18nc("name <email> (validity, protocol, creation date)",
+                 "%1 (%2, %3, created: %4)",
+                 nameAndEmailForSummaryLine(id),
+                 Formatting::complianceStringShort(id),
+                 displayName(id.parent().protocol()),
+                 Formatting::creationDateString(id.parent()));
+}
+
 QString Formatting::summaryLine(const Key &key)
 {
     return nameAndEmailForSummaryLine(key) + QLatin1Char(' ')
@@ -1254,6 +1280,34 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
             : DeVSCompliance::name(DeVSCompliance::keyIsCompliant(key));
     }
     return QString();
+}
+
+QString Formatting::complianceStringShort(const GpgME::UserID &id)
+{
+    if (DeVSCompliance::isCompliant() && DeVSCompliance::userIDIsCompliant(id)) {
+        return QStringLiteral("★ ") + DeVSCompliance::name(true);
+    }
+    const bool keyValidityChecked = (id.parent().keyListMode() & GpgME::Validate);
+    if (keyValidityChecked && id.validity() >= UserID::Full) {
+        return i18nc("As in 'this user ID is valid.'", "certified");
+    }
+    if (id.parent().isExpired() || isExpired(id)) {
+        return i18n("expired");
+    }
+    if (id.parent().isRevoked() || id.isRevoked()) {
+        return i18n("revoked");
+    }
+    if (id.parent().isDisabled()) {
+        return i18n("disabled");
+    }
+    if (id.parent().isInvalid() || id.isInvalid()) {
+        return i18n("invalid");
+    }
+    if (keyValidityChecked) {
+        return i18nc("As in 'this user ID is not certified'", "not certified");
+    }
+
+    return i18nc("The validity of this user ID has not been/could not be checked", "not checked");
 }
 
 QString Formatting::complianceStringShort(const GpgME::Key &key)

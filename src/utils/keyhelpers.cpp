@@ -142,6 +142,20 @@ bool Kleo::isRevokedOrExpired(const GpgME::UserID &userId)
     return !sig.isNull() && (sig.isRevokation() || sig.isExpired());
 }
 
+bool Kleo::isExpired(const UserID &userID)
+{
+    if (userID.parent().isExpired()) {
+        return true;
+    }
+    const auto sigs = userID.signatures();
+    std::vector<GpgME::UserID::Signature> selfSigs;
+    std::copy_if(std::begin(sigs), std::end(sigs), std::back_inserter(selfSigs), &Kleo::isSelfSignature);
+    std::sort(std::begin(selfSigs), std::end(selfSigs));
+    // check the most recent signature
+    const auto sig = !selfSigs.empty() ? selfSigs.back() : GpgME::UserID::Signature{};
+    return !sig.isNull() && sig.isExpired();
+}
+
 bool Kleo::canCreateCertifications(const GpgME::Key &key)
 {
     return Kleo::keyHasCertify(key) && canBeUsedForSecretKeyOperations(key);

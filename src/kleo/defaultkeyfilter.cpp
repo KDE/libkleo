@@ -13,6 +13,7 @@
 #include <config-libkleo.h>
 
 #include "defaultkeyfilter.h"
+#include "utils/compliance.h"
 
 #if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
 #else
@@ -203,6 +204,142 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
         break;
     case IsAtMost:
         if (static_cast<int>(uid.validity()) > static_cast<int>(d->mValidityReferenceLevel)) {
+            return false;
+        }
+        break;
+    }
+    return true;
+}
+
+bool DefaultKeyFilter::matches(const UserID &userID, MatchContexts contexts) const
+{
+    if (!(d->mMatchContexts & contexts)) {
+        return false;
+    }
+#ifdef MATCH_KEY
+#undef MATCH_KEY
+#endif
+#define MATCH_KEY(member, method)                                                                                                                              \
+    do {                                                                                                                                                       \
+        if (member != DoesNotMatter && userID.parent().method() != bool(member == Set)) {                                                                      \
+            return false;                                                                                                                                      \
+        }                                                                                                                                                      \
+    } while (false)
+#define IS_MATCH_KEY(what) MATCH_KEY(d->m##what, is##what)
+#define CAN_MATCH_KEY(what) MATCH_KEY(d->mCan##what, can##what)
+#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
+#define HAS_MATCH_KEY(what) MATCH_KEY(d->mHas##what, has##what)
+#else
+#define HAS_MATCH_KEY(what)                                                                                                                                    \
+    do {                                                                                                                                                       \
+        if (d->mHas##what != DoesNotMatter && Kleo::keyHas##what(userID.parent()) != bool(d->mHas##what == Set)) {                                             \
+            return false;                                                                                                                                      \
+        }                                                                                                                                                      \
+    } while (false)
+#endif
+
+#ifdef MATCH
+#undef MATCH
+#endif
+#define MATCH(member, method)                                                                                                                                  \
+    do {                                                                                                                                                       \
+        if (member != DoesNotMatter && (userID.parent().method() != bool(member == Set) || userID.method() != bool(member == Set))) {                          \
+            return false;                                                                                                                                      \
+        }                                                                                                                                                      \
+    } while (false)
+#define IS_MATCH(what) MATCH(d->m##what, is##what)
+    IS_MATCH(Revoked);
+    IS_MATCH_KEY(Expired);
+    // We have to do this manually since there's no UserID::isExpired()
+    if (d->mExpired != DoesNotMatter && (userID.parent().isExpired() != bool(d->mExpired == Set) || isExpired(userID) != bool(d->mExpired == Set))) {
+        return false;
+    }
+    IS_MATCH(Invalid);
+    IS_MATCH_KEY(Disabled);
+    IS_MATCH_KEY(Root);
+    CAN_MATCH_KEY(Encrypt);
+    CAN_MATCH_KEY(Sign);
+    CAN_MATCH_KEY(Certify);
+    CAN_MATCH_KEY(Authenticate);
+    HAS_MATCH_KEY(Encrypt);
+    HAS_MATCH_KEY(Sign);
+    HAS_MATCH_KEY(Certify);
+    HAS_MATCH_KEY(Authenticate);
+    IS_MATCH_KEY(Qualified);
+    if (d->mCardKey != DoesNotMatter) {
+        if ((d->mCardKey == Set && !is_card_key(userID.parent())) || (d->mCardKey == NotSet && is_card_key(userID.parent()))) {
+            return false;
+        }
+    }
+    MATCH_KEY(d->mHasSecret, hasSecret);
+#undef MATCH
+    if (d->mIsOpenPGP != DoesNotMatter && bool(userID.parent().protocol() == GpgME::OpenPGP) != bool(d->mIsOpenPGP == Set)) {
+        return false;
+    }
+    if (d->mWasValidated != DoesNotMatter && bool(userID.parent().keyListMode() & GpgME::Validate) != bool(d->mWasValidated == Set)) {
+        return false;
+    }
+    if (d->mIsDeVs != DoesNotMatter && bool(DeVSCompliance::userIDIsCompliant(userID)) != bool(d->mIsDeVs == Set)) {
+        return false;
+    }
+    if (d->mBad != DoesNotMatter &&
+        /* This is similar to GPGME::Key::isBad which was introduced in GPGME 1.13.0 */
+        bool(userID.parent().isNull() || userID.isNull() || userID.parent().isRevoked() || userID.isRevoked() || userID.parent().isExpired()
+             || userID.parent().isDisabled() || userID.parent().isInvalid() || userID.isInvalid())
+            != bool(d->mBad == Set)) {
+        return false;
+    }
+    if ((userID.parent().protocol() == GpgME::CMS) //
+        && (d->mValidIfSMIME != DoesNotMatter) //
+        && (bool(userID.validity() >= UserID::Full) != bool(d->mValidIfSMIME == Set))) {
+        return false;
+    }
+    switch (d->mOwnerTrust) {
+    default:
+    case LevelDoesNotMatter:
+        break;
+    case Is:
+        if (userID.parent().ownerTrust() != d->mOwnerTrustReferenceLevel) {
+            return false;
+        }
+        break;
+    case IsNot:
+        if (userID.parent().ownerTrust() == d->mOwnerTrustReferenceLevel) {
+            return false;
+        }
+        break;
+    case IsAtLeast:
+        if (static_cast<int>(userID.parent().ownerTrust()) < static_cast<int>(d->mOwnerTrustReferenceLevel)) {
+            return false;
+        }
+        break;
+    case IsAtMost:
+        if (static_cast<int>(userID.parent().ownerTrust()) > static_cast<int>(d->mOwnerTrustReferenceLevel)) {
+            return false;
+        }
+        break;
+    }
+    switch (d->mValidity) {
+    default:
+    case LevelDoesNotMatter:
+        break;
+    case Is:
+        if (userID.validity() != d->mValidityReferenceLevel) {
+            return false;
+        }
+        break;
+    case IsNot:
+        if (userID.validity() == d->mValidityReferenceLevel) {
+            return false;
+        }
+        break;
+    case IsAtLeast:
+        if (static_cast<int>(userID.validity()) < static_cast<int>(d->mValidityReferenceLevel)) {
+            return false;
+        }
+        break;
+    case IsAtMost:
+        if (static_cast<int>(userID.validity()) > static_cast<int>(d->mValidityReferenceLevel)) {
             return false;
         }
         break;

@@ -77,6 +77,17 @@ bool Kleo::DeVSCompliance::allSubkeysAreCompliant(const GpgME::Key &key)
     });
 }
 
+bool Kleo::DeVSCompliance::userIDIsCompliant(const GpgME::UserID &id)
+{
+    if (!isActive()) {
+        return true;
+    }
+    return (id.parent().keyListMode() & GpgME::Validate) //
+        && !id.isRevoked() //
+        && id.validity() >= GpgME::UserID::Full //
+        && allSubkeysAreCompliant(id.parent());
+}
+
 bool Kleo::DeVSCompliance::keyIsCompliant(const GpgME::Key &key)
 {
     if (!isActive()) {
