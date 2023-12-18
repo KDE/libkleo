@@ -16,6 +16,7 @@
 #include <config-libkleo.h>
 
 #include "dn.h"
+#include "libkleo_debug.h"
 
 #include "oidmap.h"
 
@@ -546,5 +547,10 @@ QStringList Kleo::DN::attributeNames()
 // static
 QString Kleo::DN::attributeNameToLabel(const QString &name)
 {
-    return attributeNamesAndLabels.value(name.trimmed().toUpper()).toString();
+    const QString key{name.trimmed().toUpper()};
+    if (attributeNames().contains(key)) {
+        return attributeNamesAndLabels.value(key).toString();
+    }
+    qCWarning(LIBKLEO_LOG) << "Attribute " << key << " doesn't exit. Bug ?";
+    return {};
 }
