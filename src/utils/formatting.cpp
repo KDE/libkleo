@@ -1397,3 +1397,22 @@ QString Formatting::errorAsString(const GpgME::Error &error)
     return QString::fromLocal8Bit(error.asString());
 #endif
 }
+
+QString Formatting::prettyAlgorithmName(const std::string &algorithm)
+{
+    static const std::map<std::string, QString> displayNames = {
+        {"brainpoolP256r1", i18nc("@info", "ECC (Brainpool P-256)")},
+        {"brainpoolP384r1", i18nc("@info", "ECC (Brainpool P-384)")},
+        {"brainpoolP512r1", i18nc("@info", "ECC (Brainpool P-512)")},
+        {"curve25519", i18nc("@info", "ECC (Curve25519)")},
+        {"curve448", i18nc("@info", "ECC (Curve448)")},
+        {"nistp256", i18nc("@info", "ECC (NIST P-256)")},
+        {"nistp384", i18nc("@info", "ECC (NIST P-384)")},
+        {"nistp521", i18nc("@info", "ECC (NIST P-521)")},
+        {"rsa2048", i18nc("@info", "RSA 2048")},
+        {"rsa3072", i18nc("@info", "RSA 3072")},
+        {"rsa4096", i18nc("@info", "RSA 4096")},
+    };
+    const auto it = displayNames.find(algorithm);
+    return (it != displayNames.end()) ? it->second : i18nc("@info", "Unknown algorithm");
+}

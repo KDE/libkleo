@@ -220,5 +220,10 @@ KLEO_EXPORT QString trustSignature(const GpgME::UserID::Signature &sig);
  * Returns the value of Error::asString() for the error \p error as Unicode string.
  */
 KLEO_EXPORT QString errorAsString(const GpgME::Error &error);
+
+/**
+ * Returns a name suitable for being displayed for the GPG algorithm name @p algorithm.
+ */
+KLEO_EXPORT QString prettyAlgorithmName(const std::string &algorithm);
 }
 }
