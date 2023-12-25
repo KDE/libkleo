@@ -49,8 +49,10 @@ using namespace GpgME;
 using namespace Kleo;
 using namespace Kleo::KeyList;
 
+#if !UNITY_BUILD
 Q_DECLARE_METATYPE(GpgME::Key)
 Q_DECLARE_METATYPE(KeyGroup)
+#endif
 
 class AbstractKeyListModel::Private
 {

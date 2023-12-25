@@ -30,8 +30,9 @@
 
 using namespace Kleo;
 
+#if !UNITY_BUILD
 Q_DECLARE_METATYPE(GpgME::Key)
-
+#endif
 namespace
 {
 class SortFilterProxyModel : public KeyListSortFilterProxyModel

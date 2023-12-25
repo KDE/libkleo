@@ -89,7 +89,6 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo COMPONENT Devel
 )
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-libkleo.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-libkleo.h)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
@@ -97,8 +96,10 @@ option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT OFF)
 if (USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT ON)
+    set(UNITY_BUILD ON)
 endif()
 
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-libkleo.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-libkleo.h)
 
 add_subdirectory(src)
 if (BUILD_TESTING)
