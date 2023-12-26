@@ -1,0 +1,3014 @@
+# Translation of libkleopatra.po to Korean.
+#
+#
+# Kyuhyong Yoo <master@aerobuster.com>, 2004.
+# Kyungho Lee <leedos@hanmail.net>, 2004.
+# Shinjo Park <kde@peremen.name>, 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023.
+# JungHee Lee <daemul72@gmail.com>, 2019, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkleopatra\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-26 01:34+0000\n"
+"PO-Revision-Date: 2023-04-22 00:54+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#: kleo/checksumdefinition.cpp:84
+#, kde-format
+msgid "Error in checksum definition %1: %2"
+msgstr "체크섬 정의 %1에 오류 발생: %2"
+
+#: kleo/checksumdefinition.cpp:144
+#, kde-format
+msgid "Cannot use both %f and | in '%1'"
+msgstr "'%1'에서 %f 및 | 문자를 동시에 사용할 수 없음"
+
+#: kleo/checksumdefinition.cpp:156
+#, kde-format
+msgid "Quoting error in '%1' entry"
+msgstr "항목 '%1'에서 인용 부호 오류"
+
+#: kleo/checksumdefinition.cpp:159
+#, kde-format
+msgid "'%1' too complex (would need shell)"
+msgstr "'%1'이(가) 너무 복잡함 (셸이 필요할 수도 있음)"
+
+#: kleo/checksumdefinition.cpp:163
+#, kde-format
+msgid "'%1' entry is empty/missing"
+msgstr "항목 '%1'이(가) 비어 있거나 빠졌음"
+
+#: kleo/checksumdefinition.cpp:172
+#, kde-format
+msgid "'%1' empty or not found"
+msgstr "'%1'이(가) 비어 있거나 찾을 수 없음"
+
+#: kleo/checksumdefinition.cpp:211
+#, kde-format
+msgid "'id' entry is empty/missing"
+msgstr "'id' 항목이 비어 있거나 빠졌음"
+
+#: kleo/checksumdefinition.cpp:214
+#, kde-format
+msgid "'output-file' entry is empty/missing"
+msgstr "'output-file' 항목이 비어 있거나 빠졌음"
+
+#: kleo/checksumdefinition.cpp:217
+#, kde-format
+msgid "'file-patterns' entry is empty/missing"
+msgstr "'file-patterns' 항목이 비어 있거나 빠졌음"
+
+#: kleo/checksumdefinition.cpp:400
+#, kde-format
+msgid "Caught unknown exception in group %1"
+msgstr "그룹 %1에서 알 수 없는 예외 발생"
+
+#: kleo/dn.cpp:518
+msgid "Common name"
+msgstr "일반 이름"
+
+#: kleo/dn.cpp:519
+msgid "Surname"
+msgstr "성"
+
+#: kleo/dn.cpp:520
+msgid "Given name"
+msgstr "이름"
+
+#: kleo/dn.cpp:521
+msgid "Location"
+msgstr "위치"
+
+#: kleo/dn.cpp:522
+msgid "Title"
+msgstr "직위"
+
+#: kleo/dn.cpp:523
+msgid "Organizational unit"
+msgstr "조직 단위"
+
+#: kleo/dn.cpp:524
+msgid "Organization"
+msgstr "조직"
+
+#: kleo/dn.cpp:525
+msgid "Postal code"
+msgstr "우편 번호"
+
+#: kleo/dn.cpp:526
+msgid "Country code"
+msgstr "국가 번호"
+
+#: kleo/dn.cpp:527
+msgid "State or province"
+msgstr "도 및 주"
+
+#: kleo/dn.cpp:528
+msgid "Domain component"
+msgstr "도메인 구성 요소"
+
+#: kleo/dn.cpp:529
+msgid "Business category"
+msgstr "사업 카테고리"
+
+#: kleo/dn.cpp:530
+msgid "Email address"
+msgstr "이메일 주소"
+
+#: kleo/dn.cpp:531
+msgid "Mail address"
+msgstr "편지 주소"
+
+#: kleo/dn.cpp:532
+msgid "Mobile phone number"
+msgstr "휴대폰 번호"
+
+#: kleo/dn.cpp:533
+msgid "Telephone number"
+msgstr "전화번호"
+
+#: kleo/dn.cpp:534
+msgid "Fax number"
+msgstr "팩스 번호"
+
+#: kleo/dn.cpp:535
+msgid "Street address"
+msgstr "도로명 주소"
+
+#: kleo/dn.cpp:536
+msgid "Unique ID"
+msgstr "유일 ID"
+
+#: kleo/enum.cpp:35
+msgid "Inline OpenPGP (deprecated)"
+msgstr "인라인 OpenPGP (권장하지 않음)"
+
+#: kleo/enum.cpp:36
+msgid "OpenPGP/MIME"
+msgstr "OpenPGP/MIME"
+
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:308
+#, kde-format
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: kleo/enum.cpp:38
+msgid "S/MIME Opaque"
+msgstr "S/MIME 불투명"
+
+#: kleo/enum.cpp:39
+msgid "Any S/MIME"
+msgstr "모든 S/MIME"
+
+#: kleo/enum.cpp:40
+msgid "Any OpenPGP"
+msgstr "모든 OpenPGP"
+
+#: kleo/enum.cpp:72
+#, kde-format
+msgid "Any"
+msgstr "임의"
+
+#: kleo/enum.cpp:147
+#, kde-format
+msgid "Never Encrypt"
+msgstr "암호화하지 않음"
+
+#: kleo/enum.cpp:149
+#, kde-format
+msgid "Always Encrypt"
+msgstr "항상 암호화"
+
+#: kleo/enum.cpp:151
+#, kde-format
+msgid "Always Encrypt If Possible"
+msgstr "가능하다면 항상 암호화"
+
+#: kleo/enum.cpp:153 kleo/enum.cpp:210
+#, kde-format
+msgid "Ask"
+msgstr "물어봄"
+
+#: kleo/enum.cpp:155 kleo/enum.cpp:212
+#, kde-format
+msgid "Ask Whenever Possible"
+msgstr "가능하다면 물어봄"
+
+#: kleo/enum.cpp:157
+#, kde-kuit-format
+msgctxt "no specific preference"
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>없음</placeholder>"
+
+#: kleo/enum.cpp:204
+#, kde-format
+msgid "Never Sign"
+msgstr "서명하지 않음"
+
+#: kleo/enum.cpp:206
+#, kde-format
+msgid "Always Sign"
+msgstr "항상 서명"
+
+#: kleo/enum.cpp:208
+#, kde-format
+msgid "Always Sign If Possible"
+msgstr "가능하면 항상 서명"
+
+#: kleo/enum.cpp:214
+#, kde-format
+msgctxt "no specific preference"
+msgid "<none>"
+msgstr "<없음>"
+
+#: kleo/expirychecker.cpp:78
+#, kde-format
+msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+msgid "<b>%1</b> (KeyID 0x%2)"
+msgstr "<b>%1</b>(키 ID 0x%2)"
+
+#: kleo/expirychecker.cpp:86
+#, kde-format
+msgid ""
+"<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
+"day ago.</p>"
+msgstr ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%1</p><p>이(가) 1일 미만 전에 만료되"
+"었습니다.</p>"
+
+#: kleo/expirychecker.cpp:88
+#, kde-format
+msgid ""
+"<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
+"a day ago.</p>"
+msgstr ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%1</p><p>이(가) 1일 미만 전에 만료"
+"되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:90
+#, kde-format
+msgid ""
+"<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
+"ago.</p>"
+msgstr ""
+"<p align=center>%1</p><p>의 OpenPGP 키가</p><p>1일 미만 전에 만료되었습니다."
+"</p>"
+
+#: kleo/expirychecker.cpp:96
+#, kde-format
+msgid ""
+"<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</"
+"p>"
+msgid_plural ""
+"<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
+"</p>"
+msgstr[0] ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%2</p><p>이(가) %1일 전에 만료되었습"
+"니다.</p>"
+
+#: kleo/expirychecker.cpp:99
+#, kde-format
+msgid ""
+"<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday."
+"</p>"
+msgid_plural ""
+"<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
+"ago.</p>"
+msgstr[0] ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%2</p><p>이(가) %1일 전에 만료되었"
+"습니다.</p>"
+
+#: kleo/expirychecker.cpp:102
+#, kde-format
+msgid ""
+"<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
+msgid_plural ""
+"<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
+msgstr[0] ""
+"<p align=center>%2</p><p>의 OpenPGP 키가</p><p>%1일 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:111
+#, kde-format
+msgid ""
+"<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
+msgstr ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%1</p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:113
+#, kde-format
+msgid ""
+"<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
+msgstr ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%1</p><p>이(가) 오늘 만료됩니다.</"
+"p>"
+
+#: kleo/expirychecker.cpp:115
+#, kde-format
+msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
+msgstr "<p align=center>%1</p><p>의 OpenPGP 키가</p><p>오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:121
+#, kde-format
+msgid ""
+"<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>"
+msgid_plural ""
+"<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
+"p>"
+msgstr[0] ""
+"<p>내 OpenPGP 서명 키</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩니"
+"다.</p>"
+
+#: kleo/expirychecker.cpp:124
+#, kde-format
+msgid ""
+"<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow."
+"</p>"
+msgid_plural ""
+"<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
+"days.</p>"
+msgstr[0] ""
+"<p>내 OpenPGP 암호화 키</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩니"
+"다.</p>"
+
+#: kleo/expirychecker.cpp:127
+#, kde-format
+msgid ""
+"<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
+msgid_plural ""
+"<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
+msgstr[0] ""
+"<p align=center>%2</p><p>의 OpenPGP 키가</p><p>%1일 안에 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:139
+#, kde-format
+msgctxt ""
+"<b>User ID of certificate</b> (serial number serial no. of certificate)"
+msgid "<b>%1</b> (serial number %2)"
+msgstr "<b>%1</b>(일련 번호 %2)"
+
+#: kleo/expirychecker.cpp:150
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
+"signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
+"</p>"
+msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%1</p><p>의 루트 인증서</p><p "
+"align=center><b>%2</b></p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:155
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
+"encryption certificate</p><p align=center>%1</p><p>expired less than a day "
+"ago.</p>"
+msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%1</p><p>의 루트 인증서</p><p "
+"align=center><b>%2</b></p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:160
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
+"certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
+msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%1</p><p>의 루트 인증서</p><p "
+"align=center><b>%2</b></p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:169
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"signing certificate</p><p align=center>%2</p><p>expired yesterday.</p>"
+msgid_plural ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b></p><p>이(가) %1일 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:177
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"encryption certificate</p><p align=center>%2</p><p>expired yesterday.</p>"
+msgid_plural ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b></p><p>이(가) %1일 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:185
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
+"certificate</p><p align=center>%2</p><p>expired yesterday.</p>"
+msgid_plural ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
+"certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
+msgstr[0] ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b></p><p>이(가) %1일 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:198
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
+"your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
+"than a day ago.</p>"
+msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%1</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%2</p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:203
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
+"your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
+"than a day ago.</p>"
+msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%1</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%2</p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:208
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
+"MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
+msgstr ""
+"<p>S/MIME 서명 인증서</p><p align=center>%1</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%2</p><p>이(가) 1일 미만 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:217
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
+"yesterday.</p>"
+msgid_plural ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
+"ago.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</p><p>이(가) %1일 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:225
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
+"yesterday.</p>"
+msgid_plural ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
+"days ago.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%3</p><p>이(가) %1일 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:233
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
+"MIME certificate</p><p align=center>%2</p><p>expired yesterday.</p>"
+msgid_plural ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
+"MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
+msgstr[0] ""
+"<p>S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</p><p>이(가) %1일 전에 만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:246
+#, kde-format
+msgid ""
+"<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
+"than a day ago.</p>"
+msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%1</p><p>이(가) 1일 미만 전에 만"
+"료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:248
+#, kde-format
+msgid ""
+"<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
+"less than a day ago.</p>"
+msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%1</p><p>이(가) 1일 미만 전에 "
+"만료되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:250
+#, kde-format
+msgid ""
+"<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
+"a day ago.</p>"
+msgstr ""
+"<p align=center>%1</p><p>의 S/MIME 인증서가</p><p>1일 미만 전에 만료되었습니"
+"다.</p>"
+
+#: kleo/expirychecker.cpp:256
+#, kde-format
+msgid ""
+"<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
+"yesterday.</p>"
+msgid_plural ""
+"<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
+"days ago.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) %1일 전에 만료되"
+"었습니다.</p>"
+
+#: kleo/expirychecker.cpp:259
+#, kde-format
+msgid ""
+"<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
+"yesterday.</p>"
+msgid_plural ""
+"<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
+"days ago.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>이(가) %1일 전에 만료"
+"되었습니다.</p>"
+
+#: kleo/expirychecker.cpp:262
+#, kde-format
+msgid ""
+"<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday."
+"</p>"
+msgid_plural ""
+"<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
+"ago.</p>"
+msgstr[0] ""
+"<p align=center>%2</p><p>의 S/MIME 인증서가</p><p>%1일 전에 만료되었습니다.</"
+"p>"
+
+#: kleo/expirychecker.cpp:275
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"signing certificate</p><p align=center>%2</p><p>expires today.</p>"
+msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:280
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
+msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:285
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
+"certificate</p><p align=center>%2</p><p>expires today.</p>"
+msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:294
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"signing certificate</p><p align=center>%2</p><p>expires tomorrow.</p>"
+msgid_plural ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:302
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"encryption certificate</p><p align=center>%2</p><p>expires tomorrow.</p>"
+msgid_plural ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
+"encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:310
+#, kde-format
+msgid ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
+"certificate</p><p align=center>%2</p><p>expires tomorrow.</p>"
+msgid_plural ""
+"<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
+"certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
+msgstr[0] ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 루트 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:323
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
+"p>"
+msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:328
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
+"</p>"
+msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:333
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
+"MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
+msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:341
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME signing certificate</p><p align=center>%2</p><p>expires tomorrow."
+"</p>"
+msgid_plural ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
+"days.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:349
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
+"tomorrow.</p>"
+msgid_plural ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
+"your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
+"days.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</"
+"p><p align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:357
+#, kde-format
+msgid ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
+"MIME certificate</p><p align=center>%2</p><p>expires tomorrow.</p>"
+msgid_plural ""
+"<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
+"MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
+msgstr[0] ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>의 중간 CA 인증서</p><p "
+"align=center><b>%3</b><p><p>이(가) %1일 안에 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:369
+#, kde-format
+msgid ""
+"<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
+"</p>"
+msgstr ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) 오늘 만료됩니다."
+"</p>"
+
+#: kleo/expirychecker.cpp:371
+#, kde-format
+msgid ""
+"<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
+"today.</p>"
+msgstr ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>이(가) 오늘 만료됩니"
+"다.</p>"
+
+#: kleo/expirychecker.cpp:373
+#, kde-format
+msgid ""
+"<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
+msgstr ""
+"<p>S/MIME 인증서</p><p align=center>%2</p><p>이(가) 오늘 만료됩니다.</p>"
+
+#: kleo/expirychecker.cpp:380
+#, kde-format
+msgid ""
+"<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires "
+"tomorrow.</p>"
+msgid_plural ""
+"<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
+"days.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩"
+"니다.</p>"
+
+#: kleo/expirychecker.cpp:386
+#, kde-format
+msgid ""
+"<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
+"tomorrow.</p>"
+msgid_plural ""
+"<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
+"%1 days.</p>"
+msgstr[0] ""
+"<p>내 S/MIME 암호화 인증서</p><p align=center>%2</p><p>이(가) %1일 안에 만료"
+"됩니다.</p>"
+
+#: kleo/expirychecker.cpp:392
+#, kde-format
+msgid ""
+"<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires tomorrow.</"
+"p>"
+msgid_plural ""
+"<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
+"</p>"
+msgstr[0] ""
+"<p>S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩니"
+"다.</p>"
+
+#: kleo/keyfiltermanager.cpp:71
+#, kde-format
+msgid "All Certificates"
+msgstr "모든 인증서"
+
+#: kleo/keyfiltermanager.cpp:86
+#, kde-format
+msgid "My Certificates"
+msgstr "내 인증서"
+
+#: kleo/keyfiltermanager.cpp:104
+#, kde-format
+msgid "Trusted Certificates"
+msgstr "신뢰할 수 있는 인증서"
+
+#: kleo/keyfiltermanager.cpp:121
+#, kde-format
+msgid "Fully Trusted Certificates"
+msgstr "완전히 신뢰할 수 있는 인증서"
+
+#: kleo/keyfiltermanager.cpp:138
+#, kde-format
+msgid "Other Certificates"
+msgstr "기타 인증서"
+
+#: kleo/keyfiltermanager.cpp:153
+#, kde-format
+msgid "Not Certified Certificates"
+msgstr "인증되지 않은 인증서"
+
+#: kleo/keyfiltermanager.cpp:176
+#, kde-format
+msgid "Not Validated Certificates"
+msgstr "검증되지 않은 인증서"
+
+#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:105
+#, kde-format
+msgid "Name"
+msgstr "이름"
+
+#: models/keylistmodel.cpp:323 models/useridlistmodel.cpp:106
+#, kde-format
+msgid "E-Mail"
+msgstr "이메일"
+
+#: models/keylistmodel.cpp:325
+#, kde-format
+msgid "User-IDs"
+msgstr "사용자 ID"
+
+#: models/keylistmodel.cpp:327 models/subkeylistmodel.cpp:159
+#: models/useridlistmodel.cpp:107
+#, kde-format
+msgid "Valid From"
+msgstr "유효 기간 시작"
+
+#: models/keylistmodel.cpp:329 models/subkeylistmodel.cpp:161
+#: models/useridlistmodel.cpp:108
+#, kde-format
+msgid "Valid Until"
+msgstr "유효 기간 끝"
+
+#: models/keylistmodel.cpp:331
+#, kde-format
+msgid "Protocol"
+msgstr "프로토콜"
+
+#: models/keylistmodel.cpp:333 models/keylistmodel.cpp:335
+#: utils/formatting.cpp:478
+#, kde-format
+msgid "Key-ID"
+msgstr "키 ID"
+
+#: models/keylistmodel.cpp:337 utils/formatting.cpp:481
+#, kde-format
+msgid "Fingerprint"
+msgstr "지문"
+
+#: models/keylistmodel.cpp:339 utils/formatting.cpp:448
+#, kde-format
+msgid "Issuer"
+msgstr "발급자"
+
+#: models/keylistmodel.cpp:341
+#, kde-format
+msgid "Serial Number"
+msgstr "일련 번호"
+
+#: models/keylistmodel.cpp:343
+#, kde-format
+msgid "Origin"
+msgstr "출처"
+
+#: models/keylistmodel.cpp:345
+#, kde-format
+msgid "Last Update"
+msgstr "마지막 수정"
+
+#: models/keylistmodel.cpp:347
+#, kde-format
+msgid "Certification Trust"
+msgstr "인증서 신뢰"
+
+#: models/keylistmodel.cpp:349 models/useridlistmodel.cpp:111
+#, kde-format
+msgid "Tags"
+msgstr "태그"
+
+#: models/keylistmodel.cpp:397 models/useridlistmodel.cpp:69
+#, kde-format
+msgctxt "text for screen readers for an empty name"
+msgid "no name"
+msgstr "이름 없음"
+
+#: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:70
+#, kde-format
+msgctxt "text for screen readers for an empty email address"
+msgid "no email"
+msgstr "이메일 없음"
+
+#: models/keylistmodel.cpp:466
+#, kde-format
+msgid "Loading..."
+msgstr "불러오는 중..."
+
+#: models/keylistmodel.cpp:544
+#, kde-format
+msgctxt "text for screen readers"
+msgid "not applicable"
+msgstr "적용할 수 없음"
+
+#: models/subkeylistmodel.cpp:155
+#, kde-format
+msgid "ID"
+msgstr "ID"
+
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
+#: utils/formatting.cpp:516
+#, kde-format
+msgid "Type"
+msgstr "종류"
+
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
+#: utils/formatting.cpp:503 utils/formatting.cpp:505
+#, kde-format
+msgid "Status"
+msgstr "상태"
+
+#: models/subkeylistmodel.cpp:165
+#, kde-format
+msgid "Strength"
+msgstr "강도"
+
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
+#: utils/formatting.cpp:519
+#, kde-format
+msgid "Usage"
+msgstr "용도"
+
+#: models/useridlistmodel.cpp:74
+#, kde-format
+msgctxt "yes, is exportable"
+msgid "yes"
+msgstr "예"
+
+#: models/useridlistmodel.cpp:74
+#, kde-format
+msgctxt "no, is not exportable"
+msgid "no"
+msgstr "아니요"
+
+#: models/useridlistmodel.cpp:75
+#, kde-format
+msgctxt "accessible text for empty list of tags"
+msgid "none"
+msgstr "없음"
+
+#: models/useridlistmodel.cpp:76
+#, kde-format
+msgid "not applicable"
+msgstr "적용할 수 없음"
+
+#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
+#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
+#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
+#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
+#: ui/keyselectiondialog.cpp:197
+#, kde-format
+msgid "User ID"
+msgstr "사용자 ID"
+
+#: models/useridlistmodel.cpp:104
+#, kde-format
+msgid "User ID / Certification Key ID"
+msgstr "사용자 ID/인증 키 ID"
+
+#: models/useridlistmodel.cpp:110
+#, kde-format
+msgid "Exportable"
+msgstr "내보내기 가능"
+
+#: models/useridlistmodel.cpp:112
+#, kde-format
+msgid "Trust Signature For"
+msgstr "다음으로 인증서 시ᄅᅠᆫㅚ"
+
+#: models/useridlistmodel.cpp:167 utils/formatting.cpp:891
+#, kde-format
+msgid "class %1"
+msgstr "클래스 %1"
+
+#: ui/auditlogviewer.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "View GnuPG Audit Log"
+msgstr "GnuPG 감사 기록 표시"
+
+#: ui/auditlogviewer.cpp:55
+#, kde-format
+msgid "&Copy to Clipboard"
+msgstr "클립보드에 복사(&C)"
+
+#: ui/auditlogviewer.cpp:60
+#, kde-format
+msgid "&Save to Disk..."
+msgstr "디스크에 저장(&S)..."
+
+#: ui/auditlogviewer.cpp:102
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "GnuPG 감사 기록을 지원하지 않는 것 같습니다"
+
+#: ui/auditlogviewer.cpp:102
+#, kde-format
+msgid "System Error"
+msgstr "시스템 오류"
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"GnuPG 감사 기록을 가져오는 중 오류 발생:\n"
+"%1"
+
+#: ui/auditlogviewer.cpp:108
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "GnuPG 감사 기록 오류"
+
+#: ui/auditlogviewer.cpp:112
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "이 작업에 대한 GnuPG 감사 기록을 사용할 수 없습니다."
+
+#: ui/auditlogviewer.cpp:112
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "GnuPG 감사 기록 없음"
+
+#: ui/auditlogviewer.cpp:118
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "GnuPG 감사 기록 뷰어"
+
+#: ui/auditlogviewer.cpp:133
+#, kde-format
+msgid "Choose File to Save GnuPG Audit Log to"
+msgstr "GnuPG 감사 기록을 저장할 파일 선택"
+
+#: ui/auditlogviewer.cpp:152
+#, kde-format
+msgid "Could not save to file \"%1\": %2"
+msgstr "파일 \"%1\"에 저장할 수 없음: %2"
+
+#: ui/auditlogviewer.cpp:152
+#, kde-format
+msgid "File Save Error"
+msgstr "파일 저장 오류"
+
+#: ui/cryptoconfigentryreaderport.cpp:45
+#, kde-format
+msgctxt "@label:listbox Reader for smart cards"
+msgid "Reader to connect to"
+msgstr "연결할 리더"
+
+#: ui/cryptoconfigmodule.cpp:164
+#, kde-format
+msgid "GpgConf Error"
+msgstr "GpgConf 오류"
+
+#: ui/cryptoconfigmodule.cpp:221
+#, kde-format
+msgid ""
+"The gpgconf tool used to provide the information for this dialog does not "
+"seem to be installed properly. It did not return any components. Try running "
+"\"%1\" on the command line for more information."
+msgstr ""
+"이 대화 상자에 정보를 제공하는 gpgconf 도구가 올바르게 설치된 것 같지 않습니"
+"다. 구성 요소 목록을 반환하지 않았습니다. 더 많은 정보를 보려면 명령행에서 "
+"\"%1\"을(를) 실행하십시오."
+
+#: ui/cryptoconfigmodule.cpp:650
+#, kde-format
+msgctxt ""
+"Translate this to 'yes' or 'no' (use the English words!) depending on "
+"whether your language uses Sentence style capitalization in GUI labels (yes) "
+"or not (no). Context: We get some backend strings in that have the wrong "
+"capitalization (in English, at least) so we need to force the first "
+"character to upper-case. It is this behaviour you can control for your "
+"language with this translation."
+msgid "yes"
+msgstr "no"
+
+#: ui/cryptoconfigmodule.cpp:704
+msgid "0 - None"
+msgstr "0 - 없음"
+
+#: ui/cryptoconfigmodule.cpp:705
+msgid "1 - Basic"
+msgstr "1 - 기본"
+
+#: ui/cryptoconfigmodule.cpp:706
+msgid "2 - Verbose"
+msgstr "2 - 자세히"
+
+#: ui/cryptoconfigmodule.cpp:707
+msgid "3 - More Verbose"
+msgstr "3 - 더 자세히"
+
+#: ui/cryptoconfigmodule.cpp:708
+msgid "4 - All"
+msgstr "4 - 모두"
+
+#: ui/cryptoconfigmodule.cpp:720
+#, kde-format
+msgid "Set the debugging level to"
+msgstr "다음으로 디버그 단계 설정"
+
+#: ui/cryptoconfigmodule.cpp:943
+#, kde-format
+msgid "Show..."
+msgstr "표시..."
+
+#: ui/cryptoconfigmodule.cpp:943
+#, kde-format
+msgid "Edit..."
+msgstr "편집..."
+
+#: ui/cryptoconfigmodule.cpp:996
+#, kde-format
+msgid ""
+"Configuration of directory services is not possible because the used gpgme "
+"libraries are too old."
+msgstr ""
+"사용 중인 gpgme 라이브러리가 너무 오래되어서 디렉터리 서비스 설정을 사용할 "
+"수 없습니다."
+
+#: ui/cryptoconfigmodule.cpp:998
+#, kde-format
+msgid "Sorry"
+msgstr "죄송합니다"
+
+#: ui/cryptoconfigmodule.cpp:1005
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Directory Services"
+msgstr "디렉터리 서비스 설정"
+
+#: ui/cryptoconfigmodule.cpp:1034
+#, kde-format
+msgid "None configured"
+msgstr "아무 서버도 설정되지 않음"
+
+#: ui/cryptoconfigmodule.cpp:1036
+#, kde-format
+msgid "1 server configured"
+msgid_plural "%1 servers configured"
+msgstr[0] "서버 %1개 설정됨"
+
+#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
+#, kde-format
+msgid "Active Directory"
+msgstr "Active Directory"
+
+#: ui/directoryserviceswidget.cpp:187
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"This is a list of all directory services that are configured for use with "
+"X.509."
+msgstr "X.509로 사용할 수 있도록 설정된 모든 디렉터리 서비스 목록입니다."
+
+#: ui/directoryserviceswidget.cpp:197
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Click to use a directory service running on your Active Directory. This "
+"works only on Windows and requires GnuPG 2.2.28 or later."
+msgstr ""
+"Active Directory에서 실행 중인 디렉터리 서비스를 사용하려면 클릭하십시오. "
+"Windows에서만 사용할 수 있으며 GnuPG 2.2.28 이상이 필요합니다."
+
+#: ui/directoryserviceswidget.cpp:200
+#, kde-format
+msgid "LDAP Server"
+msgstr "LDAP 서버"
+
+#: ui/directoryserviceswidget.cpp:203
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service provided by an LDAP server."
+msgstr "LDAP 서버에서 제공하는 디렉터리 서비스를 추가하려면 클릭하십시오."
+
+#: ui/directoryserviceswidget.cpp:205
+#, kde-format
+msgid "Add"
+msgstr "추가"
+
+#: ui/directoryserviceswidget.cpp:206
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service."
+msgstr "디렉터리 서비스를 추가하려면 클릭하십시오."
+
+#: ui/directoryserviceswidget.cpp:208
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to add a directory service to the list of services. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+"이 단추를 클릭하면 현재 선택한 디렉터리 서비스를 삭제합니다. 주 설정 대화 상"
+"자에서 변경 사항을 받아들여야 적용됩니다."
+
+#: ui/directoryserviceswidget.cpp:216
+#, kde-format
+msgid "Edit"
+msgstr "편집"
+
+#: ui/directoryserviceswidget.cpp:217
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to edit the selected service."
+msgstr "현재 선택한 서비스를 삭제하려면 클릭하십시오."
+
+#: ui/directoryserviceswidget.cpp:219
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to edit the settings of the currently selected directory "
+"service. The changes will only take effect once you acknowledge the "
+"configuration dialog."
+msgstr ""
+"이 단추를 클릭하면 현재 선택한 디렉터리 서비스를 삭제합니다. 주 설정 대화 상"
+"자에서 변경 사항을 받아들여야 적용됩니다."
+
+#: ui/directoryserviceswidget.cpp:224
+#, kde-format
+msgid "Delete"
+msgstr "삭제"
+
+#: ui/directoryserviceswidget.cpp:225
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to remove the selected service."
+msgstr "현재 선택한 서비스를 삭제하려면 클릭하십시오."
+
+#: ui/directoryserviceswidget.cpp:227
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to remove the currently selected directory service. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+"이 단추를 클릭하면 현재 선택한 디렉터리 서비스를 삭제합니다. 주 설정 대화 상"
+"자에서 변경 사항을 받아들여야 적용됩니다."
+
+#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
+#, kde-format
+msgctxt "@title:window"
+msgid "LDAP Directory Service"
+msgstr "LDAP 디렉터리 서비스"
+
+#: ui/dnattributeorderconfigwidget.cpp:73
+#, kde-format
+msgid "Description"
+msgstr "설명"
+
+#: ui/dnattributeorderconfigwidget.cpp:88
+#, kde-format
+msgid "Available attributes:"
+msgstr "사용 가능한 속성:"
+
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgid "Current attribute order:"
+msgstr "현재 속성 순서:"
+
+#: ui/dnattributeorderconfigwidget.cpp:98
+#, kde-format
+msgid "available attributes"
+msgstr "사용 가능한 속성"
+
+#: ui/dnattributeorderconfigwidget.cpp:105
+#: ui/dnattributeorderconfigwidget.cpp:106
+#, kde-format
+msgid "All others"
+msgstr "다른 모두"
+
+#: ui/dnattributeorderconfigwidget.cpp:118
+msgctxt "@action:button"
+msgid "Add"
+msgstr "추가"
+
+#: ui/dnattributeorderconfigwidget.cpp:119
+msgid "Add to current attribute order"
+msgstr "현재 속성 순서에 추가"
+
+#: ui/dnattributeorderconfigwidget.cpp:125
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "삭제"
+
+#: ui/dnattributeorderconfigwidget.cpp:126
+msgid "Remove from current attribute order"
+msgstr "현재 속성 순서에서 제거"
+
+#: ui/dnattributeorderconfigwidget.cpp:132
+msgctxt "@action:button"
+msgid "Move to Top"
+msgstr "맨 위로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:133
+msgid "Move to top"
+msgstr "맨 위로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:139
+msgctxt "@action:button"
+msgid "Move Up"
+msgstr "위로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:140
+msgid "Move one up"
+msgstr "위로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:146
+msgctxt "@action:button"
+msgid "Move Down"
+msgstr "아래로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:147
+msgid "Move one down"
+msgstr "아래로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:153
+msgctxt "@action:button"
+msgid "Move to Bottom"
+msgstr "맨 아래로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:154
+msgid "Move to bottom"
+msgstr "맨 아래로 이동"
+
+#: ui/dnattributeorderconfigwidget.cpp:184
+#, kde-format
+msgid "current attribute order"
+msgstr "현재 속성 순서"
+
+#: ui/editdirectoryservicedialog.cpp:99
+#, kde-format
+msgid "Host:"
+msgstr "호스트:"
+
+#: ui/editdirectoryservicedialog.cpp:100
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter the name or IP address of the server hosting the directory service."
+msgstr "디렉터리 서비스를 제공하는 서버의 IP 주소나 이름을 입력하십시오."
+
+#: ui/editdirectoryservicedialog.cpp:104
+#, kde-format
+msgid "Port:"
+msgstr "포트:"
+
+#: ui/editdirectoryservicedialog.cpp:107
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, the default is fine in most cases)</b> Pick the port number "
+"the directory service is listening on."
+msgstr ""
+"<b>(선택 사항, 대부분 경우 기본값으로 충분함)</b> 디렉터리 서비스를 제공하는 "
+"서버의 포트 번호를 입력하십시오."
+
+#: ui/editdirectoryservicedialog.cpp:110
+#, kde-format
+msgid "Use default"
+msgstr "기본값 사용"
+
+#: ui/editdirectoryservicedialog.cpp:116
+#, kde-format
+msgid "Authentication"
+msgstr "인증"
+
+#: ui/editdirectoryservicedialog.cpp:120
+#, kde-format
+msgid "Anonymous"
+msgstr "익명"
+
+#: ui/editdirectoryservicedialog.cpp:121
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Use an anonymous LDAP server that does not require authentication."
+msgstr "인증이 필요하지 않은 익명 LDAP 서버를 사용합니다."
+
+#: ui/editdirectoryservicedialog.cpp:127
+#, kde-format
+msgid "Authenticate via Active Directory"
+msgstr "Active Directory를 통해 인증"
+
+#: ui/editdirectoryservicedialog.cpp:129
+#, kde-format
+msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
+msgstr "Active Directory를 통해 인증(GnuPG 2.2.28 이상 필요)"
+
+#: ui/editdirectoryservicedialog.cpp:132
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"On Windows, authenticate to the LDAP server using the Active Directory with "
+"the current user."
+msgstr ""
+"Windows에서 LDAP 서버에 인증할 때 현재 사용자로 Active Directory 인증을 사용"
+"합니다."
+
+#: ui/editdirectoryservicedialog.cpp:137
+#, kde-format
+msgid "Authenticate with user and password"
+msgstr "사용자 이름과 암호로 인증"
+
+#: ui/editdirectoryservicedialog.cpp:138
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Authenticate to the LDAP server with your LDAP credentials."
+msgstr "LDAP 서버에 LDAP 사용자 정보로 인증합니다."
+
+#: ui/editdirectoryservicedialog.cpp:148
+#, kde-format
+msgid "User:"
+msgstr "사용자:"
+
+#: ui/editdirectoryservicedialog.cpp:149
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
+msgstr "LDAP 서버에 인증할 때 사용할 사용자 이름과 바인드 DN을 입력하십시오."
+
+#: ui/editdirectoryservicedialog.cpp:153
+#, kde-format
+msgid "Password:"
+msgstr "암호:"
+
+#: ui/editdirectoryservicedialog.cpp:155
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your password for authenticating to the LDAP server.<nl/><warning>The "
+"password will be saved in the clear in a configuration file in your home "
+"directory.</warning>"
+msgstr ""
+"LDAP 서버에 인증할 때 사용할 암호를 입력하십시오.<nl/><warning>암호는 홈 디렉"
+"터리 아래에 일반 텍스트 파일로 저장됩니다.</warning>"
+
+#: ui/editdirectoryservicedialog.cpp:165
+#, kde-format
+msgid "Connection Security"
+msgstr "연결 보안"
+
+#: ui/editdirectoryservicedialog.cpp:167
+#, kde-format
+msgid "Connection Security (requires GnuPG 2.2.28 or later)"
+msgstr "연결 보안(GnuPG 2.2.28 이상 필요)"
+
+#: ui/editdirectoryservicedialog.cpp:172
+#, kde-format
+msgid "Use default connection (probably not TLS secured)"
+msgstr "기본 연결 사용(TLS로 보호되지 않을 수 있음)"
+
+#: ui/editdirectoryservicedialog.cpp:174
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
+"earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
+msgstr ""
+"GnuPG 기본값을 사용하여 LDAP 서버에 연결합니다. 기본값으로 GnuPG 2.3 이전에서"
+"는 평문 비보안 연결을 사용합니다. <b>(추천하지 않음)</b>"
+
+#: ui/editdirectoryservicedialog.cpp:182
+#, kde-format
+msgid "Do not use a TLS secured connection"
+msgstr "TLS 보안 연결 사용 안 함"
+
+#: ui/editdirectoryservicedialog.cpp:184
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a plain, not TLS secured connection to connect to the LDAP server. "
+"<b>(Not recommended)</b>"
+msgstr ""
+"LDAP 서버에 연결할 때 평문 TLS 비보안 연결을 사용합니다. <b>(추천하지 않음)</"
+"b>"
+
+#: ui/editdirectoryservicedialog.cpp:190
+#, kde-format
+msgid "Use TLS secured connection"
+msgstr "TLS 보안 연결 사용"
+
+#: ui/editdirectoryservicedialog.cpp:192
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a standard TLS secured connection (initiated with STARTTLS) to connect "
+"to the LDAP server. <b>(Recommended)</b>"
+msgstr ""
+"LDAP 서버에 연결할 때 표준 TLS 보안 연결(STARTTLS로 시작함)을 사용합니다. "
+"<b>(추천)</b>"
+
+#: ui/editdirectoryservicedialog.cpp:199
+#, kde-format
+msgid "Tunnel LDAP through a TLS connection"
+msgstr "LDAP을 TLS 연결로 터널"
+
+#: ui/editdirectoryservicedialog.cpp:201
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a TLS secured connection through which the connection to the LDAP server "
+"is tunneled. <b>(Not recommended)</b>"
+msgstr ""
+"TLS 보안 연결을 통해서 LDAP 서버 연결을 터널링합니다. <b>(추천하지 않음)</b>"
+
+#: ui/editdirectoryservicedialog.cpp:210
+#, kde-format
+msgid "Advanced Settings"
+msgstr "고급 설정"
+
+#: ui/editdirectoryservicedialog.cpp:215
+#, kde-format
+msgid "Base DN:"
+msgstr "기초 DN:"
+
+#: ui/editdirectoryservicedialog.cpp:217
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
+"server to limit searches to only that subtree of the directory."
+msgstr ""
+"<b>(선택 사항, 비워 둘 수 있음)</b> LDAP 서버의 기본 DN을 입력하면 지정한 디"
+"렉터리의 하위 디렉터리에서만 검색합니다."
+
+#: ui/editdirectoryservicedialog.cpp:223
+#, kde-format
+msgid "Additional flags:"
+msgstr "추가 플래그:"
+
+#: ui/editdirectoryservicedialog.cpp:225
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Here you can enter additional flags that are not yet (or no longer) "
+"supported by Kleopatra. For example, older versions of GnuPG use "
+"<code>ldaps</code> to request a TLS secured connection."
+msgstr ""
+"Kleopatra에서 아직 지원하지 않거나 더 이상 지원하지 않는 추가 플래그를 입력하"
+"십시오. 예를 들어 GnuPG 이전 버전에서는 TLS 보안 연결을 요청할 때 "
+"<code>ldaps</code>를 지정해야 합니다."
+
+#: ui/editdirectoryservicedialog.cpp:395
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Directory Service"
+msgstr "디렉터리 서비스 편집"
+
+#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#, kde-format
+msgid "Open file dialog"
+msgstr "파일 열기 대화 상자"
+
+#: ui/keyapprovaldialog.cpp:76
+#, kde-kuit-format
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>없음</placeholder>"
+
+#: ui/keyapprovaldialog.cpp:77
+#, kde-format
+msgid "Never Encrypt with This Key"
+msgstr "이 키로 암호화하지 않음"
+
+#: ui/keyapprovaldialog.cpp:78
+#, kde-format
+msgid "Always Encrypt with This Key"
+msgstr "항상 이 키로 암호화"
+
+#: ui/keyapprovaldialog.cpp:79
+#, kde-format
+msgid "Encrypt Whenever Encryption is Possible"
+msgstr "암호화 가능할 때마다 암호화"
+
+#: ui/keyapprovaldialog.cpp:80
+#, kde-format
+msgid "Always Ask"
+msgstr "항상 묻기"
+
+#: ui/keyapprovaldialog.cpp:81
+#, kde-format
+msgid "Ask Whenever Encryption is Possible"
+msgstr "암호화 가능할 때마다 물어봄"
+
+#: ui/keyapprovaldialog.cpp:102
+#, kde-format
+msgctxt "@title:window"
+msgid "Encryption Key Approval"
+msgstr "암호화 키 승인"
+
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgid "The following keys will be used for encryption:"
+msgstr "다음 키를 암호화에 사용합니다:"
+
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgid "Your keys:"
+msgstr "내 키:"
+
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgid "Recipient:"
+msgstr "수신자:"
+
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgid "Encryption keys:"
+msgstr "암호화 키:"
+
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgid "Encryption preference:"
+msgstr "암호화 선호도:"
+
+#: ui/keyrequester.cpp:89
+#, kde-format
+msgid "Clear"
+msgstr "지우기"
+
+#: ui/keyrequester.cpp:92
+#, kde-format
+msgid "Change..."
+msgstr "변경..."
+
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#, kde-kuit-format
+msgid "<placeholder>unknown</placeholder>"
+msgstr "<placeholder>알 수 없음</placeholder>"
+
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#, kde-format
+msgid ""
+"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
+"%1</b></p></qt>"
+msgstr "<qt><p>백엔드에서 키를 가져오는 중 오류 발생:</p><p><b>%1</b></p></qt>"
+
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#, kde-format
+msgid "Key Listing Failed"
+msgstr "키 표시 실패"
+
+#: ui/keyrequester.cpp:270
+#, kde-format
+msgid ""
+"The OpenPGP backend does not support listing keys. Check your installation."
+msgstr ""
+"OpenPGP 백엔드가 키 표시를 지원하지 않습니다. 설치 상태를 확인하십시오."
+
+#: ui/keyrequester.cpp:292
+#, kde-format
+msgid ""
+"The S/MIME backend does not support listing keys. Check your installation."
+msgstr "S/MIME 백엔드가 키 표시를 지원하지 않습니다. 설치 상태를 확인하십시오."
+
+#: ui/keyrequester.cpp:412
+#, kde-format
+msgid "OpenPGP Key Selection"
+msgstr "OpenPGP 키 선택"
+
+#: ui/keyrequester.cpp:413
+#, kde-format
+msgid "Please select an OpenPGP key to use."
+msgstr "사용할 OpenPGP 키를 선택해 주십시오."
+
+#: ui/keyrequester.cpp:415
+#, kde-format
+msgid "S/MIME Key Selection"
+msgstr "S/MIME 키 선택"
+
+#: ui/keyrequester.cpp:416
+#, kde-format
+msgid "Please select an S/MIME key to use."
+msgstr "사용할 S/MIME 키를 선택해 주십시오."
+
+#: ui/keyrequester.cpp:418
+#, kde-format
+msgid "Key Selection"
+msgstr "키 선택"
+
+#: ui/keyrequester.cpp:419
+#, kde-format
+msgid "Please select an (OpenPGP or S/MIME) key to use."
+msgstr "키(OpenPGP나 S/MIME)를 선택해 주십시오."
+
+#: ui/keyselectioncombo.cpp:86
+#, kde-format
+msgctxt "Name <email>"
+msgid "%1 <%2>"
+msgstr "%1 <%2>"
+
+#: ui/keyselectioncombo.cpp:177
+#, kde-format
+msgctxt "Name <email> (validity, created: date)"
+msgid "%1 (%2, created: %3)"
+msgstr "%1 (%2, 생성됨: %3)"
+
+#: ui/keyselectioncombo.cpp:183
+#, kde-format
+msgctxt "Name <email> (validity, type, created: date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1 (%2, %3, 생성됨: %4)"
+
+#: ui/keyselectioncombo.cpp:672
+#, kde-format
+msgid "Loading keys ..."
+msgstr "키 불러오는 중..."
+
+#: ui/keyselectiondialog.cpp:72
+#, kde-format
+msgid "The key is not valid."
+msgstr "키가 올바르지 않습니다."
+
+#: ui/keyselectiondialog.cpp:80
+#, kde-format
+msgid "The key is expired."
+msgstr "키가 만료되었습니다."
+
+#: ui/keyselectiondialog.cpp:84
+#, kde-format
+msgid "The key is revoked."
+msgstr "키가 철회되었습니다."
+
+#: ui/keyselectiondialog.cpp:88
+#, kde-format
+msgid "The key is disabled."
+msgstr "키가 비활성화되었습니다."
+
+#: ui/keyselectiondialog.cpp:95
+#, kde-format
+msgid "The key is not designated for encryption."
+msgstr "키가 암호화용으로 지정되지 않았습니다."
+
+#: ui/keyselectiondialog.cpp:100
+#, kde-format
+msgid "The key is not designated for signing."
+msgstr "키가 서명용으로 지정되지 않았습니다."
+
+#: ui/keyselectiondialog.cpp:105
+#, kde-format
+msgid "The key is not designated for certifying."
+msgstr "키가 인증용으로 지정되지 않았습니다."
+
+#: ui/keyselectiondialog.cpp:110
+#, kde-format
+msgid "The key is not designated for authentication."
+msgstr "키가 증명용으로 지정되지 않았습니다."
+
+#: ui/keyselectiondialog.cpp:116
+#, kde-format
+msgid "The key is not secret."
+msgstr "키가 비밀이 아닙니다."
+
+#: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
+#, kde-format
+msgid "The key can be used."
+msgstr "키를 사용할 수 있습니다."
+
+#: ui/keyselectiondialog.cpp:132
+#, kde-format
+msgid "The key is not trusted enough."
+msgstr "키가 충분히 신뢰되지 않습니다."
+
+#: ui/keyselectiondialog.cpp:195
+#, kde-format
+msgid "Key ID"
+msgstr "키 ID"
+
+#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#, kde-format
+msgid "unknown"
+msgstr "알 수 없음"
+
+#: ui/keyselectiondialog.cpp:269
+#, kde-format
+msgid "OpenPGP key for <b>%1</b>"
+msgstr "<b>%1</b>의 PGP 키 열기"
+
+#: ui/keyselectiondialog.cpp:271
+#, kde-format
+msgid "S/MIME key for <b>%1</b>"
+msgstr "<b>%1</b>의 S/MIME 키"
+
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:465
+#: utils/formatting.cpp:508
+#, kde-format
+msgid "Valid from"
+msgstr "유효 기간 시작"
+
+#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:468
+#: utils/formatting.cpp:511
+#, kde-format
+msgid "Valid until"
+msgstr "유효 기간 끝"
+
+#: ui/keyselectiondialog.cpp:280
+#, kde-format
+msgctxt "Key fingerprint"
+msgid "Fingerprint"
+msgstr "지문"
+
+#: ui/keyselectiondialog.cpp:282
+#, kde-format
+msgctxt "Key issuer"
+msgid "Issuer"
+msgstr "발급자"
+
+#: ui/keyselectiondialog.cpp:284
+#, kde-format
+msgctxt "Key status"
+msgid "Status"
+msgstr "상태"
+
+#: ui/keyselectiondialog.cpp:286
+#, kde-format
+msgctxt "Compliance of key"
+msgid "Compliance"
+msgstr "준수"
+
+#: ui/keyselectiondialog.cpp:426
+#, kde-format
+msgid "Search for &External Certificates"
+msgstr "외부 인증서 찾기(&E)"
+
+#: ui/keyselectiondialog.cpp:440
+#, kde-format
+msgid "&Search for:"
+msgstr "다음에서 찾기(&S):"
+
+#: ui/keyselectiondialog.cpp:465
+#, kde-format
+msgid "&Remember choice"
+msgstr "선택 사항 저장(&R)"
+
+#: ui/keyselectiondialog.cpp:468
+#, kde-format
+msgid ""
+"<qt><p>If you check this box your choice will be stored and you will not be "
+"asked again.</p></qt>"
+msgstr ""
+"<qt><p>이 상자를 선택하면 선택 사항을 저장하고 다시 묻지 않습니다.</p></qt>"
+
+#: ui/keyselectiondialog.cpp:482
+#, kde-format
+msgid "&Reread Keys"
+msgstr "키 다시 읽기(&R)"
+
+#: ui/keyselectiondialog.cpp:487
+#, kde-format
+msgid "&Start Certificate Manager"
+msgstr "인증서 관리자 시작하기(&S)"
+
+#: ui/keyselectiondialog.cpp:647
+#, kde-format
+msgid "No backends found for listing keys. Check your installation."
+msgstr "키를 표시할 백엔드를 찾을 수 없습니다. 설치 상태를 확인하십시오."
+
+#: ui/keyselectiondialog.cpp:665
+#, kde-format
+msgid "Could not start certificate manager; please check your installation."
+msgstr "인증서 관리자를 시작할 수 없습니다. 설치 상태를 확인하십시오."
+
+#: ui/keyselectiondialog.cpp:667
+#, kde-format
+msgid "Certificate Manager Error"
+msgstr "인증서 관리자 오류"
+
+#: ui/keyselectiondialog.cpp:724
+#, kde-format
+msgid "Checking selected keys..."
+msgstr "선택한 키 확인 중..."
+
+#: ui/keyselectiondialog.cpp:724
+#, kde-format
+msgid "Fetching keys..."
+msgstr "키 가져오는 중..."
+
+#: ui/keyselectiondialog.cpp:756
+#, kde-format
+msgid ""
+"<qt>One backend returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgid_plural ""
+"<qt>%1 backends returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgstr[0] ""
+"<qt>백엔드 %1개에서 끊긴 출력을 반환했습니다.<p>모든 키가 표시되지 않았습니다"
+"</p></qt>"
+
+#: ui/keyselectiondialog.cpp:761
+#, kde-format
+msgid "Key List Result"
+msgstr "키 목록 결과"
+
+#: ui/keyselectiondialog.cpp:883
+#, kde-format
+msgid "Recheck Key"
+msgstr "키 다시 확인"
+
+#: ui/messagebox.cpp:69
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Audit Log"
+msgstr "감사 기록 표시"
+
+#: ui/messagebox.cpp:91
+#, kde-format
+msgctxt "@title:window"
+msgid "Information"
+msgstr "정보"
+
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr "오류"
+
+#: ui/newkeyapprovaldialog.cpp:142
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Details"
+msgstr "자세한 정보 표시"
+
+#: ui/newkeyapprovaldialog.cpp:184
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Matching Keys"
+msgstr "일치하는 키 표시"
+
+#: ui/newkeyapprovaldialog.cpp:185
+#, kde-format
+msgid "Show keys matching the email address"
+msgstr "이메일 주소와 일치하는 키 표시"
+
+#: ui/newkeyapprovaldialog.cpp:188
+#, kde-format
+msgctxt "@action:button short for 'Show all keys'"
+msgid "Show All"
+msgstr "모두 표시"
+
+#: ui/newkeyapprovaldialog.cpp:189
+#, kde-format
+msgid "Show all keys"
+msgstr "모든 키 표시"
+
+#: ui/newkeyapprovaldialog.cpp:272
+#, kde-format
+msgctxt ""
+"@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
+"does not yet have an OpenPGP or S/MIME key."
+msgid ""
+"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
+"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"this key and the protected key will be stored in your home directory."
+msgstr ""
+"이메일 주소를 사용하여 새 키를 생성합니다.<br/><br/>이 키는 이메일을 복호화하"
+"고 서명하는 데 필요합니다. 이 키를 보호하는 암호를 입력하라는 메시지가 표시되"
+"며 보호된 키는 홈 디렉터리에 저장됩니다."
+
+#: ui/newkeyapprovaldialog.cpp:297
+#, kde-format
+msgctxt "@title:window"
+msgid "Security approval"
+msgstr "보안 승인"
+
+#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
+#: utils/formatting.cpp:782
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:398
+#, kde-format
+msgid "Generating key for '%1'..."
+msgstr "'%1'의 키 생성 중..."
+
+#: ui/newkeyapprovaldialog.cpp:398
+#, kde-format
+msgid "This can take several minutes."
+msgstr "몇 분 정도 걸릴 수 있습니다."
+
+#: ui/newkeyapprovaldialog.cpp:400
+#, kde-format
+msgctxt "@title:window"
+msgid "Key generation"
+msgstr "키 생성"
+
+#: ui/newkeyapprovaldialog.cpp:439
+#, kde-format
+msgid "Operation Failed"
+msgstr "작동 실패"
+
+#: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
+#, kde-format
+msgid "Generate a new key pair"
+msgstr "새 키 쌍 만들기"
+
+#: ui/newkeyapprovaldialog.cpp:557
+#, kde-format
+msgid "Don't confirm identity and integrity"
+msgstr "ID 및 무결성을 확인하지 않음"
+
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip for not selecting a key for signing."
+msgid "The E-Mail will not be cryptographically signed."
+msgstr "이메일에 암호학적 서명을 추가하지 않습니다."
+
+#: ui/newkeyapprovaldialog.cpp:577
+#, kde-format
+msgctxt "Caption for signing key selection"
+msgid "Confirm identity '%1' as:"
+msgstr "다음으로 ID '%1' 확인:"
+
+#: ui/newkeyapprovaldialog.cpp:654
+#, kde-format
+msgid "No key. Recipient will be unable to decrypt."
+msgstr "키 없음. 수신자가 복호화할 수 없습니다."
+
+#: ui/newkeyapprovaldialog.cpp:657
+#, kde-format
+msgctxt "@info:tooltip for No Key selected for a specific recipient."
+msgid ""
+"Do not select a key for this recipient.<br/><br/>The recipient will receive "
+"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"selected in this dialog."
+msgstr ""
+"이 수신자의 키를 선택하지 않습니다.<br/><br/>수신자는 암호화된 이메일을 받지"
+"만 이 대화 선택한 다른 키를 통해서만 복호화할 수 있습니다."
+
+#: ui/newkeyapprovaldialog.cpp:774
+#, kde-format
+msgctxt "Encrypt to self (email address):"
+msgid "Encrypt to self (%1):"
+msgstr "자기 자신에게 암호화(%1):"
+
+#: ui/newkeyapprovaldialog.cpp:791
+#, kde-format
+msgid "Encrypt to others:"
+msgstr "다른 사람에게 암호화:"
+
+#: ui/newkeyapprovaldialog.cpp:829
+#, kde-format
+msgid "Generate"
+msgstr "생성"
+
+#: ui/readerportselection.cpp:58
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Default reader"
+msgstr "기본 리더"
+
+#: ui/readerportselection.cpp:73
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"<para>Select the smart card reader that GnuPG shall use.<list><item>The "
+"first item will make GnuPG use the first reader that is found.</"
+"item><item>The last item allows you to enter a custom reader ID or reader "
+"port number.</item><item>All other items represent readers that were found "
+"by GnuPG.</item></list></para>"
+msgstr ""
+"<para>GnuPG에서 사용할 스마트카드 리더를 선택하십시오.<list><item>첫 번째 항"
+"목은 GnuPG에서 발견한 첫 번째 리더를 사용합니다.</item><item>마지막 항목은 사"
+"용자 정의 리더 ID나 번호를 입력할 수 있습니다.</item><item>모든 다른 항목은 "
+"GnuPG에서 발견한 리더입니다.</item></list></para>"
+
+#: ui/readerportselection.cpp:114
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Custom reader ID or port number"
+msgstr "사용자 정의 리더 ID 또는 포트 번호"
+
+#: utils/compliance.cpp:149
+#, kde-format
+msgid "VS-NfD compliant"
+msgstr "VS-NfD 준수"
+
+#: utils/compliance.cpp:149
+#, kde-format
+msgid "Not VS-NfD compliant"
+msgstr "VS-NfD 준수 안 함"
+
+#: utils/formatting.cpp:325
+#, kde-format
+msgid "%1-bit %2 (secret key available)"
+msgstr "%1비트 %2(비밀 키 사용 가능)"
+
+#: utils/formatting.cpp:327 utils/formatting.cpp:338
+#, kde-format
+msgid "%1-bit %2"
+msgstr "%1비트 %2"
+
+#: utils/formatting.cpp:346 utils/formatting.cpp:368
+#, kde-format
+msgid "Signing (Qualified)"
+msgstr "서명(적합)"
+
+#: utils/formatting.cpp:348 utils/formatting.cpp:370
+#, kde-format
+msgid "Signing"
+msgstr "서명"
+
+#: utils/formatting.cpp:352 utils/formatting.cpp:374
+#, kde-format
+msgid "Encryption"
+msgstr "암호화"
+
+#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#, kde-format
+msgid "Certifying User-IDs"
+msgstr "사용자 ID 인증"
+
+#: utils/formatting.cpp:358 utils/formatting.cpp:380
+#, kde-format
+msgid "SSH Authentication"
+msgstr "SSH 인증"
+
+#: utils/formatting.cpp:410 utils/formatting.cpp:503
+#, kde-format
+msgid "Revoked"
+msgstr "철회됨"
+
+#: utils/formatting.cpp:412 utils/formatting.cpp:505
+#, kde-format
+msgid "Expired"
+msgstr "만료됨"
+
+#: utils/formatting.cpp:414
+#, kde-format
+msgid "Disabled"
+msgstr "비활성화됨"
+
+#: utils/formatting.cpp:423
+#, kde-format
+msgid "All User-IDs are certified."
+msgstr "모든 사용자 ID가 인증되었습니다."
+
+#: utils/formatting.cpp:429
+#, kde-format
+msgid "One User-ID is not certified."
+msgid_plural "%1 User-IDs are not certified."
+msgstr[0] "사용자 ID %1개가 인증되지 않았습니다."
+
+#: utils/formatting.cpp:432 utils/formatting.cpp:435
+#, kde-format
+msgid "The validity cannot be checked at the moment."
+msgstr "현재 유효성을 확인할 수 없습니다."
+
+#: utils/formatting.cpp:445
+#, kde-format
+msgid "Serial number"
+msgstr "일련 번호"
+
+#: utils/formatting.cpp:454
+#, kde-format
+msgid "Subject"
+msgstr "주제"
+
+#: utils/formatting.cpp:454
+#, kde-format
+msgid "User-ID"
+msgstr "사용자 ID"
+
+#: utils/formatting.cpp:459
+#, kde-format
+msgid "a.k.a."
+msgstr "a.k.a."
+
+#: utils/formatting.cpp:485
+#, kde-format
+msgid "Certification trust"
+msgstr "인증서 신뢰"
+
+#: utils/formatting.cpp:487
+#, kde-format
+msgid "Trusted issuer?"
+msgstr "신뢰할 수 있는 발급자입니까?"
+
+#: utils/formatting.cpp:487
+#, kde-format
+msgid "Yes"
+msgstr "예"
+
+#: utils/formatting.cpp:487
+#, kde-format
+msgid "No"
+msgstr "아니요"
+
+#: utils/formatting.cpp:493 utils/formatting.cpp:495 utils/formatting.cpp:523
+#: utils/formatting.cpp:525
+#, kde-format
+msgid "Stored"
+msgstr "저장됨"
+
+#: utils/formatting.cpp:493 utils/formatting.cpp:523
+#, kde-format
+msgctxt "stored..."
+msgid "on SmartCard with serial no. %1"
+msgstr "일련 번호 %1인 스마트카드에"
+
+#: utils/formatting.cpp:495 utils/formatting.cpp:525
+#, kde-format
+msgctxt "stored..."
+msgid "on this computer"
+msgstr "이 컴퓨터에"
+
+#: utils/formatting.cpp:501
+#, kde-format
+msgid "Subkey"
+msgstr "하위 키"
+
+#: utils/formatting.cpp:549
+#, kde-format
+msgid "Some keys are revoked, expired, disabled, or invalid."
+msgstr ""
+"일부 키는 철회되거나, 만료되었거나, 비활성화되었거나, 올바르지 않습니다."
+
+#: utils/formatting.cpp:553
+#, kde-format
+msgid "All keys are certified."
+msgstr "모든 키가 인증되었습니다."
+
+#: utils/formatting.cpp:555
+#, kde-format
+msgid "Some keys are not certified."
+msgstr "일부 키는 인증되지 않았습니다."
+
+#: utils/formatting.cpp:559
+#, kde-format
+msgid "The validity of the keys cannot be checked at the moment."
+msgstr "키의 유효성을 현재 검사할 수 없습니다."
+
+#: utils/formatting.cpp:573
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This group does not contain any keys."
+msgstr "이 그룹에는 키가 포함되어 있지 않습니다."
+
+#: utils/formatting.cpp:593
+#, kde-format
+msgid "Keys:"
+msgstr "키:"
+
+#: utils/formatting.cpp:601
+#, kde-format
+msgctxt "this follows a list of keys"
+msgid "and 1 more key"
+msgid_plural "and %1 more keys"
+msgstr[0] "및 추가 키 %1개"
+
+#: utils/formatting.cpp:629
+#, kde-format
+msgctxt ""
+"date format suitable for screen readers; d: day as a number without a "
+"leading zero, MMMM: localized month name, yyyy: year as a four digit number"
+msgid "MMMM d, yyyy"
+msgstr "yyyy년 MMMM d일"
+
+#: utils/formatting.cpp:675 utils/formatting.cpp:710
+#, kde-format
+msgctxt "@info the expiration date of the key is unknown"
+msgid "unknown"
+msgstr "알 수 없음"
+
+#: utils/formatting.cpp:717 utils/formatting.cpp:726
+#, kde-format
+msgid "unlimited"
+msgstr "무제한"
+
+#: utils/formatting.cpp:779
+#, kde-format
+msgctxt "X.509/CMS encryption standard"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: utils/formatting.cpp:784
+#, kde-format
+msgctxt "Unknown encryption protocol"
+msgid "Unknown"
+msgstr "알 수 없음"
+
+#: utils/formatting.cpp:800
+#, kde-format
+msgctxt "a group of keys/certificates"
+msgid "Group"
+msgstr "그룹"
+
+#: utils/formatting.cpp:816 utils/formatting.cpp:861
+#, kde-format
+msgctxt "unknown trust level"
+msgid "unknown"
+msgstr "알 수 없음"
+
+#: utils/formatting.cpp:818 utils/formatting.cpp:865
+#, kde-format
+msgid "untrusted"
+msgstr "신뢰할 수 없음"
+
+#: utils/formatting.cpp:820 utils/formatting.cpp:867
+#, kde-format
+msgctxt "marginal trust"
+msgid "marginal"
+msgstr "중요하지 않음"
+
+#: utils/formatting.cpp:822 utils/formatting.cpp:869
+#, kde-format
+msgctxt "full trust"
+msgid "full"
+msgstr "완전한 신뢰"
+
+#: utils/formatting.cpp:824 utils/formatting.cpp:871
+#, kde-format
+msgctxt "ultimate trust"
+msgid "ultimate"
+msgstr "최고의 신뢰"
+
+#: utils/formatting.cpp:826 utils/formatting.cpp:863
+#, kde-format
+msgctxt "undefined trust"
+msgid "undefined"
+msgstr "확실하지 않은 신뢰"
+
+#: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
+#: utils/formatting.cpp:1269
+#, kde-format
+msgid "revoked"
+msgstr "철회됨"
+
+#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1266
+#, kde-format
+msgid "expired"
+msgstr "만료됨"
+
+#: utils/formatting.cpp:843 utils/formatting.cpp:1272
+#, kde-format
+msgid "disabled"
+msgstr "비활성화됨"
+
+#: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
+#: utils/formatting.cpp:1275
+#, kde-format
+msgid "invalid"
+msgstr "올바르지 않음"
+
+#: utils/formatting.cpp:848
+#, kde-format
+msgctxt "as in good/valid signature"
+msgid "good"
+msgstr "양호함"
+
+#: utils/formatting.cpp:887
+#, kde-format
+msgid "valid"
+msgstr "유효함"
+
+#: utils/formatting.cpp:901
+#, kde-format
+msgid "certificate expired"
+msgstr "인증서 만료됨"
+
+#: utils/formatting.cpp:903
+#, kde-format
+msgctxt "fake/invalid signature"
+msgid "bad"
+msgstr "잘못됨"
+
+#: utils/formatting.cpp:909
+#, kde-format
+msgid "no public key"
+msgstr "공개 키 없음"
+
+#: utils/formatting.cpp:911
+#, kde-format
+msgid "key expired"
+msgstr "키 만료됨"
+
+#: utils/formatting.cpp:913
+#, kde-format
+msgid "key revoked"
+msgstr "키 철회됨"
+
+#: utils/formatting.cpp:915
+#, kde-format
+msgid "key disabled"
+msgstr "키 비활성화됨"
+
+#: utils/formatting.cpp:971
+#, kde-format
+msgctxt "name, email, key id"
+msgid "%1 %2 (%3)"
+msgstr "%1 %2(%3)"
+
+#: utils/formatting.cpp:1013
+#, kde-format
+msgid "Bad signature by unknown certificate %1: %2"
+msgstr "알 수 없는 인증서 %1에 의한 잘못된 서명: %2"
+
+#: utils/formatting.cpp:1015
+#, kde-format
+msgid "Bad signature by an unknown certificate: %1"
+msgstr "알 수 없는 인증서에 의한 잘못된 서명: %1"
+
+#: utils/formatting.cpp:1018
+#, kde-format
+msgid "Bad signature by %1: %2"
+msgstr "%1에 의한 잘못된 서명: %2"
+
+#: utils/formatting.cpp:1024
+#, kde-format
+msgid "Good signature by unknown certificate %1."
+msgstr "알 수 없는 인증서 %1의 서명이 양호합니다."
+
+#: utils/formatting.cpp:1026
+#, kde-format
+msgid "Good signature by an unknown certificate."
+msgstr "알 수 없는 인증서에 의한 올바른 서명입니다."
+
+#: utils/formatting.cpp:1029
+#, kde-format
+msgid "Good signature by %1."
+msgstr "%1의 서명이 양호합니다."
+
+#: utils/formatting.cpp:1034
+#, kde-format
+msgid "Invalid signature by unknown certificate %1: %2"
+msgstr "알 수 없는 인증서 %1에 의한 올바르지 않은 서명: %2"
+
+#: utils/formatting.cpp:1036
+#, kde-format
+msgid "Invalid signature by an unknown certificate: %1"
+msgstr "알 수 없는 인증서에 의한 올바르지 않은 서명: %1"
+
+#: utils/formatting.cpp:1039
+#, kde-format
+msgid "Invalid signature by %1: %2"
+msgstr "%1의 올바르지 않은 서명: %2"
+
+#: utils/formatting.cpp:1053
+#, kde-format
+msgid "This certificate was imported from the following sources:"
+msgstr "이 인증서를 가져온 원본은 다음과 같습니다:"
+
+#: utils/formatting.cpp:1064
+#, kde-format
+msgid "The import of this certificate was canceled."
+msgstr "이 인증서 가져오기가 취소되었습니다."
+
+#: utils/formatting.cpp:1067
+#, kde-format
+msgid "An error occurred importing this certificate: %1"
+msgstr "이 인증서를 가져오는 동안 오류가 발생했습니다: %1"
+
+#: utils/formatting.cpp:1072
+#, kde-format
+msgid "This certificate was new to your keystore. The secret key is available."
+msgstr ""
+"이 인증서가 키 저장소에 새로 추가되었습니다. 암호 키를 사용할 수 있습니다."
+
+#: utils/formatting.cpp:1073
+#, kde-format
+msgid "This certificate is new to your keystore."
+msgstr "이 인증서가 키 저장소에 새로 추가되었습니다."
+
+#: utils/formatting.cpp:1078
+#, kde-format
+msgid "New user-ids were added to this certificate by the import."
+msgstr "가져오기 작업으로 이 인증서에 새 사용자 ID가 추가되었습니다."
+
+#: utils/formatting.cpp:1081
+#, kde-format
+msgid "New signatures were added to this certificate by the import."
+msgstr "가져오기 작업으로 이 인증서에 새 서명이 추가되었습니다."
+
+#: utils/formatting.cpp:1084
+#, kde-format
+msgid "New subkeys were added to this certificate by the import."
+msgstr "가져오기 작업으로 이 인증서에 새 하위 키가 추가되었습니다."
+
+#: utils/formatting.cpp:1087
+#, kde-format
+msgid "The import contained no new data for this certificate. It is unchanged."
+msgstr ""
+"가져오기 작업 결과 이 인증서의 새 데이터가 없습니다. 변경 사항이 없습니다."
+
+#: utils/formatting.cpp:1103
+#, kde-format
+msgid "Certify"
+msgstr "인증"
+
+#: utils/formatting.cpp:1106
+#, kde-format
+msgid "Sign"
+msgstr "서명"
+
+#: utils/formatting.cpp:1109
+#, kde-format
+msgid "Encrypt"
+msgstr "암호화"
+
+#: utils/formatting.cpp:1112
+#, kde-format
+msgid "Authenticate"
+msgstr "인증"
+
+#: utils/formatting.cpp:1121
+#, kde-format
+msgctxt "(validity, protocol, creation date)"
+msgid "(%1, %2, created: %3)"
+msgstr "(%1, %2, 생성됨: %3)"
+
+#: utils/formatting.cpp:1133
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity)"
+msgid "%2 (1 key, %3)"
+msgid_plural "%2 (%1 keys, %3)"
+msgstr[0] "%2 (키 %1개, %3)"
+
+#: utils/formatting.cpp:1140
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, tag)"
+msgid "%2 (1 key, %3, tag)"
+msgid_plural "%2 (%1 keys, %3, tag)"
+msgstr[0] "%2 (키 %1개, %3, 태그)"
+
+#: utils/formatting.cpp:1147
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, group ...)"
+msgid "%2 (1 key, %3, unknown origin)"
+msgid_plural "%2 (%1 keys, %3, unknown origin)"
+msgstr[0] "%2 (키 %1개, %3, 출처 불명)"
+
+#: utils/formatting.cpp:1168
+#, kde-format
+msgid "The certificate is marked as your own."
+msgstr "인증서가 내 인증서로 표시됩니다."
+
+#: utils/formatting.cpp:1170
+#, kde-format
+msgid "The certificate belongs to this recipient."
+msgstr "인증서가 이 수신자의 것입니다."
+
+#: utils/formatting.cpp:1172
+#, kde-format
+msgid ""
+"The trust model indicates marginally that the certificate belongs to this "
+"recipient."
+msgstr "신뢰 모델은 인증서가 이 수신자의 것임을 약하게 나타냅니다."
+
+#: utils/formatting.cpp:1174
+#, kde-format
+msgid "This certificate should not be used."
+msgstr "이 인증서를 사용하면 안 됩니다."
+
+#: utils/formatting.cpp:1178
+#, kde-format
+msgid "There is no indication that this certificate belongs to this recipient."
+msgstr "이 인증서가 이 수신자의 것이라는 표시가 없습니다."
+
+#: utils/formatting.cpp:1190
+#, kde-format
+msgid "This group does not contain any keys."
+msgstr "이 그룹에는 키가 포함되어 있지 않습니다."
+
+#: utils/formatting.cpp:1250
+#, kde-format
+msgctxt "@info the compliance of the key with certain requirements is unknown"
+msgid "unknown"
+msgstr "알 수 없음"
+
+#: utils/formatting.cpp:1263
+#, kde-format
+msgctxt "As in all user IDs are valid."
+msgid "certified"
+msgstr "인증됨"
+
+#: utils/formatting.cpp:1278
+#, kde-format
+msgctxt "As in not all user IDs are valid."
+msgid "not certified"
+msgstr "인증 안 됨"
+
+#: utils/formatting.cpp:1281
+#, kde-format
+msgctxt "The validity of the user IDs has not been/could not be checked"
+msgid "not checked"
+msgstr "확인되지 않음"
+
+#: utils/formatting.cpp:1290
+#, kde-format
+msgctxt "As in all keys are valid."
+msgid "all certified"
+msgstr "모두 인증"
+
+#: utils/formatting.cpp:1293
+#, kde-format
+msgctxt "As in not all keys are valid."
+msgid "not all certified"
+msgstr "모두 인증 안 됨"
+
+#: utils/formatting.cpp:1326
+#, kde-format
+msgid "Keyserver"
+msgstr "키 서버"
+
+#: utils/formatting.cpp:1334
+#, kde-format
+msgid "File import"
+msgstr "파일 가져오기"
+
+#: utils/formatting.cpp:1336
+#, kde-format
+msgid "Generated"
+msgstr "생성됨"
+
+#: utils/formatting.cpp:1340
+#, kde-format
+msgid "Unknown"
+msgstr "알 수 없음"
+
+#: utils/formatting.cpp:1376
+#, kde-format
+msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
+msgid "Certifies this key as partially trusted introducer for '%1'."
+msgstr "이 키를 일부 신뢰할 수 있는 도입자 '%1'(으)로 인증합니다."
+
+#: utils/formatting.cpp:1380
+#, kde-format
+msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
+msgid "Certifies this key as fully trusted introducer for '%1'."
+msgstr "이 키를 완전히 신뢰할 수 있는 도입자 '%1'(으)로 인증합니다."
+
+#: utils/hex.cpp:35
+#, kde-format
+msgid "Invalid hex char '%1' in input stream."
+msgstr "입력 스트림의 '%1' 16진수 문자가 올바르지 않습니다."
+
+#: utils/hex.cpp:47 utils/hex.cpp:52
+#, kde-format
+msgid "Premature end of hex-encoded char in input stream"
+msgstr "입력 스트림에서 16진수로 인코딩된 문자의 정상보다 이른 끝"
+
+#~ msgid "Certificate Manager and Unified Crypto GUI"
+#~ msgstr "인증서 관리자 및 통합 암호화 GUI"
+
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgid "Signing failed: %1"
+#~ msgstr "서명 실패: %1"
+
+#~ msgid "Signing successful"
+#~ msgstr "서명 성공"
+
+#~ msgid "Encryption failed: %1"
+#~ msgstr "암호화 실패: %1"
+
+#~ msgid "Encryption successful"
+#~ msgstr "암호화 성공"
+
+#~ msgid "Signing Result"
+#~ msgstr "서명 결과"
+
+#~ msgid "Signing Error"
+#~ msgstr "서명 오류"
+
+#~ msgid "Encryption Result"
+#~ msgstr "암호화 결과"
+
+#~ msgid "Encryption Error"
+#~ msgstr "암호화 오류"
+
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "%1 communication possible."
+#~ msgstr "%1 통신이 가능합니다."
+
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "%1 communication not possible."
+#~ msgstr "%1 통신이 불가능합니다."
+
+#~ msgctxt ""
+#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#~ "RESTRICTED compliant or VS-NfD compliant"
+#~ msgid "May be used for %1 communication."
+#~ msgstr "%1 통신에 사용할 수 있습니다."
+
+#~ msgctxt ""
+#~ "VS-NfD-conforming is a German standard for restricted documents. For "
+#~ "which special restrictions about algorithms apply. The string describes "
+#~ "if a key is compliant to that.."
+#~ msgid "May <b>not</b> be used for %1 communication."
+#~ msgstr "%1 통신에 사용할 수 <b>없습니다</b>."
+
+#~ msgid "never"
+#~ msgstr "안 함"
+
+#~ msgctxt "Key creation date"
+#~ msgid "Created"
+#~ msgstr "생성됨"
+
+#~ msgctxt "Key Expiration date"
+#~ msgid "Expiry"
+#~ msgstr "만료"
+
+#~ msgid "Created"
+#~ msgstr "작성됨"
+
+#~ msgid "Expires"
+#~ msgstr "만료"
+
+#, fuzzy
+#~| msgid "Add"
+#~ msgctxt "@action:button accessible name for 'Add to list'"
+#~ msgid "add"
+#~ msgstr "추가"
+
+#, fuzzy
+#~| msgid "ftp"
+#~ msgctxt "@action:button accessible name for 'Move to top'"
+#~ msgid "top"
+#~ msgstr "ftp"
+
+#, fuzzy
+#~| msgid "Move to bottom"
+#~ msgctxt "@action:button accessible name for 'Move to bottom'"
+#~ msgid "bottom"
+#~ msgstr "맨 아래로 이동"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Custom entry"
+#~ msgstr "사용자 정의 항목"
+
+#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
+#~ msgid "server"
+#~ msgstr "서버"
+
+#~ msgid "hkp"
+#~ msgstr "hkp"
+
+#~ msgid "http"
+#~ msgstr "http"
+
+#~ msgid "https"
+#~ msgstr "https"
+
+#~ msgid "ftps"
+#~ msgstr "ftps"
+
+#~ msgid "ldap"
+#~ msgstr "ldap"
+
+#~ msgid "ldaps"
+#~ msgstr "ldaps"
+
+#~ msgid "Server Name"
+#~ msgstr "서버 이름"
+
+#~ msgid "Server Port"
+#~ msgstr "서버 포트"
+
+#~ msgid "Base DN"
+#~ msgstr "기초 DN"
+
+#~ msgid "User Name"
+#~ msgstr "사용자 이름"
+
+#~ msgctxt "Flags to enable/disable certain features"
+#~ msgid "Flags"
+#~ msgstr "플래그"
+
+#~ msgid "(read-only)"
+#~ msgstr "(읽기 전용)"
+
+#~ msgctxt "amended tooltip; %1: original tooltip"
+#~ msgid "%1 (read-only)"
+#~ msgstr "%1(읽기 전용)"
+
+#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
+#~ msgstr "<b>(선택 사항)</b> 필요한 경우 사용자 이름을 입력하십시오."
+
+#~ msgid ""
+#~ "<b>(Optional)</b> Enter 'ldaps' to specify that a TLS connection shall be "
+#~ "used."
+#~ msgstr "<b>(선택 사항)</b> 'ldaps'를 입력하면 TLS 연결을 사용합니다."
+
+#~ msgid "Directory Services Configuration"
+#~ msgstr "디렉터리 서비스 설정"
+
+#~ msgid "OpenPGP Keyserver:"
+#~ msgstr "OpenPGP 키 서버:"
+
+#~ msgid ""
+#~ "Click this button to create a new directory service entry as a clone of "
+#~ "the currently selected one (or with default values, if no other is "
+#~ "selected). You can then configure details in the table on the left hand."
+#~ msgstr ""
+#~ "이 단추를 클릭하면 현재 선택한 항목을 복제하여(선택한 항목이 없으면 기본"
+#~ "값 사용) 새 디렉터리 서비스 항목을 만듭니다. 새 항목의 설정 값을 변경하려"
+#~ "면 왼쪽에서 가능합니다."
+
+#~ msgid "New"
+#~ msgstr "새로 만들기"
+
+#~ msgid ""
+#~ "Use this option to switch display of username and password information on "
+#~ "or off in the above table."
+#~ msgstr ""
+#~ "위쪽 표에서 사용자 이름 및 암호 정보를 보이거나 숨기려면 선택하십시오."
+
+#~ msgid "Show user and password information"
+#~ msgstr "사용자 이름과 암호 정보 표시"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure GnuPG Backend"
+#~ msgstr "GnuPG 백엔드 설정"
+
+#~ msgid "&Reset"
+#~ msgstr "초기화(&R)"
+
+#~ msgid "Use keyserver at"
+#~ msgstr "다음에 키 서버 사용"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Keyservers"
+#~ msgstr "키 서버 설정"
+
+#, fuzzy
+#~| msgid "X.509"
+#~ msgctxt "X.509/CMS encryption standard"
+#~ msgid "X.509"
+#~ msgstr "X.509"
+
+#, fuzzy
+#~| msgid "Recipient:"
+#~ msgid "Ignore recipient"
+#~ msgstr "수신자:"
+
+#, fuzzy
+#~| msgid "All Certificates"
+#~ msgid "VS-NfD-compliant Certificates"
+#~ msgstr "모든 인증서"
+
+#~ msgctxt "New X.509 Directory Server"
+#~ msgid "X.509"
+#~ msgstr "X.509"
+
+#~ msgctxt "New OpenPGP Directory Server"
+#~ msgid "OpenPGP"
+#~ msgstr "OpenPGP"
+
+#~ msgid "Scheme"
+#~ msgstr "구성"
+
+#~ msgid ""
+#~ "Select the access scheme (scheme) that the directory service is available "
+#~ "through."
+#~ msgstr "디렉터리 서비스에 접근할 수 있는 액세스 프로토콜을 설정합니다."
+
+#~ msgid ""
+#~ "Check this column if this directory service is providing S/MIME (X.509) "
+#~ "certificates."
+#~ msgstr ""
+#~ "이 디렉터리 서비스가 S/MIME (X.509) 인증서를 제공한다면 선택하십시오."
+
+#~ msgid ""
+#~ "Check this column if this directory service is providing OpenPGP "
+#~ "certificates."
+#~ msgstr "이 디렉터리 서비스가 OpenPGP 인증서를 제공한다면 선택하십시오."
+
+#~ msgid "0 - None (no debugging at all)"
+#~ msgstr "0 - 없음 (디버깅 없음)"
+
+#~ msgid "1 - Basic (some basic debug messages)"
+#~ msgstr "1 - 기본 (일부 기본 디버그 메시지)"
+
+#~ msgid "2 - Advanced (more verbose debug messages)"
+#~ msgstr "2 - 고급 (더 자세한 디버그 메시지)"
+
+#~ msgid "3 - Expert (even more detailed messages)"
+#~ msgstr "3 - 전문가 (더 자세한 디버그 메시지)"
+
+#~ msgid "4 - Guru (all of the debug messages you can get)"
+#~ msgstr "4 - 구루 (나오는 모든 디버그 메시지)"
+
+#~ msgid "Chiasmus"
+#~ msgstr "Chiasmus"
+
+#~ msgid "Chiasmus command line tool"
+#~ msgstr "Chiasmus 명령행 도구"
+
+#~ msgid "Unsupported protocol \"%1\""
+#~ msgstr "지원하지 않는 프로토콜 \"%1\""
+
+#~ msgid "File \"%1\" does not exist or is not executable."
+#~ msgstr "파일 \"%1\"이(가) 존재하지 않거나 실행할 수 없습니다."
+
+#~ msgid "Output from chiasmus"
+#~ msgstr "chiasmus 출력"
+
+#~ msgid ""
+#~ "The following was received on stderr:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "표준 에러에서 다음 응답을 받음:\n"
+#~ "%1"
+
+#~ msgid "Failed to load %1: %2"
+#~ msgstr "%1을(를) 불러올 수 없음: %2"
+
+#~ msgid "Library does not contain the symbol \"Chiasmus\"."
+#~ msgstr "라이브러리에 기호 \"Chiasmus\"가 없습니다."
+
+#~ msgid "Scanning directory %1..."
+#~ msgstr "디렉터리 %1 검사 중..."
+
+#~ msgid "GpgME"
+#~ msgstr "GpgME"
+
+#~ msgid "GPGME was compiled without support for %1."
+#~ msgstr "GPGME가 %1 지원을 제외하고 컴파일되었습니다."
+
+#~ msgid "Engine %1 is not installed properly."
+#~ msgstr "엔진 %1이(가) 올바르게 설치되지 않았습니다."
+
+#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
+#~ msgstr ""
+#~ "엔진 %1의 버전 %2이(가) 설치되었지만, 최소한 버전 %3이(가) 필요합니다."
+
+#~ msgid "Unknown problem with engine for protocol %1."
+#~ msgstr "프로토콜 %1을(를) 위한 엔진에서 알 수 없는 문제가 발생했습니다."
+
+#~ msgid "program terminated unexpectedly"
+#~ msgstr "예상치 못하게 프로그램 종료됨"
+
+#~ msgid "program not found or cannot be started"
+#~ msgstr "프로그램을 찾을 수 없거나 시작할 수 없음"
+
+#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
+#~ msgstr "<qt>gpgconf를 실행할 수 없음:<p>%1</p></qt>"
+
+#~ msgid ""
+#~ "Could not start gpgconf.\n"
+#~ "Check that gpgconf is in the PATH and that it can be started."
+#~ msgstr ""
+#~ "gpgconf를 시작할 수 없습니다.\n"
+#~ "PATH에 gpgconf가 있으며 실행할 수 있는지 확인하십시오"
+
+#~ msgid "Error from gpgconf while saving configuration: %1"
+#~ msgstr "설정을 저장하는 중 gpgconf에서 오류 발생: %1"
+
+#~ msgid "Generating ElGamal key..."
+#~ msgstr "ElGamal 키 생성 중..."
+
+#~ msgid "Searching for a large prime number..."
+#~ msgstr "큰 소수를 찾는 중..."
+
+#~ msgid ""
+#~ "Waiting for new entropy from random number generator (you might want to "
+#~ "exercise the harddisks or move the mouse)..."
+#~ msgstr ""
+#~ "난수 생성기에서 새로운 엔트로피를 기다리는 중 (하드디스크를 계속 사용하거"
+#~ "나 마우스를 움직여도 됩니다)..."
+
+#~ msgid "Please wait..."
+#~ msgstr "기다려 주십시오..."
+
+#~ msgid ""
+#~ "Starting gpg-agent (you should consider starting a global instance "
+#~ "instead)..."
+#~ msgstr "gpg-agent를 시작하는 중 (전역 인스턴스를 시작해도 됨)..."
+
+#~ msgid "While scanning for %1 support in backend %2:"
+#~ msgstr "백엔드 %2에서 %1 지원을 찾는 중:"
+
+#~ msgctxt "progress info: \"%1 of %2\""
+#~ msgid "%1/%2"
+#~ msgstr "%2 중 %1"
+
+#~ msgid ""
+#~ "OpenPGP key for %1\n"
+#~ "Created: %2\n"
+#~ "Expiry: %3\n"
+#~ "Fingerprint: %4"
+#~ msgstr ""
+#~ "%1을(를) 위한 OpenPGP 키\n"
+#~ "생성: %2\n"
+#~ "만료: %3\n"
+#~ "지문: %4"
+
+#~ msgid ""
+#~ "S/MIME key for %1\n"
+#~ "Created: %2\n"
+#~ "Expiry: %3\n"
+#~ "Fingerprint: %4\n"
+#~ "Issuer: %5"
+#~ msgstr ""
+#~ "%1을(를) 위한 S/MIME 키 \n"
+#~ "생성: %2\n"
+#~ "만료: %3\n"
+#~ "지문: %4\n"
+#~ "배포자: %5"
+
+#~ msgid "Copy Audit Log to Clipboard"
+#~ msgstr "감사 기록을 클립보드에 복사"
+
+#~ msgid "&Server name:"
+#~ msgstr "서버 이름(&S):"
+
+#~ msgid "389"
+#~ msgstr "389"
+
+#~ msgid "&User name (optional):"
+#~ msgstr "사용자 이름 (선택 사항)(&U):"
+
+#~ msgid "Pass&word (optional):"
+#~ msgstr "암호 (선택 사항)(&W):"
+
+#~ msgid "&OK"
+#~ msgstr "확인(&O)"
+
+#~ msgid "&Cancel"
+#~ msgstr "취소(&C)"
