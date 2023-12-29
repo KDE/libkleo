@@ -23,7 +23,6 @@
 #include <libkleo/keyhelpers.h>
 
 #include <functional>
-#include <memory>
 
 using namespace GpgME;
 using namespace Kleo;

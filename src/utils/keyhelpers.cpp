@@ -23,7 +23,6 @@
 // needed for GPGME_VERSION_NUMBER
 #include <gpgme.h>
 
-#include <algorithm>
 #include <iterator>
 
 using namespace Kleo;
