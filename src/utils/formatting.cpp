@@ -1111,6 +1111,9 @@ QString Formatting::usageString(const Subkey &sub)
     if (sub.canAuthenticate()) {
         usageStrings << i18n("Authenticate");
     }
+    if (sub.canRenc()) {
+        usageStrings << i18nc("Means 'Additional Decryption Subkey'; Don't try translating that, though.", "ADSK");
+    }
     return usageStrings.join(QLatin1String(", "));
 }
 
