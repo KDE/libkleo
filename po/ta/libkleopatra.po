@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-04 00:41+0000\n"
+"POT-Creation-Date: 2024-01-09 00:42+0000\n"
 "PO-Revision-Date: 2005-03-21 04:03-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -1999,12 +1999,12 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: utils/compliance.cpp:149
+#: utils/compliance.cpp:160
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr ""
 
-#: utils/compliance.cpp:149
+#: utils/compliance.cpp:160
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr ""
@@ -2260,23 +2260,24 @@ msgid "undefined"
 msgstr ""
 
 #: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
-#: utils/formatting.cpp:1272
+#: utils/formatting.cpp:1298 utils/formatting.cpp:1326
 #, kde-format
 msgid "revoked"
 msgstr ""
 
-#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1269
+#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1295
+#: utils/formatting.cpp:1323
 #, kde-format
 msgid "expired"
 msgstr ""
 
-#: utils/formatting.cpp:843 utils/formatting.cpp:1275
+#: utils/formatting.cpp:843 utils/formatting.cpp:1301 utils/formatting.cpp:1329
 #, kde-format
 msgid "disabled"
 msgstr ""
 
 #: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
-#: utils/formatting.cpp:1278
+#: utils/formatting.cpp:1304 utils/formatting.cpp:1332
 #, kde-format
 msgid "invalid"
 msgstr ""
@@ -2329,131 +2330,137 @@ msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr ""
 
-#: utils/formatting.cpp:1013
+#: utils/formatting.cpp:1029
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1015
+#: utils/formatting.cpp:1031
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1018
+#: utils/formatting.cpp:1034
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1024
+#: utils/formatting.cpp:1040
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr ""
 
-#: utils/formatting.cpp:1026
+#: utils/formatting.cpp:1042
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr ""
 
-#: utils/formatting.cpp:1029
+#: utils/formatting.cpp:1045
 #, kde-format
 msgid "Good signature by %1."
 msgstr ""
 
-#: utils/formatting.cpp:1034
+#: utils/formatting.cpp:1050
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1036
+#: utils/formatting.cpp:1052
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1039
+#: utils/formatting.cpp:1055
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1053
+#: utils/formatting.cpp:1069
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr ""
 
-#: utils/formatting.cpp:1064
+#: utils/formatting.cpp:1080
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr ""
 
-#: utils/formatting.cpp:1067
+#: utils/formatting.cpp:1083
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1072
+#: utils/formatting.cpp:1088
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 
-#: utils/formatting.cpp:1073
+#: utils/formatting.cpp:1089
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr ""
 
-#: utils/formatting.cpp:1078
+#: utils/formatting.cpp:1094
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr ""
 
-#: utils/formatting.cpp:1081
+#: utils/formatting.cpp:1097
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr ""
 
-#: utils/formatting.cpp:1084
+#: utils/formatting.cpp:1100
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr ""
 
-#: utils/formatting.cpp:1087
+#: utils/formatting.cpp:1103
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1119
 #, kde-format
 msgid "Certify"
 msgstr ""
 
-#: utils/formatting.cpp:1106
+#: utils/formatting.cpp:1122
 #, kde-format
 msgid "Sign"
 msgstr ""
 
-#: utils/formatting.cpp:1109
+#: utils/formatting.cpp:1125
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt"
 msgstr "மறையாக்கு செய்யாது"
 
-#: utils/formatting.cpp:1112
+#: utils/formatting.cpp:1128
 #, kde-format
 msgid "Authenticate"
 msgstr ""
 
-#: utils/formatting.cpp:1115
+#: utils/formatting.cpp:1131
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
 msgstr ""
 
-#: utils/formatting.cpp:1124
+#: utils/formatting.cpp:1139
+#, kde-format
+msgctxt "name <email> (validity, protocol, creation date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr ""
+
+#: utils/formatting.cpp:1150
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr ""
 
-#: utils/formatting.cpp:1136
+#: utils/formatting.cpp:1162
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -2461,7 +2468,7 @@ msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: utils/formatting.cpp:1143
+#: utils/formatting.cpp:1169
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -2469,7 +2476,7 @@ msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: utils/formatting.cpp:1150
+#: utils/formatting.cpp:1176
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -2477,176 +2484,194 @@ msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: utils/formatting.cpp:1171
+#: utils/formatting.cpp:1197
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr ""
 
-#: utils/formatting.cpp:1173
+#: utils/formatting.cpp:1199
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr ""
 
-#: utils/formatting.cpp:1175
+#: utils/formatting.cpp:1201
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
 
-#: utils/formatting.cpp:1177
+#: utils/formatting.cpp:1203
 #, kde-format
 msgid "This certificate should not be used."
 msgstr ""
 
-#: utils/formatting.cpp:1181
+#: utils/formatting.cpp:1207
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
 
-#: utils/formatting.cpp:1193
+#: utils/formatting.cpp:1219
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr ""
 
-#: utils/formatting.cpp:1253
+#: utils/formatting.cpp:1279
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "தெரியாத"
 
-#: utils/formatting.cpp:1266
+#: utils/formatting.cpp:1292
+#, kde-format
+msgctxt "As in 'this user ID is valid.'"
+msgid "certified"
+msgstr ""
+
+#: utils/formatting.cpp:1307
+#, kde-format
+msgctxt "As in 'this user ID is not certified'"
+msgid "not certified"
+msgstr ""
+
+#: utils/formatting.cpp:1310
+#, kde-format
+msgctxt "The validity of this user ID has not been/could not be checked"
+msgid "not checked"
+msgstr ""
+
+#: utils/formatting.cpp:1320
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr ""
 
-#: utils/formatting.cpp:1281
+#: utils/formatting.cpp:1335
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr ""
 
-#: utils/formatting.cpp:1284
+#: utils/formatting.cpp:1338
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr ""
 
-#: utils/formatting.cpp:1293
+#: utils/formatting.cpp:1347
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr ""
 
-#: utils/formatting.cpp:1296
+#: utils/formatting.cpp:1350
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr ""
 
-#: utils/formatting.cpp:1329
+#: utils/formatting.cpp:1383
 #, fuzzy, kde-format
 #| msgid "never"
 msgid "Keyserver"
 msgstr "எப்போதும் இல்லை"
 
-#: utils/formatting.cpp:1337
+#: utils/formatting.cpp:1391
 #, kde-format
 msgid "File import"
 msgstr ""
 
-#: utils/formatting.cpp:1339
+#: utils/formatting.cpp:1393
 #, fuzzy, kde-format
 msgid "Generated"
 msgstr "பொது பிழை"
 
-#: utils/formatting.cpp:1343
+#: utils/formatting.cpp:1397
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgid "Unknown"
 msgstr "தெரியாத"
 
-#: utils/formatting.cpp:1379
+#: utils/formatting.cpp:1433
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1383
+#: utils/formatting.cpp:1437
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1407
+#: utils/formatting.cpp:1461
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1408
+#: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1409
+#: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr ""
 
-#: utils/formatting.cpp:1410
+#: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1411
+#: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr ""
 
-#: utils/formatting.cpp:1412
+#: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1413
+#: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1414
+#: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr ""
 
-#: utils/formatting.cpp:1415
+#: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1416
+#: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr ""
 
-#: utils/formatting.cpp:1417
+#: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr ""
 
-#: utils/formatting.cpp:1420
+#: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
