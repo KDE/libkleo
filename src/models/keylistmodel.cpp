@@ -32,6 +32,7 @@
 #include <QFont>
 #include <QHash>
 #include <QIcon>
+#include <QMimeData>
 
 #include <gpgme++/key.h>
 
@@ -73,6 +74,7 @@ public:
     bool m_modelResetInProgress = false;
     KeyList::Options m_keyListOptions = AllKeys;
     std::vector<GpgME::Key> m_remarkKeys;
+    std::shared_ptr<DragHandler> m_dragHandler;
 };
 
 AbstractKeyListModel::Private::Private(Kleo::AbstractKeyListModel *qq)
@@ -1577,6 +1579,38 @@ AbstractKeyListModel *AbstractKeyListModel::createHierarchicalKeyListModel(QObje
     new QAbstractItemModelTester(m, p);
 #endif
     return m;
+}
+
+QMimeData *AbstractKeyListModel::mimeData(const QModelIndexList &indexes) const
+{
+    if (d->m_dragHandler) {
+        return d->m_dragHandler->mimeData(indexes);
+    } else {
+        return QAbstractItemModel::mimeData(indexes);
+    }
+}
+
+Qt::ItemFlags AbstractKeyListModel::flags(const QModelIndex &index) const
+{
+    if (d->m_dragHandler) {
+        return d->m_dragHandler->flags(index);
+    } else {
+        return QAbstractItemModel::flags(index);
+    }
+}
+
+QStringList AbstractKeyListModel::mimeTypes() const
+{
+    if (d->m_dragHandler) {
+        return d->m_dragHandler->mimeTypes();
+    } else {
+        return QAbstractItemModel::mimeTypes();
+    }
+}
+
+void AbstractKeyListModel::setDragHandler(const std::shared_ptr<DragHandler> &dragHandler)
+{
+    d->m_dragHandler = dragHandler;
 }
 
 #include "keylistmodel.moc"

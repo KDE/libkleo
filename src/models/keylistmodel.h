@@ -29,6 +29,17 @@ class Key;
 namespace Kleo
 {
 
+class KLEO_EXPORT DragHandler
+{
+public:
+    virtual ~DragHandler()
+    {
+    }
+    virtual QMimeData *mimeData(const QModelIndexList &indexes) const = 0;
+    virtual Qt::ItemFlags flags(const QModelIndex &index) const = 0;
+    virtual QStringList mimeTypes() const = 0;
+};
+
 class KLEO_EXPORT AbstractKeyListModel : public QAbstractItemModel, public KeyListModelInterface
 {
     Q_OBJECT
@@ -60,6 +71,8 @@ public:
 
     QModelIndex index(const KeyGroup &group) const override;
     QModelIndex index(const KeyGroup &group, int col) const;
+
+    void setDragHandler(const std::shared_ptr<DragHandler>& dragHandler);
 
 Q_SIGNALS:
     void rowAboutToBeMoved(const QModelIndex &old_parent, int old_row);
@@ -100,6 +113,10 @@ public:
      * joined by a semicolon and a space. */
     void setRemarkKeys(const std::vector<GpgME::Key> &remarkKeys);
     std::vector<GpgME::Key> remarkKeys() const;
+
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QStringList mimeTypes() const override;
+    QMimeData *mimeData(const QModelIndexList &indexes) const override;
 
 protected:
     bool modelResetInProgress();
