@@ -78,6 +78,9 @@ KLEO_EXPORT bool isSelfSignature(const GpgME::UserID::Signature &signature);
  */
 KLEO_EXPORT bool isRevokedOrExpired(const GpgME::UserID &userId);
 
+/** Returns true if the most recent self-signature of \p userId has expired. */
+KLEO_EXPORT bool isExpired(const GpgME::UserID &userId);
+
 /**
  * Returns true if \p key can be used to certify user IDs, i.e. if the key
  * has the required capability and if the secret key of the (primary)

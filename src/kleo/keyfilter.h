@@ -19,6 +19,7 @@
 namespace GpgME
 {
 class Key;
+class UserID;
 }
 
 class QFont;
@@ -51,6 +52,7 @@ public:
     Q_DECLARE_FLAGS(MatchContexts, MatchContext)
 
     virtual bool matches(const GpgME::Key &key, MatchContexts ctx) const = 0;
+    virtual bool matches(const GpgME::UserID &userID, MatchContexts ctx) const = 0;
 
     virtual unsigned int specificity() const = 0;
     virtual QString id() const = 0;

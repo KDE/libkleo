@@ -80,6 +80,8 @@ target_sources(KPim6Libkleo PRIVATE
    models/subkeylistmodel.h
    models/useridlistmodel.cpp
    models/useridlistmodel.h
+   models/useridproxymodel.cpp
+   models/useridproxymodel.h
    utils/algorithm.h
    utils/assuan.cpp
    utils/assuan.h
@@ -126,6 +128,8 @@ ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER L
 
 
 target_sources(KPim6Libkleo PRIVATE
+   ui/adjustingscrollarea.cpp
+   ui/adjustingscrollarea.h
    ui/auditlogviewer.cpp
    ui/auditlogviewer.h
    ui/cryptoconfigentryreaderport.cpp
@@ -275,6 +279,7 @@ ecm_generate_headers(libkleo_CamelCase_models_HEADERS
   KeyRearrangeColumnsProxyModel
   SubkeyListModel
   UserIDListModel
+  UserIDProxyModel
   REQUIRED_HEADERS libkleo_models_HEADERS
   PREFIX Libkleo
   RELATIVE models
@@ -308,6 +313,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   HEADER_NAMES
+  AdjustingScrollArea
   AuditLogViewer
   CryptoConfigModule
   DNAttributeOrderConfigWidget

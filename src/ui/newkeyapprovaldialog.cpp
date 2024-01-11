@@ -16,6 +16,7 @@
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
 
+#include <libkleo/adjustingscrollarea.h>
 #include <libkleo/algorithm.h>
 #include <libkleo/compliance.h>
 #include <libkleo/debug.h>
@@ -44,7 +45,6 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QScreen>
-#include <QScrollArea>
 #include <QToolTip>
 #include <QVBoxLayout>
 
@@ -285,12 +285,12 @@ public:
         });
         QObject::connect(btnBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
 
-        mScrollArea = new QScrollArea;
+        mScrollArea = new AdjustingScrollArea;
         mScrollArea->setWidget(new QWidget);
         mScrollLayout = new QVBoxLayout;
         mScrollArea->widget()->setLayout(mScrollLayout);
         mScrollArea->setWidgetResizable(true);
-        mScrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
+        mScrollArea->setSizeAdjustPolicy(QScrollArea::AdjustToContents);
         mScrollArea->setFrameStyle(QFrame::NoFrame);
         mScrollLayout->setContentsMargins(0, 0, 0, 0);
 

@@ -971,6 +971,22 @@ QString Formatting::formatForComboBox(const GpgME::Key &key)
     return i18nc("name, email, key id", "%1 %2 (%3)", name, mail, QLatin1String(key.shortKeyID())).simplified();
 }
 
+QString Formatting::nameAndEmailForSummaryLine(const UserID &id)
+{
+    Q_ASSERT(!id.isNull());
+
+    const QString email = Formatting::prettyEMail(id);
+    const QString name = Formatting::prettyName(id);
+
+    if (name.isEmpty()) {
+        return email;
+    } else if (email.isEmpty()) {
+        return name;
+    } else {
+        return QStringLiteral("%1 <%2>").arg(name, email);
+    }
+}
+
 QString Formatting::nameAndEmailForSummaryLine(const Key &key)
 {
     Q_ASSERT(!key.isNull());
@@ -1111,7 +1127,20 @@ QString Formatting::usageString(const Subkey &sub)
     if (sub.canAuthenticate()) {
         usageStrings << i18n("Authenticate");
     }
+    if (sub.canRenc()) {
+        usageStrings << i18nc("Means 'Additional Decryption Subkey'; Don't try translating that, though.", "ADSK");
+    }
     return usageStrings.join(QLatin1String(", "));
+}
+
+QString Formatting::summaryLine(const UserID &id)
+{
+    return i18nc("name <email> (validity, protocol, creation date)",
+                 "%1 (%2, %3, created: %4)",
+                 nameAndEmailForSummaryLine(id),
+                 Formatting::complianceStringShort(id),
+                 displayName(id.parent().protocol()),
+                 Formatting::creationDateString(id.parent()));
 }
 
 QString Formatting::summaryLine(const Key &key)
@@ -1251,6 +1280,34 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
             : DeVSCompliance::name(DeVSCompliance::keyIsCompliant(key));
     }
     return QString();
+}
+
+QString Formatting::complianceStringShort(const GpgME::UserID &id)
+{
+    if (DeVSCompliance::isCompliant() && DeVSCompliance::userIDIsCompliant(id)) {
+        return QStringLiteral("★ ") + DeVSCompliance::name(true);
+    }
+    const bool keyValidityChecked = (id.parent().keyListMode() & GpgME::Validate);
+    if (keyValidityChecked && id.validity() >= UserID::Full) {
+        return i18nc("As in 'this user ID is valid.'", "certified");
+    }
+    if (id.parent().isExpired() || isExpired(id)) {
+        return i18n("expired");
+    }
+    if (id.parent().isRevoked() || id.isRevoked()) {
+        return i18n("revoked");
+    }
+    if (id.parent().isDisabled()) {
+        return i18n("disabled");
+    }
+    if (id.parent().isInvalid() || id.isInvalid()) {
+        return i18n("invalid");
+    }
+    if (keyValidityChecked) {
+        return i18nc("As in 'this user ID is not certified'", "not certified");
+    }
+
+    return i18nc("The validity of this user ID has not been/could not be checked", "not checked");
 }
 
 QString Formatting::complianceStringShort(const GpgME::Key &key)
@@ -1396,4 +1453,23 @@ QString Formatting::errorAsString(const GpgME::Error &error)
 #else
     return QString::fromLocal8Bit(error.asString());
 #endif
+}
+
+QString Formatting::prettyAlgorithmName(const std::string &algorithm)
+{
+    static const std::map<std::string, QString> displayNames = {
+        {"brainpoolP256r1", i18nc("@info", "ECC (Brainpool P-256)")},
+        {"brainpoolP384r1", i18nc("@info", "ECC (Brainpool P-384)")},
+        {"brainpoolP512r1", i18nc("@info", "ECC (Brainpool P-512)")},
+        {"curve25519", i18nc("@info", "ECC (Curve25519)")},
+        {"curve448", i18nc("@info", "ECC (Curve448)")},
+        {"nistp256", i18nc("@info", "ECC (NIST P-256)")},
+        {"nistp384", i18nc("@info", "ECC (NIST P-384)")},
+        {"nistp521", i18nc("@info", "ECC (NIST P-521)")},
+        {"rsa2048", i18nc("@info", "RSA 2048")},
+        {"rsa3072", i18nc("@info", "RSA 3072")},
+        {"rsa4096", i18nc("@info", "RSA 4096")},
+    };
+    const auto it = displayNames.find(algorithm);
+    return (it != displayNames.end()) ? it->second : i18nc("@info", "Unknown algorithm");
 }

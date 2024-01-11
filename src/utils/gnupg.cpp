@@ -311,6 +311,10 @@ const QString &Kleo::paperKeyInstallPath()
 
 bool Kleo::haveKeyserverConfigured()
 {
+    if (engineIsVersion(2, 4, 4) //
+        || (engineIsVersion(2, 2, 42) && !engineIsVersion(2, 3, 0))) {
+        return Kleo::keyserver() != QLatin1String{"none"};
+    }
     if (engineIsVersion(2, 1, 19)) {
         // since 2.1.19 there is a builtin keyserver
         return true;
@@ -323,6 +327,10 @@ QString Kleo::keyserver()
     QString result = getCryptoConfigStringValue("gpg", "keyserver");
     if (result.isEmpty()) {
         result = getCryptoConfigStringValue("dirmngr", "keyserver");
+    }
+    if (result.endsWith(QLatin1String{"://none"})) {
+        // map hkps://none, etc., to "none"; see https://dev.gnupg.org/T6708
+        result = QStringLiteral("none");
     }
     return result;
 }
@@ -452,7 +460,7 @@ QStringList Kleo::backendVersionInfo()
             qCDebug(LIBKLEO_LOG) << "gpgconf stdout:" << p.readAllStandardOutput();
         } else {
             const QByteArray output = p.readAllStandardOutput().replace("\r\n", "\n");
-            qCDebug(LIBKLEO_LOG) << "gpgconf stdout:" << p.readAllStandardOutput();
+            qCDebug(LIBKLEO_LOG) << "gpgconf stdout:" << output;
             const auto lines = output.split('\n');
             for (const auto &line : lines) {
                 if (line.startsWith("* GnuPG") || line.startsWith("* Libgcrypt")) {

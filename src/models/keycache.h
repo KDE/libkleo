@@ -173,8 +173,6 @@ public:
 
     std::vector<GpgME::Key> findSubjects(const GpgME::Key &key, Options option = RecursiveSearch) const;
     std::vector<GpgME::Key> findSubjects(const std::vector<GpgME::Key> &keys, Options options = RecursiveSearch) const;
-    std::vector<GpgME::Key>
-    findSubjects(std::vector<GpgME::Key>::const_iterator first, std::vector<GpgME::Key>::const_iterator last, Options options = RecursiveSearch) const;
 
     std::vector<GpgME::Key> findIssuers(const GpgME::Key &key, Options options = RecursiveSearch) const;
 

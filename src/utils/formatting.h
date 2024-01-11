@@ -176,9 +176,11 @@ KLEO_EXPORT QString importMetaData(const GpgME::Import &import, const QStringLis
 
 KLEO_EXPORT QString formatOverview(const GpgME::Key &key);
 KLEO_EXPORT QString usageString(const GpgME::Subkey &subkey);
+KLEO_EXPORT QString summaryLine(const GpgME::UserID &id);
 KLEO_EXPORT QString summaryLine(const GpgME::Key &key);
 KLEO_EXPORT QString summaryLine(const KeyGroup &group);
 KLEO_EXPORT QString nameAndEmailForSummaryLine(const GpgME::Key &key);
+KLEO_EXPORT QString nameAndEmailForSummaryLine(const GpgME::UserID &id);
 
 KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
 
@@ -206,6 +208,7 @@ KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
  * given key, including any conformance statements relevant to the
  * current conformance mode.  */
 KLEO_EXPORT QString complianceStringShort(const GpgME::Key &key);
+KLEO_EXPORT QString complianceStringShort(const GpgME::UserID &id);
 KLEO_EXPORT QString complianceStringShort(const Kleo::KeyGroup &group);
 
 /* The origin of the key mapped to a localized string */
@@ -220,5 +223,10 @@ KLEO_EXPORT QString trustSignature(const GpgME::UserID::Signature &sig);
  * Returns the value of Error::asString() for the error \p error as Unicode string.
  */
 KLEO_EXPORT QString errorAsString(const GpgME::Error &error);
+
+/**
+ * Returns a name suitable for being displayed for the GPG algorithm name @p algorithm.
+ */
+KLEO_EXPORT QString prettyAlgorithmName(const std::string &algorithm);
 }
 }

@@ -430,6 +430,18 @@ static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, 
     }
 }
 
+static QColor get_color(const std::vector<std::shared_ptr<KeyFilter>> &filters, const UserID &userID, QColor (KeyFilter::*fun)() const)
+{
+    const auto it = std::find_if(filters.cbegin(), filters.cend(), [&fun, &userID](const std::shared_ptr<KeyFilter> &filter) {
+        return filter->matches(userID, KeyFilter::Appearance) && (filter.get()->*fun)().isValid();
+    });
+    if (it == filters.cend()) {
+        return {};
+    } else {
+        return (it->get()->*fun)();
+    }
+}
+
 static QString get_string(const std::vector<std::shared_ptr<KeyFilter>> &filters, const Key &key, QString (KeyFilter::*fun)() const)
 {
     const auto it = std::find_if(filters.cbegin(), filters.cend(), [&fun, &key](const std::shared_ptr<KeyFilter> &filter) {
@@ -450,6 +462,16 @@ QColor KeyFilterManager::bgColor(const Key &key) const
 QColor KeyFilterManager::fgColor(const Key &key) const
 {
     return get_color(d->filters, key, &KeyFilter::fgColor);
+}
+
+QColor KeyFilterManager::bgColor(const UserID &userID) const
+{
+    return get_color(d->filters, userID, &KeyFilter::bgColor);
+}
+
+QColor KeyFilterManager::fgColor(const UserID &userID) const
+{
+    return get_color(d->filters, userID, &KeyFilter::fgColor);
 }
 
 QIcon KeyFilterManager::icon(const Key &key) const
