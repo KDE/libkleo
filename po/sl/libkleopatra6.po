@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1669722 2024-01-13 01:08:01Z scripty $
+# $Id: libkleopatra6.po 1669858 2024-01-14 01:07:00Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -14,17 +14,17 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:38+0000\n"
-"PO-Revision-Date: 2023-04-24 09:56+0200\n"
+"PO-Revision-Date: 2024-01-13 07:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2753,12 +2753,10 @@ msgstr "Overi"
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
-msgstr ""
+msgstr "ADSK"
 
 #: utils/formatting.cpp:1139
-#, fuzzy, kde-format
-#| msgctxt "Name <email> (validity, type, created: date)"
-#| msgid "%1 (%2, %3, created: %4)"
+#, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, ustvarjeno: %4)"
@@ -2839,25 +2837,19 @@ msgid "unknown"
 msgstr "neznano"
 
 #: utils/formatting.cpp:1292
-#, fuzzy, kde-format
-#| msgctxt "As in all user IDs are valid."
-#| msgid "certified"
+#, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "potrjeno"
 
 #: utils/formatting.cpp:1307
-#, fuzzy, kde-format
-#| msgctxt "As in not all user IDs are valid."
-#| msgid "not certified"
+#, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "ni potrjeno"
 
 #: utils/formatting.cpp:1310
-#, fuzzy, kde-format
-#| msgctxt "The validity of the user IDs has not been/could not be checked"
-#| msgid "not checked"
+#, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "ni preverjeno"
@@ -2928,73 +2920,73 @@ msgstr "Potrjuje ta ključ kot popolnoma zaupanja vreden uvajalec za  '%1'."
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
-msgstr ""
+msgstr "ECC (Brainpool P-256)"
 
 #: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
-msgstr ""
+msgstr "ECC (Brainpool P-384)"
 
 #: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
-msgstr ""
+msgstr "ECC (Brainpool P-512)"
 
 #: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
-msgstr ""
+msgstr "ECC (Curve25519)"
 
 #: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
-msgstr ""
+msgstr "ECC (Curve448)"
 
 #: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
-msgstr ""
+msgstr "RSA 2048"
 
 #: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
-msgstr ""
+msgstr "RSA 3072"
 
 #: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
-msgstr ""
+msgstr "RSA 4096"
 
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
-msgstr ""
+msgstr "Neznani algoritem"
 
 #: utils/hex.cpp:35
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:38+0000\n"
-"PO-Revision-Date: 2023-10-08 18:02+0100\n"
+"PO-Revision-Date: 2024-01-13 09:04+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2600,12 +2600,10 @@ msgstr "Aŭtentikigi"
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
-msgstr ""
+msgstr "ADSK"
 
 #: utils/formatting.cpp:1139
-#, fuzzy, kde-format
-#| msgctxt "Name <email> (validity, type, created: date)"
-#| msgid "%1 (%2, %3, created: %4)"
+#, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, kreita: %4)"
@@ -2680,25 +2678,19 @@ msgid "unknown"
 msgstr "nekonata"
 
 #: utils/formatting.cpp:1292
-#, fuzzy, kde-format
-#| msgctxt "As in all user IDs are valid."
-#| msgid "certified"
+#, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "atestita"
 
 #: utils/formatting.cpp:1307
-#, fuzzy, kde-format
-#| msgctxt "As in not all user IDs are valid."
-#| msgid "not certified"
+#, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "ne atestita"
 
 #: utils/formatting.cpp:1310
-#, fuzzy, kde-format
-#| msgctxt "The validity of the user IDs has not been/could not be checked"
-#| msgid "not checked"
+#, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "ne kontrolita"
@@ -2769,73 +2761,73 @@ msgstr "Certigas ĉi tiun ŝlosilon kiel plene fidinda enkondukilo por '%1'."
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
-msgstr ""
+msgstr "ECC (Brainpool P-256)"
 
 #: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
-msgstr ""
+msgstr "ECC (Brainpool P-384)"
 
 #: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
-msgstr ""
+msgstr "ECC (Brainpool P-512)"
 
 #: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
-msgstr ""
+msgstr "ECC (Curve25519)"
 
 #: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
-msgstr ""
+msgstr "ECC (Curve448)"
 
 #: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
-msgstr ""
+msgstr "RSA 2048"
 
 #: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
-msgstr ""
+msgstr "RSA 3072"
 
 #: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
-msgstr ""
+msgstr "RSA 4096"
 
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
-msgstr ""
+msgstr "Nekonata algoritmo"
 
 #: utils/hex.cpp:35
 #, kde-format
@@ -2846,9 +2838,3 @@ msgstr "Nevalida deksesum-signo '%1' en eniga fluo."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Tro frua fino de deksesum-kodita signo en eniga fluo"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Atestila Administranto kaj Unified Crypto GUI"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
