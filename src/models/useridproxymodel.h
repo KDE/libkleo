@@ -30,5 +30,7 @@ public:
     int sourceOffsetForProxyIndex(const QModelIndex &index) const;
     int userIDsOfSourceRow(int sourceRow) const;
     UserIDProxyModel *clone() const override;
+    QModelIndex index(const KeyGroup &) const override;
+    QModelIndex index(const GpgME::Key &key) const override;
 };
 }
