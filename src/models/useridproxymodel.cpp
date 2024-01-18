@@ -187,3 +187,15 @@ UserIDProxyModel *UserIDProxyModel::clone() const
     model->setSourceModel(sourceModel());
     return model;
 }
+
+QModelIndex UserIDProxyModel::index(const KeyGroup &group) const
+{
+    Q_UNUSED(group);
+    return {};
+}
+
+QModelIndex UserIDProxyModel::index(const GpgME::Key &key) const
+{
+    Q_UNUSED(key);
+    return {};
+}

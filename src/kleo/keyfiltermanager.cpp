@@ -161,6 +161,10 @@ public:
     {
         return DefaultKeyFilter::matches(key, contexts) && !Kleo::allUserIDsHaveFullValidity(key);
     }
+    bool matches(const UserID &userID, MatchContexts contexts) const override
+    {
+        return DefaultKeyFilter::matches(userID.parent(), contexts) && userID.validity() < UserID::Full;
+    }
 };
 
 /* This filter selects only invalid keys (i.e. those where not all
@@ -180,6 +184,10 @@ public:
     bool matches(const Key &key, MatchContexts contexts) const override
     {
         return DefaultKeyFilter::matches(key, contexts) && !Kleo::allUserIDsHaveFullValidity(key);
+    }
+    bool matches(const UserID &userID, MatchContexts contexts) const override
+    {
+        return DefaultKeyFilter::matches(userID.parent(), contexts) && userID.validity() < UserID::Full;
     }
 };
 
