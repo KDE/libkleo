@@ -191,12 +191,12 @@ target_link_libraries(KPim6Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
                                                 KF6::Completion
                                                 KF6::ConfigCore
                                                 KF6::ColorScheme
-						KF6::ConfigGui
+                                                KF6::ConfigGui
                                                 KF6::CoreAddons
                                                 KF6::WidgetsAddons
                                                 KF6::ItemModels
                                                 KF6::Codecs
-						LibGpgError::LibGpgError)
+                                                LibGpgError::LibGpgError)
 
 target_link_libraries(KPim6Libkleo PUBLIC QGpgmeQt6)
 # Boost::headers may not be available for old versions of Boost
