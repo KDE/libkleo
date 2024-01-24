@@ -65,7 +65,7 @@ static const struct {
 static const int numSignalReplacements = sizeof signalReplacements / sizeof *signalReplacements;
 
 KeyListView::KeyListView(const ColumnStrategy *columnStrategy, const DisplayStrategy *displayStrategy, QWidget *parent, Qt::WindowFlags f)
-    : NavigatableTreeWidget(parent)
+    : TreeWidget(parent)
     , mColumnStrategy(columnStrategy)
     , mDisplayStrategy(displayStrategy)
     , mHierarchical(false)
