@@ -1,5 +1,5 @@
 /*
-    ui/navigatabletreeview.h
+    ui/treeview.h
 
     This file is part of libkleopatra
     SPDX-FileCopyrightText: 2022 g10 Code GmbH
@@ -18,11 +18,12 @@ namespace Kleo
 {
 
 /**
- * A tree view that allows accessible column by column keyboard navigation.
+ * A tree view that allows accessible column by column keyboard navigation
+ * and that has customizable columns through a context menu in the header.
  *
  * Column by column navigation is required to make a tree view accessible.
  *
- * The NavigatableTreeView allows column by column keyboard navigation even if
+ * The TreeView allows column by column keyboard navigation even if
  * the selection behavior is set to SelectRows and users can expand/collapse
  * list items. To achieve this it deactivates the standard behavior of QTreeView
  * to expand/collapse items if the left/right arrow keys are used.
@@ -33,16 +34,26 @@ namespace Kleo
  * "QTreeView { arrow-keys-navigate-into-children: 0; }"
  * as application style sheet.
  *
- * \sa NavigatableTreeWidget
+ * \sa TreeWidget
  */
-class KLEO_EXPORT NavigatableTreeView : public QTreeView
+class KLEO_EXPORT TreeView : public QTreeView
 {
     Q_OBJECT
 public:
-    using QTreeView::QTreeView;
+    TreeView(QWidget *parent = nullptr);
+    ~TreeView() override;
+
+Q_SIGNALS:
+    void columnEnabled(int column);
+    void columnDisabled(int column);
 
 protected:
-    QModelIndex moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
-};
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
+    QModelIndex moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
+
+private:
+    class Private;
+    const std::unique_ptr<Private> d;
+};
 }
