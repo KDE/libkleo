@@ -1463,12 +1463,18 @@ QString Formatting::prettyAlgorithmName(const std::string &algorithm)
         {"brainpoolP512r1", i18nc("@info", "ECC (Brainpool P-512)")},
         {"curve25519", i18nc("@info", "ECC (Curve25519)")},
         {"curve448", i18nc("@info", "ECC (Curve448)")},
+        {"ed25519", i18nc("@info", "ECC (Ed25519)")},
+        {"ed448", i18nc("@info", "ECC (Ed448)")},
+        {"cv25519", i18nc("@info", "ECC (Cv25519)")},
+        {"cv448", i18nc("@info", "ECC (Cv448)")},
         {"nistp256", i18nc("@info", "ECC (NIST P-256)")},
         {"nistp384", i18nc("@info", "ECC (NIST P-384)")},
         {"nistp521", i18nc("@info", "ECC (NIST P-521)")},
         {"rsa2048", i18nc("@info", "RSA 2048")},
         {"rsa3072", i18nc("@info", "RSA 3072")},
         {"rsa4096", i18nc("@info", "RSA 4096")},
+        {"dsa1024", i18nc("@info", "DSA 1024")},
+        {"dsa2048", i18nc("@info", "DSA 2048")},
     };
     const auto it = displayNames.find(algorithm);
     return (it != displayNames.end()) ? it->second : i18nc("@info", "Unknown algorithm");
