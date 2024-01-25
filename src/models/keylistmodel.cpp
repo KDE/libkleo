@@ -320,35 +320,39 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
         if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::ToolTipRole) {
             switch (section) {
             case PrettyName:
-                return i18n("Name");
+                return i18nc("@title:column", "Name");
             case PrettyEMail:
-                return i18n("E-Mail");
+                return i18nc("@title:column", "E-Mail");
             case Validity:
-                return i18n("User-IDs");
+                return i18nc("@title:column", "User-IDs");
             case ValidFrom:
-                return i18n("Valid From");
+                return i18nc("@title:column", "Valid From");
             case ValidUntil:
-                return i18n("Valid Until");
+                return i18nc("@title:column", "Valid Until");
             case TechnicalDetails:
-                return i18n("Protocol");
+                return i18nc("@title:column", "Protocol");
             case ShortKeyID:
-                return i18n("Key-ID");
+                return i18nc("@title:column", "Key-ID");
             case KeyID:
-                return i18n("Key-ID");
+                return i18nc("@title:column", "Key-ID");
             case Fingerprint:
-                return i18n("Fingerprint");
+                return i18nc("@title:column", "Fingerprint");
             case Issuer:
-                return i18n("Issuer");
+                return i18nc("@title:column", "Issuer");
             case SerialNumber:
-                return i18n("Serial Number");
+                return i18nc("@title:column", "Serial Number");
             case Origin:
-                return i18n("Origin");
+                return i18nc("@title:column", "Origin");
             case LastUpdate:
-                return i18n("Last Update");
+                return i18nc("@title:column", "Last Update");
             case OwnerTrust:
-                return i18n("Certification Trust");
+                return i18nc("@title:column", "Certification Trust");
             case Remarks:
-                return i18n("Tags");
+                return i18nc("@title:column", "Tags");
+            case Algorithm:
+                return i18nc("@title:column", "Algorithm");
+            case Keygrip:
+                return i18nc("@title:column", "Keygrip");
             case NumColumns:;
             }
         }
@@ -491,6 +495,14 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
             }
         }
             return QVariant();
+        case Algorithm:
+            return Formatting::prettyAlgorithmName(key.subkey(0).algoName());
+        case Keygrip:
+            if (role == Qt::AccessibleTextRole) {
+                return Formatting::accessibleHexID(key.subkey(0).keyGrip());
+            } else {
+                return Formatting::prettyID(key.subkey(0).keyGrip());
+            }
         case NumColumns:
             break;
         }

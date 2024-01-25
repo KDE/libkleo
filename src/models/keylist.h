@@ -38,6 +38,8 @@ enum Columns {
     Validity,
     Summary, // Short summary line
     Remarks, // Additional remark notations
+    Algorithm,
+    Keygrip,
     NumColumns,
     Icon = PrettyName, // which column shall the icon be displayed in?
 };
