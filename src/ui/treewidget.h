@@ -32,6 +32,14 @@ public:
     TreeWidget(QWidget *parent = nullptr);
     ~TreeWidget() override;
 
+    /**
+     * Restores the layout state under key @p stateGroupName and enables state
+     * saving when the object is destroyed. Make sure that @p stateGroupName is
+     * unique for each place the widget occurs. Returns true if some state was
+     * restored. If false is returned, no state was restored and the caller should
+     * apply the default configuration.
+     */
+    bool restoreColumnLayout(const QString &stateGroupName);
 Q_SIGNALS:
     void columnEnabled(int column);
     void columnDisabled(int column);
