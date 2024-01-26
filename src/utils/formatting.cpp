@@ -1475,6 +1475,10 @@ QString Formatting::prettyAlgorithmName(const std::string &algorithm)
         {"rsa4096", i18nc("@info", "RSA 4096")},
         {"dsa1024", i18nc("@info", "DSA 1024")},
         {"dsa2048", i18nc("@info", "DSA 2048")},
+        {"elg1024", i18nc("@info", "Elgamal 1024")},
+        {"elg2048", i18nc("@info", "Elgamal 2048")},
+        {"elg3072", i18nc("@info", "Elgamal 3072")},
+        {"elg4096", i18nc("@info", "Elgamal 4096")},
     };
     const auto it = displayNames.find(algorithm);
     return (it != displayNames.end()) ? it->second : i18nc("@info", "Unknown algorithm");
