@@ -5,20 +5,21 @@
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007, 2008.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
 # Franklin Weng <franklin@mail.everfocus.com.tw>, 2010, 2015.
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-09 00:42+0000\n"
-"PO-Revision-Date: 2015-02-16 23:21+0800\n"
-"Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
-"Language-Team: Chinese Traditional <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-01-26 17:38+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -165,16 +166,12 @@ msgid "S/MIME Opaque"
 msgstr "不分離式 S/MIME"
 
 #: kleo/enum.cpp:39
-#, fuzzy
-#| msgid "S/MIME"
 msgid "Any S/MIME"
-msgstr "S/MIME"
+msgstr "任何 S/MIME"
 
 #: kleo/enum.cpp:40
-#, fuzzy
-#| msgid "OpenPGP"
 msgid "Any OpenPGP"
-msgstr "OpenPGP"
+msgstr "任何 OpenPGP"
 
 #: kleo/enum.cpp:72
 #, kde-format
@@ -237,7 +234,7 @@ msgstr "<無>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (金鑰ID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -337,7 +334,7 @@ msgstr[0] ""
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (序號 %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -674,10 +671,9 @@ msgid "Trusted Certificates"
 msgstr "已信任憑證"
 
 #: kleo/keyfiltermanager.cpp:121
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgid "Fully Trusted Certificates"
-msgstr "已信任憑證"
+msgstr "完全信任的憑證"
 
 #: kleo/keyfiltermanager.cpp:138
 #, kde-format
@@ -685,27 +681,24 @@ msgid "Other Certificates"
 msgstr "其他憑證"
 
 #: kleo/keyfiltermanager.cpp:153
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgid "Not Certified Certificates"
-msgstr "已信任憑證"
+msgstr "不信任的憑證"
 
 #: kleo/keyfiltermanager.cpp:176
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgid "Not Validated Certificates"
-msgstr "已信任憑證"
+msgstr "未檢查的憑證"
 
 #: models/keylistmodel.cpp:319 models/useridlistmodel.cpp:105
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgid "Name"
-msgstr "使用者名稱"
+msgstr "名稱"
 
 #: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "E-Mail"
-msgstr ""
+msgstr "電子郵件"
 
 #: models/keylistmodel.cpp:323
 #, fuzzy, kde-format
@@ -717,34 +710,34 @@ msgstr "使用者 ID"
 #: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Valid From"
-msgstr ""
+msgstr "有效自"
 
 #: models/keylistmodel.cpp:327 models/subkeylistmodel.cpp:161
 #: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid Until"
-msgstr ""
+msgstr "有效期限"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
 msgid "Protocol"
-msgstr ""
+msgstr "協定"
 
 #: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
 #: utils/formatting.cpp:478
 #, kde-format
 msgid "Key-ID"
-msgstr ""
+msgstr "金鑰 ID"
 
 #: models/keylistmodel.cpp:335 utils/formatting.cpp:481
 #, kde-format
 msgid "Fingerprint"
-msgstr ""
+msgstr "指紋"
 
 #: models/keylistmodel.cpp:337 utils/formatting.cpp:448
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "配發者"
 
 #: models/keylistmodel.cpp:339
 #, fuzzy, kde-format
@@ -753,14 +746,14 @@ msgid "Serial Number"
 msgstr "傳真號碼"
 
 #: models/keylistmodel.cpp:341
-#, kde-format
+#, fuzzy, kde-format
 msgid "Origin"
-msgstr ""
+msgstr "來源"
 
 #: models/keylistmodel.cpp:343
-#, kde-format
+#, fuzzy, kde-format
 msgid "Last Update"
-msgstr ""
+msgstr "上次更新"
 
 #: models/keylistmodel.cpp:345
 #, fuzzy, kde-format
@@ -771,93 +764,81 @@ msgstr "我的憑證"
 #: models/keylistmodel.cpp:347 models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "標籤"
 
 #: models/keylistmodel.cpp:395 models/useridlistmodel.cpp:69
-#, fuzzy, kde-format
-#| msgid "Given name"
+#, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
-msgstr "教名"
+msgstr "未命名"
 
 #: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr ""
+msgstr "無電子郵件"
 
 #: models/keylistmodel.cpp:464
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading..."
-msgstr "抓取金鑰中..."
+msgstr "載入中..."
 
 #: models/keylistmodel.cpp:542
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
-msgstr ""
+msgstr "不適用"
 
 #: models/subkeylistmodel.cpp:155
 #, kde-format
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
 #: utils/formatting.cpp:516
 #, kde-format
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
 #: utils/formatting.cpp:503 utils/formatting.cpp:505
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 #: models/subkeylistmodel.cpp:165
 #, kde-format
 msgid "Strength"
-msgstr ""
+msgstr "強度"
 
 #: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
 #: utils/formatting.cpp:519
 #, kde-format
 msgid "Usage"
-msgstr ""
+msgstr "用途"
 
 #: models/useridlistmodel.cpp:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
-msgstr "no"
+msgstr "是"
 
 #: models/useridlistmodel.cpp:74
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "否"
 
 #: models/useridlistmodel.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "no specific preference"
-#| msgid "<none>"
+#, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr "<無>"
+msgstr "無"
 
 #: models/useridlistmodel.cpp:76
 #, kde-format
 msgid "not applicable"
-msgstr ""
+msgstr "不適用"
 
 #: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
@@ -871,12 +852,12 @@ msgstr "使用者 ID"
 #: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
-msgstr ""
+msgstr "使用者 ID / 憑證金鑰 ID"
 
 #: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Exportable"
-msgstr ""
+msgstr "可匯出"
 
 #: models/useridlistmodel.cpp:112
 #, kde-format
@@ -889,8 +870,7 @@ msgid "class %1"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:52
-#, fuzzy, kde-format
-#| msgid "View GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "檢視 GnuPG 稽核紀錄"
@@ -963,7 +943,7 @@ msgstr "檔案儲存錯誤"
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
-msgstr ""
+msgstr "要連接的讀卡機"
 
 #: ui/cryptoconfigmodule.cpp:165
 #, kde-format
@@ -981,15 +961,7 @@ msgstr ""
 "在命令列執行 \"%1\" 看看是怎麼回事。"
 
 #: ui/cryptoconfigmodule.cpp:651
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
 "whether your language uses Sentence style capitalization in GUI labels (yes) "
@@ -998,27 +970,27 @@ msgctxt ""
 "character to upper-case. It is this behaviour you can control for your "
 "language with this translation."
 msgid "yes"
-msgstr "no"
+msgstr "是"
 
 #: ui/cryptoconfigmodule.cpp:705
 msgid "0 - None"
-msgstr ""
+msgstr "0 - 無"
 
 #: ui/cryptoconfigmodule.cpp:706
 msgid "1 - Basic"
-msgstr ""
+msgstr "1 - 基本"
 
 #: ui/cryptoconfigmodule.cpp:707
 msgid "2 - Verbose"
-msgstr ""
+msgstr "2 - 詳細"
 
 #: ui/cryptoconfigmodule.cpp:708
 msgid "3 - More Verbose"
-msgstr ""
+msgstr "3 - 更詳細"
 
 #: ui/cryptoconfigmodule.cpp:709
 msgid "4 - All"
-msgstr ""
+msgstr "4 - 全部"
 
 #: ui/cryptoconfigmodule.cpp:721
 #, kde-format
@@ -1045,20 +1017,18 @@ msgstr ""
 #: ui/cryptoconfigmodule.cpp:999
 #, kde-format
 msgid "Sorry"
-msgstr ""
+msgstr "抱歉"
 
 #: ui/cryptoconfigmodule.cpp:1006
-#, fuzzy, kde-format
-#| msgid "Configure LDAP Servers"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
-msgstr "設定 LDAP 伺服器"
+msgstr "設定目錄服務"
 
 #: ui/cryptoconfigmodule.cpp:1035
-#, fuzzy, kde-format
-#| msgid "No server configured yet"
+#, kde-format
 msgid "None configured"
-msgstr "還沒設定伺服器"
+msgstr "未設定"
 
 #: ui/cryptoconfigmodule.cpp:1037
 #, kde-format
@@ -1069,7 +1039,7 @@ msgstr[0] "已設定 %1 個伺服器"
 #: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
 #, kde-format
 msgid "Active Directory"
-msgstr ""
+msgstr "Active Directory"
 
 #: ui/directoryserviceswidget.cpp:187
 #, fuzzy, kde-format
@@ -1091,28 +1061,26 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:200
-#, fuzzy, kde-format
-#| msgid "Configure LDAP Servers"
+#, kde-format
 msgid "LDAP Server"
-msgstr "設定 LDAP 伺服器"
+msgstr "LDAP 伺服器"
 
 #: ui/directoryserviceswidget.cpp:203
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
-msgstr ""
+msgstr "點擊以新增一個 LDAP 伺服器所提供的目錄服務。"
 
 #: ui/directoryserviceswidget.cpp:205
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: ui/directoryserviceswidget.cpp:206
-#, fuzzy, kde-format
-#| msgid "Click to add a service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr "按鍵以新增服務"
+msgstr "點擊以新增目錄服務。"
 
 #: ui/directoryserviceswidget.cpp:208
 #, fuzzy, kde-format
@@ -1129,17 +1097,15 @@ msgstr ""
 "效。"
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgid "Edit"
-msgstr "編輯..."
+msgstr "編輯"
 
 #: ui/directoryserviceswidget.cpp:217
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
-msgstr "按鍵以移除目前所選擇的服務"
+msgstr "點擊以編輯所選服務。"
 
 #: ui/directoryserviceswidget.cpp:219
 #, fuzzy, kde-format
@@ -1162,11 +1128,10 @@ msgid "Delete"
 msgstr "刪除"
 
 #: ui/directoryserviceswidget.cpp:225
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
-msgstr "按鍵以移除目前所選擇的服務"
+msgstr "點擊以移除所選服務。"
 
 #: ui/directoryserviceswidget.cpp:227
 #, fuzzy, kde-format
@@ -1183,11 +1148,10 @@ msgstr ""
 "效。"
 
 #: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
-msgstr "目錄服務："
+msgstr "LDAP 目錄服務"
 
 #: ui/dnattributeorderconfigwidget.cpp:73
 #, kde-format
@@ -1205,10 +1169,9 @@ msgid "Current attribute order:"
 msgstr "目前的屬性順序："
 
 #: ui/dnattributeorderconfigwidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgid "available attributes"
-msgstr "可用的屬性："
+msgstr "可用的屬性"
 
 #: ui/dnattributeorderconfigwidget.cpp:105
 #: ui/dnattributeorderconfigwidget.cpp:106
@@ -1219,7 +1182,7 @@ msgstr "所有其他的"
 #: ui/dnattributeorderconfigwidget.cpp:118
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: ui/dnattributeorderconfigwidget.cpp:119
 msgid "Add to current attribute order"
@@ -1228,15 +1191,13 @@ msgstr "新增到目前的屬性順序"
 #: ui/dnattributeorderconfigwidget.cpp:125
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: ui/dnattributeorderconfigwidget.cpp:126
 msgid "Remove from current attribute order"
 msgstr "從目前的屬性順序中移除"
 
 #: ui/dnattributeorderconfigwidget.cpp:132
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "移到最上面"
@@ -1246,30 +1207,24 @@ msgid "Move to top"
 msgstr "移到最上面"
 
 #: ui/dnattributeorderconfigwidget.cpp:139
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr "移到最上面"
+msgstr "上移"
 
 #: ui/dnattributeorderconfigwidget.cpp:140
 msgid "Move one up"
 msgstr "往上移一格"
 
 #: ui/dnattributeorderconfigwidget.cpp:146
-#, fuzzy
-#| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
-msgstr "往下移一格"
+msgstr "下移"
 
 #: ui/dnattributeorderconfigwidget.cpp:147
 msgid "Move one down"
 msgstr "往下移一格"
 
 #: ui/dnattributeorderconfigwidget.cpp:153
-#, fuzzy
-#| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "移到最下面"
@@ -1279,15 +1234,14 @@ msgid "Move to bottom"
 msgstr "移到最下面"
 
 #: ui/dnattributeorderconfigwidget.cpp:184
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgid "current attribute order"
-msgstr "目前的屬性順序："
+msgstr "目前的屬性順序"
 
 #: ui/editdirectoryservicedialog.cpp:99
 #, kde-format
 msgid "Host:"
-msgstr ""
+msgstr "主機："
 
 #: ui/editdirectoryservicedialog.cpp:100
 #, fuzzy, kde-format
@@ -1301,7 +1255,7 @@ msgstr "輸入目錄服務伺服器的 IP 位址或主機名稱。"
 #: ui/editdirectoryservicedialog.cpp:104
 #, kde-format
 msgid "Port:"
-msgstr ""
+msgstr "連結埠："
 
 #: ui/editdirectoryservicedialog.cpp:107
 #, fuzzy, kde-format
@@ -1317,18 +1271,17 @@ msgstr "<b>（選擇性的，預設值通常就可以了）</b>選擇目錄服�
 #: ui/editdirectoryservicedialog.cpp:110
 #, kde-format
 msgid "Use default"
-msgstr ""
+msgstr "使用預設值"
 
 #: ui/editdirectoryservicedialog.cpp:116
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authentication"
-msgstr "其他憑證"
+msgstr "認證"
 
 #: ui/editdirectoryservicedialog.cpp:120
 #, kde-format
 msgid "Anonymous"
-msgstr ""
+msgstr "匿名"
 
 #: ui/editdirectoryservicedialog.cpp:121
 #, kde-format
@@ -1339,12 +1292,12 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:127
 #, kde-format
 msgid "Authenticate via Active Directory"
-msgstr ""
+msgstr "透過 Active Directory 認證"
 
 #: ui/editdirectoryservicedialog.cpp:129
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "透過 Active Directory 認證（需要 GnuPG 2.2.28 以上）"
 
 #: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
@@ -1353,23 +1306,23 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
+"在 Windows 上，用 Active Directory 與 LDAP 伺服器作為目前使用者進行認證。"
 
 #: ui/editdirectoryservicedialog.cpp:137
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr ""
+msgstr "用使用者名稱與密碼進行認證"
 
 #: ui/editdirectoryservicedialog.cpp:138
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
-msgstr ""
+msgstr "用您的 LDAP 帳號密碼與 LDAP 伺服器進行認證。"
 
 #: ui/editdirectoryservicedialog.cpp:148
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User:"
-msgstr "使用者 ID"
+msgstr "使用者："
 
 #: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
@@ -1379,10 +1332,9 @@ msgid ""
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:153
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Password:"
-msgstr "密碼"
+msgstr "密碼："
 
 #: ui/editdirectoryservicedialog.cpp:155
 #, fuzzy, kde-kuit-format
@@ -1402,17 +1354,17 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Connection Security"
-msgstr ""
+msgstr "連線安全性"
 
 #: ui/editdirectoryservicedialog.cpp:167
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "連線安全性 (需要 GnuPG 2.2.28 以上)"
 
 #: ui/editdirectoryservicedialog.cpp:172
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
-msgstr ""
+msgstr "使用預設連線（大概沒有使用 TLS 安全機制）"
 
 #: ui/editdirectoryservicedialog.cpp:174
 #, kde-format
@@ -1464,13 +1416,12 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:210
 #, kde-format
 msgid "Advanced Settings"
-msgstr ""
+msgstr "進階設定"
 
 #: ui/editdirectoryservicedialog.cpp:215
-#, fuzzy, kde-format
-#| msgid "Base DN"
+#, kde-format
 msgid "Base DN:"
-msgstr "基礎 DN"
+msgstr "基礎 DN："
 
 #: ui/editdirectoryservicedialog.cpp:217
 #, fuzzy, kde-format
@@ -1488,7 +1439,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:223
 #, kde-format
 msgid "Additional flags:"
-msgstr ""
+msgstr "額外旗標："
 
 #: ui/editdirectoryservicedialog.cpp:225
 #, kde-format
@@ -1500,16 +1451,15 @@ msgid ""
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:395
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
-msgstr "目錄服務："
+msgstr "編輯目錄服務"
 
 #: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
-msgstr ""
+msgstr "開啟檔案對話框"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1647,81 +1597,79 @@ msgstr "請選擇要使用的 OpenPGP 或 S/MIME 金鑰。"
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
-msgstr ""
+msgstr "%1 <%2>"
 
 #: ui/keyselectioncombo.cpp:176
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
-msgstr ""
+msgstr "%1 (%2, 建立: %3)"
 
 #: ui/keyselectioncombo.cpp:182
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "%1 (%2, %3, 建立: %4)"
 
 #: ui/keyselectioncombo.cpp:671
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading keys ..."
-msgstr "抓取金鑰中..."
+msgstr "載入金鑰中 ..."
 
 #: ui/keyselectiondialog.cpp:72
 #, kde-format
 msgid "The key is not valid."
-msgstr ""
+msgstr "此金鑰無效。"
 
 #: ui/keyselectiondialog.cpp:80
 #, kde-format
 msgid "The key is expired."
-msgstr ""
+msgstr "此金鑰已過期。"
 
 #: ui/keyselectiondialog.cpp:84
 #, kde-format
 msgid "The key is revoked."
-msgstr ""
+msgstr "此金鑰已撤銷。"
 
 #: ui/keyselectiondialog.cpp:88
 #, kde-format
 msgid "The key is disabled."
-msgstr ""
+msgstr "此金鑰已停用。"
 
 #: ui/keyselectiondialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgid "The key is not designated for encryption."
-msgstr "以下的金鑰將用於加密："
+msgstr "此金鑰並非用作加密。"
 
 #: ui/keyselectiondialog.cpp:100
 #, kde-format
 msgid "The key is not designated for signing."
-msgstr ""
+msgstr "此金鑰並非用作簽章。"
 
 #: ui/keyselectiondialog.cpp:105
 #, kde-format
 msgid "The key is not designated for certifying."
-msgstr ""
+msgstr "此金鑰並非用作保證。"
 
 #: ui/keyselectiondialog.cpp:110
 #, kde-format
 msgid "The key is not designated for authentication."
-msgstr ""
+msgstr "此金鑰並非用作認證。"
 
 #: ui/keyselectiondialog.cpp:116
 #, kde-format
 msgid "The key is not secret."
-msgstr ""
+msgstr "此金鑰不是私鑰。"
 
 #: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
 #, kde-format
 msgid "The key can be used."
-msgstr ""
+msgstr "此金鑰可供使用。"
 
 #: ui/keyselectiondialog.cpp:132
 #, kde-format
 msgid "The key is not trusted enough."
-msgstr ""
+msgstr "此金鑰不夠可信。"
 
 #: ui/keyselectiondialog.cpp:195
 #, kde-format
@@ -1737,48 +1685,48 @@ msgstr "未知"
 #: ui/keyselectiondialog.cpp:269
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b> 的 OpenPGP 金鑰"
 
 #: ui/keyselectiondialog.cpp:271
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b> 的 S/MIME 金鑰"
 
 #: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:465
 #: utils/formatting.cpp:508
 #, kde-format
 msgid "Valid from"
-msgstr ""
+msgstr "有效自"
 
 #: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:468
 #: utils/formatting.cpp:511
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "有效期限"
 
 #: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
-msgstr ""
+msgstr "指紋"
 
 #: ui/keyselectiondialog.cpp:282
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
-msgstr ""
+msgstr "配發者"
 
 #: ui/keyselectiondialog.cpp:284
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 #: ui/keyselectiondialog.cpp:286
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "合規"
 
 #: ui/keyselectiondialog.cpp:426
 #, kde-format
@@ -1860,52 +1808,50 @@ msgid "Recheck Key"
 msgstr "重新檢查金鑰"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "顯示稽核紀錄(&S)"
+msgstr "顯示稽核紀錄"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "位置"
+msgstr "資訊"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
-msgstr ""
+msgstr "顯示詳情"
 
 #: ui/newkeyapprovaldialog.cpp:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
-msgstr ""
+msgstr "顯示符合金鑰"
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgid "Show keys matching the email address"
-msgstr ""
+msgstr "顯示符合電子郵件地址的金鑰"
 
 #: ui/newkeyapprovaldialog.cpp:188
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
-msgstr ""
+msgstr "顯示全部"
 
 #: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgid "Show all keys"
-msgstr ""
+msgstr "顯示所有金鑰"
 
 #: ui/newkeyapprovaldialog.cpp:272
 #, kde-format
@@ -1932,38 +1878,35 @@ msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:398
-#, fuzzy, kde-format
-#| msgid "Generating DSA key..."
+#, kde-format
 msgid "Generating key for '%1'..."
-msgstr "產生 DSA 金鑰中..."
+msgstr "正在為 '%1' 產生金鑰..."
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "This can take several minutes."
-msgstr ""
+msgstr "這可能會花幾分鐘。"
 
 #: ui/newkeyapprovaldialog.cpp:400
-#, fuzzy, kde-format
-#| msgid "Key Selection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
-msgstr "選擇金鑰"
+msgstr "金鑰產生"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Decryption failed: %1"
+#, kde-format
 msgid "Operation Failed"
-msgstr "解密失敗：%1"
+msgstr "操作失敗"
 
 #: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
 #, kde-format
 msgid "Generate a new key pair"
-msgstr ""
+msgstr "產生新的金鑰對"
 
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Don't confirm identity and integrity"
-msgstr ""
+msgstr "不要確認身份及完整性"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -1980,7 +1923,7 @@ msgstr ""
 #: ui/newkeyapprovaldialog.cpp:654
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
+msgstr "無金鑰。收件人將會無法解密。"
 
 #: ui/newkeyapprovaldialog.cpp:657
 #, kde-format
@@ -1992,29 +1935,26 @@ msgid ""
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:774
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr "絕不加密"
+msgstr "加密給自己 (%1)："
 
 #: ui/newkeyapprovaldialog.cpp:791
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt to others:"
-msgstr "絕不加密"
+msgstr "加密給別人："
 
 #: ui/newkeyapprovaldialog.cpp:829
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generate"
-msgstr "一般"
+msgstr "產生"
 
 #: ui/readerportselection.cpp:58
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Default reader"
-msgstr ""
+msgstr "預設讀卡機"
 
 #: ui/readerportselection.cpp:73
 #, kde-kuit-format
@@ -2026,34 +1966,36 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
+"<para>選取 GnuPG 應該使用的智慧卡讀卡機。<list><item>第一個項目會讓 GnuPG 使"
+"用第一個找到的讀卡機。</item><item>最後一個項目讓您輸入自訂讀卡機 ID 或是讀卡"
+"機連結埠編號。</item><item>其他項目代表 GnuPG 所找到的各個讀卡機。</item></"
+"list></para>"
 
 #: ui/readerportselection.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "自訂讀卡機 ID 或讀卡機連結埠編號"
 
 #: utils/compliance.cpp:160
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "VS-NfD compliant"
-msgstr "所有憑證"
+msgstr "合乎 VS-NfD 規範"
 
 #: utils/compliance.cpp:160
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "Not VS-NfD compliant"
-msgstr "所有憑證"
+msgstr "不合 VS-NfD 規範"
 
 #: utils/formatting.cpp:325
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
-msgstr ""
+msgstr "%1 位元 %2 (私鑰可用)"
 
 #: utils/formatting.cpp:327 utils/formatting.cpp:338
 #, kde-format
 msgid "%1-bit %2"
-msgstr ""
+msgstr "%1 位元 %2"
 
 #: utils/formatting.cpp:346 utils/formatting.cpp:368
 #, fuzzy, kde-format
@@ -2062,52 +2004,50 @@ msgid "Signing (Qualified)"
 msgstr "簽署失敗：%1"
 
 #: utils/formatting.cpp:348 utils/formatting.cpp:370
-#, fuzzy, kde-format
-#| msgid "Signing Error"
+#, kde-format
 msgid "Signing"
-msgstr "簽署錯誤"
+msgstr "簽署中"
 
 #: utils/formatting.cpp:352 utils/formatting.cpp:374
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgid "Encryption"
-msgstr "加密金鑰："
+msgstr "加密"
 
 #: utils/formatting.cpp:355 utils/formatting.cpp:377
 #, kde-format
 msgid "Certifying User-IDs"
-msgstr ""
+msgstr "正在保證使用者 ID"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
 msgid "SSH Authentication"
-msgstr ""
+msgstr "SSH 認證"
 
 #: utils/formatting.cpp:410 utils/formatting.cpp:503
 #, kde-format
 msgid "Revoked"
-msgstr ""
+msgstr "已撤銷"
 
 #: utils/formatting.cpp:412 utils/formatting.cpp:505
 #, kde-format
 msgid "Expired"
-msgstr ""
+msgstr "已過期"
 
 #: utils/formatting.cpp:414
 #, kde-format
 msgid "Disabled"
-msgstr ""
+msgstr "已停用"
 
 #: utils/formatting.cpp:423
 #, kde-format
 msgid "All User-IDs are certified."
-msgstr ""
+msgstr "所有使用者 ID 皆已保證。"
 
 #: utils/formatting.cpp:429
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
-msgstr[0] ""
+msgstr[0] "有 %1 個使用者 ID 尚未被保證。"
 
 #: utils/formatting.cpp:432 utils/formatting.cpp:435
 #, kde-format
@@ -2115,55 +2055,44 @@ msgid "The validity cannot be checked at the moment."
 msgstr ""
 
 #: utils/formatting.cpp:445
-#, fuzzy, kde-format
-#| msgid "Fax number"
+#, kde-format
 msgid "Serial number"
-msgstr "傳真號碼"
+msgstr "序號"
 
 #: utils/formatting.cpp:454
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "主旨"
 
 #: utils/formatting.cpp:454
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User-ID"
 msgstr "使用者 ID"
 
 #: utils/formatting.cpp:459
 #, kde-format
 msgid "a.k.a."
-msgstr ""
+msgstr "別名"
 
 #: utils/formatting.cpp:485
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Certification trust"
-msgstr "我的憑證"
+msgstr "憑證信賴"
 
 #: utils/formatting.cpp:487
 #, kde-format
 msgid "Trusted issuer?"
-msgstr ""
+msgstr "受信任的配發者？"
 
 #: utils/formatting.cpp:487
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgid "Yes"
-msgstr "no"
+msgstr "是"
 
 #: utils/formatting.cpp:487
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: utils/formatting.cpp:493 utils/formatting.cpp:495 utils/formatting.cpp:523
 #: utils/formatting.cpp:525
@@ -2175,18 +2104,18 @@ msgstr ""
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
-msgstr ""
+msgstr "在序號為 %1 的智慧卡上"
 
 #: utils/formatting.cpp:495 utils/formatting.cpp:525
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
-msgstr ""
+msgstr "在這台電腦上"
 
 #: utils/formatting.cpp:501
 #, kde-format
 msgid "Subkey"
-msgstr ""
+msgstr "子金鑰"
 
 #: utils/formatting.cpp:549
 #, kde-format
@@ -2196,12 +2125,12 @@ msgstr ""
 #: utils/formatting.cpp:553
 #, kde-format
 msgid "All keys are certified."
-msgstr ""
+msgstr "所有金鑰皆以保證。"
 
 #: utils/formatting.cpp:555
 #, kde-format
 msgid "Some keys are not certified."
-msgstr ""
+msgstr "有些金鑰尚未被保證。"
 
 #: utils/formatting.cpp:559
 #, kde-format
@@ -2212,19 +2141,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "這個群組不含任何金鑰。"
 
 #: utils/formatting.cpp:593
 #, kde-format
 msgid "Keys:"
-msgstr ""
+msgstr "金鑰："
 
 #: utils/formatting.cpp:601
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
-msgstr[0] ""
+msgstr[0] "以及另外 %1 個金鑰"
 
 #: utils/formatting.cpp:629
 #, kde-format
@@ -2235,8 +2164,7 @@ msgid "MMMM d, yyyy"
 msgstr ""
 
 #: utils/formatting.cpp:675 utils/formatting.cpp:710
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "未知"
@@ -2244,18 +2172,16 @@ msgstr "未知"
 #: utils/formatting.cpp:717 utils/formatting.cpp:726
 #, kde-format
 msgid "unlimited"
-msgstr ""
+msgstr "不限制"
 
 #: utils/formatting.cpp:779
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: utils/formatting.cpp:784
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "未知"
@@ -2264,7 +2190,7 @@ msgstr "未知"
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
-msgstr ""
+msgstr "群組"
 
 #: utils/formatting.cpp:816 utils/formatting.cpp:861
 #, kde-format
@@ -2275,102 +2201,102 @@ msgstr "未知"
 #: utils/formatting.cpp:818 utils/formatting.cpp:865
 #, kde-format
 msgid "untrusted"
-msgstr ""
+msgstr "不受信任的"
 
 #: utils/formatting.cpp:820 utils/formatting.cpp:867
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
-msgstr ""
+msgstr "最低限度"
 
 #: utils/formatting.cpp:822 utils/formatting.cpp:869
 #, kde-format
 msgctxt "full trust"
 msgid "full"
-msgstr ""
+msgstr "完整"
 
 #: utils/formatting.cpp:824 utils/formatting.cpp:871
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
-msgstr ""
+msgstr "絕對"
 
 #: utils/formatting.cpp:826 utils/formatting.cpp:863
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
-msgstr ""
+msgstr "未定義"
 
 #: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
 #: utils/formatting.cpp:1298 utils/formatting.cpp:1326
 #, kde-format
 msgid "revoked"
-msgstr ""
+msgstr "已撤銷"
 
 #: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1295
 #: utils/formatting.cpp:1323
 #, kde-format
 msgid "expired"
-msgstr ""
+msgstr "已過期"
 
 #: utils/formatting.cpp:843 utils/formatting.cpp:1301 utils/formatting.cpp:1329
 #, kde-format
 msgid "disabled"
-msgstr ""
+msgstr "已停用"
 
 #: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
 #: utils/formatting.cpp:1304 utils/formatting.cpp:1332
 #, kde-format
 msgid "invalid"
-msgstr ""
+msgstr "無效"
 
 #: utils/formatting.cpp:848
 #, kde-format
 msgctxt "as in good/valid signature"
 msgid "good"
-msgstr ""
+msgstr "正確"
 
 #: utils/formatting.cpp:887
 #, kde-format
 msgid "valid"
-msgstr ""
+msgstr "有效"
 
 #: utils/formatting.cpp:901
 #, kde-format
 msgid "certificate expired"
-msgstr ""
+msgstr "憑證已過期"
 
 #: utils/formatting.cpp:903
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
-msgstr ""
+msgstr "不正確"
 
 #: utils/formatting.cpp:909
 #, kde-format
 msgid "no public key"
-msgstr ""
+msgstr "無公鑰"
 
 #: utils/formatting.cpp:911
 #, kde-format
 msgid "key expired"
-msgstr ""
+msgstr "金鑰已過期"
 
 #: utils/formatting.cpp:913
 #, kde-format
 msgid "key revoked"
-msgstr ""
+msgstr "金鑰已撤銷"
 
 #: utils/formatting.cpp:915
 #, kde-format
 msgid "key disabled"
-msgstr ""
+msgstr "金鑰已停用"
 
 #: utils/formatting.cpp:971
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
-msgstr ""
+msgstr "%1 %2 (%3)"
 
 #: utils/formatting.cpp:1029
 #, kde-format
@@ -2420,17 +2346,17 @@ msgstr ""
 #: utils/formatting.cpp:1069
 #, kde-format
 msgid "This certificate was imported from the following sources:"
-msgstr ""
+msgstr "這個憑證是從以下來源匯入的："
 
 #: utils/formatting.cpp:1080
 #, kde-format
 msgid "The import of this certificate was canceled."
-msgstr ""
+msgstr "這個憑證的匯入已取消。"
 
 #: utils/formatting.cpp:1083
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
-msgstr ""
+msgstr "匯入這個憑證時發生錯誤：%1"
 
 #: utils/formatting.cpp:1088
 #, kde-format
@@ -2445,44 +2371,42 @@ msgstr ""
 #: utils/formatting.cpp:1094
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
-msgstr ""
+msgstr "匯入時新增了新的使用者 ID 到這個憑證裡。"
 
 #: utils/formatting.cpp:1097
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
-msgstr ""
+msgstr "匯入時新增了新的簽章到這個憑證裡。"
 
 #: utils/formatting.cpp:1100
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
-msgstr ""
+msgstr "匯入時新增了新的子金鑰到這個憑證裡。"
 
 #: utils/formatting.cpp:1103
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
-msgstr ""
+msgstr "匯入時沒有這個憑證的新資料。沒有進行變更。"
 
 #: utils/formatting.cpp:1119
 #, kde-format
 msgid "Certify"
-msgstr ""
+msgstr "保證"
 
 #: utils/formatting.cpp:1122
 #, kde-format
 msgid "Sign"
-msgstr ""
+msgstr "簽署"
 
 #: utils/formatting.cpp:1125
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt"
-msgstr "絕不加密"
+msgstr "加密"
 
 #: utils/formatting.cpp:1128
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authenticate"
-msgstr "其他憑證"
+msgstr "認證"
 
 #: utils/formatting.cpp:1131
 #, kde-format
@@ -2492,16 +2416,16 @@ msgid "ADSK"
 msgstr ""
 
 #: utils/formatting.cpp:1139
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "%1 (%2, %3, 建立: %4)"
 
 #: utils/formatting.cpp:1150
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
-msgstr ""
+msgstr "(%1, %2, 建立: %3)"
 
 #: utils/formatting.cpp:1162
 #, kde-format
@@ -2554,88 +2478,79 @@ msgstr ""
 #: utils/formatting.cpp:1219
 #, kde-format
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "這個群組不含任何金鑰。"
 
 #: utils/formatting.cpp:1279
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "未知"
 
 #: utils/formatting.cpp:1292
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
-msgstr "所有憑證"
+msgstr "已保證"
 
 #: utils/formatting.cpp:1307
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
-msgstr "所有憑證"
+msgstr "未保證"
 
 #: utils/formatting.cpp:1310
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "未確認"
 
 #: utils/formatting.cpp:1320
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
-msgstr ""
+msgstr "已保證"
 
 #: utils/formatting.cpp:1335
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
-msgstr ""
+msgstr "未保證"
 
 #: utils/formatting.cpp:1338
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "未確認"
 
 #: utils/formatting.cpp:1347
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
-msgstr "所有憑證"
+msgstr "全部已保證"
 
 #: utils/formatting.cpp:1350
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
-msgstr "所有憑證"
+msgstr "並非全部已保證"
 
 #: utils/formatting.cpp:1383
-#, fuzzy, kde-format
-#| msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#| msgid "server"
+#, kde-format
 msgid "Keyserver"
-msgstr "server"
+msgstr "金鑰伺服器"
 
 #: utils/formatting.cpp:1391
 #, kde-format
 msgid "File import"
-msgstr ""
+msgstr "檔案匯入"
 
 #: utils/formatting.cpp:1393
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generated"
-msgstr "一般"
+msgstr "已產生"
 
 #: utils/formatting.cpp:1397
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgid "Unknown"
 msgstr "未知"
 
