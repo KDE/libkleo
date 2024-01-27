@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-26 00:38+0000\n"
+"POT-Creation-Date: 2024-01-27 00:38+0000\n"
 "PO-Revision-Date: 2023-05-30 13:56+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2245,7 +2245,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Eigene Lesegerätkennung oder -portnummer"
 
-#: ui/treeview.cpp:50 ui/treewidget.cpp:47
+#: ui/treeview.cpp:63 ui/treewidget.cpp:138
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
@@ -2981,7 +2981,31 @@ msgctxt "@info"
 msgid "DSA 2048"
 msgstr ""
 
+#: utils/formatting.cpp:1478
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 1024"
+msgstr ""
+
+#: utils/formatting.cpp:1479
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 2048"
+msgstr ""
+
 #: utils/formatting.cpp:1480
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 3072"
+msgstr ""
+
+#: utils/formatting.cpp:1481
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 4096"
+msgstr ""
+
+#: utils/formatting.cpp:1484
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
