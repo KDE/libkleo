@@ -29,6 +29,7 @@ include(ECMGenerateHeaders)
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
 include(ECMDeprecationSettings)
+include(ECMFeatureSummary)
 include(ECMAddQch)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
@@ -139,7 +140,7 @@ install(FILES
 
 install(EXPORT KPim6LibkleoTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KPim6LibkleoTargets.cmake NAMESPACE KPim6::)
 
-feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+ecm_feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
