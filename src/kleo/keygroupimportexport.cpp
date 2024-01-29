@@ -76,8 +76,8 @@ KeyGroup readGroup(const QSettings &groupsConfig, const QString &groupId)
 {
     const QString configGroupPath = keyGroupNamePrefix + groupId + QLatin1Char{'/'};
 
-    const auto groupName = readString(groupsConfig, configGroupPath + QLatin1String{"Name"});
-    const auto fingerprints = readStringList(groupsConfig, configGroupPath + QLatin1String{"Keys"});
+    const auto groupName = readString(groupsConfig, configGroupPath + QLatin1StringView{"Name"});
+    const auto fingerprints = readStringList(groupsConfig, configGroupPath + QLatin1StringView{"Keys"});
     const std::vector<Key> groupKeys = KeyCache::instance()->findByFingerprint(toStdStrings(fingerprints));
 
     KeyGroup g(groupId, groupName, groupKeys, KeyGroup::ApplicationConfig);
@@ -96,8 +96,8 @@ void writeGroup(QSettings &groupsConfig, const KeyGroup &group)
     const QString configGroupName = keyGroupNamePrefix + group.id();
     qCDebug(LIBKLEO_LOG) << __func__ << "Writing config group" << configGroupName;
     const QString configGroupPath = configGroupName + QLatin1Char{'/'};
-    writeString(groupsConfig, configGroupPath + QLatin1String{"Name"}, group.name());
-    writeStringList(groupsConfig, configGroupPath + QLatin1String{"Keys"}, Kleo::getFingerprints(group.keys()));
+    writeString(groupsConfig, configGroupPath + QLatin1StringView{"Name"}, group.name());
+    writeStringList(groupsConfig, configGroupPath + QLatin1StringView{"Keys"}, Kleo::getFingerprints(group.keys()));
 }
 
 } // namespace

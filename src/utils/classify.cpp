@@ -250,7 +250,7 @@ QString Kleo::printableClassification(unsigned int classification)
     if (classification & Kleo::Class::MimeFile) {
         parts.push_back(QStringLiteral("MimeFile"));
     }
-    return parts.join(QLatin1String(", "));
+    return parts.join(QLatin1StringView(", "));
 }
 
 /*!
@@ -306,7 +306,7 @@ QString Kleo::outputFileName(const QString &inputFileName)
     const QString suffix = fi.suffix();
 
     if (classifications.find(suffix) == std::cend(classifications)) {
-        return inputFileName + QLatin1String(".out");
+        return inputFileName + QLatin1StringView(".out");
     } else {
 #ifdef Q_OS_WIN
         return stripOutlookAttachmentNumbering(inputFileName.chopped(suffix.size() + 1));

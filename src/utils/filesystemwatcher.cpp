@@ -294,7 +294,7 @@ void FileSystemWatcher::addPaths(const QStringList &paths)
     }
     const QStringList newPaths = paths + resolve(paths, d->m_blacklist, d->m_whitelist);
     if (!newPaths.empty()) {
-        qCDebug(LIBKLEO_LOG) << "adding\n " << newPaths.join(QLatin1String("\n ")) << "\n/end";
+        qCDebug(LIBKLEO_LOG) << "adding\n " << newPaths.join(QLatin1StringView("\n ")) << "\n/end";
     }
     d->m_paths += newPaths;
     d->m_seenPaths.insert(newPaths.begin(), newPaths.end());

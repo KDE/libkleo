@@ -42,7 +42,7 @@ auto _getMissingSignerKeyIds(const std::vector<GpgME::UserID::Signature> &signat
 {
     return std::accumulate(std::begin(signatures), std::end(signatures), std::set<QString>{}, [](auto &keyIds, const auto &signature) {
         if (!havePublicKeyForSignature(signature)) {
-            keyIds.insert(QLatin1String{signature.signerKeyID()});
+            keyIds.insert(QLatin1StringView{signature.signerKeyID()});
         }
         return keyIds;
     });

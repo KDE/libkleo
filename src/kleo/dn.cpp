@@ -341,7 +341,7 @@ static Kleo::DN::Attribute::List reorder_dn(const Kleo::DN::Attribute::List &dn)
 
     // process the known attrs in the desired order
     for (QStringList::const_iterator oit = attrOrder.begin(); oit != attrOrder.end(); ++oit) {
-        if (*oit == QLatin1String("_X_")) {
+        if (*oit == QLatin1StringView("_X_")) {
             // insert the unknown attrs
             std::copy(unknownEntries.begin(), unknownEntries.end(), std::back_inserter(result));
             unknownEntries.clear(); // don't produce dup's

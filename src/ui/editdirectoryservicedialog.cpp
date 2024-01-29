@@ -373,14 +373,14 @@ public:
 private:
     void saveLayout()
     {
-        KConfigGroup configGroup{KSharedConfig::openStateConfig(), QLatin1String("EditDirectoryServiceDialog")};
+        KConfigGroup configGroup{KSharedConfig::openStateConfig(), QLatin1StringView("EditDirectoryServiceDialog")};
         configGroup.writeEntry("Size", q->size());
         configGroup.sync();
     }
 
     void restoreLayout()
     {
-        const KConfigGroup configGroup{KSharedConfig::openStateConfig(), QLatin1String("EditDirectoryServiceDialog")};
+        const KConfigGroup configGroup{KSharedConfig::openStateConfig(), QLatin1StringView("EditDirectoryServiceDialog")};
         const auto size = configGroup.readEntry("Size", QSize{});
         if (size.isValid()) {
             q->resize(size);

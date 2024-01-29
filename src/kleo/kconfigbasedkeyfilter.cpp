@@ -118,7 +118,7 @@ static const struct {
 static Key::OwnerTrust map2OwnerTrust(const QString &s)
 {
     for (unsigned int i = 0; i < sizeof ownerTrustAndValidityMap / sizeof *ownerTrustAndValidityMap; ++i) {
-        if (s.toLower() == QLatin1String(ownerTrustAndValidityMap[i].name)) {
+        if (s.toLower() == QLatin1StringView(ownerTrustAndValidityMap[i].name)) {
             return ownerTrustAndValidityMap[i].trust;
         }
     }
@@ -128,7 +128,7 @@ static Key::OwnerTrust map2OwnerTrust(const QString &s)
 static UserID::Validity map2Validity(const QString &s)
 {
     for (unsigned int i = 0; i < sizeof ownerTrustAndValidityMap / sizeof *ownerTrustAndValidityMap; ++i) {
-        if (s.toLower() == QLatin1String(ownerTrustAndValidityMap[i].name)) {
+        if (s.toLower() == QLatin1StringView(ownerTrustAndValidityMap[i].name)) {
             return ownerTrustAndValidityMap[i].validity;
         }
     }
@@ -189,7 +189,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         {"is-at-most-", IsAtMost},
     };
     for (unsigned int i = 0; i < sizeof prefixMap / sizeof *prefixMap; ++i) {
-        const QString key = QLatin1String(prefixMap[i].prefix) + QLatin1String("ownertrust");
+        const QString key = QLatin1StringView(prefixMap[i].prefix) + QLatin1String("ownertrust");
         if (config.hasKey(key)) {
             setOwnerTrust(prefixMap[i].state);
             setOwnerTrustReferenceLevel(map2OwnerTrust(config.readEntry(key, QString())));
@@ -198,7 +198,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         }
     }
     for (unsigned int i = 0; i < sizeof prefixMap / sizeof *prefixMap; ++i) {
-        const QString key = QLatin1String(prefixMap[i].prefix) + QLatin1String("validity");
+        const QString key = QLatin1StringView(prefixMap[i].prefix) + QLatin1String("validity");
         if (config.hasKey(key)) {
             setValidity(prefixMap[i].state);
             setValidityReferenceLevel(map2Validity(config.readEntry(key, QString())));
@@ -214,17 +214,17 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         {"appearance", Appearance},
         {"filtering", Filtering},
     };
-    static const QRegularExpression reg(QRegularExpression(QLatin1String("[^a-z!]+")));
+    static const QRegularExpression reg(QRegularExpression(QLatin1StringView("[^a-z!]+")));
     const QStringList contexts = config.readEntry("match-contexts", "any").toLower().split(reg, Qt::SkipEmptyParts);
     setMatchContexts(NoMatchContext);
     for (const QString &ctx : contexts) {
         bool found = false;
         for (unsigned int i = 0; i < sizeof matchMap / sizeof *matchMap; ++i) {
-            if (ctx == QLatin1String(matchMap[i].key)) {
+            if (ctx == QLatin1StringView(matchMap[i].key)) {
                 setMatchContexts(availableMatchContexts() |= matchMap[i].context);
                 found = true;
                 break;
-            } else if (ctx.startsWith(QLatin1Char('!')) && ctx.mid(1) == QLatin1String(matchMap[i].key)) {
+            } else if (ctx.startsWith(QLatin1Char('!')) && ctx.mid(1) == QLatin1StringView(matchMap[i].key)) {
                 setMatchContexts(availableMatchContexts() &= matchMap[i].context);
                 found = true;
                 break;

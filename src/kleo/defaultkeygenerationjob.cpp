@@ -68,7 +68,7 @@ void DefaultKeyGenerationJob::setPassphrase(const QString &passphrase)
     // null QString = ask for passphrase
     // empty QString = empty passphrase
     // non-empty QString = passphrase
-    d->passphrase = passphrase.isNull() ? QLatin1String("") : passphrase;
+    d->passphrase = passphrase.isNull() ? QLatin1StringView("") : passphrase;
 }
 
 namespace

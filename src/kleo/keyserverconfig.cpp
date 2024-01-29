@@ -76,13 +76,13 @@ KeyserverConfig KeyserverConfig::fromUrl(const QUrl &url)
             return flag.trimmed().toLower();
         });
         for (const auto &flag : flags) {
-            if (flag == QLatin1String{"starttls"}) {
+            if (flag == QLatin1StringView{"starttls"}) {
                 config.d->connection = KeyserverConnection::UseSTARTTLS;
-            } else if (flag == QLatin1String{"ldaptls"}) {
+            } else if (flag == QLatin1StringView{"ldaptls"}) {
                 config.d->connection = KeyserverConnection::TunnelThroughTLS;
-            } else if (flag == QLatin1String{"plain"}) {
+            } else if (flag == QLatin1StringView{"plain"}) {
                 config.d->connection = KeyserverConnection::Plain;
-            } else if (flag == QLatin1String{"ntds"}) {
+            } else if (flag == QLatin1StringView{"ntds"}) {
                 config.d->authentication = KeyserverAuthentication::ActiveDirectory;
             } else {
                 config.d->additionalFlags.push_back(flag);

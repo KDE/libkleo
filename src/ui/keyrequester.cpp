@@ -151,7 +151,7 @@ QString Kleo::KeyRequester::fingerprint() const
     if (mKeys.empty()) {
         return QString();
     } else {
-        return QLatin1String(mKeys.front().primaryFingerprint());
+        return QLatin1StringView(mKeys.front().primaryFingerprint());
     }
 }
 
@@ -161,7 +161,7 @@ QStringList Kleo::KeyRequester::fingerprints() const
     for (auto it = mKeys.begin(); it != mKeys.end(); ++it) {
         if (!it->isNull()) {
             if (const char *fpr = it->primaryFingerprint()) {
-                result.push_back(QLatin1String(fpr));
+                result.push_back(QLatin1StringView(fpr));
             }
         }
     }
@@ -198,9 +198,9 @@ void Kleo::KeyRequester::updateKeys()
         if (it->isNull()) {
             continue;
         }
-        const QString fpr = QLatin1String(it->primaryFingerprint());
+        const QString fpr = QLatin1StringView(it->primaryFingerprint());
         labelTexts.push_back(fpr.right(8));
-        toolTipText += fpr.right(8) + QLatin1String(": ");
+        toolTipText += fpr.right(8) + QLatin1StringView(": ");
         if (const char *uid = it->userID(0).id()) {
             if (it->protocol() == GpgME::OpenPGP) {
                 toolTipText += QString::fromUtf8(uid);
@@ -221,7 +221,7 @@ void Kleo::KeyRequester::updateKeys()
             mComplianceIcon->setToolTip(DeVSCompliance::name(false));
         }
     }
-    mLabel->setText(labelTexts.join(QLatin1String(", ")));
+    mLabel->setText(labelTexts.join(QLatin1StringView(", ")));
     mLabel->setToolTip(toolTipText);
 }
 

@@ -116,11 +116,11 @@ int main(int argc, char **argv)
 
         if (split.size() == 3) {
             const QString fmtStr = split[2].toLower();
-            if (fmtStr == QLatin1String("openpgp")) {
+            if (fmtStr == QLatin1StringView("openpgp")) {
                 fmt = OpenPGP;
-            } else if (fmtStr == QLatin1String("smime")) {
+            } else if (fmtStr == QLatin1StringView("smime")) {
                 fmt = CMS;
-            } else if (fmtStr == QLatin1String("auto")) {
+            } else if (fmtStr == QLatin1StringView("auto")) {
                 fmt = UnknownProtocol;
             } else {
                 parser.showHelp(1);

@@ -78,7 +78,7 @@ public:
 inline QIcon loadIcon(const QString &s)
 {
     QString ss = s;
-    const static QRegularExpression reg(QRegularExpression(QLatin1String("[^a-zA-Z0-9_]")));
+    const static QRegularExpression reg(QRegularExpression(QLatin1StringView("[^a-zA-Z0-9_]")));
     return QIcon::fromTheme(ss.replace(reg, QStringLiteral("-")));
 }
 
@@ -223,7 +223,7 @@ void Kleo::CryptoConfigModule::init(Layout layout)
             "properly. It did not return any components. "
             "Try running \"%1\" on the command line for more "
             "information.",
-            components.empty() ? QLatin1String("gpgconf --list-components") : QLatin1String("gpgconf --list-options gpg"));
+            components.empty() ? QLatin1StringView("gpgconf --list-components") : QLatin1String("gpgconf --list-options gpg"));
         QLabel *label = new QLabel(msg, vbox);
         label->setWordWrap(true);
         label->setMinimumHeight(fontMetrics().lineSpacing() * 5);
@@ -392,7 +392,7 @@ bool offerEntryForConfiguration(QGpgME::CryptoConfigEntry *entry)
                                      : QGpgME::CryptoConfigEntry::Level_Expert + 1;
     // we ignore the group when looking up entries to exclude because entries
     // are uniquely identified by their name and their component
-    const auto entryId = entry->path().replace(entryPathGroupSegmentRegexp, QLatin1String{"/"}).toLower();
+    const auto entryId = entry->path().replace(entryPathGroupSegmentRegexp, QLatin1StringView{"/"}).toLower();
     return (entry->level() <= maxEntryLevel) && (entriesToExclude.find(entryId) == entriesToExclude.end());
 }
 
@@ -648,7 +648,7 @@ QString Kleo::CryptoConfigEntryGUI::description() const
               "first character to upper-case. It is this behaviour you can "
               "control for your language with this translation.",
               "yes")
-        == QLatin1String("yes")) {
+        == QLatin1StringView("yes")) {
         descr[0] = descr[0].toUpper();
     }
     return descr;
@@ -740,7 +740,7 @@ void Kleo::CryptoConfigEntryDebugLevel::doSave()
 {
     const unsigned int idx = mComboBox->currentIndex();
     if (idx < numDebugLevels) {
-        mEntry->setStringValue(QLatin1String(debugLevels[idx].name));
+        mEntry->setStringValue(QLatin1StringView(debugLevels[idx].name));
     } else {
         mEntry->setStringValue(QString());
     }
@@ -750,7 +750,7 @@ void Kleo::CryptoConfigEntryDebugLevel::doLoad()
 {
     const QString str = mEntry->stringValue();
     for (unsigned int i = 0; i < numDebugLevels; ++i) {
-        if (str == QLatin1String(debugLevels[i].name)) {
+        if (str == QLatin1StringView(debugLevels[i].name)) {
             mComboBox->setCurrentIndex(i);
             return;
         }

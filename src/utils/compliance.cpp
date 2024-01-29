@@ -33,7 +33,7 @@
 
 bool Kleo::DeVSCompliance::isActive()
 {
-    return getCryptoConfigStringValue("gpg", "compliance") == QLatin1String{"de-vs"};
+    return getCryptoConfigStringValue("gpg", "compliance") == QLatin1StringView{"de-vs"};
 }
 
 bool Kleo::DeVSCompliance::isCompliant()

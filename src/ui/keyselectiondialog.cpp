@@ -261,7 +261,7 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
     QString keyStatusString;
     if (!checkKeyUsage(key, mKeyUsage, &keyStatusString)) {
         // Show the status in bold if there is a problem
-        keyStatusString = QLatin1String("<b>") % keyStatusString % QLatin1String("</b>");
+        keyStatusString = QLatin1StringView("<b>") % keyStatusString % QLatin1String("</b>");
     }
 
     QString html = QStringLiteral("<qt><p style=\"style='white-space:pre'\">");
@@ -583,7 +583,7 @@ const GpgME::Key &KeySelectionDialog::selectedKey() const
 
 QString KeySelectionDialog::fingerprint() const
 {
-    return QLatin1String(selectedKey().primaryFingerprint());
+    return QLatin1StringView(selectedKey().primaryFingerprint());
 }
 
 QStringList KeySelectionDialog::fingerprints() const
@@ -591,7 +591,7 @@ QStringList KeySelectionDialog::fingerprints() const
     QStringList result;
     for (auto it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it) {
         if (const char *fpr = it->primaryFingerprint()) {
-            result.push_back(QLatin1String(fpr));
+            result.push_back(QLatin1StringView(fpr));
         }
     }
     return result;
@@ -603,7 +603,7 @@ QStringList KeySelectionDialog::pgpKeyFingerprints() const
     for (auto it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it) {
         if (it->protocol() == GpgME::OpenPGP) {
             if (const char *fpr = it->primaryFingerprint()) {
-                result.push_back(QLatin1String(fpr));
+                result.push_back(QLatin1StringView(fpr));
             }
         }
     }
@@ -616,7 +616,7 @@ QStringList KeySelectionDialog::smimeFingerprints() const
     for (auto it = mSelectedKeys.begin(); it != mSelectedKeys.end(); ++it) {
         if (it->protocol() == GpgME::CMS) {
             if (const char *fpr = it->primaryFingerprint()) {
-                result.push_back(QLatin1String(fpr));
+                result.push_back(QLatin1StringView(fpr));
             }
         }
     }
@@ -691,7 +691,7 @@ namespace
 struct ExtractFingerprint {
     QString operator()(const GpgME::Key &key)
     {
-        return QLatin1String(key.primaryFingerprint());
+        return QLatin1StringView(key.primaryFingerprint());
     }
 };
 }
@@ -943,9 +943,9 @@ void KeySelectionDialog::slotFilter()
     }
 
     // OK, so we need to filter:
-    QRegularExpression keyIdRegExp(QRegularExpression::anchoredPattern(QLatin1String("(?:0x)?[A-F0-9]{1,8}")), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression keyIdRegExp(QRegularExpression::anchoredPattern(QLatin1StringView("(?:0x)?[A-F0-9]{1,8}")), QRegularExpression::CaseInsensitiveOption);
     if (keyIdRegExp.match(mSearchText).hasMatch()) {
-        if (mSearchText.startsWith(QLatin1String("0X")))
+        if (mSearchText.startsWith(QLatin1StringView("0X")))
         // search for keyID only:
         {
             filterByKeyID(mSearchText.mid(2));
@@ -993,7 +993,7 @@ void KeySelectionDialog::filterByKeyIDOrUID(const QString &str)
     Q_ASSERT(!str.isEmpty());
 
     // match beginnings of words:
-    QRegularExpression rx(QLatin1String("\\b") + QRegularExpression::escape(str), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression rx(QLatin1StringView("\\b") + QRegularExpression::escape(str), QRegularExpression::CaseInsensitiveOption);
 
     for (KeyListViewItem *item = mKeyListView->firstChild(); item; item = item->nextSibling()) {
         item->setHidden(!item->text(0).toUpper().startsWith(str) && !anyUIDMatches(item, rx));
@@ -1005,7 +1005,7 @@ void KeySelectionDialog::filterByUID(const QString &str)
     Q_ASSERT(!str.isEmpty());
 
     // match beginnings of words:
-    QRegularExpression rx(QLatin1String("\\b") + QRegularExpression::escape(str), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression rx(QLatin1StringView("\\b") + QRegularExpression::escape(str), QRegularExpression::CaseInsensitiveOption);
 
     for (KeyListViewItem *item = mKeyListView->firstChild(); item; item = item->nextSibling()) {
         item->setHidden(!anyUIDMatches(item, rx));

@@ -225,7 +225,7 @@ QString Formatting::prettyKeyID(const char *id)
     if (!id) {
         return QString();
     }
-    return QLatin1String("0x") + QString::fromLatin1(id).toUpper();
+    return QLatin1StringView("0x") + QString::fromLatin1(id).toUpper();
 }
 
 QString Formatting::prettyNameAndEMail(const UserID &uid)
@@ -322,9 +322,9 @@ QString format_keytype(const Key &key)
 {
     const Subkey subkey = key.subkey(0);
     if (key.hasSecret()) {
-        return i18n("%1-bit %2 (secret key available)", subkey.length(), QLatin1String(subkey.publicKeyAlgorithmAsString()));
+        return i18n("%1-bit %2 (secret key available)", subkey.length(), QLatin1StringView(subkey.publicKeyAlgorithmAsString()));
     } else {
-        return i18n("%1-bit %2", subkey.length(), QLatin1String(subkey.publicKeyAlgorithmAsString()));
+        return i18n("%1-bit %2", subkey.length(), QLatin1StringView(subkey.publicKeyAlgorithmAsString()));
     }
 }
 
@@ -335,7 +335,7 @@ QString format_subkeytype(const Subkey &subkey)
     if (algo == Subkey::AlgoECC || algo == Subkey::AlgoECDSA || algo == Subkey::AlgoECDH || algo == Subkey::AlgoEDDSA) {
         return QString::fromStdString(subkey.algoName());
     }
-    return i18n("%1-bit %2", subkey.length(), QLatin1String(subkey.publicKeyAlgorithmAsString()));
+    return i18n("%1-bit %2", subkey.length(), QLatin1StringView(subkey.publicKeyAlgorithmAsString()));
 }
 
 QString format_keyusage(const Key &key)
@@ -357,7 +357,7 @@ QString format_keyusage(const Key &key)
     if (Kleo::keyHasAuthenticate(key)) {
         capabilities.push_back(i18n("SSH Authentication"));
     }
-    return capabilities.join(QLatin1String(", "));
+    return capabilities.join(QLatin1StringView(", "));
 }
 
 QString format_subkeyusage(const Subkey &subkey)
@@ -379,7 +379,7 @@ QString format_subkeyusage(const Subkey &subkey)
     if (subkey.canAuthenticate()) {
         capabilities.push_back(i18n("SSH Authentication"));
     }
-    return capabilities.join(QLatin1String(", "));
+    return capabilities.join(QLatin1StringView(", "));
 }
 
 static QString time_t2string(time_t t)
@@ -390,7 +390,7 @@ static QString time_t2string(time_t t)
 
 static QString make_red(const QString &txt)
 {
-    return QLatin1String("<font color=\"red\">") + txt.toHtmlEscaped() + QLatin1String("</font>");
+    return QLatin1StringView("<font color=\"red\">") + txt.toHtmlEscaped() + QLatin1String("</font>");
 }
 
 }
@@ -439,7 +439,7 @@ QString Formatting::toolTip(const Key &key, int flags)
         return result;
     }
 
-    result += QLatin1String("<table border=\"0\">");
+    result += QLatin1StringView("<table border=\"0\">");
     if (key.protocol() == GpgME::CMS) {
         if (flags & SerialNumber) {
             result += format_row(i18n("Serial number"), key.issuerSerial());
@@ -497,7 +497,7 @@ QString Formatting::toolTip(const Key &key, int flags)
     }
     if (flags & Subkeys) {
         for (const auto &sub : key.subkeys()) {
-            result += QLatin1String("<hr/>");
+            result += QLatin1StringView("<hr/>");
             result += format_row(i18n("Subkey"), sub.fingerprint());
             if (sub.isRevoked()) {
                 result += format_row(i18n("Status"), i18n("Revoked"));
@@ -527,7 +527,7 @@ QString Formatting::toolTip(const Key &key, int flags)
             }
         }
     }
-    result += QLatin1String("</table>");
+    result += QLatin1StringView("</table>");
 
     return result;
 }
@@ -594,11 +594,12 @@ QString Formatting::toolTip(const KeyGroup &group, int flags)
     {
         auto it = keys.cbegin();
         for (unsigned int i = 0; i < numKeysForTooltip; ++i, ++it) {
-            result.push_back(QLatin1String("<br>") + Formatting::summaryLine(*it).toHtmlEscaped());
+            result.push_back(QLatin1StringView("<br>") + Formatting::summaryLine(*it).toHtmlEscaped());
         }
     }
     if (keys.size() > numKeysForTooltip) {
-        result.push_back(QLatin1String("<br>") + i18ncp("this follows a list of keys", "and 1 more key", "and %1 more keys", keys.size() - numKeysForTooltip));
+        result.push_back(QLatin1StringView("<br>")
+                         + i18ncp("this follows a list of keys", "and 1 more key", "and %1 more keys", keys.size() - numKeysForTooltip));
     }
     result.push_back(QStringLiteral("</p>"));
 
@@ -958,7 +959,7 @@ QString Formatting::formatKeyLink(const Key &key)
     if (key.isNull()) {
         return QString();
     }
-    return QStringLiteral("<a href=\"key:%1\">%2</a>").arg(QLatin1String(key.primaryFingerprint()), Formatting::prettyName(key));
+    return QStringLiteral("<a href=\"key:%1\">%2</a>").arg(QLatin1StringView(key.primaryFingerprint()), Formatting::prettyName(key));
 }
 
 QString Formatting::formatForComboBox(const GpgME::Key &key)
@@ -968,7 +969,7 @@ QString Formatting::formatForComboBox(const GpgME::Key &key)
     if (!mail.isEmpty()) {
         mail = QLatin1Char('<') + mail + QLatin1Char('>');
     }
-    return i18nc("name, email, key id", "%1 %2 (%3)", name, mail, QLatin1String(key.shortKeyID())).simplified();
+    return i18nc("name, email, key id", "%1 %2 (%3)", name, mail, QLatin1StringView(key.shortKeyID())).simplified();
 }
 
 QString Formatting::nameAndEmailForSummaryLine(const UserID &id)
@@ -1130,7 +1131,7 @@ QString Formatting::usageString(const Subkey &sub)
     if (sub.canRenc()) {
         usageStrings << i18nc("Means 'Additional Decryption Subkey'; Don't try translating that, though.", "ADSK");
     }
-    return usageStrings.join(QLatin1String(", "));
+    return usageStrings.join(QLatin1StringView(", "));
 }
 
 QString Formatting::summaryLine(const UserID &id)
@@ -1262,7 +1263,7 @@ bool Formatting::uidsHaveFullValidity(const Key &key)
 QString Formatting::complianceMode()
 {
     const auto complianceValue = getCryptoConfigStringValue("gpg", "compliance");
-    return complianceValue == QLatin1String("gnupg") ? QString() : complianceValue;
+    return complianceValue == QLatin1StringView("gnupg") ? QString() : complianceValue;
 }
 
 bool Formatting::isKeyDeVs(const GpgME::Key &key)

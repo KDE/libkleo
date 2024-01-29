@@ -159,7 +159,7 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
 
     const auto createToolButton = [this](const NavButtonInfo &navButton) {
         auto tb = new QToolButton{this};
-        tb->setIcon(QIcon::fromTheme(QLatin1String(navButton.icon)));
+        tb->setIcon(QIcon::fromTheme(QLatin1StringView(navButton.icon)));
         tb->setEnabled(false);
         tb->setAccessibleName(KLocalizedString{navButton.accessibleName}.toString());
         tb->setToolTip(KLocalizedString(navButton.tooltip).toString());
@@ -222,7 +222,7 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
     QTreeWidgetItem *last = nullptr;
     for (const auto &entry : order) {
         const QString attr = entry.toUpper();
-        if (attr == QLatin1String("_X_")) {
+        if (attr == QLatin1StringView("_X_")) {
             takePlaceHolderItem();
             d->currentLV->insertTopLevelItem(d->currentLV->topLevelItemCount(), d->placeHolderItem);
             last = d->placeHolderItem;
@@ -231,7 +231,7 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
             last->setText(0, attr);
             const auto label = DN::attributeNameToLabel(attr);
             last->setText(1, label);
-            const QString accessibleName = label + QLatin1String(", ") + attr;
+            const QString accessibleName = label + QLatin1StringView(", ") + attr;
             last->setData(0, Qt::AccessibleTextRole, accessibleName);
         }
     }
@@ -246,7 +246,7 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
             item->setText(0, attr);
             const auto label = DN::attributeNameToLabel(attr);
             item->setText(1, label);
-            const QString accessibleName = label + QLatin1String(", ") + attr;
+            const QString accessibleName = label + QLatin1StringView(", ") + attr;
             item->setData(0, Qt::AccessibleTextRole, accessibleName);
         }
     }

@@ -225,7 +225,7 @@ static std::array<int, 3> getVersionFromString(const char *actual, bool &ok)
     QString versionString = QString::fromLatin1(actual);
 
     // Try to fix it up
-    QRegularExpression rx(QRegularExpression::anchoredPattern(QLatin1String(R"((\d+)\.(\d+)\.(\d+)(?:-svn\d+)?.*)")));
+    QRegularExpression rx(QRegularExpression::anchoredPattern(QLatin1StringView(R"((\d+)\.(\d+)\.(\d+)(?:-svn\d+)?.*)")));
     QRegularExpressionMatch match;
     for (int i = 0; i < 3; i++) {
         match = rx.match(versionString);
@@ -313,7 +313,7 @@ bool Kleo::haveKeyserverConfigured()
 {
     if (engineIsVersion(2, 4, 4) //
         || (engineIsVersion(2, 2, 42) && !engineIsVersion(2, 3, 0))) {
-        return Kleo::keyserver() != QLatin1String{"none"};
+        return Kleo::keyserver() != QLatin1StringView{"none"};
     }
     if (engineIsVersion(2, 1, 19)) {
         // since 2.1.19 there is a builtin keyserver
@@ -328,7 +328,7 @@ QString Kleo::keyserver()
     if (result.isEmpty()) {
         result = getCryptoConfigStringValue("dirmngr", "keyserver");
     }
-    if (result.endsWith(QLatin1String{"://none"})) {
+    if (result.endsWith(QLatin1StringView{"://none"})) {
         // map hkps://none, etc., to "none"; see https://dev.gnupg.org/T6708
         result = QStringLiteral("none");
     }

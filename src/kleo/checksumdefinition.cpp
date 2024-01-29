@@ -58,19 +58,19 @@ void ChecksumDefinition::setInstallPath(const QString &ip)
 }
 
 // Checksum Definition #N groups
-static const QLatin1String ID_ENTRY("id");
-static const QLatin1String NAME_ENTRY("Name");
-static const QLatin1String CREATE_COMMAND_ENTRY("create-command");
-static const QLatin1String VERIFY_COMMAND_ENTRY("verify-command");
-static const QLatin1String FILE_PATTERNS_ENTRY("file-patterns");
-static const QLatin1String OUTPUT_FILE_ENTRY("output-file");
-static const QLatin1String FILE_PLACEHOLDER("%f");
-static const QLatin1String INSTALLPATH_PLACEHOLDER("%I");
-static const QLatin1String NULL_SEPARATED_STDIN_INDICATOR("0|");
+static const QLatin1StringView ID_ENTRY("id");
+static const QLatin1StringView NAME_ENTRY("Name");
+static const QLatin1StringView CREATE_COMMAND_ENTRY("create-command");
+static const QLatin1StringView VERIFY_COMMAND_ENTRY("verify-command");
+static const QLatin1StringView FILE_PATTERNS_ENTRY("file-patterns");
+static const QLatin1StringView OUTPUT_FILE_ENTRY("output-file");
+static const QLatin1StringView FILE_PLACEHOLDER("%f");
+static const QLatin1StringView INSTALLPATH_PLACEHOLDER("%I");
+static const QLatin1StringView NULL_SEPARATED_STDIN_INDICATOR("0|");
 static const QLatin1Char NEWLINE_SEPARATED_STDIN_INDICATOR('|');
 
 // ChecksumOperations group
-static const QLatin1String CHECKSUM_DEFINITION_ID_ENTRY("checksum-definition-id");
+static const QLatin1StringView CHECKSUM_DEFINITION_ID_ENTRY("checksum-definition-id");
 
 namespace
 {
@@ -108,7 +108,7 @@ static QString try_extensions(const QString &path)
     };
     static const size_t numExts = sizeof exts / sizeof *exts;
     for (unsigned int i = 0; i < numExts; ++i) {
-        const QFileInfo fi(path + QLatin1Char('.') + QLatin1String(exts[i]));
+        const QFileInfo fi(path + QLatin1Char('.') + QLatin1StringView(exts[i]));
         if (fi.exists()) {
             return fi.filePath();
         }
@@ -144,11 +144,11 @@ static void parse_command(QString cmdline,
         throw ChecksumDefinitionError(id, i18n("Cannot use both %f and | in '%1'", whichCommand));
     }
     cmdline
-        .replace(FILE_PLACEHOLDER, QLatin1String("__files_go_here__")) //
+        .replace(FILE_PLACEHOLDER, QLatin1StringView("__files_go_here__")) //
         .replace(INSTALLPATH_PLACEHOLDER, QStringLiteral("__path_goes_here__"));
     l = KShell::splitArgs(cmdline, KShell::AbortOnMeta | KShell::TildeExpand, &errors);
     l = l.replaceInStrings(QStringLiteral("__files_go_here__"), FILE_PLACEHOLDER);
-    static const QRegularExpression regExpression(QLatin1String(".*__path_goes_here__.*"));
+    static const QRegularExpression regExpression(QLatin1StringView(".*__path_goes_here__.*"));
     if (l.indexOf(regExpression) >= 0) {
         l = l.replaceInStrings(QStringLiteral("__path_goes_here__"), ChecksumDefinition::installPath());
     }

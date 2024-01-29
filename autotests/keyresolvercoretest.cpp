@@ -1324,7 +1324,7 @@ private Q_SLOTS:
 
         const auto result = resolver.resolve();
 
-        QCOMPARE(resolver.normalizedSender(), QLatin1String{"sender-mixed@example.net"});
+        QCOMPARE(resolver.normalizedSender(), QLatin1StringView{"sender-mixed@example.net"});
     }
 
    void test_setSigningKeys_is_preferred()

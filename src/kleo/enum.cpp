@@ -60,7 +60,7 @@ QStringList Kleo::cryptoMessageFormatsToStringList(unsigned int f)
     QStringList result;
     for (unsigned int i = 0; i < numCryptoMessageFormats; ++i) {
         if (f & cryptoMessageFormats[i].format) {
-            result.push_back(QLatin1String(cryptoMessageFormats[i].configName));
+            result.push_back(QLatin1StringView(cryptoMessageFormats[i].configName));
         }
     }
     return result;
@@ -83,7 +83,7 @@ Kleo::CryptoMessageFormat Kleo::stringToCryptoMessageFormat(const QString &s)
 {
     const QString t = s.toLower();
     for (unsigned int i = 0; i < numCryptoMessageFormats; ++i) {
-        if (t == QLatin1String(cryptoMessageFormats[i].configName)) {
+        if (t == QLatin1StringView(cryptoMessageFormats[i].configName)) {
             return cryptoMessageFormats[i].format;
         }
     }
@@ -122,19 +122,19 @@ const char *Kleo::encryptionPreferenceToString(EncryptionPreference pref)
 
 Kleo::EncryptionPreference Kleo::stringToEncryptionPreference(const QString &str)
 {
-    if (str == QLatin1String("never")) {
+    if (str == QLatin1StringView("never")) {
         return NeverEncrypt;
     }
-    if (str == QLatin1String("always")) {
+    if (str == QLatin1StringView("always")) {
         return AlwaysEncrypt;
     }
-    if (str == QLatin1String("alwaysIfPossible")) {
+    if (str == QLatin1StringView("alwaysIfPossible")) {
         return AlwaysEncryptIfPossible;
     }
-    if (str == QLatin1String("askAlways")) {
+    if (str == QLatin1StringView("askAlways")) {
         return AlwaysAskForEncryption;
     }
-    if (str == QLatin1String("askWhenPossible")) {
+    if (str == QLatin1StringView("askWhenPossible")) {
         return AskWheneverPossible;
     }
     return UnknownPreference;
@@ -179,19 +179,19 @@ const char *Kleo::signingPreferenceToString(SigningPreference pref)
 
 Kleo::SigningPreference Kleo::stringToSigningPreference(const QString &str)
 {
-    if (str == QLatin1String("never")) {
+    if (str == QLatin1StringView("never")) {
         return NeverSign;
     }
-    if (str == QLatin1String("always")) {
+    if (str == QLatin1StringView("always")) {
         return AlwaysSign;
     }
-    if (str == QLatin1String("alwaysIfPossible")) {
+    if (str == QLatin1StringView("alwaysIfPossible")) {
         return AlwaysSignIfPossible;
     }
-    if (str == QLatin1String("askAlways")) {
+    if (str == QLatin1StringView("askAlways")) {
         return AlwaysAskForSigning;
     }
-    if (str == QLatin1String("askWhenPossible")) {
+    if (str == QLatin1StringView("askWhenPossible")) {
         return AskSigningWheneverPossible;
     }
     return UnknownSigningPreference;

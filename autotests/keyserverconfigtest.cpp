@@ -77,7 +77,7 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://ldap.example.net#ntds")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
         QVERIFY(config.user().isEmpty());
         QVERIFY(config.password().isEmpty());
@@ -95,7 +95,7 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://ldap.example.net")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
         QVERIFY(config.user().isEmpty());
         QVERIFY(config.password().isEmpty());
@@ -113,10 +113,10 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://user:password@ldap.example.net")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
-        QCOMPARE(config.user(), QLatin1String("user"));
-        QCOMPARE(config.password(), QLatin1String("password"));
+        QCOMPARE(config.user(), QLatin1StringView("user"));
+        QCOMPARE(config.password(), QLatin1StringView("password"));
         QCOMPARE(config.authentication(), KeyserverAuthentication::Password);
         QCOMPARE(config.connection(), KeyserverConnection::Default);
         QVERIFY(config.ldapBaseDn().isEmpty());
@@ -131,10 +131,10 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://user:password@ldap.example.net#starttls")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
-        QCOMPARE(config.user(), QLatin1String("user"));
-        QCOMPARE(config.password(), QLatin1String("password"));
+        QCOMPARE(config.user(), QLatin1StringView("user"));
+        QCOMPARE(config.password(), QLatin1StringView("password"));
         QCOMPARE(config.authentication(), KeyserverAuthentication::Password);
         QCOMPARE(config.connection(), KeyserverConnection::UseSTARTTLS);
         QVERIFY(config.ldapBaseDn().isEmpty());
@@ -149,10 +149,10 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://user:password@ldap.example.net#ldaptls")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
-        QCOMPARE(config.user(), QLatin1String("user"));
-        QCOMPARE(config.password(), QLatin1String("password"));
+        QCOMPARE(config.user(), QLatin1StringView("user"));
+        QCOMPARE(config.password(), QLatin1StringView("password"));
         QCOMPARE(config.authentication(), KeyserverAuthentication::Password);
         QCOMPARE(config.connection(), KeyserverConnection::TunnelThroughTLS);
         QVERIFY(config.ldapBaseDn().isEmpty());
@@ -167,10 +167,10 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://user:password@ldap.example.net#plain")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
-        QCOMPARE(config.user(), QLatin1String("user"));
-        QCOMPARE(config.password(), QLatin1String("password"));
+        QCOMPARE(config.user(), QLatin1StringView("user"));
+        QCOMPARE(config.password(), QLatin1StringView("password"));
         QCOMPARE(config.authentication(), KeyserverAuthentication::Password);
         QCOMPARE(config.connection(), KeyserverConnection::Plain);
         QVERIFY(config.ldapBaseDn().isEmpty());
@@ -186,10 +186,10 @@ private Q_SLOTS:
         // the last flag wins (as in dirmngr/ldapserver.c)
         const QUrl url{QStringLiteral("ldap://user:password@ldap.example.net#starttls,plain")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
-        QCOMPARE(config.user(), QLatin1String("user"));
-        QCOMPARE(config.password(), QLatin1String("password"));
+        QCOMPARE(config.user(), QLatin1StringView("user"));
+        QCOMPARE(config.password(), QLatin1StringView("password"));
         QCOMPARE(config.authentication(), KeyserverAuthentication::Password);
         QCOMPARE(config.connection(), KeyserverConnection::Plain);
         QVERIFY(config.ldapBaseDn().isEmpty());
@@ -220,10 +220,10 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://user:password@ldap.example.net:4242")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), 4242);
-        QCOMPARE(config.user(), QLatin1String("user"));
-        QCOMPARE(config.password(), QLatin1String("password"));
+        QCOMPARE(config.user(), QLatin1StringView("user"));
+        QCOMPARE(config.password(), QLatin1StringView("password"));
         QCOMPARE(config.authentication(), KeyserverAuthentication::Password);
         QCOMPARE(config.connection(), KeyserverConnection::Default);
         QVERIFY(config.ldapBaseDn().isEmpty());
@@ -238,13 +238,13 @@ private Q_SLOTS:
     {
         const QUrl url{QStringLiteral("ldap://user:password@ldap.example.net?base_dn")};
         auto config = KeyserverConfig::fromUrl(url);
-        QCOMPARE(config.host(), QLatin1String("ldap.example.net"));
+        QCOMPARE(config.host(), QLatin1StringView("ldap.example.net"));
         QCOMPARE(config.port(), -1);
-        QCOMPARE(config.user(), QLatin1String("user"));
-        QCOMPARE(config.password(), QLatin1String("password"));
+        QCOMPARE(config.user(), QLatin1StringView("user"));
+        QCOMPARE(config.password(), QLatin1StringView("password"));
         QCOMPARE(config.authentication(), KeyserverAuthentication::Password);
         QCOMPARE(config.connection(), KeyserverConnection::Default);
-        QCOMPARE(config.ldapBaseDn(), QLatin1String("base_dn"));
+        QCOMPARE(config.ldapBaseDn(), QLatin1StringView("base_dn"));
 
         const auto createdUrl = config.toUrl();
         QCOMPARE(createdUrl, url);
