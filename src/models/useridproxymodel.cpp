@@ -8,6 +8,7 @@
 
 #include "keylist.h"
 #include "keylistmodel.h"
+#include "kleo/dn.h"
 #include "kleo/keyfiltermanager.h"
 #include "utils/formatting.h"
 #include "utils/systeminfo.h"
@@ -54,6 +55,9 @@ QModelIndex UserIDProxyModel::mapToSource(const QModelIndex &proxyIndex) const
 
 int UserIDProxyModel::rowCount(const QModelIndex &parent) const
 {
+    if (!sourceModel()) {
+        return 0;
+    }
     if (parent.isValid()) {
         return 0;
     }
@@ -79,6 +83,9 @@ QModelIndex UserIDProxyModel::parent(const QModelIndex &) const
 
 int UserIDProxyModel::columnCount(const QModelIndex &index) const
 {
+    if (!sourceModel()) {
+        return 0;
+    }
     return sourceModel()->columnCount(mapToSource(index));
 }
 
@@ -92,6 +99,9 @@ QVariant UserIDProxyModel::data(const QModelIndex &index, int role) const
         return AbstractKeyListSortFilterProxyModel::data(index, role);
     }
     const auto userId = key.userID(offset);
+    if (role == KeyList::UserIDRole) {
+        return QVariant::fromValue(userId);
+    }
     if ((role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole)) {
         if (index.column() == KeyList::Columns::PrettyName) {
             auto name = QString::fromUtf8(userId.name());
@@ -166,6 +176,10 @@ int UserIDProxyModel::userIDsOfSourceRow(int sourceRow) const
     auto model = dynamic_cast<AbstractKeyListModel *>(sourceModel());
     auto key = model->key(model->index(sourceRow, 0));
 
+    if (key.isNull()) {
+        // This is a keygroup; let's show it as one user id
+        return 1;
+    }
     if (key.protocol() == GpgME::OpenPGP) {
         return key.numUserIDs();
     }
