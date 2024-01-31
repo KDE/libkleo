@@ -19,6 +19,7 @@ namespace KeyList
 static const int FingerprintRole = 0xF1;
 static const int KeyRole         = 0xF2;
 static const int GroupRole       = 0xF3;
+static const int UserIDRole      = 0xF4;
 // clang-format on
 
 enum Columns {
