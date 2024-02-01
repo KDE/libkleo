@@ -195,6 +195,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     const KeyListModelInterface *const klm = dynamic_cast<KeyListModelInterface *>(sourceModel());
     Q_ASSERT(klm);
     const Key key = klm->key(nameIndex);
+    const auto userID = nameIndex.data(KeyList::UserIDRole).value<UserID>();
     const KeyGroup group = klm->group(nameIndex);
     Q_ASSERT(!key.isNull() || !group.isNull());
 
@@ -207,19 +208,28 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     } else if (!key.isNull()) {
         // By default match against the full uid data (name / email / comment / dn)
         bool match = false;
-        for (const auto &uid : key.userIDs()) {
-            const auto id = QString::fromUtf8(uid.id());
+
+        if (userID.isNull()) {
+            for (const auto &uid : key.userIDs()) {
+                const auto id = QString::fromUtf8(uid.id());
+                if (id.contains(rx)) {
+                    match = true;
+                    break;
+                }
+            }
+        } else {
+            const auto id = QString::fromUtf8(userID.id());
             if (id.contains(rx)) {
                 match = true;
-                break;
             }
+        }
+        if (!match) {
             // Also match against remarks (search tags)
             const auto alm = dynamic_cast<AbstractKeyListModel *>(sourceModel());
             if (alm) {
                 const auto remarks = alm->data(alm->index(key, KeyList::Remarks));
                 if (!remarks.isNull() && remarks.toString().contains(rx)) {
                     match = true;
-                    break;
                 }
             }
             // Also match against fingerprints
@@ -230,9 +240,10 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
                     break;
                 }
             }
-        }
-        if (!match) {
-            return false;
+
+            if (!match) {
+                return false;
+            }
         }
     } else if (!group.isNull()) {
         if (!group.name().contains(rx)) {

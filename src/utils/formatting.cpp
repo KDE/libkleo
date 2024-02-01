@@ -74,20 +74,24 @@ QIcon iconForValidity(const UserID &userId)
 
 QIcon Formatting::IconProvider::icon(const GpgME::Key &key) const
 {
-    if (usage.canEncrypt() && !Kleo::canBeUsedForEncryption(key)) {
+    return icon(key.userID(0));
+}
+
+QIcon Formatting::IconProvider::icon(const GpgME::UserID &userID) const
+{
+    if (usage.canEncrypt() && !Kleo::canBeUsedForEncryption(userID.parent())) {
         return Formatting::errorIcon();
     }
-    if (usage.canSign() && !Kleo::canBeUsedForSigning(key)) {
+    if (usage.canSign() && !Kleo::canBeUsedForSigning(userID.parent())) {
         return Formatting::errorIcon();
     }
-    if (key.isBad()) {
+    if (userID.parent().isBad() || userID.isBad()) {
         return Formatting::errorIcon();
     }
-    const auto primaryUserId = key.userID(0);
-    if (Kleo::isRevokedOrExpired(primaryUserId)) {
+    if (Kleo::isRevokedOrExpired(userID)) {
         return Formatting::errorIcon();
     }
-    return iconForValidity(primaryUserId);
+    return iconForValidity(userID);
 }
 
 QIcon Formatting::IconProvider::icon(const KeyGroup &group) const
@@ -395,7 +399,7 @@ static QString make_red(const QString &txt)
 
 }
 
-QString Formatting::toolTip(const Key &key, int flags)
+static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userID, int flags)
 {
     if (flags == 0 || (key.protocol() != GpgME::CMS && key.protocol() != GpgME::OpenPGP)) {
         return QString();
@@ -404,29 +408,41 @@ QString Formatting::toolTip(const Key &key, int flags)
     const Subkey subkey = key.subkey(0);
 
     QString result;
-    if (flags & Validity) {
+    if (flags & Formatting::Validity) {
         if (key.protocol() == GpgME::OpenPGP || (key.keyListMode() & Validate)) {
-            if (key.isRevoked()) {
+            if (userID.isRevoked() || key.isRevoked()) {
                 result = make_red(i18n("Revoked"));
             } else if (key.isExpired()) {
                 result = make_red(i18n("Expired"));
             } else if (key.isDisabled()) {
                 result = i18n("Disabled");
             } else if (key.keyListMode() & GpgME::Validate) {
-                unsigned int fullyTrusted = 0;
-                for (const auto &uid : key.userIDs()) {
-                    if (uid.validity() >= UserID::Validity::Full) {
-                        fullyTrusted++;
-                    }
-                }
-                if (fullyTrusted == key.numUserIDs()) {
-                    result = i18n("All User-IDs are certified.");
-                    const auto compliance = complianceStringForKey(key);
-                    if (!compliance.isEmpty()) {
-                        result += QStringLiteral("<br>") + compliance;
+                if (!userID.isNull()) {
+                    if (userID.validity() >= UserID::Validity::Full) {
+                        result = i18n("User-ID is certified.");
+                        const auto compliance = Formatting::complianceStringForUserID(userID);
+                        if (!compliance.isEmpty()) {
+                            result += QStringLiteral("<br>") + compliance;
+                        }
+                    } else {
+                        result = i18n("User-ID is not certified.");
                     }
                 } else {
-                    result = i18np("One User-ID is not certified.", "%1 User-IDs are not certified.", key.numUserIDs() - fullyTrusted);
+                    unsigned int fullyTrusted = 0;
+                    for (const auto &uid : key.userIDs()) {
+                        if (uid.validity() >= UserID::Validity::Full) {
+                            fullyTrusted++;
+                        }
+                    }
+                    if (fullyTrusted == key.numUserIDs()) {
+                        result = i18n("All User-IDs are certified.");
+                        const auto compliance = Formatting::complianceStringForKey(key);
+                        if (!compliance.isEmpty()) {
+                            result += QStringLiteral("<br>") + compliance;
+                        }
+                    } else {
+                        result = i18np("One User-ID is not certified.", "%1 User-IDs are not certified.", key.numUserIDs() - fullyTrusted);
+                    }
                 }
             } else {
                 result = i18n("The validity cannot be checked at the moment.");
@@ -435,67 +451,71 @@ QString Formatting::toolTip(const Key &key, int flags)
             result = i18n("The validity cannot be checked at the moment.");
         }
     }
-    if (flags == Validity) {
+    if (flags == Formatting::Validity) {
         return result;
     }
 
     result += QLatin1StringView("<table border=\"0\">");
     if (key.protocol() == GpgME::CMS) {
-        if (flags & SerialNumber) {
+        if (flags & Formatting::SerialNumber) {
             result += format_row(i18n("Serial number"), key.issuerSerial());
         }
-        if (flags & Issuer) {
+        if (flags & Formatting::Issuer) {
             result += format_row(i18n("Issuer"), key.issuerName());
         }
     }
-    if (flags & UserIDs) {
-        const std::vector<UserID> uids = key.userIDs();
-        if (!uids.empty()) {
-            result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User-ID"), prettyUserID(uids.front()));
-        }
-        if (uids.size() > 1) {
-            for (auto it = uids.begin() + 1, end = uids.end(); it != end; ++it) {
-                if (!it->isRevoked() && !it->isInvalid()) {
-                    result += format_row(i18n("a.k.a."), prettyUserID(*it));
+    if (flags & Formatting::UserIDs) {
+        if (userID.isNull()) {
+            const std::vector<UserID> uids = key.userIDs();
+            if (!uids.empty()) {
+                result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User-ID"), Formatting::prettyUserID(uids.front()));
+            }
+            if (uids.size() > 1) {
+                for (auto it = uids.begin() + 1, end = uids.end(); it != end; ++it) {
+                    if (!it->isRevoked() && !it->isInvalid()) {
+                        result += format_row(i18n("a.k.a."), Formatting::prettyUserID(*it));
+                    }
                 }
             }
+        } else {
+            result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User-ID"), Formatting::prettyUserID(userID));
         }
     }
-    if (flags & ExpiryDates) {
+    if (flags & Formatting::ExpiryDates) {
         result += format_row(i18n("Valid from"), time_t2string(subkey.creationTime()));
 
         if (!subkey.neverExpires()) {
             result += format_row(i18n("Valid until"), time_t2string(subkey.expirationTime()));
         }
     }
-    if (flags & CertificateType) {
+
+    if (flags & Formatting::CertificateType) {
         result += format_row(i18n("Type"), format_keytype(key));
     }
-    if (flags & CertificateUsage) {
+    if (flags & Formatting::CertificateUsage) {
         result += format_row(i18n("Usage"), format_keyusage(key));
     }
-    if (flags & KeyID) {
+    if (flags & Formatting::KeyID) {
         result += format_row(i18n("Key-ID"), QString::fromLatin1(key.shortKeyID()));
     }
-    if (flags & Fingerprint) {
+    if (flags & Formatting::Fingerprint) {
         result += format_row(i18n("Fingerprint"), key.primaryFingerprint());
     }
-    if (flags & OwnerTrust) {
+    if (flags & Formatting::OwnerTrust) {
         if (key.protocol() == GpgME::OpenPGP) {
-            result += format_row(i18n("Certification trust"), ownerTrustShort(key));
+            result += format_row(i18n("Certification trust"), Formatting::ownerTrustShort(key));
         } else if (key.isRoot()) {
-            result += format_row(i18n("Trusted issuer?"), key.userID(0).validity() == UserID::Ultimate ? i18n("Yes") : i18n("No"));
+            result += format_row(i18n("Trusted issuer?"), (userID.isNull() ? key.userID(0) : userID).validity() == UserID::Ultimate ? i18n("Yes") : i18n("No"));
         }
     }
-
-    if (flags & StorageLocation) {
+    if (flags & Formatting::StorageLocation) {
         if (const char *card = subkey.cardSerialNumber()) {
             result += format_row(i18n("Stored"), i18nc("stored...", "on SmartCard with serial no. %1", QString::fromUtf8(card)));
         } else {
             result += format_row(i18n("Stored"), i18nc("stored...", "on this computer"));
         }
     }
-    if (flags & Subkeys) {
+    if (flags & Formatting::Subkeys) {
         for (const auto &sub : key.subkeys()) {
             result += QLatin1StringView("<hr/>");
             result += format_row(i18n("Subkey"), sub.fingerprint());
@@ -504,7 +524,7 @@ QString Formatting::toolTip(const Key &key, int flags)
             } else if (sub.isExpired()) {
                 result += format_row(i18n("Status"), i18n("Expired"));
             }
-            if (flags & ExpiryDates) {
+            if (flags & Formatting::ExpiryDates) {
                 result += format_row(i18n("Valid from"), time_t2string(sub.creationTime()));
 
                 if (!sub.neverExpires()) {
@@ -512,13 +532,13 @@ QString Formatting::toolTip(const Key &key, int flags)
                 }
             }
 
-            if (flags & CertificateType) {
+            if (flags & Formatting::CertificateType) {
                 result += format_row(i18n("Type"), format_subkeytype(sub));
             }
-            if (flags & CertificateUsage) {
+            if (flags & Formatting::CertificateUsage) {
                 result += format_row(i18n("Usage"), format_subkeyusage(sub));
             }
-            if (flags & StorageLocation) {
+            if (flags & Formatting::StorageLocation) {
                 if (const char *card = sub.cardSerialNumber()) {
                     result += format_row(i18n("Stored"), i18nc("stored...", "on SmartCard with serial no. %1", QString::fromUtf8(card)));
                 } else {
@@ -530,6 +550,11 @@ QString Formatting::toolTip(const Key &key, int flags)
     result += QLatin1StringView("</table>");
 
     return result;
+}
+
+QString Formatting::toolTip(const Key &key, int flags)
+{
+    return toolTipInternal(key, UserID(), flags);
 }
 
 namespace
@@ -604,6 +629,11 @@ QString Formatting::toolTip(const KeyGroup &group, int flags)
     result.push_back(QStringLiteral("</p>"));
 
     return result.join(QLatin1Char('\n'));
+}
+
+QString Formatting::toolTip(const UserID &userID, int flags)
+{
+    return toolTipInternal(userID.parent(), userID, flags);
 }
 
 //
@@ -1279,6 +1309,18 @@ QString Formatting::complianceStringForKey(const GpgME::Key &key)
         return isRemoteKey(key) //
             ? i18nc("@info the compliance of the key with certain requirements is unknown", "unknown")
             : DeVSCompliance::name(DeVSCompliance::keyIsCompliant(key));
+    }
+    return QString();
+}
+
+QString Formatting::complianceStringForUserID(const GpgME::UserID &userID)
+{
+    // There will likely be more in the future for other institutions
+    // for now we only have DE-VS
+    if (DeVSCompliance::isCompliant()) {
+        return isRemoteKey(userID.parent()) //
+            ? i18nc("@info the compliance of the key with certain requirements is unknown", "unknown")
+            : DeVSCompliance::name(DeVSCompliance::userIDIsCompliant(userID));
     }
     return QString();
 }

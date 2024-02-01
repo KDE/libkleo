@@ -46,6 +46,7 @@ public:
 
     QIcon icon(const GpgME::Key &key) const;
     QIcon icon(const KeyGroup &group) const;
+    QIcon icon(const GpgME::UserID &userID) const;
 
 private:
     KeyUsage usage;
@@ -102,6 +103,7 @@ enum ToolTipOption {
 
 KLEO_EXPORT QString toolTip(const GpgME::Key &key, int opts);
 KLEO_EXPORT QString toolTip(const Kleo::KeyGroup &group, int opts);
+KLEO_EXPORT QString toolTip(const GpgME::UserID &userID, int opts);
 
 /// Returns expiration date of @p key as string, or @p noExpiration if the key doesn't expire.
 KLEO_EXPORT QString expirationDateString(const GpgME::Key &key, const QString &noExpiration = {});
@@ -203,6 +205,7 @@ KLEO_DEPRECATED_EXPORT QString deVsString(bool compliant = true);
 
 /* A sentence if the key confirms to the current compliance mode */
 KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
+KLEO_EXPORT QString complianceStringForUserID(const GpgME::UserID &userID);
 
 /* A single word for use in keylists to describe the validity of the
  * given key, including any conformance statements relevant to the
