@@ -179,6 +179,8 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE    # make this a separate 
     ui/keyselectiondialog.h
     ui/newkeyapprovaldialog.cpp
     ui/newkeyapprovaldialog.h
+    ui/useridselectioncombo.cpp
+    ui/useridselectioncombo.h
     )
 
 if(MINGW)
@@ -334,6 +336,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   NewKeyApprovalDialog
   ProgressDialog
   ReaderPortSelection
+  UserIDSelectionCombo
   REQUIRED_HEADERS libkleo_ui_HEADERS
   PREFIX Libkleo
   RELATIVE ui
