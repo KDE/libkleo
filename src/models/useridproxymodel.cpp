@@ -8,8 +8,8 @@
 
 #include "keylist.h"
 #include "keylistmodel.h"
-#include "kleo/dn.h"
 #include "kleo/keyfiltermanager.h"
+#include "utils/algorithm.h"
 #include "utils/formatting.h"
 #include "utils/systeminfo.h"
 
@@ -17,14 +17,86 @@
 
 #include <QColor>
 
+#include <variant>
+
 using namespace Kleo;
 
+Q_DECLARE_METATYPE(GpgME::Key)
 Q_DECLARE_METATYPE(GpgME::UserID)
+Q_DECLARE_METATYPE(KeyGroup)
+
+class UserIDProxyModel::Private
+{
+public:
+    Private(UserIDProxyModel *qq);
+    void loadUserIDs();
+    QList<std::variant<GpgME::UserID, KeyGroup>> mIds;
+    QAbstractItemModel *oldSourceModel = nullptr;
+    UserIDProxyModel *q;
+};
+
+void UserIDProxyModel::Private::loadUserIDs()
+{
+    q->beginResetModel();
+    mIds.clear();
+    mIds.reserve(q->sourceModel()->rowCount());
+    for (auto i = 0; i < q->sourceModel()->rowCount(); ++i) {
+        const auto key = q->sourceModel()->index(i, 0).data(KeyList::KeyRole).value<GpgME::Key>();
+        QList<GpgME::UserID> ids;
+        if (key.isNull()) {
+            mIds += q->sourceModel()->index(i, 0).data(KeyList::GroupRole).value<KeyGroup>();
+        } else if (key.protocol() == GpgME::OpenPGP) {
+            for (const auto &userID : key.userIDs()) {
+                mIds += userID;
+            }
+        } else {
+            QList<std::variant<GpgME::UserID, KeyGroup>> ids;
+            for (const auto &userID : key.userIDs()) {
+                const auto exists = Kleo::contains_if(ids, [userID](const auto &other) {
+                    return !qstrcmp(std::get<GpgME::UserID>(other).email(), userID.email());
+                });
+                if (!exists && userID.email() && *userID.email()) {
+                    ids += userID;
+                }
+            }
+            if (ids.count() > 0) {
+                mIds.append(ids);
+            } else {
+                mIds.append(key.userID(0));
+            }
+        }
+    }
+    q->endResetModel();
+}
+
+UserIDProxyModel::Private::Private(UserIDProxyModel *qq)
+    : q(qq)
+{
+    connect(q, &UserIDProxyModel::sourceModelChanged, q, [this]() {
+        if (oldSourceModel) {
+            disconnect(oldSourceModel, nullptr, q, nullptr);
+        }
+        connect(q->sourceModel(), &QAbstractItemModel::dataChanged, q, [this]() {
+            loadUserIDs();
+        });
+        connect(q->sourceModel(), &QAbstractItemModel::rowsInserted, q, [this]() {
+            loadUserIDs();
+        });
+        connect(q->sourceModel(), &QAbstractItemModel::modelReset, q, [this]() {
+            loadUserIDs();
+        });
+        oldSourceModel = q->sourceModel();
+        loadUserIDs();
+    });
+}
 
 UserIDProxyModel::UserIDProxyModel(QObject *parent)
     : AbstractKeyListSortFilterProxyModel(parent)
+    , d{new Private(this)}
 {
 }
+
+UserIDProxyModel::~UserIDProxyModel() = default;
 
 static QVariant returnIfValid(const QColor &t)
 {
@@ -40,11 +112,24 @@ QModelIndex UserIDProxyModel::mapFromSource(const QModelIndex &sourceIndex) cons
     if (!sourceIndex.isValid()) {
         return {};
     }
-    int row = 0;
-    for (int i = 0; i < sourceIndex.row(); i++) {
-        row += userIDsOfSourceRow(i);
+    const auto &sourceKey = sourceIndex.data(KeyList::KeyRole).value<GpgME::Key>();
+    if (sourceKey.isNull()) {
+        const auto &sourceKeyGroup = sourceIndex.data(KeyList::GroupRole).value<KeyGroup>();
+        for (int i = 0; i < d->mIds.count(); ++i) {
+            if (std::holds_alternative<KeyGroup>(d->mIds[i]) && std::get<KeyGroup>(d->mIds[i]).id() == sourceKeyGroup.id()) {
+                return index(i, sourceIndex.column(), {});
+            }
+        }
+    } else {
+        const auto &fingerprint = sourceKey.primaryFingerprint();
+        for (int i = 0; i < d->mIds.count(); ++i) {
+            if (std::holds_alternative<GpgME::UserID>(d->mIds[i]) && !qstrcmp(fingerprint, std::get<GpgME::UserID>(d->mIds[i]).parent().primaryFingerprint())) {
+                return index(i, sourceIndex.column(), {});
+            }
+        }
     }
-    return index(row, sourceIndex.column(), {});
+
+    return {};
 }
 
 QModelIndex UserIDProxyModel::mapToSource(const QModelIndex &proxyIndex) const
@@ -52,22 +137,33 @@ QModelIndex UserIDProxyModel::mapToSource(const QModelIndex &proxyIndex) const
     if (!proxyIndex.isValid()) {
         return {};
     }
-    return sourceModel()->index(sourceRowForProxyIndex(proxyIndex), proxyIndex.column(), {});
+    const auto &entry = d->mIds[proxyIndex.row()];
+
+    if (std::holds_alternative<KeyGroup>(entry)) {
+        const auto &id = std::get<KeyGroup>(entry).id();
+        for (int i = 0; i < sourceModel()->rowCount(); ++i) {
+            if (sourceModel()->index(i, 0).data(KeyList::GroupRole).value<KeyGroup>().id() == id) {
+                return sourceModel()->index(i, proxyIndex.column());
+            }
+        }
+    } else {
+        const auto &fingerprint = std::get<GpgME::UserID>(entry).parent().primaryFingerprint();
+        for (int i = 0; i < sourceModel()->rowCount(); ++i) {
+            if (!qstrcmp(sourceModel()->index(i, 0).data(KeyList::KeyRole).value<GpgME::Key>().primaryFingerprint(), fingerprint)) {
+                return sourceModel()->index(i, proxyIndex.column());
+            }
+        }
+    }
+
+    return {};
 }
 
 int UserIDProxyModel::rowCount(const QModelIndex &parent) const
 {
-    if (!sourceModel()) {
-        return 0;
-    }
     if (parent.isValid()) {
         return 0;
     }
-    int sum = 0;
-    for (int i = 0; i < sourceModel()->rowCount(); i++) {
-        sum += userIDsOfSourceRow(i);
-    }
-    return sum;
+    return d->mIds.count();
 }
 
 QModelIndex UserIDProxyModel::index(int row, int column, const QModelIndex &parent) const
@@ -93,27 +189,25 @@ int UserIDProxyModel::columnCount(const QModelIndex &index) const
 
 QVariant UserIDProxyModel::data(const QModelIndex &index, int role) const
 {
-    const auto row = sourceRowForProxyIndex(index);
-    const auto offset = sourceOffsetForProxyIndex(index);
-    const auto model = dynamic_cast<AbstractKeyListModel *>(sourceModel());
-    const auto key = model->key(model->index(row, 0));
-    if (key.isNull()) {
+    const auto &entry = d->mIds[index.row()];
+    if (std::holds_alternative<KeyGroup>(entry)) {
         return AbstractKeyListSortFilterProxyModel::data(index, role);
     }
-    const auto userId = key.userID(offset);
+    const auto &userId = std::get<GpgME::UserID>(entry);
+    const auto &key = userId.parent();
     if (role == KeyList::UserIDRole) {
         return QVariant::fromValue(userId);
     }
     if ((role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole)) {
         if (index.column() == KeyList::Columns::PrettyName) {
-            auto name = QString::fromUtf8(userId.name());
-            if (name.isEmpty()) {
-                return AbstractKeyListSortFilterProxyModel::data(index, role);
+            if (key.protocol() == GpgME::OpenPGP) {
+                return Formatting::prettyName(userId);
+            } else {
+                return Formatting::prettyName(key);
             }
-            return name;
         }
         if (index.column() == KeyList::Columns::PrettyEMail) {
-            return QString::fromUtf8(userId.email());
+            return Formatting::prettyEMail(userId);
         }
         if (index.column() == KeyList::Columns::Validity) {
             return Formatting::complianceStringShort(userId);
@@ -142,59 +236,6 @@ QVariant UserIDProxyModel::data(const QModelIndex &index, int role) const
         }
     }
     return AbstractKeyListSortFilterProxyModel::data(index, role);
-}
-
-int UserIDProxyModel::sourceRowForProxyIndex(const QModelIndex &index) const
-{
-    int row = index.row();
-    int i;
-    for (i = 0; row >= userIDsOfSourceRow(i); i++) {
-        row -= userIDsOfSourceRow(i);
-    }
-    return i;
-}
-
-int UserIDProxyModel::sourceOffsetForProxyIndex(const QModelIndex &index) const
-{
-    int row = index.row();
-    int i;
-    for (i = 0; row >= userIDsOfSourceRow(i); i++) {
-        row -= userIDsOfSourceRow(i);
-    }
-    auto model = dynamic_cast<AbstractKeyListModel *>(sourceModel());
-    auto key = model->key(model->index(sourceRowForProxyIndex(index), 0));
-    int tmp = row;
-    for (int j = 0; j <= tmp; j++) {
-        // account for filtered out S/MIME user IDs
-        if (key.protocol() == GpgME::Protocol::CMS && !key.userID(j).email()) {
-            row++;
-        }
-    }
-    return row;
-}
-
-int UserIDProxyModel::userIDsOfSourceRow(int sourceRow) const
-{
-    auto model = dynamic_cast<AbstractKeyListModel *>(sourceModel());
-    auto key = model->key(model->index(sourceRow, 0));
-
-    if (key.isNull()) {
-        // This is a keygroup; let's show it as one user id
-        return 1;
-    }
-    if (key.protocol() == GpgME::OpenPGP) {
-        return key.numUserIDs();
-    }
-    // Try to filter out some useless SMIME user ids
-    int count = 0;
-    const auto &uids = key.userIDs();
-    for (auto it = uids.begin(); it != uids.end(); ++it) {
-        const auto &uid = *it;
-        if (uid.email()) {
-            count++;
-        }
-    }
-    return count;
 }
 
 UserIDProxyModel *UserIDProxyModel::clone() const
