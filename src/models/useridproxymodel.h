@@ -18,6 +18,7 @@ class KLEO_EXPORT UserIDProxyModel : public Kleo::AbstractKeyListSortFilterProxy
 
 public:
     explicit UserIDProxyModel(QObject *parent = nullptr);
+    ~UserIDProxyModel() override;
 
     QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
     QModelIndex mapToSource(const QModelIndex &proxyIndex) const override;
@@ -26,11 +27,12 @@ public:
     virtual QModelIndex parent(const QModelIndex &) const override;
     int columnCount(const QModelIndex &) const override;
     QVariant data(const QModelIndex &index, int role) const override;
-    int sourceRowForProxyIndex(const QModelIndex &index) const;
-    int sourceOffsetForProxyIndex(const QModelIndex &index) const;
-    int userIDsOfSourceRow(int sourceRow) const;
     UserIDProxyModel *clone() const override;
     QModelIndex index(const KeyGroup &) const override;
     QModelIndex index(const GpgME::Key &key) const override;
+
+private:
+    class Private;
+    const std::unique_ptr<Private> d;
 };
 }
