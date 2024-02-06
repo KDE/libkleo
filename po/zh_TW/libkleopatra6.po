@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-26 01:34+0000\n"
-"PO-Revision-Date: 2024-01-05 05:04+0900\n"
+"PO-Revision-Date: 2024-02-05 17:46+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -242,6 +242,7 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>您的 OpenPGP 簽署金鑰</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -249,6 +250,7 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>您的 OpenPGP 加密金鑰</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -266,6 +268,7 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>您的 OpenPGP 簽署金鑰</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -276,6 +279,7 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>您的 OpenPGP 加密金鑰</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -290,12 +294,14 @@ msgstr[0] ""
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>您的 OpenPGP 簽署金鑰</p><p align=center>%1</p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>您的 OpenPGP 加密金鑰</p><p align=center>%1</p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
@@ -310,6 +316,7 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>您的 OpenPGP 簽署金鑰</p><p align=center>%2</p><p>將在 %1 天內過期。</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -320,6 +327,7 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>您的 OpenPGP 加密金鑰</p><p align=center>%2</p><p>將在 %1 天內過期。</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -452,6 +460,7 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -459,6 +468,7 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -476,6 +486,7 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -486,6 +497,7 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -610,14 +622,14 @@ msgstr[0] ""
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
-msgstr ""
+msgstr "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
-msgstr ""
+msgstr "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
@@ -1387,7 +1399,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:190
 #, kde-format
 msgid "Use TLS secured connection"
-msgstr ""
+msgstr "使用 TLS 安全連線"
 
 #: ui/editdirectoryservicedialog.cpp:192
 #, kde-format
