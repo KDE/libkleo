@@ -6,13 +6,13 @@
 # Andre Heinecke <andre.heinecke@intevation.de>, 2017, 2018.
 # aheinecke <aheinecke@gnupg.org>, 2018, 2019, 2021, 2022.
 # Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
-# Eva Bolten <eva.bolten@gnupg.com>, 2022, 2023.
+# Eva Bolten <eva.bolten@gnupg.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-30 00:38+0000\n"
-"PO-Revision-Date: 2023-05-30 13:56+0200\n"
+"PO-Revision-Date: 2024-02-02 13:01+0100\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -868,99 +868,85 @@ msgid "Not Validated Certificates"
 msgstr "Nicht geprüfte Zertifikate"
 
 #: models/keylistmodel.cpp:323
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Name"
 
 #: models/keylistmodel.cpp:325
-#, fuzzy, kde-format
-#| msgid "E-Mail"
+#, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "E-Mail"
 
 #: models/keylistmodel.cpp:327
-#, fuzzy, kde-format
-#| msgid "User-IDs"
+#, kde-format
 msgctxt "@title:column"
 msgid "User-IDs"
 msgstr "Benutzerkennungen"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "Valid From"
+#, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Gültig seit"
 
 #: models/keylistmodel.cpp:331
-#, fuzzy, kde-format
-#| msgid "Valid Until"
+#, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Gültig bis"
 
 #: models/keylistmodel.cpp:333
-#, fuzzy, kde-format
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protokoll"
 
 #: models/keylistmodel.cpp:335 models/keylistmodel.cpp:337
-#, fuzzy, kde-format
-#| msgid "Key-ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key-ID"
 msgstr "Schlüssel-Kennung"
 
 #: models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Fingerprint"
+#, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Fingerabdruck"
 
 #: models/keylistmodel.cpp:341
-#, fuzzy, kde-format
-#| msgid "Issuer"
+#, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Aussteller"
 
 #: models/keylistmodel.cpp:343
-#, fuzzy, kde-format
-#| msgid "Serial Number"
+#, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Seriennummer"
 
 #: models/keylistmodel.cpp:345
-#, fuzzy, kde-format
-#| msgid "Origin"
+#, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Herkunft"
 
 #: models/keylistmodel.cpp:347
-#, fuzzy, kde-format
-#| msgid "Last Update"
+#, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Letzte Aktualisierung"
 
 #: models/keylistmodel.cpp:349
-#, fuzzy, kde-format
-#| msgid "Certification Trust"
+#, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Beglaubigungsvertrauen"
 
 #: models/keylistmodel.cpp:351
-#, fuzzy, kde-format
-#| msgid "Tags"
+#, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Tags"
@@ -969,13 +955,13 @@ msgstr "Tags"
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
-msgstr ""
+msgstr "Algorithmus"
 
 #: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
-msgstr ""
+msgstr "Keygrip"
 
 #: models/keylistmodel.cpp:403 models/useridlistmodel.cpp:69
 #, kde-format
@@ -2249,7 +2235,7 @@ msgstr "Eigene Lesegerätkennung oder -portnummer"
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
-msgstr ""
+msgstr "Spalten anzeigen"
 
 #: utils/compliance.cpp:160
 #, kde-format
@@ -2708,12 +2694,10 @@ msgstr "Authentifizieren"
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
-msgstr ""
+msgstr "ADSK"
 
 #: utils/formatting.cpp:1140
-#, fuzzy, kde-format
-#| msgctxt "Name <email> (validity, type, created: date)"
-#| msgid "%1 (%2, %3, created: %4)"
+#, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, erstellt: %4)"
@@ -2790,25 +2774,19 @@ msgid "unknown"
 msgstr "unbekannt"
 
 #: utils/formatting.cpp:1293
-#, fuzzy, kde-format
-#| msgctxt "As in all user IDs are valid."
-#| msgid "certified"
+#, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "beglaubigt"
 
 #: utils/formatting.cpp:1308
-#, fuzzy, kde-format
-#| msgctxt "As in not all user IDs are valid."
-#| msgid "not certified"
+#, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "nicht beglaubigt"
 
 #: utils/formatting.cpp:1311
-#, fuzzy, kde-format
-#| msgctxt "The validity of the user IDs has not been/could not be checked"
-#| msgid "not checked"
+#, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "nicht überprüft"
@@ -2883,133 +2861,133 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
-msgstr ""
+msgstr "ECC (Brainpool P-256)"
 
 #: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
-msgstr ""
+msgstr "ECC (Brainpool P-384)"
 
 #: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
-msgstr ""
+msgstr "ECC (Brainpool P-512)"
 
 #: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
-msgstr ""
+msgstr "ECC (Curve25519)"
 
 #: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
-msgstr ""
+msgstr "ECC (Curve448)"
 
 #: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
-msgstr ""
+msgstr "ECC (Ed25519)"
 
 #: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
-msgstr ""
+msgstr "ECC (Ed448)"
 
 #: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
-msgstr ""
+msgstr "ECC (Cv25519)"
 
 #: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
-msgstr ""
+msgstr "ECC (Cv448)"
 
 #: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1473
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
-msgstr ""
+msgstr "RSA 2048"
 
 #: utils/formatting.cpp:1475
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
-msgstr ""
+msgstr "RSA 3072"
 
 #: utils/formatting.cpp:1476
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
-msgstr ""
+msgstr "RSA 4096"
 
 #: utils/formatting.cpp:1477
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
-msgstr ""
+msgstr "DSA 1024"
 
 #: utils/formatting.cpp:1478
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
-msgstr ""
+msgstr "DSA 2048"
 
 #: utils/formatting.cpp:1479
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
-msgstr ""
+msgstr "Elgamal 1024"
 
 #: utils/formatting.cpp:1480
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
-msgstr ""
+msgstr "Elgamal 2048"
 
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
-msgstr ""
+msgstr "Elgamal 3072"
 
 #: utils/formatting.cpp:1482
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
-msgstr ""
+msgstr "Elgamal 4096"
 
 #: utils/formatting.cpp:1485
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
-msgstr ""
+msgstr "Unbekannter Algorithmus"
 
 #: utils/hex.cpp:35
 #, kde-format
