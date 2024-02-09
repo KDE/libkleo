@@ -14,6 +14,7 @@
 #include "keylist.h"
 #include "keylistmodel.h"
 
+#include <libkleo/algorithm.h>
 #include <libkleo/keyfilter.h>
 #include <libkleo/keygroup.h>
 #include <libkleo/stl_util.h>
@@ -257,9 +258,16 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
 
     //
     // 2. For keys check that key filters match (if any are defined)
+    //    For groups check that at least one key matches the key filter
     //
-    if (d->keyFilter && !key.isNull()) { // avoid artifacts when no filters are defined
-        return d->keyFilter->matches(key, KeyFilter::Filtering);
+    if (d->keyFilter) { // avoid artifacts when no filters are defined
+        if (!key.isNull()) {
+            return d->keyFilter->matches(key, KeyFilter::Filtering);
+        } else if (!group.isNull()) {
+            return Kleo::any_of(group.keys(), [this](const auto &key) {
+                return d->keyFilter->matches(key, KeyFilter::Filtering);
+            });
+        }
     }
 
     // 3. match by default:
