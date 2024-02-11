@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-10 00:39+0000\n"
-"PO-Revision-Date: 2024-01-27 16:21+0300\n"
+"PO-Revision-Date: 2024-02-10 16:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -31,42 +31,42 @@ msgstr "%1 sağlama toplamı tanımında hata: %2"
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
 msgid "Cannot use both %f and | in '%1'"
-msgstr "'%1' içinde %f ve | aynı anda kullanılamaz"
+msgstr "‘%1’ içinde %f ve | aynı anda kullanılamaz"
 
 #: kleo/checksumdefinition.cpp:156
 #, kde-format
 msgid "Quoting error in '%1' entry"
-msgstr "'%1' girdisinde alıntı hatası"
+msgstr "‘%1’ girdisinde alıntı hatası"
 
 #: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
-msgstr "'%1', çok karmaşık (kabuk gerekebilir)"
+msgstr "‘%1’, çok karmaşık (kabuk gerekebilir)"
 
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
 msgid "'%1' entry is empty/missing"
-msgstr "'%1' girdisi boş/eksik"
+msgstr "‘%1’ girdisi boş/eksik"
 
 #: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
-msgstr "'%1' boş veya bulunamadı"
+msgstr "‘%1’ boş veya bulunamadı"
 
 #: kleo/checksumdefinition.cpp:211
 #, kde-format
 msgid "'id' entry is empty/missing"
-msgstr "'id' girdisi boş/eksik"
+msgstr "‘id’ girdisi boş/eksik"
 
 #: kleo/checksumdefinition.cpp:214
 #, kde-format
 msgid "'output-file' entry is empty/missing"
-msgstr "'output-file' girdisi boş/eksik"
+msgstr "‘output-file’ girdisi boş/eksik"
 
 #: kleo/checksumdefinition.cpp:217
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
-msgstr "'file-patterns' girdisi boş/eksik"
+msgstr "‘file-patterns’ girdisi boş/eksik"
 
 #: kleo/checksumdefinition.cpp:400
 #, kde-format
@@ -978,7 +978,7 @@ msgstr "e-posta yok"
 #: models/keylistmodel.cpp:472
 #, kde-format
 msgid "Loading..."
-msgstr "Yükleniyor..."
+msgstr "Yükleniyor…"
 
 #: models/keylistmodel.cpp:558
 #, kde-format
@@ -1105,7 +1105,7 @@ msgstr "Panoya Ko&pyala"
 #: ui/auditlogviewer.cpp:60
 #, kde-format
 msgid "&Save to Disk..."
-msgstr "&Diske Kaydet..."
+msgstr "&Diske Kaydet…"
 
 #: ui/auditlogviewer.cpp:102
 #, kde-format
@@ -1223,12 +1223,12 @@ msgstr "Hata ayıklama düzeyini şuna ayarla"
 #: ui/cryptoconfigmodule.cpp:943
 #, kde-format
 msgid "Show..."
-msgstr "Göster..."
+msgstr "Göster…"
 
 #: ui/cryptoconfigmodule.cpp:943
 #, kde-format
 msgid "Edit..."
-msgstr "Düzenle..."
+msgstr "Düzenle…"
 
 #: ui/cryptoconfigmodule.cpp:996
 #, kde-format
@@ -1284,8 +1284,8 @@ msgid ""
 "Click to use a directory service running on your Active Directory. This "
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
-"Active Directory'nizde çalışan bir dizin hizmeti kullanmak için tıklayın. Bu "
-"yalnızca Windows'ta çalışır ve GnuPG 2.2.28 veya sonrasını gerektirir."
+"Active Directory’nizde çalışan bir dizin hizmeti kullanmak için tıklayın. Bu "
+"yalnızca Windows’ta çalışır ve GnuPG 2.2.28 veya sonrasını gerektirir."
 
 #: ui/directoryserviceswidget.cpp:200
 #, kde-format
@@ -1544,7 +1544,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
-"LDAP sunucusuna kimlik doğrulamak için gereken kullanıcı LDAP Bind DN'nizi "
+"LDAP sunucusuna kimlik doğrulamak için gereken kullanıcı LDAP Bind DN’nizi "
 "girin."
 
 #: ui/editdirectoryservicedialog.cpp:153
@@ -1586,7 +1586,7 @@ msgid ""
 "Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
-"LDAP sunucusuna bağlanmak için GnuPG'nin öntanımlılarını kullan. Öntanımlı "
+"LDAP sunucusuna bağlanmak için GnuPG’nin öntanımlılarını kullanın. Öntanımlı "
 "olarak, GnuPG 2.3 ve öncesi düz, TLS ile güvenlileştirilmemiş bir bağlantı "
 "kullanır. <b>(Önerilmez)</b>"
 
@@ -1623,7 +1623,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:199
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr "LDAP'ı bir TLS bağlantısı ile tünelle"
+msgstr "LDAP’ı bir TLS bağlantısı ile tünelle"
 
 #: ui/editdirectoryservicedialog.cpp:201
 #, kde-format
@@ -1652,8 +1652,8 @@ msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
-"<b>(İsteği bağlı, genelde boş bırakılabilir)</b> Aramaları yalnızca dizinin "
-"o alt ağacına sınırlamak için bu LDAP sunucusunun taban DN'sini girin."
+"<b>(İsteğe bağlı, genelde boş bırakılabilir)</b> Aramaları yalnızca dizinin "
+"o alt ağacına sınırlamak için bu LDAP sunucusunun taban DN’sini girin."
 
 #: ui/editdirectoryservicedialog.cpp:223
 #, kde-format
@@ -1669,7 +1669,7 @@ msgid ""
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
 "Buraya Kleopatra tarafından henüz desteklenmeyen (veya artık desteklenmeyen) "
-"ek bayraklar girebilirsiniz. Örneğin, GnuPG'nin eski sürümleri, bir TLS "
+"ek bayraklar girebilirsiniz. Örneğin, GnuPG’nin eski sürümleri, bir TLS "
 "güvenlikli bağlantı istemek için <code>ldaps</code> kullanır."
 
 #: ui/editdirectoryservicedialog.cpp:395
@@ -1752,7 +1752,7 @@ msgstr "Temizle"
 #: ui/keyrequester.cpp:92
 #, kde-format
 msgid "Change..."
-msgstr "Değiştir..."
+msgstr "Değiştir…"
 
 #: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
@@ -1841,7 +1841,7 @@ msgstr "%1 (%2, %3, oluşturma: %4)"
 #: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:689
 #, kde-format
 msgid "Loading keys ..."
-msgstr "Anahtarlar yükleniyor..."
+msgstr "Anahtarlar yükleniyor…"
 
 #: ui/keyselectiondialog.cpp:72
 #, kde-format
@@ -2008,12 +2008,12 @@ msgstr "Sertifika Yöneticisi Hatası"
 #: ui/keyselectiondialog.cpp:724
 #, kde-format
 msgid "Checking selected keys..."
-msgstr "Seçili anahtarlar kontrol ediliyor..."
+msgstr "Seçili anahtarlar denetleniyor…"
 
 #: ui/keyselectiondialog.cpp:724
 #, kde-format
 msgid "Fetching keys..."
-msgstr "Anahtarlar alınıyor..."
+msgstr "Anahtarlar getiriliyor…"
 
 #: ui/keyselectiondialog.cpp:756
 #, kde-format
@@ -2116,7 +2116,7 @@ msgstr "OpenPGP"
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr "'%1' için anahtar oluşturuluyor..."
+msgstr "‘%1’ için anahtar oluşturuluyor…"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
@@ -2154,7 +2154,7 @@ msgstr "Bu e-posta, kriptografik olarak imzalanmayacak."
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
-msgstr "'%1' kimliğini farklı onayla:"
+msgstr "‘%1’ kimliğini farklı onayla:"
 
 #: ui/newkeyapprovaldialog.cpp:654
 #, kde-format
@@ -2205,8 +2205,8 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
-"<para>GnuPG'nin kullanacağı akıllı kart okuyucuyu seçin.<list><item>İlk öge, "
-"GnuPG'nin bulunan ilk okuyucuyu kullanmasını sağlayacaktır.</item><item>Son "
+"<para>GnuPG’nin kullanacağı akıllı kart okuyucuyu seçin.<list><item>İlk öge, "
+"GnuPG’nin bulunan ilk okuyucuyu kullanmasını sağlayacaktır.</item><item>Son "
 "öge, özel bir okuyucu kimliği veya okuyucu kapı numarası girmenize izin "
 "verir.</item><item>Tüm diğer ögeler, GnuPG tarafından bulunan diğer "
 "okuyucuları temsil eder.</item></list></para>"
@@ -2284,30 +2284,26 @@ msgid "Disabled"
 msgstr "Kapalı"
 
 #: utils/formatting.cpp:422
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "User-ID is certified."
-msgstr "Bir Kullanıcı Kimliği onaylı değil."
+msgstr "Kullanıcı kimliği sertifikalanmış."
 
 #: utils/formatting.cpp:428
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "User-ID is not certified."
-msgstr "Bir Kullanıcı Kimliği onaylı değil."
+msgstr "Kullanıcı kimliği sertifikalanmamış."
 
 #: utils/formatting.cpp:438
 #, kde-format
 msgid "All User-IDs are certified."
-msgstr "Tüm Kullanıcı Kimlikleri onaylandı."
+msgstr "Tüm kullanıcı kimlikleri sertifikalı."
 
 #: utils/formatting.cpp:444
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
-msgstr[0] "Bir Kullanıcı Kimliği onaylı değil."
-msgstr[1] "%1 Kullanıcı Kimliği onaylı değil."
+msgstr[0] "1 kullanıcı kimliği sertifikalanmamış."
+msgstr[1] "%1 kullanıcı kimliği sertifikalanmamış."
 
 #: utils/formatting.cpp:448 utils/formatting.cpp:451
 #, kde-format
@@ -2669,7 +2665,7 @@ msgstr ""
 #: utils/formatting.cpp:1150
 #, kde-format
 msgid "Certify"
-msgstr "Onayla"
+msgstr "Sertifikala"
 
 #: utils/formatting.cpp:1153
 #, kde-format
@@ -2841,7 +2837,7 @@ msgstr "Bilinmeyen"
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
-"Bu anahtarı, '%1' için kısmi olarak güvenilen bir tanıştırıcı olarak "
+"Bu anahtarı, ‘%1’ için kısmi olarak güvenilen bir tanıştırıcı olarak "
 "sertifikalar."
 
 #: utils/formatting.cpp:1480
@@ -2849,7 +2845,7 @@ msgstr ""
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr ""
-"Bu anahtarı, '%1' için tümüyle güvenilen bir tanıştırıcı olarak sertifikalar."
+"Bu anahtarı, ‘%1’ için tümüyle güvenilen bir tanıştırıcı olarak sertifikalar."
 
 #: utils/formatting.cpp:1504
 #, kde-format
@@ -2986,7 +2982,7 @@ msgstr "Bilinmeyen algoritma"
 #: utils/hex.cpp:35
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr "Girdi akışında geçersiz onaltılık karakter '%1'."
+msgstr "Girdi akışında geçersiz onaltılık karakter ‘%1’."
 
 #: utils/hex.cpp:47 utils/hex.cpp:52
 #, kde-format
