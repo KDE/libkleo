@@ -72,7 +72,7 @@ public:
     QModelIndex index(const KeyGroup &group) const override;
     QModelIndex index(const KeyGroup &group, int col) const;
 
-    void setDragHandler(const std::shared_ptr<DragHandler>& dragHandler);
+    void setDragHandler(const std::shared_ptr<DragHandler> &dragHandler);
 
 Q_SIGNALS:
     void rowAboutToBeMoved(const QModelIndex &old_parent, int old_row);
