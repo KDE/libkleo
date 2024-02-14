@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-26 01:34+0000\n"
-"PO-Revision-Date: 2024-02-05 17:46+0900\n"
+"PO-Revision-Date: 2024-02-13 20:47+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -1051,15 +1051,12 @@ msgid "Active Directory"
 msgstr "Active Directory"
 
 #: ui/directoryserviceswidget.cpp:187
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a list of all directory services that are configured for use with "
-#| "X.509 and OpenPGP."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "This is a list of all directory services that are configured for use with "
 "X.509."
-msgstr "這是一份所有設定給 X.509 與 OpenPGP 使用的目錄服務的清單。"
+msgstr "這是一份所有設定給 X.509 使用的目錄服務的清單。"
 
 #: ui/directoryserviceswidget.cpp:197
 #, kde-format
@@ -1092,17 +1089,13 @@ msgid "Click to add a directory service."
 msgstr "點擊以新增目錄服務。"
 
 #: ui/directoryserviceswidget.cpp:208
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to add a directory service to the list of services. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
-"點擊此按鍵用於移除目前選取的目錄服務。此變更只會在您確認了郵件設定對話框後生"
+"點擊此按鍵來新增目錄服務到服務列表中。此變更只會在您確認了設定對話框後才會生"
 "效。"
 
 #: ui/directoryserviceswidget.cpp:216
@@ -1117,19 +1110,15 @@ msgid "Click to edit the selected service."
 msgstr "點擊以編輯所選服務。"
 
 #: ui/directoryserviceswidget.cpp:219
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to edit the settings of the currently selected directory "
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
-"點擊此按鍵用於移除目前選取的目錄服務。此變更只會在您確認了郵件設定對話框後生"
-"效。"
+"點擊此按鍵來編輯目前選取的目錄服務的設定。此變更只會在您確認了設定對話框後才"
+"會生效。"
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
@@ -1143,17 +1132,13 @@ msgid "Click to remove the selected service."
 msgstr "點擊以移除所選服務。"
 
 #: ui/directoryserviceswidget.cpp:227
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to remove the currently selected directory service. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
-"點擊此按鍵用於移除目前選取的目錄服務。此變更只會在您確認了郵件設定對話框後生"
+"點擊此按鍵來移除目前選取的目錄服務。此變更只會在您確認了設定對話框後才會生"
 "效。"
 
 #: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
@@ -1253,9 +1238,7 @@ msgid "Host:"
 msgstr "主機："
 
 #: ui/editdirectoryservicedialog.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
@@ -1267,10 +1250,7 @@ msgid "Port:"
 msgstr "連結埠："
 
 #: ui/editdirectoryservicedialog.cpp:107
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
-#| "the directory service is listening on."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
@@ -1346,19 +1326,15 @@ msgid "Password:"
 msgstr "密碼："
 
 #: ui/editdirectoryservicedialog.cpp:155
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<b>(Optional, not recommended)</b> Enter your password here, if needed. "
-#| "Note that the password will be saved in the clear in a config file in "
-#| "your home directory."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your password for authenticating to the LDAP server.<nl/><warning>The "
 "password will be saved in the clear in a configuration file in your home "
 "directory.</warning>"
 msgstr ""
-"<b>（選擇性的，通常不建議使用）</b>需要的話，在此輸入您的密碼。注意密碼會存在"
-"您家目錄中的一個純文字設定檔中。"
+"輸入您的密碼來與 LDAP 伺服器認證。<nl/><warning>該密碼會以明文儲存在您的家目"
+"錄中的一個純文字設定檔案中。</warning>"
 
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
@@ -1433,17 +1409,14 @@ msgid "Base DN:"
 msgstr "基礎 DN："
 
 #: ui/editdirectoryservicedialog.cpp:217
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Only for LDAP)</b> Enter the base DN for this LDAP server to limit "
-#| "searches to only that subtree of the directory."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
-"<b>（只用於 LDAP）</b>輸入此 LDAP 伺服器的 base DN，搜尋都只會在其子樹下執"
-"行。"
+"<b>（可選，通常可以留空）</b>輸入此 LDAP 伺服器的 base DN，讓搜尋只在該目錄的"
+"子樹下執行。"
 
 #: ui/editdirectoryservicedialog.cpp:223
 #, kde-format
@@ -1501,8 +1474,7 @@ msgid "Ask Whenever Encryption is Possible"
 msgstr "當可加密時先詢問"
 
 #: ui/keyapprovaldialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
 msgstr "加密金鑰確認"
@@ -1874,11 +1846,10 @@ msgid ""
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:297
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
-msgstr "加密金鑰確認"
+msgstr "安全性確認"
 
 #: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
 #: utils/formatting.cpp:782
@@ -2007,8 +1978,7 @@ msgid "%1-bit %2"
 msgstr "%1 位元 %2"
 
 #: utils/formatting.cpp:346 utils/formatting.cpp:368
-#, fuzzy, kde-format
-#| msgid "Signing failed: %1"
+#, kde-format
 msgid "Signing (Qualified)"
 msgstr "簽署中（有資格）"
 
