@@ -597,6 +597,12 @@ QString Formatting::toolTip(const KeyGroup &group, int flags)
         return i18nc("@info:tooltip", "This group does not contain any keys.");
     }
 
+    if (Kleo::any_of(keys, [](const auto &key) {
+            return !key.hasEncrypt();
+        })) {
+        return i18nc("@info:tooltip", "Some of the certificates in this group cannot be used for encryption. Using this group can lead to unexpected results.");
+    }
+
     const QString validity = (flags & Validity) ? getValidityStatement(keys) : QString();
     if (flags == Validity) {
         return validity;

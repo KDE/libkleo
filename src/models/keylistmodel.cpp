@@ -566,7 +566,15 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
     } else if (role == Qt::FontRole) {
         return QFont();
     } else if (role == Qt::DecorationRole) {
-        return column == Icon ? QIcon::fromTheme(QStringLiteral("group")) : QVariant();
+        if (column != Icon && column != Summary) {
+            return QVariant();
+        }
+        return Kleo::all_of(group.keys(),
+                            [](const auto &key) {
+                                return key.hasEncrypt();
+                            })
+            ? QIcon::fromTheme(QStringLiteral("group"))
+            : QIcon::fromTheme(QStringLiteral("emblem-warning"));
     } else if (role == Qt::BackgroundRole) {
     } else if (role == Qt::ForegroundRole) {
     } else if (role == GroupRole) {
