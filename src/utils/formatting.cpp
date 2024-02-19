@@ -37,7 +37,6 @@
 #include <QLocale>
 #include <QRegularExpression>
 #include <QString>
-#include <QTextDocument> // for Qt::escape
 
 #include <gpgme++/importresult.h>
 #include <gpgme++/key.h>
