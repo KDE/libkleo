@@ -215,7 +215,7 @@ QString Kleo::gpgConfListDir(const char *which)
 
 static std::array<int, 3> getVersionFromString(const char *actual, bool &ok)
 {
-    std::array<int, 3> ret;
+    std::array<int, 3> ret{-1, -1, -1};
     ok = false;
 
     if (!actual) {
