@@ -74,13 +74,14 @@ KeyGroup KeyGroupConfig::Private::readGroup(const KSharedConfigPtr &groupsConfig
 
     KeyGroup g(groupId, groupName, groupKeys, KeyGroup::ApplicationConfig);
     g.setIsImmutable(isImmutable);
-    qCDebug(LIBKLEO_LOG) << "Read group" << g;
+    // qCDebug(LIBKLEO_LOG) << "Read group" << g;
 
     return g;
 }
 
 std::vector<KeyGroup> KeyGroupConfig::Private::readGroups() const
 {
+    qCDebug(LIBKLEO_LOG) << __func__ << "Reading groups";
     std::vector<KeyGroup> groups;
 
     if (filename.isEmpty()) {
@@ -90,7 +91,7 @@ std::vector<KeyGroup> KeyGroupConfig::Private::readGroups() const
     const KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(filename);
     const QStringList configGroups = groupsConfig->groupList();
     for (const QString &configGroupName : configGroups) {
-        qCDebug(LIBKLEO_LOG) << "Reading config group" << configGroupName;
+        // qCDebug(LIBKLEO_LOG) << "Reading config group" << configGroupName;
         if (configGroupName.startsWith(groupNamePrefix)) {
             const QString keyGroupId = configGroupName.mid(groupNamePrefix.size());
             if (keyGroupId.isEmpty()) {
