@@ -61,6 +61,11 @@ public:
         Authenticate,
     };
 
+    enum ReloadOption {
+        Reload, //< if a reload is already in progress then ignore the reload request
+        ForceReload, //< if a reload is already in progress then cancel it and start another reload
+    };
+
     static std::shared_ptr<const KeyCache> instance();
     static std::shared_ptr<KeyCache> mutableInstance();
 
@@ -193,7 +198,7 @@ public Q_SLOTS:
     {
         reload(proto);
     }
-    void reload(GpgME::Protocol proto = GpgME::UnknownProtocol);
+    void reload(GpgME::Protocol proto = GpgME::UnknownProtocol, ReloadOption option = Reload);
     void cancelKeyListing();
 
 Q_SIGNALS:

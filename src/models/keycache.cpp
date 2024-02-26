@@ -501,10 +501,18 @@ std::shared_ptr<KeyCacheAutoRefreshSuspension> KeyCache::suspendAutoRefresh()
     return KeyCacheAutoRefreshSuspension::instance();
 }
 
-void KeyCache::reload(GpgME::Protocol /*proto*/)
+void KeyCache::reload(GpgME::Protocol /*proto*/, ReloadOption option)
 {
-    if (d->m_refreshJob) {
+    qCDebug(LIBKLEO_LOG) << this << __func__ << "option:" << option;
+    const bool forceReload = option & ForceReload;
+    if (d->m_refreshJob && !forceReload) {
+        qCDebug(LIBKLEO_LOG) << this << __func__ << "- refresh already running";
         return;
+    }
+    if (d->m_refreshJob) {
+        disconnect(d->m_refreshJob.data(), nullptr, this, nullptr);
+        d->m_refreshJob->cancel();
+        d->m_refreshJob.clear();
     }
 
     d->updateAutoKeyListingTimer();
@@ -512,9 +520,11 @@ void KeyCache::reload(GpgME::Protocol /*proto*/)
     enableFileSystemWatcher(false);
     d->m_refreshJob = new RefreshKeysJob(this);
     connect(d->m_refreshJob.data(), &RefreshKeysJob::done, this, [this](const GpgME::KeyListResult &r) {
+        qCDebug(LIBKLEO_LOG) << d->m_refreshJob.data() << "RefreshKeysJob::done";
         d->refreshJobDone(r);
     });
     connect(d->m_refreshJob.data(), &RefreshKeysJob::canceled, this, [this]() {
+        qCDebug(LIBKLEO_LOG) << d->m_refreshJob.data() << "RefreshKeysJob::canceled";
         d->m_refreshJob.clear();
     });
     d->m_refreshJob->start();
@@ -1440,6 +1450,7 @@ KeyCache::RefreshKeysJob::~RefreshKeysJob()
 
 void KeyCache::RefreshKeysJob::start()
 {
+    qCDebug(LIBKLEO_LOG) << "KeyCache::RefreshKeysJob" << __func__;
     QTimer::singleShot(0, this, [this]() {
         d->doStart();
     });
