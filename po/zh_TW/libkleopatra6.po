@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-26 01:34+0000\n"
-"PO-Revision-Date: 2024-02-13 20:47+0900\n"
+"PO-Revision-Date: 2024-02-29 03:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2140,7 +2140,7 @@ msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
 "leading zero, MMMM: localized month name, yyyy: year as a four digit number"
 msgid "MMMM d, yyyy"
-msgstr ""
+msgstr "yyyy年 MMMM d日"
 
 #: utils/formatting.cpp:675 utils/formatting.cpp:710
 #, kde-format
@@ -2279,47 +2279,47 @@ msgstr "%1 %2 (%3)"
 #: utils/formatting.cpp:1013
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "來自未知憑證 %1 的不正確簽章：%2"
 
 #: utils/formatting.cpp:1015
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
-msgstr ""
+msgstr "來自未知憑證的不正確簽章：%1"
 
 #: utils/formatting.cpp:1018
 #, kde-format
 msgid "Bad signature by %1: %2"
-msgstr ""
+msgstr "來自 %1 的不正確簽章：%2"
 
 #: utils/formatting.cpp:1024
 #, kde-format
 msgid "Good signature by unknown certificate %1."
-msgstr ""
+msgstr "來自未知憑證 %1 的正確簽章。"
 
 #: utils/formatting.cpp:1026
 #, kde-format
 msgid "Good signature by an unknown certificate."
-msgstr ""
+msgstr "來自未知憑證的正確簽章。"
 
 #: utils/formatting.cpp:1029
 #, kde-format
 msgid "Good signature by %1."
-msgstr ""
+msgstr "來自 %1 的正確簽章。"
 
 #: utils/formatting.cpp:1034
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "來自未知憑證 %1 的無效簽章：%2"
 
 #: utils/formatting.cpp:1036
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
-msgstr ""
+msgstr "來自未知憑證的無效簽章：%1"
 
 #: utils/formatting.cpp:1039
 #, kde-format
 msgid "Invalid signature by %1: %2"
-msgstr ""
+msgstr "來自 %1 的無效簽章：%2"
 
 #: utils/formatting.cpp:1053
 #, kde-format
@@ -2416,12 +2416,12 @@ msgstr[0] ""
 #: utils/formatting.cpp:1168
 #, kde-format
 msgid "The certificate is marked as your own."
-msgstr ""
+msgstr "憑證已標記為您自己的。"
 
 #: utils/formatting.cpp:1170
 #, kde-format
 msgid "The certificate belongs to this recipient."
-msgstr ""
+msgstr "憑證屬於此收件者。"
 
 #: utils/formatting.cpp:1172
 #, kde-format
@@ -2433,7 +2433,7 @@ msgstr ""
 #: utils/formatting.cpp:1174
 #, kde-format
 msgid "This certificate should not be used."
-msgstr ""
+msgstr "此憑證不應使用。"
 
 #: utils/formatting.cpp:1178
 #, kde-format
