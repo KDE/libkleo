@@ -83,6 +83,7 @@ void TreeWidget::Private::saveColumnLayout()
     } else {
         config.writeEntry("SortColumn", -1);
     }
+    config.sync();
 }
 
 bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
@@ -124,6 +125,15 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
     if (sortColumn >= 0) {
         sortByColumn(sortColumn, (Qt::SortOrder)sortOrder);
     }
+    connect(header, &QHeaderView::sectionResized, this, [this]() {
+        d->saveColumnLayout();
+    });
+    connect(header, &QHeaderView::sectionMoved, this, [this]() {
+        d->saveColumnLayout();
+    });
+    connect(header, &QHeaderView::sortIndicatorChanged, this, [this]() {
+        d->saveColumnLayout();
+    });
     return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
 }
 
@@ -156,6 +166,7 @@ bool TreeWidget::eventFilter(QObject *watched, QEvent *event)
                 } else {
                     Q_EMIT columnDisabled(col);
                 }
+                d->saveColumnLayout();
             });
         }
 
