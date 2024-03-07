@@ -207,4 +207,10 @@ QModelIndex TreeView::moveCursor(QAbstractItemView::CursorAction cursorAction, Q
     return result;
 }
 
+void TreeView::saveColumnLayout(const QString &stateGroupName)
+{
+    d->mStateGroupName = stateGroupName;
+    d->saveColumnLayout();
+}
+
 #include "moc_treeview.cpp"

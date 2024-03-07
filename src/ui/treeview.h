@@ -51,6 +51,13 @@ public:
      * apply the default configuration.
      */
     bool restoreColumnLayout(const QString &stateGroupName);
+
+    /**
+     * Set the state config group name to use for saving the state. Only needs
+     * to be done if the state should be saged, but was not previously loaded
+     * using TreeView::restoreColumnLayout.
+     */
+    void saveColumnLayout(const QString &stateGroupName);
 Q_SIGNALS:
     void columnEnabled(int column);
     void columnDisabled(int column);
