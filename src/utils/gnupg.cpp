@@ -499,22 +499,20 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
     QObject::connect(process, &QProcess::readyReadStandardOutput, [process]() {
         (void)process->readAllStandardOutput(); /* ignore stdout */
     });
-    QObject::connect(process,
-                     qOverload<int, QProcess::ExitStatus>(&QProcess::finished),
-                     [process, onSuccess, onFailure](int exitCode, QProcess::ExitStatus exitStatus) {
-                         if (exitStatus == QProcess::NormalExit) {
-                             qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") exited (exit code: " << exitCode << ")";
-                             if (exitCode == 0) {
-                                 onSuccess();
-                             } else {
-                                 onFailure();
-                             }
-                         } else {
-                             qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") crashed (exit code: " << exitCode << ")";
-                             onFailure();
-                         }
-                         process->deleteLater();
-                     });
+    QObject::connect(process, &QProcess::finished, [process, onSuccess, onFailure](int exitCode, QProcess::ExitStatus exitStatus) {
+        if (exitStatus == QProcess::NormalExit) {
+            qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") exited (exit code: " << exitCode << ")";
+            if (exitCode == 0) {
+                onSuccess();
+            } else {
+                onFailure();
+            }
+        } else {
+            qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") crashed (exit code: " << exitCode << ")";
+            onFailure();
+        }
+        process->deleteLater();
+    });
 
     qCDebug(LIBKLEO_LOG).nospace() << "Starting gpgconf (" << process << ") with arguments " << process->arguments().join(QLatin1Char(' ')) << " ...";
     process->start();
