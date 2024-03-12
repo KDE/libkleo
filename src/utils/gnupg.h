@@ -124,10 +124,8 @@ KLEO_EXPORT QStringList backendVersionInfo();
 /** Launch the GnuPG agent if it is not already running. */
 KLEO_EXPORT void launchGpgAgent();
 
-/** Shut down all GnuPG daemons. They will be restarted automatically when
- *  needed.
- */
-KLEO_EXPORT void killDaemons();
+/** Shut down all GnuPG daemons and restart the GnuPG agent. */
+KLEO_EXPORT void restartGpgAgent();
 
 /**
  * Returns a static list of the available algorithms.
