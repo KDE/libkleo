@@ -521,15 +521,6 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
 
     return process;
 }
-
-static auto startGpgConf(const QStringList &arguments)
-{
-    return startGpgConf(
-        arguments,
-        []() {},
-        []() {});
-}
-
 }
 
 void Kleo::launchGpgAgent()
@@ -567,16 +558,16 @@ void Kleo::launchGpgAgent()
         });
 }
 
-void Kleo::killDaemons()
+void Kleo::restartGpgAgent()
 {
     static QPointer<QProcess> process;
 
     if (process) {
-        qCDebug(LIBKLEO_LOG) << __func__ << ": The daemons are already being shut down";
+        qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already being restarted";
         return;
     }
 
-    process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")});
+    process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")}, &Kleo::launchGpgAgent, &Kleo::launchGpgAgent);
 }
 
 const std::vector<std::string> &Kleo::availableAlgorithms()
