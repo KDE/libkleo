@@ -523,9 +523,9 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
 
 void Kleo::launchGpgAgent()
 {
-    static QPointer<QProcess> process;
-    static qint64 mSecsSinceEpochOfLastLaunch = 0;
-    static int numberOfFailedLaunches = 0;
+    static thread_local QPointer<QProcess> process;
+    static thread_local qint64 mSecsSinceEpochOfLastLaunch = 0;
+    static thread_local int numberOfFailedLaunches = 0;
 
     if (Kleo::Assuan::agentIsRunning()) {
         qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already running";
