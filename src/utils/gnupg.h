@@ -121,8 +121,13 @@ KLEO_EXPORT bool versionIsAtLeast(const char *minimum, const char *actual);
  */
 KLEO_EXPORT QStringList backendVersionInfo();
 
+enum LaunchGpgAgentOptions {
+    CheckForRunningAgent,
+    SkipCheckForRunningAgent,
+};
+
 /** Launch the GnuPG agent if it is not already running. */
-KLEO_EXPORT void launchGpgAgent();
+KLEO_EXPORT void launchGpgAgent(LaunchGpgAgentOptions options = CheckForRunningAgent);
 
 /** Shut down all GnuPG daemons and restart the GnuPG agent. */
 KLEO_EXPORT void restartGpgAgent();
