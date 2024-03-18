@@ -567,7 +567,10 @@ void Kleo::restartGpgAgent()
         return;
     }
 
-    process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")}, &Kleo::launchGpgAgent, &Kleo::launchGpgAgent);
+    auto startAgent = []() {
+        Kleo::launchGpgAgent(SkipCheckForRunningAgent);
+    };
+    process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")}, startAgent, startAgent);
 }
 
 const std::vector<std::string> &Kleo::availableAlgorithms()
