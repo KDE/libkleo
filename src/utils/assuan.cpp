@@ -12,6 +12,8 @@
 
 #include "assuan.h"
 
+#include "gnupg.h"
+
 #include <libkleo_debug.h>
 
 #if __has_include(<QGpgME/Debug>)
@@ -84,6 +86,9 @@ std::unique_ptr<GpgME::AssuanTransaction> Kleo::Assuan::sendCommand(std::shared_
 
     auto retryDelay = initialRetryDelay;
     while (err.code() == GPG_ERR_ASS_CONNECT_FAILED && connectionAttempts < maxConnectionAttempts) {
+        if (connectionAttempts == 1) {
+            Kleo::launchGpgAgent(Kleo::SkipCheckForRunningAgent);
+        }
         // Esp. on Windows the agent processes may take their time so we try
         // in increasing waits for them to start up
         qCDebug(LIBKLEO_LOG) << "Connecting to the agent failed. Retrying in" << retryDelay.count() << "ms";
