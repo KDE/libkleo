@@ -58,24 +58,6 @@
 
 using namespace Kleo;
 
-namespace
-{
-
-class ScrollArea : public QScrollArea
-{
-public:
-    explicit ScrollArea(QWidget *p)
-        : QScrollArea(p)
-    {
-    }
-    QSize sizeHint() const override
-    {
-        const QSize wsz = widget() ? widget()->sizeHint() : QSize();
-        return {wsz.width() + style()->pixelMetric(QStyle::PM_ScrollBarExtent), QScrollArea::sizeHint().height()};
-    }
-};
-
-}
 inline QIcon loadIcon(const QString &s)
 {
     QString ss = s;
@@ -83,87 +65,21 @@ inline QIcon loadIcon(const QString &s)
     return QIcon::fromTheme(ss.replace(reg, QStringLiteral("-")));
 }
 
-static unsigned int num_components_with_options(const QGpgME::CryptoConfig *config)
-{
-    if (!config) {
-        return 0;
-    }
-    const QStringList components = config->componentList();
-    unsigned int result = 0;
-    for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it) {
-        if (const QGpgME::CryptoConfigComponent *const comp = config->component(*it)) {
-            if (!comp->groupList().empty()) {
-                ++result;
-            }
-        }
-    }
-    return result;
-}
-
-static KPageView::FaceType determineJanusFace(const QGpgME::CryptoConfig *config, Kleo::CryptoConfigModule::Layout layout, bool &ok)
-{
-    ok = true;
-    if (num_components_with_options(config) < 2) {
-        ok = false;
-        return KPageView::Plain;
-    }
-    switch (layout) {
-    case CryptoConfigModule::LinearizedLayout:
-        return KPageView::Plain;
-    case CryptoConfigModule::TabbedLayout:
-        return KPageView::Tabbed;
-    case CryptoConfigModule::IconListLayout:
-        return KPageView::List;
-    }
-    Q_ASSERT(!"we should never get here");
-    return KPageView::List;
-}
-
 Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent)
-    : KPageWidget(parent)
+    : QTabWidget(parent)
     , mConfig(config)
 {
-    init(IconListLayout);
+    init();
 }
 
-Kleo::CryptoConfigModule::CryptoConfigModule(QGpgME::CryptoConfig *config, Layout layout, QWidget *parent)
-    : KPageWidget(parent)
-    , mConfig(config)
+void Kleo::CryptoConfigModule::init()
 {
-    init(layout);
-}
-
-void Kleo::CryptoConfigModule::init(Layout layout)
-{
-    if (QLayout *l = this->layout()) {
-        l->setContentsMargins(0, 0, 0, 0);
+    if (layout()) {
+        layout()->setContentsMargins(0, 0, 0, 0);
     }
+    setDocumentMode(true);
 
     QGpgME::CryptoConfig *const config = mConfig;
-
-    bool configOK = false;
-    const KPageView::FaceType type = determineJanusFace(config, layout, configOK);
-
-    setFaceType(type);
-
-    QVBoxLayout *vlay = nullptr;
-    QWidget *vbox = nullptr;
-
-    if (type == Plain) {
-        QWidget *w = new QWidget(this);
-        auto l = new QVBoxLayout(w);
-        l->setContentsMargins(0, 0, 0, 0);
-        auto s = new QScrollArea(w);
-        s->setFrameStyle(QFrame::NoFrame);
-        s->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
-        s->setWidgetResizable(true);
-        l->addWidget(s);
-        vbox = new QWidget(s->viewport());
-        vlay = new QVBoxLayout(vbox);
-        vlay->setContentsMargins(0, 0, 0, 0);
-        s->setWidget(vbox);
-        addPage(w, configOK ? QString() : i18n("GpgConf Error"));
-    }
 
     const QStringList components = sortComponentList(config->componentList());
     for (QStringList::const_iterator it = components.begin(); it != components.end(); ++it) {
@@ -176,46 +92,16 @@ void Kleo::CryptoConfigModule::init(Layout layout)
 
         std::unique_ptr<CryptoConfigComponentGUI> compGUI(new CryptoConfigComponentGUI(this, comp));
         compGUI->setObjectName(*it);
-        // KJanusWidget doesn't seem to have iterators, so we store a copy...
+
         mComponentGUIs.append(compGUI.get());
 
-        if (type == Plain) {
-            QGroupBox *gb = new QGroupBox(comp->description(), vbox);
-            (new QVBoxLayout(gb))->addWidget(compGUI.release());
-            vlay->addWidget(gb);
-        } else {
-            vbox = new QWidget(this);
-            vlay = new QVBoxLayout(vbox);
-            vlay->setContentsMargins(0, 0, 0, 0);
-            KPageWidgetItem *pageItem = new KPageWidgetItem(vbox, comp->description());
-            if (type != Tabbed) {
-                pageItem->setIcon(loadIcon(comp->iconName()));
-            }
-            addPage(pageItem);
+        auto scrollArea = new QScrollArea(this);
+        scrollArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+        scrollArea->setWidgetResizable(true);
 
-            QScrollArea *scrollArea = type == Tabbed ? new QScrollArea(vbox) : new ScrollArea(vbox);
-            scrollArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
-            scrollArea->setWidgetResizable(true);
+        addTab(scrollArea, comp->description());
 
-            vlay->addWidget(scrollArea);
-            const QSize compGUISize = compGUI->sizeHint();
-            scrollArea->setWidget(compGUI.release());
-
-            // Set a nice startup size
-            const int deskHeight = screen()->size().height();
-            int dialogHeight;
-            if (deskHeight > 1000) { // very big desktop ?
-                dialogHeight = 800;
-            } else if (deskHeight > 650) { // big desktop ?
-                dialogHeight = 500;
-            } else { // small (800x600, 640x480) desktop
-                dialogHeight = 400;
-            }
-            Q_ASSERT(scrollArea->widget());
-            if (type != Tabbed) {
-                scrollArea->setMinimumHeight(qMin(compGUISize.height(), dialogHeight));
-            }
-        }
+        scrollArea->setWidget(compGUI.release());
     }
     if (mComponentGUIs.empty()) {
         const QString msg = i18n(
@@ -225,10 +111,12 @@ void Kleo::CryptoConfigModule::init(Layout layout)
             "Try running \"%1\" on the command line for more "
             "information.",
             components.empty() ? QLatin1String("gpgconf --list-components") : QLatin1String("gpgconf --list-options gpg"));
-        QLabel *label = new QLabel(msg, vbox);
+        auto layout = new QVBoxLayout;
+        setLayout(layout);
+        auto label = new QLabel(msg, this);
         label->setWordWrap(true);
         label->setMinimumHeight(fontMetrics().lineSpacing() * 5);
-        vlay->addWidget(label);
+        layout->addWidget(label);
     }
 }
 
