@@ -11,7 +11,7 @@
 
 #include "kleo_export.h"
 
-#include <KPageWidget>
+#include <QTabWidget>
 
 #include <QList>
 
@@ -28,13 +28,11 @@ class CryptoConfigComponentGUI;
  * Crypto Config Module widget, dynamically generated from CryptoConfig
  * It's a simple QWidget so that it can be embedded into a dialog or into a KCModule.
  */
-class KLEO_EXPORT CryptoConfigModule : public KPageWidget
+class KLEO_EXPORT CryptoConfigModule : public QTabWidget
 {
     Q_OBJECT
 public:
-    enum Layout { TabbedLayout, IconListLayout, LinearizedLayout };
     explicit CryptoConfigModule(QGpgME::CryptoConfig *config, QWidget *parent = nullptr);
-    explicit CryptoConfigModule(QGpgME::CryptoConfig *config, Layout layout, QWidget *parent = nullptr);
 
     bool hasError() const;
 
@@ -47,7 +45,7 @@ Q_SIGNALS:
     void changed();
 
 private:
-    void init(Layout layout);
+    void init();
     static QStringList sortComponentList(const QStringList &components);
 
 public:
