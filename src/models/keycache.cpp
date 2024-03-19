@@ -1241,17 +1241,16 @@ struct lexicographically {
 
 void KeyCache::insert(const std::vector<Key> &keys)
 {
-    // 1. remove those with empty fingerprints:
+    // 1. filter out keys with empty fingerprints:
     std::vector<Key> sorted;
     sorted.reserve(keys.size());
-    std::remove_copy_if(keys.begin(), keys.end(), std::back_inserter(sorted), [](const Key &key) {
+    std::copy_if(keys.begin(), keys.end(), std::back_inserter(sorted), [](const Key &key) {
         auto fp = key.primaryFingerprint();
-        return !fp || !*fp;
+        return fp && *fp;
     });
 
-    Q_FOREACH (const Key &key, sorted) {
-        remove(key); // this is sub-optimal, but makes implementation from here on much easier
-    }
+    // this is sub-optimal, but makes implementation from here on much easier
+    remove(sorted);
 
     // 2. sort by fingerprint:
     std::sort(sorted.begin(), sorted.end(), _detail::ByFingerprint<std::less>());
