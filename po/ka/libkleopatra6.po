@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-05 00:38+0000\n"
+"POT-Creation-Date: 2024-03-20 00:38+0000\n"
 "PO-Revision-Date: 2024-02-20 03:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1178,12 +1178,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr "წამკითხავი დასაკავშირებლად"
 
-#: ui/cryptoconfigmodule.cpp:164
-#, kde-format
-msgid "GpgConf Error"
-msgstr "GpgConf -ის შეცდომა"
-
-#: ui/cryptoconfigmodule.cpp:221
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -1195,7 +1190,7 @@ msgstr ""
 "დააბრუნა. მეტი ინფორმაციის მისაღებად, სცადეთ, \"%1\" ბრძანების სტრიქონიდან "
 "გაუშვათ."
 
-#: ui/cryptoconfigmodule.cpp:650
+#: ui/cryptoconfigmodule.cpp:538
 #, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1207,42 +1202,42 @@ msgctxt ""
 msgid "yes"
 msgstr "yes"
 
-#: ui/cryptoconfigmodule.cpp:704
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr "0 - არაფერი"
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr "1 - საბაზისო"
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr "2 - დამატებითი"
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr "3 - კიდევ მეტად დამატებით"
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr "4 - ყველა"
 
-#: ui/cryptoconfigmodule.cpp:720
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
 msgid "Set the debugging level to"
 msgstr "გამართვის დონის დაყენება"
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
 msgstr "ჩვენება..."
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
 msgstr "ჩასწორება..."
 
-#: ui/cryptoconfigmodule.cpp:996
+#: ui/cryptoconfigmodule.cpp:884
 #, kde-format
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
@@ -1251,23 +1246,23 @@ msgstr ""
 "დირექტორიის სერვისების მორგება შეუძლებელია, რადგან გამოყენებული gpgme-ის "
 "ბიბლიოთეკები მეტისმეტად ძველია."
 
-#: ui/cryptoconfigmodule.cpp:998
+#: ui/cryptoconfigmodule.cpp:886
 #, kde-format
 msgid "Sorry"
 msgstr "უკაცრავად"
 
-#: ui/cryptoconfigmodule.cpp:1005
+#: ui/cryptoconfigmodule.cpp:893
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "დირექტორიის სერვისების მორგება"
 
-#: ui/cryptoconfigmodule.cpp:1034
+#: ui/cryptoconfigmodule.cpp:922
 #, kde-format
 msgid "None configured"
 msgstr "არ მორგებულა"
 
-#: ui/cryptoconfigmodule.cpp:1036
+#: ui/cryptoconfigmodule.cpp:924
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -3012,6 +3007,9 @@ msgstr "არასწორი სიმბოლო '%1' შემოტა�
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "შეყვანის ნაკადში თექვსმეტობითში კოდირებული სიმბოლოს მოულოდნელი დასასრული"
+
+#~ msgid "GpgConf Error"
+#~ msgstr "GpgConf -ის შეცდომა"
 
 #~ msgid "Certificate Manager and Unified Crypto GUI"
 #~ msgstr "სერტიფიკატების მმართველი და კრიპტოს გაერთიანებული ინტერფეისი"

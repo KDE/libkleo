@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-05 00:38+0000\n"
+"POT-Creation-Date: 2024-03-20 00:38+0000\n"
 "PO-Revision-Date: 2024-02-20 13:52+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1171,12 +1171,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr "Lettore a cui collegarsi"
 
-#: ui/cryptoconfigmodule.cpp:164
-#, kde-format
-msgid "GpgConf Error"
-msgstr "Errore di GpgConf"
-
-#: ui/cryptoconfigmodule.cpp:221
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -1187,7 +1182,7 @@ msgstr ""
 "non sembra installato correttamente. Non ha restituito alcun componente. "
 "Prova ad eseguire «%1» dalla riga di comando per avere maggiori informazioni."
 
-#: ui/cryptoconfigmodule.cpp:650
+#: ui/cryptoconfigmodule.cpp:538
 #, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1199,42 +1194,42 @@ msgctxt ""
 msgid "yes"
 msgstr "yes"
 
-#: ui/cryptoconfigmodule.cpp:704
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr "0 – Nessuno"
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr "1 – Base"
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr "2 – Verboso"
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr "3 – Molto verboso"
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr "4 – Completo"
 
-#: ui/cryptoconfigmodule.cpp:720
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
 msgid "Set the debugging level to"
 msgstr "Imposta il livello di debug a"
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
 msgstr "Mostra..."
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
 msgstr "Modifica..."
 
-#: ui/cryptoconfigmodule.cpp:996
+#: ui/cryptoconfigmodule.cpp:884
 #, kde-format
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
@@ -1243,23 +1238,23 @@ msgstr ""
 "La configurazione dei servizi di directory non è possibile perché le "
 "librerie gpgme utilizzate sono troppo datate."
 
-#: ui/cryptoconfigmodule.cpp:998
+#: ui/cryptoconfigmodule.cpp:886
 #, kde-format
 msgid "Sorry"
 msgstr "Spiacente"
 
-#: ui/cryptoconfigmodule.cpp:1005
+#: ui/cryptoconfigmodule.cpp:893
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Configura servizi di directory"
 
-#: ui/cryptoconfigmodule.cpp:1034
+#: ui/cryptoconfigmodule.cpp:922
 #, kde-format
 msgid "None configured"
 msgstr "Nessuno configurato"
 
-#: ui/cryptoconfigmodule.cpp:1036
+#: ui/cryptoconfigmodule.cpp:924
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -3014,6 +3009,9 @@ msgstr "Carattere esadecimale «%1» non valido nel flusso di ingresso."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Fine prematura dei caratteri codificati in esadecimale nel flusso di ingresso"
+
+#~ msgid "GpgConf Error"
+#~ msgstr "Errore di GpgConf"
 
 #~ msgid "Certificate Manager and Unified Crypto GUI"
 #~ msgstr ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-05 00:38+0000\n"
+"POT-Creation-Date: 2024-03-20 00:38+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1005,12 +1005,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr "接続するスマートカードリーダ"
 
-#: ui/cryptoconfigmodule.cpp:164
-#, kde-format
-msgid "GpgConf Error"
-msgstr "GpgConf エラー"
-
-#: ui/cryptoconfigmodule.cpp:221
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -1021,7 +1016,7 @@ msgstr ""
 "た。正しくインストールされていないようです。コマンドラインで %1 を実行して詳"
 "細を確認してください。"
 
-#: ui/cryptoconfigmodule.cpp:650
+#: ui/cryptoconfigmodule.cpp:538
 #, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1033,65 +1028,65 @@ msgctxt ""
 msgid "yes"
 msgstr "no"
 
-#: ui/cryptoconfigmodule.cpp:704
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr "0 - なし"
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr "1 - 基本"
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr "2 - 詳細"
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr "3 - より詳細"
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr "4 - すべて"
 
-#: ui/cryptoconfigmodule.cpp:720
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
 msgid "Set the debugging level to"
 msgstr "デバッグレベルを指定"
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
 msgstr "表示..."
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
 msgstr "編集..."
 
-#: ui/cryptoconfigmodule.cpp:996
+#: ui/cryptoconfigmodule.cpp:884
 #, kde-format
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
 msgstr "ディレクトリサービスの設定ができません。gpgme ライブラリが古すぎます。"
 
-#: ui/cryptoconfigmodule.cpp:998
+#: ui/cryptoconfigmodule.cpp:886
 #, kde-format
 msgid "Sorry"
 msgstr "すみません"
 
-#: ui/cryptoconfigmodule.cpp:1005
+#: ui/cryptoconfigmodule.cpp:893
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "ディレクトリサービスを設定"
 
-#: ui/cryptoconfigmodule.cpp:1034
+#: ui/cryptoconfigmodule.cpp:922
 #, kde-format
 msgid "None configured"
 msgstr "設定なし"
 
-#: ui/cryptoconfigmodule.cpp:1036
+#: ui/cryptoconfigmodule.cpp:924
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -2833,3 +2828,6 @@ msgstr "入力ストリームで無効な16進文字 '%1'"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "入力ストリームで16進エンコードの文字が途中で終了しました"
+
+#~ msgid "GpgConf Error"
+#~ msgstr "GpgConf エラー"

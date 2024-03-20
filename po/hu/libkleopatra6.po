@@ -1,18 +1,19 @@
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-05 00:38+0000\n"
-"PO-Revision-Date: 2011-12-03 15:09+0100\n"
-"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"POT-Creation-Date: 2024-03-20 00:38+0000\n"
+"PO-Revision-Date: 2024-03-19 11:34+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -159,16 +160,12 @@ msgid "S/MIME Opaque"
 msgstr "S/MIME (nem transzparens)"
 
 #: kleo/enum.cpp:39
-#, fuzzy
-#| msgid "S/MIME"
 msgid "Any S/MIME"
-msgstr "S/MIME"
+msgstr "Bármilyen S/MIME"
 
 #: kleo/enum.cpp:40
-#, fuzzy
-#| msgid "OpenPGP"
 msgid "Any OpenPGP"
-msgstr "OpenPGP"
+msgstr "Bármilyen OpenPGP"
 
 #: kleo/enum.cpp:72
 #, kde-format
@@ -231,7 +228,7 @@ msgstr "<nincs>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (kulcsazonosító: 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -1035,12 +1032,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:164
-#, kde-format
-msgid "GpgConf Error"
-msgstr "GpgConf-hiba"
-
-#: ui/cryptoconfigmodule.cpp:221
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -1051,7 +1043,7 @@ msgstr ""
 "telepítve. Egy komponens sem érhető el. További információ kapható ezzel a "
 "paranccsal: \"%1\"."
 
-#: ui/cryptoconfigmodule.cpp:650
+#: ui/cryptoconfigmodule.cpp:538
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1071,67 +1063,67 @@ msgctxt ""
 msgid "yes"
 msgstr "no"
 
-#: ui/cryptoconfigmodule.cpp:704
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:720
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
 msgid "Set the debugging level to"
 msgstr "Nyomkövetési szint"
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
 msgstr "Megjelenítés..."
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
 msgstr "Szerkesztés..."
 
-#: ui/cryptoconfigmodule.cpp:996
+#: ui/cryptoconfigmodule.cpp:884
 #, kde-format
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:998
+#: ui/cryptoconfigmodule.cpp:886
 #, kde-format
 msgid "Sorry"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:1005
+#: ui/cryptoconfigmodule.cpp:893
 #, fuzzy, kde-format
 #| msgid "Add or Change Directory Service"
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Címtárszolgáltatás hozzáadása vagy módosítása"
 
-#: ui/cryptoconfigmodule.cpp:1034
+#: ui/cryptoconfigmodule.cpp:922
 #, fuzzy, kde-format
 #| msgid "No server configured yet"
 msgid "None configured"
 msgstr "Még egy kiszolgáló sincs beállítva"
 
-#: ui/cryptoconfigmodule.cpp:1036
+#: ui/cryptoconfigmodule.cpp:924
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -2930,6 +2922,9 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "GpgConf Error"
+#~ msgstr "GpgConf-hiba"
 
 #, fuzzy
 #~| msgid "Certificate Manager Error"
