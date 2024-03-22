@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-26 01:34+0000\n"
+"POT-Creation-Date: 2024-03-22 02:22+0000\n"
 "PO-Revision-Date: 2012-07-09 10:59+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -961,12 +961,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:164
-#, kde-format
-msgid "GpgConf Error"
-msgstr "កំហុស GpgConf"
-
-#: ui/cryptoconfigmodule.cpp:221
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -976,7 +971,7 @@ msgstr ""
 "ឧបករណ៍ gpgconf ត្រូវបាន​ប្រើ​ដើម្បី​ផ្ដល់​ព័ត៌មាន​ដល់​ប្រអប់​នេះ ដែល​មិន​ទំនងជា​បាន​ដំឡើង​ត្រឹមត្រូវ​ឡើយ ។ វា​"
 "មិន​ត្រឡប់​សមាសភាគ​ណាមួយ​ទេ ។ ចំពោះ​ព័ត៌មាន​បន្ថែម ព្យាយាម​ដំណើរការ \"%1\" នៅ​លើ​បន្ទាត់​ពាក្យ​បញ្ជា ។"
 
-#: ui/cryptoconfigmodule.cpp:650
+#: ui/cryptoconfigmodule.cpp:538
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -996,67 +991,67 @@ msgctxt ""
 msgid "yes"
 msgstr "no"
 
-#: ui/cryptoconfigmodule.cpp:704
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:720
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
 msgid "Set the debugging level to"
 msgstr "កំណត់​កម្រិត​បំបាត់​កំហុស​ទៅ"
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
 msgstr "បង្ហាញ..."
 
-#: ui/cryptoconfigmodule.cpp:943
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
 msgstr "កែសម្រួល..."
 
-#: ui/cryptoconfigmodule.cpp:996
+#: ui/cryptoconfigmodule.cpp:884
 #, kde-format
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:998
+#: ui/cryptoconfigmodule.cpp:886
 #, kde-format
 msgid "Sorry"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:1005
+#: ui/cryptoconfigmodule.cpp:893
 #, fuzzy, kde-format
 #| msgid "Add or Change Directory Service"
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "បន្ថែម​ ឬ​ផ្លាស់​ប្តូរ​សេវា​ថត​"
 
-#: ui/cryptoconfigmodule.cpp:1034
+#: ui/cryptoconfigmodule.cpp:922
 #, fuzzy, kde-format
 #| msgid "No server configured yet"
 msgid "None configured"
 msgstr "គ្មាន​ម៉ាស៊ីន​បម្រើ​ដែល​បាន​កំណត់​រចនា​សម្ព័ន្ធ​នៅឡើយ​ទេ"
 
-#: ui/cryptoconfigmodule.cpp:1036
+#: ui/cryptoconfigmodule.cpp:924
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -2630,6 +2625,9 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "GpgConf Error"
+#~ msgstr "កំហុស GpgConf"
 
 #, fuzzy
 #~| msgid "Certificate Manager Error"
