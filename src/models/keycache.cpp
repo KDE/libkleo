@@ -21,6 +21,7 @@
 #include <libkleo/dn.h>
 #include <libkleo/enum.h>
 #include <libkleo/filesystemwatcher.h>
+#include <libkleo/gnupg.h>
 #include <libkleo/keygroup.h>
 #include <libkleo/keygroupconfig.h>
 #include <libkleo/keyhelpers.h>
@@ -437,6 +438,7 @@ private:
     bool m_groupsEnabled = false;
     std::shared_ptr<KeyGroupConfig> m_groupConfig;
     std::vector<KeyGroup> m_groups;
+    std::unordered_map<QByteArray, std::vector<CardKeyStorageInfo>> m_cards;
 };
 
 std::shared_ptr<const KeyCache> KeyCache::instance()
@@ -1354,6 +1356,31 @@ void KeyCache::insert(const std::vector<Key> &keys)
         d->m_pgpOnly &= key.protocol() == GpgME::OpenPGP;
     }
 
+    d->m_cards.clear();
+    for (const auto &key : keys) {
+        for (const auto &subkey : key.subkeys()) {
+            if (!subkey.isSecret() || d->m_cards[QByteArray(subkey.keyGrip())].size() > 0) {
+                continue;
+            }
+            const auto data = readSecretKeyFile(QString::fromLatin1(subkey.keyGrip()));
+            for (const auto &line : data) {
+                if (line.startsWith(QByteArrayLiteral("Token"))) {
+                    const auto split = line.split(' ');
+                    if (split.size() > 2) {
+                        const auto keyRef = QString::fromUtf8(split[2]).trimmed();
+                        d->m_cards[QByteArray(subkey.keyGrip())].push_back(CardKeyStorageInfo{
+                            QString::fromUtf8(split[1]),
+                            split.size() > 4 ? QString::fromLatin1(
+                                QString::fromUtf8(split[4]).trimmed().replace(QLatin1Char('+'), QLatin1Char(' ')).toUtf8().percentDecoded())
+                                             : QString(),
+                            keyRef,
+                        });
+                    }
+                }
+            }
+        }
+    }
+
     Q_EMIT keysMayHaveChanged();
 }
 
@@ -1777,6 +1804,11 @@ void KeyCache::setGroups(const std::vector<KeyGroup> &groups)
     Q_ASSERT(d->m_initalized && "Call setKeys() before setting groups");
     d->m_groups = groups;
     Q_EMIT keysMayHaveChanged();
+}
+
+std::vector<CardKeyStorageInfo> KeyCache::cardsForSubkey(const GpgME::Subkey &subkey) const
+{
+    return d->m_cards[QByteArray(subkey.keyGrip())];
 }
 
 #include "moc_keycache.cpp"
