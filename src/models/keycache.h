@@ -45,6 +45,12 @@ class KeyGroupConfig;
 
 class KeyCacheAutoRefreshSuspension;
 
+struct CardKeyStorageInfo {
+    QString serialNumber;
+    QString displaySerialNumber;
+    QString keyRef;
+};
+
 class KLEO_EXPORT KeyCache : public QObject
 {
     Q_OBJECT
@@ -161,6 +167,9 @@ public:
 
     std::vector<GpgME::Key> findSigningKeysByMailbox(const QString &mb) const;
     std::vector<GpgME::Key> findEncryptionKeysByMailbox(const QString &mb) const;
+
+    /** Get a list of (serial number, key ref) for all cards this subkey is stored on. */
+    std::vector<CardKeyStorageInfo> cardsForSubkey(const GpgME::Subkey &subkey) const;
 
     /** Check for group keys.
      *

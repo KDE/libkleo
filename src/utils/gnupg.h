@@ -146,4 +146,9 @@ KLEO_EXPORT const std::vector<std::string> &preferredAlgorithms();
  * Returns a static list of algorithms that are explicitly not supported.
  */
 KLEO_EXPORT const std::vector<std::string> &ignoredAlgorithms();
+
+/**
+ * Returns the lines of the private key file for the given keygrip.
+ */
+KLEO_EXPORT std::vector<QByteArray> readSecretKeyFile(const QString &keyGrip);
 }

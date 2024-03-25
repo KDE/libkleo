@@ -661,3 +661,24 @@ bool Kleo::gpgvVerify(const QString &filePath, const QString &sigPath, const QSt
     }
     return ret;
 }
+
+std::vector<QByteArray> Kleo::readSecretKeyFile(const QString &keyGrip)
+{
+    const auto filename = QStringLiteral("%1.key").arg(keyGrip);
+    const auto path = QDir{Kleo::gnupgPrivateKeysDirectory()}.filePath(filename);
+
+    QFile file{path};
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCDebug(LIBKLEO_LOG) << "Cannot open the private key file" << path << "for reading";
+        return {};
+    }
+
+    std::vector<QByteArray> lines;
+    while (!file.atEnd()) {
+        lines.push_back(file.readLine());
+    }
+    if (lines.empty()) {
+        qCDebug(LIBKLEO_LOG) << "The private key file" << path << "is empty";
+    }
+    return lines;
+}
