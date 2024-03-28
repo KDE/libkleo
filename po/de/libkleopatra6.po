@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-20 00:38+0000\n"
-"PO-Revision-Date: 2024-02-02 13:01+0100\n"
+"PO-Revision-Date: 2024-03-26 15:46+0100\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -2293,18 +2293,14 @@ msgid "Disabled"
 msgstr "Deaktiviert"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "User-ID is certified."
-msgstr "Eine Benutzerkennung ist nicht beglaubigt."
+msgstr "Die Benutzerkennung ist beglaubigt."
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "User-ID is not certified."
-msgstr "Eine Benutzerkennung ist nicht beglaubigt."
+msgstr "Die Benutzerkennung ist nicht beglaubigt."
 
 #: utils/formatting.cpp:437
 #, kde-format
@@ -2437,6 +2433,9 @@ msgid ""
 "Some of the certificates in this group cannot be used for encryption. Using "
 "this group can lead to unexpected results."
 msgstr ""
+"Einige der Zertifikate in dieser Gruppe können nicht zum Verschlüsseln "
+"verwendet werden. Die Verwendung dieser Gruppe kann zu unerwarteten "
+"Ergebnissen führen."
 
 #: utils/formatting.cpp:623
 #, kde-format
