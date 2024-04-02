@@ -73,6 +73,7 @@ public:
     KeyList::Options m_keyListOptions = AllKeys;
     std::vector<GpgME::Key> m_remarkKeys;
     std::shared_ptr<DragHandler> m_dragHandler;
+    std::vector<Key::Origin> extraOrigins;
 };
 
 AbstractKeyListModel::Private::Private(Kleo::AbstractKeyListModel *qq)
@@ -223,7 +224,7 @@ QModelIndex AbstractKeyListModel::index(const KeyGroup &group, int col) const
     }
 }
 
-void AbstractKeyListModel::setKeys(const std::vector<Key> &keys)
+void AbstractKeyListModel::setKeys(const std::vector<Key> &keys, const std::vector<Key::Origin> &extraOrigins)
 {
     const bool inReset = modelResetInProgress();
     if (!inReset) {
@@ -231,6 +232,7 @@ void AbstractKeyListModel::setKeys(const std::vector<Key> &keys)
     }
     clear(Keys);
     addKeys(keys);
+    d->extraOrigins = extraOrigins;
     if (!inReset) {
         endResetModel();
     }
@@ -380,7 +382,7 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
 {
     const Key key = this->key(index);
     if (!key.isNull()) {
-        return data(key, index.column(), role);
+        return data(key, index.row(), index.column(), role);
     }
 
     const KeyGroup group = this->group(index);
@@ -391,7 +393,7 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
+QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int role) const
 {
     if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole) {
         switch (column) {
@@ -452,6 +454,9 @@ QVariant AbstractKeyListModel::data(const Key &key, int column, int role) const
         case Issuer:
             return QString::fromUtf8(key.issuerName());
         case Origin:
+            if (key.origin() == Key::OriginUnknown && (int)d->extraOrigins.size() > row) {
+                return Formatting::origin(d->extraOrigins[row]);
+            }
             return Formatting::origin(key.origin());
         case LastUpdate:
             if (role == Qt::AccessibleTextRole) {

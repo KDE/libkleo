@@ -79,7 +79,8 @@ Q_SIGNALS:
     void rowMoved(const QModelIndex &new_parent, int new_row);
 
 public Q_SLOTS:
-    void setKeys(const std::vector<GpgME::Key> &keys);
+    // extraOrigins is a list of origins that will be considered if the origin in the key is OriginUnknown. The indexes of keys and extraOrigins must match.
+    void setKeys(const std::vector<GpgME::Key> &keys, const std::vector<GpgME::Key::Origin> &extraOrigins = {});
     /* Set this to set all or only secret keys from the keycache. */
     void useKeyCache(bool value, Kleo::KeyList::Options options);
     QModelIndex addKey(const GpgME::Key &key);
@@ -122,7 +123,7 @@ protected:
     bool modelResetInProgress();
 
 private:
-    QVariant data(const GpgME::Key &key, int column, int role) const;
+    QVariant data(const GpgME::Key &key, int row, int column, int role) const;
     QVariant data(const KeyGroup &group, int column, int role) const;
 
     virtual GpgME::Key doMapToKey(const QModelIndex &index) const = 0;
