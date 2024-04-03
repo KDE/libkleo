@@ -26,14 +26,15 @@ using namespace Kleo;
 class Kleo::DocAction::Private
 {
 public:
-    explicit Private(const QString &filename, const QString &pathHint);
+    explicit Private(const QString &filename, const QUrl &url, const QString &pathHint);
     ~Private() = default;
 
     QString path;
     bool isEnabled = false;
+    QUrl url;
 };
 
-DocAction::Private::Private(const QString &filename, const QString &pathHint)
+DocAction::Private::Private(const QString &filename, const QUrl &url, const QString &pathHint)
 {
     QString tmp = pathHint;
     if (!tmp.startsWith(QLatin1Char('/'))) {
@@ -44,18 +45,22 @@ DocAction::Private::Private(const QString &filename, const QString &pathHint)
     path = datadir.filePath(filename);
     QFileInfo fi(path);
     isEnabled = fi.exists();
+    if (!isEnabled) {
+        this->url = url;
+        isEnabled = url.isValid();
+    }
 }
 
-DocAction::DocAction(const QIcon &icon, const QString &text, const QString &filename, const QString &pathHint, QObject *parent)
+DocAction::DocAction(const QIcon &icon, const QString &text, const QString &filename, const QString &pathHint, const QUrl &url, QObject *parent)
     : QAction(icon, text, parent)
-    , d(new Private(filename, pathHint))
+    , d(new Private(filename, url, pathHint))
 {
     setVisible(d->isEnabled);
     setEnabled(d->isEnabled);
     connect(this, &QAction::triggered, this, [this]() {
         if (d->isEnabled) {
-            qCDebug(LIBKLEO_LOG) << "Opening file:" << d->path;
-            QDesktopServices::openUrl(QUrl::fromLocalFile(d->path));
+            qCDebug(LIBKLEO_LOG) << "Opening:" << (d->url.isValid() ? d->url.toString() : d->path);
+            QDesktopServices::openUrl(d->url.isValid() ? d->url : QUrl::fromLocalFile(d->path));
         }
     });
 }

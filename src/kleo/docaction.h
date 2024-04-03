@@ -13,6 +13,7 @@
 #include "kleo_export.h"
 
 #include <QAction>
+#include <QUrl>
 
 #include <memory>
 
@@ -38,10 +39,16 @@ public:
     /* Create a DocAction with icon, text and file name of the document
      *
      * @a filename The name of the documentation file.
+     * @a url Url to a website that will be shown if the given file is not available.
      * @a pathHint A path relative to QCoreApplication::applicationDirPath() to look for the file.
      *
      * */
-    explicit DocAction(const QIcon &icon, const QString &text, const QString &filename, const QString &pathHint = QString(), QObject *parent = nullptr);
+    DocAction(const QIcon &icon,
+              const QString &text,
+              const QString &filename,
+              const QString &pathHint = QString(),
+              const QUrl &url = {},
+              QObject *parent = nullptr);
 
     ~DocAction() override;
 
