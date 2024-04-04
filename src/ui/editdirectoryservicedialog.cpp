@@ -17,6 +17,7 @@
 #include <libkleo/keyserverconfig.h>
 
 #include <KCollapsibleGroupBox>
+#include <KColorScheme>
 #include <KConfigGroup>
 #include <KGuiItem>
 #include <KLocalizedString>
@@ -34,6 +35,7 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QSpinBox>
+#include <QUrl>
 #include <QVBoxLayout>
 
 using namespace Kleo;
@@ -62,6 +64,7 @@ class EditDirectoryServiceDialog::Private
         QLineEdit *baseDnEdit = nullptr;
         QLineEdit *additionalFlagsEdit = nullptr;
         QDialogButtonBox *buttonBox = nullptr;
+        QLabel *invalidHostLabel = nullptr;
 
         Ui(QWidget *parent)
             : hostEdit{new QLineEdit{parent}}
@@ -75,6 +78,7 @@ class EditDirectoryServiceDialog::Private
             , baseDnEdit{new QLineEdit{parent}}
             , additionalFlagsEdit{new QLineEdit{parent}}
             , buttonBox{new QDialogButtonBox{parent}}
+            , invalidHostLabel{new QLabel{parent}}
         {
 #define SET_OBJECT_NAME(x) x->setObjectName(QStringLiteral(#x));
             SET_OBJECT_NAME(hostEdit)
@@ -100,6 +104,15 @@ class EditDirectoryServiceDialog::Private
                 hostEdit->setToolTip(i18nc("@info:tooltip", "Enter the name or IP address of the server hosting the directory service."));
                 hostEdit->setClearButtonEnabled(true);
                 layout->addWidget(hostEdit, row, 1, 1, -1);
+                ++row;
+                const auto colors = KColorScheme(QPalette::Active, KColorScheme::View);
+                QPalette palette;
+                palette.setBrush(QPalette::Window, colors.background(KColorScheme::NegativeBackground));
+                palette.setBrush(QPalette::WindowText, colors.foreground(KColorScheme::NegativeText));
+                invalidHostLabel->setPalette(palette);
+                invalidHostLabel->setText(i18nc("@info:label", "Error: Enter a hostname in the correct format, like ldap.example.com."));
+                invalidHostLabel->setVisible(false);
+                layout->addWidget(invalidHostLabel, row, 1, 1, 2);
                 ++row;
                 layout->addWidget(new QLabel{i18n("Port:")}, row, 0);
                 portSpinBox->setRange(1, USHRT_MAX);
@@ -285,8 +298,11 @@ class EditDirectoryServiceDialog::Private
     bool inputIsAcceptable() const
     {
         const bool hostIsSet = !host().isEmpty();
+        QUrl url;
+        url.setHost(host());
+        ui.invalidHostLabel->setVisible(!url.isValid());
         const bool requiredCredentialsAreSet = authentication() != KeyserverAuthentication::Password || (!user().isEmpty() && !password().isEmpty());
-        return hostIsSet && requiredCredentialsAreSet;
+        return hostIsSet && requiredCredentialsAreSet && url.isValid();
     }
 
     void updateWidgets()
