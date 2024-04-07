@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007, 2009.
-# Mincho Kondarev <mkondarev@yahoo.de>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 00:38+0000\n"
-"PO-Revision-Date: 2022-06-28 09:54+0200\n"
+"PO-Revision-Date: 2024-04-06 22:59+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -713,43 +713,37 @@ msgid "Not Validated Certificates"
 msgstr ""
 
 #: models/keylistmodel.cpp:325
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Име"
 
 #: models/keylistmodel.cpp:327
-#, fuzzy, kde-format
-#| msgid "E-Mail"
+#, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "Е-поща"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "User-IDs"
+#, kde-format
 msgctxt "@title:column"
 msgid "User-IDs"
 msgstr "Потребителски идентификатори"
 
 #: models/keylistmodel.cpp:331
-#, fuzzy, kde-format
-#| msgid "Valid From"
+#, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Валиден от"
 
 #: models/keylistmodel.cpp:333
-#, fuzzy, kde-format
-#| msgid "Valid Until"
+#, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr "Валидно до"
+msgstr "Валиден до"
 
 #: models/keylistmodel.cpp:335
-#, fuzzy, kde-format
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Протокол"
@@ -762,11 +756,10 @@ msgid "Key-ID"
 msgstr "Идентификатор на ключ"
 
 #: models/keylistmodel.cpp:341
-#, fuzzy, kde-format
-#| msgid "Fingerprint"
+#, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
-msgstr "Отпечатък"
+msgstr "Отпечатък:"
 
 #: models/keylistmodel.cpp:343
 #, fuzzy, kde-format
@@ -776,36 +769,31 @@ msgid "Issuer"
 msgstr "Емитент"
 
 #: models/keylistmodel.cpp:345
-#, fuzzy, kde-format
-#| msgid "Serial Number"
+#, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Сериен номер"
 
 #: models/keylistmodel.cpp:347
-#, fuzzy, kde-format
-#| msgid "Origin"
+#, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Източник"
 
 #: models/keylistmodel.cpp:349
-#, fuzzy, kde-format
-#| msgid "Last Update"
+#, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Последна актуализация"
 
 #: models/keylistmodel.cpp:351
-#, fuzzy, kde-format
-#| msgid "Certification Trust"
+#, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Довереност на сертификацията"
 
 #: models/keylistmodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Tags"
+#, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Етикети"
@@ -814,13 +802,13 @@ msgstr "Етикети"
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
-msgstr ""
+msgstr "Алгоритъм"
 
 #: models/keylistmodel.cpp:357
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
-msgstr ""
+msgstr "Ключодържател"
 
 #: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
 #, kde-format
@@ -884,15 +872,7 @@ msgid "Usage"
 msgstr "Употреба"
 
 #: models/useridlistmodel.cpp:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalization in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalization (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "да"
@@ -901,20 +881,16 @@ msgstr "да"
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "не"
 
 #: models/useridlistmodel.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "no specific preference"
-#| msgid "<none>"
+#, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr "<без>"
+msgstr "без"
 
 #: models/useridlistmodel.cpp:76
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers"
-#| msgid "not applicable"
+#, kde-format
 msgid "not applicable"
 msgstr "не е приложимо"
 
@@ -945,7 +921,7 @@ msgstr "Е-поща"
 #: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Exportable"
-msgstr ""
+msgstr "Възможно експортиране"
 
 #: models/useridlistmodel.cpp:111
 #, kde-format
@@ -958,9 +934,9 @@ msgid "Trust Signature For"
 msgstr ""
 
 #: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
-#, fuzzy, kde-format
+#, kde-format
 msgid "class %1"
-msgstr "Клас"
+msgstr "клас: %1"
 
 #: ui/auditlogviewer.cpp:52
 #, kde-format
@@ -976,7 +952,7 @@ msgstr "Копи&ране в системния буфер"
 #: ui/auditlogviewer.cpp:60
 #, kde-format
 msgid "&Save to Disk..."
-msgstr ""
+msgstr "&Запазване на диска..."
 
 #: ui/auditlogviewer.cpp:102
 #, kde-format
@@ -1021,9 +997,9 @@ msgid "Choose File to Save GnuPG Audit Log to"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:152
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not save to file \"%1\": %2"
-msgstr "Грешка при запис във файла \"%1\"."
+msgstr "Грешка при запис във файла \"%1\": %2"
 
 #: ui/auditlogviewer.cpp:152
 #, kde-format
@@ -1057,33 +1033,29 @@ msgid "yes"
 msgstr "да"
 
 #: ui/cryptoconfigmodule.cpp:592
-#, fuzzy
 msgid "0 - None"
-msgstr "Без"
+msgstr "0 - Без"
 
 #: ui/cryptoconfigmodule.cpp:593
-#, fuzzy
 msgid "1 - Basic"
-msgstr "Основен"
+msgstr "1 - Основно"
 
 #: ui/cryptoconfigmodule.cpp:594
-#, fuzzy
 msgid "2 - Verbose"
-msgstr "&Подробно"
+msgstr "2 - Подробно"
 
 #: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
-msgstr ""
+msgstr "3 - По-подробно"
 
 #: ui/cryptoconfigmodule.cpp:596
-#, fuzzy
 msgid "4 - All"
-msgstr "Всички"
+msgstr "4 - Всичко"
 
 #: ui/cryptoconfigmodule.cpp:608
 #, kde-format
 msgid "Set the debugging level to"
-msgstr ""
+msgstr "Задаване на ниво на докладване на грешки"
 
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
@@ -1250,8 +1222,6 @@ msgid "All others"
 msgstr ""
 
 #: ui/dnattributeorderconfigwidget.cpp:118
-#, fuzzy
-#| msgid "Add"
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Добавяне"
@@ -1263,7 +1233,7 @@ msgstr ""
 #: ui/dnattributeorderconfigwidget.cpp:125
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Изтриване"
 
 #: ui/dnattributeorderconfigwidget.cpp:126
 msgid "Remove from current attribute order"
@@ -1281,7 +1251,7 @@ msgstr ""
 #: ui/dnattributeorderconfigwidget.cpp:139
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr ""
+msgstr "Преместване нагоре"
 
 #: ui/dnattributeorderconfigwidget.cpp:140
 msgid "Move one up"
@@ -1290,7 +1260,7 @@ msgstr ""
 #: ui/dnattributeorderconfigwidget.cpp:146
 msgctxt "@action:button"
 msgid "Move Down"
-msgstr ""
+msgstr "Преместване надолу"
 
 #: ui/dnattributeorderconfigwidget.cpp:147
 msgid "Move one down"
@@ -1869,31 +1839,28 @@ msgid "Recheck Key"
 msgstr "Повторно проверяване на ключ"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "&Дневник на одита"
+msgstr "Показване на дневника на одита"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "Местоположение"
+msgstr "Информация"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: ui/newkeyapprovaldialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Show all keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
-msgstr "Показване на всички ключове"
+msgstr "Показване на детайли"
 
 #: ui/newkeyapprovaldialog.cpp:184
 #, fuzzy, kde-format
@@ -2042,7 +2009,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
-msgstr ""
+msgstr "Преглед на колони"
 
 #: utils/compliance.cpp:160
 #, kde-format
@@ -2274,7 +2241,7 @@ msgstr "неизвестно"
 #: utils/formatting.cpp:753 utils/formatting.cpp:762
 #, kde-format
 msgid "unlimited"
-msgstr ""
+msgstr "неограничено"
 
 #: utils/formatting.cpp:815
 #, kde-format
@@ -2588,8 +2555,7 @@ msgid "This group does not contain any keys."
 msgstr ""
 
 #: utils/formatting.cpp:1315 utils/formatting.cpp:1327
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "неизвестно"
@@ -2679,31 +2645,31 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
-msgstr ""
+msgstr "ECC (Brainpool P-256)"
 
 #: utils/formatting.cpp:1510
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
-msgstr ""
+msgstr "ECC (Brainpool P-384)"
 
 #: utils/formatting.cpp:1511
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
-msgstr ""
+msgstr "ECC (Brainpool P-512)"
 
 #: utils/formatting.cpp:1512
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
-msgstr ""
+msgstr "ECC (Curve25519)"
 
 #: utils/formatting.cpp:1513
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
-msgstr ""
+msgstr "ECC (Curve448)"
 
 #: utils/formatting.cpp:1514
 #, kde-format
@@ -2733,37 +2699,37 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1519
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1520
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1521
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
-msgstr ""
+msgstr "RSA 2048"
 
 #: utils/formatting.cpp:1522
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
-msgstr ""
+msgstr "RSA 3072"
 
 #: utils/formatting.cpp:1523
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
-msgstr ""
+msgstr "RSA 4096"
 
 #: utils/formatting.cpp:1524
 #, kde-format
