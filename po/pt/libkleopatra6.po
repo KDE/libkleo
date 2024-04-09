@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:38+0000\n"
+"POT-Creation-Date: 2024-04-09 00:39+0000\n"
 "PO-Revision-Date: 2023-05-22 17:53+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -1475,12 +1475,12 @@ msgstr "Para o fundo"
 msgid "current attribute order"
 msgstr "ordem de atributos actual"
 
-#: ui/editdirectoryservicedialog.cpp:99
+#: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
 msgstr "Máquina:"
 
-#: ui/editdirectoryservicedialog.cpp:100
+#: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1489,12 +1489,18 @@ msgstr ""
 "Indique o nome ou o endereço IP do servidor que aloja o serviço de "
 "directório."
 
-#: ui/editdirectoryservicedialog.cpp:104
+#: ui/editdirectoryservicedialog.cpp:112
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
 msgid "Port:"
 msgstr "Porto:"
 
-#: ui/editdirectoryservicedialog.cpp:107
+#: ui/editdirectoryservicedialog.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1505,39 +1511,39 @@ msgstr ""
 "Indique o número do porto onde o serviço de directório está à espera de "
 "pedidos."
 
-#: ui/editdirectoryservicedialog.cpp:110
+#: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
 msgstr "Usar a predefinição"
 
-#: ui/editdirectoryservicedialog.cpp:116
+#: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
 msgid "Authentication"
 msgstr "Autenticação"
 
-#: ui/editdirectoryservicedialog.cpp:120
+#: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
 msgstr "Anónimo"
 
-#: ui/editdirectoryservicedialog.cpp:121
+#: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr "Usar um servidor de LDAP anónimo que não necessite de autenticação."
 
-#: ui/editdirectoryservicedialog.cpp:127
+#: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
 msgstr "Autenticar por Active Directory"
 
-#: ui/editdirectoryservicedialog.cpp:129
+#: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr ""
 "Autenticar por Active Directory (necessita do GnuPG 2.2.28 ou posterior)"
 
-#: ui/editdirectoryservicedialog.cpp:132
+#: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1547,23 +1553,23 @@ msgstr ""
 "No Windows, autentica no servidor de LDAP, usando a Active Directory com o "
 "utilizador actual."
 
-#: ui/editdirectoryservicedialog.cpp:137
+#: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
 msgstr "Autenticar com utilizador e senha"
 
-#: ui/editdirectoryservicedialog.cpp:138
+#: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr "Autentica-se no servidor de LDAP com as suas credenciais de LDAP."
 
-#: ui/editdirectoryservicedialog.cpp:148
+#: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
 msgid "User:"
 msgstr "Utilizador:"
 
-#: ui/editdirectoryservicedialog.cpp:149
+#: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1572,12 +1578,12 @@ msgstr ""
 "Indique o DN de Enlace respectivo do seu utilizador de LDAP para se "
 "autenticar no servidor."
 
-#: ui/editdirectoryservicedialog.cpp:153
+#: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Password:"
 msgstr "Senha:"
 
-#: ui/editdirectoryservicedialog.cpp:155
+#: ui/editdirectoryservicedialog.cpp:167
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1589,22 +1595,22 @@ msgstr ""
 "><warning>A senha será gravada de forma legível num ficheiro de configuração "
 "da sua área pessoal.</warning>"
 
-#: ui/editdirectoryservicedialog.cpp:165
+#: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
 msgstr "Segurança da Ligação"
 
-#: ui/editdirectoryservicedialog.cpp:167
+#: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr "Segurança da Ligação (necessita do GnuPG 2.2.28 ou posterior)"
 
-#: ui/editdirectoryservicedialog.cpp:172
+#: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
 msgstr "Usar a ligação predefinida (provavelmente não segura com TLS)"
 
-#: ui/editdirectoryservicedialog.cpp:174
+#: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1615,12 +1621,12 @@ msgstr ""
 "omissão, o GnuPG 2.3 e versões anteriores usam uma ligação simples e não "
 "segura com TLS. <b>(Não recomendado)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:182
+#: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
 msgstr "Não usar uma ligação segura com TLS"
 
-#: ui/editdirectoryservicedialog.cpp:184
+#: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1630,12 +1636,12 @@ msgstr ""
 "Usa uma ligação simples e não segura com TLS para se ligar ao servidor de "
 "LDAP. <b>(Não recomendado)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:190
+#: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
 msgstr "Usar uma ligação segura com TLS"
 
-#: ui/editdirectoryservicedialog.cpp:192
+#: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1645,12 +1651,12 @@ msgstr ""
 "Usar uma ligação normal e segura com TLS (iniciada com o STARTTLS) para se "
 "ligar ao servidor de LDAP. <b>(Recomendado)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:199
+#: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
 msgstr "Encaminhar o LDAP por uma ligação TLS"
 
-#: ui/editdirectoryservicedialog.cpp:201
+#: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1660,17 +1666,17 @@ msgstr ""
 "Usar uma ligação segura com TLS, através da qual é encaminhada a ligação ao "
 "servidor de LDAP. <b>(Não recomendado)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:210
+#: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
 msgstr "Configuração Avançada"
 
-#: ui/editdirectoryservicedialog.cpp:215
+#: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
 msgid "Base DN:"
 msgstr "DN de Base:"
 
-#: ui/editdirectoryservicedialog.cpp:217
+#: ui/editdirectoryservicedialog.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1681,12 +1687,12 @@ msgstr ""
 "base para este servidor de LDAP, de modo a limitar as pesquisas apenas a "
 "essa sub-árvore do directório."
 
-#: ui/editdirectoryservicedialog.cpp:223
+#: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
 msgstr "Opções adicionais:"
 
-#: ui/editdirectoryservicedialog.cpp:225
+#: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1698,7 +1704,7 @@ msgstr ""
 "pelo Kleopatra. Por exemplo, as versões mais antigas do GnuPG usam o "
 "<code>ldaps</code> para pedir uma ligação segura com o TLS."
 
-#: ui/editdirectoryservicedialog.cpp:395
+#: ui/editdirectoryservicedialog.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"

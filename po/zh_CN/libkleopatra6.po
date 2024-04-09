@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 14:29\n"
+"POT-Creation-Date: 2024-04-09 00:39+0000\n"
+"PO-Revision-Date: 2024-04-08 19:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1256,24 +1256,30 @@ msgstr "移至底端"
 msgid "current attribute order"
 msgstr "当前属性顺序"
 
-#: ui/editdirectoryservicedialog.cpp:99
+#: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
 msgstr "主机："
 
-#: ui/editdirectoryservicedialog.cpp:100
+#: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
 msgstr "输入目录服务主机的主机名或 IP 地址。"
 
-#: ui/editdirectoryservicedialog.cpp:104
+#: ui/editdirectoryservicedialog.cpp:112
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
 msgid "Port:"
 msgstr "端口："
 
-#: ui/editdirectoryservicedialog.cpp:107
+#: ui/editdirectoryservicedialog.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1281,38 +1287,38 @@ msgid ""
 "the directory service is listening on."
 msgstr "<b>(可选项，通常使用默认值即可)</b>选定目录服务的监听端口号。"
 
-#: ui/editdirectoryservicedialog.cpp:110
+#: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
 msgstr "使用默认值"
 
-#: ui/editdirectoryservicedialog.cpp:116
+#: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
 msgid "Authentication"
 msgstr "身份验证"
 
-#: ui/editdirectoryservicedialog.cpp:120
+#: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
 msgstr "匿名"
 
-#: ui/editdirectoryservicedialog.cpp:121
+#: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr "使用无需身份验证的匿名 LDAP 服务器。"
 
-#: ui/editdirectoryservicedialog.cpp:127
+#: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
 msgstr "通过 Active Directory 进行身份验证"
 
-#: ui/editdirectoryservicedialog.cpp:129
+#: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr "通过 Active Directory 进行身份验证 (需要 2.2.28 及更高版本的 GnuPG)"
 
-#: ui/editdirectoryservicedialog.cpp:132
+#: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1321,35 +1327,35 @@ msgid ""
 msgstr ""
 "在 Windows 上，使用当前用户的 Active Directory 向 LDAP 服务器进行身份验证。"
 
-#: ui/editdirectoryservicedialog.cpp:137
+#: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
 msgstr "通过用户名和密码进行身份验证"
 
-#: ui/editdirectoryservicedialog.cpp:138
+#: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr "使用 LDAP 登录信息连接 LDAP 服务器并进行身份验证。"
 
-#: ui/editdirectoryservicedialog.cpp:148
+#: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
 msgid "User:"
 msgstr "用户名："
 
-#: ui/editdirectoryservicedialog.cpp:149
+#: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr "请输入您的 LDAP 用户信息。绑定 DN 以在 LDAP 服务器上进行身份验证。"
 
-#: ui/editdirectoryservicedialog.cpp:153
+#: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Password:"
 msgstr "密码："
 
-#: ui/editdirectoryservicedialog.cpp:155
+#: ui/editdirectoryservicedialog.cpp:167
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1360,22 +1366,22 @@ msgstr ""
 "输入用于连接 LDAP 服务器并进行身份验证的密码。<nl/><warning>密码将被明文储存"
 "在主目录内的配置文件中。</warning>"
 
-#: ui/editdirectoryservicedialog.cpp:165
+#: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
 msgstr "连接安全性"
 
-#: ui/editdirectoryservicedialog.cpp:167
+#: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr "连接安全性 (需要 2.2.28 及更高版本的 GnuPG)"
 
-#: ui/editdirectoryservicedialog.cpp:172
+#: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
 msgstr "使用默认连接设置 (可能未使用 TLS 加密)"
 
-#: ui/editdirectoryservicedialog.cpp:174
+#: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1385,12 +1391,12 @@ msgstr ""
 "使用 GnuPG 的默认连接设置连接 LDAP 服务器。默认情况下，2.3 及更早版本的 "
 "GnuPG 会使用明文传输而非 LTS 加密进行连接。<b>(不推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:182
+#: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
 msgstr "不使用 TLS 安全连接"
 
-#: ui/editdirectoryservicedialog.cpp:184
+#: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1398,12 +1404,12 @@ msgid ""
 "<b>(Not recommended)</b>"
 msgstr "使用明文传输而不使用 LTS 加密连接到 LDAP 服务器。<b>(不推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:190
+#: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
 msgstr "使用 TLS 加密连接"
 
-#: ui/editdirectoryservicedialog.cpp:192
+#: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1411,12 +1417,12 @@ msgid ""
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr "使用标准 TLS 加密 (以 STARTTLS 初始化) 连接 LDAP 服务器。<b>(推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:199
+#: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
 msgstr "通过 TLS 隧道连接 LDAP"
 
-#: ui/editdirectoryservicedialog.cpp:201
+#: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1424,17 +1430,17 @@ msgid ""
 "is tunneled. <b>(Not recommended)</b>"
 msgstr "通过 TLS 加密隧道连接到 LDAP 服务器。<b>(不推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:210
+#: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
 msgstr "高级设置"
 
-#: ui/editdirectoryservicedialog.cpp:215
+#: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
 msgid "Base DN:"
 msgstr "基本 DN："
 
-#: ui/editdirectoryservicedialog.cpp:217
+#: ui/editdirectoryservicedialog.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1443,12 +1449,12 @@ msgid ""
 msgstr ""
 "<b>(可选，通常可留空)</b> 输入此 LDAP 服务器用于限制搜索目录范围的基本 DN。"
 
-#: ui/editdirectoryservicedialog.cpp:223
+#: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
 msgstr "附加标记："
 
-#: ui/editdirectoryservicedialog.cpp:225
+#: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1459,7 +1465,7 @@ msgstr ""
 "您可在此输入 Kleopatra 尚未支持 (或不再支持) 的附加标记。例如：旧版 GnuPG 会"
 "使用 <code>ldaps</code> 来请求 TLS 加密连接。"
 
-#: ui/editdirectoryservicedialog.cpp:395
+#: ui/editdirectoryservicedialog.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:38+0000\n"
+"POT-Creation-Date: 2024-04-09 00:39+0000\n"
 "PO-Revision-Date: 2024-02-20 03:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1462,12 +1462,12 @@ msgstr "ბოლოში ჩამოტანა"
 msgid "current attribute order"
 msgstr "ატრიბუტების მიმდინარე მიმდევრობა"
 
-#: ui/editdirectoryservicedialog.cpp:99
+#: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
 msgstr "ჰოსტი:"
 
-#: ui/editdirectoryservicedialog.cpp:100
+#: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1476,12 +1476,18 @@ msgstr ""
 "შეიყვანეთ IP მისამართი ან სახელი ჰოსტისა, სადაც დირექტორიის სერვისია "
 "გაშვებული."
 
-#: ui/editdirectoryservicedialog.cpp:104
+#: ui/editdirectoryservicedialog.cpp:112
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
 msgid "Port:"
 msgstr "პორტი:"
 
-#: ui/editdirectoryservicedialog.cpp:107
+#: ui/editdirectoryservicedialog.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1491,39 +1497,39 @@ msgstr ""
 "<b>(არასავალდებულო. ნაგულისხმევი მნიშვნელობა, როგორც წესი, საკმარისია)</b> "
 "აირჩიეთ პორტის ნომერი, რომელზედაც კატალოგის სერვისი უსმენს.."
 
-#: ui/editdirectoryservicedialog.cpp:110
+#: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
 msgstr "ნაგულისხმების გამოყენება"
 
-#: ui/editdirectoryservicedialog.cpp:116
+#: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
 msgid "Authentication"
 msgstr "ავთენტიკაცია"
 
-#: ui/editdirectoryservicedialog.cpp:120
+#: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
 msgstr "ანონიმურად"
 
-#: ui/editdirectoryservicedialog.cpp:121
+#: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr "ანონიმური LDAP სერვერის გამოყენება, რომელსაც ავთენტიკაცია არ სჭირდება."
 
-#: ui/editdirectoryservicedialog.cpp:127
+#: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
 msgstr "Active Directory-ით ავთენტიკაცია"
 
-#: ui/editdirectoryservicedialog.cpp:129
+#: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr ""
 "Active Directory-ით ავთენტიკაცია (საჭიროებს GnuPG 2.2.28 ან უფრო ახალს)"
 
-#: ui/editdirectoryservicedialog.cpp:132
+#: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1533,23 +1539,23 @@ msgstr ""
 "Windows-ზე LDAP ავთენტიკაციის Active Directory-ში მიმდინარე მომხმარებლით "
 "გავლა."
 
-#: ui/editdirectoryservicedialog.cpp:137
+#: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
 msgstr "მომხმარებლითა და პაროლით ავთენტიკაცია"
 
-#: ui/editdirectoryservicedialog.cpp:138
+#: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr "LDAP სერვერთან თქვენი LDAP ავტორიზაციის დეტალებით ავთენტიკაცია."
 
-#: ui/editdirectoryservicedialog.cpp:148
+#: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
 msgid "User:"
 msgstr "მომხმარებელი:"
 
-#: ui/editdirectoryservicedialog.cpp:149
+#: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1558,12 +1564,12 @@ msgstr ""
 "შეიყვანეთ თქვენი LDAP მომხმარებლის მიმაგრების DN-ი LDAP სერვერთან "
 "ავთენტიკაციისთვის."
 
-#: ui/editdirectoryservicedialog.cpp:153
+#: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Password:"
 msgstr "პაროლი:"
 
-#: ui/editdirectoryservicedialog.cpp:155
+#: ui/editdirectoryservicedialog.cpp:167
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1575,22 +1581,22 @@ msgstr ""
 "ფორმაში იქნება შენახული, კონფიგურაციის ფაილში, რომელიც თქვენს ძირითად "
 "საქაღალდეშია.</warning>"
 
-#: ui/editdirectoryservicedialog.cpp:165
+#: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
 msgstr "შეერთების უსაფრთხოება"
 
-#: ui/editdirectoryservicedialog.cpp:167
+#: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr "მიერთების უსაფრთხოება (მოითხოვს GnuPG 2.2.28 ან უფრო ახალს)"
 
-#: ui/editdirectoryservicedialog.cpp:172
+#: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
 msgstr "ნაგულისხმები მიერთების გამოყენება (ალბათ TLS-ით დაცული არაა)"
 
-#: ui/editdirectoryservicedialog.cpp:174
+#: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1601,12 +1607,12 @@ msgstr ""
 "GnuPG 2.3 და უფრო ძველები უბრალო, არა-TLS-ით დაშიფრულ მიერთებას იყენებენ. "
 "<b>(რეკომენდებული არაა)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:182
+#: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
 msgstr "TLS-ით დაცული მიერთება გამოყენებული არ იქნება"
 
-#: ui/editdirectoryservicedialog.cpp:184
+#: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1616,12 +1622,12 @@ msgstr ""
 "LDAP სერვერთან მიერთებისას უბრალო და არა TLS-ით დაცული კავშირის გამოყენება. "
 "<b>(რეკომენდებული არაა)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:190
+#: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
 msgstr "TLS-ით დაცული მიერთების გამოყენება"
 
-#: ui/editdirectoryservicedialog.cpp:192
+#: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1631,12 +1637,12 @@ msgstr ""
 "LDAP სერვერთან მიერთებისას სტანდარტული TLS-ით დაცული კავშირის გამოყენება "
 "(იწყება STARTTLS-ით). <b>(რეკომენდებულია)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:199
+#: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
 msgstr "LDAP-ის TLS მიერთების გვირაბში გატარება"
 
-#: ui/editdirectoryservicedialog.cpp:201
+#: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1646,17 +1652,17 @@ msgstr ""
 "TLS-ით დაცული კავშირის გამოყენება, სადაც LDAP სერვერამდე კავშირი გვირაბით "
 "ხდება. <b>(რეკომენდებული არაა)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:210
+#: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
 msgstr "დამატებითი პარამეტრები"
 
-#: ui/editdirectoryservicedialog.cpp:215
+#: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
 msgid "Base DN:"
 msgstr "საბაზისო DN:"
 
-#: ui/editdirectoryservicedialog.cpp:217
+#: ui/editdirectoryservicedialog.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1666,12 +1672,12 @@ msgstr ""
 "<b>(არასავალდებულო, ჩვეულებრივ, ცარიელი)</b> ძებნის კატალოგის მხოლოდ ერთ "
 "ხეზე შესაზღუდად შეიყვანეთ ამ LDAP სერვერის ძირითადი DN."
 
-#: ui/editdirectoryservicedialog.cpp:223
+#: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
 msgstr "დამატებითი ალმები:"
 
-#: ui/editdirectoryservicedialog.cpp:225
+#: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1683,7 +1689,7 @@ msgstr ""
 "მხარდაჭერილი არაა. მაგალითად, GnuPG-ის ძველი ვერსიები TLS-ით დაცული "
 "მიერთების მისათითებლად <code>ldaps</code>-ს იყენებენ."
 
-#: ui/editdirectoryservicedialog.cpp:395
+#: ui/editdirectoryservicedialog.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
