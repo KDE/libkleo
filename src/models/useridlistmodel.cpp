@@ -163,9 +163,7 @@ public:
     QVariant toolTip(int column) const
     {
         if (!mSig.isNull()) {
-            if (column == static_cast<int>(UserIDListModel::Column::Status)) {
-                return i18n("class %1", mSig.certClass());
-            } else if (column == static_cast<int>(UserIDListModel::Column::TrustSignatureDomain)) {
+            if (column == static_cast<int>(UserIDListModel::Column::TrustSignatureDomain)) {
                 return Formatting::trustSignature(mSig);
             }
         }
