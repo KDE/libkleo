@@ -252,3 +252,5 @@ QModelIndex UserIDProxyModel::index(const GpgME::Key &key) const
     Q_UNUSED(key);
     return {};
 }
+
+#include "moc_useridproxymodel.cpp"
