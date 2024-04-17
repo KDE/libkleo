@@ -1364,9 +1364,6 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
         return QStringLiteral("★ ") + DeVSCompliance::name(true);
     }
     const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
-    if (keyValidityChecked && Kleo::allUserIDsHaveFullValidity(key)) {
-        return i18nc("As in all user IDs are valid.", "certified");
-    }
     if (key.isExpired()) {
         return i18n("expired");
     }
@@ -1378,6 +1375,9 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
     }
     if (key.isInvalid()) {
         return i18n("invalid");
+    }
+    if (keyValidityChecked && Kleo::allUserIDsHaveFullValidity(key)) {
+        return i18nc("As in all user IDs are valid.", "certified");
     }
     if (keyValidityChecked) {
         return i18nc("As in not all user IDs are valid.", "not certified");
