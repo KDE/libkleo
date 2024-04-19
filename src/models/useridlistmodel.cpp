@@ -42,8 +42,9 @@ public:
     {
         const auto name = Formatting::prettyName(sig);
         const auto email = Formatting::prettyEMail(sig);
+        const auto key = KeyCache::instance()->findByKeyIDOrFingerprint(sig.signerKeyID());
         mItemData = {
-            Formatting::prettyID(sig.signerKeyID()),
+            Formatting::prettyID(key.primaryFingerprint()),
             name,
             email,
             Formatting::creationDateString(sig),
@@ -65,7 +66,7 @@ public:
         const auto trustSignatureDomain = Formatting::trustSignatureDomain(sig);
         mItemData.push_back(trustSignatureDomain);
         mAccessibleText = {
-            Formatting::accessibleHexID(sig.signerKeyID()),
+            Formatting::accessibleHexID(key.primaryFingerprint()),
             name.isEmpty() ? i18nc("text for screen readers for an empty name", "no name") : QVariant{},
             email.isEmpty() ? i18nc("text for screen readers for an empty email address", "no email") : QVariant{},
             Formatting::accessibleDate(Formatting::creationDate(sig)),
@@ -101,7 +102,7 @@ public:
     UIDModelItem()
     {
         mItemData = {
-            i18n("User ID / Certification Key ID"),
+            i18n("User ID / Certification Key Fingerprint"),
             i18n("Name"),
             i18n("E-Mail"),
             i18n("Valid From"),
