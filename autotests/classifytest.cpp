@@ -111,9 +111,7 @@ private Q_SLOTS:
         sig.setFileTemplate("XXXXXX.sig");
         QVERIFY(sig.open());
 
-        QFileInfo fi(sig.fileName());
-
-        QCOMPARE(fi.path() + QLatin1Char('/') + fi.baseName(), Kleo::outputFileName(sig.fileName()));
+        QCOMPARE(sig.fileName().chopped(4), Kleo::outputFileName(sig.fileName()));
     }
 
     void test_outputFileExtension()
