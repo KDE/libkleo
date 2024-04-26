@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2024-02-19 12:01+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1088,11 +1088,6 @@ msgstr "Tunnisteet"
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Luota allekirjoitukseen"
-
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
-#, kde-format
-msgid "class %1"
-msgstr "luokka %1"
 
 #: ui/auditlogviewer.cpp:52
 #, kde-format
@@ -2505,24 +2500,24 @@ msgid "undefined"
 msgstr "epämääräinen"
 
 #: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
-#: utils/formatting.cpp:1346 utils/formatting.cpp:1374
+#: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "peruttu"
 
 #: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1371
+#: utils/formatting.cpp:1368
 #, kde-format
 msgid "expired"
 msgstr "vanhentunut"
 
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1377
+#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
 #, kde-format
 msgid "disabled"
 msgstr "käytöstä poistettu"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
-#: utils/formatting.cpp:1352 utils/formatting.cpp:1380
+#: utils/formatting.cpp:1352 utils/formatting.cpp:1377
 #, kde-format
 msgid "invalid"
 msgstr "virheellinen"
@@ -2537,6 +2532,11 @@ msgstr "kelvollinen"
 #, kde-format
 msgid "valid"
 msgstr "kelvollinen"
+
+#: utils/formatting.cpp:927
+#, kde-format
+msgid "class %1"
+msgstr "luokka %1"
 
 #: utils/formatting.cpp:937
 #, kde-format
@@ -2788,7 +2788,7 @@ msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "ei tarkistettu"
 
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:1380
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"

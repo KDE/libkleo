@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2024-04-13 11:51+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -1079,11 +1079,6 @@ msgstr "Etikedoj"
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Fidi Subskribon Dum"
-
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
-#, kde-format
-msgid "class %1"
-msgstr "klaso %1"
 
 #: ui/auditlogviewer.cpp:52
 #, kde-format
@@ -2502,24 +2497,24 @@ msgid "undefined"
 msgstr "nedifinita"
 
 #: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
-#: utils/formatting.cpp:1346 utils/formatting.cpp:1374
+#: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "revokita"
 
 #: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1371
+#: utils/formatting.cpp:1368
 #, kde-format
 msgid "expired"
 msgstr "eksvalidiĝis"
 
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1377
+#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
 #, kde-format
 msgid "disabled"
 msgstr "malfunkciigita"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
-#: utils/formatting.cpp:1352 utils/formatting.cpp:1380
+#: utils/formatting.cpp:1352 utils/formatting.cpp:1377
 #, kde-format
 msgid "invalid"
 msgstr "nevalida"
@@ -2534,6 +2529,11 @@ msgstr "bona"
 #, kde-format
 msgid "valid"
 msgstr "valida"
+
+#: utils/formatting.cpp:927
+#, kde-format
+msgid "class %1"
+msgstr "klaso %1"
 
 #: utils/formatting.cpp:937
 #, kde-format
@@ -2786,7 +2786,7 @@ msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "ne kontrolita"
 
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:1380
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"

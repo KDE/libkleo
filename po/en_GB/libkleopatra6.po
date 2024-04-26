@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2023-04-22 11:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1090,11 +1090,6 @@ msgstr "Tags"
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Trust Signature For"
-
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
-#, kde-format
-msgid "class %1"
-msgstr "class %1"
 
 #: ui/auditlogviewer.cpp:52
 #, kde-format
@@ -2513,24 +2508,24 @@ msgid "undefined"
 msgstr "undefined"
 
 #: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
-#: utils/formatting.cpp:1346 utils/formatting.cpp:1374
+#: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "revoked"
 
 #: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1371
+#: utils/formatting.cpp:1368
 #, kde-format
 msgid "expired"
 msgstr "expired"
 
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1377
+#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
 #, kde-format
 msgid "disabled"
 msgstr "disabled"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
-#: utils/formatting.cpp:1352 utils/formatting.cpp:1380
+#: utils/formatting.cpp:1352 utils/formatting.cpp:1377
 #, kde-format
 msgid "invalid"
 msgstr "invalid"
@@ -2545,6 +2540,11 @@ msgstr "good"
 #, kde-format
 msgid "valid"
 msgstr "valid"
+
+#: utils/formatting.cpp:927
+#, kde-format
+msgid "class %1"
+msgstr "class %1"
 
 #: utils/formatting.cpp:937
 #, kde-format
@@ -2805,7 +2805,7 @@ msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "not checked"
 
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:1380
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"

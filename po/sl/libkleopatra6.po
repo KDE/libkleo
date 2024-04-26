@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1677638 2024-04-10 01:08:39Z scripty $
+# $Id: libkleopatra6.po 1678709 2024-04-26 01:08:45Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2024-04-09 07:13+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1223,11 +1223,6 @@ msgstr "Značke"
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Zaupaj podpisu za"
-
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
-#, kde-format
-msgid "class %1"
-msgstr "razred %1"
 
 #: ui/auditlogviewer.cpp:52
 #, kde-format
@@ -2656,24 +2651,24 @@ msgid "undefined"
 msgstr "nedoločeno"
 
 #: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
-#: utils/formatting.cpp:1346 utils/formatting.cpp:1374
+#: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "preklicano"
 
 #: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1371
+#: utils/formatting.cpp:1368
 #, kde-format
 msgid "expired"
 msgstr "pretečeno"
 
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1377
+#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
 #, kde-format
 msgid "disabled"
 msgstr "onemogočeno"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
-#: utils/formatting.cpp:1352 utils/formatting.cpp:1380
+#: utils/formatting.cpp:1352 utils/formatting.cpp:1377
 #, kde-format
 msgid "invalid"
 msgstr "neveljavno"
@@ -2688,6 +2683,11 @@ msgstr "dobro"
 #, kde-format
 msgid "valid"
 msgstr "veljavno"
+
+#: utils/formatting.cpp:927
+#, kde-format
+msgid "class %1"
+msgstr "razred %1"
 
 #: utils/formatting.cpp:937
 #, kde-format
@@ -2945,7 +2945,7 @@ msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "ni preverjeno"
 
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:1380
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"

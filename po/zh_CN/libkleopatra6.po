@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -904,11 +904,6 @@ msgstr "标签"
 #, kde-format
 msgid "Trust Signature For"
 msgstr "信任签名"
-
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
-#, kde-format
-msgid "class %1"
-msgstr "%1 类"
 
 #: ui/auditlogviewer.cpp:52
 #, kde-format
@@ -2282,24 +2277,24 @@ msgid "undefined"
 msgstr "未定义"
 
 #: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
-#: utils/formatting.cpp:1346 utils/formatting.cpp:1374
+#: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "已吊销"
 
 #: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1371
+#: utils/formatting.cpp:1368
 #, kde-format
 msgid "expired"
 msgstr "已过期"
 
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1377
+#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
 #, kde-format
 msgid "disabled"
 msgstr "已禁用"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
-#: utils/formatting.cpp:1352 utils/formatting.cpp:1380
+#: utils/formatting.cpp:1352 utils/formatting.cpp:1377
 #, kde-format
 msgid "invalid"
 msgstr "无效"
@@ -2314,6 +2309,11 @@ msgstr "良好"
 #, kde-format
 msgid "valid"
 msgstr "有效"
+
+#: utils/formatting.cpp:927
+#, kde-format
+msgid "class %1"
+msgstr "%1 类"
 
 #: utils/formatting.cpp:937
 #, kde-format
@@ -2558,7 +2558,7 @@ msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr ""
 
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:1380
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
