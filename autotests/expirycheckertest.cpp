@@ -38,7 +38,7 @@ public:
     {
     }
 
-    time_t currentTime() const override
+    qint64 currentTime() const override
     {
         return mCurrentTime;
     }
@@ -56,7 +56,7 @@ public:
 
 private:
     QDate mCurrentDate;
-    time_t mCurrentTime;
+    qint64 mCurrentTime;
 };
 
 class ExpiryCheckerTest : public QObject

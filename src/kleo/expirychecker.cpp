@@ -434,13 +434,13 @@ ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME:
     if (subkey.neverExpires()) {
         return {subkey.parent(), ExpiryChecker::NotNearExpiry, Kleo::chrono::days::zero()};
     }
-    const time_t currentTime = timeProvider ? timeProvider->currentTime() : std::time(nullptr);
+    const qint64 currentTime = timeProvider ? timeProvider->currentTime() : QDateTime::currentSecsSinceEpoch();
     const auto currentDate = timeProvider ? timeProvider->currentDate() : QDate::currentDate();
     const auto timeSpec = timeProvider ? timeProvider->timeSpec() : Qt::LocalTime;
-    const time_t expirationTime = subkey.expirationTime();
-    const auto expirationDate = QDateTime::fromSecsSinceEpoch(quint32(expirationTime), timeSpec).date();
-    // use std::difftime to avoid problems with negative values on 32-bit systems
-    if (std::difftime(expirationTime, currentTime) <= 0) {
+    // interpret the expiration time as unsigned 32-bit value if it's negative; gpg also uses uint32 internally
+    const qint64 expirationTime = qint64(subkey.expirationTime() < 0 ? quint32(subkey.expirationTime()) : subkey.expirationTime());
+    const auto expirationDate = QDateTime::fromSecsSinceEpoch(expirationTime, timeSpec).date();
+    if (expirationTime <= currentTime) {
         return {subkey.parent(), ExpiryChecker::Expired, Kleo::chrono::days{expirationDate.daysTo(currentDate)}};
     } else {
         return {subkey.parent(), ExpiryChecker::ExpiresSoon, Kleo::chrono::days{currentDate.daysTo(expirationDate)}};
