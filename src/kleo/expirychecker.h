@@ -36,7 +36,7 @@ class KLEO_EXPORT TimeProvider
 public:
     virtual ~TimeProvider() = default;
 
-    virtual time_t currentTime() const = 0;
+    virtual qint64 currentTime() const = 0;
     virtual QDate currentDate() const = 0;
     virtual Qt::TimeSpec timeSpec() const = 0;
 };
