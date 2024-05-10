@@ -269,8 +269,8 @@ public:
         mGenerateTooltip = i18nc(
             "@info:tooltip for a 'Generate new key pair' action "
             "in a combobox when a user does not yet have an OpenPGP or S/MIME key.",
-            "Generate a new key using your E-Mail address.<br/><br/>"
-            "The key is necessary to decrypt and sign E-Mails. "
+            "Generate a new key using your email address.<br/><br/>"
+            "The key is necessary to decrypt and sign emails. "
             "You will be asked for a passphrase to protect this key and the protected key "
             "will be stored in your home directory.");
         mMainLay = new QVBoxLayout;
@@ -554,9 +554,9 @@ public:
             combo->appendCustomItem(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Generate a new key pair"), GenerateKey, mGenerateTooltip);
         }
         combo->appendCustomItem(Formatting::unavailableIcon(),
-                                i18n("Don't confirm identity and integrity"),
+                                i18n("Do not sign this email"),
                                 IgnoreKey,
-                                i18nc("@info:tooltip for not selecting a key for signing.", "The E-Mail will not be cryptographically signed."));
+                                i18nc("@info:tooltip for not selecting a key for signing.", "The email will not be cryptographically signed."));
 
         mSigningCombos << combo;
         mAllCombos << combo;
@@ -655,7 +655,7 @@ public:
                                 IgnoreKey,
                                 i18nc("@info:tooltip for No Key selected for a specific recipient.",
                                       "Do not select a key for this recipient.<br/><br/>"
-                                      "The recipient will receive the encrypted E-Mail, but it can only "
+                                      "The recipient will receive the encrypted email, but it can only "
                                       "be decrypted with the other keys selected in this dialog."));
 
         connect(combo, &KeySelectionCombo::currentKeyChanged, q, [this]() {
@@ -856,9 +856,17 @@ public:
             }
         }
 
-        DeVSCompliance::decorate(mOkButton, de_vs);
+        const auto doNotSign = Kleo::any_of(mSigningCombos, [](const auto &combo) {
+            return combo->isVisible() && combo->currentData() == IgnoreKey;
+        });
+        if (doNotSign) {
+            mOkButton->setIcon(KStandardGuiItem::ok().icon());
+            mOkButton->setStyleSheet({});
+        } else {
+            DeVSCompliance::decorate(mOkButton, de_vs);
+        }
         mComplianceLbl->setText(DeVSCompliance::name(de_vs));
-        mComplianceLbl->setVisible(true);
+        mComplianceLbl->setVisible(!doNotSign);
     }
 
     GpgME::Protocol mForcedProtocol;
