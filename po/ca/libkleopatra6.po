@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:38+0000\n"
+"POT-Creation-Date: 2024-05-14 00:39+0000\n"
 "PO-Revision-Date: 2024-04-12 09:36+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2105,13 +2105,21 @@ msgid "Show all keys"
 msgstr "Mostra totes les claus"
 
 #: ui/newkeyapprovaldialog.cpp:272
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
+#| "user does not yet have an OpenPGP or S/MIME key."
+#| msgid ""
+#| "Generate a new key using your E-Mail address.<br/><br/>The key is "
+#| "necessary to decrypt and sign E-Mails. You will be asked for a passphrase "
+#| "to protect this key and the protected key will be stored in your home "
+#| "directory."
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
 msgid ""
-"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
-"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"Generate a new key using your email address.<br/><br/>The key is necessary "
+"to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 "Genera una clau nova usant l'adreça de correu electrònic.<br/><br/>La clau "
@@ -2159,13 +2167,15 @@ msgstr "Genera un parell nou de claus"
 
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
-msgid "Don't confirm identity and integrity"
-msgstr "No confirmis la identitat i la integritat"
+msgid "Do not sign this email"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip for not selecting a key for signing."
+#| msgid "The E-Mail will not be cryptographically signed."
 msgctxt "@info:tooltip for not selecting a key for signing."
-msgid "The E-Mail will not be cryptographically signed."
+msgid "The email will not be cryptographically signed."
 msgstr "Aquest correu electrònic no se signarà criptogràficament."
 
 #: ui/newkeyapprovaldialog.cpp:577
@@ -2180,11 +2190,16 @@ msgid "No key. Recipient will be unable to decrypt."
 msgstr "No hi ha clau. El destinatari no podrà desencriptar."
 
 #: ui/newkeyapprovaldialog.cpp:657
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip for No Key selected for a specific recipient."
+#| msgid ""
+#| "Do not select a key for this recipient.<br/><br/>The recipient will "
+#| "receive the encrypted E-Mail, but it can only be decrypted with the other "
+#| "keys selected in this dialog."
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
-"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
 "No selecciona cap clau per a aquest destinatari.<br/><br/>El destinatari "
@@ -3028,3 +3043,6 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
+
+#~ msgid "Don't confirm identity and integrity"
+#~ msgstr "No confirmis la identitat i la integritat"

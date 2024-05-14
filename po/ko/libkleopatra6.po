@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:38+0000\n"
+"POT-Creation-Date: 2024-05-14 00:39+0000\n"
 "PO-Revision-Date: 2024-02-20 23:54+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1976,13 +1976,21 @@ msgid "Show all keys"
 msgstr "모든 키 표시"
 
 #: ui/newkeyapprovaldialog.cpp:272
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
+#| "user does not yet have an OpenPGP or S/MIME key."
+#| msgid ""
+#| "Generate a new key using your E-Mail address.<br/><br/>The key is "
+#| "necessary to decrypt and sign E-Mails. You will be asked for a passphrase "
+#| "to protect this key and the protected key will be stored in your home "
+#| "directory."
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
 msgid ""
-"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
-"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"Generate a new key using your email address.<br/><br/>The key is necessary "
+"to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 "이메일 주소를 사용하여 새 키를 생성합니다.<br/><br/>이 키는 이메일을 복호화하"
@@ -2029,13 +2037,15 @@ msgstr "새 키 쌍 만들기"
 
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
-msgid "Don't confirm identity and integrity"
-msgstr "ID 및 무결성을 확인하지 않음"
+msgid "Do not sign this email"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip for not selecting a key for signing."
+#| msgid "The E-Mail will not be cryptographically signed."
 msgctxt "@info:tooltip for not selecting a key for signing."
-msgid "The E-Mail will not be cryptographically signed."
+msgid "The email will not be cryptographically signed."
 msgstr "이메일에 암호학적 서명을 추가하지 않습니다."
 
 #: ui/newkeyapprovaldialog.cpp:577
@@ -2050,11 +2060,16 @@ msgid "No key. Recipient will be unable to decrypt."
 msgstr "키 없음. 수신자가 복호화할 수 없습니다."
 
 #: ui/newkeyapprovaldialog.cpp:657
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip for No Key selected for a specific recipient."
+#| msgid ""
+#| "Do not select a key for this recipient.<br/><br/>The recipient will "
+#| "receive the encrypted E-Mail, but it can only be decrypted with the other "
+#| "keys selected in this dialog."
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
-"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
 "이 수신자의 키를 선택하지 않습니다.<br/><br/>수신자는 암호화된 이메일을 받지"
@@ -2881,6 +2896,9 @@ msgstr "입력 스트림의 '%1' 16진수 문자가 올바르지 않습니다."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "입력 스트림에서 16진수로 인코딩된 문자의 정상보다 이른 끝"
+
+#~ msgid "Don't confirm identity and integrity"
+#~ msgstr "ID 및 무결성을 확인하지 않음"
 
 #~ msgid "GpgConf Error"
 #~ msgstr "GpgConf 오류"
