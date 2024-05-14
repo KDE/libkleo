@@ -201,6 +201,11 @@ public:
         return mUid;
     }
 
+    const char *signerKeyId() const
+    {
+        return mSig.signerKeyID();
+    }
+
 private:
     QList<UIDModelItem *> mChildItems;
     QList<QVariant> mItemData;
@@ -326,6 +331,8 @@ QVariant UserIDListModel::data(const QModelIndex &index, int role) const
         return item->toolTip(index.column());
     case Qt::DecorationRole:
         return item->icon(index.column());
+    case UserIDListModel::SignerKeyIdRole:
+        return QVariant::fromValue(item->signerKeyId());
     default:;
     }
 

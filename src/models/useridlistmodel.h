@@ -41,6 +41,10 @@ public:
         TrustSignatureDomain,
     };
 
+    enum ModelRoles {
+        SignerKeyIdRole = Qt::UserRole,
+    };
+
     explicit UserIDListModel(QObject *parent = nullptr);
     ~UserIDListModel() override;
 

@@ -79,6 +79,8 @@ target_sources(KPim6Libkleo PRIVATE
    models/subkeylistmodel.cpp
    models/subkeylistmodel.h
    models/useridlistmodel.cpp
+   models/useridlistproxymodel.cpp
+   models/useridlistproxymodel.h
    models/useridlistmodel.h
    models/useridproxymodel.cpp
    models/useridproxymodel.h
@@ -281,6 +283,7 @@ ecm_generate_headers(libkleo_CamelCase_models_HEADERS
   KeyRearrangeColumnsProxyModel
   SubkeyListModel
   UserIDListModel
+  UserIDListProxyModel
   UserIDProxyModel
   REQUIRED_HEADERS libkleo_models_HEADERS
   PREFIX Libkleo
