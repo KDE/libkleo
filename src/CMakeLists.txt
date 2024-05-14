@@ -60,6 +60,8 @@ target_sources(KPim6Libkleo PRIVATE
    kleo/keyserverconfig.h
    kleo/kleoexception.cpp
    kleo/kleoexception.h
+   kleo/kleosharedconfig.cpp
+   kleo/kleosharedconfig.h
    kleo/oidmap.cpp
    kleo/oidmap.h
    kleo/predicates.h
@@ -263,6 +265,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   KeyResolverCore
   KeyserverConfig
   KleoException
+  KleoSharedConfig
   OidMap
   Predicates
   Stl_Util
