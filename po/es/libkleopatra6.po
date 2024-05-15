@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-14 00:39+0000\n"
-"PO-Revision-Date: 2024-04-10 00:42+0200\n"
+"PO-Revision-Date: 2024-05-15 00:55+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -2079,15 +2079,7 @@ msgid "Show all keys"
 msgstr "Mostrar todas las claves"
 
 #: ui/newkeyapprovaldialog.cpp:272
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
-#| "user does not yet have an OpenPGP or S/MIME key."
-#| msgid ""
-#| "Generate a new key using your E-Mail address.<br/><br/>The key is "
-#| "necessary to decrypt and sign E-Mails. You will be asked for a passphrase "
-#| "to protect this key and the protected key will be stored in your home "
-#| "directory."
+#, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
@@ -2142,15 +2134,13 @@ msgstr "Generar un nuevo par de claves"
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Do not sign this email"
-msgstr ""
+msgstr "No firmar este mensaje"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for not selecting a key for signing."
-#| msgid "The E-Mail will not be cryptographically signed."
+#, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
-msgstr "El correo no se firmará criptográficamente."
+msgstr "El mensaje no se firmará criptográficamente."
 
 #: ui/newkeyapprovaldialog.cpp:577
 #, kde-format
@@ -2164,12 +2154,7 @@ msgid "No key. Recipient will be unable to decrypt."
 msgstr "Sin clave. El destinatario no podrá descifrar."
 
 #: ui/newkeyapprovaldialog.cpp:657
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for No Key selected for a specific recipient."
-#| msgid ""
-#| "Do not select a key for this recipient.<br/><br/>The recipient will "
-#| "receive the encrypted E-Mail, but it can only be decrypted with the other "
-#| "keys selected in this dialog."
+#, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
@@ -2177,7 +2162,7 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 "No seleccionar una clave para este destinatario.<br/><br/>El destinatario "
-"recibirá un correo cifrado, pero solo se podrá descifrar con las otras "
+"recibirá un mensaje cifrado, pero solo se podrá descifrar con las otras "
 "claves seleccionadas en este diálogo."
 
 #: ui/newkeyapprovaldialog.cpp:774
