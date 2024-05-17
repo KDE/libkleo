@@ -75,7 +75,7 @@ QString formatOpenPGPMessage(ExpiryChecker::Expiration expiration, ExpiryChecker
     const GpgME::Key key = expiration.certificate;
     const bool isOwnKey = flags & ExpiryChecker::OwnKey;
     const bool isSigningKey = flags & ExpiryChecker::SigningKey;
-    const auto keyInfo = ki18nc("<b>User ID of key</b> (KeyID key ID of key in hex notation)", "<b>%1</b> (KeyID 0x%2)")
+    const auto keyInfo = ki18nc("<b>User ID of key</b> (Key ID key ID of key in hex notation)", "<b>%1</b> (Key ID 0x%2)")
                              .subs(QString::fromUtf8(key.userID(0).id()))
                              .subs(QString::fromLatin1(key.keyID()));
     if (expiration.status == ExpiryChecker::Expired) {
