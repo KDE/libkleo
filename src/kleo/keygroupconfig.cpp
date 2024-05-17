@@ -24,6 +24,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
+#include <QFile>
 #include <QString>
 
 #include <gpgme++/key.h>
@@ -89,6 +90,19 @@ std::vector<KeyGroup> KeyGroupConfig::Private::readGroups() const
     }
 
     const KSharedConfigPtr groupsConfig = KSharedConfig::openConfig(filename);
+
+#if KCONFIG_VERSION > QT_VERSION_CHECK(6, 2, 0)
+    const QString oldConfigPath = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + filename;
+
+    QFile oldConfigFile(oldConfigPath);
+    if (oldConfigFile.exists() && !KConfig::configBaseDirectory().isEmpty()) {
+        // load, copy old entries and then remove old config file
+        const auto oldConfig = KSharedConfig::openConfig(oldConfigPath);
+        oldConfig->copyTo(filename, groupsConfig.get());
+        oldConfigFile.remove();
+    }
+#endif
+
     const QStringList configGroups = groupsConfig->groupList();
     for (const QString &configGroupName : configGroups) {
         // qCDebug(LIBKLEO_LOG) << "Reading config group" << configGroupName;
