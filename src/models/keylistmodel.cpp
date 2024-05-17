@@ -326,7 +326,7 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
             case PrettyEMail:
                 return i18nc("@title:column", "E-Mail");
             case Validity:
-                return i18nc("@title:column", "User-IDs");
+                return i18nc("@title:column", "User IDs");
             case ValidFrom:
                 return i18nc("@title:column", "Valid From");
             case ValidUntil:
@@ -334,9 +334,9 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
             case TechnicalDetails:
                 return i18nc("@title:column", "Protocol");
             case ShortKeyID:
-                return i18nc("@title:column", "Key-ID");
+                return i18nc("@title:column", "Key ID");
             case KeyID:
-                return i18nc("@title:column", "Key-ID");
+                return i18nc("@title:column", "Key ID");
             case Fingerprint:
                 return i18nc("@title:column", "Fingerprint");
             case Issuer:

@@ -355,7 +355,7 @@ QString format_keyusage(const Key &key)
         capabilities.push_back(i18n("Encryption"));
     }
     if (Kleo::keyHasCertify(key)) {
-        capabilities.push_back(i18n("Certifying User-IDs"));
+        capabilities.push_back(i18n("Certifying User IDs"));
     }
     if (Kleo::keyHasAuthenticate(key)) {
         capabilities.push_back(i18n("SSH Authentication"));
@@ -377,7 +377,7 @@ QString format_subkeyusage(const Subkey &subkey)
         capabilities.push_back(i18n("Encryption"));
     }
     if (subkey.canCertify()) {
-        capabilities.push_back(i18n("Certifying User-IDs"));
+        capabilities.push_back(i18n("Certifying User IDs"));
     }
     if (subkey.canAuthenticate()) {
         capabilities.push_back(i18n("SSH Authentication"));
@@ -418,13 +418,13 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
             } else if (key.keyListMode() & GpgME::Validate) {
                 if (!userID.isNull()) {
                     if (userID.validity() >= UserID::Validity::Full) {
-                        result = i18n("User-ID is certified.");
+                        result = i18n("User ID is certified.");
                         const auto compliance = Formatting::complianceStringForUserID(userID);
                         if (!compliance.isEmpty()) {
                             result += QStringLiteral("<br>") + compliance;
                         }
                     } else {
-                        result = i18n("User-ID is not certified.");
+                        result = i18n("User ID is not certified.");
                     }
                 } else {
                     unsigned int fullyTrusted = 0;
@@ -434,13 +434,13 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
                         }
                     }
                     if (fullyTrusted == key.numUserIDs()) {
-                        result = i18n("All User-IDs are certified.");
+                        result = i18n("All User IDs are certified.");
                         const auto compliance = Formatting::complianceStringForKey(key);
                         if (!compliance.isEmpty()) {
                             result += QStringLiteral("<br>") + compliance;
                         }
                     } else {
-                        result = i18np("One User-ID is not certified.", "%1 User-IDs are not certified.", key.numUserIDs() - fullyTrusted);
+                        result = i18np("One User ID is not certified.", "%1 User IDs are not certified.", key.numUserIDs() - fullyTrusted);
                     }
                 }
             } else {
@@ -467,7 +467,7 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
         if (userID.isNull()) {
             const std::vector<UserID> uids = key.userIDs();
             if (!uids.empty()) {
-                result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User-ID"), Formatting::prettyUserID(uids.front()));
+                result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User ID"), Formatting::prettyUserID(uids.front()));
             }
             if (uids.size() > 1) {
                 for (auto it = uids.begin() + 1, end = uids.end(); it != end; ++it) {
@@ -477,7 +477,7 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
                 }
             }
         } else {
-            result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User-ID"), Formatting::prettyUserID(userID));
+            result += format_row(key.protocol() == GpgME::CMS ? i18n("Subject") : i18n("User ID"), Formatting::prettyUserID(userID));
         }
     }
     if (flags & Formatting::ExpiryDates) {
@@ -495,7 +495,7 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
         result += format_row(i18n("Usage"), format_keyusage(key));
     }
     if (flags & Formatting::KeyID) {
-        result += format_row(i18n("Key-ID"), QString::fromLatin1(key.shortKeyID()));
+        result += format_row(i18n("Key ID"), QString::fromLatin1(key.shortKeyID()));
     }
     if (flags & Formatting::Fingerprint) {
         result += format_row(i18n("Fingerprint"), key.primaryFingerprint());
