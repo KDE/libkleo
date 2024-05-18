@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2024-02-29 03:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -231,9 +231,11 @@ msgid "<none>"
 msgstr "<無>"
 
 #: kleo/expirychecker.cpp:78
-#, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+#, fuzzy, kde-format
+#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+#| msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (金鑰ID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
@@ -715,9 +717,10 @@ msgid "E-Mail"
 msgstr "電子郵件"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
+msgid "User IDs"
 msgstr "使用者 ID"
 
 #: models/keylistmodel.cpp:331
@@ -739,9 +742,10 @@ msgid "Protocol"
 msgstr "協定"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
+msgid "Key ID"
 msgstr "金鑰 ID"
 
 #: models/keylistmodel.cpp:341
@@ -886,7 +890,8 @@ msgstr "不適用"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "使用者 ID"
@@ -1696,7 +1701,7 @@ msgstr "此金鑰可供使用。"
 msgid "The key is not trusted enough."
 msgstr "此金鑰不夠可信。"
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "金鑰 ID"
@@ -2043,8 +2048,9 @@ msgid "Encryption"
 msgstr "加密"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, kde-format
-msgid "Certifying User-IDs"
+#, fuzzy, kde-format
+#| msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "正在保證使用者 ID"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2068,24 +2074,29 @@ msgid "Disabled"
 msgstr "已停用"
 
 #: utils/formatting.cpp:421
-#, kde-format
-msgid "User-ID is certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is certified."
+msgid "User ID is certified."
 msgstr "使用者 ID 已被保證。"
 
 #: utils/formatting.cpp:427
-#, kde-format
-msgid "User-ID is not certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "使用者 ID 未被保證。"
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "All User IDs are certified."
 msgstr "所有使用者 ID 皆已保證。"
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+#, fuzzy, kde-format
+#| msgid "One User-ID is not certified."
+#| msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] "有 %1 個使用者 ID 尚未被保證。"
 
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
@@ -2108,20 +2119,10 @@ msgstr "配發者"
 msgid "Subject"
 msgstr "主旨"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "使用者 ID"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "別名"
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "金鑰 ID"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -2774,6 +2775,20 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "使用者 ID"
+
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "金鑰 ID"
+
+#~ msgid "User-ID"
+#~ msgstr "使用者 ID"
+
+#~ msgid "Key-ID"
+#~ msgstr "金鑰 ID"
 
 #~ msgid "Don't confirm identity and integrity"
 #~ msgstr "不要確認身份及完整性"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2024-05-14 11:05+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -229,9 +229,11 @@ msgid "<none>"
 msgstr "<niets>"
 
 #: kleo/expirychecker.cpp:78
-#, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+#, fuzzy, kde-format
+#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+#| msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (Sleutel-ID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
@@ -891,10 +893,11 @@ msgid "E-Mail"
 msgstr "E-mailadres"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
-msgstr "Gebruikers-id's"
+msgid "User IDs"
+msgstr "Gebruikers-id"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -915,9 +918,10 @@ msgid "Protocol"
 msgstr "Protocol"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
+msgid "Key ID"
 msgstr "Sleutel-id"
 
 #: models/keylistmodel.cpp:341
@@ -1062,7 +1066,8 @@ msgstr "niet van toepassing"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "Gebruikers-id"
@@ -1913,7 +1918,7 @@ msgstr "De sleutel kan gebruikt worden."
 msgid "The key is not trusted enough."
 msgstr "De sleutel is niet voldoende vertrouwd."
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "Sleutel-id"
@@ -2275,8 +2280,9 @@ msgid "Encryption"
 msgstr "Versleuteling"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, kde-format
-msgid "Certifying User-IDs"
+#, fuzzy, kde-format
+#| msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "Gebruikers-id's certificeren"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2300,24 +2306,29 @@ msgid "Disabled"
 msgstr "Uitgeschakeld"
 
 #: utils/formatting.cpp:421
-#, kde-format
-msgid "User-ID is certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is certified."
+msgid "User ID is certified."
 msgstr "Gebruikers-id is gecertificeerd."
 
 #: utils/formatting.cpp:427
-#, kde-format
-msgid "User-ID is not certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "Gebruikers-id is niet gecertificeerd."
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "All User IDs are certified."
 msgstr "Alle gebruikers-id's zijn gecertificeerd."
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+#, fuzzy, kde-format
+#| msgid "One User-ID is not certified."
+#| msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Één gebruikers-id is niet gecertificeerd."
 msgstr[1] "%1 gebruikers-id's zijn niet gecertificeerd."
 
@@ -2341,20 +2352,10 @@ msgstr "Uitgever"
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "Gebruikers-id"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "a.k.a."
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "Sleutel-id"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -3028,6 +3029,20 @@ msgstr "Ongeldig hexadecimaal teken '%1' in invoerstroom."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Voortijdig einde van hexadecimaal gecodeerd karakter in invoerstroom"
+
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "Gebruikers-id's"
+
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "Sleutel-id"
+
+#~ msgid "User-ID"
+#~ msgstr "Gebruikers-id"
+
+#~ msgid "Key-ID"
+#~ msgstr "Sleutel-id"
 
 #~ msgid "Don't confirm identity and integrity"
 #~ msgstr "Identiteit en integriteit niet bevestigen"

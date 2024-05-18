@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2010-08-30 22:07+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -236,8 +236,8 @@ msgstr "<ingen>"
 
 #: kleo/expirychecker.cpp:78
 #, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr ""
 
 #: kleo/expirychecker.cpp:86
@@ -733,10 +733,10 @@ msgstr ""
 
 #: models/keylistmodel.cpp:329
 #, fuzzy, kde-format
-#| msgid "User-IDs"
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
-msgstr "Bruker-ID-er"
+msgid "User IDs"
+msgstr "Bruker-ID"
 
 #: models/keylistmodel.cpp:331
 #, fuzzy, kde-format
@@ -759,9 +759,9 @@ msgstr ""
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
 #, fuzzy, kde-format
-#| msgid "Key-ID"
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
+msgid "Key ID"
 msgstr "Nøkkel-ID"
 
 #: models/keylistmodel.cpp:341
@@ -910,7 +910,8 @@ msgstr ""
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "Bruker-ID"
@@ -1713,7 +1714,7 @@ msgstr ""
 msgid "The key is not trusted enough."
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "Nøkkel-ID"
@@ -2062,7 +2063,7 @@ msgstr "Kryptering"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
-msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr ""
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2087,23 +2088,23 @@ msgstr ""
 
 #: utils/formatting.cpp:421
 #, kde-format
-msgid "User-ID is certified."
+msgid "User ID is certified."
 msgstr ""
 
 #: utils/formatting.cpp:427
 #, kde-format
-msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr ""
 
 #: utils/formatting.cpp:437
 #, kde-format
-msgid "All User-IDs are certified."
+msgid "All User IDs are certified."
 msgstr ""
 
 #: utils/formatting.cpp:443
 #, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -2127,20 +2128,10 @@ msgstr "Utsteder"
 msgid "Subject"
 msgstr "Emne"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "Bruker-ID"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "Alias"
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "Nøkkel-ID"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -2801,3 +2792,21 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgid "User-IDs"
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "Bruker-ID-er"
+
+#, fuzzy
+#~| msgid "Key-ID"
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "Nøkkel-ID"
+
+#~ msgid "User-ID"
+#~ msgstr "Bruker-ID"
+
+#~ msgid "Key-ID"
+#~ msgstr "Nøkkel-ID"

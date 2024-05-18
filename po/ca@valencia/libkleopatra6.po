@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2024-05-14 16:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -232,9 +232,11 @@ msgid "<none>"
 msgstr "<cap>"
 
 #: kleo/expirychecker.cpp:78
-#, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+#, fuzzy, kde-format
+#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+#| msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (ID de la clau 0x%2)"
 
 #: kleo/expirychecker.cpp:86
@@ -887,10 +889,11 @@ msgid "E-Mail"
 msgstr "Correu electrònic"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
-msgstr "ID d'usuari"
+msgid "User IDs"
+msgstr "ID de l'usuari"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -911,9 +914,10 @@ msgid "Protocol"
 msgstr "Protocol"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
+msgid "Key ID"
 msgstr "ID de la clau"
 
 #: models/keylistmodel.cpp:341
@@ -1059,7 +1063,8 @@ msgstr "no aplicable"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "ID de l'usuari"
@@ -1914,7 +1919,7 @@ msgstr "La clau es pot utilitzar."
 msgid "The key is not trusted enough."
 msgstr "La clau no té confiança suficient."
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "ID de la clau"
@@ -2276,8 +2281,9 @@ msgid "Encryption"
 msgstr "Encriptació"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, kde-format
-msgid "Certifying User-IDs"
+#, fuzzy, kde-format
+#| msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "Certificació dels ID d'usuari"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2301,24 +2307,29 @@ msgid "Disabled"
 msgstr "Desactivada"
 
 #: utils/formatting.cpp:421
-#, kde-format
-msgid "User-ID is certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is certified."
+msgid "User ID is certified."
 msgstr "L'ID d'usuari està certificat."
 
 #: utils/formatting.cpp:427
-#, kde-format
-msgid "User-ID is not certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "L'ID d'usuari no està certificat."
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "All User IDs are certified."
 msgstr "Tots els ID d'usuari estan certificats."
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+#, fuzzy, kde-format
+#| msgid "One User-ID is not certified."
+#| msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Un ID d'usuari no està certificat."
 msgstr[1] "%1 ID d'usuari no estan certificats."
 
@@ -2342,21 +2353,11 @@ msgstr "Emissor"
 msgid "Subject"
 msgstr "Assumpte"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "ID de l'usuari"
-
 # skip-rule: punctuation-period
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "també conegut com"
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "ID de la clau"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -3025,3 +3026,17 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
+
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "ID d'usuari"
+
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "ID de la clau"
+
+#~ msgid "User-ID"
+#~ msgstr "ID de l'usuari"
+
+#~ msgid "Key-ID"
+#~ msgstr "ID de la clau"

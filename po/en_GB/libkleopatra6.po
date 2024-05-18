@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2023-04-22 11:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -227,9 +227,11 @@ msgid "<none>"
 msgstr "<none>"
 
 #: kleo/expirychecker.cpp:78
-#, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+#, fuzzy, kde-format
+#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+#| msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (KeyID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
@@ -874,10 +876,10 @@ msgstr "E-Mail"
 
 #: models/keylistmodel.cpp:329
 #, fuzzy, kde-format
-#| msgid "User-IDs"
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
-msgstr "User-IDs"
+msgid "User IDs"
+msgstr "User ID"
 
 #: models/keylistmodel.cpp:331
 #, fuzzy, kde-format
@@ -902,10 +904,10 @@ msgstr "Protocol"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
 #, fuzzy, kde-format
-#| msgid "Key-ID"
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
-msgstr "Key-ID"
+msgid "Key ID"
+msgstr "Key ID"
 
 #: models/keylistmodel.cpp:341
 #, fuzzy, kde-format
@@ -1056,7 +1058,8 @@ msgstr "not applicable"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "User ID"
@@ -1896,7 +1899,7 @@ msgstr "The key can be used."
 msgid "The key is not trusted enough."
 msgstr "The key is not trusted enough."
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "Key ID"
@@ -2270,8 +2273,9 @@ msgid "Encryption"
 msgstr "Encryption"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, kde-format
-msgid "Certifying User-IDs"
+#, fuzzy, kde-format
+#| msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "Certifying User-IDs"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2298,25 +2302,28 @@ msgstr "Disabled"
 #, fuzzy, kde-format
 #| msgid "One User-ID is not certified."
 #| msgid_plural "%1 User-IDs are not certified."
-msgid "User-ID is certified."
+msgid "User ID is certified."
 msgstr "One User-ID is not certified."
 
 #: utils/formatting.cpp:427
 #, fuzzy, kde-format
 #| msgid "One User-ID is not certified."
 #| msgid_plural "%1 User-IDs are not certified."
-msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "One User-ID is not certified."
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "All User IDs are certified."
 msgstr "All User-IDs are certified."
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+#, fuzzy, kde-format
+#| msgid "One User-ID is not certified."
+#| msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] "One User-ID is not certified."
 msgstr[1] "%1 User-IDs are not certified."
 
@@ -2340,20 +2347,10 @@ msgstr "Issuer"
 msgid "Subject"
 msgstr "Subject"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "User-ID"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "a.k.a."
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "Key-ID"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -3023,6 +3020,24 @@ msgstr "Invalid hex char '%1' in input stream."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Premature end of hex-encoded char in input stream"
+
+#, fuzzy
+#~| msgid "User-IDs"
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "User-IDs"
+
+#, fuzzy
+#~| msgid "Key-ID"
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "Key-ID"
+
+#~ msgid "User-ID"
+#~ msgstr "User-ID"
+
+#~ msgid "Key-ID"
+#~ msgstr "Key-ID"
 
 #~ msgid "Don't confirm identity and integrity"
 #~ msgstr "Do not confirm identity and integrity"

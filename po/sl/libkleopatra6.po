@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1680053 2024-05-15 01:11:10Z scripty $
+# $Id: libkleopatra6.po 1680321 2024-05-18 01:10:34Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2024-05-14 07:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -236,9 +236,11 @@ msgid "<none>"
 msgstr "<brez>"
 
 #: kleo/expirychecker.cpp:78
-#, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+#, fuzzy, kde-format
+#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+#| msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (ID ključa 0x%2)"
 
 #: kleo/expirychecker.cpp:86
@@ -1018,10 +1020,11 @@ msgid "E-Mail"
 msgstr "E-pošta"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
-msgstr "ID uporabnikov"
+msgid "User IDs"
+msgstr "ID uporabnika"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -1042,9 +1045,10 @@ msgid "Protocol"
 msgstr "Protokol"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
+msgid "Key ID"
 msgstr "ID ključa"
 
 #: models/keylistmodel.cpp:341
@@ -1189,7 +1193,8 @@ msgstr "ni smiselno"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "ID uporabnika"
@@ -2031,7 +2036,7 @@ msgstr "Ključ lahko uporabite."
 msgid "The key is not trusted enough."
 msgstr "Ključu ni zaupano dovolj."
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "ID ključa"
@@ -2396,8 +2401,9 @@ msgid "Encryption"
 msgstr "Šifriranje"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, kde-format
-msgid "Certifying User-IDs"
+#, fuzzy, kde-format
+#| msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "Potrjevanje ID-jev uporabnikov"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2421,24 +2427,29 @@ msgid "Disabled"
 msgstr "Onemogočeno"
 
 #: utils/formatting.cpp:421
-#, kde-format
-msgid "User-ID is certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is certified."
+msgid "User ID is certified."
 msgstr "ID uporabnika je potrjen."
 
 #: utils/formatting.cpp:427
-#, kde-format
-msgid "User-ID is not certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "ID uporabnika ni potrjen."
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "All User IDs are certified."
 msgstr "Vsi ID-ji uporabnikov so preverjeni."
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+#, fuzzy, kde-format
+#| msgid "One User-ID is not certified."
+#| msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] "%1 ID-jev uporabnikov ni potrjenih."
 msgstr[1] "%1 ID uporabnika ni potrjen."
 msgstr[2] "%1 ID-ja uporabnikov nista potrjena."
@@ -2464,20 +2475,10 @@ msgstr "Izdajatelj"
 msgid "Subject"
 msgstr "Zadeva"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "ID uporabnika"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "znan tudi kot"
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "ID ključa"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -3148,6 +3149,20 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
+
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "ID uporabnikov"
+
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "ID ključa"
+
+#~ msgid "User-ID"
+#~ msgstr "ID uporabnika"
+
+#~ msgid "Key-ID"
+#~ msgstr "ID ključa"
 
 #~ msgid "Don't confirm identity and integrity"
 #~ msgstr "Ne potrjujte identitete in integritete"

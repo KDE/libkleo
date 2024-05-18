@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2024-02-13 16:39+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -227,10 +227,13 @@ msgid "<none>"
 msgstr ""
 
 #: kleo/expirychecker.cpp:78
-#, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "<b>User ID of certificate</b> (serial number serial no. of certificate)"
+#| msgid "<b>%1</b> (serial number %2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
+msgstr "<b>%1</b> (numero serial %2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -723,10 +726,11 @@ msgid "E-Mail"
 msgstr "E-posta"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
-msgstr "IDs de usator"
+msgid "User IDs"
+msgstr "ID de usator"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -747,9 +751,10 @@ msgid "Protocol"
 msgstr "Protocollo"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
+msgid "Key ID"
 msgstr "ID de clave"
 
 #: models/keylistmodel.cpp:341
@@ -894,7 +899,8 @@ msgstr ""
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "ID de usator"
@@ -1690,7 +1696,7 @@ msgstr ""
 msgid "The key is not trusted enough."
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "ID de clave"
@@ -2035,7 +2041,7 @@ msgstr "Cryptation"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
-msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr ""
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2059,26 +2065,30 @@ msgid "Disabled"
 msgstr "Dishabilitate"
 
 #: utils/formatting.cpp:421
-#, kde-format
-msgid "User-ID is certified."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "User ID is certified."
+msgstr "ID de usator non es certificate"
 
 #: utils/formatting.cpp:427
-#, kde-format
-msgid "User-ID is not certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "ID de usator non es certificate"
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "All User IDs are certified."
+msgstr "ID de usator non es certificate"
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
-msgstr[0] ""
-msgstr[1] ""
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
+msgstr[0] "ID de usator non es certificate"
+msgstr[1] "ID de usator non es certificate"
 
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
 #, kde-format
@@ -2100,20 +2110,10 @@ msgstr "Emettitor"
 msgid "Subject"
 msgstr "Subjecto"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "ID de usator"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "a.k.a."
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "ID de clave"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -2770,6 +2770,20 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fin premature de char codificate de hex in fluxo de ingresso"
+
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "IDs de usator"
+
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "ID de clave"
+
+#~ msgid "User-ID"
+#~ msgstr "ID de usator"
+
+#~ msgid "Key-ID"
+#~ msgstr "ID de clave"
 
 #~ msgid "Certificate Manager and Unified Crypto GUI"
 #~ msgstr "Gerente de certificatos e interfacie unificate de Crypto"

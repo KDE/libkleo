@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdepim/libkleopatra.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2007-07-23 06:59-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -232,8 +232,8 @@ msgstr "<gan rogha>"
 
 #: kleo/expirychecker.cpp:78
 #, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr ""
 
 #: kleo/expirychecker.cpp:86
@@ -806,7 +806,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
+msgid "User IDs"
 msgstr "Aitheantas an Úsáideora"
 
 #: models/keylistmodel.cpp:331
@@ -829,10 +829,11 @@ msgid "Protocol"
 msgstr "(Prótacal Anaithnid)"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
-msgstr ""
+msgid "Key ID"
+msgstr "Aitheantas na hEochrach"
 
 #: models/keylistmodel.cpp:341
 #, kde-format
@@ -984,7 +985,8 @@ msgstr ""
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "Aitheantas an Úsáideora"
@@ -1812,7 +1814,7 @@ msgstr ""
 msgid "The key is not trusted enough."
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "Aitheantas na hEochrach"
@@ -2170,7 +2172,7 @@ msgstr "Eochracha criptithe:"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
-msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr ""
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2194,30 +2196,33 @@ msgid "Disabled"
 msgstr ""
 
 #: utils/formatting.cpp:421
-#, kde-format
-msgid "User-ID is certified."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid "User ID is certified."
+msgstr "Gach Teastas"
 
 #: utils/formatting.cpp:427
 #, fuzzy, kde-format
 #| msgid "All Certificates"
-msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "Gach Teastas"
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid "All User IDs are certified."
+msgstr "Gach Teastas"
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
+msgstr[0] "Gach Teastas"
+msgstr[1] "Gach Teastas"
+msgstr[2] "Gach Teastas"
+msgstr[3] "Gach Teastas"
+msgstr[4] "Gach Teastas"
 
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
 #, kde-format
@@ -2240,20 +2245,9 @@ msgstr ""
 msgid "Subject"
 msgstr ""
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, fuzzy, kde-format
-#| msgid "User ID"
-msgid "User-ID"
-msgstr "Aitheantas an Úsáideora"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
-msgstr ""
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
 msgstr ""
 
 #: utils/formatting.cpp:501
@@ -2939,6 +2933,17 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgid "User ID"
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "Aitheantas an Úsáideora"
+
+#, fuzzy
+#~| msgid "User ID"
+#~ msgid "User-ID"
+#~ msgstr "Aitheantas an Úsáideora"
 
 #~ msgid "GpgConf Error"
 #~ msgstr "Earráid GpgConf"

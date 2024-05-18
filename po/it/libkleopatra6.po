@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-14 00:39+0000\n"
+"POT-Creation-Date: 2024-05-18 00:39+0000\n"
 "PO-Revision-Date: 2024-05-14 13:48+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -231,9 +231,11 @@ msgid "<none>"
 msgstr "<none>"
 
 #: kleo/expirychecker.cpp:78
-#, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+#, fuzzy, kde-format
+#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+#| msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (KeyID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
@@ -883,10 +885,11 @@ msgid "E-Mail"
 msgstr "Posta elettronica"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User ID"
 msgctxt "@title:column"
-msgid "User-IDs"
-msgstr "ID utenti"
+msgid "User IDs"
+msgstr "ID utente"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -907,9 +910,10 @@ msgid "Protocol"
 msgstr "Protocollo"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgctxt "@title:column"
-msgid "Key-ID"
+msgid "Key ID"
 msgstr "ID chiave"
 
 #: models/keylistmodel.cpp:341
@@ -1054,7 +1058,8 @@ msgstr "non pertinente"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:470
+#: utils/formatting.cpp:480
 #, kde-format
 msgid "User ID"
 msgstr "ID utente"
@@ -1907,7 +1912,7 @@ msgstr "La chiave può essere usata."
 msgid "The key is not trusted enough."
 msgstr "La chiave non è sufficientemente affidabile."
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:498
 #, kde-format
 msgid "Key ID"
 msgstr "ID chiave"
@@ -2270,8 +2275,9 @@ msgid "Encryption"
 msgstr "Cifratura"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, kde-format
-msgid "Certifying User-IDs"
+#, fuzzy, kde-format
+#| msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "Certificazione degli ID utente"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
@@ -2295,24 +2301,29 @@ msgid "Disabled"
 msgstr "Disabilitata"
 
 #: utils/formatting.cpp:421
-#, kde-format
-msgid "User-ID is certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is certified."
+msgid "User ID is certified."
 msgstr "L'ID utente è certificato."
 
 #: utils/formatting.cpp:427
-#, kde-format
-msgid "User-ID is not certified."
+#, fuzzy, kde-format
+#| msgid "User-ID is not certified."
+msgid "User ID is not certified."
 msgstr "L'ID utente non è certificato."
 
 #: utils/formatting.cpp:437
-#, kde-format
-msgid "All User-IDs are certified."
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "All User IDs are certified."
 msgstr "Tutti gli ID utente sono certificati."
 
 #: utils/formatting.cpp:443
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+#, fuzzy, kde-format
+#| msgid "One User-ID is not certified."
+#| msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Un ID utente non è certificato."
 msgstr[1] "%1 ID utente non sono certificati."
 
@@ -2336,20 +2347,10 @@ msgstr "Emittente"
 msgid "Subject"
 msgstr "Oggetto"
 
-#: utils/formatting.cpp:470 utils/formatting.cpp:480
-#, kde-format
-msgid "User-ID"
-msgstr "ID utente"
-
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
 msgstr "alias"
-
-#: utils/formatting.cpp:498
-#, kde-format
-msgid "Key-ID"
-msgstr "ID chiave"
 
 #: utils/formatting.cpp:501
 #, kde-format
@@ -3017,6 +3018,20 @@ msgstr "Carattere esadecimale «%1» non valido nel flusso di ingresso."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Fine prematura dei caratteri codificati in esadecimale nel flusso di ingresso"
+
+#~ msgctxt "@title:column"
+#~ msgid "User-IDs"
+#~ msgstr "ID utenti"
+
+#~ msgctxt "@title:column"
+#~ msgid "Key-ID"
+#~ msgstr "ID chiave"
+
+#~ msgid "User-ID"
+#~ msgstr "ID utente"
+
+#~ msgid "Key-ID"
+#~ msgstr "ID chiave"
 
 #~ msgid "Don't confirm identity and integrity"
 #~ msgstr "Non confermare identità e integrità"
