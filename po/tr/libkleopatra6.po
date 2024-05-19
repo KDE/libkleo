@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 13:58+0300\n"
+"PO-Revision-Date: 2024-05-18 21:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -61,12 +61,12 @@ msgstr "‘id’ girdisi boş/eksik"
 #: kleo/checksumdefinition.cpp:214
 #, kde-format
 msgid "'output-file' entry is empty/missing"
-msgstr "‘output-file’ girdisi boş/eksik"
+msgstr "“output-file” girdisi boş/eksik"
 
 #: kleo/checksumdefinition.cpp:217
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
-msgstr "‘file-patterns’ girdisi boş/eksik"
+msgstr "“file-patterns” girdisi boş/eksik"
 
 #: kleo/checksumdefinition.cpp:400
 #, kde-format
@@ -1154,7 +1154,7 @@ msgstr "GnuPG Audit Günlük Kaydının Kaydedileceği dosyayı seçin"
 #: ui/auditlogviewer.cpp:152
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
-msgstr "\"%1\" dosyasına kaydedilemedi: %2"
+msgstr "“%1” dosyasına kaydedilemedi: %2"
 
 #: ui/auditlogviewer.cpp:152
 #, kde-format
@@ -1176,7 +1176,7 @@ msgid ""
 msgstr ""
 "Bu pencere için bilgi sağlayan gpgconf uygulaması düzgün kurulmamış gibi "
 "görünüyor. Uygulamadan herhangi bir bileşen alınamadı. Daha fazla bilgi "
-"almak için \"%1\" uygulamasını komut satırından çalıştırmayı deneyin."
+"almak için “%1” uygulamasını komut satırından çalıştırmayı deneyin."
 
 #: ui/cryptoconfigmodule.cpp:538
 #, kde-format
@@ -1192,23 +1192,23 @@ msgstr "yes"
 
 #: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
-msgstr "0 - Hiç"
+msgstr "0 — Hiç"
 
 #: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
-msgstr "1 - Temel"
+msgstr "1 — Temel"
 
 #: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
-msgstr "2 - Ayrıntılı"
+msgstr "2 — Ayrıntılı"
 
 #: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
-msgstr "3 - Daha Ayrıntılı"
+msgstr "3 — Daha Ayrıntılı"
 
 #: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
-msgstr "4 - Tümü"
+msgstr "4  — Tümü"
 
 #: ui/cryptoconfigmodule.cpp:608
 #, kde-format
@@ -2237,12 +2237,12 @@ msgstr "VS-NfD uyumlu değil"
 #: utils/formatting.cpp:328
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
-msgstr "%1-bit %2 (gizli anahtar kullanılabilir)"
+msgstr "%1 bit %2 (gizli anahtar kullanılabilir)"
 
 #: utils/formatting.cpp:330 utils/formatting.cpp:341
 #, kde-format
 msgid "%1-bit %2"
-msgstr "%1-bit %2"
+msgstr "%1 bit %2"
 
 #: utils/formatting.cpp:349 utils/formatting.cpp:371
 #, kde-format
