@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1680321 2024-05-18 01:10:34Z scripty $
+# $Id: libkleopatra6.po 1680382 2024-05-19 01:10:34Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:39+0000\n"
-"PO-Revision-Date: 2024-05-14 07:18+0200\n"
+"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"PO-Revision-Date: 2024-05-18 05:43+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -236,9 +236,7 @@ msgid "<none>"
 msgstr "<brez>"
 
 #: kleo/expirychecker.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-#| msgid "<b>%1</b> (KeyID 0x%2)"
+#, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (ID ključa 0x%2)"
@@ -1020,8 +1018,7 @@ msgid "E-Mail"
 msgstr "E-pošta"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "User IDs"
 msgstr "ID uporabnika"
@@ -1045,8 +1042,7 @@ msgid "Protocol"
 msgstr "Protokol"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "ID ključa"
@@ -1236,12 +1232,16 @@ msgid "View GnuPG Audit Log"
 msgstr "Ogled dnevnika presoje varnosti GnuPG"
 
 #: ui/auditlogviewer.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Copy to Clipboard"
+msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "Kopiraj v odložišče"
 
 #: ui/auditlogviewer.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Save to Disk..."
+msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "&Shrani na disk …"
 
@@ -2401,8 +2401,7 @@ msgid "Encryption"
 msgstr "Šifriranje"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, fuzzy, kde-format
-#| msgid "Certifying User-IDs"
+#, kde-format
 msgid "Certifying User IDs"
 msgstr "Potrjevanje ID-jev uporabnikov"
 
@@ -2427,27 +2426,22 @@ msgid "Disabled"
 msgstr "Onemogočeno"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "User-ID is certified."
+#, kde-format
 msgid "User ID is certified."
 msgstr "ID uporabnika je potrjen."
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
-#| msgid "User-ID is not certified."
+#, kde-format
 msgid "User ID is not certified."
 msgstr "ID uporabnika ni potrjen."
 
 #: utils/formatting.cpp:437
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "All User IDs are certified."
-msgstr "Vsi ID-ji uporabnikov so preverjeni."
+msgstr "Vsi ID-ji uporabnikov so potrjeni."
 
 #: utils/formatting.cpp:443
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "%1 ID-jev uporabnikov ni potrjenih."

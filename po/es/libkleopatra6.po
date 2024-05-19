@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:39+0000\n"
-"PO-Revision-Date: 2024-05-15 00:55+0200\n"
+"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"PO-Revision-Date: 2024-05-18 12:50+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -232,9 +232,7 @@ msgid "<none>"
 msgstr "<ninguno>"
 
 #: kleo/expirychecker.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-#| msgid "<b>%1</b> (KeyID 0x%2)"
+#, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (ID de clave 0x%2)"
@@ -868,11 +866,10 @@ msgid "E-Mail"
 msgstr "Correo electrónico"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "User IDs"
-msgstr "ID del usuario"
+msgstr "ID de usuarios"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -893,8 +890,7 @@ msgid "Protocol"
 msgstr "Protocolo"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "ID de la clave"
@@ -1084,12 +1080,16 @@ msgid "View GnuPG Audit Log"
 msgstr "Ver el registro de auditoría GnuPG"
 
 #: ui/auditlogviewer.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Copy to Clipboard"
+msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "&Copiar en el portapapeles"
 
 #: ui/auditlogviewer.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Save to Disk..."
+msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "&Guardar a disco..."
 
@@ -2257,10 +2257,9 @@ msgid "Encryption"
 msgstr "Cifrado"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, fuzzy, kde-format
-#| msgid "Certifying User-IDs"
+#, kde-format
 msgid "Certifying User IDs"
-msgstr "ID de la certificación"
+msgstr "Certificando ID de usuarios"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
 #, kde-format
@@ -2283,27 +2282,22 @@ msgid "Disabled"
 msgstr "Desactivada"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "User-ID is certified."
+#, kde-format
 msgid "User ID is certified."
 msgstr "El ID de usuario está certificado."
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
-#| msgid "User-ID is not certified."
+#, kde-format
 msgid "User ID is not certified."
 msgstr "El ID de usuario no está certificado."
 
 #: utils/formatting.cpp:437
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "All User IDs are certified."
 msgstr "Todos los ID de usuarios están certificados."
 
 #: utils/formatting.cpp:443
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Un ID de usuario no está certificado."
