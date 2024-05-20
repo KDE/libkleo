@@ -699,11 +699,10 @@ msgid "E-Mail"
 msgstr ""
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "User IDs"
-msgstr "用户标识"
+msgstr ""
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -724,11 +723,10 @@ msgid "Protocol"
 msgstr ""
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
-msgstr "密钥标识"
+msgstr ""
 
 #: models/keylistmodel.cpp:341
 #, kde-format
@@ -915,18 +913,16 @@ msgid "View GnuPG Audit Log"
 msgstr "查看 GnuPG 审核日志"
 
 #: ui/auditlogviewer.cpp:55
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
-msgstr "复制到剪贴板(&C)"
+msgstr ""
 
 #: ui/auditlogviewer.cpp:60
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
-msgstr "保存到磁盘(&S)..."
+msgstr ""
 
 #: ui/auditlogviewer.cpp:102
 #, kde-format
@@ -2033,10 +2029,9 @@ msgid "Encryption"
 msgstr "仅加密"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, fuzzy, kde-format
-#| msgid "Certifying User-IDs"
+#, kde-format
 msgid "Certifying User IDs"
-msgstr "正在认证的用户编号"
+msgstr ""
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
 #, kde-format
@@ -2059,32 +2054,25 @@ msgid "Disabled"
 msgstr "禁止"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "User ID is certified."
-msgstr "%1 个用户编号没有被验证。"
+msgstr ""
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "User ID is not certified."
-msgstr "%1 个用户编号没有被验证。"
+msgstr ""
 
 #: utils/formatting.cpp:437
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "All User IDs are certified."
-msgstr "所有用户编号已被验证。"
+msgstr ""
 
 #: utils/formatting.cpp:443
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
-msgstr[0] "%1 个用户编号没有被验证。"
+msgstr[0] ""
 
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
 #, kde-format
@@ -2762,9 +2750,3 @@ msgstr "输入流中的十六进制字符“%1”无效。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "输入流中有过早出现的十六进制结束字符"
-
-#~ msgid "User-ID"
-#~ msgstr "用户编号"
-
-#~ msgid "Key-ID"
-#~ msgstr "密钥 ID"
