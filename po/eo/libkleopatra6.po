@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:39+0000\n"
-"PO-Revision-Date: 2024-05-15 09:56+0100\n"
+"PO-Revision-Date: 2024-05-20 13:35+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -229,12 +229,10 @@ msgid "<none>"
 msgstr "<neniu>"
 
 #: kleo/expirychecker.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-#| msgid "<b>%1</b> (KeyID 0x%2)"
+#, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
-msgstr "<b>%1</b> (KeyID 0x%2)"
+msgstr "<b>%1</b> (Ŝlosil-ID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -877,11 +875,10 @@ msgid "E-Mail"
 msgstr "Retpoŝto"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "User IDs"
-msgstr "Uzant-ID"
+msgstr "Uzant-Identigiloj"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -902,8 +899,7 @@ msgid "Protocol"
 msgstr "Protokolo"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Ŝlosila ID"
@@ -1093,15 +1089,13 @@ msgid "View GnuPG Audit Log"
 msgstr "Rigardi GnuPG-Revizian Protokolon"
 
 #: ui/auditlogviewer.cpp:55
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
-msgstr "&Kopii al la poŝo"
+msgstr "&Kopii al la Poŝo"
 
 #: ui/auditlogviewer.cpp:60
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "Kon&servi al Disko..."
@@ -2253,10 +2247,9 @@ msgid "Encryption"
 msgstr "Ĉifrado"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, fuzzy, kde-format
-#| msgid "Certifying User-IDs"
+#, kde-format
 msgid "Certifying User IDs"
-msgstr "Atestado de Uzantidentigiloj"
+msgstr "Atestante de Uzantidentigilojn"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
 #, kde-format
@@ -2279,27 +2272,22 @@ msgid "Disabled"
 msgstr "Malebligita"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "User-ID is certified."
+#, kde-format
 msgid "User ID is certified."
 msgstr "Uzant-ID estas atestita."
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
-#| msgid "User-ID is not certified."
+#, kde-format
 msgid "User ID is not certified."
 msgstr "Uzant-ID ne estas atestita."
 
 #: utils/formatting.cpp:437
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "All User IDs are certified."
 msgstr "Ĉiuj Uzantidentigiloj estas atestitaj."
 
 #: utils/formatting.cpp:443
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Unu Uzant-ID ne estas atestita."
@@ -2993,17 +2981,3 @@ msgstr "Nevalida deksesum-signo '%1' en eniga fluo."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Tro frua fino de deksesum-kodita signo en eniga fluo"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Uzantidentigiloj"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Ŝlosil-ID"
-
-#~ msgid "User-ID"
-#~ msgstr "Uzant-ID"
-
-#~ msgid "Key-ID"
-#~ msgstr "Ŝlosilo-ID"
