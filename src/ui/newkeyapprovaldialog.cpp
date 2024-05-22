@@ -182,11 +182,11 @@ public:
         if (mCombo->idFilter().isEmpty()) {
             mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-add-filters")));
             mFilterBtn->setAccessibleName(i18nc("@action:button", "Show Matching Keys"));
-            mFilterBtn->setToolTip(i18n("Show keys matching the email address"));
+            mFilterBtn->setToolTip(i18nc("@info:tooltip", "Show keys matching the email address"));
         } else {
             mFilterBtn->setIcon(QIcon::fromTheme(QStringLiteral("kt-remove-filters")));
             mFilterBtn->setAccessibleName(i18nc("@action:button short for 'Show all keys'", "Show All"));
-            mFilterBtn->setToolTip(i18n("Show all keys"));
+            mFilterBtn->setToolTip(i18nc("@info:tooltip", "Show all keys"));
         }
     }
 

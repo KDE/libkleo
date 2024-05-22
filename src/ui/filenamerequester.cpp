@@ -78,7 +78,7 @@ FileNameRequester::FileNameRequesterPrivate::FileNameRequesterPrivate(FileNameRe
     hlay.setObjectName(QLatin1StringView("hlay"));
 
     button.setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
-    button.setToolTip(i18n("Open file dialog"));
+    button.setToolTip(i18nc("@info:tooltip", "Open file dialog"));
     button.setAccessibleName(i18n("Open file dialog"));
 #ifndef QT_NO_DIRMODEL
     lineedit.setCompleter(&completer);
