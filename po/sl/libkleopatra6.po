@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1680442 2024-05-20 01:10:51Z scripty $
+# $Id: libkleopatra6.po 1680631 2024-05-23 01:10:42Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2024-05-19 07:28+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1818,7 +1818,14 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Uredi imeniške storitve"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, fuzzy, kde-format
+#| msgid "Open file dialog"
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Odpri pogovorno okno datotek"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "Odpri pogovorno okno datotek"
@@ -1885,7 +1892,9 @@ msgid "Encryption preference:"
 msgstr "Možnosti šifriranja:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Počisti"
 
@@ -2212,7 +2221,9 @@ msgid "Show Matching Keys"
 msgstr "Prikaži ustrezne ključe"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show keys matching the email address"
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Prikaži ključe, ki ustrezajo postnemu naslovu"
 
@@ -2223,7 +2234,9 @@ msgid "Show All"
 msgstr "Prikaži vse"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show all keys"
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Prikaži vse ključe"
 

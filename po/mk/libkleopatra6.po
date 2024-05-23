@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2007-02-28 14:29+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -1547,7 +1547,13 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "X.&500 сервиси за директориуми:"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr ""
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr ""
@@ -1616,6 +1622,7 @@ msgstr "Параметри на криптирање:"
 
 #: ui/keyrequester.cpp:89
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr ""
 
@@ -1954,6 +1961,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr ""
 
@@ -1965,6 +1973,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 

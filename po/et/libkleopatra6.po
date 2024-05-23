@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2020-02-12 22:57+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1589,7 +1589,13 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "X509 kataloogiteenused:"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr ""
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr ""
@@ -1656,7 +1662,9 @@ msgid "Encryption preference:"
 msgstr "Krüptimise eelistus:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Puhasta"
 
@@ -1988,6 +1996,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr ""
 
@@ -1999,6 +2008,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 

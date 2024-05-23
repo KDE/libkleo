@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2007-08-20 13:01+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -1519,7 +1519,13 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "X.500 डाइरेक्टरी सेवा:"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr ""
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr ""
@@ -1588,6 +1594,7 @@ msgstr "गुप्तिकरण प्राथमिकता:"
 
 #: ui/keyrequester.cpp:89
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr ""
 
@@ -1908,6 +1915,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr ""
 
@@ -1919,6 +1927,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 

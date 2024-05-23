@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2024-02-10 12:01+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1887,7 +1887,14 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Изменить службу каталогов"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, fuzzy, kde-format
+#| msgid "Open file dialog"
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Выбор файла или папки"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "Выбор файла или папки"
@@ -1954,7 +1961,9 @@ msgid "Encryption preference:"
 msgstr "Параметры шифрования:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Очистить"
 
@@ -2283,7 +2292,9 @@ msgid "Show Matching Keys"
 msgstr "Показать соответствующие ключи"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show keys matching the email address"
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Показать ключи, привязанные к этой электронной почте"
 
@@ -2294,7 +2305,9 @@ msgid "Show All"
 msgstr "Показать все"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show all keys"
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Показать все ключи"
 

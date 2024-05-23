@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2024-05-20 14:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1479,7 +1479,14 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Modifica de servicio de directorio"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, fuzzy, kde-format
+#| msgid "Open file dialog"
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Aperi dialogo de file"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "Aperi dialogo de file"
@@ -1546,7 +1553,9 @@ msgid "Encryption preference:"
 msgstr "Preferentia de cryptation:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Netta"
 
@@ -1862,6 +1871,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr ""
 
@@ -1872,7 +1882,9 @@ msgid "Show All"
 msgstr "Monstra omne"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show all keys"
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Monstra omne claves"
 

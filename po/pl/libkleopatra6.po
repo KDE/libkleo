@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1680382 $
+# Version: $Revision: 1680631 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 #
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2024-04-13 19:30+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1770,7 +1770,14 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Edytuj usługę katalogową"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, fuzzy, kde-format
+#| msgid "Open file dialog"
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Otwórz okno pliku"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "Otwórz okno pliku"
@@ -1837,7 +1844,9 @@ msgid "Encryption preference:"
 msgstr "Preferencje szyfrowania:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Wyczyść"
 
@@ -2169,7 +2178,9 @@ msgid "Show Matching Keys"
 msgstr "Pokaż pasujące klucze"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show keys matching the email address"
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Pokaż klucze pasujące do adresu pocztowego"
 
@@ -2180,7 +2191,9 @@ msgid "Show All"
 msgstr "Pokaż wszystkie"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show all keys"
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Pokaż wszystkie klucze"
 

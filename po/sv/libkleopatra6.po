@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2023-07-26 10:18+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1681,7 +1681,14 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Redigera katalogtjänst"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, fuzzy, kde-format
+#| msgid "Open file dialog"
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Öppna fildialogruta"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "Öppna fildialogruta"
@@ -1748,7 +1755,9 @@ msgid "Encryption preference:"
 msgstr "Krypteringsinställning:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Rensa"
 
@@ -2074,7 +2083,9 @@ msgid "Show Matching Keys"
 msgstr "Visa matchande nycklar"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show keys matching the email address"
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Visa nycklar som motsvarar e-postadressen"
 
@@ -2085,7 +2096,9 @@ msgid "Show All"
 msgstr "Visa alla"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show all keys"
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Visa alla nycklar"
 

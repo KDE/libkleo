@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1513,7 +1513,14 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "ディレクトリサービスを編集"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, fuzzy, kde-format
+#| msgid "Open file dialog"
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "ファイル・ダイアログを開く"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "ファイル・ダイアログを開く"
@@ -1580,7 +1587,9 @@ msgid "Encryption preference:"
 msgstr "暗号化の設定:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "クリア"
 
@@ -1905,7 +1914,9 @@ msgid "Show Matching Keys"
 msgstr "マッチする鍵を見る"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show keys matching the email address"
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "メールアドレスにマッチする鍵を見る"
 
@@ -1916,7 +1927,9 @@ msgid "Show All"
 msgstr "すべてを見る"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show all keys"
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "すべての鍵を見る"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2021-01-26 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -1612,7 +1612,13 @@ msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Adresárové služby X509:"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr ""
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr ""
@@ -1679,7 +1685,9 @@ msgid "Encryption preference:"
 msgstr "Preferované šifrovanie:"
 
 #: ui/keyrequester.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear"
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Vyčistiť"
 
@@ -2014,6 +2022,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr ""
 
@@ -2024,9 +2033,11 @@ msgid "Show All"
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Details"
+msgctxt "@info:tooltip"
 msgid "Show all keys"
-msgstr ""
+msgstr "Detaily"
 
 #: ui/newkeyapprovaldialog.cpp:272
 #, fuzzy, kde-format
