@@ -395,7 +395,7 @@ QVariant AbstractKeyListModel::data(const QModelIndex &index, int role) const
 
 QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int role) const
 {
-    if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole) {
+    if (role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole || role == ClipboardRole) {
         switch (column) {
         case PrettyName: {
             const auto name = Formatting::prettyName(key);
@@ -434,12 +434,16 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
         case ShortKeyID:
             if (role == Qt::AccessibleTextRole) {
                 return Formatting::accessibleHexID(key.shortKeyID());
+            } else if (role == ClipboardRole) {
+                return QString::fromLatin1(key.shortKeyID());
             } else {
                 return Formatting::prettyID(key.shortKeyID());
             }
         case KeyID:
             if (role == Qt::AccessibleTextRole) {
                 return Formatting::accessibleHexID(key.keyID());
+            } else if (role == ClipboardRole) {
+                return QString::fromLatin1(key.keyID());
             } else {
                 return Formatting::prettyID(key.keyID());
             }
@@ -448,6 +452,8 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
         case Fingerprint:
             if (role == Qt::AccessibleTextRole) {
                 return Formatting::accessibleHexID(key.primaryFingerprint());
+            } else if (role == ClipboardRole) {
+                return QString::fromLatin1(key.primaryFingerprint());
             } else {
                 return Formatting::prettyID(key.primaryFingerprint());
             }
@@ -503,6 +509,8 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
         case Keygrip:
             if (role == Qt::AccessibleTextRole) {
                 return Formatting::accessibleHexID(key.subkey(0).keyGrip());
+            } else if (role == ClipboardRole) {
+                return QString::fromLatin1(key.subkey(0).keyGrip());
             } else {
                 return Formatting::prettyID(key.subkey(0).keyGrip());
             }
