@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1680631 $
+# Version: $Revision: 1680898 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 #
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-23 00:39+0000\n"
-"PO-Revision-Date: 2024-04-13 19:30+0200\n"
+"PO-Revision-Date: 2024-05-26 11:22+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -20,8 +20,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 23.08.5\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
+" || n%100>=20) ? 1 : 2);\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -233,12 +233,12 @@ msgid "<none>"
 msgstr "<brak>"
 
 #: kleo/expirychecker.cpp:78
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
 #| msgid "<b>%1</b> (KeyID 0x%2)"
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
-msgstr "<b>%1</b> (IdKlucza 0x%2)"
+msgstr "<b>%1</b> (ID klucza 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -967,11 +967,11 @@ msgid "E-Mail"
 msgstr "E-mail"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "User ID"
 msgctxt "@title:column"
 msgid "User IDs"
-msgstr "Identyfikator użytkownika"
+msgstr "ID użytkownika"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -992,11 +992,11 @@ msgid "Protocol"
 msgstr "Protokół"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
-msgstr "Identyfikator klucza"
+msgstr "ID klucza"
 
 #: models/keylistmodel.cpp:341
 #, kde-format
@@ -1183,14 +1183,14 @@ msgid "View GnuPG Audit Log"
 msgstr "Pokaż dziennik audytu GnuPG"
 
 #: ui/auditlogviewer.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "&Copy to Clipboard"
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "Skopiuj do s&chowka"
 
 #: ui/auditlogviewer.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "&Save to Disk..."
 msgctxt "@action:button"
 msgid "&Save to Disk..."
@@ -1771,7 +1771,7 @@ msgid "Edit Directory Service"
 msgstr "Edytuj usługę katalogową"
 
 #: ui/filenamerequester.cpp:81
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Open file dialog"
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
@@ -1844,7 +1844,7 @@ msgid "Encryption preference:"
 msgstr "Preferencje szyfrowania:"
 
 #: ui/keyrequester.cpp:89
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Clear"
 msgctxt "@info:tooltip"
 msgid "Clear"
@@ -2178,7 +2178,7 @@ msgid "Show Matching Keys"
 msgstr "Pokaż pasujące klucze"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Show keys matching the email address"
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
@@ -2191,14 +2191,14 @@ msgid "Show All"
 msgstr "Pokaż wszystkie"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Show all keys"
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Pokaż wszystkie klucze"
 
 #: ui/newkeyapprovaldialog.cpp:272
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt ""
 #| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
 #| "user does not yet have an OpenPGP or S/MIME key."
@@ -2261,10 +2261,10 @@ msgstr "Utwórz nową parę kluczy"
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Do not sign this email"
-msgstr ""
+msgstr "Nie podpisuj tej wiadomości"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@info:tooltip for not selecting a key for signing."
 #| msgid "The E-Mail will not be cryptographically signed."
 msgctxt "@info:tooltip for not selecting a key for signing."
@@ -2283,7 +2283,7 @@ msgid "No key. Recipient will be unable to decrypt."
 msgstr "Brak klucza. Odbiorca nie będzie w stanie odszyfrować."
 
 #: ui/newkeyapprovaldialog.cpp:657
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@info:tooltip for No Key selected for a specific recipient."
 #| msgid ""
 #| "Do not select a key for this recipient.<br/><br/>The recipient will "
@@ -2386,7 +2386,7 @@ msgid "Encryption"
 msgstr "Szyfrowanie"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Certifying User-IDs"
 msgid "Certifying User IDs"
 msgstr "Certyfikowanie ID użytkownika"
@@ -2412,25 +2412,25 @@ msgid "Disabled"
 msgstr "Wyłączony"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "User-ID is certified."
 msgid "User ID is certified."
-msgstr "ID użytkownika jest scertyfikowany."
+msgstr "ID użytkownika jest certyfikowany."
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "User-ID is not certified."
 msgid "User ID is not certified."
 msgstr "ID użytkownika jest niecertyfikowany."
 
 #: utils/formatting.cpp:437
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "All User-IDs are certified."
 msgid "All User IDs are certified."
 msgstr "Wszystkie ID użytkownika są certyfikowane."
 
 #: utils/formatting.cpp:443
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "One User-ID is not certified."
 #| msgid_plural "%1 User-IDs are not certified."
 msgid "One User ID is not certified."
@@ -3591,3 +3591,4 @@ msgstr ""
 #~ msgctxt "@title:window Results of the scanning"
 #~ msgid "Scan Results"
 #~ msgstr "Wyniki skanowania"
+
