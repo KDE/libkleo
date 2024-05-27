@@ -85,9 +85,9 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     int row = -1;
 
     ++row;
-    auto availableAttributesLabel = new QLabel(i18n("Available attributes:"), this);
+    auto availableAttributesLabel = new QLabel(i18nc("@label:textbox", "Available attributes:"), this);
     glay->addWidget(availableAttributesLabel, row, 0);
-    auto currentAttributesLabel = new QLabel(i18n("Current attribute order:"), this);
+    auto currentAttributesLabel = new QLabel(i18nc("@label:textbox", "Current attribute order:"), this);
     glay->addWidget(currentAttributesLabel, row, 2);
 
     ++row;

@@ -115,7 +115,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients, 
     auto vlay = new QVBoxLayout(page);
     vlay->setContentsMargins(0, 0, 0, 0);
 
-    vlay->addWidget(new QLabel(i18n("The following keys will be used for encryption:"), page));
+    vlay->addWidget(new QLabel(i18nc("@label:textbox", "The following keys will be used for encryption:"), page));
 
     auto sv = new QScrollArea(page);
     sv->setWidgetResizable(true);
@@ -131,7 +131,7 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients, 
 
     if (!sender.empty()) {
         ++row;
-        glay->addWidget(new QLabel(i18n("Your keys:"), view), row, 0);
+        glay->addWidget(new QLabel(i18nc("@label:textbox", "Your keys:"), view), row, 0);
         d->selfRequester = new EncryptionKeyRequester(true, EncryptionKeyRequester::AllProtocols, view);
         d->selfRequester->setKeys(sender);
         glay->addWidget(d->selfRequester, row, 1);
@@ -143,19 +143,19 @@ Kleo::KeyApprovalDialog::KeyApprovalDialog(const std::vector<Item> &recipients, 
 
     for (auto it = recipients.begin(); it != recipients.end(); ++it) {
         ++row;
-        glay->addWidget(new QLabel(i18n("Recipient:"), view), row, 0);
+        glay->addWidget(new QLabel(i18nc("@label:textbox", "Recipient:"), view), row, 0);
         glay->addWidget(new QLabel(it->address, view), row, 1);
         d->addresses.push_back(it->address);
 
         ++row;
-        glay->addWidget(new QLabel(i18n("Encryption keys:"), view), row, 0);
+        glay->addWidget(new QLabel(i18nc("@label:textbox", "Encryption keys:"), view), row, 0);
         KeyRequester *req = new EncryptionKeyRequester(true, EncryptionKeyRequester::AllProtocols, view);
         req->setKeys(it->keys);
         glay->addWidget(req, row, 1);
         d->requesters.push_back(req);
 
         ++row;
-        glay->addWidget(new QLabel(i18n("Encryption preference:"), view), row, 0);
+        glay->addWidget(new QLabel(i18nc("@label:textbox", "Encryption preference:"), view), row, 0);
         auto cb = new QComboBox(view);
         cb->setEditable(false);
         cb->addItems(prefs);

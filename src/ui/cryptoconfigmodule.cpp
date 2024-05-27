@@ -605,7 +605,7 @@ Kleo::CryptoConfigEntryDebugLevel::CryptoConfigEntryDebugLevel(CryptoConfigModul
     : CryptoConfigEntryGUI(module, entry, entryName)
     , mComboBox(new QComboBox(widget))
 {
-    QLabel *label = new QLabel(i18n("Set the debugging level to"), widget);
+    QLabel *label = new QLabel(i18nc("@label:textbox", "Set the debugging level to"), widget);
     label->setBuddy(mComboBox);
 
     for (unsigned int i = 0; i < numDebugLevels; ++i) {

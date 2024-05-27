@@ -437,7 +437,7 @@ void KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
     le->setClearButtonEnabled(true);
     le->setText(initialQuery);
 
-    QLabel *lbSearchFor = new QLabel(i18n("&Search for:"), page);
+    QLabel *lbSearchFor = new QLabel(i18nc("@label:textbox", "&Search for:"), page);
     lbSearchFor->setBuddy(le);
 
     hlay->addWidget(lbSearchFor);
