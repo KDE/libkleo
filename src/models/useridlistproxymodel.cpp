@@ -40,3 +40,13 @@ void UserIDListProxyModel::setShowOnlyOwnCertifications(bool showOnlyOwnCertific
     d->showOnlyOwnCertifications = showOnlyOwnCertifications;
     invalidateFilter();
 }
+
+GpgME::UserID::Signature UserIDListProxyModel::signature(const QModelIndex &index) const
+{
+    return dynamic_cast<UserIDListModel *>(sourceModel())->signature(mapToSource(index));
+}
+
+GpgME::UserID UserIDListProxyModel::userID(const QModelIndex &index) const
+{
+    return dynamic_cast<UserIDListModel *>(sourceModel())->userID(mapToSource(index));
+}

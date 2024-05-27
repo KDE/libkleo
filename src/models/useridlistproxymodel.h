@@ -6,6 +6,8 @@
 
 #include "kleo_export.h"
 
+#include <gpgme++/key.h>
+
 #include <QSortFilterProxyModel>
 
 namespace Kleo
@@ -22,6 +24,9 @@ public:
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
     void setShowOnlyOwnCertifications(bool showOnlyOwnCertifications);
+
+    GpgME::UserID::Signature signature(const QModelIndex &index) const;
+    GpgME::UserID userID(const QModelIndex &index) const;
 
 private:
     class Private;
