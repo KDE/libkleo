@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1680700 2024-05-24 01:10:57Z scripty $
+# $Id: libkleopatra6.po 1681018 2024-05-28 01:09:59Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2024-05-23 09:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1347,7 +1347,9 @@ msgid "4 - All"
 msgstr "4 - vse"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set the debugging level to"
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Stopnjo razhroščevanja nastavi na"
 
@@ -1509,12 +1511,16 @@ msgid "Description"
 msgstr "Opis"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Available attributes:"
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Razpoložljivi atributi:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current attribute order:"
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Trenutni vrstni red atributov:"
 
@@ -1866,27 +1872,37 @@ msgid "Encryption Key Approval"
 msgstr "Odobritev ključa za šifriranje"
 
 #: ui/keyapprovaldialog.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The following keys will be used for encryption:"
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "Za šifriranje bodo uporabljeni naslednji ključi:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your keys:"
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Vaši ključi:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recipient:"
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Prejemnik:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Šifrirni ključi:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption preference:"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Možnosti šifriranja:"
 
@@ -2104,7 +2120,9 @@ msgid "Search for &External Certificates"
 msgstr "Poišči zunanja potrdila"
 
 #: ui/keyselectiondialog.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Search for:"
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "Poišči:"
 

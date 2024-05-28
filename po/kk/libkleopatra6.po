@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2011-08-28 06:43+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -1067,7 +1067,9 @@ msgid "4 - All"
 msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:608
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set the debugging level to"
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Жөндеу деңгейі:"
 
@@ -1243,12 +1245,16 @@ msgid "Description"
 msgstr "Сипаттамасы"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Available attributes:"
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Қол жеткізер атрибуттары:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current attribute order:"
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Қазіргі атрибут реті:"
 
@@ -1615,27 +1621,37 @@ msgid "Encryption Key Approval"
 msgstr "Шифрлау кілтті мақұлдау"
 
 #: ui/keyapprovaldialog.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The following keys will be used for encryption:"
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "Шифрлауға келесі кілттер қолданылсын:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your keys:"
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Кілттеріңіз:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recipient:"
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Қабылдаушы:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Шифрлау кілттері:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption preference:"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Шифрлау таңдаулары:"
 
@@ -1858,7 +1874,9 @@ msgid "Search for &External Certificates"
 msgstr "С&ыртқы куәліктерді іздеу"
 
 #: ui/keyselectiondialog.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Search for:"
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Іздейтіні:"
 

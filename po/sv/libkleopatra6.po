@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2023-07-26 10:18+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1204,7 +1204,9 @@ msgid "4 - All"
 msgstr "4 - Allt"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set the debugging level to"
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Ställ in avlusningsnivån till "
 
@@ -1366,12 +1368,16 @@ msgid "Description"
 msgstr "Beskrivning"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Available attributes:"
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Tillgängliga egenskaper:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current attribute order:"
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Nuvarande egenskapsordning:"
 
@@ -1730,27 +1736,37 @@ msgid "Encryption Key Approval"
 msgstr "Godkänn krypteringsnyckel"
 
 #: ui/keyapprovaldialog.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The following keys will be used for encryption:"
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "Följande nycklar kommer att användas för kryptering:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your keys:"
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Dina nycklar:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recipient:"
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Mottagare:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Krypteringsnycklar:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption preference:"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Krypteringsinställning:"
 
@@ -1973,7 +1989,9 @@ msgid "Search for &External Certificates"
 msgstr "Sök efter &externa certifikat"
 
 #: ui/keyselectiondialog.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Search for:"
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Sök efter:"
 

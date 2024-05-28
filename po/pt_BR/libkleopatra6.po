@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2023-07-04 10:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1071,7 +1071,9 @@ msgid "4 - All"
 msgstr "4 - Tudo"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set the debugging level to"
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Selecionar o nível de depuração para"
 
@@ -1234,12 +1236,16 @@ msgid "Description"
 msgstr "Descrição"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Available attributes:"
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Atributos disponíveis:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current attribute order:"
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Ordem atual de atributos:"
 
@@ -1589,27 +1595,37 @@ msgid "Encryption Key Approval"
 msgstr "Aprovação da chave de criptografia"
 
 #: ui/keyapprovaldialog.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The following keys will be used for encryption:"
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "As seguintes chaves serão usadas para criptografia:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your keys:"
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Suas chaves:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recipient:"
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Destinatário:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Chaves de criptografia:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption preference:"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Preferências da criptografia:"
 
@@ -1832,7 +1848,9 @@ msgid "Search for &External Certificates"
 msgstr "Pesquisar por certificados &externos"
 
 #: ui/keyselectiondialog.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Search for:"
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "Pe&squisar por:"
 

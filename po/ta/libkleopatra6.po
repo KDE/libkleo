@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2005-03-21 04:03-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -1064,6 +1064,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:608
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr ""
 
@@ -1216,12 +1217,16 @@ msgid "Description"
 msgstr "விவரிப்பு "
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Available attributes:"
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "கிடைக்கும் குணங்கள்:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current attribute order:"
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "நிகழ் குணங்கள் முறை:"
 
@@ -1567,27 +1572,37 @@ msgid "Encryption Key Approval"
 msgstr "மறையாக்கு விசை அங்கீகரிக்கப்படுதல்"
 
 #: ui/keyapprovaldialog.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The following keys will be used for encryption:"
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "பின்வரும் விசைகள் மறையாக்கதிற்க்கு பயன்படுத்தப்படும்:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your keys:"
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "உங்கள் விசைகள்:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recipient:"
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "பெறுநர்:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "மறையாக்க விசைகள்:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption preference:"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "மறையாக்க விருப்பம்:"
 
@@ -1809,7 +1824,9 @@ msgid "Search for &External Certificates"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Search for:"
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&தேடு:"
 

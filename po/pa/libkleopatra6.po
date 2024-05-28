@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2010-10-11 06:52+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
@@ -1087,6 +1087,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:608
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr ""
 
@@ -1239,12 +1240,15 @@ msgid "Description"
 msgstr "ਵੇਰਵਾ"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Available attributes:"
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "ਉਪਲੱਬਧ ਗੁਣ:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr ""
 
@@ -1592,26 +1596,35 @@ msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ ਕੁੰਜ ਮੰਨਜ਼ੂਰੀ"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr ""
 
 #: ui/keyapprovaldialog.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your keys:"
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "ਤੁਹਾਡੀਆਂ ਕੁੰਜੀਆਂ:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recipient:"
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "ਪ੍ਰਾਪਤ ਕਰਤਾ:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ ਕੁੰਜੀਆਂ:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption preference:"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ ਪਸੰਦ:"
 
@@ -1830,7 +1843,9 @@ msgid "Search for &External Certificates"
 msgstr "ਹੋਰ ਸਰਟੀਫਿਕੇਟ"
 
 #: ui/keyselectiondialog.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Search for:"
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "ਖੋਜ ਲਈ:"
 

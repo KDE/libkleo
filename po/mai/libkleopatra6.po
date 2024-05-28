@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2010-09-24 16:30+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <bhashaghar@googlegroups.com>\n"
@@ -1076,6 +1076,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:608
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr ""
 
@@ -1225,11 +1226,13 @@ msgstr "विवरण"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr ""
 
 #: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr ""
 
@@ -1563,28 +1566,35 @@ msgstr "विवरण"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr ""
 
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr ""
 
 #: ui/keyapprovaldialog.cpp:146
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr ""
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
-msgstr ""
+msgstr "विवरण"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
-msgstr ""
+msgstr "विवरण"
 
 #: ui/keyrequester.cpp:89
 #, fuzzy, kde-format
@@ -1800,6 +1810,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:440
 #, kde-format
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr ""
 

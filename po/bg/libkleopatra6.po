@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:39+0000\n"
 "PO-Revision-Date: 2024-04-06 22:59+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -1054,7 +1054,9 @@ msgid "4 - All"
 msgstr "4 - Всичко"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set the debugging level to"
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Задаване на ниво на докладване на грешки"
 
@@ -1203,11 +1205,13 @@ msgstr "Описание"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr ""
 
 #: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr ""
 
@@ -1537,29 +1541,38 @@ msgid "Encryption Key Approval"
 msgstr "Одобрение на ключ за шифриране"
 
 #: ui/keyapprovaldialog.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The key is not designated for encryption."
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
-msgstr ""
+msgstr "Ключът не е предназначен за шифроване."
 
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr ""
 
 #: ui/keyapprovaldialog.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recipient:"
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Получател:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Ключове за шифроване:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encryption keys:"
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
-msgstr ""
+msgstr "Ключове за шифроване:"
 
 #: ui/keyrequester.cpp:89
 #, fuzzy, kde-format
@@ -1776,7 +1789,9 @@ msgid "Search for &External Certificates"
 msgstr "Търсене за &външни сертификати"
 
 #: ui/keyselectiondialog.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Search for:"
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "Т&ърсене на:"
 
