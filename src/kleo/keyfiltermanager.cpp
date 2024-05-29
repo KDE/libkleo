@@ -135,7 +135,7 @@ public:
         setValidityReferenceLevel(UserID::Never);
         setSpecificity(UINT_MAX - 4); // overly high for ordering
 
-        setName(i18n("Other Certificates"));
+        setName(i18n("Fully Not Trusted Certificates"));
         setId(QStringLiteral("other-certificates"));
         setMatchContexts(Filtering);
     }
@@ -177,7 +177,7 @@ public:
     {
         setSpecificity(UINT_MAX - 7); // overly high for ordering
 
-        setName(i18n("Not Validated Certificates"));
+        setName(i18n("Not Fully Trusted Certificates"));
         setId(QStringLiteral("not-validated-certificates"));
         setMatchContexts(Filtering);
     }
