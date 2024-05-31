@@ -8,7 +8,7 @@ project(libkleo VERSION ${PIM_VERSION})
 set(KF_MIN_VERSION "6.2.0")
 
 if (WIN32)
-  set(KF6_WANT_VERSION "5.104.0")
+  set(KF6_WANT_VERSION ${KF_MIN_VERSION})
   add_compile_definitions(GPG_ERR_ENABLE_GETTEXT_MACROS=1)
 else ()
   set(KF6_WANT_VERSION ${KF_MIN_VERSION})
