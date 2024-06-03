@@ -68,7 +68,7 @@ public:
         : DefaultKeyFilter()
     {
         setSpecificity(UINT_MAX); // overly high for ordering
-        setName(i18n("All Certificates"));
+        setName(i18nc("All Certificates", "All"));
         setId(QStringLiteral("all-certificates"));
         setMatchContexts(Filtering);
     }
@@ -83,7 +83,7 @@ public:
         setHasSecret(Set);
         setSpecificity(UINT_MAX - 1); // overly high for ordering
 
-        setName(i18n("My Certificates"));
+        setName(i18nc("My Certificates", "My"));
         setId(QStringLiteral("my-certificates"));
         setMatchContexts(AnyMatchContext);
         setBold(true);
@@ -101,7 +101,7 @@ public:
         setValidityReferenceLevel(UserID::Marginal);
         setSpecificity(UINT_MAX - 2); // overly high for ordering
 
-        setName(i18n("Trusted Certificates"));
+        setName(i18nc("Certified Certificates", "Certified"));
         setId(QStringLiteral("trusted-certificates"));
         setMatchContexts(Filtering);
     }
@@ -118,7 +118,7 @@ public:
         setValidityReferenceLevel(UserID::Full);
         setSpecificity(UINT_MAX - 3);
 
-        setName(i18n("Fully Trusted Certificates"));
+        setName(i18nc("Fully Certified Certificates", "Fully Certified"));
         setId(QStringLiteral("full-certificates"));
         setMatchContexts(Filtering);
     }
@@ -135,7 +135,7 @@ public:
         setValidityReferenceLevel(UserID::Never);
         setSpecificity(UINT_MAX - 4); // overly high for ordering
 
-        setName(i18n("Not Trusted Certificates"));
+        setName(i18nc("Not Certified Certificates", "Not Certified"));
         setId(QStringLiteral("other-certificates"));
         setMatchContexts(Filtering);
     }
@@ -150,7 +150,7 @@ public:
         : DefaultKeyFilter()
     {
         setSpecificity(UINT_MAX - 6); // overly high for ordering
-        setName(i18n("Not Certified Certificates"));
+        setName(i18nc("Not Certified and not Invalid Certificates", "Not Fully Certified and not Invalid"));
         setId(QStringLiteral("not-certified-certificates"));
 
         setMatchContexts(Filtering);
@@ -177,7 +177,7 @@ public:
     {
         setSpecificity(UINT_MAX - 7); // overly high for ordering
 
-        setName(i18n("Not Fully Trusted Certificates"));
+        setName(i18nc("Not Fully Certified Certificates", "Not Fully Certified"));
         setId(QStringLiteral("not-validated-certificates"));
         setMatchContexts(Filtering);
     }
