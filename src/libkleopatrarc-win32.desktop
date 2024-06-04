@@ -204,22 +204,26 @@ verify-command=%I/md5sum -c
 [Key Filter #0]
 was-validated=false
 Name=Not Validated
+Description=Certificates that were not validated
 
 [Key Filter #1]
 is-expired=true
 is-revoked=false
 foreground-color=255,0,0
 Name=Expired
+Description=Certificates that are invalid due to being expired
 
 [Key Filter #2]
 is-revoked=true
 Name=Revoked
+Description=Certificates that are invalid due to being revoked
 
 [Key Filter #3]
 was-validated=true
 is-root-certificate=true
 is-validity=ultimate
 Name=Trusted Root Certificates
+Description=S/MIME root certificates that are being trusted
 background-color=95,135,255
 font-bold=true
 
@@ -229,29 +233,36 @@ was-validated=true
 is-root-certificate=true
 is-not-validity=ultimate
 Name=Not Trusted Root Certificates
+Description=S/MIME root certificates that are not being trusted
 
 [Key Filter #5]
 was-validated=true
 is-qualified=true
 font-bold=true
 Name=Qualified Signatures
+Description=Certificates that fulfill the requirements for qualified signatures
 
 [Key Filter #6]
 was-validated=true
 Name=Validated
+Description=Certificates that were validated
 
 [Key Filter #7]
 is-cardkey=true
 Name=Smart Card
+Description=Certificates stored on smart cards
 icon=smartcard
 
 [Key Filter #8]
 is-openpgp-key=true
 Name=OpenPGP
+Description=OpenPGP certificates
 
 [Key Filter #9]
 is-openpgp-key=false
 Name=S/MIME
+Description=S/MIME certificates
+
 
 # Filters that filter for is-de-vs
 # are only shown in compliance mode
@@ -295,6 +306,7 @@ Name[uk]=Сумісний із VS-NfD
 Name[x-test]=xxVS-NfD Compliantxx
 Name[zh_CN]=VS-NfD 兼容
 Name[zh_TW]=合乎 VS-NfD 規範
+Description=Certificates that fulfill the requirements for VS-NfD compliance
 foreground-color=0,0,0
 background-color=213,250,226
 
@@ -337,6 +349,7 @@ Name[uk]=Несумісний із VS-NfD
 Name[x-test]=xxNot VS-NfD Compliantxx
 Name[zh_CN]=VS-NfD 不兼容
 Name[zh_TW]=不合 VS-NfD 規範
+Description=Certificates that do not fulfill the requirements for VS-NfD compliance
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -379,6 +392,7 @@ Name[uk]=Несумісний із VS-NfD (строк дії вичерпано)
 Name[x-test]=xxNot VS-NfD Compliant (Expired)xx
 Name[zh_CN]=VS-NfD 不兼容 (已过期)
 Name[zh_TW]=不合 VS-NfD 規範（已過期）
+Description=Expired certificates that do not fulfill the requirements for VS-NfD compliance
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -420,5 +434,6 @@ Name[uk]=Несумісний із VS-NfD (відкликано)
 Name[x-test]=xxNot VS-NfD Compliant (Revoked)xx
 Name[zh_CN]=VS-NfD 不兼容 (已吊销)
 Name[zh_TW]=不合 VS-NfD 規範（已撤銷）
+Description=Revoked certificates that do not fulfill the requirements for VS-NfD compliance
 foreground-color=0,0,0
 background-color=250,233,235

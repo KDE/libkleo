@@ -12,6 +12,7 @@
 #include "kleo_export.h"
 
 #include <QFlags>
+#include <QString>
 
 #include <algorithm>
 #include <memory>
@@ -24,7 +25,6 @@ class UserID;
 
 class QFont;
 class QColor;
-class QString;
 
 namespace Kleo
 {
@@ -64,6 +64,10 @@ public:
     virtual QColor bgColor() const = 0;
     virtual QString name() const = 0;
     virtual QString icon() const = 0;
+    virtual QString description() const
+    {
+        return name();
+    };
 
     class FontDescription
     {

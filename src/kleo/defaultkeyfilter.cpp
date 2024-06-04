@@ -46,6 +46,7 @@ public:
     QString mName;
     QString mIcon;
     QString mId;
+    QString mDescription;
     MatchContexts mMatchContexts = AnyMatchContext;
     unsigned int mSpecificity = 0;
     bool mItalic = false;
@@ -723,4 +724,14 @@ DefaultKeyFilter::TriState DefaultKeyFilter::isBad() const
 DefaultKeyFilter::TriState DefaultKeyFilter::validIfSMIME() const
 {
     return d->mValidIfSMIME;
+}
+
+QString DefaultKeyFilter::description() const
+{
+    return d->mDescription;
+}
+
+void DefaultKeyFilter::setDescription(const QString &description)
+{
+    d->mDescription = description;
 }
