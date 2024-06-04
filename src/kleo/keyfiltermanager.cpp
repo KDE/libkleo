@@ -83,27 +83,10 @@ public:
         setHasSecret(Set);
         setSpecificity(UINT_MAX - 1); // overly high for ordering
 
-        setName(i18nc("My Certificates", "My"));
+        setName(i18nc("My own Certificates", "My own"));
         setId(QStringLiteral("my-certificates"));
         setMatchContexts(AnyMatchContext);
         setBold(true);
-    }
-};
-
-class TrustedCertificatesKeyFilter : public DefaultKeyFilter
-{
-public:
-    TrustedCertificatesKeyFilter()
-        : DefaultKeyFilter()
-    {
-        setRevoked(NotSet);
-        setValidity(IsAtLeast);
-        setValidityReferenceLevel(UserID::Marginal);
-        setSpecificity(UINT_MAX - 2); // overly high for ordering
-
-        setName(i18nc("Certified Certificates", "Certified"));
-        setId(QStringLiteral("trusted-certificates"));
-        setMatchContexts(Filtering);
     }
 };
 
@@ -118,7 +101,7 @@ public:
         setValidityReferenceLevel(UserID::Full);
         setSpecificity(UINT_MAX - 3);
 
-        setName(i18nc("Fully Certified Certificates", "Fully Certified"));
+        setName(i18nc("Certified Certificates", "Certified"));
         setId(QStringLiteral("full-certificates"));
         setMatchContexts(Filtering);
     }
@@ -132,7 +115,7 @@ public:
     {
         setHasSecret(NotSet);
         setValidity(IsAtMost);
-        setValidityReferenceLevel(UserID::Never);
+        setValidityReferenceLevel(UserID::Marginal);
         setSpecificity(UINT_MAX - 4); // overly high for ordering
 
         setName(i18nc("Not Certified Certificates", "Not Certified"));
@@ -150,7 +133,7 @@ public:
         : DefaultKeyFilter()
     {
         setSpecificity(UINT_MAX - 6); // overly high for ordering
-        setName(i18nc("Not Certified and not Invalid Certificates", "Not Fully Certified and not Invalid"));
+        setName(i18nc("Certificates to certify by the user", "To Certify"));
         setId(QStringLiteral("not-certified-certificates"));
 
         setMatchContexts(Filtering);
@@ -193,17 +176,38 @@ public:
 
 }
 
+class KeyFullyCertifiedFilter : public DefaultKeyFilter
+{
+public:
+    KeyFullyCertifiedFilter()
+        : DefaultKeyFilter()
+    {
+        setSpecificity(UINT_MAX - 7);
+        setName(i18nc("Fully Certified Certificates", "Fully Certified"));
+        setId(QStringLiteral("fully-certified"));
+        setMatchContexts(Filtering);
+    }
+    bool matches(const Key &key, MatchContexts contexts) const override
+    {
+        return DefaultKeyFilter::matches(key, contexts) && Kleo::allUserIDsHaveFullValidity(key);
+    }
+    bool matches(const UserID &userID, MatchContexts contexts) const override
+    {
+        return DefaultKeyFilter::matches(userID.parent(), contexts) && userID.validity() >= UserID::Full;
+    }
+};
+
 static std::vector<std::shared_ptr<KeyFilter>> defaultFilters()
 {
     std::vector<std::shared_ptr<KeyFilter>> result;
     result.reserve(6);
     result.push_back(std::shared_ptr<KeyFilter>(new MyCertificatesKeyFilter));
-    result.push_back(std::shared_ptr<KeyFilter>(new TrustedCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new FullCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new OtherCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new AllCertificatesKeyFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new UncertifiedOpenPGPKeysFilter));
     result.push_back(std::shared_ptr<KeyFilter>(new KeyNotValidFilter));
+    result.push_back(std::shared_ptr<KeyFilter>(new KeyFullyCertifiedFilter));
     return result;
 }
 
