@@ -64,6 +64,7 @@ public:
     virtual QColor bgColor() const = 0;
     virtual QString name() const = 0;
     virtual QString icon() const = 0;
+    virtual QString description() const = 0;
 
     class FontDescription
     {
