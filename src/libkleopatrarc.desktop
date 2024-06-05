@@ -354,6 +354,7 @@ Name[sl]=Ni preverjen
 Name[tr]=Doğrulanmamış
 Name[uk]=Неперевірений
 Name[x-test]=xxNot Validatedxx
+Description=Certificates that were not validated
 
 [Key Filter #1]
 is-expired=true
@@ -374,6 +375,7 @@ Name[sl]=Pretečen
 Name[tr]=Süresi Dolmuş
 Name[uk]=Застарілий
 Name[x-test]=xxExpiredxx
+Description=Certificates that are invalid because they have expired
 
 [Key Filter #2]
 is-revoked=true
@@ -392,6 +394,7 @@ Name[sl]=Preklican
 Name[tr]=Yürürlükten Kaldırılmış
 Name[uk]=Відкликаний
 Name[x-test]=xxRevokedxx
+Description=Certificates that are invalid because they have been revoked
 
 [Key Filter #3]
 was-validated=true
@@ -412,6 +415,7 @@ Name[sl]=Zaupanja vredna korenska potrdila
 Name[tr]=Güvenilir Kök Sertifikaları
 Name[uk]=Кореневі сертифікати з довірою
 Name[x-test]=xxTrusted Root Certificatesxx
+Description=S/MIME root certificates that are trusted
 background-color=95,135,255
 font-bold=true
 
@@ -435,6 +439,7 @@ Name[sl]=Korenska potrdila, ki niso zaupanja vredna
 Name[tr]=Güvenilmeyen Kök Sertifikaları
 Name[uk]=Кореневі сертифікати без довіри
 Name[x-test]=xxNot Trusted Root Certificatesxx
+Description=S/MIME root certificates that are not trusted
 
 [Key Filter #5]
 was-validated=true
@@ -455,6 +460,7 @@ Name[sl]=Za kvalificirane podpise
 Name[tr]=Yetkilendirilmiş İmzalar için
 Name[uk]=Для підписів обмеженого використання
 Name[x-test]=xxFor Qualified Signaturesxx
+Description=Certificates usable for qualified signatures
 
 [Key Filter #6]
 was-validated=true
@@ -473,6 +479,7 @@ Name[sl]=Preverjen
 Name[tr]=Doğrulanmış
 Name[uk]=Перевірений
 Name[x-test]=xxValidatedxx
+Description=Certificates that were validated
 
 [Key Filter #7]
 is-cardkey=true
@@ -491,6 +498,7 @@ Name[sl]=Na pametni kartici
 Name[tr]=Akıllı Kartta
 Name[uk]=На картці пам’яті
 Name[x-test]=xxOn Smart Cardxx
+Description=Certificates stored on smart cards
 icon=smartcard
 
 [Key Filter #8]
@@ -509,6 +517,7 @@ Name[sl]=OpenPGP
 Name[tr]=OpenPGP
 Name[uk]=OpenPGP
 Name[x-test]=xxOpenPGPxx
+Description=OpenPGP certificates
 
 [Key Filter #9]
 is-openpgp-key=false
@@ -526,6 +535,7 @@ Name[sl]=S/MIME
 Name[tr]=S/MIME
 Name[uk]=S/MIME
 Name[x-test]=xxS/MIMExx
+Description=S/MIME certificates
 
 # Filters that filter for is-de-vs
 # are only shown in compliance mode
@@ -569,6 +579,7 @@ Name[uk]=Сумісний із VS-NfD
 Name[x-test]=xxVS-NfD Compliantxx
 Name[zh_CN]=VS-NfD 兼容
 Name[zh_TW]=合乎 VS-NfD 規範
+Description=Certificates that are compliant with VS-NfD
 foreground-color=0,0,0
 background-color=213,250,226
 
@@ -611,6 +622,7 @@ Name[uk]=Несумісний із VS-NfD
 Name[x-test]=xxNot VS-NfD Compliantxx
 Name[zh_CN]=VS-NfD 不兼容
 Name[zh_TW]=不合 VS-NfD 規範
+Description=Certificates that are not VS-NfD compliant
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -653,6 +665,7 @@ Name[uk]=Несумісний із VS-NfD (строк дії вичерпано)
 Name[x-test]=xxNot VS-NfD Compliant (Expired)xx
 Name[zh_CN]=VS-NfD 不兼容 (已过期)
 Name[zh_TW]=不合 VS-NfD 規範（已過期）
+Description=Expired certificates (if VS-NfD compliance mode is active)
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -694,5 +707,6 @@ Name[uk]=Несумісний із VS-NfD (відкликано)
 Name[x-test]=xxNot VS-NfD Compliant (Revoked)xx
 Name[zh_CN]=VS-NfD 不兼容 (已吊销)
 Name[zh_TW]=不合 VS-NfD 規範（已撤銷）
+Description=Revoked certificates (if VS-NfD compliance mode is active)
 foreground-color=0,0,0
 background-color=250,233,235

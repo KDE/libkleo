@@ -76,6 +76,8 @@ public:
     void setIcon(const QString &value);
     QFont font() const;
     void setFont(const QFont &value);
+    QString description() const override;
+    void setDescription(const QString &description);
 
     TriState revoked() const;
     TriState expired() const;

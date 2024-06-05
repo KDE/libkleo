@@ -141,6 +141,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
     setFgColor(config.readEntry<QColor>("foreground-color", QColor()));
     setBgColor(config.readEntry<QColor>("background-color", QColor()));
     setName(config.readEntry("Name", config.name()));
+    setDescription(config.readEntry("Description", QString()));
     setIcon(config.readEntry("icon"));
     setId(config.readEntry("id", config.name()));
     if (config.hasKey("font")) {
