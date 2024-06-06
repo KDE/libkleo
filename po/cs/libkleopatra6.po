@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2023-06-22 14:59+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -706,39 +706,56 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: kleo/keyfiltermanager.cpp:71
-#, kde-format
-msgid "All Certificates"
-msgstr "Všechny certifikáty"
+#, fuzzy, kde-format
+#| msgid "4 - All"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "4 - Vše"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "Moje certifikáty"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "Důvěryhodné certifikáty"
+#, fuzzy, kde-format
+#| msgctxt "As in all user IDs are valid."
+#| msgid "certified"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "certifikováno"
 
 #: kleo/keyfiltermanager.cpp:121
-#, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "Plně důvěryhodné certifikáty"
+#, fuzzy, kde-format
+#| msgctxt "As in not all user IDs are valid."
+#| msgid "not certified"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "nebylo certifikováno"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "Jiné certifikáty"
+#: kleo/keyfiltermanager.cpp:136
+#, fuzzy, kde-format
+#| msgid "Certify"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Certifikovat"
 
-#: kleo/keyfiltermanager.cpp:153
-#, kde-format
-msgid "Not Certified Certificates"
-msgstr "Necertifikované certifikáty"
+#: kleo/keyfiltermanager.cpp:163
+#, fuzzy, kde-format
+#| msgctxt "As in not all keys are valid."
+#| msgid "not all certified"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "nebylo vše certifikováno"
 
-#: kleo/keyfiltermanager.cpp:180
-#, kde-format
-msgid "Not Validated Certificates"
-msgstr "Neověřené certifikáty"
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgctxt "As in all keys are valid."
+#| msgid "all certified"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "vše certifikováno"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -2831,3 +2848,24 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "All Certificates"
+#~ msgstr "Všechny certifikáty"
+
+#~ msgid "My Certificates"
+#~ msgstr "Moje certifikáty"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "Důvěryhodné certifikáty"
+
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "Plně důvěryhodné certifikáty"
+
+#~ msgid "Other Certificates"
+#~ msgstr "Jiné certifikáty"
+
+#~ msgid "Not Certified Certificates"
+#~ msgstr "Necertifikované certifikáty"
+
+#~ msgid "Not Validated Certificates"
+#~ msgstr "Neověřené certifikáty"

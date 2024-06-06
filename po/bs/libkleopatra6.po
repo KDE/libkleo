@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdepim\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2015-02-04 15:11+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -708,41 +708,50 @@ msgstr[2] ""
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
-msgid "All Certificates"
-msgstr "Svi certifikati"
+msgctxt "All Certificates"
+msgid "All"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "Moji certifikati"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "Certifikati u koje se vjeruje"
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "Svi certifikati"
 
 #: kleo/keyfiltermanager.cpp:121
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Fully Trusted Certificates"
-msgstr "Certifikati u koje se vjeruje"
+#| msgid "All Certificates"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "Svi certifikati"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "Ostali certifikati"
-
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:136
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Certified Certificates"
-msgstr "Certifikati u koje se vjeruje"
+#| msgid "All Certificates"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Svi certifikati"
 
-#: kleo/keyfiltermanager.cpp:180
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Validated Certificates"
-msgstr "Certifikati u koje se vjeruje"
+#| msgid "All Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "Svi certifikati"
+
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "Svi certifikati"
 
 #: models/keylistmodel.cpp:325
 #, fuzzy, kde-format
@@ -2997,6 +3006,33 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "All Certificates"
+#~ msgstr "Svi certifikati"
+
+#~ msgid "My Certificates"
+#~ msgstr "Moji certifikati"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "Certifikati u koje se vjeruje"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "Certifikati u koje se vjeruje"
+
+#~ msgid "Other Certificates"
+#~ msgstr "Ostali certifikati"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Not Certified Certificates"
+#~ msgstr "Certifikati u koje se vjeruje"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Not Validated Certificates"
+#~ msgstr "Certifikati u koje se vjeruje"
 
 #, fuzzy
 #~| msgid "User ID"

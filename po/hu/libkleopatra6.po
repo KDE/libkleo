@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-03-19 11:34+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -677,41 +677,50 @@ msgstr[1] ""
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
-msgid "All Certificates"
-msgstr "Minden tanúsítvány"
+msgctxt "All Certificates"
+msgid "All"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "Saját tanúsítványok"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "Megbízható tanúsítványok"
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "Minden tanúsítvány"
 
 #: kleo/keyfiltermanager.cpp:121
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Fully Trusted Certificates"
-msgstr "Megbízható tanúsítványok"
+#| msgid "All Certificates"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "Minden tanúsítvány"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "Egyéb tanúsítványok"
-
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:136
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Certified Certificates"
-msgstr "Megbízható tanúsítványok"
+#| msgid "All Certificates"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Minden tanúsítvány"
 
-#: kleo/keyfiltermanager.cpp:180
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Validated Certificates"
-msgstr "Megbízható tanúsítványok"
+#| msgid "All Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "Minden tanúsítvány"
+
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "Minden tanúsítvány"
 
 #: models/keylistmodel.cpp:325
 #, fuzzy, kde-format
@@ -2956,6 +2965,33 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "All Certificates"
+#~ msgstr "Minden tanúsítvány"
+
+#~ msgid "My Certificates"
+#~ msgstr "Saját tanúsítványok"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "Megbízható tanúsítványok"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "Megbízható tanúsítványok"
+
+#~ msgid "Other Certificates"
+#~ msgstr "Egyéb tanúsítványok"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Not Certified Certificates"
+#~ msgstr "Megbízható tanúsítványok"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Not Validated Certificates"
+#~ msgstr "Megbízható tanúsítványok"
 
 #, fuzzy
 #~| msgid "User ID"

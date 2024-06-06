@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-05-28 13:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -841,39 +841,56 @@ msgstr[1] ""
 "dies.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
-#, kde-format
-msgid "All Certificates"
-msgstr "Tots els certificats"
+#, fuzzy, kde-format
+#| msgid "4 - All"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "4 - Tot"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "Els meus certificats"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "Certificats fiables"
+#, fuzzy, kde-format
+#| msgctxt "As in 'this user ID is valid.'"
+#| msgid "certified"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "certificat"
 
 #: kleo/keyfiltermanager.cpp:121
-#, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "Certificats completament fiables"
+#, fuzzy, kde-format
+#| msgctxt "As in 'this user ID is not certified'"
+#| msgid "not certified"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "no certificat"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "Altres certificats"
+#: kleo/keyfiltermanager.cpp:136
+#, fuzzy, kde-format
+#| msgid "Certify"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Certifica"
 
-#: kleo/keyfiltermanager.cpp:153
-#, kde-format
-msgid "Not Certified Certificates"
-msgstr "Cap certificat sense certificar"
+#: kleo/keyfiltermanager.cpp:163
+#, fuzzy, kde-format
+#| msgctxt "As in not all keys are valid."
+#| msgid "not all certified"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "no totes estan certificades"
 
-#: kleo/keyfiltermanager.cpp:180
-#, kde-format
-msgid "Not Validated Certificates"
-msgstr "Certificats sense validar"
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgctxt "As in all keys are valid."
+#| msgid "all certified"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "totes estan certificades"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -3040,6 +3057,27 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
+
+#~ msgid "All Certificates"
+#~ msgstr "Tots els certificats"
+
+#~ msgid "My Certificates"
+#~ msgstr "Els meus certificats"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "Certificats fiables"
+
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "Certificats completament fiables"
+
+#~ msgid "Other Certificates"
+#~ msgstr "Altres certificats"
+
+#~ msgid "Not Certified Certificates"
+#~ msgstr "Cap certificat sense certificar"
+
+#~ msgid "Not Validated Certificates"
+#~ msgstr "Certificats sense validar"
 
 #~ msgctxt "@title:column"
 #~ msgid "User-IDs"

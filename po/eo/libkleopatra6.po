@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-05-29 22:04+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -828,39 +828,56 @@ msgstr[1] ""
 "tagoj.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
-#, kde-format
-msgid "All Certificates"
-msgstr "Ĉiuj Atestiloj"
+#, fuzzy, kde-format
+#| msgid "4 - All"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "4 - Ĉiuj"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "Miaj Atestiloj"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "Fidindaj Atestiloj"
+#, fuzzy, kde-format
+#| msgctxt "As in 'this user ID is valid.'"
+#| msgid "certified"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "atestita"
 
 #: kleo/keyfiltermanager.cpp:121
-#, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "Plene Fidindaj Atestiloj"
+#, fuzzy, kde-format
+#| msgctxt "As in 'this user ID is not certified'"
+#| msgid "not certified"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "ne atestita"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "Aliaj Atestiloj"
+#: kleo/keyfiltermanager.cpp:136
+#, fuzzy, kde-format
+#| msgid "Certify"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Atesti"
 
-#: kleo/keyfiltermanager.cpp:153
-#, kde-format
-msgid "Not Certified Certificates"
-msgstr "Ne Atestitaj Atestiloj"
+#: kleo/keyfiltermanager.cpp:163
+#, fuzzy, kde-format
+#| msgctxt "As in not all keys are valid."
+#| msgid "not all certified"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "ne ĉiuj atestitaj"
 
-#: kleo/keyfiltermanager.cpp:180
-#, kde-format
-msgid "Not Validated Certificates"
-msgstr "Ne Validigitaj Atestiloj"
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgctxt "As in all keys are valid."
+#| msgid "all certified"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "ĉiuj atestitaj"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -2999,3 +3016,24 @@ msgstr "Nevalida deksesum-signo '%1' en eniga fluo."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Tro frua fino de deksesum-kodita signo en eniga fluo"
+
+#~ msgid "All Certificates"
+#~ msgstr "Ĉiuj Atestiloj"
+
+#~ msgid "My Certificates"
+#~ msgstr "Miaj Atestiloj"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "Fidindaj Atestiloj"
+
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "Plene Fidindaj Atestiloj"
+
+#~ msgid "Other Certificates"
+#~ msgstr "Aliaj Atestiloj"
+
+#~ msgid "Not Certified Certificates"
+#~ msgstr "Ne Atestitaj Atestiloj"
+
+#~ msgid "Not Validated Certificates"
+#~ msgstr "Ne Validigitaj Atestiloj"

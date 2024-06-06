@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2022-01-29 13:07+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -777,37 +777,44 @@ msgstr[5] ""
 
 #: kleo/keyfiltermanager.cpp:71
 #, fuzzy, kde-format
-msgid "All Certificates"
-msgstr "ابدأ شهادة المدير"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "الكلّ"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
+msgctxt "My own Certificates"
+msgid "My Own"
 msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
 #, fuzzy, kde-format
-msgid "Trusted Certificates"
+msgctxt "Certified Certificates"
+msgid "Certified"
 msgstr "ابدأ شهادة المدير"
 
 #: kleo/keyfiltermanager.cpp:121
 #, fuzzy, kde-format
-msgid "Fully Trusted Certificates"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
 msgstr "ابدأ شهادة المدير"
 
-#: kleo/keyfiltermanager.cpp:138
+#: kleo/keyfiltermanager.cpp:136
 #, fuzzy, kde-format
-msgid "Other Certificates"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
 msgstr "ابدأ شهادة المدير"
 
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
-msgid "Not Certified Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
 msgstr "ابدأ شهادة المدير"
 
-#: kleo/keyfiltermanager.cpp:180
+#: kleo/keyfiltermanager.cpp:186
 #, fuzzy, kde-format
-msgid "Not Validated Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
 msgstr "ابدأ شهادة المدير"
 
 #: models/keylistmodel.cpp:325
@@ -2974,6 +2981,30 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~ msgid "All Certificates"
+#~ msgstr "ابدأ شهادة المدير"
+
+#, fuzzy
+#~ msgid "Trusted Certificates"
+#~ msgstr "ابدأ شهادة المدير"
+
+#, fuzzy
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "ابدأ شهادة المدير"
+
+#, fuzzy
+#~ msgid "Other Certificates"
+#~ msgstr "ابدأ شهادة المدير"
+
+#, fuzzy
+#~ msgid "Not Certified Certificates"
+#~ msgstr "ابدأ شهادة المدير"
+
+#, fuzzy
+#~ msgid "Not Validated Certificates"
+#~ msgstr "ابدأ شهادة المدير"
 
 #, fuzzy
 #~| msgid "User ID"

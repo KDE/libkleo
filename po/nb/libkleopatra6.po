@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2010-08-30 22:07+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -685,38 +685,50 @@ msgstr[1] ""
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
-msgid "All Certificates"
-msgstr "Alle sertifikat"
+msgctxt "All Certificates"
+msgid "All"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "Mine sertifikat"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "Tiltrodde sertifikat"
+#, fuzzy, kde-format
+#| msgid "certificate expired"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "sertifikatet er utløpt"
 
 #: kleo/keyfiltermanager.cpp:121
-#, kde-format
-msgid "Fully Trusted Certificates"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "certificate expired"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "sertifikatet er utløpt"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "Andre sertifikat"
+#: kleo/keyfiltermanager.cpp:136
+#, fuzzy, kde-format
+#| msgid "Certify"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Sertifisere"
 
-#: kleo/keyfiltermanager.cpp:153
-#, kde-format
-msgid "Not Certified Certificates"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:163
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "Alle sertifikat"
 
-#: kleo/keyfiltermanager.cpp:180
-#, kde-format
-msgid "Not Validated Certificates"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "Alle sertifikat"
 
 #: models/keylistmodel.cpp:325
 #, fuzzy, kde-format
@@ -2824,3 +2836,12 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "My Certificates"
+#~ msgstr "Mine sertifikat"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "Tiltrodde sertifikat"
+
+#~ msgid "Other Certificates"
+#~ msgstr "Andre sertifikat"

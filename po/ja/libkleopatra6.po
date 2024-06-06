@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -657,39 +657,56 @@ msgid_plural ""
 msgstr[0] ""
 
 #: kleo/keyfiltermanager.cpp:71
-#, kde-format
-msgid "All Certificates"
-msgstr "すべての証明書"
+#, fuzzy, kde-format
+#| msgid "4 - All"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "4 - すべて"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "自分の証明書"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "信頼された証明書"
+#, fuzzy, kde-format
+#| msgctxt "As in all user IDs are valid."
+#| msgid "certified"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "証明済"
 
 #: kleo/keyfiltermanager.cpp:121
-#, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "完全に信頼された証明書"
+#, fuzzy, kde-format
+#| msgctxt "As in not all user IDs are valid."
+#| msgid "not certified"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "証明されてません"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "その他の証明書"
+#: kleo/keyfiltermanager.cpp:136
+#, fuzzy, kde-format
+#| msgid "Certify"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "証明"
 
-#: kleo/keyfiltermanager.cpp:153
-#, kde-format
-msgid "Not Certified Certificates"
-msgstr "証明されていない証明書"
+#: kleo/keyfiltermanager.cpp:163
+#, fuzzy, kde-format
+#| msgctxt "As in not all keys are valid."
+#| msgid "not all certified"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "すべてを証明はされていません"
 
-#: kleo/keyfiltermanager.cpp:180
-#, kde-format
-msgid "Not Validated Certificates"
-msgstr "検証されていない証明書"
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgctxt "As in all keys are valid."
+#| msgid "all certified"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "すべてが証明されています"
 
 #: models/keylistmodel.cpp:325
 #, fuzzy, kde-format
@@ -2879,6 +2896,27 @@ msgstr "入力ストリームで無効な16進文字 '%1'"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "入力ストリームで16進エンコードの文字が途中で終了しました"
+
+#~ msgid "All Certificates"
+#~ msgstr "すべての証明書"
+
+#~ msgid "My Certificates"
+#~ msgstr "自分の証明書"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "信頼された証明書"
+
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "完全に信頼された証明書"
+
+#~ msgid "Other Certificates"
+#~ msgstr "その他の証明書"
+
+#~ msgid "Not Certified Certificates"
+#~ msgstr "証明されていない証明書"
+
+#~ msgid "Not Validated Certificates"
+#~ msgstr "検証されていない証明書"
 
 #, fuzzy
 #~| msgid "User-IDs"

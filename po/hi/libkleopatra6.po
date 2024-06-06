@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2008-01-26 16:23+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -681,38 +681,45 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: kleo/keyfiltermanager.cpp:71
-#, fuzzy, kde-format
-msgid "All Certificates"
-msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
+#, kde-format
+msgctxt "All Certificates"
+msgid "All"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
+msgctxt "My own Certificates"
+msgid "My Own"
 msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
 #, fuzzy, kde-format
-msgid "Trusted Certificates"
+msgctxt "Certified Certificates"
+msgid "Certified"
 msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
 
 #: kleo/keyfiltermanager.cpp:121
 #, fuzzy, kde-format
-msgid "Fully Trusted Certificates"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
 msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
 
-#: kleo/keyfiltermanager.cpp:138
+#: kleo/keyfiltermanager.cpp:136
 #, fuzzy, kde-format
-msgid "Other Certificates"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
 msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
 
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
-msgid "Not Certified Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
 msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
 
-#: kleo/keyfiltermanager.cpp:180
+#: kleo/keyfiltermanager.cpp:186
 #, fuzzy, kde-format
-msgid "Not Validated Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
 msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
 
 #: models/keylistmodel.cpp:325
@@ -2855,6 +2862,30 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~ msgid "All Certificates"
+#~ msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
+
+#, fuzzy
+#~ msgid "Trusted Certificates"
+#~ msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
+
+#, fuzzy
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
+
+#, fuzzy
+#~ msgid "Other Certificates"
+#~ msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
+
+#, fuzzy
+#~ msgid "Not Certified Certificates"
+#~ msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
+
+#, fuzzy
+#~ msgid "Not Validated Certificates"
+#~ msgstr "प्रमाणपत्र प्रबंधक प्रारंभ करें (&S)"
 
 #, fuzzy
 #~| msgid "User ID"

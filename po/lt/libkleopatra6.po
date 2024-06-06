@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2020-04-01 23:14+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -737,39 +737,52 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: kleo/keyfiltermanager.cpp:71
-#, kde-format
-msgid "All Certificates"
-msgstr "Visi liudijimai"
+#, fuzzy, kde-format
+#| msgid "4 - All"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "4 - pilnas"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "Mano liudijimai"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "Patikimi liudijimai"
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "Visi liudijimai"
 
 #: kleo/keyfiltermanager.cpp:121
 #, fuzzy, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "Patikimi liudijimai"
+#| msgid "All Certificates"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "Visi liudijimai"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "Kiti liudijimai"
-
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:136
 #, fuzzy, kde-format
-msgid "Not Certified Certificates"
-msgstr "Patikimi liudijimai"
+#| msgid "All Certificates"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Visi liudijimai"
 
-#: kleo/keyfiltermanager.cpp:180
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
-msgid "Not Validated Certificates"
-msgstr "Patikimi liudijimai"
+#| msgid "All Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "Visi liudijimai"
+
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "Visi liudijimai"
 
 #: models/keylistmodel.cpp:325
 #, fuzzy, kde-format
@@ -2949,6 +2962,30 @@ msgstr "Įvesties sraute neteisingas šešioliktainis simbolis \"%1\"."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "All Certificates"
+#~ msgstr "Visi liudijimai"
+
+#~ msgid "My Certificates"
+#~ msgstr "Mano liudijimai"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "Patikimi liudijimai"
+
+#, fuzzy
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "Patikimi liudijimai"
+
+#~ msgid "Other Certificates"
+#~ msgstr "Kiti liudijimai"
+
+#, fuzzy
+#~ msgid "Not Certified Certificates"
+#~ msgstr "Patikimi liudijimai"
+
+#, fuzzy
+#~ msgid "Not Validated Certificates"
+#~ msgstr "Patikimi liudijimai"
 
 #, fuzzy
 #~| msgid "User-IDs"

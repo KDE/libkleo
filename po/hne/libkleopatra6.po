@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2009-02-28 21:26+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -683,41 +683,50 @@ msgstr[1] ""
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
-msgid "All Certificates"
-msgstr "सब्बो प्रमानपत्र"
+msgctxt "All Certificates"
+msgid "All"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
-msgid "My Certificates"
-msgstr "मोर प्रमानपत्र"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:104
-#, kde-format
-msgid "Trusted Certificates"
-msgstr "भरोसेमंद प्रमानपत्र"
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "सब्बो प्रमानपत्र"
 
 #: kleo/keyfiltermanager.cpp:121
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Fully Trusted Certificates"
-msgstr "भरोसेमंद प्रमानपत्र"
+#| msgid "All Certificates"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:138
-#, kde-format
-msgid "Other Certificates"
-msgstr "अउ दुसर प्रमानपत्र"
-
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:136
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Certified Certificates"
-msgstr "भरोसेमंद प्रमानपत्र"
+#| msgid "All Certificates"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:180
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Validated Certificates"
-msgstr "भरोसेमंद प्रमानपत्र"
+#| msgid "All Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "सब्बो प्रमानपत्र"
+
+#: kleo/keyfiltermanager.cpp:186
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "सब्बो प्रमानपत्र"
 
 #: models/keylistmodel.cpp:325
 #, fuzzy, kde-format
@@ -2903,6 +2912,33 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "All Certificates"
+#~ msgstr "सब्बो प्रमानपत्र"
+
+#~ msgid "My Certificates"
+#~ msgstr "मोर प्रमानपत्र"
+
+#~ msgid "Trusted Certificates"
+#~ msgstr "भरोसेमंद प्रमानपत्र"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Fully Trusted Certificates"
+#~ msgstr "भरोसेमंद प्रमानपत्र"
+
+#~ msgid "Other Certificates"
+#~ msgstr "अउ दुसर प्रमानपत्र"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Not Certified Certificates"
+#~ msgstr "भरोसेमंद प्रमानपत्र"
+
+#, fuzzy
+#~| msgid "Trusted Certificates"
+#~ msgid "Not Validated Certificates"
+#~ msgstr "भरोसेमंद प्रमानपत्र"
 
 #, fuzzy
 #~| msgid "User ID"
