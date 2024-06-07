@@ -340,22 +340,62 @@ verify-command=md5sum -c --
 [Key Filter #0]
 was-validated=false
 Name=Not Validated
+Name[ca]=No validada
+Name[ca@valencia]=No validada
+Name[es]=No validada
+Name[ia]=Non validate
+Name[ka]=დაუდასტურებელია
+Name[nl]=Niet gevalideerd
+Name[sl]=Ni preverjen
+Name[tr]=Doğrulanmamış
+Name[uk]=Неперевірений
+Name[x-test]=xxNot Validatedxx
 
 [Key Filter #1]
 is-expired=true
 is-revoked=false
 foreground-color=255,0,0
 Name=Expired
+Name[ca]=Caducada
+Name[ca@valencia]=Caducada
+Name[es]=Expirada
+Name[ia]=Expirate
+Name[ka]=ვადაგასულია
+Name[nl]=Verlopen
+Name[sl]=Pretečen
+Name[tr]=Süresi Dolmuş
+Name[uk]=Застарілий
+Name[x-test]=xxExpiredxx
 
 [Key Filter #2]
 is-revoked=true
 Name=Revoked
+Name[ca]=Revocada
+Name[ca@valencia]=Revocada
+Name[es]=Revocada
+Name[ia]=Revocate
+Name[ka]=გაუქმებული
+Name[nl]=Ingetrokken
+Name[sl]=Preklican
+Name[tr]=Yürürlükten Kaldırılmış
+Name[uk]=Відкликаний
+Name[x-test]=xxRevokedxx
 
 [Key Filter #3]
 was-validated=true
 is-root-certificate=true
 is-validity=ultimate
 Name=Trusted Root Certificates
+Name[ca]=Certificats arrel de confiança
+Name[ca@valencia]=Certificats arrel de confiança
+Name[es]=Certificados raíz confiables
+Name[ia]=Certificatos de radice con fide
+Name[ka]=სანდო ძირითადი სერტიფიკატები
+Name[nl]=Vertrouwd hoofdcertificaat
+Name[sl]=Zaupanja vredna korenska potrdila
+Name[tr]=Güvenilir Kök Sertifikaları
+Name[uk]=Кореневі сертифікати з довірою
+Name[x-test]=xxTrusted Root Certificatesxx
 background-color=95,135,255
 font-bold=true
 
@@ -365,29 +405,87 @@ was-validated=true
 is-root-certificate=true
 is-not-validity=ultimate
 Name=Not Trusted Root Certificates
+Name[ca]=Certificats arrel sense confiança
+Name[ca@valencia]=Certificats arrel sense confiança
+Name[es]=Certificados raíz no confiables
+Name[ia]=Certificatos de radice sin fide
+Name[ka]=არასანდო ძირითადი სერტიფიკატები
+Name[nl]=Niet vertrouwd hoofdcertificaat
+Name[sl]=Korenska potrdila, ki niso zaupanja vredna
+Name[tr]=Güvenilmeyen Kök Sertifikaları
+Name[uk]=Кореневі сертифікати без довіри
+Name[x-test]=xxNot Trusted Root Certificatesxx
 
 [Key Filter #5]
 was-validated=true
 is-qualified=true
 font-bold=true
 Name=For Qualified Signatures
+Name[ca]=Per a signatures qualificades
+Name[ca@valencia]=Per a signatures qualificades
+Name[es]=Para firmas cualificadas
+Name[ia]=Pro signaturas qualificate
+Name[ka]=კვალიფიციული ხელმოწერებისთვის
+Name[nl]=Voor gekwalificeerde ondertekeningen
+Name[sl]=Za kvalificirane podpise
+Name[tr]=Yetkilendirilmiş İmzalar için
+Name[uk]=Для підписів обмеженого використання
+Name[x-test]=xxFor Qualified Signaturesxx
 
 [Key Filter #6]
 was-validated=true
 Name=Validated
+Name[ca]=Validada
+Name[ca@valencia]=Validada
+Name[es]=Validada
+Name[ia]=Validate
+Name[ka]=დადასტურებულია
+Name[nl]=Gevalideerd
+Name[sl]=Preverjen
+Name[tr]=Doğrulanmış
+Name[uk]=Перевірений
+Name[x-test]=xxValidatedxx
 
 [Key Filter #7]
 is-cardkey=true
 Name=On Smart Card
+Name[ca]=En targeta intel·ligent
+Name[ca@valencia]=En targeta intel·ligent
+Name[es]=En tarjeta inteligente
+Name[ia]=Sur carta intelligente (Smart Card)
+Name[ka]=სმარტ ბარათზე
+Name[nl]=Op smartcard
+Name[sl]=Na pametni kartici
+Name[tr]=Akıllı Kartta
+Name[uk]=На картці пам’яті
+Name[x-test]=xxOn Smart Cardxx
 icon=smartcard
 
 [Key Filter #8]
 is-openpgp-key=true
 Name=OpenPGP
+Name[ca]=OpenPGP
+Name[ca@valencia]=OpenPGP
+Name[es]=OpenPGP
+Name[ka]=OpenPGP
+Name[nl]=OpenPGP
+Name[sl]=OpenPGP
+Name[tr]=OpenPGP
+Name[uk]=OpenPGP
+Name[x-test]=xxOpenPGPxx
 
 [Key Filter #9]
 is-openpgp-key=false
 Name=S/MIME
+Name[ca]=S/MIME
+Name[ca@valencia]=S/MIME
+Name[es]=S/MIME
+Name[ka]=S/MIME
+Name[nl]=S/MIME
+Name[sl]=S/MIME
+Name[tr]=S/MIME
+Name[uk]=S/MIME
+Name[x-test]=xxS/MIMExx
 
 # Filters that filter for is-de-vs
 # are only shown in compliance mode
