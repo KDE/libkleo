@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-05-29 22:04+0200\n"
+"PO-Revision-Date: 2024-06-08 10:47+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -828,56 +828,46 @@ msgstr[1] ""
 "tagoj.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
-#, fuzzy, kde-format
-#| msgid "4 - All"
+#, kde-format
 msgctxt "All Certificates"
 msgid "All"
-msgstr "4 - Ĉiuj"
+msgstr "Ĉiuj"
 
 #: kleo/keyfiltermanager.cpp:86
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
-msgstr ""
+msgstr "Miaj Propraj"
 
 #: kleo/keyfiltermanager.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is valid.'"
-#| msgid "certified"
+#, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "atestita"
+msgstr "Atestitaj"
 
 #: kleo/keyfiltermanager.cpp:121
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is not certified'"
-#| msgid "not certified"
+#, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "ne atestita"
+msgstr "Ne Atestitaj"
 
 #: kleo/keyfiltermanager.cpp:136
-#, fuzzy, kde-format
-#| msgid "Certify"
+#, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
-msgstr "Atesti"
+msgstr "Atestendaj"
 
 #: kleo/keyfiltermanager.cpp:163
-#, fuzzy, kde-format
-#| msgctxt "As in not all keys are valid."
-#| msgid "not all certified"
+#, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "ne ĉiuj atestitaj"
+msgstr "Ne Plene Atestitaj"
 
 #: kleo/keyfiltermanager.cpp:186
-#, fuzzy, kde-format
-#| msgctxt "As in all keys are valid."
-#| msgid "all certified"
+#, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "ĉiuj atestitaj"
+msgstr "Plene Atestitaj"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -3016,24 +3006,3 @@ msgstr "Nevalida deksesum-signo '%1' en eniga fluo."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Tro frua fino de deksesum-kodita signo en eniga fluo"
-
-#~ msgid "All Certificates"
-#~ msgstr "Ĉiuj Atestiloj"
-
-#~ msgid "My Certificates"
-#~ msgstr "Miaj Atestiloj"
-
-#~ msgid "Trusted Certificates"
-#~ msgstr "Fidindaj Atestiloj"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Plene Fidindaj Atestiloj"
-
-#~ msgid "Other Certificates"
-#~ msgstr "Aliaj Atestiloj"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Ne Atestitaj Atestiloj"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Ne Validigitaj Atestiloj"
