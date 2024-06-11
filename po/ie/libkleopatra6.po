@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-06 00:39+0000\n"
+"POT-Creation-Date: 2024-06-11 00:39+0000\n"
 "PO-Revision-Date: 2022-11-01 00:29+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -690,13 +690,23 @@ msgctxt "All Certificates"
 msgid "All"
 msgstr "4:4:4"
 
-#: kleo/keyfiltermanager.cpp:86
+#: kleo/keyfiltermanager.cpp:72
+#, fuzzy, kde-format
+msgid "All certificates"
+msgstr "Omni certificates"
+
+#: kleo/keyfiltermanager.cpp:87
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:104
+#: kleo/keyfiltermanager.cpp:88
+#, fuzzy, kde-format
+msgid "My own certificates"
+msgstr "Certificates:"
+
+#: kleo/keyfiltermanager.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "As in all user IDs are valid."
 #| msgid "certified"
@@ -704,7 +714,12 @@ msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "certificat"
 
-#: kleo/keyfiltermanager.cpp:121
+#: kleo/keyfiltermanager.cpp:107
+#, kde-format
+msgid "Certificates for which the primary user ID is certified"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:124
 #, fuzzy, kde-format
 #| msgctxt "As in not all user IDs are valid."
 #| msgid "not certified"
@@ -712,24 +727,46 @@ msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "ne certificat"
 
-#: kleo/keyfiltermanager.cpp:136
+#: kleo/keyfiltermanager.cpp:125
+#, kde-format
+msgid "Certificates for which the primary user ID is not certified"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:140
 #, fuzzy, kde-format
 #| msgid "Certify"
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "Certificar"
 
-#: kleo/keyfiltermanager.cpp:163
+#: kleo/keyfiltermanager.cpp:141
+#, kde-format
+msgid ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:168
 #, fuzzy, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "ne certificat"
 
-#: kleo/keyfiltermanager.cpp:186
+#: kleo/keyfiltermanager.cpp:169
+#, fuzzy, kde-format
+msgid "Certificates for which not all user IDs are certified"
+msgstr "Omni usatores|Actual usator"
+
+#: kleo/keyfiltermanager.cpp:192
 #, fuzzy, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "ne certificat"
+
+#: kleo/keyfiltermanager.cpp:193
+#, fuzzy, kde-format
+msgid "Certificates for which all user IDs are certified"
+msgstr "Omni usatores|Actual usator"
 
 #: models/keylistmodel.cpp:325
 #, fuzzy, kde-format
@@ -2841,14 +2878,6 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~ msgid "All Certificates"
-#~ msgstr "Omni certificates"
-
-#, fuzzy
-#~ msgid "My Certificates"
-#~ msgstr "Certificates:"
 
 #, fuzzy
 #~ msgid "Trusted Certificates"

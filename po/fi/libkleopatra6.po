@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-06 00:39+0000\n"
+"POT-Creation-Date: 2024-06-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-08 19:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -843,13 +843,25 @@ msgctxt "All Certificates"
 msgid "All"
 msgstr "4 – Tarkka"
 
-#: kleo/keyfiltermanager.cpp:86
+#: kleo/keyfiltermanager.cpp:72
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid "All certificates"
+msgstr "Kaikki varmenteet"
+
+#: kleo/keyfiltermanager.cpp:87
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:104
+#: kleo/keyfiltermanager.cpp:88
+#, fuzzy, kde-format
+#| msgid "My Certificates"
+msgid "My own certificates"
+msgstr "Omat varmenteet"
+
+#: kleo/keyfiltermanager.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "As in 'this user ID is valid.'"
 #| msgid "certified"
@@ -857,7 +869,12 @@ msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "varmennettu"
 
-#: kleo/keyfiltermanager.cpp:121
+#: kleo/keyfiltermanager.cpp:107
+#, kde-format
+msgid "Certificates for which the primary user ID is certified"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:124
 #, fuzzy, kde-format
 #| msgctxt "As in 'this user ID is not certified'"
 #| msgid "not certified"
@@ -865,14 +882,26 @@ msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "ei varmennettu"
 
-#: kleo/keyfiltermanager.cpp:136
+#: kleo/keyfiltermanager.cpp:125
+#, kde-format
+msgid "Certificates for which the primary user ID is not certified"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:140
 #, fuzzy, kde-format
 #| msgid "Certify"
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "Varmenna"
 
-#: kleo/keyfiltermanager.cpp:163
+#: kleo/keyfiltermanager.cpp:141
+#, kde-format
+msgid ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:168
 #, fuzzy, kde-format
 #| msgctxt "As in not all keys are valid."
 #| msgid "not all certified"
@@ -880,13 +909,25 @@ msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "kaikkia ei varmennettu"
 
-#: kleo/keyfiltermanager.cpp:186
+#: kleo/keyfiltermanager.cpp:169
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "Certificates for which not all user IDs are certified"
+msgstr "Kaikki käyttäjätunnisteet on varmennettu."
+
+#: kleo/keyfiltermanager.cpp:192
 #, fuzzy, kde-format
 #| msgctxt "As in all keys are valid."
 #| msgid "all certified"
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "kaikki varmennettu"
+
+#: kleo/keyfiltermanager.cpp:193
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid "Certificates for which all user IDs are certified"
+msgstr "Kaikki käyttäjätunnisteet on varmennettu."
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -3060,12 +3101,6 @@ msgstr "Syötevirrassa virheellinen heksamerkki ”%1”."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Syötevirrassa ennenaikainen heksakoodatun merkin loppu"
-
-#~ msgid "All Certificates"
-#~ msgstr "Kaikki varmenteet"
-
-#~ msgid "My Certificates"
-#~ msgstr "Omat varmenteet"
 
 #~ msgid "Trusted Certificates"
 #~ msgstr "Luotetut varmenteet"
