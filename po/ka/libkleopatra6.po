@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-06 05:10+0200\n"
+"PO-Revision-Date: 2024-06-11 04:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -850,8 +850,7 @@ msgid "All"
 msgstr "ყველა"
 
 #: kleo/keyfiltermanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
 msgstr "ყველა სერტიფიკატი"
 
@@ -862,8 +861,7 @@ msgid "My Own"
 msgstr "ჩემი საკუთარი"
 
 #: kleo/keyfiltermanager.cpp:88
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates"
 msgstr "ჩემი სერტიფიკატები"
 
@@ -876,7 +874,7 @@ msgstr "სერტიფიცირებული"
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+msgstr "სერტიფიკატები, რომლებისთვისაც მთავარი მომხმარებლის ID სერტიფიცირებულია"
 
 #: kleo/keyfiltermanager.cpp:124
 #, kde-format
@@ -888,6 +886,7 @@ msgstr "არასერტიფიცირებული"
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
 msgstr ""
+"სერტიფიკატები, რომლებისთვისაც მთავარი მომხმარებლის ID სერტიფიცირებული არაა"
 
 #: kleo/keyfiltermanager.cpp:140
 #, kde-format
@@ -901,6 +900,8 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"სერტიფიკატები, რომლებიც სრულად სერტიფიცირებული არაა და რომლების "
+"სერტიფიცირებაც თქვენ გნებავთ"
 
 #: kleo/keyfiltermanager.cpp:168
 #, kde-format
@@ -909,10 +910,10 @@ msgid "Not Fully Certified"
 msgstr "სრულად სერტიფიცირებული არაა"
 
 #: kleo/keyfiltermanager.cpp:169
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which not all user IDs are certified"
-msgstr "ყველა მომხმარებლის ID სერტიფიფიცირებულია."
+msgstr ""
+"სერტიფიკატები, რომლებისთვისაც ყველა მომხმარებლის ID სერტიფიფიცირებული არაა"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -921,10 +922,9 @@ msgid "Fully Certified"
 msgstr "სრულად სერტიფიცირებულია"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which all user IDs are certified"
-msgstr "ყველა მომხმარებლის ID სერტიფიფიცირებულია."
+msgstr "სერტიფიკატები, რომლებისთვისაც ყველა მომხმარებლის ID სერტიფიფიცირებულია"
 
 #: models/keylistmodel.cpp:325
 #, kde-format

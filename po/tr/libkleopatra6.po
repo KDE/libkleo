@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-06 11:12+0300\n"
+"PO-Revision-Date: 2024-06-12 00:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -839,10 +839,9 @@ msgid "All"
 msgstr "Tümü"
 
 #: kleo/keyfiltermanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
-msgstr "Tüm Sertifikalar"
+msgstr "Tüm sertifikalar"
 
 #: kleo/keyfiltermanager.cpp:87
 #, kde-format
@@ -851,32 +850,31 @@ msgid "My Own"
 msgstr "Benim Kendi"
 
 #: kleo/keyfiltermanager.cpp:88
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates"
-msgstr "Sertifikalarım"
+msgstr "Benim kendi sertifikalarım"
 
 #: kleo/keyfiltermanager.cpp:106
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "Sertifikalanmış"
+msgstr "Sertifikalı"
 
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+msgstr "Birincil kullanıcı kimliği sertifikalı olan sertifikalar"
 
 #: kleo/keyfiltermanager.cpp:124
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "Sertifikalanmamış"
+msgstr "Sertifikalı Değil"
 
 #: kleo/keyfiltermanager.cpp:125
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+msgstr "Birincil kullanıcı kimliği sertifikalı olmayan sertifikalar"
 
 #: kleo/keyfiltermanager.cpp:140
 #, kde-format
@@ -890,30 +888,30 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"Tümüyle sertifikalı olmayan ve kendinizin sertifikalamak isteyebileceğiniz "
+"sertifikalar"
 
 #: kleo/keyfiltermanager.cpp:168
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "Tümüyle Sertifikalanmamış"
+msgstr "Tümüyle Sertifikalı Değil"
 
 #: kleo/keyfiltermanager.cpp:169
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which not all user IDs are certified"
-msgstr "Tüm kullanıcı kimlikleri sertifikalı."
+msgstr "Tüm kullanıcı kimlikleri sertifikalı olmayan sertifikalar."
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "Tümüyle Sertifikalanmış"
+msgstr "Tümüyle Sertifikalı"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which all user IDs are certified"
-msgstr "Tüm kullanıcı kimlikleri sertifikalı."
+msgstr "Tüm kullanıcı kimlikleri sertifikalı olan sertifikalar."
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -2356,7 +2354,7 @@ msgstr "Kullanıcı kimliği sertifikalanmış."
 #: utils/formatting.cpp:427
 #, kde-format
 msgid "User ID is not certified."
-msgstr "Kullanıcı kimliği sertifikalanmamış."
+msgstr "Kullanıcı kimliği sertifikalı değil."
 
 #: utils/formatting.cpp:437
 #, kde-format
@@ -2367,8 +2365,8 @@ msgstr "Tüm kullanıcı kimlikleri sertifikalı."
 #, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
-msgstr[0] "1 kullanıcı kimliği sertifikalanmamış."
-msgstr[1] "%1 kullanıcı kimliği sertifikalanmamış."
+msgstr[0] "1 kullanıcı kimliği sertifikalı değil."
+msgstr[1] "%1 kullanıcı kimliği sertifikalı değil."
 
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
 #, kde-format
@@ -2844,7 +2842,7 @@ msgstr "sertifikalı"
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
-msgstr "sertifikasız"
+msgstr "sertifikalı değil"
 
 #: utils/formatting.cpp:1358
 #, kde-format
@@ -2862,7 +2860,7 @@ msgstr "sertifikalı"
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
-msgstr "sertifikasız"
+msgstr "sertifikalı değil"
 
 #: utils/formatting.cpp:1386
 #, kde-format
@@ -2880,7 +2878,7 @@ msgstr "tümü sertifikalı"
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
-msgstr "hepsi sertifikalı değil"
+msgstr "tümü sertifikalı değil"
 
 #: utils/formatting.cpp:1431
 #, kde-format

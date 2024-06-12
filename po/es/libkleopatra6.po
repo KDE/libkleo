@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-06 19:47+0200\n"
+"PO-Revision-Date: 2024-06-12 01:16+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -825,8 +825,7 @@ msgid "All"
 msgstr "Todos"
 
 #: kleo/keyfiltermanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
 msgstr "Todos los certificados"
 
@@ -837,10 +836,9 @@ msgid "My Own"
 msgstr "Los míos"
 
 #: kleo/keyfiltermanager.cpp:88
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates"
-msgstr "Mis certificados"
+msgstr "Mis propios certificados"
 
 #: kleo/keyfiltermanager.cpp:106
 #, kde-format
@@ -851,7 +849,7 @@ msgstr "Certificados"
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+msgstr "Certificados cuya ID de usuario principal está certificada"
 
 #: kleo/keyfiltermanager.cpp:124
 #, kde-format
@@ -862,7 +860,7 @@ msgstr "No certificados"
 #: kleo/keyfiltermanager.cpp:125
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+msgstr "Certificados cuya ID de usuario principal no está certificada"
 
 #: kleo/keyfiltermanager.cpp:140
 #, kde-format
@@ -876,6 +874,8 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"Certificados que no se han certificado completamente y que tal vez quiera "
+"certificar por sí mismo"
 
 #: kleo/keyfiltermanager.cpp:168
 #, kde-format
@@ -884,10 +884,10 @@ msgid "Not Fully Certified"
 msgstr "No certificados totalmente"
 
 #: kleo/keyfiltermanager.cpp:169
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which not all user IDs are certified"
-msgstr "Todos los ID de usuarios están certificados."
+msgstr ""
+"Certificados para los que no se han certificado todas las ID de usuario"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -896,10 +896,9 @@ msgid "Fully Certified"
 msgstr "Totalmente certificados"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which all user IDs are certified"
-msgstr "Todos los ID de usuarios están certificados."
+msgstr "Certificados para los que se han certificado todas las ID de usuario"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
