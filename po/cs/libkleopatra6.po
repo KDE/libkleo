@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2014, 2016, 2017, 2018, 2019, 2020.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
-# Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 00:39+0000\n"
-"PO-Revision-Date: 2023-06-22 14:59+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2024-06-11 12:08+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -348,7 +348,7 @@ msgstr[2] ""
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (sériové číslo %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -750,13 +750,13 @@ msgstr "Název"
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
-msgstr ""
+msgstr "E-Mail"
 
 #: models/keylistmodel.cpp:329
 #, kde-format
 msgctxt "@title:column"
 msgid "User-IDs"
-msgstr ""
+msgstr "ID uživatelů"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -774,31 +774,31 @@ msgstr "Platný do"
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
-msgstr ""
+msgstr "Protokol"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
 #, kde-format
 msgctxt "@title:column"
 msgid "Key-ID"
-msgstr ""
+msgstr "ID klíče"
 
 #: models/keylistmodel.cpp:341
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
-msgstr ""
+msgstr "Otisk"
 
 #: models/keylistmodel.cpp:343
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
-msgstr ""
+msgstr "Vydavatel"
 
 #: models/keylistmodel.cpp:345
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
-msgstr ""
+msgstr "Sériové číslo"
 
 #: models/keylistmodel.cpp:347
 #, kde-format
@@ -810,25 +810,25 @@ msgstr "Původ"
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
-msgstr ""
+msgstr "Poslední aktualizace"
 
 #: models/keylistmodel.cpp:351
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
-msgstr ""
+msgstr "Důvěryhodnost certifikace"
 
 #: models/keylistmodel.cpp:353
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
-msgstr ""
+msgstr "Značky"
 
 #: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritmus"
 
 #: models/keylistmodel.cpp:357
 #, kde-format
@@ -1910,7 +1910,7 @@ msgstr "Zobrazovat odpovídající klíče"
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgid "Show keys matching the email address"
-msgstr ""
+msgstr "Zobrazit klíče odpovídající e-mailové adrese"
 
 #: ui/newkeyapprovaldialog.cpp:188
 #, kde-format
@@ -2046,7 +2046,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
-msgstr ""
+msgstr "Zobrazit sloupce"
 
 #: utils/compliance.cpp:160
 #, kde-format
@@ -2086,7 +2086,7 @@ msgstr "Šifrování"
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
 msgid "Certifying User-IDs"
-msgstr ""
+msgstr "Certifikuji ID uživatelů"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
 #, kde-format
@@ -2111,25 +2111,25 @@ msgstr "Zakázáno"
 #: utils/formatting.cpp:421
 #, kde-format
 msgid "User-ID is certified."
-msgstr ""
+msgstr "ID uživatele je certifikováno."
 
 #: utils/formatting.cpp:427
 #, kde-format
 msgid "User-ID is not certified."
-msgstr ""
+msgstr "ID uživatele není certifikováno."
 
 #: utils/formatting.cpp:437
 #, kde-format
 msgid "All User-IDs are certified."
-msgstr ""
+msgstr "Všechna ID uživatelů jsou certifikována."
 
 #: utils/formatting.cpp:443
 #, kde-format
 msgid "One User-ID is not certified."
 msgid_plural "%1 User-IDs are not certified."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "ID uživatele není certifikováno."
+msgstr[1] "%1 ID uživatelů není certifikováno."
+msgstr[2] "%1 ID uživatelů není certifikováno."
 
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
 #, kde-format
@@ -2526,7 +2526,7 @@ msgstr ""
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "%1 (%2, %3, vytvořeno: %4)"
 
 #: utils/formatting.cpp:1186
 #, kde-format
@@ -2603,19 +2603,19 @@ msgstr "neznámý"
 #, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
-msgstr ""
+msgstr "certifikováno"
 
 #: utils/formatting.cpp:1355
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
-msgstr ""
+msgstr "nebylo certifikováno"
 
 #: utils/formatting.cpp:1358
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "nekontrolováno"
 
 #: utils/formatting.cpp:1368
 #, kde-format
@@ -2683,19 +2683,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
-msgstr ""
+msgstr "ECC (Brainpool P-256)"
 
 #: utils/formatting.cpp:1510
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
-msgstr ""
+msgstr "ECC (Brainpool P-384)"
 
 #: utils/formatting.cpp:1511
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
-msgstr ""
+msgstr "ECC (Brainpool P-512)"
 
 #: utils/formatting.cpp:1512
 #, kde-format
@@ -2713,43 +2713,43 @@ msgstr "ECC (Curve448)"
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
-msgstr ""
+msgstr "ECC (Ed25519)"
 
 #: utils/formatting.cpp:1515
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
-msgstr ""
+msgstr "ECC (Ed448)"
 
 #: utils/formatting.cpp:1516
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
-msgstr ""
+msgstr "ECC (Cv25519)"
 
 #: utils/formatting.cpp:1517
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
-msgstr ""
+msgstr "ECC (Cv448)"
 
 #: utils/formatting.cpp:1518
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1519
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1520
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1521
 #, kde-format
@@ -2761,7 +2761,7 @@ msgstr "RSA 2048"
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
-msgstr ""
+msgstr "RSA 3072"
 
 #: utils/formatting.cpp:1523
 #, kde-format
@@ -2773,43 +2773,43 @@ msgstr "RSA 4096"
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
-msgstr ""
+msgstr "DSA 1024"
 
 #: utils/formatting.cpp:1525
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
-msgstr ""
+msgstr "DSA 2048"
 
 #: utils/formatting.cpp:1526
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
-msgstr ""
+msgstr "Elgamal 1024"
 
 #: utils/formatting.cpp:1527
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
-msgstr ""
+msgstr "Elgamal 2048"
 
 #: utils/formatting.cpp:1528
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
-msgstr ""
+msgstr "Elgamal 3072"
 
 #: utils/formatting.cpp:1529
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
-msgstr ""
+msgstr "Elgamal 4096"
 
 #: utils/formatting.cpp:1532
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
-msgstr ""
+msgstr "Neznámý algoritmus"
 
 #: utils/hex.cpp:35
 #, kde-format
