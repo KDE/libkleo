@@ -197,8 +197,8 @@ target_link_libraries(KPim6Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
                                                 KF6::ColorScheme
                                                 KF6::ConfigGui
                                                 KF6::CoreAddons
-                                                KF6::WidgetsAddons
                                                 KF6::ItemModels
+                                                KF6::WidgetsAddons
                                                 KF6::Codecs
                                                 LibGpgError::LibGpgError)
 
@@ -206,11 +206,6 @@ target_link_libraries(KPim6Libkleo PUBLIC QGpgmeQt6)
 # Boost::headers may not be available for old versions of Boost
 if (TARGET Boost::headers)
   target_link_libraries(KPim6Libkleo PRIVATE Boost::headers)
-endif()
-
-if (TARGET KF6::TextCustomEditor)
-  add_definitions(-DHAVE_PIMTEXTEDIT)
-  target_link_libraries(KPim6Libkleo PRIVATE KF6::TextCustomEditor)
 endif()
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)

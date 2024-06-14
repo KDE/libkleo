@@ -20,11 +20,7 @@
 #include <KSharedConfig>
 #include <KStandardGuiItem>
 
-#ifdef HAVE_PIMTEXTEDIT
-#include <TextCustomEditor/RichTextEditor>
-#else
 #include <QTextEdit>
-#endif
 
 #include <QDebug>
 #include <QDialogButtonBox>
@@ -42,12 +38,7 @@ using namespace Kleo;
 AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     : QDialog(parent)
     , m_log(/* sic */)
-    ,
-#ifdef HAVE_PIMTEXTEDIT
-    m_textEdit(new TextCustomEditor::RichTextEditorWidget(this))
-#else
-    m_textEdit(new QTextEdit(this))
-#endif
+    , m_textEdit(new QTextEdit(this))
 {
     setWindowTitle(i18nc("@title:window", "View GnuPG Audit Log"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox{};

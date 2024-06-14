@@ -10,12 +10,7 @@
 
 #include <QDialog>
 
-#ifdef HAVE_PIMTEXTEDIT
-#include <TextCustomEditor/RichTextEditorWidget>
-#else
-
 class QTextEdit;
-#endif // HAVE_PIMTEXTEDIT
 
 namespace Kleo
 {
@@ -42,11 +37,7 @@ private:
     void readConfig();
 
     QString m_log;
-#ifdef HAVE_PIMTEXTEDIT
-    TextCustomEditor::RichTextEditorWidget *m_textEdit = nullptr;
-#else
     QTextEdit *m_textEdit = nullptr;
-#endif
 };
 
 }
