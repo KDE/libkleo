@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1682380 $
+# Version: $Revision: 1682479 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-15 00:39+0000\n"
-"PO-Revision-Date: 2024-05-26 11:22+0200\n"
+"PO-Revision-Date: 2024-06-16 10:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -21,6 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -917,15 +918,13 @@ msgstr[2] ""
 "</p>"
 
 #: kleo/keyfiltermanager.cpp:71
-#, fuzzy, kde-format
-#| msgid "4 - All"
+#, kde-format
 msgctxt "All Certificates"
 msgid "All"
-msgstr "4 - Wszystko"
+msgstr "Wszystkie"
 
 #: kleo/keyfiltermanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
 msgstr "Wszystkie certyfikaty"
 
@@ -933,46 +932,40 @@ msgstr "Wszystkie certyfikaty"
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
-msgstr ""
+msgstr "Moje własne"
 
 #: kleo/keyfiltermanager.cpp:88
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates"
-msgstr "Moje certyfikaty"
+msgstr "Moje własne certyfikaty"
 
 #: kleo/keyfiltermanager.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is valid.'"
-#| msgid "certified"
+#, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "certyfikowane"
+msgstr "Certyfikowane"
 
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+msgstr "Certyfikaty, dla których główny ID użytkownika jest certyfikowany"
 
 #: kleo/keyfiltermanager.cpp:124
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is not certified'"
-#| msgid "not certified"
+#, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "nie certyfikowane"
+msgstr "Niecertyfikowane"
 
 #: kleo/keyfiltermanager.cpp:125
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+msgstr "Certyfikaty, dla których główny ID użytkownika nie jest certyfikowany"
 
 #: kleo/keyfiltermanager.cpp:140
-#, fuzzy, kde-format
-#| msgid "Certify"
+#, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
-msgstr "Certyfikowanie"
+msgstr "Do certyfikowania"
 
 #: kleo/keyfiltermanager.cpp:141
 #, kde-format
@@ -980,34 +973,30 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"Certyfikaty, które nie są w pełni certyfikowane i które możesz chcieć "
+"samodzielne certyfikować"
 
 #: kleo/keyfiltermanager.cpp:168
-#, fuzzy, kde-format
-#| msgctxt "As in not all keys are valid."
-#| msgid "not all certified"
+#, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "nie wszystkie certyfikowane"
+msgstr "Nie w pełni certyfikowane"
 
 #: kleo/keyfiltermanager.cpp:169
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which not all user IDs are certified"
-msgstr "Wszystkie ID użytkownika są certyfikowane."
+msgstr "Certyfikaty, dla których nie wszystkie ID użytkownika są certyfikowane"
 
 #: kleo/keyfiltermanager.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "As in all keys are valid."
-#| msgid "all certified"
+#, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "wszystkie certyfikowane"
+msgstr "W pełni certyfikowane"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which all user IDs are certified"
-msgstr "Wszystkie ID użytkownika są certyfikowane."
+msgstr "Certyfikaty, dla których wszystkie ID użytkownika są certyfikowane"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -1352,8 +1341,7 @@ msgid "4 - All"
 msgstr "4 - Wszystko"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, fuzzy, kde-format
-#| msgid "Set the debugging level to"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Ustaw poziom diagnostyki na"
@@ -1513,15 +1501,13 @@ msgid "Description"
 msgstr "Opis"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Dostępne atrybuty:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Obecny porządek atrybutów:"
@@ -1875,36 +1861,31 @@ msgid "Encryption Key Approval"
 msgstr "Potwierdzenie klucza szyfrującego"
 
 #: ui/keyapprovaldialog.cpp:118
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "Do szyfrowania użyte będą następujące klucze:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Your keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Twoje klucze:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Odbiorca:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Klucze szyfrujące:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Encryption preference:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Preferencje szyfrowania:"
@@ -2127,11 +2108,10 @@ msgid "Search for &External Certificates"
 msgstr "Wyszukaj z&ewnętrznych certyfikatów"
 
 #: ui/keyselectiondialog.cpp:440
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
-msgstr "&Szukaj:"
+msgstr "Po&szukaj:"
 
 #: ui/keyselectiondialog.cpp:465
 #, kde-format
