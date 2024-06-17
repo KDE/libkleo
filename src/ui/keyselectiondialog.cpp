@@ -423,7 +423,7 @@ void KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
     mTopLayout->addWidget(mTextLabel);
     mTextLabel->hide();
 
-    QPushButton *const searchExternalPB = new QPushButton(i18n("Search for &External Certificates"), page);
+    QPushButton *const searchExternalPB = new QPushButton(i18nc("@action:button", "Search for &External Certificates"), page);
     mTopLayout->addWidget(searchExternalPB, 0, Qt::AlignLeft);
     connect(searchExternalPB, &QAbstractButton::clicked, this, &KeySelectionDialog::slotStartSearchForExternalCertificates);
     if (initialQuery.isEmpty()) {
@@ -479,12 +479,12 @@ void KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
     connect(mKeyListView, &KeyListView::contextMenu, this, &KeySelectionDialog::slotRMB);
 
     if (options & RereadKeys) {
-        QPushButton *button = new QPushButton(i18n("&Reread Keys"));
+        QPushButton *button = new QPushButton(i18nc("@action:button", "&Reread Keys"));
         buttonBox->addButton(button, QDialogButtonBox::ActionRole);
         connect(button, &QPushButton::clicked, this, &KeySelectionDialog::slotRereadKeys);
     }
     if (options & ExternalCertificateManager) {
-        QPushButton *button = new QPushButton(i18n("&Start Certificate Manager"));
+        QPushButton *button = new QPushButton(i18nc("@action:button", "&Start Certificate Manager"));
         buttonBox->addButton(button, QDialogButtonBox::ActionRole);
         connect(button, &QPushButton::clicked, this, [this]() {
             slotStartCertificateManager();

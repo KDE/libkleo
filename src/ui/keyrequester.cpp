@@ -89,7 +89,7 @@ void Kleo::KeyRequester::init()
     mEraseButton->setToolTip(i18nc("@info:tooltip", "Clear"));
 
     // the button to call the KeySelectionDialog:
-    mDialogButton = new QPushButton(i18n("Change..."), this);
+    mDialogButton = new QPushButton(i18nc("@action:button", "Change..."), this);
     mDialogButton->setAutoDefault(false);
 
     if (mComplianceIcon) {

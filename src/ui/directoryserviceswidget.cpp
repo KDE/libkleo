@@ -213,7 +213,7 @@ public:
         ui.newButton->setMenu(menu);
         groupsButtonLayout->addWidget(ui.newButton);
 
-        ui.editButton = new QPushButton(i18n("Edit"));
+        ui.editButton = new QPushButton(i18nc("@action:button", "Edit"));
         ui.editButton->setToolTip(i18nc("@info:tooltip", "Click to edit the selected service."));
         ui.editButton->setWhatsThis(i18nc("@info:whatsthis",
                                           "Click this button to edit the settings of the currently selected directory service. "
@@ -221,7 +221,7 @@ public:
         ui.editButton->setEnabled(false);
         groupsButtonLayout->addWidget(ui.editButton);
 
-        ui.deleteButton = new QPushButton(i18n("Delete"));
+        ui.deleteButton = new QPushButton(i18nc("@action:button", "Delete"));
         ui.deleteButton->setToolTip(i18nc("@info:tooltip", "Click to remove the selected service."));
         ui.deleteButton->setWhatsThis(i18nc("@info:whatsthis",
                                             "Click this button to remove the currently selected directory service. "
