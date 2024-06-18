@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ../cy/messages//kdepim/libkleopatra.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandrakesoft.com>\n"
 "Language-Team: cy <LL@li.org>\n"
@@ -1196,6 +1196,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Golygu..."
 
@@ -1216,6 +1217,7 @@ msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
@@ -1627,7 +1629,9 @@ msgid "Clear"
 msgstr ""
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Newid..."
 
@@ -1829,6 +1833,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr ""
 
@@ -1854,12 +1859,15 @@ msgstr ""
 "p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Ail-dda&rllen Allweddau"
 
 #: ui/keyselectiondialog.cpp:487
 #, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr ""
 

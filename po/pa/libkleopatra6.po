@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2010-10-11 06:52+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
@@ -1238,6 +1238,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "ਸੋਧ..."
 
@@ -1258,7 +1259,9 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
@@ -1686,7 +1689,9 @@ msgid "Clear"
 msgstr "ਸਾਫ਼ ਕਰੋ"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "ਬਦਲੋ..."
 
@@ -1889,6 +1894,7 @@ msgstr ""
 #: ui/keyselectiondialog.cpp:426
 #, fuzzy, kde-format
 #| msgid "Other Certificates"
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "ਹੋਰ ਸਰਟੀਫਿਕੇਟ"
 
@@ -1912,14 +1918,18 @@ msgid ""
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recheck Key"
+msgctxt "@action:button"
 msgid "&Reread Keys"
-msgstr ""
+msgstr "ਕੁੰਜੀ ਦੀ ਮੁੜ ਜਾਂਚ"
 
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Other Certificates"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
-msgstr ""
+msgstr "ਹੋਰ ਸਰਟੀਫਿਕੇਟ"
 
 #: ui/keyselectiondialog.cpp:647
 #, kde-format
@@ -2949,9 +2959,6 @@ msgstr ""
 #~| msgid "Trusted Certificates"
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "ਟਰੱਸਟ ਕੀਤੇ ਸਰਟੀਫਿਕੇਟ"
-
-#~ msgid "Other Certificates"
-#~ msgstr "ਹੋਰ ਸਰਟੀਫਿਕੇਟ"
 
 #, fuzzy
 #~| msgid "Trusted Certificates"

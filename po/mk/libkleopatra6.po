@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2007-02-28 14:29+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -1237,6 +1237,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Уреди..."
 
@@ -1258,6 +1259,7 @@ msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
@@ -1686,7 +1688,9 @@ msgid "Clear"
 msgstr ""
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Измени..."
 
@@ -1895,6 +1899,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr ""
 
@@ -1920,12 +1925,15 @@ msgstr ""
 "бидете прашани повторно.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Препрочирај &клучеви"
 
 #: ui/keyselectiondialog.cpp:487
 #, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr ""
 

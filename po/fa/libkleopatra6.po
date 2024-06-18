@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2007-08-20 16:45+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -1219,6 +1219,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "ویرایش..."
 
@@ -1240,6 +1241,7 @@ msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
@@ -1670,7 +1672,9 @@ msgid "Clear"
 msgstr "پاک کردن"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "تغییر..."
 
@@ -1880,6 +1884,7 @@ msgstr ""
 #: ui/keyselectiondialog.cpp:426
 #, fuzzy, kde-format
 #| msgid "&Start Certificate Manager"
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "&آغاز مدیر گواهی‌نامه‌"
 
@@ -1905,12 +1910,16 @@ msgstr ""
 "نمی‌شود.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "کلیدهای &بازخوانی‌"
 
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Start Certificate Manager"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "&آغاز مدیر گواهی‌نامه‌"
 

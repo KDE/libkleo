@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2024-02-29 03:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1206,7 +1206,9 @@ msgstr ""
 "效。"
 
 #: ui/directoryserviceswidget.cpp:216
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "編輯"
 
@@ -1228,7 +1230,9 @@ msgstr ""
 "會生效。"
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "刪除"
 
@@ -1646,7 +1650,9 @@ msgid "Clear"
 msgstr "清除"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "變更..."
 
@@ -1846,7 +1852,9 @@ msgid "Compliance"
 msgstr "合規"
 
 #: ui/keyselectiondialog.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search for &External Certificates"
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "搜尋外部憑證(&E)"
 
@@ -1871,12 +1879,16 @@ msgstr ""
 "<qt><p>如果勾選此選項，您的選擇會被儲存起來，並且不會再詢問您。</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "重新讀取金鑰(&R)"
 
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Start Certificate Manager"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "啟動憑證管理員(&S)"
 

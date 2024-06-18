@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2005-03-04 00:29+0100\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: Breton <LL@li.org>\n"
@@ -1206,6 +1206,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Aozañ ..."
 
@@ -1227,6 +1228,7 @@ msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
@@ -1649,7 +1651,9 @@ msgid "Clear"
 msgstr "Goullonderiñ"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Kemmañ ..."
 
@@ -1853,6 +1857,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr ""
 
@@ -1876,14 +1881,18 @@ msgid ""
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "&Adlenn an alc'hwezioù"
 
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
-msgstr ""
+msgstr "Fazi merour an testnioù"
 
 #: ui/keyselectiondialog.cpp:647
 #, kde-format

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2024-03-19 11:34+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1252,6 +1252,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Szerkesztés..."
 
@@ -1278,7 +1279,9 @@ msgstr ""
 "csak akkor lesz végleges, ha a fő párbeszédablakban elfogadja a változásokat."
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Törlés"
 
@@ -1732,7 +1735,9 @@ msgid "Clear"
 msgstr "Törlés"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Módosítás..."
 
@@ -1939,7 +1944,9 @@ msgid "Compliance"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search for &External Certificates"
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Külső tanúsítványok k&eresése"
 
@@ -1965,12 +1972,16 @@ msgstr ""
 "rákérdezni.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "A kulcsok újra&olvasása"
 
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Start Certificate Manager"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "&Tanúsítványkezelő"
 

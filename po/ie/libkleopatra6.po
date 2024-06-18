@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2022-11-01 00:29+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -1220,6 +1220,7 @@ msgstr ""
 
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "_Modificar"
 
@@ -1239,7 +1240,9 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Remover"
 
@@ -1656,6 +1659,7 @@ msgstr "Vacuar"
 
 #: ui/keyrequester.cpp:92
 #, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "C_ambiar a:"
 
@@ -1859,6 +1863,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
 #, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Certificates"
 
@@ -1882,11 +1887,13 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:482
 #, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Claves:"
 
 #: ui/keyselectiondialog.cpp:487
 #, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Gerente de certificates e integrat interfacie de criptografie"
 

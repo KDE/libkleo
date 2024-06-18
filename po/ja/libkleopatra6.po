@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1209,7 +1209,9 @@ msgstr ""
 "の設定ダイアログの「適用」または「OK」ボタンを押して初めて有効になります。"
 
 #: ui/directoryserviceswidget.cpp:216
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "編集"
 
@@ -1232,7 +1234,9 @@ msgstr ""
 "す。"
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "削除"
 
@@ -1668,7 +1672,9 @@ msgid "Clear"
 msgstr "クリア"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "変更..."
 
@@ -1873,7 +1879,9 @@ msgid "Compliance"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search for &External Certificates"
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "外部証明書を検索(&E)"
 
@@ -1899,13 +1907,17 @@ msgstr ""
 "れなくなります。</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "鍵を再読み込み(&R)"
 
 # ACCELERATOR changed by translator
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Start Certificate Manager"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "証明書マネージャを起動(&S)"
 

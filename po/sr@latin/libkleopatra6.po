@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2014-11-30 11:17+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -1319,6 +1319,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Uredi..."
 
@@ -1346,7 +1347,9 @@ msgstr ""
 "će stupiti na snagu tek kad je potvrdite u glavnom dijalogu za podešavanje."
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Obriši"
 
@@ -1810,7 +1813,9 @@ msgid "Clear"
 msgstr "Očisti"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Promeni..."
 
@@ -2016,7 +2021,9 @@ msgid "Compliance"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search for &External Certificates"
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Potraži &spoljašnje sertifikate"
 
@@ -2042,12 +2049,16 @@ msgstr ""
 "biti pitani.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "&Ponovo pročitaj ključeve"
 
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Start Certificate Manager"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Pokreni &menadžer sertifikata"
 

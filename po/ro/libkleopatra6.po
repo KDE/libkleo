@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2013-02-16 10:55+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -1260,6 +1260,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Modificare..."
 
@@ -1280,7 +1281,9 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Șterge"
 
@@ -1705,7 +1708,9 @@ msgid "Clear"
 msgstr "Curăță"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Modifică..."
 
@@ -1905,9 +1910,11 @@ msgid "Compliance"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Other Certificates"
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
-msgstr ""
+msgstr "Alte certificate"
 
 #: ui/keyselectiondialog.cpp:440
 #, kde-format
@@ -1929,13 +1936,16 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:482
 #, kde-format
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Other Certificates"
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
-msgstr ""
+msgstr "Alte certificate"
 
 #: ui/keyselectiondialog.cpp:647
 #, kde-format
@@ -2969,9 +2979,6 @@ msgstr ""
 #~| msgid "Trusted Certificates"
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Certificate de încredere"
-
-#~ msgid "Other Certificates"
-#~ msgstr "Alte certificate"
 
 #, fuzzy
 #~| msgid "Trusted Certificates"

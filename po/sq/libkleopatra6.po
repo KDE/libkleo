@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdepim\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2011-06-01 01:49-0400\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -1224,6 +1224,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Modifiko..."
 
@@ -1243,7 +1244,9 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Fshije"
 
@@ -1656,7 +1659,9 @@ msgid "Clear"
 msgstr "Pastro"
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Ndrysho..."
 
@@ -1858,6 +1863,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr ""
 
@@ -1882,11 +1888,13 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:482
 #, kde-format
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:487
 #, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr ""
 

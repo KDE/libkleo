@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:40+0000\n"
 "PO-Revision-Date: 2007-08-20 13:01+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -1209,6 +1209,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:216
 #, fuzzy, kde-format
 #| msgid "Edit..."
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "सम्पादन गर्नुहोस्..."
 
@@ -1230,6 +1231,7 @@ msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
@@ -1658,7 +1660,9 @@ msgid "Clear"
 msgstr ""
 
 #: ui/keyrequester.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "परिवर्तन गर्नुहोस्..."
 
@@ -1862,6 +1866,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr ""
 
@@ -1886,12 +1891,15 @@ msgstr ""
 "<qt><p>यदि तपाईँले चेक गर्नुभएमा तपाईँको छनोट भण्डारण गरिन्छ र फेरि सोधिदैन ।</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Reread Keys"
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "कुञ्जी पुन: पढ्नुहोस्"
 
 #: ui/keyselectiondialog.cpp:487
 #, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr ""
 
