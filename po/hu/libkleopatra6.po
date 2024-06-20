@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:40+0000\n"
-"PO-Revision-Date: 2024-03-19 11:34+0100\n"
+"PO-Revision-Date: 2024-06-19 22:41+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -13,12 +13,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
-msgstr "Hiba a(z) %1 ellenőrzőösszeg-definícióban: %2"
+msgstr "Hiba a(z) %1 ellenőrzőösszeg-meghatározásban: %2"
 
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
@@ -33,7 +33,7 @@ msgstr "Idézési hiba a(z) „%1” bejegyzésben"
 #: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
-msgstr "„%1” túl összetett (parancsértelmezőt igényelhet)"
+msgstr "A(z) „%1” túl összetett (parancsértelmezőt igényelhet)"
 
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
@@ -43,7 +43,7 @@ msgstr "A(z) „%1” bejegyzés üres/hiányzik"
 #: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
-msgstr "„%1” üres vagy nem található"
+msgstr "A(z) „%1” üres vagy nem található"
 
 #: kleo/checksumdefinition.cpp:211
 #, kde-format
@@ -67,7 +67,7 @@ msgstr "Ismeretlen kivétel elkapva a(z) %1 csoportban"
 
 #: kleo/dn.cpp:518
 msgid "Common name"
-msgstr "Egyszerű név"
+msgstr "Általános név"
 
 #: kleo/dn.cpp:519
 msgid "Surname"
@@ -115,7 +115,7 @@ msgstr "Üzleti kategória"
 
 #: kleo/dn.cpp:530
 msgid "Email address"
-msgstr "E-mail cím"
+msgstr "E-mail-cím"
 
 #: kleo/dn.cpp:531
 msgid "Mail address"
@@ -123,7 +123,7 @@ msgstr "Levelezési cím"
 
 #: kleo/dn.cpp:532
 msgid "Mobile phone number"
-msgstr "Mobiltelefon-szám"
+msgstr "Mobiltelefonszám"
 
 #: kleo/dn.cpp:533
 msgid "Telephone number"
@@ -143,7 +143,7 @@ msgstr "Egyedi azonosító"
 
 #: kleo/enum.cpp:35
 msgid "Inline OpenPGP (deprecated)"
-msgstr "Közvetlen OpenPGP (elavult)"
+msgstr "Beágyazott OpenPGP (elavult)"
 
 #: kleo/enum.cpp:36
 msgid "OpenPGP/MIME"
@@ -170,7 +170,7 @@ msgstr "Bármilyen OpenPGP"
 #: kleo/enum.cpp:72
 #, kde-format
 msgid "Any"
-msgstr "Bármely"
+msgstr "Bármilyen"
 
 #: kleo/enum.cpp:147
 #, kde-format
@@ -238,6 +238,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%1</p><p>kevesebb, mint egy "
+"nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -245,6 +247,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%1</p><p>kevesebb, mint "
+"egy nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -252,6 +256,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%1</p><p>kevesebb, "
+"mint egy nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -262,7 +268,10 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2<p>tegnap járt le.</p>"
 msgstr[1] ""
+"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2<p>%1 nappal ezelőtt járt "
+"le.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -273,7 +282,10 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2<p>tegnap járt le.</p>"
 msgstr[1] ""
+"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2</p><p>%1 nappal ezelőtt "
+"járt le.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -282,24 +294,29 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>tegnap járt "
+"le.</p>"
 msgstr[1] ""
+"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>%1 nappal "
+"ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>Az OpenPGP aláírókulcsa:</p><p align=center>%1<p>ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%1<p>ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%1<p>ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
