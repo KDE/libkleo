@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:40+0000\n"
-"PO-Revision-Date: 2024-06-19 22:41+0200\n"
+"PO-Revision-Date: 2024-06-20 22:51+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -326,7 +326,10 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2</p><p>holnap jár le.</p>"
 msgstr[1] ""
+"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2</p><p>%1 nap múlva jár le."
+"</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -337,7 +340,10 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2</p><p>holnap jár le.</p>"
 msgstr[1] ""
+"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2</p><p>%1 nap múlva jár "
+"le.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -346,14 +352,18 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>ma jár le.</"
+"p>"
 msgstr[1] ""
+"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>%1 nap múlva "
+"jár le.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (sorozatszám: %2)"
 
 #: kleo/expirychecker.cpp:150
 #, kde-format
@@ -362,6 +372,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%2</b></p><p>főtanúsítványa lejárt kevesebb, mint egy nappal "
+"ezelőtt.</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -370,6 +383,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%2</b></p><p>főtanúsítványa lejárt kevesebb, mint egy nappal "
+"ezelőtt.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -377,6 +393,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME tanúsítványának</p><p "
+"align=center><b>%2</b></p><p>főtanúsítványa lejárt kevesebb, mint egy nappal "
+"ezelőtt.</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -387,7 +406,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa tegnap járt le.</p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa %1 nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -398,7 +421,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa tegnap járt le.</p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa %1 nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -409,7 +436,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
+"%3</b><p>főtanúsítványa tegnap járt le.</p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
+"%3</b><p>főtanúsítványa %1 nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -418,6 +449,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%2</b></p><p>köztes hitelesítészolgáltatói tanúsítványa "
+"lejárt kevesebb, mint egy nappal ezelőtt.</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -426,6 +460,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%2</b></p><p>köztes hitelesítészolgáltatói tanúsítványa "
+"lejárt kevesebb, mint egy nappal ezelőtt.</p>"
 
 #: kleo/expirychecker.cpp:208
 #, kde-format
@@ -433,6 +470,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME tanúsítvány</p><p align=center><b>"
+"%2</b></p><p>köztes hitelesítészolgáltatói tanúsítványa lejárt kevesebb, "
+"mint egy nappal ezelőtt.</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -445,7 +485,13 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa tegnap "
+"járt le.</p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 "
+"nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:225
 #, kde-format
@@ -458,7 +504,13 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa tegnap "
+"járt le.</p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 "
+"nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:233
 #, kde-format
@@ -469,7 +521,12 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
+"%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa tegnap járt le.</p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
+"%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 nappal ezelőtt járt "
+"le.</p>"
 
 #: kleo/expirychecker.cpp:246
 #, kde-format
@@ -781,17 +838,16 @@ msgid "Certificates for which all user IDs are certified"
 msgstr "Minden tanúsítvány"
 
 #: models/keylistmodel.cpp:325
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
-msgstr "Felhasználónév"
+msgstr "Név"
 
 #: models/keylistmodel.cpp:327
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
-msgstr ""
+msgstr "E-mail"
 
 #: models/keylistmodel.cpp:329
 #, fuzzy, kde-format
@@ -804,20 +860,19 @@ msgstr "Felhasználóazonosító"
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
-msgstr ""
+msgstr "Érvényesség kezdete"
 
 #: models/keylistmodel.cpp:333
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr ""
+msgstr "Érvényesség vége"
 
 #: models/keylistmodel.cpp:335
-#, fuzzy, kde-format
-#| msgid "(Unknown Protocol)"
+#, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
-msgstr "(Ismeretlen protokoll)"
+msgstr "Protokoll"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
 #, fuzzy, kde-format
@@ -830,32 +885,31 @@ msgstr "Kulcsazonosító"
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
-msgstr ""
+msgstr "Ujjlenyomat"
 
 #: models/keylistmodel.cpp:343
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
-msgstr ""
+msgstr "Kibocsátó"
 
 #: models/keylistmodel.cpp:345
-#, fuzzy, kde-format
-#| msgid "Fax number"
+#, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
-msgstr "Faxszám"
+msgstr "Sorozatszám"
 
 #: models/keylistmodel.cpp:347
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
-msgstr ""
+msgstr "Eredet"
 
 #: models/keylistmodel.cpp:349
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
-msgstr ""
+msgstr "Utolsó frissítés"
 
 #: models/keylistmodel.cpp:351
 #, fuzzy, kde-format
@@ -868,13 +922,13 @@ msgstr "Saját tanúsítványok"
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
-msgstr ""
+msgstr "Címkék"
 
 #: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritmus"
 
 #: models/keylistmodel.cpp:357
 #, kde-format
@@ -883,102 +937,88 @@ msgid "Keygrip"
 msgstr ""
 
 #: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
-#, fuzzy, kde-format
-#| msgid "Given name"
+#, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
-msgstr "Keresztnév"
+msgstr "nincs név"
 
 #: models/keylistmodel.cpp:412 models/useridlistmodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
+#, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr "taszanto@gmail.com"
+msgstr "nincs e-mail"
 
 #: models/keylistmodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading..."
-msgstr "A kulcsok letöltése..."
+msgstr "Betöltés…"
 
 #: models/keylistmodel.cpp:571
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
-msgstr ""
+msgstr "nem alkalmazható"
 
 #: models/subkeylistmodel.cpp:155
 #, kde-format
 msgid "ID"
-msgstr ""
+msgstr "Azonosító"
 
 #: models/subkeylistmodel.cpp:157 utils/formatting.cpp:492
 #: utils/formatting.cpp:535
 #, kde-format
 msgid "Type"
-msgstr ""
+msgstr "Típus"
 
 #: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Valid From"
-msgstr ""
+msgstr "Érvényesség kezdete"
 
 #: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid Until"
-msgstr ""
+msgstr "Érvényesség vége"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
 #: utils/formatting.cpp:522 utils/formatting.cpp:524
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "Állapot"
 
 #: models/subkeylistmodel.cpp:165
 #, kde-format
 msgid "Strength"
-msgstr ""
+msgstr "Erősség"
 
 #: models/subkeylistmodel.cpp:167 utils/formatting.cpp:495
 #: utils/formatting.cpp:538
 #, kde-format
 msgid "Usage"
-msgstr ""
+msgstr "Használat"
 
 #: models/useridlistmodel.cpp:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
-msgstr "no"
+msgstr "igen"
 
 #: models/useridlistmodel.cpp:74
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "nem"
 
 #: models/useridlistmodel.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "no specific preference"
-#| msgid "<none>"
+#, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr "<nincs>"
+msgstr "nincs"
 
 #: models/useridlistmodel.cpp:76
 #, kde-format
 msgid "not applicable"
-msgstr ""
+msgstr "nem alkalmazható"
 
 #: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
@@ -996,25 +1036,24 @@ msgid "User ID / Certification Key ID"
 msgstr ""
 
 #: models/useridlistmodel.cpp:105
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgid "Name"
-msgstr "Felhasználónév"
+msgstr "Név"
 
 #: models/useridlistmodel.cpp:106
 #, kde-format
 msgid "E-Mail"
-msgstr ""
+msgstr "E-mail"
 
 #: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Exportable"
-msgstr ""
+msgstr "Exportálható"
 
 #: models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "Címkék"
 
 #: models/useridlistmodel.cpp:112
 #, kde-format
@@ -1089,7 +1128,7 @@ msgstr "Válassza ki, melyik fájlba szeretné menteni a GnuPG ellenőrzési nap
 #: ui/auditlogviewer.cpp:143
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
-msgstr "Nem sikerült menteni ezt fájlt: \"%1\". %2"
+msgstr "Nem sikerült menteni ezt fájlt: „%1”. %2"
 
 #: ui/auditlogviewer.cpp:143
 #, kde-format
@@ -1111,18 +1150,10 @@ msgid ""
 msgstr ""
 "A gpgconf eszköz, amelyre ennek az ablaknak szüksége van, nincs megfelelően "
 "telepítve. Egy komponens sem érhető el. További információ kapható ezzel a "
-"paranccsal: \"%1\"."
+"paranccsal: „%1”."
 
 #: ui/cryptoconfigmodule.cpp:538
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
 "whether your language uses Sentence style capitalization in GUI labels (yes) "
@@ -1131,27 +1162,27 @@ msgctxt ""
 "character to upper-case. It is this behaviour you can control for your "
 "language with this translation."
 msgid "yes"
-msgstr "no"
+msgstr "igen"
 
 #: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
-msgstr ""
+msgstr "0 - Nincs"
 
 #: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
-msgstr ""
+msgstr "1 - Egyszerű"
 
 #: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
-msgstr ""
+msgstr "2 - Részletes"
 
 #: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
-msgstr ""
+msgstr "3 - Részletesebb"
 
 #: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
-msgstr ""
+msgstr "4 - Mind"
 
 #: ui/cryptoconfigmodule.cpp:608
 #, fuzzy, kde-format
@@ -1163,12 +1194,12 @@ msgstr "Nyomkövetési szint"
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
-msgstr "Megjelenítés..."
+msgstr "Megjelenítés…"
 
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
-msgstr "Szerkesztés..."
+msgstr "Szerkesztés…"
 
 #: ui/cryptoconfigmodule.cpp:884
 #, kde-format
@@ -1229,10 +1260,9 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:200
-#, fuzzy, kde-format
-#| msgid "Configure LDAP Servers"
+#, kde-format
 msgid "LDAP Server"
-msgstr "LDAP-kiszolgálók beállítása"
+msgstr "LDAP kiszolgáló"
 
 #: ui/directoryserviceswidget.cpp:203
 #, kde-format
@@ -1243,7 +1273,7 @@ msgstr ""
 #: ui/directoryserviceswidget.cpp:205
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "Hozzáadás"
 
 #: ui/directoryserviceswidget.cpp:206
 #, fuzzy, kde-format
@@ -1267,11 +1297,10 @@ msgstr ""
 "csak akkor lesz végleges, ha a fő párbeszédablakban elfogadja a változásokat."
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
-msgstr "Szerkesztés..."
+msgstr "Szerkesztés"
 
 #: ui/directoryserviceswidget.cpp:217
 #, fuzzy, kde-format
@@ -1350,10 +1379,9 @@ msgid "Current attribute order:"
 msgstr "A jelenlegi attribútumsorrend:"
 
 #: ui/dnattributeorderconfigwidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgid "available attributes"
-msgstr "A rendelkezésre álló attribútumok:"
+msgstr "elérhető attribútumok"
 
 #: ui/dnattributeorderconfigwidget.cpp:105
 #: ui/dnattributeorderconfigwidget.cpp:106
@@ -1364,7 +1392,7 @@ msgstr "Az összes többi"
 #: ui/dnattributeorderconfigwidget.cpp:118
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Hozzáadás"
 
 #: ui/dnattributeorderconfigwidget.cpp:119
 msgid "Add to current attribute order"
@@ -1373,15 +1401,13 @@ msgstr "Hozzáadás az attribútumsorrendhez"
 #: ui/dnattributeorderconfigwidget.cpp:125
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Eltávolítás"
 
 #: ui/dnattributeorderconfigwidget.cpp:126
 msgid "Remove from current attribute order"
 msgstr "Eltávolítás az attribútumsorrendből"
 
 #: ui/dnattributeorderconfigwidget.cpp:132
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Mozgatás legfelülre"
@@ -1391,30 +1417,24 @@ msgid "Move to top"
 msgstr "Mozgatás legfelülre"
 
 #: ui/dnattributeorderconfigwidget.cpp:139
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr "Mozgatás legfelülre"
+msgstr "Mozgatás felfelé"
 
 #: ui/dnattributeorderconfigwidget.cpp:140
 msgid "Move one up"
 msgstr "Mozgatás eggyel feljebb"
 
 #: ui/dnattributeorderconfigwidget.cpp:146
-#, fuzzy
-#| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
-msgstr "Mozgatás eggyel lejjebb"
+msgstr "Mozgatás lefelé"
 
 #: ui/dnattributeorderconfigwidget.cpp:147
 msgid "Move one down"
 msgstr "Mozgatás eggyel lejjebb"
 
 #: ui/dnattributeorderconfigwidget.cpp:153
-#, fuzzy
-#| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Mozgatás legalulra"
@@ -1424,20 +1444,17 @@ msgid "Move to bottom"
 msgstr "Mozgatás legalulra"
 
 #: ui/dnattributeorderconfigwidget.cpp:184
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgid "current attribute order"
-msgstr "A jelenlegi attribútumsorrend:"
+msgstr "jelenlegi attribútumsorrend"
 
 #: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
-msgstr ""
+msgstr "Gépnév:"
 
 #: ui/editdirectoryservicedialog.cpp:103
-#, fuzzy, kde-format
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
@@ -1450,16 +1467,12 @@ msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:116
-#, fuzzy, kde-format
-#| msgid "&Port:"
+#, kde-format
 msgid "Port:"
-msgstr "&Port:"
+msgstr "Port:"
 
 #: ui/editdirectoryservicedialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
-#| "the directory service is listening on."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
@@ -1474,15 +1487,14 @@ msgid "Use default"
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:128
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authentication"
-msgstr "Egyéb tanúsítványok"
+msgstr "Hitelesítés"
 
 #: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
-msgstr ""
+msgstr "Névtelen"
 
 #: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
@@ -1520,10 +1532,9 @@ msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:160
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User:"
-msgstr "Felhasználóazonosító"
+msgstr "Felhasználó:"
 
 #: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
@@ -1533,10 +1544,9 @@ msgid ""
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:165
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Password:"
-msgstr "Jelszó"
+msgstr "Jelszó:"
 
 #: ui/editdirectoryservicedialog.cpp:167
 #, fuzzy, kde-kuit-format
@@ -1619,13 +1629,12 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Speciális beállítások"
 
 #: ui/editdirectoryservicedialog.cpp:227
-#, fuzzy, kde-format
-#| msgid "&Base DN:"
+#, kde-format
 msgid "Base DN:"
-msgstr "&Alap DN:"
+msgstr "Alap DN:"
 
 #: ui/editdirectoryservicedialog.cpp:229
 #, fuzzy, kde-format
@@ -1670,7 +1679,7 @@ msgstr ""
 #: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
-msgstr ""
+msgstr "Fájlmegnyitási párbeszédablak"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1703,8 +1712,7 @@ msgid "Ask Whenever Encryption is Possible"
 msgstr "Rákérdezés mindig, amikor titkosítás lehetséges"
 
 #: ui/keyapprovaldialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
 msgstr "A titkosítási kulcs jóváhagyása"
@@ -1827,45 +1835,44 @@ msgstr "Válassza ki a használni kívánt (OpenPGP- vagy S/MIME-) kulcsot."
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
-msgstr ""
+msgstr "%1 <%2>"
 
 #: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:171
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
-msgstr ""
+msgstr "%1 (%2, létrehozva: %3)"
 
 #: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:177
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "%1 (%2, %3, létrehozva: %4)"
 
 #: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:689
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading keys ..."
-msgstr "A kulcsok letöltése..."
+msgstr "Kulcsok betöltése…"
 
 #: ui/keyselectiondialog.cpp:72
 #, kde-format
 msgid "The key is not valid."
-msgstr ""
+msgstr "A kulcs érvénytelen."
 
 #: ui/keyselectiondialog.cpp:80
 #, kde-format
 msgid "The key is expired."
-msgstr ""
+msgstr "A kulcs lejárt."
 
 #: ui/keyselectiondialog.cpp:84
 #, kde-format
 msgid "The key is revoked."
-msgstr ""
+msgstr "A kulcsot visszavonták."
 
 #: ui/keyselectiondialog.cpp:88
 #, kde-format
 msgid "The key is disabled."
-msgstr ""
+msgstr "A kulcsot letiltották."
 
 #: ui/keyselectiondialog.cpp:95
 #, fuzzy, kde-format
@@ -1940,7 +1947,7 @@ msgstr ""
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
-msgstr ""
+msgstr "Ujjlenyomat"
 
 #: ui/keyselectiondialog.cpp:282
 #, kde-format
@@ -2064,11 +2071,10 @@ msgid "Show Audit Log"
 msgstr "&Ellenőrzési napló"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "Hely"
+msgstr "Információk"
 
 #: ui/messagebox.cpp:96
 #, kde-format
@@ -2142,11 +2148,10 @@ msgid "This can take several minutes."
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:400
-#, fuzzy, kde-format
-#| msgid "Key Selection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
-msgstr "Kulcsválasztás"
+msgstr "Kulcselőállítás"
 
 #: ui/newkeyapprovaldialog.cpp:439
 #, fuzzy, kde-format
@@ -2239,16 +2244,14 @@ msgid "View Columns"
 msgstr ""
 
 #: utils/compliance.cpp:160
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "VS-NfD compliant"
-msgstr "Minden tanúsítvány"
+msgstr "VS-NfD kompatibilis"
 
 #: utils/compliance.cpp:160
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "Not VS-NfD compliant"
-msgstr "Minden tanúsítvány"
+msgstr "Nem VS-NfD kompatibilis"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -2267,16 +2270,14 @@ msgid "Signing (Qualified)"
 msgstr "Az aláírás nem sikerült: %1"
 
 #: utils/formatting.cpp:351 utils/formatting.cpp:373
-#, fuzzy, kde-format
-#| msgid "Signing Error"
+#, kde-format
 msgid "Signing"
-msgstr "Aláírási hiba"
+msgstr "Aláírás"
 
 #: utils/formatting.cpp:355 utils/formatting.cpp:377
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgid "Encryption"
-msgstr "Titkosítási kulcsok:"
+msgstr "Titkosítás"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
@@ -2335,10 +2336,9 @@ msgid "The validity cannot be checked at the moment."
 msgstr ""
 
 #: utils/formatting.cpp:460
-#, fuzzy, kde-format
-#| msgid "Fax number"
+#, kde-format
 msgid "Serial number"
-msgstr "Faxszám"
+msgstr "Sorozatszám"
 
 #: utils/formatting.cpp:463
 #, kde-format
@@ -2372,17 +2372,9 @@ msgid "Trusted issuer?"
 msgstr ""
 
 #: utils/formatting.cpp:507
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgid "Yes"
-msgstr "no"
+msgstr "Igen"
 
 #: utils/formatting.cpp:507
 #, kde-format
@@ -2468,8 +2460,7 @@ msgid "MMMM d, yyyy"
 msgstr ""
 
 #: utils/formatting.cpp:711 utils/formatting.cpp:746
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "ismeretlen"
@@ -2480,18 +2471,16 @@ msgid "unlimited"
 msgstr ""
 
 #: utils/formatting.cpp:815
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: utils/formatting.cpp:820
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
-msgstr "ismeretlen"
+msgstr "Ismeretlen"
 
 #: utils/formatting.cpp:836
 #, kde-format
@@ -2500,8 +2489,7 @@ msgid "Group"
 msgstr ""
 
 #: utils/formatting.cpp:852 utils/formatting.cpp:897
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "ismeretlen"
@@ -2712,16 +2700,14 @@ msgid "Sign"
 msgstr ""
 
 #: utils/formatting.cpp:1161
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt"
-msgstr "Titkosítás soha"
+msgstr "Titkosítás"
 
 #: utils/formatting.cpp:1164
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authenticate"
-msgstr "Egyéb tanúsítványok"
+msgstr "Hitelesítés"
 
 #: utils/formatting.cpp:1167
 #, kde-format
@@ -2799,8 +2785,7 @@ msgid "This group does not contain any keys."
 msgstr ""
 
 #: utils/formatting.cpp:1315 utils/formatting.cpp:1327
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "ismeretlen"
@@ -2858,11 +2843,9 @@ msgid "not all certified"
 msgstr "Minden tanúsítvány"
 
 #: utils/formatting.cpp:1431
-#, fuzzy, kde-format
-#| msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#| msgid "server"
+#, kde-format
 msgid "Keyserver"
-msgstr "kiszolgálónév"
+msgstr "Kulcskiszolgáló"
 
 #: utils/formatting.cpp:1439
 #, kde-format
@@ -2870,16 +2853,14 @@ msgid "File import"
 msgstr ""
 
 #: utils/formatting.cpp:1441
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generated"
-msgstr "Általános"
+msgstr "Előállítva"
 
 #: utils/formatting.cpp:1445
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgid "Unknown"
-msgstr "ismeretlen"
+msgstr "Ismeretlen"
 
 #: utils/formatting.cpp:1481
 #, kde-format
