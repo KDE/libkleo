@@ -50,3 +50,5 @@ GpgME::UserID UserIDListProxyModel::userID(const QModelIndex &index) const
 {
     return dynamic_cast<UserIDListModel *>(sourceModel())->userID(mapToSource(index));
 }
+
+#include "moc_useridlistproxymodel.cpp"
