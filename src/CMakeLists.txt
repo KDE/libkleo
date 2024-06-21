@@ -7,14 +7,14 @@ include_directories(
 )
 add_definitions(-DTRANSLATION_DOMAIN=\"libkleopatra6\")
 
-#add_definitions( -DQT_NO_CAST_FROM_ASCII )
-#add_definitions( -DQT_NO_CAST_TO_ASCII )
+#add_definitions(-DQT_NO_CAST_FROM_ASCII)
+#add_definitions(-DQT_NO_CAST_TO_ASCII)
 
 kde_enable_exceptions()
 
-add_definitions( -DGPGMEPP_ERR_SOURCE_DEFAULT=13 ) # 13 is GPG_ERR_SOURCE_KLEO, even if gpg-error's too old to know about
+add_definitions(-DGPGMEPP_ERR_SOURCE_DEFAULT=13) # 13 is GPG_ERR_SOURCE_KLEO, even if gpg-error's too old to know about
 
-add_subdirectory( pics )
+add_subdirectory(pics)
 add_library(KPim6Libkleo)
 add_library(KPim6::Libkleo ALIAS KPim6Libkleo)
 
@@ -122,11 +122,11 @@ target_sources(KPim6Libkleo PRIVATE
    utils/test.h
    utils/uniquelock.cpp
    utils/uniquelock.h
-   )
+  )
 ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
         EXPORT LIBKLEO
-    )
+   )
 
 
 target_sources(KPim6Libkleo PRIVATE
@@ -165,7 +165,7 @@ ecm_qt_declare_logging_category(KPim6Libkleo HEADER kleo_ui_debug.h IDENTIFIER K
         DESCRIPTION "libkleo (kleo_ui)"
         OLD_CATEGORY_NAMES log_kleo_ui
         EXPORT LIBKLEO
-    )
+   )
 
 
 target_sources(KPim6Libkleo PRIVATE    # make this a separate lib.
@@ -183,7 +183,7 @@ target_sources(KPim6Libkleo PRIVATE    # make this a separate lib.
     ui/newkeyapprovaldialog.h
     ui/useridselectioncombo.cpp
     ui/useridselectioncombo.h
-    )
+   )
 
 if(MINGW)
     # we do not care about different signedness of passed pointer arguments
@@ -204,11 +204,11 @@ target_link_libraries(KPim6Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
 
 target_link_libraries(KPim6Libkleo PUBLIC QGpgmeQt6)
 # Boost::headers may not be available for old versions of Boost
-if (TARGET Boost::headers)
+if(TARGET Boost::headers)
   target_link_libraries(KPim6Libkleo PRIVATE Boost::headers)
 endif()
 
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KPim6Libkleo PROPERTIES UNITY_BUILD ON)
 endif()
 
@@ -220,7 +220,7 @@ ecm_generate_export_header(KPim6Libkleo
 )
 
 if(WIN32)
-    target_link_libraries(KPim6Libkleo ${GPGME_VANILLA_LIBRARIES} )
+    target_link_libraries(KPim6Libkleo ${GPGME_VANILLA_LIBRARIES})
 endif()
 
 set_target_properties(KPim6Libkleo PROPERTIES
@@ -363,13 +363,13 @@ install(FILES
     COMPONENT Devel
 )
 
-if ( WIN32 )
-    install ( FILES libkleopatrarc-win32.desktop DESTINATION ${KDE_INSTALL_CONFDIR} RENAME libkleopatrarc )
+if(WIN32)
+    install(FILES libkleopatrarc-win32.desktop DESTINATION ${KDE_INSTALL_CONFDIR} RENAME libkleopatrarc)
 else ()
-    install ( FILES libkleopatrarc.desktop DESTINATION ${KDE_INSTALL_CONFDIR} RENAME libkleopatrarc )
-endif ()
+    install(FILES libkleopatrarc.desktop DESTINATION ${KDE_INSTALL_CONFDIR} RENAME libkleopatrarc)
+endif()
 
-if (BUILD_QCH)
+if(BUILD_QCH)
     ecm_add_qch(
         KPim6Libkleo_QCH
         NAME KPim6Libkleo
@@ -394,5 +394,5 @@ if (BUILD_QCH)
         TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         COMPONENT Devel
-    )
+   )
 endif()

@@ -7,12 +7,12 @@ project(libkleo VERSION ${PIM_VERSION})
 
 set(KF_MIN_VERSION "6.3.0")
 
-if (WIN32)
+if(WIN32)
   set(KF6_WANT_VERSION ${KF_MIN_VERSION})
   add_compile_definitions(GPG_ERR_ENABLE_GETTEXT_MACROS=1)
 else ()
   set(KF6_WANT_VERSION ${KF_MIN_VERSION})
-endif ()
+endif()
 
 find_package(ECM ${KF6_WANT_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -56,7 +56,7 @@ find_package(Gpgmepp ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
 message(STATUS "GpgME++ Version ${Gpgmepp_VERSION}")
 set(QGPGME_NAME "QGpgmeQt6")
-if (Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.23.0")
+if(Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.23.0")
     set(GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE 1)
 endif()
 find_package(${QGPGME_NAME} ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
@@ -93,7 +93,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT OFF)
-if (USE_UNITY_CMAKE_SUPPORT)
+if(USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT ON)
     set(UNITY_BUILD ON)
 endif()
@@ -101,7 +101,7 @@ endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-libkleo.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-libkleo.h)
 
 add_subdirectory(src)
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
 endif()
@@ -110,16 +110,16 @@ ecm_qt_install_logging_categories(
         EXPORT LIBKLEO
         FILE libkleo.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
-        )
+       )
 
 ki18n_install(po)
-if (BUILD_QCH)
+if(BUILD_QCH)
     ecm_install_qch_export(
         TARGETS KPim6Libkleo_QCH
         FILE KPim6LibkleoQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
-    )
+   )
     set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KPim6LibkleoQchTargets.cmake\")")
 endif()
 

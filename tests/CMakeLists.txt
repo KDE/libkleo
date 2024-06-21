@@ -3,10 +3,10 @@
 include(ECMMarkAsTest)
 
 # Convenience macro to add kleo unit tests.
-macro( add_kleo_test _source )
-  set( _test ${_source} )
-  get_filename_component( _name ${_source} NAME_WE )
-  add_executable( ${_name} ${_test} )
+macro(add_kleo_test _source)
+  set(_test ${_source})
+  get_filename_component(_name ${_source} NAME_WE)
+  add_executable(${_name} ${_test})
   ecm_mark_as_test(kleo-${_name})
   target_link_libraries(${_name} KPim6::Libkleo Qt::Widgets KF6::CoreAddons
       KF6::I18n KF6::WidgetsAddons)
