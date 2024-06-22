@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:40+0000\n"
-"PO-Revision-Date: 2024-06-20 22:51+0200\n"
+"PO-Revision-Date: 2024-06-21 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -238,8 +238,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
-"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%1</p><p>kevesebb, mint egy "
-"nappal ezelőtt járt le.</p>"
+"<p>Az Ön</p><p align=center>%1</p><p>OpenPGP aláírókulcsa kevesebb, mint egy "
+"napja lejárt.</p>"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -247,8 +247,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%1</p><p>kevesebb, mint "
-"egy nappal ezelőtt járt le.</p>"
+"<p>Az Ön</p><p align=center>%1</p><p>OpenPGP titkosítókulcsa kevesebb, mint "
+"egy napja lejárt.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -256,8 +256,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
-"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%1</p><p>kevesebb, "
-"mint egy nappal ezelőtt járt le.</p>"
+"<p>A(z)</p><p align=center>%1</p><p>OpenPGP kulcsa kevesebb, mint egy napja "
+"lejárt.</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -268,10 +268,10 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
-"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2<p>tegnap járt le.</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP aláírókulcsa tegnap járt le.</p>"
 msgstr[1] ""
-"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2<p>%1 nappal ezelőtt járt "
-"le.</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP aláírókulcsa %1 nappal ezelőtt "
+"járt le.</p>"
 
 #: kleo/expirychecker.cpp:99
 #, kde-format
@@ -282,10 +282,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
-"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2<p>tegnap járt le.</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP titkosítókulcsa tegnap járt le."
+"</p>"
 msgstr[1] ""
-"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2</p><p>%1 nappal ezelőtt "
-"járt le.</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP titkosítókulcsa %1 nappal "
+"ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp:102
 #, kde-format
@@ -294,29 +295,29 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>tegnap járt "
-"le.</p>"
+"<p>A(z)</p><p align=center>%2</p><p>OpenPGP kulcs tegnap járt le.</p>"
 msgstr[1] ""
-"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>%1 nappal "
-"ezelőtt járt le.</p>"
+"<p>A(z)</p><p align=center>%2</p><p>OpenPGP kulcs %1 nappal ezelőtt járt le."
+"</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
-msgstr "<p>Az OpenPGP aláírókulcsa:</p><p align=center>%1<p>ma jár le.</p>"
+msgstr ""
+"<p>Az Ön</p><p align=center>%1</p><p>OpenPGP aláírókulcsa ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
-msgstr "<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%1<p>ma jár le.</p>"
+msgstr ""
+"<p>Az Ön</p><p align=center>%1</p><p>OpenPGP titkosítókulcsa ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
-"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%1<p>ma jár le.</p>"
+msgstr "<p>A(z)</p><p align=center>%1</p><p>OpenPGP kulcs ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -326,10 +327,10 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
-"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2</p><p>holnap jár le.</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP aláírókulcsa holnap jár le.</p>"
 msgstr[1] ""
-"<p>Az OpenPGP aláírókulcsa:</p><p align=center>%2</p><p>%1 nap múlva jár le."
-"</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP aláírókulcsa %1 nap múlva jár "
+"le.</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -340,10 +341,11 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
-"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2</p><p>holnap jár le.</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP titkosítókulcsa holnap jár le.</"
+"p>"
 msgstr[1] ""
-"<p>Az OpenPGP titkosítókulcsa:</p><p align=center>%2</p><p>%1 nap múlva jár "
-"le.</p>"
+"<p>Az Ön</p><p align=center>%2</p><p>OpenPGP titkosítókulcsa %1 nap múlva "
+"jár le.</p>"
 
 #: kleo/expirychecker.cpp:127
 #, kde-format
@@ -352,11 +354,9 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>ma jár le.</"
-"p>"
+"<p>A(z)</p><p align=center>%2</p><p>OpenPGP kulcs holnap jár le.</p>"
 msgstr[1] ""
-"<p>Az OpenPGP kulcs a következőhöz:</p><p align=center>%2</p><p>%1 nap múlva "
-"jár le.</p>"
+"<p>A(z)</p><p align=center>%2</p><p>OpenPGP kulcs %1 nap múlva jár le.</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
@@ -373,8 +373,8 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>A(z)</p><p align=center>%1</p><p>S/MIME aláíró tanúsítványának</p><p "
-"align=center><b>%2</b></p><p>főtanúsítványa lejárt kevesebb, mint egy nappal "
-"ezelőtt.</p>"
+"align=center><b>%2</b></p><p>főtanúsítványa kevesebb, mint egy napja lejárt."
+"</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -384,8 +384,8 @@ msgid ""
 "ago.</p>"
 msgstr ""
 "<p>A(z)</p><p align=center>%1</p><p>S/MIME titkosító tanúsítványának</p><p "
-"align=center><b>%2</b></p><p>főtanúsítványa lejárt kevesebb, mint egy nappal "
-"ezelőtt.</p>"
+"align=center><b>%2</b></p><p>főtanúsítványa kevesebb, mint egy napja lejárt."
+"</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -394,8 +394,8 @@ msgid ""
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
 "<p>A(z)</p><p align=center>%1</p><p>S/MIME tanúsítványának</p><p "
-"align=center><b>%2</b></p><p>főtanúsítványa lejárt kevesebb, mint egy nappal "
-"ezelőtt.</p>"
+"align=center><b>%2</b></p><p>főtanúsítványa kevesebb, mint egy napja lejárt."
+"</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -471,8 +471,8 @@ msgid ""
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
 "<p>A(z)</p><p align=center>%1</p><p>S/MIME tanúsítvány</p><p align=center><b>"
-"%2</b></p><p>köztes hitelesítészolgáltatói tanúsítványa lejárt kevesebb, "
-"mint egy nappal ezelőtt.</p>"
+"%2</b></p><p>köztes hitelesítészolgáltatói tanúsítványa kevesebb, mint egy "
+"napja lejárt.</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -534,6 +534,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Az Ön</p><p align=center>%1</p><p>S/MIME aláíró tanúsítványa kevesebb, "
+"mint egy napja lejárt.</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -541,6 +543,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>Az Ön</p><p align=center>%1</p><p>S/MIME titkosító tanúsítványa kevesebb, "
+"mint egy napja lejárt.</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -548,6 +552,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME tanúsítványa kevesebb, mint egy "
+"napja lejárt.</p>"
 
 #: kleo/expirychecker.cpp:256
 #, kde-format
@@ -558,7 +564,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványa tegnap "
+"lejárt.</p>"
 msgstr[1] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványa %1 nappal "
+"ezelőtt lejárt.</p>"
 
 #: kleo/expirychecker.cpp:259
 #, kde-format
@@ -569,7 +579,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványa tegnap "
+"lejárt.</p>"
 msgstr[1] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványa %1 nappal "
+"ezelőtt lejárt.</p>"
 
 #: kleo/expirychecker.cpp:262
 #, kde-format
@@ -580,7 +594,10 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítványa tegnap lejárt.</p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítványa %1 nappal ezelőtt "
+"lejárt.</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -588,6 +605,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -595,6 +614,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -602,6 +623,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -612,7 +635,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>A(z)<p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa holnap jár le.</p>"
 msgstr[1] ""
+"<p>A(z)<p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa %1 nap múlva jár le.</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -623,7 +650,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>A(z)<p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa holnap jár le.</p>"
 msgstr[1] ""
+"<p>A(z)<p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>főtanúsítványa %1 nap múlva jár le.</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -634,7 +665,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>A(z)<p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>%3</"
+"b><p>főtanúsítványa holnap jár le.</p>"
 msgstr[1] ""
+"<p>A(z)<p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>%3</"
+"b><p>főtanúsítványa %1 nap múlva jár le.</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -643,6 +678,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa ma jár "
+"le.</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -651,6 +689,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa ma jár "
+"le.</p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -658,6 +699,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa ma jár "
+"le.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -670,7 +714,13 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa holnap "
+"jár le.</p>"
 msgstr[1] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 nap "
+"múlva jár le.</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -683,7 +733,13 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa holnap "
+"jár le.</p>"
 msgstr[1] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 nap "
+"múlva jár le.</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -694,7 +750,13 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa holnap "
+"jár le.</p>"
 msgstr[1] ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME tanúsítványának</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 nap "
+"múlva jár le.</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -702,6 +764,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME aláíró tanúsítványa ma jár le.</"
+"p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -709,12 +773,14 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>Az Ön</p><p align=center>%2</p><p>S/MIME titkosító tanúsítványa ma jár le."
+"</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítványa ma jár le.</p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -725,7 +791,11 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Az Ön</p><p align=center>%2</p>S/MIME aláíró tanúsítványa holnap jár le."
+"<p>"
 msgstr[1] ""
+"<p>Az Ön</p><p align=center>%2</p>S/MIME aláíró tanúsítványa %1 nap múlva "
+"jár le.<p>"
 
 #: kleo/expirychecker.cpp:386
 #, kde-format
@@ -736,7 +806,11 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>Az Ön</p><p align=center>%2</p>S/MIME titkosító tanúsítványa holnap jár "
+"le.<p>"
 msgstr[1] ""
+"<p>Az Ön</p><p align=center>%2</p>S/MIME titkosító tanúsítványa %1 nap múlva "
+"jár le.<p>"
 
 #: kleo/expirychecker.cpp:392
 #, kde-format
@@ -747,7 +821,9 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>A(z)</p><p align=center>%2</p>S/MIME tanúsítványa holnap jár le.<p>"
 msgstr[1] ""
+"<p>A(z)</p><p align=center>%2</p>S/MIME tanúsítványa %1 nap múlva jár le.<p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
@@ -912,11 +988,10 @@ msgid "Last Update"
 msgstr "Utolsó frissítés"
 
 #: models/keylistmodel.cpp:351
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
-msgstr "Saját tanúsítványok"
+msgstr "Megbízhatóság"
 
 #: models/keylistmodel.cpp:353
 #, kde-format
@@ -934,7 +1009,7 @@ msgstr "Algoritmus"
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
-msgstr ""
+msgstr "Kulcsleképezés"
 
 #: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
 #, kde-format
@@ -1061,11 +1136,10 @@ msgid "Trust Signature For"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:43
-#, fuzzy, kde-format
-#| msgid "View GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
-msgstr "GnuPG ellenőrzési napló"
+msgstr "GnuPG ellenőrzési napló megtekintése"
 
 #: ui/auditlogviewer.cpp:46
 #, fuzzy, kde-format
@@ -1214,17 +1288,15 @@ msgid "Sorry"
 msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:893
-#, fuzzy, kde-format
-#| msgid "Add or Change Directory Service"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
-msgstr "Címtárszolgáltatás hozzáadása vagy módosítása"
+msgstr "Címtárszolgáltatások beállítása"
 
 #: ui/cryptoconfigmodule.cpp:922
-#, fuzzy, kde-format
-#| msgid "No server configured yet"
+#, kde-format
 msgid "None configured"
-msgstr "Még egy kiszolgáló sincs beállítva"
+msgstr "Nincs beállított"
 
 #: ui/cryptoconfigmodule.cpp:924
 #, kde-format
@@ -1239,17 +1311,14 @@ msgid "Active Directory"
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:187
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a list of all directory services that are configured for use with "
-#| "X.509 and OpenPGP."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "This is a list of all directory services that are configured for use with "
 "X.509."
 msgstr ""
 "Itt láthatók felsorolva azok a címtárszolgáltatások, amelyek használhatóak "
-"X.509-ben és OpenPGP-ben."
+"X.509-ben."
 
 #: ui/directoryserviceswidget.cpp:197
 #, kde-format
@@ -1276,25 +1345,21 @@ msgid "Add"
 msgstr "Hozzáadás"
 
 #: ui/directoryserviceswidget.cpp:206
-#, fuzzy, kde-format
-#| msgid "Click to add a service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr "Kattintsn ide szolgáltatás felvételéhez"
+msgstr "Kattintsn ide címtárszolgáltatás felvételéhez."
 
 #: ui/directoryserviceswidget.cpp:208
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to add a directory service to the list of services. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
-"Ha ide kattint, törlődik a kijelölt címtárszolgáltatási bejegyzés. A törlés "
-"csak akkor lesz végleges, ha a fő párbeszédablakban elfogadja a változásokat."
+"Kattintson erre a gombra, hogy címtárszolgáltatást adhasson hozzá a "
+"szolgáltatások listájához. A módosítás csak akkor lesz végleges, ha a fő "
+"párbeszédablakban elfogadja a változásokat."
 
 #: ui/directoryserviceswidget.cpp:216
 #, kde-format
@@ -1303,26 +1368,22 @@ msgid "Edit"
 msgstr "Szerkesztés"
 
 #: ui/directoryserviceswidget.cpp:217
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
-msgstr "Kattintson ide a kijelölt szolgáltatás eltávolításához"
+msgstr "Kattintson ide a kijelölt szolgáltatás szerkesztéséhez."
 
 #: ui/directoryserviceswidget.cpp:219
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to edit the settings of the currently selected directory "
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
-"Ha ide kattint, törlődik a kijelölt címtárszolgáltatási bejegyzés. A törlés "
-"csak akkor lesz végleges, ha a fő párbeszédablakban elfogadja a változásokat."
+"Kattintson erre a gombraa jelenleg kiválasztott címtárszolgáltatás "
+"beállításainak szerkesztéséhez. A módosítás csak akkor lesz végleges, ha a "
+"fő párbeszédablakban elfogadja a változásokat."
 
 #: ui/directoryserviceswidget.cpp:224
 #, fuzzy, kde-format
@@ -1332,32 +1393,26 @@ msgid "Delete"
 msgstr "Törlés"
 
 #: ui/directoryserviceswidget.cpp:225
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
-msgstr "Kattintson ide a kijelölt szolgáltatás eltávolításához"
+msgstr "Kattintson ide a kijelölt szolgáltatás eltávolításához."
 
 #: ui/directoryserviceswidget.cpp:227
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to remove the currently selected directory service. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
 "Ha ide kattint, törlődik a kijelölt címtárszolgáltatási bejegyzés. A törlés "
-"csak akkor lesz végleges, ha a fő párbeszédablakban elfogadja a változásokat."
+"csak akkor lesz végleges, ha a párbeszédablakban elfogadja a változásokat."
 
 #: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
-msgstr "Címtárszolgáltatások:"
+msgstr "LDAP címtárszolgáltatás"
 
 #: ui/dnattributeorderconfigwidget.cpp:73
 #, kde-format
@@ -1549,20 +1604,16 @@ msgid "Password:"
 msgstr "Jelszó:"
 
 #: ui/editdirectoryservicedialog.cpp:167
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<b>(Optional, not recommended)</b> Enter your password here, if needed. "
-#| "Note that the password will be saved in the clear in a config file in "
-#| "your home directory."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your password for authenticating to the LDAP server.<nl/><warning>The "
 "password will be saved in the clear in a configuration file in your home "
 "directory.</warning>"
 msgstr ""
-"<b>(Opcionális, általában nem ajánlott)</b> Írja be az elérési jelszót, ha "
-"szükséges. A jelszó egyszerű szöveges fájlba lesz elmentve a felhasználó "
-"saját mappájába."
+"Adja meg az LDAP kiszolgálón való hitelesítéshez szükséges jelszavát.<nl/"
+"><warning>A jelszó egyszerű szöveges fájlba lesz elmentve a felhasználó "
+"saját mappájába.</warning>"
 
 #: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
@@ -1637,17 +1688,14 @@ msgid "Base DN:"
 msgstr "Alap DN:"
 
 #: ui/editdirectoryservicedialog.cpp:229
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Only for LDAP)</b> Enter the base DN for this LDAP server to limit "
-#| "searches to only that subtree of the directory."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
-"<b>(Csak LDAP protokoll esetén)</b> Adja meg az alap DN-nevet (a keresések "
-"csak ebben a részfában hajtódnak végre)."
+"<b>(Opcionális, általában üresen hagyható)</b> Adja meg az alap DN-nevet (a "
+"keresések csak ebben a részfában hajtódnak végre)."
 
 #: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
@@ -1664,11 +1712,10 @@ msgid ""
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:410
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
-msgstr "Címtárszolgáltatások:"
+msgstr "Címtárszolgáltatás szerkesztése"
 
 #: ui/filenamerequester.cpp:81
 #, kde-format
@@ -1875,10 +1922,9 @@ msgid "The key is disabled."
 msgstr "A kulcsot letiltották."
 
 #: ui/keyselectiondialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgid "The key is not designated for encryption."
-msgstr "A következő kulcsok lesznek felhasználva titkosításhoz:"
+msgstr "A kulcsot nem titkosításra szánták."
 
 #: ui/keyselectiondialog.cpp:100
 #, kde-format
@@ -2064,11 +2110,10 @@ msgid "Recheck Key"
 msgstr "A kulcs újraellenőrzése"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "&Ellenőrzési napló"
+msgstr "Ellenőrzési napló megjelenítése"
 
 #: ui/messagebox.cpp:91
 #, kde-format
@@ -2124,11 +2169,10 @@ msgid ""
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:297
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
-msgstr "A titkosítási kulcs jóváhagyása"
+msgstr "Biztonsági jóváhagyás"
 
 #: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
 #: utils/formatting.cpp:818
@@ -2137,10 +2181,9 @@ msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:398
-#, fuzzy, kde-format
-#| msgid "Generating DSA key..."
+#, kde-format
 msgid "Generating key for '%1'..."
-msgstr "DSA-kulcs generálása történik..."
+msgstr "Kulcs előállítása ehhez: „%1”…"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
@@ -2154,10 +2197,9 @@ msgid "Key generation"
 msgstr "Kulcselőállítás"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Decryption failed: %1"
+#, kde-format
 msgid "Operation Failed"
-msgstr "A dekódolás nem sikerült: %1"
+msgstr "Sikertelen művelet"
 
 #: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
 #, kde-format
@@ -2196,23 +2238,20 @@ msgid ""
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:774
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr "Titkosítás soha"
+msgstr "Titkosítás önmagának (%1):"
 
 #: ui/newkeyapprovaldialog.cpp:791
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt to others:"
-msgstr "Titkosítás soha"
+msgstr "Titkosítás másoknak:"
 
 #: ui/newkeyapprovaldialog.cpp:829
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generate"
-msgstr "Általános"
+msgstr "Létrehozás"
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2264,10 +2303,9 @@ msgid "%1-bit %2"
 msgstr ""
 
 #: utils/formatting.cpp:349 utils/formatting.cpp:371
-#, fuzzy, kde-format
-#| msgid "Signing failed: %1"
+#, kde-format
 msgid "Signing (Qualified)"
-msgstr "Az aláírás nem sikerült: %1"
+msgstr "Aláírás (minősített)"
 
 #: utils/formatting.cpp:351 utils/formatting.cpp:373
 #, kde-format
@@ -2361,10 +2399,9 @@ msgid "Fingerprint"
 msgstr ""
 
 #: utils/formatting.cpp:505
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Certification trust"
-msgstr "Saját tanúsítványok"
+msgstr "Megbízhatóság"
 
 #: utils/formatting.cpp:507
 #, kde-format
@@ -2791,18 +2828,16 @@ msgid "unknown"
 msgstr "ismeretlen"
 
 #: utils/formatting.cpp:1340
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
-msgstr "Minden tanúsítvány"
+msgstr "hitelesített"
 
 #: utils/formatting.cpp:1355
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
-msgstr "Minden tanúsítvány"
+msgstr "nem hitelesített"
 
 #: utils/formatting.cpp:1358
 #, kde-format
@@ -2829,18 +2864,16 @@ msgid "not checked"
 msgstr ""
 
 #: utils/formatting.cpp:1395
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
-msgstr "Minden tanúsítvány"
+msgstr "minden hitelesített"
 
 #: utils/formatting.cpp:1398
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
-msgstr "Minden tanúsítvány"
+msgstr "nem minden hitelesített"
 
 #: utils/formatting.cpp:1431
 #, kde-format
