@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 00:39+0000\n"
-"PO-Revision-Date: 2024-06-21 22:38+0200\n"
+"PO-Revision-Date: 2024-06-23 00:43+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -1050,7 +1050,7 @@ msgstr "Felhasználóazonosító"
 #: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
-msgstr ""
+msgstr "Felhasználóazonosító / Hitelesítésikulcs-azonosító"
 
 #: models/useridlistmodel.cpp:105
 #, kde-format
@@ -1075,12 +1075,12 @@ msgstr "Címkék"
 #: models/useridlistmodel.cpp:112
 #, kde-format
 msgid "Trust Signature For"
-msgstr ""
+msgstr "Megbízható aláírás"
 
 #: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
 #, kde-format
 msgid "class %1"
-msgstr ""
+msgstr "%1 osztály"
 
 #: ui/auditlogviewer.cpp:52
 #, kde-format
@@ -1114,13 +1114,13 @@ msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
 "%1"
 msgstr ""
-"Hiba történt a GnuPG auditálási napló elérésekor:\n"
+"Hiba történt a GnuPG ellenőrzési napló elérésekor:\n"
 "%1"
 
 #: ui/auditlogviewer.cpp:108
 #, kde-format
 msgid "GnuPG Audit Log Error"
-msgstr "Hiba a GnuPG auditálási naplónál"
+msgstr "Hiba a GnuPG ellenőrzési naplónál"
 
 #: ui/auditlogviewer.cpp:112
 #, kde-format
@@ -1156,7 +1156,7 @@ msgstr "Fájlmentési hiba"
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
-msgstr ""
+msgstr "Csatlakoztatni kívánt olvasó"
 
 #: ui/cryptoconfigmodule.cpp:107
 #, kde-format
@@ -1222,11 +1222,13 @@ msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
 msgstr ""
+"A címtárszolgáltatások beállítása nem lehetséges, mivel a használt gpgme "
+"függvénykönyvtárak túl régik."
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
 msgid "Sorry"
-msgstr ""
+msgstr "Sajnáljuk"
 
 #: ui/cryptoconfigmodule.cpp:893
 #, kde-format
@@ -1249,7 +1251,7 @@ msgstr[1] "%1 kiszolgáló van beállítva"
 #: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
 #, kde-format
 msgid "Active Directory"
-msgstr ""
+msgstr "Active Directory"
 
 #: ui/directoryserviceswidget.cpp:187
 #, kde-format
@@ -1268,6 +1270,8 @@ msgid ""
 "Click to use a directory service running on your Active Directory. This "
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
+"Kattintson ide az Active Directoryban futó címtárszolgáltatás használatához. "
+"Ez csak Windowson működik, és GnuPG 2.2.28 vagy újabb szükséges hozzá."
 
 #: ui/directoryserviceswidget.cpp:200
 #, kde-format
@@ -1279,6 +1283,8 @@ msgstr "LDAP kiszolgáló"
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
+"Kattintson ide LDAP kiszolgáló által biztosított címtárszolgáltatás "
+"hozzáadásához."
 
 #: ui/directoryserviceswidget.cpp:205
 #, kde-format
@@ -1289,7 +1295,7 @@ msgstr "Hozzáadás"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr "Kattintsn ide címtárszolgáltatás felvételéhez."
+msgstr "Kattintson ide címtárszolgáltatás felvételéhez."
 
 #: ui/directoryserviceswidget.cpp:208
 #, kde-format
@@ -1321,7 +1327,7 @@ msgid ""
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
-"Kattintson erre a gombraa jelenleg kiválasztott címtárszolgáltatás "
+"Kattintson erre a gombra jelenleg kiválasztott címtárszolgáltatás "
 "beállításainak szerkesztéséhez. A módosítás csak akkor lesz végleges, ha a "
 "fő párbeszédablakban elfogadja a változásokat."
 
@@ -1360,12 +1366,12 @@ msgstr "Leírás"
 #: ui/dnattributeorderconfigwidget.cpp:88
 #, kde-format
 msgid "Available attributes:"
-msgstr "A rendelkezésre álló attribútumok:"
+msgstr "Elérhető attribútumok:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
 msgid "Current attribute order:"
-msgstr "A jelenlegi attribútumsorrend:"
+msgstr "Jelenlegi attribútumsorrend:"
 
 #: ui/dnattributeorderconfigwidget.cpp:98
 #, kde-format
@@ -1453,7 +1459,7 @@ msgstr "Adja meg a címtárszolgáltató kiszolgáló gépnevét vagy IP-címét
 #, kde-format
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
-msgstr ""
+msgstr "Hiba: adja meg helyesen a gépnevet, például ldap.example.com"
 
 #: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
@@ -1473,7 +1479,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
-msgstr ""
+msgstr "Alapértelmezett használata"
 
 #: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
@@ -1489,17 +1495,18 @@ msgstr "Névtelen"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
+msgstr "Hitelesítést nem igénylő névtelen LDAP kiszolgáló használata."
 
 #: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
-msgstr ""
+msgstr "Hitelesítés Active Directoryn keresztül"
 
 #: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr ""
+"Hitelesítés Active Directoryn keresztül (GnuPG 2.2.28 vagy újabb szükséges)"
 
 #: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
@@ -1508,17 +1515,19 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
+"Windowson hitelesítse magát az LDAP kiszolgálón az Active Directoryval a "
+"jelenlegi felhasználóval."
 
 #: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr ""
+msgstr "Hitelesítés felhasználónévvel és jelszóval"
 
 #: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
-msgstr ""
+msgstr "Hitelesítés az LDAP kiszolgálón az LDAP bejelentkezési adataival."
 
 #: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
