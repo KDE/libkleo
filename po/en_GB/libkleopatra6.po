@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:40+0000\n"
-"PO-Revision-Date: 2024-06-08 12:21+0100\n"
+"PO-Revision-Date: 2024-06-22 12:47+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -830,10 +830,9 @@ msgid "All"
 msgstr "All"
 
 #: kleo/keyfiltermanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
-msgstr "All Certificates"
+msgstr "All certificates"
 
 #: kleo/keyfiltermanager.cpp:87
 #, kde-format
@@ -842,10 +841,9 @@ msgid "My Own"
 msgstr "My Own"
 
 #: kleo/keyfiltermanager.cpp:88
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates"
-msgstr "My Certificates"
+msgstr "My own certificates"
 
 #: kleo/keyfiltermanager.cpp:106
 #, kde-format
@@ -856,7 +854,7 @@ msgstr "Certified"
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+msgstr "Certificates for which the primary user ID is certified"
 
 #: kleo/keyfiltermanager.cpp:124
 #, kde-format
@@ -867,7 +865,7 @@ msgstr "Not Certified"
 #: kleo/keyfiltermanager.cpp:125
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+msgstr "Certificates for which the primary user ID is not certified"
 
 #: kleo/keyfiltermanager.cpp:140
 #, kde-format
@@ -881,6 +879,8 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself"
 
 #: kleo/keyfiltermanager.cpp:168
 #, kde-format
@@ -889,10 +889,9 @@ msgid "Not Fully Certified"
 msgstr "Not Fully Certified"
 
 #: kleo/keyfiltermanager.cpp:169
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which not all user IDs are certified"
-msgstr "All User IDs are certified."
+msgstr "Certificates for which not all user IDs are certified"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -901,10 +900,9 @@ msgid "Fully Certified"
 msgstr "Fully Certified"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All User IDs are certified."
+#, kde-format
 msgid "Certificates for which all user IDs are certified"
-msgstr "All User IDs are certified."
+msgstr "Certificates for which all user IDs are certified"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -1353,8 +1351,7 @@ msgstr ""
 "change will only take effect once you acknowledge the configuration dialogue."
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Edit"
@@ -1378,8 +1375,7 @@ msgstr ""
 "configuration dialogue."
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Delete"
@@ -1806,8 +1802,7 @@ msgid "Clear"
 msgstr "Clear"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Change..."
@@ -2012,8 +2007,7 @@ msgid "Compliance"
 msgstr "Compliance"
 
 #: ui/keyselectiondialog.cpp:426
-#, fuzzy, kde-format
-#| msgid "Search for &External Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Search for &External Certificates"
@@ -2039,15 +2033,13 @@ msgstr ""
 "asked again.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "&Reread Keys"
 
 #: ui/keyselectiondialog.cpp:487
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "&Start Certificate Manager"
