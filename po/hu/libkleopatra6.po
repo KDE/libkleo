@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 00:39+0000\n"
-"PO-Revision-Date: 2024-06-24 22:48+0200\n"
+"PO-Revision-Date: 2024-06-26 22:20+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -1540,6 +1540,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
+"Adja meg az LDAP felhasználónevét vagy az ún. „Bind DN” karakterláncot az "
+"LDAP-kiszolgálóval való hitelesítéshez."
 
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
@@ -1618,7 +1620,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "LDAP alagút kialakítása TLS kapcsolaton keresztül"
 
 #: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
@@ -1627,6 +1629,8 @@ msgid ""
 "Use a TLS secured connection through which the connection to the LDAP server "
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
+"TLS-sel biztosított kapcsolat használata, amelyen keresztül az LDAP "
+"kiszolgálóval való kapcsolat alagútba kerül. <b>(Nem ajánlott)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
@@ -2091,6 +2095,9 @@ msgid ""
 "to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
+"Új kulcsot állít elő az az e-mail-címe használatával.<br/><br/>A kulcsra "
+"szükség van az e-mailek visszafejtéséhez és aláírásához. Meg kell adnia egy "
+"jelszót a kulcs védelméhez, a védett kulcs a saját könyvtárában lesz tárolva."
 
 #: ui/newkeyapprovaldialog.cpp:297
 #, kde-format
@@ -2133,24 +2140,24 @@ msgstr "Új kulcspár előállítása"
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Don't confirm identity and integrity"
-msgstr ""
+msgstr "Ne erősítse meg az azonosítót és az integritást"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
-msgstr ""
+msgstr "Az e-mail nem lesz kriptográfiailag aláírva."
 
 #: ui/newkeyapprovaldialog.cpp:577
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
-msgstr ""
+msgstr "A(z) „%1” azonosító megerősítése mint:"
 
 #: ui/newkeyapprovaldialog.cpp:654
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
+msgstr "Nincs kulcs. A címzett nem tudja visszafejteni."
 
 #: ui/newkeyapprovaldialog.cpp:657
 #, kde-format
@@ -2160,6 +2167,9 @@ msgid ""
 "the encrypted E-Mail, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
+"Ne válasszon kulcsot ehhez a címzetthez.<br/><br/>A címzett  megkapja a "
+"titkosított e-mailt, de azt csak a többi kiválasztott kulccsal lehet "
+"visszafejteni."
 
 #: ui/newkeyapprovaldialog.cpp:774
 #, kde-format
@@ -2193,18 +2203,24 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
+"<para>Válassza ki azt az intelligenskártya-olvasót, amelyet a GnuPG-nek "
+"használnia kell.<list><item>Az első elem hatására a GnuPG az első talált "
+"olvasót fogja használni.</item><item>Az utolsó elem lehetővé teszi az egyéni "
+"olvasóazonosító vagy az olvasó portszámának megadását.</item><item>Minden "
+"más elem olyan olvasókat jelent, amelyeket a GnuPG megtalált.</item></list></"
+"para>"
 
 #: ui/readerportselection.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "Egyéni olvasóazonosító vagy portszám"
 
 #: ui/treeview.cpp:63 ui/treewidget.cpp:148
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
-msgstr ""
+msgstr "Oszlopok megtekintése"
 
 #: utils/compliance.cpp:160
 #, kde-format
@@ -2244,7 +2260,7 @@ msgstr "Titkosítás"
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
 msgid "Certifying User-IDs"
-msgstr ""
+msgstr "Felhasználóazonosítók hitelesítése"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
 #, kde-format
@@ -2316,7 +2332,7 @@ msgstr "Felhasználóazonosító"
 #: utils/formatting.cpp:475
 #, kde-format
 msgid "a.k.a."
-msgstr ""
+msgstr "más néven"
 
 #: utils/formatting.cpp:498
 #, kde-format
@@ -2336,7 +2352,7 @@ msgstr "Megbízhatóság"
 #: utils/formatting.cpp:507
 #, kde-format
 msgid "Trusted issuer?"
-msgstr ""
+msgstr "Megbízható kibocsátó?"
 
 #: utils/formatting.cpp:507
 #, kde-format
@@ -2352,50 +2368,51 @@ msgstr "Nem"
 #: utils/formatting.cpp:544
 #, kde-format
 msgid "Stored"
-msgstr ""
+msgstr "Tárolva"
 
 #: utils/formatting.cpp:512 utils/formatting.cpp:542
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
-msgstr ""
+msgstr "a(z) %1 sorozatszámú intelligenskártyán"
 
 #: utils/formatting.cpp:514 utils/formatting.cpp:544
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
-msgstr ""
+msgstr "ezen a számítógépen"
 
 #: utils/formatting.cpp:520
 #, kde-format
 msgid "Subkey"
-msgstr ""
+msgstr "Alkulcs"
 
 #: utils/formatting.cpp:573
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
+"Egyes kulcsokat visszavontak, letiltottak, lejártak vagy érvénytelenek."
 
 #: utils/formatting.cpp:577
 #, kde-format
 msgid "All keys are certified."
-msgstr ""
+msgstr "Minden kulcs hitelesített."
 
 #: utils/formatting.cpp:579
 #, kde-format
 msgid "Some keys are not certified."
-msgstr ""
+msgstr "Néhány kulcs nem hitelesített."
 
 #: utils/formatting.cpp:583
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
+msgstr "A kulcsok érvényessége jelenleg nem ellenőrizhető."
 
 #: utils/formatting.cpp:597
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "Ez a csoport egyetlen kulcsot sem tartalmaz."
 
 #: utils/formatting.cpp:603
 #, kde-format
@@ -2404,6 +2421,8 @@ msgid ""
 "Some of the certificates in this group cannot be used for encryption. Using "
 "this group can lead to unexpected results."
 msgstr ""
+"Az ebben a csoportban lévő tanúsítványok némelyike nem használható "
+"titkosításra. A csoport használata nem várt eredményekhez vezethet."
 
 #: utils/formatting.cpp:623
 #, kde-format
@@ -2527,7 +2546,7 @@ msgstr "érvényes"
 #: utils/formatting.cpp:937
 #, kde-format
 msgid "certificate expired"
-msgstr ""
+msgstr "a tanúsítvány lejárt"
 
 #: utils/formatting.cpp:939
 #, kde-format
@@ -2543,17 +2562,17 @@ msgstr "nem nyilvános kulcs"
 #: utils/formatting.cpp:947
 #, kde-format
 msgid "key expired"
-msgstr "kulcs lejárt"
+msgstr "a kulcs lejárt"
 
 #: utils/formatting.cpp:949
 #, kde-format
 msgid "key revoked"
-msgstr "kulcs visszavonva"
+msgstr "a kulcsot visszavonták"
 
 #: utils/formatting.cpp:951
 #, kde-format
 msgid "key disabled"
-msgstr "kulcs letiltva"
+msgstr "a kulcsot letiltották"
 
 #: utils/formatting.cpp:1007
 #, kde-format
@@ -2564,92 +2583,99 @@ msgstr "%1 %2 (%3)"
 #: utils/formatting.cpp:1065
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "Hibás aláírás a(z) %1 ismeretlen tanúsítvánnyal: %2"
 
 #: utils/formatting.cpp:1067
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
-msgstr ""
+msgstr "Hibás aláírás ismeretlen tanúsítvánnyal: %1"
 
 #: utils/formatting.cpp:1070
 #, kde-format
 msgid "Bad signature by %1: %2"
-msgstr ""
+msgstr "Hibás aláírás %1 által: %2"
 
 #: utils/formatting.cpp:1076
 #, kde-format
 msgid "Good signature by unknown certificate %1."
-msgstr ""
+msgstr "Jó aláírás a(z) %1 ismeretlen tanúsítvánnyal."
 
 #: utils/formatting.cpp:1078
 #, kde-format
 msgid "Good signature by an unknown certificate."
-msgstr ""
+msgstr "Jó aláírás ismeretlen tanúsítvánnyal."
 
 #: utils/formatting.cpp:1081
 #, kde-format
 msgid "Good signature by %1."
-msgstr ""
+msgstr "Jó aláírás %1 által."
 
 #: utils/formatting.cpp:1086
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "Érvénytelen aláírás a(z) %1 ismeretlen tanúsítvánnyal: %2"
 
 #: utils/formatting.cpp:1088
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
-msgstr ""
+msgstr "Érvénytelen aláírás ismeretlen tanúsítvánnyal: %1"
 
 #: utils/formatting.cpp:1091
 #, kde-format
 msgid "Invalid signature by %1: %2"
-msgstr ""
+msgstr "Érvénytelen aláírás %1 által: %2"
 
 #: utils/formatting.cpp:1105
 #, kde-format
 msgid "This certificate was imported from the following sources:"
-msgstr ""
+msgstr "Ez a tanúsítvány a következő forrásokból lett importálva:"
 
 #: utils/formatting.cpp:1116
 #, kde-format
 msgid "The import of this certificate was canceled."
-msgstr ""
+msgstr "A tanúsítvány importálását megszakították."
 
 #: utils/formatting.cpp:1119
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
-msgstr ""
+msgstr "Hiba történt a tanúsítvány importálásakor: %1"
 
 #: utils/formatting.cpp:1124
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
+"Ez a tanúsítvány új volt a kulcstárában. A titkos kulcs rendelkezésre áll."
 
 #: utils/formatting.cpp:1125
 #, kde-format
 msgid "This certificate is new to your keystore."
-msgstr ""
+msgstr "Ez a tanúsítvány új a kulcstárában."
 
 #: utils/formatting.cpp:1130
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr ""
+"Az importálás során új felhasználóazonosítók kerültek hozzáadásra a "
+"tanúsítványhoz."
 
 #: utils/formatting.cpp:1133
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr ""
+"Az importálás során új aláírások kerültek hozzáadásra a tanúsítványhoz."
 
 #: utils/formatting.cpp:1136
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr ""
+"Az importálás során új alkulcsok kerültek hozzáadásra a tanúsítványhoz."
 
 #: utils/formatting.cpp:1139
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
+"Az importálás nem tartalmazott új adatokat a tanúsítványhoz. A tanúsítvány "
+"változatlan."
 
 #: utils/formatting.cpp:1155
 #, kde-format
@@ -2703,26 +2729,26 @@ msgstr[1] "%2 (%1 kulcs, %3)"
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 (1 kulcs, %3, címke)"
+msgstr[1] "%2 (%1 kulcs, %3, címke)"
 
 #: utils/formatting.cpp:1212
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 (1 kulcs, %3, ismeretlen eredet)"
+msgstr[1] "%2 (%1 kulcs, %3, ismeretlen eredet)"
 
 #: utils/formatting.cpp:1233
 #, kde-format
 msgid "The certificate is marked as your own."
-msgstr ""
+msgstr "A tanúsítvány a sajátjaként van megjelölve."
 
 #: utils/formatting.cpp:1235
 #, kde-format
 msgid "The certificate belongs to this recipient."
-msgstr ""
+msgstr "A tanúsítvány ehhez a címzetthez tartozik."
 
 #: utils/formatting.cpp:1237
 #, kde-format
@@ -2730,16 +2756,19 @@ msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
+"A bizalmi modell marginálisan azt jelzi, a tanúsítvány ehhez a címzetthez "
+"tartozik."
 
 #: utils/formatting.cpp:1239
 #, kde-format
 msgid "This certificate should not be used."
-msgstr ""
+msgstr "Ezt a tanúsítványt nem szabad használni."
 
 #: utils/formatting.cpp:1243
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
+"Nincs arra utaló jel, hogy ez a tanúsítvány ehhez a címzetthez tartozik."
 
 #: utils/formatting.cpp:1255
 #, kde-format
@@ -2824,13 +2853,13 @@ msgstr "Ismeretlen"
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
-msgstr ""
+msgstr "Hitelesíti ezt a kulcsot részben megbízható bevezetőként ehhez: „%1”."
 
 #: utils/formatting.cpp:1485
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
-msgstr ""
+msgstr "Hitelesíti ezt a kulcsot teljesen megbízható bevezetőként ehhez: „%1”."
 
 #: utils/formatting.cpp:1509
 #, kde-format
@@ -2967,12 +2996,12 @@ msgstr "Ismeretlen algoritmus"
 #: utils/hex.cpp:35
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr ""
+msgstr "Érvénytelen hexadecimális karakter („%1”) a bemenetben."
 
 #: utils/hex.cpp:47 utils/hex.cpp:52
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
-msgstr ""
+msgstr "Túl korán végződő hexadecimálisan kódolt karakter a bemenetben"
 
 #~ msgid "GpgConf Error"
 #~ msgstr "GpgConf-hiba"
