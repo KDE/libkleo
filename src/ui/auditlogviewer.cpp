@@ -106,7 +106,7 @@ void AuditLogViewer::showAuditLog(QWidget *parent, const AuditLogEntry &auditLog
 
     const auto alv = new AuditLogViewer{auditLog.text(), parent};
     alv->setAttribute(Qt::WA_DeleteOnClose);
-    alv->setWindowTitle(title.isEmpty() ? i18n("GnuPG Audit Log Viewer") : title);
+    alv->setWindowTitle(title.isEmpty() ? i18nc("@title:window", "GnuPG Audit Log Viewer") : title);
     alv->show();
 }
 
