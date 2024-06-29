@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-28 00:39+0000\n"
-"PO-Revision-Date: 2024-06-1510:04+0200\n"
+"PO-Revision-Date: 2024-06-28 10:53+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -858,7 +858,7 @@ msgstr "Atestitaj"
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+msgstr "Atestiloj por kiuj la ĉefa uzant-identigilo estas atestita"
 
 #: kleo/keyfiltermanager.cpp:124
 #, kde-format
@@ -869,7 +869,7 @@ msgstr "Ne Atestitaj"
 #: kleo/keyfiltermanager.cpp:125
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+msgstr "Atestiloj por kiuj la ĉefa uzant-identigilo ne estas atestita"
 
 #: kleo/keyfiltermanager.cpp:140
 #, kde-format
@@ -883,6 +883,7 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"Atestiloj kiuj ne estas plene atestitaj kaj kiujn vi eble volas atesti mem"
 
 #: kleo/keyfiltermanager.cpp:168
 #, kde-format
@@ -1179,8 +1180,7 @@ msgid "No GnuPG Audit Log"
 msgstr "Neniu GnuPG Audit Log"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "GnuPG Audit Log Viewer"
