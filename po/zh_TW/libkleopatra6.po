@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-09 00:39+0000\n"
-"PO-Revision-Date: 2024-02-29 03:11+0900\n"
+"PO-Revision-Date: 2024-06-30 10:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -207,7 +207,7 @@ msgstr "可加密時先詢問"
 #, kde-kuit-format
 msgctxt "no specific preference"
 msgid "<placeholder>none</placeholder>"
-msgstr "<placeholder>none</placeholder>"
+msgstr "<placeholder>無</placeholder>"
 
 #: kleo/enum.cpp:204
 #, kde-format
@@ -257,7 +257,7 @@ msgstr ""
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
-msgstr ""
+msgstr "<p>OpenPGP 金鑰</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:96
 #, kde-format
@@ -287,7 +287,7 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
-msgstr[0] ""
+msgstr[0] "<p>OpenPGP 金鑰</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:111
 #, kde-format
@@ -306,7 +306,7 @@ msgstr ""
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>OpenPGP 金鑰</p><p align=center>%1</p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:121
 #, kde-format
@@ -316,7 +316,7 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
-"<p>您的 OpenPGP 簽署金鑰</p><p align=center>%2</p><p>將在 %1 天內過期。</p>"
+"<p>您的 OpenPGP 簽署金鑰</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -335,7 +335,7 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
-msgstr[0] ""
+msgstr[0] "<p>OpenPGP 金鑰</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:139
 #, kde-format
@@ -351,6 +351,8 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%1</p><p>的根憑證</p><p "
+"align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:155
 #, kde-format
@@ -359,6 +361,8 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%1</p><p>的根憑證</p><p "
+"align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -366,6 +370,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME 憑證</p><p align=center>%1</p><p>的根憑證</p><p align=center><b>"
+"%2</b></p><p>已於一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:169
 #, kde-format
@@ -376,6 +382,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -386,6 +394,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -396,6 +406,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
+"%3</b></p><p>已於 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -404,6 +416,8 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%1</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -412,6 +426,8 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%1</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:208
 #, kde-format
@@ -419,6 +435,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>S/MIME 憑證</p><p align=center>%1</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -431,6 +449,8 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:225
 #, kde-format
@@ -443,6 +463,8 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:233
 #, kde-format
@@ -453,6 +475,8 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:246
 #, kde-format
@@ -475,7 +499,7 @@ msgstr ""
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
-msgstr ""
+msgstr "<p>S/MIME 憑證</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:256
 #, kde-format
@@ -507,7 +531,7 @@ msgid ""
 msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
-msgstr[0] ""
+msgstr[0] "<p>S/MIME 憑證</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:275
 #, kde-format
@@ -515,6 +539,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -522,6 +548,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -529,6 +557,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
+"%3</b></p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -539,6 +569,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>將於 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -549,6 +581,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>將於 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -559,6 +593,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
+"%3</b></p><p>將於 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -567,6 +603,8 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:328
 #, kde-format
@@ -575,6 +613,8 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:333
 #, kde-format
@@ -582,6 +622,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -594,6 +636,8 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>將在 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -606,6 +650,8 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>將在 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -616,6 +662,8 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
+"align=center><b>%3</b></p><p>將在 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -635,7 +683,7 @@ msgstr "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>將在今天�
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>S/MIME 憑證</p><p align=center>%2</p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -646,6 +694,7 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:386
 #, kde-format
@@ -656,6 +705,7 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:392
 #, kde-format
@@ -665,7 +715,7 @@ msgid ""
 msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
-msgstr[0] ""
+msgstr[0] "<p>S/MIME 憑證</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
@@ -919,7 +969,7 @@ msgstr "標籤"
 #: models/useridlistmodel.cpp:112
 #, kde-format
 msgid "Trust Signature For"
-msgstr ""
+msgstr "為其信任簽章"
 
 #: models/useridlistmodel.cpp:167 utils/formatting.cpp:927
 #, kde-format
@@ -1064,7 +1114,7 @@ msgstr "編輯..."
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
-msgstr ""
+msgstr "使用的 gpgme 函式庫太舊了，因此無法設定目錄服務。"
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
@@ -1108,6 +1158,8 @@ msgid ""
 "Click to use a directory service running on your Active Directory. This "
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
+"點擊來使用您的 Active Directory 上執行的目錄服務。這只支援 Windows 並且需要 "
+"GnuPG 2.2.28 以上版本。"
 
 #: ui/directoryserviceswidget.cpp:200
 #, kde-format
@@ -1291,7 +1343,7 @@ msgstr "輸入目錄服務伺服器的 IP 位址或主機名稱。"
 #, kde-format
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
-msgstr ""
+msgstr "錯誤：請輸入格式正確的主機名稱，例如 ldap.example.com。"
 
 #: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
@@ -1325,7 +1377,7 @@ msgstr "匿名"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
+msgstr "使用一個不需要驗證的匿名 LDAP 伺服器。"
 
 #: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
@@ -1367,7 +1419,7 @@ msgstr "使用者："
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
-msgstr ""
+msgstr "輸入您的 LDAP 使用者等等。為了向 LDAP 伺服器認證會綁定 DN。"
 
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
@@ -1407,11 +1459,13 @@ msgid ""
 "Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
+"使用 GnuPG 的預設值來連線到 LDAP 伺服器。GnuPG 2.3 及之前的版本會使用明文、未"
+"以 TLS 強化安全性的連線。<b>（不建議使用）</b>"
 
 #: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
-msgstr ""
+msgstr "不使用 TLS 安全連線"
 
 #: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
@@ -1420,6 +1474,8 @@ msgid ""
 "Use a plain, not TLS secured connection to connect to the LDAP server. "
 "<b>(Not recommended)</b>"
 msgstr ""
+"使用明文而未以 TLS 強化安全性的連線來與 LDAP 伺服器進行連線。<b>（不建議使"
+"用）</b>"
 
 #: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
@@ -1433,6 +1489,8 @@ msgid ""
 "Use a standard TLS secured connection (initiated with STARTTLS) to connect "
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr ""
+"使用標準的 TLS 安全連線（以 STARTTLS 起始）來連線到 LDAP 伺服器。<b>（建議使"
+"用）</b>"
 
 #: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
@@ -1480,6 +1538,8 @@ msgid ""
 "supported by Kleopatra. For example, older versions of GnuPG use "
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
+"在此您可以輸入 Kleopatra 尚未（或不再）支援的額外旗標，像是舊版 GnuPG 所使用"
+"的 <code>ldaps</code> 旗標（用來請求 TLS 安全連線）。"
 
 #: ui/editdirectoryservicedialog.cpp:410
 #, kde-format
@@ -1495,7 +1555,7 @@ msgstr "開啟檔案對話框"
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
 msgid "<placeholder>none</placeholder>"
-msgstr "<placeholder>none</placeholder>"
+msgstr "<placeholder>無</placeholder>"
 
 #: ui/keyapprovaldialog.cpp:77
 #, kde-format
@@ -1947,7 +2007,7 @@ msgstr ""
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
-msgstr ""
+msgstr "確認身份「%1」："
 
 #: ui/newkeyapprovaldialog.cpp:654
 #, kde-format
@@ -2096,7 +2156,7 @@ msgstr[0] "有 %1 個使用者 ID 尚未被保證。"
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
 #, kde-format
 msgid "The validity cannot be checked at the moment."
-msgstr ""
+msgstr "目前無法檢查有效性。"
 
 #: utils/formatting.cpp:460
 #, kde-format
@@ -2157,7 +2217,7 @@ msgstr "否"
 #: utils/formatting.cpp:544
 #, kde-format
 msgid "Stored"
-msgstr ""
+msgstr "已儲存"
 
 #: utils/formatting.cpp:512 utils/formatting.cpp:542
 #, kde-format
@@ -2179,12 +2239,12 @@ msgstr "子金鑰"
 #: utils/formatting.cpp:573
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
-msgstr ""
+msgstr "某些金鑰已撤銷、過期、停用或是無效。"
 
 #: utils/formatting.cpp:577
 #, kde-format
 msgid "All keys are certified."
-msgstr "所有金鑰皆以保證。"
+msgstr "所有金鑰皆已保證。"
 
 #: utils/formatting.cpp:579
 #, kde-format
@@ -2194,7 +2254,7 @@ msgstr "有些金鑰尚未被保證。"
 #: utils/formatting.cpp:583
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
+msgstr "目前無法檢查金鑰的有效性。"
 
 #: utils/formatting.cpp:597
 #, kde-format
@@ -2208,7 +2268,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Some of the certificates in this group cannot be used for encryption. Using "
 "this group can lead to unexpected results."
-msgstr ""
+msgstr "此群組中的某些憑證無法用來進行加密。使用此群組可能會帶來非預期的結果。"
 
 #: utils/formatting.cpp:623
 #, kde-format
@@ -2428,12 +2488,12 @@ msgstr "匯入這個憑證時發生錯誤：%1"
 #: utils/formatting.cpp:1124
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
-msgstr ""
+msgstr "此憑證原為新加入您的金鑰庫中的。私鑰可用。"
 
 #: utils/formatting.cpp:1125
 #, kde-format
 msgid "This certificate is new to your keystore."
-msgstr ""
+msgstr "此憑證是新加入您的金鑰庫中的。"
 
 #: utils/formatting.cpp:1130
 #, kde-format
@@ -2499,21 +2559,21 @@ msgstr "(%1, %2, 建立: %3)"
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
-msgstr[0] ""
+msgstr[0] "%2（%1 個金鑰，%3）"
 
 #: utils/formatting.cpp:1205
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] ""
+msgstr[0] "%2（%1 個金鑰，%3，標籤）"
 
 #: utils/formatting.cpp:1212
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] ""
+msgstr[0] "%2（%1 個金鑰，%3，未知來源）"
 
 #: utils/formatting.cpp:1233
 #, kde-format
@@ -2540,7 +2600,7 @@ msgstr "此憑證不應使用。"
 #: utils/formatting.cpp:1243
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
-msgstr ""
+msgstr "沒有證據顯示此憑證屬於此收件者。"
 
 #: utils/formatting.cpp:1255
 #, kde-format
@@ -2768,12 +2828,12 @@ msgstr "未知演算法"
 #: utils/hex.cpp:35
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr ""
+msgstr "輸入串流中有無效的十六進位字元 '%1'。"
 
 #: utils/hex.cpp:47 utils/hex.cpp:52
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
-msgstr ""
+msgstr "輸入串流中的十六進位字元在途中結束"
 
 #~ msgid "GpgConf Error"
 #~ msgstr "GpgConf 錯誤"
