@@ -358,6 +358,7 @@ Name[sv]=Inte validerade
 Name[tr]=Doğrulanmamış
 Name[uk]=Неперевірений
 Name[x-test]=xxNot Validatedxx
+Name[zh_TW]=未驗證
 Description=Certificates that were not validated
 Description[bg]=Сертификати, които са невалидирани
 Description[ca]=Certificats que no s'han validat
@@ -375,6 +376,7 @@ Description[sv]=Certifikat som inte validerats
 Description[tr]=Doğrulanmamış sertifikalar
 Description[uk]=Сертифікати, які не було засвідчено
 Description[x-test]=xxCertificates that were not validatedxx
+Description[zh_TW]=未受驗證的憑證
 
 [Key Filter #1]
 is-expired=true
@@ -399,6 +401,7 @@ Name[sv]=Utgångna
 Name[tr]=Süresi Dolmuş
 Name[uk]=Застарілий
 Name[x-test]=xxExpiredxx
+Name[zh_TW]=已過期
 Description=Certificates that are invalid because they have expired
 Description[bg]=Сертификати, които са невалидни, защото са изтекли
 Description[ca]=Certificats que no són vàlids perquè han caducat
@@ -416,6 +419,7 @@ Description[sv]=Certifikat som är ogiltiga eftersom de har gått ut
 Description[tr]=Süreleri dolduğu için geçersiz olan sertifikalar
 Description[uk]=Сертифікати, які є некоректними, оскільки їхній строк дії вичерпано
 Description[x-test]=xxCertificates that are invalid because they have expiredxx
+Description[zh_TW]=因為已過期而無效的憑證
 
 [Key Filter #2]
 is-revoked=true
@@ -438,6 +442,7 @@ Name[sv]=Återkallade
 Name[tr]=Yürürlükten Kaldırılmış
 Name[uk]=Відкликаний
 Name[x-test]=xxRevokedxx
+Name[zh_TW]=已撤銷
 Description=Certificates that are invalid because they have been revoked
 Description[bg]=Сертификати, които са невалидни, защото са били отменени
 Description[ca]=Certificats que no són vàlids perquè s'han revocat
@@ -455,6 +460,7 @@ Description[sv]=Certifikat som är ogiltiga eftersom de har återkallats
 Description[tr]=Yürürlükten kaldırıldıkları için geçersiz olan sertifikalar
 Description[uk]=Сертифікати, які є некоректними, оскільки їх відкликано
 Description[x-test]=xxCertificates that are invalid because they have been revokedxx
+Description[zh_TW]=因為已撤銷而無效的憑證
 
 [Key Filter #3]
 was-validated=true
@@ -479,6 +485,7 @@ Name[sv]=Pålitliga rotcertifikat
 Name[tr]=Güvenilir Kök Sertifikaları
 Name[uk]=Кореневі сертифікати з довірою
 Name[x-test]=xxTrusted Root Certificatesxx
+Name[zh_TW]=信任的根憑證
 Description=S/MIME root certificates that are trusted
 Description[bg]=S/MIME основни сертификати, които са надеждни
 Description[ca]=Certificats S/MIME arrel que són de confiança
@@ -496,6 +503,7 @@ Description[sv]=S/MIME rotcertifikat som är pålitliga
 Description[tr]=Güvenilen S/MIME kök sertifikaları
 Description[uk]=Кореневі сертифікати S/MIME, які є довіреними
 Description[x-test]=xxS/MIME root certificates that are trustedxx
+Description[zh_TW]=受信任的 S/MIME 根憑證
 background-color=95,135,255
 font-bold=true
 
@@ -523,6 +531,7 @@ Name[sv]=Opålitliga rotcertifikat
 Name[tr]=Güvenilmeyen Kök Sertifikaları
 Name[uk]=Кореневі сертифікати без довіри
 Name[x-test]=xxNot Trusted Root Certificatesxx
+Name[zh_TW]=不受信任的根憑證
 Description=S/MIME root certificates that are not trusted
 Description[bg]=S/MIME основни сертификати, които не са надеждни
 Description[ca]=Certificats S/MIME arrel que no són de confiança
@@ -540,6 +549,7 @@ Description[sv]=S/MIME rotcertifikat som är inte är pålitliga
 Description[tr]=Güvenilmeyen S/MIME kök sertifikalar
 Description[uk]=Кореневі сертифікати S/MIME, які не є довіреними
 Description[x-test]=xxS/MIME root certificates that are not trustedxx
+Description[zh_TW]=不受信任的 S/MIME 根憑證
 
 [Key Filter #5]
 was-validated=true
@@ -564,6 +574,7 @@ Name[sv]=För kvalificerade signaturer
 Name[tr]=Yetkilendirilmiş İmzalar için
 Name[uk]=Для підписів обмеженого використання
 Name[x-test]=xxFor Qualified Signaturesxx
+Name[zh_TW]=合格簽證用
 Description=Certificates usable for qualified signatures
 Description[bg]=Сертификати, които могат да се използват за квалифицирани подписи
 Description[ca]=Certificats que es poden fer servir per a signatures qualificades
@@ -582,6 +593,7 @@ Description[sv]=Certifikat användbara för kvalificerade signaturer
 Description[tr]=Kalifiye imzalar için kullanılabilir sertifikalar
 Description[uk]=Сертифікати, які можна використовувати для обмеженого підписування
 Description[x-test]=xxCertificates usable for qualified signaturesxx
+Description[zh_TW]=可由合格簽證使用的憑證
 
 [Key Filter #6]
 was-validated=true
@@ -604,6 +616,7 @@ Name[sv]=Validerade
 Name[tr]=Doğrulanmış
 Name[uk]=Перевірений
 Name[x-test]=xxValidatedxx
+Name[zh_TW]=已驗證
 Description=Certificates that were validated
 Description[bg]=Сертификати, които са валидирани
 Description[ca]=Certificats que s'han validat
@@ -621,6 +634,7 @@ Description[sv]=Certifikat som har validerats
 Description[tr]=Doğrulanan sertifikalar
 Description[uk]=Сертифікати, які було засвідчено
 Description[x-test]=xxCertificates that were validatedxx
+Description[zh_TW]=已驗證的憑證
 
 [Key Filter #7]
 is-cardkey=true
@@ -643,6 +657,7 @@ Name[sv]=På smartkort
 Name[tr]=Akıllı Kartta
 Name[uk]=На картці пам’яті
 Name[x-test]=xxOn Smart Cardxx
+Name[zh_TW]=在智慧卡上
 Description=Certificates stored on smart cards
 Description[bg]=Сертификати, съхранявани на смарт карти
 Description[ca]=Certificats emmagatzemats en targetes intel·ligents
@@ -660,6 +675,7 @@ Description[sv]=Certifikat lagrade på smartkort
 Description[tr]=Akıllı kartlarda depolanan sertifikalar
 Description[uk]=Сертифікати, які зберігаються на картках пам'яті
 Description[x-test]=xxCertificates stored on smart cardsxx
+Description[zh_TW]=儲存於智慧卡上的憑證
 icon=smartcard
 
 [Key Filter #8]
@@ -682,6 +698,7 @@ Name[sv]=OpenPGP
 Name[tr]=OpenPGP
 Name[uk]=OpenPGP
 Name[x-test]=xxOpenPGPxx
+Name[zh_TW]=OpenPGP
 Description=OpenPGP certificates
 Description[bg]=OpenPGP сертификати
 Description[ca]=Certificats OpenPGP
@@ -700,6 +717,7 @@ Description[sv]=OpenPGP-certifikat
 Description[tr]=OpenPGP sertifikaları
 Description[uk]=Сертифікати OpenPGP
 Description[x-test]=xxOpenPGP certificatesxx
+Description[zh_TW]=OpenPGP 憑證
 
 [Key Filter #9]
 is-openpgp-key=false
@@ -721,6 +739,7 @@ Name[sv]=S/MIME
 Name[tr]=S/MIME
 Name[uk]=S/MIME
 Name[x-test]=xxS/MIMExx
+Name[zh_TW]=S/MIME
 Description=S/MIME certificates
 Description[bg]=S/MIME сертификати
 Description[ca]=Certificats S/MIME
@@ -739,6 +758,7 @@ Description[sv]=S/MIME-certifikat
 Description[tr]=S/MIME sertifikaları
 Description[uk]=Сертифікати S/MIME
 Description[x-test]=xxS/MIME certificatesxx
+Description[zh_TW]=S/MIME 憑證
 
 # Filters that filter for is-de-vs
 # are only shown in compliance mode
@@ -798,6 +818,7 @@ Description[sv]=Certifikat som följer VS-NfD
 Description[tr]=VS-NfD uyumlu olan sertifikalar
 Description[uk]=Сертифікати, які сумісні з VS-NfD
 Description[x-test]=xxCertificates that are compliant with VS-NfDxx
+Description[zh_TW]=合乎 VS-NfD 規範的憑證
 foreground-color=0,0,0
 background-color=213,250,226
 
@@ -857,6 +878,7 @@ Description[sv]=Certifikat som inte följer VS-NfD
 Description[tr]=VS-NfD uyumlu olmayan sertifikalar
 Description[uk]=Сертифікати, які не сумісні з VS-NfD
 Description[x-test]=xxCertificates that are not VS-NfD compliantxx
+Description[zh_TW]=不合 VS-NfD 規範的憑證
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -915,6 +937,7 @@ Description[sv]=Utgångna certifikat (om läge kompatibelt med VS-NfD är aktivt
 Description[tr]=Süresi dolmuş sertifikalar (VS-NfD uyumluluk kipi etkinse)
 Description[uk]=Сертифікати з вичерпаним строком дії (якщо активним є режим сумісності з VS-NfD)
 Description[x-test]=xxExpired certificates (if VS-NfD compliance mode is active)xx
+Description[zh_TW]=已過期的憑證（VS-NfD 規範格式啟用時）
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -972,5 +995,6 @@ Description[sv]=Återkallade certifikat (om läge kompatibelt med VS-NfD är akt
 Description[tr]=Yürürlükten kaldırılmış sertifikalar (VS-NfD uyumluluk kipi etkinse)
 Description[uk]=Відкликані сертифікати (якщо активним є режим сумісності з VS-NfD)
 Description[x-test]=xxRevoked certificates (if VS-NfD compliance mode is active)xx
+Description[zh_TW]=已撤銷的憑證（VS-NfD 規範格式啟用時）
 foreground-color=0,0,0
 background-color=250,233,235
