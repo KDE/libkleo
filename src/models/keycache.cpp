@@ -744,6 +744,28 @@ const Subkey &KeyCache::findSubkeyByKeyGrip(const std::string &grip, Protocol pr
     return findSubkeyByKeyGrip(grip.c_str(), protocol);
 }
 
+std::vector<GpgME::Subkey> Kleo::KeyCache::findSubkeysByKeyGrip(const char *grip, GpgME::Protocol protocol) const
+{
+    d->ensureCachePopulated();
+
+    std::vector<GpgME::Subkey> subkeys;
+    const auto range = std::equal_range(d->by.keygrip.begin(), d->by.keygrip.end(), grip, _detail::ByKeyGrip<std::less>());
+    subkeys.reserve(std::distance(range.first, range.second));
+    if (protocol == UnknownProtocol) {
+        std::copy(range.first, range.second, std::back_inserter(subkeys));
+    } else {
+        std::copy_if(range.first, range.second, std::back_inserter(subkeys), [protocol](const auto &subkey) {
+            return subkey.parent().protocol() == protocol;
+        });
+    }
+    return subkeys;
+}
+
+std::vector<GpgME::Subkey> Kleo::KeyCache::findSubkeysByKeyGrip(const std::string &grip, GpgME::Protocol protocol) const
+{
+    return findSubkeysByKeyGrip(grip.c_str(), protocol);
+}
+
 std::vector<Subkey> KeyCache::findSubkeysByKeyID(const std::vector<std::string> &ids) const
 {
     std::vector<std::string> sorted;
