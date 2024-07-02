@@ -139,8 +139,7 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
 
 bool TreeWidget::eventFilter(QObject *watched, QEvent *event)
 {
-    Q_UNUSED(watched)
-    if (event->type() == QEvent::ContextMenu) {
+    if ((watched == header()) && (event->type() == QEvent::ContextMenu)) {
         auto e = static_cast<QContextMenuEvent *>(event);
 
         if (!d->mHeaderPopup) {
@@ -179,7 +178,7 @@ bool TreeWidget::eventFilter(QObject *watched, QEvent *event)
         return true;
     }
 
-    return false;
+    return QTreeWidget::eventFilter(watched, event);
 }
 
 QModelIndex TreeWidget::moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
