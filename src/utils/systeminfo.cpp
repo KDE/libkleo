@@ -13,12 +13,10 @@
 #include "systeminfo.h"
 
 #include <QByteArray>
-#include <QtSystemDetection>
 
 // #include "libkleo_debug.h"
 #ifdef Q_OS_WIN
 #include "windows.h"
-// #include "gnupg-registry.h"
 #endif
 
 #ifdef Q_OS_WIN
@@ -33,43 +31,6 @@ bool win_isHighContrastModeActive()
     }
     return false;
 }
-
-bool win_isDarkModeActive()
-{
-    /* This is a bit complicated. Qt does not detect this correctly
-     * for high contrast mode with white contrast. */
-
-    // First check for white background. That is set in High contrast
-    // white theme.
-    DWORD color = GetSysColor(COLOR_WINDOW);
-    if (color == 0xFFFFFF) {
-        return false;
-    }
-    // Windows 10 has only one white High Contrast mode. The other
-    // three are dark.
-    if (win_isHighContrastModeActive()) {
-        return true;
-    }
-
-#if 0
-    // This is not enabled because although Qt does check for this, the theme
-    // does not switch accordingly in tests. So we would have white icons on a
-    // bright window.
-    //
-    // The user may have customized a dark theme. Then AppsUseLightTheme is 0
-    char *val = read_w32_registry_string ("HKEY_CURRENT_USER",
-                   "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
-                   "AppsUseLightTheme");
-    bool ret = false;
-    if (val) {
-        ret = !((DWORD) *val);
-        free (val);
-        return ret;
-    }
-#endif
-    // Nothing set -> default to bright.
-    return false;
-}
 }
 #endif
 
@@ -81,15 +42,5 @@ bool Kleo::SystemInfo::isHighContrastModeActive()
     return highContrastModeActive;
 #else
     return forceHighContrastMode;
-#endif
-}
-
-bool Kleo::SystemInfo::isDarkModeActive()
-{
-#ifdef Q_OS_WIN
-    return win_isDarkModeActive();
-#else
-    // Don't know
-    return isHighContrastModeActive();
 #endif
 }

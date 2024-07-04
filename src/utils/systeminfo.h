@@ -16,6 +16,4 @@ namespace Kleo::SystemInfo
 {
 
 KLEO_EXPORT bool isHighContrastModeActive();
-KLEO_EXPORT bool isDarkModeActive();
-
 }
