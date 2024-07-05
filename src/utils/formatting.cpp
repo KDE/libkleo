@@ -1493,13 +1493,26 @@ QString Formatting::errorAsString(const GpgME::Error &error)
 {
 #ifdef Q_OS_WIN
     // On Windows, we set GpgME resp. libgpg-error to return (translated) error messages as UTF-8
+#if GPGMEPP_ERROR_HAS_ASSTDSTRING
+    const std::string s = error.asStdString();
+    qCDebug(LIBKLEO_LOG) << __func__ << "gettext_use_utf8(-1) returns" << gettext_use_utf8(-1);
+    qCDebug(LIBKLEO_LOG) << __func__ << "error:" << s;
+    qCDebug(LIBKLEO_LOG) << __func__ << "error (percent-encoded):" << QByteArray::fromStdString(s).toPercentEncoding();
+    return QString::fromStdString(s);
+#else
     const char *s = error.asString();
     qCDebug(LIBKLEO_LOG) << __func__ << "gettext_use_utf8(-1) returns" << gettext_use_utf8(-1);
     qCDebug(LIBKLEO_LOG) << __func__ << "error:" << s;
     qCDebug(LIBKLEO_LOG) << __func__ << "error (percent-encoded):" << QByteArray{s}.toPercentEncoding();
     return QString::fromUtf8(s);
+#endif
+#else
+#if GPGMEPP_ERROR_HAS_ASSTDSTRING
+    const std::string s = error.asStdString();
+    return QString::fromLocal8Bit(QByteArrayView{s.data(), qsizetype(s.size())});
 #else
     return QString::fromLocal8Bit(error.asString());
+#endif
 #endif
 }
 
