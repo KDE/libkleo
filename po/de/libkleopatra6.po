@@ -12,16 +12,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:39+0000\n"
-"PO-Revision-Date: 2024-04-24 00:17+0200\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
-"Language-Team: German <kde-i18n-de@kde.org>\n"
+"POT-Creation-Date: 2024-07-06 00:39+0000\n"
+"PO-Revision-Date: 2024-07-02 11:41+0200\n"
+"Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
+"Language-Team: kde-i18n-de@kde.org\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -233,12 +233,10 @@ msgid "<none>"
 msgstr "<kein>"
 
 #: kleo/expirychecker.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-#| msgid "<b>%1</b> (KeyID 0x%2)"
+#, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
-msgstr "<b>%1</b> (KeyID 0x%2)"
+msgstr "<b>%1</b> (Key-ID 0x%2)"
 
 #: kleo/expirychecker.cpp:86
 #, kde-format
@@ -836,15 +834,13 @@ msgstr[1] ""
 "ab.</p>"
 
 #: kleo/keyfiltermanager.cpp:71
-#, fuzzy, kde-format
-#| msgid "4 - All"
+#, kde-format
 msgctxt "All Certificates"
 msgid "All"
-msgstr "4 - Alles"
+msgstr "Alle"
 
 #: kleo/keyfiltermanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
 msgstr "Alle Zertifikate"
 
@@ -852,46 +848,40 @@ msgstr "Alle Zertifikate"
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
-msgstr ""
-
-#: kleo/keyfiltermanager.cpp:88
-#, fuzzy, kde-format
-#| msgid "My Certificates"
-msgid "My own certificates"
 msgstr "Meine Zertifikate"
 
+#: kleo/keyfiltermanager.cpp:88
+#, kde-format
+msgid "My own certificates"
+msgstr "Meine eigenen Zertifikate"
+
 #: kleo/keyfiltermanager.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is valid.'"
-#| msgid "certified"
+#, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "beglaubigt"
+msgstr "Beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+msgstr "Zertifikate, deren primäre Benutzerkennung beglaubigt ist"
 
 #: kleo/keyfiltermanager.cpp:124
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is not certified'"
-#| msgid "not certified"
+#, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "nicht beglaubigt"
+msgstr "Nicht beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:125
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+msgstr "Zertifikate, deren primäre Benutzerkennung nicht beglaubigt ist"
 
 #: kleo/keyfiltermanager.cpp:140
-#, fuzzy, kde-format
-#| msgid "Certify"
+#, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
-msgstr "Beglaubigen"
+msgstr "Zu Beglaubigen"
 
 #: kleo/keyfiltermanager.cpp:141
 #, kde-format
@@ -899,34 +889,30 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"Zertifikate, die nicht vollständig beglaubigt sind und die Sie vielleicht "
+"selbst beglaubigen möchten"
 
 #: kleo/keyfiltermanager.cpp:168
-#, fuzzy, kde-format
-#| msgctxt "As in not all keys are valid."
-#| msgid "not all certified"
+#, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "nicht alle beglaubigt"
+msgstr "Nicht komplett beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:169
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "Certificates for which not all user IDs are certified"
-msgstr "Alle Benutzerkennungen sind beglaubigt."
+msgstr "Zertifikate, deren Benutzer-IDs nicht alle beglaubigt sind"
 
 #: kleo/keyfiltermanager.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "As in all keys are valid."
-#| msgid "all certified"
+#, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "alle beglaubigt"
+msgstr "Komplett beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "Certificates for which all user IDs are certified"
-msgstr "Alle Benutzerkennungen sind beglaubigt."
+msgstr "Zertifikate, deren Benutzer-IDs alle beglaubigt sind"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -941,11 +927,10 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "User IDs"
-msgstr "Benutzer-ID"
+msgstr "Benutzerkennungen"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -966,8 +951,7 @@ msgid "Protocol"
 msgstr "Protokoll"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Schlüsselkennung"
@@ -1157,15 +1141,13 @@ msgid "View GnuPG Audit Log"
 msgstr "GnuPG-Prüfprotokoll ansehen"
 
 #: ui/auditlogviewer.cpp:46
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
-msgstr "In die Zwischenablage &kopieren"
+msgstr "&Kopieren"
 
 #: ui/auditlogviewer.cpp:51
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "In Datei &speichern ..."
@@ -1205,8 +1187,7 @@ msgid "No GnuPG Audit Log"
 msgstr "Kein GnuPG-Prüfprotokoll"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "GnuPG-Prüfprotokollbetrachter"
@@ -1277,8 +1258,7 @@ msgid "4 - All"
 msgstr "4 - Alles"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, fuzzy, kde-format
-#| msgid "Set the debugging level to"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Debug-Stufe festlegen auf"
@@ -1385,8 +1365,7 @@ msgstr ""
 "übernommen, wenn der Haupt-Einrichtungsdialog bestätigt wird."
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -1410,8 +1389,7 @@ msgstr ""
 "Einrichtungsdialog bestätigt wird."
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Löschen"
@@ -1445,15 +1423,13 @@ msgid "Description"
 msgstr "Beschreibung"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Verfügbare Attribute:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Aktuelle Attributreihenfolge:"
@@ -1767,11 +1743,10 @@ msgid "Edit Directory Service"
 msgstr "Verzeichnisdienst bearbeiten"
 
 #: ui/filenamerequester.cpp:81
-#, fuzzy, kde-format
-#| msgid "Open file dialog"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
-msgstr "Dateiauswahl-Dialog"
+msgstr "Dateiauswahl öffnen"
 
 #: ui/filenamerequester.cpp:82
 #, kde-format
@@ -1815,50 +1790,43 @@ msgid "Encryption Key Approval"
 msgstr "Verschlüsselungsschlüssel akzeptieren"
 
 #: ui/keyapprovaldialog.cpp:118
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
-msgstr "Die folgenden Schlüssel werden zur Verschlüsselung verwendet:"
+msgstr "Die folgenden Schlüssel werden für die Verschlüsselung verwendet:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Your keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Ihre Schlüssel:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Empfänger:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Verschlüsselungsschlüssel:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Encryption preference:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Verschlüsselungspräferenz:"
 
 #: ui/keyrequester.cpp:89
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Leeren"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Ändern ..."
@@ -2066,15 +2034,13 @@ msgid "Compliance"
 msgstr "Konformität"
 
 #: ui/keyselectiondialog.cpp:426
-#, fuzzy, kde-format
-#| msgid "Search for &External Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Suche nach &Externen Zertifikaten"
 
 #: ui/keyselectiondialog.cpp:440
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Suchen nach:"
@@ -2094,15 +2060,13 @@ msgstr ""
 "und Sie werden nicht noch einmal danach gefragt.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Schlüssel neu &einlesen"
 
 #: ui/keyselectiondialog.cpp:487
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Zertifikatsverwaltung &starten"
@@ -2192,8 +2156,7 @@ msgid "Show Matching Keys"
 msgstr "Passende Schlüssel anzeigen"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, fuzzy, kde-format
-#| msgid "Show keys matching the email address"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Zur E-Mail-Adresse passende Schlüssel anzeigen"
@@ -2205,22 +2168,13 @@ msgid "Show All"
 msgstr "Alle anzeigen"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, fuzzy, kde-format
-#| msgid "Show all keys"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Alle Schlüssel anzeigen"
 
 #: ui/newkeyapprovaldialog.cpp:272
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
-#| "user does not yet have an OpenPGP or S/MIME key."
-#| msgid ""
-#| "Generate a new key using your E-Mail address.<br/><br/>The key is "
-#| "necessary to decrypt and sign E-Mails. You will be asked for a passphrase "
-#| "to protect this key and the protected key will be stored in your home "
-#| "directory."
+#, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
@@ -2232,7 +2186,7 @@ msgstr ""
 "Generiert einen neuen Schlüssel für Ihre E-Mail-Adresse<br/><br/>Dieser "
 "Schlüssel wird zum Entschlüsseln und Signieren von E-Mails benutzt. Sie "
 "werden nach einem Passwort zum Schutz des Schlüssels gefragt und der "
-"Schlüssel wird in Ihren persönlichen Ordner gespeichert."
+"Schlüssel wird in Ihrem persönlichen Ordner gespeichert."
 
 #: ui/newkeyapprovaldialog.cpp:297
 #, kde-format
@@ -2275,12 +2229,10 @@ msgstr "Neues Schlüsselpaar erstellen"
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Do not sign this email"
-msgstr ""
+msgstr "Diese E-Mail nicht signieren"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for not selecting a key for signing."
-#| msgid "The E-Mail will not be cryptographically signed."
+#, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Die E-Mail wird nicht kryptographisch signiert."
@@ -2297,21 +2249,16 @@ msgid "No key. Recipient will be unable to decrypt."
 msgstr "Kein Schlüssel. Empfänger kann die Nachricht nicht entschlüsseln."
 
 #: ui/newkeyapprovaldialog.cpp:657
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for No Key selected for a specific recipient."
-#| msgid ""
-#| "Do not select a key for this recipient.<br/><br/>The recipient will "
-#| "receive the encrypted E-Mail, but it can only be decrypted with the other "
-#| "keys selected in this dialog."
+#, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
 "the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
-"Sie wählen keinen Schlüssel für diesen Empfänger.<br/><br/>Der Empfänger "
-"erhält eine verschlüsselte E-Mail, sie kann aber nur mit den anderen in "
-"diesem Dialog ausgewählten Schlüsseln entschlüsselt werden."
+"Sie wählen keinen Schlüssel für diesen Empfänger aus.<br/><br/>Der Empfänger "
+"erhält eine verschlüsselte E-Mail, die aber nur mit den anderen in diesem "
+"Dialog ausgewählten Schlüsseln entschlüsselt werden kann."
 
 #: ui/newkeyapprovaldialog.cpp:774
 #, kde-format
@@ -2399,8 +2346,7 @@ msgid "Encryption"
 msgstr "Verschlüsselung"
 
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, fuzzy, kde-format
-#| msgid "Certifying User-IDs"
+#, kde-format
 msgid "Certifying User IDs"
 msgstr "Benutzerkennungen beglaubigen"
 
@@ -2425,27 +2371,22 @@ msgid "Disabled"
 msgstr "Deaktiviert"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "User-ID is certified."
+#, kde-format
 msgid "User ID is certified."
 msgstr "Die Benutzerkennung ist beglaubigt."
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
-#| msgid "User-ID is not certified."
+#, kde-format
 msgid "User ID is not certified."
 msgstr "Die Benutzerkennung ist nicht beglaubigt."
 
 #: utils/formatting.cpp:437
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "All User IDs are certified."
 msgstr "Alle Benutzerkennungen sind beglaubigt."
 
 #: utils/formatting.cpp:443
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Eine Benutzerkennung ist nicht beglaubigt."
@@ -3005,133 +2946,133 @@ msgstr ""
 "Zertifiziert diesen Schlüssel als vollständig vertrauenswürdigen Vermittler "
 "für „%1“."
 
-#: utils/formatting.cpp:1509
+#: utils/formatting.cpp:1522
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr "ECC (Brainpool P-256)"
 
-#: utils/formatting.cpp:1510
+#: utils/formatting.cpp:1523
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr "ECC (Brainpool P-384)"
 
-#: utils/formatting.cpp:1511
+#: utils/formatting.cpp:1524
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr "ECC (Brainpool P-512)"
 
-#: utils/formatting.cpp:1512
+#: utils/formatting.cpp:1525
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr "ECC (Curve25519)"
 
-#: utils/formatting.cpp:1513
+#: utils/formatting.cpp:1526
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr "ECC (Curve448)"
 
-#: utils/formatting.cpp:1514
+#: utils/formatting.cpp:1527
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
 msgstr "ECC (Ed25519)"
 
-#: utils/formatting.cpp:1515
+#: utils/formatting.cpp:1528
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
 msgstr "ECC (Ed448)"
 
-#: utils/formatting.cpp:1516
+#: utils/formatting.cpp:1529
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
 msgstr "ECC (Cv25519)"
 
-#: utils/formatting.cpp:1517
+#: utils/formatting.cpp:1530
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
 msgstr "ECC (Cv448)"
 
-#: utils/formatting.cpp:1518
+#: utils/formatting.cpp:1531
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr "ECC (NIST P-256)"
 
-#: utils/formatting.cpp:1519
+#: utils/formatting.cpp:1532
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr "ECC (NIST P-384)"
 
-#: utils/formatting.cpp:1520
+#: utils/formatting.cpp:1533
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr "ECC (NIST P-521)"
 
-#: utils/formatting.cpp:1521
+#: utils/formatting.cpp:1534
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr "RSA 2048"
 
-#: utils/formatting.cpp:1522
+#: utils/formatting.cpp:1535
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "RSA 3072"
 
-#: utils/formatting.cpp:1523
+#: utils/formatting.cpp:1536
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "RSA 4096"
 
-#: utils/formatting.cpp:1524
+#: utils/formatting.cpp:1537
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr "DSA 1024"
 
-#: utils/formatting.cpp:1525
+#: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr "DSA 2048"
 
-#: utils/formatting.cpp:1526
+#: utils/formatting.cpp:1539
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr "Elgamal 1024"
 
-#: utils/formatting.cpp:1527
+#: utils/formatting.cpp:1540
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr "Elgamal 2048"
 
-#: utils/formatting.cpp:1528
+#: utils/formatting.cpp:1541
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr "Elgamal 3072"
 
-#: utils/formatting.cpp:1529
+#: utils/formatting.cpp:1542
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
-#: utils/formatting.cpp:1532
+#: utils/formatting.cpp:1545
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
