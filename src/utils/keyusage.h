@@ -86,7 +86,6 @@ public:
 private:
     Flags mFlags;
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(KeyUsage::Flags)
-
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeyUsage::Flags)
