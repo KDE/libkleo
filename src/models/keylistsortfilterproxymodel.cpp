@@ -261,7 +261,9 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     //    For groups check that at least one key matches the key filter
     //
     if (d->keyFilter) { // avoid artifacts when no filters are defined
-        if (!key.isNull()) {
+        if (!userID.isNull()) {
+            return d->keyFilter->matches(userID, KeyFilter::Filtering);
+        } else if (!key.isNull()) {
             return d->keyFilter->matches(key, KeyFilter::Filtering);
         } else if (!group.isNull()) {
             return Kleo::any_of(group.keys(), [this](const auto &key) {
