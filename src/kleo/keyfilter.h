@@ -97,10 +97,9 @@ public:
 
     virtual FontDescription fontDescription() const = 0;
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(KeyFilter::MatchContexts)
-
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeyFilter::MatchContexts)
 
 #include <QObject>
 
