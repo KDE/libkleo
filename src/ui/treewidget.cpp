@@ -30,6 +30,7 @@ public:
     QMenu *mHeaderPopup = nullptr;
     QList<QAction *> mColumnActions;
     QString mStateGroupName;
+    std::vector<bool> mColumnForcedHidden;
 
     Private(TreeWidget *qq)
         : q(qq)
@@ -51,6 +52,16 @@ TreeWidget::TreeWidget(QWidget *parent)
 }
 
 TreeWidget::~TreeWidget() = default;
+
+void TreeWidget::forceColumnHidden(int column)
+{
+    if (column > columnCount()) {
+        return;
+    }
+    // ensure that the mColumnForcedHidden vector is initialized
+    d->mColumnForcedHidden.resize(columnCount(), false);
+    d->mColumnForcedHidden[column] = true;
+}
 
 void TreeWidget::Private::saveColumnLayout()
 {
@@ -91,6 +102,9 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
     if (stateGroupName.isEmpty()) {
         return false;
     }
+    // ensure that the mColumnForcedHidden vector is initialized
+    d->mColumnForcedHidden.resize(columnCount(), false);
+
     d->mStateGroupName = stateGroupName;
     auto config = KConfigGroup(KSharedConfig::openStateConfig(), d->mStateGroupName);
     auto header = this->header();
@@ -101,9 +115,8 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
 
     if (!columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty()) {
         for (int i = 0; i < header->count(); ++i) {
-            if (i >= columnOrder.size() || i >= columnWidths.size() || i >= columnVisibility.size()) {
-                // An additional column that was not around last time we saved.
-                // We default to hidden.
+            if (d->mColumnForcedHidden[i] || i >= columnOrder.size() || i >= columnWidths.size() || i >= columnVisibility.size()) {
+                // Hide columns that are forced hidden and new columns that were not around the last time we saved
                 hideColumn(i);
                 continue;
             }
@@ -115,6 +128,12 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
             header->moveSection(header->visualIndex(i), order);
 
             if (!visible) {
+                hideColumn(i);
+            }
+        }
+    } else {
+        for (int i = 0; i < header->count(); ++i) {
+            if (d->mColumnForcedHidden[i]) {
                 hideColumn(i);
             }
         }

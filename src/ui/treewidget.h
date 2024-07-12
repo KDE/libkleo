@@ -33,6 +33,12 @@ public:
     ~TreeWidget() override;
 
     /**
+     * Hides the column with logical index @p column and doesn't allow the user
+     * to show it.
+     */
+    void forceColumnHidden(int column);
+
+    /**
      * Restores the layout state under key @p stateGroupName and enables state
      * saving when the object is destroyed. Make sure that @p stateGroupName is
      * unique for each place the widget occurs. Returns true if some state was
