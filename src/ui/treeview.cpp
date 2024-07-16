@@ -48,6 +48,11 @@ TreeView::TreeView(QWidget *parent)
     , d{new Private(this)}
 {
     header()->installEventFilter(this);
+
+    // disable parent<->child navigation in tree views with left/right arrow keys
+    // because this interferes with column by column navigation that is required
+    // for accessibility
+    setStyleSheet(QStringLiteral("QTreeView { arrow-keys-navigate-into-children: 0; }"));
 }
 
 TreeView::~TreeView() = default;
