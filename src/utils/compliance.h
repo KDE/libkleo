@@ -61,7 +61,7 @@ KLEO_EXPORT bool allSubkeysAreCompliant(const GpgME::Key &key);
  * user id \p id; all other user ids are ignored.
  * \see keyIsCompliant
  */
-bool userIDIsCompliant(const GpgME::UserID &id);
+KLEO_EXPORT bool userIDIsCompliant(const GpgME::UserID &id);
 
 /**
  * Returns true, if the key \p key is compliant with compliance mode "de-vs".
