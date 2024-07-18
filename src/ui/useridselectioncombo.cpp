@@ -14,6 +14,8 @@
 #include <libkleo/dn.h>
 #include <libkleo/formatting.h>
 #include <libkleo/keycache.h>
+#include <libkleo/keyfiltermanager.h>
+#include <libkleo/keyhelpers.h>
 #include <libkleo/keylist.h>
 #include <libkleo/keylistmodel.h>
 #include <libkleo/keylistsortfilterproxymodel.h>
@@ -23,9 +25,11 @@
 
 #include <KLocalizedString>
 
+#include <QHBoxLayout>
 #include <QList>
 #include <QSortFilterProxyModel>
 #include <QTimer>
+#include <QToolButton>
 
 #include <gpgme++/key.h>
 
@@ -188,6 +192,9 @@ protected:
         case Qt::DecorationRole: {
             return mIconProvider.icon(userId.parent());
         }
+        case Qt::FontRole: {
+            return KeyFilterManager::instance()->font(userId.parent(), QFont());
+        }
         default:
             return QSortFilterProxyModel::data(index, role);
         }
@@ -335,6 +342,7 @@ public:
             case Qt::DecorationRole:
                 return ci->icon;
             case Qt::UserRole:
+            case KeyList::UserIDRole:
                 return ci->data;
             case Qt::ToolTipRole:
                 return ci->toolTip;
@@ -395,7 +403,7 @@ public:
                 continue;
             }
             if (QString::fromStdString(userID.addrSpec()) == mPerfectMatchMbox) {
-                q->setCurrentIndex(i);
+                combo->setCurrentIndex(i);
                 return true;
             }
         }
@@ -437,7 +445,7 @@ public:
     void storeCurrentSelectionBeforeModelChange()
     {
         userIDBeforeModelChange = q->currentUserID();
-        customItemBeforeModelChange = q->currentData();
+        customItemBeforeModelChange = combo->currentData();
     }
 
     void restoreCurrentSelectionAfterModelChange()
@@ -445,9 +453,9 @@ public:
         if (!userIDBeforeModelChange.isNull()) {
             q->setCurrentUserID(userIDBeforeModelChange);
         } else if (customItemBeforeModelChange.isValid()) {
-            const auto index = q->findData(customItemBeforeModelChange);
+            const auto index = combo->findData(customItemBeforeModelChange);
             if (index != -1) {
-                q->setCurrentIndex(index);
+                combo->setCurrentIndex(index);
             } else {
                 updateWithDefaultKey();
             }
@@ -459,6 +467,8 @@ public:
     SortFilterProxyModel *sortFilterProxy = nullptr;
     SortAndFormatCertificatesProxyModel *sortAndFormatProxy = nullptr;
     CustomItemsProxyModel *proxyModel = nullptr;
+    QComboBox *combo = nullptr;
+    QToolButton *button = nullptr;
     std::shared_ptr<Kleo::KeyCache> cache;
     QMap<GpgME::Protocol, QString> defaultKeys;
     bool wasEnabled = false;
@@ -499,7 +509,7 @@ UserIDSelectionCombo::UserIDSelectionCombo(KeyUsage::Flag usage, QWidget *parent
 }
 
 UserIDSelectionCombo::UserIDSelectionCombo(bool secretOnly, KeyUsage::Flags usage, QWidget *parent)
-    : QComboBox(parent)
+    : QWidget(parent)
     , d(new UserIDSelectionComboPrivate(this, secretOnly, usage))
 {
     // set a non-empty string as accessible description to prevent screen readers
@@ -521,11 +531,25 @@ UserIDSelectionCombo::UserIDSelectionCombo(bool secretOnly, KeyUsage::Flags usag
     d->proxyModel = new CustomItemsProxyModel{this};
     d->proxyModel->setSourceModel(d->sortAndFormatProxy);
 
-    setModel(d->proxyModel);
-    connect(this, &QComboBox::currentIndexChanged, this, [this](int row) {
+    auto layout = new QHBoxLayout(this);
+    layout->setContentsMargins({});
+
+    d->combo = new QComboBox(parent);
+    layout->addWidget(d->combo);
+
+    d->button = new QToolButton(parent);
+    d->button->setIcon(QIcon::fromTheme(QStringLiteral("resource-group-new")));
+    d->button->setToolTip(i18nc("@info:tooltip", "Show certificate list"));
+    d->button->setAccessibleName(i18n("Show certificate list"));
+    layout->addWidget(d->button);
+
+    connect(d->button, &QToolButton::clicked, this, &UserIDSelectionCombo::certificateSelectionRequested);
+
+    d->combo->setModel(d->proxyModel);
+    connect(d->combo, &QComboBox::currentIndexChanged, this, [this](int row) {
         if (row >= 0 && row < d->proxyModel->rowCount()) {
             if (d->proxyModel->isCustomItem(row)) {
-                Q_EMIT customItemSelected(currentData(Qt::UserRole));
+                Q_EMIT customItemSelected(d->combo->currentData(Qt::UserRole));
             } else {
                 Q_EMIT currentKeyChanged(currentKey());
             }
@@ -534,22 +558,22 @@ UserIDSelectionCombo::UserIDSelectionCombo(bool secretOnly, KeyUsage::Flags usag
 
     d->cache = Kleo::KeyCache::mutableInstance();
 
-    connect(model(), &QAbstractItemModel::rowsAboutToBeInserted, this, [this]() {
+    connect(d->combo->model(), &QAbstractItemModel::rowsAboutToBeInserted, this, [this]() {
         d->storeCurrentSelectionBeforeModelChange();
     });
-    connect(model(), &QAbstractItemModel::rowsInserted, this, [this]() {
+    connect(d->combo->model(), &QAbstractItemModel::rowsInserted, this, [this]() {
         d->restoreCurrentSelectionAfterModelChange();
     });
-    connect(model(), &QAbstractItemModel::rowsAboutToBeRemoved, this, [this]() {
+    connect(d->combo->model(), &QAbstractItemModel::rowsAboutToBeRemoved, this, [this]() {
         d->storeCurrentSelectionBeforeModelChange();
     });
-    connect(model(), &QAbstractItemModel::rowsRemoved, this, [this]() {
+    connect(d->combo->model(), &QAbstractItemModel::rowsRemoved, this, [this]() {
         d->restoreCurrentSelectionAfterModelChange();
     });
-    connect(model(), &QAbstractItemModel::modelAboutToBeReset, this, [this]() {
+    connect(d->combo->model(), &QAbstractItemModel::modelAboutToBeReset, this, [this]() {
         d->storeCurrentSelectionBeforeModelChange();
     });
-    connect(model(), &QAbstractItemModel::modelReset, this, [this]() {
+    connect(d->combo->model(), &QAbstractItemModel::modelReset, this, [this]() {
         d->restoreCurrentSelectionAfterModelChange();
     });
 
@@ -597,8 +621,8 @@ void UserIDSelectionCombo::init()
         Q_EMIT keyListingFinished();
     }
 
-    connect(this, &QComboBox::currentIndexChanged, this, [this]() {
-        setToolTip(currentData(Qt::ToolTipRole).toString());
+    connect(d->combo, &QComboBox::currentIndexChanged, this, [this]() {
+        setToolTip(d->combo->currentData(Qt::ToolTipRole).toString());
     });
 }
 
@@ -627,18 +651,18 @@ QString UserIDSelectionCombo::idFilter() const
 
 GpgME::Key Kleo::UserIDSelectionCombo::currentKey() const
 {
-    return currentData(KeyList::KeyRole).value<GpgME::Key>();
+    return d->combo->currentData(KeyList::KeyRole).value<GpgME::Key>();
 }
 
 void Kleo::UserIDSelectionCombo::setCurrentKey(const GpgME::Key &key)
 {
-    const int idx = findData(QString::fromLatin1(key.primaryFingerprint()), KeyList::FingerprintRole, Qt::MatchExactly);
+    const int idx = d->combo->findData(QString::fromLatin1(key.primaryFingerprint()), KeyList::FingerprintRole, Qt::MatchExactly);
     if (idx > -1) {
-        setCurrentIndex(idx);
+        d->combo->setCurrentIndex(idx);
     } else if (!d->selectPerfectIdMatch()) {
         d->updateWithDefaultKey();
     }
-    setToolTip(currentData(Qt::ToolTipRole).toString());
+    setToolTip(d->combo->currentData(Qt::ToolTipRole).toString());
 }
 
 void Kleo::UserIDSelectionCombo::setCurrentKey(const QString &fingerprint)
@@ -650,33 +674,33 @@ void Kleo::UserIDSelectionCombo::setCurrentKey(const QString &fingerprint)
         Q_EMIT currentKeyChanged(cur);
         return;
     }
-    const int idx = findData(fingerprint, KeyList::FingerprintRole, Qt::MatchExactly);
+    const int idx = d->combo->findData(fingerprint, KeyList::FingerprintRole, Qt::MatchExactly);
     if (idx > -1) {
-        setCurrentIndex(idx);
+        d->combo->setCurrentIndex(idx);
     } else if (!d->selectPerfectIdMatch()) {
-        setCurrentIndex(0);
+        d->combo->setCurrentIndex(0);
     }
-    setToolTip(currentData(Qt::ToolTipRole).toString());
+    setToolTip(d->combo->currentData(Qt::ToolTipRole).toString());
 }
 
 GpgME::UserID Kleo::UserIDSelectionCombo::currentUserID() const
 {
-    return currentData(KeyList::UserIDRole).value<GpgME::UserID>();
+    return d->combo->currentData(KeyList::UserIDRole).value<GpgME::UserID>();
 }
 
 void Kleo::UserIDSelectionCombo::setCurrentUserID(const GpgME::UserID &userID)
 {
-    for (auto i = 0; i < count(); i++) {
-        const auto &other = itemData(i, KeyList::UserIDRole).value<GpgME::UserID>();
+    for (auto i = 0; i < d->combo->count(); i++) {
+        const auto &other = d->combo->itemData(i, KeyList::UserIDRole).value<GpgME::UserID>();
         if (!qstrcmp(userID.id(), other.id()) && !qstrcmp(userID.parent().primaryFingerprint(), other.parent().primaryFingerprint())) {
-            setCurrentIndex(i);
-            setToolTip(currentData(Qt::ToolTipRole).toString());
+            d->combo->setCurrentIndex(i);
+            setToolTip(d->combo->currentData(Qt::ToolTipRole).toString());
             return;
         }
     }
     if (!d->selectPerfectIdMatch()) {
         d->updateWithDefaultKey();
-        setToolTip(currentData(Qt::ToolTipRole).toString());
+        setToolTip(d->combo->currentData(Qt::ToolTipRole).toString());
     }
 }
 
@@ -687,7 +711,7 @@ void UserIDSelectionCombo::refreshKeys()
     setEnabled(false);
     const bool wasBlocked = blockSignals(true);
     prependCustomItem(QIcon(), i18n("Loading keys ..."), QStringLiteral("-libkleo-loading-keys"));
-    setCurrentIndex(0);
+    d->combo->setCurrentIndex(0);
     blockSignals(wasBlocked);
     d->cache->startKeyListing();
 }
@@ -737,6 +761,22 @@ QString Kleo::UserIDSelectionCombo::defaultKey() const
 {
     return defaultKey(GpgME::UnknownProtocol);
 }
+
+QComboBox *Kleo::UserIDSelectionCombo::combo() const
+{
+    return d->combo;
+}
+
+int Kleo::UserIDSelectionCombo::findUserId(const GpgME::UserID &userId) const
+{
+    for (int i = 0; i < combo()->model()->rowCount(); i++) {
+        if (Kleo::userIDsAreEqual(userId, combo()->model()->index(i, 0).data(KeyList::UserIDRole).value<GpgME::UserID>())) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 #include "useridselectioncombo.moc"
 
 #include "moc_useridselectioncombo.cpp"

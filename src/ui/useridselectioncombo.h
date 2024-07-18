@@ -27,7 +27,7 @@ namespace Kleo
 class KeyFilter;
 class UserIDSelectionComboPrivate;
 
-class KLEO_EXPORT UserIDSelectionCombo : public QComboBox
+class KLEO_EXPORT UserIDSelectionCombo : public QWidget
 {
     Q_OBJECT
 
@@ -79,10 +79,15 @@ public:
     void appendCustomItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip);
     void removeCustomItem(const QVariant &data);
 
+    QComboBox *combo() const;
+
+    int findUserId(const GpgME::UserID &userId) const;
+
 Q_SIGNALS:
     void customItemSelected(const QVariant &data);
     void currentKeyChanged(const GpgME::Key &key);
     void keyListingFinished();
+    void certificateSelectionRequested();
 
 protected:
     virtual void init();
