@@ -90,6 +90,14 @@ bool TreeView::eventFilter(QObject *watched, QEvent *event)
             action->setChecked(!isColumnHidden(column));
         }
 
+        auto numVisibleColumns = std::count_if(d->mColumnActions.cbegin(), d->mColumnActions.cend(), [](const auto &action) {
+            return action->isChecked();
+        });
+
+        for (auto action : std::as_const(d->mColumnActions)) {
+            action->setEnabled(numVisibleColumns != 1 || !action->isChecked());
+        }
+
         d->mHeaderPopup->popup(mapToGlobal(e->pos()));
         return true;
     }
