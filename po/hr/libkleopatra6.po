@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:40+0000\n"
+"POT-Creation-Date: 2024-07-20 00:40+0000\n"
 "PO-Revision-Date: 2010-01-24 17:21+0100\n"
 "Last-Translator: Andrej Dundovic <adundovi@gmail.com>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -1705,25 +1705,25 @@ msgstr ""
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:89
+#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:93
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:171
+#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:175
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:177
+#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:181
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:689
+#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:713
 #, kde-format
 msgid "Loading keys ..."
 msgstr ""
@@ -2094,6 +2094,17 @@ msgstr ""
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
+msgstr ""
+
+#: ui/useridselectioncombo.cpp:542
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr ""
+
+#: ui/useridselectioncombo.cpp:543
+#, kde-format
+msgid "Show certificate list"
 msgstr ""
 
 #: utils/compliance.cpp:160

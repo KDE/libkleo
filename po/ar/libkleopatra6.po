@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:40+0000\n"
+"POT-Creation-Date: 2024-07-20 00:40+0000\n"
 "PO-Revision-Date: 2022-01-29 13:07+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1838,25 +1838,25 @@ msgstr "Key Selection"
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Please select an (OpenPGP or S/MIME) key to use."
 
-#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:89
+#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:93
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:171
+#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:175
 #, fuzzy, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr "أُنشئ"
 
-#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:177
+#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:181
 #, fuzzy, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "أُنشئ"
 
-#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:689
+#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:713
 #, fuzzy, kde-format
 #| msgid "Fetching keys..."
 msgid "Loading keys ..."
@@ -2242,6 +2242,17 @@ msgstr ""
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr ""
+
+#: ui/useridselectioncombo.cpp:542
+#, fuzzy, kde-format
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr "ابدأ شهادة المدير"
+
+#: ui/useridselectioncombo.cpp:543
+#, fuzzy, kde-format
+msgid "Show certificate list"
+msgstr "ابدأ شهادة المدير"
 
 #: utils/compliance.cpp:160
 #, fuzzy, kde-format

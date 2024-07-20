@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:40+0000\n"
+"POT-Creation-Date: 2024-07-20 00:40+0000\n"
 "PO-Revision-Date: 2024-06-26 22:20+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1904,25 +1904,25 @@ msgstr "Kulcsválasztás"
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Válassza ki a használni kívánt (OpenPGP- vagy S/MIME-) kulcsot."
 
-#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:89
+#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:93
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:171
+#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:175
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr "%1 (%2, létrehozva: %3)"
 
-#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:177
+#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:181
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, létrehozva: %4)"
 
-#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:689
+#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:713
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Kulcsok betöltése…"
@@ -2313,6 +2313,19 @@ msgstr "Egyéni olvasóazonosító vagy portszám"
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "Oszlopok megtekintése"
+
+#: ui/useridselectioncombo.cpp:542
+#, fuzzy, kde-format
+#| msgid "My Certificates"
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr "Saját tanúsítványok"
+
+#: ui/useridselectioncombo.cpp:543
+#, fuzzy, kde-format
+#| msgid "My Certificates"
+msgid "Show certificate list"
+msgstr "Saját tanúsítványok"
 
 #: utils/compliance.cpp:160
 #, kde-format
