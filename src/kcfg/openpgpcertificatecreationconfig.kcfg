@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+ <group name="CertificateCreationWizard">
+   <entry key="OpenPGPAttributeOrder" name="requiredFields" type="StringList">
+     <label>Contains a list of the required attributes (case insensitive): NAME! , EMAIL!</label>
+     <default></default>
+   </entry>
+   <entry key="CN_placeholder" name="cnPlaceholder" type="String">
+     <label>Placeholder for CN</label>
+     <whatsthis>This text will be used as placeholder text for the common name (CN) field of S/MIME certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="CN_prefill" name="prefillCN" type="Bool">
+     <label>Prefill CN automatically</label>
+     <whatsthis>If true, then the common name (CN) field of S/MIME certificates will be prefilled with information gathered from the system,
+         e.g., from the email settings of the desktop or, on Windows, from the Active Directory.</whatsthis>
+     <default>true</default>
+   </entry>
+   <entry key="EMAIL_placeholder" name="emailPlaceholder" type="String">
+     <label>Hint for EMAIL (deprecated use emailHint instead)</label>
+     <whatsthis>This text will be shown above the email address field of OpenPGP certificates and as placeholder in that field for S/MIME certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="EMAIL_hint" name="emailHint" type="String">
+     <label>Hint for EMAIL</label>
+     <whatsthis>This text will be shown above the email address field of OpenPGP certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="EMAIL_label" name="emailLabel" type="String">
+     <label>Label for EMAIL</label>
+     <whatsthis>This text will be the label of the email address field of OpenPGP certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="EMAIL_prefill" name="prefillEmail" type="Bool">
+     <label>Prefill EMAIL automatically</label>
+     <whatsthis>If true, then the email address field of OpenPGP and S/MIME certificates will be prefilled with information gathered from the system,
+         e.g., from the email settings of the desktop or, on Windows, from the Active Directory.</whatsthis>
+     <default>true</default>
+   </entry>
+   <entry key="EMAIL_regex" name="emailRegex" type="String">
+     <label>Regex for EMAIL</label>
+     <whatsthis>This text will be used as pattern validator for the address email field of OpenPGP certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="EMAIL" name="email" type="String">
+     <label>Value of EMAIL</label>
+     <whatsthis>Prefilled value for the email address field of OpenPGP and S/MIME certificates. This will override EMAIL_prefill. It is useful if no or unsuitable system settings are found for EMAIL_prefill.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="NAME_placeholder" name="namePlaceholder" type="String">
+     <label>Hint for NAME (deprecated use NAME_hint instead)</label>
+     <whatsthis>This text will be shown above the name field of OpenPGP certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="NAME_regex" name="nameRegex" type="String">
+     <label>Regex for NAME</label>
+     <whatsthis>This text will be used as pattern validator for the name field of OpenPGP certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="NAME_hint" name="nameHint" type="String">
+     <label>Hint for NAME</label>
+     <whatsthis>This text will be shown next to the label of the name field of OpenPGP certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="NAME_label" name="nameLabel" type="String">
+     <label>Label for NAME</label>
+     <whatsthis>This text will be shown above the name field of OpenPGP certificates.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="NAME_prefill" name="prefillName" type="Bool">
+     <label>Prefill NAME automatically</label>
+     <whatsthis>If true, then the name field of OpenPGP certificates will be prefilled with information gathered from the system,
+         e.g., from the email settings of the desktop or, on Windows, from the Active Directory.</whatsthis>
+     <default>true</default>
+   </entry>
+   <entry key="NAME" name="name" type="String">
+     <label>Value of NAME</label>
+     <whatsthis>Prefilled value for the name field of OpenPGP certificates. This will override NAME_prefill. It is useful if no or an unsuitable system setting is found for NAME_prefill.</whatsthis>
+     <default></default>
+   </entry>
+   <entry key="ValidityPeriodInDays" type="Int">
+     <label>Default validity period</label>
+     <tooltip>Specifies the default validity period of new or extended OpenPGP keys in days.</tooltip>
+     <whatsthis>This setting specifies how many days an OpenPGP key will be valid by default at creation or change of validity, or, in other words, after how many days the key will expire. Set this to 0 for unlimited validity. If this setting is not set or is set to a negative value, then new or extended OpenPGP keys will be valid for three years (possibly clamped to the allowed minimum or maximum validity period) by default.</whatsthis>
+     <default>-1</default>
+   </entry>
+   <entry key="ValidityPeriodInDaysMin" type="Int">
+     <label>Minimum validity period</label>
+     <tooltip>Specifies the minimum allowed validity period of new or extended OpenPGP keys in days.</tooltip>
+     <whatsthis>This setting specifies the minimum number of days a user can choose for the validity period of OpenPGP certificates. It applies at key creation and change of validity.</whatsthis>
+     <default>1</default>
+   </entry>
+   <entry key="ValidityPeriodInDaysMax" type="Int">
+     <label>Maximum validity period</label>
+     <tooltip>Specifies the maximum allowed validity period of new or extended OpenPGP keys in days.</tooltip>
+     <whatsthis>This setting specifies the maximum number of days a user can choose for the validity period of OpenPGP certificates. It applies at key creation and change of validity. If this setting is not set or is set to a negative value, then unlimited validity is allowed.</whatsthis>
+     <default>-1</default>
+   </entry>
+   <entry key="HideAdvanced" type="Bool">
+     <label>Hide advanced settings</label>
+     <whatsthis>If true, hides the advanced settings button in the new certificate wizard.</whatsthis>
+     <default>false</default>
+   </entry>
+   <entry key="WithPassphrase" type="Bool">
+     <label>Whether the certificate creation dialog require a passsphrase</label>
+     <whatsthis>If true, the checkbox will be pre-selected by default.</whatsthis>
+     <default>false</default>
+   </entry>
+ </group>
+</kcfg>

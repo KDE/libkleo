@@ -101,6 +101,8 @@ target_sources(KPim6Libkleo PRIVATE
    utils/filesystemwatcher.h
    utils/formatting.cpp
    utils/formatting.h
+   utils/expiration.cpp
+   utils/expiration.h
    utils/gnupg-registry.c
    utils/gnupg-registry.h
    utils/gnupg.cpp
@@ -109,6 +111,8 @@ target_sources(KPim6Libkleo PRIVATE
    utils/hex.h
    utils/keyhelpers.cpp
    utils/keyhelpers.h
+   utils/keyparameters.cpp
+   utils/keyparameters.h
    utils/keyusage.h
    utils/qtstlhelpers.cpp
    utils/qtstlhelpers.h
@@ -122,6 +126,10 @@ target_sources(KPim6Libkleo PRIVATE
    utils/test.h
    utils/uniquelock.cpp
    utils/uniquelock.h
+   utils/validation.cpp
+   utils/validation.h
+   utils/multivalidator_p.h
+   utils/multivalidator.cpp
   )
 ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
         DESCRIPTION "libkleo (kleo_core)"
@@ -132,6 +140,8 @@ ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER L
 target_sources(KPim6Libkleo PRIVATE
    ui/adjustingscrollarea.cpp
    ui/adjustingscrollarea.h
+   ui/animatedexpander.cpp
+   ui/animatedexpander_p.h
    ui/auditlogviewer.cpp
    ui/auditlogviewer.h
    ui/cryptoconfigentryreaderport.cpp
@@ -145,10 +155,18 @@ target_sources(KPim6Libkleo PRIVATE
    ui/dnattributeorderconfigwidget.h
    ui/editdirectoryservicedialog.cpp
    ui/editdirectoryservicedialog.h
+   ui/errorlabel.cpp
+   ui/errorlabel.h
    ui/filenamerequester.cpp
    ui/filenamerequester.h
+   ui/formtextinput.cpp
+   ui/formtextinput_p.h
    ui/messagebox.cpp
    ui/messagebox.h
+   ui/nameandemailwidget.cpp
+   ui/nameandemailwidget.h
+   ui/openpgpcertificatecreationdialog.cpp
+   ui/openpgpcertificatecreationdialog.h
    ui/treeview.cpp
    ui/treeview.h
    ui/treewidget.cpp
@@ -294,11 +312,13 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   Compat
   Compliance
   CryptoConfig
+  Expiration
   FileSystemWatcher
   Formatting
   GnuPG
   Hex
   KeyHelpers
+  KeyParameters
   KeyUsage
   QtStlHelpers
   SCDaemon
@@ -306,6 +326,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
   SystemInfo
   Test
   UniqueLock
+  Validation
   REQUIRED_HEADERS libkleo_utils_HEADERS
   PREFIX Libkleo
   RELATIVE utils
@@ -319,6 +340,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   DNAttributeOrderConfigWidget
   DirectoryServicesWidget
   EditDirectoryServiceDialog
+  ErrorLabel
   FileNameRequester
   KeyApprovalDialog
   KeyListView
@@ -326,9 +348,11 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
   KeySelectionCombo
   KeySelectionDialog
   MessageBox
+  NameAndEmailWidget
   TreeView
   TreeWidget
   NewKeyApprovalDialog
+  OpenPGPCertificateCreationDialog
   ProgressDialog
   ReaderPortSelection
   UserIDSelectionCombo
@@ -340,6 +364,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
 kconfig_add_kcfg_files(KPim6Libkleo
   kcfg/expirycheckerconfigbase.kcfgc
   kcfg/classifyconfig.kcfgc
+  kcfg/openpgpcertificatecreationconfig.kcfgc
 )
 
 install(FILES

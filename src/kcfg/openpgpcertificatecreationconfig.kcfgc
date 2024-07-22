@@ -1,0 +1,12 @@
+# Code generation options for kconfig_compiler
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2024 g10 Code GmbH
+# SPDX-FileContributor: Carl Schwan <carl.schwan@gnupg.com>
+File=openpgpcertificatecreationconfig.kcfg
+ClassName=OpenPGPCertificateCreationConfig
+NameSpace=Kleo
+DefaultValueGetters=true
+Mutators=true
+Visibility=KLEO_EXPORT
+IncludeFiles=\"kleo_export.h\"
+TranslationSystem=kde
