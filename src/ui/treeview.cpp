@@ -72,6 +72,9 @@ bool TreeView::eventFilter(QObject *watched, QEvent *event)
                 const int col = action->data().toInt();
                 if (action->isChecked()) {
                     showColumn(col);
+                    if (columnWidth(col) == 0) {
+                        resizeColumnToContents(col);
+                    }
                 } else {
                     hideColumn(col);
                 }
