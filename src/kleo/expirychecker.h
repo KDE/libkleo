@@ -38,7 +38,7 @@ public:
 
     virtual qint64 currentTime() const = 0;
     virtual QDate currentDate() const = 0;
-    virtual Qt::TimeSpec timeSpec() const = 0;
+    virtual QTimeZone timeZone() const = 0;
 };
 
 class KLEO_EXPORT ExpiryChecker : public QObject

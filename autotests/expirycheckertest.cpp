@@ -48,10 +48,10 @@ public:
         return mCurrentDate;
     }
 
-    Qt::TimeSpec timeSpec() const override
+    QTimeZone timeZone() const override
     {
         // use UTC to avoid test failures caused by "wrong" local timezone
-        return Qt::UTC;
+        return QTimeZone{QTimeZone::UTC};
     }
 
 private:

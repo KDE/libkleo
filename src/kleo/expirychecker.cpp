@@ -27,6 +27,8 @@
 #include <QGpgME/KeyListJob>
 #include <QGpgME/Protocol>
 
+#include <QTimeZone>
+
 #include <gpgme++/keylistresult.h>
 
 #include <set>
@@ -436,10 +438,10 @@ ExpiryChecker::Expiration ExpiryCheckerPrivate::calculateExpiration(const GpgME:
     }
     const qint64 currentTime = timeProvider ? timeProvider->currentTime() : QDateTime::currentSecsSinceEpoch();
     const auto currentDate = timeProvider ? timeProvider->currentDate() : QDate::currentDate();
-    const auto timeSpec = timeProvider ? timeProvider->timeSpec() : Qt::LocalTime;
+    const auto timeZone = timeProvider ? timeProvider->timeZone() : QTimeZone{QTimeZone::LocalTime};
     // interpret the expiration time as unsigned 32-bit value if it's negative; gpg also uses uint32 internally
     const qint64 expirationTime = qint64(subkey.expirationTime() < 0 ? quint32(subkey.expirationTime()) : subkey.expirationTime());
-    const auto expirationDate = QDateTime::fromSecsSinceEpoch(expirationTime, timeSpec).date();
+    const auto expirationDate = QDateTime::fromSecsSinceEpoch(expirationTime, timeZone).date();
     if (expirationTime <= currentTime) {
         return {subkey.parent(), ExpiryChecker::Expired, Kleo::chrono::days{expirationDate.daysTo(currentDate)}};
     } else {
