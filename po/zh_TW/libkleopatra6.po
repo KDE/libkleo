@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-20 00:40+0000\n"
+"POT-Creation-Date: 2024-07-23 00:40+0000\n"
 "PO-Revision-Date: 2024-06-30 10:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -230,13 +230,13 @@ msgctxt "no specific preference"
 msgid "<none>"
 msgstr "<無>"
 
-#: kleo/expirychecker.cpp:78
+#: kleo/expirychecker.cpp:80
 #, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (金鑰 ID 0x%2)"
 
-#: kleo/expirychecker.cpp:86
+#: kleo/expirychecker.cpp:88
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
@@ -244,7 +244,7 @@ msgid ""
 msgstr ""
 "<p>您的 OpenPGP 簽署金鑰</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:88
+#: kleo/expirychecker.cpp:90
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
@@ -252,14 +252,14 @@ msgid ""
 msgstr ""
 "<p>您的 OpenPGP 加密金鑰</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:90
+#: kleo/expirychecker.cpp:92
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr "<p>OpenPGP 金鑰</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:96
+#: kleo/expirychecker.cpp:98
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</"
@@ -270,7 +270,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 OpenPGP 簽署金鑰</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:99
+#: kleo/expirychecker.cpp:101
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday."
@@ -281,7 +281,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 OpenPGP 加密金鑰</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:102
+#: kleo/expirychecker.cpp:104
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
@@ -289,26 +289,26 @@ msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] "<p>OpenPGP 金鑰</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:111
+#: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
 "<p>您的 OpenPGP 簽署金鑰</p><p align=center>%1</p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:113
+#: kleo/expirychecker.cpp:115
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
 "<p>您的 OpenPGP 加密金鑰</p><p align=center>%1</p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:115
+#: kleo/expirychecker.cpp:117
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr "<p>OpenPGP 金鑰</p><p align=center>%1</p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:121
+#: kleo/expirychecker.cpp:123
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -318,7 +318,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 OpenPGP 簽署金鑰</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:124
+#: kleo/expirychecker.cpp:126
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow."
@@ -329,7 +329,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 OpenPGP 加密金鑰</p><p align=center>%2</p><p>將在 %1 天內過期。</p>"
 
-#: kleo/expirychecker.cpp:127
+#: kleo/expirychecker.cpp:129
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -337,14 +337,14 @@ msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] "<p>OpenPGP 金鑰</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:139
+#: kleo/expirychecker.cpp:141
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
 msgstr "<b>%1</b> (序號 %2)"
 
-#: kleo/expirychecker.cpp:150
+#: kleo/expirychecker.cpp:152
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -354,7 +354,7 @@ msgstr ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%1</p><p>的根憑證</p><p "
 "align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:155
+#: kleo/expirychecker.cpp:157
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -364,7 +364,7 @@ msgstr ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%1</p><p>的根憑證</p><p "
 "align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:160
+#: kleo/expirychecker.cpp:162
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
@@ -373,7 +373,7 @@ msgstr ""
 "<p>S/MIME 憑證</p><p align=center>%1</p><p>的根憑證</p><p align=center><b>"
 "%2</b></p><p>已於一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:169
+#: kleo/expirychecker.cpp:171
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -385,7 +385,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的根憑證</p><p "
 "align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:177
+#: kleo/expirychecker.cpp:179
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -397,7 +397,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的根憑證</p><p "
 "align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:185
+#: kleo/expirychecker.cpp:187
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -409,7 +409,7 @@ msgstr[0] ""
 "<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
 "%3</b></p><p>已於 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:198
+#: kleo/expirychecker.cpp:200
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -419,7 +419,7 @@ msgstr ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%1</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:203
+#: kleo/expirychecker.cpp:205
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -429,7 +429,7 @@ msgstr ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%1</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:208
+#: kleo/expirychecker.cpp:210
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
@@ -438,7 +438,7 @@ msgstr ""
 "<p>S/MIME 憑證</p><p align=center>%1</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:217
+#: kleo/expirychecker.cpp:219
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -452,7 +452,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:225
+#: kleo/expirychecker.cpp:227
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -466,7 +466,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:233
+#: kleo/expirychecker.cpp:235
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -478,7 +478,7 @@ msgstr[0] ""
 "<p>S/MIME 憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:246
+#: kleo/expirychecker.cpp:248
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
@@ -486,7 +486,7 @@ msgid ""
 msgstr ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:248
+#: kleo/expirychecker.cpp:250
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
@@ -494,14 +494,14 @@ msgid ""
 msgstr ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:250
+#: kleo/expirychecker.cpp:252
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr "<p>S/MIME 憑證</p><p align=center>%1</p><p>已在一日內之前過期。</p>"
 
-#: kleo/expirychecker.cpp:256
+#: kleo/expirychecker.cpp:258
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
@@ -512,7 +512,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:259
+#: kleo/expirychecker.cpp:261
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
@@ -523,7 +523,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:262
+#: kleo/expirychecker.cpp:264
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday."
@@ -533,7 +533,7 @@ msgid_plural ""
 "ago.</p>"
 msgstr[0] "<p>S/MIME 憑證</p><p align=center>%2</p><p>已在 %1 天前過期。</p>"
 
-#: kleo/expirychecker.cpp:275
+#: kleo/expirychecker.cpp:277
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -542,7 +542,7 @@ msgstr ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的根憑證</p><p "
 "align=center><b>%3</b></p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:280
+#: kleo/expirychecker.cpp:282
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -551,7 +551,7 @@ msgstr ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的根憑證</p><p "
 "align=center><b>%3</b></p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:285
+#: kleo/expirychecker.cpp:287
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -560,7 +560,7 @@ msgstr ""
 "<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
 "%3</b></p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:294
+#: kleo/expirychecker.cpp:296
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -572,7 +572,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的根憑證</p><p "
 "align=center><b>%3</b></p><p>將於 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:302
+#: kleo/expirychecker.cpp:304
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -584,7 +584,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的根憑證</p><p "
 "align=center><b>%3</b></p><p>將於 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:310
+#: kleo/expirychecker.cpp:312
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -596,7 +596,7 @@ msgstr[0] ""
 "<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
 "%3</b></p><p>將於 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:323
+#: kleo/expirychecker.cpp:325
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -606,7 +606,7 @@ msgstr ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:328
+#: kleo/expirychecker.cpp:330
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -616,7 +616,7 @@ msgstr ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:333
+#: kleo/expirychecker.cpp:335
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -625,7 +625,7 @@ msgstr ""
 "<p>S/MIME 憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:341
+#: kleo/expirychecker.cpp:343
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -639,7 +639,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>將在 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:349
+#: kleo/expirychecker.cpp:351
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -653,7 +653,7 @@ msgstr[0] ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>將在 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:357
+#: kleo/expirychecker.cpp:359
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -665,27 +665,27 @@ msgstr[0] ""
 "<p>S/MIME 憑證</p><p align=center>%2</p><p>的中介 CA 憑證</p><p "
 "align=center><b>%3</b></p><p>將在 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:369
+#: kleo/expirychecker.cpp:371
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:371
+#: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:373
+#: kleo/expirychecker.cpp:375
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr "<p>S/MIME 憑證</p><p align=center>%2</p><p>將在今天過期。</p>"
 
-#: kleo/expirychecker.cpp:380
+#: kleo/expirychecker.cpp:382
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires "
@@ -696,7 +696,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 S/MIME 簽署憑證</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:386
+#: kleo/expirychecker.cpp:388
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
@@ -707,7 +707,7 @@ msgid_plural ""
 msgstr[0] ""
 "<p>您的 S/MIME 加密憑證</p><p align=center>%2</p><p>將在 %1 天後過期。</p>"
 
-#: kleo/expirychecker.cpp:392
+#: kleo/expirychecker.cpp:394
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires tomorrow.</"
