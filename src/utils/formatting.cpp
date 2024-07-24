@@ -409,12 +409,12 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
     QString result;
     if (flags & Formatting::Validity) {
         if (key.protocol() == GpgME::OpenPGP || (key.keyListMode() & Validate)) {
-            if (userID.isRevoked() || key.isRevoked()) {
+            if (key.isDisabled()) {
+                result = i18n("Disabled");
+            } else if (userID.isRevoked() || key.isRevoked()) {
                 result = make_red(i18n("Revoked"));
             } else if (key.isExpired()) {
                 result = make_red(i18n("Expired"));
-            } else if (key.isDisabled()) {
-                result = i18n("Disabled");
             } else if (key.keyListMode() & GpgME::Validate) {
                 if (!userID.isNull()) {
                     if (userID.validity() >= UserID::Validity::Full) {
@@ -869,14 +869,14 @@ QString Formatting::ownerTrustShort(Key::OwnerTrust trust)
 
 QString Formatting::validityShort(const Subkey &subkey)
 {
+    if (subkey.isDisabled()) {
+        return i18n("disabled");
+    }
     if (subkey.isRevoked()) {
         return i18n("revoked");
     }
     if (subkey.isExpired()) {
         return i18n("expired");
-    }
-    if (subkey.isDisabled()) {
-        return i18n("disabled");
     }
     if (subkey.isInvalid()) {
         return i18n("invalid");
@@ -943,12 +943,12 @@ QString Formatting::validityShort(const UserID::Signature &sig)
         const auto key = KeyCache::instance()->findByKeyIDOrFingerprint(sig.signerKeyID());
         if (key.isNull()) {
             return i18n("no public key");
-        } else if (key.isExpired()) {
-            return i18n("key expired");
-        } else if (key.isRevoked()) {
-            return i18n("key revoked");
         } else if (key.isDisabled()) {
             return i18n("key disabled");
+        } else if (key.isRevoked()) {
+            return i18n("key revoked");
+        } else if (key.isExpired()) {
+            return i18n("key expired");
         }
         /* can't happen */
         return QStringLiteral("unknown");
@@ -1339,14 +1339,14 @@ QString Formatting::complianceStringShort(const GpgME::UserID &id)
     if (keyValidityChecked && id.validity() >= UserID::Full) {
         return i18nc("As in 'this user ID is valid.'", "certified");
     }
-    if (id.parent().isExpired() || isExpired(id)) {
-        return i18n("expired");
+    if (id.parent().isDisabled()) {
+        return i18n("disabled");
     }
     if (id.parent().isRevoked() || id.isRevoked()) {
         return i18n("revoked");
     }
-    if (id.parent().isDisabled()) {
-        return i18n("disabled");
+    if (id.parent().isExpired() || isExpired(id)) {
+        return i18n("expired");
     }
     if (id.parent().isInvalid() || id.isInvalid()) {
         return i18n("invalid");
@@ -1364,14 +1364,14 @@ QString Formatting::complianceStringShort(const GpgME::Key &key)
         return QStringLiteral("★ ") + DeVSCompliance::name(true);
     }
     const bool keyValidityChecked = (key.keyListMode() & GpgME::Validate);
-    if (key.isExpired()) {
-        return i18n("expired");
+    if (key.isDisabled()) {
+        return i18n("disabled");
     }
     if (key.isRevoked()) {
         return i18n("revoked");
     }
-    if (key.isDisabled()) {
-        return i18n("disabled");
+    if (key.isExpired()) {
+        return i18n("expired");
     }
     if (key.isInvalid()) {
         return i18n("invalid");
