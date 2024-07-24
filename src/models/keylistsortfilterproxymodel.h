@@ -65,6 +65,8 @@ public:
 
     std::shared_ptr<const KeyFilter> keyFilter() const;
     void setKeyFilter(const std::shared_ptr<const KeyFilter> &kf);
+    void setShowDisabledKeys(bool showDisabledKeys);
+    bool showDisabledKeys() const;
 
     KeyListSortFilterProxyModel *clone() const override;
 

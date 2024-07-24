@@ -136,6 +136,7 @@ public:
 
 private:
     std::shared_ptr<const KeyFilter> keyFilter;
+    bool showDisabledKeys = false;
 };
 
 KeyListSortFilterProxyModel::KeyListSortFilterProxyModel(QObject *p)
@@ -185,20 +186,28 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
         }
     }
 
-    //
-    // 1. Check filterRegExp
-    //
-    const int role = filterRole();
-    const int col = filterKeyColumn();
-    const QRegularExpression rx = filterRegularExpression();
     const QModelIndex nameIndex = sourceModel()->index(source_row, KeyList::PrettyName, source_parent);
-
     const KeyListModelInterface *const klm = dynamic_cast<KeyListModelInterface *>(sourceModel());
     Q_ASSERT(klm);
     const Key key = klm->key(nameIndex);
     const auto userID = nameIndex.data(KeyList::UserIDRole).value<UserID>();
     const KeyGroup group = klm->group(nameIndex);
-    Q_ASSERT(!key.isNull() || !group.isNull());
+    Q_ASSERT(!key.isNull() || !group.isNull() || !userID.isNull());
+
+    //
+    // 1. Check whether the key is disabled
+    //
+
+    if ((!key.isNull() && key.isDisabled() && !d->showDisabledKeys) || (!userID.isNull() && userID.parent().isDisabled() && !d->showDisabledKeys)) {
+        return false;
+    }
+
+    //
+    // 2. Check filterRegExp
+    //
+    const int role = filterRole();
+    const int col = filterKeyColumn();
+    const QRegularExpression rx = filterRegularExpression();
 
     if (col) {
         const QModelIndex colIdx = sourceModel()->index(source_row, col, source_parent);
@@ -255,7 +264,7 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
     }
 
     //
-    // 2. For keys check that key filters match (if any are defined)
+    // 3. For keys check that key filters match (if any are defined)
     //    For groups check that at least one key matches the key filter
     //
     if (d->keyFilter) { // avoid artifacts when no filters are defined
@@ -270,8 +279,19 @@ bool KeyListSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
         }
     }
 
-    // 3. match by default:
+    // 4. match by default:
     return true;
+}
+
+void KeyListSortFilterProxyModel::setShowDisabledKeys(bool showDisabledKeys)
+{
+    d->showDisabledKeys = showDisabledKeys;
+    invalidateFilter();
+}
+
+bool KeyListSortFilterProxyModel::showDisabledKeys() const
+{
+    return d->showDisabledKeys;
 }
 
 #include "moc_keylistsortfilterproxymodel.cpp"
