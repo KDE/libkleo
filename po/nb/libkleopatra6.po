@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-23 00:40+0000\n"
+"POT-Creation-Date: 2024-07-24 00:40+0000\n"
 "PO-Revision-Date: 2010-08-30 22:07+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -1575,6 +1575,37 @@ msgstr ""
 msgid "Open file dialog"
 msgstr ""
 
+#: ui/formtextinput.cpp:25
+#, kde-format
+msgid "Error: Enter a value."
+msgstr ""
+
+#: ui/formtextinput.cpp:30
+#, kde-format
+msgid "Error: Enter a value in the correct format."
+msgstr ""
+
+#: ui/formtextinput.cpp:92
+#, kde-format
+msgctxt "@label label text (required)"
+msgid "%1 (required)"
+msgstr ""
+
+#: ui/formtextinput.cpp:126
+#, kde-format
+msgctxt "@info"
+msgid "Error: %1"
+msgstr ""
+
+#: ui/formtextinput.cpp:230
+#, fuzzy, kde-format
+#| msgid "invalid"
+msgctxt ""
+"text for screen readers to indicate that the associated object, such as a "
+"form field, has an error"
+msgid "invalid entry"
+msgstr "ugyldig"
+
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
 msgid "<placeholder>none</placeholder>"
@@ -1967,6 +1998,69 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr ""
 
+#: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "@label"
+msgid "Name"
+msgstr "Navn"
+
+#: ui/nameandemailwidget.cpp:59
+#, kde-format
+msgid "Enter a name."
+msgstr ""
+
+#: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
+#, fuzzy, kde-format
+#| msgid "Email address"
+msgctxt "@label"
+msgid "Email address"
+msgstr "E-post-adresse"
+
+#: ui/nameandemailwidget.cpp:74
+#, fuzzy, kde-format
+#| msgid "Email address"
+msgid "Enter an email address."
+msgstr "E-post-adresse"
+
+#: ui/nameandemailwidget.cpp:92
+#, kde-format
+msgid "The name must not include <, >, and @."
+msgstr ""
+
+#: ui/nameandemailwidget.cpp:93
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must not include less-than sign, greater-than sign, and at sign."
+msgstr ""
+
+#: ui/nameandemailwidget.cpp:96
+#, kde-format
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include <, >, and @."
+msgstr ""
+
+#: ui/nameandemailwidget.cpp:99
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include less-than sign, greater-than sign, and at sign."
+msgstr ""
+
+#: ui/nameandemailwidget.cpp:108
+#, kde-format
+msgid "Enter an email address in the correct format, like name@example.com."
+msgstr ""
+
+#: ui/nameandemailwidget.cpp:111
+#, kde-format
+msgid ""
+"Enter an email address in the correct format required by your organization."
+msgstr ""
+
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
 msgctxt "@action:button"
@@ -2093,6 +2187,63 @@ msgstr ""
 msgid "Generate"
 msgstr ""
 
+#: ui/openpgpcertificatecreationdialog.cpp:90
+#, kde-format
+msgid "Protect the generated key with a passphrase."
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:92
+#, kde-format
+msgid ""
+"Encrypts the secret key with an unrecoverable passphrase. You will be asked "
+"for the passphrase during key generation."
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:95
+#, kde-format
+msgid "Advanced options"
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:102
+#, kde-format
+msgctxt "The algorithm and strength of encryption key"
+msgid "Key Material"
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:115
+#, kde-format
+msgctxt "@option:check"
+msgid "Valid until:"
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:142
+#, fuzzy, kde-format
+#| msgid "Inline OpenPGP (deprecated)"
+msgctxt "title:window"
+msgid "Create OpenPGP Certificate"
+msgstr "OpenPGP innebygd (frarådes)"
+
+#: ui/openpgpcertificatecreationdialog.cpp:150
+#, kde-format
+msgid "Enter a name and an email address to use for the certificate."
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:151
+#, kde-format
+msgid "Enter a name and/or an email address to use for the certificate."
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:295
+#, kde-format
+msgid "Enter a name or an email address."
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:306
+#, fuzzy, kde-format
+#| msgid "The key is disabled."
+msgid "There is a problem."
+msgstr "Nøkkelen er slått av."
+
 #: ui/readerportselection.cpp:58
 #, kde-format
 msgctxt "@item:inlistbox"
@@ -2143,6 +2294,36 @@ msgstr ""
 #: utils/compliance.cpp:160
 #, kde-format
 msgid "Not VS-NfD compliant"
+msgstr ""
+
+#: utils/expiration.cpp:103
+#, kde-format
+msgctxt "@info"
+msgid "The date cannot be changed."
+msgstr ""
+
+#: utils/expiration.cpp:106 utils/expiration.cpp:112
+#, kde-format
+msgctxt "@info ... between <a date> and <another date>."
+msgid "Enter a date between %1 and %2."
+msgstr ""
+
+#: utils/expiration.cpp:138
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Three years from now"
+msgstr ""
+
+#: utils/expiration.cpp:139
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Two years from now"
+msgstr ""
+
+#: utils/expiration.cpp:140
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "One year from now"
 msgstr ""
 
 #: utils/formatting.cpp:328
