@@ -67,7 +67,13 @@ inline char *toString(const GpgME::Protocol &t)
 template<>
 inline bool qCompare(GpgME::Protocol const &t1, GpgME::Protocol const &t2, const char *actual, const char *expected, const char *file, int line)
 {
-    return compare_helper(t1 == t2, "Compared values are not the same", toString(t1), toString(t2), actual, expected, file, line);
+    auto actualVal = [&t1] {
+        return toString(t1);
+    };
+    auto expectedVal = [&t2] {
+        return toString(t2);
+    };
+    return compare_helper(t1 == t2, "Compared values are not the same", actualVal, expectedVal, actual, expected, file, line);
 }
 }
 
