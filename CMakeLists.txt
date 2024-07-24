@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(PIM_VERSION "6.1.82")
+set(PIM_VERSION "6.1.83")
 
 project(libkleo VERSION ${PIM_VERSION})
 
@@ -17,6 +17,13 @@ endif()
 find_package(ECM ${KF6_WANT_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
+
+set(SHARE_INSTALL_DIR share
+    CACHE
+    PATH
+    "read-only architecture-independent data"
+)
+set(FIND_MODULES_INSTALL_DIR      ${SHARE_INSTALL_DIR}/KPim6Libkleo/find-modules/)
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -130,6 +137,8 @@ configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KPimLibkleoConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+  PATH_VARS
+      FIND_MODULES_INSTALL_DIR
 )
 
 install(FILES
@@ -140,6 +149,9 @@ install(FILES
 )
 
 install(EXPORT KPim6LibkleoTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KPim6LibkleoTargets.cmake NAMESPACE KPim6::)
+
+file(GLOB installFindModuleFiles ${CMAKE_SOURCE_DIR}/cmake/modules/Find*.cmake)
+install(FILES ${installFindModuleFiles} DESTINATION ${FIND_MODULES_INSTALL_DIR})
 
 ecm_feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

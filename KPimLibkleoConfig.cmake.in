@@ -4,5 +4,7 @@ include(CMakeFindDependencyMacro)
 find_dependency(Gpgmepp "@GPGME_REQUIRED_VERSION@")
 find_dependency(QGpgmeQt6 "@GPGME_REQUIRED_VERSION@")
 
+set(LIBKLEO_MODULE_PATH "@PACKAGE_FIND_MODULES_INSTALL_DIR@")
+
 include("${CMAKE_CURRENT_LIST_DIR}/KPim6LibkleoTargets.cmake")
 @PACKAGE_INCLUDE_QCHTARGETS@
