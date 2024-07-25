@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1685389 2024-07-24 01:13:17Z scripty $
+# $Id: libkleopatra6.po 1685456 2024-07-25 01:12:53Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-24 00:40+0000\n"
-"PO-Revision-Date: 2024-07-20 05:50+0200\n"
+"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"PO-Revision-Date: 2024-07-24 09:56+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1883,41 +1883,32 @@ msgstr "Odpri pogovorno okno datotek"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Napaka: Vnesite vrednost."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
-"Napaka: Vnesite ime gostitelja v pravilnem formatu kot npr. ldap.example.com."
+msgstr "Napaka: Vnesite ime vrednost v pravilnem formatu."
 
 #: ui/formtextinput.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "name of group (group)"
-#| msgid "%1 (group)"
+#, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr "%1 (grupa)"
+msgstr "%1 (obvezno)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Napaka"
+msgstr "Napaka: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "neveljavno"
+msgstr "neveljaven vnos"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -2307,8 +2298,7 @@ msgid "Error"
 msgstr "Napaka"
 
 #: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Ime"
@@ -2316,32 +2306,30 @@ msgstr "Ime"
 #: ui/nameandemailwidget.cpp:59
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "Vnesite ime."
 
 #: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "E-poštni naslov"
 
 #: ui/nameandemailwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "E-poštni naslov"
+msgstr "Vnesite e-poštni naslov."
 
 #: ui/nameandemailwidget.cpp:92
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Ime ne sme vsebovati <, >, in @."
 
 #: ui/nameandemailwidget.cpp:93
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "Ime ne sme vsebovati znaka manjše, znaka večje in znaka lokacije."
 
 #: ui/nameandemailwidget.cpp:96
 #, kde-format
@@ -2349,6 +2337,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Ime mora biti v obliki, ki jo zahteva vaša organizacija, in ne sme vsebovati "
+"<, > in @."
 
 #: ui/nameandemailwidget.cpp:99
 #, kde-format
@@ -2357,21 +2347,20 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Ime mora biti v obliki, ki jo zahteva vaša organizacija, in ne sme vsebovati "
+"znaka manj kot, znaka več kot in znaka lokacije."
 
 #: ui/nameandemailwidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr ""
-"Napaka: Vnesite ime gostitelja v pravilnem formatu kot npr. ldap.example.com."
+msgstr "Vnesitee-naslov v pravilnem formatu kot name@example.com."
 
 #: ui/nameandemailwidget.cpp:111
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Vnesite e-poštni naslov v pravilni obliki, ki jo zahteva vaša organizacija."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2508,7 +2497,7 @@ msgstr "Generiraj"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Ustvarjeni ključ zaščitite z geselno frazo."
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
@@ -2516,56 +2505,52 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Šifrira tajni ključ z neobnovljivo geselno frazo. Med ustvarjanjem ključa "
+"boste morali vnesti geselno frazo."
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "Napredne nastavitve"
+msgstr "Napredne možnosti"
 
 #: ui/openpgpcertificatecreationdialog.cpp:102
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Ključni material"
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "Veljaven do"
+msgstr "Veljaven do:"
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Zaupanja vredna potrdila"
+msgstr "Ustvari potrdilo OpenPGP"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "Vnesite ime in e-poštni naslov, ki ga želite uporabiti za potrdilo."
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "Vnesite ime ali IP naslov strežnika, ki gosti imeniško storitev."
+msgstr ""
+"Vnesite ime in/ali e-poštni naslov, ki ga želite uporabiti za potrdilo."
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Vnesite ime ali e-poštni naslov."
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "Ključ je onemogočen."
+msgstr "Tukaj je problem."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2623,35 +2608,34 @@ msgid "Not VS-NfD compliant"
 msgstr "Ni skladno z VS-NfD"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "Ključ lahko uporabite."
+msgstr "Datuma ni mogoče spremeniti."
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Vnesite datum med %1 in %2."
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "Čez tri leta"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "Čez dve leti"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Čez eno leto"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -2688,20 +2672,20 @@ msgstr "Potrjevanje ID-jev uporabnikov"
 msgid "SSH Authentication"
 msgstr "Overjanje SSH"
 
-#: utils/formatting.cpp:413 utils/formatting.cpp:522
+#: utils/formatting.cpp:413
+#, kde-format
+msgid "Disabled"
+msgstr "Onemogočeno"
+
+#: utils/formatting.cpp:415 utils/formatting.cpp:522
 #, kde-format
 msgid "Revoked"
 msgstr "Preklicano"
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:524
+#: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Expired"
 msgstr "Pretečeno"
-
-#: utils/formatting.cpp:417
-#, kde-format
-msgid "Disabled"
-msgstr "Onemogočeno"
 
 #: utils/formatting.cpp:421
 #, kde-format
@@ -2923,22 +2907,22 @@ msgctxt "undefined trust"
 msgid "undefined"
 msgstr "nedoločeno"
 
-#: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
+#, kde-format
+msgid "disabled"
+msgstr "onemogočeno"
+
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
 #: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "preklicano"
 
-#: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
 #, kde-format
 msgid "expired"
 msgstr "pretečeno"
-
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
-#, kde-format
-msgid "disabled"
-msgstr "onemogočeno"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
@@ -2980,8 +2964,8 @@ msgstr "ni javnega ključa"
 
 #: utils/formatting.cpp:947
 #, kde-format
-msgid "key expired"
-msgstr "ključ potekel"
+msgid "key disabled"
+msgstr "ključ je onemogočen"
 
 #: utils/formatting.cpp:949
 #, kde-format
@@ -2990,8 +2974,8 @@ msgstr "ključ je preklican"
 
 #: utils/formatting.cpp:951
 #, kde-format
-msgid "key disabled"
-msgstr "ključ je onemogočen"
+msgid "key expired"
+msgstr "ključ potekel"
 
 #: utils/formatting.cpp:1007
 #, kde-format

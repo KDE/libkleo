@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-24 00:40+0000\n"
-"PO-Revision-Date: 2024-06-28 21:04+0200\n"
+"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"PO-Revision-Date: 2024-07-24 13:46+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -1736,39 +1736,32 @@ msgstr "Отваряне на диалоговия прозорец на фай�
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Грешка: Въведете стойност."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
-"Грешка: Въведете име на хост в правилния формат, като ldap.example.com."
+msgstr "Грешка: Въведете стойност в правилния формат."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (задължителен)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Грешка"
+msgstr "Грешка: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "невалиден"
+msgstr "невалиден запис"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -2156,8 +2149,7 @@ msgid "Error"
 msgstr "Грешка"
 
 #: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Име"
@@ -2165,32 +2157,30 @@ msgstr "Име"
 #: ui/nameandemailwidget.cpp:59
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "Въведете име."
 
 #: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "Имейл адрес"
 
 #: ui/nameandemailwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "Имейл адрес"
+msgstr "Въведете имейл адрес."
 
 #: ui/nameandemailwidget.cpp:92
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Името не трябва да включва <, > и @."
 
 #: ui/nameandemailwidget.cpp:93
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "Името не трябва да включва знаците \">\", \"<\" и \"@\"."
 
 #: ui/nameandemailwidget.cpp:96
 #, kde-format
@@ -2198,6 +2188,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Името трябва да е във формат, изискван от вашата организация, и не трябва да "
+"включва <, > и @."
 
 #: ui/nameandemailwidget.cpp:99
 #, kde-format
@@ -2206,21 +2198,20 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Името трябва да е във формат, изискван от вашата организация, и не трябва да "
+"включва знаците less-than, greater-than и at."
 
 #: ui/nameandemailwidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr ""
-"Грешка: Въведете име на хост в правилния формат, като ldap.example.com."
+msgstr "Въведете имейл адрес в правилния формат, например name@example.com."
 
 #: ui/nameandemailwidget.cpp:111
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Въведете имейл адрес в правилния формат, изискван от вашата организация."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2358,7 +2349,7 @@ msgstr "Генериране"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Защита на генерирания ключ с парола."
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
@@ -2366,10 +2357,11 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Криптира тайния ключ с невъзможна за възстановяване парола. По време на "
+"генерирането на ключа ще ви бъде поискана паролата."
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
 msgstr "Разширени настройки"
 
@@ -2377,46 +2369,39 @@ msgstr "Разширени настройки"
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Основен материал"
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "Валиден до"
+msgstr "Валиден до:"
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Доверени сертификати"
+msgstr "Създаване на OpenPGP сертификати"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "Въведете име и имейл адрес, които да използвате за сертификата."
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr ""
-"Въведете името или IP адреса на сървъра, който хоства услугата за директории."
+msgstr "Въведете име и/или имейл адрес, които да използвате за сертификата."
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Enter a name or an email address."
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "Ключът е изключен."
+msgstr "Има проблем."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2453,17 +2438,15 @@ msgid "View Columns"
 msgstr "Преглед на колони"
 
 #: ui/useridselectioncombo.cpp:542
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
-msgstr "Моите собствени сертификати"
+msgstr "Показване на списък със сертификати"
 
 #: ui/useridselectioncombo.cpp:543
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Show certificate list"
-msgstr "Моите собствени сертификати"
+msgstr "Показване на списък със сертификати"
 
 #: utils/compliance.cpp:160
 #, kde-format
@@ -2476,35 +2459,34 @@ msgid "Not VS-NfD compliant"
 msgstr "VS-NfD несъвместим"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "Ключът може да се използва."
+msgstr "Датата не може да бъде променяна."
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Въведете дата между %1 и %2."
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "За три години напред"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "За две години напред"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Една година напред"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -2541,20 +2523,20 @@ msgstr "Сертифициране на потребителски иденти�
 msgid "SSH Authentication"
 msgstr "Автентикация в SSH"
 
-#: utils/formatting.cpp:413 utils/formatting.cpp:522
+#: utils/formatting.cpp:413
+#, kde-format
+msgid "Disabled"
+msgstr "Деактивиран"
+
+#: utils/formatting.cpp:415 utils/formatting.cpp:522
 #, kde-format
 msgid "Revoked"
 msgstr "Отменен"
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:524
+#: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Expired"
 msgstr "Изтекли"
-
-#: utils/formatting.cpp:417
-#, kde-format
-msgid "Disabled"
-msgstr "Деактивиран"
 
 #: utils/formatting.cpp:421
 #, kde-format
@@ -2773,22 +2755,22 @@ msgctxt "undefined trust"
 msgid "undefined"
 msgstr "неопределено"
 
-#: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
+#, kde-format
+msgid "disabled"
+msgstr "изключено"
+
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
 #: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "отменено"
 
-#: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
 #, kde-format
 msgid "expired"
 msgstr "изтекъл"
-
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
-#, kde-format
-msgid "disabled"
-msgstr "изключено"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
@@ -2830,8 +2812,8 @@ msgstr "няма публичен ключ"
 
 #: utils/formatting.cpp:947
 #, kde-format
-msgid "key expired"
-msgstr "ключът е с изтекла давност"
+msgid "key disabled"
+msgstr "ключът е деактивиран"
 
 #: utils/formatting.cpp:949
 #, kde-format
@@ -2840,8 +2822,8 @@ msgstr "ключът е отменен"
 
 #: utils/formatting.cpp:951
 #, kde-format
-msgid "key disabled"
-msgstr "ключът е деактивиран"
+msgid "key expired"
+msgstr "ключът е с изтекла давност"
 
 #: utils/formatting.cpp:1007
 #, kde-format

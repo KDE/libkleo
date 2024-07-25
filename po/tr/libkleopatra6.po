@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-24 00:40+0000\n"
-"PO-Revision-Date: 2024-07-21 01:05+0300\n"
+"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"PO-Revision-Date: 2024-07-24 14:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1743,38 +1743,32 @@ msgstr "Dosya penceresini aç"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Hata: Bir değer girin."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr "Hata: Makine adını doğru bir biçimde girin: ldap.example.com"
+msgstr "Hata: Değeri doğru biçimde girin."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (zorunlu)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Hata"
+msgstr "Hata: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "geçersiz"
+msgstr "geçersiz girdi"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -2163,8 +2157,7 @@ msgid "Error"
 msgstr "Hata"
 
 #: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Ad"
@@ -2172,32 +2165,30 @@ msgstr "Ad"
 #: ui/nameandemailwidget.cpp:59
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "Bir ad girin."
 
 #: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "E-posta adresi"
 
 #: ui/nameandemailwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "E-posta adresi"
+msgstr "Bir e-posta adresi girin."
 
 #: ui/nameandemailwidget.cpp:92
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Ad; <, > ve @ içermemelidir."
 
 #: ui/nameandemailwidget.cpp:93
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "Ad; küçüktür, büyüktür ve et işaretini içermemelidir."
 
 #: ui/nameandemailwidget.cpp:96
 #, kde-format
@@ -2205,6 +2196,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Ad; organizasyonunuz tarafından belirtilen biçimde olmalıdır ve <, > ve @ "
+"içermemelidir."
 
 #: ui/nameandemailwidget.cpp:99
 #, kde-format
@@ -2213,20 +2206,20 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Ad; organizasyonunuz tarafından belirtilen biçimde olmalıdır ve küçüktür, "
+"büyüktür ve et işaretini içermemelidir."
 
 #: ui/nameandemailwidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr "Hata: Makine adını doğru bir biçimde girin: ldap.example.com"
+msgstr "Bir e-posta adresini doğru biçimde girin; örneğin, ad@örnek.com."
 
 #: ui/nameandemailwidget.cpp:111
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Organizasyonunuz tarafından belirtilen biçimde bir e-posta adresi girin."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2364,7 +2357,7 @@ msgstr "Oluştur"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Üretilen anahtarı bir parolayla koruyun."
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
@@ -2372,56 +2365,51 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Gizli anahtarı, geri kurtarılamaz bir parola ile şifreler. Anahtar üretimi "
+"sırasında bu parola size sorulacaktır."
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "Gelişmiş Ayarlar"
+msgstr "Gelişmiş seçenekler"
 
 #: ui/openpgpcertificatecreationdialog.cpp:102
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Anahtar Malzemesi"
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "Geçerlilik sonu"
+msgstr "Geçerlilik sonu:"
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Güvenilir Sertifikalar"
+msgstr "OpenPGP Sertifikası Oluştur"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "Sertifika için kullanılacak bir ad ve e-posta adresi girin."
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "Dizin hizmetini barındıran sunucunun adını veya IP adresini girin."
+msgstr "Sertifika için kullanılacak bir ad ve/veya e-posta adresi girin."
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Bir ad veya e-posta adresi girin."
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "Anahtar devre dışı bırakılmış."
+msgstr "Bir sorun var."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2479,35 +2467,34 @@ msgid "Not VS-NfD compliant"
 msgstr "VS-NfD uyumlu değil"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "Anahtar, kullanılabilir."
+msgstr "Tarih değiştirilemez."
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "%1 ve %2 arasında bir tarih girin."
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "Üç yıl sonrasına"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "İki yıl sonrasına"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Bir yıl sonrasına"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -2544,20 +2531,20 @@ msgstr "Kullanıcı Kimliklerini Sertikalandırma"
 msgid "SSH Authentication"
 msgstr "SSH Kimlik Doğrulama"
 
-#: utils/formatting.cpp:413 utils/formatting.cpp:522
+#: utils/formatting.cpp:413
+#, kde-format
+msgid "Disabled"
+msgstr "Kapalı"
+
+#: utils/formatting.cpp:415 utils/formatting.cpp:522
 #, kde-format
 msgid "Revoked"
 msgstr "Yürürlükten Kaldırılmış"
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:524
+#: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Expired"
 msgstr "Süresi Dolmuş"
-
-#: utils/formatting.cpp:417
-#, kde-format
-msgid "Disabled"
-msgstr "Kapalı"
 
 #: utils/formatting.cpp:421
 #, kde-format
@@ -2775,22 +2762,22 @@ msgctxt "undefined trust"
 msgid "undefined"
 msgstr "tanımsız"
 
-#: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
+#, kde-format
+msgid "disabled"
+msgstr "devre dışı"
+
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
 #: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "yürürlükten kaldırılmış"
 
-#: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
 #, kde-format
 msgid "expired"
 msgstr "süresi dolmuş"
-
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
-#, kde-format
-msgid "disabled"
-msgstr "devre dışı"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
@@ -2832,8 +2819,8 @@ msgstr "genel anahtar yok"
 
 #: utils/formatting.cpp:947
 #, kde-format
-msgid "key expired"
-msgstr "anahtarın süresi dolmuş"
+msgid "key disabled"
+msgstr "anahtar devre dışı"
 
 #: utils/formatting.cpp:949
 #, kde-format
@@ -2842,8 +2829,8 @@ msgstr "anahtar yürürlükten kaldırılmış"
 
 #: utils/formatting.cpp:951
 #, kde-format
-msgid "key disabled"
-msgstr "anahtar devre dışı"
+msgid "key expired"
+msgstr "anahtarın süresi dolmuş"
 
 #: utils/formatting.cpp:1007
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-24 00:40+0000\n"
+"POT-Creation-Date: 2024-07-25 00:39+0000\n"
 "PO-Revision-Date: 2022-11-01 00:29+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -2354,20 +2354,20 @@ msgstr "Usator:"
 msgid "SSH Authentication"
 msgstr "Autentication SSH"
 
-#: utils/formatting.cpp:413 utils/formatting.cpp:522
+#: utils/formatting.cpp:413
+#, fuzzy, kde-format
+msgid "Disabled"
+msgstr "Despermisset"
+
+#: utils/formatting.cpp:415 utils/formatting.cpp:522
 #, kde-format
 msgid "Revoked"
 msgstr "Revocat"
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:524
+#: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Expired"
 msgstr "Expirat"
-
-#: utils/formatting.cpp:417
-#, fuzzy, kde-format
-msgid "Disabled"
-msgstr "Despermisset"
 
 #: utils/formatting.cpp:421
 #, fuzzy, kde-format
@@ -2583,22 +2583,22 @@ msgctxt "undefined trust"
 msgid "undefined"
 msgstr "índefinit"
 
-#: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
+#, kde-format
+msgid "disabled"
+msgstr "depermisset"
+
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
 #: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "revocat"
 
-#: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
 #, kde-format
 msgid "expired"
 msgstr "expirat"
-
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
-#, kde-format
-msgid "disabled"
-msgstr "depermisset"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
@@ -2640,8 +2640,8 @@ msgstr "Clave public"
 
 #: utils/formatting.cpp:947
 #, fuzzy, kde-format
-msgid "key expired"
-msgstr "Ti clave expirat a: %s"
+msgid "key disabled"
+msgstr "Publication de claves depermisset"
 
 #: utils/formatting.cpp:949
 #, fuzzy, kde-format
@@ -2650,8 +2650,8 @@ msgstr "Li clave es revocat."
 
 #: utils/formatting.cpp:951
 #, fuzzy, kde-format
-msgid "key disabled"
-msgstr "Publication de claves depermisset"
+msgid "key expired"
+msgstr "Ti clave expirat a: %s"
 
 #: utils/formatting.cpp:1007
 #, fuzzy, kde-format

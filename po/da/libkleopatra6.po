@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-24 00:40+0000\n"
+"POT-Creation-Date: 2024-07-25 00:39+0000\n"
 "PO-Revision-Date: 2020-08-02 17:42+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -2487,20 +2487,20 @@ msgstr ""
 msgid "SSH Authentication"
 msgstr "SSH-autentificering"
 
-#: utils/formatting.cpp:413 utils/formatting.cpp:522
+#: utils/formatting.cpp:413
+#, fuzzy, kde-format
+msgid "Disabled"
+msgstr "Deaktiveret"
+
+#: utils/formatting.cpp:415 utils/formatting.cpp:522
 #, kde-format
 msgid "Revoked"
 msgstr "Tilbagekaldt"
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:524
+#: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Expired"
 msgstr "Udløbet"
-
-#: utils/formatting.cpp:417
-#, fuzzy, kde-format
-msgid "Disabled"
-msgstr "Deaktiveret"
 
 #: utils/formatting.cpp:421
 #, fuzzy, kde-format
@@ -2724,22 +2724,22 @@ msgctxt "undefined trust"
 msgid "undefined"
 msgstr "ikke-angivet"
 
-#: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
+#, kde-format
+msgid "disabled"
+msgstr "deaktiveret"
+
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
 #: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "tilbagekaldt"
 
-#: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
 #, kde-format
 msgid "expired"
 msgstr "udløbet"
-
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
-#, kde-format
-msgid "disabled"
-msgstr "deaktiveret"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
@@ -2781,10 +2781,9 @@ msgstr ""
 
 #: utils/formatting.cpp:947
 #, fuzzy, kde-format
-#| msgctxt "Key Expiration date"
-#| msgid "Expiry"
-msgid "key expired"
-msgstr "Udløbstid"
+#| msgid "The key is disabled."
+msgid "key disabled"
+msgstr "Nøglen er deaktiveret."
 
 #: utils/formatting.cpp:949
 #, kde-format
@@ -2793,9 +2792,10 @@ msgstr ""
 
 #: utils/formatting.cpp:951
 #, fuzzy, kde-format
-#| msgid "The key is disabled."
-msgid "key disabled"
-msgstr "Nøglen er deaktiveret."
+#| msgctxt "Key Expiration date"
+#| msgid "Expiry"
+msgid "key expired"
+msgstr "Udløbstid"
 
 #: utils/formatting.cpp:1007
 #, kde-format

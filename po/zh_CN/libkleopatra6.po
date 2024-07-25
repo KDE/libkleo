@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-24 00:40+0000\n"
+"POT-Creation-Date: 2024-07-25 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1547,21 +1547,18 @@ msgid "%1 (required)"
 msgstr ""
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "错误"
+msgstr ""
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "无效"
+msgstr ""
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1937,11 +1934,10 @@ msgid "Error"
 msgstr "错误"
 
 #: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 #: ui/nameandemailwidget.cpp:59
 #, kde-format
@@ -1949,17 +1945,15 @@ msgid "Enter a name."
 msgstr ""
 
 #: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
-msgstr "电子邮件地址"
+msgstr ""
 
 #: ui/nameandemailwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "电子邮件地址"
+msgstr ""
 
 #: ui/nameandemailwidget.cpp:92
 #, kde-format
@@ -2138,10 +2132,9 @@ msgid ""
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "高级设置"
+msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:102
 #, kde-format
@@ -2150,18 +2143,16 @@ msgid "Key Material"
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "有效期至"
+msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Inline OpenPGP (deprecated)"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "内联 OpenPGP(过时)"
+msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
@@ -2169,12 +2160,9 @@ msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "输入目录服务主机的主机名或 IP 地址。"
+msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
@@ -2182,10 +2170,9 @@ msgid "Enter a name or an email address."
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "此密钥已被禁用。"
+msgstr ""
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2242,11 +2229,10 @@ msgid "Not VS-NfD compliant"
 msgstr "VS-NfD 不兼容"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "此密钥可以使用。"
+msgstr ""
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
@@ -2307,20 +2293,20 @@ msgstr ""
 msgid "SSH Authentication"
 msgstr "SSH 认证"
 
-#: utils/formatting.cpp:413 utils/formatting.cpp:522
+#: utils/formatting.cpp:413
+#, kde-format
+msgid "Disabled"
+msgstr "禁止"
+
+#: utils/formatting.cpp:415 utils/formatting.cpp:522
 #, kde-format
 msgid "Revoked"
 msgstr "已吊销"
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:524
+#: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Expired"
 msgstr "已过期"
-
-#: utils/formatting.cpp:417
-#, kde-format
-msgid "Disabled"
-msgstr "禁止"
 
 #: utils/formatting.cpp:421
 #, kde-format
@@ -2534,22 +2520,22 @@ msgctxt "undefined trust"
 msgid "undefined"
 msgstr "未定义"
 
-#: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
+#, kde-format
+msgid "disabled"
+msgstr "已禁用"
+
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
 #: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "已吊销"
 
-#: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
 #, kde-format
 msgid "expired"
 msgstr "已过期"
-
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
-#, kde-format
-msgid "disabled"
-msgstr "已禁用"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
@@ -2591,8 +2577,8 @@ msgstr "无公钥"
 
 #: utils/formatting.cpp:947
 #, kde-format
-msgid "key expired"
-msgstr "密钥已过期"
+msgid "key disabled"
+msgstr "密钥已被禁用"
 
 #: utils/formatting.cpp:949
 #, kde-format
@@ -2601,8 +2587,8 @@ msgstr "密钥已被吊销"
 
 #: utils/formatting.cpp:951
 #, kde-format
-msgid "key disabled"
-msgstr "密钥已被禁用"
+msgid "key expired"
+msgstr "密钥已过期"
 
 #: utils/formatting.cpp:1007
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-24 00:40+0000\n"
+"POT-Creation-Date: 2024-07-25 00:39+0000\n"
 "PO-Revision-Date: 2024-07-20 05:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2564,20 +2564,20 @@ msgstr "User-ID-ების სერტიფიცირება"
 msgid "SSH Authentication"
 msgstr "SSH ავთენტიკაცია"
 
-#: utils/formatting.cpp:413 utils/formatting.cpp:522
+#: utils/formatting.cpp:413
+#, kde-format
+msgid "Disabled"
+msgstr "გამორთულია"
+
+#: utils/formatting.cpp:415 utils/formatting.cpp:522
 #, kde-format
 msgid "Revoked"
 msgstr "ამოღებული"
 
-#: utils/formatting.cpp:415 utils/formatting.cpp:524
+#: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Expired"
 msgstr "ვადაგასული"
-
-#: utils/formatting.cpp:417
-#, kde-format
-msgid "Disabled"
-msgstr "გამორთულია"
 
 #: utils/formatting.cpp:421
 #, kde-format
@@ -2796,22 +2796,22 @@ msgctxt "undefined trust"
 msgid "undefined"
 msgstr "გაურკვეველი"
 
-#: utils/formatting.cpp:873 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
+#, kde-format
+msgid "disabled"
+msgstr "გამორთულია"
+
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
 #: utils/formatting.cpp:1346 utils/formatting.cpp:1371
 #, kde-format
 msgid "revoked"
 msgstr "გაუქმებულია"
 
-#: utils/formatting.cpp:876 utils/formatting.cpp:935 utils/formatting.cpp:1343
-#: utils/formatting.cpp:1368
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
 #, kde-format
 msgid "expired"
 msgstr "ვადაგასულია"
-
-#: utils/formatting.cpp:879 utils/formatting.cpp:1349 utils/formatting.cpp:1374
-#, kde-format
-msgid "disabled"
-msgstr "გამორთულია"
 
 #: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
@@ -2853,8 +2853,8 @@ msgstr "საჯარო გასაღების გარეშე"
 
 #: utils/formatting.cpp:947
 #, kde-format
-msgid "key expired"
-msgstr "ვადაგასული გასაღები"
+msgid "key disabled"
+msgstr "გასაღები გამორთულია"
 
 #: utils/formatting.cpp:949
 #, kde-format
@@ -2863,8 +2863,8 @@ msgstr "გასაღები გაუქმებულია"
 
 #: utils/formatting.cpp:951
 #, kde-format
-msgid "key disabled"
-msgstr "გასაღები გამორთულია"
+msgid "key expired"
+msgstr "ვადაგასული გასაღები"
 
 #: utils/formatting.cpp:1007
 #, kde-format
