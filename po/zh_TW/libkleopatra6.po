@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
 "PO-Revision-Date: 2024-06-30 10:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -809,10 +809,11 @@ msgid "E-Mail"
 msgstr "電子郵件"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "使用者 ID"
+msgid "Status"
+msgstr "狀態"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -3108,6 +3109,10 @@ msgstr "輸入串流中有無效的十六進位字元 '%1'。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "輸入串流中的十六進位字元在途中結束"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "使用者 ID"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "完全信任的憑證"

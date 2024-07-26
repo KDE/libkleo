@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
 "PO-Revision-Date: 2024-07-24 08:54+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1122,10 +1122,11 @@ msgid "E-Mail"
 msgstr "Ел. пошта"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "Ід. користувачів"
+msgid "Status"
+msgstr "Стан"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -3500,6 +3501,10 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Передчасне завершення закодованого у шістнадцяткове число символу у потоці "
 "вхідних даних."
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "Ід. користувачів"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Сертифікати з повною довірою"

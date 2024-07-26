@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
 "PO-Revision-Date: 2024-07-24 11:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -937,10 +937,11 @@ msgid "E-Mail"
 msgstr "E-mailadres"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "Gebruiker-id's"
+msgid "Status"
+msgstr "Status"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -3288,6 +3289,10 @@ msgstr "Ongeldig hexadecimaal teken '%1' in invoerstroom."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Voortijdig einde van hexadecimaal gecodeerd karakter in invoerstroom"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "Gebruiker-id's"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Volledig vertrouwde certificaten"

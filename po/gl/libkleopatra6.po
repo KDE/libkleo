@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
-"PO-Revision-Date: 2024-07-22 19:16+0200\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
+"PO-Revision-Date: 2024-07-25 17:02+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -937,10 +937,11 @@ msgid "E-Mail"
 msgstr "Enderezo de correo electrónico"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "Identificadores de persoas usuarias"
+msgid "Status"
+msgstr "Estado"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -1761,39 +1762,32 @@ msgstr "Diálogo para abrir ficheiros"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Erro: insira un valor."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
-"Erro: escriba o nome de servidor no formato correcto, como ldap.example.com."
+msgstr "Erro: insira un valor no formato correcto."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (requirida)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Erro"
+msgstr "Erro: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "incorrecto"
+msgstr "entrada non válida"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -2184,8 +2178,7 @@ msgid "Error"
 msgstr "Erro"
 
 #: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Nome"
@@ -2193,25 +2186,23 @@ msgstr "Nome"
 #: ui/nameandemailwidget.cpp:59
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "Escriba un nome."
 
 #: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "Enderezo de correo electrónico"
 
 #: ui/nameandemailwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "Enderezo de correo electrónico"
+msgstr "Escriba un enderezo de correo electrónico."
 
 #: ui/nameandemailwidget.cpp:92
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "O nome non pode incluír <, > ou @."
 
 #: ui/nameandemailwidget.cpp:93
 #, kde-format
@@ -2219,6 +2210,8 @@ msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"O nome non debe incluír o signo de menor que, o de maior que, ou o signo en "
+"(@)."
 
 #: ui/nameandemailwidget.cpp:96
 #, kde-format
@@ -2226,6 +2219,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"A nome debe estar no formato requirido pola súa organización e non debe "
+"incluír <, > e @."
 
 #: ui/nameandemailwidget.cpp:99
 #, kde-format
@@ -2234,21 +2229,23 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"A nome debe estar no formato requirido pola súa organización e non debe "
+"incluír signos de menor que (<), de maior que (>), ou de «en» (@)."
 
 #: ui/nameandemailwidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr ""
-"Erro: escriba o nome de servidor no formato correcto, como ldap.example.com."
+"Escriba un enderezo de correo electrónico no formato correcto, como "
+"nome@example.com."
 
 #: ui/nameandemailwidget.cpp:111
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Escriba un enderezo de correo electrónico no formato correcto requirido pola "
+"súa organización."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2387,7 +2384,7 @@ msgstr "Xerar"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Protexa a chave xerada cunha frase de paso."
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
@@ -2395,58 +2392,55 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Cifra a chave secreta cunha frase de paso que irrecuperábel. Pediráselle a "
+"frase de paso durante a xeración da chave."
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "Configuración avanzada"
+msgstr "Opcións avanzadas"
 
 #: ui/openpgpcertificatecreationdialog.cpp:102
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Material da chave"
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "Válido ata"
+msgstr "Validez ata:"
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Certificados de confianza"
+msgstr "Crear un certificado de OpenPGP"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
+"Escriba un nome e un enderezo de correo electrónico para usar para o "
+"certificado."
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
-"Insira o nome ou enderezo de IP do servidor que alberga o servizo de "
-"directorio."
+"Escriba un nome e/ou un enderezo de correo electrónico para usar para o "
+"certificado."
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Escriba un nome ou un enderezo de correo electrónico."
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "Desactivouse a chave."
+msgstr "Hai un problema."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2504,35 +2498,34 @@ msgid "Not VS-NfD compliant"
 msgstr "Non cumpre con VS-NfD"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "A chave pode usarse."
+msgstr "Non é posíbel cambiar a data."
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Insira unha data entre %1 e %2."
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "En tres anos"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "En dous anos"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Nun ano"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -3299,6 +3292,10 @@ msgstr "O carácter hexadecimal «%1» é incorrecto no fluxo de entrada."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Remate prematuro de carácter codificado en hexadecimal no fluxo de entrada"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "Identificadores de persoas usuarias"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Certificados de confianza absoluta"

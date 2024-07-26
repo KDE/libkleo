@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
 "PO-Revision-Date: 2024-07-24 18:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -903,10 +903,11 @@ msgid "E-Mail"
 msgstr "E-post"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "Användaridentifikationer"
+msgid "Status"
+msgstr "Status"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -3241,6 +3242,10 @@ msgstr "Felaktigt hexadecimalt tecken '%1' i indataström."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "För tidigt slut för hexadecimalt kodat tecken i indataström"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "Användaridentifikationer"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Helt pålitliga certifikat"

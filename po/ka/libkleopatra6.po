@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
-"PO-Revision-Date: 2024-07-20 05:12+0200\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
+"PO-Revision-Date: 2024-07-25 04:59+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -939,10 +939,11 @@ msgid "E-Mail"
 msgstr "ელფოსტა"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "მომხმარებლის ID-ები"
+msgid "Status"
+msgstr "სტატუსი"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -1761,38 +1762,32 @@ msgstr "ფაილის გახსნის დიალოგი"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "შეცდომა: შეიყვანეთ მნიშვნელობა."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr "შეცდომა: შეიყვანეთ ჰოსტის სახელი სწორ ფორმატში. მაგ: ldap.example.com."
+msgstr "შეცდომა: შეიყვანეთ მნიშვნელობა სწორ ფორმატში."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (აუცილებელია)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "შეცდომა"
+msgstr "შეცდომა: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "არასწორი"
+msgstr "არასწორი ჩანაწერი"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -2180,8 +2175,7 @@ msgid "Error"
 msgstr "შეცდომა"
 
 #: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "სახელი"
@@ -2189,32 +2183,30 @@ msgstr "სახელი"
 #: ui/nameandemailwidget.cpp:59
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "შეიყვანეთ სახელი."
 
 #: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "ელფოსტის მისამართი"
 
 #: ui/nameandemailwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "ელფოსტის მისამართი"
+msgstr "შეიყვანეთ ელფოსტის მისამართი."
 
 #: ui/nameandemailwidget.cpp:92
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "სახელი არ უნდა შეიცავდეს <,>. და @."
 
 #: ui/nameandemailwidget.cpp:93
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "სახელი არ უნდა შეიცავდეს მეტობის, ნაკლებობის და ელფოსტის ნიშნებს."
 
 #: ui/nameandemailwidget.cpp:96
 #, kde-format
@@ -2222,6 +2214,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"სახელის ფორმატი თქვენი ორგანიზაციის მიერ მოთხოვნილ ფორმატში უნდა ჯდებოდა და "
+"არ უნდა შეიცავდეს სიმბოლოებს <, > და @."
 
 #: ui/nameandemailwidget.cpp:99
 #, kde-format
@@ -2230,20 +2224,20 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"სახელის ფორმატი თქვენი ორგანიზაციის მიერ მოთხოვნილ ფორმატში უნდა ჯდებოდა და "
+"არ უნდა შეიცავდეს მეტობის, ნაკლებობისა და ელფოსტის ნიშნებს."
 
 #: ui/nameandemailwidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr "შეცდომა: შეიყვანეთ ჰოსტის სახელი სწორ ფორმატში. მაგ: ldap.example.com."
+msgstr "შეიყვანეთ ელფოსტის მისამართი სწორ ფორმატში. მაგ: name@example.com."
 
 #: ui/nameandemailwidget.cpp:111
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"შეიყვანეთ ელფოსტის მისამართი თქვენი ორგანიზაციის მიერ მოთხოვნილ ფორმატში."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2381,7 +2375,7 @@ msgstr "გენერაცია"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "გენერირებული გასაღების დაცვა საკვანძო ფრაზით."
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
@@ -2389,10 +2383,11 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"ამ საიდუმლო გასაღებს აღუდგენელი აკვანძო ფრაზით დაშიფრავს. ამ ფრაზას "
+"გასაღების გენერაცისას გკითხავთ."
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
 msgstr "დამატებითი პარამეტრები"
 
@@ -2400,47 +2395,39 @@ msgstr "დამატებითი პარამეტრები"
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "გასაღების მასალა"
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "ვადა"
+msgstr "ვადა:"
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "სანდო სერტიფიკატები"
+msgstr "OpenPGP სერთიფიკატის შექმნა"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "შეიყვანეთ სახელი და ელფოსტის მისამართი სერტიფიკატისთვის."
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr ""
-"შეიყვანეთ IP მისამართი ან სახელი ჰოსტისა, სადაც დირექტორიის სერვისია "
-"გაშვებული."
+msgstr "შეიყვანეთ სახელი ან/და ელფოსტის მისამართი სერტიფიკატისთვის."
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "შეიყვანეთ სახელი ან ელფოსტის მისამართი."
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "გასაღები გამორთულია."
+msgstr "აღმოჩენილია პრობლემა."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2499,35 +2486,34 @@ msgid "Not VS-NfD compliant"
 msgstr "VS-NfD შეუთავსებელი"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "გასაღების გამოყენება შესაძლებელია."
+msgstr "თარიღს ვერ შეცვლით."
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "შეიყვანეთ თარიღი შუალედიდან %1-%2."
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "აწმყოდან სამი წლის შემდეგ"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "აწმყოდან ორი წლის შემდეგ"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "აწმყოდან ერთი წლის შემდეგ"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -3287,6 +3273,10 @@ msgstr "არასწორი სიმბოლო '%1' შემოტა�
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "შეყვანის ნაკადში თექვსმეტობითში კოდირებული სიმბოლოს მოულოდნელი დასასრული"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "მომხმარებლის ID-ები"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "სრულად სანდო სერტიფიკატები"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
 "PO-Revision-Date: 2024-07-20 13:38+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -929,10 +929,11 @@ msgid "E-Mail"
 msgstr "Posta elettronica"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "ID utente"
+msgid "Status"
+msgstr "Stato"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -3293,6 +3294,10 @@ msgstr "Carattere esadecimale «%1» non valido nel flusso di ingresso."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Fine prematura dei caratteri codificati in esadecimale nel flusso di ingresso"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "ID utente"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Certificati totalmente affidabili"

@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1685456 2024-07-25 01:12:53Z scripty $
+# $Id: libkleopatra6.po 1685528 2024-07-26 01:13:01Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
 "PO-Revision-Date: 2024-07-24 09:56+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1063,10 +1063,11 @@ msgid "E-Mail"
 msgstr "E-pošta"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "ID uporabnika"
+msgid "Status"
+msgstr "Stanje"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -3405,6 +3406,10 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "ID uporabnika"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Potrdila, ki jim polno zaupate"

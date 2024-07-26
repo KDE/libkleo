@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:39+0000\n"
+"POT-Creation-Date: 2024-07-26 00:40+0000\n"
 "PO-Revision-Date: 2024-07-24 09:53+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -932,10 +932,11 @@ msgid "E-Mail"
 msgstr "E-posta"
 
 #: models/keylistmodel.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@title:column"
-msgid "User IDs"
-msgstr "Erabiltzaile IDak"
+msgid "Status"
+msgstr "Egoera"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -3288,6 +3289,10 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Sarrerako korrontean, hamaseitarrean kodetutako karakterearen amaiera "
 "goiztiarra"
+
+#~ msgctxt "@title:column"
+#~ msgid "User IDs"
+#~ msgstr "Erabiltzaile IDak"
 
 #~ msgid "Fully Trusted Certificates"
 #~ msgstr "Erabateko konfiantzadun ziurtagiriak"
