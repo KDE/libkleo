@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-26 00:40+0000\n"
-"PO-Revision-Date: 2024-07-22 16:58+0200\n"
+"PO-Revision-Date: 2024-07-26 14:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -797,8 +797,7 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Stav"
@@ -1268,7 +1267,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
-msgstr ""
+msgstr "Adresářová služba LDAP"
 
 #: ui/dnattributeorderconfigwidget.cpp:73
 #, kde-format
@@ -1467,7 +1466,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
-msgstr ""
+msgstr "Zabezpečení spojení"
 
 #: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
@@ -1578,35 +1577,32 @@ msgstr "Otevřít souborový dialog"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Chyba: Zadejte hodnotu."
 
 #: ui/formtextinput.cpp:30
 #, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
+msgstr "Chyba: Zadejte hodnotu ve správném formátu."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (požadováno)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Chyba"
+msgstr "Chyba: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "neplatné"
+msgstr "neplatná položka"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1994,10 +1990,8 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Chyba"
 
-# Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
 #: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Název"
@@ -2005,20 +1999,18 @@ msgstr "Název"
 #: ui/nameandemailwidget.cpp:59
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "Zadejte název."
 
 #: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "E-mailová adresa"
 
 #: ui/nameandemailwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "E-mailová adresa"
+msgstr "Zadejte e-mailovou adresu"
 
 #: ui/nameandemailwidget.cpp:92
 #, kde-format
@@ -2187,7 +2179,7 @@ msgstr "Vygenerovat"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Chránit generovaný klíč heslem."
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
@@ -2197,51 +2189,47 @@ msgid ""
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "Pokročilá nastavení"
+msgstr "Rozšířené možnosti"
 
 #: ui/openpgpcertificatecreationdialog.cpp:102
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Typ klíčů"
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "Platný do"
+msgstr "Platný do:"
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Inline OpenPGP (deprecated)"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Vložený OpenPGP (zastaralé)"
+msgstr "Vytvořit certifikát OpenPGP"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "Zadejte jméno a e-mailovou adresu pro použití pro certifikát."
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr ""
+msgstr "Zadejte jméno a/nebo e-mailovou adresu pro použití pro certifikát."
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Zadejte jméno nebo e-mailovou adresu."
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "Klíč byl vypnut."
+msgstr "Vyskytl se problém."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2294,35 +2282,34 @@ msgid "Not VS-NfD compliant"
 msgstr "Nesplňující VS-NfD"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "Klíč může být použit."
+msgstr "Datum nelze změnit."
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Zadejte datum mezi %1 a %2"
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "Za tři roky od teď"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "Za dva roky od teď"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Za rok od teď"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -2781,7 +2768,7 @@ msgstr "Ověřit přístup"
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
-msgstr ""
+msgstr "ADSK"
 
 #: utils/formatting.cpp:1175
 #, kde-format
@@ -3081,7 +3068,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "ID uživatelů"
