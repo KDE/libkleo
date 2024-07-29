@@ -301,8 +301,8 @@ public:
         QAbstractButton *pgpBtn;
         QAbstractButton *smimeBtn;
         if (mAllowMixed) {
-            pgpBtn = new QCheckBox(i18n("OpenPGP"));
-            smimeBtn = new QCheckBox(i18n("S/MIME"));
+            pgpBtn = new QCheckBox(i18nc("@option:check", "OpenPGP"));
+            smimeBtn = new QCheckBox(i18nc("@option:check", "S/MIME"));
         } else {
             pgpBtn = new QRadioButton(i18n("OpenPGP"));
             smimeBtn = new QRadioButton(i18n("S/MIME"));

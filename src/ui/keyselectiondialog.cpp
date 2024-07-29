@@ -462,7 +462,7 @@ void KeySelectionDialog::setUpUI(Options options, const QString &initialQuery)
     mTopLayout->addWidget(mKeyListView, 10);
 
     if (options & RememberChoice) {
-        mRememberCB = new QCheckBox(i18n("&Remember choice"), page);
+        mRememberCB = new QCheckBox(i18nc("@option:check", "&Remember choice"), page);
         mTopLayout->addWidget(mRememberCB);
         mRememberCB->setWhatsThis(
             i18n("<qt><p>If you check this box your choice will "
