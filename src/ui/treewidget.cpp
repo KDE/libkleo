@@ -124,7 +124,7 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
             int width = columnWidths[i].toInt();
             int order = columnOrder[i].toInt();
 
-            header->resizeSection(i, width ? width : 100);
+            header->resizeSection(i, width ? width : header->defaultSectionSize());
             header->moveSection(header->visualIndex(i), order);
 
             if (!visible) {
