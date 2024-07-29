@@ -304,8 +304,8 @@ public:
             pgpBtn = new QCheckBox(i18nc("@option:check", "OpenPGP"));
             smimeBtn = new QCheckBox(i18nc("@option:check", "S/MIME"));
         } else {
-            pgpBtn = new QRadioButton(i18n("OpenPGP"));
-            smimeBtn = new QRadioButton(i18n("S/MIME"));
+            pgpBtn = new QRadioButton(i18nc("@option:radio", "OpenPGP"));
+            smimeBtn = new QRadioButton(i18nc("@option:radio", "S/MIME"));
         }
 #ifndef NDEBUG
         pgpBtn->setObjectName(QLatin1StringView("openpgp button"));
