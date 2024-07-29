@@ -509,10 +509,8 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
         case Keygrip:
             if (role == Qt::AccessibleTextRole) {
                 return Formatting::accessibleHexID(key.subkey(0).keyGrip());
-            } else if (role == ClipboardRole) {
-                return QString::fromLatin1(key.subkey(0).keyGrip());
             } else {
-                return Formatting::prettyID(key.subkey(0).keyGrip());
+                return QString::fromLatin1(key.subkey(0).keyGrip());
             }
         case NumColumns:
             break;
