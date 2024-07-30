@@ -20,6 +20,7 @@
 
 #include <QLabel>
 #include <QLineEdit>
+#include <QStyle>
 #include <QVBoxLayout>
 
 using namespace Kleo;
@@ -61,8 +62,9 @@ public:
 
             mainLayout->addWidget(ui.nameInput->label());
             mainLayout->addWidget(ui.nameInput->hintLabel());
-            mainLayout->addWidget(ui.nameInput->errorLabel());
             mainLayout->addWidget(ui.nameInput->widget());
+            mainLayout->addWidget(ui.nameInput->errorLabel());
+            mainLayout->addSpacing(q->style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing));
         }
         connect(ui.nameInput->widget(), &QLineEdit::textChanged, q, [this]() {
             Q_EMIT q->userIDChanged();
@@ -76,8 +78,8 @@ public:
 
             mainLayout->addWidget(ui.emailInput->label());
             mainLayout->addWidget(ui.emailInput->hintLabel());
-            mainLayout->addWidget(ui.emailInput->errorLabel());
             mainLayout->addWidget(ui.emailInput->widget());
+            mainLayout->addWidget(ui.emailInput->errorLabel());
         }
         connect(ui.emailInput->widget(), &QLineEdit::textChanged, q, [this]() {
             Q_EMIT q->userIDChanged();
