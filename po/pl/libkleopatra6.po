@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1685634 $
+# Version: $Revision: 1685899 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:40+0000\n"
+"POT-Creation-Date: 2024-07-30 00:42+0000\n"
 "PO-Revision-Date: 2024-07-27 09:13+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -157,9 +157,7 @@ msgstr "OpenPGP w treści (wycofany)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
@@ -1111,7 +1109,7 @@ msgstr "bez adresu"
 msgid "Loading..."
 msgstr "Wczytywanie..."
 
-#: models/keylistmodel.cpp:571
+#: models/keylistmodel.cpp:569
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -2149,7 +2147,9 @@ msgid "&Search for:"
 msgstr "Po&szukaj:"
 
 #: ui/keyselectiondialog.cpp:465
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Remember choice"
+msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "Zapamiętaj wybó&r"
 
@@ -2364,11 +2364,33 @@ msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Potwierdzenie bezpieczeństwa"
 
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:818
-#, kde-format
+#: ui/newkeyapprovaldialog.cpp:304
+#, fuzzy, kde-format
+#| msgid "OpenPGP"
+msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:305
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:307
+#, fuzzy, kde-format
+#| msgid "OpenPGP"
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:308
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
@@ -2811,6 +2833,11 @@ msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
+#: utils/formatting.cpp:818
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
 #: utils/formatting.cpp:820
 #, kde-format
 msgctxt "Unknown encryption protocol"
@@ -2882,8 +2909,10 @@ msgid "invalid"
 msgstr "nieprawidłowy"
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid signature"
+#, fuzzy, kde-format
+#| msgctxt "as in good/valid signature"
+#| msgid "good"
+msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "dobry"
 

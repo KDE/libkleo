@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:40+0000\n"
+"POT-Creation-Date: 2024-07-30 00:42+0000\n"
 "PO-Revision-Date: 2023-07-04 10:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -154,9 +154,7 @@ msgstr "OpenPGP integrado (obsoleto)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
@@ -898,7 +896,7 @@ msgstr "sem e-mail"
 msgid "Loading..."
 msgstr "Carregando..."
 
-#: models/keylistmodel.cpp:571
+#: models/keylistmodel.cpp:569
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1956,7 +1954,9 @@ msgid "&Search for:"
 msgstr "Pe&squisar por:"
 
 #: ui/keyselectiondialog.cpp:465
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Remember choice"
+msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Lembrar escolha"
 
@@ -2179,11 +2179,33 @@ msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Aprovação de segurança"
 
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:818
-#, kde-format
+#: ui/newkeyapprovaldialog.cpp:304
+#, fuzzy, kde-format
+#| msgid "OpenPGP"
+msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:305
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:307
+#, fuzzy, kde-format
+#| msgid "OpenPGP"
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:308
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
@@ -2640,6 +2662,11 @@ msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
+#: utils/formatting.cpp:818
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
 #: utils/formatting.cpp:820
 #, kde-format
 msgctxt "Unknown encryption protocol"
@@ -2711,8 +2738,10 @@ msgid "invalid"
 msgstr "inválido"
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid signature"
+#, fuzzy, kde-format
+#| msgctxt "as in good/valid signature"
+#| msgid "good"
+msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "boa"
 

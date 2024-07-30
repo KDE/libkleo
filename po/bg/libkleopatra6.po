@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:40+0000\n"
+"POT-Creation-Date: 2024-07-30 00:42+0000\n"
 "PO-Revision-Date: 2024-07-27 21:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -152,9 +152,7 @@ msgstr "Inline OpenPGP (deprecated)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
@@ -1012,7 +1010,7 @@ msgstr "няма имейл"
 msgid "Loading..."
 msgstr "Зареждане..."
 
-#: models/keylistmodel.cpp:571
+#: models/keylistmodel.cpp:569
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -2053,7 +2051,9 @@ msgid "&Search for:"
 msgstr "Т&ърсене на:"
 
 #: ui/keyselectiondialog.cpp:465
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Remember choice"
+msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Запаметяване на избора"
 
@@ -2264,11 +2264,33 @@ msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Одобрение на сигурността"
 
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:818
-#, kde-format
+#: ui/newkeyapprovaldialog.cpp:304
+#, fuzzy, kde-format
+#| msgid "OpenPGP"
+msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:305
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:307
+#, fuzzy, kde-format
+#| msgid "OpenPGP"
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:308
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
@@ -2708,6 +2730,11 @@ msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
+#: utils/formatting.cpp:818
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
 #: utils/formatting.cpp:820
 #, kde-format
 msgctxt "Unknown encryption protocol"
@@ -2779,8 +2806,10 @@ msgid "invalid"
 msgstr "невалиден"
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid signature"
+#, fuzzy, kde-format
+#| msgctxt "as in good/valid signature"
+#| msgid "good"
+msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "добър"
 

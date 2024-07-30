@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:40+0000\n"
+"POT-Creation-Date: 2024-07-30 00:42+0000\n"
 "PO-Revision-Date: 2007-07-27 15:55+0300\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -154,9 +154,7 @@ msgstr ""
 msgid "OpenPGP/MIME"
 msgstr ""
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
@@ -925,7 +923,7 @@ msgstr "komzpa@licei2.com"
 msgid "Loading..."
 msgstr ""
 
-#: models/keylistmodel.cpp:571
+#: models/keylistmodel.cpp:569
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1931,6 +1929,7 @@ msgstr "&Шукаць:"
 
 #: ui/keyselectiondialog.cpp:465
 #, kde-format
+msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr ""
 
@@ -2126,11 +2125,31 @@ msgctxt "@title:window"
 msgid "Security approval"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:818
+#: ui/newkeyapprovaldialog.cpp:304
 #, kde-format
+msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:305
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:307
+#, kde-format
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:308
+#, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
@@ -2567,6 +2586,11 @@ msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
+#: utils/formatting.cpp:818
+#, kde-format
+msgid "OpenPGP"
+msgstr ""
+
 #: utils/formatting.cpp:820
 #, fuzzy, kde-format
 #| msgid "unknown"
@@ -2641,7 +2665,7 @@ msgstr ""
 
 #: utils/formatting.cpp:884
 #, kde-format
-msgctxt "as in good/valid signature"
+msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr ""
 
