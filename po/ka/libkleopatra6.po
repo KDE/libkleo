@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:42+0000\n"
-"PO-Revision-Date: 2024-07-26 05:26+0200\n"
+"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"PO-Revision-Date: 2024-07-30 06:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2078,11 +2078,10 @@ msgid "&Search for:"
 msgstr "&ძებნა:"
 
 #: ui/keyselectiondialog.cpp:465
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
-msgstr "არჩევანის &დამახსოვრება"
+msgstr "არჩევნის &დამახსოვრება"
 
 #: ui/keyselectiondialog.cpp:468
 #, kde-format
@@ -2173,41 +2172,41 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
+#: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
 #, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "სახელი"
 
-#: ui/nameandemailwidget.cpp:59
+#: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
 msgstr "შეიყვანეთ სახელი."
 
-#: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
+#: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
 #, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "ელფოსტის მისამართი"
 
-#: ui/nameandemailwidget.cpp:74
+#: ui/nameandemailwidget.cpp:76
 #, kde-format
 msgid "Enter an email address."
 msgstr "შეიყვანეთ ელფოსტის მისამართი."
 
-#: ui/nameandemailwidget.cpp:92
+#: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
 msgstr "სახელი არ უნდა შეიცავდეს <,>. და @."
 
-#: ui/nameandemailwidget.cpp:93
+#: ui/nameandemailwidget.cpp:95
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
 msgstr "სახელი არ უნდა შეიცავდეს მეტობის, ნაკლებობის და ელფოსტის ნიშნებს."
 
-#: ui/nameandemailwidget.cpp:96
+#: ui/nameandemailwidget.cpp:98
 #, kde-format
 msgid ""
 "The name must be in the format required by your organization and it must not "
@@ -2216,7 +2215,7 @@ msgstr ""
 "სახელის ფორმატი თქვენი ორგანიზაციის მიერ მოთხოვნილ ფორმატში უნდა ჯდებოდა და "
 "არ უნდა შეიცავდეს სიმბოლოებს <, > და @."
 
-#: ui/nameandemailwidget.cpp:99
+#: ui/nameandemailwidget.cpp:101
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
@@ -2226,12 +2225,12 @@ msgstr ""
 "სახელის ფორმატი თქვენი ორგანიზაციის მიერ მოთხოვნილ ფორმატში უნდა ჯდებოდა და "
 "არ უნდა შეიცავდეს მეტობის, ნაკლებობისა და ელფოსტის ნიშნებს."
 
-#: ui/nameandemailwidget.cpp:108
+#: ui/nameandemailwidget.cpp:110
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr "შეიყვანეთ ელფოსტის მისამართი სწორ ფორმატში. მაგ: name@example.com."
 
-#: ui/nameandemailwidget.cpp:111
+#: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
@@ -2290,29 +2289,25 @@ msgid "Security approval"
 msgstr "უსაფრთხოების დადასტურება"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2832,9 +2827,7 @@ msgid "invalid"
 msgstr "არასწორი"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
+#, kde-format
 msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "კარგი"

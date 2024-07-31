@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:42+0000\n"
-"PO-Revision-Date: 2024-07-27 00:29+0200\n"
+"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"PO-Revision-Date: 2024-07-30 16:50+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2056,8 +2056,7 @@ msgid "&Search for:"
 msgstr "Bu&scar:"
 
 #: ui/keyselectiondialog.cpp:465
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Recordar la elección"
@@ -2153,34 +2152,34 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Error"
 
-#: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
+#: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
 #, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Nombre"
 
-#: ui/nameandemailwidget.cpp:59
+#: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
 msgstr "Introduzca un nombre."
 
-#: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
+#: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
 #, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
-#: ui/nameandemailwidget.cpp:74
+#: ui/nameandemailwidget.cpp:76
 #, kde-format
 msgid "Enter an email address."
 msgstr "Introduzca una dirección de correo electrónico."
 
-#: ui/nameandemailwidget.cpp:92
+#: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
 msgstr "El nombre no debe incluir <, > ni @."
 
-#: ui/nameandemailwidget.cpp:93
+#: ui/nameandemailwidget.cpp:95
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
@@ -2188,7 +2187,7 @@ msgid ""
 msgstr ""
 "El nombre no debe incluir los símbolos menor que, mayor que ni la arroba."
 
-#: ui/nameandemailwidget.cpp:96
+#: ui/nameandemailwidget.cpp:98
 #, kde-format
 msgid ""
 "The name must be in the format required by your organization and it must not "
@@ -2197,7 +2196,7 @@ msgstr ""
 "El nombre debe estar en el formato requerido por su organización y no debe "
 "incluir <, > ni @."
 
-#: ui/nameandemailwidget.cpp:99
+#: ui/nameandemailwidget.cpp:101
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
@@ -2207,14 +2206,14 @@ msgstr ""
 "El nombre debe estar en el formato requerido por su organización y no debe "
 "incluir los símbolos menor que, mayor que ni la arroba."
 
-#: ui/nameandemailwidget.cpp:108
+#: ui/nameandemailwidget.cpp:110
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr ""
 "Introduzca una dirección de correo electrónico en el formato correcto, como "
 "nombre@ejemplo.com."
 
-#: ui/nameandemailwidget.cpp:111
+#: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
@@ -2274,29 +2273,25 @@ msgid "Security approval"
 msgstr "Aprobación de seguridad"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2821,9 +2816,7 @@ msgid "invalid"
 msgstr "no válida"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
+#, kde-format
 msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "buena"

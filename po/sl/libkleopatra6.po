@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1685899 2024-07-30 01:16:11Z scripty $
+# $Id: libkleopatra6.po 1685977 2024-07-31 01:15:53Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:42+0000\n"
-"PO-Revision-Date: 2024-07-26 07:45+0200\n"
+"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"PO-Revision-Date: 2024-07-30 09:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2196,8 +2196,7 @@ msgid "&Search for:"
 msgstr "Poišči:"
 
 #: ui/keyselectiondialog.cpp:465
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "Zapomni si izbi&ro"
@@ -2297,41 +2296,41 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Napaka"
 
-#: ui/nameandemailwidget.cpp:58 ui/nameandemailwidget.cpp:157
+#: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
 #, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Ime"
 
-#: ui/nameandemailwidget.cpp:59
+#: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
 msgstr "Vnesite ime."
 
-#: ui/nameandemailwidget.cpp:73 ui/nameandemailwidget.cpp:211
+#: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
 #, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "E-poštni naslov"
 
-#: ui/nameandemailwidget.cpp:74
+#: ui/nameandemailwidget.cpp:76
 #, kde-format
 msgid "Enter an email address."
 msgstr "Vnesite e-poštni naslov."
 
-#: ui/nameandemailwidget.cpp:92
+#: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
 msgstr "Ime ne sme vsebovati <, >, in @."
 
-#: ui/nameandemailwidget.cpp:93
+#: ui/nameandemailwidget.cpp:95
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
 msgstr "Ime ne sme vsebovati znaka manjše, znaka večje in znaka lokacije."
 
-#: ui/nameandemailwidget.cpp:96
+#: ui/nameandemailwidget.cpp:98
 #, kde-format
 msgid ""
 "The name must be in the format required by your organization and it must not "
@@ -2340,7 +2339,7 @@ msgstr ""
 "Ime mora biti v obliki, ki jo zahteva vaša organizacija, in ne sme vsebovati "
 "<, > in @."
 
-#: ui/nameandemailwidget.cpp:99
+#: ui/nameandemailwidget.cpp:101
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
@@ -2350,12 +2349,12 @@ msgstr ""
 "Ime mora biti v obliki, ki jo zahteva vaša organizacija, in ne sme vsebovati "
 "znaka manj kot, znaka več kot in znaka lokacije."
 
-#: ui/nameandemailwidget.cpp:108
+#: ui/nameandemailwidget.cpp:110
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr "Vnesitee-naslov v pravilnem formatu kot name@example.com."
 
-#: ui/nameandemailwidget.cpp:111
+#: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
@@ -2413,29 +2412,25 @@ msgid "Security approval"
 msgstr "Varnostna odobritev"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2958,9 +2953,7 @@ msgid "invalid"
 msgstr "neveljavno"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
+#, kde-format
 msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "dobro"
