@@ -140,7 +140,7 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
     }
 
     int sortOrder = config.readEntry("SortAscending", (int)Qt::AscendingOrder);
-    int sortColumn = config.readEntry("SortColumn", 0);
+    int sortColumn = config.readEntry("SortColumn", isSortingEnabled() ? 0 : -1);
     if (sortColumn >= 0) {
         sortByColumn(sortColumn, (Qt::SortOrder)sortOrder);
     }
