@@ -90,7 +90,7 @@ void AuditLogViewer::showAuditLog(QWidget *parent, const AuditLogEntry &auditLog
 {
     const GpgME::Error err = auditLog.error();
     if (err.code() == GPG_ERR_NOT_IMPLEMENTED) {
-        KMessageBox::information(parent, i18n("Your system does not have support for GnuPG Audit Logs"), i18n("System Error"));
+        KMessageBox::information(parent, i18n("Your system does not have support for GnuPG Audit Logs"), i18nc("@title:window", "System Error"));
         return;
     }
     if (err && err.code() != GPG_ERR_NO_DATA) {
@@ -100,7 +100,7 @@ void AuditLogViewer::showAuditLog(QWidget *parent, const AuditLogEntry &auditLog
         return;
     }
     if (auditLog.text().isEmpty()) {
-        KMessageBox::information(parent, i18n("No GnuPG Audit Log available for this operation."), i18n("No GnuPG Audit Log"));
+        KMessageBox::information(parent, i18n("No GnuPG Audit Log available for this operation."), i18nc("@title:window", "No GnuPG Audit Log"));
         return;
     }
 
@@ -140,7 +140,9 @@ void AuditLogViewer::slotSaveAs()
     }
 
     if (const int err = file.error()) {
-        KMessageBox::error(this, i18n("Could not save to file \"%1\": %2", file.fileName(), QString::fromLocal8Bit(strerror(err))), i18n("File Save Error"));
+        KMessageBox::error(this,
+                           i18n("Could not save to file \"%1\": %2", file.fileName(), QString::fromLocal8Bit(strerror(err))),
+                           i18nc("@title:window", "File Save Error"));
     }
 }
 

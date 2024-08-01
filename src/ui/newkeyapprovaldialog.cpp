@@ -436,7 +436,7 @@ public:
     void checkAccepted()
     {
         if (mLastError) {
-            KMessageBox::error(q, Formatting::errorAsString(mLastError), i18n("Operation Failed"));
+            KMessageBox::error(q, Formatting::errorAsString(mLastError), i18nc("@title:window", "Operation Failed"));
             mRunningJobs.clear();
             return;
         }

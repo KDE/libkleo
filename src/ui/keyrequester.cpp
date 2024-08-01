@@ -236,7 +236,7 @@ static void showKeyListError(QWidget *parent, const GpgME::Error &err)
         "<p><b>%1</b></p></qt>",
         Formatting::errorAsString(err));
 
-    KMessageBox::error(parent, msg, i18n("Key Listing Failed"));
+    KMessageBox::error(parent, msg, i18nc("@title:window", "Key Listing Failed"));
 }
 #endif // __KLEO_UI_SHOW_KEY_LIST_ERROR_H__
 
@@ -269,7 +269,7 @@ void Kleo::KeyRequester::startKeyListJob(const QStringList &fingerprints)
             KMessageBox::error(this,
                                i18n("The OpenPGP backend does not support listing keys. "
                                     "Check your installation."),
-                               i18n("Key Listing Failed"));
+                               i18nc("@title:window", "Key Listing Failed"));
         } else {
             connect(job, &KeyListJob::result, this, &SigningKeyRequester::slotKeyListResult);
             connect(job, &KeyListJob::nextKey, this, &SigningKeyRequester::slotNextKey);
@@ -291,7 +291,7 @@ void Kleo::KeyRequester::startKeyListJob(const QStringList &fingerprints)
             KMessageBox::error(this,
                                i18n("The S/MIME backend does not support listing keys. "
                                     "Check your installation."),
-                               i18n("Key Listing Failed"));
+                               i18nc("@title:window", "Key Listing Failed"));
         } else {
             connect(job, &KeyListJob::result, this, &SigningKeyRequester::slotKeyListResult);
             connect(job, &KeyListJob::nextKey, this, &SigningKeyRequester::slotNextKey);

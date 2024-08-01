@@ -646,7 +646,7 @@ void KeySelectionDialog::slotRereadKeys()
         KMessageBox::information(this,
                                  i18n("No backends found for listing keys. "
                                       "Check your installation."),
-                                 i18n("Key Listing Failed"));
+                                 i18nc("@title:window", "Key Listing Failed"));
         connectSignals();
     }
 }
@@ -664,7 +664,7 @@ void KeySelectionDialog::slotStartCertificateManager(const QString &query)
         KMessageBox::error(this,
                            i18n("Could not start certificate manager; "
                                 "please check your installation."),
-                           i18n("Certificate Manager Error"));
+                           i18nc("@title:window", "Certificate Manager Error"));
     } else {
         QProcess::startDetached(QStringLiteral("kleopatra"), args);
         qCDebug(KLEO_UI_LOG) << "\nslotStartCertManager(): certificate manager started.";
@@ -682,7 +682,7 @@ static void showKeyListError(QWidget *parent, const GpgME::Error &err)
         "<p><b>%1</b></p></qt>",
         Formatting::errorAsString(err));
 
-    KMessageBox::error(parent, msg, i18n("Key Listing Failed"));
+    KMessageBox::error(parent, msg, i18nc("@title:window", "Key Listing Failed"));
 }
 #endif // __KLEO_UI_SHOW_KEY_LIST_ERROR_H__
 

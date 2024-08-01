@@ -883,7 +883,7 @@ void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
         KMessageBox::error(mPushButton->parentWidget(),
                            i18n("Configuration of directory services is not possible "
                                 "because the used gpgme libraries are too old."),
-                           i18n("Sorry"));
+                           i18nc("@title:window", "Sorry"));
         return;
     }
 
