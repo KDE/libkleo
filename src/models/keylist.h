@@ -13,6 +13,8 @@
 
 namespace Kleo
 {
+static const int ClipboardRole = 0x01FF;
+
 namespace KeyList
 {
 // clang-format off
@@ -20,7 +22,6 @@ static const int FingerprintRole = 0xF1;
 static const int KeyRole         = 0xF2;
 static const int GroupRole       = 0xF3;
 static const int UserIDRole      = 0xF4;
-static const int ClipboardRole   = 0xF5;
 // clang-format on
 
 enum Columns {

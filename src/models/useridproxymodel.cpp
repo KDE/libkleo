@@ -198,7 +198,7 @@ QVariant UserIDProxyModel::data(const QModelIndex &index, int role) const
     if (role == KeyList::UserIDRole) {
         return QVariant::fromValue(userId);
     }
-    if ((role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole || role == KeyList::ClipboardRole)) {
+    if ((role == Qt::DisplayRole || role == Qt::EditRole || role == Qt::AccessibleTextRole || role == Kleo::ClipboardRole)) {
         if (index.column() == KeyList::Columns::PrettyName) {
             if (key.protocol() == GpgME::OpenPGP) {
                 return Formatting::prettyName(userId);
