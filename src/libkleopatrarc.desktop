@@ -927,3 +927,11 @@ Name[x-test]=xxNot VS-NfD Compliant (Revoked)xx
 Name[zh_CN]=VS-NfD 不兼容 (已吊销)
 foreground-color=0,0,0
 background-color=250,233,235
+
+[Key Filter #14]
+Name=Disabled Certificates
+Description=Certificates that are disabled
+match-contexts=appearance
+is-disabled=true
+# UINT_MAX - 1
+specificity=4294967294

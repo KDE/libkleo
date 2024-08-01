@@ -81,7 +81,7 @@ public:
         : DefaultKeyFilter()
     {
         setHasSecret(Set);
-        setSpecificity(UINT_MAX - 1); // overly high for ordering
+        setSpecificity(UINT_MAX - 2); // overly high for ordering
 
         setName(i18n("My Certificates"));
         setId(QStringLiteral("my-certificates"));
@@ -99,7 +99,7 @@ public:
         setRevoked(NotSet);
         setValidity(IsAtLeast);
         setValidityReferenceLevel(UserID::Marginal);
-        setSpecificity(UINT_MAX - 2); // overly high for ordering
+        setSpecificity(UINT_MAX - 3); // overly high for ordering
 
         setName(i18n("Trusted Certificates"));
         setId(QStringLiteral("trusted-certificates"));
@@ -116,7 +116,7 @@ public:
         setRevoked(NotSet);
         setValidity(IsAtLeast);
         setValidityReferenceLevel(UserID::Full);
-        setSpecificity(UINT_MAX - 3);
+        setSpecificity(UINT_MAX - 4);
 
         setName(i18n("Fully Trusted Certificates"));
         setId(QStringLiteral("full-certificates"));
@@ -133,7 +133,7 @@ public:
         setHasSecret(NotSet);
         setValidity(IsAtMost);
         setValidityReferenceLevel(UserID::Never);
-        setSpecificity(UINT_MAX - 4); // overly high for ordering
+        setSpecificity(UINT_MAX - 5); // overly high for ordering
 
         setName(i18n("Other Certificates"));
         setId(QStringLiteral("other-certificates"));

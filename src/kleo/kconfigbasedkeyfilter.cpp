@@ -206,6 +206,11 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
             break;
         }
     }
+
+    if (config.hasKey("specificity")) {
+        setSpecificity(config.readEntry("specificity", 0u));
+    }
+
     static const struct {
         const char *key;
         MatchContext context;
