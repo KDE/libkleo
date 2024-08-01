@@ -12,11 +12,15 @@
 
 #include "treeview.h"
 
+#include <models/keylist.h>
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 
+#include <QClipboard>
 #include <QContextMenuEvent>
+#include <QGuiApplication>
 #include <QHeaderView>
 #include <QMenu>
 
@@ -192,6 +196,26 @@ bool TreeView::restoreColumnLayout(const QString &stateGroupName)
         d->saveColumnLayout();
     });
     return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
+}
+
+void TreeView::keyPressEvent(QKeyEvent *event)
+{
+    if (event == QKeySequence::Copy) {
+        const QModelIndex index = currentIndex();
+        if (index.isValid() && model()) {
+            QVariant variant = model()->data(index, Kleo::ClipboardRole);
+            if (!variant.isValid()) {
+                variant = model()->data(index, Qt::DisplayRole);
+            }
+            if (variant.canConvert<QString>()) {
+                QGuiApplication::clipboard()->setText(variant.toString());
+            }
+        }
+        event->accept();
+        return;
+    }
+
+    QTreeView::keyPressEvent(event);
 }
 
 QModelIndex TreeView::moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers)

@@ -12,11 +12,15 @@
 
 #include "treewidget.h"
 
+#include <models/keylist.h>
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 
+#include <QClipboard>
 #include <QContextMenuEvent>
+#include <QGuiApplication>
 #include <QHeaderView>
 #include <QMenu>
 
@@ -229,6 +233,26 @@ void TreeWidget::focusInEvent(QFocusEvent *event)
     };
     // queue the invocation, so that it happens after the widget itself got focus
     QMetaObject::invokeMethod(this, forceAccessibleFocusEventForCurrentItem, Qt::QueuedConnection);
+}
+
+void TreeWidget::keyPressEvent(QKeyEvent *event)
+{
+    if (event == QKeySequence::Copy) {
+        const QModelIndex index = currentIndex();
+        if (index.isValid() && model()) {
+            QVariant variant = model()->data(index, Kleo::ClipboardRole);
+            if (!variant.isValid()) {
+                variant = model()->data(index, Qt::DisplayRole);
+            }
+            if (variant.canConvert<QString>()) {
+                QGuiApplication::clipboard()->setText(variant.toString());
+            }
+        }
+        event->accept();
+        return;
+    }
+
+    QTreeWidget::keyPressEvent(event);
 }
 
 QModelIndex TreeWidget::moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
