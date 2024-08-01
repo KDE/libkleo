@@ -82,7 +82,7 @@ public:
         : DefaultKeyFilter()
     {
         setHasSecret(Set);
-        setSpecificity(UINT_MAX - 1); // overly high for ordering
+        setSpecificity(UINT_MAX - 2); // overly high for ordering
 
         setName(i18nc("My own Certificates", "My Own"));
         setDescription(i18n("My own certificates"));
@@ -101,7 +101,7 @@ public:
         setRevoked(NotSet);
         setValidity(IsAtLeast);
         setValidityReferenceLevel(UserID::Full);
-        setSpecificity(UINT_MAX - 3);
+        setSpecificity(UINT_MAX - 4);
 
         setName(i18nc("Certified Certificates", "Certified"));
         setDescription(i18n("Certificates for which the primary user ID is certified"));
@@ -119,7 +119,7 @@ public:
         setHasSecret(NotSet);
         setValidity(IsAtMost);
         setValidityReferenceLevel(UserID::Marginal);
-        setSpecificity(UINT_MAX - 5); // overly high for ordering
+        setSpecificity(UINT_MAX - 6); // overly high for ordering
 
         setName(i18nc("Not Certified Certificates", "Not Certified"));
         setDescription(i18n("Certificates for which the primary user ID is not certified"));
@@ -136,7 +136,7 @@ public:
     UncertifiedOpenPGPKeysFilter()
         : DefaultKeyFilter()
     {
-        setSpecificity(UINT_MAX - 6); // overly high for ordering
+        setSpecificity(UINT_MAX - 7); // overly high for ordering
         setName(i18nc("Certificates to certify by the user", "To Certify"));
         setDescription(i18n("Certificates that are not fully certified and that you may want to certify yourself"));
         setId(QStringLiteral("not-certified-certificates"));
@@ -163,7 +163,7 @@ public:
     KeyNotValidFilter()
         : DefaultKeyFilter()
     {
-        setSpecificity(UINT_MAX - 4); // overly high for ordering
+        setSpecificity(UINT_MAX - 5); // overly high for ordering
 
         setName(i18nc("Not Fully Certified Certificates", "Not Fully Certified"));
         setDescription(i18n("Certificates for which not all user IDs are certified"));
@@ -188,7 +188,7 @@ public:
     KeyFullyCertifiedFilter()
         : DefaultKeyFilter()
     {
-        setSpecificity(UINT_MAX - 2);
+        setSpecificity(UINT_MAX - 3);
         setName(i18nc("Fully Certified Certificates", "Fully Certified"));
         setDescription(i18n("Certificates for which all user IDs are certified"));
         setId(QStringLiteral("full-certificates"));

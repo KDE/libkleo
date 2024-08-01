@@ -935,3 +935,12 @@ Description[x-test]=xxRevoked certificates (if VS-NfD compliance mode is active)
 Description[zh_TW]=已撤銷的憑證（VS-NfD 規範格式啟用時）
 foreground-color=0,0,0
 background-color=250,233,235
+
+
+[Key Filter #14]
+Name=Disabled Certificates
+Description=Certificates that are disabled
+match-contexts=appearance
+is-disabled=true
+# UINT_MAX - 1
+specificity=4294967294
