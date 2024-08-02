@@ -19,7 +19,6 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QString>
-#include <QUrl>
 
 using namespace Kleo;
 
