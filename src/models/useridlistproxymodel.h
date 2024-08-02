@@ -12,7 +12,6 @@
 
 namespace Kleo
 {
-class UserIDListModel;
 
 class KLEO_EXPORT UserIDListProxyModel : public QSortFilterProxyModel
 {
