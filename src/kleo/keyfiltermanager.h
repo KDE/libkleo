@@ -14,6 +14,7 @@
 #include <Libkleo/KeyFilter>
 
 #include <QObject>
+#include <QSortFilterProxyModel>
 
 #include <gpgme++/global.h>
 
@@ -26,7 +27,6 @@ class Key;
 class UserID;
 }
 
-class QAbstractItemModel;
 class QModelIndex;
 class QFont;
 class QColor;
@@ -42,6 +42,7 @@ public:
     enum ModelRoles {
         FilterIdRole = Qt::UserRole,
         FilterMatchContextsRole,
+        FilterRole,
     };
 
 protected:
@@ -55,6 +56,7 @@ public:
      * Adds the rule that keys must match @p protocol to all filters.
      */
     void alwaysFilterByProtocol(GpgME::Protocol protocol);
+    GpgME::Protocol protocol() const;
 
     const std::shared_ptr<KeyFilter> &filterMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;
     std::vector<std::shared_ptr<KeyFilter>> filtersMatching(const GpgME::Key &key, KeyFilter::MatchContexts contexts) const;
@@ -76,9 +78,36 @@ public:
 
     class Private;
 
+Q_SIGNALS:
+    void alwaysFilterByProtocolChanged(GpgME::Protocol protocol);
+
 private:
     std::unique_ptr<Private> d;
     static KeyFilterManager *mSelf;
 };
 
+class KLEO_EXPORT KeyFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+
+public:
+    KeyFilterModel(QObject *parent = nullptr);
+    bool isCustomFilter(int row) const;
+    void prependCustomFilter(const std::shared_ptr<KeyFilter> &filter);
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+
+    QModelIndex mapToSource(const QModelIndex &index) const override;
+    QModelIndex mapFromSource(const QModelIndex &source_index) const override;
+
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+
+private:
+    class Private;
+    const std::unique_ptr<Private> d;
+};
 }

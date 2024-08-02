@@ -43,6 +43,25 @@ using namespace GpgME;
 
 namespace
 {
+void adjustFilters(std::vector<std::shared_ptr<KeyFilter>> &filters, Protocol protocol)
+{
+    if (protocol != GpgME::UnknownProtocol) {
+        // remove filters with conflicting isOpenPGP rule
+        const auto conflictingValue = (protocol == GpgME::OpenPGP) ? DefaultKeyFilter::NotSet : DefaultKeyFilter::Set;
+        Kleo::erase_if(filters, [conflictingValue](const auto &f) {
+            const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
+            Q_ASSERT(filter);
+            return filter->isOpenPGP() == conflictingValue;
+        });
+        // add isOpenPGP rule to all filters
+        const auto isOpenPGPValue = (protocol == GpgME::OpenPGP) ? DefaultKeyFilter::Set : DefaultKeyFilter::NotSet;
+        std::for_each(std::begin(filters), std::end(filters), [isOpenPGPValue](auto &f) {
+            const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
+            Q_ASSERT(filter);
+            return filter->setIsOpenPGP(isOpenPGPValue);
+        });
+    }
+}
 
 class Model : public QAbstractListModel
 {
@@ -272,6 +291,7 @@ void KeyFilterManager::alwaysFilterByProtocol(GpgME::Protocol protocol)
     if (protocol != d->protocol) {
         d->protocol = protocol;
         reload();
+        Q_EMIT alwaysFilterByProtocolChanged(protocol);
     }
 }
 
@@ -323,22 +343,7 @@ void KeyFilterManager::reload()
     }
     std::stable_sort(d->filters.begin(), d->filters.end(), byDecreasingSpecificity);
 
-    if (d->protocol != GpgME::UnknownProtocol) {
-        // remove filters with conflicting isOpenPGP rule
-        const auto conflictingValue = (d->protocol == GpgME::OpenPGP) ? DefaultKeyFilter::NotSet : DefaultKeyFilter::Set;
-        Kleo::erase_if(d->filters, [conflictingValue](const auto &f) {
-            const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
-            Q_ASSERT(filter);
-            return filter->isOpenPGP() == conflictingValue;
-        });
-        // add isOpenPGP rule to all filters
-        const auto isOpenPGPValue = (d->protocol == GpgME::OpenPGP) ? DefaultKeyFilter::Set : DefaultKeyFilter::NotSet;
-        std::for_each(std::begin(d->filters), std::end(d->filters), [isOpenPGPValue](auto &f) {
-            const auto filter = std::dynamic_pointer_cast<DefaultKeyFilter>(f);
-            Q_ASSERT(filter);
-            return filter->setIsOpenPGP(isOpenPGPValue);
-        });
-    }
+    adjustFilters(d->filters, d->protocol);
     qCDebug(LIBKLEO_LOG) << "KeyFilterManager::" << __func__ << "final filter count is" << d->filters.size();
 }
 
@@ -409,6 +414,9 @@ QVariant Model::data(const QModelIndex &idx, int role) const
 
     case KeyFilterManager::FilterMatchContextsRole:
         return QVariant::fromValue(filter->availableMatchContexts());
+
+    case KeyFilterManager::FilterRole:
+        return QVariant::fromValue(filter);
 
     default:
         return QVariant();
@@ -497,6 +505,134 @@ QIcon KeyFilterManager::icon(const Key &key) const
 {
     const QString icon = get_string(d->filters, key, &KeyFilter::icon);
     return icon.isEmpty() ? QIcon() : QIcon::fromTheme(icon);
+}
+
+Protocol KeyFilterManager::protocol() const
+{
+    return d->protocol;
+}
+
+class KeyFilterModel::Private
+{
+    friend class KeyFilterModel;
+    std::vector<std::shared_ptr<KeyFilter>> customFilters;
+};
+
+KeyFilterModel::KeyFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
+    , d(new Private)
+{
+    setSourceModel(KeyFilterManager::instance()->model());
+    connect(KeyFilterManager::instance(), &KeyFilterManager::alwaysFilterByProtocolChanged, this, [this](auto protocol) {
+        beginResetModel();
+        adjustFilters(d->customFilters, protocol);
+        endResetModel();
+    });
+}
+
+void KeyFilterModel::prependCustomFilter(const std::shared_ptr<KeyFilter> &filter)
+{
+    beginResetModel();
+    d->customFilters.insert(d->customFilters.begin(), filter);
+    adjustFilters(d->customFilters, KeyFilterManager::instance()->protocol());
+    endResetModel();
+}
+
+bool KeyFilterModel::isCustomFilter(int row) const
+{
+    return row < d->customFilters.size();
+}
+
+int KeyFilterModel::rowCount(const QModelIndex &parent) const
+{
+    return d->customFilters.size() + QSortFilterProxyModel::rowCount(parent);
+}
+
+int KeyFilterModel::columnCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent)
+    // pretend that there is only one column to workaround a bug in
+    // QAccessibleTable which provides the accessibility interface for the
+    // pop-up of the combo box
+    return 1;
+}
+
+QModelIndex KeyFilterModel::mapToSource(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return {};
+    }
+    if (!isCustomFilter(index.row())) {
+        const int sourceRow = index.row() - d->customFilters.size();
+        return QSortFilterProxyModel::mapToSource(createIndex(sourceRow, index.column(), index.internalPointer()));
+    }
+    return {};
+}
+
+QModelIndex KeyFilterModel::mapFromSource(const QModelIndex &source_index) const
+{
+    const QModelIndex idx = QSortFilterProxyModel::mapFromSource(source_index);
+    return createIndex(d->customFilters.size() + idx.row(), idx.column(), idx.internalPointer());
+}
+
+QModelIndex KeyFilterModel::index(int row, int column, const QModelIndex &parent) const
+{
+    if (row < 0 || row >= rowCount()) {
+        return {};
+    }
+    if (row < d->customFilters.size()) {
+        return createIndex(row, column, nullptr);
+    } else {
+        const QModelIndex mi = QSortFilterProxyModel::index(row - d->customFilters.size(), column, parent);
+        return createIndex(row, column, mi.internalPointer());
+    }
+}
+
+Qt::ItemFlags KeyFilterModel::flags(const QModelIndex &index) const
+{
+    Q_UNUSED(index)
+    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemNeverHasChildren;
+}
+
+QModelIndex KeyFilterModel::parent(const QModelIndex &) const
+{
+    // Flat list
+    return {};
+}
+
+QVariant KeyFilterModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
+    if (isCustomFilter(index.row())) {
+        const auto filter = d->customFilters[index.row()];
+        switch (role) {
+        case Qt::DecorationRole:
+            return filter->icon();
+
+        case Qt::DisplayRole:
+        case Qt::EditRole:
+            return filter->name();
+        case Qt::ToolTipRole:
+            return filter->description();
+
+        case KeyFilterManager::FilterIdRole:
+            return filter->id();
+
+        case KeyFilterManager::FilterMatchContextsRole:
+            return QVariant::fromValue(filter->availableMatchContexts());
+
+        case KeyFilterManager::FilterRole:
+            return QVariant::fromValue(filter);
+
+        default:
+            return QVariant();
+        }
+    }
+
+    return QSortFilterProxyModel::data(index, role);
 }
 
 #include "moc_keyfiltermanager.cpp"
