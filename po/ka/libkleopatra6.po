@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-07-30 06:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1168,7 +1168,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "თქვენს სისტემას GnuPG აუდიტის ჟურნალის მხარდაჭერა არ გააჩნია"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "სისტემური შეცდომა"
 
@@ -1192,7 +1194,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "GnuPG -ის აუდიტის ჟურნალი ამ ოპერაციისთვის მიუწვდომელია."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "GnuPG -ის აუდიტის ჟურნალი არ არსბეობს"
 
@@ -1207,13 +1211,15 @@ msgstr "GnuPG აუდიტის ჟურნალის დათვალ�
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "აირჩიეთ, რომელ ფილში ჩაიწერება GnuPG -ის აუდიტის ჟურნალი"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "\"%1\"-იში ჩაწერის შეცდომა: %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "ფაილის შენახვის შეცდომა"
 
@@ -1293,7 +1299,9 @@ msgstr ""
 "ბიბლიოთეკები მეტისმეტად ძველია."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "უკაცრავად"
 
@@ -1880,7 +1888,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "გასაღებების ჩამონათვლის შეცდომა"
 
@@ -2115,7 +2125,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "სერტიფიკატების მმართველის გაშვები შეცდომა. გადაამოწმეთ ფაილები."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "სერტფიკატების მმართველის შეცდომა"
 
@@ -2329,7 +2341,9 @@ msgid "Key generation"
 msgstr "გასაღების გენერაცია"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "ოპერაციის შეცდომა"
 
@@ -2474,7 +2488,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "ხელით მითითებული წამკითხავის ID ან პორტის ნომერი"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

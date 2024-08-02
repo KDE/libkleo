@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2009-08-18 11:04+0300\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -1060,7 +1060,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Jūsu sistēma neatbalsta GnuPG pārbaudes žurnālus"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistēmas kļūda"
 
@@ -1084,7 +1086,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Šai darbībai nav pieejams GnuPG pārbaudes žurnāls"
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Nav GnuPG pārbaudes žurnāla"
 
@@ -1100,13 +1104,15 @@ msgstr "GnuPG pārbaudes žurnāla skatītājs"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Izvēlies failu, kurā saglabāt GnuPG pārbaudes žurnālu"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Neizdevās saglabāt failā \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Failā saglabāšanas kļūda"
 
@@ -1193,6 +1199,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr ""
 
@@ -1819,7 +1826,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Neizdevās uzskaitīt atslēgas"
 
@@ -2065,7 +2074,9 @@ msgstr ""
 "instalāciju."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Sertifikātu pārvaldnieka kļūda"
 
@@ -2287,6 +2298,7 @@ msgstr "Atslēgas izvēle"
 #: ui/newkeyapprovaldialog.cpp:439
 #, fuzzy, kde-format
 #| msgid "Decryption failed: %1"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Neizdevās atšifrēt: %1"
 
@@ -2426,7 +2438,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

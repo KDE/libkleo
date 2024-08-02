@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2012-07-09 10:59+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -1004,7 +1004,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "ប្រព័ន្ធ​របស់​អ្នក​មិន​មានការ​គាំទ្រ​សម្រាប់​កំណត់ហេតុ GnuPG Audit"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "កំហុស​ប្រព័ន្ធ"
 
@@ -1028,7 +1030,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "មិនមាន​កំណត់​ហេតុ GnuPG Audit សម្រាប់​ប្រតិបត្តិការ​នេះ ។"
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "គ្មានកំណត់ហេតុ GnuPG Audit"
 
@@ -1044,13 +1048,15 @@ msgstr "កម្មវិធី​មើល​កំណត់ហេតុ GnuPG
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "ជ្រើស​ឯកសារ​ត្រូវ​រក្សាទុក​កំណត់​ហេតុ GnuPG Audit"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "មិនអាច​រក្សាទុក​ឯកសារ​ទៅកាន់​ឯកសារ \"%1\" ៖ %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "កំហុស​ក្នុងការ​រក្សាទុក​ឯកសារ"
 
@@ -1136,6 +1142,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr ""
 
@@ -1757,7 +1764,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "ការ​រាយ​កូនសោ​បាន​បរាជ័យ"
 
@@ -1995,7 +2004,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "មិនអាចចាប់ផ្ដើម​អ្នកគ្រប់គ្រង​​វិញ្ញាបនបត្រ​បានឡើយ ។ សូម​ពិនិត្យ​មើល​ការដំឡើង​របស់អ្នក ។"
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "កំហុស​កម្មវិធី​គ្រប់គ្រង​វិញ្ញាបនបត្រ"
 
@@ -2211,6 +2222,7 @@ msgstr "ជម្រើស​កូនសោ"
 #: ui/newkeyapprovaldialog.cpp:439
 #, fuzzy, kde-format
 #| msgid "Decryption failed: %1"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "ការ​ឌិគ្រីប​បាន​បរាជ័យ ៖ %1"
 
@@ -2350,7 +2362,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

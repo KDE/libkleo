@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-07-30 21:06+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -1149,7 +1149,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Via sistemo ne havas subtenon por GnuPG Audit Logs"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistema Eraro"
 
@@ -1173,7 +1175,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Neniu GnuPG Audit Log disponebla por ĉi tiu operacio."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Neniu GnuPG Audit Log"
 
@@ -1188,13 +1192,15 @@ msgstr "GnuPG Audit Log Viewer"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Elektu Dosieron por Konservi GnuPG-Revizian Protokolon"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Ne eblis konservi al dosiero \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Dosierkonserva Eraro"
 
@@ -1273,7 +1279,9 @@ msgstr ""
 "malnovaj."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Pardonu"
 
@@ -1855,7 +1863,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Ŝlosila Listo Malsukcesis"
 
@@ -2088,7 +2098,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Ne eblis starti atestilo-manaĝeron. Bonvolu kontroli vian instaladon."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Eraro pri Atestilo"
 
@@ -2300,7 +2312,9 @@ msgid "Key generation"
 msgstr "Ŝlosila genero"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operacio Malsukcesis"
 
@@ -2445,7 +2459,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Propra leganto-identigilo aŭ porda numero"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

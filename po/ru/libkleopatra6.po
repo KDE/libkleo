@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-02-10 12:01+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1371,7 +1371,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Данная система не поддерживает ведение журналов аудита GnuPG"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Ошибка системы"
 
@@ -1395,7 +1397,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Журнал аудита GnuPG не найден."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Журнал аудита GnuPG не найден"
 
@@ -1411,13 +1415,15 @@ msgstr "Просмотр журнала аудита GnuPG"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Выбор файла для сохранения журнала аудита"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Невозможно сохранить в файл «%1»: %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Ошибка сохранения"
 
@@ -1497,7 +1503,9 @@ msgstr ""
 "gpgme устарели."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Ошибка"
 
@@ -2101,7 +2109,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Ошибка получения списка ключей"
 
@@ -2339,7 +2349,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Не запущен ни один диспетчер сертификатов, проверьте установку."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Ошибка диспетчера сертификатов"
 
@@ -2572,7 +2584,9 @@ msgid "Key generation"
 msgstr "Создание ключа"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Ошибка выполнения действия"
 
@@ -2730,7 +2744,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Идентификатор или номер порта пользовательского устройства чтения"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

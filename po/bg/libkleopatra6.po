@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-07-27 21:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -1141,7 +1141,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Вашата система няма поддръжка за GnuPG Audit Logs"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Системна грешка"
 
@@ -1165,7 +1167,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Няма достъпен GnuPG одит за тази операция."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Няма GnuPG Audit Log"
 
@@ -1180,13 +1184,15 @@ msgstr "Преглед на GnuPG Audit Log"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Изберете файл за запазване на GnuPG Audit Log"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Грешка при запис във файла \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Грешка при запазване на файл"
 
@@ -1265,7 +1271,9 @@ msgstr ""
 "библиотеки са твърде стари."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Съжалявам"
 
@@ -1855,7 +1863,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Представянето на списък от ключове е неуспешно."
 
@@ -2091,7 +2101,9 @@ msgstr ""
 "инсталацията си."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Грешка в мениджъра за сертификатите"
 
@@ -2309,7 +2321,9 @@ msgid "Key generation"
 msgstr "Генериране на ключ"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Операцията е неуспешна"
 
@@ -2453,7 +2467,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Идентификатор на зададения от потребител четец или номер на порт"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

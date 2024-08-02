@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2013-03-11 09:58+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -1007,7 +1007,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "प्रणाली त्रुटी"
 
@@ -1030,6 +1032,7 @@ msgstr ""
 
 #: ui/auditlogviewer.cpp:103
 #, kde-format
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr ""
 
@@ -1044,13 +1047,14 @@ msgstr ""
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "या फाईल मध्ये साठवू शकत नाही - \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:145
 #, kde-format
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr ""
 
@@ -1133,6 +1137,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr ""
 
@@ -1694,6 +1699,7 @@ msgstr ""
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, kde-format
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr ""
 
@@ -1924,6 +1930,7 @@ msgstr ""
 
 #: ui/keyselectiondialog.cpp:667
 #, kde-format
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr ""
 
@@ -2129,6 +2136,7 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr ""
 
@@ -2265,7 +2273,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -972,7 +972,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "您的系统不支持 GnuPG 审核日志"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "系统错误"
 
@@ -996,7 +998,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "此操作没有 GnuPG 审核日志"
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "无 GnuPG 审核日志"
 
@@ -1011,13 +1015,15 @@ msgstr ""
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "选择要将 GnuPG 审核日志保存到的文件"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "无法保存到文件“%1”：%2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "文件保存错误"
 
@@ -1093,7 +1099,9 @@ msgid ""
 msgstr "您所使用的 gpgme 库太旧，无法配置目录服务。"
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "抱歉"
 
@@ -1650,7 +1658,9 @@ msgstr "<qt><p>从后端获取密钥时发生错误：</p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "密钥列出时失败"
 
@@ -1880,7 +1890,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "无法启动证书管理器，请检查您的安装。"
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "证书管理器错误"
 
@@ -2085,7 +2097,9 @@ msgid "Key generation"
 msgstr "密钥生成"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "操作失败"
 
@@ -2223,7 +2237,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "自定义阅读器 ID 或端口号"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

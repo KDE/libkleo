@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2014-11-30 11:17+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -1089,7 +1089,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Систем нема подршку за ГнуПГ‑ове дневнике ревизија."
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Системска грешка"
 
@@ -1113,7 +1115,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "ГнуПГ‑ов дневник ревизије није доступан за овај поступак."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Нема ГнуПГ‑овог дневника ревизије"
 
@@ -1130,13 +1134,15 @@ msgstr "Приказивач ГнуПГ‑овог дневника ревизи
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Избор фајла за уписивање ГнуПГ‑овог дневника ревизије"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Не могу да сачувам у фајл <filename>%1</filename>: %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Грешка при уписивању фајла"
 
@@ -1223,6 +1229,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr ""
 
@@ -1862,7 +1869,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Набрајање кључева није успело"
 
@@ -2104,7 +2113,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Не могу да покренем менаџер сертификата. Проверите инсталацију."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Грешка менаџера сертификата"
 
@@ -2331,6 +2342,7 @@ msgstr "Избор кључа"
 #: ui/newkeyapprovaldialog.cpp:439
 #, fuzzy, kde-format
 #| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Набрајање кључева није успело"
 
@@ -2470,7 +2482,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

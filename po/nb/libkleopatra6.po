@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2010-08-30 22:07+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -1019,7 +1019,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Ditt system støtter ikke GnuPG kontroll-logger"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Systemfeil"
 
@@ -1043,7 +1045,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Ingen GnuPG kontroll-logg er tilgjengelig for denne handlinga."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Ingen  GnuPG kontroll-logg"
 
@@ -1059,13 +1063,15 @@ msgstr "Loggviser for GnuPG kontroll-logg"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Angi fila for lagring av GnuPG kontroll-logg"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Kunne ikke lagre til fila «%1»: %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Feil ved lagring av fil"
 
@@ -1144,6 +1150,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr ""
 
@@ -1704,7 +1711,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Nøkkelopplisting mislyktes"
 
@@ -1940,7 +1949,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Klarte ikke starte sertifikathåndteringa. Kontroller installasjonen."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Feil i sertifikathåndteringa"
 
@@ -2152,7 +2163,9 @@ msgid "Key generation"
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operasjonen mislyktes"
 
@@ -2288,7 +2301,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
@@ -3110,9 +3123,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Bruker-ID"

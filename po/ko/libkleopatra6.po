@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-02-20 23:54+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1085,7 +1085,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "GnuPG 감사 기록을 지원하지 않는 것 같습니다"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "시스템 오류"
 
@@ -1109,7 +1111,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "이 작업에 대한 GnuPG 감사 기록을 사용할 수 없습니다."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "GnuPG 감사 기록 없음"
 
@@ -1125,13 +1129,15 @@ msgstr "GnuPG 감사 기록 뷰어"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "GnuPG 감사 기록을 저장할 파일 선택"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "파일 \"%1\"에 저장할 수 없음: %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "파일 저장 오류"
 
@@ -1211,7 +1217,9 @@ msgstr ""
 "수 없습니다."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "죄송합니다"
 
@@ -1798,7 +1806,9 @@ msgstr "<qt><p>백엔드에서 키를 가져오는 중 오류 발생:</p><p><b>%
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "키 표시 실패"
 
@@ -2034,7 +2044,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "인증서 관리자를 시작할 수 없습니다. 설치 상태를 확인하십시오."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "인증서 관리자 오류"
 
@@ -2256,7 +2268,9 @@ msgid "Key generation"
 msgstr "키 생성"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "작동 실패"
 
@@ -2410,7 +2424,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "사용자 정의 리더 ID 또는 포트 번호"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

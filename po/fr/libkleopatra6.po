@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-06-14 13:46+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1195,7 +1195,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Votre système ne prend pas en charge les journaux d'audit pour GnuPG"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Erreur système"
 
@@ -1219,7 +1221,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Aucun journal d'audit GnuPG disponible pour cette opération."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Aucun journal d'audit GnuPG"
 
@@ -1235,13 +1239,15 @@ msgstr "Afficheur de journal d'audit GnuPG"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Sélectionnez un fichier pour enregistrer le journal d'audit de GnuPG"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Impossible d'enregistrer le fichier « %1 » : %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Erreur d'enregistrement du fichier"
 
@@ -1321,7 +1327,9 @@ msgstr ""
 "bibliothèques « gpgme » utilisées sont trop anciennes."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Désolé"
 
@@ -1928,7 +1936,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Échec du listage des clés"
 
@@ -2171,7 +2181,9 @@ msgstr ""
 "votre installation."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Erreur du gestionnaire de certificats"
 
@@ -2392,7 +2404,9 @@ msgid "Key generation"
 msgstr "Génération de clés"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Échec de l'opération"
 
@@ -2543,7 +2557,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Identifiant de lecteur ou numéro de port personnalisé"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

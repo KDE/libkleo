@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-07-31 10:36+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -996,7 +996,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Error de systema"
 
@@ -1018,9 +1020,12 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr ""
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "View GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
-msgstr ""
+msgstr "Monstrar Registro de Audit de GnuGPG"
 
 #: ui/auditlogviewer.cpp:109
 #, kde-format
@@ -1033,13 +1038,14 @@ msgstr "Visor de Registro de Audit de GnuGPG"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Il non poteva salveguardar in file %1\": %2"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:145
 #, kde-format
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr ""
 
@@ -1113,7 +1119,9 @@ msgid ""
 msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Desolate"
 
@@ -1660,9 +1668,11 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
-msgstr ""
+msgstr "Operation Fallite"
 
 #: ui/keyrequester.cpp:270
 #, kde-format
@@ -1891,9 +1901,11 @@ msgstr ""
 "installation."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager and Unified Crypto GUI"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
-msgstr ""
+msgstr "Gerente de certificatos e interfacie unificate de Crypto"
 
 #: ui/keyselectiondialog.cpp:724
 #, kde-format
@@ -2092,7 +2104,9 @@ msgid "Key generation"
 msgstr "Generation de Clave"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operation Fallite"
 
@@ -2226,7 +2240,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
@@ -3061,9 +3075,6 @@ msgstr "Fin premature de char codificate de hex in fluxo de ingresso"
 
 #~ msgid "Key-ID"
 #~ msgstr "ID de clave"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Gerente de certificatos e interfacie unificate de Crypto"
 
 #~ msgid "%1: %2"
 #~ msgstr "%1: %2"

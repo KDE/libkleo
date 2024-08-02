@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-07-24 09:53+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1162,7 +1162,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Zure sistemak ez du GnuPG auditoretza egunkarietarako euskarririk"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistemaren errorea"
 
@@ -1187,7 +1189,9 @@ msgstr ""
 "Ez dago eragiketa horretarako GnuPG auditoretza egunkaririk erabilgarri."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Ez dago GnuPG auditoretza egunkaririk"
 
@@ -1202,13 +1206,15 @@ msgstr "GnuPG auditoretza-egunkariaren erakuslea"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Hautatu GnuPG auditoretza egunkaria gordetzeko fitxategia"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Ezin izan du \"%1\" fitxategian gorde: %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Fitxategia gordetzeko errorea"
 
@@ -1287,7 +1293,9 @@ msgstr ""
 "zaharregiak direlako."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Barkatu"
 
@@ -1881,7 +1889,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Gakoak zerrendatzea huts egin du"
 
@@ -2121,7 +2131,9 @@ msgstr ""
 "instalazioa."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Ziurtagiri kudeatzailearen errorea"
 
@@ -2341,7 +2353,9 @@ msgid "Key generation"
 msgstr "Gako sorrera"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Eragiketak huts egin du"
 
@@ -2487,7 +2501,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Neurrira ipinitako irakurgailu ID edo ataka zenbakia"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

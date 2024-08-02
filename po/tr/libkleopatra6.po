@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-07-30 19:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1155,7 +1155,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Sisteminiz GnuPG Audit Günlük Kayıtlarını desteklemiyor"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistem Hatası"
 
@@ -1179,7 +1181,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Bu işlem için GnuPG Audit Kaydı mevcut değil."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Audit Günlük Kaydı Yok"
 
@@ -1194,13 +1198,15 @@ msgstr "GnuPG Günlük Kaydı Görüntüleyicisi"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "GnuPG Audit Günlük Kaydının Kaydedileceği dosyayı seçin"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "“%1” dosyasına kaydedilemedi: %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Dosya Kaydetme Hatası"
 
@@ -1279,7 +1285,9 @@ msgstr ""
 "kitaplıkları pek eski."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Üzgünüm"
 
@@ -1862,7 +1870,9 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Anahtarla Listeleme Başarısız"
 
@@ -2098,7 +2108,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Sertifika yöneticisi başlatılamıyor; kurulumunuzu kontrol edin."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Sertifika Yöneticisi Hatası"
 
@@ -2312,7 +2324,9 @@ msgid "Key generation"
 msgstr "Anahtar oluşturma"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "İşlem başarısız"
 
@@ -2456,7 +2470,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Özel okuyucu kimliği veya kapı numarası"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

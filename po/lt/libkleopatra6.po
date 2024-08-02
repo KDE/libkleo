@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2020-04-01 23:14+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -1089,7 +1089,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Jūsų sistema neturi palaikymo, skirto GnuPG revizijos žurnalams"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistemos klaida"
 
@@ -1113,7 +1115,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Šiai operacijai nėra prieinamas joks GnuPG revizijos žurnalas."
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Nėra jokio GnuPG revizijos žurnalo"
 
@@ -1129,13 +1133,15 @@ msgstr "GnuPG revizijos žurnalų žiūryklė"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Pasirinkti failą, į kurį įrašyti GnuPG revizijos žurnalą"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Nepavyko įrašyti į failą \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Failo įrašymo klaida"
 
@@ -1211,6 +1217,7 @@ msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:886
 #, kde-format
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr ""
 
@@ -1794,7 +1801,9 @@ msgstr "<qt><p>įvyko klaida gaunant raktus iš bazės:</p><p><b>%1</b></p></qt>
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Raktų išvardijimas nepavyko"
 
@@ -2034,7 +2043,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Nepavyko paleisti liudijimų tvarkytuvės; patikrinkite savo diegimą."
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Liudijimų tvarkytuvės klaida"
 
@@ -2253,7 +2264,9 @@ msgid "Key generation"
 msgstr "Rakto generavimas"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operacija nepavyko"
 
@@ -2392,7 +2405,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"

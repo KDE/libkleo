@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-31 00:41+0000\n"
+"POT-Creation-Date: 2024-08-02 00:41+0000\n"
 "PO-Revision-Date: 2024-06-30 10:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1039,7 +1039,9 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "您的系統不支援 GnuPG 稽核紀錄"
 
 #: ui/auditlogviewer.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "System Error"
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "系統錯誤"
 
@@ -1063,7 +1065,9 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "沒有可用的 GnuPG 稽核紀錄。"
 
 #: ui/auditlogviewer.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No GnuPG Audit Log"
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "沒有 GnuPG 稽核紀錄"
 
@@ -1078,13 +1082,15 @@ msgstr "GnuPG 稽核紀錄檢視器"
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "選擇用於儲存 GnuPG 稽核紀錄的檔案"
 
-#: ui/auditlogviewer.cpp:143
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "無法儲存到檔案 \"%1\"：%2"
 
-#: ui/auditlogviewer.cpp:143
-#, kde-format
+#: ui/auditlogviewer.cpp:145
+#, fuzzy, kde-format
+#| msgid "File Save Error"
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "檔案儲存錯誤"
 
@@ -1160,7 +1166,9 @@ msgid ""
 msgstr "使用的 gpgme 函式庫太舊了，因此無法設定目錄服務。"
 
 #: ui/cryptoconfigmodule.cpp:886
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sorry"
+msgctxt "@title:window"
 msgid "Sorry"
 msgstr "抱歉"
 
@@ -1733,7 +1741,9 @@ msgstr "<qt><p>從後端介面 <b>%1</b> 抓取金鑰時發生錯誤。</p></qt>
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Listing Failed"
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "列出金鑰失敗"
 
@@ -1964,7 +1974,9 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "無法啟動憑證管理員。請檢查安裝是否完全！"
 
 #: ui/keyselectiondialog.cpp:667
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Certificate Manager Error"
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "憑證管理員錯誤"
 
@@ -2177,7 +2189,9 @@ msgid "Key generation"
 msgstr "金鑰產生"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Operation Failed"
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "操作失敗"
 
@@ -2324,7 +2338,7 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "自訂讀卡機 ID 或讀卡機連結埠編號"
 
-#: ui/treeview.cpp:63 ui/treewidget.cpp:166
+#: ui/treeview.cpp:67 ui/treewidget.cpp:170
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
