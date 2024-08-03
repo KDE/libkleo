@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1686121 2024-08-02 01:15:13Z scripty $
+# $Id: libkleopatra6.po 1686204 2024-08-03 01:13:58Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 00:41+0000\n"
-"PO-Revision-Date: 2024-07-30 09:50+0200\n"
+"PO-Revision-Date: 2024-08-02 05:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1292,8 +1292,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Vaš sistem ne podpira dnevnikov presoje varnosti GnuPG"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistemska napaka"
@@ -1318,8 +1317,7 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Za to dejanje ni na voljo dnevnika presoje varnosti GnuPG."
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Ni dnevnika presoje varnosti GnuPG"
@@ -1341,11 +1339,10 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "Ni bilo mogoče shraniti v datoteko \"%1\": %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
-msgstr "Napaka med shranjevanjem datoteke"
+msgstr "Napaka pri shranjevanju datoteke"
 
 #: ui/cryptoconfigentryreaderport.cpp:45
 #, kde-format
@@ -1421,8 +1418,7 @@ msgstr ""
 "Nastavitev imeniških storitev ni mogoča, ker so knjižnice gpgme prestare."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, fuzzy, kde-format
-#| msgid "Sorry"
+#, kde-format
 msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Se opravičujemo"
@@ -2010,8 +2006,7 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Izpisovanje ključev ni uspelo"
@@ -2243,8 +2238,7 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Ni bilo mogoče zagnati upravljalnika potrdil. Preverite namestitev."
 
 #: ui/keyselectiondialog.cpp:667
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Napaka upravljalnika potrdil"
@@ -2464,8 +2458,7 @@ msgid "Key generation"
 msgstr "Generiranje ključa"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Operation Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operacija ni uspela"
