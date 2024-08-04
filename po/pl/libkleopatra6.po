@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1686121 $
+# Version: $Revision: 1686246 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 00:41+0000\n"
-"PO-Revision-Date: 2024-07-27 09:13+0200\n"
+"PO-Revision-Date: 2024-08-03 11:48+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1240,8 +1240,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "W Twoim systemie brakuje obsługi dzienników GnuPG"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Błąd systemowy"
@@ -1266,8 +1265,7 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Nie ma dostępnego dziennika GnuPG dla tej operacji."
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Brak dziennika GnuPG"
@@ -1289,8 +1287,7 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "Nie można zapisać do pliku \"%1\": %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Błąd zapisu pliku"
@@ -1371,8 +1368,7 @@ msgstr ""
 "są zbyt stare."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, fuzzy, kde-format
-#| msgid "Sorry"
+#, kde-format
 msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Wybacz"
@@ -1957,8 +1953,7 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Wyświetlanie kluczy zakończyło się niepowodzeniem"
@@ -2157,8 +2152,7 @@ msgid "&Search for:"
 msgstr "Po&szukaj:"
 
 #: ui/keyselectiondialog.cpp:465
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "Zapamiętaj wybó&r"
@@ -2199,8 +2193,7 @@ msgstr ""
 "instalacji"
 
 #: ui/keyselectiondialog.cpp:667
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Błąd zarządzania certyfikatami"
@@ -2377,29 +2370,25 @@ msgid "Security approval"
 msgstr "Potwierdzenie bezpieczeństwa"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2421,8 +2410,7 @@ msgid "Key generation"
 msgstr "Tworzenie klucza"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Operation Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Nieudane działanie"
@@ -2923,9 +2911,7 @@ msgid "invalid"
 msgstr "nieprawidłowy"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
+#, kde-format
 msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "dobry"
