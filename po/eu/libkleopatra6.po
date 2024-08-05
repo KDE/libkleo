@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 00:41+0000\n"
-"PO-Revision-Date: 2024-07-24 09:53+0200\n"
+"PO-Revision-Date: 2024-08-04 09:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -930,8 +930,7 @@ msgid "E-Mail"
 msgstr "E-posta"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Egoera"
@@ -1162,8 +1161,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Zure sistemak ez du GnuPG auditoretza egunkarietarako euskarririk"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistemaren errorea"
@@ -1189,8 +1187,7 @@ msgstr ""
 "Ez dago eragiketa horretarako GnuPG auditoretza egunkaririk erabilgarri."
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Ez dago GnuPG auditoretza egunkaririk"
@@ -1212,8 +1209,7 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "Ezin izan du \"%1\" fitxategian gorde: %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Fitxategia gordetzeko errorea"
@@ -1293,8 +1289,7 @@ msgstr ""
 "zaharregiak direlako."
 
 #: ui/cryptoconfigmodule.cpp:886
-#, fuzzy, kde-format
-#| msgid "Sorry"
+#, kde-format
 msgctxt "@title:window"
 msgid "Sorry"
 msgstr "Barkatu"
@@ -1889,8 +1884,7 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Gakoak zerrendatzea huts egin du"
@@ -2089,11 +2083,10 @@ msgid "&Search for:"
 msgstr "&Bilatu hori:"
 
 #: ui/keyselectiondialog.cpp:465
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
-msgstr "&Gogoratu hautua"
+msgstr "Gogo&ratu hautua"
 
 #: ui/keyselectiondialog.cpp:468
 #, kde-format
@@ -2131,8 +2124,7 @@ msgstr ""
 "instalazioa."
 
 #: ui/keyselectiondialog.cpp:667
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Ziurtagiri kudeatzailearen errorea"
@@ -2309,29 +2301,25 @@ msgid "Security approval"
 msgstr "Segurtasun onarpena"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2353,8 +2341,7 @@ msgid "Key generation"
 msgstr "Gako sorrera"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Operation Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Eragiketak huts egin du"
@@ -2854,9 +2841,7 @@ msgid "invalid"
 msgstr "baliogabea"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
+#, kde-format
 msgctxt "as in good/valid subkey"
 msgid "good"
 msgstr "ona"
