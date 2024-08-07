@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-20 00:40+0000\n"
-"PO-Revision-Date: 2024-06-26 22:20+0200\n"
+"PO-Revision-Date: 2024-08-06 21:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -225,9 +225,7 @@ msgid "<none>"
 msgstr "<nincs>"
 
 #: kleo/expirychecker.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-#| msgid "<b>%1</b> (KeyID 0x%2)"
+#, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (kulcsazonosító: 0x%2)"
@@ -829,11 +827,10 @@ msgstr[1] ""
 #, kde-format
 msgctxt "All Certificates"
 msgid "All"
-msgstr ""
+msgstr "Mind"
 
 #: kleo/keyfiltermanager.cpp:72
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
 msgstr "Minden tanúsítvány"
 
@@ -841,44 +838,43 @@ msgstr "Minden tanúsítvány"
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
-msgstr ""
+msgstr "Saját"
 
 #: kleo/keyfiltermanager.cpp:88
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates"
 msgstr "Saját tanúsítványok"
 
 #: kleo/keyfiltermanager.cpp:106
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "Minden tanúsítvány"
+msgstr "Hitelesített"
 
 #: kleo/keyfiltermanager.cpp:107
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
 msgstr ""
+"Tanúsítványok, amelyekhez az elsődleges felhasználói azonosító hitelesített"
 
 #: kleo/keyfiltermanager.cpp:124
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "Minden tanúsítvány"
+msgstr "Nem hitelesített"
 
 #: kleo/keyfiltermanager.cpp:125
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
 msgstr ""
+"Tanúsítványok, amelyekhez az elsődleges felhasználói azonosító nem "
+"hitelesített"
 
 #: kleo/keyfiltermanager.cpp:140
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
-msgstr "Minden tanúsítvány"
+msgstr "Hitelesítendő"
 
 #: kleo/keyfiltermanager.cpp:141
 #, kde-format
@@ -886,32 +882,31 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
+"Nem teljesen hitelesített tanúsítványok, amelyeket esetleg saját maga "
+"szeretne hitelesíttetni"
 
 #: kleo/keyfiltermanager.cpp:168
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "Minden tanúsítvány"
+msgstr "Nem teljesen hitelesített"
 
 #: kleo/keyfiltermanager.cpp:169
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "Certificates for which not all user IDs are certified"
-msgstr "Minden tanúsítvány"
+msgstr ""
+"Tanúsítványok, amelyekhez nem minden felhasználói azonosító hitelesített"
 
 #: kleo/keyfiltermanager.cpp:192
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "Minden tanúsítvány"
+msgstr "Teljesen hitelesített"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "Certificates for which all user IDs are certified"
-msgstr "Minden tanúsítvány"
+msgstr "Tanúsítványok, amelyekhez minden felhasználói azonosító hitelesített"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -926,11 +921,10 @@ msgid "E-Mail"
 msgstr "E-mail"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "User IDs"
-msgstr "Felhasználóazonosító"
+msgstr "Felhasználóazonosítók"
 
 #: models/keylistmodel.cpp:331
 #, kde-format
@@ -951,8 +945,7 @@ msgid "Protocol"
 msgstr "Protokoll"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Kulcsazonosító"
@@ -1142,18 +1135,16 @@ msgid "View GnuPG Audit Log"
 msgstr "GnuPG ellenőrzési napló megtekintése"
 
 #: ui/auditlogviewer.cpp:46
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "Más&olás a vágólapra"
 
 #: ui/auditlogviewer.cpp:51
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
-msgstr "Mentés leme&zre..."
+msgstr "Mentés leme&zre…"
 
 #: ui/auditlogviewer.cpp:93
 #, kde-format
@@ -1190,8 +1181,7 @@ msgid "No GnuPG Audit Log"
 msgstr "Nincs GnuPG ellenőrzési napló"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "GnuPG ellenőrzési napló"
@@ -1261,8 +1251,7 @@ msgid "4 - All"
 msgstr "4 - Mind"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, fuzzy, kde-format
-#| msgid "Set the debugging level to"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Nyomkövetési szint"
@@ -1394,8 +1383,7 @@ msgstr ""
 "fő párbeszédablakban elfogadja a változásokat."
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Törlés"
@@ -1428,18 +1416,16 @@ msgid "Description"
 msgstr "Leírás"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
-msgstr "A rendelkezésre álló attribútumok:"
+msgstr "Elérhető attribútumok:"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
-msgstr "A jelenlegi attribútumsorrend:"
+msgstr "Jelenlegi attribútumsorrend:"
 
 #: ui/dnattributeorderconfigwidget.cpp:98
 #, kde-format
@@ -1747,7 +1733,7 @@ msgstr "Címtárszolgáltatás szerkesztése"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
-msgstr ""
+msgstr "Fájlmegnyitási párbeszédablak"
 
 #: ui/filenamerequester.cpp:82
 #, kde-format
@@ -1791,53 +1777,46 @@ msgid "Encryption Key Approval"
 msgstr "Titkosítási kulcs jóváhagyása"
 
 #: ui/keyapprovaldialog.cpp:118
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "A következő kulcsok lesznek felhasználva titkosításhoz:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Your keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Az Ön kulcsai:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Címzett:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Titkosítási kulcsok:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Encryption preference:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Titkosítási preferencia:"
 
 #: ui/keyrequester.cpp:89
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Törlés"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
-msgstr "Módosítás..."
+msgstr "Módosítás…"
 
 #: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
@@ -2040,15 +2019,13 @@ msgid "Compliance"
 msgstr "Megfelelőség"
 
 #: ui/keyselectiondialog.cpp:426
-#, fuzzy, kde-format
-#| msgid "Search for &External Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Külső tanúsítványok k&eresése"
 
 #: ui/keyselectiondialog.cpp:440
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Keresés:"
@@ -2068,15 +2045,13 @@ msgstr ""
 "rákérdezni.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
-msgstr "A kulcsok újra&olvasása"
+msgstr "Kulcsok újra&olvasása"
 
 #: ui/keyselectiondialog.cpp:487
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "&Tanúsítványkezelő"
@@ -2193,6 +2168,9 @@ msgid ""
 "to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
+"Új kulcsot állít elő az az e-mail-címe használatával<br/><br/>A kulcsra "
+"szükség van az e-mailek visszafejtéséhez és aláírásához. Meg kell adnia egy "
+"jelszót a kulcs védelméhez, a védett kulcs a saját könyvtárában lesz tárolva."
 
 #: ui/newkeyapprovaldialog.cpp:297
 #, kde-format
@@ -2235,13 +2213,13 @@ msgstr "Új kulcspár előállítása"
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Do not sign this email"
-msgstr ""
+msgstr "Ne írja alá ezt az e-mailt"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
-msgstr ""
+msgstr "Az e-mail nem lesz kriptográfiailag aláírva."
 
 #: ui/newkeyapprovaldialog.cpp:577
 #, kde-format
@@ -2262,6 +2240,9 @@ msgid ""
 "the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
+"Ne válasszon kulcsot ehhez a címzetthez.<br/><br/>A címzett  megkapja a "
+"titkosított e-mailt, de azt csak a többi kiválasztott kulccsal lehet "
+"visszafejteni."
 
 #: ui/newkeyapprovaldialog.cpp:774
 #, kde-format
@@ -2315,17 +2296,15 @@ msgid "View Columns"
 msgstr "Oszlopok megtekintése"
 
 #: ui/useridselectioncombo.cpp:542
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
-msgstr "Saját tanúsítványok"
+msgstr "Tanúsítványlista megjelenítése"
 
 #: ui/useridselectioncombo.cpp:543
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Show certificate list"
-msgstr "Saját tanúsítványok"
+msgstr "Tanúsítványlista megjelenítése"
 
 #: utils/compliance.cpp:160
 #, kde-format
@@ -2365,7 +2344,7 @@ msgstr "Titkosítás"
 #: utils/formatting.cpp:358 utils/formatting.cpp:380
 #, kde-format
 msgid "Certifying User IDs"
-msgstr ""
+msgstr "Felhasználóazonosítók hitelesítése"
 
 #: utils/formatting.cpp:361 utils/formatting.cpp:383
 #, kde-format
@@ -2388,30 +2367,26 @@ msgid "Disabled"
 msgstr "Letiltott"
 
 #: utils/formatting.cpp:421
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "User ID is certified."
-msgstr "Minden tanúsítvány"
+msgstr "A felhasználóazonosító hitelesített."
 
 #: utils/formatting.cpp:427
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "User ID is not certified."
-msgstr "Minden tanúsítvány"
+msgstr "A felhasználóazonosító nem hitelesített."
 
 #: utils/formatting.cpp:437
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All User IDs are certified."
-msgstr "Minden tanúsítvány"
+msgstr "Minden felhasználóazonosító hitelesített."
 
 #: utils/formatting.cpp:443
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
-msgstr[0] "Minden tanúsítvány"
-msgstr[1] "Minden tanúsítvány"
+msgstr[0] "1 felhasználóazonosító nincs hitelesítve."
+msgstr[1] "%1 felhasználóazonosító nincs hitelesítve."
 
 #: utils/formatting.cpp:447 utils/formatting.cpp:450
 #, kde-format
