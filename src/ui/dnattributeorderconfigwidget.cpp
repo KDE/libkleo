@@ -37,19 +37,21 @@ protected:
     void focusInEvent(QFocusEvent *event) override
     {
         QTreeWidget::focusInEvent(event);
-        // queue the invokation, so that it happens after the widget itself got focus
-        QMetaObject::invokeMethod(this, &TreeWidget::forceAccessibleFocusEventForCurrentItem, Qt::QueuedConnection);
-    }
-
-private:
-    void forceAccessibleFocusEventForCurrentItem()
-    {
-        // force Qt to send a focus event for the current item to accessibility
-        // tools; otherwise, the user has no idea which item is selected when the
-        // list gets keyboard input focus
-        const auto current = currentItem();
-        setCurrentItem(nullptr);
-        setCurrentItem(current);
+        // workaround for wrong order of accessible focus events emitted by Qt for QTreeWidget;
+        // on first focusing of QTreeWidget, Qt sends focus event for current item before focus event for tree
+        // so that orca doesn't announce the current item;
+        // on re-focusing of QTreeWidget, Qt only sends focus event for tree
+        auto forceAccessibleFocusEventForCurrentItem = [this]() {
+            // force Qt to send a focus event for the current item to accessibility
+            // tools; otherwise, the user has no idea which item is selected when the
+            // list gets keyboard input focus
+            const QModelIndex index = currentIndex();
+            if (index.isValid()) {
+                currentChanged(index, QModelIndex{});
+            }
+        };
+        // queue the invocation, so that it happens after the widget itself got focus
+        QMetaObject::invokeMethod(this, forceAccessibleFocusEventForCurrentItem, Qt::QueuedConnection);
     }
 };
 }
