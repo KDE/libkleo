@@ -198,6 +198,26 @@ bool TreeView::restoreColumnLayout(const QString &stateGroupName)
     return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
 }
 
+void TreeView::focusInEvent(QFocusEvent *event)
+{
+    QTreeView::focusInEvent(event);
+    // workaround for wrong order of accessible focus events emitted by Qt for QTreeView;
+    // on first focusing of QTreeView, Qt sends focus event for current item before focus event for tree
+    // so that orca doesn't announce the current item;
+    // on re-focusing of QTreeView, Qt only sends focus event for tree
+    auto forceAccessibleFocusEventForCurrentItem = [this]() {
+        // force Qt to send a focus event for the current item to accessibility
+        // tools; otherwise, the user has no idea which item is selected when the
+        // list gets keyboard input focus
+        const QModelIndex index = currentIndex();
+        if (index.isValid()) {
+            currentChanged(index, QModelIndex{});
+        }
+    };
+    // queue the invocation, so that it happens after the widget itself got focus
+    QMetaObject::invokeMethod(this, forceAccessibleFocusEventForCurrentItem, Qt::QueuedConnection);
+}
+
 void TreeView::keyPressEvent(QKeyEvent *event)
 {
     if (event == QKeySequence::Copy) {
