@@ -65,6 +65,7 @@ Q_SIGNALS:
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
+    void focusInEvent(QFocusEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
 
     QModelIndex moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
