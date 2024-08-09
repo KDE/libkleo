@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:41+0000\n"
-"PO-Revision-Date: 2024-07-25 16:52+0200\n"
+"POT-Creation-Date: 2024-08-09 00:40+0000\n"
+"PO-Revision-Date: 2024-08-02 15:24+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
 "Language: de\n"
@@ -925,8 +925,7 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Status"
@@ -1424,89 +1423,89 @@ msgctxt "@title:window"
 msgid "LDAP Directory Service"
 msgstr "LDAP-Verzeichnisdienst"
 
-#: ui/dnattributeorderconfigwidget.cpp:73
+#: ui/dnattributeorderconfigwidget.cpp:75
 #, kde-format
 msgid "Description"
 msgstr "Beschreibung"
 
-#: ui/dnattributeorderconfigwidget.cpp:88
+#: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Verfügbare Attribute:"
 
-#: ui/dnattributeorderconfigwidget.cpp:90
+#: ui/dnattributeorderconfigwidget.cpp:92
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Aktuelle Attributreihenfolge:"
 
-#: ui/dnattributeorderconfigwidget.cpp:98
+#: ui/dnattributeorderconfigwidget.cpp:100
 #, kde-format
 msgid "available attributes"
 msgstr "Verfügbare Attribute"
 
-#: ui/dnattributeorderconfigwidget.cpp:105
-#: ui/dnattributeorderconfigwidget.cpp:106
+#: ui/dnattributeorderconfigwidget.cpp:107
+#: ui/dnattributeorderconfigwidget.cpp:108
 #, kde-format
 msgid "All others"
 msgstr "Alle anderen"
 
-#: ui/dnattributeorderconfigwidget.cpp:118
+#: ui/dnattributeorderconfigwidget.cpp:120
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: ui/dnattributeorderconfigwidget.cpp:119
+#: ui/dnattributeorderconfigwidget.cpp:121
 msgid "Add to current attribute order"
 msgstr "Zur aktuellen Attributreihenfolge hinzufügen"
 
-#: ui/dnattributeorderconfigwidget.cpp:125
+#: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Entfernen"
 
-#: ui/dnattributeorderconfigwidget.cpp:126
+#: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Remove from current attribute order"
 msgstr "Von der aktuellen Attributreihenfolge entfernen"
 
-#: ui/dnattributeorderconfigwidget.cpp:132
+#: ui/dnattributeorderconfigwidget.cpp:134
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Nach ganz oben"
 
-#: ui/dnattributeorderconfigwidget.cpp:133
+#: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Move to top"
 msgstr "Nach ganz oben"
 
-#: ui/dnattributeorderconfigwidget.cpp:139
+#: ui/dnattributeorderconfigwidget.cpp:141
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "Nach oben"
 
-#: ui/dnattributeorderconfigwidget.cpp:140
+#: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move one up"
 msgstr "Nach oben"
 
-#: ui/dnattributeorderconfigwidget.cpp:146
+#: ui/dnattributeorderconfigwidget.cpp:148
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Nach unten"
 
-#: ui/dnattributeorderconfigwidget.cpp:147
+#: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one down"
 msgstr "Nach unten"
 
-#: ui/dnattributeorderconfigwidget.cpp:153
+#: ui/dnattributeorderconfigwidget.cpp:155
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Nach ganz unten"
 
-#: ui/dnattributeorderconfigwidget.cpp:154
+#: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move to bottom"
 msgstr "Nach ganz unten"
 
-#: ui/dnattributeorderconfigwidget.cpp:184
+#: ui/dnattributeorderconfigwidget.cpp:186
 #, kde-format
 msgid "current attribute order"
 msgstr "Aktuelle Attributreihenfolge"
@@ -1763,40 +1762,32 @@ msgstr "Dateiauswahl-Dialog"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Fehler: Bitte etwas eingeben."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
-"Fehler: Der Rechnername ist im richtigen Format anzugeben (z. B. ldap."
-"example.com)."
+msgstr "Fehler: Bitte einen Wert im passendem Format eingeben."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (erforderlich)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Fehler"
+msgstr "Fehler: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "ungültig"
+msgstr "ungültige Eingabe"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -2195,35 +2186,31 @@ msgid "Error"
 msgstr "Fehler"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Name"
 
 #: ui/nameandemailwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Enter passphrase:"
+#, kde-format
 msgid "Enter a name."
-msgstr "Passwort eingeben:"
+msgstr "Geben Sie einen Namen ein."
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "E-Mail-Adresse"
 
 #: ui/nameandemailwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "E-Mail-Adresse"
+msgstr "Geben Sie eine E-Mail-Adresse ein."
 
 #: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Der Name darf nicht <, > oder @ enthalten."
 
 #: ui/nameandemailwidget.cpp:95
 #, kde-format
@@ -2231,6 +2218,8 @@ msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Der Name darf keines der Zeichen \"Kleiner-als\", \"Größer-als\" und \"At\" "
+"enthalten."
 
 #: ui/nameandemailwidget.cpp:98
 #, kde-format
@@ -2238,6 +2227,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Der Name muss das von ihrer Organisation geforderte Format haben und darf "
+"nicht <, > oder @ enthalten."
 
 #: ui/nameandemailwidget.cpp:101
 #, kde-format
@@ -2246,22 +2237,22 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Der Name muss das von ihrer Organisation geforderte Format haben und darf "
+"nicht die Zeichen \"Kleiner-als\", \"Größer-als\" oder \"At\" enthalten."
 
 #: ui/nameandemailwidget.cpp:110
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr ""
-"Fehler: Der Rechnername ist im richtigen Format anzugeben (z. B. ldap."
-"example.com)."
+"Geben Sie eine E-Mail-Adresse im korrekten Format ein, z.B. Name@beispiel.de."
 
 #: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Geben Sie eine E-Mail-Adresse in dem Format ein, das von ihrer Organisation "
+"vorgegeben ist."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2423,7 +2414,7 @@ msgstr "Generieren"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Den generierten Schlüssel mit einem Passwort schützen."
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
@@ -2431,10 +2422,11 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Verschlüsselt den geheimen Schlüssel mit einem nicht wiederherstellbaren "
+"Passwort. Sie werden bei der Schlüsselgenerierung nach dem Passwort gefragt."
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
 msgstr "Erweiterte Einstellungen"
 
@@ -2442,47 +2434,40 @@ msgstr "Erweiterte Einstellungen"
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Schlüsselmaterial"
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "Gültig bis"
+msgstr "Gültig bis:"
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Vertrauenswürdige Zertifikate"
+msgstr "OpenPGP-Zertifikat erstellen"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "Geben Sie einen Namen und eine E-Mail-Adresse für das Zertifikat ein."
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
-"Geben Sie den Namen oder die IP-Adresse des Rechners an, der den "
-"Verzeichnisdienst anbietet."
+"Geben Sie einen Namen und/oder eine E-Mail-Adresse für das Zertifikat ein."
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Geben Sie einen Namen oder eine E-Mail-Adresse ein."
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "Der Schlüssel ist deaktiviert."
+msgstr "Es gibt ein Problem."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2540,35 +2525,34 @@ msgid "Not VS-NfD compliant"
 msgstr "Nicht VS-NfD-konform"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "Der Schlüssel kann verwendet werden."
+msgstr "Das Datum kann nicht verändert werden."
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Geben Sie ein Datum zwischen %1 und %2 ein."
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "In drei Jahren"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "In zwei Jahren"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "In einem Jahr"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -2713,7 +2697,7 @@ msgstr "auf diesem Computer"
 #: utils/formatting.cpp:520
 #, kde-format
 msgid "Subkey"
-msgstr " Unterschlüssel"
+msgstr "Unterschlüssel"
 
 #: utils/formatting.cpp:573
 #, kde-format
