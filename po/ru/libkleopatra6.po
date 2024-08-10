@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-09 00:40+0000\n"
+"POT-Creation-Date: 2024-08-10 00:42+0000\n"
 "PO-Revision-Date: 2024-02-10 12:01+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1030,32 +1030,32 @@ msgstr[3] ""
 "<p>Срок действия сертификата S/MIME для</p><p align=center>%2</p><p>истекает "
 "завтра.</p>"
 
-#: kleo/keyfiltermanager.cpp:71
+#: kleo/keyfiltermanager.cpp:90
 #, fuzzy, kde-format
 #| msgid "4 - All"
 msgctxt "All Certificates"
 msgid "All"
 msgstr "4 — Полный "
 
-#: kleo/keyfiltermanager.cpp:72
+#: kleo/keyfiltermanager.cpp:91
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgid "All certificates"
 msgstr "Все сертификаты"
 
-#: kleo/keyfiltermanager.cpp:87
+#: kleo/keyfiltermanager.cpp:106
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:88
+#: kleo/keyfiltermanager.cpp:107
 #, fuzzy, kde-format
 #| msgid "My Certificates"
 msgid "My own certificates"
 msgstr "Мои сертификаты"
 
-#: kleo/keyfiltermanager.cpp:106
+#: kleo/keyfiltermanager.cpp:125
 #, fuzzy, kde-format
 #| msgctxt "As in 'this user ID is valid.'"
 #| msgid "certified"
@@ -1063,12 +1063,12 @@ msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "удостоверен"
 
-#: kleo/keyfiltermanager.cpp:107
+#: kleo/keyfiltermanager.cpp:126
 #, kde-format
 msgid "Certificates for which the primary user ID is certified"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:124
+#: kleo/keyfiltermanager.cpp:143
 #, fuzzy, kde-format
 #| msgctxt "As in 'this user ID is not certified'"
 #| msgid "not certified"
@@ -1076,26 +1076,26 @@ msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "не удостоверен"
 
-#: kleo/keyfiltermanager.cpp:125
+#: kleo/keyfiltermanager.cpp:144
 #, kde-format
 msgid "Certificates for which the primary user ID is not certified"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:140
+#: kleo/keyfiltermanager.cpp:159
 #, fuzzy, kde-format
 #| msgid "Certify"
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "Заверение ключей"
 
-#: kleo/keyfiltermanager.cpp:141
+#: kleo/keyfiltermanager.cpp:160
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:168
+#: kleo/keyfiltermanager.cpp:187
 #, fuzzy, kde-format
 #| msgctxt "As in not all keys are valid."
 #| msgid "not all certified"
@@ -1103,13 +1103,13 @@ msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "не все заверены"
 
-#: kleo/keyfiltermanager.cpp:169
+#: kleo/keyfiltermanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "All User-IDs are certified."
 msgid "Certificates for which not all user IDs are certified"
 msgstr "Все идентификаторы пользователя заверены."
 
-#: kleo/keyfiltermanager.cpp:192
+#: kleo/keyfiltermanager.cpp:211
 #, fuzzy, kde-format
 #| msgctxt "As in all keys are valid."
 #| msgid "all certified"
@@ -1117,7 +1117,7 @@ msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "все заверены"
 
-#: kleo/keyfiltermanager.cpp:193
+#: kleo/keyfiltermanager.cpp:212
 #, fuzzy, kde-format
 #| msgid "All User-IDs are certified."
 msgid "Certificates for which all user IDs are certified"
