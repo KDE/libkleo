@@ -41,6 +41,8 @@
 using namespace Kleo;
 using namespace GpgME;
 
+Q_DECLARE_METATYPE(std::shared_ptr<KeyFilter>)
+
 namespace
 {
 void adjustFilters(std::vector<std::shared_ptr<KeyFilter>> &filters, Protocol protocol)
@@ -519,6 +521,8 @@ KeyFilterModel::KeyFilterModel(QObject *parent)
     });
 }
 
+KeyFilterModel::~KeyFilterModel() = default;
+
 void KeyFilterModel::prependCustomFilter(const std::shared_ptr<KeyFilter> &filter)
 {
     beginResetModel();
@@ -604,8 +608,6 @@ QVariant KeyFilterModel::data(const QModelIndex &index, int role) const
         case Qt::DisplayRole:
         case Qt::EditRole:
             return filter->name();
-        case Qt::ToolTipRole:
-            return filter->description();
 
         case KeyFilterManager::FilterIdRole:
             return filter->id();
