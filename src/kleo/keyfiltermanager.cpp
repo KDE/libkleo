@@ -533,7 +533,7 @@ void KeyFilterModel::prependCustomFilter(const std::shared_ptr<KeyFilter> &filte
 
 bool KeyFilterModel::isCustomFilter(int row) const
 {
-    return row < d->customFilters.size();
+    return (row >= 0) && (row < int(d->customFilters.size()));
 }
 
 int KeyFilterModel::rowCount(const QModelIndex &parent) const
@@ -573,7 +573,7 @@ QModelIndex KeyFilterModel::index(int row, int column, const QModelIndex &parent
     if (row < 0 || row >= rowCount()) {
         return {};
     }
-    if (row < d->customFilters.size()) {
+    if (row < int(d->customFilters.size())) {
         return createIndex(row, column, nullptr);
     } else {
         const QModelIndex mi = QSortFilterProxyModel::index(row - d->customFilters.size(), column, parent);
