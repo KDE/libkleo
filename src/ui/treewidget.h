@@ -32,6 +32,9 @@ public:
     TreeWidget(QWidget *parent = nullptr);
     ~TreeWidget() override;
 
+    // make this protected method public (as in Qt 6)
+    using QTreeWidget::itemFromIndex;
+
     /**
      * Hides the column with logical index @p column and doesn't allow the user
      * to show it.
