@@ -46,10 +46,10 @@ public:
             Formatting::prettyID(sig.signerKeyID()),
             name,
             email,
-            Formatting::creationDateString(sig),
-            Formatting::expirationDateString(sig),
             Formatting::validityShort(sig),
             sig.isExportable() ? QStringLiteral("✓") : QString{},
+            Formatting::creationDateString(sig),
+            Formatting::expirationDateString(sig),
         };
 
         QString lastNotation;
@@ -68,10 +68,10 @@ public:
             Formatting::accessibleHexID(sig.signerKeyID()),
             name.isEmpty() ? i18nc("text for screen readers for an empty name", "no name") : QVariant{},
             email.isEmpty() ? i18nc("text for screen readers for an empty email address", "no email") : QVariant{},
-            Formatting::accessibleDate(Formatting::creationDate(sig)),
-            Formatting::accessibleExpirationDate(sig),
             {}, // display text is always okay
             sig.isExportable() ? i18nc("yes, is exportable", "yes") : i18nc("no, is not exportable", "no"),
+            Formatting::accessibleDate(Formatting::creationDate(sig)),
+            Formatting::accessibleExpirationDate(sig),
             lastNotation.isEmpty() ? i18nc("accessible text for empty list of tags", "none") : QVariant{},
             trustSignatureDomain.isEmpty() ? i18n("not applicable") : QVariant{},
         };
@@ -103,11 +103,11 @@ public:
         mItemData = {
             i18n("User ID / Certification Key ID"),
             i18n("Name"),
-            i18n("E-Mail"),
-            i18n("Valid From"),
-            i18n("Valid Until"),
+            i18n("Email"),
             i18n("Status"),
             i18n("Exportable"),
+            i18n("Valid From"),
+            i18n("Valid Until"),
             i18n("Tags"),
             i18n("Trust Signature For"),
         };
