@@ -33,10 +33,10 @@ public:
         Id,
         Name,
         Email,
-        ValidFrom,
-        ValidUntil,
         Status,
         Exportable,
+        ValidFrom,
+        ValidUntil,
         Tags,
         TrustSignatureDomain,
     };
