@@ -1442,7 +1442,7 @@ QString Formatting::origin(int o)
     case Key::OriginOther:
     case Key::OriginUnknown:
     default:
-        return i18n("Unknown");
+        return {};
     }
 }
 
