@@ -881,7 +881,7 @@ QString Formatting::validityShort(const Subkey &subkey)
     if (subkey.isInvalid()) {
         return i18n("invalid");
     }
-    return i18nc("as in good/valid subkey", "good");
+    return i18nc("as in 'this subkey is ok'", "OK");
 }
 
 QString Formatting::validityShort(const UserID &uid)
