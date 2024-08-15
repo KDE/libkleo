@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2022-11-01 00:29+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -2642,12 +2642,10 @@ msgid "invalid"
 msgstr "ínvalid"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "bon"
+#, kde-format
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr ""
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -2956,11 +2954,6 @@ msgstr "Selecte un file de archive de KMail por importar"
 msgid "Generated"
 msgstr "Generat"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Ínconosset"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3114,6 +3107,16 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "bon"
+
+#~ msgid "Unknown"
+#~ msgstr "Ínconosset"
 
 #, fuzzy
 #~ msgctxt "@title:column"

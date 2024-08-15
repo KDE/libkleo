@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-08-02 13:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2839,10 +2839,11 @@ msgid "invalid"
 msgstr "ongeldig"
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "goed"
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&OK"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3156,11 +3157,6 @@ msgstr "Bestand importeren"
 msgid "Generated"
 msgstr "Gegenereerd"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Onbekend"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3317,6 +3313,13 @@ msgstr "Ongeldig hexadecimaal teken '%1' in invoerstroom."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Voortijdig einde van hexadecimaal gecodeerd karakter in invoerstroom"
+
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "goed"
+
+#~ msgid "Unknown"
+#~ msgstr "Onbekend"
 
 #~ msgctxt "@title:column"
 #~ msgid "User IDs"
@@ -3952,9 +3955,6 @@ msgstr "Voortijdig einde van hexadecimaal gecodeerd karakter in invoerstroom"
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "Wacht&woord (optioneel):"
-
-#~ msgid "&OK"
-#~ msgstr "&OK"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Annuleren"

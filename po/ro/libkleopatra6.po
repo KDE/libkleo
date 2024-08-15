@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2013-02-16 10:55+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2718,10 +2718,11 @@ msgid "invalid"
 msgstr ""
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&OK"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3037,12 +3038,6 @@ msgstr ""
 msgid "Generated"
 msgstr "General"
 
-#: utils/formatting.cpp:1445
-#, fuzzy, kde-format
-#| msgid "unknown"
-msgid "Unknown"
-msgstr "necunoscut"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3196,6 +3191,11 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknown"
+#~ msgstr "necunoscut"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -3358,9 +3358,6 @@ msgstr ""
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "&Parolă (opțional):"
-
-#~ msgid "&OK"
-#~ msgstr "&OK"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Renunță"

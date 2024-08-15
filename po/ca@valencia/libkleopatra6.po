@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-08-02 12:55+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2848,9 +2848,9 @@ msgstr "no vàlida"
 
 #: utils/formatting.cpp:884
 #, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "correcta"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr ""
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3162,11 +3162,6 @@ msgstr "Importació de fitxer"
 msgid "Generated"
 msgstr "Generat"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Desconegut"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3321,3 +3316,10 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
+
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "correcta"
+
+#~ msgid "Unknown"
+#~ msgstr "Desconegut"

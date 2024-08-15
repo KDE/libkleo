@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1687215 2024-08-10 01:17:16Z scripty $
+# $Id: libkleopatra6.po 1687764 2024-08-15 01:13:56Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-08-02 05:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2960,10 +2960,11 @@ msgid "invalid"
 msgstr "neveljavno"
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "dobro"
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&V redu"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3276,11 +3277,6 @@ msgstr "Uvoz datoteke"
 msgid "Generated"
 msgstr "Generirano"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Neznano"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3434,6 +3430,13 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
+
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "dobro"
+
+#~ msgid "Unknown"
+#~ msgstr "Neznano"
 
 #~ msgctxt "@title:column"
 #~ msgid "User IDs"
@@ -3877,9 +3880,6 @@ msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "&Geslo (ni obvezno):"
-
-#~ msgid "&OK"
-#~ msgstr "&V redu"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Prekliči"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-08-06 21:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2845,11 +2845,10 @@ msgstr "érvénytelen"
 
 #: utils/formatting.cpp:884
 #, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "jó"
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&OK"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3162,11 +3161,6 @@ msgstr "Fájlimportálás"
 msgid "Generated"
 msgstr "Előállítva"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Ismeretlen"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3320,6 +3314,16 @@ msgstr "Érvénytelen hexadecimális karakter („%1”) a bemenetben."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Túl korán végződő hexadecimálisan kódolt karakter a bemenetben"
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "jó"
+
+#~ msgid "Unknown"
+#~ msgstr "Ismeretlen"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -3718,9 +3722,6 @@ msgstr "Túl korán végződő hexadecimálisan kódolt karakter a bemenetben"
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "Je&lszó (opcionális):"
-
-#~ msgid "&OK"
-#~ msgstr "&OK"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Mégsem"

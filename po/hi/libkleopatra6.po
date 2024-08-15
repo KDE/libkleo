@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2008-01-26 16:23+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -2665,10 +2665,11 @@ msgid "invalid"
 msgstr ""
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "ठीक (&O)"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -2975,12 +2976,6 @@ msgstr ""
 msgid "Generated"
 msgstr "सामान्य"
 
-#: utils/formatting.cpp:1445
-#, fuzzy, kde-format
-#| msgid "unknown"
-msgid "Unknown"
-msgstr "अज्ञात"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3134,6 +3129,11 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknown"
+#~ msgstr "अज्ञात"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -3390,9 +3390,6 @@ msgstr ""
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "पासवर्ड (वैकल्पिक): (&w)"
-
-#~ msgid "&OK"
-#~ msgstr "ठीक (&O)"
 
 #~ msgid "&Cancel"
 #~ msgstr "रद्द करें (&C)"

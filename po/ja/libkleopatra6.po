@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2724,12 +2724,10 @@ msgid "invalid"
 msgstr "有効でない"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "正しい"
+#, kde-format
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr ""
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3040,11 +3038,6 @@ msgstr "ファイルからインポート"
 msgid "Generated"
 msgstr "生成されたもの"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "不明"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3198,6 +3191,16 @@ msgstr "入力ストリームで無効な16進文字 '%1'"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "入力ストリームで16進エンコードの文字が途中で終了しました"
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "正しい"
+
+#~ msgid "Unknown"
+#~ msgstr "不明"
 
 #, fuzzy
 #~| msgid "User ID"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2023-07-04 10:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2752,12 +2752,10 @@ msgid "invalid"
 msgstr "inválido"
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "boa"
+#, kde-format
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr ""
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3075,11 +3073,6 @@ msgstr "Importar arquivo"
 msgid "Generated"
 msgstr "Gerado"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Desconhecido"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3233,6 +3226,16 @@ msgstr "Caractere hexadecimal inválido '%1' no fluxo de entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fim prematuro do caractere hexadecimal codificado no fluxo de entrada"
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "boa"
+
+#~ msgid "Unknown"
+#~ msgstr "Desconhecido"
 
 #, fuzzy
 #~| msgid "User ID"

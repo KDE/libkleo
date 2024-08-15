@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-02-20 23:54+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2785,11 +2785,10 @@ msgstr "올바르지 않음"
 
 #: utils/formatting.cpp:884
 #, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "양호함"
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "확인(&O)"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3091,11 +3090,6 @@ msgstr "파일 가져오기"
 msgid "Generated"
 msgstr "생성됨"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "알 수 없음"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3249,6 +3243,16 @@ msgstr "입력 스트림의 '%1' 16진수 문자가 올바르지 않습니다."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "입력 스트림에서 16진수로 인코딩된 문자의 정상보다 이른 끝"
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "양호함"
+
+#~ msgid "Unknown"
+#~ msgstr "알 수 없음"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -3666,9 +3670,6 @@ msgstr "입력 스트림에서 16진수로 인코딩된 문자의 정상보다 �
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "암호 (선택 사항)(&W):"
-
-#~ msgid "&OK"
-#~ msgstr "확인(&O)"
 
 #~ msgid "&Cancel"
 #~ msgstr "취소(&C)"

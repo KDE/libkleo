@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-04-08 19:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2892,11 +2892,10 @@ msgstr "virheellinen"
 
 #: utils/formatting.cpp:884
 #, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "kelvollinen"
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&OK"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3203,11 +3202,6 @@ msgstr "Tiedoston tuonti"
 msgid "Generated"
 msgstr "Luotu"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Tuntematon"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3361,6 +3355,16 @@ msgstr "Syötevirrassa virheellinen heksamerkki ”%1”."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Syötevirrassa ennenaikainen heksakoodatun merkin loppu"
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "kelvollinen"
+
+#~ msgid "Unknown"
+#~ msgstr "Tuntematon"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -3785,9 +3789,6 @@ msgstr "Syötevirrassa ennenaikainen heksakoodatun merkin loppu"
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "&Salasana (valinnainen)"
-
-#~ msgid "&OK"
-#~ msgstr "&OK"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Peru"

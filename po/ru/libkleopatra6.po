@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-02-10 12:01+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -3111,11 +3111,10 @@ msgstr "недействительный"
 
 #: utils/formatting.cpp:884
 #, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "корректный"
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&ОК"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3429,11 +3428,6 @@ msgstr "Импорт из файла"
 msgid "Generated"
 msgstr "Создание"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Неизвестно"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3587,6 +3581,16 @@ msgstr "Недопустимый символ (шестнадцатеричны�
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Неожиданное окончание во входящем шифрованном шестнадцатеричном потоке"
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "корректный"
+
+#~ msgid "Unknown"
+#~ msgstr "Неизвестно"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -4006,9 +4010,6 @@ msgstr "Неожиданное окончание во входящем шифр
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "&Пароль:"
-
-#~ msgid "&OK"
-#~ msgstr "&ОК"
 
 #~ msgid "&Cancel"
 #~ msgstr "О&тмена"

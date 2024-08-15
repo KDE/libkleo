@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2007-07-27 15:55+0300\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -2671,10 +2671,11 @@ msgid "invalid"
 msgstr ""
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&Добра"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -2983,12 +2984,6 @@ msgstr ""
 msgid "Generated"
 msgstr "Агульныя"
 
-#: utils/formatting.cpp:1445
-#, fuzzy, kde-format
-#| msgid "unknown"
-msgid "Unknown"
-msgstr "невядомы"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3144,6 +3139,11 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 
 #, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknown"
+#~ msgstr "невядомы"
+
+#, fuzzy
 #~| msgid "User ID"
 #~ msgctxt "@title:column"
 #~ msgid "User IDs"
@@ -3177,9 +3177,6 @@ msgstr ""
 
 #~ msgid "389"
 #~ msgstr "389"
-
-#~ msgid "&OK"
-#~ msgstr "&Добра"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Скасаваць"

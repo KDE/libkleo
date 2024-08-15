@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1687215 $
+# Version: $Revision: 1687764 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-08-03 11:48+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2911,10 +2911,11 @@ msgid "invalid"
 msgstr "nieprawidłowy"
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "dobry"
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&OK"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3228,11 +3229,6 @@ msgstr "Import z pliku"
 msgid "Generated"
 msgstr "Utworzony"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Nieznany"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3387,6 +3383,13 @@ msgstr "Nieprawidłowy znak szesnastkowy '%1' w strumieniu wejściowym."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Przedwczesny koniec znaku zapisanego szesnastkowo w strumieniu wejściowym"
+
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "dobry"
+
+#~ msgid "Unknown"
+#~ msgstr "Nieznany"
 
 #~ msgctxt "@title:column"
 #~ msgid "User IDs"
@@ -3821,9 +3824,6 @@ msgstr ""
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "&Hasło (opcjonalne):"
-
-#~ msgid "&OK"
-#~ msgstr "&OK"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Anuluj"

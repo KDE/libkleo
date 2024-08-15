@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-06-14 13:46+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -2914,11 +2914,10 @@ msgstr "non valable"
 
 #: utils/formatting.cpp:884
 #, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "bon"
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&Ok"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3229,11 +3228,6 @@ msgstr "Import de fichier"
 msgid "Generated"
 msgstr "Généré"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Inconnu"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3388,6 +3382,16 @@ msgstr "Caractère hexadécimal « %1 » non valable dans le flux en entrée."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fin de caractère hexadécimal prématurée dans le flux en entrée"
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "bon"
+
+#~ msgid "Unknown"
+#~ msgstr "Inconnu"
 
 #~ msgctxt "@title:column"
 #~ msgid "User IDs"
@@ -3830,9 +3834,6 @@ msgstr "Fin de caractère hexadécimal prématurée dans le flux en entrée"
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "&Mot de passe (optionnel) :"
-
-#~ msgid "&OK"
-#~ msgstr "&Ok"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Annuler"

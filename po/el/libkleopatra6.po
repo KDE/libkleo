@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2012-10-16 12:35+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2794,10 +2794,11 @@ msgid "invalid"
 msgstr ""
 
 #: utils/formatting.cpp:884
-#, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&Εντάξει"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3110,12 +3111,6 @@ msgstr ""
 msgid "Generated"
 msgstr "Γενικά"
 
-#: utils/formatting.cpp:1445
-#, fuzzy, kde-format
-#| msgid "unknown"
-msgid "Unknown"
-msgstr "άγνωστο"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3269,6 +3264,11 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknown"
+#~ msgstr "άγνωστο"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -3669,9 +3669,6 @@ msgstr ""
 
 #~ msgid "Pass&word (optional):"
 #~ msgstr "Κ&ωδικός πρόσβασης (προαιρετικός):"
-
-#~ msgid "&OK"
-#~ msgstr "&Εντάξει"
 
 #~ msgid "&Cancel"
 #~ msgstr "&Ακύρωση"

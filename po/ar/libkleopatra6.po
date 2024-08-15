@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2022-01-29 13:07+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2781,11 +2781,9 @@ msgstr "غير صالح"
 
 #: utils/formatting.cpp:884
 #, fuzzy, kde-format
-#| msgctxt "as in good/valid signature"
-#| msgid "good"
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "جيّد"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&موافق"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3101,11 +3099,6 @@ msgstr "ملفّ > استيراد"
 msgid "Generated"
 msgstr "عام"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "مجهول"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3259,6 +3252,16 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "as in good/valid signature"
+#~| msgid "good"
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "جيّد"
+
+#~ msgid "Unknown"
+#~ msgstr "مجهول"
 
 #, fuzzy
 #~| msgid "User ID"
@@ -3574,10 +3577,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Pass&word (optional):"
 #~ msgstr "كلمة المرور اختياري:"
-
-#, fuzzy
-#~ msgid "&OK"
-#~ msgstr "&موافق"
 
 #, fuzzy
 #~ msgid "&Cancel"

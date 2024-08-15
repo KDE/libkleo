@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:42+0000\n"
+"POT-Creation-Date: 2024-08-15 00:40+0000\n"
 "PO-Revision-Date: 2024-08-07 11:30+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2809,9 +2809,9 @@ msgstr "невалиден"
 
 #: utils/formatting.cpp:884
 #, kde-format
-msgctxt "as in good/valid subkey"
-msgid "good"
-msgstr "добър"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr ""
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3121,11 +3121,6 @@ msgstr "Импортиране на файл"
 msgid "Generated"
 msgstr "Генериран"
 
-#: utils/formatting.cpp:1445
-#, kde-format
-msgid "Unknown"
-msgstr "Неизвестна"
-
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
@@ -3279,6 +3274,13 @@ msgstr "Невалиден шестнадесетичен знак ' %1' във 
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Преждевременен край на шестнадесетично кодиран char във входния поток"
+
+#~ msgctxt "as in good/valid subkey"
+#~ msgid "good"
+#~ msgstr "добър"
+
+#~ msgid "Unknown"
+#~ msgstr "Неизвестна"
 
 #~ msgctxt "@title:column"
 #~ msgid "User IDs"
