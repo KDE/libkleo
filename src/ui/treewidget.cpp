@@ -157,6 +157,8 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
     connect(header, &QHeaderView::sortIndicatorChanged, this, [this]() {
         d->saveColumnLayout();
     });
+
+    this->header()->setFirstSectionMovable(true);
     return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
 }
 
