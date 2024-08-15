@@ -139,6 +139,11 @@ public:
         return mChildItems.count();
     }
 
+    QList<UIDModelItem *> &children()
+    {
+        return mChildItems;
+    }
+
     int columnCount() const
     {
         if (childCount()) {
@@ -240,6 +245,10 @@ void UserIDListModel::setKey(const Key &key)
         std::vector<UserID::Signature> sigs = uid.signatures();
         std::sort(sigs.begin(), sigs.end());
         for (const auto &sig : sigs) {
+            erase_if(uidItem->children(), [sig](const auto signature) {
+                return !strcmp(signature->signerKeyId(), sig.signerKeyID());
+            });
+
             auto sigItem = new UIDModelItem(sig, uidItem, mRemarksEnabled);
             uidItem->appendChild(sigItem);
         }
