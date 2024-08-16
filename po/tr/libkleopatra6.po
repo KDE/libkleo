@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:40+0000\n"
-"PO-Revision-Date: 2024-08-02 14:12+0300\n"
+"POT-Creation-Date: 2024-08-16 00:40+0000\n"
+"PO-Revision-Date: 2024-08-15 14:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1041,17 +1041,17 @@ msgstr "ID"
 msgid "Type"
 msgstr "Tür"
 
-#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:107
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid From"
 msgstr "Geçerlilik Süresinin Başlangıcı"
 
-#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:108
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
 msgstr "Geçerlilik Süresinin Sonu"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:522 utils/formatting.cpp:524
 #, kde-format
 msgid "Status"
@@ -1068,13 +1068,13 @@ msgstr "Uzunluk"
 msgid "Usage"
 msgstr "Kullanım"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "evet"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -1112,11 +1112,13 @@ msgid "Name"
 msgstr "Ad"
 
 #: models/useridlistmodel.cpp:106
-#, kde-format
-msgid "E-Mail"
-msgstr "E-posta"
+#, fuzzy, kde-format
+#| msgctxt "text for screen readers for an empty email address"
+#| msgid "no email"
+msgid "Email"
+msgstr "e-posta yok"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Exportable"
 msgstr "Dışa Aktarılabilir"
@@ -2818,7 +2820,7 @@ msgstr "geçersiz"
 #, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3280,6 +3282,9 @@ msgstr "Girdi akışında geçersiz onaltılık karakter “%1”."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Girdi akışında onaltılık olarak kodlanan karakterin beklenmedik bitişi"
+
+#~ msgid "E-Mail"
+#~ msgstr "E-posta"
 
 #~ msgctxt "as in good/valid subkey"
 #~ msgid "good"

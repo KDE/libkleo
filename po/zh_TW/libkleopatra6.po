@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:40+0000\n"
+"POT-Creation-Date: 2024-08-16 00:40+0000\n"
 "PO-Revision-Date: 2024-06-30 10:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -925,17 +925,17 @@ msgstr "ID"
 msgid "Type"
 msgstr "類型"
 
-#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:107
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid From"
 msgstr "有效自"
 
-#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:108
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
 msgstr "有效期限"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:522 utils/formatting.cpp:524
 #, kde-format
 msgid "Status"
@@ -952,13 +952,13 @@ msgstr "強度"
 msgid "Usage"
 msgstr "用途"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "是"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -996,11 +996,13 @@ msgid "Name"
 msgstr "名稱"
 
 #: models/useridlistmodel.cpp:106
-#, kde-format
-msgid "E-Mail"
-msgstr "電子郵件"
+#, fuzzy, kde-format
+#| msgctxt "text for screen readers for an empty email address"
+#| msgid "no email"
+msgid "Email"
+msgstr "無電子郵件"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Exportable"
 msgstr "可匯出"
@@ -3145,6 +3147,9 @@ msgstr "輸入串流中有無效的十六進位字元 '%1'。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "輸入串流中的十六進位字元在途中結束"
+
+#~ msgid "E-Mail"
+#~ msgstr "電子郵件"
 
 #, fuzzy
 #~| msgctxt "as in good/valid signature"

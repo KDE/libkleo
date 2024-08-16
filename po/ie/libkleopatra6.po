@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:40+0000\n"
+"POT-Creation-Date: 2024-08-16 00:40+0000\n"
 "PO-Revision-Date: 2022-11-01 00:29+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -907,17 +907,17 @@ msgstr "ID"
 msgid "Type"
 msgstr "Tip"
 
-#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:107
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid From"
 msgstr "Valid de"
 
-#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:108
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
 msgstr "Valid til"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:522 utils/formatting.cpp:524
 #, kde-format
 msgid "Status"
@@ -934,13 +934,13 @@ msgstr "Fortie"
 msgid "Usage"
 msgstr "Usage"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "yes"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -978,11 +978,13 @@ msgid "Name"
 msgstr "Nómine"
 
 #: models/useridlistmodel.cpp:106
-#, kde-format
-msgid "E-Mail"
-msgstr "E-post"
+#, fuzzy, kde-format
+#| msgctxt "text for screen readers for an empty email address"
+#| msgid "no email"
+msgid "Email"
+msgstr "sin e-post:"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Exportable"
 msgstr ""
@@ -3107,6 +3109,9 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "E-Mail"
+#~ msgstr "E-post"
 
 #, fuzzy
 #~| msgctxt "as in good/valid signature"

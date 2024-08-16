@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:40+0000\n"
+"POT-Creation-Date: 2024-08-16 00:40+0000\n"
 "PO-Revision-Date: 2021-01-26 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -937,17 +937,17 @@ msgstr "ID"
 msgid "Type"
 msgstr "Typ"
 
-#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:107
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid From"
 msgstr "Platný od"
 
-#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:108
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
 msgstr "Platný do"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:522 utils/formatting.cpp:524
 #, kde-format
 msgid "Status"
@@ -964,7 +964,7 @@ msgstr "Sila"
 msgid "Usage"
 msgstr "Použitie"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -978,7 +978,7 @@ msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "ano"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -1019,10 +1019,10 @@ msgstr "Názov"
 
 #: models/useridlistmodel.cpp:106
 #, kde-format
-msgid "E-Mail"
-msgstr "E-mail"
+msgid "Email"
+msgstr ""
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Exportable"
 msgstr ""
@@ -3308,6 +3308,9 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#~ msgid "E-Mail"
+#~ msgstr "E-mail"
 
 #, fuzzy
 #~| msgctxt "as in good/valid signature"

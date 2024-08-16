@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-15 00:40+0000\n"
-"PO-Revision-Date: 2024-08-02 17:45+0200\n"
+"POT-Creation-Date: 2024-08-16 00:40+0000\n"
+"PO-Revision-Date: 2024-08-16 01:18+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1028,17 +1028,17 @@ msgstr "ID"
 msgid "Type"
 msgstr "Tipo"
 
-#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:107
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid From"
 msgstr "Válido desde"
 
-#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:108
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
 msgstr "Válido hasta"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:522 utils/formatting.cpp:524
 #, kde-format
 msgid "Status"
@@ -1055,13 +1055,13 @@ msgstr "Fortaleza"
 msgid "Usage"
 msgstr "Uso"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "sí"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -1099,11 +1099,13 @@ msgid "Name"
 msgstr "Nombre"
 
 #: models/useridlistmodel.cpp:106
-#, kde-format
-msgid "E-Mail"
-msgstr "Correo"
+#, fuzzy, kde-format
+#| msgctxt "text for screen readers for an empty email address"
+#| msgid "no email"
+msgid "Email"
+msgstr "sin correo electrónico"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Exportable"
 msgstr "Exportable"
@@ -2826,7 +2828,7 @@ msgstr "no válida"
 #, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr ""
+msgstr "Aceptar"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3291,6 +3293,9 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Se ha encontrado un final prematuro de carácter codificado en hexadecimal en "
 "el flujo de entrada"
+
+#~ msgid "E-Mail"
+#~ msgstr "Correo"
 
 #~ msgctxt "as in good/valid subkey"
 #~ msgid "good"
