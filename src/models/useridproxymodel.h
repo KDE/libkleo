@@ -24,7 +24,7 @@ public:
     QModelIndex mapToSource(const QModelIndex &proxyIndex) const override;
     int rowCount(const QModelIndex &parent = {}) const override;
     QModelIndex index(int row, int column, const QModelIndex &parent) const override;
-    virtual QModelIndex parent(const QModelIndex &) const override;
+    QModelIndex parent(const QModelIndex &) const override;
     int columnCount(const QModelIndex &) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     UserIDProxyModel *clone() const override;
