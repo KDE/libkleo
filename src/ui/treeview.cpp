@@ -34,6 +34,7 @@ public:
     QMenu *mHeaderPopup = nullptr;
     QList<QAction *> mColumnActions;
     QString mStateGroupName;
+    bool initial = false;
 
     Private(TreeView *qq)
         : q(qq)
@@ -45,6 +46,7 @@ public:
         saveColumnLayout();
     }
     void saveColumnLayout();
+    void setupResizing();
 };
 
 TreeView::TreeView(QWidget *parent)
@@ -149,6 +151,7 @@ void TreeView::Private::saveColumnLayout()
 bool TreeView::restoreColumnLayout(const QString &stateGroupName)
 {
     if (stateGroupName.isEmpty()) {
+        d->setupResizing();
         return false;
     }
     d->mStateGroupName = stateGroupName;
@@ -195,7 +198,13 @@ bool TreeView::restoreColumnLayout(const QString &stateGroupName)
     connect(header, &QHeaderView::sortIndicatorChanged, this, [this]() {
         d->saveColumnLayout();
     });
-    return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
+
+    const auto success = !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
+
+    if (!success) {
+        d->setupResizing();
+    }
+    return success;
 }
 
 void TreeView::focusInEvent(QFocusEvent *event)
@@ -266,6 +275,22 @@ void TreeView::saveColumnLayout(const QString &stateGroupName)
 {
     d->mStateGroupName = stateGroupName;
     d->saveColumnLayout();
+}
+
+void TreeView::Private::setupResizing()
+{
+    initial = true;
+    for (int i = 0; i < q->model()->columnCount(); i++) {
+        q->resizeColumnToContents(i);
+    }
+    connect(q->model(), &QAbstractItemModel::rowsInserted, q, [this]() {
+        if (initial) {
+            initial = false;
+            for (int i = 0; i < q->model()->columnCount(); i++) {
+                q->resizeColumnToContents(i);
+            }
+        }
+    });
 }
 
 #include "moc_treeview.cpp"

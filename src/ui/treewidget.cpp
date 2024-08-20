@@ -35,6 +35,7 @@ public:
     QList<QAction *> mColumnActions;
     QString mStateGroupName;
     std::vector<bool> mColumnForcedHidden;
+    bool initial = false;
 
     Private(TreeWidget *qq)
         : q(qq)
@@ -46,6 +47,7 @@ public:
         saveColumnLayout();
     }
     void saveColumnLayout();
+    void setupResizing();
 };
 
 TreeWidget::TreeWidget(QWidget *parent)
@@ -104,6 +106,7 @@ void TreeWidget::Private::saveColumnLayout()
 bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
 {
     if (stateGroupName.isEmpty()) {
+        d->setupResizing();
         return false;
     }
     // ensure that the mColumnForcedHidden vector is initialized
@@ -157,7 +160,13 @@ bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
     connect(header, &QHeaderView::sortIndicatorChanged, this, [this]() {
         d->saveColumnLayout();
     });
-    return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
+
+    const auto success = !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
+    if (!success) {
+        d->setupResizing();
+    }
+
+    return success;
 }
 
 bool TreeWidget::eventFilter(QObject *watched, QEvent *event)
@@ -277,6 +286,22 @@ QModelIndex TreeWidget::moveCursor(QAbstractItemView::CursorAction cursorAction,
     setSelectionBehavior(savedSelectionBehavior);
 
     return result;
+}
+
+void TreeWidget::Private::setupResizing()
+{
+    initial = true;
+    for (int i = 0; i < q->model()->columnCount(); i++) {
+        q->resizeColumnToContents(i);
+    }
+    connect(q->model(), &QAbstractItemModel::rowsInserted, q, [this]() {
+        if (initial) {
+            initial = false;
+            for (int i = 0; i < q->model()->columnCount(); i++) {
+                q->resizeColumnToContents(i);
+            }
+        }
+    });
 }
 
 #include "moc_treewidget.cpp"
