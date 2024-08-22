@@ -227,6 +227,19 @@ Key UserIDListModel::key() const
     return mKey;
 }
 
+static std::vector<UserID::Signature> effectiveSignatures(const UserID &userID)
+{
+    std::vector<UserID::Signature> sigs = userID.signatures();
+    std::sort(sigs.begin(), sigs.end());
+    std::reverse(sigs.begin(), sigs.end());
+    auto last = std::unique(sigs.begin(), sigs.end(), [](const auto &sig1, const auto &sig2) {
+        return !qstricmp(sig1.signerKeyID(), sig2.signerKeyID());
+    });
+    sigs.erase(last, sigs.end());
+    std::reverse(sigs.begin(), sigs.end());
+    return sigs;
+}
+
 void UserIDListModel::setKey(const Key &key)
 {
     beginResetModel();
@@ -237,9 +250,8 @@ void UserIDListModel::setKey(const Key &key)
         UserID uid = key.userID(i);
         auto uidItem = new UIDModelItem(uid, mRootItem.get());
         mRootItem->appendChild(uidItem);
-        std::vector<UserID::Signature> sigs = uid.signatures();
-        std::sort(sigs.begin(), sigs.end());
-        for (const auto &sig : sigs) {
+
+        for (const auto &sig : effectiveSignatures(uid)) {
             auto sigItem = new UIDModelItem(sig, uidItem, mRemarksEnabled);
             uidItem->appendChild(sigItem);
         }
