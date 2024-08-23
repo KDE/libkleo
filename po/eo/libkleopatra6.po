@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-16 00:40+0000\n"
-"PO-Revision-Date: 2024-08-02 22:29+0200\n"
+"PO-Revision-Date: 2024-08-22 17:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1106,11 +1106,9 @@ msgid "Name"
 msgstr "Nomo"
 
 #: models/useridlistmodel.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers for an empty email address"
-#| msgid "no email"
+#, kde-format
 msgid "Email"
-msgstr "neniu retpoŝto"
+msgstr "Retpoŝto"
 
 #: models/useridlistmodel.cpp:108
 #, kde-format
@@ -2810,7 +2808,7 @@ msgstr "nevalida"
 #, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr ""
+msgstr "Bone"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3271,13 +3269,3 @@ msgstr "Nevalida deksesum-signo '%1' en eniga fluo."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Tro frua fino de deksesum-kodita signo en eniga fluo"
-
-#~ msgid "E-Mail"
-#~ msgstr "Retpoŝto"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "bona"
-
-#~ msgid "Unknown"
-#~ msgstr "Nekonata"
