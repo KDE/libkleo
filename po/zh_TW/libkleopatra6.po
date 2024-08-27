@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-16 00:40+0000\n"
-"PO-Revision-Date: 2024-06-30 10:35+0900\n"
+"PO-Revision-Date: 2024-08-25 03:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -807,8 +807,7 @@ msgid "E-Mail"
 msgstr "電子郵件"
 
 #: models/keylistmodel.cpp:329
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "狀態"
@@ -889,7 +888,7 @@ msgstr "演算法"
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
-msgstr ""
+msgstr "金鑰鑰柄"
 
 #: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
 #, kde-format
@@ -996,11 +995,9 @@ msgid "Name"
 msgstr "名稱"
 
 #: models/useridlistmodel.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers for an empty email address"
-#| msgid "no email"
+#, kde-format
 msgid "Email"
-msgstr "無電子郵件"
+msgstr "電子郵件"
 
 #: models/useridlistmodel.cpp:108
 #, kde-format
@@ -1041,8 +1038,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "您的系統不支援 GnuPG 稽核紀錄"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "系統錯誤"
@@ -1067,8 +1063,7 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "沒有可用的 GnuPG 稽核紀錄。"
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "沒有 GnuPG 稽核紀錄"
@@ -1090,8 +1085,7 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "無法儲存到檔案 \"%1\"：%2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "檔案儲存錯誤"
@@ -1168,8 +1162,7 @@ msgid ""
 msgstr "使用的 gpgme 函式庫太舊了，因此無法設定目錄服務。"
 
 #: ui/cryptoconfigmodule.cpp:886
-#, fuzzy, kde-format
-#| msgid "Sorry"
+#, kde-format
 msgctxt "@title:window"
 msgid "Sorry"
 msgstr "抱歉"
@@ -1618,38 +1611,32 @@ msgstr "開啟檔案對話框"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "錯誤：請輸入值。"
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr "錯誤：請輸入格式正確的主機名稱，例如 ldap.example.com。"
+msgstr "錯誤：請輸入格式正確的值。"
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1（必要）"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "錯誤"
+msgstr "錯誤：%1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "無效"
+msgstr "無效項目"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1743,8 +1730,7 @@ msgstr "<qt><p>從後端介面 <b>%1</b> 抓取金鑰時發生錯誤。</p></qt>
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "列出金鑰失敗"
@@ -1939,8 +1925,7 @@ msgid "&Search for:"
 msgstr "搜尋(&S)："
 
 #: ui/keyselectiondialog.cpp:465
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "記住選擇(&R)"
@@ -1976,8 +1961,7 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "無法啟動憑證管理員。請檢查安裝是否完全！"
 
 #: ui/keyselectiondialog.cpp:667
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "憑證管理員錯誤"
@@ -2032,8 +2016,7 @@ msgid "Error"
 msgstr "錯誤"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "名稱"
@@ -2041,39 +2024,37 @@ msgstr "名稱"
 #: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "請輸入名稱。"
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "電子郵件地址"
 
 #: ui/nameandemailwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "電子郵件地址"
+msgstr "請輸入一個電子郵件地址。"
 
 #: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "名稱不能包含 <、> 或 @。"
 
 #: ui/nameandemailwidget.cpp:95
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "名稱不能包含小於符號、大於符號，或小老鼠 (at) 符號。"
 
 #: ui/nameandemailwidget.cpp:98
 #, kde-format
 msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
-msgstr ""
+msgstr "名稱必須符合您的組織所要求的格式，並且不能包含 <、> 或 @。"
 
 #: ui/nameandemailwidget.cpp:101
 #, kde-format
@@ -2082,20 +2063,19 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"名稱必須符合您的組織所要求的格式，並且包含小於符號、大於符號，或小老鼠 (at) "
+"符號。"
 
 #: ui/nameandemailwidget.cpp:110
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr "錯誤：請輸入格式正確的主機名稱，例如 ldap.example.com。"
+msgstr "請輸入正確格式的電子郵件地址，如 name@example.com。"
 
 #: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
-msgstr ""
+msgstr "請輸入符合您組織的格式要求的電子郵件地址。"
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2147,29 +2127,25 @@ msgid "Security approval"
 msgstr "安全性確認"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2191,8 +2167,7 @@ msgid "Key generation"
 msgstr "金鑰產生"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Operation Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "操作失敗"
@@ -2254,20 +2229,19 @@ msgstr "產生"
 #: ui/openpgpcertificatecreationdialog.cpp:90
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "用密碼保護產生的金鑰。"
 
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
-msgstr ""
+msgstr "用無法讀出的密碼將私鑰進行加密。產生金鑰時將會向您詢問密碼。"
 
 #: ui/openpgpcertificatecreationdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "進階設定"
+msgstr "進階選項"
 
 #: ui/openpgpcertificatecreationdialog.cpp:102
 #, kde-format
@@ -2276,42 +2250,36 @@ msgid "Key Material"
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@option:check"
 msgid "Valid until:"
-msgstr "有效期限"
+msgstr "有效期限："
 
 #: ui/openpgpcertificatecreationdialog.cpp:142
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "已信任憑證"
+msgstr "建立 OpenPGP 憑證"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "輸入憑證用的名稱及電子郵件地址。"
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "輸入目錄服務伺服器的 IP 位址或主機名稱。"
+msgstr "輸入憑證用的名稱或電子郵件地址。"
 
 #: ui/openpgpcertificatecreationdialog.cpp:295
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "輸入名稱或是電子郵件地址。"
 
 #: ui/openpgpcertificatecreationdialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "此金鑰已停用。"
+msgstr "有問題。"
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2347,17 +2315,15 @@ msgid "View Columns"
 msgstr "檢視欄位"
 
 #: ui/useridselectioncombo.cpp:542
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
-msgstr "我自己的憑證"
+msgstr "顯示憑證列表"
 
 #: ui/useridselectioncombo.cpp:543
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Show certificate list"
-msgstr "我自己的憑證"
+msgstr "顯示憑證列表"
 
 #: utils/compliance.cpp:160
 #, kde-format
@@ -2370,35 +2336,34 @@ msgid "Not VS-NfD compliant"
 msgstr "不合 VS-NfD 規範"
 
 #: utils/expiration.cpp:103
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "此金鑰可供使用。"
+msgstr "日期無法變更。"
 
 #: utils/expiration.cpp:106 utils/expiration.cpp:112
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "輸入在 %1 和 %2 之間的日期。"
 
 #: utils/expiration.cpp:138
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "現在起三年"
 
 #: utils/expiration.cpp:139
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "現在起兩年"
 
 #: utils/expiration.cpp:140
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "現在起一年"
 
 #: utils/formatting.cpp:328
 #, kde-format
@@ -2694,7 +2659,7 @@ msgstr "無效"
 #, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr ""
+msgstr "確定"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -2704,7 +2669,7 @@ msgstr "有效"
 #: utils/formatting.cpp:927
 #, kde-format
 msgid "class %1"
-msgstr ""
+msgstr "類別 %1"
 
 #: utils/formatting.cpp:937
 #, kde-format
@@ -2858,7 +2823,7 @@ msgstr "認證"
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
-msgstr ""
+msgstr "ADSK"
 
 #: utils/formatting.cpp:1175
 #, kde-format
