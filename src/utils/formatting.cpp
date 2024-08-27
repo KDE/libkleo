@@ -28,6 +28,7 @@
 
 #include <KEmailAddress>
 #include <KLocalizedString>
+#include <KMime/Types>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
@@ -1543,4 +1544,243 @@ QString Formatting::prettyAlgorithmName(const std::string &algorithm)
     };
     const auto it = displayNames.find(algorithm);
     return (it != displayNames.end()) ? it->second : i18nc("@info", "Unknown algorithm");
+}
+
+static QString formatValidSignatureWithTrustLevel(const GpgME::UserID &id)
+{
+    if (id.isNull()) {
+        return QString();
+    }
+    switch (id.validity()) {
+    case GpgME::UserID::Marginal:
+        return i18n("The signature is valid but the trust in the certificate's validity is only marginal.");
+    case GpgME::UserID::Full:
+        return i18n("The signature is valid and the certificate's validity is fully trusted.");
+    case GpgME::UserID::Ultimate:
+        return i18n("The signature is valid and the certificate's validity is ultimately trusted.");
+    case GpgME::UserID::Never:
+        return i18n("The signature is valid but the certificate's validity is <em>not trusted</em>.");
+    case GpgME::UserID::Unknown:
+        return i18n("The signature is valid but the certificate's validity is unknown.");
+    case GpgME::UserID::Undefined:
+    default:
+        return i18n("The signature is valid but the certificate's validity is undefined.");
+    }
+}
+
+static QString renderKeyLink(const QString &fpr, const QString &text)
+{
+    return QStringLiteral("<a href=\"key:%1\">%2</a>").arg(fpr, text);
+}
+
+static QString renderKey(const GpgME::Key &key)
+{
+    if (key.isNull()) {
+        return i18n("Unknown certificate");
+    }
+
+    if (key.primaryFingerprint() && strlen(key.primaryFingerprint()) > 16 && key.numUserIDs()) {
+        const QString text = QStringLiteral("%1 (%2)")
+                                 .arg(Kleo::Formatting::prettyNameAndEMail(key).toHtmlEscaped())
+                                 .arg(Kleo::Formatting::prettyID(QString::fromLocal8Bit(key.primaryFingerprint()).right(16).toLatin1().constData()));
+        return renderKeyLink(QLatin1StringView(key.primaryFingerprint()), text);
+    }
+
+    return renderKeyLink(QLatin1StringView(key.primaryFingerprint()), Kleo::Formatting::prettyID(key.primaryFingerprint()));
+}
+
+static QString formatDate(const QDateTime &dt)
+{
+    return QLocale().toString(dt);
+}
+
+static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key)
+{
+    if (sig.isNull()) {
+        return QString();
+    }
+    const QDateTime dt = sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
+    QString text;
+
+    if (key.isNull()) {
+        return text += i18n("With unavailable certificate:") + QStringLiteral("<br>ID: 0x%1").arg(QString::fromLatin1(sig.fingerprint()).toUpper());
+    }
+
+    text += i18n("With certificate: %1", renderKey(key));
+
+    if (Kleo::DeVSCompliance::isCompliant()) {
+        text += (QStringLiteral("<br/>")
+                 + (sig.isDeVs() ? i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
+                                         "The signature is %1",
+                                         Kleo::DeVSCompliance::name(true))
+                                 : i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
+                                         "The signature <b>is not</b> %1.",
+                                         Kleo::DeVSCompliance::name(true))));
+    }
+
+    return text;
+}
+
+static QString signatureSummaryToString(GpgME::Signature::Summary summary)
+{
+    if (summary & GpgME::Signature::None) {
+        return i18n("Error: Signature not verified");
+    } else if (summary & GpgME::Signature::Valid || summary & GpgME::Signature::Green) {
+        return i18n("Good signature");
+    } else if (summary & GpgME::Signature::KeyRevoked) {
+        return i18n("Signing certificate was revoked");
+    } else if (summary & GpgME::Signature::KeyExpired) {
+        return i18n("Signing certificate is expired");
+    } else if (summary & GpgME::Signature::KeyMissing) {
+        return i18n("Certificate is not available");
+    } else if (summary & GpgME::Signature::SigExpired) {
+        return i18n("Signature expired");
+    } else if (summary & GpgME::Signature::CrlMissing) {
+        return i18n("CRL missing");
+    } else if (summary & GpgME::Signature::CrlTooOld) {
+        return i18n("CRL too old");
+    } else if (summary & GpgME::Signature::BadPolicy) {
+        return i18n("Bad policy");
+    } else if (summary & GpgME::Signature::SysError) {
+        return i18n("System error"); // ### retrieve system error details?
+    } else if (summary & GpgME::Signature::Red) {
+        return i18n("Bad signature");
+    }
+    return QString();
+}
+
+static bool addrspec_equal(const KMime::Types::AddrSpec &lhs, const KMime::Types::AddrSpec &rhs, Qt::CaseSensitivity cs)
+{
+    return lhs.localPart.compare(rhs.localPart, cs) == 0 && lhs.domain.compare(rhs.domain, Qt::CaseInsensitive) == 0;
+}
+
+static std::string stripAngleBrackets(const std::string &str)
+{
+    if (str.empty()) {
+        return str;
+    }
+    if (str[0] == '<' && str[str.size() - 1] == '>') {
+        return str.substr(1, str.size() - 2);
+    }
+    return str;
+}
+
+static std::string email(const GpgME::UserID &uid)
+{
+    if (uid.parent().protocol() == GpgME::OpenPGP) {
+        if (const char *const email = uid.email()) {
+            return stripAngleBrackets(email);
+        } else {
+            return std::string();
+        }
+    }
+
+    Q_ASSERT(uid.parent().protocol() == GpgME::CMS);
+
+    if (const char *const id = uid.id())
+        if (*id == '<') {
+            return stripAngleBrackets(id);
+        } else {
+            return Kleo::DN(id)[QStringLiteral("EMAIL")].trimmed().toUtf8().constData();
+        }
+    else {
+        return std::string();
+    }
+}
+
+static bool mailbox_equal(const KMime::Types::Mailbox &lhs, const KMime::Types::Mailbox &rhs, Qt::CaseSensitivity cs)
+{
+    return addrspec_equal(lhs.addrSpec(), rhs.addrSpec(), cs);
+}
+
+KMime::Types::Mailbox Formatting::mailbox(const GpgME::UserID &uid)
+{
+    const std::string e = email(uid);
+    KMime::Types::Mailbox mbox;
+    if (!e.empty()) {
+        mbox.setAddress(e.c_str());
+    }
+    return mbox;
+}
+
+static GpgME::UserID findUserIDByMailbox(const GpgME::Key &key, const KMime::Types::Mailbox &mbox)
+{
+    const auto userIDs{key.userIDs()};
+    for (const GpgME::UserID &id : userIDs) {
+        if (mailbox_equal(Formatting::mailbox(id), mbox, Qt::CaseInsensitive)) {
+            return id;
+        }
+    }
+    return {};
+}
+
+QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const KMime::Types::Mailbox &sender)
+{
+    if (sig.isNull()) {
+        return QString();
+    }
+
+    GpgME::Key key = sig.key();
+    if (key.isNull()) {
+        key = Kleo::KeyCache::instance()->findByFingerprint(sig.fingerprint());
+    }
+    if (key.isNull() && sig.fingerprint()) {
+        // try to find a subkey that was used for signing;
+        // assumes that the key ID is the last 16 characters of the fingerprint
+        const auto fpr = std::string_view{sig.fingerprint()};
+        const auto keyID = std::string{fpr, fpr.size() - 16, 16};
+        const auto subkeys = Kleo::KeyCache::instance()->findSubkeysByKeyID({keyID});
+        if (subkeys.size() > 0) {
+            key = subkeys[0].parent();
+        }
+    }
+
+    const QString text = formatSigningInformation(sig, key) + QLatin1StringView("<br/>");
+
+    // Green
+    if (sig.summary() & GpgME::Signature::Valid) {
+        GpgME::UserID id = findUserIDByMailbox(key, sender);
+        if (id.isNull()) {
+            for (int i = 0, count = key.userIDs().size(); i < count; i++) {
+                id = key.userID(i);
+                qWarning() << id.email();
+                if (!id.isNull()) {
+                    break;
+                }
+            }
+        }
+
+        return text + formatValidSignatureWithTrustLevel(!id.isNull() ? id : key.userID(0));
+    }
+
+    // Red
+    if ((sig.summary() & GpgME::Signature::Red)) {
+        const QString ret = text + i18n("The signature is invalid: %1", signatureSummaryToString(sig.summary()));
+        if (sig.summary() & GpgME::Signature::SysError) {
+            return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sig.status()));
+        }
+        return ret;
+    }
+
+    // Key missing
+    if ((sig.summary() & GpgME::Signature::KeyMissing)) {
+        return text + i18n("You can search the certificate on a keyserver or import it from a file.");
+    }
+
+    // Yellow
+    if ((sig.validity() & GpgME::Signature::Validity::Undefined) //
+        || (sig.validity() & GpgME::Signature::Validity::Unknown) //
+        || (sig.summary() == GpgME::Signature::Summary::None)) {
+        return text
+            + (key.protocol() == GpgME::OpenPGP
+                   ? i18n("The used key is not certified by you or any trusted person.")
+                   : i18n("The used certificate is not certified by a trustworthy Certificate Authority or the Certificate Authority is unknown."));
+    }
+
+    // Catch all fall through
+    const QString ret = text + i18n("The signature is invalid: %1", signatureSummaryToString(sig.summary()));
+    if (sig.summary() & GpgME::Signature::SysError) {
+        return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sig.status()));
+    }
+    return ret;
 }

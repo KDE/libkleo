@@ -208,7 +208,7 @@ if(MINGW)
     set_source_files_properties(utils/gnupg-registry.c PROPERTIES COMPILE_OPTIONS "-Wno-pointer-sign")
 endif()
 
-target_link_libraries(KPim6Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
+target_link_libraries(KPim6Libkleo PUBLIC Gpgmepp KPim6::Mime PRIVATE Qt::Widgets
                                                 KF6::I18n
                                                 KF6::Completion
                                                 KF6::ConfigCore

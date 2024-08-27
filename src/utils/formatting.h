@@ -15,6 +15,7 @@
 
 #include "kleo_export.h"
 
+#include <KMime/Types>
 #include <QStringList>
 
 #include <gpgme++/key.h>
@@ -80,6 +81,17 @@ KLEO_EXPORT QString prettyEMail(const GpgME::UserID::Signature &sig);
 /* Formats a fingerprint or keyid into groups of four */
 KLEO_EXPORT QString prettyID(const char *id);
 KLEO_EXPORT QString accessibleHexID(const char *id);
+
+/**
+ * Formats a signature from a VerificationResult.
+ *
+ * @param signature The signature to display.
+ * @param sender The sender of the signature, if multiple UserIds are found, this will be the displayed one otherwise the first non empty UserID will be
+ * displayed.
+ *
+ * @note The resulting string will contains links to the key in the following format "key:<fingerprint>".
+ */
+KLEO_EXPORT QString prettySignature(const GpgME::Signature &signature, const KMime::Types::Mailbox &senderEMail);
 
 // clang-format off
 enum ToolTipOption {
@@ -231,5 +243,10 @@ KLEO_EXPORT QString errorAsString(const GpgME::Error &error);
  * Returns a name suitable for being displayed for the GPG algorithm name @p algorithm.
  */
 KLEO_EXPORT QString prettyAlgorithmName(const std::string &algorithm);
+
+/**
+ * Returns the mailbox associated to a UserID.
+ */
+KLEO_EXPORT KMime::Types::Mailbox mailbox(const GpgME::UserID &uid);
 }
 }
