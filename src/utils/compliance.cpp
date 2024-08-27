@@ -73,7 +73,7 @@ bool Kleo::DeVSCompliance::allSubkeysAreCompliant(const GpgME::Key &key)
     }
     // and all usable subkeys are compliant
     return Kleo::all_of(key.subkeys(), [](const auto &sub) {
-        return sub.isDeVs() || sub.isExpired() || sub.isRevoked();
+        return sub.isDeVs() || sub.isExpired() || sub.isRevoked() || (!sub.canSign() && !sub.canEncrypt() && !sub.canCertify() && sub.canAuthenticate());
     });
 }
 
