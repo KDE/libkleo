@@ -58,6 +58,7 @@ public:
      * using TreeView::restoreColumnLayout.
      */
     void saveColumnLayout(const QString &stateGroupName);
+    void resizeToContentsLimited();
 Q_SIGNALS:
     void columnEnabled(int column);
     void columnDisabled(int column);

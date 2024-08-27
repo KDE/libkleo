@@ -26,6 +26,8 @@
 
 using namespace Kleo;
 
+static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
+
 class TreeView::Private
 {
     TreeView *q;
@@ -78,6 +80,7 @@ bool TreeView::eventFilter(QObject *watched, QEvent *event)
                     showColumn(col);
                     if (columnWidth(col) == 0 || columnWidth(col) == header()->defaultSectionSize()) {
                         resizeColumnToContents(col);
+                        setColumnWidth(col, std::min(columnWidth(col), MAX_AUTOMATIC_COLUMN_WIDTH));
                     }
                 } else {
                     hideColumn(col);
@@ -266,6 +269,14 @@ void TreeView::saveColumnLayout(const QString &stateGroupName)
 {
     d->mStateGroupName = stateGroupName;
     d->saveColumnLayout();
+}
+
+void TreeView::resizeToContentsLimited()
+{
+    for (int i = 0; i < model()->columnCount(); i++) {
+        resizeColumnToContents(i);
+        setColumnWidth(i, std::min(columnWidth(i), MAX_AUTOMATIC_COLUMN_WIDTH));
+    }
 }
 
 #include "moc_treeview.cpp"

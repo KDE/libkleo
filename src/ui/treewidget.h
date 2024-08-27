@@ -46,6 +46,7 @@ public:
      * apply the default configuration.
      */
     bool restoreColumnLayout(const QString &stateGroupName);
+    void resizeToContentsLimited();
 Q_SIGNALS:
     void columnEnabled(int column);
     void columnDisabled(int column);
