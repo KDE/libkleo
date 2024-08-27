@@ -26,6 +26,8 @@
 
 using namespace Kleo;
 
+static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
+
 class TreeWidget::Private
 {
     TreeWidget *q;
@@ -181,6 +183,7 @@ bool TreeWidget::eventFilter(QObject *watched, QEvent *event)
                     showColumn(col);
                     if (columnWidth(col) == 0 || columnWidth(col) == header()->defaultSectionSize()) {
                         resizeColumnToContents(col);
+                        setColumnWidth(col, std::min(columnWidth(col), MAX_AUTOMATIC_COLUMN_WIDTH));
                     }
                 } else {
                     hideColumn(col);
@@ -277,6 +280,14 @@ QModelIndex TreeWidget::moveCursor(QAbstractItemView::CursorAction cursorAction,
     setSelectionBehavior(savedSelectionBehavior);
 
     return result;
+}
+
+void TreeWidget::resizeToContentsLimited()
+{
+    for (int i = 0; i < model()->columnCount(); i++) {
+        resizeColumnToContents(i);
+        setColumnWidth(i, std::min(columnWidth(i), MAX_AUTOMATIC_COLUMN_WIDTH));
+    }
 }
 
 #include "moc_treewidget.cpp"
