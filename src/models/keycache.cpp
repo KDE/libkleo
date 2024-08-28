@@ -59,7 +59,6 @@
 using namespace std::chrono_literals;
 using namespace Kleo;
 using namespace GpgME;
-using namespace KMime::Types;
 
 static const unsigned int hours2ms = 1000 * 60 * 60;
 

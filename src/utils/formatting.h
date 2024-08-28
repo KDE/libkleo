@@ -15,7 +15,6 @@
 
 #include "kleo_export.h"
 
-#include <KMime/Types>
 #include <QStringList>
 
 #include <gpgme++/key.h>

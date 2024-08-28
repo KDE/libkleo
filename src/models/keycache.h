@@ -28,14 +28,6 @@ class KeyListResult;
 class Subkey;
 }
 
-namespace KMime
-{
-namespace Types
-{
-class Mailbox;
-}
-}
-
 namespace Kleo
 {
 
