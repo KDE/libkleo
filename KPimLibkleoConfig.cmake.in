@@ -3,7 +3,6 @@
 include(CMakeFindDependencyMacro)
 find_dependency(Gpgmepp "@GPGME_REQUIRED_VERSION@")
 find_dependency(QGpgmeQt6 "@GPGME_REQUIRED_VERSION@")
-find_dependency(KPim6Mime "@KPIM_MIME_VERSION@")
 
 set(LIBKLEO_MODULE_PATH "@PACKAGE_FIND_MODULES_INSTALL_DIR@")
 

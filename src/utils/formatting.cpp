@@ -28,7 +28,6 @@
 
 #include <KEmailAddress>
 #include <KLocalizedString>
-#include <KMime/Types>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
@@ -1649,72 +1648,51 @@ static QString signatureSummaryToString(GpgME::Signature::Summary summary)
     return QString();
 }
 
-static bool addrspec_equal(const KMime::Types::AddrSpec &lhs, const KMime::Types::AddrSpec &rhs, Qt::CaseSensitivity cs)
+static QLatin1StringView stripAngleBrackets(const QLatin1StringView &str)
 {
-    return lhs.localPart.compare(rhs.localPart, cs) == 0 && lhs.domain.compare(rhs.domain, Qt::CaseInsensitive) == 0;
-}
-
-static std::string stripAngleBrackets(const std::string &str)
-{
-    if (str.empty()) {
+    if (str.isEmpty()) {
         return str;
     }
     if (str[0] == '<' && str[str.size() - 1] == '>') {
-        return str.substr(1, str.size() - 2);
+        return str.mid(1, str.size() - 2);
     }
     return str;
 }
 
-static std::string email(const GpgME::UserID &uid)
+QString Formatting::email(const GpgME::UserID &uid)
 {
     if (uid.parent().protocol() == GpgME::OpenPGP) {
-        if (const char *const email = uid.email()) {
-            return stripAngleBrackets(email);
-        } else {
-            return std::string();
+        const QLatin1StringView email(uid.email());
+        if (!email.isEmpty()) {
+            return stripAngleBrackets(email).toString();
         }
+        return {};
     }
 
     Q_ASSERT(uid.parent().protocol() == GpgME::CMS);
 
-    if (const char *const id = uid.id())
-        if (*id == '<') {
-            return stripAngleBrackets(id);
-        } else {
-            return Kleo::DN(id)[QStringLiteral("EMAIL")].trimmed().toUtf8().constData();
+    const QLatin1StringView id(uid.id());
+    if (!id.isEmpty()) {
+        if (id[0] == '<') {
+            return stripAngleBrackets(id).toString();
         }
-    else {
-        return std::string();
+        return Kleo::DN(id)[QStringLiteral("EMAIL")].trimmed();
     }
+    return {};
 }
 
-static bool mailbox_equal(const KMime::Types::Mailbox &lhs, const KMime::Types::Mailbox &rhs, Qt::CaseSensitivity cs)
-{
-    return addrspec_equal(lhs.addrSpec(), rhs.addrSpec(), cs);
-}
-
-KMime::Types::Mailbox Formatting::mailbox(const GpgME::UserID &uid)
-{
-    const std::string e = email(uid);
-    KMime::Types::Mailbox mbox;
-    if (!e.empty()) {
-        mbox.setAddress(e.c_str());
-    }
-    return mbox;
-}
-
-static GpgME::UserID findUserIDByMailbox(const GpgME::Key &key, const KMime::Types::Mailbox &mbox)
+static GpgME::UserID findUserIDByMailbox(const GpgME::Key &key, const QString &email)
 {
     const auto userIDs{key.userIDs()};
     for (const GpgME::UserID &id : userIDs) {
-        if (mailbox_equal(Formatting::mailbox(id), mbox, Qt::CaseInsensitive)) {
+        if (Formatting::email(id).compare(email, Qt::CaseInsensitive)) {
             return id;
         }
     }
     return {};
 }
 
-QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const KMime::Types::Mailbox &sender)
+QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QString &sender)
 {
     if (sig.isNull()) {
         return QString();

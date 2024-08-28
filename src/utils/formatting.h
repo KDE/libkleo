@@ -91,7 +91,7 @@ KLEO_EXPORT QString accessibleHexID(const char *id);
  *
  * @note The resulting string will contains links to the key in the following format "key:<fingerprint>".
  */
-KLEO_EXPORT QString prettySignature(const GpgME::Signature &signature, const KMime::Types::Mailbox &senderEMail);
+KLEO_EXPORT QString prettySignature(const GpgME::Signature &signature, const QString &sender);
 
 // clang-format off
 enum ToolTipOption {
@@ -245,8 +245,8 @@ KLEO_EXPORT QString errorAsString(const GpgME::Error &error);
 KLEO_EXPORT QString prettyAlgorithmName(const std::string &algorithm);
 
 /**
- * Returns the mailbox associated to a UserID.
+ * Returns the email associated to a UserID.
  */
-KLEO_EXPORT KMime::Types::Mailbox mailbox(const GpgME::UserID &uid);
+KLEO_EXPORT QString email(const GpgME::UserID &uid);
 }
 }
