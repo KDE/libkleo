@@ -1602,7 +1602,7 @@ static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME
     QString text;
 
     if (key.isNull()) {
-        return text += i18n("With unavailable certificate:") + QStringLiteral("<br>ID: 0x%1").arg(QString::fromLatin1(sig.fingerprint()).toUpper());
+        return text += i18n("With unavailable certificate:") + QStringLiteral("<br/>ID: 0x%1").arg(QString::fromLatin1(sig.fingerprint()).toUpper());
     }
 
     text += i18n("With certificate: %1", renderKey(key));
