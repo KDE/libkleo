@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-30 00:40+0000\n"
-"PO-Revision-Date: 2024-08-16 12:07+0200\n"
+"PO-Revision-Date: 2024-08-31 02:16+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -3286,17 +3286,21 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"La firma es válida, pero la confianza en la validez del certificado es solo "
+"marginal."
 
 #: utils/formatting.cpp:1557
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
+"La firma es válida y se confía totalmente en la validez del certificado."
 
 #: utils/formatting.cpp:1559
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
+"La firma es válida y se confía definitivamente en la validez del certificado."
 
 #: utils/formatting.cpp:1561
 #, kde-format
@@ -3304,131 +3308,122 @@ msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
+"La firma es válida, pero <em>no se confía</em> en la validez del certificado."
 
 #: utils/formatting.cpp:1563
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Se añadieron nuevas firmas a este certificado por la importación."
+msgstr "La firma es válida, pero se desconoce la validez del certificado."
 
 #: utils/formatting.cpp:1566
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "La firma es válida, pero la validez del certificado se ha definido."
 
 #: utils/formatting.cpp:1578
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "Mis propios certificados"
+msgstr "Certificado desconocido"
 
 #: utils/formatting.cpp:1605
-#, fuzzy, kde-format
-#| msgid "All certificates"
+#, kde-format
 msgid "With unavailable certificate:"
-msgstr "Todos los certificados"
+msgstr "Con certificados no disponible:"
 
 #: utils/formatting.cpp:1608
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "With certificate: %1"
-msgstr "Otros certificados"
+msgstr "Con certificado: %1"
 
 #: utils/formatting.cpp:1613
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "Firma buena por %1."
+msgstr "La firma es %1"
 
 #: utils/formatting.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "Firma buena por %1."
+msgstr "La firma <b>no es</b> %1."
 
 #: utils/formatting.cpp:1626
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "Error: firma no verificada"
 
 #: utils/formatting.cpp:1628
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "Firma buena por %1."
+msgstr "Firma buena"
 
 #: utils/formatting.cpp:1630
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "certificado caducado"
+msgstr "El certificado de firma ha sido revocado"
 
 #: utils/formatting.cpp:1632
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "certificado caducado"
+msgstr "El certificado de firma ha caducado"
 
 #: utils/formatting.cpp:1634
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "El certificado no está disponible"
 
 #: utils/formatting.cpp:1636
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "certificado caducado"
+msgstr "Firma caducada"
 
 #: utils/formatting.cpp:1638
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "Falta la CRL"
 
 #: utils/formatting.cpp:1640
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRL demasiado antigua"
 
 #: utils/formatting.cpp:1642
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "Política incorrecta"
 
 #: utils/formatting.cpp:1644
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Error del sistema"
 
 #: utils/formatting.cpp:1646
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "Firma mala por %1: %2"
+msgstr "Firma mala"
 
 #: utils/formatting.cpp:1736 utils/formatting.cpp:1759
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "La clave no es válida."
+msgstr "La firma no es válida: %1"
 
 #: utils/formatting.cpp:1745
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
+"Puede buscar el certificado en un servidor de claves o importarlo de un "
+"archivo."
 
 #: utils/formatting.cpp:1754
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
+"La clave usada no está certificada por usted ni por ninguna persona de "
+"confianza."
 
 #: utils/formatting.cpp:1755
 #, kde-format
@@ -3436,6 +3431,8 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"El certificado usado no está certificado por una autoridad de certificación "
+"de confianza o la autoridad de certificación es desconocida."
 
 #: utils/hex.cpp:35
 #, kde-format

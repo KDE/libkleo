@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-30 00:40+0000\n"
-"PO-Revision-Date: 2024-08-16 21:47+0300\n"
+"PO-Revision-Date: 2024-08-30 08:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3519,17 +3519,19 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"Підпис є дійсний, але впевненість у надійності сертифіката є лише "
+"поверхневою."
 
 #: utils/formatting.cpp:1557
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
-msgstr ""
+msgstr "Підпис є чинним, а надійності сертифіката можна повністю довіряти."
 
 #: utils/formatting.cpp:1559
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
-msgstr ""
+msgstr "Підпис є чинним, а надійності сертифіката можна необмежено довіряти."
 
 #: utils/formatting.cpp:1561
 #, kde-format
@@ -3537,131 +3539,121 @@ msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
+"Підпис є чинним, але надійності сертифіката  <em>не можна довіряти</em>."
 
 #: utils/formatting.cpp:1563
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "До цього сертифіката під час імпортування було додано нові підписи."
+msgstr "Підпис є чинним, але надійність сертифіката є невідомою."
 
 #: utils/formatting.cpp:1566
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "Підпис є чинним, але надійність сертифіката не визначено."
 
 #: utils/formatting.cpp:1578
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "Ваші власні сертифікати"
+msgstr "Невідомий сертифікат"
 
 #: utils/formatting.cpp:1605
-#, fuzzy, kde-format
-#| msgid "All certificates"
+#, kde-format
 msgid "With unavailable certificate:"
-msgstr "Усі сертифікати"
+msgstr "Із недоступним сертифікатом:"
 
 #: utils/formatting.cpp:1608
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "With certificate: %1"
-msgstr "Інші сертифікати"
+msgstr "Із сертифікатом: %1"
 
 #: utils/formatting.cpp:1613
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "Якісне підписування %1."
+msgstr "Підпис є %1"
 
 #: utils/formatting.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "Якісне підписування %1."
+msgstr "Підпис <b>не є</b> %1."
 
 #: utils/formatting.cpp:1626
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "Помилка: підпис не перевірено"
 
 #: utils/formatting.cpp:1628
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "Якісне підписування %1."
+msgstr "Придатний підпис"
 
 #: utils/formatting.cpp:1630
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "строк дії сертифіката минув"
+msgstr "Сертифікат підпису відкликано"
 
 #: utils/formatting.cpp:1632
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "строк дії сертифіката минув"
+msgstr "Строк дії сертифіката підпису збіг"
 
 #: utils/formatting.cpp:1634
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "Сертифікат недоступний"
 
 #: utils/formatting.cpp:1636
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "строк дії сертифіката минув"
+msgstr "Строк дії підпису збіг"
 
 #: utils/formatting.cpp:1638
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "Немає CRL"
 
 #: utils/formatting.cpp:1640
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRL застарий"
 
 #: utils/formatting.cpp:1642
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "Непридатні правила"
 
 #: utils/formatting.cpp:1644
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Системна помилка"
 
 #: utils/formatting.cpp:1646
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "Неякісне підписування %1: %2"
+msgstr "Непридатний підпис"
 
 #: utils/formatting.cpp:1736 utils/formatting.cpp:1759
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "Ключ не є чинним."
+msgstr "Підпис є некоректним: %1"
 
 #: utils/formatting.cpp:1745
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
+"Ви можете пошукати сертифікат на сервері ключів або імпортувати його з файла."
 
 #: utils/formatting.cpp:1754
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
+"Використаний сертифікат не посвідчено ні вами, ні якоюсь іншою надійною "
+"особою."
 
 #: utils/formatting.cpp:1755
 #, kde-format
@@ -3669,6 +3661,8 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"Використаний сертифікат не посвідчено гідною довіри службою сертифікації або "
+"служба сертифікації є невідомою."
 
 #: utils/hex.cpp:35
 #, kde-format

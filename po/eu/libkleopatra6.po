@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-30 00:40+0000\n"
-"PO-Revision-Date: 2024-08-16 09:35+0200\n"
+"PO-Revision-Date: 2024-08-30 12:36+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -3307,17 +3307,21 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"Sinadura balioduna da baina ziurtagiriren baliotasunarekiko konfiantza "
+"bazterrekoa baino ez da."
 
 #: utils/formatting.cpp:1557
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
+"Sinadura balioduna da eta ziurtagiriaren baliotasuna erabateko konfiantza du."
 
 #: utils/formatting.cpp:1559
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
+"Sinadura baloduna da eta ziurtagiriaren baliotasunak muturreko konfiantza du."
 
 #: utils/formatting.cpp:1561
 #, kde-format
@@ -3325,131 +3329,123 @@ msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
+"Sinadura balioduna da baina ziurtagiriaren baliotasunak <em>ez du "
+"konfiantzarik</em>."
 
 #: utils/formatting.cpp:1563
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Ziurtagiri horri, inportatzean, sinadura berriak gehitu zaizkio."
+msgstr "Sinadura balioduna da baina ziurtagiriaren baliotasuna ezezaguna da."
 
 #: utils/formatting.cpp:1566
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
+"Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
 
 #: utils/formatting.cpp:1578
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "Neure ziurtagiriak"
+msgstr "Ziurtagiri ezezaguna"
 
 #: utils/formatting.cpp:1605
-#, fuzzy, kde-format
-#| msgid "All certificates"
+#, kde-format
 msgid "With unavailable certificate:"
-msgstr "Ziurtagiri denak"
+msgstr "Erabilgarri ez dagoen ziurtagiriarekin:"
 
 #: utils/formatting.cpp:1608
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "With certificate: %1"
-msgstr "Beste ziurtagiri batzuk"
+msgstr "Ziurtagiriarekin: %1"
 
 #: utils/formatting.cpp:1613
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "%1(e)ren sinadura ona."
+msgstr "Sinadura %1 da"
 
 #: utils/formatting.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "%1(e)ren sinadura ona."
+msgstr "Sinadura <b>ez da</b> %1."
 
 #: utils/formatting.cpp:1626
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "Errorea: sinadura ez da egiaztatu"
 
 #: utils/formatting.cpp:1628
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "%1(e)ren sinadura ona."
+msgstr "Sinadura ona"
 
 #: utils/formatting.cpp:1630
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "ziurtagiria iraungita"
+msgstr "Sinatzeko ziurtagiria indargabetu da"
 
 #: utils/formatting.cpp:1632
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "ziurtagiria iraungita"
+msgstr "Sinatzeko ziurtagiria iraungita dago"
 
 #: utils/formatting.cpp:1634
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "Ziurtagiria ez dago erabilgarri"
 
 #: utils/formatting.cpp:1636
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "ziurtagiria iraungita"
+msgstr "Sinadura iraungi da"
 
 #: utils/formatting.cpp:1638
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "CRL falta da"
 
 #: utils/formatting.cpp:1640
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRL zaharregia"
 
 #: utils/formatting.cpp:1642
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "Gidalerro ezegokia"
 
 #: utils/formatting.cpp:1644
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Sistemaren errorea"
 
 #: utils/formatting.cpp:1646
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "%1(e)ren sinadura txarra: %2"
+msgstr "Sinadura txarra"
 
 #: utils/formatting.cpp:1736 utils/formatting.cpp:1759
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "Gakoa ez da balioduna."
+msgstr "Sinadura baliogabea da: %1"
 
 #: utils/formatting.cpp:1745
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
+"Ziurtagiria gako-zerbitzari batean bilatu edo fitxategi batetik inporta "
+"dezakezu."
 
 #: utils/formatting.cpp:1754
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
+"Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
 
 #: utils/formatting.cpp:1755
 #, kde-format
@@ -3457,6 +3453,8 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"Erabilitako ziurtagiria ez dago ziurtagiri agintaritza fidagarri batek "
+"ziurtatuta edo ziurtagiri agintaritza ezezaguna da."
 
 #: utils/hex.cpp:35
 #, kde-format
