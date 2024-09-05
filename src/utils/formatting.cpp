@@ -1588,17 +1588,11 @@ static QString renderKey(const GpgME::Key &key)
     return renderKeyLink(QLatin1StringView(key.primaryFingerprint()), Kleo::Formatting::prettyID(key.primaryFingerprint()));
 }
 
-static QString formatDate(const QDateTime &dt)
-{
-    return QLocale().toString(dt);
-}
-
 static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key)
 {
     if (sig.isNull()) {
         return QString();
     }
-    const QDateTime dt = sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
     QString text;
 
     if (key.isNull()) {
