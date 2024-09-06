@@ -1594,12 +1594,21 @@ static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME
         return QString();
     }
     QString text;
+    const QDateTime dt = sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
 
     if (key.isNull()) {
-        return text += i18n("With unavailable certificate:") + QStringLiteral("<br/>ID: 0x%1").arg(QString::fromLatin1(sig.fingerprint()).toUpper());
+        const auto id = QStringLiteral("<br/>ID: 0x%1").arg(QString::fromLatin1(sig.fingerprint()).toUpper());
+        if (dt.isValid()) {
+            return text += i18nc("1 is a date", "Signature created on %1 with unavailable certificate:", QLocale().toString(dt)) + id;
+        }
+        return text += i18n("Signature created with unavailable certificate:") + id;
     }
 
-    text += i18n("With certificate: %1", renderKey(key));
+    if (dt.isValid()) {
+        text += i18nc("1 is a date", "Signature created on %1 with certificate: %2", QLocale().toString(dt), renderKey(key));
+    } else {
+        text += i18n("Signature created with certificate: %1", renderKey(key));
+    }
 
     if (Kleo::DeVSCompliance::isCompliant()) {
         text += (QStringLiteral("<br/>")
