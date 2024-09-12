@@ -393,7 +393,7 @@ static QString time_t2string(time_t t)
 
 static QString make_red(const QString &txt)
 {
-    return QLatin1StringView("<font color=\"red\">") + txt.toHtmlEscaped() + QLatin1String("</font>");
+    return QLatin1StringView("<font color=\"red\">") + txt.toHtmlEscaped() + QLatin1StringView("</font>");
 }
 
 }

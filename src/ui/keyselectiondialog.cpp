@@ -261,7 +261,7 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
     QString keyStatusString;
     if (!checkKeyUsage(key, mKeyUsage, &keyStatusString)) {
         // Show the status in bold if there is a problem
-        keyStatusString = QLatin1StringView("<b>") % keyStatusString % QLatin1String("</b>");
+        keyStatusString = QLatin1StringView("<b>") % keyStatusString % QLatin1StringView("</b>");
     }
 
     QString html = QStringLiteral("<qt><p style=\"style='white-space:pre'\">");

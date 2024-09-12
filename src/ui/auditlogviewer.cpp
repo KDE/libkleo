@@ -116,7 +116,7 @@ void AuditLogViewer::setAuditLog(const QString &log)
         return;
     }
     m_log = log;
-    m_textEdit->setHtml(QLatin1StringView("<qt>") + log + QLatin1String("</qt>"));
+    m_textEdit->setHtml(QLatin1StringView("<qt>") + log + QLatin1StringView("</qt>"));
 }
 
 void AuditLogViewer::slotSaveAs()

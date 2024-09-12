@@ -109,7 +109,7 @@ void Kleo::CryptoConfigModule::init()
             "properly. It did not return any components. "
             "Try running \"%1\" on the command line for more "
             "information.",
-            components.empty() ? QLatin1StringView("gpgconf --list-components") : QLatin1String("gpgconf --list-options gpg"));
+            components.empty() ? QLatin1StringView("gpgconf --list-components") : QLatin1StringView("gpgconf --list-options gpg"));
         auto layout = new QVBoxLayout;
         setLayout(layout);
         auto label = new QLabel(msg, this);

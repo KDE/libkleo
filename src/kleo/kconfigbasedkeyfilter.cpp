@@ -190,7 +190,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         {"is-at-most-", IsAtMost},
     };
     for (unsigned int i = 0; i < sizeof prefixMap / sizeof *prefixMap; ++i) {
-        const QString key = QLatin1StringView(prefixMap[i].prefix) + QLatin1String("ownertrust");
+        const QString key = QLatin1StringView(prefixMap[i].prefix) + QLatin1StringView("ownertrust");
         if (config.hasKey(key)) {
             setOwnerTrust(prefixMap[i].state);
             setOwnerTrustReferenceLevel(map2OwnerTrust(config.readEntry(key, QString())));
@@ -199,7 +199,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
         }
     }
     for (unsigned int i = 0; i < sizeof prefixMap / sizeof *prefixMap; ++i) {
-        const QString key = QLatin1StringView(prefixMap[i].prefix) + QLatin1String("validity");
+        const QString key = QLatin1StringView(prefixMap[i].prefix) + QLatin1StringView("validity");
         if (config.hasKey(key)) {
             setValidity(prefixMap[i].state);
             setValidityReferenceLevel(map2Validity(config.readEntry(key, QString())));
