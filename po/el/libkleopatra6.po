@@ -689,8 +689,7 @@ msgid "All"
 msgstr ""
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All certificates"
 msgstr "Όλα τα πιστοποιητικά"
 
@@ -809,8 +808,7 @@ msgid "Protocol"
 msgstr "(Άγνωστο πρωτόκολλο)"
 
 #: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "ID κλειδιού"
@@ -937,15 +935,7 @@ msgid "Usage"
 msgstr ""
 
 #: models/useridlistmodel.cpp:72
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "no"
@@ -1013,22 +1003,19 @@ msgid "Trust Signature For"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:43
-#, fuzzy, kde-format
-#| msgid "View GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Προβολή καταγραφής επαλήθευσης GnuPG"
 
 #: ui/auditlogviewer.cpp:46
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "&Αντιγραφή στο πρόχειρο"
 
 #: ui/auditlogviewer.cpp:51
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "Απο&θήκευση στο δίσκο..."
@@ -1039,8 +1026,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Το σύστημά σας δεν υποστηρίζει καταγραφή επαλήθευσης GnuPG"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Σφάλμα συστήματος"
@@ -1066,15 +1052,13 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Μη διαθέσιμη καταγραφή επαλήθευσης GnuPG για τη λειτουργία αυτή."
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Χωρίς καταγραφή επαλήθευσης GnuPG"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "Προβολέας καταγραφής επαλήθευσης GnuPG"
@@ -1090,8 +1074,7 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "Αδυναμία αποθήκευσης στο αρχείο \"%1\": %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Σφάλμα αποθήκευσης αρχείου"
@@ -1115,15 +1098,7 @@ msgstr ""
 "για περισσότερες πληροφορίες."
 
 #: ui/cryptoconfigmodule.cpp:538
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
 "whether your language uses Sentence style capitalization in GUI labels (yes) "
@@ -1155,8 +1130,7 @@ msgid "4 - All"
 msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:608
-#, fuzzy, kde-format
-#| msgid "Set the debugging level to"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Ορισμός επιπέδου αποσφαλμάτωσης"
@@ -1270,11 +1244,10 @@ msgstr ""
 "αλληλογραφίας."
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
-msgstr "Επεξεργασία..."
+msgstr "Επεξεργασία"
 
 #: ui/directoryserviceswidget.cpp:217
 #, fuzzy, kde-format
@@ -1300,8 +1273,7 @@ msgstr ""
 "αλληλογραφίας."
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Διαγραφή"
@@ -1341,24 +1313,21 @@ msgid "Description"
 msgstr "Περιγραφή"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Διαθέσιμες ιδιότητες:"
 
 #: ui/dnattributeorderconfigwidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Τρέχουσα σειρά ιδιοτήτων:"
 
 #: ui/dnattributeorderconfigwidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgid "available attributes"
-msgstr "Διαθέσιμες ιδιότητες:"
+msgstr "διαθέσιμες ιδιότητες"
 
 #: ui/dnattributeorderconfigwidget.cpp:107
 #: ui/dnattributeorderconfigwidget.cpp:108
@@ -1385,8 +1354,6 @@ msgid "Remove from current attribute order"
 msgstr "Αφαίρεση από την τρέχουσα σειρά ιδιοτήτων"
 
 #: ui/dnattributeorderconfigwidget.cpp:134
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Μετακίνηση στην κορυφή"
@@ -1418,8 +1385,6 @@ msgid "Move one down"
 msgstr "Μετακίνηση κάτω κατά ένα"
 
 #: ui/dnattributeorderconfigwidget.cpp:155
-#, fuzzy
-#| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Μετακίνηση στο τέλος"
@@ -1429,10 +1394,9 @@ msgid "Move to bottom"
 msgstr "Μετακίνηση στο τέλος"
 
 #: ui/dnattributeorderconfigwidget.cpp:186
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgid "current attribute order"
-msgstr "Τρέχουσα σειρά ιδιοτήτων:"
+msgstr "τρέχουσα σειρά ιδιοτήτων"
 
 #: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
@@ -1440,9 +1404,7 @@ msgid "Host:"
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:103
-#, fuzzy, kde-format
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
@@ -1456,16 +1418,12 @@ msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:116
-#, fuzzy, kde-format
-#| msgid "&Port:"
+#, kde-format
 msgid "Port:"
-msgstr "&Θύρα:"
+msgstr "Θύρα:"
 
 #: ui/editdirectoryservicedialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
-#| "the directory service is listening on."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
@@ -1540,10 +1498,9 @@ msgid ""
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:165
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Password:"
-msgstr "Κωδικός πρόσβασης"
+msgstr "Κωδικός πρόσβασης:"
 
 #: ui/editdirectoryservicedialog.cpp:167
 #, fuzzy, kde-kuit-format
@@ -1629,10 +1586,9 @@ msgid "Advanced Settings"
 msgstr ""
 
 #: ui/editdirectoryservicedialog.cpp:227
-#, fuzzy, kde-format
-#| msgid "&Base DN:"
+#, kde-format
 msgid "Base DN:"
-msgstr "&Βάση DN:"
+msgstr "Βάση DN:"
 
 #: ui/editdirectoryservicedialog.cpp:229
 #, fuzzy, kde-format
@@ -1740,57 +1696,49 @@ msgid "Ask Whenever Encryption is Possible"
 msgstr "Ερώτηση όποτε η κρυπτογράφηση είναι δυνατή"
 
 #: ui/keyapprovaldialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
 msgstr "Έγκριση κλειδιού κρυπτογράφησης"
 
 #: ui/keyapprovaldialog.cpp:118
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "Τα ακόλουθα κλειδιά θα χρησιμοποιηθούν για κρυπτογράφηση:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Your keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Τα κλειδιά σας:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Παραλήπτης:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Κλειδιά κρυπτογράφησης:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Encryption preference:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Προτίμηση κρυπτογράφησης:"
 
 #: ui/keyrequester.cpp:89
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Καθαρισμός"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Αλλαγή..."
@@ -1811,8 +1759,7 @@ msgstr ""
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Η εμφάνιση των κλειδιών απέτυχε"
@@ -2001,22 +1948,19 @@ msgid "Compliance"
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
-#, fuzzy, kde-format
-#| msgid "Search for &External Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Αναζήτηση για &εξωτερικά πιστοποιητικά"
 
 #: ui/keyselectiondialog.cpp:440
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Αναζήτηση για:"
 
 #: ui/keyselectiondialog.cpp:465
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "Α&πομνημόνευση επιλογής"
@@ -2031,15 +1975,13 @@ msgstr ""
 "θα ερωτηθείτε ξανά.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Νέα &ανάγνωση των κλειδιών"
 
 #: ui/keyselectiondialog.cpp:487
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Ε&κκίνηση του διαχειριστή πιστοποιητικών"
@@ -2059,8 +2001,7 @@ msgstr ""
 "εγκατάστασή σας."
 
 #: ui/keyselectiondialog.cpp:667
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Σφάλμα διαχειριστή πιστοποιητικών"
@@ -2101,11 +2042,10 @@ msgid "Recheck Key"
 msgstr "Επανέλεγχος του κλειδιού"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "&Εμφάνιση καταγραφής επαλήθευσης"
+msgstr "Εμφάνιση καταγραφής επαλήθευσης"
 
 #: ui/messagebox.cpp:91
 #, fuzzy, kde-format
@@ -2133,8 +2073,7 @@ msgid "Enter a name."
 msgstr ""
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "Διεύθυνση ηλ. αλληλογραφίας"
@@ -2232,29 +2171,25 @@ msgid "Security approval"
 msgstr "Έγκριση κλειδιού κρυπτογράφησης"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2604,17 +2539,9 @@ msgid "Trusted issuer?"
 msgstr ""
 
 #: utils/formatting.cpp:507
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgid "Yes"
-msgstr "no"
+msgstr "No"
 
 #: utils/formatting.cpp:507
 #, kde-format
@@ -2700,8 +2627,7 @@ msgid "MMMM d, yyyy"
 msgstr ""
 
 #: utils/formatting.cpp:711 utils/formatting.cpp:746
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "άγνωστο"
@@ -2712,8 +2638,7 @@ msgid "unlimited"
 msgstr ""
 
 #: utils/formatting.cpp:815
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2724,11 +2649,10 @@ msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: utils/formatting.cpp:820
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
-msgstr "άγνωστο"
+msgstr "Άγνωστο"
 
 #: utils/formatting.cpp:836
 #, kde-format
@@ -2737,8 +2661,7 @@ msgid "Group"
 msgstr ""
 
 #: utils/formatting.cpp:852 utils/formatting.cpp:897
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "άγνωστο"
@@ -2796,11 +2719,10 @@ msgid "invalid"
 msgstr ""
 
 #: utils/formatting.cpp:884
-#, fuzzy, kde-format
-#| msgid "&OK"
+#, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr "&Εντάξει"
+msgstr "Εντάξει"
 
 #: utils/formatting.cpp:923
 #, kde-format
@@ -3037,8 +2959,7 @@ msgid "This group does not contain any keys."
 msgstr ""
 
 #: utils/formatting.cpp:1315 utils/formatting.cpp:1327
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "άγνωστο"
@@ -3373,8 +3294,7 @@ msgid "Bad policy"
 msgstr ""
 
 #: utils/formatting.cpp:1638
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Σφάλμα συστήματος"
 
