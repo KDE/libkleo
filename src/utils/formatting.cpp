@@ -1599,9 +1599,9 @@ static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME
     if (key.isNull()) {
         const auto id = QStringLiteral("<br/>ID: 0x%1").arg(QString::fromLatin1(sig.fingerprint()).toUpper());
         if (dt.isValid()) {
-            return text += i18nc("1 is a date", "Signature created on %1 with unavailable certificate:", QLocale().toString(dt)) + id;
+            return i18nc("1 is a date", "Signature created on %1 with unavailable certificate: %2", QLocale().toString(dt), id);
         }
-        return text += i18n("Signature created with unavailable certificate:") + id;
+        return i18n("Signature created with unavailable certificate: %1", id);
     }
 
     if (dt.isValid()) {
