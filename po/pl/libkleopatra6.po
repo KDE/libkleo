@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1689794 $
+# Version: $Revision: 1690617 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:40+0000\n"
+"POT-Creation-Date: 2024-09-17 00:40+0000\n"
 "PO-Revision-Date: 2024-09-07 11:31+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -3414,17 +3414,33 @@ msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
 msgid "Unknown certificate"
 msgstr "Nieznany certyfikat"
 
-#: utils/formatting.cpp:1599
-#, kde-format
-msgid "With unavailable certificate:"
+#: utils/formatting.cpp:1602
+#, fuzzy, kde-format
+#| msgid "With unavailable certificate:"
+msgctxt "1 is a date"
+msgid "Signature created on %1 with unavailable certificate: %2"
 msgstr "Z niedostępnym certyfikatem:"
 
-#: utils/formatting.cpp:1602
-#, kde-format
-msgid "With certificate: %1"
-msgstr "Z certyfikatem: %1"
+#: utils/formatting.cpp:1604
+#, fuzzy, kde-format
+#| msgid "With unavailable certificate:"
+msgid "Signature created with unavailable certificate: %1"
+msgstr "Z niedostępnym certyfikatem:"
 
-#: utils/formatting.cpp:1607
+#: utils/formatting.cpp:1608
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "Zły podpis przez nieznany certyfikat: %1"
+
+#: utils/formatting.cpp:1610
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgid "Signature created with certificate: %1"
+msgstr "Zły podpis przez nieznany certyfikat: %1"
+
+#: utils/formatting.cpp:1616
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3432,7 +3448,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "Podpisem jest %1"
 
-#: utils/formatting.cpp:1610
+#: utils/formatting.cpp:1619
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3440,79 +3456,79 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "Podpisem <b>nie</b> jest %1."
 
-#: utils/formatting.cpp:1620
+#: utils/formatting.cpp:1629
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Błąd: nie sprawdzono podpisu"
 
-#: utils/formatting.cpp:1622
+#: utils/formatting.cpp:1631
 #, kde-format
 msgid "Good signature"
 msgstr "Poprawny podpis"
 
-#: utils/formatting.cpp:1624
+#: utils/formatting.cpp:1633
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "Certyfikat podpisujący został unieważniony"
 
-#: utils/formatting.cpp:1626
+#: utils/formatting.cpp:1635
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "Certyfikat podpisujący wygasł"
 
-#: utils/formatting.cpp:1628
+#: utils/formatting.cpp:1637
 #, kde-format
 msgid "Certificate is not available"
 msgstr "Certyfikat jest niedostępny"
 
-#: utils/formatting.cpp:1630
+#: utils/formatting.cpp:1639
 #, kde-format
 msgid "Signature expired"
 msgstr "Podpis wygasł"
 
-#: utils/formatting.cpp:1632
+#: utils/formatting.cpp:1641
 #, kde-format
 msgid "CRL missing"
 msgstr "Brakuje CRL-a"
 
-#: utils/formatting.cpp:1634
+#: utils/formatting.cpp:1643
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL zbyt stary"
 
-#: utils/formatting.cpp:1636
+#: utils/formatting.cpp:1645
 #, kde-format
 msgid "Bad policy"
 msgstr "Błędna polityka"
 
-#: utils/formatting.cpp:1638
+#: utils/formatting.cpp:1647
 #, kde-format
 msgid "System error"
 msgstr "Błąd systemowy"
 
-#: utils/formatting.cpp:1640
+#: utils/formatting.cpp:1649
 #, kde-format
 msgid "Bad signature"
 msgstr "Zły podpis"
 
-#: utils/formatting.cpp:1730 utils/formatting.cpp:1753
+#: utils/formatting.cpp:1739 utils/formatting.cpp:1762
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Podpis jest niepoprawny: %1"
 
-#: utils/formatting.cpp:1739
+#: utils/formatting.cpp:1748
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Możesz poszukać certyfikatu na serwerze kluczy lub zaimportować go z pliku."
 
-#: utils/formatting.cpp:1748
+#: utils/formatting.cpp:1757
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "Ten klucz nie jest certyfikowany ani przez ciebie ani przez zaufaną osobę."
 
-#: utils/formatting.cpp:1749
+#: utils/formatting.cpp:1758
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
@@ -3531,6 +3547,9 @@ msgstr "Nieprawidłowy znak szesnastkowy '%1' w strumieniu wejściowym."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Przedwczesny koniec znaku zapisanego szesnastkowo w strumieniu wejściowym"
+
+#~ msgid "With certificate: %1"
+#~ msgstr "Z certyfikatem: %1"
 
 #~ msgid "E-Mail"
 #~ msgstr "E-mail"

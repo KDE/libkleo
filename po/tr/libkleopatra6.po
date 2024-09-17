@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:40+0000\n"
+"POT-Creation-Date: 2024-09-17 00:40+0000\n"
 "PO-Revision-Date: 2024-08-30 12:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3311,17 +3311,33 @@ msgstr "İmza geçerli; ancak sertifikanın geçerliliği tanımlanmamış."
 msgid "Unknown certificate"
 msgstr "Bilinmeyen sertifika"
 
-#: utils/formatting.cpp:1599
-#, kde-format
-msgid "With unavailable certificate:"
+#: utils/formatting.cpp:1602
+#, fuzzy, kde-format
+#| msgid "With unavailable certificate:"
+msgctxt "1 is a date"
+msgid "Signature created on %1 with unavailable certificate: %2"
 msgstr "Kullanılamayan sertifikayla:"
 
-#: utils/formatting.cpp:1602
-#, kde-format
-msgid "With certificate: %1"
-msgstr "Sertifikayla: %1"
+#: utils/formatting.cpp:1604
+#, fuzzy, kde-format
+#| msgid "With unavailable certificate:"
+msgid "Signature created with unavailable certificate: %1"
+msgstr "Kullanılamayan sertifikayla:"
 
-#: utils/formatting.cpp:1607
+#: utils/formatting.cpp:1608
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "Bilinmeyen bir sertifika tarafından kötü imza: %1"
+
+#: utils/formatting.cpp:1610
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgid "Signature created with certificate: %1"
+msgstr "Bilinmeyen bir sertifika tarafından kötü imza: %1"
+
+#: utils/formatting.cpp:1616
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3329,7 +3345,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "İmza %1"
 
-#: utils/formatting.cpp:1610
+#: utils/formatting.cpp:1619
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3337,81 +3353,81 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "İmza %1 <b>değil</b>."
 
-#: utils/formatting.cpp:1620
+#: utils/formatting.cpp:1629
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Hata: İmza doğrulanmamış"
 
-#: utils/formatting.cpp:1622
+#: utils/formatting.cpp:1631
 #, kde-format
 msgid "Good signature"
 msgstr "İmza iyi"
 
-#: utils/formatting.cpp:1624
+#: utils/formatting.cpp:1633
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "İmzalama sertifikası yürürlükten kaldırılmış"
 
-#: utils/formatting.cpp:1626
+#: utils/formatting.cpp:1635
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "İmzalama sertifikasının süresi dolmuş"
 
-#: utils/formatting.cpp:1628
+#: utils/formatting.cpp:1637
 #, kde-format
 msgid "Certificate is not available"
 msgstr "Sertifika kullanılamıyor"
 
-#: utils/formatting.cpp:1630
+#: utils/formatting.cpp:1639
 #, kde-format
 msgid "Signature expired"
 msgstr "İmzanın süresi dolmuş"
 
-#: utils/formatting.cpp:1632
+#: utils/formatting.cpp:1641
 #, kde-format
 msgid "CRL missing"
 msgstr "Eksik CRL"
 
-#: utils/formatting.cpp:1634
+#: utils/formatting.cpp:1643
 #, kde-format
 msgid "CRL too old"
 msgstr "Pek eski CRL"
 
-#: utils/formatting.cpp:1636
+#: utils/formatting.cpp:1645
 #, kde-format
 msgid "Bad policy"
 msgstr "Kötü politika"
 
-#: utils/formatting.cpp:1638
+#: utils/formatting.cpp:1647
 #, kde-format
 msgid "System error"
 msgstr "Sistem hatası"
 
-#: utils/formatting.cpp:1640
+#: utils/formatting.cpp:1649
 #, kde-format
 msgid "Bad signature"
 msgstr "İmza kötü"
 
-#: utils/formatting.cpp:1730 utils/formatting.cpp:1753
+#: utils/formatting.cpp:1739 utils/formatting.cpp:1762
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "İmza geçersiz: %1"
 
-#: utils/formatting.cpp:1739
+#: utils/formatting.cpp:1748
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Sertifikayı bir anahtar sunucusunda arayabilir veya bir dosyadan içe "
 "aktarabilirsiniz."
 
-#: utils/formatting.cpp:1748
+#: utils/formatting.cpp:1757
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "Kullanılan anahtar siz veya başka bir güvenilir kişi tarafından "
 "sertifikalanmamış."
 
-#: utils/formatting.cpp:1749
+#: utils/formatting.cpp:1758
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
@@ -3429,6 +3445,9 @@ msgstr "Girdi akışında geçersiz onaltılık karakter “%1”."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Girdi akışında onaltılık olarak kodlanan karakterin beklenmedik bitişi"
+
+#~ msgid "With certificate: %1"
+#~ msgstr "Sertifikayla: %1"
 
 #~ msgid "E-Mail"
 #~ msgstr "E-posta"

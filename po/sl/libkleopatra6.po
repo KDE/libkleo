@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1689624 2024-09-06 01:14:14Z scripty $
+# $Id: libkleopatra6.po 1690617 2024-09-17 01:13:49Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:40+0000\n"
+"POT-Creation-Date: 2024-09-17 00:40+0000\n"
 "PO-Revision-Date: 2024-08-30 07:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3464,17 +3464,33 @@ msgstr "Podpis je veljaven, ampak veljavnost potrdila je nedoločena."
 msgid "Unknown certificate"
 msgstr "Neznano potrdilo"
 
-#: utils/formatting.cpp:1599
-#, kde-format
-msgid "With unavailable certificate:"
+#: utils/formatting.cpp:1602
+#, fuzzy, kde-format
+#| msgid "With unavailable certificate:"
+msgctxt "1 is a date"
+msgid "Signature created on %1 with unavailable certificate: %2"
 msgstr "Z nerazpoložljivim potrdilom:"
 
-#: utils/formatting.cpp:1602
-#, kde-format
-msgid "With certificate: %1"
-msgstr "S potrdilom: %1"
+#: utils/formatting.cpp:1604
+#, fuzzy, kde-format
+#| msgid "With unavailable certificate:"
+msgid "Signature created with unavailable certificate: %1"
+msgstr "Z nerazpoložljivim potrdilom:"
 
-#: utils/formatting.cpp:1607
+#: utils/formatting.cpp:1608
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "Slab podpis z neznanim potrdilom: %1"
+
+#: utils/formatting.cpp:1610
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgid "Signature created with certificate: %1"
+msgstr "Slab podpis z neznanim potrdilom: %1"
+
+#: utils/formatting.cpp:1616
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3482,7 +3498,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "Podpis je %1"
 
-#: utils/formatting.cpp:1610
+#: utils/formatting.cpp:1619
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3490,79 +3506,79 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "Podpis <b>ni</b> %1."
 
-#: utils/formatting.cpp:1620
+#: utils/formatting.cpp:1629
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Napaka: Podpis ni preverjen"
 
-#: utils/formatting.cpp:1622
+#: utils/formatting.cpp:1631
 #, kde-format
 msgid "Good signature"
 msgstr "Dober podpis"
 
-#: utils/formatting.cpp:1624
+#: utils/formatting.cpp:1633
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "Podpisno potrdilo je bilo preklicano"
 
-#: utils/formatting.cpp:1626
+#: utils/formatting.cpp:1635
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "Podpisno potrdilo je poteklo"
 
-#: utils/formatting.cpp:1628
+#: utils/formatting.cpp:1637
 #, kde-format
 msgid "Certificate is not available"
 msgstr "Potrdilo ni na voljo"
 
-#: utils/formatting.cpp:1630
+#: utils/formatting.cpp:1639
 #, kde-format
 msgid "Signature expired"
 msgstr "Podpis je potekel"
 
-#: utils/formatting.cpp:1632
+#: utils/formatting.cpp:1641
 #, kde-format
 msgid "CRL missing"
 msgstr "CRL manjka"
 
-#: utils/formatting.cpp:1634
+#: utils/formatting.cpp:1643
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL je prestar"
 
-#: utils/formatting.cpp:1636
+#: utils/formatting.cpp:1645
 #, kde-format
 msgid "Bad policy"
 msgstr "Slaba politika"
 
-#: utils/formatting.cpp:1638
+#: utils/formatting.cpp:1647
 #, kde-format
 msgid "System error"
 msgstr "Sistemska napaka"
 
-#: utils/formatting.cpp:1640
+#: utils/formatting.cpp:1649
 #, kde-format
 msgid "Bad signature"
 msgstr "Slab podpis"
 
-#: utils/formatting.cpp:1730 utils/formatting.cpp:1753
+#: utils/formatting.cpp:1739 utils/formatting.cpp:1762
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Podpis je neveljaven: %1"
 
-#: utils/formatting.cpp:1739
+#: utils/formatting.cpp:1748
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "Potrdilo lahko iščete na strežniku ključev ali ga uvozite iz datoteke."
 
-#: utils/formatting.cpp:1748
+#: utils/formatting.cpp:1757
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "Uporabljenega ključa niste potrdili niti vi niti katerakoli zaupanja vredna "
 "oseba."
 
-#: utils/formatting.cpp:1749
+#: utils/formatting.cpp:1758
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
@@ -3580,6 +3596,9 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
+
+#~ msgid "With certificate: %1"
+#~ msgstr "S potrdilom: %1"
 
 #~ msgid "E-Mail"
 #~ msgstr "E-pošta"
