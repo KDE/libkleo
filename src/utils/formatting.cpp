@@ -1627,7 +1627,7 @@ static QString signatureSummaryToString(GpgME::Signature::Summary summary)
 {
     if (summary & GpgME::Signature::None) {
         return i18n("Error: Signature not verified");
-    } else if (summary & GpgME::Signature::Valid || summary & GpgME::Signature::Green) {
+    } else if ((summary & GpgME::Signature::Valid) || (summary & GpgME::Signature::Green)) {
         return i18n("Good signature");
     } else if (summary & GpgME::Signature::KeyRevoked) {
         return i18n("Signing certificate was revoked");
