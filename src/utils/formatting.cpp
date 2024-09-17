@@ -1610,7 +1610,7 @@ static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME
         text += i18n("Signature created with certificate: %1", renderKey(key));
     }
 
-    if (Kleo::DeVSCompliance::isCompliant()) {
+    if (Kleo::DeVSCompliance::isCompliant() && ((sig.summary() & GpgME::Signature::Valid) || (sig.summary() & GpgME::Signature::Green))) {
         text += (QStringLiteral("<br/>")
                  + (sig.isDeVs() ? i18nc("%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED compliant or VS-NfD compliant",
                                          "The signature is %1",
