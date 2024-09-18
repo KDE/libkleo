@@ -293,7 +293,8 @@ private Q_SLOTS:
                                                    .replace(QRegularExpression{u"on .* using"_s}, u"on TIMESTAMP using"_s);
         QCOMPARE(resultWithoutTimestamp,
                  u"Signature created on TIMESTAMP using an unknown certificate with fingerprint <br/>"
-                 "1DE19 60C29 F97E6 762C4 EA341 820DA AC045 57992 1E0F3 05673<br/>"
+                 "<a href='certificate:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D'>1DE19 60C29 F97E6 762C4 EA341 820DA AC045 57992 1E0F3 "
+                 "05673</a><br/>"
                  "You can search the certificate on a keyserver or import it from a file."_s);
     }
 };
