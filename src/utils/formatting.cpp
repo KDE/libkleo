@@ -1724,7 +1724,6 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
         if (id.isNull()) {
             for (int i = 0, count = key.userIDs().size(); i < count; i++) {
                 id = key.userID(i);
-                qWarning() << id.email();
                 if (!id.isNull()) {
                     break;
                 }
