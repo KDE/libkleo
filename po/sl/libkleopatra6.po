@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1690617 2024-09-17 01:13:49Z scripty $
+# $Id: libkleopatra6.po 1690683 2024-09-18 01:15:20Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-17 00:40+0000\n"
-"PO-Revision-Date: 2024-08-30 07:06+0200\n"
+"PO-Revision-Date: 2024-09-17 06:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -3452,7 +3452,7 @@ msgstr ""
 #: utils/formatting.cpp:1563
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Podpis je veljaven, ampak veljavnost potrdila ni znana."
+msgstr "Podpis je veljaven, ampak veljavnost potrdila je neznana."
 
 #: utils/formatting.cpp:1566
 #, kde-format
@@ -3465,30 +3465,26 @@ msgid "Unknown certificate"
 msgstr "Neznano potrdilo"
 
 #: utils/formatting.cpp:1602
-#, fuzzy, kde-format
-#| msgid "With unavailable certificate:"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with unavailable certificate: %2"
-msgstr "Z nerazpoložljivim potrdilom:"
+msgstr "Podpis ustvarjen na %1 z nerazpoložljivim potrdilom: %2"
 
 #: utils/formatting.cpp:1604
-#, fuzzy, kde-format
-#| msgid "With unavailable certificate:"
+#, kde-format
 msgid "Signature created with unavailable certificate: %1"
-msgstr "Z nerazpoložljivim potrdilom:"
+msgstr "Podpis ustvarjen z nerazpoložljivim potrdilom: %1"
 
 #: utils/formatting.cpp:1608
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "Slab podpis z neznanim potrdilom: %1"
+msgstr "Podpis, ustvarjen na %1 s potrdilom: %2"
 
 #: utils/formatting.cpp:1610
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "Slab podpis z neznanim potrdilom: %1"
+msgstr "Podpis ustvarjen s potrdilom: %1"
 
 #: utils/formatting.cpp:1616
 #, kde-format
