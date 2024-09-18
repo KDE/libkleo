@@ -1590,7 +1590,8 @@ static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME
     const QDateTime dt = sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
 
     if (key.isNull()) {
-        const QString id = u"<br/>"_s + Formatting::prettyID(sig.fingerprint());
+        const auto id =
+            QStringLiteral("<br/><a href='certificate:%1'>%2</a>").arg(QString::fromLatin1(sig.fingerprint()), Formatting::prettyID(sig.fingerprint()));
         if (dt.isValid()) {
             return i18nc("1 is a date", "Signature created on %1 using an unknown certificate with fingerprint %2", QLocale().toString(dt), id);
         }
