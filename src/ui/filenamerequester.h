@@ -40,6 +40,7 @@ public:
     QString nameFilter() const;
 
     void setAccessibleNameOfLineEdit(const QString &name);
+    void setButtonHint(const QString &text);
 
 Q_SIGNALS:
     void fileNameChanged(const QString &filename);

@@ -204,4 +204,10 @@ QString FileNameRequester::requestFileName()
 #endif
 }
 
+void FileNameRequester::setButtonHint(const QString &text)
+{
+    d->button.setToolTip(text);
+    d->button.setAccessibleName(text);
+}
+
 #include "moc_filenamerequester.cpp"
