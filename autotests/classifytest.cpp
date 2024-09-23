@@ -11,6 +11,8 @@
 #include <QTemporaryFile>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
+
 class ClassifyTest : public QObject
 {
     Q_OBJECT
@@ -130,6 +132,24 @@ private Q_SLOTS:
         QCOMPARE(Kleo::outputFileExtension(Kleo::Class::CMS | Kleo::Class::CipherText | Kleo::Class::Ascii, false), QStringLiteral("p7m"));
         QCOMPARE(Kleo::outputFileExtension(Kleo::Class::CMS | Kleo::Class::DetachedSignature | Kleo::Class::Binary, false), QStringLiteral("p7s"));
         QCOMPARE(Kleo::outputFileExtension(Kleo::Class::CMS | Kleo::Class::DetachedSignature | Kleo::Class::Ascii, false), QStringLiteral("p7s"));
+    }
+
+    void test_isFingerprint()
+    {
+        QVERIFY(Kleo::isFingerprint(u"0123456789ABCDEF0123456789abcdef01234567"_s)); // V4 fingerprint
+        QVERIFY(Kleo::isFingerprint(u"0123456789ABCDEF0123456789abcdef0123456789ABCDEF0123456789abcdef"_s)); // V5 fingerprint
+
+        // wrong size
+        QVERIFY(!Kleo::isFingerprint(QString{}));
+        QVERIFY(!Kleo::isFingerprint(u"0123456789ABCDEF"_s));
+        QVERIFY(!Kleo::isFingerprint(u"0123456789ABCDEF0123456789abcdef0123456"_s));
+        QVERIFY(!Kleo::isFingerprint(u"0123456789ABCDEF0123456789abcdef012345678"_s));
+        QVERIFY(!Kleo::isFingerprint(u"0123456789ABCDEF0123456789abcdef0123456789ABCDEF0123456789abcde"_s));
+        QVERIFY(!Kleo::isFingerprint(u"0123456789ABCDEF0123456789abcdef0123456789ABCDEF0123456789abcdef0"_s));
+
+        // wrong characters
+        QVERIFY(!Kleo::isFingerprint(u"0123456789ABCDEF 0123456789abcdef0123456"_s));
+        QVERIFY(!Kleo::isFingerprint(u"0123456789ABCDEFg0123456789abcdef0123456"_s));
     }
 };
 

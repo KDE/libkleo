@@ -34,6 +34,7 @@
 #include <iterator>
 
 using namespace Kleo::Class;
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
@@ -336,8 +337,8 @@ QString Kleo::outputFileExtension(unsigned int classification, bool usePGPFileEx
 
 bool Kleo::isFingerprint(const QString &fpr)
 {
-    static QRegularExpression fprRegex(QStringLiteral("[0-9a-fA-F]{40}"));
-    return fprRegex.match(fpr).hasMatch();
+    static const QRegularExpression fprRegex{QRegularExpression::anchoredPattern(u"[0-9a-fA-F]+"_s)};
+    return (fpr.size() == 40 || fpr.size() == 64) && fprRegex.match(fpr).hasMatch();
 }
 
 bool Kleo::isChecksumFile(const QString &file)
