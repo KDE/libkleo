@@ -1403,8 +1403,14 @@ QString Formatting::prettyID(const char *id)
     if (!id) {
         return QString();
     }
-    QString ret = QString::fromLatin1(id).toUpper().replace(QRegularExpression(QStringLiteral("(....)")), QStringLiteral("\\1 ")).trimmed();
-    // For the standard 10 group fingerprint let us use a double space in the
+    QString ret = QString::fromLatin1(id).toUpper();
+    if (ret.size() == 64) {
+        // looks like a V5 fingerprint; format the first 25 bytes as 10 groups of 5 hex characters
+        ret.truncate(50);
+        return ret.replace(QRegularExpression(QStringLiteral("(.....)")), QStringLiteral("\\1 ")).trimmed();
+    }
+    ret = ret.replace(QRegularExpression(QStringLiteral("(....)")), QStringLiteral("\\1 ")).trimmed();
+    // For the standard 10 group V4 fingerprint let us use a double space in the
     // middle to increase readability
     if (ret.size() == 49) {
         ret.insert(24, QLatin1Char(' '));
@@ -1415,9 +1421,14 @@ QString Formatting::prettyID(const char *id)
 QString Formatting::accessibleHexID(const char *id)
 {
     static const QRegularExpression groupOfFourRegExp{QStringLiteral("(?:(.)(.)(.)(.))")};
+    static const QRegularExpression groupOfFiveRegExp{QStringLiteral("(?:(.)(.)(.)(.)(.))")};
 
     QString ret;
     ret = QString::fromLatin1(id);
+    if (ret.size() == 64) {
+        ret.truncate(50);
+        return ret.replace(groupOfFiveRegExp, QStringLiteral("\\1 \\2 \\3 \\4 \\5, ")).chopped(2);
+    }
     if (!ret.isEmpty() && (ret.size() % 4 == 0)) {
         ret = ret.replace(groupOfFourRegExp, QStringLiteral("\\1 \\2 \\3 \\4, ")).chopped(2);
     }
