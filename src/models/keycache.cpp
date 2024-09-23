@@ -179,6 +179,11 @@ public:
 
     std::vector<Key> find_mailbox(const QString &email, bool sign) const;
 
+    std::vector<Subkey>::const_iterator find_subkeyfpr(const char *subkeyfpr) const
+    {
+        return find<_detail::BySubkeyFingerprint>(by.subkeyfpr, subkeyfpr);
+    }
+
     std::vector<Subkey>::const_iterator find_keygrip(const char *keygrip) const
     {
         return find<_detail::ByKeyGrip>(by.keygrip, keygrip);
@@ -429,7 +434,7 @@ private:
     struct By {
         std::vector<Key> fpr, keyid, shortkeyid, chainid;
         std::vector<std::pair<std::string, Key>> email;
-        std::vector<Subkey> subkeyid, keygrip;
+        std::vector<Subkey> subkeyfpr, subkeyid, keygrip;
     } by;
     bool m_initalized;
     bool m_pgpOnly;
@@ -786,6 +791,17 @@ std::vector<Subkey> KeyCache::findSubkeysByKeyID(const std::vector<std::string> 
     return result;
 }
 
+const GpgME::Subkey &KeyCache::findSubkeyByFingerprint(const std::string &fpr) const
+{
+    static const Subkey null;
+
+    const auto it = d->find_subkeyfpr(fpr.c_str());
+    if (it != d->by.subkeyfpr.end()) {
+        return *it;
+    }
+    return null;
+}
+
 std::vector<Key> KeyCache::findRecipients(const DecryptionResult &res) const
 {
     std::vector<std::string> keyids;
@@ -1083,6 +1099,13 @@ void KeyCache::remove(const Key &key)
 
     const auto keySubKeys{key.subkeys()};
     for (const Subkey &subkey : keySubKeys) {
+        if (const char *subkeyfpr = subkey.fingerprint()) {
+            const auto range = std::equal_range(d->by.subkeyfpr.begin(), d->by.subkeyfpr.end(), subkeyfpr, _detail::BySubkeyFingerprint<std::less>());
+            const auto it = std::remove_if(range.first, range.second, [fpr](const Subkey &subkey) {
+                return !qstricmp(fpr, subkey.parent().primaryFingerprint());
+            });
+            d->by.subkeyfpr.erase(it, range.second);
+        }
         if (const char *keyid = subkey.keyID()) {
             const auto range = std::equal_range(d->by.subkeyid.begin(), d->by.subkeyid.end(), keyid, _detail::ByKeyID<std::less>());
             const auto it = std::remove_if(range.first, range.second, [fpr](const Subkey &subkey) {
@@ -1364,11 +1387,25 @@ void KeyCache::insert(const std::vector<Key> &keys)
     by_keygrip.reserve(subkeys.size() + d->by.keygrip.size());
     std::merge(subkeys.begin(), subkeys.end(), d->by.keygrip.begin(), d->by.keygrip.end(), std::back_inserter(by_keygrip), _detail::ByKeyGrip<std::less>());
 
+    // 6e sort by fingerprint:
+    std::sort(subkeys.begin(), subkeys.end(), _detail::BySubkeyFingerprint<std::less>());
+
+    // 6f. insert into subkey fingerprint index:
+    std::vector<Subkey> by_subkeyfpr;
+    by_subkeyfpr.reserve(subkeys.size() + d->by.subkeyfpr.size());
+    std::merge(subkeys.begin(),
+               subkeys.end(),
+               d->by.subkeyfpr.begin(),
+               d->by.subkeyfpr.end(),
+               std::back_inserter(by_subkeyfpr),
+               _detail::BySubkeyFingerprint<std::less>());
+
     // now commit (well, we already removed keys...)
     by_fpr.swap(d->by.fpr);
     by_keyid.swap(d->by.keyid);
     by_shortkeyid.swap(d->by.shortkeyid);
     by_email.swap(d->by.email);
+    by_subkeyfpr.swap(d->by.subkeyfpr);
     by_subkeyid.swap(d->by.subkeyid);
     by_keygrip.swap(d->by.keygrip);
     by_chainid.swap(d->by.chainid);

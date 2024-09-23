@@ -157,6 +157,8 @@ public:
 
     std::vector<GpgME::Subkey> findSubkeysByKeyID(const std::vector<std::string> &ids) const;
 
+    const GpgME::Subkey &findSubkeyByFingerprint(const std::string &fpr) const;
+
     std::vector<GpgME::Key> findRecipients(const GpgME::DecryptionResult &result) const;
     std::vector<GpgME::Key> findSigners(const GpgME::VerificationResult &result) const;
 

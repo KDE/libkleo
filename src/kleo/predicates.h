@@ -82,6 +82,7 @@ inline int mystrcmp(const char *s1, const char *s2)
 #define make_comparator_str(Name, expr) make_comparator_str_impl(Name, expr, qstricmp(lhs, rhs))
 
 make_comparator_str_fast(ByFingerprint, .primaryFingerprint());
+make_comparator_str_fast(BySubkeyFingerprint, .fingerprint());
 make_comparator_str_fast(ByKeyID, .keyID());
 make_comparator_str_fast(ByShortKeyID, .shortKeyID());
 make_comparator_str_fast(ByChainID, .chainID());
