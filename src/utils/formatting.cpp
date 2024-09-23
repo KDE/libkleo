@@ -1589,14 +1589,9 @@ static QString renderKey(const GpgME::Key &key)
         return i18n("Unknown certificate");
     }
 
-    if (key.primaryFingerprint() && strlen(key.primaryFingerprint()) > 16 && key.numUserIDs()) {
-        const QString text = QStringLiteral("%1 (%2)")
-                                 .arg(Kleo::Formatting::prettyNameAndEMail(key).toHtmlEscaped())
-                                 .arg(Kleo::Formatting::prettyID(QString::fromLocal8Bit(key.primaryFingerprint()).right(16).toLatin1().constData()));
-        return renderKeyLink(QLatin1StringView(key.primaryFingerprint()), text);
-    }
-
-    return renderKeyLink(QLatin1StringView(key.primaryFingerprint()), Kleo::Formatting::prettyID(key.primaryFingerprint()));
+    return renderKeyLink(
+        QLatin1StringView(key.primaryFingerprint()),
+        i18nc("User ID (Key ID)", "%1 (%2)").arg(Formatting::prettyNameAndEMail(key).toHtmlEscaped(), Formatting::prettyID(key.subkey(0).keyID())));
 }
 
 static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key)
