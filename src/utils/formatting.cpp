@@ -1709,20 +1709,7 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
         return QString();
     }
 
-    GpgME::Key key = sig.key();
-    if (key.isNull()) {
-        key = Kleo::KeyCache::instance()->findByFingerprint(sig.fingerprint());
-    }
-    if (key.isNull() && sig.fingerprint()) {
-        // try to find a subkey that was used for signing;
-        // assumes that the key ID is the last 16 characters of the fingerprint
-        const auto fpr = std::string_view{sig.fingerprint()};
-        const auto keyID = std::string{fpr, fpr.size() - 16, 16};
-        const auto subkeys = Kleo::KeyCache::instance()->findSubkeysByKeyID({keyID});
-        if (subkeys.size() > 0) {
-            key = subkeys[0].parent();
-        }
-    }
+    const GpgME::Key key = Kleo::KeyCache::instance()->findSigner(sig);
 
     const QString text = formatSigningInformation(sig, key) + QLatin1StringView("<br/>");
 
