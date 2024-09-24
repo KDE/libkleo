@@ -25,6 +25,7 @@ class Key;
 class DecryptionResult;
 class VerificationResult;
 class KeyListResult;
+class Signature;
 class Subkey;
 }
 
@@ -160,6 +161,7 @@ public:
     const GpgME::Subkey &findSubkeyByFingerprint(const std::string &fpr) const;
 
     std::vector<GpgME::Key> findRecipients(const GpgME::DecryptionResult &result) const;
+    GpgME::Key findSigner(const GpgME::Signature &signature) const;
     std::vector<GpgME::Key> findSigners(const GpgME::VerificationResult &result) const;
 
     std::vector<GpgME::Key> findSigningKeysByMailbox(const QString &mb) const;

@@ -72,6 +72,11 @@ ecm_add_tests(
     LINK_LIBRARIES KPim6::Libkleo Qt::Test
 )
 
+ecm_add_tests(
+    keycachetest.cpp
+    LINK_LIBRARIES KPim6::Libkleo Qt::Test
+)
+
 ecm_add_test(
     keyparameterstest.cpp
     TEST_NAME keyparameterstest

@@ -821,16 +821,36 @@ std::vector<Key> KeyCache::findRecipients(const DecryptionResult &res) const
     return result;
 }
 
-std::vector<Key> KeyCache::findSigners(const VerificationResult &res) const
+GpgME::Key KeyCache::findSigner(const GpgME::Signature &signature) const
 {
-    std::vector<std::string> fprs;
-    const auto signatures = res.signatures();
-    for (const Signature &s : signatures) {
-        if (const char *fpr = s.fingerprint()) {
-            fprs.push_back(fpr);
+    if (signature.isNull()) {
+        return {};
+    }
+
+    GpgME::Key key = signature.key();
+    if (key.isNull() && signature.fingerprint()) {
+        key = findByFingerprint(signature.fingerprint());
+    }
+    if (key.isNull() && signature.fingerprint()) {
+        // try to find a subkey that was used for signing
+        const auto subkey = findSubkeyByFingerprint(signature.fingerprint());
+        if (!subkey.isNull()) {
+            key = subkey.parent();
         }
     }
-    return findByKeyIDOrFingerprint(fprs);
+    return key;
+}
+
+std::vector<Key> KeyCache::findSigners(const VerificationResult &res) const
+{
+    std::vector<Key> signers;
+    if (res.numSignatures() > 0) {
+        signers.reserve(res.numSignatures());
+        Kleo::transform(res.signatures(), std::back_inserter(signers), [this](const auto &sig) {
+            return findSigner(sig);
+        });
+    }
+    return signers;
 }
 
 std::vector<Key> KeyCache::findSigningKeysByMailbox(const QString &mb) const
