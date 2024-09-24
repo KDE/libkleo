@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-19 00:40+0000\n"
+"POT-Creation-Date: 2024-09-24 00:39+0000\n"
 "PO-Revision-Date: 2007-04-21 12:00+0200\n"
 "Last-Translator: Rinse de Vries <rinsedevries@kde.nl>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2980,230 +2980,240 @@ msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr ""
 
-#: utils/formatting.cpp:1431
+#: utils/formatting.cpp:1442
 #, fuzzy, kde-format
 #| msgid "never"
 msgid "Keyserver"
 msgstr "nea"
 
-#: utils/formatting.cpp:1439
+#: utils/formatting.cpp:1450
 #, kde-format
 msgid "File import"
 msgstr ""
 
-#: utils/formatting.cpp:1441
+#: utils/formatting.cpp:1452
 #, fuzzy, kde-format
 #| msgid "General"
 msgid "Generated"
 msgstr "Algemien"
 
-#: utils/formatting.cpp:1481
+#: utils/formatting.cpp:1492
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1485
+#: utils/formatting.cpp:1496
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1522
+#: utils/formatting.cpp:1533
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1523
+#: utils/formatting.cpp:1534
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1524
+#: utils/formatting.cpp:1535
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr ""
 
-#: utils/formatting.cpp:1525
+#: utils/formatting.cpp:1536
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1526
+#: utils/formatting.cpp:1537
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr ""
 
-#: utils/formatting.cpp:1527
+#: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1528
+#: utils/formatting.cpp:1539
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
 msgstr ""
 
-#: utils/formatting.cpp:1529
+#: utils/formatting.cpp:1540
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1530
+#: utils/formatting.cpp:1541
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
 msgstr ""
 
-#: utils/formatting.cpp:1531
+#: utils/formatting.cpp:1542
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1532
+#: utils/formatting.cpp:1543
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1533
+#: utils/formatting.cpp:1544
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr ""
 
-#: utils/formatting.cpp:1534
+#: utils/formatting.cpp:1545
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1535
+#: utils/formatting.cpp:1546
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr ""
 
-#: utils/formatting.cpp:1536
+#: utils/formatting.cpp:1547
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr ""
 
-#: utils/formatting.cpp:1537
+#: utils/formatting.cpp:1548
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr ""
 
-#: utils/formatting.cpp:1538
+#: utils/formatting.cpp:1549
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1539
+#: utils/formatting.cpp:1550
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr ""
 
-#: utils/formatting.cpp:1540
+#: utils/formatting.cpp:1551
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1541
+#: utils/formatting.cpp:1552
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr ""
 
-#: utils/formatting.cpp:1542
+#: utils/formatting.cpp:1553
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr ""
 
-#: utils/formatting.cpp:1545
+#: utils/formatting.cpp:1556
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
 msgstr ""
 
-#: utils/formatting.cpp:1555
+#: utils/formatting.cpp:1566
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
 
-#: utils/formatting.cpp:1557
+#: utils/formatting.cpp:1568
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
 
-#: utils/formatting.cpp:1559
+#: utils/formatting.cpp:1570
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
 
-#: utils/formatting.cpp:1561
+#: utils/formatting.cpp:1572
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
 
-#: utils/formatting.cpp:1563
+#: utils/formatting.cpp:1574
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr ""
 
-#: utils/formatting.cpp:1566
+#: utils/formatting.cpp:1577
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
-#: utils/formatting.cpp:1578
+#: utils/formatting.cpp:1589
 #, kde-format
 msgid "Unknown certificate"
 msgstr ""
 
-#: utils/formatting.cpp:1602
+#: utils/formatting.cpp:1594
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
+#| "implementation name)"
+#| msgid "%1 (%2)"
+msgctxt "User ID (Key ID)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp:1608
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with unavailable certificate: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1604
+#: utils/formatting.cpp:1610
 #, kde-format
 msgid "Signature created with unavailable certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1608
+#: utils/formatting.cpp:1614
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1610
+#: utils/formatting.cpp:1616
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1616
+#: utils/formatting.cpp:1622
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3211,7 +3221,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr ""
 
-#: utils/formatting.cpp:1619
+#: utils/formatting.cpp:1625
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3219,77 +3229,77 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr ""
 
-#: utils/formatting.cpp:1629
+#: utils/formatting.cpp:1635
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr ""
 
-#: utils/formatting.cpp:1631
+#: utils/formatting.cpp:1637
 #, kde-format
 msgid "Good signature"
 msgstr ""
 
-#: utils/formatting.cpp:1633
+#: utils/formatting.cpp:1639
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr ""
 
-#: utils/formatting.cpp:1635
+#: utils/formatting.cpp:1641
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr ""
 
-#: utils/formatting.cpp:1637
+#: utils/formatting.cpp:1643
 #, kde-format
 msgid "Certificate is not available"
 msgstr ""
 
-#: utils/formatting.cpp:1639
+#: utils/formatting.cpp:1645
 #, kde-format
 msgid "Signature expired"
 msgstr ""
 
-#: utils/formatting.cpp:1641
+#: utils/formatting.cpp:1647
 #, kde-format
 msgid "CRL missing"
 msgstr ""
 
-#: utils/formatting.cpp:1643
+#: utils/formatting.cpp:1649
 #, kde-format
 msgid "CRL too old"
 msgstr ""
 
-#: utils/formatting.cpp:1645
+#: utils/formatting.cpp:1651
 #, kde-format
 msgid "Bad policy"
 msgstr ""
 
-#: utils/formatting.cpp:1647
+#: utils/formatting.cpp:1653
 #, kde-format
 msgid "System error"
 msgstr ""
 
-#: utils/formatting.cpp:1649
+#: utils/formatting.cpp:1655
 #, kde-format
 msgid "Bad signature"
 msgstr ""
 
-#: utils/formatting.cpp:1738 utils/formatting.cpp:1761
+#: utils/formatting.cpp:1744 utils/formatting.cpp:1767
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1747
+#: utils/formatting.cpp:1753
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 
-#: utils/formatting.cpp:1756
+#: utils/formatting.cpp:1762
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 
-#: utils/formatting.cpp:1757
+#: utils/formatting.cpp:1763
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
@@ -3573,12 +3583,6 @@ msgstr ""
 
 #~ msgid "failed"
 #~ msgstr "mislearre"
-
-#~ msgctxt ""
-#~ "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#~ "implementation name)"
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
 
 #~ msgid "Available Backends"
 #~ msgstr "Beskikbere backends"
