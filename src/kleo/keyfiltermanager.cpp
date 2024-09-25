@@ -88,9 +88,10 @@ public:
     {
         setSpecificity(UINT_MAX); // overly high for ordering
         setName(i18nc("All Certificates", "All"));
-        setDescription(i18n("All certificates"));
+        setDescription(i18n("All certificates (except disabled ones)"));
         setId(QStringLiteral("all-certificates"));
         setMatchContexts(Filtering);
+        setDisabled(NotSet);
     }
 };
 
@@ -102,9 +103,10 @@ public:
     {
         setHasSecret(Set);
         setSpecificity(UINT_MAX - 2); // overly high for ordering
+        setDisabled(NotSet);
 
         setName(i18nc("My own Certificates", "My Own"));
-        setDescription(i18n("My own certificates"));
+        setDescription(i18n("My own certificates (except disabled ones)"));
         setId(QStringLiteral("my-certificates"));
         setMatchContexts(AnyMatchContext);
         setBold(true);
@@ -121,9 +123,10 @@ public:
         setValidity(IsAtLeast);
         setValidityReferenceLevel(UserID::Full);
         setSpecificity(UINT_MAX - 4);
+        setDisabled(NotSet);
 
         setName(i18nc("Certified Certificates", "Certified"));
-        setDescription(i18n("Certificates for which the primary user ID is certified"));
+        setDescription(i18n("Certificates for which the primary user ID is certified (except disabled ones)"));
         setId(QStringLiteral("trusted-certificates"));
         setMatchContexts(Filtering);
     }
@@ -139,9 +142,10 @@ public:
         setValidity(IsAtMost);
         setValidityReferenceLevel(UserID::Marginal);
         setSpecificity(UINT_MAX - 6); // overly high for ordering
+        setDisabled(NotSet);
 
         setName(i18nc("Not Certified Certificates", "Not Certified"));
-        setDescription(i18n("Certificates for which the primary user ID is not certified"));
+        setDescription(i18n("Certificates for which the primary user ID is not certified (except disabled ones)"));
         setId(QStringLiteral("other-certificates"));
         setMatchContexts(Filtering);
     }
@@ -157,12 +161,13 @@ public:
     {
         setSpecificity(UINT_MAX - 7); // overly high for ordering
         setName(i18nc("Certificates to certify by the user", "To Certify"));
-        setDescription(i18n("Certificates that are not fully certified and that you may want to certify yourself"));
+        setDescription(i18n("Certificates that are not fully certified and that you may want to certify yourself (except disabled ones)"));
         setId(QStringLiteral("not-certified-certificates"));
 
         setMatchContexts(Filtering);
         setIsOpenPGP(Set);
         setIsBad(NotSet);
+        setDisabled(NotSet);
     }
     bool matches(const Key &key, MatchContexts contexts) const override
     {
@@ -185,9 +190,10 @@ public:
         setSpecificity(UINT_MAX - 5); // overly high for ordering
 
         setName(i18nc("Not Fully Certified Certificates", "Not Fully Certified"));
-        setDescription(i18n("Certificates for which not all user IDs are certified"));
+        setDescription(i18n("Certificates for which not all user IDs are certified (except disabled ones)"));
         setId(QStringLiteral("not-validated-certificates"));
         setMatchContexts(Filtering);
+        setDisabled(NotSet);
     }
     bool matches(const Key &key, MatchContexts contexts) const override
     {
@@ -209,9 +215,10 @@ public:
     {
         setSpecificity(UINT_MAX - 3);
         setName(i18nc("Fully Certified Certificates", "Fully Certified"));
-        setDescription(i18n("Certificates for which all user IDs are certified"));
+        setDescription(i18n("Certificates for which all user IDs are certified (except disabled ones)"));
         setId(QStringLiteral("full-certificates"));
         setMatchContexts(Filtering);
+        setDisabled(NotSet);
     }
     bool matches(const Key &key, MatchContexts contexts) const override
     {
