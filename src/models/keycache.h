@@ -142,9 +142,6 @@ public:
      */
     KeyGroup findGroup(const QString &name, GpgME::Protocol protocol, KeyUsage usage) const;
 
-    const GpgME::Key &findByShortKeyID(const char *id) const;
-    const GpgME::Key &findByShortKeyID(const std::string &id) const;
-
     const GpgME::Key &findByKeyIDOrFingerprint(const char *id) const;
     const GpgME::Key &findByKeyIDOrFingerprint(const std::string &id) const;
 

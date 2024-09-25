@@ -199,11 +199,6 @@ public:
         return find<_detail::ByKeyID>(by.keyid, keyid);
     }
 
-    std::vector<Key>::const_iterator find_shortkeyid(const char *shortkeyid) const
-    {
-        return find<_detail::ByShortKeyID>(by.shortkeyid, shortkeyid);
-    }
-
     std::pair<std::vector<Key>::const_iterator, std::vector<Key>::const_iterator> find_subjects(const char *chain_id) const
     {
         ensureCachePopulated();
@@ -432,7 +427,7 @@ private:
     int m_refreshInterval;
 
     struct By {
-        std::vector<Key> fpr, keyid, shortkeyid, chainid;
+        std::vector<Key> fpr, keyid, chainid;
         std::vector<std::pair<std::string, Key>> email;
         std::vector<Subkey> subkeyfpr, subkeyid, keygrip;
     } by;
@@ -644,21 +639,6 @@ std::vector<Key> KeyCache::findByEMailAddress(const std::string &email) const
     return findByEMailAddress(email.c_str());
 }
 
-const Key &KeyCache::findByShortKeyID(const char *id) const
-{
-    const std::vector<Key>::const_iterator it = d->find_shortkeyid(id);
-    if (it != d->by.shortkeyid.end()) {
-        return *it;
-    }
-    static const Key null;
-    return null;
-}
-
-const Key &KeyCache::findByShortKeyID(const std::string &id) const
-{
-    return findByShortKeyID(id.c_str());
-}
-
 const Key &KeyCache::findByKeyIDOrFingerprint(const char *id) const
 {
     {
@@ -705,7 +685,7 @@ std::vector<Key> KeyCache::findByKeyIDOrFingerprint(const std::vector<std::strin
                               std::back_inserter(result),
                               _detail::ByFingerprint<std::less>());
     if (result.size() < keyids.size()) {
-        // note that By{Fingerprint,KeyID,ShortKeyID} define the same
+        // note that By{Fingerprint,KeyID} define the same
         // order for _strings_
         kdtools::set_intersection(d->by.keyid.begin(),
                                   d->by.keyid.end(),
@@ -1094,14 +1074,6 @@ void KeyCache::remove(const Key &key)
         d->by.keyid.erase(it, range.second);
     }
 
-    if (const char *shortkeyid = key.shortKeyID()) {
-        const auto range = std::equal_range(d->by.shortkeyid.begin(), d->by.shortkeyid.end(), shortkeyid, _detail::ByShortKeyID<std::less>());
-        const auto it = std::remove_if(range.first, range.second, [fpr](const GpgME::Key &key) {
-            return _detail::ByFingerprint<std::equal_to>()(fpr, key);
-        });
-        d->by.shortkeyid.erase(it, range.second);
-    }
-
     if (const char *chainid = key.chainID()) {
         const auto range = std::equal_range(d->by.chainid.begin(), d->by.chainid.end(), chainid, _detail::ByChainID<std::less>());
         const auto range2 = std::equal_range(range.first, range.second, fpr, _detail::ByFingerprint<std::less>());
@@ -1368,18 +1340,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     by_keyid.reserve(sorted.size() + d->by.keyid.size());
     std::merge(sorted.begin(), sorted.end(), d->by.keyid.begin(), d->by.keyid.end(), std::back_inserter(by_keyid), _detail::ByKeyID<std::less>());
 
-    // 5. sort by short key id:
-    std::sort(sorted.begin(), sorted.end(), _detail::ByShortKeyID<std::less>());
-
-    // 5a. insert into short keyid index:
-    std::vector<Key> by_shortkeyid;
-    by_shortkeyid.reserve(sorted.size() + d->by.shortkeyid.size());
-    std::merge(sorted.begin(),
-               sorted.end(),
-               d->by.shortkeyid.begin(),
-               d->by.shortkeyid.end(),
-               std::back_inserter(by_shortkeyid),
-               _detail::ByShortKeyID<std::less>());
+    // 5. has been removed
 
     // 6. build subkey ID index:
     std::vector<Subkey> subkeys;
@@ -1423,7 +1384,6 @@ void KeyCache::insert(const std::vector<Key> &keys)
     // now commit (well, we already removed keys...)
     by_fpr.swap(d->by.fpr);
     by_keyid.swap(d->by.keyid);
-    by_shortkeyid.swap(d->by.shortkeyid);
     by_email.swap(d->by.email);
     by_subkeyfpr.swap(d->by.subkeyfpr);
     by_subkeyid.swap(d->by.subkeyid);
