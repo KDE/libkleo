@@ -246,9 +246,7 @@ public:
     }
     void clear()
     {
-        model.beginResetModel();
         filters.clear();
-        model.endResetModel();
     }
 
     std::vector<std::shared_ptr<KeyFilter>> filters;
@@ -274,7 +272,9 @@ KeyFilterManager::~KeyFilterManager()
 {
     mSelf = nullptr;
     if (d) {
+        d->model.beginResetModel();
         d->clear();
+        d->model.endResetModel();
     }
 }
 
@@ -326,6 +326,7 @@ static const auto byDecreasingSpecificity = [](const std::shared_ptr<KeyFilter> 
 
 void KeyFilterManager::reload()
 {
+    d->model.beginResetModel();
     d->clear();
 
     d->filters = defaultFilters();
@@ -344,6 +345,7 @@ void KeyFilterManager::reload()
     std::stable_sort(d->filters.begin(), d->filters.end(), byDecreasingSpecificity);
 
     adjustFilters(d->filters, d->protocol);
+    d->model.endResetModel();
     qCDebug(LIBKLEO_LOG) << "KeyFilterManager::" << __func__ << "final filter count is" << d->filters.size();
 }
 
