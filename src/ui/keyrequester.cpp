@@ -199,8 +199,9 @@ void Kleo::KeyRequester::updateKeys()
             continue;
         }
         const QString fpr = QLatin1StringView(it->primaryFingerprint());
-        labelTexts.push_back(fpr.right(8));
-        toolTipText += fpr.right(8) + QLatin1StringView(": ");
+        const QString keyID = QString::fromLatin1(it->keyID());
+        labelTexts.push_back(keyID);
+        toolTipText += keyID + QLatin1StringView(": ");
         if (const char *uid = it->userID(0).id()) {
             if (it->protocol() == GpgME::OpenPGP) {
                 toolTipText += QString::fromUtf8(uid);
