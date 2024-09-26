@@ -497,7 +497,7 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
         result += format_row(i18n("Usage"), format_keyusage(key));
     }
     if (flags & Formatting::KeyID) {
-        result += format_row(i18n("Key ID"), QString::fromLatin1(key.shortKeyID()));
+        result += format_row(i18n("Key ID"), QString::fromLatin1(key.keyID()));
     }
     if (flags & Formatting::Fingerprint) {
         result += format_row(i18n("Fingerprint"), key.primaryFingerprint());
