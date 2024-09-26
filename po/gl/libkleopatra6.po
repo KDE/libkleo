@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-25 00:40+0000\n"
-"PO-Revision-Date: 2024-09-19 06:48+0200\n"
+"PO-Revision-Date: 2024-09-25 21:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -3339,23 +3339,19 @@ msgstr "O certificado é descoñecido"
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1610
-#, fuzzy, kde-format
-#| msgctxt "1 is a date"
-#| msgid "Signature created on %1 with certificate: %2"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Sinatura creada en %1 co certificado: %2"
+msgstr "Sinatura creada o %1 cun certificado descoñecido con pegada %2"
 
 #: utils/formatting.cpp:1612
-#, fuzzy, kde-format
-#| msgctxt "1 is a date"
-#| msgid "Signature created on %1 with certificate: %2"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Sinatura creada en %1 co certificado: %2"
+msgstr "Sinatura creada cun certificado descoñecido con pegada %1"
 
 #: utils/formatting.cpp:1616
 #, kde-format

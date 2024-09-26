@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-25 00:40+0000\n"
-"PO-Revision-Date: 2024-09-17 11:12+0200\n"
+"PO-Revision-Date: 2024-09-25 09:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -3345,23 +3345,23 @@ msgstr "Certificat desconegut"
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1610
-#, fuzzy, kde-format
-#| msgctxt "1 is a date"
-#| msgid "Signature created on %1 with certificate: %2"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Signatura creada %1 amb certificat: %2"
+msgstr ""
+"Signatura creada %1 utilitzant un certificat desconegut amb l'empremta "
+"digital %2"
 
 #: utils/formatting.cpp:1612
-#, fuzzy, kde-format
-#| msgctxt "1 is a date"
-#| msgid "Signature created on %1 with certificate: %2"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Signatura creada %1 amb certificat: %2"
+msgstr ""
+"Signatura creada utilitzant un certificat desconegut amb l'empremta digital "
+"%1"
 
 #: utils/formatting.cpp:1616
 #, kde-format
@@ -3480,21 +3480,3 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "No és possible la configuració dels serveis de directori perquè les "
-#~ "biblioteques «gpgme» són massa antigues."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Ho sentim"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Signatura creada %1 amb certificat no disponible: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Signatura creada amb certificat no disponible: %1"
