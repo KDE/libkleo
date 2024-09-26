@@ -333,8 +333,6 @@ QVariant AbstractKeyListModel::headerData(int section, Qt::Orientation o, int ro
                 return i18nc("@title:column", "Valid Until");
             case TechnicalDetails:
                 return i18nc("@title:column", "Protocol");
-            case ShortKeyID:
-                return i18nc("@title:column", "Key ID");
             case KeyID:
                 return i18nc("@title:column", "Key ID");
             case Fingerprint:
@@ -433,14 +431,6 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
             }
         case TechnicalDetails:
             return Formatting::type(key);
-        case ShortKeyID:
-            if (role == Qt::AccessibleTextRole) {
-                return Formatting::accessibleHexID(key.shortKeyID());
-            } else if (role == ClipboardRole) {
-                return QString::fromLatin1(key.shortKeyID());
-            } else {
-                return Formatting::prettyID(key.shortKeyID());
-            }
         case KeyID:
             if (role == Qt::AccessibleTextRole) {
                 return Formatting::accessibleHexID(key.keyID());
@@ -520,9 +510,7 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
     } else if (role == Qt::ToolTipRole) {
         return Formatting::toolTip(key, toolTipOptions());
     } else if (role == Qt::FontRole) {
-        return KeyFilterManager::instance()->font(key,
-                                                  (column == ShortKeyID || column == KeyID || column == Fingerprint) ? QFont(QStringLiteral("monospace"))
-                                                                                                                     : QFont());
+        return KeyFilterManager::instance()->font(key, (column == KeyID || column == Fingerprint) ? QFont(QStringLiteral("monospace")) : QFont());
     } else if (role == Qt::DecorationRole) {
         return column == Icon ? returnIfValid(KeyFilterManager::instance()->icon(key)) : QVariant();
     } else if (role == Qt::BackgroundRole) {
@@ -556,7 +544,6 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
         case PrettyEMail:
         case ValidFrom:
         case ValidUntil:
-        case ShortKeyID:
         case KeyID:
         case Fingerprint:
         case Issuer:

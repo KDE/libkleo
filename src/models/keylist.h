@@ -30,7 +30,6 @@ enum Columns {
     ValidFrom,
     ValidUntil,
     TechnicalDetails,
-    ShortKeyID,
     KeyID,
     Fingerprint,
     Issuer,
