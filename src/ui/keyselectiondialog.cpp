@@ -217,8 +217,8 @@ QString ColumnStrategy::text(const GpgME::Key &key, int col) const
 {
     switch (col) {
     case 0: {
-        if (key.shortKeyID()) {
-            return Formatting::prettyID(key.shortKeyID());
+        if (key.keyID()) {
+            return Formatting::prettyID(key.keyID());
         } else {
             return xi18n("<placeholder>unknown</placeholder>");
         }
@@ -240,8 +240,8 @@ QString ColumnStrategy::accessibleText(const GpgME::Key &key, int col) const
 {
     switch (col) {
     case 0: {
-        if (key.shortKeyID()) {
-            return Formatting::accessibleHexID(key.shortKeyID());
+        if (key.keyID()) {
+            return Formatting::accessibleHexID(key.keyID());
         }
         [[fallthrough]];
     }
@@ -943,15 +943,13 @@ void KeySelectionDialog::slotFilter()
     }
 
     // OK, so we need to filter:
-    QRegularExpression keyIdRegExp(QRegularExpression::anchoredPattern(QLatin1StringView("(?:0x)?[A-F0-9]{1,8}")), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression keyIdRegExp(QRegularExpression::anchoredPattern(QLatin1StringView("(?:0x)?[A-F0-9]{1,16}")), QRegularExpression::CaseInsensitiveOption);
     if (keyIdRegExp.match(mSearchText).hasMatch()) {
-        if (mSearchText.startsWith(QLatin1StringView("0X")))
-        // search for keyID only:
-        {
+        if (mSearchText.startsWith(QLatin1StringView("0X"))) {
+            // search for keyID only:
             filterByKeyID(mSearchText.mid(2));
-        } else
-        // search for UID and keyID:
-        {
+        } else {
+            // search for UID and keyID:
             filterByKeyIDOrUID(mSearchText);
         }
     } else {
@@ -962,7 +960,7 @@ void KeySelectionDialog::slotFilter()
 
 void KeySelectionDialog::filterByKeyID(const QString &keyID)
 {
-    Q_ASSERT(keyID.length() <= 8);
+    Q_ASSERT(keyID.length() <= 16);
     Q_ASSERT(!keyID.isEmpty()); // regexp in slotFilter should prevent these
     if (keyID.isEmpty()) {
         showAllItems();
