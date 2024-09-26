@@ -966,7 +966,7 @@ void KeySelectionDialog::filterByKeyID(const QString &keyID)
         showAllItems();
     } else {
         for (KeyListViewItem *item = mKeyListView->firstChild(); item; item = item->nextSibling()) {
-            item->setHidden(!item->text(0).toUpper().startsWith(keyID));
+            item->setHidden(!item->text(0).remove(u' ').toUpper().startsWith(keyID));
         }
     }
 }
@@ -994,7 +994,7 @@ void KeySelectionDialog::filterByKeyIDOrUID(const QString &str)
     QRegularExpression rx(QLatin1StringView("\\b") + QRegularExpression::escape(str), QRegularExpression::CaseInsensitiveOption);
 
     for (KeyListViewItem *item = mKeyListView->firstChild(); item; item = item->nextSibling()) {
-        item->setHidden(!item->text(0).toUpper().startsWith(str) && !anyUIDMatches(item, rx));
+        item->setHidden(!item->text(0).remove(u' ').toUpper().startsWith(str) && !anyUIDMatches(item, rx));
     }
 }
 
