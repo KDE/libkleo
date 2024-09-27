@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-25 00:40+0000\n"
+"POT-Creation-Date: 2024-09-27 00:40+0000\n"
 "PO-Revision-Date: 2024-08-25 03:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -722,76 +722,91 @@ msgid "All"
 msgstr "全部"
 
 #: kleo/keyfiltermanager.cpp:91
-#, kde-format
-msgid "All certificates"
-msgstr "所有憑證"
+#, fuzzy, kde-format
+#| msgid "certificate expired"
+msgid "All certificates (except disabled ones)"
+msgstr "憑證已過期"
 
-#: kleo/keyfiltermanager.cpp:106
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr "自己的"
 
-#: kleo/keyfiltermanager.cpp:107
-#, kde-format
-msgid "My own certificates"
+#: kleo/keyfiltermanager.cpp:109
+#, fuzzy, kde-format
+#| msgid "My own certificates"
+msgid "My own certificates (except disabled ones)"
 msgstr "我自己的憑證"
 
-#: kleo/keyfiltermanager.cpp:125
+#: kleo/keyfiltermanager.cpp:128
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "已保證"
 
-#: kleo/keyfiltermanager.cpp:126
-#, kde-format
-msgid "Certificates for which the primary user ID is certified"
+#: kleo/keyfiltermanager.cpp:129
+#, fuzzy, kde-format
+#| msgid "Certificates for which the primary user ID is certified"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
 msgstr "主使用者 ID 已保證的憑證"
 
-#: kleo/keyfiltermanager.cpp:143
+#: kleo/keyfiltermanager.cpp:147
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "未保證"
 
-#: kleo/keyfiltermanager.cpp:144
-#, kde-format
-msgid "Certificates for which the primary user ID is not certified"
+#: kleo/keyfiltermanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "Certificates for which the primary user ID is not certified"
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
 msgstr "主使用者 ID 尚未保證的憑證"
 
-#: kleo/keyfiltermanager.cpp:159
+#: kleo/keyfiltermanager.cpp:163
 #, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "要保證的"
 
-#: kleo/keyfiltermanager.cpp:160
-#, kde-format
+#: kleo/keyfiltermanager.cpp:164
+#, fuzzy, kde-format
+#| msgid ""
+#| "Certificates that are not fully certified and that you may want to "
+#| "certify yourself"
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
-"yourself"
+"yourself (except disabled ones)"
 msgstr "未完全保證而您可能會想要自己保證的憑證"
 
-#: kleo/keyfiltermanager.cpp:187
+#: kleo/keyfiltermanager.cpp:192
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "未完全保證"
 
-#: kleo/keyfiltermanager.cpp:188
-#, kde-format
-msgid "Certificates for which not all user IDs are certified"
+#: kleo/keyfiltermanager.cpp:193
+#, fuzzy, kde-format
+#| msgid "Certificates for which not all user IDs are certified"
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr "不是所有使用者 ID 都已保證的憑證"
 
-#: kleo/keyfiltermanager.cpp:211
+#: kleo/keyfiltermanager.cpp:217
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "已完全保證"
 
-#: kleo/keyfiltermanager.cpp:212
-#, kde-format
-msgid "Certificates for which all user IDs are certified"
+#: kleo/keyfiltermanager.cpp:218
+#, fuzzy, kde-format
+#| msgid "Certificates for which all user IDs are certified"
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "所有使用者 ID 皆已保證的憑證"
 
 #: models/keylistmodel.cpp:325
@@ -830,84 +845,84 @@ msgctxt "@title:column"
 msgid "Protocol"
 msgstr "協定"
 
-#: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:337
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "金鑰 ID"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:339
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "指紋"
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:341
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "配發者"
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:343
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "序號"
 
-#: models/keylistmodel.cpp:347
+#: models/keylistmodel.cpp:345
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "來源"
 
-#: models/keylistmodel.cpp:349
+#: models/keylistmodel.cpp:347
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "上次更新"
 
-#: models/keylistmodel.cpp:351
+#: models/keylistmodel.cpp:349
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "憑證信賴"
 
-#: models/keylistmodel.cpp:353
+#: models/keylistmodel.cpp:351
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "標籤"
 
-#: models/keylistmodel.cpp:355
+#: models/keylistmodel.cpp:353
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "演算法"
 
-#: models/keylistmodel.cpp:357
+#: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "金鑰鑰柄"
 
-#: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:403 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "未命名"
 
-#: models/keylistmodel.cpp:412 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:410 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "無電子郵件"
 
-#: models/keylistmodel.cpp:483
+#: models/keylistmodel.cpp:473
 #, kde-format
 msgid "Loading..."
 msgstr "載入中..."
 
-#: models/keylistmodel.cpp:569
+#: models/keylistmodel.cpp:556
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1703,63 +1718,63 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "變更..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>未知</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr "<qt><p>從後端介面 <b>%1</b> 抓取金鑰時發生錯誤。</p></qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "列出金鑰失敗"
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:271
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr "OpenPGP 後端介面不支援列出金鑰。請檢查您的安裝。"
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:293
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr "S/MIME 後端介面不支援列出金鑰。請檢查您的安裝。"
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "選擇 OpenPGP 金鑰"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:414
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "請選擇要使用的 OpenPGP 金鑰。"
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "選擇 S/MIME 金鑰"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:417
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "請選擇要使用的 S/MIME 金鑰。"
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Key Selection"
 msgstr "選擇金鑰"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:420
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "請選擇要使用的 OpenPGP 或 S/MIME 金鑰。"
@@ -3277,6 +3292,9 @@ msgstr "輸入串流中有無效的十六進位字元 '%1'。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "輸入串流中的十六進位字元在途中結束"
+
+#~ msgid "All certificates"
+#~ msgstr "所有憑證"
 
 #~ msgid ""
 #~ "Configuration of directory services is not possible because the used "

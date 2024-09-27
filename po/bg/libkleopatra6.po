@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-25 00:40+0000\n"
-"PO-Revision-Date: 2024-08-07 11:30+0200\n"
+"POT-Creation-Date: 2024-09-27 00:40+0000\n"
+"PO-Revision-Date: 2024-09-26 09:44+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -819,81 +819,96 @@ msgid "All"
 msgstr "Всички"
 
 #: kleo/keyfiltermanager.cpp:91
-#, kde-format
-msgid "All certificates"
-msgstr "Всички сертификати"
+#, fuzzy, kde-format
+#| msgid "certificate expired"
+msgid "All certificates (except disabled ones)"
+msgstr "сертификатът е с изтекла давност"
 
-#: kleo/keyfiltermanager.cpp:106
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr "Мои собствени"
 
-#: kleo/keyfiltermanager.cpp:107
-#, kde-format
-msgid "My own certificates"
+#: kleo/keyfiltermanager.cpp:109
+#, fuzzy, kde-format
+#| msgid "My own certificates"
+msgid "My own certificates (except disabled ones)"
 msgstr "Моите собствени сертификати"
 
-#: kleo/keyfiltermanager.cpp:125
+#: kleo/keyfiltermanager.cpp:128
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "Сертифицирани"
 
-#: kleo/keyfiltermanager.cpp:126
-#, kde-format
-msgid "Certificates for which the primary user ID is certified"
+#: kleo/keyfiltermanager.cpp:129
+#, fuzzy, kde-format
+#| msgid "Certificates for which the primary user ID is certified"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
 msgstr ""
 "Сертификати, за които е сертифициран основният потребителски идентификатор"
 
-#: kleo/keyfiltermanager.cpp:143
+#: kleo/keyfiltermanager.cpp:147
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "Несертифицирани"
 
-#: kleo/keyfiltermanager.cpp:144
-#, kde-format
-msgid "Certificates for which the primary user ID is not certified"
+#: kleo/keyfiltermanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "Certificates for which the primary user ID is not certified"
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
 msgstr ""
 "Сертификати, за които основният потребителски идентификатор не е сертифициран"
 
-#: kleo/keyfiltermanager.cpp:159
+#: kleo/keyfiltermanager.cpp:163
 #, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "За сертифициране"
 
-#: kleo/keyfiltermanager.cpp:160
-#, kde-format
+#: kleo/keyfiltermanager.cpp:164
+#, fuzzy, kde-format
+#| msgid ""
+#| "Certificates that are not fully certified and that you may want to "
+#| "certify yourself"
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
-"yourself"
+"yourself (except disabled ones)"
 msgstr ""
 "Сертификати, които не са напълно сертифицирани и които може да искате да "
 "сертифицирате сами."
 
-#: kleo/keyfiltermanager.cpp:187
+#: kleo/keyfiltermanager.cpp:192
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "Непълно сертифицирани"
 
-#: kleo/keyfiltermanager.cpp:188
-#, kde-format
-msgid "Certificates for which not all user IDs are certified"
+#: kleo/keyfiltermanager.cpp:193
+#, fuzzy, kde-format
+#| msgid "Certificates for which not all user IDs are certified"
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr ""
 "Сертификати, за които не всички потребителски идентификатори са сертифицирани"
 
-#: kleo/keyfiltermanager.cpp:211
+#: kleo/keyfiltermanager.cpp:217
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "Не напълно сертифицирани"
 
-#: kleo/keyfiltermanager.cpp:212
-#, kde-format
-msgid "Certificates for which all user IDs are certified"
+#: kleo/keyfiltermanager.cpp:218
+#, fuzzy, kde-format
+#| msgid "Certificates for which all user IDs are certified"
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
 "Сертификати, за които са сертифицирани всички потребителски идентификатори"
 
@@ -933,84 +948,84 @@ msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Протокол"
 
-#: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:337
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Идентификатор на ключ"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:339
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Отпечатък:"
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:341
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Емитент"
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:343
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Сериен номер"
 
-#: models/keylistmodel.cpp:347
+#: models/keylistmodel.cpp:345
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Източник"
 
-#: models/keylistmodel.cpp:349
+#: models/keylistmodel.cpp:347
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Последна актуализация"
 
-#: models/keylistmodel.cpp:351
+#: models/keylistmodel.cpp:349
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Довереност на сертификацията"
 
-#: models/keylistmodel.cpp:353
+#: models/keylistmodel.cpp:351
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Етикети"
 
-#: models/keylistmodel.cpp:355
+#: models/keylistmodel.cpp:353
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "Алгоритъм"
 
-#: models/keylistmodel.cpp:357
+#: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "Ключодържател"
 
-#: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:403 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "без име"
 
-#: models/keylistmodel.cpp:412 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:410 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "няма имейл"
 
-#: models/keylistmodel.cpp:483
+#: models/keylistmodel.cpp:473
 #, kde-format
 msgid "Loading..."
 msgstr "Зареждане..."
 
-#: models/keylistmodel.cpp:569
+#: models/keylistmodel.cpp:556
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1098,11 +1113,9 @@ msgid "Name"
 msgstr "Име"
 
 #: models/useridlistmodel.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers for an empty email address"
-#| msgid "no email"
+#, kde-format
 msgid "Email"
-msgstr "няма имейл"
+msgstr "Е-поща"
 
 #: models/useridlistmodel.cpp:108
 #, kde-format
@@ -1830,12 +1843,12 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "Промяна..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>неизвестно</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1844,53 +1857,53 @@ msgstr ""
 "<qt><p>Възникна грешка при извличането на ключовете от бекенда:</p><p><b>%1</"
 "b></p></qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Представянето на списък от ключове е неуспешно."
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:271
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
 "OpenPGP бекендът не поддържа списъка с ключове. Проверете инсталацията си."
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:293
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr ""
 "The S/MIME backend does not support listing keys. Проверете инсталацията си."
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "Избиране на OpenPGP ключ"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:414
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Моля, изберете OpenPGP ключ за използване."
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "Избиране на S/MIME ключ"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:417
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Моля, изберете S/MIME ключ, който да използвате."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Key Selection"
 msgstr "Избиране на ключ"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:420
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Моля, изберете (OpenPGP или S/MIME) ключ за използване."
@@ -2798,7 +2811,7 @@ msgstr "невалиден"
 #, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr ""
+msgstr "Добре"
 
 #: utils/formatting.cpp:925
 #, kde-format
@@ -3258,17 +3271,20 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"Подписът е валиден, но доверието в валидността на сертификата е само "
+"маргинално."
 
 #: utils/formatting.cpp:1570
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
-msgstr ""
+msgstr "Подписът е валиден и валидността на сертификата е напълно надеждна."
 
 #: utils/formatting.cpp:1572
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
+"Подписът е валиден и валидността на сертификата е ултимативно надеждна."
 
 #: utils/formatting.cpp:1574
 #, kde-format
@@ -3276,152 +3292,142 @@ msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
+"Подписът е валиден, но валидността на сертификата е <em>ненадеждна</em>."
 
 #: utils/formatting.cpp:1576
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Нови подписи бяха добавени към този сертификат при импортирането."
+msgstr "Подписът е валиден, но валидността на сертификата е неизвестна."
 
 #: utils/formatting.cpp:1579
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "Подписът е валиден, но валидността на сертификата е неопределена."
 
 #: utils/formatting.cpp:1591
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "Моите собствени сертификати"
+msgstr "Неизвестен сертификат"
 
 #: utils/formatting.cpp:1596
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1610
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Лош подпис с неизвестен сертификат: %1"
+msgstr ""
+"Подпис, създаден на %1 с помощта на неизвестен сертификат с пръстов "
+"отпечатък %2"
 
 #: utils/formatting.cpp:1612
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Лош подпис с неизвестен сертификат: %1"
+msgstr ""
+"Подпис, създаден с помощта на неизвестен сертификат с пръстов отпечатък %1"
 
 #: utils/formatting.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "Лош подпис с неизвестен сертификат: %1"
+msgstr "Подпис, създаден на %1 със сертификат: %2"
 
 #: utils/formatting.cpp:1618
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "Лош подпис с неизвестен сертификат: %1"
+msgstr "Подпис, създаден със сертификат: %1"
 
 #: utils/formatting.cpp:1624
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "Добър подпис от %1."
+msgstr "Подписът е %1"
 
 #: utils/formatting.cpp:1627
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "Добър подпис от %1."
+msgstr "Подписът <b>не е</b> %1."
 
 #: utils/formatting.cpp:1637
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "Грешка: Подписът не е проверен"
 
 #: utils/formatting.cpp:1639
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "Добър подпис от %1."
+msgstr "Добър подпис"
 
 #: utils/formatting.cpp:1641
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "сертификатът е с изтекла давност"
+msgstr "Сертификатът за подпис беше отнет"
 
 #: utils/formatting.cpp:1643
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "сертификатът е с изтекла давност"
+msgstr "Сертификатът за подпис е изтекъл"
 
 #: utils/formatting.cpp:1645
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "Сертификатът не е наличен"
 
 #: utils/formatting.cpp:1647
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "сертификатът е с изтекла давност"
+msgstr "Подписът е с изтекъл срок"
 
 #: utils/formatting.cpp:1649
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "CRL липсва"
 
 #: utils/formatting.cpp:1651
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRL твърде стар"
 
 #: utils/formatting.cpp:1653
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "Лоша политика"
 
 #: utils/formatting.cpp:1655
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Системна грешка"
 
 #: utils/formatting.cpp:1657
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "Лош подпис от %1: %2"
+msgstr "Лош подпис"
 
 #: utils/formatting.cpp:1733 utils/formatting.cpp:1756
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "Ключът не е валиден."
+msgstr "Подписът е невалиден: %1"
 
 #: utils/formatting.cpp:1742
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
+"Можете да търсите сертификата на сървър на ключове или да го импортирате от "
+"файл."
 
 #: utils/formatting.cpp:1751
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
+msgstr "Използваният ключ не е сертифициран от вас или от доверено лице."
 
 #: utils/formatting.cpp:1752
 #, kde-format
@@ -3429,6 +3435,8 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"Използваният сертификат не е сертифициран от надежден сертифициран орган или "
+"сертифициращият орган е неизвестен."
 
 #: utils/hex.cpp:35
 #, kde-format
@@ -3440,52 +3448,5 @@ msgstr "Невалиден шестнадесетичен знак ' %1' във 
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Преждевременен край на шестнадесетично кодиран char във входния поток"
 
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Конфигурация на справочни услуги не е възможно, тъй като използваните "
-#~ "gpgme библиотеки са твърде стари."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Съжалявам"
-
-#, fuzzy
-#~| msgid "All certificates"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
+#~ msgid "All certificates"
 #~ msgstr "Всички сертификати"
-
-#, fuzzy
-#~| msgid "All certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Всички сертификати"
-
-#, fuzzy
-#~| msgid "Other Certificates"
-#~ msgid "With certificate: %1"
-#~ msgstr "Други сертификати"
-
-#~ msgid "E-Mail"
-#~ msgstr "Е-поща"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "добър"
-
-#~ msgid "Unknown"
-#~ msgstr "Неизвестна"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Потребителски идентификатори"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Напълно доверени сертификати"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Несертифицирани сертификати"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Невалидирани сертификати"

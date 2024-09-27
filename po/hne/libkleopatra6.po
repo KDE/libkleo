@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-25 00:40+0000\n"
+"POT-Creation-Date: 2024-09-27 00:40+0000\n"
 "PO-Revision-Date: 2009-02-28 21:26+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -686,85 +686,92 @@ msgid "All"
 msgstr ""
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "All Certificates"
-msgid "All certificates"
-msgstr "सब्बो प्रमानपत्र"
+#, kde-format
+msgid "All certificates (except disabled ones)"
+msgstr ""
 
-#: kleo/keyfiltermanager.cpp:106
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:107
+#: kleo/keyfiltermanager.cpp:109
 #, fuzzy, kde-format
 #| msgid "My Certificates"
-msgid "My own certificates"
+msgid "My own certificates (except disabled ones)"
 msgstr "मोर प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:125
+#: kleo/keyfiltermanager.cpp:128
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:126
-#, kde-format
-msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:129
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:143
+#: kleo/keyfiltermanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:144
-#, kde-format
-msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:159
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:160
+#: kleo/keyfiltermanager.cpp:164
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
-"yourself"
+"yourself (except disabled ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:187
+#: kleo/keyfiltermanager.cpp:192
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:188
+#: kleo/keyfiltermanager.cpp:193
 #, fuzzy, kde-format
 #| msgid "All Certificates"
-msgid "Certificates for which not all user IDs are certified"
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:211
+#: kleo/keyfiltermanager.cpp:217
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "सब्बो प्रमानपत्र"
 
-#: kleo/keyfiltermanager.cpp:212
+#: kleo/keyfiltermanager.cpp:218
 #, fuzzy, kde-format
 #| msgid "All Certificates"
-msgid "Certificates for which all user IDs are certified"
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "सब्बो प्रमानपत्र"
 
 #: models/keylistmodel.cpp:325
@@ -805,77 +812,77 @@ msgctxt "@title:column"
 msgid "Protocol"
 msgstr "(अग्यात प्रोटोकाल)"
 
-#: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:337
 #, fuzzy, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "कुंजी आईडी"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:339
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr ""
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:341
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr ""
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:343
 #, fuzzy, kde-format
 #| msgid "Fax number"
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "फैक्स नंबर"
 
-#: models/keylistmodel.cpp:347
+#: models/keylistmodel.cpp:345
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/keylistmodel.cpp:349
+#: models/keylistmodel.cpp:347
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr ""
 
-#: models/keylistmodel.cpp:351
+#: models/keylistmodel.cpp:349
 #, fuzzy, kde-format
 #| msgid "My Certificates"
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "मोर प्रमानपत्र"
 
-#: models/keylistmodel.cpp:353
+#: models/keylistmodel.cpp:351
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr ""
 
-#: models/keylistmodel.cpp:355
+#: models/keylistmodel.cpp:353
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr ""
 
-#: models/keylistmodel.cpp:357
+#: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr ""
 
-#: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:403 models/useridlistmodel.cpp:69
 #, fuzzy, kde-format
 #| msgid "Given name"
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "दे गे नाम"
 
-#: models/keylistmodel.cpp:412 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:410 models/useridlistmodel.cpp:70
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -883,13 +890,13 @@ msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "raviratlami@aol.in"
 
-#: models/keylistmodel.cpp:483
+#: models/keylistmodel.cpp:473
 #, fuzzy, kde-format
 #| msgid "Fetching keys..."
 msgid "Loading..."
 msgstr "कुंजियाँ प्राप्त करत हे ..."
 
-#: models/keylistmodel.cpp:569
+#: models/keylistmodel.cpp:556
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1723,12 +1730,12 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "बदलव..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>अग्यात</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1737,7 +1744,7 @@ msgstr ""
 "<qt><p>बैकएन्ड से प्रमानपत्र प्राप्त करे के समय एक गलती होइस :</p><p><b>%1</b></p></"
 "qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, fuzzy, kde-format
 #| msgid "Key Listing Failed"
@@ -1745,44 +1752,44 @@ msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "कुंजी निर्यात फेल"
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:271
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr "ओपनपीजीपी बैकएन्ड मं लिस्टिंग कुंजी समर्थित नइ हे. अपन इंस्टालेसन जांचव."
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:293
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr "एस/माइम बैकएन्ड मं लिस्टिंग कुंजी समर्थित नइ हे. अपन इंस्टालेसन जांचव."
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "ओपन-पीजीपी कुंजी चयन"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:414
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "उपयोग बर किरपा करके, ओपन-पीजीपी कुंजी चुनव."
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "एस/माइम कुंजी चयन"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:417
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "उपयोग बर किरपा करके, एस/माइम कुंजी चुनव."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Key Selection"
 msgstr "कुंजी चयन"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:420
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "किरपा करके, उपयोग बर एक कुंजी (ओपन-पीजीपी या एस/माइम) चुनव."
@@ -3350,6 +3357,11 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+
+#, fuzzy
+#~| msgid "All Certificates"
+#~ msgid "All certificates"
+#~ msgstr "सब्बो प्रमानपत्र"
 
 #, fuzzy
 #~| msgid "All Certificates"

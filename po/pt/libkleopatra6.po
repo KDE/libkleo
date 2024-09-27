@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-25 00:40+0000\n"
+"POT-Creation-Date: 2024-09-27 00:40+0000\n"
 "PO-Revision-Date: 2023-05-22 17:53+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -847,23 +847,23 @@ msgstr "4 - Tudo"
 
 #: kleo/keyfiltermanager.cpp:91
 #, fuzzy, kde-format
-#| msgid "All Certificates"
-msgid "All certificates"
-msgstr "Todos os Certificados"
+#| msgid "certificate expired"
+msgid "All certificates (except disabled ones)"
+msgstr "certificado expirado"
 
-#: kleo/keyfiltermanager.cpp:106
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:107
+#: kleo/keyfiltermanager.cpp:109
 #, fuzzy, kde-format
 #| msgid "My Certificates"
-msgid "My own certificates"
+msgid "My own certificates (except disabled ones)"
 msgstr "Os Meus Certificados"
 
-#: kleo/keyfiltermanager.cpp:125
+#: kleo/keyfiltermanager.cpp:128
 #, fuzzy, kde-format
 #| msgctxt "As in all user IDs are valid."
 #| msgid "certified"
@@ -871,12 +871,15 @@ msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "certificado"
 
-#: kleo/keyfiltermanager.cpp:126
-#, kde-format
-msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:129
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr "Todos os ID's de utilizadores estão certificados."
 
-#: kleo/keyfiltermanager.cpp:143
+#: kleo/keyfiltermanager.cpp:147
 #, fuzzy, kde-format
 #| msgctxt "As in not all user IDs are valid."
 #| msgid "not certified"
@@ -884,26 +887,29 @@ msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "não certificado"
 
-#: kleo/keyfiltermanager.cpp:144
-#, kde-format
-msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr "Todos os ID's de utilizadores estão certificados."
 
-#: kleo/keyfiltermanager.cpp:159
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
 #| msgid "Certify"
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "Certificar"
 
-#: kleo/keyfiltermanager.cpp:160
+#: kleo/keyfiltermanager.cpp:164
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
-"yourself"
+"yourself (except disabled ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:187
+#: kleo/keyfiltermanager.cpp:192
 #, fuzzy, kde-format
 #| msgctxt "As in not all keys are valid."
 #| msgid "not all certified"
@@ -911,13 +917,14 @@ msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "algumas não certificadas"
 
-#: kleo/keyfiltermanager.cpp:188
+#: kleo/keyfiltermanager.cpp:193
 #, fuzzy, kde-format
 #| msgid "All User-IDs are certified."
-msgid "Certificates for which not all user IDs are certified"
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr "Todos os ID's de utilizadores estão certificados."
 
-#: kleo/keyfiltermanager.cpp:211
+#: kleo/keyfiltermanager.cpp:217
 #, fuzzy, kde-format
 #| msgctxt "As in all keys are valid."
 #| msgid "all certified"
@@ -925,10 +932,11 @@ msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "todas certificadas"
 
-#: kleo/keyfiltermanager.cpp:212
+#: kleo/keyfiltermanager.cpp:218
 #, fuzzy, kde-format
 #| msgid "All User-IDs are certified."
-msgid "Certificates for which all user IDs are certified"
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "Todos os ID's de utilizadores estão certificados."
 
 #: models/keylistmodel.cpp:325
@@ -973,92 +981,92 @@ msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protocolo"
 
-#: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:337
 #, fuzzy, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "ID da Chave"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:339
 #, fuzzy, kde-format
 #| msgid "Fingerprint"
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Impressão Digital"
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:341
 #, fuzzy, kde-format
 #| msgid "Issuer"
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Emissor"
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:343
 #, fuzzy, kde-format
 #| msgid "Serial Number"
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Número de Série"
 
-#: models/keylistmodel.cpp:347
+#: models/keylistmodel.cpp:345
 #, fuzzy, kde-format
 #| msgid "Origin"
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Origem"
 
-#: models/keylistmodel.cpp:349
+#: models/keylistmodel.cpp:347
 #, fuzzy, kde-format
 #| msgid "Last Update"
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Última Actualização"
 
-#: models/keylistmodel.cpp:351
+#: models/keylistmodel.cpp:349
 #, fuzzy, kde-format
 #| msgid "Certification Trust"
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Confiança na Certificação"
 
-#: models/keylistmodel.cpp:353
+#: models/keylistmodel.cpp:351
 #, fuzzy, kde-format
 #| msgid "Tags"
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Marcas"
 
-#: models/keylistmodel.cpp:355
+#: models/keylistmodel.cpp:353
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr ""
 
-#: models/keylistmodel.cpp:357
+#: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr ""
 
-#: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:403 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "sem nome"
 
-#: models/keylistmodel.cpp:412 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:410 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "sem e-mail"
 
-#: models/keylistmodel.cpp:483
+#: models/keylistmodel.cpp:473
 #, kde-format
 msgid "Loading..."
 msgstr "A carregar..."
 
-#: models/keylistmodel.cpp:569
+#: models/keylistmodel.cpp:556
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1904,12 +1912,12 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "Modificar..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>desconhecido</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1918,7 +1926,7 @@ msgstr ""
 "<qt><p>Ocorreu um erro ao obter as chaves da infra-estrutura:</p><p><b>%1</"
 "b></p></qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, fuzzy, kde-format
 #| msgid "Key Listing Failed"
@@ -1926,7 +1934,7 @@ msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Listagem de Chaves Falhou"
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:271
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
@@ -1934,7 +1942,7 @@ msgstr ""
 "A infra-estrutura OpenPGP não suporta a listagem de chaves. Verifique a sua "
 "instalação."
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:293
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
@@ -1942,32 +1950,32 @@ msgstr ""
 "A infra-estrutura S/MIME não suporta a listagem de chaves. Verifique a sua "
 "instalação."
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "Selecção da Chave do OpenPGP"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:414
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Por favor, seleccione uma chave de OpenPGP a usar."
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "Escolha de Chave S/MIME"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:417
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Escolha uma chave S/MIME a utilizar."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Key Selection"
 msgstr "Escolha de Chave"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:420
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Escolha uma chave (OpenPGP ou S/MIME) a utilizar."
@@ -3571,6 +3579,11 @@ msgstr "Carácter hexadecimal '%1' inválido na sequência de entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fim prematuro do carácter hexadecimal na sequência de entrada"
+
+#, fuzzy
+#~| msgid "All Certificates"
+#~ msgid "All certificates"
+#~ msgstr "Todos os Certificados"
 
 #~ msgid ""
 #~ "Configuration of directory services is not possible because the used "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-25 00:40+0000\n"
+"POT-Creation-Date: 2024-09-27 00:40+0000\n"
 "PO-Revision-Date: 2024-02-20 23:54+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -753,23 +753,23 @@ msgstr "4 - 모두"
 
 #: kleo/keyfiltermanager.cpp:91
 #, fuzzy, kde-format
-#| msgid "All Certificates"
-msgid "All certificates"
-msgstr "모든 인증서"
+#| msgid "certificate expired"
+msgid "All certificates (except disabled ones)"
+msgstr "인증서 만료됨"
 
-#: kleo/keyfiltermanager.cpp:106
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:107
+#: kleo/keyfiltermanager.cpp:109
 #, fuzzy, kde-format
 #| msgid "My Certificates"
-msgid "My own certificates"
+msgid "My own certificates (except disabled ones)"
 msgstr "내 인증서"
 
-#: kleo/keyfiltermanager.cpp:125
+#: kleo/keyfiltermanager.cpp:128
 #, fuzzy, kde-format
 #| msgctxt "As in 'this user ID is valid.'"
 #| msgid "certified"
@@ -777,12 +777,15 @@ msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "인증됨"
 
-#: kleo/keyfiltermanager.cpp:126
-#, kde-format
-msgid "Certificates for which the primary user ID is certified"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:129
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr "모든 사용자 ID가 인증되었습니다."
 
-#: kleo/keyfiltermanager.cpp:143
+#: kleo/keyfiltermanager.cpp:147
 #, fuzzy, kde-format
 #| msgctxt "As in 'this user ID is not certified'"
 #| msgid "not certified"
@@ -790,26 +793,29 @@ msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "인증 안 됨"
 
-#: kleo/keyfiltermanager.cpp:144
-#, kde-format
-msgid "Certificates for which the primary user ID is not certified"
-msgstr ""
+#: kleo/keyfiltermanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "All User-IDs are certified."
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr "모든 사용자 ID가 인증되었습니다."
 
-#: kleo/keyfiltermanager.cpp:159
+#: kleo/keyfiltermanager.cpp:163
 #, fuzzy, kde-format
 #| msgid "Certify"
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "인증"
 
-#: kleo/keyfiltermanager.cpp:160
+#: kleo/keyfiltermanager.cpp:164
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
-"yourself"
+"yourself (except disabled ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:187
+#: kleo/keyfiltermanager.cpp:192
 #, fuzzy, kde-format
 #| msgctxt "As in not all keys are valid."
 #| msgid "not all certified"
@@ -817,13 +823,14 @@ msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "모두 인증 안 됨"
 
-#: kleo/keyfiltermanager.cpp:188
+#: kleo/keyfiltermanager.cpp:193
 #, fuzzy, kde-format
 #| msgid "All User-IDs are certified."
-msgid "Certificates for which not all user IDs are certified"
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr "모든 사용자 ID가 인증되었습니다."
 
-#: kleo/keyfiltermanager.cpp:211
+#: kleo/keyfiltermanager.cpp:217
 #, fuzzy, kde-format
 #| msgctxt "As in all keys are valid."
 #| msgid "all certified"
@@ -831,10 +838,11 @@ msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "모두 인증"
 
-#: kleo/keyfiltermanager.cpp:212
+#: kleo/keyfiltermanager.cpp:218
 #, fuzzy, kde-format
 #| msgid "All User-IDs are certified."
-msgid "Certificates for which all user IDs are certified"
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "모든 사용자 ID가 인증되었습니다."
 
 #: models/keylistmodel.cpp:325
@@ -874,85 +882,85 @@ msgctxt "@title:column"
 msgid "Protocol"
 msgstr "프로토콜"
 
-#: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:337
 #, fuzzy, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "키 ID"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:339
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "지문"
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:341
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "발급자"
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:343
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "일련 번호"
 
-#: models/keylistmodel.cpp:347
+#: models/keylistmodel.cpp:345
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "출처"
 
-#: models/keylistmodel.cpp:349
+#: models/keylistmodel.cpp:347
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "마지막 업데이트"
 
-#: models/keylistmodel.cpp:351
+#: models/keylistmodel.cpp:349
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "인증서 신뢰"
 
-#: models/keylistmodel.cpp:353
+#: models/keylistmodel.cpp:351
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "태그"
 
-#: models/keylistmodel.cpp:355
+#: models/keylistmodel.cpp:353
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "알고리즘"
 
-#: models/keylistmodel.cpp:357
+#: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "Keygrip"
 
-#: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:403 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "이름 없음"
 
-#: models/keylistmodel.cpp:412 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:410 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "이메일 없음"
 
-#: models/keylistmodel.cpp:483
+#: models/keylistmodel.cpp:473
 #, kde-format
 msgid "Loading..."
 msgstr "불러오는 중..."
 
-#: models/keylistmodel.cpp:569
+#: models/keylistmodel.cpp:556
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1778,19 +1786,19 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "변경..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>알 수 없음</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr "<qt><p>백엔드에서 키를 가져오는 중 오류 발생:</p><p><b>%1</b></p></qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, fuzzy, kde-format
 #| msgid "Key Listing Failed"
@@ -1798,45 +1806,45 @@ msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "키 표시 실패"
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:271
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
 "OpenPGP 백엔드가 키 표시를 지원하지 않습니다. 설치 상태를 확인하십시오."
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:293
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr "S/MIME 백엔드가 키 표시를 지원하지 않습니다. 설치 상태를 확인하십시오."
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "OpenPGP 키 선택"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:414
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "사용할 OpenPGP 키를 선택해 주십시오."
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "S/MIME 키 선택"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:417
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "사용할 S/MIME 키를 선택해 주십시오."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Key Selection"
 msgstr "키 선택"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:420
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "키(OpenPGP나 S/MIME)를 선택해 주십시오."
@@ -3406,6 +3414,11 @@ msgstr "입력 스트림의 '%1' 16진수 문자가 올바르지 않습니다."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "입력 스트림에서 16진수로 인코딩된 문자의 정상보다 이른 끝"
+
+#, fuzzy
+#~| msgid "All Certificates"
+#~ msgid "All certificates"
+#~ msgstr "모든 인증서"
 
 #~ msgid ""
 #~ "Configuration of directory services is not possible because the used "

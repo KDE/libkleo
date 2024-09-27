@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-25 00:40+0000\n"
+"POT-Creation-Date: 2024-09-27 00:40+0000\n"
 "PO-Revision-Date: 2007-07-27 15:55+0300\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -734,75 +734,81 @@ msgstr ""
 
 #: kleo/keyfiltermanager.cpp:91
 #, kde-format
-msgid "All certificates"
+msgid "All certificates (except disabled ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:106
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:107
+#: kleo/keyfiltermanager.cpp:109
 #, kde-format
-msgid "My own certificates"
+msgid "My own certificates (except disabled ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:125
+#: kleo/keyfiltermanager.cpp:128
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:126
+#: kleo/keyfiltermanager.cpp:129
 #, kde-format
-msgid "Certificates for which the primary user ID is certified"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:143
+#: kleo/keyfiltermanager.cpp:147
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:144
+#: kleo/keyfiltermanager.cpp:148
 #, kde-format
-msgid "Certificates for which the primary user ID is not certified"
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:159
+#: kleo/keyfiltermanager.cpp:163
 #, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:160
+#: kleo/keyfiltermanager.cpp:164
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
-"yourself"
+"yourself (except disabled ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:187
+#: kleo/keyfiltermanager.cpp:192
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:188
+#: kleo/keyfiltermanager.cpp:193
 #, kde-format
-msgid "Certificates for which not all user IDs are certified"
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:211
+#: kleo/keyfiltermanager.cpp:217
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr ""
 
-#: kleo/keyfiltermanager.cpp:212
+#: kleo/keyfiltermanager.cpp:218
 #, kde-format
-msgid "Certificates for which all user IDs are certified"
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
 
 #: models/keylistmodel.cpp:325
@@ -842,75 +848,75 @@ msgctxt "@title:column"
 msgid "Protocol"
 msgstr ""
 
-#: models/keylistmodel.cpp:337 models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:337
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr ""
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:339
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr ""
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:341
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr ""
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:343
 #, fuzzy, kde-format
 #| msgid "Fax number"
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Факс-нумар"
 
-#: models/keylistmodel.cpp:347
+#: models/keylistmodel.cpp:345
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/keylistmodel.cpp:349
+#: models/keylistmodel.cpp:347
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr ""
 
-#: models/keylistmodel.cpp:351
+#: models/keylistmodel.cpp:349
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr ""
 
-#: models/keylistmodel.cpp:353
+#: models/keylistmodel.cpp:351
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr ""
 
-#: models/keylistmodel.cpp:355
+#: models/keylistmodel.cpp:353
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr ""
 
-#: models/keylistmodel.cpp:357
+#: models/keylistmodel.cpp:355
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr ""
 
-#: models/keylistmodel.cpp:405 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:403 models/useridlistmodel.cpp:69
 #, fuzzy, kde-format
 #| msgid "Given name"
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "Імя"
 
-#: models/keylistmodel.cpp:412 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:410 models/useridlistmodel.cpp:70
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -918,12 +924,12 @@ msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "komzpa@licei2.com"
 
-#: models/keylistmodel.cpp:483
+#: models/keylistmodel.cpp:473
 #, kde-format
 msgid "Loading..."
 msgstr ""
 
-#: models/keylistmodel.cpp:569
+#: models/keylistmodel.cpp:556
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1712,63 +1718,63 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "Змяніць..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr ""
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr ""
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr ""
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:271
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:293
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr ""
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr ""
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:414
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr ""
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr ""
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:417
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr ""
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Key Selection"
 msgstr ""
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:420
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr ""
