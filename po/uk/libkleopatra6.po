@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:40+0000\n"
-"PO-Revision-Date: 2024-09-26 19:46+0300\n"
+"PO-Revision-Date: 2024-09-27 19:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1033,10 +1033,9 @@ msgid "All"
 msgstr "Усі"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "строк дії сертифіката минув"
+msgstr "Усі сертифікати (окрім вимкнених)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -1045,10 +1044,9 @@ msgid "My Own"
 msgstr "Власні"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Ваші власні сертифікати"
+msgstr "Ваші власні сертифікати (окрім вимкнених)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -1057,12 +1055,13 @@ msgid "Certified"
 msgstr "Сертифіковані"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Сертифікати, ідентифікатор основного користувача яких сертифіковано"
+msgstr ""
+"Сертифікати, ідентифікатор основного користувача яких сертифіковано (окрім "
+"вимкнених)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -1071,12 +1070,13 @@ msgid "Not Certified"
 msgstr "Несертифіковані"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Сертифікати, ідентифікатор основного користувача яких не сертифіковано"
+msgstr ""
+"Сертифікати, ідентифікатор основного користувача яких не сертифіковано "
+"(окрім вимкнених)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -1085,16 +1085,13 @@ msgid "To Certify"
 msgstr "Слід сертифікувати"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
 "Сертифікати, які сертифіковано не повністю, і які, можливо, ви захочете "
-"сертифікувати власноруч"
+"сертифікувати власноруч (окрім вимкнених)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -1103,11 +1100,12 @@ msgid "Not Fully Certified"
 msgstr "Не повністю сертифіковано"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Сертифікати, для яких сертифіковано не усі ідентифікатори користувачів"
+msgstr ""
+"Сертифікати, для яких сертифіковано не усі ідентифікатори користувачів "
+"(окрім вимкнених)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -1116,11 +1114,12 @@ msgid "Fully Certified"
 msgstr "Повністю сертифіковано"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Сертифікати, для яких сертифіковано усі ідентифікатори користувачів"
+msgstr ""
+"Сертифікати, для яких сертифіковано усі ідентифікатори користувачів (окрім "
+"вимкнених)"
 
 #: models/keylistmodel.cpp:325
 #, kde-format

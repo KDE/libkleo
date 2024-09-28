@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1691507 2024-09-27 01:15:06Z scripty $
+# $Id: libkleopatra6.po 1691591 2024-09-28 01:15:02Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:40+0000\n"
-"PO-Revision-Date: 2024-09-25 07:41+0200\n"
+"PO-Revision-Date: 2024-09-27 06:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -975,10 +975,9 @@ msgid "All"
 msgstr "Vse"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "certifikat je pretekel"
+msgstr "Vsa potrdila (razen onemogočenih)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -987,38 +986,39 @@ msgid "My Own"
 msgstr "Moja lastna"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Moja lastna potrdila"
+msgstr "Moja lastna potrdila (razen onemogočenih)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "Potrjene"
+msgstr "Potrjena"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Potrdila za katera je primarni določilnik uporabnika potrjen"
+msgstr ""
+"Potrdila za katera je primarni določilnik uporabnika potrjen (razen "
+"onemogočenih)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "Ne potrjene"
+msgstr "Nepotrjena"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Potrdila za katera primarni določilnik uporabnika ni potrjen"
+msgstr ""
+"Potrdila za katera primarni določilnik uporabnika ni potrjen (razen "
+"onemogočenih)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -1027,41 +1027,41 @@ msgid "To Certify"
 msgstr "Za potrjevanje"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
-"Potrdila, ki niso v celoti potrjena in jih boste morda želeli potrditi sami"
+"Potrdila, ki niso v celoti potrjena in jih boste morda želeli potrditi sami "
+"(razen onemogočenih)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "Ne v celoti potrjene"
+msgstr "Ne v celoti potrjena"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Potrdila, za katere niso potrjeni vsi uporabniški določilniki"
+msgstr ""
+"Potrdila, za katere niso potrjeni vsi uporabniški določilniki (razen "
+"onemogočenih)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "Polno potrjene"
+msgstr "Polno potrjena"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Certifikati, za katere so potrjeni vsi uporabniški določilniki"
+msgstr ""
+"Potrdila, za katera so potrjeni vsi uporabniški določilniki (razen "
+"onemogočenih)"
 
 #: models/keylistmodel.cpp:325
 #, kde-format

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:40+0000\n"
-"PO-Revision-Date: 2024-09-25 17:30+0200\n"
+"PO-Revision-Date: 2024-09-27 17:27+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -814,10 +814,9 @@ msgid "All"
 msgstr "Alla"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "certifikat utgånget"
+msgstr "Alla certifikat (utom inaktiverade)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -826,10 +825,9 @@ msgid "My Own"
 msgstr "Mina egna"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Mina egna certifikat"
+msgstr "Mina egna certifikat (utom inaktiverade)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -838,26 +836,28 @@ msgid "Certified"
 msgstr "certifierade"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Certifikat där den primära användaridentiteten har certifierats"
+msgstr ""
+"Certifikat där den primära användaridentiteten har certifierats (utom "
+"inaktiverade)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "inte certifierade"
+msgstr "Inte certifierade"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Certifikat där den primära användaridentiteten inte har certifierats"
+msgstr ""
+"Certifikat där den primära användaridentiteten inte har certifierats (utom "
+"inaktiverade)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -866,16 +866,13 @@ msgid "To Certify"
 msgstr "Att certifiera"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
 "Certifikat som inte är fullständigt certifierade som du kan vilja certifiera "
-"själv"
+"själv (utom inaktiverade)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -884,11 +881,12 @@ msgid "Not Fully Certified"
 msgstr "Inte fullständigt certifierade"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Certifikat där inte alla användaridentiteter har certifierats"
+msgstr ""
+"Certifikat där inte alla användaridentiteter har certifierats (utom "
+"inaktiverade)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -897,11 +895,11 @@ msgid "Fully Certified"
 msgstr "Fullständigt certifierade"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Certifikat där alla användaridentiteter har certifierats"
+msgstr ""
+"Certifikat där alla användaridentiteter har certifierats (utom inaktiverade)"
 
 #: models/keylistmodel.cpp:325
 #, kde-format

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:40+0000\n"
-"PO-Revision-Date: 2024-09-25 09:14+0200\n"
+"PO-Revision-Date: 2024-09-27 11:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -845,10 +845,9 @@ msgid "All"
 msgstr "Tots"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "el certificat ha caducat"
+msgstr "Tots els certificats (excepte els desactivats)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -857,10 +856,9 @@ msgid "My Own"
 msgstr "Els propis"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Els meus certificats propis"
+msgstr "Els meus certificats propis (excepte els desactivats)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -869,12 +867,13 @@ msgid "Certified"
 msgstr "Certificats"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Certificats pels quals l'ID d'usuari primari està certificat"
+msgstr ""
+"Certificats pels quals l'ID d'usuari primari està certificat (excepte els "
+"desactivats)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -883,12 +882,13 @@ msgid "Not Certified"
 msgstr "No certificats"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Certificats pels quals l'ID d'usuari primari no està certificat"
+msgstr ""
+"Certificats pels quals l'ID d'usuari primari no està certificat (excepte els "
+"desactivats)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -897,16 +897,13 @@ msgid "To Certify"
 msgstr "A certificar"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
 "Certificats que no estan completament certificats i que potser voleu "
-"certificar vós mateix"
+"certificar vós mateix (excepte els desactivats)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -915,11 +912,12 @@ msgid "Not Fully Certified"
 msgstr "No totalment certificats"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Certificats pels quals no tots els ID d'usuari estan certificats"
+msgstr ""
+"Certificats pels quals no tots els ID d'usuari estan certificats (excepte "
+"els desactivats)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -928,11 +926,12 @@ msgid "Fully Certified"
 msgstr "Totalment certificats"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Certificats pels quals tots els ID d'usuari estan certificats"
+msgstr ""
+"Certificats pels quals tots els ID d'usuari estan certificats (excepte els "
+"desactivats)"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
