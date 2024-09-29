@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:40+0000\n"
-"PO-Revision-Date: 2024-09-05 12:07+0200\n"
+"PO-Revision-Date: 2024-09-27 12:44+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
 "Language: de\n"
@@ -3353,41 +3353,37 @@ msgid "Unknown certificate"
 msgstr "Unbekanntes Zertifikat"
 
 #: utils/formatting.cpp:1596
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1610
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Fehlerhafte Signatur von dem unbekannten Zertifikat: %1"
+msgstr ""
+"Die Signatur wurde am %1 mit einem unbekanntem Zertifikat erstellt. Dessen "
+"Fingerabdruck ist %2"
 
 #: utils/formatting.cpp:1612
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Fehlerhafte Signatur von dem unbekannten Zertifikat: %1"
+msgstr ""
+"Die Signatur wurde mit einem unbekanntem Zertifikat erstellt. Dessen "
+"Fingerabdruck ist %1"
 
 #: utils/formatting.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "Fehlerhafte Signatur von dem unbekannten Zertifikat: %1"
+msgstr "Die Signatur wurde am %1 erstellt mit dem Zertifikat %2"
 
 #: utils/formatting.cpp:1618
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "Fehlerhafte Signatur von dem unbekannten Zertifikat: %1"
+msgstr "Die Signatur wurde erstellt mit dem Zertifikat %1"
 
 #: utils/formatting.cpp:1624
 #, kde-format
