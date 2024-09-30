@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:40+0000\n"
-"PO-Revision-Date: 2024-09-26 09:44+0200\n"
+"PO-Revision-Date: 2024-09-29 14:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -819,10 +819,9 @@ msgid "All"
 msgstr "Всички"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "сертификатът е с изтекла давност"
+msgstr "Всички сертификати (без деактивирани сертификати)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -831,10 +830,9 @@ msgid "My Own"
 msgstr "Мои собствени"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Моите собствени сертификати"
+msgstr "Моите собствени сертификати (без деактивирани сертификати)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -843,13 +841,13 @@ msgid "Certified"
 msgstr "Сертифицирани"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
 msgstr ""
-"Сертификати, за които е сертифициран основният потребителски идентификатор"
+"Сертификати, за които е сертифициран основният потребителски идентификатор "
+"(без деактивирани сертификати)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -858,13 +856,13 @@ msgid "Not Certified"
 msgstr "Несертифицирани"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
 msgstr ""
-"Сертификати, за които основният потребителски идентификатор не е сертифициран"
+"Сертификати, за които основният потребителски идентификатор не е "
+"сертифициран (без деактивирани сертификати)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -873,16 +871,13 @@ msgid "To Certify"
 msgstr "За сертифициране"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
 "Сертификати, които не са напълно сертифицирани и които може да искате да "
-"сертифицирате сами."
+"сертифицирате сами (без деактивирани сертификати)."
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -891,12 +886,12 @@ msgid "Not Fully Certified"
 msgstr "Непълно сертифицирани"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr ""
-"Сертификати, за които не всички потребителски идентификатори са сертифицирани"
+"Сертификати, за които не всички потребителски идентификатори са "
+"сертифицирани (без деактивирани сертификати)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -905,12 +900,12 @@ msgid "Fully Certified"
 msgstr "Не напълно сертифицирани"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
-"Сертификати, за които са сертифицирани всички потребителски идентификатори"
+"Сертификати, за които са сертифицирани всички потребителски идентификатори "
+"(без деактивирани сертификати)"
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -2787,7 +2782,7 @@ msgstr "неопределено"
 #: utils/formatting.cpp:875 utils/formatting.cpp:1345 utils/formatting.cpp:1370
 #, kde-format
 msgid "disabled"
-msgstr "изключено"
+msgstr "деактивиран"
 
 #: utils/formatting.cpp:878 utils/formatting.cpp:892 utils/formatting.cpp:927
 #: utils/formatting.cpp:1348 utils/formatting.cpp:1373
