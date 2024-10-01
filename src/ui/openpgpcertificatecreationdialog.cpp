@@ -302,6 +302,9 @@ private:
         if (!emailError.isEmpty()) {
             errors.push_back(emailError);
         }
+        if (!Expiration::isValidExpirationDate(expiryDate())) {
+            errors.push_back(Expiration::validityPeriodHint());
+        }
         if (errors.size() > 1) {
             KMessageBox::errorList(q, i18n("There is a problem."), errors);
         } else if (!errors.empty()) {
