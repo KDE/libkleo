@@ -533,7 +533,7 @@ public:
 
     void onSourceLayoutAboutToBeChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint)
     {
-        // copied from QConcatenateTablesProxyModel
+        // adapted from QConcatenateTablesProxyModel
         if (!sourceParents.isEmpty() && !sourceParents.contains(QModelIndex())) {
             // not supported, the proxy is a flat model
             return;
@@ -542,32 +542,34 @@ public:
         Q_EMIT layoutAboutToBeChanged({}, hint);
 
         const QModelIndexList persistentIndexList = this->persistentIndexList();
-        layoutChangePersistentIndexes.reserve(persistentIndexList.size());
+        layoutChangeSourcePersistentIndexes.reserve(persistentIndexList.size());
         layoutChangeProxyIndexes.reserve(persistentIndexList.size());
 
         for (const QModelIndex &proxyPersistentIndex : persistentIndexList) {
-            layoutChangeProxyIndexes.append(proxyPersistentIndex);
-            Q_ASSERT(proxyPersistentIndex.isValid());
-            const QPersistentModelIndex srcPersistentIndex = mapToSource(proxyPersistentIndex);
-            Q_ASSERT(srcPersistentIndex.isValid());
-            layoutChangePersistentIndexes.append(srcPersistentIndex);
+            if (!isCustomItem(proxyPersistentIndex.row())) {
+                layoutChangeProxyIndexes.append(proxyPersistentIndex);
+                Q_ASSERT(proxyPersistentIndex.isValid());
+                const QPersistentModelIndex srcPersistentIndex = mapToSource(proxyPersistentIndex);
+                Q_ASSERT(srcPersistentIndex.isValid());
+                layoutChangeSourcePersistentIndexes.append(srcPersistentIndex);
+            }
         }
     }
 
     void onSourceLayoutChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint)
     {
-        // copied from QConcatenateTablesProxyModel
+        // adapted from QConcatenateTablesProxyModel
         if (!sourceParents.isEmpty() && !sourceParents.contains(QModelIndex())) {
             // not supported, the proxy is a flat model
             return;
         }
         for (int i = 0; i < layoutChangeProxyIndexes.size(); ++i) {
             const QModelIndex proxyIdx = layoutChangeProxyIndexes.at(i);
-            const QModelIndex newProxyIdx = mapFromSource(layoutChangePersistentIndexes.at(i));
+            const QModelIndex newProxyIdx = mapFromSource(layoutChangeSourcePersistentIndexes.at(i));
             changePersistentIndex(proxyIdx, newProxyIdx);
         }
 
-        layoutChangePersistentIndexes.clear();
+        layoutChangeSourcePersistentIndexes.clear();
         layoutChangeProxyIndexes.clear();
 
         Q_EMIT layoutChanged({}, hint);
@@ -588,7 +590,7 @@ private:
     QList<CustomItem *> mBackItems;
 
     // for layoutAboutToBeChanged/layoutChanged
-    QVector<QPersistentModelIndex> layoutChangePersistentIndexes;
+    QVector<QPersistentModelIndex> layoutChangeSourcePersistentIndexes;
     QVector<QModelIndex> layoutChangeProxyIndexes;
 };
 
