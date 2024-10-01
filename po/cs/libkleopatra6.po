@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:40+0000\n"
-"PO-Revision-Date: 2024-08-30 16:28+0200\n"
+"PO-Revision-Date: 2024-09-20 15:54+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -710,10 +710,9 @@ msgid "All"
 msgstr "Vše"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "certifikát vypršel"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -722,10 +721,9 @@ msgid "My Own"
 msgstr "Moje vlastní"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Moje vlastní certifikáty"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -734,12 +732,11 @@ msgid "Certified"
 msgstr "Certifikováno"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Certifikáty s certifikovaným primárním ID"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -748,12 +745,11 @@ msgid "Not Certified"
 msgstr "Nebylo certifikováno"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Certifikáty s certifikovaným primárním ID"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -775,11 +771,10 @@ msgid "Not Fully Certified"
 msgstr "Nebylo plně certifikováno"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Certifikáty, pro které ne všechny ID uživatele byly certifikovány"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -788,11 +783,10 @@ msgid "Fully Certified"
 msgstr "Plně certifikováno"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Certifikáty, pro které všechny ID uživatele byly certifikovány"
+msgstr ""
 
 #: models/keylistmodel.cpp:325
 #, kde-format
@@ -3136,10 +3130,9 @@ msgid ""
 msgstr ""
 
 #: utils/formatting.cpp:1612
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Špatný podpis neznámým certifikátem: %1"
+msgstr ""
 
 #: utils/formatting.cpp:1616
 #, kde-format
@@ -3158,7 +3151,7 @@ msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr ""
+msgstr "Podpis je %1"
 
 #: utils/formatting.cpp:1627
 #, kde-format
@@ -3257,10 +3250,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#~ msgid "All certificates"
-#~ msgstr "Všechny certifikáty"
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Lituji"
