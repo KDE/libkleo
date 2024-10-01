@@ -22,6 +22,7 @@
 
 #include <KLocalizedString>
 
+#include <QAbstractProxyModel>
 #include <QSortFilterProxyModel>
 #include <QTimer>
 #include <QVector>
@@ -202,7 +203,7 @@ private:
     Formatting::IconProvider mIconProvider;
 };
 
-class CustomItemsProxyModel : public QSortFilterProxyModel
+class CustomItemsProxyModel : public QAbstractProxyModel
 {
     Q_OBJECT
 
@@ -216,7 +217,7 @@ private:
 
 public:
     CustomItemsProxyModel(QObject *parent = nullptr)
-        : QSortFilterProxyModel(parent)
+        : QAbstractProxyModel(parent)
     {
     }
 
@@ -226,9 +227,64 @@ public:
         qDeleteAll(mBackItems);
     }
 
+    void setSourceModel(QAbstractItemModel *newSourceModel) override
+    {
+        if (newSourceModel == sourceModel())
+            return;
+
+        beginResetModel();
+
+        if (sourceModel()) {
+            disconnect(sourceModel(), &QAbstractItemModel::dataChanged, this, &CustomItemsProxyModel::onSourceDataChanged);
+            disconnect(sourceModel(), &QAbstractItemModel::headerDataChanged, this, &CustomItemsProxyModel::onSourceHeaderDataChanged);
+            disconnect(sourceModel(), &QAbstractItemModel::rowsAboutToBeInserted, this, &CustomItemsProxyModel::onSourceRowsAboutToBeInserted);
+            disconnect(sourceModel(), &QAbstractItemModel::rowsInserted, this, &CustomItemsProxyModel::onSourceRowsInserted);
+            disconnect(sourceModel(), &QAbstractItemModel::rowsAboutToBeRemoved, this, &CustomItemsProxyModel::onSourceRowsAboutToBeRemoved);
+            disconnect(sourceModel(), &QAbstractItemModel::rowsRemoved, this, &CustomItemsProxyModel::onSourceRowsRemoved);
+            disconnect(sourceModel(), &QAbstractItemModel::rowsAboutToBeMoved, this, &CustomItemsProxyModel::onSourceRowsAboutToBeMoved);
+            disconnect(sourceModel(), &QAbstractItemModel::rowsMoved, this, &CustomItemsProxyModel::onSourceRowsMoved);
+            disconnect(sourceModel(), &QAbstractItemModel::columnsAboutToBeInserted, this, &CustomItemsProxyModel::onSourceColumnsAboutToBeInserted);
+            disconnect(sourceModel(), &QAbstractItemModel::columnsInserted, this, &CustomItemsProxyModel::onSourceColumnsInserted);
+            disconnect(sourceModel(), &QAbstractItemModel::columnsAboutToBeRemoved, this, &CustomItemsProxyModel::onSourceColumnsAboutToBeRemoved);
+            disconnect(sourceModel(), &QAbstractItemModel::columnsRemoved, this, &CustomItemsProxyModel::onSourceColumnsRemoved);
+            disconnect(sourceModel(), &QAbstractItemModel::columnsAboutToBeMoved, this, &CustomItemsProxyModel::onSourceColumnsAboutToBeMoved);
+            disconnect(sourceModel(), &QAbstractItemModel::columnsMoved, this, &CustomItemsProxyModel::onSourceColumnsMoved);
+            disconnect(sourceModel(), &QAbstractItemModel::layoutAboutToBeChanged, this, &CustomItemsProxyModel::onSourceLayoutAboutToBeChanged);
+            disconnect(sourceModel(), &QAbstractItemModel::layoutChanged, this, &CustomItemsProxyModel::onSourceLayoutChanged);
+            disconnect(sourceModel(), &QAbstractItemModel::modelAboutToBeReset, this, &CustomItemsProxyModel::onSourceAboutToBeReset);
+            disconnect(sourceModel(), &QAbstractItemModel::modelReset, this, &CustomItemsProxyModel::onSourceReset);
+        }
+
+        QAbstractProxyModel::setSourceModel(newSourceModel);
+
+        if (sourceModel()) {
+            connect(sourceModel(), &QAbstractItemModel::dataChanged, this, &CustomItemsProxyModel::onSourceDataChanged);
+            connect(sourceModel(), &QAbstractItemModel::headerDataChanged, this, &CustomItemsProxyModel::onSourceHeaderDataChanged);
+            connect(sourceModel(), &QAbstractItemModel::rowsAboutToBeInserted, this, &CustomItemsProxyModel::onSourceRowsAboutToBeInserted);
+            connect(sourceModel(), &QAbstractItemModel::rowsInserted, this, &CustomItemsProxyModel::onSourceRowsInserted);
+            connect(sourceModel(), &QAbstractItemModel::rowsAboutToBeRemoved, this, &CustomItemsProxyModel::onSourceRowsAboutToBeRemoved);
+            connect(sourceModel(), &QAbstractItemModel::rowsRemoved, this, &CustomItemsProxyModel::onSourceRowsRemoved);
+            connect(sourceModel(), &QAbstractItemModel::rowsAboutToBeMoved, this, &CustomItemsProxyModel::onSourceRowsAboutToBeMoved);
+            connect(sourceModel(), &QAbstractItemModel::rowsMoved, this, &CustomItemsProxyModel::onSourceRowsMoved);
+            connect(sourceModel(), &QAbstractItemModel::columnsAboutToBeInserted, this, &CustomItemsProxyModel::onSourceColumnsAboutToBeInserted);
+            connect(sourceModel(), &QAbstractItemModel::columnsInserted, this, &CustomItemsProxyModel::onSourceColumnsInserted);
+            connect(sourceModel(), &QAbstractItemModel::columnsAboutToBeRemoved, this, &CustomItemsProxyModel::onSourceColumnsAboutToBeRemoved);
+            connect(sourceModel(), &QAbstractItemModel::columnsRemoved, this, &CustomItemsProxyModel::onSourceColumnsRemoved);
+            connect(sourceModel(), &QAbstractItemModel::columnsAboutToBeMoved, this, &CustomItemsProxyModel::onSourceColumnsAboutToBeMoved);
+            connect(sourceModel(), &QAbstractItemModel::columnsMoved, this, &CustomItemsProxyModel::onSourceColumnsMoved);
+            connect(sourceModel(), &QAbstractItemModel::layoutAboutToBeChanged, this, &CustomItemsProxyModel::onSourceLayoutAboutToBeChanged);
+            connect(sourceModel(), &QAbstractItemModel::layoutChanged, this, &CustomItemsProxyModel::onSourceLayoutChanged);
+            connect(sourceModel(), &QAbstractItemModel::modelAboutToBeReset, this, &CustomItemsProxyModel::onSourceAboutToBeReset);
+            connect(sourceModel(), &QAbstractItemModel::modelReset, this, &CustomItemsProxyModel::onSourceReset);
+        }
+
+        endResetModel();
+    }
+
     bool isCustomItem(const int row) const
     {
-        return row < mFrontItems.count() || row >= mFrontItems.count() + QSortFilterProxyModel::rowCount();
+        const int sourceRowCount = sourceModel() ? sourceModel()->rowCount() : 0;
+        return row < mFrontItems.size() || row >= mFrontItems.size() + sourceRowCount;
     }
 
     void prependItem(const QIcon &icon, const QString &text, const QVariant &data, const QString &toolTip)
@@ -255,10 +311,11 @@ public:
                 return;
             }
         }
+        const int sourceRowCount = sourceModel() ? sourceModel()->rowCount() : 0;
         for (int i = 0; i < mBackItems.count(); ++i) {
             if (mBackItems[i]->data == data) {
-                const int index = mFrontItems.count() + QSortFilterProxyModel::rowCount() + i;
-                beginRemoveRows(QModelIndex(), index, index);
+                const int row = mFrontItems.count() + sourceRowCount + i;
+                beginRemoveRows(QModelIndex(), row, row);
                 delete mBackItems.takeAt(i);
                 endRemoveRows();
                 return;
@@ -268,7 +325,9 @@ public:
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override
     {
-        return mFrontItems.count() + QSortFilterProxyModel::rowCount(parent) + mBackItems.count();
+        Q_UNUSED(parent)
+        const int sourceRowCount = sourceModel() ? sourceModel()->rowCount() : 0;
+        return mFrontItems.count() + sourceRowCount + mBackItems.count();
     }
 
     int columnCount(const QModelIndex &parent = QModelIndex()) const override
@@ -280,22 +339,23 @@ public:
         return 1;
     }
 
-    QModelIndex mapToSource(const QModelIndex &index) const override
+    QModelIndex mapToSource(const QModelIndex &proxyIndex) const override
     {
-        if (!index.isValid()) {
+        if (!proxyIndex.isValid()) {
             return {};
         }
-        if (!isCustomItem(index.row())) {
-            const int sourceRow = index.row() - mFrontItems.count();
-            return QSortFilterProxyModel::mapToSource(createIndex(sourceRow, index.column(), index.internalPointer()));
+        if (!isCustomItem(proxyIndex.row())) {
+            const int sourceRow = proxyIndex.row() - mFrontItems.count();
+            return sourceModel()->index(sourceRow, proxyIndex.column());
         }
         return {};
     }
 
-    QModelIndex mapFromSource(const QModelIndex &source_index) const override
+    QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override
     {
-        const QModelIndex idx = QSortFilterProxyModel::mapFromSource(source_index);
-        return createIndex(mFrontItems.count() + idx.row(), idx.column(), idx.internalPointer());
+        if (!sourceIndex.isValid())
+            return {};
+        return createIndex(mFrontItems.count() + sourceIndex.row(), sourceIndex.column(), sourceIndex.internalPointer());
     }
 
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
@@ -303,12 +363,13 @@ public:
         if (row < 0 || row >= rowCount()) {
             return {};
         }
+        const int sourceRowCount = sourceModel() ? sourceModel()->rowCount() : 0;
         if (row < mFrontItems.count()) {
             return createIndex(row, column, mFrontItems[row]);
-        } else if (row >= mFrontItems.count() + QSortFilterProxyModel::rowCount()) {
-            return createIndex(row, column, mBackItems[row - mFrontItems.count() - QSortFilterProxyModel::rowCount()]);
+        } else if (row >= mFrontItems.count() + sourceRowCount) {
+            return createIndex(row, column, mBackItems[row - mFrontItems.count() - sourceRowCount]);
         } else {
-            const QModelIndex mi = QSortFilterProxyModel::index(row - mFrontItems.count(), column, parent);
+            const QModelIndex mi = sourceModel()->index(row - mFrontItems.count(), column, parent);
             return createIndex(row, column, mi.internalPointer());
         }
     }
@@ -348,12 +409,186 @@ public:
             }
         }
 
-        return QSortFilterProxyModel::data(index, role);
+        return QAbstractProxyModel::data(index, role);
+    }
+
+    void onSourceDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+    {
+        Q_EMIT dataChanged(mapFromSource(topLeft), mapFromSource(bottomRight), roles);
+    }
+
+    void onSourceHeaderDataChanged(Qt::Orientation orientation, int first, int last)
+    {
+        Q_EMIT headerDataChanged(orientation, first, last);
+    }
+
+    void onSourceRowsAboutToBeInserted(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        beginInsertRows({}, mFrontItems.count() + start, mFrontItems.count() + end);
+    }
+
+    void onSourceRowsInserted(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        endInsertRows();
+    }
+
+    void onSourceRowsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        beginRemoveRows({}, mFrontItems.count() + start, mFrontItems.count() + end);
+    }
+
+    void onSourceRowsRemoved(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        endRemoveRows();
+    }
+
+    void onSourceRowsAboutToBeMoved(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destParent, int destRow)
+    {
+        if (sourceParent.isValid() || destParent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        beginMoveRows({}, mFrontItems.count() + sourceFirst, mFrontItems.count() + sourceLast, {}, mFrontItems.count() + destRow);
+    }
+
+    void onSourceRowsMoved(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destParent, int destRow)
+    {
+        if (sourceParent.isValid() || destParent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        endMoveRows();
+    }
+
+    void onSourceColumnsAboutToBeInserted(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        beginInsertColumns({}, start, end);
+    }
+
+    void onSourceColumnsInserted(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        endInsertColumns();
+    }
+
+    void onSourceColumnsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        beginRemoveColumns({}, start, end);
+    }
+
+    void onSourceColumnsRemoved(const QModelIndex &parent, int start, int end)
+    {
+        if (parent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        endRemoveColumns();
+    }
+
+    void onSourceColumnsAboutToBeMoved(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destParent, int destColumn)
+    {
+        if (sourceParent.isValid() || destParent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        beginMoveColumns({}, sourceFirst, sourceLast, {}, destColumn);
+    }
+
+    void onSourceColumnsMoved(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destParent, int destColumn)
+    {
+        if (sourceParent.isValid() || destParent.isValid()) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        endMoveColumns();
+    }
+
+    void onSourceLayoutAboutToBeChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint)
+    {
+        // copied from QConcatenateTablesProxyModel
+        if (!sourceParents.isEmpty() && !sourceParents.contains(QModelIndex())) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+
+        Q_EMIT layoutAboutToBeChanged({}, hint);
+
+        const QModelIndexList persistentIndexList = this->persistentIndexList();
+        layoutChangePersistentIndexes.reserve(persistentIndexList.size());
+        layoutChangeProxyIndexes.reserve(persistentIndexList.size());
+
+        for (const QModelIndex &proxyPersistentIndex : persistentIndexList) {
+            layoutChangeProxyIndexes.append(proxyPersistentIndex);
+            Q_ASSERT(proxyPersistentIndex.isValid());
+            const QPersistentModelIndex srcPersistentIndex = mapToSource(proxyPersistentIndex);
+            Q_ASSERT(srcPersistentIndex.isValid());
+            layoutChangePersistentIndexes.append(srcPersistentIndex);
+        }
+    }
+
+    void onSourceLayoutChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint)
+    {
+        // copied from QConcatenateTablesProxyModel
+        if (!sourceParents.isEmpty() && !sourceParents.contains(QModelIndex())) {
+            // not supported, the proxy is a flat model
+            return;
+        }
+        for (int i = 0; i < layoutChangeProxyIndexes.size(); ++i) {
+            const QModelIndex proxyIdx = layoutChangeProxyIndexes.at(i);
+            const QModelIndex newProxyIdx = mapFromSource(layoutChangePersistentIndexes.at(i));
+            changePersistentIndex(proxyIdx, newProxyIdx);
+        }
+
+        layoutChangePersistentIndexes.clear();
+        layoutChangeProxyIndexes.clear();
+
+        Q_EMIT layoutChanged({}, hint);
+    }
+
+    void onSourceAboutToBeReset()
+    {
+        beginResetModel();
+    }
+
+    void onSourceReset()
+    {
+        endResetModel();
     }
 
 private:
     QVector<CustomItem *> mFrontItems;
     QVector<CustomItem *> mBackItems;
+
+    // for layoutAboutToBeChanged/layoutChanged
+    QVector<QPersistentModelIndex> layoutChangePersistentIndexes;
+    QVector<QModelIndex> layoutChangeProxyIndexes;
 };
 
 } // anonymous namespace
