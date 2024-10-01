@@ -57,6 +57,7 @@ class OpenPGPCertificateCreationDialog::Private
         QCheckBox *withPassCheckBox;
         QDialogButtonBox *buttonBox;
         QCheckBox *expiryCB;
+        QLabel *expiryLabel;
         KDateComboBox *expiryDE;
         QComboBox *keyAlgoCB;
         QLabel *keyAlgoLabel;
@@ -110,8 +111,12 @@ class OpenPGPCertificateCreationDialog::Private
             {
                 auto hbox = new QHBoxLayout;
 
-                expiryCB = new QCheckBox{Expiration::validUntilLabel(), dialog};
+                expiryCB = new QCheckBox{dialog};
+                expiryCB->setAccessibleName(Expiration::validUntilLabel());
                 hbox->addWidget(expiryCB);
+
+                expiryLabel = new QLabel{Expiration::validUntilLabel(), dialog};
+                hbox->addWidget(expiryLabel);
 
                 expiryDE = new KDateComboBox(dialog);
                 hbox->addWidget(expiryDE, 1);
@@ -207,11 +212,14 @@ public:
         ui.expiryCB->setEnabled(true);
         setExpiryDate(defaultExpirationDate(Kleo::Expiration::ExpirationOnUnlimitedValidity::InternalDefaultExpiration));
         if (unlimitedValidityIsAllowed()) {
+            ui.expiryLabel->setEnabled(ui.expiryCB->isChecked());
             ui.expiryDE->setEnabled(ui.expiryCB->isChecked());
         } else {
             ui.expiryCB->setEnabled(false);
+            ui.expiryCB->setVisible(false);
         }
         connect(ui.expiryCB, &QAbstractButton::toggled, q, [this](bool checked) {
+            ui.expiryLabel->setEnabled(checked);
             ui.expiryDE->setEnabled(checked);
             if (checked && !ui.expiryDE->isValid()) {
                 setExpiryDate(defaultExpirationDate(Kleo::Expiration::ExpirationOnUnlimitedValidity::InternalDefaultExpiration));
