@@ -20,8 +20,6 @@
 #include "utils/keyparameters.h"
 #include "utils/keyusage.h"
 
-#include <kdatecombobox.h>
-
 #include <KConfigGroup>
 #include <KDateComboBox>
 #include <KLocalizedString>
@@ -112,7 +110,7 @@ class OpenPGPCertificateCreationDialog::Private
             {
                 auto hbox = new QHBoxLayout;
 
-                expiryCB = new QCheckBox{i18nc("@option:check", "Valid until:"), dialog};
+                expiryCB = new QCheckBox{Expiration::validUntilLabel(), dialog};
                 hbox->addWidget(expiryCB);
 
                 expiryDE = new KDateComboBox(dialog);
@@ -228,7 +226,7 @@ public:
         });
         updateTechnicalParameters(); // set key parameters to default values for OpenPGP
         connect(ui.expander, &AnimatedExpander::startExpanding, q, [this]() {
-            q->resize(q->sizeHint().width() + 20, q->sizeHint().height() + ui.expander->contentHeight() + 20);
+            q->resize(std::max(q->sizeHint().width(), ui.expander->contentWidth()) + 20, q->sizeHint().height() + ui.expander->contentHeight() + 20);
         });
     }
 
@@ -350,7 +348,7 @@ OpenPGPCertificateCreationDialog::OpenPGPCertificateCreationDialog(QWidget *pare
     : QDialog{parent, f}
     , d(new Private{this})
 {
-    resize(sizeHint().width() + 20, sizeHint().height() + 20);
+    resize(std::max(sizeHint().width(), d->ui.expander->contentWidth()) + 20, sizeHint().height() + 20);
 }
 
 OpenPGPCertificateCreationDialog::~OpenPGPCertificateCreationDialog() = default;
