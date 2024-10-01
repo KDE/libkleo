@@ -109,4 +109,9 @@ int AnimatedExpander::contentHeight() const
     return contentArea.layout()->sizeHint().height();
 }
 
+int AnimatedExpander::contentWidth() const
+{
+    return contentArea.layout()->sizeHint().width();
+}
+
 #include "moc_animatedexpander_p.cpp"
