@@ -43,7 +43,6 @@ AbstractKeyListSortFilterProxyModel::AbstractKeyListSortFilterProxyModel(const A
 
 void AbstractKeyListSortFilterProxyModel::init()
 {
-    setDynamicSortFilter(true);
     setSortRole(Qt::EditRole); // EditRole can be expected to be in a less formatted way, better for sorting
     setFilterRole(Qt::DisplayRole);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
