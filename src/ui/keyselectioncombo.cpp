@@ -433,6 +433,8 @@ public:
 
     void onSourceRowsInserted(const QModelIndex &parent, int start, int end)
     {
+        Q_UNUSED(start)
+        Q_UNUSED(end)
         if (parent.isValid()) {
             // not supported, the proxy is a flat model
             return;
@@ -451,6 +453,8 @@ public:
 
     void onSourceRowsRemoved(const QModelIndex &parent, int start, int end)
     {
+        Q_UNUSED(start)
+        Q_UNUSED(end)
         if (parent.isValid()) {
             // not supported, the proxy is a flat model
             return;
@@ -469,6 +473,9 @@ public:
 
     void onSourceRowsMoved(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destParent, int destRow)
     {
+        Q_UNUSED(sourceFirst)
+        Q_UNUSED(sourceLast)
+        Q_UNUSED(destRow)
         if (sourceParent.isValid() || destParent.isValid()) {
             // not supported, the proxy is a flat model
             return;
@@ -487,6 +494,8 @@ public:
 
     void onSourceColumnsInserted(const QModelIndex &parent, int start, int end)
     {
+        Q_UNUSED(start)
+        Q_UNUSED(end)
         if (parent.isValid()) {
             // not supported, the proxy is a flat model
             return;
@@ -505,6 +514,8 @@ public:
 
     void onSourceColumnsRemoved(const QModelIndex &parent, int start, int end)
     {
+        Q_UNUSED(start)
+        Q_UNUSED(end)
         if (parent.isValid()) {
             // not supported, the proxy is a flat model
             return;
@@ -523,6 +534,9 @@ public:
 
     void onSourceColumnsMoved(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destParent, int destColumn)
     {
+        Q_UNUSED(sourceFirst)
+        Q_UNUSED(sourceLast)
+        Q_UNUSED(destColumn)
         if (sourceParent.isValid() || destParent.isValid()) {
             // not supported, the proxy is a flat model
             return;
