@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1691507 $
+# Version: $Revision: 1691906 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2024-09-07 11:31+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2004,25 +2004,25 @@ msgstr "Wybór klucza"
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Wybierz klucz (OpenPGP lub S/MIME), do użycia."
 
-#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:93
+#: ui/keyselectioncombo.cpp:87 ui/useridselectioncombo.cpp:93
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:175
+#: ui/keyselectioncombo.cpp:178 ui/useridselectioncombo.cpp:175
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr "%1 (%2, utworzony: %3)"
 
-#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:181
+#: ui/keyselectioncombo.cpp:184 ui/useridselectioncombo.cpp:181
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, utworzony: %4)"
 
-#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:713
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:713
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Wczytywanie kluczy ..."
@@ -2470,12 +2470,12 @@ msgstr "Zaszyfruj innym:"
 msgid "Generate"
 msgstr "Generuj"
 
-#: ui/openpgpcertificatecreationdialog.cpp:90
+#: ui/openpgpcertificatecreationdialog.cpp:89
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "Chroń utworzony klucz hasłem."
 
-#: ui/openpgpcertificatecreationdialog.cpp:92
+#: ui/openpgpcertificatecreationdialog.cpp:91
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
@@ -2484,45 +2484,39 @@ msgstr ""
 "Szyfruje tajny klucz nieodzyskiwalnym hasłem. Zostaniesz poproszony o hasło "
 "przy tworzeniu klucza."
 
-#: ui/openpgpcertificatecreationdialog.cpp:95
+#: ui/openpgpcertificatecreationdialog.cpp:94
 #, kde-format
 msgid "Advanced options"
 msgstr "Ustawienia rozszerzone"
 
-#: ui/openpgpcertificatecreationdialog.cpp:102
+#: ui/openpgpcertificatecreationdialog.cpp:101
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr "Materiał klucza"
 
-#: ui/openpgpcertificatecreationdialog.cpp:115
-#, kde-format
-msgctxt "@option:check"
-msgid "Valid until:"
-msgstr "Ważny do:"
-
-#: ui/openpgpcertificatecreationdialog.cpp:142
+#: ui/openpgpcertificatecreationdialog.cpp:145
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Utwórz certyfikat OpenPGP"
 
-#: ui/openpgpcertificatecreationdialog.cpp:150
+#: ui/openpgpcertificatecreationdialog.cpp:153
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr "Wpisz nazwę oraz adres pocztowy do użycia przez certyfikat."
 
-#: ui/openpgpcertificatecreationdialog.cpp:151
+#: ui/openpgpcertificatecreationdialog.cpp:154
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Wpisz nazwę oraz/lub adres pocztowy do użycia przez certyfikat."
 
-#: ui/openpgpcertificatecreationdialog.cpp:295
+#: ui/openpgpcertificatecreationdialog.cpp:301
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Wpisz nazwę oraz adres pocztowy."
 
-#: ui/openpgpcertificatecreationdialog.cpp:306
+#: ui/openpgpcertificatecreationdialog.cpp:315
 #, kde-format
 msgid "There is a problem."
 msgstr "Wystąpił problem."
@@ -2583,31 +2577,47 @@ msgstr "Zgodny z VS-NfD"
 msgid "Not VS-NfD compliant"
 msgstr "Niezgodny z VS-NfD"
 
-#: utils/expiration.cpp:103
+#: utils/expiration.cpp:102
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Valid until:"
+msgctxt "@label Valid until (<a date>):"
+msgid "Valid until (%1):"
+msgstr "Ważny do:"
+
+#: utils/expiration.cpp:105
+#, fuzzy, kde-format
+#| msgctxt "@info ... between <a date> and <another date>."
+#| msgid "Enter a date between %1 and %2."
+msgctxt "@label ... (between <a date> and <another date>):"
+msgid "Valid until (between %1 and %2):"
+msgstr "Wpisz datę pomiędzy %1 a %2."
+
+#: utils/expiration.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
 msgstr "Daty nie można zmienić."
 
-#: utils/expiration.cpp:106 utils/expiration.cpp:112
+#: utils/expiration.cpp:119 utils/expiration.cpp:125
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
 msgstr "Wpisz datę pomiędzy %1 a %2."
 
-#: utils/expiration.cpp:138
+#: utils/expiration.cpp:147
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
 msgstr "Trzy lata od dziś"
 
-#: utils/expiration.cpp:139
+#: utils/expiration.cpp:148
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
 msgstr "Dwa lata od dziś"
 
-#: utils/expiration.cpp:140
+#: utils/expiration.cpp:149
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"

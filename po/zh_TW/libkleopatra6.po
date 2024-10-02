@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2024-08-25 03:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1779,25 +1779,25 @@ msgstr "選擇金鑰"
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "請選擇要使用的 OpenPGP 或 S/MIME 金鑰。"
 
-#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:93
+#: ui/keyselectioncombo.cpp:87 ui/useridselectioncombo.cpp:93
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:175
+#: ui/keyselectioncombo.cpp:178 ui/useridselectioncombo.cpp:175
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr "%1 (%2, 建立: %3)"
 
-#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:181
+#: ui/keyselectioncombo.cpp:184 ui/useridselectioncombo.cpp:181
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, 建立: %4)"
 
-#: ui/keyselectioncombo.cpp:672 ui/useridselectioncombo.cpp:713
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:713
 #, kde-format
 msgid "Loading keys ..."
 msgstr "載入金鑰中 ..."
@@ -2228,57 +2228,51 @@ msgstr "加密給別人："
 msgid "Generate"
 msgstr "產生"
 
-#: ui/openpgpcertificatecreationdialog.cpp:90
+#: ui/openpgpcertificatecreationdialog.cpp:89
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "用密碼保護產生的金鑰。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:92
+#: ui/openpgpcertificatecreationdialog.cpp:91
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr "用無法讀出的密碼將私鑰進行加密。產生金鑰時將會向您詢問密碼。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:95
+#: ui/openpgpcertificatecreationdialog.cpp:94
 #, kde-format
 msgid "Advanced options"
 msgstr "進階選項"
 
-#: ui/openpgpcertificatecreationdialog.cpp:102
+#: ui/openpgpcertificatecreationdialog.cpp:101
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:115
-#, kde-format
-msgctxt "@option:check"
-msgid "Valid until:"
-msgstr "有效期限："
-
-#: ui/openpgpcertificatecreationdialog.cpp:142
+#: ui/openpgpcertificatecreationdialog.cpp:145
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "建立 OpenPGP 憑證"
 
-#: ui/openpgpcertificatecreationdialog.cpp:150
+#: ui/openpgpcertificatecreationdialog.cpp:153
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr "輸入憑證用的名稱及電子郵件地址。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:151
+#: ui/openpgpcertificatecreationdialog.cpp:154
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "輸入憑證用的名稱或電子郵件地址。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:295
+#: ui/openpgpcertificatecreationdialog.cpp:301
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "輸入名稱或是電子郵件地址。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:306
+#: ui/openpgpcertificatecreationdialog.cpp:315
 #, kde-format
 msgid "There is a problem."
 msgstr "有問題。"
@@ -2337,31 +2331,47 @@ msgstr "合乎 VS-NfD 規範"
 msgid "Not VS-NfD compliant"
 msgstr "不合 VS-NfD 規範"
 
-#: utils/expiration.cpp:103
+#: utils/expiration.cpp:102
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Valid until:"
+msgctxt "@label Valid until (<a date>):"
+msgid "Valid until (%1):"
+msgstr "有效期限："
+
+#: utils/expiration.cpp:105
+#, fuzzy, kde-format
+#| msgctxt "@info ... between <a date> and <another date>."
+#| msgid "Enter a date between %1 and %2."
+msgctxt "@label ... (between <a date> and <another date>):"
+msgid "Valid until (between %1 and %2):"
+msgstr "輸入在 %1 和 %2 之間的日期。"
+
+#: utils/expiration.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
 msgstr "日期無法變更。"
 
-#: utils/expiration.cpp:106 utils/expiration.cpp:112
+#: utils/expiration.cpp:119 utils/expiration.cpp:125
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
 msgstr "輸入在 %1 和 %2 之間的日期。"
 
-#: utils/expiration.cpp:138
+#: utils/expiration.cpp:147
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
 msgstr "現在起三年"
 
-#: utils/expiration.cpp:139
+#: utils/expiration.cpp:148
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
 msgstr "現在起兩年"
 
-#: utils/expiration.cpp:140
+#: utils/expiration.cpp:149
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
