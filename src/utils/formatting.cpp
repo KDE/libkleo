@@ -1591,9 +1591,8 @@ static QString renderKey(const GpgME::Key &key)
         return i18n("Unknown certificate");
     }
 
-    return renderKeyLink(
-        QLatin1StringView(key.primaryFingerprint()),
-        i18nc("User ID (Key ID)", "%1 (%2)").arg(Formatting::prettyNameAndEMail(key).toHtmlEscaped(), Formatting::prettyID(key.subkey(0).keyID())));
+    return renderKeyLink(QLatin1StringView(key.primaryFingerprint()),
+                         i18nc("User ID (Key ID)", "%1 (%2)", Formatting::prettyNameAndEMail(key), Formatting::prettyID(key.subkey(0).keyID())));
 }
 
 static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key)
