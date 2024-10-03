@@ -12,15 +12,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:40+0000\n"
-"PO-Revision-Date: 2024-10-01 18:15+0200\n"
+"POT-Creation-Date: 2024-10-03 00:40+0000\n"
+"PO-Revision-Date: 2024-10-02 22:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -1950,7 +1950,7 @@ msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, sorrera: %4)"
 
-#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:713
+#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:713
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Gakoak zamatzen..."
@@ -2507,20 +2507,16 @@ msgid "Not VS-NfD compliant"
 msgstr "«VS-NfD»rekin ez manakorra"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Valid until:"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "Noiz arte balio du:"
+msgstr "Noiz arte balio du (%1):"
 
 #: utils/expiration.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@info ... between <a date> and <another date>."
-#| msgid "Enter a date between %1 and %2."
+#, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr "Sartu %1 eta %2 arteko data bat."
+msgstr "Noiz arte balio du (%1 eta %2 artean):"
 
 #: utils/expiration.cpp:116
 #, kde-format
@@ -3355,13 +3351,13 @@ msgstr ""
 msgid "Unknown certificate"
 msgstr "Ziurtagiri ezezaguna"
 
-#: utils/formatting.cpp:1596
+#: utils/formatting.cpp:1595
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1610
+#: utils/formatting.cpp:1609
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
@@ -3369,23 +3365,23 @@ msgid ""
 msgstr ""
 "%1(e)an %2 hatz-marka dun ziurtagiri ezezagun batekin sortutako sinadura"
 
-#: utils/formatting.cpp:1612
+#: utils/formatting.cpp:1611
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "%1 hatz-marka dun ziurtagiri ezezagun batekin sortutako sinadura"
 
-#: utils/formatting.cpp:1616
+#: utils/formatting.cpp:1615
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "%1(e)an ondoko ziurtagiriarekin sortutako sinadura: %2"
 
-#: utils/formatting.cpp:1618
+#: utils/formatting.cpp:1617
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Ondoko ziurtagiriarekin sortutako sinadura: %1"
 
-#: utils/formatting.cpp:1624
+#: utils/formatting.cpp:1623
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3393,7 +3389,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "Sinadura %1 da"
 
-#: utils/formatting.cpp:1627
+#: utils/formatting.cpp:1626
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3401,80 +3397,80 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "Sinadura <b>ez da</b> %1."
 
-#: utils/formatting.cpp:1637
+#: utils/formatting.cpp:1636
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Errorea: sinadura ez da egiaztatu"
 
-#: utils/formatting.cpp:1639
+#: utils/formatting.cpp:1638
 #, kde-format
 msgid "Good signature"
 msgstr "Sinadura ona"
 
-#: utils/formatting.cpp:1641
+#: utils/formatting.cpp:1640
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "Sinatzeko ziurtagiria indargabetu da"
 
-#: utils/formatting.cpp:1643
+#: utils/formatting.cpp:1642
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "Sinatzeko ziurtagiria iraungita dago"
 
-#: utils/formatting.cpp:1645
+#: utils/formatting.cpp:1644
 #, kde-format
 msgid "Certificate is not available"
 msgstr "Ziurtagiria ez dago erabilgarri"
 
-#: utils/formatting.cpp:1647
+#: utils/formatting.cpp:1646
 #, kde-format
 msgid "Signature expired"
 msgstr "Sinadura iraungi da"
 
-#: utils/formatting.cpp:1649
+#: utils/formatting.cpp:1648
 #, kde-format
 msgid "CRL missing"
 msgstr "CRL falta da"
 
-#: utils/formatting.cpp:1651
+#: utils/formatting.cpp:1650
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL zaharregia"
 
-#: utils/formatting.cpp:1653
+#: utils/formatting.cpp:1652
 #, kde-format
 msgid "Bad policy"
 msgstr "Gidalerro ezegokia"
 
-#: utils/formatting.cpp:1655
+#: utils/formatting.cpp:1654
 #, kde-format
 msgid "System error"
 msgstr "Sistemaren errorea"
 
-#: utils/formatting.cpp:1657
+#: utils/formatting.cpp:1656
 #, kde-format
 msgid "Bad signature"
 msgstr "Sinadura txarra"
 
-#: utils/formatting.cpp:1733 utils/formatting.cpp:1756
+#: utils/formatting.cpp:1732 utils/formatting.cpp:1755
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Sinadura baliogabea da: %1"
 
-#: utils/formatting.cpp:1742
+#: utils/formatting.cpp:1741
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Ziurtagiria gako-zerbitzari batean bilatu edo fitxategi batetik inporta "
 "dezakezu."
 
-#: utils/formatting.cpp:1751
+#: utils/formatting.cpp:1750
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
 
-#: utils/formatting.cpp:1752
+#: utils/formatting.cpp:1751
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "

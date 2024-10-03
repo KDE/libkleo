@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-03 00:40+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1800,7 +1800,7 @@ msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, 作成: %4)"
 
-#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:713
+#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:713
 #, kde-format
 msgid "Loading keys ..."
 msgstr "鍵をロード中..."
@@ -3226,13 +3226,13 @@ msgstr ""
 msgid "Unknown certificate"
 msgstr "自分の証明書"
 
-#: utils/formatting.cpp:1596
+#: utils/formatting.cpp:1595
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr ""
 
-#: utils/formatting.cpp:1610
+#: utils/formatting.cpp:1609
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgctxt "1 is a date"
@@ -3240,26 +3240,26 @@ msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
 msgstr "不明の証明書による不正の署名: %1"
 
-#: utils/formatting.cpp:1612
+#: utils/formatting.cpp:1611
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "不明の証明書による不正の署名: %1"
 
-#: utils/formatting.cpp:1616
+#: utils/formatting.cpp:1615
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "不明の証明書による不正の署名: %1"
 
-#: utils/formatting.cpp:1618
+#: utils/formatting.cpp:1617
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgid "Signature created with certificate: %1"
 msgstr "不明の証明書による不正の署名: %1"
 
-#: utils/formatting.cpp:1624
+#: utils/formatting.cpp:1623
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgctxt ""
@@ -3268,7 +3268,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "%1 による正しい署名。"
 
-#: utils/formatting.cpp:1627
+#: utils/formatting.cpp:1626
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgctxt ""
@@ -3277,84 +3277,84 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "%1 による正しい署名。"
 
-#: utils/formatting.cpp:1637
+#: utils/formatting.cpp:1636
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr ""
 
-#: utils/formatting.cpp:1639
+#: utils/formatting.cpp:1638
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgid "Good signature"
 msgstr "%1 による正しい署名。"
 
-#: utils/formatting.cpp:1641
+#: utils/formatting.cpp:1640
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signing certificate was revoked"
 msgstr "証明が失効しています"
 
-#: utils/formatting.cpp:1643
+#: utils/formatting.cpp:1642
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signing certificate is expired"
 msgstr "証明が失効しています"
 
-#: utils/formatting.cpp:1645
+#: utils/formatting.cpp:1644
 #, kde-format
 msgid "Certificate is not available"
 msgstr ""
 
-#: utils/formatting.cpp:1647
+#: utils/formatting.cpp:1646
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signature expired"
 msgstr "証明が失効しています"
 
-#: utils/formatting.cpp:1649
+#: utils/formatting.cpp:1648
 #, kde-format
 msgid "CRL missing"
 msgstr ""
 
-#: utils/formatting.cpp:1651
+#: utils/formatting.cpp:1650
 #, kde-format
 msgid "CRL too old"
 msgstr ""
 
-#: utils/formatting.cpp:1653
+#: utils/formatting.cpp:1652
 #, kde-format
 msgid "Bad policy"
 msgstr ""
 
-#: utils/formatting.cpp:1655
+#: utils/formatting.cpp:1654
 #, fuzzy, kde-format
 #| msgid "System Error"
 msgid "System error"
 msgstr "システムエラー"
 
-#: utils/formatting.cpp:1657
+#: utils/formatting.cpp:1656
 #, fuzzy, kde-format
 #| msgid "Bad signature by %1: %2"
 msgid "Bad signature"
 msgstr "%1 による不正の署名: %2"
 
-#: utils/formatting.cpp:1733 utils/formatting.cpp:1756
+#: utils/formatting.cpp:1732 utils/formatting.cpp:1755
 #, fuzzy, kde-format
 #| msgid "The key is not valid."
 msgid "The signature is invalid: %1"
 msgstr "この鍵は有効ではありません。"
 
-#: utils/formatting.cpp:1742
+#: utils/formatting.cpp:1741
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 
-#: utils/formatting.cpp:1751
+#: utils/formatting.cpp:1750
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 
-#: utils/formatting.cpp:1752
+#: utils/formatting.cpp:1751
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
