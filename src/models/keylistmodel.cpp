@@ -19,6 +19,7 @@
 #include <libkleo/formatting.h>
 #include <libkleo/keyfilter.h>
 #include <libkleo/keyfiltermanager.h>
+#include <libkleo/keyhelpers.h>
 #include <libkleo/predicates.h>
 #include <libkleo/systeminfo.h>
 
@@ -580,7 +581,7 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
         }
         return Kleo::all_of(group.keys(),
                             [](const auto &key) {
-                                return key.hasEncrypt();
+                                return Kleo::canBeUsedForEncryption(key);
                             })
             ? QIcon::fromTheme(QStringLiteral("group"))
             : QIcon::fromTheme(QStringLiteral("emblem-warning"));
