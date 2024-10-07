@@ -1582,7 +1582,7 @@ static QString formatValidSignatureWithTrustLevel(const GpgME::UserID &id)
 
 static QString renderKeyLink(const QString &fpr, const QString &text)
 {
-    return QStringLiteral("<a href=\"key:%1\">%2</a>").arg(fpr, text);
+    return QStringLiteral("<a href=\"key:%1\">%2</a>").arg(fpr, text.toHtmlEscaped());
 }
 
 static QString renderKey(const GpgME::Key &key)
