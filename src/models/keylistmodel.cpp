@@ -569,7 +569,7 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
         }
         return Kleo::all_of(group.keys(),
                             [](const auto &key) {
-                                return key.hasEncrypt();
+                                return key.hasEncrypt() && !key.isBad();
                             })
             ? QIcon::fromTheme(QStringLiteral("group"))
             : QIcon::fromTheme(QStringLiteral("emblem-warning"));
