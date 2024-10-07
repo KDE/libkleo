@@ -114,6 +114,8 @@ QStringList Kleo::gnupgFileWhitelist()
         QStringLiteral("secring.gpg"),
         // Secret keys (living under private-keys-v1.d/)
         QStringLiteral("*.key"),
+        // the keyboxd database
+        QStringLiteral("pubring.db"),
         // Changes to the trustmodel / compliance mode might
         // affect validity so we check this, too.
         // Globbing for gpg.conf* here will trigger too often
@@ -132,6 +134,8 @@ QStringList Kleo::gnupgFolderWhitelist()
     return {
         gnupgHome.path(),
         gnupgPrivateKeysDirectory(),
+        // for the keyboxd database
+        gnupgHome.filePath(QStringLiteral("public-keys.d")),
     };
 }
 
