@@ -1444,14 +1444,16 @@ public:
     QGpgME::ListAllKeysJob *createKeyListingJob(GpgME::Protocol protocol);
     void listAllKeysJobDone(const KeyListResult &res, const std::vector<Key> &nextKeys)
     {
-        std::vector<Key> keys;
-        keys.reserve(m_keys.size() + nextKeys.size());
-        if (m_keys.empty()) {
-            keys = nextKeys;
-        } else {
-            std::merge(m_keys.begin(), m_keys.end(), nextKeys.begin(), nextKeys.end(), std::back_inserter(keys), _detail::ByFingerprint<std::less>());
+        if (!nextKeys.empty()) {
+            std::vector<Key> keys;
+            keys.reserve(m_keys.size() + nextKeys.size());
+            if (m_keys.empty()) {
+                keys = nextKeys;
+            } else {
+                std::merge(m_keys.begin(), m_keys.end(), nextKeys.begin(), nextKeys.end(), std::back_inserter(keys), _detail::ByFingerprint<std::less>());
+            }
+            m_keys.swap(keys);
         }
-        m_keys.swap(keys);
         jobDone(res);
     }
     void emitDone(const KeyListResult &result);
