@@ -1440,7 +1440,8 @@ class KeyCache::RefreshKeysJob::Private
 public:
     Private(KeyCache *cache, RefreshKeysJob *qq);
     void doStart();
-    Error startKeyListing(GpgME::Protocol protocol);
+    void startNextJob();
+    QGpgME::ListAllKeysJob *createKeyListingJob(GpgME::Protocol protocol);
     void listAllKeysJobDone(const KeyListResult &res, const std::vector<Key> &nextKeys)
     {
         std::vector<Key> keys;
@@ -1489,6 +1490,7 @@ void KeyCache::RefreshKeysJob::Private::jobDone(const KeyListResult &result)
     m_jobsPending.removeOne(qobject_cast<QGpgME::ListAllKeysJob *>(sender));
     m_mergedResult.mergeWith(result);
     if (m_jobsPending.size() > 0) {
+        startNextJob();
         return;
     }
     updateKeyCache();
@@ -1523,7 +1525,9 @@ void KeyCache::RefreshKeysJob::start()
 void KeyCache::RefreshKeysJob::cancel()
 {
     d->m_canceled = true;
-    std::for_each(d->m_jobsPending.begin(), d->m_jobsPending.end(), std::mem_fn(&QGpgME::ListAllKeysJob::slotCancel));
+    if (!d->m_jobsPending.empty()) {
+        d->m_jobsPending.first()->slotCancel();
+    }
     Q_EMIT canceled();
 }
 
@@ -1535,15 +1539,37 @@ void KeyCache::RefreshKeysJob::Private::doStart()
     }
 
     Q_ASSERT(m_jobsPending.size() == 0);
-    m_mergedResult.mergeWith(KeyListResult(startKeyListing(GpgME::OpenPGP)));
-    m_mergedResult.mergeWith(KeyListResult(startKeyListing(GpgME::CMS)));
 
-    if (m_jobsPending.size() != 0) {
+    if (auto job = createKeyListingJob(GpgME::OpenPGP)) {
+        m_jobsPending.push_back(job);
+    }
+    if (auto job = createKeyListingJob(GpgME::CMS)) {
+        m_jobsPending.push_back(job);
+    }
+
+    if (m_jobsPending.empty()) {
+        emitDone(KeyListResult(Error(GPG_ERR_UNSUPPORTED_OPERATION)));
         return;
     }
 
-    const bool hasError = m_mergedResult.error() || m_mergedResult.error().isCanceled();
-    emitDone(hasError ? m_mergedResult : KeyListResult(Error(GPG_ERR_UNSUPPORTED_OPERATION)));
+    startNextJob();
+}
+
+void KeyCache::RefreshKeysJob::Private::startNextJob()
+{
+    Q_ASSERT(!m_jobsPending.empty());
+
+    auto job = m_jobsPending.first();
+
+    const Error error = job->start(true);
+    if (error || error.isCanceled()) {
+        QMetaObject::invokeMethod(
+            q,
+            [error, this]() {
+                listAllKeysJobDone(KeyListResult{error}, {});
+            },
+            Qt::QueuedConnection);
+    }
 }
 
 void KeyCache::RefreshKeysJob::Private::updateKeyCache()
@@ -1566,15 +1592,15 @@ void KeyCache::RefreshKeysJob::Private::updateKeyCache()
     m_cache->refresh(m_keys);
 }
 
-Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
+QGpgME::ListAllKeysJob *KeyCache::RefreshKeysJob::Private::createKeyListingJob(GpgME::Protocol proto)
 {
     const auto *const protocol = (proto == GpgME::OpenPGP) ? QGpgME::openpgp() : QGpgME::smime();
     if (!protocol) {
-        return Error();
+        return nullptr;
     }
     QGpgME::ListAllKeysJob *const job = protocol->listAllKeysJob(/*includeSigs*/ false, /*validate*/ true);
     if (!job) {
-        return Error();
+        return nullptr;
     }
     if (!m_cache->initialized()) {
         // avoid delays during the initial key listing
@@ -1614,12 +1640,7 @@ Error KeyCache::RefreshKeysJob::Private::startKeyListing(GpgME::Protocol proto)
         }
     }
 
-    const Error error = job->start(true);
-
-    if (!error && !error.isCanceled()) {
-        m_jobsPending.push_back(job);
-    }
-    return error;
+    return job;
 }
 
 bool KeyCache::initialized() const
