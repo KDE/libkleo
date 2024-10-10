@@ -1397,7 +1397,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     d->m_cards.clear();
     for (const auto &key : keys) {
         for (const auto &subkey : key.subkeys()) {
-            if (!subkey.isSecret() || d->m_cards[QByteArray(subkey.keyGrip())].size() > 0) {
+            if (!subkey.isSecret() || !d->m_cards[QByteArray(subkey.keyGrip())].empty()) {
                 continue;
             }
             const auto data = readSecretKeyFile(QString::fromLatin1(subkey.keyGrip()));
@@ -1488,10 +1488,10 @@ void KeyCache::RefreshKeysJob::Private::jobDone(const KeyListResult &result)
     if (sender) {
         sender->disconnect(q);
     }
-    Q_ASSERT(m_jobsPending.size() > 0);
+    Q_ASSERT(!m_jobsPending.empty());
     m_jobsPending.removeOne(qobject_cast<QGpgME::ListAllKeysJob *>(sender));
     m_mergedResult.mergeWith(result);
-    if (m_jobsPending.size() > 0) {
+    if (!m_jobsPending.empty()) {
         startNextJob();
         return;
     }
@@ -1540,7 +1540,7 @@ void KeyCache::RefreshKeysJob::Private::doStart()
         return;
     }
 
-    Q_ASSERT(m_jobsPending.size() == 0);
+    Q_ASSERT(m_jobsPending.empty());
 
     if (auto job = createKeyListingJob(GpgME::OpenPGP)) {
         m_jobsPending.push_back(job);
