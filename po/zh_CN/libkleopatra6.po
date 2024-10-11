@@ -656,10 +656,9 @@ msgid "All"
 msgstr ""
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "证书已过期"
+msgstr ""
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -2241,11 +2240,10 @@ msgid "Not VS-NfD compliant"
 msgstr "VS-NfD 不兼容"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "有效期至"
+msgstr ""
 
 #: utils/expiration.cpp:105
 #, kde-format
@@ -3068,31 +3066,27 @@ msgid "%1 (%2)"
 msgstr ""
 
 #: utils/formatting.cpp:1609
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "损坏的签名，由未知证书签署：%1"
+msgstr ""
 
 #: utils/formatting.cpp:1611
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "损坏的签名，由未知证书签署：%1"
+msgstr ""
 
 #: utils/formatting.cpp:1615
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "损坏的签名，由未知证书签署：%1"
+msgstr ""
 
 #: utils/formatting.cpp:1617
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "损坏的签名，由未知证书签署：%1"
+msgstr ""
 
 #: utils/formatting.cpp:1623
 #, kde-format
@@ -3196,13 +3190,3 @@ msgstr "输入流中的十六进制字符“%1”无效。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "输入流中有过早出现的十六进制结束字符"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr "您所使用的 gpgme 库太旧，无法配置目录服务。"
-
-#, fuzzy
-#~| msgid "Bad signature by an unknown certificate: %1"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "损坏的签名，由未知证书签署：%1"
