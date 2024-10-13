@@ -85,7 +85,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
 )
 
 ########### Targets ###########
-ecm_set_disabled_deprecation_versions(QT 6.3  KF 6.7.0)
+ecm_set_disabled_deprecation_versions(QT 6.3  KF 6.8.0)
 
 remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
