@@ -1336,6 +1336,9 @@ void KeyCache::insert(const std::vector<Key> &keys)
     for (const Key &key : std::as_const(sorted)) {
         const auto keySubkeys{key.subkeys()};
         for (const Subkey &subkey : keySubkeys) {
+            if (subkey.canRenc()) {
+                continue;
+            }
             subkeys.push_back(subkey);
         }
     }
