@@ -9,11 +9,13 @@
 */
 
 #include <Libkleo/Formatting>
+#include <Libkleo/GnuPG>
 #include <Libkleo/KeyCache>
 #include <Libkleo/KeyGroup>
 #include <Libkleo/KeyResolverCore>
 #include <Libkleo/Test>
 
+#include <QFile>
 #include <QObject>
 #include <QProcess>
 #include <QTest>
@@ -24,6 +26,7 @@
 
 using namespace Kleo;
 using namespace GpgME;
+using namespace Qt::Literals::StringLiterals;
 
 namespace QTest
 {
@@ -96,10 +99,30 @@ class KeyResolverCoreTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void initTestCase()
+    {
+        // Check if we need to create GnuPG's socket directory before running the tests to avoid
+        // a race between gpg and gpgsm (see https://dev.gnupg.org/T7332).
+        // On CI /run/user doesn't exist so that GnuPG falls back to using GNUPGHOME as socket directory
+        // which is already created by QTest::qExtractTestData (and running `gpgconf --create-socketdir`
+        // would fail).
+        if (QFile::exists(u"/run/user"_s)) {
+            // The race is fixed in GnuPG 2.5.2, 2.4.6, and 2.2.45
+            mNeedToCreateSocketDir = !(engineIsVersion(2, 5, 2) || //
+                                       (engineIsVersion(2, 4, 6) && !engineIsVersion(2, 5, 0)) || //
+                                       (engineIsVersion(2, 2, 45) && !engineIsVersion(2, 3, 0)));
+        }
+    }
+
     void init()
     {
         mGnupgHome = QTest::qExtractTestData(QStringLiteral("/fixtures/keyresolvercoretest"));
         qputenv("GNUPGHOME", mGnupgHome->path().toLocal8Bit());
+
+        if (mNeedToCreateSocketDir) {
+            int exitCode = QProcess::execute(Kleo::gpgConfPath(), {u"--create-socketdir"_s});
+            QCOMPARE(exitCode, 0);
+        }
 
         // hold a reference to the key cache to avoid rebuilding while the test is running
         mKeyCache = KeyCache::instance();
@@ -1411,6 +1434,7 @@ private:
     }
 
 private:
+    bool mNeedToCreateSocketDir = false;
     QSharedPointer<QTemporaryDir> mGnupgHome;
     std::shared_ptr<const KeyCache> mKeyCache;
 };
