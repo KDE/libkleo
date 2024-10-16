@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <QScrollArea>
 
 namespace Kleo
@@ -24,7 +26,7 @@ namespace Kleo
  * then the scroll area will (try to) adjust its size to the widget to avoid
  * scroll bars as much as possible.
  */
-class AdjustingScrollArea : public QScrollArea
+class KLEO_EXPORT AdjustingScrollArea : public QScrollArea
 {
     Q_OBJECT
 
