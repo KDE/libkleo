@@ -196,6 +196,6 @@ private:
     int mSavedOffsetY = 0;
 };
 
-}
+Q_DECLARE_OPERATORS_FOR_FLAGS(KeySelectionDialog::Options)
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeySelectionDialog::Options)
+}

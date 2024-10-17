@@ -110,8 +110,9 @@ public:
 private:
     std::unique_ptr<ExpiryCheckerPrivate> const d;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(ExpiryChecker::CheckFlags)
 }
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::ExpiryChecker::CheckFlags)
 Q_DECLARE_METATYPE(Kleo::ExpiryChecker::CheckFlags)
 Q_DECLARE_METATYPE(Kleo::ExpiryChecker::ExpiryInformation)

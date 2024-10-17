@@ -220,6 +220,6 @@ private:
     QScopedPointer<Private> const d;
 };
 
-}
+Q_DECLARE_OPERATORS_FOR_FLAGS(KeyCache::Options)
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::KeyCache::Options)
+}

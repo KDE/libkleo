@@ -145,6 +145,6 @@ private:
     QScopedPointer<Private> const d;
 };
 
-}
+Q_DECLARE_OPERATORS_FOR_FLAGS(AbstractKeyListModel::ItemTypes)
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(Kleo::AbstractKeyListModel::ItemTypes)
+}
