@@ -190,9 +190,9 @@ public:
             auto pubkeyEntry = getCryptoConfigEntry(QGpgME::cryptoConfig(), "gpg", "default_pubkey_algo");
             if (pubkeyEntry) {
                 auto algo = pubkeyEntry->stringValue().split(QLatin1Char('/'))[0];
-                if (algo == QStringLiteral("ed25519")) {
+                if (algo == QLatin1StringView("ed25519")) {
                     algo = QStringLiteral("curve25519");
-                } else if (algo == QStringLiteral("ed448")) {
+                } else if (algo == QLatin1StringView("ed448")) {
                     algo = QStringLiteral("curve448");
                 }
                 auto index = ui.keyAlgoCB->findData(algo);
@@ -251,7 +251,7 @@ private:
             const auto strength = algoString.mid(3).toInt();
             technicalParameters.setKeyLength(strength);
             technicalParameters.setSubkeyLength(strength);
-        } else if (algoString == QStringLiteral("curve25519") || algoString == QStringLiteral("curve448")) {
+        } else if (algoString == QLatin1StringView("curve25519") || algoString == QLatin1StringView("curve448")) {
             keyType = GpgME::Subkey::AlgoEDDSA;
             subkeyType = GpgME::Subkey::AlgoECDH;
             if (algoString.endsWith(QStringLiteral("25519"))) {

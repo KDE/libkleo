@@ -160,7 +160,7 @@ QStringList Kleo::CryptoConfigModule::sortComponentList(const QStringList &compo
 
 QStringList Kleo::CryptoConfigModule::sortGroupList(const QString &moduleName, const QStringList &groups)
 {
-    if (moduleName == QStringLiteral("gpg")) {
+    if (moduleName == QLatin1StringView("gpg")) {
         static const std::array<QString, 4> order = {
             QStringLiteral("Keyserver"),
             QStringLiteral("Configuration"),
@@ -168,7 +168,7 @@ QStringList Kleo::CryptoConfigModule::sortGroupList(const QString &moduleName, c
             QStringLiteral("Debug"),
         };
         return sortConfigEntries(order.begin(), order.end(), groups);
-    } else if (moduleName == QStringLiteral("gpgsm")) {
+    } else if (moduleName == QLatin1StringView("gpgsm")) {
         static const std::array<QString, 4> order = {
             QStringLiteral("Security"),
             QStringLiteral("Configuration"),
@@ -176,7 +176,7 @@ QStringList Kleo::CryptoConfigModule::sortGroupList(const QString &moduleName, c
             QStringLiteral("Debug"),
         };
         return sortConfigEntries(order.begin(), order.end(), groups);
-    } else if (moduleName == QStringLiteral("gpg-agent")) {
+    } else if (moduleName == QLatin1StringView("gpg-agent")) {
         static const std::array<QString, 5> order = {
             QStringLiteral("Security"),
             QStringLiteral("Passphrase policy"),
@@ -185,7 +185,7 @@ QStringList Kleo::CryptoConfigModule::sortGroupList(const QString &moduleName, c
             QStringLiteral("Debug"),
         };
         return sortConfigEntries(order.begin(), order.end(), groups);
-    } else if (moduleName == QStringLiteral("dirmngr")) {
+    } else if (moduleName == QLatin1StringView("dirmngr")) {
         static const std::array<QString, 10> order = {
             QStringLiteral("Keyserver"),
             QStringLiteral("HTTP"),
@@ -199,7 +199,7 @@ QStringList Kleo::CryptoConfigModule::sortGroupList(const QString &moduleName, c
             QStringLiteral("Debug"),
         };
         return sortConfigEntries(order.begin(), order.end(), groups);
-    } else if (moduleName == QStringLiteral("scdaemon")) {
+    } else if (moduleName == QLatin1StringView("scdaemon")) {
         static const std::array<QString, 4> order = {
             QStringLiteral("Monitor"),
             QStringLiteral("Configuration"),
