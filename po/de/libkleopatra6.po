@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:41+0000\n"
-"PO-Revision-Date: 2024-09-27 12:44+0200\n"
+"PO-Revision-Date: 2024-10-08 14:29+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
 "Language: de\n"
@@ -838,10 +838,9 @@ msgid "All"
 msgstr "Alle"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "Zertifikat abgelaufen"
+msgstr "Alle Zertifikate (außer deaktivierte)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -850,10 +849,9 @@ msgid "My Own"
 msgstr "Meine Zertifikate"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Meine eigenen Zertifikate"
+msgstr "Meine eigenen Zertifikate (außer deaktivierte)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -862,12 +860,12 @@ msgid "Certified"
 msgstr "Beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Zertifikate, deren primäre Benutzerkennung beglaubigt ist"
+msgstr ""
+"Zertifikate, deren primäre Benutzerkennung beglaubigt ist (ohne deaktivierte)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -876,12 +874,13 @@ msgid "Not Certified"
 msgstr "Nicht beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Zertifikate, deren primäre Benutzerkennung nicht beglaubigt ist"
+msgstr ""
+"Zertifikate, deren primäre Benutzerkennung nicht beglaubigt ist (ohne "
+"deaktivierte)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -890,16 +889,13 @@ msgid "To Certify"
 msgstr "Zu Beglaubigen"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
 "Zertifikate, die nicht vollständig beglaubigt sind und die Sie vielleicht "
-"selbst beglaubigen möchten"
+"selbst beglaubigen möchten (ohne deaktivierte)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -908,11 +904,12 @@ msgid "Not Fully Certified"
 msgstr "Nicht komplett beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Zertifikate, deren Benutzer-IDs nicht alle beglaubigt sind"
+msgstr ""
+"Zertifikate, deren Benutzer-IDs nicht alle beglaubigt sind (ohne "
+"deaktivierte)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -921,11 +918,11 @@ msgid "Fully Certified"
 msgstr "Komplett beglaubigt"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Zertifikate, deren Benutzer-IDs alle beglaubigt sind"
+msgstr ""
+"Zertifikate, deren Benutzer-IDs alle beglaubigt sind (ohne deaktivierte)"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
@@ -2507,20 +2504,16 @@ msgid "Not VS-NfD compliant"
 msgstr "Nicht VS-NfD-konform"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Valid until:"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "Gültig bis:"
+msgstr "Gültig bis (%1):"
 
 #: utils/expiration.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@info ... between <a date> and <another date>."
-#| msgid "Enter a date between %1 and %2."
+#, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr "Geben Sie ein Datum zwischen %1 und %2 ein."
+msgstr "Gültig bis (zwischen %1 und %2)"
 
 #: utils/expiration.cpp:116
 #, kde-format

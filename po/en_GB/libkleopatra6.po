@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:41+0000\n"
-"PO-Revision-Date: 2024-09-07 12:13+0100\n"
+"PO-Revision-Date: 2024-10-18 17:00+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -828,10 +828,9 @@ msgid "All"
 msgstr "All"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "certificate expired"
+msgstr "All certificates (except disabled ones)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -840,10 +839,9 @@ msgid "My Own"
 msgstr "My Own"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "My own certificates"
+msgstr "My own certificates (except disabled ones)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -852,12 +850,13 @@ msgid "Certified"
 msgstr "Certified"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Certificates for which the primary user ID is certified"
+msgstr ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -866,12 +865,13 @@ msgid "Not Certified"
 msgstr "Not Certified"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Certificates for which the primary user ID is not certified"
+msgstr ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -880,16 +880,13 @@ msgid "To Certify"
 msgstr "To Certify"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
 "Certificates that are not fully certified and that you may want to certify "
-"yourself"
+"yourself (except disabled ones)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -898,11 +895,11 @@ msgid "Not Fully Certified"
 msgstr "Not Fully Certified"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Certificates for which not all user IDs are certified"
+msgstr ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -911,11 +908,11 @@ msgid "Fully Certified"
 msgstr "Fully Certified"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Certificates for which all user IDs are certified"
+msgstr ""
+"Certificates for which all user IDs are certified (except disabled ones)"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
@@ -2472,20 +2469,16 @@ msgid "Not VS-NfD compliant"
 msgstr "Not VS-NfD compliant"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Valid until:"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "Valid until:"
+msgstr "Valid until (%1):"
 
 #: utils/expiration.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@info ... between <a date> and <another date>."
-#| msgid "Enter a date between %1 and %2."
+#, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr "Enter a date between %1 and %2."
+msgstr "Valid until (between %1 and %2):"
 
 #: utils/expiration.cpp:116
 #, kde-format
@@ -3314,41 +3307,34 @@ msgid "Unknown certificate"
 msgstr "Unknown certificate"
 
 #: utils/formatting.cpp:1595
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1609
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Bad signature by an unknown certificate: %1"
+msgstr ""
+"Signature created on %1 using an unknown certificate with fingerprint %2"
 
 #: utils/formatting.cpp:1611
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Bad signature by an unknown certificate: %1"
+msgstr "Signature created using an unknown certificate with fingerprint %1"
 
 #: utils/formatting.cpp:1615
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "Bad signature by an unknown certificate: %1"
+msgstr "Signature created on %1 with certificate: %2"
 
 #: utils/formatting.cpp:1617
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "Bad signature by an unknown certificate: %1"
+msgstr "Signature created with certificate: %1"
 
 #: utils/formatting.cpp:1623
 #, kde-format
