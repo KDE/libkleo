@@ -173,6 +173,9 @@ static QString complianceName(bool compliant)
 
 QString Kleo::DeVSCompliance::name(bool compliant)
 {
+    if (!isActive()) {
+        return {};
+    }
     if (compliant && isBetaCompliance()) {
         return i18nc("@info append beta-marker to compliance", "%1 (beta)", complianceName(compliant));
     }

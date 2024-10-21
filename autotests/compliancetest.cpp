@@ -38,6 +38,10 @@ private Q_SLOTS:
 
         // all available algorithms are considered compliant
         QCOMPARE(DeVSCompliance::compliantAlgorithms(), Kleo::availableAlgorithms());
+
+        QCOMPARE(DeVSCompliance::name(), QString{});
+        QCOMPARE(DeVSCompliance::name(true), QString{});
+        QCOMPARE(DeVSCompliance::name(false), QString{});
     }
 
     void test_de_vs_compliance_active_but_not_compliant()
