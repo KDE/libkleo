@@ -31,6 +31,8 @@
 
 #include <gpgme++/key.h>
 
+using namespace Kleo;
+
 bool Kleo::DeVSCompliance::isActive()
 {
     return getCryptoConfigStringValue("gpg", "compliance") == QLatin1StringView{"de-vs"};
@@ -51,6 +53,15 @@ bool Kleo::DeVSCompliance::isCompliant()
         return true;
     }
     return getCryptoConfigIntValue("gpg", "compliance_de_vs", 0) != 0;
+}
+
+bool Kleo::DeVSCompliance::isBetaCompliance()
+{
+    if (!isActive()) {
+        return false;
+    }
+    // compliance_de_vs > 2000: GnuPG has not yet been approved for VS-NfD or is beta, but we shall assume approval
+    return getCryptoConfigIntValue("gpg", "compliance_de_vs", 0) > 2000;
 }
 
 bool Kleo::DeVSCompliance::algorithmIsCompliant(std::string_view algo)
@@ -151,11 +162,19 @@ QString Kleo::DeVSCompliance::name()
     return name(isCompliant());
 }
 
-QString Kleo::DeVSCompliance::name(bool compliant)
+static QString complianceName(bool compliant)
 {
     const auto filterId = compliant ? QStringLiteral("de-vs-filter") : QStringLiteral("not-de-vs-filter");
     if (auto filter = KeyFilterManager::instance()->keyFilterByID(filterId)) {
         return filter->name();
     }
     return compliant ? i18n("VS-NfD compliant") : i18n("Not VS-NfD compliant");
+}
+
+QString Kleo::DeVSCompliance::name(bool compliant)
+{
+    if (compliant && isBetaCompliance()) {
+        return i18nc("@info append beta-marker to compliance", "%1 (beta)", complianceName(compliant));
+    }
+    return complianceName(compliant);
 }

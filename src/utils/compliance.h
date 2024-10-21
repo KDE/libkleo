@@ -36,9 +36,16 @@ KLEO_EXPORT bool isActive();
 /**
  * Returns true, if compliance mode "de-vs" is configured for GnuPG and if
  * GnuPG passes a basic compliance check, i.e. at least libgcrypt and the used
- * RNG are compliant.
+ * RNG are compliant. Also returns true if compliance shall be assumed (e.g.
+ * for beta testing).
  */
 KLEO_EXPORT bool isCompliant();
+
+/**
+ * Returns true, if compliance mode "de-vs" is configured for GnuPG and if
+ * compliance of GnuPG shall be assumed (e.g. for beta testing).
+ */
+KLEO_EXPORT bool isBetaCompliance();
 
 /**
  * Returns true, if the given algorithm is compliant with compliance mode
