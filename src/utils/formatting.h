@@ -197,17 +197,11 @@ KLEO_EXPORT QString nameAndEmailForSummaryLine(const GpgME::UserID &id);
 
 KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
 
-/* Is the key valid i.e. are all uids fully trusted?  */
-KLEO_EXPORT bool uidsHaveFullValidity(const GpgME::Key &key);
-
 /* The compliance mode of the gnupg system. Empty if compliance
  * mode is not set.
  * Use Kleo::gnupgComplianceMode() instead.
  */
 KLEO_DEPRECATED_EXPORT QString complianceMode();
-
-/* Is the given key in compliance with CO_DE_VS?  */
-KLEO_EXPORT bool isKeyDeVs(const GpgME::Key &key);
 
 /**
  * Use Kleo::DeVSCompliance::name(bool) instead.

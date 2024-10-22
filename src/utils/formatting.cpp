@@ -1292,20 +1292,10 @@ QIcon Formatting::validityIcon(const KeyGroup &group)
     return iconForValidityAndCompliance(minimalValidity(group.keys()), allKeysAreCompliant(group.keys()));
 }
 
-bool Formatting::uidsHaveFullValidity(const Key &key)
-{
-    return allUserIDsHaveFullValidity(key);
-}
-
 QString Formatting::complianceMode()
 {
     const auto complianceValue = getCryptoConfigStringValue("gpg", "compliance");
     return complianceValue == QLatin1StringView("gnupg") ? QString() : complianceValue;
-}
-
-bool Formatting::isKeyDeVs(const GpgME::Key &key)
-{
-    return DeVSCompliance::allSubkeysAreCompliant(key);
 }
 
 QString Formatting::complianceStringForKey(const GpgME::Key &key)
