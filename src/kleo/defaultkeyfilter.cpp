@@ -15,10 +15,6 @@
 #include "defaultkeyfilter.h"
 #include "utils/compliance.h"
 
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
-#else
-#include <libkleo/compat.h>
-#endif
 #include <libkleo/compliance.h>
 #include <libkleo/formatting.h>
 #include <libkleo/keyhelpers.h>
@@ -107,16 +103,7 @@ bool DefaultKeyFilter::matches(const Key &key, MatchContexts contexts) const
     } while (false)
 #define IS_MATCH(what) MATCH(d->m##what, is##what)
 #define CAN_MATCH(what) MATCH(d->mCan##what, can##what)
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
 #define HAS_MATCH(what) MATCH(d->mHas##what, has##what)
-#else
-#define HAS_MATCH(what)                                                                                                                                        \
-    do {                                                                                                                                                       \
-        if (d->mHas##what != DoesNotMatter && Kleo::keyHas##what(key) != bool(d->mHas##what == Set)) {                                                         \
-            return false;                                                                                                                                      \
-        }                                                                                                                                                      \
-    } while (false)
-#endif
     IS_MATCH(Revoked);
     IS_MATCH(Expired);
     IS_MATCH(Invalid);
@@ -227,16 +214,7 @@ bool DefaultKeyFilter::matches(const UserID &userID, MatchContexts contexts) con
     } while (false)
 #define IS_MATCH_KEY(what) MATCH_KEY(d->m##what, is##what)
 #define CAN_MATCH_KEY(what) MATCH_KEY(d->mCan##what, can##what)
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
 #define HAS_MATCH_KEY(what) MATCH_KEY(d->mHas##what, has##what)
-#else
-#define HAS_MATCH_KEY(what)                                                                                                                                    \
-    do {                                                                                                                                                       \
-        if (d->mHas##what != DoesNotMatter && Kleo::keyHas##what(userID.parent()) != bool(d->mHas##what == Set)) {                                             \
-            return false;                                                                                                                                      \
-        }                                                                                                                                                      \
-    } while (false)
-#endif
 
 #ifdef MATCH
 #undef MATCH

@@ -46,7 +46,7 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "6.7.0")
-set(GPGME_REQUIRED_VERSION "1.21.0")
+set(GPGME_REQUIRED_VERSION "1.23.2")
 set(GPG_ERROR_REQUIRED_VERSION "1.36")
 
 find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
@@ -63,9 +63,6 @@ find_package(Gpgmepp ${GPGME_REQUIRED_VERSION} CONFIG REQUIRED)
 set_package_properties(Gpgmepp PROPERTIES DESCRIPTION "GpgME++ Library" URL "https://www.gnupg.org" TYPE REQUIRED PURPOSE "GpgME++ is required for OpenPGP support")
 message(STATUS "GpgME++ Version ${Gpgmepp_VERSION}")
 set(QGPGME_NAME "QGpgmeQt6")
-if(Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.23.0")
-    set(GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE 1)
-endif()
 if(Gpgmepp_VERSION VERSION_GREATER_EQUAL "1.24.0")
     set(GPGMEPP_ERROR_HAS_ASSTDSTRING 1)
 endif()

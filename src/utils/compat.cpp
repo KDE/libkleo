@@ -30,44 +30,20 @@ QGpgME::CryptoConfigEntry *Kleo::getCryptoConfigEntry(const CryptoConfig *config
 
 bool Kleo::keyHasCertify(const GpgME::Key &key)
 {
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
     return key.hasCertify();
-#else
-    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
-        return subkey.canCertify();
-    });
-#endif
 }
 
 bool Kleo::keyHasSign(const GpgME::Key &key)
 {
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
     return key.hasSign();
-#else
-    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
-        return subkey.canSign();
-    });
-#endif
 }
 
 bool Kleo::keyHasEncrypt(const GpgME::Key &key)
 {
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
     return key.hasEncrypt();
-#else
-    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
-        return subkey.canEncrypt();
-    });
-#endif
 }
 
 bool Kleo::keyHasAuthenticate(const GpgME::Key &key)
 {
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
     return key.hasAuthenticate();
-#else
-    return Kleo::any_of(key.subkeys(), [](const auto &subkey) {
-        return subkey.canAuthenticate();
-    });
-#endif
 }
