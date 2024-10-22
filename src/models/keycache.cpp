@@ -857,11 +857,7 @@ struct ready_for_signing {
     bool operator()(const Key &key) const
     {
         ACCEPT(hasSecret);
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
         ACCEPT(hasSign);
-#else
-        ACCEPT(canSign);
-#endif
         REJECT(isRevoked);
         REJECT(isExpired);
         REJECT(isDisabled);
@@ -880,20 +876,12 @@ struct ready_for_signing {
 struct ready_for_encryption {
     bool operator()(const Key &key) const
     {
-#if 1
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
         ACCEPT(hasEncrypt);
-#else
-        ACCEPT(canEncrypt);
-#endif
         REJECT(isRevoked);
         REJECT(isExpired);
         REJECT(isDisabled);
         REJECT(isInvalid);
         return true;
-#else
-        return key.hasEncrypt() && !key.isRevoked() && !key.isExpired() && !key.isDisabled() && !key.isInvalid();
-#endif
     }
 #undef DO
 #undef ACCEPT
@@ -1756,41 +1744,13 @@ bool allKeysAllowUsage(const T &keys, KeyCache::KeyUsage usage)
     case KeyCache::KeyUsage::AnyUsage:
         return true;
     case KeyCache::KeyUsage::Sign:
-        return std::all_of(std::begin(keys),
-                           std::end(keys),
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
-                           std::mem_fn(&Key::hasSign)
-#else
-                           Kleo::keyHasSign
-#endif
-        );
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::hasSign));
     case KeyCache::KeyUsage::Encrypt:
-        return std::all_of(std::begin(keys),
-                           std::end(keys),
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
-                           std::mem_fn(&Key::hasEncrypt)
-#else
-                           Kleo::keyHasEncrypt
-#endif
-        );
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::hasEncrypt));
     case KeyCache::KeyUsage::Certify:
-        return std::all_of(std::begin(keys),
-                           std::end(keys),
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
-                           std::mem_fn(&Key::hasCertify)
-#else
-                           Kleo::keyHasCertify
-#endif
-        );
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::hasCertify));
     case KeyCache::KeyUsage::Authenticate:
-        return std::all_of(std::begin(keys),
-                           std::end(keys),
-#if GPGMEPP_KEY_HAS_HASCERTIFY_SIGN_ENCRYPT_AUTHENTICATE
-                           std::mem_fn(&Key::hasAuthenticate)
-#else
-                           Kleo::keyHasAuthenticate
-#endif
-        );
+        return std::all_of(std::begin(keys), std::end(keys), std::mem_fn(&Key::hasAuthenticate));
     }
     qCDebug(LIBKLEO_LOG) << __func__ << "called with invalid usage" << int(usage);
     return false;
