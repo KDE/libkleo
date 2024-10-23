@@ -13,7 +13,7 @@
 #include "utils/formatting.h"
 #include "utils/systeminfo.h"
 
-#include <global.h>
+#include <gpgme++/global.h>
 
 #include <QColor>
 
