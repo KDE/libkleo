@@ -25,6 +25,19 @@ using namespace QGpgME;
 static std::unordered_map<std::string, std::unordered_map<std::string, int>> fakeCryptoConfigIntValues;
 static std::unordered_map<std::string, std::unordered_map<std::string, QString>> fakeCryptoConfigStringValues;
 
+bool Kleo::getCryptoConfigBoolValue(const char *componentName, const char *entryName)
+{
+    const CryptoConfig *const config = cryptoConfig();
+    if (!config) {
+        return false;
+    }
+    const CryptoConfigEntry *const entry = getCryptoConfigEntry(config, componentName, entryName);
+    if (entry && entry->argType() == CryptoConfigEntry::ArgType_None && !entry->isList()) {
+        return entry->boolValue();
+    }
+    return false;
+}
+
 int Kleo::getCryptoConfigIntValue(const char *componentName, const char *entryName, int defaultValue)
 {
     if (!fakeCryptoConfigIntValues.empty()) {
