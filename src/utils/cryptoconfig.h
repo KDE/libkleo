@@ -20,6 +20,14 @@ class QUrl;
 namespace Kleo
 {
 
+/**
+ * Returns \c true if option \a entryName of component \a componentName is set,
+ * otherwise \c false.
+ *
+ * Can only be used for config entries with scalar value of type CryptoConfigEntry::ArgType_None.
+ */
+KLEO_EXPORT bool getCryptoConfigBoolValue(const char *componentName, const char *entryName);
+
 KLEO_EXPORT int getCryptoConfigIntValue(const char *componentName, const char *entryName, int defaultValue);
 
 KLEO_EXPORT QString getCryptoConfigStringValue(const char *componentName, const char *entryName);
