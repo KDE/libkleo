@@ -52,6 +52,12 @@ public:
     /** @return the DN in a reordered form, according to the settings in
         the [DN] group of the application's config file */
     QString prettyDN() const;
+
+    /** Returns the non-empty attributes formatted as \c{NAME=value} and reordered
+     *  according to the settings in the [DN] group of the application's config file.
+     */
+    QStringList prettyAttributes() const;
+
     /** @return the DN in the original form */
     QString dn() const;
     /**

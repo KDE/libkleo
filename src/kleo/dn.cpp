@@ -312,15 +312,21 @@ static QString dn_escape(const QString &s)
     return result;
 }
 
-static QString serialise(const QList<Kleo::DN::Attribute> &dn, const QString &sep)
+static QStringList listAttributes(const QList<Kleo::DN::Attribute> &dn)
 {
     QStringList result;
-    for (QList<Kleo::DN::Attribute>::const_iterator it = dn.begin(); it != dn.end(); ++it) {
-        if (!(*it).name().isEmpty() && !(*it).value().isEmpty()) {
-            result.push_back((*it).name().trimmed() + QLatin1Char('=') + dn_escape((*it).value().trimmed()));
+    result.reserve(dn.size());
+    for (const auto &attribute : dn) {
+        if (!attribute.name().isEmpty() && !attribute.value().isEmpty()) {
+            result.push_back(attribute.name().trimmed() + QLatin1Char('=') + dn_escape(attribute.value().trimmed()));
         }
     }
-    return result.join(sep);
+    return result;
+}
+
+static QString serialise(const QList<Kleo::DN::Attribute> &dn, const QString &sep)
+{
+    return listAttributes(dn).join(sep);
 }
 
 static Kleo::DN::Attribute::List reorder_dn(const Kleo::DN::Attribute::List &dn)
@@ -445,6 +451,18 @@ QString Kleo::DN::prettyDN() const
         d->reorderedAttributes = reorder_dn(d->attributes);
     }
     return serialise(d->reorderedAttributes, QStringLiteral(","));
+}
+
+QStringList Kleo::DN::prettyAttributes() const
+{
+    if (!d) {
+        return {};
+    }
+
+    if (d->reorderedAttributes.empty()) {
+        d->reorderedAttributes = reorder_dn(d->attributes);
+    }
+    return listAttributes(d->reorderedAttributes);
 }
 
 QString Kleo::DN::dn() const
