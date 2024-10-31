@@ -20,170 +20,170 @@ add_library(KPim6::Libkleo ALIAS KPim6Libkleo)
 
 ########### next target ###############
 target_sources(KPim6Libkleo PRIVATE
-   kleo/auditlogentry.cpp
-   kleo/auditlogentry.h
-   kleo/checksumdefinition.cpp
-   kleo/checksumdefinition.h
-   kleo/debug.cpp
-   kleo/debug.h
-   kleo/defaultkeyfilter.cpp
-   kleo/defaultkeyfilter.h
-   kleo/defaultkeygenerationjob.cpp
-   kleo/defaultkeygenerationjob.h
-   kleo/docaction.cpp kleo/docaction.h
-   kleo/dn.cpp
-   kleo/dn.h
-   kleo/enum.cpp
-   kleo/enum.h
-   kleo/expirychecker.cpp
-   kleo/expirychecker.h
-   kleo/expirycheckerconfig.cpp
-   kleo/expirycheckerconfig.h
-   kleo/expirycheckersettings.cpp
-   kleo/expirycheckersettings.h
-   kleo/kconfigbasedkeyfilter.cpp
-   kleo/kconfigbasedkeyfilter.h
-   kleo/keyfilter.h
-   kleo/keyfiltermanager.cpp
-   kleo/keyfiltermanager.h
-   kleo/keygroup.cpp
-   kleo/keygroup.h
-   kleo/keygroupconfig.cpp
-   kleo/keygroupconfig.h
-   kleo/keygroupimportexport.cpp
-   kleo/keygroupimportexport.h
-   kleo/keyresolver.cpp
-   kleo/keyresolver.h
-   kleo/keyresolvercore.cpp
-   kleo/keyresolvercore.h
-   kleo/keyserverconfig.cpp
-   kleo/keyserverconfig.h
-   kleo/kleoexception.cpp
-   kleo/kleoexception.h
-   kleo/oidmap.cpp
-   kleo/oidmap.h
-   kleo/predicates.h
-   kleo/stl_util.h
-   models/keycache.cpp
-   models/keycache.h
-   models/keycache_p.h
-   models/keylist.h
-   models/keylistmodel.cpp
-   models/keylistmodel.h
-   models/keylistmodelinterface.cpp
-   models/keylistmodelinterface.h
-   models/keylistsortfilterproxymodel.cpp
-   models/keylistsortfilterproxymodel.h
-   models/keyrearrangecolumnsproxymodel.cpp
-   models/keyrearrangecolumnsproxymodel.h
-   models/subkeylistmodel.cpp
-   models/subkeylistmodel.h
-   models/useridlistmodel.cpp
-   models/useridlistproxymodel.cpp
-   models/useridlistproxymodel.h
-   models/useridlistmodel.h
-   models/useridproxymodel.cpp
-   models/useridproxymodel.h
-   utils/algorithm.h
-   utils/assuan.cpp
-   utils/assuan.h
-   utils/chrono.h
-   utils/classify.cpp
-   utils/classify.h
-   utils/compat.cpp
-   utils/compat.h
-   utils/compliance.cpp
-   utils/compliance.h
-   utils/cryptoconfig.cpp
-   utils/cryptoconfig.h
-   utils/cryptoconfig_p.h
-   utils/filesystemwatcher.cpp
-   utils/filesystemwatcher.h
-   utils/formatting.cpp
-   utils/formatting.h
-   utils/expiration.cpp
-   utils/expiration.h
-   utils/gnupg-registry.c
-   utils/gnupg-registry.h
-   utils/gnupg.cpp
-   utils/gnupg.h
-   utils/hex.cpp
-   utils/hex.h
-   utils/keyhelpers.cpp
-   utils/keyhelpers.h
-   utils/keyparameters.cpp
-   utils/keyparameters.h
-   utils/keyusage.h
-   utils/qtstlhelpers.cpp
-   utils/qtstlhelpers.h
-   utils/scdaemon.cpp
-   utils/scdaemon.h
-   utils/stringutils.cpp
-   utils/stringutils.h
-   utils/systeminfo.cpp
-   utils/systeminfo.h
-   utils/test.cpp
-   utils/test.h
-   utils/uniquelock.cpp
-   utils/uniquelock.h
-   utils/validation.cpp
-   utils/validation.h
-   utils/multivalidator_p.h
-   utils/multivalidator.cpp
-  )
+    kleo/auditlogentry.cpp
+    kleo/auditlogentry.h
+    kleo/checksumdefinition.cpp
+    kleo/checksumdefinition.h
+    kleo/debug.cpp
+    kleo/debug.h
+    kleo/defaultkeyfilter.cpp
+    kleo/defaultkeyfilter.h
+    kleo/defaultkeygenerationjob.cpp
+    kleo/defaultkeygenerationjob.h
+    kleo/docaction.cpp kleo/docaction.h
+    kleo/dn.cpp
+    kleo/dn.h
+    kleo/enum.cpp
+    kleo/enum.h
+    kleo/expirychecker.cpp
+    kleo/expirychecker.h
+    kleo/expirycheckerconfig.cpp
+    kleo/expirycheckerconfig.h
+    kleo/expirycheckersettings.cpp
+    kleo/expirycheckersettings.h
+    kleo/kconfigbasedkeyfilter.cpp
+    kleo/kconfigbasedkeyfilter.h
+    kleo/keyfilter.h
+    kleo/keyfiltermanager.cpp
+    kleo/keyfiltermanager.h
+    kleo/keygroup.cpp
+    kleo/keygroup.h
+    kleo/keygroupconfig.cpp
+    kleo/keygroupconfig.h
+    kleo/keygroupimportexport.cpp
+    kleo/keygroupimportexport.h
+    kleo/keyresolver.cpp
+    kleo/keyresolver.h
+    kleo/keyresolvercore.cpp
+    kleo/keyresolvercore.h
+    kleo/keyserverconfig.cpp
+    kleo/keyserverconfig.h
+    kleo/kleoexception.cpp
+    kleo/kleoexception.h
+    kleo/oidmap.cpp
+    kleo/oidmap.h
+    kleo/predicates.h
+    kleo/stl_util.h
+    models/keycache.cpp
+    models/keycache.h
+    models/keycache_p.h
+    models/keylist.h
+    models/keylistmodel.cpp
+    models/keylistmodel.h
+    models/keylistmodelinterface.cpp
+    models/keylistmodelinterface.h
+    models/keylistsortfilterproxymodel.cpp
+    models/keylistsortfilterproxymodel.h
+    models/keyrearrangecolumnsproxymodel.cpp
+    models/keyrearrangecolumnsproxymodel.h
+    models/subkeylistmodel.cpp
+    models/subkeylistmodel.h
+    models/useridlistmodel.cpp
+    models/useridlistproxymodel.cpp
+    models/useridlistproxymodel.h
+    models/useridlistmodel.h
+    models/useridproxymodel.cpp
+    models/useridproxymodel.h
+    utils/algorithm.h
+    utils/assuan.cpp
+    utils/assuan.h
+    utils/chrono.h
+    utils/classify.cpp
+    utils/classify.h
+    utils/compat.cpp
+    utils/compat.h
+    utils/compliance.cpp
+    utils/compliance.h
+    utils/cryptoconfig.cpp
+    utils/cryptoconfig.h
+    utils/cryptoconfig_p.h
+    utils/filesystemwatcher.cpp
+    utils/filesystemwatcher.h
+    utils/formatting.cpp
+    utils/formatting.h
+    utils/expiration.cpp
+    utils/expiration.h
+    utils/gnupg-registry.c
+    utils/gnupg-registry.h
+    utils/gnupg.cpp
+    utils/gnupg.h
+    utils/hex.cpp
+    utils/hex.h
+    utils/keyhelpers.cpp
+    utils/keyhelpers.h
+    utils/keyparameters.cpp
+    utils/keyparameters.h
+    utils/keyusage.h
+    utils/qtstlhelpers.cpp
+    utils/qtstlhelpers.h
+    utils/scdaemon.cpp
+    utils/scdaemon.h
+    utils/stringutils.cpp
+    utils/stringutils.h
+    utils/systeminfo.cpp
+    utils/systeminfo.h
+    utils/test.cpp
+    utils/test.h
+    utils/uniquelock.cpp
+    utils/uniquelock.h
+    utils/validation.cpp
+    utils/validation.h
+    utils/multivalidator_p.h
+    utils/multivalidator.cpp
+)
 ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
-        DESCRIPTION "libkleo (kleo_core)"
-        EXPORT LIBKLEO
-   )
+    DESCRIPTION "libkleo (kleo_core)"
+    EXPORT LIBKLEO
+)
 
 
 target_sources(KPim6Libkleo PRIVATE
-   ui/adjustingscrollarea.cpp
-   ui/adjustingscrollarea.h
-   ui/animatedexpander.cpp
-   ui/animatedexpander_p.h
-   ui/auditlogviewer.cpp
-   ui/auditlogviewer.h
-   ui/cryptoconfigentryreaderport.cpp
-   ui/cryptoconfigentryreaderport_p.h
-   ui/cryptoconfigmodule.cpp
-   ui/cryptoconfigmodule.h
-   ui/cryptoconfigmodule_p.h
-   ui/directoryserviceswidget.cpp
-   ui/directoryserviceswidget.h
-   ui/dnattributeorderconfigwidget.cpp
-   ui/dnattributeorderconfigwidget.h
-   ui/editdirectoryservicedialog.cpp
-   ui/editdirectoryservicedialog.h
-   ui/errorlabel.cpp
-   ui/errorlabel.h
-   ui/filenamerequester.cpp
-   ui/filenamerequester.h
-   ui/formtextinput.cpp
-   ui/formtextinput_p.h
-   ui/messagebox.cpp
-   ui/messagebox.h
-   ui/nameandemailwidget.cpp
-   ui/nameandemailwidget.h
-   ui/openpgpcertificatecreationdialog.cpp
-   ui/openpgpcertificatecreationdialog.h
-   ui/treeview.cpp
-   ui/treeview.h
-   ui/treewidget.cpp
-   ui/treewidget.h
-   ui/progressbar.cpp
-   ui/progressbar.h
-   ui/progressdialog.cpp
-   ui/progressdialog.h
-   ui/readerportselection.cpp
-   ui/readerportselection.h
+    ui/adjustingscrollarea.cpp
+    ui/adjustingscrollarea.h
+    ui/animatedexpander.cpp
+    ui/animatedexpander_p.h
+    ui/auditlogviewer.cpp
+    ui/auditlogviewer.h
+    ui/cryptoconfigentryreaderport.cpp
+    ui/cryptoconfigentryreaderport_p.h
+    ui/cryptoconfigmodule.cpp
+    ui/cryptoconfigmodule.h
+    ui/cryptoconfigmodule_p.h
+    ui/directoryserviceswidget.cpp
+    ui/directoryserviceswidget.h
+    ui/dnattributeorderconfigwidget.cpp
+    ui/dnattributeorderconfigwidget.h
+    ui/editdirectoryservicedialog.cpp
+    ui/editdirectoryservicedialog.h
+    ui/errorlabel.cpp
+    ui/errorlabel.h
+    ui/filenamerequester.cpp
+    ui/filenamerequester.h
+    ui/formtextinput.cpp
+    ui/formtextinput_p.h
+    ui/messagebox.cpp
+    ui/messagebox.h
+    ui/nameandemailwidget.cpp
+    ui/nameandemailwidget.h
+    ui/openpgpcertificatecreationdialog.cpp
+    ui/openpgpcertificatecreationdialog.h
+    ui/treeview.cpp
+    ui/treeview.h
+    ui/treewidget.cpp
+    ui/treewidget.h
+    ui/progressbar.cpp
+    ui/progressbar.h
+    ui/progressdialog.cpp
+    ui/progressdialog.h
+    ui/readerportselection.cpp
+    ui/readerportselection.h
 )
 
 ecm_qt_declare_logging_category(KPim6Libkleo HEADER kleo_ui_debug.h IDENTIFIER KLEO_UI_LOG CATEGORY_NAME org.kde.pim.kleo_ui
-        DESCRIPTION "libkleo (kleo_ui)"
-        OLD_CATEGORY_NAMES log_kleo_ui
-        EXPORT LIBKLEO
-   )
+    DESCRIPTION "libkleo (kleo_ui)"
+    OLD_CATEGORY_NAMES log_kleo_ui
+    EXPORT LIBKLEO
+)
 
 
 target_sources(KPim6Libkleo PRIVATE    # make this a separate lib.
@@ -201,7 +201,7 @@ target_sources(KPim6Libkleo PRIVATE    # make this a separate lib.
     ui/newkeyapprovaldialog.h
     ui/useridselectioncombo.cpp
     ui/useridselectioncombo.h
-   )
+)
 
 if(MINGW)
     # we do not care about different signedness of passed pointer arguments
@@ -256,115 +256,115 @@ target_include_directories(KPim6Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INS
 target_include_directories(KPim6Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src;${libkleo_BINARY_DIR}/src>")
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
-  HEADER_NAMES
-  AuditLogEntry
-  ChecksumDefinition
-  Debug
-  DefaultKeyFilter
-  DefaultKeyGenerationJob
-  DocAction
-  Dn
-  Enum
-  ExpiryChecker
-  ExpiryCheckerConfig
-  ExpiryCheckerSettings
-  KConfigBasedKeyFilter
-  KeyFilter
-  KeyFilterManager
-  KeyGroup
-  KeyGroupConfig
-  KeyGroupImportExport
-  KeyResolver
-  KeyResolverCore
-  KeyserverConfig
-  KleoException
-  OidMap
-  Predicates
-  Stl_Util
-  REQUIRED_HEADERS libkleo_HEADERS
-  PREFIX Libkleo
-  RELATIVE kleo
+    HEADER_NAMES
+    AuditLogEntry
+    ChecksumDefinition
+    Debug
+    DefaultKeyFilter
+    DefaultKeyGenerationJob
+    DocAction
+    Dn
+    Enum
+    ExpiryChecker
+    ExpiryCheckerConfig
+    ExpiryCheckerSettings
+    KConfigBasedKeyFilter
+    KeyFilter
+    KeyFilterManager
+    KeyGroup
+    KeyGroupConfig
+    KeyGroupImportExport
+    KeyResolver
+    KeyResolverCore
+    KeyserverConfig
+    KleoException
+    OidMap
+    Predicates
+    Stl_Util
+    REQUIRED_HEADERS libkleo_HEADERS
+    PREFIX Libkleo
+    RELATIVE kleo
 )
 
 ecm_generate_headers(libkleo_CamelCase_models_HEADERS
-  HEADER_NAMES
-  KeyCache
-  KeyList
-  KeyListModel
-  KeyListModelInterface
-  KeyListSortFilterProxyModel
-  KeyRearrangeColumnsProxyModel
-  SubkeyListModel
-  UserIDListModel
-  UserIDListProxyModel
-  UserIDProxyModel
-  REQUIRED_HEADERS libkleo_models_HEADERS
-  PREFIX Libkleo
-  RELATIVE models
+    HEADER_NAMES
+    KeyCache
+    KeyList
+    KeyListModel
+    KeyListModelInterface
+    KeyListSortFilterProxyModel
+    KeyRearrangeColumnsProxyModel
+    SubkeyListModel
+    UserIDListModel
+    UserIDListProxyModel
+    UserIDProxyModel
+    REQUIRED_HEADERS libkleo_models_HEADERS
+    PREFIX Libkleo
+    RELATIVE models
 )
 
 ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
-  HEADER_NAMES
-  Algorithm
-  Assuan
-  Chrono
-  Classify
-  Compat
-  Compliance
-  CryptoConfig
-  Expiration
-  FileSystemWatcher
-  Formatting
-  GnuPG
-  Hex
-  KeyHelpers
-  KeyParameters
-  KeyUsage
-  QtStlHelpers
-  SCDaemon
-  StringUtils
-  SystemInfo
-  Test
-  UniqueLock
-  Validation
-  REQUIRED_HEADERS libkleo_utils_HEADERS
-  PREFIX Libkleo
-  RELATIVE utils
+    HEADER_NAMES
+    Algorithm
+    Assuan
+    Chrono
+    Classify
+    Compat
+    Compliance
+    CryptoConfig
+    Expiration
+    FileSystemWatcher
+    Formatting
+    GnuPG
+    Hex
+    KeyHelpers
+    KeyParameters
+    KeyUsage
+    QtStlHelpers
+    SCDaemon
+    StringUtils
+    SystemInfo
+    Test
+    UniqueLock
+    Validation
+    REQUIRED_HEADERS libkleo_utils_HEADERS
+    PREFIX Libkleo
+    RELATIVE utils
 )
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
-  HEADER_NAMES
-  AdjustingScrollArea
-  AuditLogViewer
-  CryptoConfigModule
-  DNAttributeOrderConfigWidget
-  DirectoryServicesWidget
-  EditDirectoryServiceDialog
-  ErrorLabel
-  FileNameRequester
-  KeyApprovalDialog
-  KeyListView
-  KeyRequester
-  KeySelectionCombo
-  KeySelectionDialog
-  MessageBox
-  NameAndEmailWidget
-  TreeView
-  TreeWidget
-  NewKeyApprovalDialog
-  OpenPGPCertificateCreationDialog
-  ProgressDialog
-  ReaderPortSelection
-  UserIDSelectionCombo
-  REQUIRED_HEADERS libkleo_ui_HEADERS
-  PREFIX Libkleo
-  RELATIVE ui
+    HEADER_NAMES
+    AdjustingScrollArea
+    AuditLogViewer
+    CryptoConfigModule
+    DNAttributeOrderConfigWidget
+    DirectoryServicesWidget
+    EditDirectoryServiceDialog
+    ErrorLabel
+    FileNameRequester
+    KeyApprovalDialog
+    KeyListView
+    KeyRequester
+    KeySelectionCombo
+    KeySelectionDialog
+    MessageBox
+    NameAndEmailWidget
+    TreeView
+    TreeWidget
+    NewKeyApprovalDialog
+    OpenPGPCertificateCreationDialog
+    ProgressDialog
+    ReaderPortSelection
+    UserIDSelectionCombo
+    REQUIRED_HEADERS libkleo_ui_HEADERS
+    PREFIX Libkleo
+    RELATIVE ui
 )
 
 kconfig_add_kcfg_files(KPim6Libkleo
-  kcfg/expirycheckerconfigbase.kcfgc
-  kcfg/classifyconfig.kcfgc
-  kcfg/openpgpcertificatecreationconfig.kcfgc
+    kcfg/expirycheckerconfigbase.kcfgc
+    kcfg/classifyconfig.kcfgc
+    kcfg/openpgpcertificatecreationconfig.kcfgc
 )
 
 install(FILES
