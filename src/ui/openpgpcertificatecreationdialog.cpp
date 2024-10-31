@@ -287,6 +287,10 @@ private:
         int index;
         if (parameters.keyType() == GpgME::Subkey::AlgoRSA_S) {
             index = ui.keyAlgoCB->findData(QStringLiteral("rsa%1").arg(parameters.keyLength()));
+        } else if (parameters.keyCurve() == QLatin1StringView("ed25519")) {
+            index = ui.keyAlgoCB->findData(QStringLiteral("curve25519"));
+        } else if (parameters.keyCurve() == QLatin1StringView("ed448")) {
+            index = ui.keyAlgoCB->findData(QStringLiteral("curve448"));
         } else {
             index = ui.keyAlgoCB->findData(parameters.keyCurve());
         }
