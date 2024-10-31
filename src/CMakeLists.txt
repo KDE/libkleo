@@ -20,6 +20,8 @@ add_library(KPim6::Libkleo ALIAS KPim6Libkleo)
 
 ########### next target ###############
 target_sources(KPim6Libkleo PRIVATE
+    pics/libkleopatra.qrc
+
     kleo/auditlogentry.cpp
     kleo/auditlogentry.h
     kleo/checksumdefinition.cpp

@@ -170,17 +170,12 @@ private:
     const unsigned int mKeyUsage;
 };
 
-static QString iconPath(const QString &name)
-{
-    return QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkleopatra/pics/") + name + QStringLiteral(".png"));
-}
-
 ColumnStrategy::ColumnStrategy(unsigned int keyUsage)
     : KeyListView::ColumnStrategy()
-    , mKeyGoodPix(iconPath(QStringLiteral("key_ok")))
-    , mKeyBadPix(iconPath(QStringLiteral("key_bad")))
-    , mKeyUnknownPix(iconPath(QStringLiteral("key_unknown")))
-    , mKeyValidPix(iconPath(QStringLiteral("key")))
+    , mKeyGoodPix(QStringLiteral(":/libkleopatra/key_ok"))
+    , mKeyBadPix(QStringLiteral(":/libkleopatra/key_bad"))
+    , mKeyUnknownPix(QStringLiteral(":/libkleopatra/key_unknown"))
+    , mKeyValidPix(QStringLiteral(":/libkleopatra/key"))
     , mKeyUsage(keyUsage)
 {
     if (keyUsage == 0) {
