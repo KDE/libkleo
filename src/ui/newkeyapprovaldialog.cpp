@@ -16,7 +16,6 @@
 #include "keyselectioncombo.h"
 #include "progressdialog.h"
 
-#include <libkleo/adjustingscrollarea.h>
 #include <libkleo/algorithm.h>
 #include <libkleo/compliance.h>
 #include <libkleo/debug.h>
@@ -28,6 +27,7 @@
 
 #include <libkleo_debug.h>
 
+#include <KAdjustingScrollArea>
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -285,7 +285,7 @@ public:
         });
         QObject::connect(btnBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
 
-        mScrollArea = new AdjustingScrollArea;
+        mScrollArea = new KAdjustingScrollArea;
         mScrollArea->setWidget(new QWidget);
         mScrollLayout = new QVBoxLayout;
         mScrollArea->widget()->setLayout(mScrollLayout);
@@ -873,7 +873,7 @@ public:
     QList<KeySelectionCombo *> mSigningCombos;
     QList<KeySelectionCombo *> mEncCombos;
     QList<KeySelectionCombo *> mAllCombos;
-    QScrollArea *mScrollArea;
+    KAdjustingScrollArea *mScrollArea;
     QVBoxLayout *mScrollLayout;
     QPushButton *mOkButton;
     QVBoxLayout *mMainLay;
