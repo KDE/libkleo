@@ -76,7 +76,7 @@ QFont KeyFilter::FontDescription::font(const QFont &base) const
         font = base;
     }
     if (d->bold) {
-        font.setBold(true);
+        font.setWeight(QFont::DemiBold);
     }
     if (d->italic) {
         font.setItalic(true);
