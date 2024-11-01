@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:40+0000\n"
 "PO-Revision-Date: 2005-02-16 21:58-0500\n"
 "Last-Translator: Arnar Leosson <leosson@frisurf.no>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -958,7 +958,7 @@ msgstr ""
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:472
+#: ui/keyselectiondialog.cpp:192 utils/formatting.cpp:472
 #: utils/formatting.cpp:482
 #, kde-format
 msgid "User ID"
@@ -1694,12 +1694,12 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "Breyta..."
 
-#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:218
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr ""
 
-#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:675
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1709,7 +1709,7 @@ msgstr ""
 "qt>"
 
 #: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
-#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
 #, fuzzy, kde-format
 #| msgid "Key Listing Failed"
 msgctxt "@title:window"
@@ -1838,84 +1838,84 @@ msgstr ""
 msgid "The key is not trusted enough."
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:500
+#: ui/keyselectiondialog.cpp:190 utils/formatting.cpp:500
 #, kde-format
 msgid "Key ID"
 msgstr "Auðkenni lykils"
 
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:264 ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:275 ui/keyselectiondialog.cpp:277
 #, kde-format
 msgid "unknown"
 msgstr "óþekkt"
 
-#: ui/keyselectiondialog.cpp:269
+#: ui/keyselectiondialog.cpp:264
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:266
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:486
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:486
 #: utils/formatting.cpp:529
 #, kde-format
 msgid "Valid from"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:489
+#: ui/keyselectiondialog.cpp:274 utils/formatting.cpp:489
 #: utils/formatting.cpp:532
 #, kde-format
 msgid "Valid until"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:280
+#: ui/keyselectiondialog.cpp:275
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:277
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:284
+#: ui/keyselectiondialog.cpp:279
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:286
+#: ui/keyselectiondialog.cpp:281
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:426
+#: ui/keyselectiondialog.cpp:421
 #, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:440
+#: ui/keyselectiondialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "&Search for:"
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Leita að:"
 
-#: ui/keyselectiondialog.cpp:465
+#: ui/keyselectiondialog.cpp:460
 #, fuzzy, kde-format
 #| msgid "&Remember choice"
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Muna val"
 
-#: ui/keyselectiondialog.cpp:468
+#: ui/keyselectiondialog.cpp:463
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -1924,46 +1924,46 @@ msgstr ""
 "<qt><p>Ef þú hakar í þetta box verður val þitt vistað og þú verður ekki "
 "spurð(ur) aftur.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:477
 #, fuzzy, kde-format
 #| msgid "&Reread Keys"
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Endur&lesa lykla"
 
-#: ui/keyselectiondialog.cpp:487
+#: ui/keyselectiondialog.cpp:482
 #, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:647
+#: ui/keyselectiondialog.cpp:642
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr "Enginn bakendi fannst fyrir lyklalista. Athugaðu uppsetningu þína."
 
-#: ui/keyselectiondialog.cpp:665
+#: ui/keyselectiondialog.cpp:660
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:667
+#: ui/keyselectiondialog.cpp:662
 #, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "Athuga valda lykla..."
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Fetching keys..."
 msgstr "Sæki lykla..."
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:751
 #, fuzzy, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -1978,12 +1978,12 @@ msgstr[1] ""
 "<qt>%1 bakendar skiluðu styttu úttaki.<br>Ekki eru allir mögulegir lyklar "
 "birtir</qt>"
 
-#: ui/keyselectiondialog.cpp:761
+#: ui/keyselectiondialog.cpp:756
 #, kde-format
 msgid "Key List Result"
 msgstr "Niðurstaða lyklalista"
 
-#: ui/keyselectiondialog.cpp:883
+#: ui/keyselectiondialog.cpp:878
 #, kde-format
 msgid "Recheck Key"
 msgstr "Athuga lykil aftur"

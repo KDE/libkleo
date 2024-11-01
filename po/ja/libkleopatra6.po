@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:40+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -953,7 +953,7 @@ msgstr "適用外"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:472
+#: ui/keyselectiondialog.cpp:192 utils/formatting.cpp:472
 #: utils/formatting.cpp:482
 #, kde-format
 msgid "User ID"
@@ -1715,12 +1715,12 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "変更..."
 
-#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:218
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>不明</placeholder>"
 
-#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:675
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1729,7 +1729,7 @@ msgstr ""
 "<qt><p>バックエンドから鍵を取得中にエラーが発生しました:</p><p>%1</p></qt>"
 
 #: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
-#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
 #, fuzzy, kde-format
 #| msgid "Key Listing Failed"
 msgctxt "@title:window"
@@ -1860,85 +1860,85 @@ msgstr "この鍵は使えません。"
 msgid "The key is not trusted enough."
 msgstr "この鍵は充分に信頼できません。"
 
-#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:500
+#: ui/keyselectiondialog.cpp:190 utils/formatting.cpp:500
 #, kde-format
 msgid "Key ID"
 msgstr "鍵 ID"
 
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:264 ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:275 ui/keyselectiondialog.cpp:277
 #, kde-format
 msgid "unknown"
 msgstr "不明"
 
-#: ui/keyselectiondialog.cpp:269
+#: ui/keyselectiondialog.cpp:264
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "<b>%1</b> の OpenPGP 鍵"
 
-#: ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:266
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b> の S/MIME 鍵"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:486
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:486
 #: utils/formatting.cpp:529
 #, kde-format
 msgid "Valid from"
 msgstr "ここから有効"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:489
+#: ui/keyselectiondialog.cpp:274 utils/formatting.cpp:489
 #: utils/formatting.cpp:532
 #, kde-format
 msgid "Valid until"
 msgstr "ここまで有効"
 
-#: ui/keyselectiondialog.cpp:280
+#: ui/keyselectiondialog.cpp:275
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "フィンガープリント"
 
-#: ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:277
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "発行者"
 
-#: ui/keyselectiondialog.cpp:284
+#: ui/keyselectiondialog.cpp:279
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "ステータス"
 
-#: ui/keyselectiondialog.cpp:286
+#: ui/keyselectiondialog.cpp:281
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:426
+#: ui/keyselectiondialog.cpp:421
 #, fuzzy, kde-format
 #| msgid "Search for &External Certificates"
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "外部証明書を検索(&E)"
 
-#: ui/keyselectiondialog.cpp:440
+#: ui/keyselectiondialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "&Search for:"
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "検索対象(&S):"
 
-#: ui/keyselectiondialog.cpp:465
+#: ui/keyselectiondialog.cpp:460
 #, fuzzy, kde-format
 #| msgid "&Remember choice"
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "選択を記憶する(&R)"
 
-#: ui/keyselectiondialog.cpp:468
+#: ui/keyselectiondialog.cpp:463
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -1947,7 +1947,7 @@ msgstr ""
 "<qt><p>このボックスをチェックすると、あなたの選択が記憶され、次回からは質問さ"
 "れなくなります。</p></qt>"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:477
 #, fuzzy, kde-format
 #| msgid "&Reread Keys"
 msgctxt "@action:button"
@@ -1955,44 +1955,44 @@ msgid "&Reread Keys"
 msgstr "鍵を再読み込み(&R)"
 
 # ACCELERATOR changed by translator
-#: ui/keyselectiondialog.cpp:487
+#: ui/keyselectiondialog.cpp:482
 #, fuzzy, kde-format
 #| msgid "&Start Certificate Manager"
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "証明書マネージャを起動(&S)"
 
-#: ui/keyselectiondialog.cpp:647
+#: ui/keyselectiondialog.cpp:642
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr ""
 "鍵の一覧表示のためのバックエンドが見つかりません。インストールを確認してくだ"
 "さい。"
 
-#: ui/keyselectiondialog.cpp:665
+#: ui/keyselectiondialog.cpp:660
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr ""
 "証明書マネージャを起動できませんでした。インストールを確認してください。"
 
-#: ui/keyselectiondialog.cpp:667
+#: ui/keyselectiondialog.cpp:662
 #, fuzzy, kde-format
 #| msgid "Certificate Manager Error"
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "証明書マネージャのエラー"
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "選択された鍵を確認中..."
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Fetching keys..."
 msgstr "鍵を取得中..."
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:751
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -2004,12 +2004,12 @@ msgstr[0] ""
 "<qt>%1 個のバックエンドの出力は一部切り捨てられています。<p>すべての利用可能"
 "な鍵は表示されていません。</p></qt>"
 
-#: ui/keyselectiondialog.cpp:761
+#: ui/keyselectiondialog.cpp:756
 #, kde-format
 msgid "Key List Result"
 msgstr "鍵リストの結果"
 
-#: ui/keyselectiondialog.cpp:883
+#: ui/keyselectiondialog.cpp:878
 #, kde-format
 msgid "Recheck Key"
 msgstr "鍵を再チェック"

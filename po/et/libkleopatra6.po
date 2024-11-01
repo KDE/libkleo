@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:40+0000\n"
 "PO-Revision-Date: 2020-02-12 22:57+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -985,7 +985,7 @@ msgstr ""
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:472
+#: ui/keyselectiondialog.cpp:192 utils/formatting.cpp:472
 #: utils/formatting.cpp:482
 #, kde-format
 msgid "User ID"
@@ -1785,12 +1785,12 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "Muuda..."
 
-#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:218
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>tundmatu</placeholder>"
 
-#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:675
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1800,7 +1800,7 @@ msgstr ""
 "p></qt>"
 
 #: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
-#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
 #, fuzzy, kde-format
 #| msgid "Key Listing Failed"
 msgctxt "@title:window"
@@ -1933,87 +1933,87 @@ msgstr "Võtit ei saa kasutada."
 msgid "The key is not trusted enough."
 msgstr "Võti ei ole piisavalt usaldatav."
 
-#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:500
+#: ui/keyselectiondialog.cpp:190 utils/formatting.cpp:500
 #, kde-format
 msgid "Key ID"
 msgstr "Võtme ID"
 
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:264 ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:275 ui/keyselectiondialog.cpp:277
 #, kde-format
 msgid "unknown"
 msgstr "tundmatu"
 
-#: ui/keyselectiondialog.cpp:269
+#: ui/keyselectiondialog.cpp:264
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "<b>%1</b> OpenPGP võti"
 
-#: ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:266
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b> S/MIME võti"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:486
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:486
 #: utils/formatting.cpp:529
 #, fuzzy, kde-format
 #| msgid "Valid From"
 msgid "Valid from"
 msgstr "Kehtiv alates"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:489
+#: ui/keyselectiondialog.cpp:274 utils/formatting.cpp:489
 #: utils/formatting.cpp:532
 #, fuzzy, kde-format
 #| msgid "Valid Until"
 msgid "Valid until"
 msgstr "Kehtiv kuni"
 
-#: ui/keyselectiondialog.cpp:280
+#: ui/keyselectiondialog.cpp:275
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "Sõrmejälg"
 
-#: ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:277
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "Väljaandja"
 
-#: ui/keyselectiondialog.cpp:284
+#: ui/keyselectiondialog.cpp:279
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "Olek"
 
-#: ui/keyselectiondialog.cpp:286
+#: ui/keyselectiondialog.cpp:281
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:426
+#: ui/keyselectiondialog.cpp:421
 #, fuzzy, kde-format
 #| msgid "Search for &External Certificates"
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Otsi välis&eid sertifikaate"
 
-#: ui/keyselectiondialog.cpp:440
+#: ui/keyselectiondialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "&Search for:"
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "Ot&sitakse:"
 
-#: ui/keyselectiondialog.cpp:465
+#: ui/keyselectiondialog.cpp:460
 #, fuzzy, kde-format
 #| msgid "&Remember choice"
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "Vali&k jäetakse meelde"
 
-#: ui/keyselectiondialog.cpp:468
+#: ui/keyselectiondialog.cpp:463
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -2022,48 +2022,48 @@ msgstr ""
 "<qt><p>Selle kasti märkimisel salvestatakse sinu valik ja sinu käest enam "
 "seda ei pärita.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:477
 #, fuzzy, kde-format
 #| msgid "&Reread Keys"
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Loe &võtmed uuesti"
 
-#: ui/keyselectiondialog.cpp:487
+#: ui/keyselectiondialog.cpp:482
 #, fuzzy, kde-format
 #| msgid "&Start Certificate Manager"
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "&Käivita sertifikaadihaldur"
 
-#: ui/keyselectiondialog.cpp:647
+#: ui/keyselectiondialog.cpp:642
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr "Võtmete hankimiseks ei leitud taustarakendust. Kontrolli paigaldust."
 
-#: ui/keyselectiondialog.cpp:665
+#: ui/keyselectiondialog.cpp:660
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr "Sertifikaadihalduri käivitamine nurjus. Palun kontrolli paigaldust."
 
-#: ui/keyselectiondialog.cpp:667
+#: ui/keyselectiondialog.cpp:662
 #, fuzzy, kde-format
 #| msgid "Certificate Manager Error"
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Sertifikaadihalduri viga"
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "Valitud võtmete kontroll..."
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Fetching keys..."
 msgstr "Võtmete tõmbamine..."
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:751
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -2078,12 +2078,12 @@ msgstr[1] ""
 "<qt>%1 taustaprogrammi tagastasid kärbitud väljundi.<p>Kõiki saadaolevaid "
 "võtmeid ei näidata</p></qt>"
 
-#: ui/keyselectiondialog.cpp:761
+#: ui/keyselectiondialog.cpp:756
 #, kde-format
 msgid "Key List Result"
 msgstr "Võtmete hankimise tulemus"
 
-#: ui/keyselectiondialog.cpp:883
+#: ui/keyselectiondialog.cpp:878
 #, kde-format
 msgid "Recheck Key"
 msgstr "Võtmete uus kontroll"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-30 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:40+0000\n"
 "PO-Revision-Date: 2024-10-23 10:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1118,7 +1118,7 @@ msgstr "no aplicable"
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
 #: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
 #: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:472
+#: ui/keyselectiondialog.cpp:192 utils/formatting.cpp:472
 #: utils/formatting.cpp:482
 #, kde-format
 msgid "User ID"
@@ -1872,12 +1872,12 @@ msgctxt "@action:button"
 msgid "Change..."
 msgstr "Canvia..."
 
-#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:218
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>desconegut</placeholder>"
 
-#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:675
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1887,7 +1887,7 @@ msgstr ""
 "%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
-#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
@@ -2015,82 +2015,82 @@ msgstr "La clau es pot usar."
 msgid "The key is not trusted enough."
 msgstr "La clau no té confiança suficient."
 
-#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:500
+#: ui/keyselectiondialog.cpp:190 utils/formatting.cpp:500
 #, kde-format
 msgid "Key ID"
 msgstr "ID de la clau"
 
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:264 ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:275 ui/keyselectiondialog.cpp:277
 #, kde-format
 msgid "unknown"
 msgstr "desconegut"
 
-#: ui/keyselectiondialog.cpp:269
+#: ui/keyselectiondialog.cpp:264
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "Clau OpenPGP per <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:266
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "Clau S/MIME per <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:486
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:486
 #: utils/formatting.cpp:529
 #, kde-format
 msgid "Valid from"
 msgstr "Vàlida des de"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:489
+#: ui/keyselectiondialog.cpp:274 utils/formatting.cpp:489
 #: utils/formatting.cpp:532
 #, kde-format
 msgid "Valid until"
 msgstr "Vàlida fins"
 
-#: ui/keyselectiondialog.cpp:280
+#: ui/keyselectiondialog.cpp:275
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "Empremta digital"
 
-#: ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:277
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "Emissor"
 
-#: ui/keyselectiondialog.cpp:284
+#: ui/keyselectiondialog.cpp:279
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "Estat"
 
-#: ui/keyselectiondialog.cpp:286
+#: ui/keyselectiondialog.cpp:281
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr "Compliment"
 
-#: ui/keyselectiondialog.cpp:426
+#: ui/keyselectiondialog.cpp:421
 #, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Cerca certificats &externs"
 
-#: ui/keyselectiondialog.cpp:440
+#: ui/keyselectiondialog.cpp:435
 #, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Cerca:"
 
-#: ui/keyselectiondialog.cpp:465
+#: ui/keyselectiondialog.cpp:460
 #, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Recorda la tria"
 
-#: ui/keyselectiondialog.cpp:468
+#: ui/keyselectiondialog.cpp:463
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -2099,48 +2099,48 @@ msgstr ""
 "<qt><p>Si activeu aquesta casella, es desarà la vostra tria i no se us "
 "tornarà a preguntar.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:477
 #, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "&Rellegeix les claus"
 
-#: ui/keyselectiondialog.cpp:487
+#: ui/keyselectiondialog.cpp:482
 #, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "En&gega el gestor de certificats"
 
-#: ui/keyselectiondialog.cpp:647
+#: ui/keyselectiondialog.cpp:642
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr ""
 "No s'han trobat dorsals per al llistat de claus. Comproveu la instal·lació."
 
-#: ui/keyselectiondialog.cpp:665
+#: ui/keyselectiondialog.cpp:660
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr ""
 "No s'ha pogut iniciar el gestor de certificats. Si us plau, comproveu la "
 "instal·lació."
 
-#: ui/keyselectiondialog.cpp:667
+#: ui/keyselectiondialog.cpp:662
 #, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Error del gestor de certificats"
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "S'estan comprovant les claus seleccionades..."
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:719
 #, kde-format
 msgid "Fetching keys..."
 msgstr "S'estan recuperant les claus..."
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:751
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -2155,12 +2155,12 @@ msgstr[1] ""
 "<qt>%1 dorsals han retornat una sortida truncada.<p>No es mostren totes les "
 "claus disponibles</p></qt>"
 
-#: ui/keyselectiondialog.cpp:761
+#: ui/keyselectiondialog.cpp:756
 #, kde-format
 msgid "Key List Result"
 msgstr "Resultat de la llista de claus"
 
-#: ui/keyselectiondialog.cpp:883
+#: ui/keyselectiondialog.cpp:878
 #, kde-format
 msgid "Recheck Key"
 msgstr "Revisa la clau"
