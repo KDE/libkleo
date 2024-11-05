@@ -527,7 +527,7 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
 
 void Kleo::launchGpgAgent(Kleo::LaunchGpgAgentOptions options)
 {
-    static thread_local QPointer<QProcess> process;
+    static thread_local QProcess *process = nullptr;
     static thread_local qint64 mSecsSinceEpochOfLastLaunch = 0;
     static thread_local int numberOfFailedLaunches = 0;
 
@@ -554,9 +554,11 @@ void Kleo::launchGpgAgent(Kleo::LaunchGpgAgentOptions options)
         {QStringLiteral("--launch"), QStringLiteral("gpg-agent")},
         []() {
             numberOfFailedLaunches = 0;
+            process = nullptr;
         },
         []() {
             numberOfFailedLaunches++;
+            process = nullptr;
         });
 }
 
