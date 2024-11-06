@@ -12,6 +12,7 @@
 
 #include "kleo_export.h"
 
+#include <string>
 #include <string_view>
 #include <vector>
 
