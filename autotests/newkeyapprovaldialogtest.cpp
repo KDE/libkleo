@@ -289,6 +289,13 @@ class NewKeyApprovalDialogTest : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
+    void initTestCase()
+    {
+#ifdef Q_OS_WIN
+        QSKIP("UI tests don't run on Windows");
+#endif
+    }
+
     void init()
     {
         // hold a reference to the key cache to avoid rebuilding while the test is running
