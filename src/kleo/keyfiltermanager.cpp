@@ -539,6 +539,8 @@ KeyFilterModel::KeyFilterModel(QObject *parent)
     });
 }
 
+KeyFilterModel::~KeyFilterModel() = default;
+
 void KeyFilterModel::prependCustomFilter(const std::shared_ptr<KeyFilter> &filter)
 {
     beginResetModel();

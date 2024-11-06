@@ -92,6 +92,8 @@ class KLEO_EXPORT KeyFilterModel : public QSortFilterProxyModel
 
 public:
     KeyFilterModel(QObject *parent = nullptr);
+    ~KeyFilterModel() override;
+
     bool isCustomFilter(int row) const;
     void prependCustomFilter(const std::shared_ptr<KeyFilter> &filter);
 
