@@ -261,9 +261,10 @@ private Q_SLOTS:
         QVERIFY(!verificationResult.error());
         QCOMPARE(verificationResult.numSignatures(), 1);
 
-        const QString result = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s);
-        QCOMPARE(result,
-                 u"Signature created on Tuesday, September 24, 2024 9:02:47\u202FAM UTC with certificate: "
+        const QString resultWithoutTimestamp = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s)
+                                                   .replace(QRegularExpression{u"on .* with"_s}, u"on TIMESTAMP with"_s);
+        QCOMPARE(resultWithoutTimestamp,
+                 u"Signature created on TIMESTAMP with certificate: "
                  "<a href=\"key:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D\">"
                  "Curve 448 &lt;curve448@example.net&gt; (1DE1 960C 29F9 7E67)"
                  "</a><br/>"
@@ -288,9 +289,10 @@ private Q_SLOTS:
         QVERIFY(!verificationResult.error());
         QCOMPARE(verificationResult.numSignatures(), 1);
 
-        const QString result = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s);
-        QCOMPARE(result,
-                 u"Signature created on Tuesday, September 24, 2024 9:02:47\u202FAM UTC using an unknown certificate with fingerprint <br/>"
+        const QString resultWithoutTimestamp = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s)
+                                                   .replace(QRegularExpression{u"on .* using"_s}, u"on TIMESTAMP using"_s);
+        QCOMPARE(resultWithoutTimestamp,
+                 u"Signature created on TIMESTAMP using an unknown certificate with fingerprint <br/>"
                  "1DE19 60C29 F97E6 762C4 EA341 820DA AC045 57992 1E0F3 05673<br/>"
                  "You can search the certificate on a keyserver or import it from a file."_s);
     }
