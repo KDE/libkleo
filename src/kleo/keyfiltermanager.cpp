@@ -110,8 +110,7 @@ public:
         setName(i18nc("My own Certificates", "My Own"));
         setDescription(i18n("My own certificates (except disabled ones)"));
         setId(QStringLiteral("my-certificates"));
-        setMatchContexts(AnyMatchContext);
-        setBold(true);
+        setMatchContexts(Filtering);
     }
 };
 

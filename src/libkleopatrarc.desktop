@@ -1134,3 +1134,12 @@ match-contexts=any
 is-disabled=true
 # UINT_MAX - 1
 specificity=4294967294
+
+[Key Filter #15]
+Name=My Own
+Description=My own certificates
+match-contexts=appearance
+font-bold=true
+has-secret-key=true
+# UINT_MAX - 2
+specificity=4294967293
