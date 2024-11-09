@@ -20,6 +20,7 @@
 
 class QString;
 class QByteArray;
+class KAboutComponent;
 
 namespace Kleo
 {
@@ -120,6 +121,11 @@ KLEO_EXPORT bool versionIsAtLeast(const char *minimum, const char *actual);
  *  version numbers. This is meant for displaying in the About dialog.
  */
 KLEO_EXPORT QStringList backendVersionInfo();
+
+/** Returns a list of component names (e.g. GnuPG, libgcrypt) with their
+ *  version numbers.
+ */
+KLEO_EXPORT QList<KAboutComponent> backendComponents();
 
 enum LaunchGpgAgentOptions {
     CheckForRunningAgent,

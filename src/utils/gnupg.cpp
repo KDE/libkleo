@@ -25,6 +25,7 @@
 
 #include <libkleo_debug.h>
 
+#include <KAboutComponent>
 #include <KLocalizedString>
 
 #include <QGpgME/CryptoConfig>
@@ -451,7 +452,18 @@ QString Kleo::stringFromGpgOutput(const QByteArray &ba)
 
 QStringList Kleo::backendVersionInfo()
 {
+    const auto components = backendComponents();
+
     QStringList versions;
+    for (const auto &component : components) {
+        versions.push_back(component.name() + u' ' + component.version());
+    }
+    return versions;
+}
+
+QList<KAboutComponent> Kleo::backendComponents()
+{
+    QList<KAboutComponent> components;
     if (Kleo::engineIsVersion(2, 2, 24, GpgME::GpgConfEngine)) {
         QProcess p;
         qCDebug(LIBKLEO_LOG) << "Running gpgconf --show-versions ...";
@@ -468,14 +480,27 @@ QStringList Kleo::backendVersionInfo()
             qCDebug(LIBKLEO_LOG) << "gpgconf stdout:" << output;
             const auto lines = output.split('\n');
             for (const auto &line : lines) {
-                if (line.startsWith("* GnuPG") || line.startsWith("* Libgcrypt")) {
-                    const auto components = line.split(' ');
-                    versions.push_back(QString::fromLatin1(components.at(1) + ' ' + components.value(2)));
+                if (line.startsWith("* GnuPG")) {
+                    const auto componentsLine = line.split(' ');
+                    components.append(KAboutComponent(QStringLiteral("GnuPG"),
+                                                      i18nc("@info", "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."),
+                                                      QString::fromLatin1(componentsLine.value(2)),
+                                                      QStringLiteral("https://gnupg.org"),
+                                                      KAboutLicense::GPL_V3));
+                }
+
+                if (line.startsWith("* Libgcrypt")) {
+                    const auto componentsLine = line.split(' ');
+                    components.append(KAboutComponent(QStringLiteral("Libgcrypt"),
+                                                      i18nc("@info", "Libgcrypt is a general purpose cryptographic library."),
+                                                      QString::fromLatin1(componentsLine.value(2)),
+                                                      QStringLiteral("https://www.gnupg.org/software/libgcrypt/index.html"),
+                                                      KAboutLicense::LGPL_V2_1));
                 }
             }
         }
     }
-    return versions;
+    return components;
 }
 
 namespace
