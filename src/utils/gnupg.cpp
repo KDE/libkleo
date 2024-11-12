@@ -40,6 +40,7 @@
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QString>
+#include <QThread>
 
 #include <gpgme++/engineinfo.h>
 #include <gpgme++/error.h>
@@ -480,6 +481,29 @@ QStringList Kleo::backendVersionInfo()
 namespace
 {
 
+void runGpgConf(const QStringList &arguments)
+{
+    QProcess process;
+    process.setProgram(Kleo::gpgConfPath());
+    process.setArguments(arguments);
+
+    qCDebug(LIBKLEO_LOG) << "Starting gpgconf (" << &process << ") with arguments" << process.arguments().join(QLatin1Char(' ')) << " ...";
+    process.start();
+
+    if (!process.waitForStarted(5000 /* wait at most 5 seconds */)) {
+        qCDebug(LIBKLEO_LOG) << "gpgconf failed to start:" << process.errorString() << "\nstderr:" << process.readAllStandardError();
+        return;
+    }
+    if (!process.waitForFinished(5000 /* wait at most 5 seconds */)) {
+        qCDebug(LIBKLEO_LOG) << "gpgconf did not exit after 5 seconds:" << process.errorString() << "\nstderr:" << process.readAllStandardError();
+        return;
+    }
+    qCDebug(LIBKLEO_LOG) << "gpgconf (" << &process << ") exited with exit code" << process.exitCode() << ")";
+    if (process.exitCode() > 0) {
+        qCDebug(LIBKLEO_LOG) << "gpgconf stderr:" << process.readAllStandardError();
+    }
+}
+
 template<typename Function1, typename Function2>
 auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 onFailure)
 {
@@ -525,18 +549,13 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
 
     return process;
 }
-}
 
-void Kleo::launchGpgAgent(Kleo::LaunchGpgAgentOptions options)
+static void launchGpgAgentWithEventLoop()
 {
     static thread_local QProcess *process = nullptr;
     static thread_local qint64 mSecsSinceEpochOfLastLaunch = 0;
     static thread_local int numberOfFailedLaunches = 0;
 
-    if ((options == CheckForRunningAgent) && Kleo::Assuan::agentIsRunning()) {
-        qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already running";
-        return;
-    }
     if (process) {
         qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already being launched";
         return;
@@ -562,6 +581,21 @@ void Kleo::launchGpgAgent(Kleo::LaunchGpgAgentOptions options)
             numberOfFailedLaunches++;
             process = nullptr;
         });
+}
+}
+
+void Kleo::launchGpgAgent(Kleo::LaunchGpgAgentOptions options)
+{
+    if ((options == CheckForRunningAgent) && Kleo::Assuan::agentIsRunning()) {
+        qCDebug(LIBKLEO_LOG) << __func__ << ": gpg-agent is already running";
+        return;
+    }
+
+    if (QThread::currentThread()->loopLevel() > 0) {
+        launchGpgAgentWithEventLoop();
+    } else {
+        runGpgConf({QStringLiteral("--launch"), QStringLiteral("gpg-agent")});
+    }
 }
 
 void Kleo::restartGpgAgent()
