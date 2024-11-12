@@ -511,23 +511,23 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
     process->setProgram(Kleo::gpgConfPath());
     process->setArguments(arguments);
 
-    QObject::connect(process, &QProcess::started, [process]() {
+    QObject::connect(process, &QProcess::started, process, [process]() {
         qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") was started successfully";
     });
-    QObject::connect(process, &QProcess::errorOccurred, [process, onFailure](auto error) {
+    QObject::connect(process, &QProcess::errorOccurred, process, [process, onFailure](auto error) {
         qCDebug(LIBKLEO_LOG).nospace() << "Error while running gpgconf (" << process << "): " << error;
         process->deleteLater();
         onFailure();
     });
-    QObject::connect(process, &QProcess::readyReadStandardError, [process]() {
+    QObject::connect(process, &QProcess::readyReadStandardError, process, [process]() {
         for (const auto &line : process->readAllStandardError().trimmed().split('\n')) {
             qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") stderr: " << line;
         }
     });
-    QObject::connect(process, &QProcess::readyReadStandardOutput, [process]() {
+    QObject::connect(process, &QProcess::readyReadStandardOutput, process, [process]() {
         (void)process->readAllStandardOutput(); /* ignore stdout */
     });
-    QObject::connect(process, &QProcess::finished, [process, onSuccess, onFailure](int exitCode, QProcess::ExitStatus exitStatus) {
+    QObject::connect(process, &QProcess::finished, process, [process, onSuccess, onFailure](int exitCode, QProcess::ExitStatus exitStatus) {
         if (exitStatus == QProcess::NormalExit) {
             qCDebug(LIBKLEO_LOG).nospace() << "gpgconf (" << process << ") exited (exit code: " << exitCode << ")";
             if (exitCode == 0) {
