@@ -1534,6 +1534,7 @@ QString Formatting::prettyAlgorithmName(const std::string &algorithm)
         {"nistp256", i18nc("@info", "ECC (NIST P-256)")},
         {"nistp384", i18nc("@info", "ECC (NIST P-384)")},
         {"nistp521", i18nc("@info", "ECC (NIST P-521)")},
+        {"rsa1024", i18nc("@info", "RSA 1024")},
         {"rsa2048", i18nc("@info", "RSA 2048")},
         {"rsa3072", i18nc("@info", "RSA 3072")},
         {"rsa4096", i18nc("@info", "RSA 4096")},
