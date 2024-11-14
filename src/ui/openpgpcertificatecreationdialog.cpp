@@ -7,6 +7,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "openpgpcertificatecreationdialog.h"
 
 #include "adjustingscrollarea.h"
@@ -39,6 +41,7 @@
 #include "libkleo_debug.h"
 
 using namespace Kleo;
+using namespace Qt::Literals::StringLiterals;
 
 static bool unlimitedValidityIsAllowed()
 {
@@ -261,6 +264,20 @@ private:
                 technicalParameters.setKeyCurve(QStringLiteral("ed448"));
                 technicalParameters.setSubkeyCurve(QStringLiteral("cv448"));
             }
+#if GPGMEPP_SUPPORTS_KYBER
+        } else if (algoString == "ky768_bp256"_L1) {
+            keyType = GpgME::Subkey::AlgoECDSA;
+            subkeyType = GpgME::Subkey::AlgoKyber;
+            technicalParameters.setKeyCurve(u"brainpoolP256r1"_s);
+            technicalParameters.setSubkeyCurve(u"brainpoolP256r1"_s);
+            technicalParameters.setSubkeyLength(768);
+        } else if (algoString == "ky1024_bp384"_L1) {
+            keyType = GpgME::Subkey::AlgoECDSA;
+            subkeyType = GpgME::Subkey::AlgoKyber;
+            technicalParameters.setKeyCurve(u"brainpoolP384r1"_s);
+            technicalParameters.setSubkeyCurve(u"brainpoolP384r1"_s);
+            technicalParameters.setSubkeyLength(1024);
+#endif
         } else {
             keyType = GpgME::Subkey::AlgoECDSA;
             subkeyType = GpgME::Subkey::AlgoECDH;
@@ -284,17 +301,29 @@ private:
 
     void setTechnicalParameters(const KeyParameters &parameters)
     {
-        int index;
+        int index = -1;
         if (parameters.keyType() == GpgME::Subkey::AlgoRSA_S) {
             index = ui.keyAlgoCB->findData(QStringLiteral("rsa%1").arg(parameters.keyLength()));
         } else if (parameters.keyCurve() == QLatin1StringView("ed25519")) {
             index = ui.keyAlgoCB->findData(QStringLiteral("curve25519"));
         } else if (parameters.keyCurve() == QLatin1StringView("ed448")) {
             index = ui.keyAlgoCB->findData(QStringLiteral("curve448"));
+#if GPGMEPP_SUPPORTS_KYBER
+        } else if (parameters.subkeyType() == GpgME::Subkey::AlgoKyber) {
+            if (parameters.subkeyLength() == 768 && parameters.keyCurve() == "brainpoolP256r1"_L1) {
+                index = ui.keyAlgoCB->findData("ky768_bp256"_L1);
+            } else if (parameters.subkeyLength() == 1024 && parameters.keyCurve() == "brainpoolP384r1"_L1) {
+                index = ui.keyAlgoCB->findData("ky1024_bp384"_L1);
+            } else {
+                qCDebug(LIBKLEO_LOG) << __func__ << "Unsupported Kyber parameters" << parameters.subkeyLength() << parameters.keyCurve();
+            }
+#endif
         } else {
             index = ui.keyAlgoCB->findData(parameters.keyCurve());
         }
-        ui.keyAlgoCB->setCurrentIndex(index);
+        if (index >= 0) {
+            ui.keyAlgoCB->setCurrentIndex(index);
+        }
         setExpiryDate(parameters.expirationDate());
     }
 

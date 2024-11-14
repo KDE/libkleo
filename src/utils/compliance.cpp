@@ -111,14 +111,30 @@ bool Kleo::DeVSCompliance::keyIsCompliant(const GpgME::Key &key)
 
 const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms()
 {
-    static const std::vector<std::string> compliantAlgos = {
-        "brainpoolP256r1",
-        "brainpoolP384r1",
-        "brainpoolP512r1",
-        "rsa3072",
-        "rsa4096",
+    static std::vector<std::string> compliantAlgos;
+    if (!isActive()) {
+        return Kleo::availableAlgorithms();
+    }
+    if (compliantAlgos.empty()) {
+        compliantAlgos.reserve(7);
+        compliantAlgos = {
+            "brainpoolP256r1",
+            "brainpoolP384r1",
+            "brainpoolP512r1",
+            "rsa3072",
+            "rsa4096",
+        };
+#if GPGMEPP_SUPPORTS_KYBER
+        if (engineIsVersion(2, 5, 2)) {
+            compliantAlgos.insert(compliantAlgos.end(),
+                                  {
+                                      "ky768_bp256",
+                                      "ky1024_bp384",
+                                  });
+        }
+#endif
     };
-    return isActive() ? compliantAlgos : Kleo::availableAlgorithms();
+    return compliantAlgos;
 }
 
 const std::vector<std::string> &Kleo::DeVSCompliance::preferredCompliantAlgorithms()

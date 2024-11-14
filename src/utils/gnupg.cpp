@@ -638,19 +638,32 @@ void Kleo::restartGpgAgent()
 
 const std::vector<std::string> &Kleo::availableAlgorithms()
 {
-    static const std::vector<std::string> algos = {
-        "brainpoolP256r1",
-        "brainpoolP384r1",
-        "brainpoolP512r1",
-        "curve25519",
-        "curve448",
-        "nistp256",
-        "nistp384",
-        "nistp521",
-        "rsa2048",
-        "rsa3072",
-        "rsa4096",
-        // "secp256k1", // Curve secp256k1 is explicitly ignored
+    static std::vector<std::string> algos;
+    if (algos.empty()) {
+        algos.reserve(13);
+        algos = {
+            "brainpoolP256r1",
+            "brainpoolP384r1",
+            "brainpoolP512r1",
+            "curve25519",
+            "curve448",
+            "nistp256",
+            "nistp384",
+            "nistp521",
+            "rsa2048",
+            "rsa3072",
+            "rsa4096",
+            // "secp256k1", // Curve secp256k1 is explicitly ignored
+        };
+#if GPGMEPP_SUPPORTS_KYBER
+        if (engineIsVersion(2, 5, 2)) {
+            algos.insert(algos.end(),
+                         {
+                             "ky768_bp256",
+                             "ky1024_bp384",
+                         });
+        }
+#endif
     };
     return algos;
 }

@@ -1,4 +1,7 @@
 /* Whether Error::asStdString exist */
 #cmakedefine01 GPGMEPP_ERROR_HAS_ASSTDSTRING
 
+/* Whether Subkey::PubkeyAlgo::AlgoKyber exists */
+#cmakedefine01 GPGMEPP_SUPPORTS_KYBER
+
 #cmakedefine01 UNITY_BUILD
