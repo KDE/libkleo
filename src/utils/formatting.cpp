@@ -1545,7 +1545,7 @@ QString Formatting::prettyAlgorithmName(const std::string &algorithm)
         {"elg4096", i18nc("@info", "Elgamal 4096")},
     };
     const auto it = displayNames.find(algorithm);
-    return (it != displayNames.end()) ? it->second : i18nc("@info", "Unknown algorithm");
+    return (it != displayNames.end()) ? it->second : QString::fromStdString(algorithm);
 }
 
 static QString formatValidSignatureWithTrustLevel(const GpgME::UserID &id)
