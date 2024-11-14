@@ -132,7 +132,11 @@ enum LaunchGpgAgentOptions {
     SkipCheckForRunningAgent,
 };
 
-/** Launch the GnuPG agent if it is not already running. */
+/** Launch the GnuPG agent if it is not already running.
+ * If the current thread has an event loop then the agent is started
+ * asynchronously. Otherwise, it is started synchronously, i.e. it blocks
+ * the current thread.
+ */
 KLEO_EXPORT void launchGpgAgent(LaunchGpgAgentOptions options = CheckForRunningAgent);
 
 /** Shut down all GnuPG daemons and restart the GnuPG agent. */
