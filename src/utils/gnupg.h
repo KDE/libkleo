@@ -134,8 +134,8 @@ enum LaunchGpgAgentOptions {
 
 /** Launch the GnuPG agent if it is not already running.
  * If the current thread has an event loop then the agent is started
- * asynchronously. Otherwise, it is started synchronously, i.e. it blocks
- * the current thread.
+ * asynchronously. Otherwise, "gpgconf --launch gpg-agent" is started
+ * detached without checking if the command succeeds.
  */
 KLEO_EXPORT void launchGpgAgent(LaunchGpgAgentOptions options = CheckForRunningAgent);
 
