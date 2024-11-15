@@ -481,26 +481,14 @@ QStringList Kleo::backendVersionInfo()
 namespace
 {
 
-void runGpgConf(const QStringList &arguments)
+void startGpgConfDetached(const QStringList &arguments)
 {
-    QProcess process;
-    process.setProgram(Kleo::gpgConfPath());
-    process.setArguments(arguments);
-
-    qCDebug(LIBKLEO_LOG) << "Starting gpgconf (" << &process << ") with arguments" << process.arguments().join(QLatin1Char(' ')) << " ...";
-    process.start();
-
-    if (!process.waitForStarted(5000 /* wait at most 5 seconds */)) {
-        qCDebug(LIBKLEO_LOG) << "gpgconf failed to start:" << process.errorString() << "\nstderr:" << process.readAllStandardError();
-        return;
-    }
-    if (!process.waitForFinished(5000 /* wait at most 5 seconds */)) {
-        qCDebug(LIBKLEO_LOG) << "gpgconf did not exit after 5 seconds:" << process.errorString() << "\nstderr:" << process.readAllStandardError();
-        return;
-    }
-    qCDebug(LIBKLEO_LOG) << "gpgconf (" << &process << ") exited with exit code" << process.exitCode() << ")";
-    if (process.exitCode() > 0) {
-        qCDebug(LIBKLEO_LOG) << "gpgconf stderr:" << process.readAllStandardError();
+    const QString gpgconf = Kleo::gpgConfPath();
+    qCDebug(LIBKLEO_LOG) << "Starting" << gpgconf << arguments.join(QLatin1Char(' ')) << " ...";
+    if (QProcess::startDetached(gpgconf, arguments)) {
+        qCDebug(LIBKLEO_LOG) << "gpgconf was started successfully";
+    } else {
+        qCDebug(LIBKLEO_LOG) << "gpgconf failed to start";
     }
 }
 
@@ -594,7 +582,7 @@ void Kleo::launchGpgAgent(Kleo::LaunchGpgAgentOptions options)
     if (QThread::currentThread()->loopLevel() > 0) {
         launchGpgAgentWithEventLoop();
     } else {
-        runGpgConf({QStringLiteral("--launch"), QStringLiteral("gpg-agent")});
+        startGpgConfDetached({QStringLiteral("--launch"), QStringLiteral("gpg-agent")});
     }
 }
 
