@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 00:41+0000\n"
+"POT-Creation-Date: 2024-11-15 00:40+0000\n"
 "PO-Revision-Date: 2024-08-06 21:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2400,43 +2400,43 @@ msgstr "Titkosítás másoknak:"
 msgid "Generate"
 msgstr "Előállítás"
 
-#: ui/openpgpcertificatecreationdialog.cpp:89
+#: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:91
+#: ui/openpgpcertificatecreationdialog.cpp:94
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:94
+#: ui/openpgpcertificatecreationdialog.cpp:97
 #, fuzzy, kde-format
 #| msgid "Advanced Settings"
 msgid "Advanced options"
 msgstr "Speciális beállítások"
 
-#: ui/openpgpcertificatecreationdialog.cpp:101
+#: ui/openpgpcertificatecreationdialog.cpp:104
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:145
+#: ui/openpgpcertificatecreationdialog.cpp:148
 #, fuzzy, kde-format
 #| msgid "Trusted Certificates"
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Megbízható tanúsítványok"
 
-#: ui/openpgpcertificatecreationdialog.cpp:153
+#: ui/openpgpcertificatecreationdialog.cpp:156
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:154
+#: ui/openpgpcertificatecreationdialog.cpp:157
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -2444,12 +2444,12 @@ msgstr ""
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Adja meg a címtárszolgáltató kiszolgáló gépnevét vagy IP-címét."
 
-#: ui/openpgpcertificatecreationdialog.cpp:305
+#: ui/openpgpcertificatecreationdialog.cpp:334
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:319
+#: ui/openpgpcertificatecreationdialog.cpp:348
 #, fuzzy, kde-format
 #| msgid "The key is disabled."
 msgid "There is a problem."
@@ -2501,17 +2501,17 @@ msgstr "Tanúsítványlista megjelenítése"
 msgid "Show certificate list"
 msgstr "Tanúsítványlista megjelenítése"
 
-#: utils/compliance.cpp:171
+#: utils/compliance.cpp:187
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "VS-NfD kompatibilis"
 
-#: utils/compliance.cpp:171
+#: utils/compliance.cpp:187
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Nem VS-NfD kompatibilis"
 
-#: utils/compliance.cpp:180
+#: utils/compliance.cpp:196
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
@@ -3263,109 +3263,111 @@ msgid "ECC (NIST P-521)"
 msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1537
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "DSA 1024"
+msgctxt "@info"
+msgid "RSA 1024"
+msgstr "DSA 1024"
+
+#: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr "RSA 2048"
 
-#: utils/formatting.cpp:1538
+#: utils/formatting.cpp:1539
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "RSA 3072"
 
-#: utils/formatting.cpp:1539
+#: utils/formatting.cpp:1540
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "RSA 4096"
 
-#: utils/formatting.cpp:1540
+#: utils/formatting.cpp:1541
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr "DSA 1024"
 
-#: utils/formatting.cpp:1541
+#: utils/formatting.cpp:1542
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr "DSA 2048"
 
-#: utils/formatting.cpp:1542
+#: utils/formatting.cpp:1543
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr "Elgamal 1024"
 
-#: utils/formatting.cpp:1543
+#: utils/formatting.cpp:1544
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr "Elgamal 2048"
 
-#: utils/formatting.cpp:1544
+#: utils/formatting.cpp:1545
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr "Elgamal 3072"
 
-#: utils/formatting.cpp:1545
+#: utils/formatting.cpp:1546
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
-#: utils/formatting.cpp:1548
-#, kde-format
-msgctxt "@info"
-msgid "Unknown algorithm"
-msgstr "Ismeretlen algoritmus"
-
-#: utils/formatting.cpp:1558
+#: utils/formatting.cpp:1559
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
 
-#: utils/formatting.cpp:1560
+#: utils/formatting.cpp:1561
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
 
-#: utils/formatting.cpp:1562
+#: utils/formatting.cpp:1563
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
 
-#: utils/formatting.cpp:1564
+#: utils/formatting.cpp:1565
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
 
-#: utils/formatting.cpp:1566
+#: utils/formatting.cpp:1567
 #, fuzzy, kde-format
 #| msgid "New signatures were added to this certificate by the import."
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr ""
 "Az importálás során új aláírások kerültek hozzáadásra a tanúsítványhoz."
 
-#: utils/formatting.cpp:1569
+#: utils/formatting.cpp:1570
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
-#: utils/formatting.cpp:1581
+#: utils/formatting.cpp:1582
 #, fuzzy, kde-format
 #| msgid "My own certificates"
 msgid "Unknown certificate"
 msgstr "Saját tanúsítványok"
 
-#: utils/formatting.cpp:1585
+#: utils/formatting.cpp:1586
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
@@ -3375,7 +3377,7 @@ msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1599
+#: utils/formatting.cpp:1600
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgctxt "1 is a date"
@@ -3383,26 +3385,26 @@ msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
 msgstr "Hibás aláírás ismeretlen tanúsítvánnyal: %1"
 
-#: utils/formatting.cpp:1601
+#: utils/formatting.cpp:1602
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "Hibás aláírás ismeretlen tanúsítvánnyal: %1"
 
-#: utils/formatting.cpp:1605
+#: utils/formatting.cpp:1606
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "Hibás aláírás ismeretlen tanúsítvánnyal: %1"
 
-#: utils/formatting.cpp:1607
+#: utils/formatting.cpp:1608
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgid "Signature created with certificate: %1"
 msgstr "Hibás aláírás ismeretlen tanúsítvánnyal: %1"
 
-#: utils/formatting.cpp:1613
+#: utils/formatting.cpp:1614
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgctxt ""
@@ -3411,7 +3413,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "Jó aláírás %1 által."
 
-#: utils/formatting.cpp:1616
+#: utils/formatting.cpp:1617
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgctxt ""
@@ -3420,88 +3422,100 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "Jó aláírás %1 által."
 
-#: utils/formatting.cpp:1626
+#: utils/formatting.cpp:1627
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr ""
 
-#: utils/formatting.cpp:1628
+#: utils/formatting.cpp:1629
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgid "Good signature"
 msgstr "Jó aláírás %1 által."
 
-#: utils/formatting.cpp:1630
+#: utils/formatting.cpp:1631
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signing certificate was revoked"
 msgstr "a tanúsítvány lejárt"
 
-#: utils/formatting.cpp:1632
+#: utils/formatting.cpp:1633
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signing certificate is expired"
 msgstr "a tanúsítvány lejárt"
 
-#: utils/formatting.cpp:1634
+#: utils/formatting.cpp:1635
 #, kde-format
 msgid "Certificate is not available"
 msgstr ""
 
-#: utils/formatting.cpp:1636
+#: utils/formatting.cpp:1637
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signature expired"
 msgstr "a tanúsítvány lejárt"
 
-#: utils/formatting.cpp:1638
+#: utils/formatting.cpp:1639
 #, kde-format
 msgid "CRL missing"
 msgstr ""
 
-#: utils/formatting.cpp:1640
+#: utils/formatting.cpp:1641
 #, kde-format
 msgid "CRL too old"
 msgstr ""
 
-#: utils/formatting.cpp:1642
+#: utils/formatting.cpp:1643
 #, kde-format
 msgid "Bad policy"
 msgstr ""
 
-#: utils/formatting.cpp:1644
+#: utils/formatting.cpp:1645
 #, fuzzy, kde-format
 #| msgid "System Error"
 msgid "System error"
 msgstr "Rendszerhiba"
 
-#: utils/formatting.cpp:1646
+#: utils/formatting.cpp:1647
 #, fuzzy, kde-format
 #| msgid "Bad signature by %1: %2"
 msgid "Bad signature"
 msgstr "Hibás aláírás %1 által: %2"
 
-#: utils/formatting.cpp:1722 utils/formatting.cpp:1745
+#: utils/formatting.cpp:1723 utils/formatting.cpp:1746
 #, fuzzy, kde-format
 #| msgid "The key is not valid."
 msgid "The signature is invalid: %1"
 msgstr "A kulcs érvénytelen."
 
-#: utils/formatting.cpp:1731
+#: utils/formatting.cpp:1732
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 
-#: utils/formatting.cpp:1740
+#: utils/formatting.cpp:1741
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 
-#: utils/formatting.cpp:1741
+#: utils/formatting.cpp:1742
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
+msgstr ""
+
+#: utils/gnupg.cpp:486
+#, kde-format
+msgctxt "@info"
+msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
+msgstr ""
+
+#: utils/gnupg.cpp:495
+#, kde-format
+msgctxt "@info"
+msgid "Libgcrypt is a general purpose cryptographic library."
 msgstr ""
 
 #: utils/hex.cpp:35
@@ -3513,6 +3527,10 @@ msgstr "Érvénytelen hexadecimális karakter („%1”) a bemenetben."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Túl korán végződő hexadecimálisan kódolt karakter a bemenetben"
+
+#~ msgctxt "@info"
+#~ msgid "Unknown algorithm"
+#~ msgstr "Ismeretlen algoritmus"
 
 #~ msgid "All certificates"
 #~ msgstr "Minden tanúsítvány"
