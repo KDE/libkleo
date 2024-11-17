@@ -18,12 +18,6 @@ find_package(ECM ${KF6_WANT_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
 
-set(SHARE_INSTALL_DIR share
-    CACHE
-    PATH
-    "read-only architecture-independent data"
-)
-set(FIND_MODULES_INSTALL_DIR      ${SHARE_INSTALL_DIR}/KPim6Libkleo/find-modules/)
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -88,6 +82,8 @@ remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim6Libkleo")
+
+set(FIND_MODULES_INSTALL_DIR ${KDE_INSTALL_DATAROOTDIR}/KPim6Libkleo/find-modules/)
 
 
 install(FILES
