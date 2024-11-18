@@ -6,20 +6,19 @@
 # Sebastià Pla i Sanz <sps@sastia.com>, 2004.
 # Manuel Tortosa Moreno <manutortosa@gmail.com>, 2009, 2010.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2013, 2014, 2016, 2017, 2018, 2019, 2020, 2022, 2023.
-# Josep M. Ferrer <txemaq@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-15 00:40+0000\n"
-"PO-Revision-Date: 2024-10-23 10:50+0200\n"
+"PO-Revision-Date: 2024-11-15 12:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -3259,12 +3258,10 @@ msgid "ECC (NIST P-521)"
 msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1537
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "DSA 1024"
+#, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
-msgstr "DSA 1024"
+msgstr "RSA 1024"
 
 #: utils/formatting.cpp:1538
 #, kde-format
@@ -3503,13 +3500,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "GnuPG proporciona la implementació d'OpenPGP/LibrePGP i S/MIME."
 
 #: utils/gnupg.cpp:495
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "Libgcrypt és una biblioteca criptogràfica de caràcter general."
 
 #: utils/hex.cpp:35
 #, kde-format
@@ -3520,7 +3517,3 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Algorisme desconegut"
