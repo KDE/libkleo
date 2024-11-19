@@ -55,7 +55,7 @@ void UserIDProxyModel::Private::loadUserIDs()
                     ids += userID;
                 }
             }
-            if (ids.count() > 0) {
+            if (!ids.isEmpty()) {
                 mIds.append(ids);
             } else {
                 mIds.append(key.userID(0));
