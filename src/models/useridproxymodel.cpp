@@ -33,36 +33,45 @@ public:
     QList<std::variant<GpgME::UserID, KeyGroup>> mIds;
     QAbstractItemModel *oldSourceModel = nullptr;
     UserIDProxyModel *q;
+    QList<int> mSourceIndices;
 };
 
 void UserIDProxyModel::Private::loadUserIDs()
 {
     q->beginResetModel();
+    auto oldIndicesSize = mSourceIndices.size();
     mIds.clear();
+    mSourceIndices.clear();
     mIds.reserve(q->sourceModel()->rowCount());
+    mSourceIndices.reserve(std::max(mIds.size(), oldIndicesSize));
     for (auto i = 0; i < q->sourceModel()->rowCount(); ++i) {
         const auto key = q->sourceModel()->index(i, 0).data(KeyList::KeyRole).value<GpgME::Key>();
-        QList<GpgME::UserID> ids;
         if (key.isNull()) {
             mIds += q->sourceModel()->index(i, 0).data(KeyList::GroupRole).value<KeyGroup>();
+            mSourceIndices.push_back(i);
         } else if (key.protocol() == GpgME::OpenPGP) {
             for (const auto &userID : key.userIDs()) {
                 mIds += userID;
+                mSourceIndices.push_back(i);
             }
         } else {
             QList<std::variant<GpgME::UserID, KeyGroup>> ids;
+            QList<int> indices;
             for (const auto &userID : key.userIDs()) {
                 const auto exists = Kleo::contains_if(ids, [userID](const auto &other) {
                     return !qstrcmp(std::get<GpgME::UserID>(other).email(), userID.email());
                 });
                 if (!exists && userID.email() && *userID.email()) {
                     ids += userID;
+                    indices.push_back(i);
                 }
             }
             if (ids.count() > 0) {
                 mIds.append(ids);
+                mSourceIndices.append(indices);
             } else {
                 mIds.append(key.userID(0));
+                mSourceIndices.append(i);
             }
         }
     }
@@ -137,25 +146,8 @@ QModelIndex UserIDProxyModel::mapToSource(const QModelIndex &proxyIndex) const
     if (!proxyIndex.isValid()) {
         return {};
     }
-    const auto &entry = d->mIds[proxyIndex.row()];
 
-    if (std::holds_alternative<KeyGroup>(entry)) {
-        const auto &id = std::get<KeyGroup>(entry).id();
-        for (int i = 0; i < sourceModel()->rowCount(); ++i) {
-            if (sourceModel()->index(i, 0).data(KeyList::GroupRole).value<KeyGroup>().id() == id) {
-                return sourceModel()->index(i, proxyIndex.column());
-            }
-        }
-    } else {
-        const auto &fingerprint = std::get<GpgME::UserID>(entry).parent().primaryFingerprint();
-        for (int i = 0; i < sourceModel()->rowCount(); ++i) {
-            if (!qstrcmp(sourceModel()->index(i, 0).data(KeyList::KeyRole).value<GpgME::Key>().primaryFingerprint(), fingerprint)) {
-                return sourceModel()->index(i, proxyIndex.column());
-            }
-        }
-    }
-
-    return {};
+    return sourceModel()->index(d->mSourceIndices[proxyIndex.row()], proxyIndex.column());
 }
 
 int UserIDProxyModel::rowCount(const QModelIndex &parent) const
