@@ -63,6 +63,27 @@ private Q_SLOTS:
 
         QCOMPARE(Kleo::toStrings(input), expected);
     }
+
+    void test_svToInt_data()
+    {
+        QTest::addColumn<std::string_view>("input");
+        QTest::addColumn<std::optional<int>>("expected");
+
+        static const std::optional<int> nullopt;
+        QTest::newRow("valid number") << "1234"sv << std::optional<int>(1234);
+        QTest::newRow("empty string") << ""sv << nullopt;
+        QTest::newRow("invalid value") << "abc"sv << nullopt;
+        QTest::newRow("partial conversion") << "1234foo"sv << nullopt;
+        QTest::newRow("out of range") << "12345678901234567890"sv << nullopt;
+    }
+
+    void test_svToInt()
+    {
+        QFETCH(std::string_view, input);
+        QFETCH(std::optional<int>, expected);
+
+        QCOMPARE(Kleo::svToInt(input), expected);
+    }
 };
 
 QTEST_MAIN(StringUtilsTest)

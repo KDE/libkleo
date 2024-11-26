@@ -12,6 +12,7 @@
 
 #include "kleo_export.h"
 
+#include <optional>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -43,4 +44,13 @@ inline bool startsWith(std::string_view sv, std::string_view prefix)
     return sv.substr(0, prefix.size()) == prefix;
 #endif
 }
+
+/**
+ * Converts the string @p sv to an int value. Returns a value-less object if the
+ * conversions fails.
+ *
+ * Uses std::from_chars for the conversion. Additionally, this function verifies
+ * that the complete string was converted.
+ */
+KLEO_EXPORT std::optional<int> svToInt(std::string_view sv);
 }
