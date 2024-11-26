@@ -87,3 +87,8 @@ ecm_add_test(
     TEST_NAME keyparameterstest
     LINK_LIBRARIES KPim6::Libkleo Gpgmepp Qt::Test
 )
+
+ecm_add_tests(
+    stringutilstest.cpp
+    LINK_LIBRARIES KPim6::Libkleo Qt::Test
+)

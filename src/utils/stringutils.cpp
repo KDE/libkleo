@@ -12,18 +12,35 @@
 
 #include "stringutils.h"
 
-std::vector<std::string> Kleo::split(const std::string &s, char c)
+#include <algorithm>
+
+std::vector<std::string_view> Kleo::split(std::string_view sv, char c, unsigned maxParts)
 {
-    std::vector<std::string> result;
+    if (maxParts == 1) {
+        return {sv};
+    }
+
+    std::vector<std::string_view> result;
+    result.reserve(std::min(maxParts, static_cast<unsigned>(std::count(sv.begin(), sv.end(), c))));
 
     auto start = 0;
-    auto end = s.find(c, start);
-    while (end != s.npos) {
-        result.push_back(s.substr(start, end - start));
+    auto end = sv.find(c, start);
+    while ((end != sv.npos) && (maxParts == 0 || result.size() < maxParts - 1)) {
+        result.push_back(sv.substr(start, end - start));
         start = end + 1;
-        end = s.find(c, start);
+        end = sv.find(c, start);
     }
-    result.push_back(s.substr(start));
+    result.push_back(sv.substr(start));
 
+    return result;
+}
+
+std::vector<std::string> Kleo::toStrings(const std::vector<std::string_view> &stringViews)
+{
+    std::vector<std::string> result;
+    result.reserve(stringViews.size());
+    for (const auto &sv : stringViews) {
+        result.emplace_back(sv);
+    }
     return result;
 }

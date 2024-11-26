@@ -12,6 +12,7 @@
 
 #include "scdaemon.h"
 
+#include "algorithm.h"
 #include "assuan.h"
 #include "hex.h"
 #include "stringutils.h"
@@ -29,24 +30,22 @@ using namespace GpgME;
 
 std::vector<std::string> Kleo::SCDaemon::getReaders(Error &err)
 {
-    std::vector<std::string> result;
-
     auto c = Context::createForEngine(AssuanEngine, &err);
     if (err) {
         qCDebug(LIBKLEO_LOG) << "Creating context for Assuan engine failed:" << err;
-        return result;
+        return {};
     }
 
     auto assuanContext = std::shared_ptr<Context>(c.release());
     const std::string command = "SCD GETINFO reader_list";
-    const auto readers = Assuan::sendDataCommand(assuanContext, command.c_str(), err);
+    const std::string readers = Assuan::sendDataCommand(assuanContext, command.c_str(), err);
     if (err) {
-        return result;
+        return {};
     }
 
-    result = split(readers, '\n');
+    std::vector<std::string_view> tmp = Kleo::split(readers, '\n');
     // remove empty entries; in particular, the last entry
-    result.erase(std::remove_if(std::begin(result), std::end(result), std::mem_fn(&std::string::empty)), std::end(result));
+    Kleo::erase_if(tmp, std::mem_fn(&std::string_view::empty));
 
-    return result;
+    return Kleo::toStrings(tmp);
 }
