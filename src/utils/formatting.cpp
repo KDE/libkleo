@@ -1449,11 +1449,6 @@ QString Formatting::origin(int o)
     }
 }
 
-QString Formatting::deVsString(bool compliant)
-{
-    return DeVSCompliance::name(compliant);
-}
-
 namespace
 {
 QString formatTrustScope(const char *trustScope)

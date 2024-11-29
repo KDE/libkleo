@@ -203,11 +203,6 @@ KLEO_EXPORT QIcon iconForUid(const GpgME::UserID &uid);
  */
 KLEO_DEPRECATED_EXPORT QString complianceMode();
 
-/**
- * Use Kleo::DeVSCompliance::name(bool) instead.
- */
-KLEO_DEPRECATED_EXPORT QString deVsString(bool compliant = true);
-
 /* A sentence if the key confirms to the current compliance mode */
 KLEO_EXPORT QString complianceStringForKey(const GpgME::Key &key);
 KLEO_EXPORT QString complianceStringForUserID(const GpgME::UserID &userID);
