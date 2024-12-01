@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1696259 $
+# Version: $Revision: 1696289 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-30 00:41+0000\n"
-"PO-Revision-Date: 2024-10-26 12:28+0200\n"
+"PO-Revision-Date: 2024-11-30 09:27+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -3324,12 +3324,10 @@ msgid "ECC (NIST P-521)"
 msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1532
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "DSA 1024"
+#, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
-msgstr "DSA 1024"
+msgstr "RSA 1024"
 
 #: utils/formatting.cpp:1533
 #, kde-format
@@ -3557,13 +3555,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "GnuPG zapewnia obsługę OpenPGP/LibrePGP oraz S/MIME."
 
 #: utils/gnupg.cpp:495
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "Libgcrypt jest biblioteką kryptograficzną ogólnego przeznaczenia."
 
 #: utils/hex.cpp:35
 #, kde-format
