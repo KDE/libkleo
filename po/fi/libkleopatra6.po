@@ -2,15 +2,15 @@
 #
 # KDE Finnish translation sprint participants:
 # Author: Lliehu
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2006.
-# Tommi Nieminen <translator@legisign.org>, 2010, 2011, 2013, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:40+0000\n"
-"PO-Revision-Date: 2024-04-08 19:59+0300\n"
+"PO-Revision-Date: 2024-11-15 15:40+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -18,8 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-POT-Import-Date: 2012-12-01 22:25:10+0000\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -230,9 +229,7 @@ msgid "<none>"
 msgstr "<ei asetettu>"
 
 #: kleo/expirychecker.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-#| msgid "<b>%1</b> (KeyID 0x%2)"
+#, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (avaintunniste 0x%2)"
@@ -835,105 +832,104 @@ msgstr[1] ""
 "päivässä.</p>"
 
 #: kleo/keyfiltermanager.cpp:90
-#, fuzzy, kde-format
-#| msgid "4 - All"
+#, kde-format
 msgctxt "All Certificates"
 msgid "All"
-msgstr "4 – Tarkka"
+msgstr "Kaikki"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "varmenne on vanhentunut"
+msgstr "Kaikki varmenteet (paitsi käytöstä poistetut)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
-msgstr ""
+msgstr "Omani"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Omat varmenteet"
+msgstr "Omat varmenteeni (paitsi käytöstä poistetut)"
 
 #: kleo/keyfiltermanager.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is valid.'"
-#| msgid "certified"
+#, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "varmennettu"
+msgstr "Varmennetut"
 
+# HUOM! ”Paitsi käytöstä poistetut” (except disabled ones) siirretty kohtaan, jossa se ei sekoita tulkintaa
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Kaikki käyttäjätunnisteet on varmennettu."
+msgstr ""
+"Varmenteet (paitsi käytöstä poistetut), joiden ensisijainen käyttäjätunniste "
+"on varmennettu"
 
 #: kleo/keyfiltermanager.cpp:147
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is not certified'"
-#| msgid "not certified"
+#, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "ei varmennettu"
+msgstr "Ei varmennetut"
 
+# HUOM! ”Paitsi käytöstä poistetut” (except disabled ones) siirretty kohtaan, jossa se ei sekoita tulkintaa
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Kaikki käyttäjätunnisteet on varmennettu."
+msgstr ""
+"Varmenteet (paitsi käytöstä poistetut), joiden ensisijaista "
+"käyttäjätunnistetta ei ole varmennettu"
 
 #: kleo/keyfiltermanager.cpp:163
-#, fuzzy, kde-format
-#| msgid "Certify"
+#, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
-msgstr "Varmenna"
+msgstr "Varmennettavat"
 
+# HUOM! ”Paitsi käytöstä poistetut” (except disabled ones) siirretty kohtaan, jossa se ei sekoita tulkintaa
 #: kleo/keyfiltermanager.cpp:164
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
+"Varmenteet (paitsi käytöstä poistetut), joita ei ole täysin varmennettu ja "
+"jotka voit haluta varmentaa itse"
 
 #: kleo/keyfiltermanager.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "As in not all keys are valid."
-#| msgid "not all certified"
+#, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "kaikkia ei varmennettu"
+msgstr "Ei täysin varmennetut"
 
+# HUOM! ”Paitsi käytöstä poistetut” (except disabled ones) siirretty kohtaan, jossa se ei sekoita tulkintaa
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Kaikki käyttäjätunnisteet on varmennettu."
+msgstr ""
+"Varmenteet (paitsi käytöstä poistetut), joiden kaikkia käyttäjätunnisteita "
+"ei ole varmennettu"
 
 #: kleo/keyfiltermanager.cpp:217
-#, fuzzy, kde-format
-#| msgctxt "As in all keys are valid."
-#| msgid "all certified"
+#, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "kaikki varmennettu"
+msgstr "Täysin varmennetut"
 
+# HUOM! ”Paitsi käytöstä poistetut” (except disabled ones) siirretty kohtaan, jossa se ei sekoita tulkintaa
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Kaikki käyttäjätunnisteet on varmennettu."
+msgstr ""
+"Varmenteet (paitsi käytöstä poistetut), joiden kaikki käyttäjätunnisteet on "
+"varmennettu"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
@@ -948,8 +944,7 @@ msgid "E-Mail"
 msgstr "Sähköposti"
 
 #: models/keylistmodel.cpp:330
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Tila"
@@ -964,7 +959,7 @@ msgstr "Voimassa alkaen"
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr "Vanhenee"
+msgstr "Kelpoisuus päättyy"
 
 #: models/keylistmodel.cpp:336
 #, kde-format
@@ -973,8 +968,7 @@ msgid "Protocol"
 msgstr "Yhteyskäytäntö"
 
 #: models/keylistmodel.cpp:338
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Avaintunniste"
@@ -1075,7 +1069,7 @@ msgstr "Voimassa alkaen"
 #: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
-msgstr "Vanhenee"
+msgstr "Kelpoisuus päättyy"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:524 utils/formatting.cpp:526
@@ -1138,11 +1132,9 @@ msgid "Name"
 msgstr "Nimi"
 
 #: models/useridlistmodel.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers for an empty email address"
-#| msgid "no email"
+#, kde-format
 msgid "Email"
-msgstr "ei sähköpostia"
+msgstr "Sähköposti"
 
 #: models/useridlistmodel.cpp:108
 #, kde-format
@@ -1167,18 +1159,16 @@ msgid "View GnuPG Audit Log"
 msgstr "Tarkastele GnuPG-lokia"
 
 #: ui/auditlogviewer.cpp:46
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "&Kopioi leikepöydälle"
 
 #: ui/auditlogviewer.cpp:51
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
-msgstr "&Tallenna levylle…"
+msgstr "Tallenna &levylle…"
 
 #: ui/auditlogviewer.cpp:93
 #, kde-format
@@ -1186,8 +1176,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Järjestelmäsi ei tue GnuPG-lokeja"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Järjestelmävirhe"
@@ -1212,18 +1201,16 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Tälle toiminnolle ei löydy GnuPG-lokia."
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
-msgstr "Ei GnuPG-lokia"
+msgstr "Ei GnuPG-auditointilokia"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
-msgstr "GnuPG-lokikatselin"
+msgstr "GnuPG-auditointilokikatselin"
 
 #: ui/auditlogviewer.cpp:124
 #, kde-format
@@ -1236,8 +1223,7 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "Tiedostoa ”%1” ei voitu tallentaa: %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Tiedoston tallennusvirhe"
@@ -1292,8 +1278,7 @@ msgid "4 - All"
 msgstr "4 – Tarkka"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, fuzzy, kde-format
-#| msgid "Set the debugging level to"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Aseta virheenpaikannustasoksi"
@@ -1383,8 +1368,7 @@ msgstr ""
 "Muutos tulee voimaan vasta hyväksyttyäsi kyselyikkunan."
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Muokkaa"
@@ -1407,8 +1391,7 @@ msgstr ""
 "Muutokset tulevat voimaan vasta hyväksyttyäsi valintaikkunan."
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Poista"
@@ -1441,15 +1424,13 @@ msgid "Description"
 msgstr "Kuvaus"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Saatavilla olevat määritteet:"
 
 #: ui/dnattributeorderconfigwidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Määritteiden nykyinen järjestys:"
@@ -1540,7 +1521,7 @@ msgstr "Anna hakemistopalvelua ylläpitävän palvelimen nimi tai IP-osoite."
 #, kde-format
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
-msgstr ""
+msgstr "Virhe: Anna konenimi oikeassa muodossa, esim. ldap.esimerkki.fi."
 
 #: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
@@ -1753,8 +1734,7 @@ msgid "Edit Directory Service"
 msgstr "Muokkaa hakemistopalvelua"
 
 #: ui/filenamerequester.cpp:81
-#, fuzzy, kde-format
-#| msgid "Open file dialog"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
 msgstr "Avaa tiedostoikkuna"
@@ -1767,35 +1747,32 @@ msgstr "Avaa tiedostoikkuna"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Virhe: Anna arvo."
 
 #: ui/formtextinput.cpp:30
 #, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
+msgstr "Virhe: Anna arvo oikeassa muodossa."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (vaaditaan)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Virhe"
+msgstr "Virhe: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "virheellinen"
+msgstr "virheellinen tietue"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1834,50 +1811,43 @@ msgid "Encryption Key Approval"
 msgstr "Salausavaimen hyväksyntä"
 
 #: ui/keyapprovaldialog.cpp:118
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
-msgstr "Seuraavia avaimia käytetään salauksessa:"
+msgstr "Salaukseen käytetään seuraavia avaimia:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Your keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Avaimesi:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Vastaanottaja:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Salausavaimet:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Encryption preference:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
-msgstr "Suosittu salaus:"
+msgstr "Salaussuositus:"
 
 #: ui/keyrequester.cpp:89
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Tyhjennä"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Muuta…"
@@ -1897,11 +1867,10 @@ msgstr ""
 
 #: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
-msgstr "Avainten luettelointi epäonnistui"
+msgstr "Avainten luettelu epäonnistui"
 
 #: ui/keyrequester.cpp:271
 #, kde-format
@@ -1981,7 +1950,7 @@ msgstr "Avain on vanhentunut."
 #: ui/keyselectiondialog.cpp:84
 #, kde-format
 msgid "The key is revoked."
-msgstr "Avain on peruttu."
+msgstr "Avain on mitätöity."
 
 #: ui/keyselectiondialog.cpp:88
 #, kde-format
@@ -2054,7 +2023,7 @@ msgstr "Voimassa alkaen"
 #: utils/formatting.cpp:532
 #, kde-format
 msgid "Valid until"
-msgstr "Vanhenee"
+msgstr "Kelpoisuus päättyy"
 
 #: ui/keyselectiondialog.cpp:275
 #, kde-format
@@ -2081,22 +2050,19 @@ msgid "Compliance"
 msgstr "Yhteensopivuus"
 
 #: ui/keyselectiondialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "Search for &External Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Etsi &ulkoisia varmenteita"
 
 #: ui/keyselectiondialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Etsi:"
 
 #: ui/keyselectiondialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Muista valinta"
@@ -2111,15 +2077,13 @@ msgstr ""
 "uudelleen.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:477
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "&Lue avaimet uudelleen"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "&Käynnistä varmenteenhallinta"
@@ -2136,8 +2100,7 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "Varmenteenhallintaa ei voitu käynnistää: tarkista asennus."
 
 #: ui/keyselectiondialog.cpp:662
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Varmenteenhallinnan virhe"
@@ -2196,35 +2159,31 @@ msgid "Error"
 msgstr "Virhe"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Nimi"
 
 #: ui/nameandemailwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Enter passphrase:"
+#, kde-format
 msgid "Enter a name."
-msgstr "Anna salasana:"
+msgstr "Anna nimi."
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "Sähköpostiosoite"
 
 #: ui/nameandemailwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "Sähköpostiosoite"
+msgstr "Anna sähköpostiosoite."
 
 #: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Nimi ei saa sisältää merkkejä <, > tai @."
 
 #: ui/nameandemailwidget.cpp:95
 #, kde-format
@@ -2232,6 +2191,7 @@ msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Nimi ei saa sisältää pienempi kuin-, suurempi kuin- tai miukumaukumerkkiä."
 
 #: ui/nameandemailwidget.cpp:98
 #, kde-format
@@ -2239,6 +2199,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Nimen on oltava organisaation vaatimassa muodossa eikä se saa sisältää "
+"merkkejä <, > tai @."
 
 #: ui/nameandemailwidget.cpp:101
 #, kde-format
@@ -2247,17 +2209,19 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Nimen on oltava organisaation vaatimassa muodossa eikä se saa sisältää "
+"pienempi kuin-, suurempi kuin- tai miukumaukumerkkiä."
 
 #: ui/nameandemailwidget.cpp:110
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr ""
+msgstr "Anna sähköpostiosoite oikeassa muodossa, esim. nimi@esimerkki.fi."
 
 #: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
-msgstr ""
+msgstr "Anna sähköpostiosoite organisaation vaatimassa oikeassa muodossa."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2272,8 +2236,7 @@ msgid "Show Matching Keys"
 msgstr "Näytä vastaavat avaimet"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, fuzzy, kde-format
-#| msgid "Show keys matching the email address"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Näytä sähköpostiosoitetta vastaavat avaimet"
@@ -2285,22 +2248,13 @@ msgid "Show All"
 msgstr "Näytä kaikki"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, fuzzy, kde-format
-#| msgid "Show all keys"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Näytä kaikki avaimet"
 
 #: ui/newkeyapprovaldialog.cpp:272
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
-#| "user does not yet have an OpenPGP or S/MIME key."
-#| msgid ""
-#| "Generate a new key using your E-Mail address.<br/><br/>The key is "
-#| "necessary to decrypt and sign E-Mails. You will be asked for a passphrase "
-#| "to protect this key and the protected key will be stored in your home "
-#| "directory."
+#, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
@@ -2309,9 +2263,9 @@ msgid ""
 "to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
-"Luo uusi avain sähköpostiosoitettasi käyttäen.<br/><br/>Avainta tarvitaan "
+"Luo sähköpostiosoitettasi käyttävä uusi avain.<br/><br/>Avainta tarvitaan "
 "viestien salauksen purkamiseen ja allekirjoittamiseen. Sinulta kysytään "
-"avainta varten salasana, ja suojattu avain tallennetaan kotikansioosi."
+"avaimelle salasana, ja suojattu avain talletetaan kotikansioosi."
 
 #: ui/newkeyapprovaldialog.cpp:297
 #, kde-format
@@ -2320,29 +2274,25 @@ msgid "Security approval"
 msgstr "Turvallisuushyväksyntä"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2364,8 +2314,7 @@ msgid "Key generation"
 msgstr "Avaimen luonti"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Operation Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Toimenpide epäonnistui"
@@ -2378,15 +2327,13 @@ msgstr "Luo uusi avainpari"
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Do not sign this email"
-msgstr ""
+msgstr "Älä allekirjoita tätä viestiä"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for not selecting a key for signing."
-#| msgid "The E-Mail will not be cryptographically signed."
+#, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
-msgstr "Sähköpostiviestiä ei allekirjoiteta kryptografisesti."
+msgstr "Sähköpostiviestiä ei kryptografisesti allekirjoiteta."
 
 #: ui/newkeyapprovaldialog.cpp:577
 #, kde-format
@@ -2400,20 +2347,15 @@ msgid "No key. Recipient will be unable to decrypt."
 msgstr "Ei avainta: vastaanottaja ei voi purkaa salausta."
 
 #: ui/newkeyapprovaldialog.cpp:657
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for No Key selected for a specific recipient."
-#| msgid ""
-#| "Do not select a key for this recipient.<br/><br/>The recipient will "
-#| "receive the encrypted E-Mail, but it can only be decrypted with the other "
-#| "keys selected in this dialog."
+#, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
 "the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
-"Älä valitse avainta tälle vastaanottajalle.<br/><br/>Vastaanottaja saa "
-"salatun sähköpostiviestin mutta voi avata salauksen vain tämän ikkunan "
+"Älä valitse tälle vastaanottajalle avainta.<br/><br/>Vastaanottaja saa "
+"salatun sähköpostiviestin, mutta voi avata salauksen vain tämän ikkunan "
 "muilla avaimilla."
 
 #: ui/newkeyapprovaldialog.cpp:774
@@ -2435,7 +2377,7 @@ msgstr "Luo"
 #: ui/openpgpcertificatecreationdialog.cpp:89
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Suojaa luotu avain salasanalla."
 
 #: ui/openpgpcertificatecreationdialog.cpp:91
 #, kde-format
@@ -2443,10 +2385,11 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Salaa salaisen avaimen palauttamattomissa olevalla salasanalla. Salasana "
+"kysytään avainta luotaessa."
 
 #: ui/openpgpcertificatecreationdialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
 msgstr "Lisäasetukset"
 
@@ -2454,38 +2397,33 @@ msgstr "Lisäasetukset"
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Avainmateriaali"
 
 #: ui/openpgpcertificatecreationdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Luotetut varmenteet"
+msgstr "Luo OpenPGP-varmenne"
 
 #: ui/openpgpcertificatecreationdialog.cpp:153
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "Anna varmenteessa käytettävä nimi ja sähköpostiosoite."
 
 #: ui/openpgpcertificatecreationdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "Anna hakemistopalvelua ylläpitävän palvelimen nimi tai IP-osoite."
+msgstr "Anna varmenteessa käytettävä nimi tai sähköpostiosoite tai kumpikin."
 
 #: ui/openpgpcertificatecreationdialog.cpp:305
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Anna nimi tai sähköpostiosoite."
 
 #: ui/openpgpcertificatecreationdialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "Avain on poissa käytöstä."
+msgstr "Havaittiin ongelma."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2522,17 +2460,15 @@ msgid "View Columns"
 msgstr "Näytä sarakkeet"
 
 #: ui/useridselectioncombo.cpp:542
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
-msgstr "Omat varmenteet"
+msgstr "Näytä varmenneluettelo"
 
 #: ui/useridselectioncombo.cpp:543
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Show certificate list"
-msgstr "Omat varmenteet"
+msgstr "Näytä varmenneluettelo"
 
 #: utils/compliance.cpp:171
 #, kde-format
@@ -2545,58 +2481,52 @@ msgid "Not VS-NfD compliant"
 msgstr "Ei Vs-NfD-yhteensopiva"
 
 #: utils/compliance.cpp:180
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
-msgstr "%1 (%2)"
+msgstr "%1 (beeta)"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "Vanhenee"
+msgstr "Kelpoisuus päättyy (%1):"
 
 #: utils/expiration.cpp:105
 #, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr ""
+msgstr "Kelpaa (välillä %1–%2):"
 
 #: utils/expiration.cpp:116
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "Avainta voi käyttää."
+msgstr "Päivämäärää ei voi muuttaa."
 
 #: utils/expiration.cpp:119 utils/expiration.cpp:125
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Anna päivämäärä väliltä %1–%2."
 
 #: utils/expiration.cpp:147
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "Kolme vuotta tästä"
 
 #: utils/expiration.cpp:148
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "Kaksi vuotta tästä"
 
 #: utils/expiration.cpp:149
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Vuosi tästä"
 
 #: utils/formatting.cpp:330
 #, kde-format
@@ -2624,8 +2554,7 @@ msgid "Encryption"
 msgstr "Salaus"
 
 #: utils/formatting.cpp:360 utils/formatting.cpp:382
-#, fuzzy, kde-format
-#| msgid "Certifying User-IDs"
+#, kde-format
 msgid "Certifying User IDs"
 msgstr "Varmennetaan käyttäjätunnuksia"
 
@@ -2642,7 +2571,7 @@ msgstr "Poistettu käytöstä"
 #: utils/formatting.cpp:417 utils/formatting.cpp:524
 #, kde-format
 msgid "Revoked"
-msgstr "Peruttu"
+msgstr "Mitätöity"
 
 #: utils/formatting.cpp:419 utils/formatting.cpp:526
 #, kde-format
@@ -2650,27 +2579,22 @@ msgid "Expired"
 msgstr "Vanhentunut"
 
 #: utils/formatting.cpp:423
-#, fuzzy, kde-format
-#| msgid "User-ID is certified."
+#, kde-format
 msgid "User ID is certified."
 msgstr "Käyttäjätunniste on varmennettu."
 
 #: utils/formatting.cpp:429
-#, fuzzy, kde-format
-#| msgid "User-ID is not certified."
+#, kde-format
 msgid "User ID is not certified."
 msgstr "Käyttäjätunnistetta ei ole varmennettu."
 
 #: utils/formatting.cpp:439
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "All User IDs are certified."
 msgstr "Kaikki käyttäjätunnisteet on varmennettu."
 
 #: utils/formatting.cpp:445
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Yhtä käyttäjätunnistetta ei varmennettu."
@@ -2714,7 +2638,7 @@ msgstr "Varmenteen luottamus"
 #: utils/formatting.cpp:509
 #, kde-format
 msgid "Trusted issuer?"
-msgstr "Luotettu myöntäjä?"
+msgstr "Onko myöntäjä luotettu?"
 
 #: utils/formatting.cpp:509
 #, kde-format
@@ -2753,8 +2677,7 @@ msgstr "Aliavain"
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
-"Jotkin avaimet on peruttu, poistettu käytöstä, ne ovat vanhentuneet tai ovat "
-"virheellisiä."
+"Avaimissa on mitätöityjä, vanhentuneita, käytöstä poistettu tai virheellisiä."
 
 #: utils/formatting.cpp:579
 #, kde-format
@@ -2886,7 +2809,7 @@ msgstr "käytöstä poistettu"
 #: utils/formatting.cpp:1338 utils/formatting.cpp:1363
 #, kde-format
 msgid "revoked"
-msgstr "peruttu"
+msgstr "mitätöity"
 
 #: utils/formatting.cpp:881 utils/formatting.cpp:937 utils/formatting.cpp:1341
 #: utils/formatting.cpp:1366
@@ -2901,11 +2824,10 @@ msgid "invalid"
 msgstr "virheellinen"
 
 #: utils/formatting.cpp:886
-#, fuzzy, kde-format
-#| msgid "&OK"
+#, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr "&OK"
+msgstr "OK"
 
 #: utils/formatting.cpp:925
 #, kde-format
@@ -2941,7 +2863,7 @@ msgstr "avain on poistettu käytöstä"
 #: utils/formatting.cpp:951
 #, kde-format
 msgid "key revoked"
-msgstr "avain on peruttu"
+msgstr "avain mitätöity"
 
 #: utils/formatting.cpp:953
 #, kde-format
@@ -3362,17 +3284,22 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuuteen luotetaan vain "
+"ehdollisesti."
 
 #: utils/formatting.cpp:1560
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
+"Allekirjoitus on kelvollinen ja varmenteen kelpoisuuteen luotetaan täysin."
 
 #: utils/formatting.cpp:1562
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
+"Allekirjoitus on kelvollinen ja varmenteen kelpoisuuteen luotetaan "
+"ehdottomasti."
 
 #: utils/formatting.cpp:1564
 #, kde-format
@@ -3380,155 +3307,143 @@ msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
+"Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuuteen <em>ei luoteta</"
+"em>."
 
 #: utils/formatting.cpp:1566
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Tuonti toi varmenteeseen uusia allekirjoituksia."
+msgstr ""
+"Allekirjoitus on kelvollinen mutta varmenteen kelvollisuutta ei tunneta."
 
 #: utils/formatting.cpp:1569
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
 
 #: utils/formatting.cpp:1581
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "Omat varmenteet"
+msgstr "Tuntematon varmenne"
 
 #: utils/formatting.cpp:1585
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1599
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta: %1"
+msgstr ""
+"Allekirjoitus on luotu %1 tuntemattomalla varmenteella, jonka sormenjälki on "
+"%2"
 
 #: utils/formatting.cpp:1601
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta: %1"
+msgstr ""
+"Allekirjoitus on luotu tuntemattomalla varmenteella, jonka sormenjälki on %1"
 
 #: utils/formatting.cpp:1605
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta: %1"
+msgstr "Allekirjoitus on luotu %1 varmenteella: %2"
 
 #: utils/formatting.cpp:1607
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta: %1"
+msgstr "Allekirjoitus on luotu varmenteella: %1"
 
 #: utils/formatting.cpp:1613
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "Hyvä allekirjoitus varmenteelta %1."
+msgstr "Allekirjoitus on %1"
 
 #: utils/formatting.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "Hyvä allekirjoitus varmenteelta %1."
+msgstr "Allekirjoitus <b>ei ole</b> %1."
 
 #: utils/formatting.cpp:1626
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "Virhe: Allekirjoitusta ei todennettu"
 
 #: utils/formatting.cpp:1628
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "Hyvä allekirjoitus varmenteelta %1."
+msgstr "Hyvä allekirjoitus"
 
 #: utils/formatting.cpp:1630
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "varmenne on vanhentunut"
+msgstr "Allekirjoitusvarmenne on mitätöity"
 
 #: utils/formatting.cpp:1632
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "varmenne on vanhentunut"
+msgstr "Allekirjoitusvarmenne on vanhentunut"
 
 #: utils/formatting.cpp:1634
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "Varmenne ei ole saatavilla"
 
 #: utils/formatting.cpp:1636
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "varmenne on vanhentunut"
+msgstr "Allekirjoitus on vanhentunut"
 
 #: utils/formatting.cpp:1638
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "CRL puuttuu"
 
 #: utils/formatting.cpp:1640
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRL liian vanha"
 
 #: utils/formatting.cpp:1642
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "Kelvoton käytänne"
 
 #: utils/formatting.cpp:1644
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Järjestelmävirhe"
 
 #: utils/formatting.cpp:1646
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "Kelvoton allekirjoitus varmenteelta %1: %2"
+msgstr "Kelvoton allekirjoitus"
 
 #: utils/formatting.cpp:1722 utils/formatting.cpp:1745
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "Avain ei ole kelvollinen."
+msgstr "Allekirjoitus on virheellinen: %1"
 
 #: utils/formatting.cpp:1731
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
-msgstr ""
+msgstr "Varmennetta voi etsiä avainpalvelimelta tai tuoda sen tiedostosta."
 
 #: utils/formatting.cpp:1740
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
+"Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
 
 #: utils/formatting.cpp:1741
 #, kde-format
@@ -3536,6 +3451,8 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"Käytettyä varmennetta ei ole varmentanut luotettava varmenneauktoriteetti "
+"tai varmenneauktoriteetti on tuntematon."
 
 #: utils/hex.cpp:35
 #, kde-format
