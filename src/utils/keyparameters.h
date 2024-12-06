@@ -80,6 +80,10 @@ public:
     void addURI(const QString &uri);
     std::vector<QString> uris() const;
 
+    QString serial() const;
+    void setSerial(const QString &serial);
+    void setUseRandomSerial();
+
     QString toString() const;
 
 private:

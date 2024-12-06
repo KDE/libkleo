@@ -21,6 +21,7 @@
 
 using namespace Kleo;
 using namespace GpgME;
+using namespace Qt::StringLiterals;
 
 namespace
 {
@@ -63,6 +64,7 @@ class KeyParameters::Private
     std::vector<QString> emailAdresses;
     std::vector<QString> domainNames;
     std::vector<QString> uris;
+    QString serial;
 
     QDate expirationDate;
 
@@ -270,6 +272,21 @@ std::vector<QString> KeyParameters::uris() const
     return d->uris;
 }
 
+QString KeyParameters::serial() const
+{
+    return d->serial;
+}
+
+void KeyParameters::setSerial(const QString &serial)
+{
+    d->serial = serial;
+}
+
+void KeyParameters::setUseRandomSerial()
+{
+    d->serial = u"random"_s;
+}
+
 namespace
 {
 QString serialize(Subkey::PubkeyAlgo algo)
@@ -353,6 +370,10 @@ QString KeyParameters::toString() const
 
     if (d->expirationDate.isValid()) {
         keyParameters.push_back(serialize("Expire-Date", serialize(d->expirationDate)));
+    }
+
+    if (!d->serial.isEmpty()) {
+        keyParameters.push_back(serialize("Serial", d->serial));
     }
 
     if (!d->name.isEmpty()) {
