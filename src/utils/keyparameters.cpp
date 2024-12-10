@@ -68,6 +68,8 @@ class KeyParameters::Private
 
     QDate expirationDate;
 
+    QString issuerDN;
+
 public:
     explicit Private(Protocol proto)
         : protocol(proto)
@@ -287,6 +289,16 @@ void KeyParameters::setUseRandomSerial()
     d->serial = u"random"_s;
 }
 
+QString KeyParameters::issuerDN() const
+{
+    return d->issuerDN;
+}
+
+void KeyParameters::setIssuerDN(const QString &issuerDN)
+{
+    d->issuerDN = issuerDN;
+}
+
 namespace
 {
 QString serialize(Subkey::PubkeyAlgo algo)
@@ -374,6 +386,10 @@ QString KeyParameters::toString() const
 
     if (!d->serial.isEmpty()) {
         keyParameters.push_back(serialize("Serial", d->serial));
+    }
+
+    if (!d->issuerDN.isEmpty()) {
+        keyParameters.push_back(serialize("Issuer-DN", d->issuerDN));
     }
 
     if (!d->name.isEmpty()) {

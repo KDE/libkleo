@@ -84,6 +84,9 @@ public:
     void setSerial(const QString &serial);
     void setUseRandomSerial();
 
+    QString issuerDN() const;
+    void setIssuerDN(const QString &issuerDN);
+
     QString toString() const;
 
 private:
