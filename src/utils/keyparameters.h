@@ -87,6 +87,9 @@ public:
     QString issuerDN() const;
     void setIssuerDN(const QString &issuerDN);
 
+    QString signingKey() const;
+    void setSigningKey(const QString &signingKey);
+
     QString toString() const;
 
 private:

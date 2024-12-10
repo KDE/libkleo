@@ -65,6 +65,7 @@ class KeyParameters::Private
     std::vector<QString> domainNames;
     std::vector<QString> uris;
     QString serial;
+    QString signingKey;
 
     QDate expirationDate;
 
@@ -299,6 +300,16 @@ void KeyParameters::setIssuerDN(const QString &issuerDN)
     d->issuerDN = issuerDN;
 }
 
+QString KeyParameters::signingKey() const
+{
+    return d->signingKey;
+}
+
+void KeyParameters::setSigningKey(const QString &signingKey)
+{
+    d->signingKey = signingKey;
+}
+
 namespace
 {
 QString serialize(Subkey::PubkeyAlgo algo)
@@ -390,6 +401,10 @@ QString KeyParameters::toString() const
 
     if (!d->issuerDN.isEmpty()) {
         keyParameters.push_back(serialize("Issuer-DN", d->issuerDN));
+    }
+
+    if (!d->issuerDN.isEmpty()) {
+        keyParameters.push_back(serialize("Signing-Key", d->signingKey));
     }
 
     if (!d->name.isEmpty()) {
