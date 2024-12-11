@@ -27,7 +27,6 @@ public:
     Private(UserIDProxyModel *qq);
     void loadUserIDs();
     QList<std::variant<GpgME::UserID, KeyGroup>> mIds;
-    QAbstractItemModel *oldSourceModel = nullptr;
     UserIDProxyModel *q;
     QList<int> mSourceIndices;
 };
@@ -77,22 +76,6 @@ void UserIDProxyModel::Private::loadUserIDs()
 UserIDProxyModel::Private::Private(UserIDProxyModel *qq)
     : q(qq)
 {
-    connect(q, &UserIDProxyModel::sourceModelChanged, q, [this]() {
-        if (oldSourceModel) {
-            disconnect(oldSourceModel, nullptr, q, nullptr);
-        }
-        connect(q->sourceModel(), &QAbstractItemModel::dataChanged, q, [this]() {
-            loadUserIDs();
-        });
-        connect(q->sourceModel(), &QAbstractItemModel::rowsInserted, q, [this]() {
-            loadUserIDs();
-        });
-        connect(q->sourceModel(), &QAbstractItemModel::modelReset, q, [this]() {
-            loadUserIDs();
-        });
-        oldSourceModel = q->sourceModel();
-        loadUserIDs();
-    });
 }
 
 UserIDProxyModel::UserIDProxyModel(QObject *parent)
@@ -243,6 +226,29 @@ QModelIndex UserIDProxyModel::index(const GpgME::Key &key) const
 {
     Q_UNUSED(key);
     return {};
+}
+
+void UserIDProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
+{
+    if (sourceModel == this->sourceModel()) {
+        return;
+    }
+
+    if (this->sourceModel()) {
+        disconnect(this->sourceModel(), nullptr, this, nullptr);
+    }
+
+    QSortFilterProxyModel::setSourceModel(sourceModel);
+    connect(sourceModel, &QAbstractItemModel::dataChanged, this, [this]() {
+        d->loadUserIDs();
+    });
+    connect(sourceModel, &QAbstractItemModel::rowsInserted, this, [this]() {
+        d->loadUserIDs();
+    });
+    connect(sourceModel, &QAbstractItemModel::modelReset, this, [this]() {
+        d->loadUserIDs();
+    });
+    d->loadUserIDs();
 }
 
 #include "moc_useridproxymodel.cpp"

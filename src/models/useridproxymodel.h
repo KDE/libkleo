@@ -30,6 +30,7 @@ public:
     UserIDProxyModel *clone() const override;
     QModelIndex index(const KeyGroup &) const override;
     QModelIndex index(const GpgME::Key &key) const override;
+    void setSourceModel(QAbstractItemModel *sourceModel) override;
 
 private:
     class Private;
