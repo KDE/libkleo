@@ -42,13 +42,13 @@ set(LibGpgError_DEFINITIONS ${PC_LibGpgError_CFLAGS_OTHER})
 find_path(LibGpgError_INCLUDE_DIR
     NAMES
         gpg-error.h
-    PATHS
+    HINTS
         ${PC_LibGpgError_INCLUDE_DIRS}
 )
 find_library(LibGpgError_LIBRARY
     NAMES
         gpg-error
-    PATHS
+    HINTS
         ${PC_LibGpgError_LIBRARY_DIRS}
 )
 

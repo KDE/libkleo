@@ -42,13 +42,13 @@ set(LibAssuan_DEFINITIONS ${PC_LibAssuan_CFLAGS_OTHER})
 find_path(LibAssuan_INCLUDE_DIR
     NAMES
         assuan.h
-    PATHS
+    HINTS
         ${PC_LibAssuan_INCLUDE_DIRS}
 )
 find_library(LibAssuan_LIBRARY
     NAMES
         assuan
-    PATHS
+    HINTS
         ${PC_LibAssuan_LIBRARY_DIRS}
 )
 
