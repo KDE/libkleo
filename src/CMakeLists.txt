@@ -140,8 +140,6 @@ ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER L
 
 
 target_sources(KPim6Libkleo PRIVATE
-    ui/adjustingscrollarea.cpp
-    ui/adjustingscrollarea.h
     ui/animatedexpander.cpp
     ui/animatedexpander_p.h
     ui/auditlogviewer.cpp
@@ -336,7 +334,6 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
     HEADER_NAMES
-    AdjustingScrollArea
     AuditLogViewer
     CryptoConfigModule
     DNAttributeOrderConfigWidget
