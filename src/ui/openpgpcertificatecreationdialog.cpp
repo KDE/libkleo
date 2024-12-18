@@ -11,7 +11,6 @@
 
 #include "openpgpcertificatecreationdialog.h"
 
-#include "adjustingscrollarea.h"
 #include "animatedexpander_p.h"
 #include "nameandemailwidget.h"
 #include "openpgpcertificatecreationconfig.h"
@@ -22,6 +21,7 @@
 #include "utils/keyparameters.h"
 #include "utils/keyusage.h"
 
+#include <KAdjustingScrollArea>
 #include <KConfigGroup>
 #include <KDateComboBox>
 #include <KLocalizedString>
@@ -55,7 +55,7 @@ class OpenPGPCertificateCreationDialog::Private
 
     struct UI {
         QLabel *infoLabel;
-        AdjustingScrollArea *scrollArea;
+        KAdjustingScrollArea *scrollArea;
         NameAndEmailWidget *nameAndEmail;
         QCheckBox *withPassCheckBox;
         QDialogButtonBox *buttonBox;
@@ -76,13 +76,15 @@ class OpenPGPCertificateCreationDialog::Private
 
             mainLayout->addWidget(new KSeparator{Qt::Horizontal, dialog});
 
-            scrollArea = new AdjustingScrollArea{dialog};
+            scrollArea = new KAdjustingScrollArea{dialog};
             scrollArea->setFocusPolicy(Qt::NoFocus);
             scrollArea->setFrameStyle(QFrame::NoFrame);
             scrollArea->setBackgroundRole(dialog->backgroundRole());
             scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             scrollArea->setSizeAdjustPolicy(QScrollArea::AdjustToContents);
-            auto scrollAreaLayout = qobject_cast<QBoxLayout *>(scrollArea->widget()->layout());
+            auto widget = new QWidget;
+            scrollArea->setWidget(widget);
+            auto scrollAreaLayout = new QVBoxLayout(widget);
             scrollAreaLayout->setContentsMargins(0, 0, 0, 0);
 
             nameAndEmail = new NameAndEmailWidget{dialog};
