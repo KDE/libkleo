@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-11 00:41+0000\n"
-"PO-Revision-Date: 2024-02-20 23:54+0100\n"
+"PO-Revision-Date: 2024-12-24 18:49+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -228,9 +228,7 @@ msgid "<none>"
 msgstr "<없음>"
 
 #: kleo/expirychecker.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-#| msgid "<b>%1</b> (KeyID 0x%2)"
+#, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b>(키 ID 0x%2)"
@@ -745,68 +743,58 @@ msgstr[0] ""
 "다.</p>"
 
 #: kleo/keyfiltermanager.cpp:90
-#, fuzzy, kde-format
-#| msgid "4 - All"
+#, kde-format
 msgctxt "All Certificates"
 msgid "All"
-msgstr "4 - 모두"
+msgstr "모두"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "인증서 만료됨"
+msgstr "모든 인증서(비활성화된 인증서 제외)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
-msgstr ""
-
-#: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My Certificates"
-msgid "My own certificates (except disabled ones)"
 msgstr "내 인증서"
 
+#: kleo/keyfiltermanager.cpp:109
+#, kde-format
+msgid "My own certificates (except disabled ones)"
+msgstr "내 인증서(비활성화된 인증서 제외)"
+
 #: kleo/keyfiltermanager.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is valid.'"
-#| msgid "certified"
+#, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "인증됨"
 
 #: kleo/keyfiltermanager.cpp:128
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "모든 사용자 ID가 인증되었습니다."
+msgstr "주 사용자 ID가 인증된 인증서(비활성화된 인증서 제외)"
 
 #: kleo/keyfiltermanager.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "As in 'this user ID is not certified'"
-#| msgid "not certified"
+#, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "인증 안 됨"
 
 #: kleo/keyfiltermanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "모든 사용자 ID가 인증되었습니다."
+msgstr "주 사용자 ID가 인증되지 않은 인증서(비활성화된 인증서 제외)"
 
 #: kleo/keyfiltermanager.cpp:162
-#, fuzzy, kde-format
-#| msgid "Certify"
+#, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
-msgstr "인증"
+msgstr "인증해야 할 인증서"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -814,36 +802,32 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
+"완전히 인증하지 않으며 나중에 인증해야 할 수도 있는 인증서(비활성화될 인증서 "
+"제외)"
 
 #: kleo/keyfiltermanager.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "As in not all keys are valid."
-#| msgid "not all certified"
+#, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "모두 인증 안 됨"
+msgstr "완전히 인증 안 됨"
 
 #: kleo/keyfiltermanager.cpp:192
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "모든 사용자 ID가 인증되었습니다."
+msgstr "모든 사용자 ID가 인증되지는 않은 인증서(비활성화된 인증서 제외)"
 
 #: kleo/keyfiltermanager.cpp:216
-#, fuzzy, kde-format
-#| msgctxt "As in all keys are valid."
-#| msgid "all certified"
+#, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "모두 인증"
+msgstr "완전히 인증됨"
 
 #: kleo/keyfiltermanager.cpp:217
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "모든 사용자 ID가 인증되었습니다."
+msgstr "모든 사용자 ID가 인증된 인증서(비활성화된 인증서 제외)"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
@@ -858,8 +842,7 @@ msgid "E-Mail"
 msgstr "이메일"
 
 #: models/keylistmodel.cpp:330
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "상태"
@@ -883,8 +866,7 @@ msgid "Protocol"
 msgstr "프로토콜"
 
 #: models/keylistmodel.cpp:338
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "키 ID"
@@ -1048,11 +1030,9 @@ msgid "Name"
 msgstr "이름"
 
 #: models/useridlistmodel.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers for an empty email address"
-#| msgid "no email"
+#, kde-format
 msgid "Email"
-msgstr "이메일 없음"
+msgstr "이메일"
 
 #: models/useridlistmodel.cpp:108
 #, kde-format
@@ -1076,15 +1056,13 @@ msgid "View GnuPG Audit Log"
 msgstr "GnuPG 감사 기록 표시"
 
 #: ui/auditlogviewer.cpp:46
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "클립보드에 복사(&C)"
 
 #: ui/auditlogviewer.cpp:51
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "디스크에 저장(&S)..."
@@ -1095,8 +1073,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "GnuPG 감사 기록을 지원하지 않는 것 같습니다"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "시스템 오류"
@@ -1121,15 +1098,13 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "이 작업에 대한 GnuPG 감사 기록을 사용할 수 없습니다."
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "GnuPG 감사 기록 없음"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "GnuPG 감사 기록 뷰어"
@@ -1145,8 +1120,7 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "파일 \"%1\"에 저장할 수 없음: %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "파일 저장 오류"
@@ -1201,8 +1175,7 @@ msgid "4 - All"
 msgstr "4 - 모두"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, fuzzy, kde-format
-#| msgid "Set the debugging level to"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "다음으로 디버그 단계 설정"
@@ -1290,8 +1263,7 @@ msgstr ""
 "자에서 변경 사항을 받아들여야 적용됩니다."
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "편집"
@@ -1314,8 +1286,7 @@ msgstr ""
 "자에서 변경 사항을 받아들여야 적용됩니다."
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "삭제"
@@ -1348,15 +1319,13 @@ msgid "Description"
 msgstr "설명"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "사용 가능한 속성:"
 
 #: ui/dnattributeorderconfigwidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "현재 속성 순서:"
@@ -1448,6 +1417,7 @@ msgstr "디렉터리 서비스를 제공하는 서버의 IP 주소나 이름을 
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
+"오류: 호스트 이름을 ldap.example.com과 같이 올바른 형식으로 입력하십시오."
 
 #: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
@@ -1657,8 +1627,7 @@ msgid "Edit Directory Service"
 msgstr "디렉터리 서비스 편집"
 
 #: ui/filenamerequester.cpp:81
-#, fuzzy, kde-format
-#| msgid "Open file dialog"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
 msgstr "파일 열기 대화 상자"
@@ -1671,35 +1640,32 @@ msgstr "파일 열기 대화 상자"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "오류: 값을 입력하십시오."
 
 #: ui/formtextinput.cpp:30
 #, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
+msgstr "오류: 올바른 형식의 값을 입력하십시오."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1(필요함)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "오류"
+msgstr "오류: %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "올바르지 않음"
+msgstr "잘못된 항목"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1738,50 +1704,43 @@ msgid "Encryption Key Approval"
 msgstr "암호화 키 승인"
 
 #: ui/keyapprovaldialog.cpp:118
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "다음 키를 암호화에 사용합니다:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Your keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "내 키:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "수신자:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "암호화 키:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Encryption preference:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "암호화 선호도:"
 
 #: ui/keyrequester.cpp:89
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "지우기"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "변경..."
@@ -1800,8 +1759,7 @@ msgstr "<qt><p>백엔드에서 키를 가져오는 중 오류 발생:</p><p><b>%
 
 #: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "키 표시 실패"
@@ -1985,22 +1943,19 @@ msgid "Compliance"
 msgstr "준수"
 
 #: ui/keyselectiondialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "Search for &External Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "외부 인증서 찾기(&E)"
 
 #: ui/keyselectiondialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
-msgstr "다음에서 찾기(&S):"
+msgstr "찾을 단어(&S):"
 
 #: ui/keyselectiondialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "선택 사항 저장(&R)"
@@ -2014,15 +1969,13 @@ msgstr ""
 "<qt><p>이 상자를 선택하면 선택 사항을 저장하고 다시 묻지 않습니다.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:477
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "키 다시 읽기(&R)"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "인증서 관리자 시작하기(&S)"
@@ -2038,8 +1991,7 @@ msgid "Could not start certificate manager; please check your installation."
 msgstr "인증서 관리자를 시작할 수 없습니다. 설치 상태를 확인하십시오."
 
 #: ui/keyselectiondialog.cpp:662
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "인증서 관리자 오류"
@@ -2095,8 +2047,7 @@ msgid "Error"
 msgstr "오류"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "이름"
@@ -2104,32 +2055,30 @@ msgstr "이름"
 #: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "이름을 입력하십시오."
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "이메일 주소"
 
 #: ui/nameandemailwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "이메일 주소"
+msgstr "이메일 주소를 입력하십시오."
 
 #: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "이름에는 <, >, @ 기호를 포함할 수 없습니다."
 
 #: ui/nameandemailwidget.cpp:95
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "이름에는 부등호, 등호, @ 기호를 포함할 수 없습니다."
 
 #: ui/nameandemailwidget.cpp:98
 #, kde-format
@@ -2137,6 +2086,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"조직에서 요구한 형식대로 이름을 입력해야 하며, <, >, @ 기호를 포함할 수 없습"
+"니다."
 
 #: ui/nameandemailwidget.cpp:101
 #, kde-format
@@ -2145,17 +2096,19 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"조직에서 요구한 형식대로 이름을 입력해야 하며, 부등호와 at 기호를 포함할 수 "
+"없습니다."
 
 #: ui/nameandemailwidget.cpp:110
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr ""
+msgstr "name@example.com과 같이 올바른 형식의 이메일 주소를 입력하십시오."
 
 #: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
-msgstr ""
+msgstr "조직에서 요구하는 형식의 이메일 주소를 입력하십시오."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2170,8 +2123,7 @@ msgid "Show Matching Keys"
 msgstr "일치하는 키 표시"
 
 #: ui/newkeyapprovaldialog.cpp:185
-#, fuzzy, kde-format
-#| msgid "Show keys matching the email address"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "이메일 주소와 일치하는 키 표시"
@@ -2183,22 +2135,13 @@ msgid "Show All"
 msgstr "모두 표시"
 
 #: ui/newkeyapprovaldialog.cpp:189
-#, fuzzy, kde-format
-#| msgid "Show all keys"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "모든 키 표시"
 
 #: ui/newkeyapprovaldialog.cpp:272
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
-#| "user does not yet have an OpenPGP or S/MIME key."
-#| msgid ""
-#| "Generate a new key using your E-Mail address.<br/><br/>The key is "
-#| "necessary to decrypt and sign E-Mails. You will be asked for a passphrase "
-#| "to protect this key and the protected key will be stored in your home "
-#| "directory."
+#, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
@@ -2218,29 +2161,25 @@ msgid "Security approval"
 msgstr "보안 승인"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2262,8 +2201,7 @@ msgid "Key generation"
 msgstr "키 생성"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Operation Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "작동 실패"
@@ -2276,12 +2214,10 @@ msgstr "새 키 쌍 만들기"
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgid "Do not sign this email"
-msgstr ""
+msgstr "이 이메일에 서명하지 않음"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for not selecting a key for signing."
-#| msgid "The E-Mail will not be cryptographically signed."
+#, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "이메일에 암호학적 서명을 추가하지 않습니다."
@@ -2298,12 +2234,7 @@ msgid "No key. Recipient will be unable to decrypt."
 msgstr "키 없음. 수신자가 복호화할 수 없습니다."
 
 #: ui/newkeyapprovaldialog.cpp:657
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip for No Key selected for a specific recipient."
-#| msgid ""
-#| "Do not select a key for this recipient.<br/><br/>The recipient will "
-#| "receive the encrypted E-Mail, but it can only be decrypted with the other "
-#| "keys selected in this dialog."
+#, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
@@ -2332,7 +2263,7 @@ msgstr "생성"
 #: ui/openpgpcertificatecreationdialog.cpp:92
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "생성한 키를 암구호로 보호합니다."
 
 #: ui/openpgpcertificatecreationdialog.cpp:94
 #, kde-format
@@ -2340,49 +2271,45 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"비밀 키를 다시 찾을 수 없는 암구호로 보호합니다. 키를 생성할 때 해당 암구호"
+"를 물어 봅니다."
 
 #: ui/openpgpcertificatecreationdialog.cpp:97
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "고급 설정"
+msgstr "고급 옵션"
 
 #: ui/openpgpcertificatecreationdialog.cpp:104
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "키 구성"
 
 #: ui/openpgpcertificatecreationdialog.cpp:148
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "신뢰할 수 있는 인증서"
+msgstr "OpenPGP 인증서 생성"
 
 #: ui/openpgpcertificatecreationdialog.cpp:156
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "인증서에 사용할 이름과 이메일 주소를 입력하십시오."
 
 #: ui/openpgpcertificatecreationdialog.cpp:157
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "디렉터리 서비스를 제공하는 서버의 IP 주소나 이름을 입력하십시오."
+msgstr "인증서에 사용할 이름 그리고/또는 이메일 주소를 입력하십시오."
 
 #: ui/openpgpcertificatecreationdialog.cpp:334
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "이름이나 이메일 주소를 입력하십시오."
 
 #: ui/openpgpcertificatecreationdialog.cpp:348
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "키가 비활성화되었습니다."
+msgstr "문제가 발생했습니다."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2418,17 +2345,15 @@ msgid "View Columns"
 msgstr "열 보기"
 
 #: ui/useridselectioncombo.cpp:542
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
-msgstr "내 인증서"
+msgstr "인증서 목록 표시"
 
 #: ui/useridselectioncombo.cpp:543
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Show certificate list"
-msgstr "내 인증서"
+msgstr "인증서 목록 표시"
 
 #: utils/compliance.cpp:187
 #, kde-format
@@ -2441,56 +2366,52 @@ msgid "Not VS-NfD compliant"
 msgstr "VS-NfD 준수 안 함"
 
 #: utils/compliance.cpp:196
-#, fuzzy, kde-format
-#| msgctxt "amended tooltip; %1: original tooltip"
-#| msgid "%1 (read-only)"
+#, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
-msgstr "%1(읽기 전용)"
+msgstr "%1(베타)"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "유효 기간 끝"
+msgstr "유효 기간 끝(%1):"
 
 #: utils/expiration.cpp:105
 #, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr ""
+msgstr "유효 기간(%1부터 %2까지):"
 
 #: utils/expiration.cpp:116
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "키를 사용할 수 있습니다."
+msgstr "날짜를 변경할 수 없습니다."
 
 #: utils/expiration.cpp:119 utils/expiration.cpp:125
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "%1부터 %2 사이의 날짜를 입력하십시오."
 
 #: utils/expiration.cpp:147
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "오늘부터 3년"
 
 #: utils/expiration.cpp:148
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "오늘부터 2년"
 
 #: utils/expiration.cpp:149
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "오늘부터 1년"
 
 #: utils/formatting.cpp:330
 #, kde-format
@@ -2518,8 +2439,7 @@ msgid "Encryption"
 msgstr "암호화"
 
 #: utils/formatting.cpp:360 utils/formatting.cpp:382
-#, fuzzy, kde-format
-#| msgid "Certifying User-IDs"
+#, kde-format
 msgid "Certifying User IDs"
 msgstr "사용자 ID 인증"
 
@@ -2544,27 +2464,22 @@ msgid "Expired"
 msgstr "만료됨"
 
 #: utils/formatting.cpp:423
-#, fuzzy, kde-format
-#| msgid "User-ID is certified."
+#, kde-format
 msgid "User ID is certified."
 msgstr "사용자 ID가 인증되었습니다."
 
 #: utils/formatting.cpp:429
-#, fuzzy, kde-format
-#| msgid "User-ID is not certified."
+#, kde-format
 msgid "User ID is not certified."
 msgstr "사용자 ID가 인증되지 않았습니다."
 
 #: utils/formatting.cpp:439
-#, fuzzy, kde-format
-#| msgid "All User-IDs are certified."
+#, kde-format
 msgid "All User IDs are certified."
 msgstr "모든 사용자 ID가 인증되었습니다."
 
 #: utils/formatting.cpp:445
-#, fuzzy, kde-format
-#| msgid "One User-ID is not certified."
-#| msgid_plural "%1 User-IDs are not certified."
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "사용자 ID %1개가 인증되지 않았습니다."
@@ -2792,11 +2707,10 @@ msgid "invalid"
 msgstr "올바르지 않음"
 
 #: utils/formatting.cpp:886
-#, fuzzy, kde-format
-#| msgid "&OK"
+#, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr "확인(&O)"
+msgstr "확인"
 
 #: utils/formatting.cpp:925
 #, kde-format
@@ -3183,12 +3097,10 @@ msgid "ECC (NIST P-521)"
 msgstr "ECC(NIST P-521)"
 
 #: utils/formatting.cpp:1532
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "DSA 1024"
+#, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
-msgstr "DSA 1024"
+msgstr "RSA 1024"
 
 #: utils/formatting.cpp:1533
 #, kde-format
@@ -3249,170 +3161,155 @@ msgstr "Elgamal 4096"
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
-msgstr ""
+msgstr "서명이 올바르지만 인증서를 그럭저럭 신뢰합니다."
 
 #: utils/formatting.cpp:1556
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
-msgstr ""
+msgstr "서명이 올바르고 인증서를 웬만큼 신뢰합니다."
 
 #: utils/formatting.cpp:1558
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
-msgstr ""
+msgstr "서명이 올바르고 인증서를 완전히 신뢰합니다."
 
 #: utils/formatting.cpp:1560
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
-msgstr ""
+msgstr "서명이 올바르지만 인증서를 <em>신뢰하지 않습니다</em>."
 
 #: utils/formatting.cpp:1562
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "가져오기 작업으로 이 인증서에 새 서명이 추가되었습니다."
+msgstr "서명이 올바르지만 인증서 유효성을 알 수 없습니다."
 
 #: utils/formatting.cpp:1565
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "서명이 올바르지만 인증서 유효성이 정의되지 않았습니다."
 
 #: utils/formatting.cpp:1577
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "내 인증서"
+msgstr "알 수 없는 인증서"
 
 #: utils/formatting.cpp:1581
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1(%2)"
 
 #: utils/formatting.cpp:1596
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "알 수 없는 인증서에 의한 잘못된 서명: %1"
+msgstr "서명 생성: %1, 지문이 %2인 알 수 없는 인증서 사용됨"
 
 #: utils/formatting.cpp:1598
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "알 수 없는 인증서에 의한 잘못된 서명: %1"
+msgstr "지문이 %1인 알 수 없는 인증서로 서명이 생성됨"
 
 #: utils/formatting.cpp:1602
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "알 수 없는 인증서에 의한 잘못된 서명: %1"
+msgstr "서명 생성: %1, 사용된 인증서: %2"
 
 #: utils/formatting.cpp:1604
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "알 수 없는 인증서에 의한 잘못된 서명: %1"
+msgstr "서명이 다음 인증서로 생성됨: %1"
 
 #: utils/formatting.cpp:1610
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "%1의 서명이 양호합니다."
+msgstr "서명이 %1입니다"
 
 #: utils/formatting.cpp:1613
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "%1의 서명이 양호합니다."
+msgstr "서명이 %1이(가) <b>아닙니다</b>."
 
 #: utils/formatting.cpp:1623
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "오류: 서명이 인증되지 않았음"
 
 #: utils/formatting.cpp:1625
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "%1의 서명이 양호합니다."
+msgstr "좋은 서명"
 
 #: utils/formatting.cpp:1627
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "인증서 만료됨"
+msgstr "서명한 인증서가 철회됨"
 
 #: utils/formatting.cpp:1629
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "인증서 만료됨"
+msgstr "서명한 인증서가 만료됨"
 
 #: utils/formatting.cpp:1631
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "인증서를 사용할 수 없음"
 
 #: utils/formatting.cpp:1633
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "인증서 만료됨"
+msgstr "서명 만료됨"
 
 #: utils/formatting.cpp:1635
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "CRL이 없음"
 
 #: utils/formatting.cpp:1637
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRL이 너무 오래됨"
 
 #: utils/formatting.cpp:1639
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "정책이 잘못됨"
 
 #: utils/formatting.cpp:1641
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "시스템 오류"
 
 #: utils/formatting.cpp:1643
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "%1에 의한 잘못된 서명: %2"
+msgstr "서명이 잘못됨"
 
 #: utils/formatting.cpp:1719 utils/formatting.cpp:1742
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "키가 올바르지 않습니다."
+msgstr "서명이 잘못됨: %1"
 
 #: utils/formatting.cpp:1728
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
-msgstr ""
+msgstr "인증서를 키 서버에서 찾거나 파일에서 가져올 수 있습니다."
 
 #: utils/formatting.cpp:1737
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
+msgstr "사용한 키를 귀하나 신뢰 가능한 사람이 인증하지 않았습니다."
 
 #: utils/formatting.cpp:1738
 #, kde-format
@@ -3420,18 +3317,20 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"사용한 인증서를 신뢰할 수 있는 인증 기관에서 인증하지 않았거나 인증 기관을 "
+"알 수 없습니다."
 
 #: utils/gnupg.cpp:486
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "GnuPG에서 OpenPGP/LibrePGP 및 S/MIME 지원을 제공합니다."
 
 #: utils/gnupg.cpp:495
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "Libgcrypt는 일반 목적 암호화 라이브러리입니다."
 
 #: utils/hex.cpp:35
 #, kde-format
@@ -3441,7 +3340,7 @@ msgstr "입력 스트림의 '%1' 16진수 문자가 올바르지 않습니다."
 #: utils/hex.cpp:47 utils/hex.cpp:52
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
-msgstr "입력 스트림에서 16진수로 인코딩된 문자의 정상보다 이른 끝"
+msgstr "입력 스트림의 16진수로 인코드된 글자가 예상하지 못하게 종료됨"
 
 #~ msgctxt "@info"
 #~ msgid "Unknown algorithm"
