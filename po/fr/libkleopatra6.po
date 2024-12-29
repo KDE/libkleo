@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:40+0000\n"
-"PO-Revision-Date: 2024-08-09 14:10+0200\n"
+"PO-Revision-Date: 2024-12-27 15:59+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 "X-Text-Markup: kde4\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -869,10 +869,9 @@ msgid "All"
 msgstr "Tous"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "certificat expiré"
+msgstr "Tous les certificats (Sauf ceux désactivés)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -881,10 +880,9 @@ msgid "My Own"
 msgstr "Le mien"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Mes certificats propres"
+msgstr "Mes certificats personnels (Sauf ceux désactivés)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -977,8 +975,7 @@ msgid "E-Mail"
 msgstr "Courriel"
 
 #: models/keylistmodel.cpp:330
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "État"
@@ -1167,11 +1164,9 @@ msgid "Name"
 msgstr "Nom"
 
 #: models/useridlistmodel.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "text for screen readers for an empty email address"
-#| msgid "no email"
+#, kde-format
 msgid "Email"
-msgstr "Aucun courriel"
+msgstr "Courriel"
 
 #: models/useridlistmodel.cpp:108
 #, kde-format
@@ -1212,8 +1207,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Votre système ne prend pas en charge les journaux d'audit pour GnuPG"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Erreur système"
@@ -1238,18 +1232,16 @@ msgid "No GnuPG Audit Log available for this operation."
 msgstr "Aucun journal d'audit GnuPG disponible pour cette opération."
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
-msgstr "Aucun journal d'audit GnuPG"
+msgstr "Aucun journal d'audit « GnuPG »"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
-msgstr "Afficheur de journal d'audit GnuPG"
+msgstr "Afficheur de journal d'audit « GnuPG »"
 
 #: ui/auditlogviewer.cpp:124
 #, kde-format
@@ -1262,8 +1254,7 @@ msgid "Could not save to file \"%1\": %2"
 msgstr "Impossible d'enregistrer le fichier « %1 » : %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Erreur d'enregistrement du fichier"
@@ -1413,8 +1404,7 @@ msgstr ""
 "boîte de dialogue de configuration."
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Modifier"
@@ -1438,8 +1428,7 @@ msgstr ""
 "validé la boîte de dialogue de configuration."
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Supprimer"
@@ -1807,40 +1796,32 @@ msgstr "Ouvrir la boîte de dialogue pour les fichiers"
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "Erreur : veuillez saisir une valeur."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
-"Erreur : saisissez un nom d'hôte dans le bon format, comme « ldap.exemple."
-"com »."
+msgstr "Erreur : saisissez une valeur dans le format correct."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (Requis)"
 
 #: ui/formtextinput.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error"
+#, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr "Erreur"
+msgstr "Erreur : %1"
 
 #: ui/formtextinput.cpp:230
-#, fuzzy, kde-format
-#| msgid "invalid"
+#, kde-format
 msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr "non valable"
+msgstr "entrée non valable"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1915,8 +1896,7 @@ msgid "Clear"
 msgstr "Effacer"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Modifier..."
@@ -1937,8 +1917,7 @@ msgstr ""
 
 #: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
 #: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Échec du listage des clés"
@@ -2125,11 +2104,10 @@ msgid "Compliance"
 msgstr "Conformité"
 
 #: ui/keyselectiondialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "Search for &External Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
-msgstr "Chercher des certificats &externes"
+msgstr "Rechercher des certificats &externes"
 
 #: ui/keyselectiondialog.cpp:435
 #, kde-format
@@ -2138,8 +2116,7 @@ msgid "&Search for:"
 msgstr "&Rechercher :"
 
 #: ui/keyselectiondialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "Mémo&riser le choix"
@@ -2154,15 +2131,13 @@ msgstr ""
 "vous ne serez plus sollicité à nouveau.</p></qt>"
 
 #: ui/keyselectiondialog.cpp:477
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "&Relire les clés"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Démarrer le ge&stionnaire de certificats"
@@ -2182,8 +2157,7 @@ msgstr ""
 "votre installation."
 
 #: ui/keyselectiondialog.cpp:662
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Erreur du gestionnaire de certificats"
@@ -2242,8 +2216,7 @@ msgid "Error"
 msgstr "Erreur"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "Nom"
@@ -2251,25 +2224,23 @@ msgstr "Nom"
 #: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "Saisissez un nom."
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
-msgstr "Adresse de courrier électronique"
+msgstr "Adresse de courriel"
 
 #: ui/nameandemailwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "Adresse de courrier électronique"
+msgstr "Saisir une adresse de courriel."
 
 #: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Le nom ne doit pas inclure les caractères <, > et @."
 
 #: ui/nameandemailwidget.cpp:95
 #, kde-format
@@ -2361,29 +2332,25 @@ msgid "Security approval"
 msgstr "Autorisation de sécurité"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S / MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S / MIME"
@@ -2405,8 +2372,7 @@ msgid "Key generation"
 msgstr "Génération de clés"
 
 #: ui/newkeyapprovaldialog.cpp:439
-#, fuzzy, kde-format
-#| msgid "Operation Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Échec de l'opération"
@@ -2469,7 +2435,7 @@ msgstr "Générer"
 #: ui/openpgpcertificatecreationdialog.cpp:89
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Protégez la clé générée avec une phrase secrète."
 
 #: ui/openpgpcertificatecreationdialog.cpp:91
 #, kde-format
@@ -2479,8 +2445,7 @@ msgid ""
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
 msgstr "Configuration avancée"
 
@@ -2491,11 +2456,10 @@ msgid "Key Material"
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Certificats de confiance"
+msgstr "Créer un certificat « OpenPGP »"
 
 #: ui/openpgpcertificatecreationdialog.cpp:153
 #, kde-format
@@ -2514,13 +2478,12 @@ msgstr ""
 #: ui/openpgpcertificatecreationdialog.cpp:305
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Saisissez un nom ou une adresse de courriel"
 
 #: ui/openpgpcertificatecreationdialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "The key is disabled."
+#, kde-format
 msgid "There is a problem."
-msgstr "La clé est désactivé."
+msgstr "Un problème est survenu."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2558,17 +2521,15 @@ msgid "View Columns"
 msgstr "Afficher les colonnes"
 
 #: ui/useridselectioncombo.cpp:542
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
-msgstr "Mes certificats propres"
+msgstr "Afficher la liste des certificats"
 
 #: ui/useridselectioncombo.cpp:543
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Show certificate list"
-msgstr "Mes certificats propres"
+msgstr "Afficher la liste des certificats"
 
 #: utils/compliance.cpp:171
 #, kde-format
@@ -2581,58 +2542,52 @@ msgid "Not VS-NfD compliant"
 msgstr "Non compatible « VS-NfD »"
 
 #: utils/compliance.cpp:180
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
-msgstr "%1 (%2)"
+msgstr "%1 (Bêta)"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgid "Valid until"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "Valide jusqu'à"
+msgstr "Valable jusqu'à (%1) :"
 
 #: utils/expiration.cpp:105
 #, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr ""
+msgstr "Valable jusqu'à (Entre %1 et %2) :"
 
 #: utils/expiration.cpp:116
-#, fuzzy, kde-format
-#| msgid "The key can be used."
+#, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr "La clé peut être utilisée."
+msgstr "Il est impossible de modifier la date."
 
 #: utils/expiration.cpp:119 utils/expiration.cpp:125
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Saisissez une date entre %1 et %2."
 
 #: utils/expiration.cpp:147
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "Dans trois ans à partir de maintenant"
 
 #: utils/expiration.cpp:148
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "Dans deux ans à partir de maintenant"
 
 #: utils/expiration.cpp:149
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Dans un an à partir de maintenant"
 
 #: utils/formatting.cpp:330
 #, kde-format
@@ -2930,11 +2885,10 @@ msgid "invalid"
 msgstr "non valable"
 
 #: utils/formatting.cpp:886
-#, fuzzy, kde-format
-#| msgid "&OK"
+#, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr "&Ok"
+msgstr "Ok"
 
 #: utils/formatting.cpp:925
 #, kde-format
@@ -3427,17 +3381,12 @@ msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
 #: utils/formatting.cpp:1581
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "Mes certificats propres"
+msgstr "Certificat inconnu"
 
 #: utils/formatting.cpp:1585
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -3457,102 +3406,91 @@ msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "Signature incorrecte par un certificat inconnu : %1"
 
 #: utils/formatting.cpp:1605
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "Signature incorrecte par un certificat inconnu : %1"
+msgstr "Signature créée sur %1 avec un certificat : %2"
 
 #: utils/formatting.cpp:1607
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "Signature incorrecte par un certificat inconnu : %1"
+msgstr "Signature créée avec un certificat : %1"
 
 #: utils/formatting.cpp:1613
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "Signature correcte par %1."
+msgstr "La signature est %1."
 
 #: utils/formatting.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "Signature correcte par %1."
+msgstr "La signature <b>n'est pas</b> %1."
 
 #: utils/formatting.cpp:1626
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "Erreur : signature non vérifiée"
 
 #: utils/formatting.cpp:1628
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "Signature correcte par %1."
+msgstr "Signature correcte"
 
 #: utils/formatting.cpp:1630
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "certificat expiré"
+msgstr "Le certificat de signature a été révoqué."
 
 #: utils/formatting.cpp:1632
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "certificat expiré"
+msgstr "Le certificat de signature a expiré."
 
 #: utils/formatting.cpp:1634
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "Le certificat est indisponible."
 
 #: utils/formatting.cpp:1636
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "certificat expiré"
+msgstr "Expiration de la signature"
 
 #: utils/formatting.cpp:1638
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "CRL manquante"
 
 #: utils/formatting.cpp:1640
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRL trop ancien"
 
 #: utils/formatting.cpp:1642
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "Règle erronée"
 
 #: utils/formatting.cpp:1644
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Erreur système"
 
 #: utils/formatting.cpp:1646
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "Signature incorrecte par %1 : %2"
+msgstr "Signature incorrecte"
 
 #: utils/formatting.cpp:1722 utils/formatting.cpp:1745
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "La clé n'est pas valable."
+msgstr "La signature est non valable : %1"
 
 #: utils/formatting.cpp:1731
 #, kde-format
