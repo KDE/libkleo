@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1697237 $
+# Version: $Revision: 1698995 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-11 00:41+0000\n"
-"PO-Revision-Date: 2024-11-30 09:27+0100\n"
+"PO-Revision-Date: 2024-12-29 10:58+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -941,7 +941,7 @@ msgstr "Moje własne certyfikaty (z wyjątkiem wyłączonych)"
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "Certyfikowane"
+msgstr "Scertyfikowane"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -956,7 +956,7 @@ msgstr ""
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "Niecertyfikowane"
+msgstr "Niescertyfikowane"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -979,35 +979,35 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
-"Certyfikaty, które nie są w pełni certyfikowane i które możesz chcieć "
+"Certyfikaty, które nie są w pełni scertyfikowane i które możesz chcieć "
 "samodzielne certyfikować (z wyjątkiem wyłączonych)"
 
 #: kleo/keyfiltermanager.cpp:191
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "Nie w pełni certyfikowane"
+msgstr "Nie w pełni scertyfikowane"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr ""
-"Certyfikaty, dla których nie wszystkie ID użytkownika są certyfikowane (z "
+"Certyfikaty, dla których nie wszystkie ID użytkownika są scertyfikowane (z "
 "wyjątkiem wyłączonych)"
 
 #: kleo/keyfiltermanager.cpp:216
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "W pełni certyfikowane"
+msgstr "W pełni scertyfikowane"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
-"Certyfikaty, dla których wszystkie ID użytkownika są certyfikowane (z "
+"Certyfikaty, dla których wszystkie ID użytkownika są scertyfikowane (z "
 "wyjątkiem wyłączonych)"
 
 #: models/keylistmodel.cpp:326
@@ -1165,7 +1165,7 @@ msgstr "Siła"
 #: utils/formatting.cpp:540
 #, kde-format
 msgid "Usage"
-msgstr "Sposób użycia"
+msgstr "Używany do"
 
 #: models/useridlistmodel.cpp:72
 #, kde-format
@@ -2029,7 +2029,7 @@ msgstr "Wczytywanie kluczy ..."
 #: ui/keyselectiondialog.cpp:72
 #, kde-format
 msgid "The key is not valid."
-msgstr "Ten klucz jest nieprawidłowy."
+msgstr "Ten klucz jest niepoprawny."
 
 #: ui/keyselectiondialog.cpp:80
 #, kde-format
@@ -2142,7 +2142,7 @@ msgstr "Zgodność"
 #, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
-msgstr "Wyszukaj z&ewnętrznych certyfikatów"
+msgstr "Poszukaj z&ewnętrznych certyfikatów"
 
 #: ui/keyselectiondialog.cpp:435
 #, kde-format
@@ -2508,7 +2508,7 @@ msgstr "Wpisz nazwę oraz adres pocztowy do użycia przez certyfikat."
 #: ui/openpgpcertificatecreationdialog.cpp:157
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "Wpisz nazwę oraz/lub adres pocztowy do użycia przez certyfikat."
+msgstr "Wpisz nazwę oraz/lub e-mail używany przez certyfikat."
 
 #: ui/openpgpcertificatecreationdialog.cpp:334
 #, kde-format
@@ -2592,7 +2592,7 @@ msgstr "Ważny do (%1):"
 #, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr "Ważny do (pomiędzy %1 a %2):"
+msgstr "Ważny do (z zakresu od %1 do %2):"
 
 #: utils/expiration.cpp:116
 #, kde-format
@@ -2604,7 +2604,7 @@ msgstr "Daty nie można zmienić."
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr "Wpisz datę pomiędzy %1 a %2."
+msgstr "Wpisz datę z zakresu od %1 do %2."
 
 #: utils/expiration.cpp:147
 #, kde-format
@@ -2652,7 +2652,7 @@ msgstr "Szyfrowanie"
 #: utils/formatting.cpp:360 utils/formatting.cpp:382
 #, kde-format
 msgid "Certifying User IDs"
-msgstr "Certyfikowanie ID użytkownika"
+msgstr "Certyfikowanie ID użytkowników"
 
 #: utils/formatting.cpp:363 utils/formatting.cpp:385
 #, kde-format
@@ -2687,13 +2687,13 @@ msgstr "ID użytkownika jest niecertyfikowany."
 #: utils/formatting.cpp:439
 #, kde-format
 msgid "All User IDs are certified."
-msgstr "Wszystkie ID użytkownika są certyfikowane."
+msgstr "Wszystkie ID użytkownika są scertyfikowane."
 
 #: utils/formatting.cpp:445
 #, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
-msgstr[0] "Jeden ID użytkownika jest niecertyfikowany."
+msgstr[0] "Jeden ID użytkownika jest niescertyfikowany."
 msgstr[1] "%1 ID użytkownika są niecertyfikowane."
 msgstr[2] "%1 ID użytkownika jest niecertyfikowanych."
 
@@ -2779,12 +2779,12 @@ msgstr ""
 #: utils/formatting.cpp:579
 #, kde-format
 msgid "All keys are certified."
-msgstr "Wszystkie klucze są certyfikowane."
+msgstr "Wszystkie klucze są scertyfikowane."
 
 #: utils/formatting.cpp:581
 #, kde-format
 msgid "Some keys are not certified."
-msgstr "Niektóre z kluczy nie są certyfikowane."
+msgstr "Niektóre z kluczy nie są scertyfikowane."
 
 #: utils/formatting.cpp:585
 #, kde-format
@@ -2919,7 +2919,7 @@ msgstr "przedawniony"
 #: utils/formatting.cpp:1344 utils/formatting.cpp:1369
 #, kde-format
 msgid "invalid"
-msgstr "nieprawidłowy"
+msgstr "niepoprawny"
 
 #: utils/formatting.cpp:886
 #, kde-format
@@ -2930,7 +2930,7 @@ msgstr "OK"
 #: utils/formatting.cpp:925
 #, kde-format
 msgid "valid"
-msgstr "prawidłowy"
+msgstr "poprawny"
 
 #: utils/formatting.cpp:929
 #, kde-format
@@ -3007,17 +3007,17 @@ msgstr "Dobry podpis przez %1."
 #: utils/formatting.cpp:1088
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
-msgstr "Nieprawidłowy podpis przez nieznany certyfikat %1: %2"
+msgstr "Niepoprawny podpis przez nieznany certyfikat %1: %2"
 
 #: utils/formatting.cpp:1090
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
-msgstr "Nieprawidłowy podpis przez nieznany certyfikat: %1"
+msgstr "Niepoprawny  podpis przez nieznany certyfikat: %1"
 
 #: utils/formatting.cpp:1093
 #, kde-format
 msgid "Invalid signature by %1: %2"
-msgstr "Nieprawidłowy podpis przez %1: %2"
+msgstr "Niepoprawny podpis przez %1: %2"
 
 #: utils/formatting.cpp:1107
 #, kde-format
@@ -3180,13 +3180,13 @@ msgstr "nieznany"
 #, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
-msgstr "certyfikowane"
+msgstr "scertyfikowany"
 
 #: utils/formatting.cpp:1347
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
-msgstr "nie certyfikowane"
+msgstr "niescertyfikowany"
 
 #: utils/formatting.cpp:1350
 #, kde-format
@@ -3198,13 +3198,13 @@ msgstr "niesprawdzone"
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
-msgstr "certyfikowane"
+msgstr "scertyfikowany"
 
 #: utils/formatting.cpp:1375
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
-msgstr "nie certyfikowane"
+msgstr "niescertyfikowany"
 
 #: utils/formatting.cpp:1378
 #, kde-format
@@ -3216,13 +3216,13 @@ msgstr "niesprawdzone"
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
-msgstr "wszystkie certyfikowane"
+msgstr "wszystkie scertyfikowane"
 
 #: utils/formatting.cpp:1390
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
-msgstr "nie wszystkie certyfikowane"
+msgstr "nie wszystkie scertyfikowane"
 
 #: utils/formatting.cpp:1434
 #, kde-format
