@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:40+0000\n"
-"PO-Revision-Date: 2024-12-27 15:59+0100\n"
+"PO-Revision-Date: 2024-12-28 12:11+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -891,13 +891,13 @@ msgid "Certified"
 msgstr "Certifié"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
 msgstr ""
-"Certificats pour lesquels l'identifiant utilisateur primaire est certifié"
+"Certificats pour lesquels l'identifiant utilisateur primaire est certifié "
+"(Sauf ceux désactivés)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -906,13 +906,13 @@ msgid "Not Certified"
 msgstr "Non certifié"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
 msgstr ""
-"Certificats pour lesquels l'identifiant utilisateur primaire est non certifié"
+"Certificats pour lesquels l'identifiant utilisateur primaire est non "
+"certifié (Sauf ceux désactivés)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -921,16 +921,13 @@ msgid "To Certify"
 msgstr "À certifier"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
 "Certificats qui ne sont pas totalement certifiés et que vous voudrez peut-"
-"être certifier vous même"
+"être certifier vous même (Sauf ceux désactivés)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -939,13 +936,12 @@ msgid "Not Fully Certified"
 msgstr "Non totalement certifié"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr ""
-"Certificats pour lesquels tous les identifiants utilisateur primaires ne "
-"sont pas certifiés"
+"Certificats pour lesquels tous les identifiants utilisateur ne sont pas "
+"certifiés (Sauf ceux désactivés)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -954,13 +950,12 @@ msgid "Fully Certified"
 msgstr "Totalement certifié"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
 "Certificats pour lesquels tous les identifiants utilisateur primaires sont "
-"certifiés"
+"certifiés (Sauf ceux désactivés)"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
@@ -2247,7 +2242,7 @@ msgstr "Le nom ne doit pas inclure les caractères <, > et @."
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "Le nom ne doit pas inclure les caractères « < », « > » et de signe."
 
 #: ui/nameandemailwidget.cpp:98
 #, kde-format
@@ -2255,6 +2250,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Le nom doit être dans le format requis par votre organisation et ne doit pas "
+"inclure les caractères « < »,«  > » et«  @ »."
 
 #: ui/nameandemailwidget.cpp:101
 #, kde-format
@@ -2263,22 +2260,23 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Le nom doit être dans le format requis par votre organisation et il ne doit "
+"pas inclure de signe « < «,  « > » et de signe."
 
 #: ui/nameandemailwidget.cpp:110
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "Error: Enter a hostname in the correct format, like ldap.example.com."
+#, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr ""
-"Erreur : saisissez un nom d'hôte dans le bon format, comme « ldap.exemple."
-"com »."
+"Veuillez saisir une adresse de courriel dans un format correct, comme "
+"« nom@exemple.com »."
 
 #: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Veuillez saisir une adresse de courriel dans le format correct requis par "
+"votre organisation."
 
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
@@ -2443,6 +2441,8 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Chiffre la clé secrète avec une phrase secrète irrécupérable. La phrase de "
+"passe vous sera demandée lors de la génération de clé."
 
 #: ui/openpgpcertificatecreationdialog.cpp:94
 #, kde-format
@@ -2453,7 +2453,7 @@ msgstr "Configuration avancée"
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Éléments de clé"
 
 #: ui/openpgpcertificatecreationdialog.cpp:145
 #, kde-format
@@ -2465,15 +2465,13 @@ msgstr "Créer un certificat « OpenPGP »"
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
+"Saisissez un nom et une adresse de courriel à utiliser pour le certificat."
 
 #: ui/openpgpcertificatecreationdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
-"Saisissez le nom ou l'adresse IP du serveur hébergeant le service d'annuaire."
+"Saisissez le nom et / ou l'adresse de courriel pour utiliser le certificat."
 
 #: ui/openpgpcertificatecreationdialog.cpp:305
 #, kde-format
@@ -3350,17 +3348,23 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"La signature est valable mais la confiance dans la validité du certificat "
+"est limitée."
 
 #: utils/formatting.cpp:1560
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
+"La signature est valable et la confiance en la validité du certificat est "
+"totale."
 
 #: utils/formatting.cpp:1562
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
+"La signature est valable et la confiance en la validité du certificat est "
+"absolue."
 
 #: utils/formatting.cpp:1564
 #, kde-format
@@ -3368,17 +3372,18 @@ msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
+"La signature est valable mais la validité du certificat est <em>non "
+"approuvée</em>."
 
 #: utils/formatting.cpp:1566
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "L'importation a ajouté les nouvelles signatures à ce certificat."
+msgstr "La signature est valable mais la validité du certificat est inconnue."
 
 #: utils/formatting.cpp:1569
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "La signature est valable mais la validité du certificat est indéfinie."
 
 #: utils/formatting.cpp:1581
 #, kde-format
@@ -3392,18 +3397,20 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1599
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Signature incorrecte par un certificat inconnu : %1"
+msgstr ""
+"La signature a été créée sur %1 en utilisant un certificat inconnu avec "
+"l'empreinte  numérique %2."
 
 #: utils/formatting.cpp:1601
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Signature incorrecte par un certificat inconnu : %1"
+msgstr ""
+"La signature a été créée en utilisant un certificat inconnu avec "
+"l'empreinte  numérique %1."
 
 #: utils/formatting.cpp:1605
 #, kde-format
@@ -3496,11 +3503,15 @@ msgstr "La signature est non valable : %1"
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
+"Vous pouvez rechercher le certificat sur un serveur de clés ou l'importer à "
+"partir d'un fichier."
 
 #: utils/formatting.cpp:1740
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
+"La clé utilisée est non certifiée par vous ou par aucune personne de "
+"confiance."
 
 #: utils/formatting.cpp:1741
 #, kde-format
@@ -3508,6 +3519,8 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"Le certificat utilisé n'est pas certifié par une autorité de certification "
+"digne de confiance ou l'autorité de certification est inconnue."
 
 #: utils/hex.cpp:35
 #, kde-format
