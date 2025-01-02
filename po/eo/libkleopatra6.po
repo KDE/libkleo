@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:40+0000\n"
-"PO-Revision-Date: 2024-09-17 21:39+0200\n"
+"PO-Revision-Date: 2024-12-27 22:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -832,10 +832,9 @@ msgid "All"
 msgstr "Ĉiuj"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "atestilo eksvalidiĝis"
+msgstr "Ĉiuj atestiloj (krom malŝaltitaj)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -844,10 +843,9 @@ msgid "My Own"
 msgstr "Miaj Propraj"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Miaj propraj atestiloj"
+msgstr "Miaj propraj atestiloj (krom malŝaltitaj)"
 
 #: kleo/keyfiltermanager.cpp:128
 #, kde-format
@@ -856,12 +854,12 @@ msgid "Certified"
 msgstr "Atestitaj"
 
 #: kleo/keyfiltermanager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Atestiloj por kiuj la ĉefa uzant-identigilo estas atestita"
+msgstr ""
+"Atestiloj por kiuj la ĉefa uzant-identigilo estas atestita (krom malŝaltitaj)"
 
 #: kleo/keyfiltermanager.cpp:147
 #, kde-format
@@ -870,12 +868,12 @@ msgid "Not Certified"
 msgstr "Ne Atestitaj"
 
 #: kleo/keyfiltermanager.cpp:148
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Atestiloj por kiuj la ĉefa uzant-identigilo ne estas atestita"
+msgstr ""
+"Atestiloj por kiuj la ĉefa uzant-ID ne estas atestita (krom malŝaltitaj)"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -884,15 +882,13 @@ msgid "To Certify"
 msgstr "Atestendaj"
 
 #: kleo/keyfiltermanager.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
-"Atestiloj kiuj ne estas plene atestitaj kaj kiujn vi eble volas atesti mem"
+"Atestiloj kiuj ne estas plene atestitaj kaj kiujn vi eble volas atesti mem "
+"(krom malŝaltitaj)"
 
 #: kleo/keyfiltermanager.cpp:192
 #, kde-format
@@ -901,11 +897,11 @@ msgid "Not Fully Certified"
 msgstr "Ne Plene Atestitaj"
 
 #: kleo/keyfiltermanager.cpp:193
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Atestiloj por kiuj ne ĉiuj uzant-identigiloj estas atestitaj"
+msgstr ""
+"Atestiloj por kiuj ne ĉiuj uzant-ID-oj estas atestitaj (krom malŝaltitaj)"
 
 #: kleo/keyfiltermanager.cpp:217
 #, kde-format
@@ -914,11 +910,11 @@ msgid "Fully Certified"
 msgstr "Plene Atestitaj"
 
 #: kleo/keyfiltermanager.cpp:218
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Atestiloj por kiuj ĉiuj uzantidentigiloj estas atestitaj"
+msgstr ""
+"Atestiloj por kiuj ĉiuj uzantidentigiloj estas atestitaj (krom malŝaltitaj)"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
@@ -942,13 +938,13 @@ msgstr "Statuso"
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
-msgstr "Valida Ekde"
+msgstr "Valida De"
 
 #: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr "Valida Ĝis"
+msgstr "Valida ĝis"
 
 #: models/keylistmodel.cpp:336
 #, kde-format
@@ -2480,20 +2476,16 @@ msgid "%1 (beta)"
 msgstr ""
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Valid until:"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "Valida ĝis:"
+msgstr "Valida ĝis (%1):"
 
 #: utils/expiration.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@info ... between <a date> and <another date>."
-#| msgid "Enter a date between %1 and %2."
+#, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr "Enigu daton inter %1 kaj %2."
+msgstr "Valida ĝis (inter %1 kaj %2):"
 
 #: utils/expiration.cpp:116
 #, kde-format
@@ -3325,20 +3317,16 @@ msgid "%1 (%2)"
 msgstr ""
 
 #: utils/formatting.cpp:1599
-#, fuzzy, kde-format
-#| msgctxt "1 is a date"
-#| msgid "Signature created on %1 with certificate: %2"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Subskribo kreita en %1 kun atestilo: %2"
+msgstr "Subskribo kreita en %1 uzante nekonatan atestilon kun fingrospuro %2"
 
 #: utils/formatting.cpp:1601
-#, fuzzy, kde-format
-#| msgctxt "1 is a date"
-#| msgid "Signature created on %1 with certificate: %2"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Subskribo kreita en %1 kun atestilo: %2"
+msgstr "Subskribo kreita uzante nekonatan atestilon kun fingrospuro %1"
 
 #: utils/formatting.cpp:1605
 #, kde-format
@@ -3453,27 +3441,3 @@ msgstr "Nevalida deksesum-signo '%1' en eniga fluo."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Tro frua fino de deksesum-kodita signo en eniga fluo"
-
-#~ msgid "All certificates"
-#~ msgstr "Ĉiuj atestiloj"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Agordo de dosierujoj ne eblas ĉar la uzitaj gpgme-bibliotekoj estas tro "
-#~ "malnovaj."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Mi bedaŭras"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Subskribo kreita en %1 kun nedisponebla atestilo: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Subskribo kreita kun nedisponebla atestilo: %1"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Kun atestilo: %1"
