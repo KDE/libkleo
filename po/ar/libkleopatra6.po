@@ -1,12 +1,12 @@
 # translation of libkleopatra.po to
+# SPDX-FileCopyrightText: 2021, 2022, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:40+0000\n"
-"PO-Revision-Date: 2022-01-29 13:07+0400\n"
+"PO-Revision-Date: 2025-01-01 17:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -68,85 +69,93 @@ msgstr ""
 
 #: kleo/dn.cpp:536
 msgid "Common name"
-msgstr "Common name"
+msgstr "الاسم الشّائع"
 
 #: kleo/dn.cpp:537
 msgid "Surname"
-msgstr "Surname"
+msgstr "اسم العائلة"
 
 #: kleo/dn.cpp:538
 msgid "Given name"
-msgstr "Given name"
+msgstr "الاسم المُعطى"
 
 #: kleo/dn.cpp:539
 msgid "Location"
-msgstr "Location"
+msgstr "الموقع"
 
 #: kleo/dn.cpp:540
 msgid "Title"
-msgstr "Title"
+msgstr "العنوان"
 
 #: kleo/dn.cpp:541
 msgid "Organizational unit"
-msgstr "Organizational unit"
+msgstr "الوحدة التّنظيميّة"
 
 #: kleo/dn.cpp:542
 msgid "Organization"
-msgstr "Organization"
+msgstr "المنظّمة"
 
 #: kleo/dn.cpp:543
 msgid "Postal code"
-msgstr "Postal code"
+msgstr "الرّمز البريديّ"
 
 #: kleo/dn.cpp:544
 msgid "Country code"
-msgstr "Country code"
+msgstr "رمز الدولة"
 
 #: kleo/dn.cpp:545
 msgid "State or province"
-msgstr "State or province"
+msgstr "الولاية أو المحافظة"
 
 #: kleo/dn.cpp:546
+#, fuzzy
+#| msgid "Domain component"
 msgid "Domain component"
 msgstr "Domain component"
 
 #: kleo/dn.cpp:547
+#, fuzzy
+#| msgid "Business category"
 msgid "Business category"
 msgstr "Business category"
 
 #: kleo/dn.cpp:548
 msgid "Email address"
-msgstr "Email address"
+msgstr "عنوان البريد الإلكترونيّ"
 
 #: kleo/dn.cpp:549
 msgid "Mail address"
-msgstr "Mail address"
+msgstr "عنوان البريد"
 
 #: kleo/dn.cpp:550
 msgid "Mobile phone number"
-msgstr "Mobile phone number"
+msgstr "رقم المحمول"
 
 #: kleo/dn.cpp:551
 msgid "Telephone number"
-msgstr "Telephone number"
+msgstr "رقم الهاتف"
 
 #: kleo/dn.cpp:552
 msgid "Fax number"
-msgstr "Fax number"
+msgstr "رقم الفاكس"
 
 #: kleo/dn.cpp:553
 msgid "Street address"
-msgstr "Street address"
+msgstr "عنوان الشارع"
 
 #: kleo/dn.cpp:554
 msgid "Unique ID"
-msgstr "Unique ID"
+msgstr "المعرّف الفريد"
 
 #: kleo/enum.cpp:35
+#, fuzzy
+#| msgid "Inline OpenPGP (deprecated)"
 msgid "Inline OpenPGP (deprecated)"
 msgstr "Inline OpenPGP (deprecated)"
 
 #: kleo/enum.cpp:36
+#, fuzzy
+#| msgid "OpenPGP/MIME"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
@@ -172,32 +181,37 @@ msgid "Any OpenPGP"
 msgstr "OpenPGP"
 
 #: kleo/enum.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any"
 msgid "Any"
 msgstr "Any"
 
 #: kleo/enum.cpp:147
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Never Encrypt"
 msgid "Never Encrypt"
 msgstr "Never Encrypt"
 
 #: kleo/enum.cpp:149
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always Encrypt"
 msgid "Always Encrypt"
 msgstr "Always Encrypt"
 
 #: kleo/enum.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always Encrypt If Possible"
 msgid "Always Encrypt If Possible"
 msgstr "Always Encrypt If Possible"
 
 #: kleo/enum.cpp:153 kleo/enum.cpp:210
 #, kde-format
 msgid "Ask"
-msgstr "Ask"
+msgstr "اسأل"
 
 #: kleo/enum.cpp:155 kleo/enum.cpp:212
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ask Whenever Possible"
 msgid "Ask Whenever Possible"
 msgstr "Ask Whenever Possible"
 
@@ -205,25 +219,28 @@ msgstr "Ask Whenever Possible"
 #, kde-kuit-format
 msgctxt "no specific preference"
 msgid "<placeholder>none</placeholder>"
-msgstr "<placeholder>بلا</placeholder>"
+msgstr "<placeholder>لا شيء</placeholder>"
 
 #: kleo/enum.cpp:204
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Never Sign"
 msgid "Never Sign"
 msgstr "Never Sign"
 
 #: kleo/enum.cpp:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always Sign"
 msgid "Always Sign"
 msgstr "Always Sign"
 
 #: kleo/enum.cpp:208
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always Sign If Possible"
 msgid "Always Sign If Possible"
 msgstr "Always Sign If Possible"
 
 #: kleo/enum.cpp:214
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "no specific preference"
 msgid "<none>"
 msgstr "<لا شيء>"
@@ -362,7 +379,7 @@ msgstr[5] ""
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (الرّقم التّسلسليّ %2)"
 
 #: kleo/expirychecker.cpp:152
 #, kde-format
@@ -774,7 +791,7 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: kleo/keyfiltermanager.cpp:90
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "All Certificates"
 msgid "All"
 msgstr "الكلّ"
@@ -859,22 +876,19 @@ msgid ""
 msgstr "ابدأ شهادة المدير"
 
 #: models/keylistmodel.cpp:326
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "الاسم"
 
 #: models/keylistmodel.cpp:328
-#, fuzzy, kde-format
-#| msgid "E-Mail"
+#, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "البريد الإلكتروني"
 
 #: models/keylistmodel.cpp:330
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "الحالة"
@@ -883,59 +897,52 @@ msgstr "الحالة"
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
-msgstr ""
+msgstr "صالحة من"
 
 #: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr ""
+msgstr "صالحة حتى"
 
 #: models/keylistmodel.cpp:336
-#, fuzzy, kde-format
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "الميفاق"
 
 #: models/keylistmodel.cpp:338
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
-msgstr "Key ID"
+msgstr "معرف المفتاح"
 
 #: models/keylistmodel.cpp:340
-#, fuzzy, kde-format
-#| msgid "Fingerprint"
+#, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "البصمة"
 
 #: models/keylistmodel.cpp:342
-#, fuzzy, kde-format
-#| msgid "Issuer"
+#, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "المُصدِر"
 
 #: models/keylistmodel.cpp:344
-#, fuzzy, kde-format
-#| msgid "Serial Number"
+#, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "الرّقم التّسلسليّ"
 
 #: models/keylistmodel.cpp:346
-#, fuzzy, kde-format
-#| msgid "Origin"
+#, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "الأصل"
 
 #: models/keylistmodel.cpp:348
-#, fuzzy, kde-format
-#| msgid "Last Update"
+#, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "آخر تحديث"
@@ -947,8 +954,7 @@ msgid "Certification Trust"
 msgstr "ابدأ شهادة المدير"
 
 #: models/keylistmodel.cpp:352
-#, fuzzy, kde-format
-#| msgid "Tags"
+#, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "الوسوم"
@@ -957,7 +963,7 @@ msgstr "الوسوم"
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
-msgstr ""
+msgstr "خوارزمية"
 
 #: models/keylistmodel.cpp:356
 #, kde-format
@@ -966,17 +972,16 @@ msgid "Keygrip"
 msgstr ""
 
 #: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:69
-#, fuzzy, kde-format
-#| msgid "Given name"
+#, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
-msgstr "Given name"
+msgstr "بلا اسم"
 
 #: models/keylistmodel.cpp:411 models/useridlistmodel.cpp:70
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr "metehyi@free.fr"
+msgstr "دون بريد إلكتروني"
 
 #: models/keylistmodel.cpp:474
 #, kde-format
@@ -987,7 +992,7 @@ msgstr "يحمّل..."
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
-msgstr ""
+msgstr "لا ينطبق"
 
 #: models/subkeylistmodel.cpp:155
 #, kde-format
@@ -1003,12 +1008,12 @@ msgstr "النّوع"
 #: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid From"
-msgstr ""
+msgstr "صالحة من"
 
 #: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
-msgstr ""
+msgstr "صالحة حتى"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:524 utils/formatting.cpp:526
@@ -1028,35 +1033,27 @@ msgid "Usage"
 msgstr "الاستخدام"
 
 #: models/useridlistmodel.cpp:72
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalization in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalization (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
-msgstr "no"
+msgstr "نعم"
 
 #: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "لا"
 
 #: models/useridlistmodel.cpp:75
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr "<لا شيء>"
+msgstr "لا شيء"
 
 #: models/useridlistmodel.cpp:76
 #, kde-format
 msgid "not applicable"
-msgstr ""
+msgstr "لا ينطبق"
 
 #: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
 #: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
@@ -1066,7 +1063,7 @@ msgstr ""
 #: utils/formatting.cpp:482
 #, kde-format
 msgid "User ID"
-msgstr "User ID"
+msgstr "معرف المستخدم"
 
 #: models/useridlistmodel.cpp:104
 #, kde-format
@@ -1079,9 +1076,9 @@ msgid "Name"
 msgstr "الاسم"
 
 #: models/useridlistmodel.cpp:106
-#, fuzzy, kde-format
+#, kde-format
 msgid "Email"
-msgstr "metehyi@free.fr"
+msgstr "البريد الإلكترونيّ"
 
 #: models/useridlistmodel.cpp:108
 #, kde-format
@@ -1105,8 +1102,7 @@ msgid "View GnuPG Audit Log"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:46
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "ا&نسخ إلى الحافظة"
@@ -1123,8 +1119,7 @@ msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "خطأ نظام"
@@ -1198,31 +1193,27 @@ msgctxt ""
 "character to upper-case. It is this behaviour you can control for your "
 "language with this translation."
 msgid "yes"
-msgstr "no"
+msgstr "نعم"
 
 #: ui/cryptoconfigmodule.cpp:592
-#, fuzzy
 msgid "0 - None"
-msgstr "<placeholder>بلا</placeholder>"
+msgstr "0 - لا شيء"
 
 #: ui/cryptoconfigmodule.cpp:593
-#, fuzzy
 msgid "1 - Basic"
-msgstr "أساسيّ"
+msgstr "1 - أساسي"
 
 #: ui/cryptoconfigmodule.cpp:594
-#, fuzzy
 msgid "2 - Verbose"
-msgstr "مسهب"
+msgstr "2 - مطنب"
 
 #: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:596
-#, fuzzy
 msgid "4 - All"
-msgstr "الكلّ"
+msgstr "4 - الكلّ"
 
 #: ui/cryptoconfigmodule.cpp:608
 #, kde-format
@@ -1238,7 +1229,7 @@ msgstr "اعرض..."
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
-msgstr "Edit..."
+msgstr "حرّر..."
 
 #: ui/cryptoconfigmodule.cpp:885
 #, fuzzy, kde-format
@@ -1285,10 +1276,9 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:200
-#, fuzzy, kde-format
-#| msgid "Configure LDAP Servers"
+#, kde-format
 msgid "LDAP Server"
-msgstr "خادم LDAP‏ %1"
+msgstr "خادوم  LDAP"
 
 #: ui/directoryserviceswidget.cpp:203
 #, kde-format
@@ -1316,8 +1306,7 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:216
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "حرّر"
@@ -1338,8 +1327,7 @@ msgid ""
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "احذف"
@@ -1367,7 +1355,7 @@ msgstr "س دليل:"
 #: ui/dnattributeorderconfigwidget.cpp:75
 #, kde-format
 msgid "Description"
-msgstr "Description"
+msgstr "الوصف"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
 #, fuzzy, kde-format
@@ -1391,63 +1379,59 @@ msgstr "Available attributes:"
 
 #: ui/dnattributeorderconfigwidget.cpp:107
 #: ui/dnattributeorderconfigwidget.cpp:108
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "All others"
 msgid "All others"
 msgstr "All others"
 
 #: ui/dnattributeorderconfigwidget.cpp:120
-#, fuzzy
-#| msgid "Add"
 msgctxt "@action:button"
 msgid "Add"
 msgstr "أضف"
 
 #: ui/dnattributeorderconfigwidget.cpp:121
+#, fuzzy
+#| msgid "Add to current attribute order"
 msgid "Add to current attribute order"
 msgstr "Add to current attribute order"
 
 #: ui/dnattributeorderconfigwidget.cpp:127
-#, fuzzy
 msgctxt "@action:button"
 msgid "Remove"
-msgstr "احذف الخدمة"
+msgstr "أزل"
 
 #: ui/dnattributeorderconfigwidget.cpp:128
+#, fuzzy
+#| msgid "Remove from current attribute order"
 msgid "Remove from current attribute order"
 msgstr "Remove from current attribute order"
 
 #: ui/dnattributeorderconfigwidget.cpp:134
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
-msgstr "Move to top"
+msgstr "انقل إلى الأعلى"
 
 #: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Move to top"
-msgstr "Move to top"
+msgstr "انقل إلى الأعلى"
 
 #: ui/dnattributeorderconfigwidget.cpp:141
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr "Move to top"
+msgstr "انقل لأعلى"
 
 #: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move one up"
-msgstr "Move one up"
+msgstr "انقل لأعلى"
 
 #: ui/dnattributeorderconfigwidget.cpp:148
-#, fuzzy
-#| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
-msgstr "Move one down"
+msgstr "انقل لأسفل"
 
 #: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one down"
-msgstr "Move one down"
+msgstr "انقل أسفل"
 
 #: ui/dnattributeorderconfigwidget.cpp:155
 #, fuzzy
@@ -1458,7 +1442,7 @@ msgstr "Move to bottom"
 
 #: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move to bottom"
-msgstr "Move to bottom"
+msgstr "انقل إلى الأسفل"
 
 #: ui/dnattributeorderconfigwidget.cpp:186
 #, fuzzy, kde-format
@@ -1674,8 +1658,7 @@ msgid "Edit Directory Service"
 msgstr "س دليل:"
 
 #: ui/filenamerequester.cpp:81
-#, fuzzy, kde-format
-#| msgid "Open file dialog"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
 msgstr "افتح حواريّ الملفّات"
@@ -1699,13 +1682,13 @@ msgstr ""
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (مطلوب)"
 
 #: ui/formtextinput.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr ""
+msgstr "الخطأ: %1"
 
 #: ui/formtextinput.cpp:230
 #, fuzzy, kde-format
@@ -1719,30 +1702,34 @@ msgstr "غير صالح"
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
 msgid "<placeholder>none</placeholder>"
-msgstr "<placeholder>بلا</placeholder>"
+msgstr "<placeholder>لا شيء</placeholder>"
 
 #: ui/keyapprovaldialog.cpp:77
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Never Encrypt with This Key"
 msgid "Never Encrypt with This Key"
 msgstr "Never Encrypt with This Key"
 
 #: ui/keyapprovaldialog.cpp:78
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always Encrypt with This Key"
 msgid "Always Encrypt with This Key"
 msgstr "Always Encrypt with This Key"
 
 #: ui/keyapprovaldialog.cpp:79
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Encrypt Whenever Encryption is Possible"
 msgid "Encrypt Whenever Encryption is Possible"
 msgstr "Encrypt Whenever Encryption is Possible"
 
 #: ui/keyapprovaldialog.cpp:80
 #, kde-format
 msgid "Always Ask"
-msgstr "Always Ask"
+msgstr "اسأل دائمًا"
 
 #: ui/keyapprovaldialog.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ask Whenever Encryption is Possible"
 msgid "Ask Whenever Encryption is Possible"
 msgstr "Ask Whenever Encryption is Possible"
 
@@ -1768,18 +1755,16 @@ msgid "Your keys:"
 msgstr "Your keys:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
-msgstr "Recipient:"
+msgstr "المستلم:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
-msgstr "Encryption keys:"
+msgstr "مفاتيح التّعمية:"
 
 #: ui/keyapprovaldialog.cpp:158
 #, fuzzy, kde-format
@@ -1789,17 +1774,16 @@ msgid "Encryption preference:"
 msgstr "Encryption preference:"
 
 #: ui/keyrequester.cpp:89
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "امسح"
 
 #: ui/keyrequester.cpp:92
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
-msgstr "Change..."
+msgstr "غيّر..."
 
 #: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:218
 #, kde-kuit-format
@@ -1807,7 +1791,10 @@ msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>مجهول</placeholder>"
 
 #: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:675
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt><p>An error occurred while fetching the keys from the backend:</"
+#| "p><p><b>%1</b></p></qt>"
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
@@ -1824,46 +1811,57 @@ msgid "Key Listing Failed"
 msgstr "Key Listing Failed"
 
 #: ui/keyrequester.cpp:271
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The OpenPGP backend does not support listing keys. Check your "
+#| "installation."
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 
 #: ui/keyrequester.cpp:293
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The S/MIME backend does not support listing keys. Check your installation."
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr ""
 "The S/MIME backend does not support listing keys. Check your installation."
 
 #: ui/keyrequester.cpp:413
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "OpenPGP Key Selection"
 msgid "OpenPGP Key Selection"
 msgstr "OpenPGP Key Selection"
 
 #: ui/keyrequester.cpp:414
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Please select an OpenPGP key to use."
 msgid "Please select an OpenPGP key to use."
 msgstr "Please select an OpenPGP key to use."
 
 #: ui/keyrequester.cpp:416
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "S/MIME Key Selection"
 msgid "S/MIME Key Selection"
 msgstr "S/MIME Key Selection"
 
 #: ui/keyrequester.cpp:417
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Please select an S/MIME key to use."
 msgid "Please select an S/MIME key to use."
 msgstr "Please select an S/MIME key to use."
 
 #: ui/keyrequester.cpp:419
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key Selection"
 msgid "Key Selection"
 msgstr "Key Selection"
 
 #: ui/keyrequester.cpp:420
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Please select an (OpenPGP or S/MIME) key to use."
 
@@ -1874,16 +1872,16 @@ msgid "%1 <%2>"
 msgstr ""
 
 #: ui/keyselectioncombo.cpp:178 ui/useridselectioncombo.cpp:175
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
-msgstr "أُنشئ"
+msgstr "%1 (%2، أُنشئ في: %3)"
 
 #: ui/keyselectioncombo.cpp:184 ui/useridselectioncombo.cpp:181
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr "أُنشئ"
+msgstr "%1 (%2، %3، أُنشئ في: %4)"
 
 #: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:713
 #, fuzzy, kde-format
@@ -1948,7 +1946,8 @@ msgid "The key is not trusted enough."
 msgstr ""
 
 #: ui/keyselectiondialog.cpp:190 utils/formatting.cpp:500
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key ID"
 msgid "Key ID"
 msgstr "Key ID"
 
@@ -1956,7 +1955,7 @@ msgstr "Key ID"
 #: ui/keyselectiondialog.cpp:275 ui/keyselectiondialog.cpp:277
 #, kde-format
 msgid "unknown"
-msgstr "unknown"
+msgstr "مجهول"
 
 #: ui/keyselectiondialog.cpp:264
 #, kde-format
@@ -1972,13 +1971,13 @@ msgstr ""
 #: utils/formatting.cpp:529
 #, kde-format
 msgid "Valid from"
-msgstr ""
+msgstr "صالحة من"
 
 #: ui/keyselectiondialog.cpp:274 utils/formatting.cpp:489
 #: utils/formatting.cpp:532
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "صالحة حتى"
 
 #: ui/keyselectiondialog.cpp:275
 #, kde-format
@@ -2002,7 +2001,7 @@ msgstr "الحالة"
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "الامتثال"
 
 #: ui/keyselectiondialog.cpp:421
 #, fuzzy, kde-format
@@ -2011,11 +2010,10 @@ msgid "Search for &External Certificates"
 msgstr "ابدأ شهادة المدير"
 
 #: ui/keyselectiondialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
-msgstr "&Search for:"
+msgstr "ابحث &عن:"
 
 #: ui/keyselectiondialog.cpp:460
 #, fuzzy, kde-format
@@ -2041,13 +2039,14 @@ msgid "&Reread Keys"
 msgstr "&Reread Keys"
 
 #: ui/keyselectiondialog.cpp:482
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
-msgstr "ابدأ شهادة المدير"
+msgstr "ابدأ &مدير الشهادات"
 
 #: ui/keyselectiondialog.cpp:642
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No backends found for listing keys. Check your installation."
 msgid "No backends found for listing keys. Check your installation."
 msgstr "No backends found for listing keys. Check your installation."
 
@@ -2063,12 +2062,14 @@ msgid "Certificate Manager Error"
 msgstr "شهادة المدير خطأ"
 
 #: ui/keyselectiondialog.cpp:719
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Checking selected keys..."
 msgid "Checking selected keys..."
 msgstr "Checking selected keys..."
 
 #: ui/keyselectiondialog.cpp:719
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fetching keys..."
 msgid "Fetching keys..."
 msgstr "Fetching keys..."
 
@@ -2088,12 +2089,14 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: ui/keyselectiondialog.cpp:756
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Key List Result"
 msgid "Key List Result"
 msgstr "Key List Result"
 
 #: ui/keyselectiondialog.cpp:878
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recheck Key"
 msgid "Recheck Key"
 msgstr "Recheck Key"
 
@@ -2104,36 +2107,33 @@ msgid "Show Audit Log"
 msgstr ""
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "Location"
+msgstr "معلومات"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
 msgstr "الاسم"
 
 #: ui/nameandemailwidget.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enter a name."
-msgstr "إدخال:"
+msgstr "أدخِل اسمًا."
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
-msgstr "Email address"
+msgstr "عنوان البريد الإلكترونيّ"
 
 #: ui/nameandemailwidget.cpp:76
 #, fuzzy, kde-format
@@ -2183,7 +2183,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
-msgstr ""
+msgstr "أظهر التّفاصيل"
 
 #: ui/newkeyapprovaldialog.cpp:184
 #, kde-format
@@ -2201,7 +2201,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
-msgstr ""
+msgstr "أظهر الكلّ"
 
 #: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
@@ -2228,29 +2228,25 @@ msgid "Security approval"
 msgstr "Encryption Key Approval"
 
 #: ui/newkeyapprovaldialog.cpp:304
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:305
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2346,10 +2342,9 @@ msgid ""
 msgstr ""
 
 #: ui/openpgpcertificatecreationdialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Advanced Settings"
+#, kde-format
 msgid "Advanced options"
-msgstr "إعدادات متقدّمة"
+msgstr "خيارات متقدمة"
 
 #: ui/openpgpcertificatecreationdialog.cpp:101
 #, kde-format
@@ -2410,7 +2405,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
-msgstr ""
+msgstr "اعرض الأعمدة"
 
 #: ui/useridselectioncombo.cpp:542
 #, fuzzy, kde-format
@@ -2434,10 +2429,10 @@ msgid "Not VS-NfD compliant"
 msgstr "غير متوافق مع VS-NfD"
 
 #: utils/compliance.cpp:180
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
-msgstr "%1 (%2)"
+msgstr "%1 (بيتا)"
 
 #: utils/expiration.cpp:102
 #, kde-format
@@ -2487,9 +2482,9 @@ msgid "%1-bit %2 (secret key available)"
 msgstr ""
 
 #: utils/formatting.cpp:332 utils/formatting.cpp:343
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1-bit %2"
-msgstr "بت"
+msgstr "%1-بت %2"
 
 #: utils/formatting.cpp:351 utils/formatting.cpp:373
 #, fuzzy, kde-format
@@ -2503,8 +2498,7 @@ msgid "Signing"
 msgstr "Scan Results"
 
 #: utils/formatting.cpp:357 utils/formatting.cpp:379
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgid "Encryption"
 msgstr "التعمية"
 
@@ -2611,9 +2605,9 @@ msgstr "لا"
 
 #: utils/formatting.cpp:514 utils/formatting.cpp:516 utils/formatting.cpp:544
 #: utils/formatting.cpp:546
-#, fuzzy, kde-format
+#, kde-format
 msgid "Stored"
-msgstr "مُخزّنة في: "
+msgstr "مُخزّنة"
 
 #: utils/formatting.cpp:514 utils/formatting.cpp:544
 #, kde-format
@@ -2625,12 +2619,12 @@ msgstr ""
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
-msgstr ""
+msgstr "على هذا الحاسوب"
 
 #: utils/formatting.cpp:522
-#, fuzzy, kde-format
+#, kde-format
 msgid "Subkey"
-msgstr "%1 مفتاح فرعي"
+msgstr "مفتاح فرعي"
 
 #: utils/formatting.cpp:575
 #, kde-format
@@ -2667,9 +2661,9 @@ msgid ""
 msgstr ""
 
 #: utils/formatting.cpp:625
-#, fuzzy, kde-format
+#, kde-format
 msgid "Keys:"
-msgstr "المفاتيح"
+msgstr "المفاتيح:"
 
 #: utils/formatting.cpp:634
 #, kde-format
@@ -2692,16 +2686,15 @@ msgid "MMMM d, yyyy"
 msgstr ""
 
 #: utils/formatting.cpp:713 utils/formatting.cpp:748
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
-msgstr "unknown"
+msgstr "مجهول"
 
 #: utils/formatting.cpp:755 utils/formatting.cpp:764
 #, kde-format
 msgid "unlimited"
-msgstr ""
+msgstr "بلا حدّ"
 
 #: utils/formatting.cpp:817
 #, kde-format
@@ -2785,10 +2778,10 @@ msgid "invalid"
 msgstr "غير صالح"
 
 #: utils/formatting.cpp:886
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr "&موافق"
+msgstr "حسنًا"
 
 #: utils/formatting.cpp:925
 #, kde-format
@@ -2796,14 +2789,14 @@ msgid "valid"
 msgstr "صال"
 
 #: utils/formatting.cpp:929
-#, fuzzy, kde-format
+#, kde-format
 msgid "class %1"
-msgstr "الفئة"
+msgstr "الفئة %1"
 
 #: utils/formatting.cpp:939
 #, kde-format
 msgid "certificate expired"
-msgstr ""
+msgstr "انتهت الشهادة"
 
 #: utils/formatting.cpp:941
 #, kde-format
@@ -2814,28 +2807,28 @@ msgstr "سيئ"
 #: utils/formatting.cpp:947
 #, kde-format
 msgid "no public key"
-msgstr ""
+msgstr "لا يوجد مفتاح عام"
 
 #: utils/formatting.cpp:949
 #, kde-format
 msgid "key disabled"
-msgstr ""
+msgstr "المفاتح معطّل"
 
 #: utils/formatting.cpp:951
 #, kde-format
 msgid "key revoked"
-msgstr ""
+msgstr "المفتاح مُبطل"
 
 #: utils/formatting.cpp:953
 #, kde-format
 msgid "key expired"
-msgstr ""
+msgstr "المفتاح منتهي"
 
 #: utils/formatting.cpp:1009
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
-msgstr ""
+msgstr "%1 %2 (%3)"
 
 #: utils/formatting.cpp:1067
 #, kde-format
@@ -2955,16 +2948,16 @@ msgid "ADSK"
 msgstr ""
 
 #: utils/formatting.cpp:1177
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr "أُنشئ"
+msgstr "%1 (%2، %3، أُنشئ في: %4)"
 
 #: utils/formatting.cpp:1188
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
-msgstr "أُنشئ"
+msgstr "(%1، %2، أُنشئ في: %3)"
 
 #: utils/formatting.cpp:1200
 #, fuzzy, kde-format
@@ -3035,11 +3028,10 @@ msgid "This group does not contain any keys."
 msgstr ""
 
 #: utils/formatting.cpp:1307 utils/formatting.cpp:1319
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
-msgstr "unknown"
+msgstr "مجهول"
 
 #: utils/formatting.cpp:1332
 #, fuzzy, kde-format
@@ -3138,115 +3130,115 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
-msgstr ""
+msgstr "ECC (Curve25519)"
 
 #: utils/formatting.cpp:1529
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
-msgstr ""
+msgstr "ECC (Curve448)"
 
 #: utils/formatting.cpp:1530
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
-msgstr ""
+msgstr "ECC (Ed25519)"
 
 #: utils/formatting.cpp:1531
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
-msgstr ""
+msgstr "ECC (Ed448)"
 
 #: utils/formatting.cpp:1532
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
-msgstr ""
+msgstr "ECC (Cv25519)"
 
 #: utils/formatting.cpp:1533
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
-msgstr ""
+msgstr "ECC (Cv448)"
 
 #: utils/formatting.cpp:1534
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1535
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1536
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1537
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
-msgstr ""
+msgstr "RSA 2048"
 
 #: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
-msgstr ""
+msgstr "RSA 3072"
 
 #: utils/formatting.cpp:1539
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
-msgstr ""
+msgstr "RSA 4096"
 
 #: utils/formatting.cpp:1540
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
-msgstr ""
+msgstr "DSA 1024"
 
 #: utils/formatting.cpp:1541
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
-msgstr ""
+msgstr "DSA 2048"
 
 #: utils/formatting.cpp:1542
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
-msgstr ""
+msgstr "الجمال 1024"
 
 #: utils/formatting.cpp:1543
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
-msgstr ""
+msgstr "الجمال 2048"
 
 #: utils/formatting.cpp:1544
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
-msgstr ""
+msgstr "الجمال 102"
 
 #: utils/formatting.cpp:1545
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
-msgstr ""
+msgstr "الجمال 4096"
 
 #: utils/formatting.cpp:1548
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
-msgstr ""
+msgstr "خوارزمية مجهولة"
 
 #: utils/formatting.cpp:1558
 #, kde-format
@@ -3276,7 +3268,7 @@ msgstr ""
 #: utils/formatting.cpp:1566
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr ""
+msgstr "التوقيع صالح، لكن صلاحية  الشهادة غير معروفة."
 
 #: utils/formatting.cpp:1569
 #, kde-format
@@ -3289,7 +3281,7 @@ msgid "Unknown certificate"
 msgstr "ابدأ شهادة المدير"
 
 #: utils/formatting.cpp:1585
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -3336,12 +3328,12 @@ msgstr ""
 #: utils/formatting.cpp:1626
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "خطأ: لم يُتحقّق من التّوقيع"
 
 #: utils/formatting.cpp:1628
 #, kde-format
 msgid "Good signature"
-msgstr ""
+msgstr "التوقيع جيّد"
 
 #: utils/formatting.cpp:1630
 #, kde-format
@@ -3379,20 +3371,19 @@ msgid "Bad policy"
 msgstr ""
 
 #: utils/formatting.cpp:1644
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "خطأ نظام"
 
 #: utils/formatting.cpp:1646
 #, kde-format
 msgid "Bad signature"
-msgstr ""
+msgstr "التوقيع سيّئ"
 
 #: utils/formatting.cpp:1722 utils/formatting.cpp:1745
 #, kde-format
 msgid "The signature is invalid: %1"
-msgstr ""
+msgstr "التوقيع غير صالح: %1"
 
 #: utils/formatting.cpp:1731
 #, kde-format
