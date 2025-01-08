@@ -169,21 +169,7 @@ protected:
         switch (role) {
         case Qt::DisplayRole:
         case Qt::AccessibleTextRole: {
-            const auto nameAndEmail = formatUserID(userId);
-            if (Kleo::KeyCache::instance()->pgpOnly()) {
-                return i18nc("Name <email> (validity, created: date)",
-                             "%1 (%2, created: %3)",
-                             nameAndEmail,
-                             Kleo::Formatting::complianceStringShort(userId),
-                             Kleo::Formatting::creationDateString(userId.parent()));
-            } else {
-                return i18nc("Name <email> (validity, type, created: date)",
-                             "%1 (%2, %3, created: %4)",
-                             nameAndEmail,
-                             Kleo::Formatting::complianceStringShort(userId),
-                             Formatting::displayName(userId.parent().protocol()),
-                             Kleo::Formatting::creationDateString(userId.parent()));
-            }
+            return Formatting::summaryLine(userId);
         }
         case Qt::ToolTipRole: {
             using namespace Kleo::Formatting;
