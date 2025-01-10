@@ -51,6 +51,8 @@ using namespace GpgME;
 using namespace Kleo;
 using namespace Kleo::KeyList;
 
+using namespace Qt::Literals::StringLiterals;
+
 #if !UNITY_BUILD
 Q_DECLARE_METATYPE(GpgME::Key)
 Q_DECLARE_METATYPE(KeyGroup)
@@ -509,7 +511,25 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
             break;
         }
     } else if (role == Qt::ToolTipRole) {
-        return Formatting::toolTip(key, toolTipOptions());
+        if (column == PrettyName) {
+            QSet<QString> names;
+            for (const auto &userId : key.userIDs()) {
+                names += Formatting::prettyName(userId);
+            }
+            return QStringList(names.begin(), names.end()).join(u"\n"_s);
+        }
+
+        if (column == PrettyEMail) {
+            QSet<QString> emails;
+            for (const auto &userId : key.userIDs()) {
+                emails += Formatting::prettyEMail(userId);
+            }
+            return QStringList(emails.begin(), emails.end()).join(u"\n"_s);
+        }
+
+        if (column == Validity) {
+            return Formatting::toolTip(key, Formatting::ToolTipOption::Validity);
+        }
     } else if (role == Qt::FontRole) {
         return KeyFilterManager::instance()->font(key, (column == KeyID || column == Fingerprint) ? QFont(QStringLiteral("monospace")) : QFont());
     } else if (role == Qt::DecorationRole) {
