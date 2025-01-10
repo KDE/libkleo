@@ -51,6 +51,8 @@ using namespace GpgME;
 using namespace Kleo;
 using namespace Kleo::KeyList;
 
+using namespace Qt::Literals::StringLiterals;
+
 #if !UNITY_BUILD
 Q_DECLARE_METATYPE(GpgME::Key)
 Q_DECLARE_METATYPE(KeyGroup)
@@ -509,7 +511,44 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
             break;
         }
     } else if (role == Qt::ToolTipRole) {
-        return Formatting::toolTip(key, toolTipOptions());
+        if (column == PrettyName) {
+            QSet<QString> names;
+            for (const auto &userId : key.userIDs()) {
+                names += Formatting::prettyName(userId);
+            }
+            if (names.size() < 2) {
+                return {};
+            }
+            QString toolTip = i18nc("@info:tooltip", "Names for this certificate:") + "<ul>"_L1;
+
+            for (const auto &name : names) {
+                toolTip += "<li>"_L1 + name + "</li>"_L1;
+            }
+            toolTip += "</ul>"_L1;
+            return toolTip;
+        }
+
+        if (column == PrettyEMail) {
+            QSet<QString> emails;
+            for (const auto &userId : key.userIDs()) {
+                emails += Formatting::prettyEMail(userId);
+            }
+
+            if (emails.size() < 2) {
+                return {};
+            }
+            QString toolTip = i18nc("@info:tooltip", "Email addresses for this certificate:") + "<ul>"_L1;
+
+            for (const auto &email : emails) {
+                toolTip += "<li>"_L1 + email + "</li>"_L1;
+            }
+            toolTip += "</ul>"_L1;
+            return toolTip;
+        }
+
+        if (column == Validity) {
+            return Formatting::toolTip(key, Formatting::ToolTipOption::Validity);
+        }
     } else if (role == Qt::FontRole) {
         return KeyFilterManager::instance()->font(key, (column == KeyID || column == Fingerprint) ? QFont(QStringLiteral("monospace")) : QFont());
     } else if (role == Qt::DecorationRole) {
