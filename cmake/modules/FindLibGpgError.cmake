@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2022 g10 Code GmbH
 # SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>
 #
-# SPDX-License-Identifier: BSD-3-Clause
+# SPDX-License-Identifier: BSD-2-Clause
 
 #[=======================================================================[.rst:
 FindLibGpgError
