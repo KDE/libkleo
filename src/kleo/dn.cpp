@@ -39,34 +39,6 @@ static const QStringList defaultOrder = {
     QStringLiteral("O"),
     QStringLiteral("C"),
 };
-
-class DNAttributeOrderStore
-{
-    DNAttributeOrderStore()
-        : mAttributeOrder{defaultOrder}
-    {
-    }
-
-public:
-    static DNAttributeOrderStore *instance()
-    {
-        static DNAttributeOrderStore *self = new DNAttributeOrderStore();
-        return self;
-    }
-
-    const QStringList &attributeOrder() const
-    {
-        return mAttributeOrder.empty() ? defaultOrder : mAttributeOrder;
-    }
-
-    void setAttributeOrder(const QStringList &order)
-    {
-        mAttributeOrder = order;
-    }
-
-private:
-    QStringList mAttributeOrder;
-};
 }
 
 class Kleo::DN::Private
@@ -78,7 +50,6 @@ public:
     }
     Private(const Private &other)
         : attributes(other.attributes)
-        , reorderedAttributes(other.reorderedAttributes)
         , mRefCount(0)
     {
     }
@@ -104,7 +75,6 @@ public:
     }
 
     DN::Attribute::List attributes;
-    DN::Attribute::List reorderedAttributes;
 
 private:
     int mRefCount;
@@ -329,40 +299,6 @@ static QString serialise(const QList<Kleo::DN::Attribute> &dn, const QString &se
     return listAttributes(dn).join(sep);
 }
 
-static Kleo::DN::Attribute::List reorder_dn(const Kleo::DN::Attribute::List &dn)
-{
-    const QStringList &attrOrder = Kleo::DN::attributeOrder();
-
-    Kleo::DN::Attribute::List unknownEntries;
-    Kleo::DN::Attribute::List result;
-    unknownEntries.reserve(dn.size());
-    result.reserve(dn.size());
-
-    // find all unknown entries in their order of appearance
-    for (Kleo::DN::const_iterator it = dn.begin(); it != dn.end(); ++it) {
-        if (!attrOrder.contains((*it).name())) {
-            unknownEntries.push_back(*it);
-        }
-    }
-
-    // process the known attrs in the desired order
-    for (QStringList::const_iterator oit = attrOrder.begin(); oit != attrOrder.end(); ++oit) {
-        if (*oit == QLatin1StringView("_X_")) {
-            // insert the unknown attrs
-            std::copy(unknownEntries.begin(), unknownEntries.end(), std::back_inserter(result));
-            unknownEntries.clear(); // don't produce dup's
-        } else {
-            for (Kleo::DN::const_iterator dnit = dn.begin(); dnit != dn.end(); ++dnit) {
-                if ((*dnit).name() == *oit) {
-                    result.push_back(*dnit);
-                }
-            }
-        }
-    }
-
-    return result;
-}
-
 //
 //
 // class DN
@@ -427,18 +363,6 @@ const Kleo::DN &Kleo::DN::operator=(const DN &that)
 // static
 QStringList Kleo::DN::attributeOrder()
 {
-    return DNAttributeOrderStore::instance()->attributeOrder();
-}
-
-// static
-void Kleo::DN::setAttributeOrder(const QStringList &order)
-{
-    DNAttributeOrderStore::instance()->setAttributeOrder(order);
-}
-
-// static
-QStringList Kleo::DN::defaultAttributeOrder()
-{
     return defaultOrder;
 }
 
@@ -447,10 +371,7 @@ QString Kleo::DN::prettyDN() const
     if (!d) {
         return QString();
     }
-    if (d->reorderedAttributes.empty()) {
-        d->reorderedAttributes = reorder_dn(d->attributes);
-    }
-    return serialise(d->reorderedAttributes, QStringLiteral(","));
+    return serialise(d->attributes, QStringLiteral(","));
 }
 
 QStringList Kleo::DN::prettyAttributes() const
@@ -459,10 +380,7 @@ QStringList Kleo::DN::prettyAttributes() const
         return {};
     }
 
-    if (d->reorderedAttributes.empty()) {
-        d->reorderedAttributes = reorder_dn(d->attributes);
-    }
-    return listAttributes(d->reorderedAttributes);
+    return listAttributes(d->attributes);
 }
 
 QString Kleo::DN::dn() const
@@ -498,7 +416,6 @@ void Kleo::DN::append(const Attribute &attr)
 {
     detach();
     d->attributes.push_back(attr);
-    d->reorderedAttributes.clear();
 }
 
 QString Kleo::DN::operator[](const QString &attr) const

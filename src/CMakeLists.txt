@@ -151,8 +151,6 @@ target_sources(KPim6Libkleo PRIVATE
     ui/cryptoconfigmodule_p.h
     ui/directoryserviceswidget.cpp
     ui/directoryserviceswidget.h
-    ui/dnattributeorderconfigwidget.cpp
-    ui/dnattributeorderconfigwidget.h
     ui/editdirectoryservicedialog.cpp
     ui/editdirectoryservicedialog.h
     ui/errorlabel.cpp
@@ -336,7 +334,6 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
     HEADER_NAMES
     AuditLogViewer
     CryptoConfigModule
-    DNAttributeOrderConfigWidget
     DirectoryServicesWidget
     EditDirectoryServiceDialog
     ErrorLabel

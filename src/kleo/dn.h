@@ -39,9 +39,6 @@ public:
     const DN &operator=(const DN &other);
 
     static QStringList attributeOrder();
-    static void setAttributeOrder(const QStringList &order);
-
-    static QStringList defaultAttributeOrder();
 
     static QStringList attributeNames();
     static QString attributeNameToLabel(const QString &name);
