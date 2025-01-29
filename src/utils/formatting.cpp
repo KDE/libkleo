@@ -1593,13 +1593,16 @@ static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME
         const auto id =
             QStringLiteral("<br/><a href='certificate:%1'>%2</a>").arg(QString::fromLatin1(sig.fingerprint()), Formatting::prettyID(sig.fingerprint()));
         if (dt.isValid()) {
-            return i18nc("1 is a date", "Signature created on %1 using an unknown certificate with fingerprint %2", QLocale().toString(dt), id);
+            return i18nc("1 is a date",
+                         "Signature created on %1 using an unknown certificate with fingerprint %2",
+                         QLocale().toString(dt, QLocale::ShortFormat),
+                         id);
         }
         return i18n("Signature created using an unknown certificate with fingerprint %1", id);
     }
 
     if (dt.isValid()) {
-        text += i18nc("1 is a date", "Signature created on %1 with certificate: %2", QLocale().toString(dt), renderKey(key));
+        text += i18nc("1 is a date", "Signature created on %1 with certificate: %2", QLocale().toString(dt, QLocale::ShortFormat), renderKey(key));
     } else {
         text += i18n("Signature created with certificate: %1", renderKey(key));
     }
