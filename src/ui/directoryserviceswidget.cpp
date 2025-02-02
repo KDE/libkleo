@@ -63,9 +63,11 @@ public:
     void setKeyservers(const std::vector<KeyserverConfig> &servers)
     {
         clear();
-        beginInsertRows(QModelIndex(), 0, servers.size() - 1);
+        if (!servers.empty())
+            beginInsertRows(QModelIndex(), 0, servers.size() - 1);
         m_items = servers;
-        endInsertRows();
+        if (!servers.empty())
+            endInsertRows();
     }
 
     void addKeyserver(const KeyserverConfig &keyserver)
