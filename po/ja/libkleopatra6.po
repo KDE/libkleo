@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:28+0000\n"
+"POT-Creation-Date: 2025-02-03 00:41+0000\n"
 "PO-Revision-Date: 2023-01-06 09:39+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1156,12 +1156,12 @@ msgid "1 server configured"
 msgid_plural "%1 servers configured"
 msgstr[0] "設定済みのサーバ %1 個"
 
-#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:138 ui/directoryserviceswidget.cpp:195
 #, kde-format
 msgid "Active Directory"
 msgstr "アクティブディレクトリ"
 
-#: ui/directoryserviceswidget.cpp:187
+#: ui/directoryserviceswidget.cpp:189
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1169,7 +1169,7 @@ msgid ""
 "X.509."
 msgstr "X.509 で使用するために設定されているディレクトリサービスの一覧です。"
 
-#: ui/directoryserviceswidget.cpp:197
+#: ui/directoryserviceswidget.cpp:199
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1179,30 +1179,30 @@ msgstr ""
 "このボタンを押し、あなたのアクティブディレクトリで動いているディレクトリサー"
 "ビスを使います。これは Windows でのみ動き、GnuPG 2.2.28 以降が必要です。"
 
-#: ui/directoryserviceswidget.cpp:200
+#: ui/directoryserviceswidget.cpp:202
 #, kde-format
 msgid "LDAP Server"
 msgstr "LDAP サーバ"
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:205
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
 "このボタンを押して LDAP サーバで提供されるディレクトリサービスを追加します。"
 
-#: ui/directoryserviceswidget.cpp:205
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgid "Add"
 msgstr "追加"
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:208
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "クリックしてディレクトリサービスを追加"
 
-#: ui/directoryserviceswidget.cpp:208
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1212,20 +1212,20 @@ msgstr ""
 "このボタンを押してディレクトリサービスをサービスリストに追加します。変更はこ"
 "の設定ダイアログの「適用」または「OK」ボタンを押して初めて有効になります。"
 
-#: ui/directoryserviceswidget.cpp:216
+#: ui/directoryserviceswidget.cpp:218
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "編集"
 
-#: ui/directoryserviceswidget.cpp:217
+#: ui/directoryserviceswidget.cpp:219
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "クリックして現在選択されているサービスを編集。"
 
-#: ui/directoryserviceswidget.cpp:219
+#: ui/directoryserviceswidget.cpp:221
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1237,20 +1237,20 @@ msgstr ""
 "はこの設定ダイアログの「適用」または「OK」ボタンを押して初めて有効になりま"
 "す。"
 
-#: ui/directoryserviceswidget.cpp:224
+#: ui/directoryserviceswidget.cpp:226
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "削除"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:227
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "クリックして選択されているサービスを削除"
 
-#: ui/directoryserviceswidget.cpp:227
+#: ui/directoryserviceswidget.cpp:229
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1260,7 +1260,7 @@ msgstr ""
 "このボタンを押して現在選択されたディレクトリサービスを削除します。変更はこの"
 "設定ダイアログの「適用」または「OK」ボタンを押して初めて有効になります。"
 
-#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
+#: ui/directoryserviceswidget.cpp:354 ui/directoryserviceswidget.cpp:371
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
