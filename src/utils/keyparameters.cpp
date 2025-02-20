@@ -70,6 +70,7 @@ class KeyParameters::Private
     QDate expirationDate;
 
     QString issuerDN;
+    QStringList controlStatements;
 
 public:
     explicit Private(Protocol proto)
@@ -310,6 +311,24 @@ void KeyParameters::setSigningKey(const QString &signingKey)
     d->signingKey = signingKey;
 }
 
+QStringList KeyParameters::controlStatements() const
+{
+    return d->controlStatements;
+}
+
+void KeyParameters::setControlStatements(const QStringList &controlStatements)
+{
+    QStringList validControlStatements;
+    for (const auto &controlStatement : controlStatements) {
+        if (controlStatement.startsWith(u'%')) {
+            validControlStatements << controlStatements;
+        } else {
+            qCWarning(LIBKLEO_LOG).nospace() << "Invalid control statement \"" << controlStatement << "\". Control statements start with a %";
+        }
+    }
+    d->controlStatements = validControlStatements;
+}
+
 namespace
 {
 QString serialize(Subkey::PubkeyAlgo algo)
@@ -425,6 +444,10 @@ QString KeyParameters::toString() const
     std::transform(std::cbegin(d->uris), std::cend(d->uris), std::back_inserter(keyParameters), [](const auto &uri) {
         return serialize("Name-URI", uri);
     });
+
+    for (const auto &controlStatement : d->controlStatements) {
+        keyParameters.push_back(controlStatement);
+    }
 
     keyParameters.push_back(QLatin1StringView("</GnupgKeyParms>"));
 

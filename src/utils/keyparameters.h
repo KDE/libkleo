@@ -13,6 +13,7 @@
 #include "kleo_export.h"
 #include <gpgme++/key.h>
 
+#include <QStringList>
 #include <memory>
 
 class QDate;
@@ -89,6 +90,9 @@ public:
 
     QString signingKey() const;
     void setSigningKey(const QString &signingKey);
+
+    QStringList controlStatements() const;
+    void setControlStatements(const QStringList &controlStatements);
 
     QString toString() const;
 
