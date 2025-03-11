@@ -32,6 +32,9 @@ ecm_add_test(
     TEST_NAME keyresolvercoretest
     LINK_LIBRARIES KPim6::Libkleo Qt::Test
 )
+set_property(TEST keyresolvercoretest PROPERTY
+    SKIP_REGULAR_EXPRESSION "SKIP.*::initTestCase()"
+)
 
 ecm_add_tests(
     editdirectoryservicedialogtest.cpp

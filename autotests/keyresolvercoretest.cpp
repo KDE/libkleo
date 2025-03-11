@@ -106,6 +106,9 @@ class KeyResolverCoreTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        if (qgetenv("CI_RUNNER_EXECUTABLE_ARCH").contains("freebsd")) {
+            QSKIP("On FreeBSD, this test often takes longer than 120 seconds, times out and fails the build.");
+        }
         // Check if we need to create GnuPG's socket directory before running the tests to avoid
         // a race between gpg and gpgsm (see https://dev.gnupg.org/T7332).
         // On CI /run/user doesn't exist so that GnuPG falls back to using GNUPGHOME as socket directory
