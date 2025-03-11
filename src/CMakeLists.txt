@@ -2,7 +2,6 @@
 # SPDX-FileCopyrightText: none
 # target_include_directories does not handle empty include paths
 include_directories(
-    ${Boost_INCLUDE_DIRS}
     ${GPGME_INCLUDES}
 )
 add_definitions(-DTRANSLATION_DOMAIN=\"libkleopatra6\")
@@ -221,10 +220,7 @@ target_link_libraries(KPim6Libkleo PUBLIC Gpgmepp PRIVATE Qt::Widgets
                                                 LibGpgError::LibGpgError)
 
 target_link_libraries(KPim6Libkleo PUBLIC QGpgmeQt6)
-# Boost::headers may not be available for old versions of Boost
-if(TARGET Boost::headers)
-  target_link_libraries(KPim6Libkleo PRIVATE Boost::headers)
-endif()
+target_link_libraries(KPim6Libkleo PRIVATE Boost::headers)
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KPim6Libkleo PROPERTIES UNITY_BUILD ON)

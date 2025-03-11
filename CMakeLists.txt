@@ -73,8 +73,12 @@ set_package_properties(LibGpgError PROPERTIES
   TYPE REQUIRED
 )
 
-find_package(Boost 1.34.0)
-set_package_properties(Boost PROPERTIES DESCRIPTION "Boost C++ Libraries" URL "https://www.boost.org" TYPE REQUIRED PURPOSE "Boost is required for building most KDEPIM applications")
+find_package(Boost 1.70.0 CONFIG)
+set_package_properties(Boost PROPERTIES
+    TYPE REQUIRED
+    DESCRIPTION "Boost C++ Libraries"
+    URL "https://www.boost.org")
+
 ecm_setup_version(PROJECT VARIABLE_PREFIX LIBKLEO
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KPim6LibkleoConfigVersion.cmake"
