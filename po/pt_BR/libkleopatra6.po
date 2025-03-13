@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 09:38+0000\n"
+"POT-Creation-Date: 2025-03-13 00:42+0000\n"
 "PO-Revision-Date: 2023-07-04 10:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1814,19 +1814,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:178
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, criado em: %3)"
-
-#: ui/keyselectioncombo.cpp:184
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3, criado em: %4)"
-
-#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Carregando chaves..."
@@ -3423,6 +3411,14 @@ msgstr "Caractere hexadecimal inválido '%1' no fluxo de entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fim prematuro do caractere hexadecimal codificado no fluxo de entrada"
+
+#~ msgctxt "Name <email> (validity, created: date)"
+#~ msgid "%1 (%2, created: %3)"
+#~ msgstr "%1 (%2, criado em: %3)"
+
+#~ msgctxt "Name <email> (validity, type, created: date)"
+#~ msgid "%1 (%2, %3, created: %4)"
+#~ msgstr "%1 (%2, %3, criado em: %4)"
 
 #, fuzzy
 #~| msgid "All Certificates"

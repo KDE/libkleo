@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1703700 2025-02-24 10:13:32Z scripty $
+# $Id: libkleopatra6.po 1705017 2025-03-13 01:22:03Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 09:38+0000\n"
+"POT-Creation-Date: 2025-03-13 00:42+0000\n"
 "PO-Revision-Date: 2024-11-16 07:47+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2060,19 +2060,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:178
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, ustvarjeno: %3)"
-
-#: ui/keyselectioncombo.cpp:184
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3, ustvarjeno: %4)"
-
-#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Nalaganje ključev …"
@@ -3625,6 +3613,14 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
+
+#~ msgctxt "Name <email> (validity, created: date)"
+#~ msgid "%1 (%2, created: %3)"
+#~ msgstr "%1 (%2, ustvarjeno: %3)"
+
+#~ msgctxt "Name <email> (validity, type, created: date)"
+#~ msgid "%1 (%2, %3, created: %4)"
+#~ msgstr "%1 (%2, %3, ustvarjeno: %4)"
 
 #~ msgctxt "@info"
 #~ msgid "Unknown algorithm"

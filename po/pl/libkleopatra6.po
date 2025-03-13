@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1703700 $
+# Version: $Revision: 1705008 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 09:38+0000\n"
+"POT-Creation-Date: 2025-03-13 00:42+0000\n"
 "PO-Revision-Date: 2024-12-29 10:58+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2009,19 +2009,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:178
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, utworzony: %3)"
-
-#: ui/keyselectioncombo.cpp:184
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3, utworzony: %4)"
-
-#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Wczytywanie kluczy ..."
@@ -3573,6 +3561,14 @@ msgstr "Nieprawidłowy znak szesnastkowy '%1' w strumieniu wejściowym."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Przedwczesny koniec znaku zapisanego szesnastkowo w strumieniu wejściowym"
+
+#~ msgctxt "Name <email> (validity, created: date)"
+#~ msgid "%1 (%2, created: %3)"
+#~ msgstr "%1 (%2, utworzony: %3)"
+
+#~ msgctxt "Name <email> (validity, type, created: date)"
+#~ msgid "%1 (%2, %3, created: %4)"
+#~ msgstr "%1 (%2, %3, utworzony: %4)"
 
 #~ msgctxt "@info"
 #~ msgid "Unknown algorithm"

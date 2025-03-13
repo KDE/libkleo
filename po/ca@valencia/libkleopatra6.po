@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 09:38+0000\n"
+"POT-Creation-Date: 2025-03-13 00:42+0000\n"
 "PO-Revision-Date: 2024-11-15 12:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1942,19 +1942,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:178
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, creada: %3)"
-
-#: ui/keyselectioncombo.cpp:184
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3 creada: %4)"
-
-#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
 #, kde-format
 msgid "Loading keys ..."
 msgstr "S'estan carregant les claus…"
@@ -3517,3 +3505,11 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
+
+#~ msgctxt "Name <email> (validity, created: date)"
+#~ msgid "%1 (%2, created: %3)"
+#~ msgstr "%1 (%2, creada: %3)"
+
+#~ msgctxt "Name <email> (validity, type, created: date)"
+#~ msgid "%1 (%2, %3, created: %4)"
+#~ msgstr "%1 (%2, %3 creada: %4)"

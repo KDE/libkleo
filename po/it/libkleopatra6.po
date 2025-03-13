@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 09:38+0000\n"
+"POT-Creation-Date: 2025-03-13 00:42+0000\n"
 "PO-Revision-Date: 2024-11-15 14:20+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1935,19 +1935,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:178
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, creazione: %3)"
-
-#: ui/keyselectioncombo.cpp:184
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3, creazione: %4)"
-
-#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Caricamento chiavi..."
@@ -3497,6 +3485,14 @@ msgstr "Carattere esadecimale «%1» non valido nel flusso di ingresso."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Fine prematura dei caratteri codificati in esadecimale nel flusso di ingresso"
+
+#~ msgctxt "Name <email> (validity, created: date)"
+#~ msgid "%1 (%2, created: %3)"
+#~ msgstr "%1 (%2, creazione: %3)"
+
+#~ msgctxt "Name <email> (validity, type, created: date)"
+#~ msgid "%1 (%2, %3, created: %4)"
+#~ msgstr "%1 (%2, %3, creazione: %4)"
 
 #~ msgctxt "@info"
 #~ msgid "Unknown algorithm"

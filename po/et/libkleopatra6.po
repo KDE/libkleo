@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 09:38+0000\n"
+"POT-Creation-Date: 2025-03-13 00:42+0000\n"
 "PO-Revision-Date: 2020-02-12 22:57+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1857,23 +1857,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "(validity, protocol, creation date)"
-#| msgid "(%1, %2, created: %3)"
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "(%1, %2, loodud: %3)"
-
-#: ui/keyselectioncombo.cpp:184
-#, fuzzy, kde-format
-#| msgctxt "Name <email> (validity, type, created: date)"
-#| msgid "%1 (%2, %3 created: %4)"
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3 loodud: %4)"
-
-#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Võtmete laadimine..."
@@ -3493,6 +3477,20 @@ msgstr "Vigane 16ndkoodis märk '%1' sisendvoos."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "16ndkoodis märgi enneaegne lõpp sisendvoos"
+
+#, fuzzy
+#~| msgctxt "(validity, protocol, creation date)"
+#~| msgid "(%1, %2, created: %3)"
+#~ msgctxt "Name <email> (validity, created: date)"
+#~ msgid "%1 (%2, created: %3)"
+#~ msgstr "(%1, %2, loodud: %3)"
+
+#, fuzzy
+#~| msgctxt "Name <email> (validity, type, created: date)"
+#~| msgid "%1 (%2, %3 created: %4)"
+#~ msgctxt "Name <email> (validity, type, created: date)"
+#~ msgid "%1 (%2, %3, created: %4)"
+#~ msgstr "%1 (%2, %3 loodud: %4)"
 
 #, fuzzy
 #~| msgid "All Certificates"
