@@ -244,7 +244,7 @@ FormTextInputBase::FormTextInputBase()
 
 FormTextInputBase::~FormTextInputBase() = default;
 
-QWidget *FormTextInputBase::widget() const
+QWidget *FormTextInputBase::widgetInternal() const
 {
     return d->mWidget;
 }

@@ -150,7 +150,7 @@ protected:
     /**
      * Returns the controlled widget.
      */
-    QWidget *widget() const;
+    QWidget *widgetInternal() const;
 
     /**
      * Validates \p text with the validator. Should be used when implementing
@@ -216,7 +216,7 @@ public:
      */
     Widget *widget() const
     {
-        return static_cast<Widget *>(FormTextInputBase::widget());
+        return static_cast<Widget *>(widgetInternal());
     }
 
     bool hasValue() const override;
