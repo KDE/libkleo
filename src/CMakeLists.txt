@@ -125,8 +125,6 @@ target_sources(KPim6Libkleo PRIVATE
     utils/systeminfo.h
     utils/test.cpp
     utils/test.h
-    utils/uniquelock.cpp
-    utils/uniquelock.h
     utils/validation.cpp
     utils/validation.h
     utils/multivalidator_p.h
@@ -321,7 +319,6 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
     StringUtils
     SystemInfo
     Test
-    UniqueLock
     Validation
     REQUIRED_HEADERS libkleo_utils_HEADERS
     PREFIX Libkleo
