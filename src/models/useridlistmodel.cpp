@@ -79,12 +79,9 @@ public:
     }
 
     explicit UIDModelItem(const UserID &uid, UIDModelItem *parentItem)
-        : mParentItem{parentItem}
-        , mUid{uid}
-    {
-        mItemData = {Formatting::prettyUserID(uid)};
-        // for the empty cells of the user ID rows we announce "User ID"
-        mAccessibleText = {
+        : mItemData{Formatting::prettyUserID(uid)}
+          // for the empty cells of the user ID rows we announce "User ID"
+        , mAccessibleText{
             {}, // use displayed user ID
             i18n("User ID"),
             i18n("User ID"),
@@ -94,23 +91,26 @@ public:
             i18n("User ID"),
             i18n("User ID"),
             i18n("User ID"),
-        };
+        }
+        , mParentItem{parentItem}
+        , mUid{uid}
+    {
     }
 
     // The root item
     UIDModelItem()
+        : mItemData{
+              i18n("User ID / Certification Key ID"),
+              i18n("Name"),
+              i18n("Email"),
+              i18n("Status"),
+              i18n("Exportable"),
+              i18n("Valid From"),
+              i18n("Valid Until"),
+              i18n("Tags"),
+              i18n("Trust Signature For"),
+          }
     {
-        mItemData = {
-            i18n("User ID / Certification Key ID"),
-            i18n("Name"),
-            i18n("Email"),
-            i18n("Status"),
-            i18n("Exportable"),
-            i18n("Valid From"),
-            i18n("Valid Until"),
-            i18n("Tags"),
-            i18n("Trust Signature For"),
-        };
         // mAccessibleText is explicitly left empty
     }
 
