@@ -38,7 +38,7 @@ std::vector<std::string> Kleo::SCDaemon::getReaders(Error &err)
 
     auto assuanContext = std::shared_ptr<Context>(c.release());
     const std::string command = "SCD GETINFO reader_list";
-    const std::string readers = Assuan::sendDataCommand(assuanContext, command.c_str(), err);
+    const std::string readers = Assuan::sendDataCommand(assuanContext, command, err);
     if (err) {
         return {};
     }
