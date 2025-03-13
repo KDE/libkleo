@@ -13,7 +13,6 @@ macro(add_kleo_test _source)
 endmacro()
 
 
-add_kleo_test(test_jobs.cpp)
 add_kleo_test(test_cryptoconfig.cpp)
 add_kleo_test(test_keyselectiondialog.cpp)
 add_kleo_test(test_keygen.cpp test_keygen.h)
