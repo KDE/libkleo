@@ -15,10 +15,10 @@
 #include "expirychecker.h"
 
 #include "debug.h"
-#include "dn.h"
 #include "expirycheckersettings.h"
 
 #include <libkleo/algorithm.h>
+#include <libkleo/formatting.h>
 #include <libkleo/keycache.h>
 #include <libkleo_debug.h>
 
@@ -139,7 +139,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
     const bool isSigningKey = flags & ExpiryChecker::SigningKey;
     const auto userCert = orig_key.isNull() ? key : orig_key;
     const auto userCertInfo = ki18nc("<b>User ID of certificate</b> (serial number serial no. of certificate)", "<b>%1</b> (serial number %2)")
-                                  .subs(Kleo::DN(userCert.userID(0).id()).prettyDN())
+                                  .subs(Formatting::prettyDN(userCert.userID(0).id()))
                                   .subs(QString::fromLatin1(userCert.issuerSerial()));
     if (expiration.status == ExpiryChecker::Expired) {
         qCDebug(LIBKLEO_LOG) << "Certificate" << key << "expired" << expiration.duration.count() << "days ago";
@@ -163,7 +163,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                             "<p>for S/MIME certificate</p><p align=center>%1</p>"
                             "<p>expired less than a day ago.</p>");
                     }
-                    return msg.subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+                    return msg.subs(userCertInfo).subs(Formatting::prettyDN(key.userID(0).id())).toString();
                 }
                 KLocalizedString msg;
                 if (isSigningKey) {
@@ -191,7 +191,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
                 }
-                return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+                return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Formatting::prettyDN(key.userID(0).id())).toString();
             } else {
                 if (expiration.duration.count() == 0) {
                     KLocalizedString msg;
@@ -211,7 +211,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                             "<p>for S/MIME certificate</p><p align=center>%1</p>"
                             "<p>expired less than a day ago.</p>");
                     }
-                    return msg.subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+                    return msg.subs(userCertInfo).subs(Formatting::prettyDN(key.userID(0).id())).toString();
                 }
                 KLocalizedString msg;
                 if (isSigningKey) {
@@ -239,7 +239,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
                         "<p>expired %1 days ago.</p>");
                 }
-                return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+                return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Formatting::prettyDN(key.userID(0).id())).toString();
             }
         } else {
             if (expiration.duration.count() == 0) {
@@ -288,7 +288,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                         "<p>for S/MIME certificate</p><p align=center>%2</p>"
                         "<p>expires today.</p>");
                 }
-                return msg.subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+                return msg.subs(userCertInfo).subs(Formatting::prettyDN(key.userID(0).id())).toString();
             }
             KLocalizedString msg;
             if (isSigningKey) {
@@ -316,7 +316,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                     "<p>for S/MIME certificate</p><p align=center>%2</p>"
                     "<p>expires in %1 days.</p>");
             }
-            return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+            return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Formatting::prettyDN(key.userID(0).id())).toString();
         }
         if (expiration.duration.count() == 0) {
             KLocalizedString msg;
@@ -363,7 +363,7 @@ QString formatSMIMEMessage(const GpgME::Key &orig_key, ExpiryChecker::Expiration
                 "<p>for S/MIME certificate</p><p align=center>%2</p>"
                 "<p>expires in %1 days.</p>");
         }
-        return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Kleo::DN(key.userID(0).id()).prettyDN()).toString();
+        return msg.subs(expiration.duration.count()).subs(userCertInfo).subs(Formatting::prettyDN(key.userID(0).id())).toString();
     }
     if (expiration.duration.count() == 0) {
         KLocalizedString msg;

@@ -20,7 +20,6 @@
 
 #include <libkleo/compat.h>
 #include <libkleo/compliance.h>
-#include <libkleo/dn.h>
 #include <libkleo/formatting.h>
 
 #include <kleo_ui_debug.h>
@@ -223,7 +222,7 @@ QString ColumnStrategy::text(const GpgME::Key &key, int col) const
         if (key.protocol() == GpgME::OpenPGP) {
             return uid && *uid ? QString::fromUtf8(uid) : QString();
         } else { // CMS
-            return DN(uid).prettyDN();
+            return Formatting::prettyDN(uid);
         }
     }
     default:
@@ -263,7 +262,7 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
     if (key.protocol() == GpgME::OpenPGP) {
         html += i18n("OpenPGP key for <b>%1</b>", uid ? QString::fromUtf8(uid) : i18n("unknown"));
     } else {
-        html += i18n("S/MIME key for <b>%1</b>", uid ? DN(uid).prettyDN() : i18n("unknown"));
+        html += i18n("S/MIME key for <b>%1</b>", uid ? Formatting::prettyDN(uid) : i18n("unknown"));
     }
     html += QStringLiteral("</p><table>");
 
@@ -274,7 +273,7 @@ QString ColumnStrategy::toolTip(const GpgME::Key &key, int) const
     addRow(i18n("Valid until"), expiry);
     addRow(i18nc("Key fingerprint", "Fingerprint"), fpr ? QString::fromLatin1(fpr) : i18n("unknown"));
     if (key.protocol() != GpgME::OpenPGP) {
-        addRow(i18nc("Key issuer", "Issuer"), issuer ? DN(issuer).prettyDN() : i18n("unknown"));
+        addRow(i18nc("Key issuer", "Issuer"), issuer ? Formatting::prettyDN(issuer) : i18n("unknown"));
     }
     addRow(i18nc("Key status", "Status"), keyStatusString);
     if (DeVSCompliance::isActive()) {

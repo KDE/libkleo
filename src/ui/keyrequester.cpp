@@ -21,7 +21,6 @@
 
 #include <libkleo/algorithm.h>
 #include <libkleo/compliance.h>
-#include <libkleo/dn.h>
 #include <libkleo/formatting.h>
 #include <libkleo/keyhelpers.h>
 
@@ -206,7 +205,7 @@ void Kleo::KeyRequester::updateKeys()
             if (it->protocol() == GpgME::OpenPGP) {
                 toolTipText += QString::fromUtf8(uid);
             } else {
-                toolTipText += Kleo::DN(uid).prettyDN();
+                toolTipText += Formatting::prettyDN(uid);
             }
         } else {
             toolTipText += xi18n("<placeholder>unknown</placeholder>");

@@ -30,6 +30,7 @@
 #include <KLocalizedString>
 
 #include <QGpgME/CryptoConfig>
+#include <QGpgME/DN>
 #include <QGpgME/Protocol>
 
 #include <QDateTime>
@@ -155,9 +156,10 @@ QString Formatting::prettyName(int proto, const char *id, const char *name_, con
     }
 
     if (proto == GpgME::CMS) {
-        const DN subject(id);
+        const QGpgME::DN subject(id);
         const QString cn = subject[QStringLiteral("CN")].trimmed();
         if (cn.isEmpty()) {
+            subject.setAttributeOrder(DNAttributes::order());
             return subject.prettyDN();
         }
         return cn;
@@ -198,9 +200,10 @@ QString Formatting::prettyNameAndEMail(int proto, const QString &id, const QStri
     }
 
     if (proto == GpgME::CMS) {
-        const DN subject(id);
+        const QGpgME::DN subject(id);
         const QString cn = subject[QStringLiteral("CN")].trimmed();
         if (cn.isEmpty()) {
+            subject.setAttributeOrder(DN::attributeOrder());
             return subject.prettyDN();
         }
         return cn;
@@ -221,7 +224,7 @@ QString Formatting::prettyUserID(const UserID &uid)
         // ### parse uri/dns:
         return QString::fromUtf8(uid.id());
     } else {
-        return DN(uid.id()).prettyDN();
+        return prettyDN(uid.id());
     }
 }
 
@@ -293,6 +296,13 @@ QString Formatting::prettyEMail(const char *email_, const char *id)
     } else {
         return DN(id)[QStringLiteral("EMAIL")].trimmed();
     }
+}
+
+QString Formatting::prettyDN(const char *utf8DN)
+{
+    QGpgME::DN dn{utf8DN};
+    dn.setAttributeOrder(Kleo::DN::attributeOrder());
+    return dn.prettyDN();
 }
 
 //

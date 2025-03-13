@@ -77,6 +77,8 @@ KLEO_EXPORT QString prettyEMail(const GpgME::Key &key);
 KLEO_EXPORT QString prettyEMail(const GpgME::UserID &uid);
 KLEO_EXPORT QString prettyEMail(const GpgME::UserID::Signature &sig);
 
+KLEO_EXPORT QString prettyDN(const char *utf8DN);
+
 /* Formats a fingerprint or keyid into groups of four */
 KLEO_EXPORT QString prettyID(const char *id);
 KLEO_EXPORT QString accessibleHexID(const char *id);
