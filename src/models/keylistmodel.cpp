@@ -148,7 +148,7 @@ void AbstractKeyListModel::setRemarkKeys(const std::vector<GpgME::Key> &keys)
     d->m_remarkKeys = keys;
 }
 
-std::vector<GpgME::Key> AbstractKeyListModel::remarkKeys() const
+const std::vector<GpgME::Key> &AbstractKeyListModel::remarkKeys() const
 {
     return d->m_remarkKeys;
 }

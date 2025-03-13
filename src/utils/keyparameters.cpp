@@ -251,7 +251,7 @@ void KeyParameters::addEmail(const QString &email)
     d->emailAdresses.push_back(email);
 }
 
-std::vector<QString> KeyParameters::emails() const
+const std::vector<QString> &KeyParameters::emails() const
 {
     return d->emailAdresses;
 }
@@ -261,7 +261,7 @@ void KeyParameters::addDomainName(const QString &domain)
     d->domainNames.push_back(domain);
 }
 
-std::vector<QString> KeyParameters::domainNames() const
+const std::vector<QString> &KeyParameters::domainNames() const
 {
     return d->domainNames;
 }
@@ -271,7 +271,7 @@ void KeyParameters::addURI(const QString &uri)
     d->uris.push_back(uri);
 }
 
-std::vector<QString> KeyParameters::uris() const
+const std::vector<QString> &KeyParameters::uris() const
 {
     return d->uris;
 }

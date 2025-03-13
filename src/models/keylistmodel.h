@@ -113,7 +113,7 @@ public:
      * Needs at least GpgME 1.14 to work properly. Remarks are
      * joined by a semicolon and a space. */
     void setRemarkKeys(const std::vector<GpgME::Key> &remarkKeys);
-    std::vector<GpgME::Key> remarkKeys() const;
+    const std::vector<GpgME::Key> &remarkKeys() const;
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     QStringList mimeTypes() const override;

@@ -75,11 +75,11 @@ public:
     QString dn() const;
     void setEmail(const QString &email);
     void addEmail(const QString &email);
-    std::vector<QString> emails() const;
+    const std::vector<QString> &emails() const;
     void addDomainName(const QString &domain);
-    std::vector<QString> domainNames() const;
+    const std::vector<QString> &domainNames() const;
     void addURI(const QString &uri);
-    std::vector<QString> uris() const;
+    const std::vector<QString> &uris() const;
 
     QString serial() const;
     void setSerial(const QString &serial);
