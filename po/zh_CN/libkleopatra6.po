@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 09:38+0000\n"
+"POT-Creation-Date: 2025-03-14 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -920,17 +920,17 @@ msgstr "ID"
 msgid "Type"
 msgstr "文件系统"
 
-#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid From"
 msgstr "有效期开始自"
 
-#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid Until"
 msgstr "有效期结束于"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:106
 #: utils/formatting.cpp:524 utils/formatting.cpp:526
 #, kde-format
 msgid "Status"
@@ -970,42 +970,42 @@ msgstr "无"
 msgid "not applicable"
 msgstr "不适用"
 
-#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
-#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
-#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
-#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
+#: models/useridlistmodel.cpp:86 models/useridlistmodel.cpp:87
+#: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
+#: models/useridlistmodel.cpp:90 models/useridlistmodel.cpp:91
+#: models/useridlistmodel.cpp:92 models/useridlistmodel.cpp:93
 #: ui/keyselectiondialog.cpp:192 utils/formatting.cpp:472
 #: utils/formatting.cpp:482
 #, kde-format
 msgid "User ID"
 msgstr "用户标识"
 
-#: models/useridlistmodel.cpp:104
+#: models/useridlistmodel.cpp:103
 #, kde-format
 msgid "User ID / Certification Key ID"
 msgstr "用户 ID / 验证密钥 ID"
 
-#: models/useridlistmodel.cpp:105
+#: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "Name"
 msgstr "名称"
 
-#: models/useridlistmodel.cpp:106
+#: models/useridlistmodel.cpp:105
 #, kde-format
 msgid "Email"
 msgstr "电子邮件"
 
-#: models/useridlistmodel.cpp:108
+#: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Exportable"
 msgstr "可导出"
 
-#: models/useridlistmodel.cpp:111
+#: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Tags"
 msgstr "标签"
 
-#: models/useridlistmodel.cpp:112
+#: models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Trust Signature For"
 msgstr "信任签名"
@@ -1756,19 +1756,7 @@ msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:178
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1（%2，创建于：%3）"
-
-#: ui/keyselectioncombo.cpp:184
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1（%2，%3，创建于：%4）"
-
-#: ui/keyselectioncombo.cpp:923 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
 #, kde-format
 msgid "Loading keys ..."
 msgstr "正在加载密钥..."
