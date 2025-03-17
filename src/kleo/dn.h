@@ -25,7 +25,7 @@ namespace Kleo
 /**
    @short DN parser and reorderer
 */
-class KLEO_EXPORT DN
+class KLEO_DEPRECATED_EXPORT DN
 {
 public:
     class Attribute;

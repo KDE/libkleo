@@ -200,13 +200,22 @@ static const unsigned char *parse_dn_part(DnPair *array, const unsigned char *st
 /* Parse a DN and return an array-ized one.  This is not a validating
    parser and it does not support any old-stylish syntax; gpgme is
    expected to return only rfc2253 compatible strings. */
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 static Kleo::DN::Attribute::List parse_dn(const unsigned char *string)
 {
+    QT_WARNING_POP
     if (!string) {
+        QT_WARNING_PUSH
+        QT_WARNING_DISABLE_DEPRECATED
         return QList<Kleo::DN::Attribute>();
+        QT_WARNING_POP
     }
 
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_DEPRECATED
     QList<Kleo::DN::Attribute> result;
+    QT_WARNING_POP
     while (*string) {
         while (*string == ' ') {
             string++;
@@ -221,7 +230,10 @@ static Kleo::DN::Attribute::List parse_dn(const unsigned char *string)
             goto failure;
         }
         if (pair.key && pair.value) {
+            QT_WARNING_PUSH
+            QT_WARNING_DISABLE_DEPRECATED
             result.push_back(Kleo::DN::Attribute(QString::fromUtf8(pair.key), QString::fromUtf8(pair.value)));
+            QT_WARNING_POP
         }
         free(pair.key);
         free(pair.value);
@@ -239,11 +251,17 @@ static Kleo::DN::Attribute::List parse_dn(const unsigned char *string)
     return result;
 
 failure:
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_DEPRECATED
     return QList<Kleo::DN::Attribute>();
+    QT_WARNING_POP
 }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 static QList<Kleo::DN::Attribute> parse_dn(const QString &dn)
 {
+    QT_WARNING_POP
     return parse_dn((const unsigned char *)dn.toUtf8().data());
 }
 
@@ -270,8 +288,11 @@ static QString dn_escape(const QString &s)
     return result;
 }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 static QStringList listAttributes(const QList<Kleo::DN::Attribute> &dn)
 {
+    QT_WARNING_POP
     QStringList result;
     result.reserve(dn.size());
     for (const auto &attribute : dn) {
@@ -282,22 +303,34 @@ static QStringList listAttributes(const QList<Kleo::DN::Attribute> &dn)
     return result;
 }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 static QString serialise(const QList<Kleo::DN::Attribute> &dn, const QString &sep)
 {
+    QT_WARNING_POP
     return listAttributes(dn).join(sep);
 }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 static Kleo::DN::Attribute::List reorder_dn(const Kleo::DN::Attribute::List &dn)
 {
-    const QStringList &attrOrder = Kleo::DN::attributeOrder();
+    QT_WARNING_POP
+    const QStringList &attrOrder = Kleo::DNAttributes::order();
 
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_DEPRECATED
     Kleo::DN::Attribute::List unknownEntries;
     Kleo::DN::Attribute::List result;
+    QT_WARNING_POP
     unknownEntries.reserve(dn.size());
     result.reserve(dn.size());
 
     // find all unknown entries in their order of appearance
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_DEPRECATED
     for (Kleo::DN::const_iterator it = dn.begin(); it != dn.end(); ++it) {
+        QT_WARNING_POP
         if (!attrOrder.contains((*it).name())) {
             unknownEntries.push_back(*it);
         }
@@ -310,7 +343,10 @@ static Kleo::DN::Attribute::List reorder_dn(const Kleo::DN::Attribute::List &dn)
             std::copy(unknownEntries.begin(), unknownEntries.end(), std::back_inserter(result));
             unknownEntries.clear(); // don't produce dup's
         } else {
+            QT_WARNING_PUSH
+            QT_WARNING_DISABLE_DEPRECATED
             for (Kleo::DN::const_iterator dnit = dn.begin(); dnit != dn.end(); ++dnit) {
+                QT_WARNING_POP
                 if ((*dnit).name() == *oit) {
                     result.push_back(*dnit);
                 }
@@ -364,8 +400,11 @@ Kleo::DN::~DN()
     }
 }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 const Kleo::DN &Kleo::DN::operator=(const DN &that)
 {
+    QT_WARNING_POP
     if (this->d == that.d) {
         return *this;
     }
@@ -455,14 +494,23 @@ QString Kleo::DN::operator[](const QString &attr) const
     return QString();
 }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 static QList<Kleo::DN::Attribute> empty;
+QT_WARNING_POP
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 Kleo::DN::const_iterator Kleo::DN::begin() const
 {
+    QT_WARNING_POP
     return d ? d->attributes.constBegin() : empty.constBegin();
 }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 Kleo::DN::const_iterator Kleo::DN::end() const
 {
+    QT_WARNING_POP
     return d ? d->attributes.constEnd() : empty.constEnd();
 }
