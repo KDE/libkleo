@@ -11,7 +11,7 @@
 
 #include "dnattributeorderconfigwidget.h"
 
-#include <libkleo/dn.h>
+#include <libkleo/dnattributes.h>
 
 #include <libkleo_debug.h>
 
@@ -231,7 +231,7 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
         } else {
             last = new QTreeWidgetItem(d->currentLV, last);
             last->setText(0, attr);
-            const auto label = DN::attributeNameToLabel(attr);
+            const auto label = DNAttributes::nameToLabel(attr);
             last->setText(1, label);
             const QString accessibleName = label + QLatin1StringView(", ") + attr;
             last->setData(0, Qt::AccessibleTextRole, accessibleName);
@@ -241,12 +241,12 @@ void Kleo::DNAttributeOrderConfigWidget::setAttributeOrder(const QStringList &or
 
     // fill the LHS listview with what's left:
 
-    const QStringList all = DN::attributeNames();
+    const QStringList all = DNAttributes::names();
     for (const auto &attr : all) {
         if (!order.contains(attr, Qt::CaseInsensitive)) {
             auto item = new QTreeWidgetItem(d->availableLV);
             item->setText(0, attr);
-            const auto label = DN::attributeNameToLabel(attr);
+            const auto label = DNAttributes::nameToLabel(attr);
             item->setText(1, label);
             const QString accessibleName = label + QLatin1StringView(", ") + attr;
             item->setData(0, Qt::AccessibleTextRole, accessibleName);

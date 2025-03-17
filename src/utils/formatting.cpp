@@ -20,7 +20,7 @@
 #include "gnupg.h"
 #include "keyhelpers.h"
 
-#include <libkleo/dn.h>
+#include <libkleo/dnattributes.h>
 #include <libkleo/keycache.h>
 #include <libkleo/keygroup.h>
 
@@ -203,7 +203,7 @@ QString Formatting::prettyNameAndEMail(int proto, const QString &id, const QStri
         const QGpgME::DN subject(id);
         const QString cn = subject[QStringLiteral("CN")].trimmed();
         if (cn.isEmpty()) {
-            subject.setAttributeOrder(DN::attributeOrder());
+            subject.setAttributeOrder(DNAttributes::order());
             return subject.prettyDN();
         }
         return cn;
@@ -301,7 +301,7 @@ QString Formatting::prettyEMail(const char *email_, const char *id)
 QString Formatting::prettyDN(const char *utf8DN)
 {
     QGpgME::DN dn{utf8DN};
-    dn.setAttributeOrder(Kleo::DN::attributeOrder());
+    dn.setAttributeOrder(DNAttributes::order());
     return dn.prettyDN();
 }
 

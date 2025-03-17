@@ -13,6 +13,8 @@
 
 #include "kleo_export.h"
 
+#include "dnattributes.h"
+
 #include <QList>
 #include <QString>
 #include <QStringList>
@@ -38,13 +40,28 @@ public:
 
     const DN &operator=(const DN &other);
 
-    static QStringList attributeOrder();
-    static void setAttributeOrder(const QStringList &order);
+    static QStringList attributeOrder()
+    {
+        return Kleo::DNAttributes::order();
+    }
+    static void setAttributeOrder(const QStringList &order)
+    {
+        return Kleo::DNAttributes::setOrder(order);
+    }
 
-    static QStringList defaultAttributeOrder();
+    static QStringList defaultAttributeOrder()
+    {
+        return Kleo::DNAttributes::defaultOrder();
+    }
 
-    static QStringList attributeNames();
-    static QString attributeNameToLabel(const QString &name);
+    static QStringList attributeNames()
+    {
+        return Kleo::DNAttributes::names();
+    }
+    static QString attributeNameToLabel(const QString &name)
+    {
+        return Kleo::DNAttributes::nameToLabel(name);
+    }
 
     /** @return the value in rfc-2253-escaped form */
     static QString escape(const QString &value);
