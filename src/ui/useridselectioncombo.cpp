@@ -11,7 +11,6 @@
 #include "progressbar.h"
 
 #include <libkleo/defaultkeyfilter.h>
-#include <libkleo/dn.h>
 #include <libkleo/formatting.h>
 #include <libkleo/keycache.h>
 #include <libkleo/keyfiltermanager.h>
@@ -24,6 +23,8 @@
 #include <kleo_ui_debug.h>
 
 #include <KLocalizedString>
+
+#include <QGpgME/DN>
 
 #include <QHBoxLayout>
 #include <QList>
@@ -83,11 +84,11 @@ static QString formatUserID(const GpgME::UserID &userID)
         name = QString::fromUtf8(userID.name());
         email = QString::fromUtf8(userID.email());
     } else {
-        const Kleo::DN dn(userID.id());
+        const QGpgME::DN dn(userID.id());
         name = dn[QStringLiteral("CN")];
         email = dn[QStringLiteral("EMAIL")];
         if (name.isEmpty()) {
-            name = Kleo::DN(userID.parent().userID(0).id())[QStringLiteral("CN")];
+            name = QGpgME::DN(userID.parent().userID(0).id())[QStringLiteral("CN")];
         }
     }
     return email.isEmpty() ? name : name.isEmpty() ? email : i18nc("Name <email>", "%1 <%2>", name, email);

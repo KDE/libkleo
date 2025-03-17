@@ -18,7 +18,6 @@
 #include <libkleo/algorithm.h>
 #include <libkleo/compat.h>
 #include <libkleo/debug.h>
-#include <libkleo/dn.h>
 #include <libkleo/enum.h>
 #include <libkleo/filesystemwatcher.h>
 #include <libkleo/gnupg.h>
@@ -34,6 +33,7 @@
 #include <KSharedConfig>
 
 #include <QGpgME/CryptoConfig>
+#include <QGpgME/DN>
 #include <QGpgME/ListAllKeysJob>
 #include <QGpgME/Protocol>
 
@@ -1014,7 +1014,7 @@ static std::string email(const UserID &uid)
     }
     const std::string email = uid.email();
     if (email.empty()) {
-        return DN(uid.id())[QStringLiteral("EMAIL")].trimmed().toUtf8().constData();
+        return QGpgME::DN(uid.id())[QStringLiteral("EMAIL")].trimmed().toUtf8().constData();
     }
     if (email[0] == '<' && email[email.size() - 1] == '>') {
         return email.substr(1, email.size() - 2);

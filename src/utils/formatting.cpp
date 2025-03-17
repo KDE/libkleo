@@ -294,7 +294,7 @@ QString Formatting::prettyEMail(const char *email_, const char *id)
     if (email_ && KEmailAddress::splitAddress(QString::fromUtf8(email_), name, email, comment) == KEmailAddress::AddressOk) {
         return email;
     } else {
-        return DN(id)[QStringLiteral("EMAIL")].trimmed();
+        return QGpgME::DN(id)[QStringLiteral("EMAIL")].trimmed();
     }
 }
 
@@ -1686,7 +1686,7 @@ QString Formatting::email(const GpgME::UserID &uid)
         if (id[0] == '<') {
             return stripAngleBrackets(id).toString();
         }
-        return Kleo::DN(id)[QStringLiteral("EMAIL")].trimmed();
+        return QGpgME::DN(id)[QStringLiteral("EMAIL")].trimmed();
     }
     return {};
 }
