@@ -19,54 +19,12 @@
 
 #include "oidmap.h"
 
-#include <KLazyLocalizedString>
-
 #include <algorithm>
 
 #ifdef _MSC_VER
 #include <string.h>
 #define strcasecmp _stricmp
 #endif
-
-namespace
-{
-static const QStringList defaultOrder = {
-    QStringLiteral("CN"),
-    QStringLiteral("L"),
-    QStringLiteral("_X_"),
-    QStringLiteral("OU"),
-    QStringLiteral("O"),
-    QStringLiteral("C"),
-};
-
-class DNAttributeOrderStore
-{
-    DNAttributeOrderStore()
-        : mAttributeOrder{defaultOrder}
-    {
-    }
-
-public:
-    static DNAttributeOrderStore *instance()
-    {
-        static DNAttributeOrderStore *self = new DNAttributeOrderStore();
-        return self;
-    }
-
-    const QStringList &attributeOrder() const
-    {
-        return mAttributeOrder.empty() ? defaultOrder : mAttributeOrder;
-    }
-
-    void setAttributeOrder(const QStringList &order)
-    {
-        mAttributeOrder = order;
-    }
-
-private:
-    QStringList mAttributeOrder;
-};
-}
 
 class Kleo::DN::Private
 {
@@ -417,24 +375,6 @@ const Kleo::DN &Kleo::DN::operator=(const DN &that)
     return *this;
 }
 
-// static
-QStringList Kleo::DN::attributeOrder()
-{
-    return DNAttributeOrderStore::instance()->attributeOrder();
-}
-
-// static
-void Kleo::DN::setAttributeOrder(const QStringList &order)
-{
-    DNAttributeOrderStore::instance()->setAttributeOrder(order);
-}
-
-// static
-QStringList Kleo::DN::defaultAttributeOrder()
-{
-    return defaultOrder;
-}
-
 QString Kleo::DN::prettyDN() const
 {
     if (!d) {
@@ -506,45 +446,4 @@ Kleo::DN::const_iterator Kleo::DN::begin() const
 Kleo::DN::const_iterator Kleo::DN::end() const
 {
     return d ? d->attributes.constEnd() : empty.constEnd();
-}
-
-/////////////////////
-
-namespace
-{
-static const QMap<QString, KLazyLocalizedString> attributeNamesAndLabels = {
-    // clang-format off
-    {QStringLiteral("CN"),     kli18n("Common name")        },
-    {QStringLiteral("SN"),     kli18n("Surname")            },
-    {QStringLiteral("GN"),     kli18n("Given name")         },
-    {QStringLiteral("L"),      kli18n("Location")           },
-    {QStringLiteral("T"),      kli18n("Title")              },
-    {QStringLiteral("OU"),     kli18n("Organizational unit")},
-    {QStringLiteral("O"),      kli18n("Organization")       },
-    {QStringLiteral("PC"),     kli18n("Postal code")        },
-    {QStringLiteral("C"),      kli18n("Country code")       },
-    {QStringLiteral("SP"),     kli18n("State or province")  },
-    {QStringLiteral("DC"),     kli18n("Domain component")   },
-    {QStringLiteral("BC"),     kli18n("Business category")  },
-    {QStringLiteral("EMAIL"),  kli18n("Email address")      },
-    {QStringLiteral("MAIL"),   kli18n("Mail address")       },
-    {QStringLiteral("MOBILE"), kli18n("Mobile phone number")},
-    {QStringLiteral("TEL"),    kli18n("Telephone number")   },
-    {QStringLiteral("FAX"),    kli18n("Fax number")         },
-    {QStringLiteral("STREET"), kli18n("Street address")     },
-    {QStringLiteral("UID"),    kli18n("Unique ID")          },
-    // clang-format on
-};
-}
-
-// static
-QStringList Kleo::DN::attributeNames()
-{
-    return attributeNamesAndLabels.keys();
-}
-
-// static
-QString Kleo::DN::attributeNameToLabel(const QString &name)
-{
-    return attributeNamesAndLabels.value(name.trimmed().toUpper()).toString();
 }

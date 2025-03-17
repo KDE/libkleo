@@ -33,6 +33,8 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
    kleo/docaction.cpp kleo/docaction.h
    kleo/dn.cpp
    kleo/dn.h
+   kleo/dnattributes.cpp
+   kleo/dnattributes.h
    kleo/enum.cpp
    kleo/enum.h
    kleo/expirychecker.cpp
@@ -252,6 +254,7 @@ ecm_generate_headers(libkleo_CamelCase_HEADERS
   DefaultKeyGenerationJob
   DocAction
   Dn
+  DnAttributes
   Enum
   ExpiryChecker
   ExpiryCheckerConfig
