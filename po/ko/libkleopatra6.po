@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:43+0000\n"
+"POT-Creation-Date: 2025-03-18 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 18:49+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -70,79 +70,79 @@ msgstr "'file-patterns' 항목이 비어 있거나 빠졌음"
 msgid "Caught unknown exception in group %1"
 msgstr "그룹 %1에서 알 수 없는 예외 발생"
 
-#: kleo/dn.cpp:536
+#: kleo/dnattributes.cpp:61
 msgid "Common name"
 msgstr "일반 이름"
 
-#: kleo/dn.cpp:537
+#: kleo/dnattributes.cpp:62
 msgid "Surname"
 msgstr "성"
 
-#: kleo/dn.cpp:538
+#: kleo/dnattributes.cpp:63
 msgid "Given name"
 msgstr "이름"
 
-#: kleo/dn.cpp:539
+#: kleo/dnattributes.cpp:64
 msgid "Location"
 msgstr "위치"
 
-#: kleo/dn.cpp:540
+#: kleo/dnattributes.cpp:65
 msgid "Title"
 msgstr "직위"
 
-#: kleo/dn.cpp:541
+#: kleo/dnattributes.cpp:66
 msgid "Organizational unit"
 msgstr "조직 단위"
 
-#: kleo/dn.cpp:542
+#: kleo/dnattributes.cpp:67
 msgid "Organization"
 msgstr "조직"
 
-#: kleo/dn.cpp:543
+#: kleo/dnattributes.cpp:68
 msgid "Postal code"
 msgstr "우편 번호"
 
-#: kleo/dn.cpp:544
+#: kleo/dnattributes.cpp:69
 msgid "Country code"
 msgstr "국가 번호"
 
-#: kleo/dn.cpp:545
+#: kleo/dnattributes.cpp:70
 msgid "State or province"
 msgstr "도 및 주"
 
-#: kleo/dn.cpp:546
+#: kleo/dnattributes.cpp:71
 msgid "Domain component"
 msgstr "도메인 구성 요소"
 
-#: kleo/dn.cpp:547
+#: kleo/dnattributes.cpp:72
 msgid "Business category"
 msgstr "사업 카테고리"
 
-#: kleo/dn.cpp:548
+#: kleo/dnattributes.cpp:73
 msgid "Email address"
 msgstr "이메일 주소"
 
-#: kleo/dn.cpp:549
+#: kleo/dnattributes.cpp:74
 msgid "Mail address"
 msgstr "편지 주소"
 
-#: kleo/dn.cpp:550
+#: kleo/dnattributes.cpp:75
 msgid "Mobile phone number"
 msgstr "휴대폰 번호"
 
-#: kleo/dn.cpp:551
+#: kleo/dnattributes.cpp:76
 msgid "Telephone number"
 msgstr "전화번호"
 
-#: kleo/dn.cpp:552
+#: kleo/dnattributes.cpp:77
 msgid "Fax number"
 msgstr "팩스 번호"
 
-#: kleo/dn.cpp:553
+#: kleo/dnattributes.cpp:78
 msgid "Street address"
 msgstr "도로명 주소"
 
-#: kleo/dn.cpp:554
+#: kleo/dnattributes.cpp:79
 msgid "Unique ID"
 msgstr "유일 ID"
 
@@ -953,8 +953,8 @@ msgstr "적용할 수 없음"
 msgid "ID"
 msgstr "ID"
 
-#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:494
-#: utils/formatting.cpp:537
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:504
+#: utils/formatting.cpp:547
 #, kde-format
 msgid "Type"
 msgstr "종류"
@@ -970,7 +970,7 @@ msgid "Valid Until"
 msgstr "유효 기간 끝"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:106
-#: utils/formatting.cpp:524 utils/formatting.cpp:526
+#: utils/formatting.cpp:534 utils/formatting.cpp:536
 #, kde-format
 msgid "Status"
 msgstr "상태"
@@ -980,8 +980,8 @@ msgstr "상태"
 msgid "Strength"
 msgstr "강도"
 
-#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:497
-#: utils/formatting.cpp:540
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:507
+#: utils/formatting.cpp:550
 #, kde-format
 msgid "Usage"
 msgstr "용도"
@@ -1013,8 +1013,8 @@ msgstr "적용할 수 없음"
 #: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
 #: models/useridlistmodel.cpp:90 models/useridlistmodel.cpp:91
 #: models/useridlistmodel.cpp:92 models/useridlistmodel.cpp:93
-#: ui/keyselectiondialog.cpp:192 utils/formatting.cpp:472
-#: utils/formatting.cpp:482
+#: ui/keyselectiondialog.cpp:191 utils/formatting.cpp:482
+#: utils/formatting.cpp:492
 #, kde-format
 msgid "User ID"
 msgstr "사용자 ID"
@@ -1733,222 +1733,222 @@ msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "암호화 선호도:"
 
-#: ui/keyrequester.cpp:89
+#: ui/keyrequester.cpp:88
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "지우기"
 
-#: ui/keyrequester.cpp:92
+#: ui/keyrequester.cpp:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "변경..."
 
-#: ui/keyrequester.cpp:212 ui/keyselectiondialog.cpp:218
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>알 수 없음</placeholder>"
 
-#: ui/keyrequester.cpp:235 ui/keyselectiondialog.cpp:675
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr "<qt><p>백엔드에서 키를 가져오는 중 오류 발생:</p><p><b>%1</b></p></qt>"
 
-#: ui/keyrequester.cpp:240 ui/keyrequester.cpp:273 ui/keyrequester.cpp:295
-#: ui/keyselectiondialog.cpp:644 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "키 표시 실패"
 
-#: ui/keyrequester.cpp:271
+#: ui/keyrequester.cpp:270
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
 "OpenPGP 백엔드가 키 표시를 지원하지 않습니다. 설치 상태를 확인하십시오."
 
-#: ui/keyrequester.cpp:293
+#: ui/keyrequester.cpp:292
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr "S/MIME 백엔드가 키 표시를 지원하지 않습니다. 설치 상태를 확인하십시오."
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:412
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "OpenPGP 키 선택"
 
-#: ui/keyrequester.cpp:414
+#: ui/keyrequester.cpp:413
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "사용할 OpenPGP 키를 선택해 주십시오."
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:415
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "S/MIME 키 선택"
 
-#: ui/keyrequester.cpp:417
+#: ui/keyrequester.cpp:416
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "사용할 S/MIME 키를 선택해 주십시오."
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:418
 #, kde-format
 msgid "Key Selection"
 msgstr "키 선택"
 
-#: ui/keyrequester.cpp:420
+#: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "키(OpenPGP나 S/MIME)를 선택해 주십시오."
 
-#: ui/keyselectioncombo.cpp:87 ui/useridselectioncombo.cpp:93
+#: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:909 ui/useridselectioncombo.cpp:699
+#: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
 #, kde-format
 msgid "Loading keys ..."
 msgstr "키 불러오는 중..."
 
-#: ui/keyselectiondialog.cpp:72
+#: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
 msgstr "키가 올바르지 않습니다."
 
-#: ui/keyselectiondialog.cpp:80
+#: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
 msgstr "키가 만료되었습니다."
 
-#: ui/keyselectiondialog.cpp:84
+#: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
 msgstr "키가 철회되었습니다."
 
-#: ui/keyselectiondialog.cpp:88
+#: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
 msgstr "키가 비활성화되었습니다."
 
-#: ui/keyselectiondialog.cpp:95
+#: ui/keyselectiondialog.cpp:94
 #, kde-format
 msgid "The key is not designated for encryption."
 msgstr "키가 암호화용으로 지정되지 않았습니다."
 
-#: ui/keyselectiondialog.cpp:100
+#: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
 msgstr "키가 서명용으로 지정되지 않았습니다."
 
-#: ui/keyselectiondialog.cpp:105
+#: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
 msgstr "키가 인증용으로 지정되지 않았습니다."
 
-#: ui/keyselectiondialog.cpp:110
+#: ui/keyselectiondialog.cpp:109
 #, kde-format
 msgid "The key is not designated for authentication."
 msgstr "키가 증명용으로 지정되지 않았습니다."
 
-#: ui/keyselectiondialog.cpp:116
+#: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
 msgstr "키가 비밀이 아닙니다."
 
-#: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
 msgstr "키를 사용할 수 있습니다."
 
-#: ui/keyselectiondialog.cpp:132
+#: ui/keyselectiondialog.cpp:131
 #, kde-format
 msgid "The key is not trusted enough."
 msgstr "키가 충분히 신뢰되지 않습니다."
 
-#: ui/keyselectiondialog.cpp:190 utils/formatting.cpp:500
+#: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:510
 #, kde-format
 msgid "Key ID"
 msgstr "키 ID"
 
-#: ui/keyselectiondialog.cpp:264 ui/keyselectiondialog.cpp:266
-#: ui/keyselectiondialog.cpp:275 ui/keyselectiondialog.cpp:277
+#: ui/keyselectiondialog.cpp:263 ui/keyselectiondialog.cpp:265
+#: ui/keyselectiondialog.cpp:274 ui/keyselectiondialog.cpp:276
 #, kde-format
 msgid "unknown"
 msgstr "알 수 없음"
 
-#: ui/keyselectiondialog.cpp:264
+#: ui/keyselectiondialog.cpp:263
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "<b>%1</b>의 PGP 키 열기"
 
-#: ui/keyselectiondialog.cpp:266
+#: ui/keyselectiondialog.cpp:265
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b>의 S/MIME 키"
 
-#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:486
-#: utils/formatting.cpp:529
+#: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:496
+#: utils/formatting.cpp:539
 #, kde-format
 msgid "Valid from"
 msgstr "유효 기간 시작"
 
-#: ui/keyselectiondialog.cpp:274 utils/formatting.cpp:489
-#: utils/formatting.cpp:532
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:499
+#: utils/formatting.cpp:542
 #, kde-format
 msgid "Valid until"
 msgstr "유효 기간 끝"
 
-#: ui/keyselectiondialog.cpp:275
+#: ui/keyselectiondialog.cpp:274
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "지문"
 
-#: ui/keyselectiondialog.cpp:277
+#: ui/keyselectiondialog.cpp:276
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "발급자"
 
-#: ui/keyselectiondialog.cpp:279
+#: ui/keyselectiondialog.cpp:278
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "상태"
 
-#: ui/keyselectiondialog.cpp:281
+#: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr "준수"
 
-#: ui/keyselectiondialog.cpp:421
+#: ui/keyselectiondialog.cpp:420
 #, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "외부 인증서 찾기(&E)"
 
-#: ui/keyselectiondialog.cpp:435
+#: ui/keyselectiondialog.cpp:434
 #, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "찾을 단어(&S):"
 
-#: ui/keyselectiondialog.cpp:460
+#: ui/keyselectiondialog.cpp:459
 #, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "선택 사항 저장(&R)"
 
-#: ui/keyselectiondialog.cpp:463
+#: ui/keyselectiondialog.cpp:462
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -1956,45 +1956,45 @@ msgid ""
 msgstr ""
 "<qt><p>이 상자를 선택하면 선택 사항을 저장하고 다시 묻지 않습니다.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:477
+#: ui/keyselectiondialog.cpp:476
 #, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "키 다시 읽기(&R)"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:481
 #, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "인증서 관리자 시작하기(&S)"
 
-#: ui/keyselectiondialog.cpp:642
+#: ui/keyselectiondialog.cpp:641
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr "키를 표시할 백엔드를 찾을 수 없습니다. 설치 상태를 확인하십시오."
 
-#: ui/keyselectiondialog.cpp:660
+#: ui/keyselectiondialog.cpp:659
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr "인증서 관리자를 시작할 수 없습니다. 설치 상태를 확인하십시오."
 
-#: ui/keyselectiondialog.cpp:662
+#: ui/keyselectiondialog.cpp:661
 #, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "인증서 관리자 오류"
 
-#: ui/keyselectiondialog.cpp:719
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "선택한 키 확인 중..."
 
-#: ui/keyselectiondialog.cpp:719
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
 msgstr "키 가져오는 중..."
 
-#: ui/keyselectiondialog.cpp:751
+#: ui/keyselectiondialog.cpp:750
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -2006,12 +2006,12 @@ msgstr[0] ""
 "<qt>백엔드 %1개에서 끊긴 출력을 반환했습니다.<p>모든 키가 표시되지 않았습니다"
 "</p></qt>"
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid "Key List Result"
 msgstr "키 목록 결과"
 
-#: ui/keyselectiondialog.cpp:878
+#: ui/keyselectiondialog.cpp:877
 #, kde-format
 msgid "Recheck Key"
 msgstr "키 다시 확인"
@@ -2332,13 +2332,13 @@ msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "열 보기"
 
-#: ui/useridselectioncombo.cpp:528
+#: ui/useridselectioncombo.cpp:529
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
 msgstr "인증서 목록 표시"
 
-#: ui/useridselectioncombo.cpp:529
+#: ui/useridselectioncombo.cpp:530
 #, kde-format
 msgid "Show certificate list"
 msgstr "인증서 목록 표시"
@@ -2401,178 +2401,178 @@ msgctxt "@item:inlistbox"
 msgid "One year from now"
 msgstr "오늘부터 1년"
 
-#: utils/formatting.cpp:330
+#: utils/formatting.cpp:340
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
 msgstr "%1비트 %2(비밀 키 사용 가능)"
 
-#: utils/formatting.cpp:332 utils/formatting.cpp:343
+#: utils/formatting.cpp:342 utils/formatting.cpp:353
 #, kde-format
 msgid "%1-bit %2"
 msgstr "%1비트 %2"
 
-#: utils/formatting.cpp:351 utils/formatting.cpp:373
+#: utils/formatting.cpp:361 utils/formatting.cpp:383
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "서명(적합)"
 
-#: utils/formatting.cpp:353 utils/formatting.cpp:375
+#: utils/formatting.cpp:363 utils/formatting.cpp:385
 #, kde-format
 msgid "Signing"
 msgstr "서명"
 
-#: utils/formatting.cpp:357 utils/formatting.cpp:379
+#: utils/formatting.cpp:367 utils/formatting.cpp:389
 #, kde-format
 msgid "Encryption"
 msgstr "암호화"
 
-#: utils/formatting.cpp:360 utils/formatting.cpp:382
+#: utils/formatting.cpp:370 utils/formatting.cpp:392
 #, kde-format
 msgid "Certifying User IDs"
 msgstr "사용자 ID 인증"
 
-#: utils/formatting.cpp:363 utils/formatting.cpp:385
+#: utils/formatting.cpp:373 utils/formatting.cpp:395
 #, kde-format
 msgid "SSH Authentication"
 msgstr "SSH 인증"
 
-#: utils/formatting.cpp:415
+#: utils/formatting.cpp:425
 #, kde-format
 msgid "Disabled"
 msgstr "비활성화됨"
 
-#: utils/formatting.cpp:417 utils/formatting.cpp:524
+#: utils/formatting.cpp:427 utils/formatting.cpp:534
 #, kde-format
 msgid "Revoked"
 msgstr "철회됨"
 
-#: utils/formatting.cpp:419 utils/formatting.cpp:526
+#: utils/formatting.cpp:429 utils/formatting.cpp:536
 #, kde-format
 msgid "Expired"
 msgstr "만료됨"
 
-#: utils/formatting.cpp:423
+#: utils/formatting.cpp:433
 #, kde-format
 msgid "User ID is certified."
 msgstr "사용자 ID가 인증되었습니다."
 
-#: utils/formatting.cpp:429
+#: utils/formatting.cpp:439
 #, kde-format
 msgid "User ID is not certified."
 msgstr "사용자 ID가 인증되지 않았습니다."
 
-#: utils/formatting.cpp:439
+#: utils/formatting.cpp:449
 #, kde-format
 msgid "All User IDs are certified."
 msgstr "모든 사용자 ID가 인증되었습니다."
 
-#: utils/formatting.cpp:445
+#: utils/formatting.cpp:455
 #, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "사용자 ID %1개가 인증되지 않았습니다."
 
-#: utils/formatting.cpp:449 utils/formatting.cpp:452
+#: utils/formatting.cpp:459 utils/formatting.cpp:462
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "현재 유효성을 확인할 수 없습니다."
 
-#: utils/formatting.cpp:462
+#: utils/formatting.cpp:472
 #, kde-format
 msgid "Serial number"
 msgstr "일련 번호"
 
-#: utils/formatting.cpp:465
+#: utils/formatting.cpp:475
 #, kde-format
 msgid "Issuer"
 msgstr "발급자"
 
-#: utils/formatting.cpp:472 utils/formatting.cpp:482
+#: utils/formatting.cpp:482 utils/formatting.cpp:492
 #, kde-format
 msgid "Subject"
 msgstr "주제"
 
-#: utils/formatting.cpp:477
+#: utils/formatting.cpp:487
 #, kde-format
 msgid "a.k.a."
 msgstr "a.k.a."
 
-#: utils/formatting.cpp:503
+#: utils/formatting.cpp:513
 #, kde-format
 msgid "Fingerprint"
 msgstr "지문"
 
-#: utils/formatting.cpp:507
+#: utils/formatting.cpp:517
 #, kde-format
 msgid "Certification trust"
 msgstr "인증서 신뢰"
 
-#: utils/formatting.cpp:509
+#: utils/formatting.cpp:519
 #, kde-format
 msgid "Trusted issuer?"
 msgstr "신뢰할 수 있는 발급자입니까?"
 
-#: utils/formatting.cpp:509
+#: utils/formatting.cpp:519
 #, kde-format
 msgid "Yes"
 msgstr "예"
 
-#: utils/formatting.cpp:509
+#: utils/formatting.cpp:519
 #, kde-format
 msgid "No"
 msgstr "아니요"
 
-#: utils/formatting.cpp:514 utils/formatting.cpp:516 utils/formatting.cpp:544
-#: utils/formatting.cpp:546
+#: utils/formatting.cpp:524 utils/formatting.cpp:526 utils/formatting.cpp:554
+#: utils/formatting.cpp:556
 #, kde-format
 msgid "Stored"
 msgstr "저장됨"
 
-#: utils/formatting.cpp:514 utils/formatting.cpp:544
+#: utils/formatting.cpp:524 utils/formatting.cpp:554
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "일련 번호 %1인 스마트카드에"
 
-#: utils/formatting.cpp:516 utils/formatting.cpp:546
+#: utils/formatting.cpp:526 utils/formatting.cpp:556
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "이 컴퓨터에"
 
-#: utils/formatting.cpp:522
+#: utils/formatting.cpp:532
 #, kde-format
 msgid "Subkey"
 msgstr "하위 키"
 
-#: utils/formatting.cpp:575
+#: utils/formatting.cpp:585
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
 "일부 키는 철회되거나, 만료되었거나, 비활성화되었거나, 올바르지 않습니다."
 
-#: utils/formatting.cpp:579
+#: utils/formatting.cpp:589
 #, kde-format
 msgid "All keys are certified."
 msgstr "모든 키가 인증되었습니다."
 
-#: utils/formatting.cpp:581
+#: utils/formatting.cpp:591
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "일부 키는 인증되지 않았습니다."
 
-#: utils/formatting.cpp:585
+#: utils/formatting.cpp:595
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "키의 유효성을 현재 검사할 수 없습니다."
 
-#: utils/formatting.cpp:599
+#: utils/formatting.cpp:609
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "이 그룹에는 키가 포함되어 있지 않습니다."
 
-#: utils/formatting.cpp:605
+#: utils/formatting.cpp:615
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2582,19 +2582,19 @@ msgstr ""
 "그룹에 암호화에 사용할 수 없는 인증서가 포함되어 있습니다. 이 그룹을 사용하"
 "면 예상하지 못한 결과를 가져올 수도 있습니다."
 
-#: utils/formatting.cpp:625
+#: utils/formatting.cpp:635
 #, kde-format
 msgid "Keys:"
 msgstr "키:"
 
-#: utils/formatting.cpp:634
+#: utils/formatting.cpp:644
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
 msgstr[0] "및 추가 키 %1개"
 
-#: utils/formatting.cpp:667
+#: utils/formatting.cpp:677
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2602,618 +2602,618 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "yyyy년 MMMM d일"
 
-#: utils/formatting.cpp:713 utils/formatting.cpp:748
+#: utils/formatting.cpp:723 utils/formatting.cpp:758
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "알 수 없음"
 
-#: utils/formatting.cpp:755 utils/formatting.cpp:764
+#: utils/formatting.cpp:765 utils/formatting.cpp:774
 #, kde-format
 msgid "unlimited"
 msgstr "무제한"
 
-#: utils/formatting.cpp:817
+#: utils/formatting.cpp:827
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:820
+#: utils/formatting.cpp:830
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: utils/formatting.cpp:822
+#: utils/formatting.cpp:832
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: utils/formatting.cpp:838
+#: utils/formatting.cpp:848
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "그룹"
 
-#: utils/formatting.cpp:854 utils/formatting.cpp:899
+#: utils/formatting.cpp:864 utils/formatting.cpp:909
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "알 수 없음"
 
-#: utils/formatting.cpp:856 utils/formatting.cpp:903
+#: utils/formatting.cpp:866 utils/formatting.cpp:913
 #, kde-format
 msgid "untrusted"
 msgstr "신뢰할 수 없음"
 
-#: utils/formatting.cpp:858 utils/formatting.cpp:905
+#: utils/formatting.cpp:868 utils/formatting.cpp:915
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr "중요하지 않음"
 
-#: utils/formatting.cpp:860 utils/formatting.cpp:907
+#: utils/formatting.cpp:870 utils/formatting.cpp:917
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "완전한 신뢰"
 
-#: utils/formatting.cpp:862 utils/formatting.cpp:909
+#: utils/formatting.cpp:872 utils/formatting.cpp:919
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "최고의 신뢰"
 
-#: utils/formatting.cpp:864 utils/formatting.cpp:901
+#: utils/formatting.cpp:874 utils/formatting.cpp:911
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "확실하지 않은 신뢰"
 
-#: utils/formatting.cpp:875 utils/formatting.cpp:1335 utils/formatting.cpp:1360
+#: utils/formatting.cpp:885 utils/formatting.cpp:1345 utils/formatting.cpp:1370
 #, kde-format
 msgid "disabled"
 msgstr "비활성화됨"
 
-#: utils/formatting.cpp:878 utils/formatting.cpp:892 utils/formatting.cpp:927
-#: utils/formatting.cpp:1338 utils/formatting.cpp:1363
+#: utils/formatting.cpp:888 utils/formatting.cpp:902 utils/formatting.cpp:937
+#: utils/formatting.cpp:1348 utils/formatting.cpp:1373
 #, kde-format
 msgid "revoked"
 msgstr "철회됨"
 
-#: utils/formatting.cpp:881 utils/formatting.cpp:937 utils/formatting.cpp:1341
-#: utils/formatting.cpp:1366
+#: utils/formatting.cpp:891 utils/formatting.cpp:947 utils/formatting.cpp:1351
+#: utils/formatting.cpp:1376
 #, kde-format
 msgid "expired"
 msgstr "만료됨"
 
-#: utils/formatting.cpp:884 utils/formatting.cpp:895 utils/formatting.cpp:935
-#: utils/formatting.cpp:1344 utils/formatting.cpp:1369
+#: utils/formatting.cpp:894 utils/formatting.cpp:905 utils/formatting.cpp:945
+#: utils/formatting.cpp:1354 utils/formatting.cpp:1379
 #, kde-format
 msgid "invalid"
 msgstr "올바르지 않음"
 
-#: utils/formatting.cpp:886
+#: utils/formatting.cpp:896
 #, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
 msgstr "확인"
 
-#: utils/formatting.cpp:925
+#: utils/formatting.cpp:935
 #, kde-format
 msgid "valid"
 msgstr "유효함"
 
-#: utils/formatting.cpp:929
+#: utils/formatting.cpp:939
 #, kde-format
 msgid "class %1"
 msgstr "클래스 %1"
 
-#: utils/formatting.cpp:939
+#: utils/formatting.cpp:949
 #, kde-format
 msgid "certificate expired"
 msgstr "인증서 만료됨"
 
-#: utils/formatting.cpp:941
+#: utils/formatting.cpp:951
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "잘못됨"
 
-#: utils/formatting.cpp:947
+#: utils/formatting.cpp:957
 #, kde-format
 msgid "no public key"
 msgstr "공개 키 없음"
 
-#: utils/formatting.cpp:949
+#: utils/formatting.cpp:959
 #, kde-format
 msgid "key disabled"
 msgstr "키 비활성화됨"
 
-#: utils/formatting.cpp:951
+#: utils/formatting.cpp:961
 #, kde-format
 msgid "key revoked"
 msgstr "키 철회됨"
 
-#: utils/formatting.cpp:953
+#: utils/formatting.cpp:963
 #, kde-format
 msgid "key expired"
 msgstr "키 만료됨"
 
-#: utils/formatting.cpp:1009
+#: utils/formatting.cpp:1019
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2(%3)"
 
-#: utils/formatting.cpp:1067
+#: utils/formatting.cpp:1077
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "알 수 없는 인증서 %1에 의한 잘못된 서명: %2"
 
-#: utils/formatting.cpp:1069
+#: utils/formatting.cpp:1079
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "알 수 없는 인증서에 의한 잘못된 서명: %1"
 
-#: utils/formatting.cpp:1072
+#: utils/formatting.cpp:1082
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "%1에 의한 잘못된 서명: %2"
 
-#: utils/formatting.cpp:1078
+#: utils/formatting.cpp:1088
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "알 수 없는 인증서 %1의 서명이 양호합니다."
 
-#: utils/formatting.cpp:1080
+#: utils/formatting.cpp:1090
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "알 수 없는 인증서에 의한 올바른 서명입니다."
 
-#: utils/formatting.cpp:1083
+#: utils/formatting.cpp:1093
 #, kde-format
 msgid "Good signature by %1."
 msgstr "%1의 서명이 양호합니다."
 
-#: utils/formatting.cpp:1088
+#: utils/formatting.cpp:1098
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "알 수 없는 인증서 %1에 의한 올바르지 않은 서명: %2"
 
-#: utils/formatting.cpp:1090
+#: utils/formatting.cpp:1100
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "알 수 없는 인증서에 의한 올바르지 않은 서명: %1"
 
-#: utils/formatting.cpp:1093
+#: utils/formatting.cpp:1103
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "%1의 올바르지 않은 서명: %2"
 
-#: utils/formatting.cpp:1107
+#: utils/formatting.cpp:1117
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "이 인증서를 가져온 원본은 다음과 같습니다:"
 
-#: utils/formatting.cpp:1118
+#: utils/formatting.cpp:1128
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "이 인증서 가져오기가 취소되었습니다."
 
-#: utils/formatting.cpp:1121
+#: utils/formatting.cpp:1131
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "이 인증서를 가져오는 동안 오류가 발생했습니다: %1"
 
-#: utils/formatting.cpp:1126
+#: utils/formatting.cpp:1136
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "이 인증서가 키 저장소에 새로 추가되었습니다. 암호 키를 사용할 수 있습니다."
 
-#: utils/formatting.cpp:1127
+#: utils/formatting.cpp:1137
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "이 인증서가 키 저장소에 새로 추가되었습니다."
 
-#: utils/formatting.cpp:1132
+#: utils/formatting.cpp:1142
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr "가져오기 작업으로 이 인증서에 새 사용자 ID가 추가되었습니다."
 
-#: utils/formatting.cpp:1135
+#: utils/formatting.cpp:1145
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "가져오기 작업으로 이 인증서에 새 서명이 추가되었습니다."
 
-#: utils/formatting.cpp:1138
+#: utils/formatting.cpp:1148
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "가져오기 작업으로 이 인증서에 새 하위 키가 추가되었습니다."
 
-#: utils/formatting.cpp:1141
+#: utils/formatting.cpp:1151
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 "가져오기 작업 결과 이 인증서의 새 데이터가 없습니다. 변경 사항이 없습니다."
 
-#: utils/formatting.cpp:1157
+#: utils/formatting.cpp:1167
 #, kde-format
 msgid "Certify"
 msgstr "인증"
 
-#: utils/formatting.cpp:1160
+#: utils/formatting.cpp:1170
 #, kde-format
 msgid "Sign"
 msgstr "서명"
 
-#: utils/formatting.cpp:1163
+#: utils/formatting.cpp:1173
 #, kde-format
 msgid "Encrypt"
 msgstr "암호화"
 
-#: utils/formatting.cpp:1166
+#: utils/formatting.cpp:1176
 #, kde-format
 msgid "Authenticate"
 msgstr "인증"
 
-#: utils/formatting.cpp:1169
+#: utils/formatting.cpp:1179
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
 msgstr "ADSK"
 
-#: utils/formatting.cpp:1177
+#: utils/formatting.cpp:1187
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, 생성됨: %4)"
 
-#: utils/formatting.cpp:1188
+#: utils/formatting.cpp:1198
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1, %2, 생성됨: %3)"
 
-#: utils/formatting.cpp:1200
+#: utils/formatting.cpp:1210
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] "%2 (키 %1개, %3)"
 
-#: utils/formatting.cpp:1207
+#: utils/formatting.cpp:1217
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] "%2 (키 %1개, %3, 태그)"
 
-#: utils/formatting.cpp:1214
+#: utils/formatting.cpp:1224
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] "%2 (키 %1개, %3, 출처 불명)"
 
-#: utils/formatting.cpp:1235
+#: utils/formatting.cpp:1245
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "인증서가 내 인증서로 표시됩니다."
 
-#: utils/formatting.cpp:1237
+#: utils/formatting.cpp:1247
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "인증서가 이 수신자의 것입니다."
 
-#: utils/formatting.cpp:1239
+#: utils/formatting.cpp:1249
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr "신뢰 모델은 인증서가 이 수신자의 것임을 약하게 나타냅니다."
 
-#: utils/formatting.cpp:1241
+#: utils/formatting.cpp:1251
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "이 인증서를 사용하면 안 됩니다."
 
-#: utils/formatting.cpp:1245
+#: utils/formatting.cpp:1255
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr "이 인증서가 이 수신자의 것이라는 표시가 없습니다."
 
-#: utils/formatting.cpp:1257
+#: utils/formatting.cpp:1267
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "이 그룹에는 키가 포함되어 있지 않습니다."
 
-#: utils/formatting.cpp:1307 utils/formatting.cpp:1319
+#: utils/formatting.cpp:1317 utils/formatting.cpp:1329
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "알 수 없음"
 
-#: utils/formatting.cpp:1332
+#: utils/formatting.cpp:1342
 #, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "인증됨"
 
-#: utils/formatting.cpp:1347
+#: utils/formatting.cpp:1357
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "인증 안 됨"
 
-#: utils/formatting.cpp:1350
+#: utils/formatting.cpp:1360
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "확인되지 않음"
 
-#: utils/formatting.cpp:1372
+#: utils/formatting.cpp:1382
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "인증됨"
 
-#: utils/formatting.cpp:1375
+#: utils/formatting.cpp:1385
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "인증 안 됨"
 
-#: utils/formatting.cpp:1378
+#: utils/formatting.cpp:1388
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "확인되지 않음"
 
-#: utils/formatting.cpp:1387
+#: utils/formatting.cpp:1397
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "모두 인증"
 
-#: utils/formatting.cpp:1390
+#: utils/formatting.cpp:1400
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "모두 인증 안 됨"
 
-#: utils/formatting.cpp:1434
+#: utils/formatting.cpp:1444
 #, kde-format
 msgid "Keyserver"
 msgstr "키 서버"
 
-#: utils/formatting.cpp:1442
+#: utils/formatting.cpp:1452
 #, kde-format
 msgid "File import"
 msgstr "파일 가져오기"
 
-#: utils/formatting.cpp:1444
+#: utils/formatting.cpp:1454
 #, kde-format
 msgid "Generated"
 msgstr "생성됨"
 
-#: utils/formatting.cpp:1479
+#: utils/formatting.cpp:1489
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "이 키를 일부 신뢰할 수 있는 도입자 '%1'(으)로 인증합니다."
 
-#: utils/formatting.cpp:1483
+#: utils/formatting.cpp:1493
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "이 키를 완전히 신뢰할 수 있는 도입자 '%1'(으)로 인증합니다."
 
-#: utils/formatting.cpp:1520
+#: utils/formatting.cpp:1530
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr "ECC(Brainpool P-256)"
 
-#: utils/formatting.cpp:1521
+#: utils/formatting.cpp:1531
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr "ECC(Brainpool P-384)"
 
-#: utils/formatting.cpp:1522
+#: utils/formatting.cpp:1532
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr "ECC(Brainpool P-512)"
 
-#: utils/formatting.cpp:1523
+#: utils/formatting.cpp:1533
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr "ECC(Curve25519)"
 
-#: utils/formatting.cpp:1524
+#: utils/formatting.cpp:1534
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr "ECC(Curve448)"
 
-#: utils/formatting.cpp:1525
+#: utils/formatting.cpp:1535
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
 msgstr "ECC(Ed25519)"
 
-#: utils/formatting.cpp:1526
+#: utils/formatting.cpp:1536
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
 msgstr "ECC(Ed448)"
 
-#: utils/formatting.cpp:1527
+#: utils/formatting.cpp:1537
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
 msgstr "ECC(Cv25519)"
 
-#: utils/formatting.cpp:1528
+#: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
 msgstr "ECC(Cv448)"
 
-#: utils/formatting.cpp:1529
+#: utils/formatting.cpp:1539
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr "ECC(NIST P-256)"
 
-#: utils/formatting.cpp:1530
+#: utils/formatting.cpp:1540
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr "ECC(NIST P-384)"
 
-#: utils/formatting.cpp:1531
+#: utils/formatting.cpp:1541
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr "ECC(NIST P-521)"
 
-#: utils/formatting.cpp:1532
+#: utils/formatting.cpp:1542
 #, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
 msgstr "RSA 1024"
 
-#: utils/formatting.cpp:1533
+#: utils/formatting.cpp:1543
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr "RSA 2048"
 
-#: utils/formatting.cpp:1534
+#: utils/formatting.cpp:1544
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "RSA 3072"
 
-#: utils/formatting.cpp:1535
+#: utils/formatting.cpp:1545
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "RSA 4096"
 
-#: utils/formatting.cpp:1536
+#: utils/formatting.cpp:1546
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr "DSA 1024"
 
-#: utils/formatting.cpp:1537
+#: utils/formatting.cpp:1547
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr "DSA 2048"
 
-#: utils/formatting.cpp:1538
+#: utils/formatting.cpp:1548
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr "Elgamal 1024"
 
-#: utils/formatting.cpp:1539
+#: utils/formatting.cpp:1549
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr "Elgamal 2048"
 
-#: utils/formatting.cpp:1540
+#: utils/formatting.cpp:1550
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr "Elgamal 3072"
 
-#: utils/formatting.cpp:1541
+#: utils/formatting.cpp:1551
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
-#: utils/formatting.cpp:1554
+#: utils/formatting.cpp:1564
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr "서명이 올바르지만 인증서를 그럭저럭 신뢰합니다."
 
-#: utils/formatting.cpp:1556
+#: utils/formatting.cpp:1566
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr "서명이 올바르고 인증서를 웬만큼 신뢰합니다."
 
-#: utils/formatting.cpp:1558
+#: utils/formatting.cpp:1568
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr "서명이 올바르고 인증서를 완전히 신뢰합니다."
 
-#: utils/formatting.cpp:1560
+#: utils/formatting.cpp:1570
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr "서명이 올바르지만 인증서를 <em>신뢰하지 않습니다</em>."
 
-#: utils/formatting.cpp:1562
+#: utils/formatting.cpp:1572
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr "서명이 올바르지만 인증서 유효성을 알 수 없습니다."
 
-#: utils/formatting.cpp:1565
+#: utils/formatting.cpp:1575
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "서명이 올바르지만 인증서 유효성이 정의되지 않았습니다."
 
-#: utils/formatting.cpp:1577
+#: utils/formatting.cpp:1587
 #, kde-format
 msgid "Unknown certificate"
 msgstr "알 수 없는 인증서"
 
-#: utils/formatting.cpp:1581
+#: utils/formatting.cpp:1591
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: utils/formatting.cpp:1597
+#: utils/formatting.cpp:1607
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
 msgstr "서명 생성: %1, 지문이 %2인 알 수 없는 인증서 사용됨"
 
-#: utils/formatting.cpp:1601
+#: utils/formatting.cpp:1611
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "지문이 %1인 알 수 없는 인증서로 서명이 생성됨"
 
-#: utils/formatting.cpp:1605
+#: utils/formatting.cpp:1615
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "서명 생성: %1, 사용된 인증서: %2"
 
-#: utils/formatting.cpp:1607
+#: utils/formatting.cpp:1617
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "서명이 다음 인증서로 생성됨: %1"
 
-#: utils/formatting.cpp:1613
+#: utils/formatting.cpp:1623
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3221,7 +3221,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "서명이 %1입니다"
 
-#: utils/formatting.cpp:1616
+#: utils/formatting.cpp:1626
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3229,77 +3229,77 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "서명이 %1이(가) <b>아닙니다</b>."
 
-#: utils/formatting.cpp:1626
+#: utils/formatting.cpp:1636
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "오류: 서명이 인증되지 않았음"
 
-#: utils/formatting.cpp:1628
+#: utils/formatting.cpp:1638
 #, kde-format
 msgid "Good signature"
 msgstr "좋은 서명"
 
-#: utils/formatting.cpp:1630
+#: utils/formatting.cpp:1640
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "서명한 인증서가 철회됨"
 
-#: utils/formatting.cpp:1632
+#: utils/formatting.cpp:1642
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "서명한 인증서가 만료됨"
 
-#: utils/formatting.cpp:1634
+#: utils/formatting.cpp:1644
 #, kde-format
 msgid "Certificate is not available"
 msgstr "인증서를 사용할 수 없음"
 
-#: utils/formatting.cpp:1636
+#: utils/formatting.cpp:1646
 #, kde-format
 msgid "Signature expired"
 msgstr "서명 만료됨"
 
-#: utils/formatting.cpp:1638
+#: utils/formatting.cpp:1648
 #, kde-format
 msgid "CRL missing"
 msgstr "CRL이 없음"
 
-#: utils/formatting.cpp:1640
+#: utils/formatting.cpp:1650
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL이 너무 오래됨"
 
-#: utils/formatting.cpp:1642
+#: utils/formatting.cpp:1652
 #, kde-format
 msgid "Bad policy"
 msgstr "정책이 잘못됨"
 
-#: utils/formatting.cpp:1644
+#: utils/formatting.cpp:1654
 #, kde-format
 msgid "System error"
 msgstr "시스템 오류"
 
-#: utils/formatting.cpp:1646
+#: utils/formatting.cpp:1656
 #, kde-format
 msgid "Bad signature"
 msgstr "서명이 잘못됨"
 
-#: utils/formatting.cpp:1722 utils/formatting.cpp:1745
+#: utils/formatting.cpp:1732 utils/formatting.cpp:1755
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "서명이 잘못됨: %1"
 
-#: utils/formatting.cpp:1731
+#: utils/formatting.cpp:1741
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "인증서를 키 서버에서 찾거나 파일에서 가져올 수 있습니다."
 
-#: utils/formatting.cpp:1740
+#: utils/formatting.cpp:1750
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr "사용한 키를 귀하나 신뢰 가능한 사람이 인증하지 않았습니다."
 
-#: utils/formatting.cpp:1741
+#: utils/formatting.cpp:1751
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
