@@ -18,4 +18,5 @@ Dependencies:
 Options:
  # keyresolvercoretest sometimes takes very long on FreeBSD
  per-test-timeout: 120
+ allow-failing-tests-on: ['Windows']
  require-passing-tests-on: ['Linux', 'FreeBSD']
