@@ -108,7 +108,6 @@ enum ToolTipOption {
     Fingerprint      = 0x200,
     UserIDs          = 0x400,
     OwnerTrust       = 0x800,
-    Subkeys          = 0x1000,
 
     AllOptions       = 0xffff
 };
@@ -189,7 +188,6 @@ KLEO_EXPORT const char *summaryToString(const GpgME::Signature::Summary summary)
 KLEO_EXPORT QString importMetaData(const GpgME::Import &import);
 KLEO_EXPORT QString importMetaData(const GpgME::Import &import, const QStringList &sources);
 
-KLEO_EXPORT QString formatOverview(const GpgME::Key &key);
 KLEO_EXPORT QString usageString(const GpgME::Subkey &subkey);
 KLEO_EXPORT QString summaryLine(const GpgME::UserID &id);
 KLEO_EXPORT QString summaryLine(const GpgME::Key &key);
