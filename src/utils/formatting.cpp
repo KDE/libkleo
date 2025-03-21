@@ -343,16 +343,6 @@ QString format_keytype(const Key &key)
     }
 }
 
-QString format_subkeytype(const Subkey &subkey)
-{
-    const auto algo = subkey.publicKeyAlgorithm();
-
-    if (algo == Subkey::AlgoECC || algo == Subkey::AlgoECDSA || algo == Subkey::AlgoECDH || algo == Subkey::AlgoEDDSA) {
-        return QString::fromStdString(subkey.algoName());
-    }
-    return i18n("%1-bit %2", subkey.length(), QLatin1StringView(subkey.publicKeyAlgorithmAsString()));
-}
-
 QString format_keyusage(const Key &key)
 {
     QStringList capabilities;
@@ -370,28 +360,6 @@ QString format_keyusage(const Key &key)
         capabilities.push_back(i18n("Certifying User IDs"));
     }
     if (Kleo::keyHasAuthenticate(key)) {
-        capabilities.push_back(i18n("SSH Authentication"));
-    }
-    return capabilities.join(QLatin1StringView(", "));
-}
-
-QString format_subkeyusage(const Subkey &subkey)
-{
-    QStringList capabilities;
-    if (subkey.canSign()) {
-        if (subkey.isQualified()) {
-            capabilities.push_back(i18n("Signing (Qualified)"));
-        } else {
-            capabilities.push_back(i18n("Signing"));
-        }
-    }
-    if (subkey.canEncrypt()) {
-        capabilities.push_back(i18n("Encryption"));
-    }
-    if (subkey.canCertify()) {
-        capabilities.push_back(i18n("Certifying User IDs"));
-    }
-    if (subkey.canAuthenticate()) {
         capabilities.push_back(i18n("SSH Authentication"));
     }
     return capabilities.join(QLatin1StringView(", "));
@@ -524,38 +492,6 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
             result += format_row(i18n("Stored"), i18nc("stored...", "on SmartCard with serial no. %1", QString::fromUtf8(card)));
         } else {
             result += format_row(i18n("Stored"), i18nc("stored...", "on this computer"));
-        }
-    }
-    if (flags & Formatting::Subkeys) {
-        for (const auto &sub : key.subkeys()) {
-            result += QLatin1StringView("<hr/>");
-            result += format_row(i18n("Subkey"), sub.fingerprint());
-            if (sub.isRevoked()) {
-                result += format_row(i18n("Status"), i18n("Revoked"));
-            } else if (sub.isExpired()) {
-                result += format_row(i18n("Status"), i18n("Expired"));
-            }
-            if (flags & Formatting::ExpiryDates) {
-                result += format_row(i18n("Valid from"), time_t2string(sub.creationTime()));
-
-                if (!sub.neverExpires()) {
-                    result += format_row(i18n("Valid until"), time_t2string(sub.expirationTime()));
-                }
-            }
-
-            if (flags & Formatting::CertificateType) {
-                result += format_row(i18n("Type"), format_subkeytype(sub));
-            }
-            if (flags & Formatting::CertificateUsage) {
-                result += format_row(i18n("Usage"), format_subkeyusage(sub));
-            }
-            if (flags & Formatting::StorageLocation) {
-                if (const char *card = sub.cardSerialNumber()) {
-                    result += format_row(i18n("Stored"), i18nc("stored...", "on SmartCard with serial no. %1", QString::fromUtf8(card)));
-                } else {
-                    result += format_row(i18n("Stored"), i18nc("stored...", "on this computer"));
-                }
-            }
         }
     }
     result += QLatin1StringView("</table>");
@@ -1149,15 +1085,6 @@ QString Formatting::importMetaData(const Import &import)
     }
 
     return results.empty() ? i18n("The import contained no new data for this certificate. It is unchanged.") : results.join(QLatin1Char('\n'));
-}
-
-//
-// Overview in CertificateDetailsDialog
-//
-
-QString Formatting::formatOverview(const Key &key)
-{
-    return toolTip(key, AllOptions);
 }
 
 QString Formatting::usageString(const Subkey &sub)
