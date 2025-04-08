@@ -38,8 +38,7 @@ bool Kleo::SystemInfo::isHighContrastModeActive()
 {
     static bool forceHighContrastMode = qgetenv("KLEO_HIGH_CONTRAST_MODE").toInt();
 #ifdef Q_OS_WIN
-    static bool highContrastModeActive = forceHighContrastMode || win_isHighContrastModeActive();
-    return highContrastModeActive;
+    return forceHighContrastMode || win_isHighContrastModeActive();
 #else
     return forceHighContrastMode;
 #endif
