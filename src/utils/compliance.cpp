@@ -160,16 +160,14 @@ void Kleo::DeVSCompliance::decorate(QPushButton *button, bool compliant)
     }
     if (compliant) {
         button->setIcon(QIcon::fromTheme(QStringLiteral("security-high")));
-        if (!SystemInfo::isHighContrastModeActive()) {
-            const auto bgColor = KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::PositiveBackground).color().name();
-            button->setStyleSheet(QStringLiteral("QPushButton { background-color: %1; };").arg(bgColor));
-        }
+        auto buttonPalette = button->palette();
+        KColorScheme::adjustBackground(buttonPalette, KColorScheme::PositiveBackground, button->backgroundRole(), KColorScheme::Button);
+        button->setPalette(buttonPalette);
     } else {
         button->setIcon(QIcon::fromTheme(QStringLiteral("security-medium")));
-        if (!SystemInfo::isHighContrastModeActive()) {
-            const auto bgColor = KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::NegativeBackground).color().name();
-            button->setStyleSheet(QStringLiteral("QPushButton { background-color: %1; };").arg(bgColor));
-        }
+        auto buttonPalette = button->palette();
+        KColorScheme::adjustBackground(buttonPalette, KColorScheme::NegativeBackground, button->backgroundRole(), KColorScheme::Button);
+        button->setPalette(buttonPalette);
     }
 }
 
