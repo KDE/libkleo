@@ -88,6 +88,8 @@ target_sources(KPim6Libkleo PRIVATE
     models/useridproxymodel.cpp
     models/useridproxymodel.h
     utils/algorithm.h
+    utils/applicationpalettewatcher.cpp
+    utils/applicationpalettewatcher.h
     utils/assuan.cpp
     utils/assuan.h
     utils/chrono.h
@@ -303,6 +305,7 @@ ecm_generate_headers(libkleo_CamelCase_models_HEADERS
 ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
     HEADER_NAMES
     Algorithm
+    ApplicationPaletteWatcher
     Assuan
     Chrono
     Classify
