@@ -12,6 +12,8 @@
 
 #include "systeminfo.h"
 
+#include <KColorSchemeManager>
+
 #include <QByteArray>
 
 // #include "libkleo_debug.h"
@@ -42,4 +44,10 @@ bool Kleo::SystemInfo::isHighContrastModeActive()
 #else
     return forceHighContrastMode;
 #endif
+}
+
+bool Kleo::SystemInfo::isHighContrastColorSchemeInUse()
+{
+    return KColorSchemeManager::instance()->activeSchemeId().isEmpty() // the default scheme is in use
+        && isHighContrastModeActive();
 }
