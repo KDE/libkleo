@@ -515,11 +515,11 @@ QVariant AbstractKeyListModel::data(const Key &key, int row, int column, int rol
     } else if (role == Qt::DecorationRole) {
         return column == Icon ? returnIfValid(KeyFilterManager::instance()->icon(key)) : QVariant();
     } else if (role == Qt::BackgroundRole) {
-        if (!SystemInfo::isHighContrastModeActive()) {
+        if (!SystemInfo::isHighContrastColorSchemeInUse()) {
             return returnIfValid(KeyFilterManager::instance()->bgColor(key));
         }
     } else if (role == Qt::ForegroundRole) {
-        if (!SystemInfo::isHighContrastModeActive()) {
+        if (!SystemInfo::isHighContrastColorSchemeInUse()) {
             return returnIfValid(KeyFilterManager::instance()->fgColor(key));
         }
     } else if (role == FingerprintRole) {
