@@ -17,6 +17,7 @@
 #include "progressdialog.h"
 
 #include <libkleo/algorithm.h>
+#include <libkleo/applicationpalettewatcher.h>
 #include <libkleo/compliance.h>
 #include <libkleo/debug.h>
 #include <libkleo/defaultkeyfilter.h>
@@ -316,6 +317,9 @@ public:
         mFormatBtns->setExclusive(!mAllowMixed);
 
         connect(mFormatBtns, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), q, [this]() {
+            updateOkButton();
+        });
+        connect(&appPaletteWatcher, &ApplicationPaletteWatcher::paletteChanged, q, [this]() {
             updateOkButton();
         });
 
@@ -869,6 +873,7 @@ public:
         mComplianceLbl->setVisible(!doNotSign);
     }
 
+    ApplicationPaletteWatcher appPaletteWatcher;
     GpgME::Protocol mForcedProtocol;
     QList<KeySelectionCombo *> mSigningCombos;
     QList<KeySelectionCombo *> mEncCombos;
