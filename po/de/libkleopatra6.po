@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-25 00:42+0000\n"
+"POT-Creation-Date: 2025-04-18 00:42+0000\n"
 "PO-Revision-Date: 2024-11-19 10:13+0100\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
@@ -2227,37 +2227,37 @@ msgstr ""
 "Geben Sie eine E-Mail-Adresse in dem Format ein, das von ihrer Organisation "
 "vorgegeben ist."
 
-#: ui/newkeyapprovaldialog.cpp:142
+#: ui/newkeyapprovaldialog.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "Details anzeigen"
 
-#: ui/newkeyapprovaldialog.cpp:184
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "Passende Schlüssel anzeigen"
 
-#: ui/newkeyapprovaldialog.cpp:185
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Zur E-Mail-Adresse passende Schlüssel anzeigen"
 
-#: ui/newkeyapprovaldialog.cpp:188
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "Alle anzeigen"
 
-#: ui/newkeyapprovaldialog.cpp:189
+#: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Alle Schlüssel anzeigen"
 
-#: ui/newkeyapprovaldialog.cpp:272
+#: ui/newkeyapprovaldialog.cpp:273
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2272,86 +2272,86 @@ msgstr ""
 "werden nach einem Passwort zum Schutz des Schlüssels gefragt und der "
 "Schlüssel wird in Ihrem persönlichen Ordner gespeichert."
 
-#: ui/newkeyapprovaldialog.cpp:297
+#: ui/newkeyapprovaldialog.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Sicherheitsbestätigung"
 
-#: ui/newkeyapprovaldialog.cpp:304
+#: ui/newkeyapprovaldialog.cpp:305
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:306
 #, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
-
-#: ui/newkeyapprovaldialog.cpp:307
-#, kde-format
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:309
+#, kde-format
+msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:402
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Generiere Schlüssel für '%1'..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:402
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Dies kann einige Minuten dauern."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Schlüsselgenerierung"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:443
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operation fehlgeschlagen"
 
-#: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:558 ui/newkeyapprovaldialog.cpp:654
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Neues Schlüsselpaar erstellen"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:561
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Diese E-Mail nicht signieren"
 
-#: ui/newkeyapprovaldialog.cpp:559
+#: ui/newkeyapprovaldialog.cpp:563
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Die E-Mail wird nicht kryptographisch signiert."
 
-#: ui/newkeyapprovaldialog.cpp:577
+#: ui/newkeyapprovaldialog.cpp:581
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Identität als '%1' bestätigen:"
 
-#: ui/newkeyapprovaldialog.cpp:654
+#: ui/newkeyapprovaldialog.cpp:658
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Kein Schlüssel. Empfänger kann die Nachricht nicht entschlüsseln."
 
-#: ui/newkeyapprovaldialog.cpp:657
+#: ui/newkeyapprovaldialog.cpp:661
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2363,18 +2363,18 @@ msgstr ""
 "erhält eine verschlüsselte E-Mail, die aber nur mit den anderen in diesem "
 "Dialog ausgewählten Schlüsseln entschlüsselt werden kann."
 
-#: ui/newkeyapprovaldialog.cpp:774
+#: ui/newkeyapprovaldialog.cpp:778
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Verschlüsseln für sich selbst (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:791
+#: ui/newkeyapprovaldialog.cpp:795
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Verschlüsseln für Andere:"
 
-#: ui/newkeyapprovaldialog.cpp:829
+#: ui/newkeyapprovaldialog.cpp:833
 #, kde-format
 msgid "Generate"
 msgstr "Generieren"
@@ -2476,17 +2476,17 @@ msgstr "Zertifikatsliste anzeigen"
 msgid "Show certificate list"
 msgstr "Zertifikatsliste anzeigen"
 
-#: utils/compliance.cpp:187
+#: utils/compliance.cpp:185
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "VS-NfD-konform"
 
-#: utils/compliance.cpp:187
+#: utils/compliance.cpp:185
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Nicht VS-NfD-konform"
 
-#: utils/compliance.cpp:196
+#: utils/compliance.cpp:194
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
