@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <libkleo/applicationpalettewatcher.h>
+
 #include <QFrame>
 #include <QGridLayout>
 #include <QParallelAnimationGroup>
@@ -35,6 +37,7 @@ Q_SIGNALS:
 private:
     static const int animationDuration = 300;
 
+    ApplicationPaletteWatcher appPaletteWatcher;
     QGridLayout mainLayout;
     QToolButton toggleButton;
     QFrame headerLine;

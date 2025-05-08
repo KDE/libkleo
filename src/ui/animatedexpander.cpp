@@ -26,27 +26,32 @@ void AnimatedExpander::setExpanded(bool expanded)
     toggleButton.setChecked(expanded);
 }
 
-AnimatedExpander::AnimatedExpander(const QString &title, const QString &accessibleTitle, QWidget *parent)
-    : QWidget{parent}
+static void updateToggleButton(QToolButton *toggleButton)
 {
 #ifdef Q_OS_WIN
     // draw dotted focus frame if button has focus; otherwise, draw invisible frame using background color
-    toggleButton.setStyleSheet(
+    toggleButton->setStyleSheet(
         QStringLiteral("QToolButton { border: 1px solid palette(window); }"
                        "QToolButton:focus { border: 1px dotted palette(window-text); }"));
 #else
     // this works with Breeze style because Breeze draws the focus frame when drawing CE_ToolButtonLabel
     // while the Windows styles (and Qt's common base style) draw the focus frame before drawing CE_ToolButtonLabel
-    toggleButton.setStyleSheet(QStringLiteral("QToolButton { border: none; }"));
+    toggleButton->setStyleSheet(QStringLiteral("QToolButton { border: none; }"));
 #endif
+    toggleButton->setArrowType(toggleButton->isChecked() ? Qt::ArrowType::DownArrow : Qt::ArrowType::RightArrow);
+}
+
+AnimatedExpander::AnimatedExpander(const QString &title, const QString &accessibleTitle, QWidget *parent)
+    : QWidget{parent}
+{
     toggleButton.setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    toggleButton.setArrowType(Qt::ArrowType::RightArrow);
     toggleButton.setText(title);
     if (!accessibleTitle.isEmpty()) {
         toggleButton.setAccessibleName(accessibleTitle);
     }
     toggleButton.setCheckable(true);
     toggleButton.setChecked(false);
+    updateToggleButton(&toggleButton);
 
     headerLine.setFrameShape(QFrame::HLine);
     headerLine.setFrameShadow(QFrame::Sunken);
@@ -101,6 +106,9 @@ AnimatedExpander::AnimatedExpander(const QString &title, const QString &accessib
         if (!toggleButton.isChecked()) {
             contentArea.setVisible(false);
         }
+    });
+    connect(&appPaletteWatcher, &ApplicationPaletteWatcher::paletteChanged, this, [this]() {
+        updateToggleButton(&toggleButton);
     });
 }
 
