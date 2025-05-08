@@ -21,6 +21,9 @@ class KLEO_EXPORT ErrorLabel : public QLabel
 public:
     explicit ErrorLabel(QWidget *parent = nullptr);
     ~ErrorLabel() override;
+
+private:
+    bool eventFilter(QObject *obj, QEvent *event) override;
 };
 
 }

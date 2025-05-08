@@ -10,18 +10,37 @@
 
 #include <KColorScheme>
 
+#include <QCoreApplication>
+
 using namespace Kleo;
 
-ErrorLabel::ErrorLabel(QWidget *parent)
-    : QLabel{parent}
+static void updatePalette(ErrorLabel *label)
 {
     const auto colors = KColorScheme(QPalette::Active, KColorScheme::View);
     QPalette palette;
     palette.setBrush(QPalette::Window, colors.background(KColorScheme::NegativeBackground));
     palette.setBrush(QPalette::WindowText, colors.foreground(KColorScheme::NegativeText));
-    setPalette(palette);
+    label->setPalette(palette);
 }
 
-ErrorLabel::~ErrorLabel() = default;
+ErrorLabel::ErrorLabel(QWidget *parent)
+    : QLabel{parent}
+{
+    updatePalette(this);
+    qApp->installEventFilter(this);
+}
+
+ErrorLabel::~ErrorLabel()
+{
+    qApp->removeEventFilter(this);
+}
+
+bool ErrorLabel::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == qApp && event->type() == QEvent::ApplicationPaletteChange) {
+        updatePalette(this);
+    }
+    return false;
+}
 
 #include "moc_errorlabel.cpp"
