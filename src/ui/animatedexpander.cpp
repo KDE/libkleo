@@ -8,7 +8,12 @@
 
 #include "animatedexpander_p.h"
 
+#include <QApplication>
 #include <QPropertyAnimation>
+#include <QProxyStyle>
+#include <QStyle>
+
+using namespace Qt::Literals::StringLiterals;
 
 void AnimatedExpander::setContentLayout(QLayout *contentLayout)
 {
@@ -26,18 +31,27 @@ void AnimatedExpander::setExpanded(bool expanded)
     toggleButton.setChecked(expanded);
 }
 
+static QString applicationStyleName()
+{
+    auto style = qApp->style();
+    while (auto proxyStyle = qobject_cast<QProxyStyle *>(style)) {
+        style = proxyStyle->baseStyle();
+    }
+    return style ? style->name() : QString{};
+}
+
 static void updateToggleButton(QToolButton *toggleButton)
 {
-#ifdef Q_OS_WIN
-    // draw dotted focus frame if button has focus; otherwise, draw invisible frame using background color
-    toggleButton->setStyleSheet(
-        QStringLiteral("QToolButton { border: 1px solid palette(window); }"
-                       "QToolButton:focus { border: 1px dotted palette(window-text); }"));
-#else
-    // this works with Breeze style because Breeze draws the focus frame when drawing CE_ToolButtonLabel
-    // while the Windows styles (and Qt's common base style) draw the focus frame before drawing CE_ToolButtonLabel
-    toggleButton->setStyleSheet(QStringLiteral("QToolButton { border: none; }"));
-#endif
+    if (applicationStyleName().toLower() == "breeze"_L1) {
+        // Breeze draws the focus frame when drawing CE_ToolButtonLabel so that we can simply set the border to none
+        toggleButton->setStyleSheet(QStringLiteral("QToolButton { border: none; }"));
+    } else {
+        // Windows styles (and Qt's common base style) draw the focus frame before drawing CE_ToolButtonLabel which doesn't work with "border: none";
+        // instead draw dotted focus frame if button has focus; otherwise, draw invisible frame using background color
+        toggleButton->setStyleSheet(
+            QStringLiteral("QToolButton { border: 1px solid palette(window); }"
+                           "QToolButton:focus { border: 1px dotted palette(window-text); }"));
+    }
     toggleButton->setArrowType(toggleButton->isChecked() ? Qt::ArrowType::DownArrow : Qt::ArrowType::RightArrow);
 }
 
