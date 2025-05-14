@@ -35,6 +35,7 @@
 
 #include <QGpgME/Protocol>
 #include <QGpgME/QuickJob>
+#include <qgpgme/qgpgme_version.h>
 
 #include <QButtonGroup>
 #include <QCheckBox>
@@ -414,7 +415,11 @@ public:
             qCWarning(LIBKLEO_LOG) << "new-style connect failed; connecting to QGpgME::QuickJob::result the old way";
             connect(job, SIGNAL(result(const GpgME::Error &)), q, SLOT(handleKeyGenResult()));
         }
+#if QGPGME_VERSION >= QT_VERSION_CHECK(2, 0, 0)
+        job->startCreate(addr);
+#else
         job->startCreate(addr, nullptr);
+#endif
         return;
     }
 
