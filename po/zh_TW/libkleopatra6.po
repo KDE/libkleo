@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:42+0000\n"
+"POT-Creation-Date: 2025-05-16 00:43+0000\n"
 "PO-Revision-Date: 2024-08-25 03:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2062,37 +2062,37 @@ msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr "請輸入符合您組織的格式要求的電子郵件地址。"
 
-#: ui/newkeyapprovaldialog.cpp:143
+#: ui/newkeyapprovaldialog.cpp:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "顯示詳情"
 
-#: ui/newkeyapprovaldialog.cpp:185
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "顯示符合金鑰"
 
-#: ui/newkeyapprovaldialog.cpp:186
+#: ui/newkeyapprovaldialog.cpp:187
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "顯示符合電子郵件地址的金鑰"
 
-#: ui/newkeyapprovaldialog.cpp:189
+#: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "顯示全部"
 
-#: ui/newkeyapprovaldialog.cpp:190
+#: ui/newkeyapprovaldialog.cpp:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "顯示所有金鑰"
 
-#: ui/newkeyapprovaldialog.cpp:273
+#: ui/newkeyapprovaldialog.cpp:274
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2105,86 +2105,86 @@ msgstr ""
 "用您的電子郵件地址產生一個新的金鑰。<br/><br/>需要金鑰才能解密或簽署郵件。將"
 "會請您設定密碼來保護此金鑰，而保護好的金鑰會儲存在您的家目錄中。"
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "安全性確認"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:306
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
+#: ui/newkeyapprovaldialog.cpp:307
 #, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
-
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
 msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-format
+msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:403
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "正在為 '%1' 產生金鑰..."
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:403
 #, kde-format
 msgid "This can take several minutes."
 msgstr "這可能會花幾分鐘。"
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "金鑰產生"
 
-#: ui/newkeyapprovaldialog.cpp:443
+#: ui/newkeyapprovaldialog.cpp:448
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "操作失敗"
 
-#: ui/newkeyapprovaldialog.cpp:558 ui/newkeyapprovaldialog.cpp:654
+#: ui/newkeyapprovaldialog.cpp:563 ui/newkeyapprovaldialog.cpp:659
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "產生新的金鑰對"
 
-#: ui/newkeyapprovaldialog.cpp:561
+#: ui/newkeyapprovaldialog.cpp:566
 #, kde-format
 msgid "Do not sign this email"
 msgstr "不要簽署此郵件"
 
-#: ui/newkeyapprovaldialog.cpp:563
+#: ui/newkeyapprovaldialog.cpp:568
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "郵件將不會用密碼學簽署。"
 
-#: ui/newkeyapprovaldialog.cpp:581
+#: ui/newkeyapprovaldialog.cpp:586
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "確認身份「%1」："
 
-#: ui/newkeyapprovaldialog.cpp:658
+#: ui/newkeyapprovaldialog.cpp:663
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "無金鑰。收件人將會無法解密。"
 
-#: ui/newkeyapprovaldialog.cpp:661
+#: ui/newkeyapprovaldialog.cpp:666
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2195,18 +2195,18 @@ msgstr ""
 "不為此收件人選取金鑰。<br/><br/>收件人會收到加密信件，但只能使用此對話框所選"
 "的其他金鑰才能解密。"
 
-#: ui/newkeyapprovaldialog.cpp:778
+#: ui/newkeyapprovaldialog.cpp:783
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "加密給自己 (%1)："
 
-#: ui/newkeyapprovaldialog.cpp:795
+#: ui/newkeyapprovaldialog.cpp:800
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "加密給別人："
 
-#: ui/newkeyapprovaldialog.cpp:833
+#: ui/newkeyapprovaldialog.cpp:838
 #, kde-format
 msgid "Generate"
 msgstr "產生"

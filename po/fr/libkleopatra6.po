@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:42+0000\n"
+"POT-Creation-Date: 2025-05-16 00:43+0000\n"
 "PO-Revision-Date: 2025-01-20 19:26+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -2261,37 +2261,37 @@ msgstr ""
 "Veuillez saisir une adresse de courriel dans le format correct requis par "
 "votre organisation."
 
-#: ui/newkeyapprovaldialog.cpp:143
+#: ui/newkeyapprovaldialog.cpp:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "Afficher les détails"
 
-#: ui/newkeyapprovaldialog.cpp:185
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "Afficher les clés correspondantes"
 
-#: ui/newkeyapprovaldialog.cpp:186
+#: ui/newkeyapprovaldialog.cpp:187
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Afficher les clés correspondant à l'adresse de courriel."
 
-#: ui/newkeyapprovaldialog.cpp:189
+#: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "Tout afficher"
 
-#: ui/newkeyapprovaldialog.cpp:190
+#: ui/newkeyapprovaldialog.cpp:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Afficher toutes les clés"
 
-#: ui/newkeyapprovaldialog.cpp:273
+#: ui/newkeyapprovaldialog.cpp:274
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2306,86 +2306,86 @@ msgstr ""
 "sera demandé de saisir un mot de passe pour protéger cette clé, qui sera "
 "enregistrée dans votre dossier personnel."
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Autorisation de sécurité"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:306
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
+#: ui/newkeyapprovaldialog.cpp:307
 #, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S / MIME"
-
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
 msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-format
+msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S / MIME"
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:403
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Génération d'une nouvelle clé pour « %1 »..."
 
-#: ui/newkeyapprovaldialog.cpp:402
+#: ui/newkeyapprovaldialog.cpp:403
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Ceci peut prendre plusieurs minutes."
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Génération de clés"
 
-#: ui/newkeyapprovaldialog.cpp:443
+#: ui/newkeyapprovaldialog.cpp:448
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Échec de l'opération"
 
-#: ui/newkeyapprovaldialog.cpp:558 ui/newkeyapprovaldialog.cpp:654
+#: ui/newkeyapprovaldialog.cpp:563 ui/newkeyapprovaldialog.cpp:659
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Générer une nouvelle paire de clés"
 
-#: ui/newkeyapprovaldialog.cpp:561
+#: ui/newkeyapprovaldialog.cpp:566
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Ne pas signer ce courriel"
 
-#: ui/newkeyapprovaldialog.cpp:563
+#: ui/newkeyapprovaldialog.cpp:568
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Le courriel ne sera pas signé par chiffrement."
 
-#: ui/newkeyapprovaldialog.cpp:581
+#: ui/newkeyapprovaldialog.cpp:586
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Confirmer l'identité « %1 » comme :"
 
-#: ui/newkeyapprovaldialog.cpp:658
+#: ui/newkeyapprovaldialog.cpp:663
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Aucune clé. Le destinataire ne pourra pas déchiffrer."
 
-#: ui/newkeyapprovaldialog.cpp:661
+#: ui/newkeyapprovaldialog.cpp:666
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2397,18 +2397,18 @@ msgstr ""
 "recevra le courriel chiffré, mais il pourra uniquement être déchiffré à "
 "l'aide des autres clés sélectionnées dans cette boîte de dialogue."
 
-#: ui/newkeyapprovaldialog.cpp:778
+#: ui/newkeyapprovaldialog.cpp:783
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Chiffrer pour soi même (%1) :"
 
-#: ui/newkeyapprovaldialog.cpp:795
+#: ui/newkeyapprovaldialog.cpp:800
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Chiffrer pour les autres :"
 
-#: ui/newkeyapprovaldialog.cpp:833
+#: ui/newkeyapprovaldialog.cpp:838
 #, kde-format
 msgid "Generate"
 msgstr "Générer"
