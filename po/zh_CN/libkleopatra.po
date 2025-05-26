@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 00:42+0000\n"
-"PO-Revision-Date: 2024-02-05 11:41\n"
+"POT-Creation-Date: 2025-04-18 00:42+0000\n"
+"PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/libkleo/libkleopatra.pot\n"
-"X-Crowdin-File-ID: 3755\n"
+"X-Crowdin-File: /kf6-trunk/messages/libkleo/libkleopatra6.pot\n"
+"X-Crowdin-File-ID: 49080\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -67,79 +67,79 @@ msgstr "“file-patterns”字段为空或丢失"
 msgid "Caught unknown exception in group %1"
 msgstr "在组“%1”中捕捉到未知异常"
 
-#: kleo/dn.cpp:517
+#: kleo/dnattributes.cpp:61
 msgid "Common name"
 msgstr "通用名称"
 
-#: kleo/dn.cpp:518
+#: kleo/dnattributes.cpp:62
 msgid "Surname"
 msgstr "姓氏"
 
-#: kleo/dn.cpp:519
+#: kleo/dnattributes.cpp:63
 msgid "Given name"
 msgstr "名字"
 
-#: kleo/dn.cpp:520
+#: kleo/dnattributes.cpp:64
 msgid "Location"
 msgstr "住址"
 
-#: kleo/dn.cpp:521
+#: kleo/dnattributes.cpp:65
 msgid "Title"
 msgstr "衔头"
 
-#: kleo/dn.cpp:522
+#: kleo/dnattributes.cpp:66
 msgid "Organizational unit"
 msgstr "组织单元"
 
-#: kleo/dn.cpp:523
+#: kleo/dnattributes.cpp:67
 msgid "Organization"
 msgstr "组织"
 
-#: kleo/dn.cpp:524
+#: kleo/dnattributes.cpp:68
 msgid "Postal code"
 msgstr "邮政编码"
 
-#: kleo/dn.cpp:525
+#: kleo/dnattributes.cpp:69
 msgid "Country code"
 msgstr "国家代码"
 
-#: kleo/dn.cpp:526
+#: kleo/dnattributes.cpp:70
 msgid "State or province"
 msgstr "省份"
 
-#: kleo/dn.cpp:527
+#: kleo/dnattributes.cpp:71
 msgid "Domain component"
 msgstr "域组件"
 
-#: kleo/dn.cpp:528
+#: kleo/dnattributes.cpp:72
 msgid "Business category"
 msgstr "商业目录"
 
-#: kleo/dn.cpp:529
+#: kleo/dnattributes.cpp:73
 msgid "Email address"
 msgstr "电子邮件地址"
 
-#: kleo/dn.cpp:530
+#: kleo/dnattributes.cpp:74
 msgid "Mail address"
 msgstr "邮件地址"
 
-#: kleo/dn.cpp:531
+#: kleo/dnattributes.cpp:75
 msgid "Mobile phone number"
 msgstr "移动电话号码"
 
-#: kleo/dn.cpp:532
+#: kleo/dnattributes.cpp:76
 msgid "Telephone number"
 msgstr "电话号码"
 
-#: kleo/dn.cpp:533
+#: kleo/dnattributes.cpp:77
 msgid "Fax number"
 msgstr "传真号码"
 
-#: kleo/dn.cpp:534
+#: kleo/dnattributes.cpp:78
 msgid "Street address"
 msgstr "街道地址"
 
-#: kleo/dn.cpp:535
+#: kleo/dnattributes.cpp:79
 msgid "Unique ID"
 msgstr "唯一标识"
 
@@ -151,9 +151,7 @@ msgstr "内联 OpenPGP(过时)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
@@ -224,36 +222,38 @@ msgstr "尽可能签名"
 #, kde-format
 msgctxt "no specific preference"
 msgid "<none>"
-msgstr "<无>"
+msgstr "<none>"
 
-#: kleo/expirychecker.cpp:78
+#: kleo/expirychecker.cpp:80
 #, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr ""
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
+msgstr "<b>%1</b> (密钥 ID %2)"
 
-#: kleo/expirychecker.cpp:86
+#: kleo/expirychecker.cpp:88
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>您的OpenPGP签名密钥</p><p align=center>%1</p><p>不到一天前就过期了。</p>"
 
-#: kleo/expirychecker.cpp:88
+#: kleo/expirychecker.cpp:90
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>您的 OpenPGP 加密密钥</p><p align=center>%1</p><p>不到一天前就过期了。</p>"
 
-#: kleo/expirychecker.cpp:90
+#: kleo/expirychecker.cpp:92
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
-msgstr ""
+msgstr "<p>OpenPGP密钥</p><p align=center>%1</p><p>不到一天前就过期了。</p>"
 
-#: kleo/expirychecker.cpp:96
+#: kleo/expirychecker.cpp:98
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</"
@@ -261,9 +261,9 @@ msgid ""
 msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
-msgstr[0] ""
+msgstr[0] "<p>您的OpenPGP签名密钥</p><p align=center>%2</p><p>%1天前过期。</p>"
 
-#: kleo/expirychecker.cpp:99
+#: kleo/expirychecker.cpp:101
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday."
@@ -271,34 +271,34 @@ msgid ""
 msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
-msgstr[0] ""
+msgstr[0] "<p>您的OpenPGP加密密钥</p><p align=center>%2</p><p>%1天前过期。</p>"
 
-#: kleo/expirychecker.cpp:102
+#: kleo/expirychecker.cpp:104
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
-msgstr[0] ""
-
-#: kleo/expirychecker.cpp:111
-#, kde-format
-msgid ""
-"<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr[0] "<p>OpenPGP 密钥</p><p align=center>%2</p><p>%1天前过期。</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
-"<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+"<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
+msgstr "<p>您的OpenPGP签名密钥</p><p align=center>%1</p><p>今天到期。</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
-msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgid ""
+"<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
+msgstr "<p>您的OpenPGP加密密钥</p><p align=center>%1</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:121
+#: kleo/expirychecker.cpp:117
+#, kde-format
+msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
+msgstr "<p>OpenPGP密钥</p><p align=center>%1</p><p>今天到期。</p>"
+
+#: kleo/expirychecker.cpp:123
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -306,8 +306,9 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>您的OpenPGP签名密钥</p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:124
+#: kleo/expirychecker.cpp:126
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow."
@@ -316,46 +317,53 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>您的 OpenPGP 加密密钥</p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:127
+#: kleo/expirychecker.cpp:129
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
-msgstr[0] ""
+msgstr[0] "<p>OpenPGP密钥</p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:139
+#: kleo/expirychecker.cpp:141
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (序列号 %2)"
 
-#: kleo/expirychecker.cpp:150
+#: kleo/expirychecker.cpp:152
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>根证书</p><p align=center><b>%2</b></p><p>的S/MIME签名证书</p><p "
+"align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:155
+#: kleo/expirychecker.cpp:157
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>根证书</p><p align=center><b>%2</b></p><p>的S/MIME加密证书</p><p "
+"align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:160
+#: kleo/expirychecker.cpp:162
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>根证书</p><p align=center><b>%2</b></p><p>的S/MIME证书</p><p align=center>"
+"%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:169
+#: kleo/expirychecker.cpp:171
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -364,8 +372,10 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>的S/MIME签名证书</p><p "
+"align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:177
+#: kleo/expirychecker.cpp:179
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -374,8 +384,10 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>的S/MIME加密证书</p><p "
+"align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:185
+#: kleo/expirychecker.cpp:187
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -384,31 +396,39 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>的S/MIME证书</p><p align=center>"
+"%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:198
+#: kleo/expirychecker.cpp:200
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>中间CA证书</p><p align=center><b>%2</b></p><p>的S/MIME签名证书</p><p "
+"align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:203
+#: kleo/expirychecker.cpp:205
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>中间CA证书</p><p align=center><b>%2</b></p><p>的S/MIME加密证书</p><p "
+"align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:208
+#: kleo/expirychecker.cpp:210
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>中间CA证书</p><p align=center><b>%2</b></p><p>的S/MIME证书</p><p "
+"align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:217
+#: kleo/expirychecker.cpp:219
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -419,8 +439,10 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>中间 CA 证书</p><p align=center><b>%3</b></p><p>的S/MIME签名证书</p><p "
+"align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:225
+#: kleo/expirychecker.cpp:227
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -431,8 +453,10 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>的S/MIME加密证书</p><p "
+"align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:233
+#: kleo/expirychecker.cpp:235
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -441,29 +465,33 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>的S/MIME证书</p><p "
+"align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:246
+#: kleo/expirychecker.cpp:248
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>您的S/MIME签名证书</p><p align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:248
+#: kleo/expirychecker.cpp:250
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>您的S/MIME加密证书</p><p align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:250
+#: kleo/expirychecker.cpp:252
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
-msgstr ""
+msgstr "<p>此S/MIME证书</p><p align=center>%1</p><p>不到一天前过期了。</p>"
 
-#: kleo/expirychecker.cpp:256
+#: kleo/expirychecker.cpp:258
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
@@ -471,9 +499,9 @@ msgid ""
 msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
-msgstr[0] ""
+msgstr[0] "<p>您的S/MIME签名证书</p><p align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:259
+#: kleo/expirychecker.cpp:261
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
@@ -481,9 +509,9 @@ msgid ""
 msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
-msgstr[0] ""
+msgstr[0] "<p>您的S/MIME加密证书</p><p align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:262
+#: kleo/expirychecker.cpp:264
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday."
@@ -491,30 +519,36 @@ msgid ""
 msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
-msgstr[0] ""
+msgstr[0] "<p>此S/MIME证书</p><p align=center>%2</p><p>已过期%1天。</p>"
 
-#: kleo/expirychecker.cpp:275
+#: kleo/expirychecker.cpp:277
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>的S/MIME签名证书</p><p "
+"align=center>%2</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:280
+#: kleo/expirychecker.cpp:282
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>的S/MIME加密证书</p><p "
+"align=center>%2</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:285
+#: kleo/expirychecker.cpp:287
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>的S/MIME证书</p><p align=center>"
+"%2</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:294
+#: kleo/expirychecker.cpp:296
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -523,8 +557,10 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>用于您的S/MIME签名证书</p><p "
+"align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:302
+#: kleo/expirychecker.cpp:304
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -533,8 +569,10 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>用于您的S/MIME加密证书</p><p "
+"align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:310
+#: kleo/expirychecker.cpp:312
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -543,31 +581,39 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>根证书</p><p align=center><b>%3</b></p><p>的S/MIME证书</p><p align=center>"
+"%2</p><p>expires in %1 days.</p>"
 
-#: kleo/expirychecker.cpp:323
+#: kleo/expirychecker.cpp:325
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>用于您的S/MIME签名证书</"
+"p><p align=center>%2</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:328
+#: kleo/expirychecker.cpp:330
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>用于您的S/MIME加密证书</"
+"p><p align=center>%2</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:333
+#: kleo/expirychecker.cpp:335
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>的S/MIME证书</p><p "
+"align=center>%2</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:341
+#: kleo/expirychecker.cpp:343
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -578,8 +624,10 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>用于您的S/MIME签名证书</"
+"p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:349
+#: kleo/expirychecker.cpp:351
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -590,8 +638,10 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>用于您的S/MIME加密证书</"
+"p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:357
+#: kleo/expirychecker.cpp:359
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -600,28 +650,30 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-
-#: kleo/expirychecker.cpp:369
-#, kde-format
-msgid ""
-"<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
-"</p>"
-msgstr ""
+"<p>中间CA证书</p><p align=center><b>%3</b></p><p>下载S/MIME证书</p><p "
+"align=center>%2</p><p>将在%1天内过期。</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
 msgid ""
-"<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
-"today.</p>"
-msgstr ""
+"<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
+"</p>"
+msgstr "<p>您的S/MIME签名证书</p><p align=center>%2</p><p>今天到期。</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
-"<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
-msgstr ""
+"<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
+"today.</p>"
+msgstr "<p>您的S/MIME加密证书</p><p align=center>%2</p><p>今天到期。</p>"
 
-#: kleo/expirychecker.cpp:380
+#: kleo/expirychecker.cpp:375
+#, kde-format
+msgid ""
+"<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
+msgstr "<p>此S/MIME证书</p><p align=center>%2</p><p>今天到期。</p>"
+
+#: kleo/expirychecker.cpp:382
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires "
@@ -630,8 +682,9 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>您的S/MIME签名证书</p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:386
+#: kleo/expirychecker.cpp:388
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
@@ -640,8 +693,9 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>您的S/MIME加密证书</p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/expirychecker.cpp:392
+#: kleo/expirychecker.cpp:394
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires tomorrow.</"
@@ -649,134 +703,207 @@ msgid ""
 msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
-msgstr[0] ""
+msgstr[0] "<p>此S/MIME证书</p><p align=center>%2</p><p>将在%1天内过期。</p>"
 
-#: kleo/keyfiltermanager.cpp:71
+#: kleo/keyfiltermanager.cpp:90
 #, kde-format
-msgid "All Certificates"
-msgstr "全部证书"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "全部"
 
-#: kleo/keyfiltermanager.cpp:86
+#: kleo/keyfiltermanager.cpp:91
 #, kde-format
-msgid "My Certificates"
-msgstr "我的证书"
+msgid "All certificates (except disabled ones)"
+msgstr "所有证书（禁用证书除外）"
 
-#: kleo/keyfiltermanager.cpp:104
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
-msgid "Trusted Certificates"
-msgstr "信任的证书"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr "我的"
 
-#: kleo/keyfiltermanager.cpp:121
+#: kleo/keyfiltermanager.cpp:109
 #, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "完全信任的证书"
+msgid "My own certificates (except disabled ones)"
+msgstr "我自己的证书（禁用的除外）"
 
-#: kleo/keyfiltermanager.cpp:138
+#: kleo/keyfiltermanager.cpp:127
 #, kde-format
-msgid "Other Certificates"
-msgstr "其他证书"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "认证"
 
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:128
 #, kde-format
-msgid "Not Certified Certificates"
-msgstr "未认证证书"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr "主用户ID认证的证件（已禁用的除外）"
 
-#: kleo/keyfiltermanager.cpp:176
+#: kleo/keyfiltermanager.cpp:146
 #, kde-format
-msgid "Not Validated Certificates"
-msgstr "未验证的证书"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "未认证"
 
-#: models/keylistmodel.cpp:319 models/useridlistmodel.cpp:105
+#: kleo/keyfiltermanager.cpp:147
 #, kde-format
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr "主用户ID未认证的证书（已禁用的证书除外）"
+
+#: kleo/keyfiltermanager.cpp:162
+#, kde-format
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "认证"
+
+#: kleo/keyfiltermanager.cpp:163
+#, kde-format
+msgid ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself (except disabled ones)"
+msgstr "尚未完全认证且您可能希望自行认证的证书（残疾人除外）"
+
+#: kleo/keyfiltermanager.cpp:191
+#, kde-format
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "未完全认证"
+
+#: kleo/keyfiltermanager.cpp:192
+#, kde-format
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
+msgstr "并非所有用户 ID 都经过认证的证书（已禁用的证书除外）"
+
+#: kleo/keyfiltermanager.cpp:216
+#, kde-format
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "完全认证"
+
+#: kleo/keyfiltermanager.cpp:217
+#, kde-format
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
+msgstr "所有用户ID均已认证的证书（已禁用的除外）"
+
+#: models/keylistmodel.cpp:326
+#, kde-format
+msgctxt "@title:column"
 msgid "Name"
 msgstr "名称"
 
-#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
+#: models/keylistmodel.cpp:328
 #, kde-format
+msgctxt "@title:column"
 msgid "E-Mail"
-msgstr "电子邮件"
+msgstr "邮件"
 
-#: models/keylistmodel.cpp:323
+#: models/keylistmodel.cpp:330
 #, kde-format
-msgid "User-IDs"
-msgstr "用户编号"
+msgctxt "@title:column"
+msgid "Status"
+msgstr "身份"
 
-#: models/keylistmodel.cpp:325 models/subkeylistmodel.cpp:159
-#: models/useridlistmodel.cpp:107
+#: models/keylistmodel.cpp:332
 #, kde-format
+msgctxt "@title:column"
 msgid "Valid From"
-msgstr "有效期开始自"
+msgstr "有效期从"
 
-#: models/keylistmodel.cpp:327 models/subkeylistmodel.cpp:161
-#: models/useridlistmodel.cpp:108
+#: models/keylistmodel.cpp:334
 #, kde-format
+msgctxt "@title:column"
 msgid "Valid Until"
-msgstr "有效期结束于"
+msgstr "有效期至"
 
-#: models/keylistmodel.cpp:329
+#: models/keylistmodel.cpp:336
 #, kde-format
+msgctxt "@title:column"
 msgid "Protocol"
 msgstr "协议"
 
-#: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
-#: utils/formatting.cpp:478
+#: models/keylistmodel.cpp:338
 #, kde-format
-msgid "Key-ID"
+msgctxt "@title:column"
+msgid "Key ID"
 msgstr "密钥 ID"
 
-#: models/keylistmodel.cpp:335 utils/formatting.cpp:481
+#: models/keylistmodel.cpp:340
 #, kde-format
+msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "指纹"
 
-#: models/keylistmodel.cpp:337 utils/formatting.cpp:448
+#: models/keylistmodel.cpp:342
 #, kde-format
+msgctxt "@title:column"
 msgid "Issuer"
-msgstr "颁发者"
+msgstr "发行人"
 
-#: models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:344
 #, kde-format
+msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "序列号"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:346
 #, kde-format
+msgctxt "@title:column"
 msgid "Origin"
-msgstr "来源"
+msgstr "源"
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:348
 #, kde-format
+msgctxt "@title:column"
 msgid "Last Update"
 msgstr "上次更新"
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:350
 #, kde-format
+msgctxt "@title:column"
 msgid "Certification Trust"
-msgstr "证书信任机构"
+msgstr "认证信托"
 
-#: models/keylistmodel.cpp:347 models/useridlistmodel.cpp:111
+#: models/keylistmodel.cpp:352
 #, kde-format
+msgctxt "@title:column"
 msgid "Tags"
 msgstr "标签"
 
-#: models/keylistmodel.cpp:395 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:354
+#, kde-format
+msgctxt "@title:column"
+msgid "Algorithm"
+msgstr "算法"
+
+#: models/keylistmodel.cpp:356
+#, kde-format
+msgctxt "@title:column"
+msgid "Keygrip"
+msgstr "证书管理器错误"
+
+#: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "无名称"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:411 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "无电子邮件"
 
-#: models/keylistmodel.cpp:464
+#: models/keylistmodel.cpp:474
 #, kde-format
 msgid "Loading..."
 msgstr "正在加载..."
 
-#: models/keylistmodel.cpp:542
+#: models/keylistmodel.cpp:557
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -788,13 +915,21 @@ msgid "ID"
 msgstr "ID"
 
 #: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
-#: utils/formatting.cpp:516
 #, kde-format
 msgid "Type"
 msgstr "文件系统"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:503 utils/formatting.cpp:505
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:108
+#, kde-format
+msgid "Valid From"
+msgstr "有效期开始自"
+
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:109
+#, kde-format
+msgid "Valid Until"
+msgstr "有效期结束于"
+
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "Status"
 msgstr "状态"
@@ -805,18 +940,17 @@ msgid "Strength"
 msgstr "强度"
 
 #: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
-#: utils/formatting.cpp:519
 #, kde-format
 msgid "Usage"
 msgstr "用途"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "是"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -833,62 +967,76 @@ msgstr "无"
 msgid "not applicable"
 msgstr "不适用"
 
-#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
-#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
-#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
-#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: models/useridlistmodel.cpp:86 models/useridlistmodel.cpp:87
+#: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
+#: models/useridlistmodel.cpp:90 models/useridlistmodel.cpp:91
+#: models/useridlistmodel.cpp:92 models/useridlistmodel.cpp:93
+#: ui/keyselectiondialog.cpp:191 utils/formatting.cpp:450
+#: utils/formatting.cpp:460
 #, kde-format
 msgid "User ID"
 msgstr "用户标识"
 
-#: models/useridlistmodel.cpp:104
+#: models/useridlistmodel.cpp:103
 #, kde-format
 msgid "User ID / Certification Key ID"
 msgstr "用户 ID / 验证密钥 ID"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:104
+#, kde-format
+msgid "Name"
+msgstr "名称"
+
+#: models/useridlistmodel.cpp:105
+#, kde-format
+msgid "Email"
+msgstr "电子邮件"
+
+#: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Exportable"
 msgstr "可导出"
 
-#: models/useridlistmodel.cpp:112
+#: models/useridlistmodel.cpp:110
+#, kde-format
+msgid "Tags"
+msgstr "标签"
+
+#: models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Trust Signature For"
 msgstr "信任签名"
 
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:891
-#, kde-format
-msgid "class %1"
-msgstr "%1 类"
-
-#: ui/auditlogviewer.cpp:52
+#: ui/auditlogviewer.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "查看 GnuPG 审核日志"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:46
 #, kde-format
+msgctxt "@action:button"
 msgid "&Copy to Clipboard"
-msgstr "复制到剪贴板(&C)"
+msgstr "&复制到剪贴板"
 
-#: ui/auditlogviewer.cpp:60
+#: ui/auditlogviewer.cpp:51
 #, kde-format
+msgctxt "@action:button"
 msgid "&Save to Disk..."
-msgstr "保存到磁盘(&S)..."
+msgstr "&保存到磁盘..."
 
-#: ui/auditlogviewer.cpp:102
+#: ui/auditlogviewer.cpp:93
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "您的系统不支持 GnuPG 审核日志"
 
-#: ui/auditlogviewer.cpp:102
+#: ui/auditlogviewer.cpp:93
 #, kde-format
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "系统错误"
 
-#: ui/auditlogviewer.cpp:107
+#: ui/auditlogviewer.cpp:98
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -897,38 +1045,41 @@ msgstr ""
 "尝试获取 GnuPG 审核日志时发生错误：\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:108
+#: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "GnuPG 审核日志错误"
 
-#: ui/auditlogviewer.cpp:112
+#: ui/auditlogviewer.cpp:103
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "此操作没有 GnuPG 审核日志"
 
-#: ui/auditlogviewer.cpp:112
+#: ui/auditlogviewer.cpp:103
 #, kde-format
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
-msgstr "无 GnuPG 审核日志"
+msgstr "无 GnuPG 审计日志"
 
-#: ui/auditlogviewer.cpp:118
+#: ui/auditlogviewer.cpp:109
 #, kde-format
+msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
-msgstr "GnuPG 审核日志查看器"
+msgstr "GnuPG 审计日志查看器"
 
-#: ui/auditlogviewer.cpp:133
+#: ui/auditlogviewer.cpp:124
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "选择要将 GnuPG 审核日志保存到的文件"
 
-#: ui/auditlogviewer.cpp:152
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "无法保存到文件“%1”：%2"
 
-#: ui/auditlogviewer.cpp:152
+#: ui/auditlogviewer.cpp:145
 #, kde-format
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "文件保存错误"
 
@@ -938,12 +1089,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr "要连接到的阅读器"
 
-#: ui/cryptoconfigmodule.cpp:165
-#, kde-format
-msgid "GpgConf Error"
-msgstr "GpgConf 错误"
-
-#: ui/cryptoconfigmodule.cpp:222
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -953,7 +1099,7 @@ msgstr ""
 "用于为此对话框提供信息的 gpgconf 工具似乎没有正确安装，因此无法返回任何组件。"
 "请在命令行下运行“%1”获取更多信息。"
 
-#: ui/cryptoconfigmodule.cpp:651
+#: ui/cryptoconfigmodule.cpp:538
 #, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -963,78 +1109,67 @@ msgctxt ""
 "character to upper-case. It is this behaviour you can control for your "
 "language with this translation."
 msgid "yes"
-msgstr "yes"
+msgstr "是"
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr "0 - 无"
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr "1 - 基本"
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr "2 - 详细"
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr "3 - 更详细"
 
-#: ui/cryptoconfigmodule.cpp:709
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr "4 - 全部"
 
-#: ui/cryptoconfigmodule.cpp:721
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
-msgstr "调试级别"
+msgstr "将调试级别设置为"
 
-#: ui/cryptoconfigmodule.cpp:944
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
 msgstr "显示..."
 
-#: ui/cryptoconfigmodule.cpp:944
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
 msgstr "编辑..."
 
-#: ui/cryptoconfigmodule.cpp:997
-#, kde-format
-msgid ""
-"Configuration of directory services is not possible because the used gpgme "
-"libraries are too old."
-msgstr "您所使用的 gpgme 库太旧，无法配置目录服务。"
-
-#: ui/cryptoconfigmodule.cpp:999
-#, kde-format
-msgid "Sorry"
-msgstr "抱歉"
-
-#: ui/cryptoconfigmodule.cpp:1006
+#: ui/cryptoconfigmodule.cpp:885
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "配置目录服务"
 
-#: ui/cryptoconfigmodule.cpp:1035
+#: ui/cryptoconfigmodule.cpp:914
 #, kde-format
 msgid "None configured"
 msgstr "未配置"
 
-#: ui/cryptoconfigmodule.cpp:1037
+#: ui/cryptoconfigmodule.cpp:916
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
 msgstr[0] "已配置 %1 个服务器"
 
-#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:197
 #, kde-format
 msgid "Active Directory"
 msgstr "Active Directory"
 
-#: ui/directoryserviceswidget.cpp:187
+#: ui/directoryserviceswidget.cpp:191
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1042,7 +1177,7 @@ msgid ""
 "X.509."
 msgstr "这是已配置为 X.509 和 OpenPGP 使用的所有目录服务列表。"
 
-#: ui/directoryserviceswidget.cpp:197
+#: ui/directoryserviceswidget.cpp:201
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1052,29 +1187,29 @@ msgstr ""
 "点击在 Active Directory 上运行目录服务，此项仅可用于 Windows 并需要 2.2.28 及"
 "更高版本的 GnuPG。"
 
-#: ui/directoryserviceswidget.cpp:200
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgid "LDAP Server"
 msgstr "LDAP 服务器"
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr "点击添加由 LDAP 服务器提供的目录服务。"
 
-#: ui/directoryserviceswidget.cpp:205
+#: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgid "Add"
 msgstr "添加"
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "点击添加目录服务。"
 
-#: ui/directoryserviceswidget.cpp:208
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1083,18 +1218,19 @@ msgid ""
 msgstr ""
 "点击此按钮可将目录服务添加到服务列表，此更改只会在确认配置对话框后生效。"
 
-#: ui/directoryserviceswidget.cpp:216
+#: ui/directoryserviceswidget.cpp:220
 #, kde-format
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "编辑"
 
-#: ui/directoryserviceswidget.cpp:217
+#: ui/directoryserviceswidget.cpp:221
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "点击编辑选中的服务。"
 
-#: ui/directoryserviceswidget.cpp:219
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1103,18 +1239,19 @@ msgid ""
 "configuration dialog."
 msgstr "点击此按钮可编辑当前所选的目录服务，此更改只会在确认配置对话框后生效。"
 
-#: ui/directoryserviceswidget.cpp:224
+#: ui/directoryserviceswidget.cpp:228
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "删除"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "点击删除所选的服务"
 
-#: ui/directoryserviceswidget.cpp:227
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1122,115 +1259,123 @@ msgid ""
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr "点击此按钮可删除当前所选的服务，此更改只会在确认配置对话框后生效。"
 
-#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
+#: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
 msgstr "LDAP 目录服务"
 
-#: ui/dnattributeorderconfigwidget.cpp:73
+#: ui/dnattributeorderconfigwidget.cpp:75
 #, kde-format
 msgid "Description"
 msgstr "描述"
 
-#: ui/dnattributeorderconfigwidget.cpp:88
+#: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "可用属性："
 
-#: ui/dnattributeorderconfigwidget.cpp:90
+#: ui/dnattributeorderconfigwidget.cpp:92
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "当前属性顺序："
 
-#: ui/dnattributeorderconfigwidget.cpp:98
+#: ui/dnattributeorderconfigwidget.cpp:100
 #, kde-format
 msgid "available attributes"
 msgstr "可用属性"
 
-#: ui/dnattributeorderconfigwidget.cpp:105
-#: ui/dnattributeorderconfigwidget.cpp:106
+#: ui/dnattributeorderconfigwidget.cpp:107
+#: ui/dnattributeorderconfigwidget.cpp:108
 #, kde-format
 msgid "All others"
 msgstr "其他全部"
 
-#: ui/dnattributeorderconfigwidget.cpp:118
+#: ui/dnattributeorderconfigwidget.cpp:120
 msgctxt "@action:button"
 msgid "Add"
 msgstr "添加"
 
-#: ui/dnattributeorderconfigwidget.cpp:119
+#: ui/dnattributeorderconfigwidget.cpp:121
 msgid "Add to current attribute order"
 msgstr "添加到当前属性顺序中"
 
-#: ui/dnattributeorderconfigwidget.cpp:125
+#: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "删除"
 
-#: ui/dnattributeorderconfigwidget.cpp:126
+#: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Remove from current attribute order"
 msgstr "从当前属性顺序中删除"
 
-#: ui/dnattributeorderconfigwidget.cpp:132
+#: ui/dnattributeorderconfigwidget.cpp:134
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "移至顶部"
 
-#: ui/dnattributeorderconfigwidget.cpp:133
+#: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Move to top"
 msgstr "移至顶端"
 
-#: ui/dnattributeorderconfigwidget.cpp:139
+#: ui/dnattributeorderconfigwidget.cpp:141
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "上移"
 
-#: ui/dnattributeorderconfigwidget.cpp:140
+#: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move one up"
 msgstr "上移"
 
-#: ui/dnattributeorderconfigwidget.cpp:146
+#: ui/dnattributeorderconfigwidget.cpp:148
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "下移"
 
-#: ui/dnattributeorderconfigwidget.cpp:147
+#: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one down"
 msgstr "下移"
 
-#: ui/dnattributeorderconfigwidget.cpp:153
+#: ui/dnattributeorderconfigwidget.cpp:155
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "移至底部"
 
-#: ui/dnattributeorderconfigwidget.cpp:154
+#: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move to bottom"
 msgstr "移至底端"
 
-#: ui/dnattributeorderconfigwidget.cpp:184
+#: ui/dnattributeorderconfigwidget.cpp:186
 #, kde-format
 msgid "current attribute order"
 msgstr "当前属性顺序"
 
-#: ui/editdirectoryservicedialog.cpp:99
+#: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
 msgstr "主机："
 
-#: ui/editdirectoryservicedialog.cpp:100
+#: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
 msgstr "输入目录服务主机的主机名或 IP 地址。"
 
-#: ui/editdirectoryservicedialog.cpp:104
+#: ui/editdirectoryservicedialog.cpp:112
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr "错误：以正确的格式输入主机名，如ldap.example.com。"
+
+#: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
 msgid "Port:"
 msgstr "端口："
 
-#: ui/editdirectoryservicedialog.cpp:107
+#: ui/editdirectoryservicedialog.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1238,38 +1383,38 @@ msgid ""
 "the directory service is listening on."
 msgstr "<b>(可选项，通常使用默认值即可)</b>选定目录服务的监听端口号。"
 
-#: ui/editdirectoryservicedialog.cpp:110
+#: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
 msgstr "使用默认值"
 
-#: ui/editdirectoryservicedialog.cpp:116
+#: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
 msgid "Authentication"
 msgstr "身份验证"
 
-#: ui/editdirectoryservicedialog.cpp:120
+#: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
 msgstr "匿名"
 
-#: ui/editdirectoryservicedialog.cpp:121
+#: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr "使用无需身份验证的匿名 LDAP 服务器。"
 
-#: ui/editdirectoryservicedialog.cpp:127
+#: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
 msgstr "通过 Active Directory 进行身份验证"
 
-#: ui/editdirectoryservicedialog.cpp:129
+#: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr "通过 Active Directory 进行身份验证 (需要 2.2.28 及更高版本的 GnuPG)"
 
-#: ui/editdirectoryservicedialog.cpp:132
+#: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1278,35 +1423,35 @@ msgid ""
 msgstr ""
 "在 Windows 上，使用当前用户的 Active Directory 向 LDAP 服务器进行身份验证。"
 
-#: ui/editdirectoryservicedialog.cpp:137
+#: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
 msgstr "通过用户名和密码进行身份验证"
 
-#: ui/editdirectoryservicedialog.cpp:138
+#: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr "使用 LDAP 登录信息连接 LDAP 服务器并进行身份验证。"
 
-#: ui/editdirectoryservicedialog.cpp:148
+#: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
 msgid "User:"
 msgstr "用户名："
 
-#: ui/editdirectoryservicedialog.cpp:149
+#: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr "请输入您的 LDAP 用户信息。绑定 DN 以在 LDAP 服务器上进行身份验证。"
 
-#: ui/editdirectoryservicedialog.cpp:153
+#: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Password:"
 msgstr "密码："
 
-#: ui/editdirectoryservicedialog.cpp:155
+#: ui/editdirectoryservicedialog.cpp:167
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1317,22 +1462,22 @@ msgstr ""
 "输入用于连接 LDAP 服务器并进行身份验证的密码。<nl/><warning>密码将被明文储存"
 "在主目录内的配置文件中。</warning>"
 
-#: ui/editdirectoryservicedialog.cpp:165
+#: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
 msgstr "连接安全性"
 
-#: ui/editdirectoryservicedialog.cpp:167
+#: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr "连接安全性 (需要 2.2.28 及更高版本的 GnuPG)"
 
-#: ui/editdirectoryservicedialog.cpp:172
+#: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
 msgstr "使用默认连接设置 (可能未使用 TLS 加密)"
 
-#: ui/editdirectoryservicedialog.cpp:174
+#: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1342,12 +1487,12 @@ msgstr ""
 "使用 GnuPG 的默认连接设置连接 LDAP 服务器。默认情况下，2.3 及更早版本的 "
 "GnuPG 会使用明文传输而非 LTS 加密进行连接。<b>(不推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:182
+#: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
 msgstr "不使用 TLS 安全连接"
 
-#: ui/editdirectoryservicedialog.cpp:184
+#: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1355,12 +1500,12 @@ msgid ""
 "<b>(Not recommended)</b>"
 msgstr "使用明文传输而不使用 LTS 加密连接到 LDAP 服务器。<b>(不推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:190
+#: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
 msgstr "使用 TLS 加密连接"
 
-#: ui/editdirectoryservicedialog.cpp:192
+#: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1368,12 +1513,12 @@ msgid ""
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr "使用标准 TLS 加密 (以 STARTTLS 初始化) 连接 LDAP 服务器。<b>(推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:199
+#: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
 msgstr "通过 TLS 隧道连接 LDAP"
 
-#: ui/editdirectoryservicedialog.cpp:201
+#: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1381,17 +1526,17 @@ msgid ""
 "is tunneled. <b>(Not recommended)</b>"
 msgstr "通过 TLS 加密隧道连接到 LDAP 服务器。<b>(不推荐)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:210
+#: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
 msgstr "高级设置"
 
-#: ui/editdirectoryservicedialog.cpp:215
+#: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
 msgid "Base DN:"
 msgstr "基本 DN："
 
-#: ui/editdirectoryservicedialog.cpp:217
+#: ui/editdirectoryservicedialog.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1400,12 +1545,12 @@ msgid ""
 msgstr ""
 "<b>(可选，通常可留空)</b> 输入此 LDAP 服务器用于限制搜索目录范围的基本 DN。"
 
-#: ui/editdirectoryservicedialog.cpp:223
+#: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
 msgstr "附加标记："
 
-#: ui/editdirectoryservicedialog.cpp:225
+#: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1416,16 +1561,52 @@ msgstr ""
 "您可在此输入 Kleopatra 尚未支持 (或不再支持) 的附加标记。例如：旧版 GnuPG 会"
 "使用 <code>ldaps</code> 来请求 TLS 加密连接。"
 
-#: ui/editdirectoryservicedialog.cpp:395
+#: ui/editdirectoryservicedialog.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "编辑目录服务"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "打开文件对话框"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "打开文件对话框"
+
+#: ui/formtextinput.cpp:25
+#, kde-format
+msgid "Error: Enter a value."
+msgstr "错误：输入一个值。"
+
+#: ui/formtextinput.cpp:30
+#, kde-format
+msgid "Error: Enter a value in the correct format."
+msgstr "错误：请输入正确格式的值。"
+
+#: ui/formtextinput.cpp:92
+#, kde-format
+msgctxt "@label label text (required)"
+msgid "%1 (required)"
+msgstr "%1 (必须)"
+
+#: ui/formtextinput.cpp:126
+#, kde-format
+msgctxt "@info"
+msgid "Error: %1"
+msgstr "错误: %1"
+
+#: ui/formtextinput.cpp:230
+#, kde-format
+msgctxt ""
+"text for screen readers to indicate that the associated object, such as a "
+"form field, has an error"
+msgid "invalid entry"
+msgstr "无效条目"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1465,45 +1646,52 @@ msgstr "加密密钥认可"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
-msgstr "以下密钥将作加密之用："
+msgstr "以下密钥将用于加密："
 
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Your keys:"
-msgstr "您的密钥："
+msgstr "您的钥匙："
 
 #: ui/keyapprovaldialog.cpp:146
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Recipient:"
-msgstr "接收方："
+msgstr "接收者"
 
 #: ui/keyapprovaldialog.cpp:151
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "加密密钥："
 
 #: ui/keyapprovaldialog.cpp:158
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "加密首选项："
 
-#: ui/keyrequester.cpp:89
+#: ui/keyrequester.cpp:88
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "清除"
 
-#: ui/keyrequester.cpp:92
+#: ui/keyrequester.cpp:91
 #, kde-format
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "更改..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>未知</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1511,10 +1699,11 @@ msgid ""
 msgstr "<qt><p>从后端获取密钥时发生错误：</p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
-#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
 #, kde-format
+msgctxt "@title:window"
 msgid "Key Listing Failed"
-msgstr "密钥列出时失败"
+msgstr "密钥列表失败"
 
 #: ui/keyrequester.cpp:270
 #, kde-format
@@ -1558,199 +1747,191 @@ msgstr "密钥选择"
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "请选择要使用的密钥(OpenPGP 或 S/MIME)。"
 
-#: ui/keyselectioncombo.cpp:85
+#: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:176
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1（%2，创建于：%3）"
-
-#: ui/keyselectioncombo.cpp:182
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1（%2，%3，创建于：%4）"
-
-#: ui/keyselectioncombo.cpp:671
+#: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
 #, kde-format
 msgid "Loading keys ..."
 msgstr "正在加载密钥..."
 
-#: ui/keyselectiondialog.cpp:72
+#: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
 msgstr "此密钥无效。"
 
-#: ui/keyselectiondialog.cpp:80
+#: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
 msgstr "此密钥已过期。"
 
-#: ui/keyselectiondialog.cpp:84
+#: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
 msgstr "此密钥已被撤销。"
 
-#: ui/keyselectiondialog.cpp:88
+#: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
 msgstr "此密钥已被禁用。"
 
-#: ui/keyselectiondialog.cpp:95
+#: ui/keyselectiondialog.cpp:94
 #, kde-format
 msgid "The key is not designated for encryption."
 msgstr "此密钥并非作加密之用。"
 
-#: ui/keyselectiondialog.cpp:100
+#: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
 msgstr "此密钥并非作签名之用。"
 
-#: ui/keyselectiondialog.cpp:105
+#: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
 msgstr "此密钥并非作认证之用。"
 
-#: ui/keyselectiondialog.cpp:110
+#: ui/keyselectiondialog.cpp:109
 #, kde-format
 msgid "The key is not designated for authentication."
 msgstr "此密钥并非作用户认证之用。"
 
-#: ui/keyselectiondialog.cpp:116
+#: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
 msgstr "此密钥非私密。"
 
-#: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
 msgstr "此密钥可以使用。"
 
-#: ui/keyselectiondialog.cpp:132
+#: ui/keyselectiondialog.cpp:131
 #, kde-format
 msgid "The key is not trusted enough."
 msgstr "此密钥不被充分信任。"
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:478
 #, kde-format
 msgid "Key ID"
 msgstr "密钥标识"
 
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:263 ui/keyselectiondialog.cpp:265
+#: ui/keyselectiondialog.cpp:274 ui/keyselectiondialog.cpp:276
 #, kde-format
 msgid "unknown"
 msgstr "未知"
 
-#: ui/keyselectiondialog.cpp:269
+#: ui/keyselectiondialog.cpp:263
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "<b>%1</b> 的 OpenPGP 密钥"
 
-#: ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:265
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "<b>%1</b> 的 S/MIME 密钥"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:465
-#: utils/formatting.cpp:508
+#: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:464
 #, kde-format
 msgid "Valid from"
 msgstr "有效期自"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:468
-#: utils/formatting.cpp:511
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:467
 #, kde-format
 msgid "Valid until"
 msgstr "有效期至"
 
-#: ui/keyselectiondialog.cpp:280
+#: ui/keyselectiondialog.cpp:274
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "指纹"
 
-#: ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:276
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "颁发者"
 
-#: ui/keyselectiondialog.cpp:284
+#: ui/keyselectiondialog.cpp:278
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "状态"
 
-#: ui/keyselectiondialog.cpp:286
+#: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "合规"
 
-#: ui/keyselectiondialog.cpp:426
+#: ui/keyselectiondialog.cpp:420
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
-msgstr "搜索外部证书(&E)"
+msgstr "搜索&外部证书"
 
-#: ui/keyselectiondialog.cpp:440
+#: ui/keyselectiondialog.cpp:434
 #, kde-format
+msgctxt "@label:textbox"
 msgid "&Search for:"
-msgstr "搜索(&S)："
+msgstr "&搜索:"
 
-#: ui/keyselectiondialog.cpp:465
+#: ui/keyselectiondialog.cpp:459
 #, kde-format
+msgctxt "@option:check"
 msgid "&Remember choice"
-msgstr "记住选择(&R)"
+msgstr "&记住选择"
 
-#: ui/keyselectiondialog.cpp:468
+#: ui/keyselectiondialog.cpp:462
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
 "asked again.</p></qt>"
 msgstr "<qt><p>如果选中该项，您的选择将会储存起来，不会再提问。</p></qt>"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:476
 #, kde-format
+msgctxt "@action:button"
 msgid "&Reread Keys"
-msgstr "重读密钥(&R)"
+msgstr "&重读密钥"
 
-#: ui/keyselectiondialog.cpp:487
+#: ui/keyselectiondialog.cpp:481
 #, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
-msgstr "启动证书管理器(&S)"
+msgstr "&启动证书管理器"
 
-#: ui/keyselectiondialog.cpp:647
+#: ui/keyselectiondialog.cpp:641
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr "没有找到可以列出密钥的后端，请检查您的安装。"
 
-#: ui/keyselectiondialog.cpp:665
+#: ui/keyselectiondialog.cpp:659
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr "无法启动证书管理器，请检查您的安装。"
 
-#: ui/keyselectiondialog.cpp:667
+#: ui/keyselectiondialog.cpp:661
 #, kde-format
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "证书管理器错误"
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "正在检查选中的密钥..."
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
 msgstr "正在获取密钥..."
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:750
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -1761,12 +1942,12 @@ msgid_plural ""
 msgstr[0] ""
 "<qt>有 %1 个后端程序返回截断了的输出。<p>可用的密钥没有全部列出</p></qt>"
 
-#: ui/keyselectiondialog.cpp:761
+#: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid "Key List Result"
 msgstr "密钥列表结果"
 
-#: ui/keyselectiondialog.cpp:883
+#: ui/keyselectiondialog.cpp:877
 #, kde-format
 msgid "Recheck Key"
 msgstr "重新检查密钥"
@@ -1789,133 +1970,264 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "错误"
 
-#: ui/newkeyapprovaldialog.cpp:142
+#: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
+#, kde-format
+msgctxt "@label"
+msgid "Name"
+msgstr "名称"
+
+#: ui/nameandemailwidget.cpp:60
+#, kde-format
+msgid "Enter a name."
+msgstr "输入名称。"
+
+#: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
+#, kde-format
+msgctxt "@label"
+msgid "Email address"
+msgstr "电子邮件地址"
+
+#: ui/nameandemailwidget.cpp:76
+#, kde-format
+msgid "Enter an email address."
+msgstr "输入电子邮件地址。"
+
+#: ui/nameandemailwidget.cpp:94
+#, kde-format
+msgid "The name must not include <, >, and @."
+msgstr "名称不能包含 <, >, 和@。"
+
+#: ui/nameandemailwidget.cpp:95
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must not include less-than sign, greater-than sign, and at sign."
+msgstr "名称不能包含小于号、大于号和@号。"
+
+#: ui/nameandemailwidget.cpp:98
+#, kde-format
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include <, >, and @."
+msgstr "该名称必须符合贵组织要求的格式，且不得包含  <, >,  和 @。"
+
+#: ui/nameandemailwidget.cpp:101
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include less-than sign, greater-than sign, and at sign."
+msgstr ""
+"该名称必须符合您的组织所要求的格式，并且不得包含小于号、大于号和@ 符号。"
+
+#: ui/nameandemailwidget.cpp:110
+#, kde-format
+msgid "Enter an email address in the correct format, like name@example.com."
+msgstr "输入正确格式的电子邮件地址，例如 name@example.com。"
+
+#: ui/nameandemailwidget.cpp:113
+#, kde-format
+msgid ""
+"Enter an email address in the correct format required by your organization."
+msgstr "按照您的组织要求的正确格式输入电子邮件地址。"
+
+#: ui/newkeyapprovaldialog.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "显示详情"
 
-#: ui/newkeyapprovaldialog.cpp:184
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "显示匹配的密钥"
 
-#: ui/newkeyapprovaldialog.cpp:185
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
-msgstr "显示可匹配此电子邮件地址的密钥"
+msgstr "显示与电子邮件地址匹配的密钥"
 
-#: ui/newkeyapprovaldialog.cpp:188
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "显示全部"
 
-#: ui/newkeyapprovaldialog.cpp:189
+#: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "显示所有密钥"
 
-#: ui/newkeyapprovaldialog.cpp:272
+#: ui/newkeyapprovaldialog.cpp:273
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
 msgid ""
-"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
-"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"Generate a new key using your email address.<br/><br/>The key is necessary "
+"to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
-"使用您的电子邮件地址来生成新密钥。<br/><br/>您必须要使用密钥才能解密和签名电"
-"子邮件。本程序会让您给这个密钥设定密码，并将其存储至主目录中。"
+"使用您的电子邮件地址生成一个新密钥。<br/><br/>该密钥是解密和签署电子邮件所必"
+"需的。您将被要求输入密码来保护此密钥，受保护的密钥将存储在您的主目录中。"
 
-#: ui/newkeyapprovaldialog.cpp:297
+#: ui/newkeyapprovaldialog.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "安全批准"
 
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:782
+#: ui/newkeyapprovaldialog.cpp:305
 #, kde-format
+msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:306
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:308
+#, kde-format
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:309
+#, kde-format
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:402
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "正在生成“%1”的密钥..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:402
 #, kde-format
 msgid "This can take several minutes."
 msgstr "这可能要花几分钟时间。"
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "密钥生成"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:443
 #, kde-format
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "操作失败"
 
-#: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:558 ui/newkeyapprovaldialog.cpp:654
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "生成新密钥对"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:561
 #, kde-format
-msgid "Don't confirm identity and integrity"
-msgstr "不确认身份和完整性"
+msgid "Do not sign this email"
+msgstr "不要签署这封电子邮件"
 
-#: ui/newkeyapprovaldialog.cpp:559
+#: ui/newkeyapprovaldialog.cpp:563
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
-msgid "The E-Mail will not be cryptographically signed."
-msgstr "此电子邮件将不会被加密签名。"
+msgid "The email will not be cryptographically signed."
+msgstr "该电子邮件不会被加密签名。"
 
-#: ui/newkeyapprovaldialog.cpp:577
+#: ui/newkeyapprovaldialog.cpp:581
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "确认身份“%1”为："
 
-#: ui/newkeyapprovaldialog.cpp:654
+#: ui/newkeyapprovaldialog.cpp:658
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "无密钥，收件人将无法解密。"
 
-#: ui/newkeyapprovaldialog.cpp:657
+#: ui/newkeyapprovaldialog.cpp:661
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
-"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
-"不为此收件人选择密钥。<br/><br/>该收件人将收到加密后的电子邮件，但它只能使用"
-"此对话框中所选的其他密钥解密。"
+"不要为此收件人选择密钥。<br/><br/>收件人将收到加密的电子邮件，但只能使用此对"
+"话框中选择的其他密钥进行解密。"
 
-#: ui/newkeyapprovaldialog.cpp:774
+#: ui/newkeyapprovaldialog.cpp:778
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "为自己加密 (%1)："
 
-#: ui/newkeyapprovaldialog.cpp:791
+#: ui/newkeyapprovaldialog.cpp:795
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "为他人加密："
 
-#: ui/newkeyapprovaldialog.cpp:829
+#: ui/newkeyapprovaldialog.cpp:833
 #, kde-format
 msgid "Generate"
 msgstr "生成"
+
+#: ui/openpgpcertificatecreationdialog.cpp:94
+#, kde-format
+msgid "Protect the generated key with a passphrase."
+msgstr "使用密码短语保护生成的密钥。"
+
+#: ui/openpgpcertificatecreationdialog.cpp:96
+#, kde-format
+msgid ""
+"Encrypts the secret key with an unrecoverable passphrase. You will be asked "
+"for the passphrase during key generation."
+msgstr "使用不可恢复的密码加密密钥。密钥生成期间会要求您输入密码。"
+
+#: ui/openpgpcertificatecreationdialog.cpp:99
+#, kde-format
+msgid "Advanced options"
+msgstr "高级选项"
+
+#: ui/openpgpcertificatecreationdialog.cpp:106
+#, kde-format
+msgctxt "The algorithm and strength of encryption key"
+msgid "Key Material"
+msgstr "密钥材料"
+
+#: ui/openpgpcertificatecreationdialog.cpp:150
+#, kde-format
+msgctxt "title:window"
+msgid "Create OpenPGP Certificate"
+msgstr "创建OpenPGP证书"
+
+#: ui/openpgpcertificatecreationdialog.cpp:158
+#, kde-format
+msgid "Enter a name and an email address to use for the certificate."
+msgstr "输入用于证书的名称和电子邮件地址。"
+
+#: ui/openpgpcertificatecreationdialog.cpp:159
+#, kde-format
+msgid "Enter a name and/or an email address to use for the certificate."
+msgstr "输入要用于证书的名称和/或电子邮件地址。"
+
+#: ui/openpgpcertificatecreationdialog.cpp:336
+#, kde-format
+msgid "Enter a name or an email address."
+msgstr "输入姓名或电子邮件地址。"
+
+#: ui/openpgpcertificatecreationdialog.cpp:350
+#, kde-format
+msgid "There is a problem."
+msgstr "存在问题。"
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -1944,101 +2256,181 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "自定义阅读器 ID 或端口号"
 
-#: utils/compliance.cpp:160
+#: ui/treeview.cpp:69 ui/treewidget.cpp:172
+#, kde-format
+msgctxt "@title:menu"
+msgid "View Columns"
+msgstr "查看列"
+
+#: ui/useridselectioncombo.cpp:529
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr "显示证书列表"
+
+#: ui/useridselectioncombo.cpp:530
+#, kde-format
+msgid "Show certificate list"
+msgstr "显示证书列表"
+
+#: utils/compliance.cpp:185
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "VS-NfD 兼容"
 
-#: utils/compliance.cpp:160
+#: utils/compliance.cpp:185
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "VS-NfD 不兼容"
 
-#: utils/formatting.cpp:325
+#: utils/compliance.cpp:194
+#, kde-format
+msgctxt "@info append beta-marker to compliance"
+msgid "%1 (beta)"
+msgstr "%1 (beta)"
+
+#: utils/expiration.cpp:102
+#, kde-format
+msgctxt "@label Valid until (<a date>):"
+msgid "Valid until (%1):"
+msgstr "有效期至 (%1):"
+
+#: utils/expiration.cpp:105
+#, kde-format
+msgctxt "@label ... (between <a date> and <another date>):"
+msgid "Valid until (between %1 and %2):"
+msgstr "有效期至( %1 和 %2 之间):"
+
+#: utils/expiration.cpp:116
+#, kde-format
+msgctxt "@info"
+msgid "The date cannot be changed."
+msgstr "日期不能更改。"
+
+#: utils/expiration.cpp:119 utils/expiration.cpp:125
+#, kde-format
+msgctxt "@info ... between <a date> and <another date>."
+msgid "Enter a date between %1 and %2."
+msgstr "请输入一个介于 %1 和 %2 之间的日期。"
+
+#: utils/expiration.cpp:147
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Three years from now"
+msgstr "三年后"
+
+#: utils/expiration.cpp:148
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Two years from now"
+msgstr "两年后"
+
+#: utils/expiration.cpp:149
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "One year from now"
+msgstr "一年后"
+
+#: utils/formatting.cpp:340
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
 msgstr "%1 位 %2(绝密密钥可用)"
 
-#: utils/formatting.cpp:327 utils/formatting.cpp:338
+#: utils/formatting.cpp:342
 #, kde-format
 msgid "%1-bit %2"
 msgstr "%1 位 %2"
 
-#: utils/formatting.cpp:346 utils/formatting.cpp:368
+#: utils/formatting.cpp:351
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "签名 (合格)"
 
-#: utils/formatting.cpp:348 utils/formatting.cpp:370
+#: utils/formatting.cpp:353
 #, kde-format
 msgid "Signing"
 msgstr "签名"
 
-#: utils/formatting.cpp:352 utils/formatting.cpp:374
+#: utils/formatting.cpp:357
 #, kde-format
 msgid "Encryption"
 msgstr "仅加密"
 
-#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#: utils/formatting.cpp:360
 #, kde-format
-msgid "Certifying User-IDs"
-msgstr "正在认证的用户编号"
+msgid "Certifying User IDs"
+msgstr "认证用户 ID"
 
-#: utils/formatting.cpp:358 utils/formatting.cpp:380
+#: utils/formatting.cpp:363
 #, kde-format
 msgid "SSH Authentication"
 msgstr "SSH 认证"
 
-#: utils/formatting.cpp:410 utils/formatting.cpp:503
-#, kde-format
-msgid "Revoked"
-msgstr "已吊销"
-
-#: utils/formatting.cpp:412 utils/formatting.cpp:505
-#, kde-format
-msgid "Expired"
-msgstr "已过期"
-
-#: utils/formatting.cpp:414
+#: utils/formatting.cpp:393
 #, kde-format
 msgid "Disabled"
 msgstr "禁止"
 
+#: utils/formatting.cpp:395
+#, kde-format
+msgid "Revoked"
+msgstr "已吊销"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Expired"
+msgstr "已过期"
+
+#: utils/formatting.cpp:401
+#, kde-format
+msgid "User ID is certified."
+msgstr "对用户 ID 进行认证。"
+
+#: utils/formatting.cpp:407
+#, kde-format
+msgid "User ID is not certified."
+msgstr "用户 ID 未经认证。"
+
+#: utils/formatting.cpp:417
+#, kde-format
+msgid "All User IDs are certified."
+msgstr "所有用户 ID 均已认证。"
+
 #: utils/formatting.cpp:423
 #, kde-format
-msgid "All User-IDs are certified."
-msgstr "所有用户编号已被验证。"
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
+msgstr[0] "%1用户id未经过认证。"
 
-#: utils/formatting.cpp:429
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
-msgstr[0] "%1 个用户编号没有被验证。"
-
-#: utils/formatting.cpp:432 utils/formatting.cpp:435
+#: utils/formatting.cpp:427 utils/formatting.cpp:430
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "目前不能检查有效性。"
 
-#: utils/formatting.cpp:445
+#: utils/formatting.cpp:440
 #, kde-format
 msgid "Serial number"
 msgstr "序列号"
 
-#: utils/formatting.cpp:454
+#: utils/formatting.cpp:443
+#, kde-format
+msgid "Issuer"
+msgstr "颁发者"
+
+#: utils/formatting.cpp:450 utils/formatting.cpp:460
 #, kde-format
 msgid "Subject"
 msgstr "主体"
 
-#: utils/formatting.cpp:454
-#, kde-format
-msgid "User-ID"
-msgstr "用户编号"
-
-#: utils/formatting.cpp:459
+#: utils/formatting.cpp:455
 #, kde-format
 msgid "a.k.a."
 msgstr "又名"
+
+#: utils/formatting.cpp:481
+#, kde-format
+msgid "Fingerprint"
+msgstr "指纹"
 
 #: utils/formatting.cpp:485
 #, kde-format
@@ -2060,68 +2452,70 @@ msgstr "是"
 msgid "No"
 msgstr "否"
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:495 utils/formatting.cpp:523
-#: utils/formatting.cpp:525
+#: utils/formatting.cpp:492 utils/formatting.cpp:494
 #, kde-format
 msgid "Stored"
 msgstr "已存储"
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:523
+#: utils/formatting.cpp:492
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "于智能卡上，序列号 no. %1"
 
-#: utils/formatting.cpp:495 utils/formatting.cpp:525
+#: utils/formatting.cpp:494
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "在此电脑上"
 
-#: utils/formatting.cpp:501
-#, kde-format
-msgid "Subkey"
-msgstr "子密钥"
-
-#: utils/formatting.cpp:549
+#: utils/formatting.cpp:521
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr "部分密钥已过期、无效、被吊销或被禁用。"
 
-#: utils/formatting.cpp:553
+#: utils/formatting.cpp:525
 #, kde-format
 msgid "All keys are certified."
 msgstr "所有密钥都已被认证。"
 
-#: utils/formatting.cpp:555
+#: utils/formatting.cpp:527
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "部分密钥未被认证。"
 
-#: utils/formatting.cpp:559
+#: utils/formatting.cpp:531
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "目前无法检查密钥的有效性。"
 
-#: utils/formatting.cpp:573
+#: utils/formatting.cpp:545
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "此分组不包含任何密钥。"
 
-#: utils/formatting.cpp:593
+#: utils/formatting.cpp:551
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Some of the certificates in this group cannot be used for encryption. Using "
+"this group can lead to unexpected results."
+msgstr "此组中的某些证书​​不能用于加密。使用此组可能会导致意外结果。"
+
+#: utils/formatting.cpp:571
 #, kde-format
 msgid "Keys:"
 msgstr "密钥："
 
-#: utils/formatting.cpp:601
+#: utils/formatting.cpp:580
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
 msgstr[0] "及其他 %1 个密钥"
 
-#: utils/formatting.cpp:629
+#: utils/formatting.cpp:613
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2129,480 +2523,719 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "yyyy 年 MMMM d 日"
 
-#: utils/formatting.cpp:675 utils/formatting.cpp:710
+#: utils/formatting.cpp:659 utils/formatting.cpp:694
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:717 utils/formatting.cpp:726
+#: utils/formatting.cpp:701 utils/formatting.cpp:710
 #, kde-format
 msgid "unlimited"
 msgstr "无限制"
 
-#: utils/formatting.cpp:779
+#: utils/formatting.cpp:763
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:784
+#: utils/formatting.cpp:766
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: utils/formatting.cpp:768
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:800
+#: utils/formatting.cpp:784
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "分组"
 
-#: utils/formatting.cpp:816 utils/formatting.cpp:861
+#: utils/formatting.cpp:800 utils/formatting.cpp:845
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:818 utils/formatting.cpp:865
+#: utils/formatting.cpp:802 utils/formatting.cpp:849
 #, kde-format
 msgid "untrusted"
 msgstr "不信任"
 
-#: utils/formatting.cpp:820 utils/formatting.cpp:867
+#: utils/formatting.cpp:804 utils/formatting.cpp:851
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr "勉强"
 
-#: utils/formatting.cpp:822 utils/formatting.cpp:869
+#: utils/formatting.cpp:806 utils/formatting.cpp:853
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "完全"
 
-#: utils/formatting.cpp:824 utils/formatting.cpp:871
+#: utils/formatting.cpp:808 utils/formatting.cpp:855
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "绝对"
 
-#: utils/formatting.cpp:826 utils/formatting.cpp:863
+#: utils/formatting.cpp:810 utils/formatting.cpp:847
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "未定义"
 
-#: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
-#: utils/formatting.cpp:1298 utils/formatting.cpp:1326
-#, kde-format
-msgid "revoked"
-msgstr "已吊销"
-
-#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1295
-#: utils/formatting.cpp:1323
-#, kde-format
-msgid "expired"
-msgstr "已过期"
-
-#: utils/formatting.cpp:843 utils/formatting.cpp:1301 utils/formatting.cpp:1329
+#: utils/formatting.cpp:821 utils/formatting.cpp:1272 utils/formatting.cpp:1297
 #, kde-format
 msgid "disabled"
 msgstr "已禁用"
 
-#: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
-#: utils/formatting.cpp:1304 utils/formatting.cpp:1332
+#: utils/formatting.cpp:824 utils/formatting.cpp:838 utils/formatting.cpp:873
+#: utils/formatting.cpp:1275 utils/formatting.cpp:1300
+#, kde-format
+msgid "revoked"
+msgstr "已吊销"
+
+#: utils/formatting.cpp:827 utils/formatting.cpp:883 utils/formatting.cpp:1278
+#: utils/formatting.cpp:1303
+#, kde-format
+msgid "expired"
+msgstr "已过期"
+
+#: utils/formatting.cpp:830 utils/formatting.cpp:841 utils/formatting.cpp:881
+#: utils/formatting.cpp:1281 utils/formatting.cpp:1306
 #, kde-format
 msgid "invalid"
 msgstr "无效"
 
-#: utils/formatting.cpp:848
+#: utils/formatting.cpp:832
 #, kde-format
-msgctxt "as in good/valid signature"
-msgid "good"
-msgstr "良好"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "确定"
 
-#: utils/formatting.cpp:887
+#: utils/formatting.cpp:871
 #, kde-format
 msgid "valid"
 msgstr "有效"
 
-#: utils/formatting.cpp:901
+#: utils/formatting.cpp:875
+#, kde-format
+msgid "class %1"
+msgstr "%1 类"
+
+#: utils/formatting.cpp:885
 #, kde-format
 msgid "certificate expired"
 msgstr "证书已过期"
 
-#: utils/formatting.cpp:903
+#: utils/formatting.cpp:887
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "损坏"
 
-#: utils/formatting.cpp:909
+#: utils/formatting.cpp:893
 #, kde-format
 msgid "no public key"
 msgstr "无公钥"
 
-#: utils/formatting.cpp:911
-#, kde-format
-msgid "key expired"
-msgstr "密钥已过期"
-
-#: utils/formatting.cpp:913
-#, kde-format
-msgid "key revoked"
-msgstr "密钥已被吊销"
-
-#: utils/formatting.cpp:915
+#: utils/formatting.cpp:895
 #, kde-format
 msgid "key disabled"
 msgstr "密钥已被禁用"
 
-#: utils/formatting.cpp:971
+#: utils/formatting.cpp:897
+#, kde-format
+msgid "key revoked"
+msgstr "密钥已被吊销"
+
+#: utils/formatting.cpp:899
+#, kde-format
+msgid "key expired"
+msgstr "密钥已过期"
+
+#: utils/formatting.cpp:955
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:1029
+#: utils/formatting.cpp:1013
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "损坏的签名，由未知证书 %1 签署：%2"
 
-#: utils/formatting.cpp:1031
+#: utils/formatting.cpp:1015
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "损坏的签名，由未知证书签署：%1"
 
-#: utils/formatting.cpp:1034
+#: utils/formatting.cpp:1018
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "损坏的签名，签署自 %1：%2"
 
-#: utils/formatting.cpp:1040
+#: utils/formatting.cpp:1024
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "完好的签名，由未知证书签署 %1。"
 
-#: utils/formatting.cpp:1042
+#: utils/formatting.cpp:1026
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "完好的签名，由未知证书签署。"
 
-#: utils/formatting.cpp:1045
+#: utils/formatting.cpp:1029
 #, kde-format
 msgid "Good signature by %1."
 msgstr "完好的签名，签署自 %1。"
 
-#: utils/formatting.cpp:1050
+#: utils/formatting.cpp:1034
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "无效的签名，由未知证书 %1 签署：%2"
 
-#: utils/formatting.cpp:1052
+#: utils/formatting.cpp:1036
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "无效的签名，由未知证书签署：%1"
 
-#: utils/formatting.cpp:1055
+#: utils/formatting.cpp:1039
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "无效的签名，签署自 %1：%2"
 
-#: utils/formatting.cpp:1069
+#: utils/formatting.cpp:1053
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "此证书导入自以下来源："
 
-#: utils/formatting.cpp:1080
+#: utils/formatting.cpp:1064
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "已中止导入此证书。"
 
-#: utils/formatting.cpp:1083
+#: utils/formatting.cpp:1067
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "导入证书 %1 时出错"
 
-#: utils/formatting.cpp:1088
+#: utils/formatting.cpp:1072
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr "此证书是新的，可使用绝密密钥。"
 
-#: utils/formatting.cpp:1089
+#: utils/formatting.cpp:1073
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "此证书是新的。"
 
-#: utils/formatting.cpp:1094
+#: utils/formatting.cpp:1078
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr "经过导入，新的用户编号已被添加到此证书内。"
 
-#: utils/formatting.cpp:1097
+#: utils/formatting.cpp:1081
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "经过导入，新的签名已被添加到此证书内。"
 
-#: utils/formatting.cpp:1100
+#: utils/formatting.cpp:1084
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "经过导入，新的子密钥已被添加到此证书内。"
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1087
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr "导入内容未给证书引入新数据，证书未改变。"
 
-#: utils/formatting.cpp:1119
+#: utils/formatting.cpp:1094
 #, kde-format
 msgid "Certify"
 msgstr "认证"
 
-#: utils/formatting.cpp:1122
+#: utils/formatting.cpp:1097
 #, kde-format
 msgid "Sign"
 msgstr "签名"
 
-#: utils/formatting.cpp:1125
+#: utils/formatting.cpp:1100
 #, kde-format
 msgid "Encrypt"
 msgstr "加密"
 
-#: utils/formatting.cpp:1128
+#: utils/formatting.cpp:1103
 #, kde-format
 msgid "Authenticate"
 msgstr "验证"
 
-#: utils/formatting.cpp:1131
+#: utils/formatting.cpp:1106
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
-msgstr ""
+msgstr "ADSK"
 
-#: utils/formatting.cpp:1139
+#: utils/formatting.cpp:1114
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "\"%1 (%2, %3, 已创建: %4)\""
 
-#: utils/formatting.cpp:1150
+#: utils/formatting.cpp:1125
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1，%2，创建于：%3)"
 
-#: utils/formatting.cpp:1162
+#: utils/formatting.cpp:1137
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] "%2 (%1 个密钥，%3)"
 
-#: utils/formatting.cpp:1169
+#: utils/formatting.cpp:1144
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] "%2 (%1 个密钥，%3，标签)"
 
-#: utils/formatting.cpp:1176
+#: utils/formatting.cpp:1151
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] "%2 (%1 密钥，%3，未知来源)"
 
-#: utils/formatting.cpp:1197
+#: utils/formatting.cpp:1172
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "证书被标记为您自己拥有的。"
 
-#: utils/formatting.cpp:1199
+#: utils/formatting.cpp:1174
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "证书属于此收件人。"
 
-#: utils/formatting.cpp:1201
+#: utils/formatting.cpp:1176
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr "信任模型勉强标明此证书属于此收件人。"
 
-#: utils/formatting.cpp:1203
+#: utils/formatting.cpp:1178
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "不应使用此证书。"
 
-#: utils/formatting.cpp:1207
+#: utils/formatting.cpp:1182
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr "并无迹象标明此证书输入此收件人。"
 
-#: utils/formatting.cpp:1219
+#: utils/formatting.cpp:1194
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "此分组不包含任何密钥。"
 
-#: utils/formatting.cpp:1279
+#: utils/formatting.cpp:1244 utils/formatting.cpp:1256
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "未知"
 
-#: utils/formatting.cpp:1292
+#: utils/formatting.cpp:1269
 #, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
-msgstr ""
+msgstr "已认证"
 
-#: utils/formatting.cpp:1307
+#: utils/formatting.cpp:1284
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
-msgstr ""
+msgstr "未认证"
 
-#: utils/formatting.cpp:1310
+#: utils/formatting.cpp:1287
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "未检查"
 
-#: utils/formatting.cpp:1320
+#: utils/formatting.cpp:1309
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "认证的"
 
-#: utils/formatting.cpp:1335
+#: utils/formatting.cpp:1312
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "未认证的"
 
-#: utils/formatting.cpp:1338
+#: utils/formatting.cpp:1315
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "未检查"
 
-#: utils/formatting.cpp:1347
+#: utils/formatting.cpp:1324
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "全部都已被认证"
 
-#: utils/formatting.cpp:1350
+#: utils/formatting.cpp:1327
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "部分未被认证"
 
-#: utils/formatting.cpp:1383
+#: utils/formatting.cpp:1371
 #, kde-format
 msgid "Keyserver"
 msgstr "密钥服务器"
 
-#: utils/formatting.cpp:1391
+#: utils/formatting.cpp:1379
 #, kde-format
 msgid "File import"
 msgstr "文件导入"
 
-#: utils/formatting.cpp:1393
+#: utils/formatting.cpp:1381
 #, kde-format
 msgid "Generated"
 msgstr "已生成"
 
-#: utils/formatting.cpp:1397
-#, kde-format
-msgid "Unknown"
-msgstr "未知"
-
-#: utils/formatting.cpp:1433
+#: utils/formatting.cpp:1416
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "验证此密钥为“%1”部分信任的导入密钥。"
 
-#: utils/formatting.cpp:1437
+#: utils/formatting.cpp:1420
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "验证此密钥为“%1”完全信任的导入密钥。"
 
-#: utils/formatting.cpp:1461
+#: utils/formatting.cpp:1457
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
-msgstr ""
+msgstr "ECC (Brainpool P-256)"
+
+#: utils/formatting.cpp:1458
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Brainpool P-384)"
+msgstr "ECC (Brainpool P-384)"
+
+#: utils/formatting.cpp:1459
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Brainpool P-512)"
+msgstr "ECC (Brainpool P-512)"
+
+#: utils/formatting.cpp:1460
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Curve25519)"
+msgstr "ECC (Curve25519)"
+
+#: utils/formatting.cpp:1461
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Curve448)"
+msgstr "ECC (Curve448)"
 
 #: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
-msgid "ECC (Brainpool P-384)"
-msgstr ""
+msgid "ECC (Ed25519)"
+msgstr "ECC (Ed25519)"
 
 #: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
-msgid "ECC (Brainpool P-512)"
-msgstr ""
+msgid "ECC (Ed448)"
+msgstr "ECC (Ed448)"
 
 #: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
-msgid "ECC (Curve25519)"
-msgstr ""
+msgid "ECC (Cv25519)"
+msgstr "ECC (Cv25519)"
 
 #: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
-msgid "ECC (Curve448)"
-msgstr ""
+msgid "ECC (Cv448)"
+msgstr "ECC (Cv448)"
 
 #: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
-msgid "RSA 2048"
-msgstr ""
+msgid "RSA 1024"
+msgstr "RSA 1024"
 
 #: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
-msgid "RSA 3072"
-msgstr ""
+msgid "RSA 2048"
+msgstr "RSA 2048"
 
 #: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
+msgid "RSA 3072"
+msgstr "RSA 3072"
+
+#: utils/formatting.cpp:1472
+#, kde-format
+msgctxt "@info"
 msgid "RSA 4096"
-msgstr ""
+msgstr "RSA 4096"
+
+#: utils/formatting.cpp:1473
+#, kde-format
+msgctxt "@info"
+msgid "DSA 1024"
+msgstr "DSA 1024"
 
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
-msgid "Unknown algorithm"
-msgstr ""
+msgid "DSA 2048"
+msgstr "DSA 2048"
+
+#: utils/formatting.cpp:1475
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 1024"
+msgstr "Elgamal 1024"
+
+#: utils/formatting.cpp:1476
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 2048"
+msgstr "Elgamal 2048"
+
+#: utils/formatting.cpp:1477
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 3072"
+msgstr "Elgamal 3072"
+
+#: utils/formatting.cpp:1478
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 4096"
+msgstr "Elgamal 4096"
+
+#: utils/formatting.cpp:1491
+#, kde-format
+msgid ""
+"The signature is valid but the trust in the certificate's validity is only "
+"marginal."
+msgstr "签名有效，但对证书有效性的信任度却很低。"
+
+#: utils/formatting.cpp:1493
+#, kde-format
+msgid "The signature is valid and the certificate's validity is fully trusted."
+msgstr "签名有效，并且证书的有效性完全可信。"
+
+#: utils/formatting.cpp:1495
+#, kde-format
+msgid ""
+"The signature is valid and the certificate's validity is ultimately trusted."
+msgstr "签名是有效的，并且证书的有效性最终是值得信赖的。"
+
+#: utils/formatting.cpp:1497
+#, kde-format
+msgid ""
+"The signature is valid but the certificate's validity is <em>not trusted</"
+"em>."
+msgstr "签名是有效的，但证书的有效性 <em>不受信任</em>."
+
+#: utils/formatting.cpp:1499
+#, kde-format
+msgid "The signature is valid but the certificate's validity is unknown."
+msgstr "签名有效，但证书的有效性未知。"
+
+#: utils/formatting.cpp:1502
+#, kde-format
+msgid "The signature is valid but the certificate's validity is undefined."
+msgstr "签名有效，但证书的有效性未定义。"
+
+#: utils/formatting.cpp:1514
+#, kde-format
+msgid "Unknown certificate"
+msgstr "未知证书"
+
+#: utils/formatting.cpp:1518
+#, kde-format
+msgctxt "User ID (Key ID)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp:1534
+#, kde-format
+msgctxt "1 is a date"
+msgid ""
+"Signature created on %1 using an unknown certificate with fingerprint %2"
+msgstr "签名创建于 %1 使用带有指纹的未知证书 %2"
+
+#: utils/formatting.cpp:1538
+#, kde-format
+msgid "Signature created using an unknown certificate with fingerprint %1"
+msgstr "使用指纹为 %1 的未知证书创建签名"
+
+#: utils/formatting.cpp:1542
+#, kde-format
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "在 %1 上创建签名，证书为：%2"
+
+#: utils/formatting.cpp:1544
+#, kde-format
+msgid "Signature created with certificate: %1"
+msgstr "使用证书创建的签名：%1"
+
+#: utils/formatting.cpp:1550
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1"
+msgstr "签名为 %1"
+
+#: utils/formatting.cpp:1553
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "签名<b>不是</b> %1。"
+
+#: utils/formatting.cpp:1563
+#, kde-format
+msgid "Error: Signature not verified"
+msgstr "错误：未验证签名"
+
+#: utils/formatting.cpp:1565
+#, kde-format
+msgid "Good signature"
+msgstr "良好的签名"
+
+#: utils/formatting.cpp:1567
+#, kde-format
+msgid "Signing certificate was revoked"
+msgstr "签名证书已被吊销"
+
+#: utils/formatting.cpp:1569
+#, kde-format
+msgid "Signing certificate is expired"
+msgstr "签名证书已过期"
+
+#: utils/formatting.cpp:1571
+#, kde-format
+msgid "Certificate is not available"
+msgstr "证书不可用"
+
+#: utils/formatting.cpp:1573
+#, kde-format
+msgid "Signature expired"
+msgstr "签名过期"
+
+#: utils/formatting.cpp:1575
+#, kde-format
+msgid "CRL missing"
+msgstr "缺少 CRL"
+
+#: utils/formatting.cpp:1577
+#, kde-format
+msgid "CRL too old"
+msgstr "CRL 太旧"
+
+#: utils/formatting.cpp:1579
+#, kde-format
+msgid "Bad policy"
+msgstr "糟糕的政策"
+
+#: utils/formatting.cpp:1581
+#, kde-format
+msgid "System error"
+msgstr "系统错误"
+
+#: utils/formatting.cpp:1583
+#, kde-format
+msgid "Bad signature"
+msgstr "糟糕的签名"
+
+#: utils/formatting.cpp:1659 utils/formatting.cpp:1682
+#, kde-format
+msgid "The signature is invalid: %1"
+msgstr "签名无效：%1"
+
+#: utils/formatting.cpp:1668
+#, kde-format
+msgid "You can search the certificate on a keyserver or import it from a file."
+msgstr "您可以在密钥服务器上搜索证书或从文件中导入它。"
+
+#: utils/formatting.cpp:1677
+#, kde-format
+msgid "The used key is not certified by you or any trusted person."
+msgstr "使用的密钥未经您或任何可信赖的人认证。"
+
+#: utils/formatting.cpp:1678
+#, kde-format
+msgid ""
+"The used certificate is not certified by a trustworthy Certificate Authority "
+"or the Certificate Authority is unknown."
+msgstr "使用的证书不是由可信的证书颁发机构认证的，或者证书颁发机构未知。"
+
+#: utils/gnupg.cpp:486
+#, kde-format
+msgctxt "@info"
+msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
+msgstr "GnuPG提供以下支持: OpenPGP/LibrePGP and S/MIME."
+
+#: utils/gnupg.cpp:495
+#, kde-format
+msgctxt "@info"
+msgid "Libgcrypt is a general purpose cryptographic library."
+msgstr "Libgcrypt 是一个通用加密库。"
 
 #: utils/hex.cpp:35
 #, kde-format
@@ -2613,3 +3246,333 @@ msgstr "输入流中的十六进制字符“%1”无效。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "输入流中有过早出现的十六进制结束字符"
+
+#: kleo/expirychecker.cpp:78
+#, kde-format
+msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+msgid "<b>%1</b> (KeyID 0x%2)"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:71
+#, kde-format
+msgid "All Certificates"
+msgstr "全部证书"
+
+#: kleo/keyfiltermanager.cpp:86
+#, kde-format
+msgid "My Certificates"
+msgstr "我的证书"
+
+#: kleo/keyfiltermanager.cpp:104
+#, kde-format
+msgid "Trusted Certificates"
+msgstr "信任的证书"
+
+#: kleo/keyfiltermanager.cpp:121
+#, kde-format
+msgid "Fully Trusted Certificates"
+msgstr "完全信任的证书"
+
+#: kleo/keyfiltermanager.cpp:138
+#, kde-format
+msgid "Other Certificates"
+msgstr "其他证书"
+
+#: kleo/keyfiltermanager.cpp:153
+#, kde-format
+msgid "Not Certified Certificates"
+msgstr "未认证证书"
+
+#: kleo/keyfiltermanager.cpp:176
+#, kde-format
+msgid "Not Validated Certificates"
+msgstr "未验证的证书"
+
+#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
+#, kde-format
+msgid "E-Mail"
+msgstr "电子邮件"
+
+#: models/keylistmodel.cpp:323
+#, kde-format
+msgid "User-IDs"
+msgstr "用户编号"
+
+#: models/keylistmodel.cpp:329
+#, kde-format
+msgid "Protocol"
+msgstr "协议"
+
+#: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
+#: utils/formatting.cpp:478
+#, kde-format
+msgid "Key-ID"
+msgstr "密钥 ID"
+
+#: models/keylistmodel.cpp:339
+#, kde-format
+msgid "Serial Number"
+msgstr "序列号"
+
+#: models/keylistmodel.cpp:341
+#, kde-format
+msgid "Origin"
+msgstr "来源"
+
+#: models/keylistmodel.cpp:343
+#, kde-format
+msgid "Last Update"
+msgstr "上次更新"
+
+#: models/keylistmodel.cpp:345
+#, kde-format
+msgid "Certification Trust"
+msgstr "证书信任机构"
+
+#: ui/auditlogviewer.cpp:55
+#, kde-format
+msgid "&Copy to Clipboard"
+msgstr "复制到剪贴板(&C)"
+
+#: ui/auditlogviewer.cpp:60
+#, kde-format
+msgid "&Save to Disk..."
+msgstr "保存到磁盘(&S)..."
+
+#: ui/auditlogviewer.cpp:102
+#, kde-format
+msgid "System Error"
+msgstr "系统错误"
+
+#: ui/auditlogviewer.cpp:112
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "无 GnuPG 审核日志"
+
+#: ui/auditlogviewer.cpp:118
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "GnuPG 审核日志查看器"
+
+#: ui/auditlogviewer.cpp:152
+#, kde-format
+msgid "File Save Error"
+msgstr "文件保存错误"
+
+#: ui/cryptoconfigmodule.cpp:165
+#, kde-format
+msgid "GpgConf Error"
+msgstr "GpgConf 错误"
+
+#: ui/cryptoconfigmodule.cpp:721
+#, kde-format
+msgid "Set the debugging level to"
+msgstr "调试级别"
+
+#: ui/cryptoconfigmodule.cpp:997
+#, kde-format
+msgid ""
+"Configuration of directory services is not possible because the used gpgme "
+"libraries are too old."
+msgstr "您所使用的 gpgme 库太旧，无法配置目录服务。"
+
+#: ui/cryptoconfigmodule.cpp:999
+#, kde-format
+msgid "Sorry"
+msgstr "抱歉"
+
+#: ui/directoryserviceswidget.cpp:216
+#, kde-format
+msgid "Edit"
+msgstr "编辑"
+
+#: ui/directoryserviceswidget.cpp:224
+#, kde-format
+msgid "Delete"
+msgstr "删除"
+
+#: ui/dnattributeorderconfigwidget.cpp:88
+#, kde-format
+msgid "Available attributes:"
+msgstr "可用属性："
+
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgid "Current attribute order:"
+msgstr "当前属性顺序："
+
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgid "The following keys will be used for encryption:"
+msgstr "以下密钥将作加密之用："
+
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgid "Your keys:"
+msgstr "您的密钥："
+
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgid "Recipient:"
+msgstr "接收方："
+
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgid "Encryption keys:"
+msgstr "加密密钥："
+
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgid "Encryption preference:"
+msgstr "加密首选项："
+
+#: ui/keyrequester.cpp:89
+#, kde-format
+msgid "Clear"
+msgstr "清除"
+
+#: ui/keyrequester.cpp:92
+#, kde-format
+msgid "Change..."
+msgstr "更改..."
+
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#, kde-format
+msgid "Key Listing Failed"
+msgstr "密钥列出时失败"
+
+#: ui/keyselectioncombo.cpp:176
+#, kde-format
+msgctxt "Name <email> (validity, created: date)"
+msgid "%1 (%2, created: %3)"
+msgstr "%1（%2，创建于：%3）"
+
+#: ui/keyselectioncombo.cpp:182
+#, kde-format
+msgctxt "Name <email> (validity, type, created: date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1（%2，%3，创建于：%4）"
+
+#: ui/keyselectiondialog.cpp:426
+#, kde-format
+msgid "Search for &External Certificates"
+msgstr "搜索外部证书(&E)"
+
+#: ui/keyselectiondialog.cpp:440
+#, kde-format
+msgid "&Search for:"
+msgstr "搜索(&S)："
+
+#: ui/keyselectiondialog.cpp:465
+#, kde-format
+msgid "&Remember choice"
+msgstr "记住选择(&R)"
+
+#: ui/keyselectiondialog.cpp:482
+#, kde-format
+msgid "&Reread Keys"
+msgstr "重读密钥(&R)"
+
+#: ui/keyselectiondialog.cpp:487
+#, kde-format
+msgid "&Start Certificate Manager"
+msgstr "启动证书管理器(&S)"
+
+#: ui/keyselectiondialog.cpp:667
+#, kde-format
+msgid "Certificate Manager Error"
+msgstr "证书管理器错误"
+
+#: ui/newkeyapprovaldialog.cpp:185
+#, kde-format
+msgid "Show keys matching the email address"
+msgstr "显示可匹配此电子邮件地址的密钥"
+
+#: ui/newkeyapprovaldialog.cpp:189
+#, kde-format
+msgid "Show all keys"
+msgstr "显示所有密钥"
+
+#: ui/newkeyapprovaldialog.cpp:272
+#, kde-format
+msgctxt ""
+"@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
+"does not yet have an OpenPGP or S/MIME key."
+msgid ""
+"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
+"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"this key and the protected key will be stored in your home directory."
+msgstr ""
+"使用您的电子邮件地址来生成新密钥。<br/><br/>您必须要使用密钥才能解密和签名电"
+"子邮件。本程序会让您给这个密钥设定密码，并将其存储至主目录中。"
+
+#: ui/newkeyapprovaldialog.cpp:439
+#, kde-format
+msgid "Operation Failed"
+msgstr "操作失败"
+
+#: ui/newkeyapprovaldialog.cpp:557
+#, kde-format
+msgid "Don't confirm identity and integrity"
+msgstr "不确认身份和完整性"
+
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip for not selecting a key for signing."
+msgid "The E-Mail will not be cryptographically signed."
+msgstr "此电子邮件将不会被加密签名。"
+
+#: ui/newkeyapprovaldialog.cpp:657
+#, kde-format
+msgctxt "@info:tooltip for No Key selected for a specific recipient."
+msgid ""
+"Do not select a key for this recipient.<br/><br/>The recipient will receive "
+"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"selected in this dialog."
+msgstr ""
+"不为此收件人选择密钥。<br/><br/>该收件人将收到加密后的电子邮件，但它只能使用"
+"此对话框中所选的其他密钥解密。"
+
+#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#, kde-format
+msgid "Certifying User-IDs"
+msgstr "正在认证的用户编号"
+
+#: utils/formatting.cpp:423
+#, kde-format
+msgid "All User-IDs are certified."
+msgstr "所有用户编号已被验证。"
+
+#: utils/formatting.cpp:429
+#, kde-format
+msgid "One User-ID is not certified."
+msgid_plural "%1 User-IDs are not certified."
+msgstr[0] "%1 个用户编号没有被验证。"
+
+#: utils/formatting.cpp:454
+#, kde-format
+msgid "User-ID"
+msgstr "用户编号"
+
+#: utils/formatting.cpp:501
+#, kde-format
+msgid "Subkey"
+msgstr "子密钥"
+
+#: utils/formatting.cpp:848
+#, kde-format
+msgctxt "as in good/valid signature"
+msgid "good"
+msgstr "良好"
+
+#: utils/formatting.cpp:1397
+#, kde-format
+msgid "Unknown"
+msgstr "未知"
+
+#: utils/formatting.cpp:1474
+#, kde-format
+msgctxt "@info"
+msgid "Unknown algorithm"
+msgstr ""

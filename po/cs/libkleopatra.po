@@ -1,15 +1,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2014, 2016, 2017, 2018, 2019, 2020.
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2014, 2016, 2017, 2018, 2019, 2020, 2024 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
-# Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 00:42+0000\n"
-"PO-Revision-Date: 2023-06-22 14:59+0200\n"
+"POT-Creation-Date: 2025-04-18 17:42+0200\n"
+"PO-Revision-Date: 2024-09-20 15:54+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,224 +17,270 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
 msgstr "Chyba v definici kontrolního součtu %1: %2"
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
 msgid "Cannot use both %f and | in '%1'"
 msgstr "Nelze použít %f a zároveň | v '%1'"
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:156
 #, kde-format
 msgid "Quoting error in '%1' entry"
 msgstr ""
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
 msgstr "'%1' příliš komplexní (byl by potřeba shell)"
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
 msgid "'%1' entry is empty/missing"
 msgstr "'%1' položka je prázdná/chybějící"
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
 msgstr "'%1' prázdný nebo nenalezen"
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:211
 #, kde-format
 msgid "'id' entry is empty/missing"
 msgstr ""
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:214
 #, kde-format
 msgid "'output-file' entry is empty/missing"
 msgstr ""
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:217
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
 msgstr ""
 
+#. +> trunk6 stable6
 #: kleo/checksumdefinition.cpp:400
 #, kde-format
 msgid "Caught unknown exception in group %1"
 msgstr "Zachycena neznámá výjimka ve skupině %1"
 
-#: kleo/dn.cpp:517
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:61
 msgid "Common name"
 msgstr "Obecné jméno"
 
-#: kleo/dn.cpp:518
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:62
 msgid "Surname"
 msgstr "Příjmení"
 
-#: kleo/dn.cpp:519
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:63
 msgid "Given name"
 msgstr "Jméno"
 
-#: kleo/dn.cpp:520
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:64
 msgid "Location"
 msgstr "Umístění"
 
-#: kleo/dn.cpp:521
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:65
 msgid "Title"
 msgstr "Titul"
 
-#: kleo/dn.cpp:522
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:66
 msgid "Organizational unit"
 msgstr "Organizační jednotka"
 
-#: kleo/dn.cpp:523
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:67
 msgid "Organization"
 msgstr "Organizace"
 
-#: kleo/dn.cpp:524
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:68
 msgid "Postal code"
 msgstr "Směrovací číslo"
 
-#: kleo/dn.cpp:525
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:69
 msgid "Country code"
 msgstr "Kód země"
 
-#: kleo/dn.cpp:526
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:70
 msgid "State or province"
 msgstr "Stát nebo provincie"
 
-#: kleo/dn.cpp:527
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:71
 msgid "Domain component"
 msgstr "Komponenta domény"
 
-#: kleo/dn.cpp:528
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:72
 msgid "Business category"
 msgstr "Obchodní kategorie"
 
-#: kleo/dn.cpp:529
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:73
 msgid "Email address"
 msgstr "E-mailová adresa"
 
-#: kleo/dn.cpp:530
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:74
 msgid "Mail address"
 msgstr "Poštovní adresa"
 
-#: kleo/dn.cpp:531
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:75
 msgid "Mobile phone number"
 msgstr "Číslo na mobil"
 
-#: kleo/dn.cpp:532
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:76
 msgid "Telephone number"
 msgstr "Telefonní číslo"
 
-#: kleo/dn.cpp:533
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:77
 msgid "Fax number"
 msgstr "Faxové číslo"
 
-#: kleo/dn.cpp:534
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:78
 msgid "Street address"
 msgstr "Adresa"
 
-#: kleo/dn.cpp:535
+#. +> trunk6 stable6
+#: kleo/dnattributes.cpp:79
 msgid "Unique ID"
 msgstr "Unikátní ID"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:35
 msgid "Inline OpenPGP (deprecated)"
 msgstr "Vložený OpenPGP (zastaralé)"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:36
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#. +> trunk6 stable6
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:38
 msgid "S/MIME Opaque"
 msgstr "S/MIME Opaque"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:39
 msgid "Any S/MIME"
 msgstr "Jakékoliv S/MIME"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:40
 msgid "Any OpenPGP"
 msgstr "Jakékoliv OpenPGP"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:72
 #, kde-format
 msgid "Any"
 msgstr "Cokoliv"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:147
 #, kde-format
 msgid "Never Encrypt"
 msgstr "Nikdy nešifrovat"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:149
 #, kde-format
 msgid "Always Encrypt"
 msgstr "Vždy šifrovat"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:151
 #, kde-format
 msgid "Always Encrypt If Possible"
 msgstr "Šifrovat, je-li to možné"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:153 kleo/enum.cpp:210
 #, kde-format
 msgid "Ask"
 msgstr "Dotázat se"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:155 kleo/enum.cpp:212
 #, kde-format
 msgid "Ask Whenever Possible"
 msgstr "Dotázat se, je-li to možné"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:157
 #, kde-kuit-format
 msgctxt "no specific preference"
 msgid "<placeholder>none</placeholder>"
 msgstr "<placeholder>nic</placeholder>"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:204
 #, kde-format
 msgid "Never Sign"
 msgstr "Nikdy nepodepisovat"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:206
 #, kde-format
 msgid "Always Sign"
 msgstr "Vždy podepisovat"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:208
 #, kde-format
 msgid "Always Sign If Possible"
 msgstr "Vždy podepisovat, je-li to možné"
 
+#. +> trunk6 stable6
 #: kleo/enum.cpp:214
 #, kde-format
 msgctxt "no specific preference"
 msgid "<none>"
 msgstr "<nic>"
 
-#: kleo/expirychecker.cpp:78
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:80
 #, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (ID klíče 0x%2)"
 
-#: kleo/expirychecker.cpp:86
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:88
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
@@ -243,7 +289,8 @@ msgstr ""
 "<p>Váš podepisovací klíč OpenPGP/p><p align=center>%1</p><p>vypršel méně než "
 "před dnem.</p>"
 
-#: kleo/expirychecker.cpp:88
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:90
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
@@ -252,14 +299,16 @@ msgstr ""
 "<p>Váš šifrovací OpenPGP klíč</p><p align=\"center\">%1</p>vypršel méně než "
 "před dnem.</p>"
 
-#: kleo/expirychecker.cpp:90
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:92
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:96
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:98
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</"
@@ -271,7 +320,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:99
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:101
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday."
@@ -283,7 +333,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:102
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:104
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
@@ -293,24 +344,28 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:111
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:113
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:115
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:115
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:117
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:121
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:123
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -321,7 +376,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:124
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:126
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow."
@@ -333,7 +389,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:127
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:129
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -343,14 +400,16 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:139
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:141
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (sériové číslo %2)"
 
-#: kleo/expirychecker.cpp:150
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:152
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -358,7 +417,8 @@ msgid ""
 "</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:155
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:157
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -366,14 +426,16 @@ msgid ""
 "ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:160
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:162
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:169
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:171
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -385,7 +447,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:177
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:179
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -397,7 +460,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:185
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:187
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -409,7 +473,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:198
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:200
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -417,7 +482,8 @@ msgid ""
 "than a day ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:203
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:205
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -425,14 +491,16 @@ msgid ""
 "than a day ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:208
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:210
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:217
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:219
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -446,7 +514,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:225
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:227
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -460,7 +529,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:233
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:235
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -472,28 +542,32 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:246
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:248
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:248
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:250
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:250
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:252
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:256
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:258
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
@@ -505,7 +579,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:259
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:261
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
@@ -517,7 +592,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:262
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:264
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday."
@@ -529,28 +605,32 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:275
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:277
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:280
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:282
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:285
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:287
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:294
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:296
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -562,7 +642,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:302
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:304
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -574,7 +655,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:310
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:312
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -586,7 +668,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:323
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:325
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -594,7 +677,8 @@ msgid ""
 "p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:328
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:330
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -602,14 +686,16 @@ msgid ""
 "</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:333
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:335
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:341
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:343
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -623,7 +709,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:349
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:351
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -637,7 +724,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:357
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:359
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -649,27 +737,31 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:369
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:371
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:371
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:373
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:375
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 
-#: kleo/expirychecker.cpp:380
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:382
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires "
@@ -681,7 +773,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:386
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:388
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
@@ -693,7 +786,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: kleo/expirychecker.cpp:392
+#. +> trunk6 stable6
+#: kleo/expirychecker.cpp:394
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires tomorrow.</"
@@ -704,6 +798,3065 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:90
+#, kde-format
+msgctxt "All Certificates"
+msgid "All"
+msgstr "Vše"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:91
+#, fuzzy, kde-format
+#| msgctxt "CertificateManager|"
+#| msgid "Add certificate exception"
+msgid "All certificates (except disabled ones)"
+msgstr "Přidat výjimku certifikátu"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:108
+#, kde-format
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr "Moje vlastní"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:109
+#, fuzzy, kde-format
+#| msgctxt "CertificateManager|"
+#| msgid "Add certificate exception"
+msgid "My own certificates (except disabled ones)"
+msgstr "Přidat výjimku certifikátu"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:127
+#, kde-format
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "Certifikováno"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:128
+#, fuzzy, kde-format
+#| msgid "Certificates for which the primary user ID is certified"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr "Certifikáty s certifikovaným primárním ID"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:146
+#, kde-format
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "Nebylo certifikováno"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:147
+#, fuzzy, kde-format
+#| msgid "Certificates for which the primary user ID is certified"
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr "Certifikáty s certifikovaným primárním ID"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:162
+#, kde-format
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Certifikovat"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:163
+#, kde-format
+msgid ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself (except disabled ones)"
+msgstr ""
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:191
+#, kde-format
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "Nebylo plně certifikováno"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:192
+#, fuzzy, kde-format
+#| msgid "Certificates for which not all user IDs are certified"
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
+msgstr "Certifikáty, pro které ne všechny ID uživatele byly certifikovány"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:216
+#, kde-format
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "Plně certifikováno"
+
+#. +> trunk6 stable6
+#: kleo/keyfiltermanager.cpp:217
+#, fuzzy, kde-format
+#| msgid "Certificates for which all user IDs are certified"
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
+msgstr "Certifikáty, pro které všechny ID uživatele byly certifikovány"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:326
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Název"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:328
+#, kde-format
+msgctxt "@title:column"
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:330
+#, kde-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Stav"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:332
+#, kde-format
+msgctxt "@title:column"
+msgid "Valid From"
+msgstr "Platný od"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:334
+#, kde-format
+msgctxt "@title:column"
+msgid "Valid Until"
+msgstr "Platný do"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:336
+#, kde-format
+msgctxt "@title:column"
+msgid "Protocol"
+msgstr "Protokol"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:338
+#, kde-format
+msgctxt "@title:column"
+msgid "Key ID"
+msgstr "ID klíče"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:340
+#, kde-format
+msgctxt "@title:column"
+msgid "Fingerprint"
+msgstr "Otisk"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:342
+#, kde-format
+msgctxt "@title:column"
+msgid "Issuer"
+msgstr "Vydavatel"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:344
+#, kde-format
+msgctxt "@title:column"
+msgid "Serial Number"
+msgstr "Sériové číslo"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:346
+#, kde-format
+msgctxt "@title:column"
+msgid "Origin"
+msgstr "Původ"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:348
+#, kde-format
+msgctxt "@title:column"
+msgid "Last Update"
+msgstr "Poslední aktualizace"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:350
+#, kde-format
+msgctxt "@title:column"
+msgid "Certification Trust"
+msgstr "Důvěryhodnost certifikace"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:352
+#, kde-format
+msgctxt "@title:column"
+msgid "Tags"
+msgstr "Značky"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:354
+#, kde-format
+msgctxt "@title:column"
+msgid "Algorithm"
+msgstr "Algoritmus"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:356
+#, kde-format
+msgctxt "@title:column"
+msgid "Keygrip"
+msgstr ""
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:69
+#, kde-format
+msgctxt "text for screen readers for an empty name"
+msgid "no name"
+msgstr "bez názvu"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:411 models/useridlistmodel.cpp:70
+#, kde-format
+msgctxt "text for screen readers for an empty email address"
+msgid "no email"
+msgstr "žádný e-mail"
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:474
+#, kde-format
+msgid "Loading..."
+msgstr "Probíhá načítání..."
+
+#. +> trunk6 stable6
+#: models/keylistmodel.cpp:557
+#, kde-format
+msgctxt "text for screen readers"
+msgid "not applicable"
+msgstr "nepoužitelné"
+
+#. +> trunk6 stable6
+#: models/subkeylistmodel.cpp:155
+#, kde-format
+msgid "ID"
+msgstr "ID"
+
+#. +> trunk6 stable6
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
+#, kde-format
+msgid "Type"
+msgstr "Typ"
+
+#. +> trunk6 stable6
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:108
+#, kde-format
+msgid "Valid From"
+msgstr "Platný od"
+
+#. +> trunk6 stable6
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:109
+#, kde-format
+msgid "Valid Until"
+msgstr "Platný do"
+
+#. +> trunk6 stable6
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:106
+#, kde-format
+msgid "Status"
+msgstr "Stav"
+
+#. +> trunk6 stable6
+#: models/subkeylistmodel.cpp:165
+#, kde-format
+msgid "Strength"
+msgstr "Síla"
+
+#. +> trunk6 stable6
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
+#, kde-format
+msgid "Usage"
+msgstr "Využití"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:72
+#, kde-format
+msgctxt "yes, is exportable"
+msgid "yes"
+msgstr "ano"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:72
+#, kde-format
+msgctxt "no, is not exportable"
+msgid "no"
+msgstr "ne"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:75
+#, kde-format
+msgctxt "accessible text for empty list of tags"
+msgid "none"
+msgstr "žádný"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:76
+#, kde-format
+msgid "not applicable"
+msgstr "nepoužitelné"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:86 models/useridlistmodel.cpp:87
+#: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
+#: models/useridlistmodel.cpp:90 models/useridlistmodel.cpp:91
+#: models/useridlistmodel.cpp:92 models/useridlistmodel.cpp:93
+#: ui/keyselectiondialog.cpp:191 utils/formatting.cpp:450
+#: utils/formatting.cpp:460
+#, kde-format
+msgid "User ID"
+msgstr "ID uživatele"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:103
+#, kde-format
+msgid "User ID / Certification Key ID"
+msgstr "ID uživatele / ID klíče certifikátu"
+
+# Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:104
+#, kde-format
+msgid "Name"
+msgstr "Název"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:105
+#, kde-format
+msgid "Email"
+msgstr "E-mail"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:107
+#, kde-format
+msgid "Exportable"
+msgstr "Lze exportovat"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:110
+#, kde-format
+msgid "Tags"
+msgstr "Značky"
+
+#. +> trunk6 stable6
+#: models/useridlistmodel.cpp:111
+#, kde-format
+msgid "Trust Signature For"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:43
+#, kde-format
+msgctxt "@title:window"
+msgid "View GnuPG Audit Log"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:46
+#, kde-format
+msgctxt "@action:button"
+msgid "&Copy to Clipboard"
+msgstr "Z&kopírovat do schránky"
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:51
+#, kde-format
+msgctxt "@action:button"
+msgid "&Save to Disk..."
+msgstr "&Uložit na disk..."
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:93
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:93
+#, kde-format
+msgctxt "@title:window"
+msgid "System Error"
+msgstr "Systémová chyba"
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:98
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:99
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:103
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:103
+#, kde-format
+msgctxt "@title:window"
+msgid "No GnuPG Audit Log"
+msgstr "Chybí záznam auditu GnuPG"
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:109
+#, kde-format
+msgctxt "@title:window"
+msgid "GnuPG Audit Log Viewer"
+msgstr "Prohlížeč záznamů auditu GnuPG"
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:124
+#, kde-format
+msgid "Choose File to Save GnuPG Audit Log to"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:144
+#, kde-format
+msgid "Could not save to file \"%1\": %2"
+msgstr "Nelze uložit do souboru %1\": %2"
+
+#. +> trunk6 stable6
+#: ui/auditlogviewer.cpp:145
+#, kde-format
+msgctxt "@title:window"
+msgid "File Save Error"
+msgstr "Chyba ukládání souboru"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigentryreaderport.cpp:45
+#, kde-format
+msgctxt "@label:listbox Reader for smart cards"
+msgid "Reader to connect to"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:107
+#, kde-format
+msgid ""
+"The gpgconf tool used to provide the information for this dialog does not "
+"seem to be installed properly. It did not return any components. Try running "
+"\"%1\" on the command line for more information."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:538
+#, kde-format
+msgctxt ""
+"Translate this to 'yes' or 'no' (use the English words!) depending on "
+"whether your language uses Sentence style capitalization in GUI labels (yes) "
+"or not (no). Context: We get some backend strings in that have the wrong "
+"capitalization (in English, at least) so we need to force the first "
+"character to upper-case. It is this behaviour you can control for your "
+"language with this translation."
+msgid "yes"
+msgstr "yes"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:592
+msgid "0 - None"
+msgstr "0 - Žádný"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:593
+msgid "1 - Basic"
+msgstr "1 - Základní"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:594
+msgid "2 - Verbose"
+msgstr "2 - Podrobně"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:595
+msgid "3 - More Verbose"
+msgstr "3 - Podrobněji"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:596
+msgid "4 - All"
+msgstr "4 - Vše"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:608
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Set the debugging level to"
+msgstr "Nastavit úroveň ladění na"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:831
+#, kde-format
+msgid "Show..."
+msgstr "Zobrazit..."
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:831
+#, kde-format
+msgid "Edit..."
+msgstr "Upravit..."
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:885
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Directory Services"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:914
+#, kde-format
+msgid "None configured"
+msgstr "Nenastaveno"
+
+#. +> trunk6 stable6
+#: ui/cryptoconfigmodule.cpp:916
+#, kde-format
+msgid "1 server configured"
+msgid_plural "%1 servers configured"
+msgstr[0] "1 server byl nastaven"
+msgstr[1] "%1 servery byly nastaveny"
+msgstr[2] "%1 serverů bylo nastaveno"
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:197
+#, kde-format
+msgid "Active Directory"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:191
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"This is a list of all directory services that are configured for use with "
+"X.509."
+msgstr ""
+"Toto je seznam všech služeb adresáře, které jsou nastaveny po použití s "
+"X.509."
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:201
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Click to use a directory service running on your Active Directory. This "
+"works only on Windows and requires GnuPG 2.2.28 or later."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:204
+#, kde-format
+msgid "LDAP Server"
+msgstr "Server LDAP"
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:207
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service provided by an LDAP server."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:209
+#, kde-format
+msgid "Add"
+msgstr "Přidat"
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:210
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to add a directory service."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:212
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to add a directory service to the list of services. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:220
+#, kde-format
+msgctxt "@action:button"
+msgid "Edit"
+msgstr "Úpravy"
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:221
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to edit the selected service."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:223
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to edit the settings of the currently selected directory "
+"service. The changes will only take effect once you acknowledge the "
+"configuration dialog."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:228
+#, kde-format
+msgctxt "@action:button"
+msgid "Delete"
+msgstr "Smazat"
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:229
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Click to remove the selected service."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:231
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Click this button to remove the currently selected directory service. The "
+"change will only take effect once you acknowledge the configuration dialog."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
+#, kde-format
+msgctxt "@title:window"
+msgid "LDAP Directory Service"
+msgstr "Adresářová služba LDAP"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:75
+#, kde-format
+msgid "Description"
+msgstr "Popis"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Available attributes:"
+msgstr "Dostupné atributy:"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:92
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Current attribute order:"
+msgstr "Současné pořadí atributů:"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:100
+#, kde-format
+msgid "available attributes"
+msgstr "dostupné atributy"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:107
+#: ui/dnattributeorderconfigwidget.cpp:108
+#, kde-format
+msgid "All others"
+msgstr "Vše ostatní"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:120
+msgctxt "@action:button"
+msgid "Add"
+msgstr "Přidat"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:121
+msgid "Add to current attribute order"
+msgstr "Přidat do současného pořadí atributů"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:127
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "Odstranit"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:128
+msgid "Remove from current attribute order"
+msgstr "Odstranit ze současného pořadí atributů"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:134
+msgctxt "@action:button"
+msgid "Move to Top"
+msgstr "Přesunout nahoru"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:135
+msgid "Move to top"
+msgstr "Přesunout navrch"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:141
+msgctxt "@action:button"
+msgid "Move Up"
+msgstr "Posunout nahoru"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:142
+msgid "Move one up"
+msgstr "Přesunout nahoru"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:148
+msgctxt "@action:button"
+msgid "Move Down"
+msgstr "Posunout dolů"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:149
+msgid "Move one down"
+msgstr "Přesunout dolů"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:155
+msgctxt "@action:button"
+msgid "Move to Bottom"
+msgstr "Přesunout dolů"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:156
+msgid "Move to bottom"
+msgstr "Přesunout dospodu"
+
+#. +> trunk6 stable6
+#: ui/dnattributeorderconfigwidget.cpp:186
+#, kde-format
+msgid "current attribute order"
+msgstr "současné pořadí atributů"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:102
+#, kde-format
+msgid "Host:"
+msgstr "Hostitel:"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:103
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter the name or IP address of the server hosting the directory service."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:112
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:116
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, the default is fine in most cases)</b> Pick the port number "
+"the directory service is listening on."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:122
+#, kde-format
+msgid "Use default"
+msgstr "Použít výchozí"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:128
+#, kde-format
+msgid "Authentication"
+msgstr "Ověření"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:132
+#, kde-format
+msgid "Anonymous"
+msgstr "Anonymní"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:133
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Use an anonymous LDAP server that does not require authentication."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:139
+#, kde-format
+msgid "Authenticate via Active Directory"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:141
+#, kde-format
+msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"On Windows, authenticate to the LDAP server using the Active Directory with "
+"the current user."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:149
+#, kde-format
+msgid "Authenticate with user and password"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:150
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Authenticate to the LDAP server with your LDAP credentials."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:160
+#, kde-format
+msgid "User:"
+msgstr "Uživatel:"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:161
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:165
+#, kde-format
+msgid "Password:"
+msgstr "Heslo:"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:167
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Enter your password for authenticating to the LDAP server.<nl/><warning>The "
+"password will be saved in the clear in a configuration file in your home "
+"directory.</warning>"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:177
+#, kde-format
+msgid "Connection Security"
+msgstr "Zabezpečení spojení"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:179
+#, kde-format
+msgid "Connection Security (requires GnuPG 2.2.28 or later)"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:184
+#, kde-format
+msgid "Use default connection (probably not TLS secured)"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:186
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
+"earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:194
+#, kde-format
+msgid "Do not use a TLS secured connection"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:196
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a plain, not TLS secured connection to connect to the LDAP server. "
+"<b>(Not recommended)</b>"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:202
+#, kde-format
+msgid "Use TLS secured connection"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:204
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a standard TLS secured connection (initiated with STARTTLS) to connect "
+"to the LDAP server. <b>(Recommended)</b>"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:211
+#, kde-format
+msgid "Tunnel LDAP through a TLS connection"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:213
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Use a TLS secured connection through which the connection to the LDAP server "
+"is tunneled. <b>(Not recommended)</b>"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:222
+#, kde-format
+msgid "Advanced Settings"
+msgstr "Pokročilá nastavení"
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:227
+#, kde-format
+msgid "Base DN:"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:229
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
+"server to limit searches to only that subtree of the directory."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:235
+#, kde-format
+msgid "Additional flags:"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:237
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Here you can enter additional flags that are not yet (or no longer) "
+"supported by Kleopatra. For example, older versions of GnuPG use "
+"<code>ldaps</code> to request a TLS secured connection."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/editdirectoryservicedialog.cpp:410
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Directory Service"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Otevřít souborový dialog"
+
+#. +> trunk6 stable6
+#: ui/filenamerequester.cpp:82
+#, kde-format
+msgid "Open file dialog"
+msgstr "Otevřít souborový dialog"
+
+#. +> trunk6 stable6
+#: ui/formtextinput.cpp:25
+#, kde-format
+msgid "Error: Enter a value."
+msgstr "Chyba: Zadejte hodnotu."
+
+#. +> trunk6 stable6
+#: ui/formtextinput.cpp:30
+#, kde-format
+msgid "Error: Enter a value in the correct format."
+msgstr "Chyba: Zadejte hodnotu ve správném formátu."
+
+#. +> trunk6 stable6
+#: ui/formtextinput.cpp:92
+#, kde-format
+msgctxt "@label label text (required)"
+msgid "%1 (required)"
+msgstr "%1 (požadováno)"
+
+#. +> trunk6 stable6
+#: ui/formtextinput.cpp:126
+#, kde-format
+msgctxt "@info"
+msgid "Error: %1"
+msgstr "Chyba: %1"
+
+#. +> trunk6 stable6
+#: ui/formtextinput.cpp:230
+#, kde-format
+msgctxt ""
+"text for screen readers to indicate that the associated object, such as a "
+"form field, has an error"
+msgid "invalid entry"
+msgstr "neplatná položka"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:76
+#, kde-kuit-format
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>nic</placeholder>"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:77
+#, kde-format
+msgid "Never Encrypt with This Key"
+msgstr "Tímto klíčem nikdy nešifrovat"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:78
+#, kde-format
+msgid "Always Encrypt with This Key"
+msgstr "Vždy šifrovat tímto klíčem"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:79
+#, kde-format
+msgid "Encrypt Whenever Encryption is Possible"
+msgstr "Šifrovat kdykoli je to možné"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:80
+#, kde-format
+msgid "Always Ask"
+msgstr "Vždy se dotázat"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:81
+#, kde-format
+msgid "Ask Whenever Encryption is Possible"
+msgstr "Dotázat se, kdykoli je šifrování možné"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:102
+#, kde-format
+msgctxt "@title:window"
+msgid "Encryption Key Approval"
+msgstr "Schválení šifrovacího klíče"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgctxt "@label:textbox"
+msgid "The following keys will be used for encryption:"
+msgstr "Následující klíče budou použity pro šifrování:"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Your keys:"
+msgstr "Vaše klíče:"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Recipient:"
+msgstr "Příjemce:"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Encryption keys:"
+msgstr "Šifrovací klíče:"
+
+#. +> trunk6 stable6
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Encryption preference:"
+msgstr "Přednost v šifrování:"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:88
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear"
+msgstr "Vyprázdnit"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:91
+#, kde-format
+msgctxt "@action:button"
+msgid "Change..."
+msgstr "Změnit..."
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
+#, kde-kuit-format
+msgid "<placeholder>unknown</placeholder>"
+msgstr "<placeholder>neznámý</placeholder>"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
+#, kde-format
+msgid ""
+"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
+"%1</b></p></qt>"
+msgstr ""
+"<qt> <p>Nastala chyba při získávání klíčů z modulu:</p><p><b>%1</b></p></qt>"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
+#, kde-format
+msgctxt "@title:window"
+msgid "Key Listing Failed"
+msgstr "Výpis klíče selhal"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:270
+#, kde-format
+msgid ""
+"The OpenPGP backend does not support listing keys. Check your installation."
+msgstr ""
+"Tento OpenPGP modul nepodporuje výpis klíčů. Zkontrolujte si svou instalaci."
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:292
+#, kde-format
+msgid ""
+"The S/MIME backend does not support listing keys. Check your installation."
+msgstr ""
+"Tento S/MIME modul nepodporuje výpis klíčů. Zkontrolujte si svou instalaci."
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:412
+#, kde-format
+msgid "OpenPGP Key Selection"
+msgstr "Výběr klíče OpenPGP"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:413
+#, kde-format
+msgid "Please select an OpenPGP key to use."
+msgstr "Prosím, vyberte OpenPGP klíč k použití."
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:415
+#, kde-format
+msgid "S/MIME Key Selection"
+msgstr "Výběr S/MIME klíče"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:416
+#, kde-format
+msgid "Please select an S/MIME key to use."
+msgstr "Prosím, zvolte, který S/MIME klíč použít."
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:418
+#, kde-format
+msgid "Key Selection"
+msgstr "Výběr klíče"
+
+#. +> trunk6 stable6
+#: ui/keyrequester.cpp:419
+#, kde-format
+msgid "Please select an (OpenPGP or S/MIME) key to use."
+msgstr "Prosím, zvolte, který klíč (OpenPGP nebo S/MIME) použít."
+
+#. +> trunk6 stable6
+#: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
+#, kde-format
+msgctxt "Name <email>"
+msgid "%1 <%2>"
+msgstr "%1 <%2>"
+
+#. +> stable6
+#: ui/keyselectioncombo.cpp:178
+#, kde-format
+msgctxt "Name <email> (validity, created: date)"
+msgid "%1 (%2, created: %3)"
+msgstr "%1 (%2, vytvořeno: %3)"
+
+#. +> stable6
+#: ui/keyselectioncombo.cpp:184
+#, kde-format
+msgctxt "Name <email> (validity, type, created: date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1 (%2, %3, vytvořeno: %4)"
+
+#. +> trunk6 stable6
+#: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
+#, kde-format
+msgid "Loading keys ..."
+msgstr "Načítám klíče..."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:71
+#, kde-format
+msgid "The key is not valid."
+msgstr "Klíč není platný."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:79
+#, kde-format
+msgid "The key is expired."
+msgstr "Platnost klíče uplynula."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:83
+#, kde-format
+msgid "The key is revoked."
+msgstr "Klíč byl odvolán."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:87
+#, kde-format
+msgid "The key is disabled."
+msgstr "Klíč byl vypnut."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:94
+#, kde-format
+msgid "The key is not designated for encryption."
+msgstr "Klíč není určen pro šifrování."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:99
+#, kde-format
+msgid "The key is not designated for signing."
+msgstr "Klíč není určen pro podepisování."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:104
+#, kde-format
+msgid "The key is not designated for certifying."
+msgstr "Klíč není určen pro certifikaci."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:109
+#, kde-format
+msgid "The key is not designated for authentication."
+msgstr "Klíč není určen pro ověřování."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:115
+#, kde-format
+msgid "The key is not secret."
+msgstr "Klíč není tajný."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
+#, kde-format
+msgid "The key can be used."
+msgstr "Klíč může být použit."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:131
+#, kde-format
+msgid "The key is not trusted enough."
+msgstr "Klíč není dostatečně důvěryhodný."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:478
+#, kde-format
+msgid "Key ID"
+msgstr "ID klíče"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:263 ui/keyselectiondialog.cpp:265
+#: ui/keyselectiondialog.cpp:274 ui/keyselectiondialog.cpp:276
+#, kde-format
+msgid "unknown"
+msgstr "neznámý"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:263
+#, kde-format
+msgid "OpenPGP key for <b>%1</b>"
+msgstr "Klíč OpenPGP pro <b>%1</b>"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:265
+#, kde-format
+msgid "S/MIME key for <b>%1</b>"
+msgstr "Klíč S/MIME pro <b>%1</b>"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:464
+#, kde-format
+msgid "Valid from"
+msgstr "Platný od"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:467
+#, kde-format
+msgid "Valid until"
+msgstr "Platný do"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:274
+#, kde-format
+msgctxt "Key fingerprint"
+msgid "Fingerprint"
+msgstr "Otisk"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:276
+#, kde-format
+msgctxt "Key issuer"
+msgid "Issuer"
+msgstr "Vydavatel"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:278
+#, kde-format
+msgctxt "Key status"
+msgid "Status"
+msgstr "Stav"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:280
+#, kde-format
+msgctxt "Compliance of key"
+msgid "Compliance"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:420
+#, kde-format
+msgctxt "@action:button"
+msgid "Search for &External Certificates"
+msgstr "Vyhledat &externí certifikáty"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:434
+#, kde-format
+msgctxt "@label:textbox"
+msgid "&Search for:"
+msgstr "&Hledat:"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:459
+#, kde-format
+msgctxt "@option:check"
+msgid "&Remember choice"
+msgstr "Zapamatovat si výbě&r"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:462
+#, kde-format
+msgid ""
+"<qt><p>If you check this box your choice will be stored and you will not be "
+"asked again.</p></qt>"
+msgstr ""
+"<qt> <p>Pokud zaškrtnete toto políčko, bude vaše volba uložena a již "
+"nebudete dotazováni.</p></qt>"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:476
+#, kde-format
+msgctxt "@action:button"
+msgid "&Reread Keys"
+msgstr "Znovu načíst &klíče"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:481
+#, kde-format
+msgctxt "@action:button"
+msgid "&Start Certificate Manager"
+msgstr "&Spustit správce certifikátů"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:641
+#, kde-format
+msgid "No backends found for listing keys. Check your installation."
+msgstr "Nenalezen žádný modul pro výpis klíčů. Zkontrolujte si svou instalaci."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:659
+#, kde-format
+msgid "Could not start certificate manager; please check your installation."
+msgstr ""
+"Nelze spustit správce certifikátů; prosím zkontrolujte svoji instalaci."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:661
+#, kde-format
+msgctxt "@title:window"
+msgid "Certificate Manager Error"
+msgstr "Chyba správce certifikátů"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:718
+#, kde-format
+msgid "Checking selected keys..."
+msgstr "Kontroluji vybrané klíče..."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:718
+#, kde-format
+msgid "Fetching keys..."
+msgstr "Stahuji klíče..."
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:750
+#, kde-format
+msgid ""
+"<qt>One backend returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgid_plural ""
+"<qt>%1 backends returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgstr[0] ""
+"<qt>Jedna podpůrná vrstva vrátila zkrácený výstup.<p>Ne všechny dostupné "
+"klíče jsou zobrazeny</p></qt>"
+msgstr[1] ""
+"<qt>%1 podpůrné vrstvy vrátily zkrácený výstup.<p>Ne všechny dostupné klíče "
+"jsou zobrazeny</p></qt>"
+msgstr[2] ""
+"<qt>%1 podpůrných vrstev vrátilo zkrácený výstup.<p>Ne všechny dostupné "
+"klíče jsou zobrazeny</p></qt>"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:755
+#, kde-format
+msgid "Key List Result"
+msgstr "Výsledek výpisu klíčů"
+
+#. +> trunk6 stable6
+#: ui/keyselectiondialog.cpp:877
+#, kde-format
+msgid "Recheck Key"
+msgstr "Znovu zkontrolovat klíč"
+
+#. +> trunk6 stable6
+#: ui/messagebox.cpp:69
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Audit Log"
+msgstr "Zobrazit záznam Auditu"
+
+#. +> trunk6 stable6
+#: ui/messagebox.cpp:91
+#, kde-format
+msgctxt "@title:window"
+msgid "Information"
+msgstr "Informace"
+
+#. +> trunk6 stable6
+#: ui/messagebox.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Chyba"
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
+#, kde-format
+msgctxt "@label"
+msgid "Name"
+msgstr "Název"
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:60
+#, kde-format
+msgid "Enter a name."
+msgstr "Zadejte název."
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
+#, kde-format
+msgctxt "@label"
+msgid "Email address"
+msgstr "E-mailová adresa"
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:76
+#, kde-format
+msgid "Enter an email address."
+msgstr "Zadejte e-mailovou adresu"
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:94
+#, kde-format
+msgid "The name must not include <, >, and @."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:95
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must not include less-than sign, greater-than sign, and at sign."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:98
+#, kde-format
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include <, >, and @."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:101
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include less-than sign, greater-than sign, and at sign."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:110
+#, kde-format
+msgid "Enter an email address in the correct format, like name@example.com."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/nameandemailwidget.cpp:113
+#, kde-format
+msgid ""
+"Enter an email address in the correct format required by your organization."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Details"
+msgstr "Zobrazit podrobnosti"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:185
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Matching Keys"
+msgstr "Zobrazovat odpovídající klíče"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:186
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show keys matching the email address"
+msgstr "Zobrazit klíče odpovídající e-mailové adrese"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:189
+#, kde-format
+msgctxt "@action:button short for 'Show all keys'"
+msgid "Show All"
+msgstr "Zobrazit vše"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:190
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show all keys"
+msgstr "Zobrazit všechny klíče"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:273
+#, kde-format
+msgctxt ""
+"@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
+"does not yet have an OpenPGP or S/MIME key."
+msgid ""
+"Generate a new key using your email address.<br/><br/>The key is necessary "
+"to decrypt and sign emails. You will be asked for a passphrase to protect "
+"this key and the protected key will be stored in your home directory."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:298
+#, kde-format
+msgctxt "@title:window"
+msgid "Security approval"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:305
+#, kde-format
+msgctxt "@option:check"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:306
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:308
+#, kde-format
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:309
+#, kde-format
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:402
+#, kde-format
+msgid "Generating key for '%1'..."
+msgstr "Vytvářím klíč pro '%1'..."
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:402
+#, kde-format
+msgid "This can take several minutes."
+msgstr "Tohle může trvat několik minut."
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:404
+#, kde-format
+msgctxt "@title:window"
+msgid "Key generation"
+msgstr "Generování klíče"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:443
+#, kde-format
+msgctxt "@title:window"
+msgid "Operation Failed"
+msgstr "Operace selhala"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:558 ui/newkeyapprovaldialog.cpp:654
+#, kde-format
+msgid "Generate a new key pair"
+msgstr "Generovat nový pár klíčů"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:561
+#, kde-format
+msgid "Do not sign this email"
+msgstr "Nepodepisovat tuto zprávu"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:563
+#, kde-format
+msgctxt "@info:tooltip for not selecting a key for signing."
+msgid "The email will not be cryptographically signed."
+msgstr "E-mail nebude kryptograficky podepsán."
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:581
+#, kde-format
+msgctxt "Caption for signing key selection"
+msgid "Confirm identity '%1' as:"
+msgstr "Potvrdit identitu '%1' jako:"
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:658
+#, kde-format
+msgid "No key. Recipient will be unable to decrypt."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:661
+#, kde-format
+msgctxt "@info:tooltip for No Key selected for a specific recipient."
+msgid ""
+"Do not select a key for this recipient.<br/><br/>The recipient will receive "
+"the encrypted email, but it can only be decrypted with the other keys "
+"selected in this dialog."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:778
+#, kde-format
+msgctxt "Encrypt to self (email address):"
+msgid "Encrypt to self (%1):"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:795
+#, kde-format
+msgid "Encrypt to others:"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/newkeyapprovaldialog.cpp:833
+#, kde-format
+msgid "Generate"
+msgstr "Vygenerovat"
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:94
+#, kde-format
+msgid "Protect the generated key with a passphrase."
+msgstr "Chránit generovaný klíč heslem."
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:96
+#, kde-format
+msgid ""
+"Encrypts the secret key with an unrecoverable passphrase. You will be asked "
+"for the passphrase during key generation."
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:99
+#, kde-format
+msgid "Advanced options"
+msgstr "Rozšířené možnosti"
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:106
+#, kde-format
+msgctxt "The algorithm and strength of encryption key"
+msgid "Key Material"
+msgstr "Typ klíčů"
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:150
+#, kde-format
+msgctxt "title:window"
+msgid "Create OpenPGP Certificate"
+msgstr "Vytvořit certifikát OpenPGP"
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:158
+#, kde-format
+msgid "Enter a name and an email address to use for the certificate."
+msgstr "Zadejte jméno a e-mailovou adresu pro použití pro certifikát."
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:159
+#, kde-format
+msgid "Enter a name and/or an email address to use for the certificate."
+msgstr "Zadejte jméno a/nebo e-mailovou adresu pro použití pro certifikát."
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:336
+#, kde-format
+msgid "Enter a name or an email address."
+msgstr "Zadejte jméno nebo e-mailovou adresu."
+
+#. +> trunk6 stable6
+#: ui/openpgpcertificatecreationdialog.cpp:350
+#, kde-format
+msgid "There is a problem."
+msgstr "Vyskytl se problém."
+
+#. +> trunk6 stable6
+#: ui/readerportselection.cpp:58
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Default reader"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/readerportselection.cpp:73
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"<para>Select the smart card reader that GnuPG shall use.<list><item>The "
+"first item will make GnuPG use the first reader that is found.</"
+"item><item>The last item allows you to enter a custom reader ID or reader "
+"port number.</item><item>All other items represent readers that were found "
+"by GnuPG.</item></list></para>"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/readerportselection.cpp:114
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Custom reader ID or port number"
+msgstr ""
+
+#. +> trunk6 stable6
+#: ui/treeview.cpp:69 ui/treewidget.cpp:172
+#, kde-format
+msgctxt "@title:menu"
+msgid "View Columns"
+msgstr "Zobrazit sloupce"
+
+#. +> trunk6 stable6
+#: ui/useridselectioncombo.cpp:529
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr "Zobrazit seznam certifikátů"
+
+#. +> trunk6 stable6
+#: ui/useridselectioncombo.cpp:530
+#, kde-format
+msgid "Show certificate list"
+msgstr "Zobrazit seznam certifikátů"
+
+#. +> trunk6 stable6
+#: utils/compliance.cpp:185
+#, kde-format
+msgid "VS-NfD compliant"
+msgstr "Splňující VS-NfD"
+
+#. +> trunk6 stable6
+#: utils/compliance.cpp:185
+#, kde-format
+msgid "Not VS-NfD compliant"
+msgstr "Nesplňující VS-NfD"
+
+#. +> trunk6 stable6
+#: utils/compliance.cpp:194
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "%1 (Qt)"
+msgctxt "@info append beta-marker to compliance"
+msgid "%1 (beta)"
+msgstr "%1 (Qt)"
+
+#. +> trunk6 stable6
+#: utils/expiration.cpp:102
+#, fuzzy, kde-format
+#| msgctxt "Valid until DATE"
+#| msgid "Valid until %1"
+msgctxt "@label Valid until (<a date>):"
+msgid "Valid until (%1):"
+msgstr "Platný do %1"
+
+#. +> trunk6 stable6
+#: utils/expiration.cpp:105
+#, fuzzy, kde-format
+#| msgctxt "@info ... between <a date> and <another date>."
+#| msgid "Enter a date between %1 and %2."
+msgctxt "@label ... (between <a date> and <another date>):"
+msgid "Valid until (between %1 and %2):"
+msgstr "Zadejte datum mezi %1 a %2"
+
+#. +> trunk6 stable6
+#: utils/expiration.cpp:116
+#, kde-format
+msgctxt "@info"
+msgid "The date cannot be changed."
+msgstr "Datum nelze změnit."
+
+#. +> trunk6 stable6
+#: utils/expiration.cpp:119 utils/expiration.cpp:125
+#, kde-format
+msgctxt "@info ... between <a date> and <another date>."
+msgid "Enter a date between %1 and %2."
+msgstr "Zadejte datum mezi %1 a %2"
+
+#. +> trunk6 stable6
+#: utils/expiration.cpp:147
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Three years from now"
+msgstr "Za tři roky od teď"
+
+#. +> trunk6 stable6
+#: utils/expiration.cpp:148
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Two years from now"
+msgstr "Za dva roky od teď"
+
+#. +> trunk6 stable6
+#: utils/expiration.cpp:149
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "One year from now"
+msgstr "Za rok od teď"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:340
+#, kde-format
+msgid "%1-bit %2 (secret key available)"
+msgstr "%1-bit %2 (tajný klíč k dispozici)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:342
+#, kde-format
+msgid "%1-bit %2"
+msgstr "%1-bit %2"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:351
+#, kde-format
+msgid "Signing (Qualified)"
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:353
+#, kde-format
+msgid "Signing"
+msgstr "Podepisování"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:357
+#, kde-format
+msgid "Encryption"
+msgstr "Šifrování"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:360
+#, kde-format
+msgid "Certifying User IDs"
+msgstr "Certifikuji ID uživatelů"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:363
+#, kde-format
+msgid "SSH Authentication"
+msgstr "SSH ověření"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:393
+#, kde-format
+msgid "Disabled"
+msgstr "Zakázáno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:395
+#, kde-format
+msgid "Revoked"
+msgstr "Odvolaný"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Expired"
+msgstr "Prošlý"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:401
+#, kde-format
+msgid "User ID is certified."
+msgstr "ID uživatele je certifikováno."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:407
+#, kde-format
+msgid "User ID is not certified."
+msgstr "ID uživatele není certifikováno."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:417
+#, kde-format
+msgid "All User IDs are certified."
+msgstr "Všechna ID uživatelů jsou certifikována."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:423
+#, kde-format
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
+msgstr[0] "Jedno ID uživatele není certifikováno."
+msgstr[1] "%1 ID uživatelů nejsou certifikována."
+msgstr[2] "%1 ID uživatelů není certifikováno."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:427 utils/formatting.cpp:430
+#, kde-format
+msgid "The validity cannot be checked at the moment."
+msgstr "Platnost nyní nelze ověřit."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:440
+#, kde-format
+msgid "Serial number"
+msgstr "Sériové číslo"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:443
+#, kde-format
+msgid "Issuer"
+msgstr "Vydavatel"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:450 utils/formatting.cpp:460
+#, kde-format
+msgid "Subject"
+msgstr "Předmět"
+
+#. +> stable6
+#: utils/formatting.cpp:522
+#, kde-format
+msgid "Subkey"
+msgstr "Podklíč"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:455
+#, kde-format
+msgid "a.k.a."
+msgstr "a.k.a."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:481
+#, kde-format
+msgid "Fingerprint"
+msgstr "Otisk"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:485
+#, kde-format
+msgid "Certification trust"
+msgstr "Důvěryhodnost certifikace"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:487
+#, kde-format
+msgid "Trusted issuer?"
+msgstr "Důvěryhodný vydavatel"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:487
+#, kde-format
+msgid "Yes"
+msgstr "Ano"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:487
+#, kde-format
+msgid "No"
+msgstr "Ne"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:492 utils/formatting.cpp:494
+#, kde-format
+msgid "Stored"
+msgstr "Uloženo: "
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:492
+#, kde-format
+msgctxt "stored..."
+msgid "on SmartCard with serial no. %1"
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:494
+#, kde-format
+msgctxt "stored..."
+msgid "on this computer"
+msgstr "na tomto počítači"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:521
+#, kde-format
+msgid "Some keys are revoked, expired, disabled, or invalid."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:525
+#, kde-format
+msgid "All keys are certified."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:527
+#, kde-format
+msgid "Some keys are not certified."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:531
+#, kde-format
+msgid "The validity of the keys cannot be checked at the moment."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:545
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This group does not contain any keys."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:551
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Some of the certificates in this group cannot be used for encryption. Using "
+"this group can lead to unexpected results."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:571
+#, kde-format
+msgid "Keys:"
+msgstr "Klíče:"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:580
+#, kde-format
+msgctxt "this follows a list of keys"
+msgid "and 1 more key"
+msgid_plural "and %1 more keys"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:613
+#, kde-format
+msgctxt ""
+"date format suitable for screen readers; d: day as a number without a "
+"leading zero, MMMM: localized month name, yyyy: year as a four digit number"
+msgid "MMMM d, yyyy"
+msgstr "MMMM d, rrrr"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:659 utils/formatting.cpp:694
+#, kde-format
+msgctxt "@info the expiration date of the key is unknown"
+msgid "unknown"
+msgstr "neznámý"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:701 utils/formatting.cpp:710
+#, kde-format
+msgid "unlimited"
+msgstr "bez omezení"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:763
+#, kde-format
+msgctxt "X.509/CMS encryption standard"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:766
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:768
+#, kde-format
+msgctxt "Unknown encryption protocol"
+msgid "Unknown"
+msgstr "Neznámý"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:784
+#, kde-format
+msgctxt "a group of keys/certificates"
+msgid "Group"
+msgstr "Skupina"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:800 utils/formatting.cpp:845
+#, kde-format
+msgctxt "unknown trust level"
+msgid "unknown"
+msgstr "neznámý"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:802 utils/formatting.cpp:849
+#, kde-format
+msgid "untrusted"
+msgstr "nedůvěryhodný"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:804 utils/formatting.cpp:851
+#, kde-format
+msgctxt "marginal trust"
+msgid "marginal"
+msgstr "okrajově"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:806 utils/formatting.cpp:853
+#, kde-format
+msgctxt "full trust"
+msgid "full"
+msgstr "plně"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:808 utils/formatting.cpp:855
+#, kde-format
+msgctxt "ultimate trust"
+msgid "ultimate"
+msgstr "maximálně"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:810 utils/formatting.cpp:847
+#, kde-format
+msgctxt "undefined trust"
+msgid "undefined"
+msgstr "nedefinováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:821 utils/formatting.cpp:1272 utils/formatting.cpp:1297
+#, kde-format
+msgid "disabled"
+msgstr "zakázáno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:824 utils/formatting.cpp:838 utils/formatting.cpp:873
+#: utils/formatting.cpp:1275 utils/formatting.cpp:1300
+#, kde-format
+msgid "revoked"
+msgstr "odvolaný"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:827 utils/formatting.cpp:883 utils/formatting.cpp:1278
+#: utils/formatting.cpp:1303
+#, kde-format
+msgid "expired"
+msgstr "prošlý"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:830 utils/formatting.cpp:841 utils/formatting.cpp:881
+#: utils/formatting.cpp:1281 utils/formatting.cpp:1306
+#, kde-format
+msgid "invalid"
+msgstr "neplatné"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:832
+#, kde-format
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "OK"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:871
+#, kde-format
+msgid "valid"
+msgstr "platný"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:875
+#, kde-format
+msgid "class %1"
+msgstr "třída %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:885
+#, kde-format
+msgid "certificate expired"
+msgstr "certifikát vypršel"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:887
+#, kde-format
+msgctxt "fake/invalid signature"
+msgid "bad"
+msgstr "špatný"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:893
+#, kde-format
+msgid "no public key"
+msgstr "chybí věřený klíč"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:895
+#, kde-format
+msgid "key disabled"
+msgstr "klíč byl vypnut"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:897
+#, kde-format
+msgid "key revoked"
+msgstr "klíč byl odvolán"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:899
+#, kde-format
+msgid "key expired"
+msgstr "klíč vypršel"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:955
+#, kde-format
+msgctxt "name, email, key id"
+msgid "%1 %2 (%3)"
+msgstr "%1 %2 (%3)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1013
+#, kde-format
+msgid "Bad signature by unknown certificate %1: %2"
+msgstr "Špatný podpis neznámým certifikátem %1: %2"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1015
+#, kde-format
+msgid "Bad signature by an unknown certificate: %1"
+msgstr "Špatný podpis neznámým certifikátem: %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1018
+#, kde-format
+msgid "Bad signature by %1: %2"
+msgstr "Chybný podpis od %1: %2"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1024
+#, kde-format
+msgid "Good signature by unknown certificate %1."
+msgstr "Dobrý podpis neznámým certifikátem %1:  "
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1026
+#, kde-format
+msgid "Good signature by an unknown certificate."
+msgstr "Dobrý podpis neznámým certifikátem."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1029
+#, kde-format
+msgid "Good signature by %1."
+msgstr "Správný podpis od %1."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1034
+#, kde-format
+msgid "Invalid signature by unknown certificate %1: %2"
+msgstr "Neplatný podpis neznámým certifikátem %1: %2"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1036
+#, kde-format
+msgid "Invalid signature by an unknown certificate: %1"
+msgstr "Neplatný podpis neznámým certifikátem: %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1039
+#, kde-format
+msgid "Invalid signature by %1: %2"
+msgstr "Neplatný podpis od %1: %2"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1053
+#, kde-format
+msgid "This certificate was imported from the following sources:"
+msgstr "Tento certifikát byl importován z následujících zdrojů:"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1064
+#, kde-format
+msgid "The import of this certificate was canceled."
+msgstr "Import tohoto certifikátu byl zrušen."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1067
+#, kde-format
+msgid "An error occurred importing this certificate: %1"
+msgstr "Při importu tohoto certifikátu došlo k chybě: %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1072
+#, kde-format
+msgid "This certificate was new to your keystore. The secret key is available."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1073
+#, kde-format
+msgid "This certificate is new to your keystore."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1078
+#, kde-format
+msgid "New user-ids were added to this certificate by the import."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1081
+#, kde-format
+msgid "New signatures were added to this certificate by the import."
+msgstr "Importem byly do tohoto certifikátu přidány nové podpisy."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1084
+#, kde-format
+msgid "New subkeys were added to this certificate by the import."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1087
+#, kde-format
+msgid "The import contained no new data for this certificate. It is unchanged."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1094
+#, kde-format
+msgid "Certify"
+msgstr "Certifikovat"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1097
+#, kde-format
+msgid "Sign"
+msgstr "Podepsat"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1100
+#, kde-format
+msgid "Encrypt"
+msgstr "Šifrovat"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1103
+#, kde-format
+msgid "Authenticate"
+msgstr "Ověřit přístup"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1106
+#, kde-format
+msgctxt ""
+"Means 'Additional Decryption Subkey'; Don't try translating that, though."
+msgid "ADSK"
+msgstr "ADSK"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1114
+#, kde-format
+msgctxt "name <email> (validity, protocol, creation date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1 (%2, %3, vytvořeno: %4)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1125
+#, kde-format
+msgctxt "(validity, protocol, creation date)"
+msgid "(%1, %2, created: %3)"
+msgstr "(%1, %2, vytvořeno: %3)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1137
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity)"
+msgid "%2 (1 key, %3)"
+msgid_plural "%2 (%1 keys, %3)"
+msgstr[0] "%2 (1 klíč, %3)"
+msgstr[1] "%2 (%1 klíče, %3)"
+msgstr[2] "%2 (%1 klíčů, %3)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1144
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, tag)"
+msgid "%2 (1 key, %3, tag)"
+msgid_plural "%2 (%1 keys, %3, tag)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1151
+#, kde-format
+msgctxt "name of group of keys (n key(s), validity, group ...)"
+msgid "%2 (1 key, %3, unknown origin)"
+msgid_plural "%2 (%1 keys, %3, unknown origin)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1172
+#, kde-format
+msgid "The certificate is marked as your own."
+msgstr "Tento certifikát je označen jako váš vlastní."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1174
+#, kde-format
+msgid "The certificate belongs to this recipient."
+msgstr "Tento certifikát náleží tomuto příjemci."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1176
+#, kde-format
+msgid ""
+"The trust model indicates marginally that the certificate belongs to this "
+"recipient."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1178
+#, kde-format
+msgid "This certificate should not be used."
+msgstr "Tento certifikát by neměl být používán."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1182
+#, kde-format
+msgid "There is no indication that this certificate belongs to this recipient."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1194
+#, kde-format
+msgid "This group does not contain any keys."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1244 utils/formatting.cpp:1256
+#, kde-format
+msgctxt "@info the compliance of the key with certain requirements is unknown"
+msgid "unknown"
+msgstr "neznámý"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1269
+#, kde-format
+msgctxt "As in 'this user ID is valid.'"
+msgid "certified"
+msgstr "certifikováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1284
+#, kde-format
+msgctxt "As in 'this user ID is not certified'"
+msgid "not certified"
+msgstr "nebylo certifikováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1287
+#, kde-format
+msgctxt "The validity of this user ID has not been/could not be checked"
+msgid "not checked"
+msgstr "nekontrolováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1309
+#, kde-format
+msgctxt "As in all user IDs are valid."
+msgid "certified"
+msgstr "certifikováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1312
+#, kde-format
+msgctxt "As in not all user IDs are valid."
+msgid "not certified"
+msgstr "nebylo certifikováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1315
+#, kde-format
+msgctxt "The validity of the user IDs has not been/could not be checked"
+msgid "not checked"
+msgstr "nekontrolováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1324
+#, kde-format
+msgctxt "As in all keys are valid."
+msgid "all certified"
+msgstr "vše certifikováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1327
+#, kde-format
+msgctxt "As in not all keys are valid."
+msgid "not all certified"
+msgstr "nebylo vše certifikováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1371
+#, kde-format
+msgid "Keyserver"
+msgstr "Server klíčů"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1379
+#, kde-format
+msgid "File import"
+msgstr "Import souboru"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1381
+#, kde-format
+msgid "Generated"
+msgstr "Vygenerováno"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1416
+#, kde-format
+msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
+msgid "Certifies this key as partially trusted introducer for '%1'."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1420
+#, kde-format
+msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
+msgid "Certifies this key as fully trusted introducer for '%1'."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1457
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Brainpool P-256)"
+msgstr "ECC (Brainpool P-256)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1458
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Brainpool P-384)"
+msgstr "ECC (Brainpool P-384)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1459
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Brainpool P-512)"
+msgstr "ECC (Brainpool P-512)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1460
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Curve25519)"
+msgstr "ECC (Curve25519)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1461
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Curve448)"
+msgstr "ECC (Curve448)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1462
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed25519)"
+msgstr "ECC (Ed25519)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1463
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed448)"
+msgstr "ECC (Ed448)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1464
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv25519)"
+msgstr "ECC (Cv25519)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1465
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv448)"
+msgstr "ECC (Cv448)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1466
+#, kde-format
+msgctxt "@info"
+msgid "ECC (NIST P-256)"
+msgstr "ECC (NIST P-256)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1467
+#, kde-format
+msgctxt "@info"
+msgid "ECC (NIST P-384)"
+msgstr "ECC (NIST P-384)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1468
+#, kde-format
+msgctxt "@info"
+msgid "ECC (NIST P-521)"
+msgstr "ECC (NIST P-521)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1469
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "DSA 1024"
+msgctxt "@info"
+msgid "RSA 1024"
+msgstr "DSA 1024"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1470
+#, kde-format
+msgctxt "@info"
+msgid "RSA 2048"
+msgstr "RSA 2048"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1471
+#, kde-format
+msgctxt "@info"
+msgid "RSA 3072"
+msgstr "RSA 3072"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1472
+#, kde-format
+msgctxt "@info"
+msgid "RSA 4096"
+msgstr "RSA 4096"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1473
+#, kde-format
+msgctxt "@info"
+msgid "DSA 1024"
+msgstr "DSA 1024"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1474
+#, kde-format
+msgctxt "@info"
+msgid "DSA 2048"
+msgstr "DSA 2048"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1475
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 1024"
+msgstr "Elgamal 1024"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1476
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 2048"
+msgstr "Elgamal 2048"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1477
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 3072"
+msgstr "Elgamal 3072"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1478
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 4096"
+msgstr "Elgamal 4096"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1491
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid ""
+#| "The signature is valid, but the <a href=\"%1\">certificate</a>'s validity "
+#| "is unknown."
+msgid ""
+"The signature is valid but the trust in the certificate's validity is only "
+"marginal."
+msgstr ""
+"Podpis je v pořádku, ale platnost <a href=\"%1\">certifikátu</a> je neznámá."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1493
+#, fuzzy, kde-format
+#| msgid "The signature is valid and the key is fully trusted."
+msgid "The signature is valid and the certificate's validity is fully trusted."
+msgstr "Podpis je v pořádku a klíč je plně důvěryhodný."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1495
+#, fuzzy, kde-format
+#| msgid "The signature is valid and the key is ultimately trusted."
+msgid ""
+"The signature is valid and the certificate's validity is ultimately trusted."
+msgstr "Podpis je v pořádku a klíč je naprosto důvěryhodný."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1497
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid ""
+#| "The signature is valid, but the <a href=\"%1\">certificate</a>'s validity "
+#| "is unknown."
+msgid ""
+"The signature is valid but the certificate's validity is <em>not trusted</"
+"em>."
+msgstr ""
+"Podpis je v pořádku, ale platnost <a href=\"%1\">certifikátu</a> je neznámá."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1499
+#, kde-format
+msgid "The signature is valid but the certificate's validity is unknown."
+msgstr "Podpis je v pořádku, ale platnost certifikátu je neznámá."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1502
+#, fuzzy, kde-format
+#| msgid "The signature is valid, but the key's validity is unknown."
+msgid "The signature is valid but the certificate's validity is undefined."
+msgstr "Podpis je v pořádku, ale platnost klíče je neznámá."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1514
+#, kde-format
+msgid "Unknown certificate"
+msgstr "Neznámý certifikát"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1518
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt "User ID (Key ID)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1534
+#, fuzzy, kde-format
+#| msgctxt "1 is a date"
+#| msgid "Signature created on %1"
+msgctxt "1 is a date"
+msgid ""
+"Signature created on %1 using an unknown certificate with fingerprint %2"
+msgstr "Podpis vytvořen %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1538
+#, fuzzy, kde-format
+#| msgctxt "1 is a date"
+#| msgid "Signature created on %1"
+msgid "Signature created using an unknown certificate with fingerprint %1"
+msgstr "Podpis vytvořen %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1542
+#, fuzzy, kde-format
+#| msgctxt "1 is a date"
+#| msgid "Signature created on %1"
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "Podpis vytvořen %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1544
+#, fuzzy, kde-format
+#| msgid "Could not create certificate: %1"
+msgid "Signature created with certificate: %1"
+msgstr "Nebylo možné vytvořit certifikát: %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1550
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1"
+msgstr "Podpis je %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1553
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "VS-NfD-conforming is a German standard for restricted documents for which "
+#| "special restrictions about algorithms apply.  The string states that a "
+#| "signature is not compliant with that."
+#| msgid "The signature <b>is not</b> VS-NfD-compliant."
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Podpis <b>ne</b>splňuje VS-NfD."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1563
+#, kde-format
+msgid "Error: Signature not verified"
+msgstr "Chyba: Podpis neověřen"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1565
+#, kde-format
+msgid "Good signature"
+msgstr "Správný podpis"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1567
+#, kde-format
+msgid "Signing certificate was revoked"
+msgstr "Podepisující certifikát byl odvolán"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1569
+#, kde-format
+msgid "Signing certificate is expired"
+msgstr "Podepisující certifikát vypršel"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1571
+#, kde-format
+msgid "Certificate is not available"
+msgstr "Certifikát není dostupný"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1573
+#, kde-format
+msgid "Signature expired"
+msgstr "Podpis vypršel"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1575
+#, kde-format
+msgid "CRL missing"
+msgstr "Chybí CRL"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1577
+#, kde-format
+msgid "CRL too old"
+msgstr "Příliš stará CRL"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1579
+#, kde-format
+msgid "Bad policy"
+msgstr "Špatné zásady"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1581
+#, kde-format
+msgid "System error"
+msgstr "Systémová chyba"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1583
+#, kde-format
+msgid "Bad signature"
+msgstr "Chybný podpis"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1659 utils/formatting.cpp:1682
+#, kde-format
+msgid "The signature is invalid: %1"
+msgstr "Podpis není platný: %1"
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1668
+#, kde-format
+msgid "You can search the certificate on a keyserver or import it from a file."
+msgstr ""
+"Certifikát můžete hledat na serveru klíčů, nebo jej importovat ze souboru."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1677
+#, kde-format
+msgid "The used key is not certified by you or any trusted person."
+msgstr "Použitý klíč není certifikován vámi nebo jinou důvěryhodnou osobou."
+
+#. +> trunk6 stable6
+#: utils/formatting.cpp:1678
+#, kde-format
+msgid ""
+"The used certificate is not certified by a trustworthy Certificate Authority "
+"or the Certificate Authority is unknown."
+msgstr ""
+"Použitý certifikát není podepsán žádnou důvěryhodnou certifikační autoritou "
+"nebo je certifikační autorita neznámá."
+
+#. +> trunk6 stable6
+#: utils/gnupg.cpp:486
+#, kde-format
+msgctxt "@info"
+msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/gnupg.cpp:495
+#, kde-format
+msgctxt "@info"
+msgid "Libgcrypt is a general purpose cryptographic library."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/hex.cpp:35
+#, kde-format
+msgid "Invalid hex char '%1' in input stream."
+msgstr ""
+
+#. +> trunk6 stable6
+#: utils/hex.cpp:47 utils/hex.cpp:52
+#, kde-format
+msgid "Premature end of hex-encoded char in input stream"
+msgstr ""
+
+#: kleo/expirychecker.cpp:78
+#, kde-format
+msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+msgid "<b>%1</b> (KeyID 0x%2)"
+msgstr "<b>%1</b> (ID klíče 0x%2)"
 
 #: kleo/keyfiltermanager.cpp:71
 #, kde-format
@@ -740,12 +3893,6 @@ msgstr "Necertifikované certifikáty"
 msgid "Not Validated Certificates"
 msgstr "Neověřené certifikáty"
 
-# Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
-#: models/keylistmodel.cpp:319 models/useridlistmodel.cpp:105
-#, kde-format
-msgid "Name"
-msgstr "Název"
-
 #: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "E-Mail"
@@ -755,18 +3902,6 @@ msgstr "E-Mail"
 #, kde-format
 msgid "User-IDs"
 msgstr "ID uživatele"
-
-#: models/keylistmodel.cpp:325 models/subkeylistmodel.cpp:159
-#: models/useridlistmodel.cpp:107
-#, kde-format
-msgid "Valid From"
-msgstr "Platný od"
-
-#: models/keylistmodel.cpp:327 models/subkeylistmodel.cpp:161
-#: models/useridlistmodel.cpp:108
-#, kde-format
-msgid "Valid Until"
-msgstr "Platný do"
 
 #: models/keylistmodel.cpp:329
 #, kde-format
@@ -778,16 +3913,6 @@ msgstr "Protokol"
 #, kde-format
 msgid "Key-ID"
 msgstr "ID klíče"
-
-#: models/keylistmodel.cpp:335 utils/formatting.cpp:481
-#, kde-format
-msgid "Fingerprint"
-msgstr "Otisk"
-
-#: models/keylistmodel.cpp:337 utils/formatting.cpp:448
-#, kde-format
-msgid "Issuer"
-msgstr "Vydavatel"
 
 #: models/keylistmodel.cpp:339
 #, kde-format
@@ -809,120 +3934,6 @@ msgstr "Poslední aktualizace"
 msgid "Certification Trust"
 msgstr "Důvěryhodnost certifikace"
 
-#: models/keylistmodel.cpp:347 models/useridlistmodel.cpp:111
-#, kde-format
-msgid "Tags"
-msgstr "Značky"
-
-#: models/keylistmodel.cpp:395 models/useridlistmodel.cpp:69
-#, kde-format
-msgctxt "text for screen readers for an empty name"
-msgid "no name"
-msgstr "bez názvu"
-
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:70
-#, kde-format
-msgctxt "text for screen readers for an empty email address"
-msgid "no email"
-msgstr "žádný e-mail"
-
-#: models/keylistmodel.cpp:464
-#, kde-format
-msgid "Loading..."
-msgstr "Probíhá načítání..."
-
-#: models/keylistmodel.cpp:542
-#, kde-format
-msgctxt "text for screen readers"
-msgid "not applicable"
-msgstr "nepoužitelné"
-
-#: models/subkeylistmodel.cpp:155
-#, kde-format
-msgid "ID"
-msgstr "ID"
-
-#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
-#: utils/formatting.cpp:516
-#, kde-format
-msgid "Type"
-msgstr "Typ"
-
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:503 utils/formatting.cpp:505
-#, kde-format
-msgid "Status"
-msgstr "Stav"
-
-#: models/subkeylistmodel.cpp:165
-#, kde-format
-msgid "Strength"
-msgstr "Síla"
-
-#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
-#: utils/formatting.cpp:519
-#, kde-format
-msgid "Usage"
-msgstr "Využití"
-
-#: models/useridlistmodel.cpp:74
-#, kde-format
-msgctxt "yes, is exportable"
-msgid "yes"
-msgstr "ano"
-
-#: models/useridlistmodel.cpp:74
-#, kde-format
-msgctxt "no, is not exportable"
-msgid "no"
-msgstr "ne"
-
-#: models/useridlistmodel.cpp:75
-#, kde-format
-msgctxt "accessible text for empty list of tags"
-msgid "none"
-msgstr "žádný"
-
-#: models/useridlistmodel.cpp:76
-#, kde-format
-msgid "not applicable"
-msgstr "nepoužitelné"
-
-#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
-#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
-#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
-#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
-#, kde-format
-msgid "User ID"
-msgstr "ID uživatele"
-
-#: models/useridlistmodel.cpp:104
-#, kde-format
-msgid "User ID / Certification Key ID"
-msgstr "ID uživatele / ID klíče certifikátu"
-
-#: models/useridlistmodel.cpp:110
-#, kde-format
-msgid "Exportable"
-msgstr "Lze exportovat"
-
-#: models/useridlistmodel.cpp:112
-#, kde-format
-msgid "Trust Signature For"
-msgstr ""
-
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:891
-#, kde-format
-msgid "class %1"
-msgstr "třída %1"
-
-#: ui/auditlogviewer.cpp:52
-#, kde-format
-msgctxt "@title:window"
-msgid "View GnuPG Audit Log"
-msgstr ""
-
 #: ui/auditlogviewer.cpp:55
 #, kde-format
 msgid "&Copy to Clipboard"
@@ -935,30 +3946,8 @@ msgstr "&Uložit na disk..."
 
 #: ui/auditlogviewer.cpp:102
 #, kde-format
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr ""
-
-#: ui/auditlogviewer.cpp:102
-#, kde-format
 msgid "System Error"
 msgstr "Systémová chyba"
-
-#: ui/auditlogviewer.cpp:107
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-
-#: ui/auditlogviewer.cpp:108
-#, kde-format
-msgid "GnuPG Audit Log Error"
-msgstr ""
-
-#: ui/auditlogviewer.cpp:112
-#, kde-format
-msgid "No GnuPG Audit Log available for this operation."
-msgstr ""
 
 #: ui/auditlogviewer.cpp:112
 #, kde-format
@@ -970,86 +3959,20 @@ msgstr ""
 msgid "GnuPG Audit Log Viewer"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:133
-#, kde-format
-msgid "Choose File to Save GnuPG Audit Log to"
-msgstr ""
-
-#: ui/auditlogviewer.cpp:152
-#, kde-format
-msgid "Could not save to file \"%1\": %2"
-msgstr "Nelze uložit do souboru %1\": %2"
-
 #: ui/auditlogviewer.cpp:152
 #, kde-format
 msgid "File Save Error"
 msgstr "Chyba ukládání souboru"
-
-#: ui/cryptoconfigentryreaderport.cpp:45
-#, kde-format
-msgctxt "@label:listbox Reader for smart cards"
-msgid "Reader to connect to"
-msgstr ""
 
 #: ui/cryptoconfigmodule.cpp:165
 #, kde-format
 msgid "GpgConf Error"
 msgstr "Chyba v GpgConf"
 
-#: ui/cryptoconfigmodule.cpp:222
-#, kde-format
-msgid ""
-"The gpgconf tool used to provide the information for this dialog does not "
-"seem to be installed properly. It did not return any components. Try running "
-"\"%1\" on the command line for more information."
-msgstr ""
-
-#: ui/cryptoconfigmodule.cpp:651
-#, kde-format
-msgctxt ""
-"Translate this to 'yes' or 'no' (use the English words!) depending on "
-"whether your language uses Sentence style capitalization in GUI labels (yes) "
-"or not (no). Context: We get some backend strings in that have the wrong "
-"capitalization (in English, at least) so we need to force the first "
-"character to upper-case. It is this behaviour you can control for your "
-"language with this translation."
-msgid "yes"
-msgstr "yes"
-
-#: ui/cryptoconfigmodule.cpp:705
-msgid "0 - None"
-msgstr "0 - Žádný"
-
-#: ui/cryptoconfigmodule.cpp:706
-msgid "1 - Basic"
-msgstr "1 - Základní"
-
-#: ui/cryptoconfigmodule.cpp:707
-msgid "2 - Verbose"
-msgstr "2 - Podrobně"
-
-#: ui/cryptoconfigmodule.cpp:708
-msgid "3 - More Verbose"
-msgstr "3 - Podrobněji"
-
-#: ui/cryptoconfigmodule.cpp:709
-msgid "4 - All"
-msgstr "4 - Vše"
-
 #: ui/cryptoconfigmodule.cpp:721
 #, kde-format
 msgid "Set the debugging level to"
 msgstr "Nastavit úroveň ladění na"
-
-#: ui/cryptoconfigmodule.cpp:944
-#, kde-format
-msgid "Show..."
-msgstr "Zobrazit..."
-
-#: ui/cryptoconfigmodule.cpp:944
-#, kde-format
-msgid "Edit..."
-msgstr "Upravit..."
 
 #: ui/cryptoconfigmodule.cpp:997
 #, kde-format
@@ -1063,127 +3986,15 @@ msgstr ""
 msgid "Sorry"
 msgstr "Lituji"
 
-#: ui/cryptoconfigmodule.cpp:1006
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure Directory Services"
-msgstr ""
-
-#: ui/cryptoconfigmodule.cpp:1035
-#, kde-format
-msgid "None configured"
-msgstr "Nenastaveno"
-
-#: ui/cryptoconfigmodule.cpp:1037
-#, kde-format
-msgid "1 server configured"
-msgid_plural "%1 servers configured"
-msgstr[0] "1 server byl nastaven"
-msgstr[1] "%1 servery byly nastaveny"
-msgstr[2] "%1 serverů bylo nastaveno"
-
-#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
-#, kde-format
-msgid "Active Directory"
-msgstr ""
-
-#: ui/directoryserviceswidget.cpp:187
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"This is a list of all directory services that are configured for use with "
-"X.509."
-msgstr ""
-"Toto je seznam všech služeb adresáře, které jsou nastaveny po použití s "
-"X.509."
-
-#: ui/directoryserviceswidget.cpp:197
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Click to use a directory service running on your Active Directory. This "
-"works only on Windows and requires GnuPG 2.2.28 or later."
-msgstr ""
-
-#: ui/directoryserviceswidget.cpp:200
-#, kde-format
-msgid "LDAP Server"
-msgstr "Server LDAP"
-
-#: ui/directoryserviceswidget.cpp:203
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Click to add a directory service provided by an LDAP server."
-msgstr ""
-
-#: ui/directoryserviceswidget.cpp:205
-#, kde-format
-msgid "Add"
-msgstr "Přidat"
-
-#: ui/directoryserviceswidget.cpp:206
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Click to add a directory service."
-msgstr ""
-
-#: ui/directoryserviceswidget.cpp:208
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"Click this button to add a directory service to the list of services. The "
-"change will only take effect once you acknowledge the configuration dialog."
-msgstr ""
-
 #: ui/directoryserviceswidget.cpp:216
 #, kde-format
 msgid "Edit"
 msgstr "Upravit"
 
-#: ui/directoryserviceswidget.cpp:217
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Click to edit the selected service."
-msgstr ""
-
-#: ui/directoryserviceswidget.cpp:219
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"Click this button to edit the settings of the currently selected directory "
-"service. The changes will only take effect once you acknowledge the "
-"configuration dialog."
-msgstr ""
-
 #: ui/directoryserviceswidget.cpp:224
 #, kde-format
 msgid "Delete"
 msgstr "Smazat"
-
-#: ui/directoryserviceswidget.cpp:225
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Click to remove the selected service."
-msgstr ""
-
-#: ui/directoryserviceswidget.cpp:227
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"Click this button to remove the currently selected directory service. The "
-"change will only take effect once you acknowledge the configuration dialog."
-msgstr ""
-
-#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
-#, kde-format
-msgctxt "@title:window"
-msgid "LDAP Directory Service"
-msgstr ""
-
-#: ui/dnattributeorderconfigwidget.cpp:73
-#, kde-format
-msgid "Description"
-msgstr "Popis"
 
 #: ui/dnattributeorderconfigwidget.cpp:88
 #, kde-format
@@ -1194,318 +4005,6 @@ msgstr "Dostupné atributy:"
 #, kde-format
 msgid "Current attribute order:"
 msgstr "Současné pořadí atributů:"
-
-#: ui/dnattributeorderconfigwidget.cpp:98
-#, kde-format
-msgid "available attributes"
-msgstr "dostupné atributy"
-
-#: ui/dnattributeorderconfigwidget.cpp:105
-#: ui/dnattributeorderconfigwidget.cpp:106
-#, kde-format
-msgid "All others"
-msgstr "Vše ostatní"
-
-#: ui/dnattributeorderconfigwidget.cpp:118
-msgctxt "@action:button"
-msgid "Add"
-msgstr "Přidat"
-
-#: ui/dnattributeorderconfigwidget.cpp:119
-msgid "Add to current attribute order"
-msgstr "Přidat do současného pořadí atributů"
-
-#: ui/dnattributeorderconfigwidget.cpp:125
-msgctxt "@action:button"
-msgid "Remove"
-msgstr "Odstranit"
-
-#: ui/dnattributeorderconfigwidget.cpp:126
-msgid "Remove from current attribute order"
-msgstr "Odstranit ze současného pořadí atributů"
-
-#: ui/dnattributeorderconfigwidget.cpp:132
-msgctxt "@action:button"
-msgid "Move to Top"
-msgstr "Přesunout nahoru"
-
-#: ui/dnattributeorderconfigwidget.cpp:133
-msgid "Move to top"
-msgstr "Přesunout navrch"
-
-#: ui/dnattributeorderconfigwidget.cpp:139
-msgctxt "@action:button"
-msgid "Move Up"
-msgstr "Posunout nahoru"
-
-#: ui/dnattributeorderconfigwidget.cpp:140
-msgid "Move one up"
-msgstr "Přesunout nahoru"
-
-#: ui/dnattributeorderconfigwidget.cpp:146
-msgctxt "@action:button"
-msgid "Move Down"
-msgstr "Posunout dolů"
-
-#: ui/dnattributeorderconfigwidget.cpp:147
-msgid "Move one down"
-msgstr "Přesunout dolů"
-
-#: ui/dnattributeorderconfigwidget.cpp:153
-msgctxt "@action:button"
-msgid "Move to Bottom"
-msgstr "Přesunout dolů"
-
-#: ui/dnattributeorderconfigwidget.cpp:154
-msgid "Move to bottom"
-msgstr "Přesunout dospodu"
-
-#: ui/dnattributeorderconfigwidget.cpp:184
-#, kde-format
-msgid "current attribute order"
-msgstr "současné pořadí atributů"
-
-#: ui/editdirectoryservicedialog.cpp:99
-#, kde-format
-msgid "Host:"
-msgstr "Hostitel:"
-
-#: ui/editdirectoryservicedialog.cpp:100
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Enter the name or IP address of the server hosting the directory service."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:104
-#, kde-format
-msgid "Port:"
-msgstr "Port:"
-
-#: ui/editdirectoryservicedialog.cpp:107
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"<b>(Optional, the default is fine in most cases)</b> Pick the port number "
-"the directory service is listening on."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:110
-#, kde-format
-msgid "Use default"
-msgstr "Použít výchozí"
-
-#: ui/editdirectoryservicedialog.cpp:116
-#, kde-format
-msgid "Authentication"
-msgstr "Ověření"
-
-#: ui/editdirectoryservicedialog.cpp:120
-#, kde-format
-msgid "Anonymous"
-msgstr "Anonymní"
-
-#: ui/editdirectoryservicedialog.cpp:121
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:127
-#, kde-format
-msgid "Authenticate via Active Directory"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:129
-#, kde-format
-msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:132
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"On Windows, authenticate to the LDAP server using the Active Directory with "
-"the current user."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:137
-#, kde-format
-msgid "Authenticate with user and password"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:138
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Authenticate to the LDAP server with your LDAP credentials."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:148
-#, kde-format
-msgid "User:"
-msgstr "Uživatel:"
-
-#: ui/editdirectoryservicedialog.cpp:149
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:153
-#, kde-format
-msgid "Password:"
-msgstr "Heslo:"
-
-#: ui/editdirectoryservicedialog.cpp:155
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"Enter your password for authenticating to the LDAP server.<nl/><warning>The "
-"password will be saved in the clear in a configuration file in your home "
-"directory.</warning>"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:165
-#, kde-format
-msgid "Connection Security"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:167
-#, kde-format
-msgid "Connection Security (requires GnuPG 2.2.28 or later)"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:172
-#, kde-format
-msgid "Use default connection (probably not TLS secured)"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:174
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
-"earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:182
-#, kde-format
-msgid "Do not use a TLS secured connection"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:184
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Use a plain, not TLS secured connection to connect to the LDAP server. "
-"<b>(Not recommended)</b>"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:190
-#, kde-format
-msgid "Use TLS secured connection"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:192
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Use a standard TLS secured connection (initiated with STARTTLS) to connect "
-"to the LDAP server. <b>(Recommended)</b>"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:199
-#, kde-format
-msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:201
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Use a TLS secured connection through which the connection to the LDAP server "
-"is tunneled. <b>(Not recommended)</b>"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:210
-#, kde-format
-msgid "Advanced Settings"
-msgstr "Pokročilá nastavení"
-
-#: ui/editdirectoryservicedialog.cpp:215
-#, kde-format
-msgid "Base DN:"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:217
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
-"server to limit searches to only that subtree of the directory."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:223
-#, kde-format
-msgid "Additional flags:"
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:225
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"Here you can enter additional flags that are not yet (or no longer) "
-"supported by Kleopatra. For example, older versions of GnuPG use "
-"<code>ldaps</code> to request a TLS secured connection."
-msgstr ""
-
-#: ui/editdirectoryservicedialog.cpp:395
-#, kde-format
-msgctxt "@title:window"
-msgid "Edit Directory Service"
-msgstr ""
-
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
-#, kde-format
-msgid "Open file dialog"
-msgstr "Otevřít souborový dialog"
-
-#: ui/keyapprovaldialog.cpp:76
-#, kde-kuit-format
-msgid "<placeholder>none</placeholder>"
-msgstr "<placeholder>nic</placeholder>"
-
-#: ui/keyapprovaldialog.cpp:77
-#, kde-format
-msgid "Never Encrypt with This Key"
-msgstr "Tímto klíčem nikdy nešifrovat"
-
-#: ui/keyapprovaldialog.cpp:78
-#, kde-format
-msgid "Always Encrypt with This Key"
-msgstr "Vždy šifrovat tímto klíčem"
-
-#: ui/keyapprovaldialog.cpp:79
-#, kde-format
-msgid "Encrypt Whenever Encryption is Possible"
-msgstr "Šifrovat kdykoli je to možné"
-
-#: ui/keyapprovaldialog.cpp:80
-#, kde-format
-msgid "Always Ask"
-msgstr "Vždy se dotázat"
-
-#: ui/keyapprovaldialog.cpp:81
-#, kde-format
-msgid "Ask Whenever Encryption is Possible"
-msgstr "Dotázat se, kdykoli je šifrování možné"
-
-#: ui/keyapprovaldialog.cpp:102
-#, kde-format
-msgctxt "@title:window"
-msgid "Encryption Key Approval"
-msgstr "Schválení šifrovacího klíče"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
@@ -1542,203 +4041,11 @@ msgstr "Vyprázdnit"
 msgid "Change..."
 msgstr "Změnit..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
-#, kde-kuit-format
-msgid "<placeholder>unknown</placeholder>"
-msgstr "<placeholder>neznámý</placeholder>"
-
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
-#, kde-format
-msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
-msgstr ""
-"<qt> <p>Nastala chyba při získávání klíčů z modulu:</p><p><b>%1</b></p></qt>"
-
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
 #, kde-format
 msgid "Key Listing Failed"
 msgstr "Výpis klíče selhal"
-
-#: ui/keyrequester.cpp:270
-#, kde-format
-msgid ""
-"The OpenPGP backend does not support listing keys. Check your installation."
-msgstr ""
-"Tento OpenPGP modul nepodporuje výpis klíčů. Zkontrolujte si svou instalaci."
-
-#: ui/keyrequester.cpp:292
-#, kde-format
-msgid ""
-"The S/MIME backend does not support listing keys. Check your installation."
-msgstr ""
-"Tento S/MIME modul nepodporuje výpis klíčů. Zkontrolujte si svou instalaci."
-
-#: ui/keyrequester.cpp:412
-#, kde-format
-msgid "OpenPGP Key Selection"
-msgstr "Výběr klíče OpenPGP"
-
-#: ui/keyrequester.cpp:413
-#, kde-format
-msgid "Please select an OpenPGP key to use."
-msgstr "Prosím, vyberte OpenPGP klíč k použití."
-
-#: ui/keyrequester.cpp:415
-#, kde-format
-msgid "S/MIME Key Selection"
-msgstr "Výběr S/MIME klíče"
-
-#: ui/keyrequester.cpp:416
-#, kde-format
-msgid "Please select an S/MIME key to use."
-msgstr "Prosím, zvolte, který S/MIME klíč použít."
-
-#: ui/keyrequester.cpp:418
-#, kde-format
-msgid "Key Selection"
-msgstr "Výběr klíče"
-
-#: ui/keyrequester.cpp:419
-#, kde-format
-msgid "Please select an (OpenPGP or S/MIME) key to use."
-msgstr "Prosím, zvolte, který klíč (OpenPGP nebo S/MIME) použít."
-
-#: ui/keyselectioncombo.cpp:85
-#, kde-format
-msgctxt "Name <email>"
-msgid "%1 <%2>"
-msgstr "%1 <%2>"
-
-#: ui/keyselectioncombo.cpp:176
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, vytvořeno: %3)"
-
-#: ui/keyselectioncombo.cpp:182
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3, vytvořeno: %4)"
-
-#: ui/keyselectioncombo.cpp:671
-#, kde-format
-msgid "Loading keys ..."
-msgstr "Načítám klíče..."
-
-#: ui/keyselectiondialog.cpp:72
-#, kde-format
-msgid "The key is not valid."
-msgstr "Klíč není platný."
-
-#: ui/keyselectiondialog.cpp:80
-#, kde-format
-msgid "The key is expired."
-msgstr "Platnost klíče uplynula."
-
-#: ui/keyselectiondialog.cpp:84
-#, kde-format
-msgid "The key is revoked."
-msgstr "Klíč byl odvolán."
-
-#: ui/keyselectiondialog.cpp:88
-#, kde-format
-msgid "The key is disabled."
-msgstr "Klíč byl vypnut."
-
-#: ui/keyselectiondialog.cpp:95
-#, kde-format
-msgid "The key is not designated for encryption."
-msgstr "Klíč není určen pro šifrování."
-
-#: ui/keyselectiondialog.cpp:100
-#, kde-format
-msgid "The key is not designated for signing."
-msgstr "Klíč není určen pro podepisování."
-
-#: ui/keyselectiondialog.cpp:105
-#, kde-format
-msgid "The key is not designated for certifying."
-msgstr "Klíč není určen pro certifikaci."
-
-#: ui/keyselectiondialog.cpp:110
-#, kde-format
-msgid "The key is not designated for authentication."
-msgstr "Klíč není určen pro ověřování."
-
-#: ui/keyselectiondialog.cpp:116
-#, kde-format
-msgid "The key is not secret."
-msgstr "Klíč není tajný."
-
-#: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
-#, kde-format
-msgid "The key can be used."
-msgstr "Klíč může být použit."
-
-#: ui/keyselectiondialog.cpp:132
-#, kde-format
-msgid "The key is not trusted enough."
-msgstr "Klíč není dostatečně důvěryhodný."
-
-#: ui/keyselectiondialog.cpp:195
-#, kde-format
-msgid "Key ID"
-msgstr "ID klíče"
-
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
-#, kde-format
-msgid "unknown"
-msgstr "neznámý"
-
-#: ui/keyselectiondialog.cpp:269
-#, kde-format
-msgid "OpenPGP key for <b>%1</b>"
-msgstr "Klíč OpenPGP pro <b>%1</b>"
-
-#: ui/keyselectiondialog.cpp:271
-#, kde-format
-msgid "S/MIME key for <b>%1</b>"
-msgstr "Klíč S/MIME pro <b>%1</b>"
-
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:465
-#: utils/formatting.cpp:508
-#, kde-format
-msgid "Valid from"
-msgstr "Platný od"
-
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:468
-#: utils/formatting.cpp:511
-#, kde-format
-msgid "Valid until"
-msgstr "Platný do"
-
-#: ui/keyselectiondialog.cpp:280
-#, kde-format
-msgctxt "Key fingerprint"
-msgid "Fingerprint"
-msgstr "Otisk"
-
-#: ui/keyselectiondialog.cpp:282
-#, kde-format
-msgctxt "Key issuer"
-msgid "Issuer"
-msgstr "Vydavatel"
-
-#: ui/keyselectiondialog.cpp:284
-#, kde-format
-msgctxt "Key status"
-msgid "Status"
-msgstr "Stav"
-
-#: ui/keyselectiondialog.cpp:286
-#, kde-format
-msgctxt "Compliance of key"
-msgid "Compliance"
-msgstr ""
 
 #: ui/keyselectiondialog.cpp:426
 #, kde-format
@@ -1755,15 +4062,6 @@ msgstr "&Hledat:"
 msgid "&Remember choice"
 msgstr "Zapamatovat si výbě&r"
 
-#: ui/keyselectiondialog.cpp:468
-#, kde-format
-msgid ""
-"<qt><p>If you check this box your choice will be stored and you will not be "
-"asked again.</p></qt>"
-msgstr ""
-"<qt> <p>Pokud zaškrtnete toto políčko, bude vaše volba uložena a již "
-"nebudete dotazováni.</p></qt>"
-
 #: ui/keyselectiondialog.cpp:482
 #, kde-format
 msgid "&Reread Keys"
@@ -1774,100 +4072,15 @@ msgstr "Znovu načíst &klíče"
 msgid "&Start Certificate Manager"
 msgstr "&Spustit správce certifikátů"
 
-#: ui/keyselectiondialog.cpp:647
-#, kde-format
-msgid "No backends found for listing keys. Check your installation."
-msgstr "Nenalezen žádný modul pro výpis klíčů. Zkontrolujte si svou instalaci."
-
-#: ui/keyselectiondialog.cpp:665
-#, kde-format
-msgid "Could not start certificate manager; please check your installation."
-msgstr ""
-"Nelze spustit správce certifikátů; prosím zkontrolujte svoji instalaci."
-
 #: ui/keyselectiondialog.cpp:667
 #, kde-format
 msgid "Certificate Manager Error"
 msgstr "Chyba správce certifikátů"
 
-#: ui/keyselectiondialog.cpp:724
-#, kde-format
-msgid "Checking selected keys..."
-msgstr "Kontroluji vybrané klíče..."
-
-#: ui/keyselectiondialog.cpp:724
-#, kde-format
-msgid "Fetching keys..."
-msgstr "Stahuji klíče..."
-
-#: ui/keyselectiondialog.cpp:756
-#, kde-format
-msgid ""
-"<qt>One backend returned truncated output.<p>Not all available keys are "
-"shown</p></qt>"
-msgid_plural ""
-"<qt>%1 backends returned truncated output.<p>Not all available keys are "
-"shown</p></qt>"
-msgstr[0] ""
-"<qt>Jedna podpůrná vrstva vrátila zkrácený výstup.<p>Ne všechny dostupné "
-"klíče jsou zobrazeny</p></qt>"
-msgstr[1] ""
-"<qt>%1 podpůrné vrstvy vrátily zkrácený výstup.<p>Ne všechny dostupné klíče "
-"jsou zobrazeny</p></qt>"
-msgstr[2] ""
-"<qt>%1 podpůrných vrstev vrátilo zkrácený výstup.<p>Ne všechny dostupné "
-"klíče jsou zobrazeny</p></qt>"
-
-#: ui/keyselectiondialog.cpp:761
-#, kde-format
-msgid "Key List Result"
-msgstr "Výsledek výpisu klíčů"
-
-#: ui/keyselectiondialog.cpp:883
-#, kde-format
-msgid "Recheck Key"
-msgstr "Znovu zkontrolovat klíč"
-
-#: ui/messagebox.cpp:69
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Audit Log"
-msgstr "Zobrazit záznam Auditu"
-
-#: ui/messagebox.cpp:91
-#, kde-format
-msgctxt "@title:window"
-msgid "Information"
-msgstr "Informace"
-
-#: ui/messagebox.cpp:96
-#, kde-format
-msgctxt "@title:window"
-msgid "Error"
-msgstr "Chyba"
-
-#: ui/newkeyapprovaldialog.cpp:142
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Details"
-msgstr "Zobrazit podrobnosti"
-
-#: ui/newkeyapprovaldialog.cpp:184
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Matching Keys"
-msgstr "Zobrazovat odpovídající klíče"
-
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgid "Show keys matching the email address"
 msgstr ""
-
-#: ui/newkeyapprovaldialog.cpp:188
-#, kde-format
-msgctxt "@action:button short for 'Show all keys'"
-msgid "Show All"
-msgstr "Zobrazit vše"
 
 #: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
@@ -1885,43 +4098,10 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:297
-#, kde-format
-msgctxt "@title:window"
-msgid "Security approval"
-msgstr ""
-
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:782
-#, kde-format
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:398
-#, kde-format
-msgid "Generating key for '%1'..."
-msgstr "Vytvářím klíč pro '%1'..."
-
-#: ui/newkeyapprovaldialog.cpp:398
-#, kde-format
-msgid "This can take several minutes."
-msgstr "Tohle může trvat několik minut."
-
-#: ui/newkeyapprovaldialog.cpp:400
-#, kde-format
-msgctxt "@title:window"
-msgid "Key generation"
-msgstr "Generování klíče"
-
 #: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
 msgid "Operation Failed"
 msgstr "Operace selhala"
-
-#: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
-#, kde-format
-msgid "Generate a new key pair"
-msgstr "Generovat nový pár klíčů"
 
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
@@ -1934,17 +4114,6 @@ msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The E-Mail will not be cryptographically signed."
 msgstr "E-mail nebude kryptograficky podepsán."
 
-#: ui/newkeyapprovaldialog.cpp:577
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "Potvrdit identitu '%1' jako:"
-
-#: ui/newkeyapprovaldialog.cpp:654
-#, kde-format
-msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
-
 #: ui/newkeyapprovaldialog.cpp:657
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
@@ -1954,104 +4123,10 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:774
-#, kde-format
-msgctxt "Encrypt to self (email address):"
-msgid "Encrypt to self (%1):"
-msgstr ""
-
-#: ui/newkeyapprovaldialog.cpp:791
-#, kde-format
-msgid "Encrypt to others:"
-msgstr ""
-
-#: ui/newkeyapprovaldialog.cpp:829
-#, kde-format
-msgid "Generate"
-msgstr "Vygenerovat"
-
-#: ui/readerportselection.cpp:58
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Default reader"
-msgstr ""
-
-#: ui/readerportselection.cpp:73
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"<para>Select the smart card reader that GnuPG shall use.<list><item>The "
-"first item will make GnuPG use the first reader that is found.</"
-"item><item>The last item allows you to enter a custom reader ID or reader "
-"port number.</item><item>All other items represent readers that were found "
-"by GnuPG.</item></list></para>"
-msgstr ""
-
-#: ui/readerportselection.cpp:114
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Custom reader ID or port number"
-msgstr ""
-
-#: utils/compliance.cpp:160
-#, kde-format
-msgid "VS-NfD compliant"
-msgstr "Splňující VS-NfD"
-
-#: utils/compliance.cpp:160
-#, kde-format
-msgid "Not VS-NfD compliant"
-msgstr "Nesplňující VS-NfD"
-
-#: utils/formatting.cpp:325
-#, kde-format
-msgid "%1-bit %2 (secret key available)"
-msgstr "%1-bit %2 (tajný klíč k dispozici)"
-
-#: utils/formatting.cpp:327 utils/formatting.cpp:338
-#, kde-format
-msgid "%1-bit %2"
-msgstr "%1-bit %2"
-
-#: utils/formatting.cpp:346 utils/formatting.cpp:368
-#, kde-format
-msgid "Signing (Qualified)"
-msgstr ""
-
-#: utils/formatting.cpp:348 utils/formatting.cpp:370
-#, kde-format
-msgid "Signing"
-msgstr "Podepisování"
-
-#: utils/formatting.cpp:352 utils/formatting.cpp:374
-#, kde-format
-msgid "Encryption"
-msgstr "Šifrování"
-
 #: utils/formatting.cpp:355 utils/formatting.cpp:377
 #, kde-format
 msgid "Certifying User-IDs"
 msgstr ""
-
-#: utils/formatting.cpp:358 utils/formatting.cpp:380
-#, kde-format
-msgid "SSH Authentication"
-msgstr "SSH ověření"
-
-#: utils/formatting.cpp:410 utils/formatting.cpp:503
-#, kde-format
-msgid "Revoked"
-msgstr "Odvolaný"
-
-#: utils/formatting.cpp:412 utils/formatting.cpp:505
-#, kde-format
-msgid "Expired"
-msgstr "Prošlý"
-
-#: utils/formatting.cpp:414
-#, kde-format
-msgid "Disabled"
-msgstr "Zakázáno"
 
 #: utils/formatting.cpp:423
 #, kde-format
@@ -2066,208 +4141,10 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: utils/formatting.cpp:432 utils/formatting.cpp:435
-#, kde-format
-msgid "The validity cannot be checked at the moment."
-msgstr "Platnost nyní nelze ověřit."
-
-#: utils/formatting.cpp:445
-#, kde-format
-msgid "Serial number"
-msgstr "Sériové číslo"
-
-#: utils/formatting.cpp:454
-#, kde-format
-msgid "Subject"
-msgstr "Předmět"
-
 #: utils/formatting.cpp:454
 #, kde-format
 msgid "User-ID"
 msgstr "ID uživatele"
-
-#: utils/formatting.cpp:459
-#, kde-format
-msgid "a.k.a."
-msgstr "a.k.a."
-
-#: utils/formatting.cpp:485
-#, kde-format
-msgid "Certification trust"
-msgstr "Důvěryhodnost certifikace"
-
-#: utils/formatting.cpp:487
-#, kde-format
-msgid "Trusted issuer?"
-msgstr "Důvěryhodný vydavatel"
-
-#: utils/formatting.cpp:487
-#, kde-format
-msgid "Yes"
-msgstr "Ano"
-
-#: utils/formatting.cpp:487
-#, kde-format
-msgid "No"
-msgstr "Ne"
-
-#: utils/formatting.cpp:493 utils/formatting.cpp:495 utils/formatting.cpp:523
-#: utils/formatting.cpp:525
-#, kde-format
-msgid "Stored"
-msgstr "Uloženo: "
-
-#: utils/formatting.cpp:493 utils/formatting.cpp:523
-#, kde-format
-msgctxt "stored..."
-msgid "on SmartCard with serial no. %1"
-msgstr ""
-
-#: utils/formatting.cpp:495 utils/formatting.cpp:525
-#, kde-format
-msgctxt "stored..."
-msgid "on this computer"
-msgstr "na tomto počítači"
-
-#: utils/formatting.cpp:501
-#, kde-format
-msgid "Subkey"
-msgstr "Podklíč"
-
-#: utils/formatting.cpp:549
-#, kde-format
-msgid "Some keys are revoked, expired, disabled, or invalid."
-msgstr ""
-
-#: utils/formatting.cpp:553
-#, kde-format
-msgid "All keys are certified."
-msgstr ""
-
-#: utils/formatting.cpp:555
-#, kde-format
-msgid "Some keys are not certified."
-msgstr ""
-
-#: utils/formatting.cpp:559
-#, kde-format
-msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
-
-#: utils/formatting.cpp:573
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "This group does not contain any keys."
-msgstr ""
-
-#: utils/formatting.cpp:593
-#, kde-format
-msgid "Keys:"
-msgstr "Klíče:"
-
-#: utils/formatting.cpp:601
-#, kde-format
-msgctxt "this follows a list of keys"
-msgid "and 1 more key"
-msgid_plural "and %1 more keys"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: utils/formatting.cpp:629
-#, kde-format
-msgctxt ""
-"date format suitable for screen readers; d: day as a number without a "
-"leading zero, MMMM: localized month name, yyyy: year as a four digit number"
-msgid "MMMM d, yyyy"
-msgstr "MMMM d, rrrr"
-
-#: utils/formatting.cpp:675 utils/formatting.cpp:710
-#, kde-format
-msgctxt "@info the expiration date of the key is unknown"
-msgid "unknown"
-msgstr "neznámý"
-
-#: utils/formatting.cpp:717 utils/formatting.cpp:726
-#, kde-format
-msgid "unlimited"
-msgstr "bez omezení"
-
-#: utils/formatting.cpp:779
-#, kde-format
-msgctxt "X.509/CMS encryption standard"
-msgid "S/MIME"
-msgstr "S/MIME"
-
-#: utils/formatting.cpp:784
-#, kde-format
-msgctxt "Unknown encryption protocol"
-msgid "Unknown"
-msgstr "Neznámý"
-
-#: utils/formatting.cpp:800
-#, kde-format
-msgctxt "a group of keys/certificates"
-msgid "Group"
-msgstr "Skupina"
-
-#: utils/formatting.cpp:816 utils/formatting.cpp:861
-#, kde-format
-msgctxt "unknown trust level"
-msgid "unknown"
-msgstr "neznámý"
-
-#: utils/formatting.cpp:818 utils/formatting.cpp:865
-#, kde-format
-msgid "untrusted"
-msgstr "nedůvěryhodný"
-
-#: utils/formatting.cpp:820 utils/formatting.cpp:867
-#, kde-format
-msgctxt "marginal trust"
-msgid "marginal"
-msgstr "okrajově"
-
-#: utils/formatting.cpp:822 utils/formatting.cpp:869
-#, kde-format
-msgctxt "full trust"
-msgid "full"
-msgstr "plně"
-
-#: utils/formatting.cpp:824 utils/formatting.cpp:871
-#, kde-format
-msgctxt "ultimate trust"
-msgid "ultimate"
-msgstr "maximálně"
-
-#: utils/formatting.cpp:826 utils/formatting.cpp:863
-#, kde-format
-msgctxt "undefined trust"
-msgid "undefined"
-msgstr "nedefinováno"
-
-#: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
-#: utils/formatting.cpp:1298 utils/formatting.cpp:1326
-#, kde-format
-msgid "revoked"
-msgstr "odvolaný"
-
-#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1295
-#: utils/formatting.cpp:1323
-#, kde-format
-msgid "expired"
-msgstr "prošlý"
-
-#: utils/formatting.cpp:843 utils/formatting.cpp:1301 utils/formatting.cpp:1329
-#, kde-format
-msgid "disabled"
-msgstr "zakázáno"
-
-#: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
-#: utils/formatting.cpp:1304 utils/formatting.cpp:1332
-#, kde-format
-msgid "invalid"
-msgstr "neplatné"
 
 #: utils/formatting.cpp:848
 #, kde-format
@@ -2275,400 +4152,13 @@ msgctxt "as in good/valid signature"
 msgid "good"
 msgstr "dobrý"
 
-#: utils/formatting.cpp:887
-#, kde-format
-msgid "valid"
-msgstr "platný"
-
-#: utils/formatting.cpp:901
-#, kde-format
-msgid "certificate expired"
-msgstr "certifikát vypršel"
-
-#: utils/formatting.cpp:903
-#, kde-format
-msgctxt "fake/invalid signature"
-msgid "bad"
-msgstr "špatný"
-
-#: utils/formatting.cpp:909
-#, kde-format
-msgid "no public key"
-msgstr "chybí věřený klíč"
-
-#: utils/formatting.cpp:911
-#, kde-format
-msgid "key expired"
-msgstr "klíč vypršel"
-
-#: utils/formatting.cpp:913
-#, kde-format
-msgid "key revoked"
-msgstr "klíč byl odvolán"
-
-#: utils/formatting.cpp:915
-#, kde-format
-msgid "key disabled"
-msgstr "klíč byl vypnut"
-
-#: utils/formatting.cpp:971
-#, kde-format
-msgctxt "name, email, key id"
-msgid "%1 %2 (%3)"
-msgstr "%1 %2 (%3)"
-
-#: utils/formatting.cpp:1029
-#, kde-format
-msgid "Bad signature by unknown certificate %1: %2"
-msgstr "Špatný podpis neznámým certifikátem %1: %2"
-
-#: utils/formatting.cpp:1031
-#, kde-format
-msgid "Bad signature by an unknown certificate: %1"
-msgstr "Špatný podpis neznámým certifikátem: %1"
-
-#: utils/formatting.cpp:1034
-#, kde-format
-msgid "Bad signature by %1: %2"
-msgstr "Chybný podpis od %1: %2"
-
-#: utils/formatting.cpp:1040
-#, kde-format
-msgid "Good signature by unknown certificate %1."
-msgstr "Dobrý podpis neznámým certifikátem %1:  "
-
-#: utils/formatting.cpp:1042
-#, kde-format
-msgid "Good signature by an unknown certificate."
-msgstr "Dobrý podpis neznámým certifikátem."
-
-#: utils/formatting.cpp:1045
-#, kde-format
-msgid "Good signature by %1."
-msgstr "Správný podpis od %1."
-
-#: utils/formatting.cpp:1050
-#, kde-format
-msgid "Invalid signature by unknown certificate %1: %2"
-msgstr "Neplatný podpis neznámým certifikátem %1: %2"
-
-#: utils/formatting.cpp:1052
-#, kde-format
-msgid "Invalid signature by an unknown certificate: %1"
-msgstr "Neplatný podpis neznámým certifikátem: %1"
-
-#: utils/formatting.cpp:1055
-#, kde-format
-msgid "Invalid signature by %1: %2"
-msgstr "Neplatný podpis od %1: %2"
-
-#: utils/formatting.cpp:1069
-#, kde-format
-msgid "This certificate was imported from the following sources:"
-msgstr "Tento certifikát byl importován z následujících zdrojů:"
-
-#: utils/formatting.cpp:1080
-#, kde-format
-msgid "The import of this certificate was canceled."
-msgstr "Import tohoto certifikátu byl zrušen."
-
-#: utils/formatting.cpp:1083
-#, kde-format
-msgid "An error occurred importing this certificate: %1"
-msgstr "Při importu tohoto certifikátu došlo k chybě: %1"
-
-#: utils/formatting.cpp:1088
-#, kde-format
-msgid "This certificate was new to your keystore. The secret key is available."
-msgstr ""
-
-#: utils/formatting.cpp:1089
-#, kde-format
-msgid "This certificate is new to your keystore."
-msgstr ""
-
-#: utils/formatting.cpp:1094
-#, kde-format
-msgid "New user-ids were added to this certificate by the import."
-msgstr ""
-
-#: utils/formatting.cpp:1097
-#, kde-format
-msgid "New signatures were added to this certificate by the import."
-msgstr "Importem byly do tohoto certifikátu přidány nové podpisy."
-
-#: utils/formatting.cpp:1100
-#, kde-format
-msgid "New subkeys were added to this certificate by the import."
-msgstr ""
-
-#: utils/formatting.cpp:1103
-#, kde-format
-msgid "The import contained no new data for this certificate. It is unchanged."
-msgstr ""
-
-#: utils/formatting.cpp:1119
-#, kde-format
-msgid "Certify"
-msgstr "Certifikovat"
-
-#: utils/formatting.cpp:1122
-#, kde-format
-msgid "Sign"
-msgstr "Podepsat"
-
-#: utils/formatting.cpp:1125
-#, kde-format
-msgid "Encrypt"
-msgstr "Šifrovat"
-
-#: utils/formatting.cpp:1128
-#, kde-format
-msgid "Authenticate"
-msgstr "Ověřit přístup"
-
-#: utils/formatting.cpp:1131
-#, kde-format
-msgctxt ""
-"Means 'Additional Decryption Subkey'; Don't try translating that, though."
-msgid "ADSK"
-msgstr ""
-
-#: utils/formatting.cpp:1139
-#, kde-format
-msgctxt "name <email> (validity, protocol, creation date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr ""
-
-#: utils/formatting.cpp:1150
-#, kde-format
-msgctxt "(validity, protocol, creation date)"
-msgid "(%1, %2, created: %3)"
-msgstr "(%1, %2, vytvořeno: %3)"
-
-#: utils/formatting.cpp:1162
-#, kde-format
-msgctxt "name of group of keys (n key(s), validity)"
-msgid "%2 (1 key, %3)"
-msgid_plural "%2 (%1 keys, %3)"
-msgstr[0] "%2 (1 klíč, %3)"
-msgstr[1] "%2 (%1 klíče, %3)"
-msgstr[2] "%2 (%1 klíčů, %3)"
-
-#: utils/formatting.cpp:1169
-#, kde-format
-msgctxt "name of group of keys (n key(s), validity, tag)"
-msgid "%2 (1 key, %3, tag)"
-msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: utils/formatting.cpp:1176
-#, kde-format
-msgctxt "name of group of keys (n key(s), validity, group ...)"
-msgid "%2 (1 key, %3, unknown origin)"
-msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: utils/formatting.cpp:1197
-#, kde-format
-msgid "The certificate is marked as your own."
-msgstr "Tento certifikát je označen jako váš vlastní."
-
-#: utils/formatting.cpp:1199
-#, kde-format
-msgid "The certificate belongs to this recipient."
-msgstr "Tento certifikát náleží tomuto příjemci."
-
-#: utils/formatting.cpp:1201
-#, kde-format
-msgid ""
-"The trust model indicates marginally that the certificate belongs to this "
-"recipient."
-msgstr ""
-
-#: utils/formatting.cpp:1203
-#, kde-format
-msgid "This certificate should not be used."
-msgstr "Tento certifikát by neměl být používán."
-
-#: utils/formatting.cpp:1207
-#, kde-format
-msgid "There is no indication that this certificate belongs to this recipient."
-msgstr ""
-
-#: utils/formatting.cpp:1219
-#, kde-format
-msgid "This group does not contain any keys."
-msgstr ""
-
-#: utils/formatting.cpp:1279
-#, kde-format
-msgctxt "@info the compliance of the key with certain requirements is unknown"
-msgid "unknown"
-msgstr "neznámý"
-
-#: utils/formatting.cpp:1292
-#, kde-format
-msgctxt "As in 'this user ID is valid.'"
-msgid "certified"
-msgstr ""
-
-#: utils/formatting.cpp:1307
-#, kde-format
-msgctxt "As in 'this user ID is not certified'"
-msgid "not certified"
-msgstr ""
-
-#: utils/formatting.cpp:1310
-#, kde-format
-msgctxt "The validity of this user ID has not been/could not be checked"
-msgid "not checked"
-msgstr ""
-
-#: utils/formatting.cpp:1320
-#, kde-format
-msgctxt "As in all user IDs are valid."
-msgid "certified"
-msgstr "certifikováno"
-
-#: utils/formatting.cpp:1335
-#, kde-format
-msgctxt "As in not all user IDs are valid."
-msgid "not certified"
-msgstr "nebylo certifikováno"
-
-#: utils/formatting.cpp:1338
-#, kde-format
-msgctxt "The validity of the user IDs has not been/could not be checked"
-msgid "not checked"
-msgstr "nekontrolováno"
-
-#: utils/formatting.cpp:1347
-#, kde-format
-msgctxt "As in all keys are valid."
-msgid "all certified"
-msgstr "vše certifikováno"
-
-#: utils/formatting.cpp:1350
-#, kde-format
-msgctxt "As in not all keys are valid."
-msgid "not all certified"
-msgstr "nebylo vše certifikováno"
-
-#: utils/formatting.cpp:1383
-#, kde-format
-msgid "Keyserver"
-msgstr "Server klíčů"
-
-#: utils/formatting.cpp:1391
-#, kde-format
-msgid "File import"
-msgstr "Import souboru"
-
-#: utils/formatting.cpp:1393
-#, kde-format
-msgid "Generated"
-msgstr "Vygenerováno"
-
 #: utils/formatting.cpp:1397
 #, kde-format
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: utils/formatting.cpp:1433
-#, kde-format
-msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
-msgid "Certifies this key as partially trusted introducer for '%1'."
-msgstr ""
-
-#: utils/formatting.cpp:1437
-#, kde-format
-msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
-msgid "Certifies this key as fully trusted introducer for '%1'."
-msgstr ""
-
-#: utils/formatting.cpp:1461
-#, kde-format
-msgctxt "@info"
-msgid "ECC (Brainpool P-256)"
-msgstr ""
-
-#: utils/formatting.cpp:1462
-#, kde-format
-msgctxt "@info"
-msgid "ECC (Brainpool P-384)"
-msgstr ""
-
-#: utils/formatting.cpp:1463
-#, kde-format
-msgctxt "@info"
-msgid "ECC (Brainpool P-512)"
-msgstr ""
-
-#: utils/formatting.cpp:1464
-#, kde-format
-msgctxt "@info"
-msgid "ECC (Curve25519)"
-msgstr "ECC (Curve25519)"
-
-#: utils/formatting.cpp:1465
-#, kde-format
-msgctxt "@info"
-msgid "ECC (Curve448)"
-msgstr "ECC (Curve448)"
-
-#: utils/formatting.cpp:1466
-#, kde-format
-msgctxt "@info"
-msgid "ECC (NIST P-256)"
-msgstr ""
-
-#: utils/formatting.cpp:1467
-#, kde-format
-msgctxt "@info"
-msgid "ECC (NIST P-384)"
-msgstr ""
-
-#: utils/formatting.cpp:1468
-#, kde-format
-msgctxt "@info"
-msgid "ECC (NIST P-521)"
-msgstr ""
-
-#: utils/formatting.cpp:1469
-#, kde-format
-msgctxt "@info"
-msgid "RSA 2048"
-msgstr "RSA 2048"
-
-#: utils/formatting.cpp:1470
-#, kde-format
-msgctxt "@info"
-msgid "RSA 3072"
-msgstr ""
-
-#: utils/formatting.cpp:1471
-#, kde-format
-msgctxt "@info"
-msgid "RSA 4096"
-msgstr "RSA 4096"
-
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "Unknown algorithm"
-msgstr ""
-
-#: utils/hex.cpp:35
-#, kde-format
-msgid "Invalid hex char '%1' in input stream."
-msgstr ""
-
-#: utils/hex.cpp:47 utils/hex.cpp:52
-#, kde-format
-msgid "Premature end of hex-encoded char in input stream"
 msgstr ""

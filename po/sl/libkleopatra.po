@@ -1,11 +1,11 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra.po 1669494 2024-01-10 01:27:13Z scripty $
+# $Id: libkleopatra6.po 1707323 2025-04-18 01:20:31Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
 # Andrej Vernekar <andrej.vernekar@moj.net>, 2004, 2005, 2009.
-# Jure Repinc <jlp@holodeck1.com>, 2006, 2013.
+# SPDX-FileCopyrightText: 2006, 2013, 2024 Jure Repinc <jlp@holodeck1.com>
 # Andrej Mernik <andrejm@ubuntu.si>, 2014, 2016, 2017.
 # Matjaž Jeran <matjaz.jeran@amis.net>, 2019, 2020, 2021, 2022, 2023.
 # Martin Srebotnjak <miles@filmsi.net>, 2020, 2021, 2022.
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 00:42+0000\n"
-"PO-Revision-Date: 2024-01-09 07:13+0100\n"
+"POT-Creation-Date: 2025-04-18 00:42+0000\n"
+"PO-Revision-Date: 2024-11-16 07:47+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -76,79 +76,79 @@ msgstr "Vnos 'file-patterns' je prazen ali pa manjka"
 msgid "Caught unknown exception in group %1"
 msgstr "Ujeta neznana izjema v skupini %1"
 
-#: kleo/dn.cpp:517
+#: kleo/dnattributes.cpp:61
 msgid "Common name"
 msgstr "Splošno ime"
 
-#: kleo/dn.cpp:518
+#: kleo/dnattributes.cpp:62
 msgid "Surname"
 msgstr "Priimek"
 
-#: kleo/dn.cpp:519
+#: kleo/dnattributes.cpp:63
 msgid "Given name"
 msgstr "Dano ime"
 
-#: kleo/dn.cpp:520
+#: kleo/dnattributes.cpp:64
 msgid "Location"
 msgstr "Kraj"
 
-#: kleo/dn.cpp:521
+#: kleo/dnattributes.cpp:65
 msgid "Title"
 msgstr "Naziv"
 
-#: kleo/dn.cpp:522
+#: kleo/dnattributes.cpp:66
 msgid "Organizational unit"
 msgstr "Organizacijska enota"
 
-#: kleo/dn.cpp:523
+#: kleo/dnattributes.cpp:67
 msgid "Organization"
 msgstr "Organizacija"
 
-#: kleo/dn.cpp:524
+#: kleo/dnattributes.cpp:68
 msgid "Postal code"
 msgstr "Poštna številka"
 
-#: kleo/dn.cpp:525
+#: kleo/dnattributes.cpp:69
 msgid "Country code"
 msgstr "Koda države"
 
-#: kleo/dn.cpp:526
+#: kleo/dnattributes.cpp:70
 msgid "State or province"
 msgstr "Dežela ali pokrajina"
 
-#: kleo/dn.cpp:527
+#: kleo/dnattributes.cpp:71
 msgid "Domain component"
 msgstr "Sestavni del domene"
 
-#: kleo/dn.cpp:528
+#: kleo/dnattributes.cpp:72
 msgid "Business category"
 msgstr "Poslovna kategorija"
 
-#: kleo/dn.cpp:529
+#: kleo/dnattributes.cpp:73
 msgid "Email address"
 msgstr "E-poštni naslov"
 
-#: kleo/dn.cpp:530
+#: kleo/dnattributes.cpp:74
 msgid "Mail address"
 msgstr "Poštni naslov"
 
-#: kleo/dn.cpp:531
+#: kleo/dnattributes.cpp:75
 msgid "Mobile phone number"
 msgstr "Številka prenosnega telefona"
 
-#: kleo/dn.cpp:532
+#: kleo/dnattributes.cpp:76
 msgid "Telephone number"
 msgstr "Telefonska številka"
 
-#: kleo/dn.cpp:533
+#: kleo/dnattributes.cpp:77
 msgid "Fax number"
 msgstr "Številka faksa"
 
-#: kleo/dn.cpp:534
+#: kleo/dnattributes.cpp:78
 msgid "Street address"
 msgstr "Ulični naslov"
 
-#: kleo/dn.cpp:535
+#: kleo/dnattributes.cpp:79
 msgid "Unique ID"
 msgstr "Edinstven ID"
 
@@ -160,9 +160,7 @@ msgstr "Znotrajvrstični OpenPGP (opuščeno)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
@@ -235,13 +233,13 @@ msgctxt "no specific preference"
 msgid "<none>"
 msgstr "<brez>"
 
-#: kleo/expirychecker.cpp:78
+#: kleo/expirychecker.cpp:80
 #, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr "<b>%1</b> (ID ključa 0x%2)"
 
-#: kleo/expirychecker.cpp:86
+#: kleo/expirychecker.cpp:88
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
@@ -250,7 +248,7 @@ msgstr ""
 "<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%1</p><p>je potekel "
 "pred manj kot enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:88
+#: kleo/expirychecker.cpp:90
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
@@ -259,7 +257,7 @@ msgstr ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%1</p><p>je potekel pred "
 "manj kot enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:90
+#: kleo/expirychecker.cpp:92
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
@@ -268,7 +266,7 @@ msgstr ""
 "<p>Ključ OpenPGP za </p><p align=center>%1</p><p>je potekel pred manj kot "
 "enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:96
+#: kleo/expirychecker.cpp:98
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</"
@@ -277,19 +275,19 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
-"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
-"pred %1 dnevom.</p>"
-msgstr[1] ""
-"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
-"pred %1 dnevoma.</p>"
-msgstr[2] ""
-"<p><p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
-"pred %1 dnevi.</p>"
-msgstr[3] ""
 "<p><p><p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je "
 "potekel pred %1 dnevi.</p>"
+msgstr[1] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
+"pred %1 dnevom.</p>"
+msgstr[2] ""
+"<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
+"pred %1 dnevoma.</p>"
+msgstr[3] ""
+"<p><p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>je potekel "
+"pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:99
+#: kleo/expirychecker.cpp:101
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday."
@@ -299,35 +297,35 @@ msgid_plural ""
 "ago.</p>"
 msgstr[0] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
-"%1 dnevom.</p>"
+"%1 dnevi.</p>"
 msgstr[1] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
-"%1 dnevoma.</p>"
+"%1 dnevom.</p>"
 msgstr[2] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
-"%1 dnevi.</p>"
+"%1 dnevoma.</p>"
 msgstr[3] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>je potekel pred "
 "%1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:102
+#: kleo/expirychecker.cpp:104
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevi.</p>"
+msgstr[1] ""
 "<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevom.</"
 "p>"
-msgstr[1] ""
+msgstr[2] ""
 "<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevoma.</"
 "p>"
-msgstr[2] ""
-"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevi.</p>"
 msgstr[3] ""
 "<p>Ključ OpenPGP za</p><p align=center>%2</p><p>je potekel pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:111
+#: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
@@ -335,19 +333,19 @@ msgstr ""
 "<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%1</p><p>poteče danes.</"
 "p>"
 
-#: kleo/expirychecker.cpp:113
+#: kleo/expirychecker.cpp:115
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%1</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:115
+#: kleo/expirychecker.cpp:117
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr "<p>Ključ OpenPGP za</p><p align=center>%1</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:121
+#: kleo/expirychecker.cpp:123
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -356,18 +354,18 @@ msgid_plural ""
 "p>"
 msgstr[0] ""
 "<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
-"dan.</p>"
+"dni.</p>"
 msgstr[1] ""
 "<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
-"dni.</p>"
+"dan.</p>"
 msgstr[2] ""
 "<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
-"dni.</p>"
+"dneva.</p>"
 msgstr[3] ""
 "<p>Vaš ključ podpisovanja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
 "dni.</p>"
 
-#: kleo/expirychecker.cpp:124
+#: kleo/expirychecker.cpp:126
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow."
@@ -377,40 +375,40 @@ msgid_plural ""
 "days.</p>"
 msgstr[0] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
-"dan.</p>"
+"dni.</p>"
 msgstr[1] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
-"dni.</p>"
+"dan.</p>"
 msgstr[2] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
-"dni.</p>"
+"dneva.</p>"
 msgstr[3] ""
 "<p>Vaš ključ šifriranja OpenPGP</p><p align=center>%2</p><p>poteče čez %1 "
 "dni.</p>"
 
-#: kleo/expirychecker.cpp:127
+#: kleo/expirychecker.cpp:129
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
-"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
-"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Ključ OpenPGP za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:139
+#: kleo/expirychecker.cpp:141
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
 msgstr "<b>%1</b> (serijska številka %2)"
 
-#: kleo/expirychecker.cpp:150
+#: kleo/expirychecker.cpp:152
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -421,7 +419,7 @@ msgstr ""
 "podpisovanje S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot "
 "enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:155
+#: kleo/expirychecker.cpp:157
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -432,7 +430,7 @@ msgstr ""
 "šifriranje S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot enim "
 "dnevom.</p>"
 
-#: kleo/expirychecker.cpp:160
+#: kleo/expirychecker.cpp:162
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
@@ -441,7 +439,7 @@ msgstr ""
 "<p>Korensko potrdilo</p><p align=center><b>%2</b></p><p>za potrdilo S/MIME</"
 "p><p align=center>%1</p><p>je poteklo pred manj kot enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:169
+#: kleo/expirychecker.cpp:171
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -451,20 +449,20 @@ msgid_plural ""
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</"
-"p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</"
 "p>"
 msgstr[2] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</"
+"p>"
 msgstr[3] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
 "podpisovanje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:177
+#: kleo/expirychecker.cpp:179
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -474,18 +472,18 @@ msgid_plural ""
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[2] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[3] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za vaše potrdilo za "
 "šifriranje S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:185
+#: kleo/expirychecker.cpp:187
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -495,18 +493,18 @@ msgid_plural ""
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
-"p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
-"p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[2] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
-"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[3] ""
 "<p>Korensko potrdilo</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
 "p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:198
+#: kleo/expirychecker.cpp:200
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -517,7 +515,7 @@ msgstr ""
 "podpisovanja S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot "
 "enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:203
+#: kleo/expirychecker.cpp:205
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -528,7 +526,7 @@ msgstr ""
 "šifriranja S/MIME</p><p align=center>%1</p><p>je poteklo pred manj kot enim "
 "dnevom.</p>"
 
-#: kleo/expirychecker.cpp:208
+#: kleo/expirychecker.cpp:210
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
@@ -537,7 +535,7 @@ msgstr ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%2</b></p><p>za potrdilo S/MIME</"
 "p><p align=center>%1</p><p>je poteklo pred manj kot enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:217
+#: kleo/expirychecker.cpp:219
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -549,20 +547,20 @@ msgid_plural ""
 "ago.</p>"
 msgstr[0] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
-"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</"
-"p>"
+"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
-"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</"
+"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</"
 "p>"
 msgstr[2] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
-"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
+"podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</"
+"p>"
 msgstr[3] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
 "podpisovanja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:225
+#: kleo/expirychecker.cpp:227
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -574,18 +572,18 @@ msgid_plural ""
 "days ago.</p>"
 msgstr[0] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
-"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
+"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
-"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
+"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[2] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
-"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
+"šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[3] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za vaše potrdilo "
 "šifriranja S/MIME</p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:233
+#: kleo/expirychecker.cpp:235
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -595,18 +593,18 @@ msgid_plural ""
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
-"p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
-"p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[2] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
-"p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
+"p><p align=center>%2</p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[3] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b></p><p>za potrdilo S/MIME</"
 "p><p align=center>%2</p><p>je poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:246
+#: kleo/expirychecker.cpp:248
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
@@ -615,7 +613,7 @@ msgstr ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%1</b></"
 "p><p>je poteklo pred manj kot enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:248
+#: kleo/expirychecker.cpp:250
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
@@ -624,7 +622,7 @@ msgstr ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%1</b></p><p>je "
 "poteklo pred manj kot enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:250
+#: kleo/expirychecker.cpp:252
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
@@ -633,7 +631,7 @@ msgstr ""
 "<p>Potrdilo S/MIME za </p><p align=center><b>%1</b></p><p>je poteklo pred "
 "manj kot enim dnevom.</p>"
 
-#: kleo/expirychecker.cpp:256
+#: kleo/expirychecker.cpp:258
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
@@ -643,18 +641,18 @@ msgid_plural ""
 "days ago.</p>"
 msgstr[0] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
-"p><p>je poteklo pred %1 dnevom.</p>"
+"p><p>je poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
-"p><p>je poteklo pred %1 dnevoma.</p>"
+"p><p>je poteklo pred %1 dnevom.</p>"
 msgstr[2] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
-"p><p>je poteklo pred %1 dnevi.</p>"
+"p><p>je poteklo pred %1 dnevoma.</p>"
 msgstr[3] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
 "p><p>je poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:259
+#: kleo/expirychecker.cpp:261
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
@@ -664,18 +662,18 @@ msgid_plural ""
 "days ago.</p>"
 msgstr[0] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
-"poteklo pred %1 dnevom.</p>"
+"poteklo pred %1 dnevi.</p>"
 msgstr[1] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
-"poteklo pred %1 dnevoma.</p>"
+"poteklo pred %1 dnevom.</p>"
 msgstr[2] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
-"poteklo pred %1 dnevi.</p>"
+"poteklo pred %1 dnevoma.</p>"
 msgstr[3] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></p><p>je "
 "poteklo pred %1 dnevi.</p>"
 
-#: kleo/expirychecker.cpp:262
+#: kleo/expirychecker.cpp:264
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday."
@@ -685,18 +683,18 @@ msgid_plural ""
 "ago.</p>"
 msgstr[0] ""
 "<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
-"dnevom.</p>"
+"dnevi.</p>"
 msgstr[1] ""
 "<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
-"dnevoma.</p>"
+"dnevom.</p>"
 msgstr[2] ""
 "<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
-"dnevi.</p>"
+"dnevoma.</p>"
 msgstr[3] ""
 "<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>je poteklo pred %1 "
 "dnevi.</p>"
 
-#: kleo/expirychecker.cpp:275
+#: kleo/expirychecker.cpp:277
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -705,7 +703,7 @@ msgstr ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "podpisovanje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:280
+#: kleo/expirychecker.cpp:282
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -714,7 +712,7 @@ msgstr ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "šifriranje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:285
+#: kleo/expirychecker.cpp:287
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -723,7 +721,7 @@ msgstr ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
 "za</p><p align=center>%2</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:294
+#: kleo/expirychecker.cpp:296
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -733,18 +731,18 @@ msgid_plural ""
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:302
+#: kleo/expirychecker.cpp:304
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -754,18 +752,18 @@ msgid_plural ""
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:310
+#: kleo/expirychecker.cpp:312
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -775,18 +773,18 @@ msgid_plural ""
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
-"za</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
+"za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
-"za</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
+"za</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
-"za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"za</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Korensko potrdilo za</p><p align=center><b>%3</b><p>za potrdilo S/MIME "
 "za</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:323
+#: kleo/expirychecker.cpp:325
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -796,7 +794,7 @@ msgstr ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "podpisovanje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:328
+#: kleo/expirychecker.cpp:330
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -806,7 +804,7 @@ msgstr ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "šifriranje S/MIME</p><p align=center>%2</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:333
+#: kleo/expirychecker.cpp:335
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -815,7 +813,7 @@ msgstr ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
 "p><p align=center>%2</p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:341
+#: kleo/expirychecker.cpp:343
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -827,18 +825,18 @@ msgid_plural ""
 "days.</p>"
 msgstr[0] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "podpisovanje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:349
+#: kleo/expirychecker.cpp:351
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -850,18 +848,18 @@ msgid_plural ""
 "days.</p>"
 msgstr[0] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
-"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za vaše potrdilo za "
 "šifriranje S/MIME</p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:357
+#: kleo/expirychecker.cpp:359
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -871,18 +869,18 @@ msgid_plural ""
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
-"p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
+"p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
-"p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
+"p><p align=center>%2</p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
-"p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
+"p><p align=center>%2</p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Vmesno potrdilo CA</p><p align=center><b>%3</b><p>za potrdilo S/MIME za</"
 "p><p align=center>%2</p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:369
+#: kleo/expirychecker.cpp:371
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
@@ -891,7 +889,7 @@ msgstr ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
 "p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:371
+#: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
@@ -900,14 +898,14 @@ msgstr ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
 "p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:373
+#: kleo/expirychecker.cpp:375
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 "<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče danes.</p>"
 
-#: kleo/expirychecker.cpp:380
+#: kleo/expirychecker.cpp:382
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires "
@@ -917,18 +915,18 @@ msgid_plural ""
 "days.</p>"
 msgstr[0] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
-"p><p>poteče čez %1 dan.</p>"
+"p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
-"p><p>poteče čez %1 dneva.</p>"
+"p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
-"p><p>poteče čez %1 dni.</p>"
+"p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Vaše potrdilo za podpisovanje S/MIME</p><p align=center><b>%2</b></"
 "p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:386
+#: kleo/expirychecker.cpp:388
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
@@ -938,18 +936,18 @@ msgid_plural ""
 "%1 days.</p>"
 msgstr[0] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
-"p><p>poteče čez %1 dan.</p>"
+"p><p>poteče čez %1 dni.</p>"
 msgstr[1] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
-"p><p>poteče čez %1 dneva.</p>"
+"p><p>poteče čez %1 dan.</p>"
 msgstr[2] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
-"p><p>poteče čez %1 dni.</p>"
+"p><p>poteče čez %1 dneva.</p>"
 msgstr[3] ""
 "<p>Vaše potrdilo za šifriranje S/MIME</p><p align=center><b>%2</b></"
 "p><p>poteče čez %1 dni.</p>"
 
-#: kleo/expirychecker.cpp:392
+#: kleo/expirychecker.cpp:394
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires tomorrow.</"
@@ -958,144 +956,227 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
-"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dan.</"
-"p>"
-msgstr[1] ""
-"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dneva."
-"</p>"
-msgstr[2] ""
 "<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dni.</"
 "p>"
+msgstr[1] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dan.</"
+"p>"
+msgstr[2] ""
+"<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dneva."
+"</p>"
 msgstr[3] ""
 "<p>Potrdilo S/MIME za</p><p align=center><b>%2</b></p><p>poteče čez %1 dni.</"
 "p>"
 
-#: kleo/keyfiltermanager.cpp:71
+#: kleo/keyfiltermanager.cpp:90
 #, kde-format
-msgid "All Certificates"
-msgstr "Vsa potrdila"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "Vse"
 
-#: kleo/keyfiltermanager.cpp:86
+#: kleo/keyfiltermanager.cpp:91
 #, kde-format
-msgid "My Certificates"
-msgstr "Moja potrdila"
+msgid "All certificates (except disabled ones)"
+msgstr "Vsa potrdila (razen onemogočenih)"
 
-#: kleo/keyfiltermanager.cpp:104
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
-msgid "Trusted Certificates"
-msgstr "Zaupanja vredna potrdila"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr "Moja lastna"
 
-#: kleo/keyfiltermanager.cpp:121
+#: kleo/keyfiltermanager.cpp:109
 #, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "Potrdila, ki jim polno zaupate"
+msgid "My own certificates (except disabled ones)"
+msgstr "Moja lastna potrdila (razen onemogočenih)"
 
-#: kleo/keyfiltermanager.cpp:138
+#: kleo/keyfiltermanager.cpp:127
 #, kde-format
-msgid "Other Certificates"
-msgstr "Druga potrdila"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "Potrjena"
 
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:128
 #, kde-format
-msgid "Not Certified Certificates"
-msgstr "Še ne potrjena potrdila"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr ""
+"Potrdila za katera je primarni določilnik uporabnika potrjen (razen "
+"onemogočenih)"
 
-#: kleo/keyfiltermanager.cpp:176
+#: kleo/keyfiltermanager.cpp:146
 #, kde-format
-msgid "Not Validated Certificates"
-msgstr "Nepotrjena potrdila"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "Nepotrjena"
 
-#: models/keylistmodel.cpp:319 models/useridlistmodel.cpp:105
+#: kleo/keyfiltermanager.cpp:147
 #, kde-format
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr ""
+"Potrdila za katera primarni določilnik uporabnika ni potrjen (razen "
+"onemogočenih)"
+
+#: kleo/keyfiltermanager.cpp:162
+#, kde-format
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Za potrjevanje"
+
+#: kleo/keyfiltermanager.cpp:163
+#, kde-format
+msgid ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself (except disabled ones)"
+msgstr ""
+"Potrdila, ki niso v celoti potrjena in jih boste morda želeli potrditi sami "
+"(razen onemogočenih)"
+
+#: kleo/keyfiltermanager.cpp:191
+#, kde-format
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "Ne v celoti potrjena"
+
+#: kleo/keyfiltermanager.cpp:192
+#, kde-format
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
+msgstr ""
+"Potrdila, za katere niso potrjeni vsi uporabniški določilniki (razen "
+"onemogočenih)"
+
+#: kleo/keyfiltermanager.cpp:216
+#, kde-format
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "Polno potrjena"
+
+#: kleo/keyfiltermanager.cpp:217
+#, kde-format
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
+msgstr ""
+"Potrdila, za katera so potrjeni vsi uporabniški določilniki (razen "
+"onemogočenih)"
+
+#: models/keylistmodel.cpp:326
+#, kde-format
+msgctxt "@title:column"
 msgid "Name"
 msgstr "Ime"
 
-#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
+#: models/keylistmodel.cpp:328
 #, kde-format
+msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "E-pošta"
 
-#: models/keylistmodel.cpp:323
+#: models/keylistmodel.cpp:330
 #, kde-format
-msgid "User-IDs"
-msgstr "ID uporabnikov"
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Stanje"
 
-#: models/keylistmodel.cpp:325 models/subkeylistmodel.cpp:159
-#: models/useridlistmodel.cpp:107
+#: models/keylistmodel.cpp:332
 #, kde-format
+msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Veljaven od"
 
-#: models/keylistmodel.cpp:327 models/subkeylistmodel.cpp:161
-#: models/useridlistmodel.cpp:108
+#: models/keylistmodel.cpp:334
 #, kde-format
+msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Veljaven do"
 
-#: models/keylistmodel.cpp:329
+#: models/keylistmodel.cpp:336
 #, kde-format
+msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protokol"
 
-#: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
-#: utils/formatting.cpp:478
+#: models/keylistmodel.cpp:338
 #, kde-format
-msgid "Key-ID"
+msgctxt "@title:column"
+msgid "Key ID"
 msgstr "ID ključa"
 
-#: models/keylistmodel.cpp:335 utils/formatting.cpp:481
+#: models/keylistmodel.cpp:340
 #, kde-format
+msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Prstni odtis"
 
-#: models/keylistmodel.cpp:337 utils/formatting.cpp:448
+#: models/keylistmodel.cpp:342
 #, kde-format
+msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Izdajatelj"
 
-#: models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:344
 #, kde-format
+msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Serijska številka"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:346
 #, kde-format
+msgctxt "@title:column"
 msgid "Origin"
 msgstr "Izvir"
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:348
 #, kde-format
+msgctxt "@title:column"
 msgid "Last Update"
-msgstr "Zadnja osvežitev"
+msgstr "Zadnja posodobitev"
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:350
 #, kde-format
+msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Zaupanje overovitve"
 
-#: models/keylistmodel.cpp:347 models/useridlistmodel.cpp:111
+#: models/keylistmodel.cpp:352
 #, kde-format
+msgctxt "@title:column"
 msgid "Tags"
 msgstr "Značke"
 
-#: models/keylistmodel.cpp:395 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:354
+#, kde-format
+msgctxt "@title:column"
+msgid "Algorithm"
+msgstr "Algoritem"
+
+#: models/keylistmodel.cpp:356
+#, kde-format
+msgctxt "@title:column"
+msgid "Keygrip"
+msgstr "Oprimek ključa"
+
+#: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "ni imena"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:411 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "ni e-pošte"
 
-#: models/keylistmodel.cpp:464
+#: models/keylistmodel.cpp:474
 #, kde-format
 msgid "Loading..."
-msgstr "Nalaganje..."
+msgstr "Nalaganje …"
 
-#: models/keylistmodel.cpp:542
+#: models/keylistmodel.cpp:557
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1107,13 +1188,21 @@ msgid "ID"
 msgstr "ID"
 
 #: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
-#: utils/formatting.cpp:516
 #, kde-format
 msgid "Type"
 msgstr "Vrsta"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:503 utils/formatting.cpp:505
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:108
+#, kde-format
+msgid "Valid From"
+msgstr "Veljaven od"
+
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:109
+#, kde-format
+msgid "Valid Until"
+msgstr "Veljaven do"
+
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "Status"
 msgstr "Stanje"
@@ -1124,18 +1213,17 @@ msgid "Strength"
 msgstr "Moč"
 
 #: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
-#: utils/formatting.cpp:519
 #, kde-format
 msgid "Usage"
 msgstr "Uporaba"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "da"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -1152,62 +1240,76 @@ msgstr "brez"
 msgid "not applicable"
 msgstr "ni smiselno"
 
-#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
-#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
-#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
-#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: models/useridlistmodel.cpp:86 models/useridlistmodel.cpp:87
+#: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
+#: models/useridlistmodel.cpp:90 models/useridlistmodel.cpp:91
+#: models/useridlistmodel.cpp:92 models/useridlistmodel.cpp:93
+#: ui/keyselectiondialog.cpp:191 utils/formatting.cpp:450
+#: utils/formatting.cpp:460
 #, kde-format
 msgid "User ID"
 msgstr "ID uporabnika"
 
-#: models/useridlistmodel.cpp:104
+#: models/useridlistmodel.cpp:103
 #, kde-format
 msgid "User ID / Certification Key ID"
 msgstr "Uporabnikov določilnik / ID ključa potrdila"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:104
+#, kde-format
+msgid "Name"
+msgstr "Ime"
+
+#: models/useridlistmodel.cpp:105
+#, kde-format
+msgid "Email"
+msgstr "E-pošta"
+
+#: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Exportable"
 msgstr "Možno izvoziti"
 
-#: models/useridlistmodel.cpp:112
+#: models/useridlistmodel.cpp:110
+#, kde-format
+msgid "Tags"
+msgstr "Značke"
+
+#: models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Zaupaj podpisu za"
 
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:891
-#, kde-format
-msgid "class %1"
-msgstr "razred %1"
-
-#: ui/auditlogviewer.cpp:52
+#: ui/auditlogviewer.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Ogled dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:46
 #, kde-format
+msgctxt "@action:button"
 msgid "&Copy to Clipboard"
-msgstr "Kopiraj v odložišče"
+msgstr "Kopiraj na odložišče"
 
-#: ui/auditlogviewer.cpp:60
+#: ui/auditlogviewer.cpp:51
 #, kde-format
+msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "&Shrani na disk..."
 
-#: ui/auditlogviewer.cpp:102
+#: ui/auditlogviewer.cpp:93
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Vaš sistem ne podpira dnevnikov presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:102
+#: ui/auditlogviewer.cpp:93
 #, kde-format
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistemska napaka"
 
-#: ui/auditlogviewer.cpp:107
+#: ui/auditlogviewer.cpp:98
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -1216,40 +1318,43 @@ msgstr ""
 "Med pridobivanjem dnevnika presoje varnosti GnuPG je prišlo do napake:\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:108
+#: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "Napaka dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:112
+#: ui/auditlogviewer.cpp:103
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "Za to dejanje ni na voljo dnevnika presoje varnosti GnuPG."
 
-#: ui/auditlogviewer.cpp:112
+#: ui/auditlogviewer.cpp:103
 #, kde-format
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Ni dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:118
+#: ui/auditlogviewer.cpp:109
 #, kde-format
+msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
-msgstr "Pregledovalnik dnevnika presoje varnosti GnuPG"
+msgstr "Pregledovalnik dnevnika presoje GnuPG"
 
-#: ui/auditlogviewer.cpp:133
+#: ui/auditlogviewer.cpp:124
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Izberite datoteko za shranitev dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:152
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Ni bilo mogoče shraniti v datoteko \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:152
+#: ui/auditlogviewer.cpp:145
 #, kde-format
+msgctxt "@title:window"
 msgid "File Save Error"
-msgstr "Napaka med shranjevanjem datoteke"
+msgstr "Napaka pri shranjevanju datoteke"
 
 #: ui/cryptoconfigentryreaderport.cpp:45
 #, kde-format
@@ -1257,12 +1362,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr "Bralnik, ki naj se poveže"
 
-#: ui/cryptoconfigmodule.cpp:165
-#, kde-format
-msgid "GpgConf Error"
-msgstr "Napaka GpgConf"
-
-#: ui/cryptoconfigmodule.cpp:222
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -1273,7 +1373,7 @@ msgstr ""
 "pogovorno okno, ni pravilno nameščeno. Vrnilo ni nobenega sestavnega dela. "
 "Za več podrobnosti poskusite iz ukazne vrstice zagnati »%1«."
 
-#: ui/cryptoconfigmodule.cpp:651
+#: ui/cryptoconfigmodule.cpp:538
 #, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1285,80 +1385,68 @@ msgctxt ""
 msgid "yes"
 msgstr "yes"
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr "0 - brez"
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr "1 - osnovno"
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr "2 - podrobni izpis"
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr "3 - bolj podrobni izpis"
 
-#: ui/cryptoconfigmodule.cpp:709
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr "4 - vse"
 
-#: ui/cryptoconfigmodule.cpp:721
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
-msgstr "Stopnjo razhroščevanja nastavi na"
+msgstr "Raven razhroščevanja nastavi na"
 
-#: ui/cryptoconfigmodule.cpp:944
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
-msgstr "Pokaži ..."
+msgstr "Pokaži..."
 
-#: ui/cryptoconfigmodule.cpp:944
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
-msgstr "Uredi ..."
+msgstr "Uredi..."
 
-#: ui/cryptoconfigmodule.cpp:997
-#, kde-format
-msgid ""
-"Configuration of directory services is not possible because the used gpgme "
-"libraries are too old."
-msgstr ""
-"Nastavitev imeniških storitev ni mogoča, ker so knjižnice gpgme prestare."
-
-#: ui/cryptoconfigmodule.cpp:999
-#, kde-format
-msgid "Sorry"
-msgstr "Se opravičujemo"
-
-#: ui/cryptoconfigmodule.cpp:1006
+#: ui/cryptoconfigmodule.cpp:885
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Nastavi imeniško storitev"
 
-#: ui/cryptoconfigmodule.cpp:1035
+#: ui/cryptoconfigmodule.cpp:914
 #, kde-format
 msgid "None configured"
 msgstr "Ni nastavljenih"
 
-#: ui/cryptoconfigmodule.cpp:1037
+#: ui/cryptoconfigmodule.cpp:916
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
-msgstr[0] "%1 nastavljen strežnik"
-msgstr[1] "%1 nastavljena strežnika"
-msgstr[2] "%1 nastavljeni strežniki"
-msgstr[3] "%1 nastavljenih strežnikov"
+msgstr[0] "%1 nastavljenih strežnikov"
+msgstr[1] "%1 nastavljen strežnik"
+msgstr[2] "%1 nastavljena strežnika"
+msgstr[3] "%1 nastavljeni strežniki"
 
-#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:197
 #, kde-format
 msgid "Active Directory"
 msgstr "Aktivni imenik"
 
-#: ui/directoryserviceswidget.cpp:187
+#: ui/directoryserviceswidget.cpp:191
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1367,7 +1455,7 @@ msgid ""
 msgstr ""
 "To je seznam vseh imeniških storitev, ki so nastavljene za uporabo z X.509."
 
-#: ui/directoryserviceswidget.cpp:197
+#: ui/directoryserviceswidget.cpp:201
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1377,30 +1465,30 @@ msgstr ""
 "Kliknite za uporabo imeniške storitve na vašem aktivnem imeniku. To deluje "
 "samo v okolju Windows in zahteva GnuPG 2.2.28 ali novejšega."
 
-#: ui/directoryserviceswidget.cpp:200
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgid "LDAP Server"
 msgstr "Strežnik LDAP"
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
 "Kliknite za dodajanje imeniške storitve, ki jo zagotavlja strežnik LDAP."
 
-#: ui/directoryserviceswidget.cpp:205
+#: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Kliknite za dodajanje imeniške storitve."
 
-#: ui/directoryserviceswidget.cpp:208
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1411,18 +1499,19 @@ msgstr ""
 "bo stopila v veljavo, šele ko potrdite spremembe v glavnem nastavitvenem "
 "oknu."
 
-#: ui/directoryserviceswidget.cpp:216
+#: ui/directoryserviceswidget.cpp:220
 #, kde-format
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Uredi"
 
-#: ui/directoryserviceswidget.cpp:217
+#: ui/directoryserviceswidget.cpp:221
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Kliknite za urejanje trenutno izbrane storitve."
 
-#: ui/directoryserviceswidget.cpp:219
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1434,18 +1523,19 @@ msgstr ""
 "bo stopila v veljavo, šele ko potrdite spremembe v glavnem nastavitvenem "
 "oknu."
 
-#: ui/directoryserviceswidget.cpp:224
+#: ui/directoryserviceswidget.cpp:228
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Kliknite za odstranitev izbrane storitve."
 
-#: ui/directoryserviceswidget.cpp:227
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1456,115 +1546,124 @@ msgstr ""
 "Sprememba bo stopila v veljavo, šele ko potrdite spremembe v glavnem "
 "nastavitvenem oknu."
 
-#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
+#: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
 msgstr "Imeniške storitve LDAP"
 
-#: ui/dnattributeorderconfigwidget.cpp:73
+#: ui/dnattributeorderconfigwidget.cpp:75
 #, kde-format
 msgid "Description"
 msgstr "Opis"
 
-#: ui/dnattributeorderconfigwidget.cpp:88
+#: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Razpoložljivi atributi:"
 
-#: ui/dnattributeorderconfigwidget.cpp:90
+#: ui/dnattributeorderconfigwidget.cpp:92
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Trenutni vrstni red atributov:"
 
-#: ui/dnattributeorderconfigwidget.cpp:98
+#: ui/dnattributeorderconfigwidget.cpp:100
 #, kde-format
 msgid "available attributes"
 msgstr "razpoložljivi atributi"
 
-#: ui/dnattributeorderconfigwidget.cpp:105
-#: ui/dnattributeorderconfigwidget.cpp:106
+#: ui/dnattributeorderconfigwidget.cpp:107
+#: ui/dnattributeorderconfigwidget.cpp:108
 #, kde-format
 msgid "All others"
 msgstr "Vsi ostali"
 
-#: ui/dnattributeorderconfigwidget.cpp:118
+#: ui/dnattributeorderconfigwidget.cpp:120
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Dodaj"
 
-#: ui/dnattributeorderconfigwidget.cpp:119
+#: ui/dnattributeorderconfigwidget.cpp:121
 msgid "Add to current attribute order"
 msgstr "Dodaj k trenutnemu vrstnemu redu atributov"
 
-#: ui/dnattributeorderconfigwidget.cpp:125
+#: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: ui/dnattributeorderconfigwidget.cpp:126
+#: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Remove from current attribute order"
 msgstr "Odstrani iz trenutnega vrstnega reda atributov"
 
-#: ui/dnattributeorderconfigwidget.cpp:132
+#: ui/dnattributeorderconfigwidget.cpp:134
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Premakni na vrh"
 
-#: ui/dnattributeorderconfigwidget.cpp:133
+#: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Move to top"
 msgstr "Premakni na vrh"
 
-#: ui/dnattributeorderconfigwidget.cpp:139
+#: ui/dnattributeorderconfigwidget.cpp:141
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "Premakni gor"
 
-#: ui/dnattributeorderconfigwidget.cpp:140
+#: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move one up"
 msgstr "Premakni eno gor"
 
-#: ui/dnattributeorderconfigwidget.cpp:146
+#: ui/dnattributeorderconfigwidget.cpp:148
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Premakni dol"
 
-#: ui/dnattributeorderconfigwidget.cpp:147
+#: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one down"
 msgstr "Premakni eno dol"
 
-#: ui/dnattributeorderconfigwidget.cpp:153
+#: ui/dnattributeorderconfigwidget.cpp:155
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Premakni na dno"
 
-#: ui/dnattributeorderconfigwidget.cpp:154
+#: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move to bottom"
 msgstr "Premakni na dno"
 
-#: ui/dnattributeorderconfigwidget.cpp:184
+#: ui/dnattributeorderconfigwidget.cpp:186
 #, kde-format
 msgid "current attribute order"
 msgstr "trenutni vrstni red atributov"
 
-#: ui/editdirectoryservicedialog.cpp:99
+#: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
 msgstr "Gostitelj:"
 
-#: ui/editdirectoryservicedialog.cpp:100
+#: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
 msgstr "Vnesite ime ali IP naslov strežnika, ki gosti imeniško storitev."
 
-#: ui/editdirectoryservicedialog.cpp:104
+#: ui/editdirectoryservicedialog.cpp:112
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr ""
+"Napaka: Vnesite ime gostitelja v pravilnem formatu kot npr. ldap.example.com."
+
+#: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
 msgid "Port:"
 msgstr "Vrata:"
 
-#: ui/editdirectoryservicedialog.cpp:107
+#: ui/editdirectoryservicedialog.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1574,38 +1673,38 @@ msgstr ""
 "<b>(izbirno, privzeta vrednost je običajno v redu)</b> Izberite številko "
 "vrat, na katerih posluša imeniška storitev."
 
-#: ui/editdirectoryservicedialog.cpp:110
+#: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
 msgstr "Uporabi privzeto"
 
-#: ui/editdirectoryservicedialog.cpp:116
+#: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
 msgid "Authentication"
 msgstr "Overjanje"
 
-#: ui/editdirectoryservicedialog.cpp:120
+#: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
 msgstr "Anonimnež"
 
-#: ui/editdirectoryservicedialog.cpp:121
+#: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr "Uporabite anonimni strežnik LDAP, ki ne zahteva overjanja."
 
-#: ui/editdirectoryservicedialog.cpp:127
+#: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
 msgstr "Overite prek aktivnega imenika"
 
-#: ui/editdirectoryservicedialog.cpp:129
+#: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr "Overite prek aktivnega imenika (zahteva GnuPG 2.2.28 ali novejšega)"
 
-#: ui/editdirectoryservicedialog.cpp:132
+#: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1615,23 +1714,23 @@ msgstr ""
 "V okolju Windows se overite na strežniku LDAP z uporabo aktivnega imenika s "
 "trenutnim uporabnikom."
 
-#: ui/editdirectoryservicedialog.cpp:137
+#: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
 msgstr "Overite se z uporabnikom in geslom"
 
-#: ui/editdirectoryservicedialog.cpp:138
+#: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr "Overite se na strežniku LDAP z vašimi poverilnicami LDAP."
 
-#: ui/editdirectoryservicedialog.cpp:148
+#: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
 msgid "User:"
 msgstr "Uporabnik:"
 
-#: ui/editdirectoryservicedialog.cpp:149
+#: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1639,12 +1738,12 @@ msgid ""
 msgstr ""
 "Vnesite vašega uporabnika LDAP. Povežite DN za overjanje na strežnik LDAP."
 
-#: ui/editdirectoryservicedialog.cpp:153
+#: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
 
-#: ui/editdirectoryservicedialog.cpp:155
+#: ui/editdirectoryservicedialog.cpp:167
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1656,22 +1755,22 @@ msgstr ""
 "shranjeno v odprtem besedilu v nastavitveni datoteki v vašem domačem imeniku."
 "</warning>"
 
-#: ui/editdirectoryservicedialog.cpp:165
+#: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
 msgstr "Varnost povezave"
 
-#: ui/editdirectoryservicedialog.cpp:167
+#: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr "Varnost povezave (zahteva GnuPG 2.2.28 ali novejše)"
 
-#: ui/editdirectoryservicedialog.cpp:172
+#: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
 msgstr "Uporabi privzeto povezavo (verjetno ni zavarovana s TLS)"
 
-#: ui/editdirectoryservicedialog.cpp:174
+#: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1682,12 +1781,12 @@ msgstr ""
 "GnuPG 2.3 in starejši odprto povezavo in ne zavarovano s TLS. <b>(Ne "
 "priporočamo)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:182
+#: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
 msgstr "Ne uporabljajte povezave zavarovane s TLS"
 
-#: ui/editdirectoryservicedialog.cpp:184
+#: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1697,12 +1796,12 @@ msgstr ""
 "Uporabi odprto povezavo in ne povezave zavarovane s TLS do strežnika LDAP."
 "<b>(Ni priporočljivo)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:190
+#: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
 msgstr "Uporabi povezavo zavarovano s TLS"
 
-#: ui/editdirectoryservicedialog.cpp:192
+#: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1712,12 +1811,12 @@ msgstr ""
 "Uporabi standardno povezavo zavarovano s TLS (začeto s STARTLS za povezavo s "
 "strežnikom LDAP.<b>(Priporočljivo)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:199
+#: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
 msgstr "Tunel LDAP prek povezave TLS"
 
-#: ui/editdirectoryservicedialog.cpp:201
+#: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1727,17 +1826,17 @@ msgstr ""
 "Uporabite zaščiteno povezavo TLS, preko katere je povezava s strežnikom LDAP "
 "tunelizirana. <b>(Ni priporočljivo)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:210
+#: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
 msgstr "Napredne nastavitve"
 
-#: ui/editdirectoryservicedialog.cpp:215
+#: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
 msgid "Base DN:"
 msgstr "Osnovni DN:"
 
-#: ui/editdirectoryservicedialog.cpp:217
+#: ui/editdirectoryservicedialog.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1747,12 +1846,12 @@ msgstr ""
 "<b>(Neobvezno, je običajno lahko prazno)</b> Vnesite osnovni DN za ta "
 "strežnik LDAP in tako omejite iskanje na poddrevo imenika."
 
-#: ui/editdirectoryservicedialog.cpp:223
+#: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
 msgstr "Dodatne zastavice:"
 
-#: ui/editdirectoryservicedialog.cpp:225
+#: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1764,16 +1863,52 @@ msgstr ""
 "Kleopatri. Na primer starejše verzije GnuPG uporabljajo <code>ldaps</code> "
 "za zahtevek za TLS varovano povezavo."
 
-#: ui/editdirectoryservicedialog.cpp:395
+#: ui/editdirectoryservicedialog.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Uredi imeniške storitve"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Odpri pogovorno okno datoteke"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "Odpri pogovorno okno datotek"
+
+#: ui/formtextinput.cpp:25
+#, kde-format
+msgid "Error: Enter a value."
+msgstr "Napaka: Vnesite vrednost."
+
+#: ui/formtextinput.cpp:30
+#, kde-format
+msgid "Error: Enter a value in the correct format."
+msgstr "Napaka: Vnesite ime vrednost v pravilnem formatu."
+
+#: ui/formtextinput.cpp:92
+#, kde-format
+msgctxt "@label label text (required)"
+msgid "%1 (required)"
+msgstr "%1 (obvezno)"
+
+#: ui/formtextinput.cpp:126
+#, kde-format
+msgctxt "@info"
+msgid "Error: %1"
+msgstr "Napaka: %1"
+
+#: ui/formtextinput.cpp:230
+#, kde-format
+msgctxt ""
+"text for screen readers to indicate that the associated object, such as a "
+"form field, has an error"
+msgid "invalid entry"
+msgstr "neveljaven vnos"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1813,45 +1948,52 @@ msgstr "Odobritev ključa za šifriranje"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
-msgstr "Za šifriranje bodo uporabljeni naslednji ključi:"
+msgstr "Naslednji ključi bodo uporabljeni za šifriranje:"
 
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Vaši ključi:"
 
 #: ui/keyapprovaldialog.cpp:146
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Prejemnik:"
 
 #: ui/keyapprovaldialog.cpp:151
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Šifrirni ključi:"
 
 #: ui/keyapprovaldialog.cpp:158
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Možnosti šifriranja:"
 
-#: ui/keyrequester.cpp:89
+#: ui/keyrequester.cpp:88
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Počisti"
 
-#: ui/keyrequester.cpp:92
+#: ui/keyrequester.cpp:91
 #, kde-format
+msgctxt "@action:button"
 msgid "Change..."
-msgstr "Spremeni ..."
+msgstr "Zamenjaj..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>neznano</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1861,8 +2003,9 @@ msgstr ""
 "b></p></qt>"
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
-#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
 #, kde-format
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Izpisovanje ključev ni uspelo"
 
@@ -1908,157 +2051,146 @@ msgstr "Izbira ključev"
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Izberite ključ (OpenPGP ali S/MIME), ki naj se uporablja."
 
-#: ui/keyselectioncombo.cpp:85
+#: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:176
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, ustvarjeno: %3)"
-
-#: ui/keyselectioncombo.cpp:182
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3, ustvarjeno: %4)"
-
-#: ui/keyselectioncombo.cpp:671
+#: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
 #, kde-format
 msgid "Loading keys ..."
-msgstr "Nalaganje ključev ..."
+msgstr "Nalaganje ključev …"
 
-#: ui/keyselectiondialog.cpp:72
+#: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
 msgstr "Ključ ni veljaven."
 
-#: ui/keyselectiondialog.cpp:80
+#: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
 msgstr "Ključ je potekel."
 
-#: ui/keyselectiondialog.cpp:84
+#: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
 msgstr "Ključ je preklican."
 
-#: ui/keyselectiondialog.cpp:88
+#: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
 msgstr "Ključ je onemogočen."
 
-#: ui/keyselectiondialog.cpp:95
+#: ui/keyselectiondialog.cpp:94
 #, kde-format
 msgid "The key is not designated for encryption."
 msgstr "Ključ ni označen za šifriranje."
 
-#: ui/keyselectiondialog.cpp:100
+#: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
 msgstr "Ključ ni označen za podpisovanje."
 
-#: ui/keyselectiondialog.cpp:105
+#: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
 msgstr "Ključ ni označen za potrjevanje potrdil."
 
-#: ui/keyselectiondialog.cpp:110
+#: ui/keyselectiondialog.cpp:109
 #, kde-format
 msgid "The key is not designated for authentication."
 msgstr "Ključ ni označen za overitev."
 
-#: ui/keyselectiondialog.cpp:116
+#: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
 msgstr "Ključ ni tajen."
 
-#: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
 msgstr "Ključ lahko uporabite."
 
-#: ui/keyselectiondialog.cpp:132
+#: ui/keyselectiondialog.cpp:131
 #, kde-format
 msgid "The key is not trusted enough."
 msgstr "Ključu ni zaupano dovolj."
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:478
 #, kde-format
 msgid "Key ID"
 msgstr "ID ključa"
 
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:263 ui/keyselectiondialog.cpp:265
+#: ui/keyselectiondialog.cpp:274 ui/keyselectiondialog.cpp:276
 #, kde-format
 msgid "unknown"
 msgstr "neznano"
 
-#: ui/keyselectiondialog.cpp:269
+#: ui/keyselectiondialog.cpp:263
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "Ključ OpenPGP za <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:265
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "Ključ S/MIME za <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:465
-#: utils/formatting.cpp:508
+#: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:464
 #, kde-format
 msgid "Valid from"
 msgstr "Veljaven od"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:468
-#: utils/formatting.cpp:511
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:467
 #, kde-format
 msgid "Valid until"
 msgstr "Veljaven do"
 
-#: ui/keyselectiondialog.cpp:280
+#: ui/keyselectiondialog.cpp:274
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "Prstni odtis"
 
-#: ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:276
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "Izdajatelj"
 
-#: ui/keyselectiondialog.cpp:284
+#: ui/keyselectiondialog.cpp:278
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "Stanje"
 
-#: ui/keyselectiondialog.cpp:286
+#: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr "Skladnost"
 
-#: ui/keyselectiondialog.cpp:426
+#: ui/keyselectiondialog.cpp:420
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
-msgstr "Poišči zunanja potrdila"
+msgstr "Išči zunanja potrdila"
 
-#: ui/keyselectiondialog.cpp:440
+#: ui/keyselectiondialog.cpp:434
 #, kde-format
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "Poišči:"
 
-#: ui/keyselectiondialog.cpp:465
+#: ui/keyselectiondialog.cpp:459
 #, kde-format
+msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "Zapomni si izbi&ro"
 
-#: ui/keyselectiondialog.cpp:468
+#: ui/keyselectiondialog.cpp:462
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -2067,42 +2199,45 @@ msgstr ""
 "<qt><p>Če označite to polje, bo vaša izbira shranjena in ne boste več "
 "vprašani znova.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:476
 #, kde-format
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "Znova preberi ključe"
 
-#: ui/keyselectiondialog.cpp:487
+#: ui/keyselectiondialog.cpp:481
 #, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Zaženi upravljalnika potrdil"
 
-#: ui/keyselectiondialog.cpp:647
+#: ui/keyselectiondialog.cpp:641
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr "Ni najdenih zaledij za izpisovanje ključev. Preverite namestitev."
 
-#: ui/keyselectiondialog.cpp:665
+#: ui/keyselectiondialog.cpp:659
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr "Ni bilo mogoče zagnati upravljalnika potrdil. Preverite namestitev."
 
-#: ui/keyselectiondialog.cpp:667
+#: ui/keyselectiondialog.cpp:661
 #, kde-format
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Napaka upravljalnika potrdil"
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
-msgstr "Preverjanje izbranih ključev..."
+msgstr "Preverjanje izbranih ključev…"
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
-msgstr "Pridobivanje ključev..."
+msgstr "Pridobivanje ključev …"
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:750
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -2111,24 +2246,24 @@ msgid_plural ""
 "<qt>%1 backends returned truncated output.<p>Not all available keys are "
 "shown</p></qt>"
 msgstr[0] ""
-"<qt>%1 zaledje je vrnilo skrajšan izpis.<p>Vsi razpoložljivi ključi niso "
-"prikazani.</p></qt>"
-msgstr[1] ""
-"<qt>%1 zaledji sta vrnili skrajšan izpis.<p>Vsi razpoložljivi ključi niso "
-"prikazani.</p></qt>"
-msgstr[2] ""
-"<qt>%1 zaledja so vrnila skrajšan izpis.<p>Vsi razpoložljivi ključi niso "
-"prikazani.</p></qt>"
-msgstr[3] ""
 "<qt>%1 zaledij je vrnilo skrajšan izpis.<p>Vsi razpoložljivi ključi niso "
 "prikazani.</p></qt>"
+msgstr[1] ""
+"<qt>%1 zaledje je vrnilo skrajšan izpis.<p>Vsi razpoložljivi ključi niso "
+"prikazani.</p></qt>"
+msgstr[2] ""
+"<qt>%1 zaledji sta vrnili skrajšan izpis.<p>Vsi razpoložljivi ključi niso "
+"prikazani.</p></qt>"
+msgstr[3] ""
+"<qt>%1 zaledja so vrnila skrajšan izpis.<p>Vsi razpoložljivi ključi niso "
+"prikazani.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:761
+#: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid "Key List Result"
 msgstr "Rezultati izpisovanja ključev"
 
-#: ui/keyselectiondialog.cpp:883
+#: ui/keyselectiondialog.cpp:877
 #, kde-format
 msgid "Recheck Key"
 msgstr "Znova preveri ključ"
@@ -2151,135 +2286,273 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Napaka"
 
-#: ui/newkeyapprovaldialog.cpp:142
+#: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
+#, kde-format
+msgctxt "@label"
+msgid "Name"
+msgstr "Ime"
+
+#: ui/nameandemailwidget.cpp:60
+#, kde-format
+msgid "Enter a name."
+msgstr "Vnesite ime."
+
+#: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
+#, kde-format
+msgctxt "@label"
+msgid "Email address"
+msgstr "E-poštni naslov"
+
+#: ui/nameandemailwidget.cpp:76
+#, kde-format
+msgid "Enter an email address."
+msgstr "Vnesite e-poštni naslov."
+
+#: ui/nameandemailwidget.cpp:94
+#, kde-format
+msgid "The name must not include <, >, and @."
+msgstr "Ime ne sme vsebovati <, >, in @."
+
+#: ui/nameandemailwidget.cpp:95
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must not include less-than sign, greater-than sign, and at sign."
+msgstr "Ime ne sme vsebovati znaka manjše, znaka večje in znaka lokacije."
+
+#: ui/nameandemailwidget.cpp:98
+#, kde-format
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include <, >, and @."
+msgstr ""
+"Ime mora biti v obliki, ki jo zahteva vaša organizacija, in ne sme vsebovati "
+"<, > in @."
+
+#: ui/nameandemailwidget.cpp:101
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include less-than sign, greater-than sign, and at sign."
+msgstr ""
+"Ime mora biti v obliki, ki jo zahteva vaša organizacija, in ne sme vsebovati "
+"znaka manj kot, znaka več kot in znaka lokacije."
+
+#: ui/nameandemailwidget.cpp:110
+#, kde-format
+msgid "Enter an email address in the correct format, like name@example.com."
+msgstr "Vnesitee-naslov v pravilnem formatu kot name@example.com."
+
+#: ui/nameandemailwidget.cpp:113
+#, kde-format
+msgid ""
+"Enter an email address in the correct format required by your organization."
+msgstr ""
+"Vnesite e-poštni naslov v pravilni obliki, ki jo zahteva vaša organizacija."
+
+#: ui/newkeyapprovaldialog.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "Prikaži podrobnosti"
 
-#: ui/newkeyapprovaldialog.cpp:184
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "Prikaži ustrezne ključe"
 
-#: ui/newkeyapprovaldialog.cpp:185
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
-msgstr "Prikaži ključe, ki ustrezajo postnemu naslovu"
+msgstr "Prikaži ključe, ki ustrezajo poštnemu naslovu"
 
-#: ui/newkeyapprovaldialog.cpp:188
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "Prikaži vse"
 
-#: ui/newkeyapprovaldialog.cpp:189
+#: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show all keys"
-msgstr "Prikaži vse ključe"
+msgstr "Pokaži vse ključe"
 
-#: ui/newkeyapprovaldialog.cpp:272
+#: ui/newkeyapprovaldialog.cpp:273
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
 msgid ""
-"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
-"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"Generate a new key using your email address.<br/><br/>The key is necessary "
+"to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
-"Ustvarite nov ključ s svojim e-poštnim naslovom.<br/><br/>Ključ je nujenza "
-"dešifriranje in podpisovanje e-pošte. Za zaščito boste vprašani po geslu za "
-"ta ključ. Vaš ključ bo shranjen v vašem domačem imeniku."
+"Ustvarite nov ključ s svojim e-poštnim naslovom.<br/><br/>Ključ je nujen za "
+"dešifriranje in podpisovanje e-pošte. Vprašani boste po geslu za zaščito "
+"tega ključa in zavarovan ključ bo shranjen v vašem domačem imeniku."
 
-#: ui/newkeyapprovaldialog.cpp:297
+#: ui/newkeyapprovaldialog.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Varnostna odobritev"
 
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:782
+#: ui/newkeyapprovaldialog.cpp:305
 #, kde-format
+msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:306
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:308
+#, kde-format
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:309
+#, kde-format
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:402
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr "Ustvarjanje ključa za '%1'..."
+msgstr "Ustvarjanje ključa za »%1« …"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:402
 #, kde-format
 msgid "This can take several minutes."
 msgstr "To lahko traja nekaj minut."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Generiranje ključa"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:443
 #, kde-format
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operacija ni uspela"
 
-#: ui/newkeyapprovaldialog.cpp:554 ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:558 ui/newkeyapprovaldialog.cpp:654
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Ustvari nov par ključev"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:561
 #, kde-format
-msgid "Don't confirm identity and integrity"
-msgstr "Ne potrjujte identitete in integritete"
+msgid "Do not sign this email"
+msgstr "Ne podpiši tega poštnega sporočila"
 
-#: ui/newkeyapprovaldialog.cpp:559
+#: ui/newkeyapprovaldialog.cpp:563
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
-msgid "The E-Mail will not be cryptographically signed."
+msgid "The email will not be cryptographically signed."
 msgstr "E-pošta ne bo kriptografsko podpisana."
 
-#: ui/newkeyapprovaldialog.cpp:577
+#: ui/newkeyapprovaldialog.cpp:581
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Potrdite identiteto '%1' kot:"
 
-#: ui/newkeyapprovaldialog.cpp:654
+#: ui/newkeyapprovaldialog.cpp:658
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Ni ključa. Prejemnik ne bo mogel dešifrirati."
 
-#: ui/newkeyapprovaldialog.cpp:657
+#: ui/newkeyapprovaldialog.cpp:661
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
-"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
 "Ne izbirajte ključa za tega prejemnika.<br/><br/>Prejemnik bo prejel "
-"šifrirano e-pošto, ki jo je mogoče dešifrirati z drugimi ključiizbranimi v "
-"tem pogovornem oknu."
+"šifrirano e-pošto, ki jo je mogoče dešifrirati le z drugimi ključi izbranimi "
+"v tem pogovornem oknu."
 
-#: ui/newkeyapprovaldialog.cpp:774
+#: ui/newkeyapprovaldialog.cpp:778
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Šifriraj zase (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:791
+#: ui/newkeyapprovaldialog.cpp:795
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Šifriraj za druge:"
 
-#: ui/newkeyapprovaldialog.cpp:829
+#: ui/newkeyapprovaldialog.cpp:833
 #, kde-format
 msgid "Generate"
 msgstr "Generiraj"
+
+#: ui/openpgpcertificatecreationdialog.cpp:94
+#, kde-format
+msgid "Protect the generated key with a passphrase."
+msgstr "Ustvarjeni ključ zaščitite z geselno frazo."
+
+#: ui/openpgpcertificatecreationdialog.cpp:96
+#, kde-format
+msgid ""
+"Encrypts the secret key with an unrecoverable passphrase. You will be asked "
+"for the passphrase during key generation."
+msgstr ""
+"Šifrira tajni ključ z neobnovljivo geselno frazo. Med ustvarjanjem ključa "
+"boste morali vnesti geselno frazo."
+
+#: ui/openpgpcertificatecreationdialog.cpp:99
+#, kde-format
+msgid "Advanced options"
+msgstr "Napredne možnosti"
+
+#: ui/openpgpcertificatecreationdialog.cpp:106
+#, kde-format
+msgctxt "The algorithm and strength of encryption key"
+msgid "Key Material"
+msgstr "Ključni material"
+
+#: ui/openpgpcertificatecreationdialog.cpp:150
+#, kde-format
+msgctxt "title:window"
+msgid "Create OpenPGP Certificate"
+msgstr "Ustvari potrdilo OpenPGP"
+
+#: ui/openpgpcertificatecreationdialog.cpp:158
+#, kde-format
+msgid "Enter a name and an email address to use for the certificate."
+msgstr "Vnesite ime in e-poštni naslov, ki ga želite uporabiti za potrdilo."
+
+#: ui/openpgpcertificatecreationdialog.cpp:159
+#, kde-format
+msgid "Enter a name and/or an email address to use for the certificate."
+msgstr ""
+"Vnesite ime in/ali e-poštni naslov, ki ga želite uporabiti za potrdilo."
+
+#: ui/openpgpcertificatecreationdialog.cpp:336
+#, kde-format
+msgid "Enter a name or an email address."
+msgstr "Vnesite ime ali e-poštni naslov."
+
+#: ui/openpgpcertificatecreationdialog.cpp:350
+#, kde-format
+msgid "There is a problem."
+msgstr "Tukaj je problem."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2309,104 +2582,184 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "ID bralnika po meri ali številka vrat"
 
-#: utils/compliance.cpp:160
+#: ui/treeview.cpp:69 ui/treewidget.cpp:172
+#, kde-format
+msgctxt "@title:menu"
+msgid "View Columns"
+msgstr "Pogled stolpcev"
+
+#: ui/useridselectioncombo.cpp:529
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr "Prikaži seznam potrdil"
+
+#: ui/useridselectioncombo.cpp:530
+#, kde-format
+msgid "Show certificate list"
+msgstr "Prikaži seznam potrdil"
+
+#: utils/compliance.cpp:185
 #, kde-format
 msgid "VS-NfD compliant"
-msgstr "Združljiv z VS-NfD"
+msgstr "Skladno z VS-NfD"
 
-#: utils/compliance.cpp:160
+#: utils/compliance.cpp:185
 #, kde-format
 msgid "Not VS-NfD compliant"
-msgstr "Ni združljiv z VS-NfD"
+msgstr "Ni skladno z VS-NfD"
 
-#: utils/formatting.cpp:325
+#: utils/compliance.cpp:194
+#, kde-format
+msgctxt "@info append beta-marker to compliance"
+msgid "%1 (beta)"
+msgstr "%1 (beta)"
+
+#: utils/expiration.cpp:102
+#, kde-format
+msgctxt "@label Valid until (<a date>):"
+msgid "Valid until (%1):"
+msgstr "Veljavno do (%1):"
+
+#: utils/expiration.cpp:105
+#, kde-format
+msgctxt "@label ... (between <a date> and <another date>):"
+msgid "Valid until (between %1 and %2):"
+msgstr "Veljavno do (med %1 in %2):"
+
+#: utils/expiration.cpp:116
+#, kde-format
+msgctxt "@info"
+msgid "The date cannot be changed."
+msgstr "Datuma ni mogoče spremeniti."
+
+#: utils/expiration.cpp:119 utils/expiration.cpp:125
+#, kde-format
+msgctxt "@info ... between <a date> and <another date>."
+msgid "Enter a date between %1 and %2."
+msgstr "Vnesite datum med %1 in %2."
+
+#: utils/expiration.cpp:147
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Three years from now"
+msgstr "Čez tri leta"
+
+#: utils/expiration.cpp:148
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Two years from now"
+msgstr "Čez dve leti"
+
+#: utils/expiration.cpp:149
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "One year from now"
+msgstr "Čez eno leto"
+
+#: utils/formatting.cpp:340
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
 msgstr "%1-bit %2 (na voljo je skriti zasebni ključ)"
 
-#: utils/formatting.cpp:327 utils/formatting.cpp:338
+#: utils/formatting.cpp:342
 #, kde-format
 msgid "%1-bit %2"
 msgstr "%1-bit %2"
 
-#: utils/formatting.cpp:346 utils/formatting.cpp:368
+#: utils/formatting.cpp:351
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "Podpisovanje (kvalificirano)"
 
-#: utils/formatting.cpp:348 utils/formatting.cpp:370
+#: utils/formatting.cpp:353
 #, kde-format
 msgid "Signing"
 msgstr "Podpisovanje"
 
-#: utils/formatting.cpp:352 utils/formatting.cpp:374
+#: utils/formatting.cpp:357
 #, kde-format
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#: utils/formatting.cpp:360
 #, kde-format
-msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "Potrjevanje ID-jev uporabnikov"
 
-#: utils/formatting.cpp:358 utils/formatting.cpp:380
+#: utils/formatting.cpp:363
 #, kde-format
 msgid "SSH Authentication"
 msgstr "Overjanje SSH"
 
-#: utils/formatting.cpp:410 utils/formatting.cpp:503
-#, kde-format
-msgid "Revoked"
-msgstr "Preklicano"
-
-#: utils/formatting.cpp:412 utils/formatting.cpp:505
-#, kde-format
-msgid "Expired"
-msgstr "Pretečeno"
-
-#: utils/formatting.cpp:414
+#: utils/formatting.cpp:393
 #, kde-format
 msgid "Disabled"
 msgstr "Onemogočeno"
 
+#: utils/formatting.cpp:395
+#, kde-format
+msgid "Revoked"
+msgstr "Preklicano"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Expired"
+msgstr "Pretečeno"
+
+#: utils/formatting.cpp:401
+#, kde-format
+msgid "User ID is certified."
+msgstr "ID uporabnika je potrjen."
+
+#: utils/formatting.cpp:407
+#, kde-format
+msgid "User ID is not certified."
+msgstr "ID uporabnika ni potrjen."
+
+#: utils/formatting.cpp:417
+#, kde-format
+msgid "All User IDs are certified."
+msgstr "Vsi ID-ji uporabnikov so potrjeni."
+
 #: utils/formatting.cpp:423
 #, kde-format
-msgid "All User-IDs are certified."
-msgstr "Vsi ID-ji uporabnikov so preverjeni."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
+msgstr[0] "%1 ID-jev uporabnikov ni potrjenih."
+msgstr[1] "%1 ID uporabnika ni potrjen."
+msgstr[2] "%1 ID-ja uporabnikov nista potrjena."
+msgstr[3] "%1 ID-ji uporabnikov niso potrjeni."
 
-#: utils/formatting.cpp:429
-#, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
-msgstr[0] "%1 ID uporabnika ni potrjen."
-msgstr[1] "%1 ID uporabnikov nista potrjena."
-msgstr[2] "%1 ID uporabnikov niso potrjeni."
-msgstr[3] "%1 ID uporabnikov ni potrjenih."
-
-#: utils/formatting.cpp:432 utils/formatting.cpp:435
+#: utils/formatting.cpp:427 utils/formatting.cpp:430
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "Veljavnosti trenutno ni mogoče preveriti."
 
-#: utils/formatting.cpp:445
+#: utils/formatting.cpp:440
 #, kde-format
 msgid "Serial number"
 msgstr "Serijska številka"
 
-#: utils/formatting.cpp:454
+#: utils/formatting.cpp:443
+#, kde-format
+msgid "Issuer"
+msgstr "Izdajatelj"
+
+#: utils/formatting.cpp:450 utils/formatting.cpp:460
 #, kde-format
 msgid "Subject"
 msgstr "Zadeva"
 
-#: utils/formatting.cpp:454
-#, kde-format
-msgid "User-ID"
-msgstr "ID uporabnika"
-
-#: utils/formatting.cpp:459
+#: utils/formatting.cpp:455
 #, kde-format
 msgid "a.k.a."
 msgstr "znan tudi kot"
+
+#: utils/formatting.cpp:481
+#, kde-format
+msgid "Fingerprint"
+msgstr "Prstni odtis"
 
 #: utils/formatting.cpp:485
 #, kde-format
@@ -2428,71 +2781,75 @@ msgstr "Da"
 msgid "No"
 msgstr "Ne"
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:495 utils/formatting.cpp:523
-#: utils/formatting.cpp:525
+#: utils/formatting.cpp:492 utils/formatting.cpp:494
 #, kde-format
 msgid "Stored"
 msgstr "Shranjeno"
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:523
+#: utils/formatting.cpp:492
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "na pametni kartici s serijsko številko %1"
 
-#: utils/formatting.cpp:495 utils/formatting.cpp:525
+#: utils/formatting.cpp:494
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "na tem računalniku"
 
-#: utils/formatting.cpp:501
-#, kde-format
-msgid "Subkey"
-msgstr "Podključ"
-
-#: utils/formatting.cpp:549
+#: utils/formatting.cpp:521
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr "Nekateri ključi so preklicani, potekli, onemogočeni ali neveljavni."
 
-#: utils/formatting.cpp:553
+#: utils/formatting.cpp:525
 #, kde-format
 msgid "All keys are certified."
 msgstr "Vsi ključi so potrjeni."
 
-#: utils/formatting.cpp:555
+#: utils/formatting.cpp:527
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "Nekaj ključev ni potrjenih."
 
-#: utils/formatting.cpp:559
+#: utils/formatting.cpp:531
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "Veljavnosti ključev trenutno ni mogoče preveriti."
 
-#: utils/formatting.cpp:573
+#: utils/formatting.cpp:545
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "Ta grupa ne vsebuje nobenega ključa."
 
-#: utils/formatting.cpp:593
+#: utils/formatting.cpp:551
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Some of the certificates in this group cannot be used for encryption. Using "
+"this group can lead to unexpected results."
+msgstr ""
+"Nekaterih potrdil v tej skupini ni mogoče uporabiti za šifriranje. Uporaba "
+"te skupine lahko privede do nepričakovanih rezultatov."
+
+#: utils/formatting.cpp:571
 #, kde-format
 msgid "Keys:"
 msgstr "Ključi:"
 
-#: utils/formatting.cpp:601
+#: utils/formatting.cpp:580
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
-msgstr[0] "in še %1 ključ"
-msgstr[1] "in še %1 ključa"
-msgstr[2] "in še %1 ključi"
-msgstr[3] "in še %1 ključev"
+msgstr[0] "in še %1 ključev"
+msgstr[1] "in še %1 ključ"
+msgstr[2] "in še %1 ključa"
+msgstr[3] "in še %1 ključi"
 
-#: utils/formatting.cpp:629
+#: utils/formatting.cpp:613
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2500,451 +2857,480 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "MMMM d, yyyy"
 
-#: utils/formatting.cpp:675 utils/formatting.cpp:710
+#: utils/formatting.cpp:659 utils/formatting.cpp:694
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "neznano"
 
-#: utils/formatting.cpp:717 utils/formatting.cpp:726
+#: utils/formatting.cpp:701 utils/formatting.cpp:710
 #, kde-format
 msgid "unlimited"
 msgstr "neomejeno"
 
-#: utils/formatting.cpp:779
+#: utils/formatting.cpp:763
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:784
+#: utils/formatting.cpp:766
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: utils/formatting.cpp:768
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "Neznano"
 
-#: utils/formatting.cpp:800
+#: utils/formatting.cpp:784
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "Skupina"
 
-#: utils/formatting.cpp:816 utils/formatting.cpp:861
+#: utils/formatting.cpp:800 utils/formatting.cpp:845
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "neznano"
 
-#: utils/formatting.cpp:818 utils/formatting.cpp:865
+#: utils/formatting.cpp:802 utils/formatting.cpp:849
 #, kde-format
 msgid "untrusted"
-msgstr "ni zaupanja vredno"
+msgstr "nevredno zaupanja"
 
-#: utils/formatting.cpp:820 utils/formatting.cpp:867
+#: utils/formatting.cpp:804 utils/formatting.cpp:851
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
-msgstr "robno"
+msgstr "obrobno"
 
-#: utils/formatting.cpp:822 utils/formatting.cpp:869
+#: utils/formatting.cpp:806 utils/formatting.cpp:853
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "polno"
 
-#: utils/formatting.cpp:824 utils/formatting.cpp:871
+#: utils/formatting.cpp:808 utils/formatting.cpp:855
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "ultimativno"
 
-#: utils/formatting.cpp:826 utils/formatting.cpp:863
+#: utils/formatting.cpp:810 utils/formatting.cpp:847
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "nedoločeno"
 
-#: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
-#: utils/formatting.cpp:1298 utils/formatting.cpp:1326
-#, kde-format
-msgid "revoked"
-msgstr "preklicano"
-
-#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1295
-#: utils/formatting.cpp:1323
-#, kde-format
-msgid "expired"
-msgstr "pretečeno"
-
-#: utils/formatting.cpp:843 utils/formatting.cpp:1301 utils/formatting.cpp:1329
+#: utils/formatting.cpp:821 utils/formatting.cpp:1272 utils/formatting.cpp:1297
 #, kde-format
 msgid "disabled"
 msgstr "onemogočeno"
 
-#: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
-#: utils/formatting.cpp:1304 utils/formatting.cpp:1332
+#: utils/formatting.cpp:824 utils/formatting.cpp:838 utils/formatting.cpp:873
+#: utils/formatting.cpp:1275 utils/formatting.cpp:1300
+#, kde-format
+msgid "revoked"
+msgstr "preklicano"
+
+#: utils/formatting.cpp:827 utils/formatting.cpp:883 utils/formatting.cpp:1278
+#: utils/formatting.cpp:1303
+#, kde-format
+msgid "expired"
+msgstr "pretečeno"
+
+#: utils/formatting.cpp:830 utils/formatting.cpp:841 utils/formatting.cpp:881
+#: utils/formatting.cpp:1281 utils/formatting.cpp:1306
 #, kde-format
 msgid "invalid"
 msgstr "neveljavno"
 
-#: utils/formatting.cpp:848
+#: utils/formatting.cpp:832
 #, kde-format
-msgctxt "as in good/valid signature"
-msgid "good"
-msgstr "dobro"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "V redu"
 
-#: utils/formatting.cpp:887
+#: utils/formatting.cpp:871
 #, kde-format
 msgid "valid"
 msgstr "veljavno"
 
-#: utils/formatting.cpp:901
+#: utils/formatting.cpp:875
+#, kde-format
+msgid "class %1"
+msgstr "razred %1"
+
+#: utils/formatting.cpp:885
 #, kde-format
 msgid "certificate expired"
 msgstr "certifikat je pretekel"
 
-#: utils/formatting.cpp:903
+#: utils/formatting.cpp:887
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "slabo"
 
-#: utils/formatting.cpp:909
+#: utils/formatting.cpp:893
 #, kde-format
 msgid "no public key"
 msgstr "ni javnega ključa"
 
-#: utils/formatting.cpp:911
-#, kde-format
-msgid "key expired"
-msgstr "ključ potekel"
-
-#: utils/formatting.cpp:913
-#, kde-format
-msgid "key revoked"
-msgstr "ključ je preklican"
-
-#: utils/formatting.cpp:915
+#: utils/formatting.cpp:895
 #, kde-format
 msgid "key disabled"
 msgstr "ključ je onemogočen"
 
-#: utils/formatting.cpp:971
+#: utils/formatting.cpp:897
+#, kde-format
+msgid "key revoked"
+msgstr "ključ je preklican"
+
+#: utils/formatting.cpp:899
+#, kde-format
+msgid "key expired"
+msgstr "ključ potekel"
+
+#: utils/formatting.cpp:955
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:1029
+#: utils/formatting.cpp:1013
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "Slab podpis z neznanim potrdilom %1: %2"
 
-#: utils/formatting.cpp:1031
+#: utils/formatting.cpp:1015
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "Slab podpis z neznanim potrdilom: %1"
 
-#: utils/formatting.cpp:1034
+#: utils/formatting.cpp:1018
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "Slab podpis od %1: %2"
 
-#: utils/formatting.cpp:1040
+#: utils/formatting.cpp:1024
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "Dober podpis a z neznanim potrdilom %1."
 
-#: utils/formatting.cpp:1042
+#: utils/formatting.cpp:1026
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "Dober podpis a z neznanim potrdilom."
 
-#: utils/formatting.cpp:1045
+#: utils/formatting.cpp:1029
 #, kde-format
 msgid "Good signature by %1."
 msgstr "Dober podpis od %1."
 
-#: utils/formatting.cpp:1050
+#: utils/formatting.cpp:1034
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "Neveljaven podpis z neznanim potrdilom %1: %2"
 
-#: utils/formatting.cpp:1052
+#: utils/formatting.cpp:1036
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "Neveljaven podpis z neznanim potrdilom %1"
 
-#: utils/formatting.cpp:1055
+#: utils/formatting.cpp:1039
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "Neveljaven podpis od %1: %2"
 
-#: utils/formatting.cpp:1069
+#: utils/formatting.cpp:1053
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "To potrdilo je bilo uvoženo iz naslednjih virov:"
 
-#: utils/formatting.cpp:1080
+#: utils/formatting.cpp:1064
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "Uvoz tega potrdila je bil preklican."
 
-#: utils/formatting.cpp:1083
+#: utils/formatting.cpp:1067
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "Pri uvozu tega potrdila je prišlo do napake: %1"
 
-#: utils/formatting.cpp:1088
+#: utils/formatting.cpp:1072
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "To potrdilo je bilo novo v vaši hrambi ključev. Skrivni ključ je tudi na "
 "voljo."
 
-#: utils/formatting.cpp:1089
+#: utils/formatting.cpp:1073
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "To potrdilo je bilo novo v vaši hrambi ključev."
 
-#: utils/formatting.cpp:1094
+#: utils/formatting.cpp:1078
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr "Ob uvozu so v to potrdilo dodali nove uporabniške identitete."
 
-#: utils/formatting.cpp:1097
+#: utils/formatting.cpp:1081
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "Ob uvozu so v to potrdilo dodali nove podpise."
 
-#: utils/formatting.cpp:1100
+#: utils/formatting.cpp:1084
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "Ob uvozu so v to potrdilo dodali nove podključe."
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1087
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 "Uvoz ni vseboval novih podatkov za to potrdilo. Je ostalo nespremenjeno."
 
-#: utils/formatting.cpp:1119
+#: utils/formatting.cpp:1094
 #, kde-format
 msgid "Certify"
 msgstr "Potrdi"
 
-#: utils/formatting.cpp:1122
+#: utils/formatting.cpp:1097
 #, kde-format
 msgid "Sign"
 msgstr "Podpiši"
 
-#: utils/formatting.cpp:1125
+#: utils/formatting.cpp:1100
 #, kde-format
 msgid "Encrypt"
 msgstr "Šifriraj"
 
-#: utils/formatting.cpp:1128
+#: utils/formatting.cpp:1103
 #, kde-format
 msgid "Authenticate"
 msgstr "Overi"
 
-#: utils/formatting.cpp:1131
+#: utils/formatting.cpp:1106
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
 msgstr "ADSK"
 
-#: utils/formatting.cpp:1139
+#: utils/formatting.cpp:1114
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, ustvarjeno: %4)"
 
-#: utils/formatting.cpp:1150
+#: utils/formatting.cpp:1125
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1, %2, ustvarjeno: %3)"
 
-#: utils/formatting.cpp:1162
+#: utils/formatting.cpp:1137
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
-msgstr[0] "%2 (%1 ključ, %3)"
-msgstr[1] "%2 (%1 ključa, %3)"
-msgstr[2] "%2 (%1 ključi, %3)"
-msgstr[3] "%2 (%1 ključev, %3)"
+msgstr[0] "%2 (%1 ključev, %3)"
+msgstr[1] "%2 (%1 ključ, %3)"
+msgstr[2] "%2 (%1 ključa, %3)"
+msgstr[3] "%2 (%1 ključi, %3)"
 
-#: utils/formatting.cpp:1169
+#: utils/formatting.cpp:1144
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] "%2 (%1 ključ, %3, značka)"
-msgstr[1] "%2 (%1 ključa, %3, značka)"
-msgstr[2] "%2 (%1 ključi, %3, značka)"
-msgstr[3] "%2 (%1 ključev, %3, značka)"
+msgstr[0] "%2 (%1 ključev, %3, značka)"
+msgstr[1] "%2 (%1 ključ, %3, značka)"
+msgstr[2] "%2 (%1 ključa, %3, značka)"
+msgstr[3] "%2 (%1 ključi, %3, značka)"
 
-#: utils/formatting.cpp:1176
+#: utils/formatting.cpp:1151
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] "%2 (%1 ključ, %3, neznan izvor)"
-msgstr[1] "%2 (%1 ključa, %3, neznan izvor)"
-msgstr[2] "%2 (%1 ključi, %3, neznan izvor)"
-msgstr[3] "%2 (%1 ključev, %3, neznan izvor)"
+msgstr[0] "%2 (%1 ključev, %3, neznan izvor)"
+msgstr[1] "%2 (%1 ključ, %3, neznan izvor)"
+msgstr[2] "%2 (%1 ključa, %3, neznan izvor)"
+msgstr[3] "%2 (%1 ključi, %3, neznan izvor)"
 
-#: utils/formatting.cpp:1197
+#: utils/formatting.cpp:1172
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "Potrdilo je označeno kot vaše lastno."
 
-#: utils/formatting.cpp:1199
+#: utils/formatting.cpp:1174
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "To potrdilo pripada temu prejemniku."
 
-#: utils/formatting.cpp:1201
+#: utils/formatting.cpp:1176
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
-"Model zaupanja le neznatno nakazuje, da to potrdilo pripada temu prejemniku."
+"Model zaupanja le obrobno nakazuje, da to potrdilo pripada temu prejemniku."
 
-#: utils/formatting.cpp:1203
+#: utils/formatting.cpp:1178
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "Tega potrdila ne bi smeli uporabljati."
 
-#: utils/formatting.cpp:1207
+#: utils/formatting.cpp:1182
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr "Ni nobenih znakov, da to potrdilo pripada temu prejemniku."
 
-#: utils/formatting.cpp:1219
+#: utils/formatting.cpp:1194
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "Ta grupa ne vsebuje nobenega ključa."
 
-#: utils/formatting.cpp:1279
+#: utils/formatting.cpp:1244 utils/formatting.cpp:1256
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "neznano"
 
-#: utils/formatting.cpp:1292
+#: utils/formatting.cpp:1269
 #, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "potrjeno"
 
-#: utils/formatting.cpp:1307
+#: utils/formatting.cpp:1284
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "ni potrjeno"
 
-#: utils/formatting.cpp:1310
+#: utils/formatting.cpp:1287
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "ni preverjeno"
 
-#: utils/formatting.cpp:1320
+#: utils/formatting.cpp:1309
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "potrjeno"
 
-#: utils/formatting.cpp:1335
+#: utils/formatting.cpp:1312
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "ni potrjeno"
 
-#: utils/formatting.cpp:1338
+#: utils/formatting.cpp:1315
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "ni preverjeno"
 
-#: utils/formatting.cpp:1347
+#: utils/formatting.cpp:1324
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "vse potrjeno"
 
-#: utils/formatting.cpp:1350
+#: utils/formatting.cpp:1327
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "ni vse potrjeno"
 
-#: utils/formatting.cpp:1383
+#: utils/formatting.cpp:1371
 #, kde-format
 msgid "Keyserver"
 msgstr "Strežnik ključev"
 
-#: utils/formatting.cpp:1391
+#: utils/formatting.cpp:1379
 #, kde-format
 msgid "File import"
 msgstr "Uvoz datoteke"
 
-#: utils/formatting.cpp:1393
+#: utils/formatting.cpp:1381
 #, kde-format
 msgid "Generated"
 msgstr "Generirano"
 
-#: utils/formatting.cpp:1397
-#, kde-format
-msgid "Unknown"
-msgstr "Neznano"
-
-#: utils/formatting.cpp:1433
+#: utils/formatting.cpp:1416
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Potrjuje ta ključ kot deloma zaupanja vreden uvajalec za  '%1'."
 
-#: utils/formatting.cpp:1437
+#: utils/formatting.cpp:1420
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "Potrjuje ta ključ kot popolnoma zaupanja vreden uvajalec za  '%1'."
 
-#: utils/formatting.cpp:1461
+#: utils/formatting.cpp:1457
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr "ECC (Brainpool P-256)"
 
-#: utils/formatting.cpp:1462
+#: utils/formatting.cpp:1458
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr "ECC (Brainpool P-384)"
 
-#: utils/formatting.cpp:1463
+#: utils/formatting.cpp:1459
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr "ECC (Brainpool P-512)"
 
-#: utils/formatting.cpp:1464
+#: utils/formatting.cpp:1460
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr "ECC (Curve25519)"
 
-#: utils/formatting.cpp:1465
+#: utils/formatting.cpp:1461
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr "ECC (Curve448)"
+
+#: utils/formatting.cpp:1462
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed25519)"
+msgstr "ECC (Ed25519)"
+
+#: utils/formatting.cpp:1463
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed448)"
+msgstr "ECC (Ed448)"
+
+#: utils/formatting.cpp:1464
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv25519)"
+msgstr "ECC (Cv25519)"
+
+#: utils/formatting.cpp:1465
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv448)"
+msgstr "ECC (Cv448)"
 
 #: utils/formatting.cpp:1466
 #, kde-format
@@ -2967,26 +3353,245 @@ msgstr "ECC (NIST P-521)"
 #: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
+msgid "RSA 1024"
+msgstr "RSA 1024"
+
+#: utils/formatting.cpp:1470
+#, kde-format
+msgctxt "@info"
 msgid "RSA 2048"
 msgstr "RSA 2048"
 
-#: utils/formatting.cpp:1470
+#: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "RSA 3072"
 
-#: utils/formatting.cpp:1471
+#: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "RSA 4096"
 
+#: utils/formatting.cpp:1473
+#, kde-format
+msgctxt "@info"
+msgid "DSA 1024"
+msgstr "DSA 1024"
+
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
-msgid "Unknown algorithm"
-msgstr "Neznan algoritem"
+msgid "DSA 2048"
+msgstr "DSA 2048"
+
+#: utils/formatting.cpp:1475
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 1024"
+msgstr "Elgamal 1024"
+
+#: utils/formatting.cpp:1476
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 2048"
+msgstr "Elgamal 2048"
+
+#: utils/formatting.cpp:1477
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 3072"
+msgstr "Elgamal 3072"
+
+#: utils/formatting.cpp:1478
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 4096"
+msgstr "Elgamal 4096"
+
+#: utils/formatting.cpp:1491
+#, kde-format
+msgid ""
+"The signature is valid but the trust in the certificate's validity is only "
+"marginal."
+msgstr ""
+"Podpis je veljaven, ampak zaupanje v veljavnost potrdila je le obrobno."
+
+#: utils/formatting.cpp:1493
+#, kde-format
+msgid "The signature is valid and the certificate's validity is fully trusted."
+msgstr ""
+"Podpis je veljaven in veljavnost potrdila je popolnoma zaupanja vredna."
+
+#: utils/formatting.cpp:1495
+#, kde-format
+msgid ""
+"The signature is valid and the certificate's validity is ultimately trusted."
+msgstr ""
+"Podpis je veljaven in veljavnost potrdila je ultimativno zaupanja vredna."
+
+#: utils/formatting.cpp:1497
+#, kde-format
+msgid ""
+"The signature is valid but the certificate's validity is <em>not trusted</"
+"em>."
+msgstr ""
+"Podpis je veljaven, ampak veljavnost potrdila <em>nevredna zaupanja</em>."
+
+#: utils/formatting.cpp:1499
+#, kde-format
+msgid "The signature is valid but the certificate's validity is unknown."
+msgstr "Podpis je veljaven, ampak veljavnost potrdila je neznana."
+
+#: utils/formatting.cpp:1502
+#, kde-format
+msgid "The signature is valid but the certificate's validity is undefined."
+msgstr "Podpis je veljaven, ampak veljavnost potrdila je nedoločena."
+
+#: utils/formatting.cpp:1514
+#, kde-format
+msgid "Unknown certificate"
+msgstr "Neznano potrdilo"
+
+#: utils/formatting.cpp:1518
+#, kde-format
+msgctxt "User ID (Key ID)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp:1534
+#, kde-format
+msgctxt "1 is a date"
+msgid ""
+"Signature created on %1 using an unknown certificate with fingerprint %2"
+msgstr ""
+"Podpis, ustvarjen na %1 uporablja neznano potrdilo s prstnim odtisom %2"
+
+#: utils/formatting.cpp:1538
+#, kde-format
+msgid "Signature created using an unknown certificate with fingerprint %1"
+msgstr "Podpis ustvarjen z uporabo neznanega potrdila s prstnim odtisom %1"
+
+#: utils/formatting.cpp:1542
+#, kde-format
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "Podpis, ustvarjen na %1 s potrdilom: %2"
+
+#: utils/formatting.cpp:1544
+#, kde-format
+msgid "Signature created with certificate: %1"
+msgstr "Podpis ustvarjen s potrdilom: %1"
+
+#: utils/formatting.cpp:1550
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1"
+msgstr "Podpis je %1"
+
+#: utils/formatting.cpp:1553
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Podpis <b>ni</b> %1."
+
+#: utils/formatting.cpp:1563
+#, kde-format
+msgid "Error: Signature not verified"
+msgstr "Napaka: Podpis ni preverjen"
+
+#: utils/formatting.cpp:1565
+#, kde-format
+msgid "Good signature"
+msgstr "Dober podpis"
+
+#: utils/formatting.cpp:1567
+#, kde-format
+msgid "Signing certificate was revoked"
+msgstr "Podpisno potrdilo je bilo preklicano"
+
+#: utils/formatting.cpp:1569
+#, kde-format
+msgid "Signing certificate is expired"
+msgstr "Podpisno potrdilo je poteklo"
+
+#: utils/formatting.cpp:1571
+#, kde-format
+msgid "Certificate is not available"
+msgstr "Potrdilo ni na voljo"
+
+#: utils/formatting.cpp:1573
+#, kde-format
+msgid "Signature expired"
+msgstr "Podpis je potekel"
+
+#: utils/formatting.cpp:1575
+#, kde-format
+msgid "CRL missing"
+msgstr "CRL manjka"
+
+#: utils/formatting.cpp:1577
+#, kde-format
+msgid "CRL too old"
+msgstr "CRL je prestar"
+
+#: utils/formatting.cpp:1579
+#, kde-format
+msgid "Bad policy"
+msgstr "Slaba politika"
+
+#: utils/formatting.cpp:1581
+#, kde-format
+msgid "System error"
+msgstr "Sistemska napaka"
+
+#: utils/formatting.cpp:1583
+#, kde-format
+msgid "Bad signature"
+msgstr "Slab podpis"
+
+#: utils/formatting.cpp:1659 utils/formatting.cpp:1682
+#, kde-format
+msgid "The signature is invalid: %1"
+msgstr "Podpis je neveljaven: %1"
+
+#: utils/formatting.cpp:1668
+#, kde-format
+msgid "You can search the certificate on a keyserver or import it from a file."
+msgstr "Potrdilo lahko iščete na strežniku ključev ali ga uvozite iz datoteke."
+
+#: utils/formatting.cpp:1677
+#, kde-format
+msgid "The used key is not certified by you or any trusted person."
+msgstr ""
+"Uporabljenega ključa niste potrdili niti vi niti katerakoli zaupanja vredna "
+"oseba."
+
+#: utils/formatting.cpp:1678
+#, kde-format
+msgid ""
+"The used certificate is not certified by a trustworthy Certificate Authority "
+"or the Certificate Authority is unknown."
+msgstr ""
+"Uporabljenega potrdila ni potrdil zaupanja vreden overitelj potrdil ali pa "
+"je izdajatelj potrdil neznan."
+
+#: utils/gnupg.cpp:486
+#, kde-format
+msgctxt "@info"
+msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
+msgstr "GnuPG nudi podporo za OpenPGP/LibrePGP in S/MIME."
+
+#: utils/gnupg.cpp:495
+#, kde-format
+msgctxt "@info"
+msgid "Libgcrypt is a general purpose cryptographic library."
+msgstr "Libgcrypt je kriptografska knjižnica za splošne namene."
 
 #: utils/hex.cpp:35
 #, kde-format
@@ -2997,6 +3602,342 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
+
+#: kleo/expirychecker.cpp:78
+#, kde-format
+msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+msgid "<b>%1</b> (KeyID 0x%2)"
+msgstr "<b>%1</b> (ID ključa 0x%2)"
+
+#: kleo/keyfiltermanager.cpp:71
+#, kde-format
+msgid "All Certificates"
+msgstr "Vsa potrdila"
+
+#: kleo/keyfiltermanager.cpp:86
+#, kde-format
+msgid "My Certificates"
+msgstr "Moja potrdila"
+
+#: kleo/keyfiltermanager.cpp:104
+#, kde-format
+msgid "Trusted Certificates"
+msgstr "Zaupanja vredna potrdila"
+
+#: kleo/keyfiltermanager.cpp:121
+#, kde-format
+msgid "Fully Trusted Certificates"
+msgstr "Potrdila, ki jim polno zaupate"
+
+#: kleo/keyfiltermanager.cpp:138
+#, kde-format
+msgid "Other Certificates"
+msgstr "Druga potrdila"
+
+#: kleo/keyfiltermanager.cpp:153
+#, kde-format
+msgid "Not Certified Certificates"
+msgstr "Še ne potrjena potrdila"
+
+#: kleo/keyfiltermanager.cpp:176
+#, kde-format
+msgid "Not Validated Certificates"
+msgstr "Nepotrjena potrdila"
+
+#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
+#, kde-format
+msgid "E-Mail"
+msgstr "E-pošta"
+
+#: models/keylistmodel.cpp:323
+#, kde-format
+msgid "User-IDs"
+msgstr "ID uporabnikov"
+
+#: models/keylistmodel.cpp:329
+#, kde-format
+msgid "Protocol"
+msgstr "Protokol"
+
+#: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
+#: utils/formatting.cpp:478
+#, kde-format
+msgid "Key-ID"
+msgstr "ID ključa"
+
+#: models/keylistmodel.cpp:339
+#, kde-format
+msgid "Serial Number"
+msgstr "Serijska številka"
+
+#: models/keylistmodel.cpp:341
+#, kde-format
+msgid "Origin"
+msgstr "Izvir"
+
+#: models/keylistmodel.cpp:343
+#, kde-format
+msgid "Last Update"
+msgstr "Zadnja osvežitev"
+
+#: models/keylistmodel.cpp:345
+#, kde-format
+msgid "Certification Trust"
+msgstr "Zaupanje overovitve"
+
+#: ui/auditlogviewer.cpp:55
+#, kde-format
+msgid "&Copy to Clipboard"
+msgstr "Kopiraj v odložišče"
+
+#: ui/auditlogviewer.cpp:60
+#, kde-format
+msgid "&Save to Disk..."
+msgstr "&Shrani na disk..."
+
+#: ui/auditlogviewer.cpp:102
+#, kde-format
+msgid "System Error"
+msgstr "Sistemska napaka"
+
+#: ui/auditlogviewer.cpp:112
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Ni dnevnika presoje varnosti GnuPG"
+
+#: ui/auditlogviewer.cpp:118
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "Pregledovalnik dnevnika presoje varnosti GnuPG"
+
+#: ui/auditlogviewer.cpp:152
+#, kde-format
+msgid "File Save Error"
+msgstr "Napaka med shranjevanjem datoteke"
+
+#: ui/cryptoconfigmodule.cpp:165
+#, kde-format
+msgid "GpgConf Error"
+msgstr "Napaka GpgConf"
+
+#: ui/cryptoconfigmodule.cpp:721
+#, kde-format
+msgid "Set the debugging level to"
+msgstr "Stopnjo razhroščevanja nastavi na"
+
+#: ui/cryptoconfigmodule.cpp:997
+#, kde-format
+msgid ""
+"Configuration of directory services is not possible because the used gpgme "
+"libraries are too old."
+msgstr ""
+"Nastavitev imeniških storitev ni mogoča, ker so knjižnice gpgme prestare."
+
+#: ui/cryptoconfigmodule.cpp:999
+#, kde-format
+msgid "Sorry"
+msgstr "Se opravičujemo"
+
+#: ui/directoryserviceswidget.cpp:216
+#, kde-format
+msgid "Edit"
+msgstr "Uredi"
+
+#: ui/directoryserviceswidget.cpp:224
+#, kde-format
+msgid "Delete"
+msgstr "Izbriši"
+
+#: ui/dnattributeorderconfigwidget.cpp:88
+#, kde-format
+msgid "Available attributes:"
+msgstr "Razpoložljivi atributi:"
+
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgid "Current attribute order:"
+msgstr "Trenutni vrstni red atributov:"
+
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgid "The following keys will be used for encryption:"
+msgstr "Za šifriranje bodo uporabljeni naslednji ključi:"
+
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgid "Your keys:"
+msgstr "Vaši ključi:"
+
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgid "Recipient:"
+msgstr "Prejemnik:"
+
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgid "Encryption keys:"
+msgstr "Šifrirni ključi:"
+
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgid "Encryption preference:"
+msgstr "Možnosti šifriranja:"
+
+#: ui/keyrequester.cpp:89
+#, kde-format
+msgid "Clear"
+msgstr "Počisti"
+
+#: ui/keyrequester.cpp:92
+#, kde-format
+msgid "Change..."
+msgstr "Spremeni ..."
+
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#, kde-format
+msgid "Key Listing Failed"
+msgstr "Izpisovanje ključev ni uspelo"
+
+#: ui/keyselectioncombo.cpp:176
+#, kde-format
+msgctxt "Name <email> (validity, created: date)"
+msgid "%1 (%2, created: %3)"
+msgstr "%1 (%2, ustvarjeno: %3)"
+
+#: ui/keyselectioncombo.cpp:182
+#, kde-format
+msgctxt "Name <email> (validity, type, created: date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1 (%2, %3, ustvarjeno: %4)"
+
+#: ui/keyselectiondialog.cpp:426
+#, kde-format
+msgid "Search for &External Certificates"
+msgstr "Poišči zunanja potrdila"
+
+#: ui/keyselectiondialog.cpp:440
+#, kde-format
+msgid "&Search for:"
+msgstr "Poišči:"
+
+#: ui/keyselectiondialog.cpp:465
+#, kde-format
+msgid "&Remember choice"
+msgstr "Zapomni si izbi&ro"
+
+#: ui/keyselectiondialog.cpp:482
+#, kde-format
+msgid "&Reread Keys"
+msgstr "Znova preberi ključe"
+
+#: ui/keyselectiondialog.cpp:487
+#, kde-format
+msgid "&Start Certificate Manager"
+msgstr "Zaženi upravljalnika potrdil"
+
+#: ui/keyselectiondialog.cpp:667
+#, kde-format
+msgid "Certificate Manager Error"
+msgstr "Napaka upravljalnika potrdil"
+
+#: ui/newkeyapprovaldialog.cpp:185
+#, kde-format
+msgid "Show keys matching the email address"
+msgstr "Prikaži ključe, ki ustrezajo postnemu naslovu"
+
+#: ui/newkeyapprovaldialog.cpp:189
+#, kde-format
+msgid "Show all keys"
+msgstr "Prikaži vse ključe"
+
+#: ui/newkeyapprovaldialog.cpp:272
+#, kde-format
+msgctxt ""
+"@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
+"does not yet have an OpenPGP or S/MIME key."
+msgid ""
+"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
+"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"this key and the protected key will be stored in your home directory."
+msgstr ""
+"Ustvarite nov ključ s svojim e-poštnim naslovom.<br/><br/>Ključ je nujenza "
+"dešifriranje in podpisovanje e-pošte. Za zaščito boste vprašani po geslu za "
+"ta ključ. Vaš ključ bo shranjen v vašem domačem imeniku."
+
+#: ui/newkeyapprovaldialog.cpp:439
+#, kde-format
+msgid "Operation Failed"
+msgstr "Operacija ni uspela"
+
+#: ui/newkeyapprovaldialog.cpp:557
+#, kde-format
+msgid "Don't confirm identity and integrity"
+msgstr "Ne potrjujte identitete in integritete"
+
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip for not selecting a key for signing."
+msgid "The E-Mail will not be cryptographically signed."
+msgstr "E-pošta ne bo kriptografsko podpisana."
+
+#: ui/newkeyapprovaldialog.cpp:657
+#, kde-format
+msgctxt "@info:tooltip for No Key selected for a specific recipient."
+msgid ""
+"Do not select a key for this recipient.<br/><br/>The recipient will receive "
+"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"selected in this dialog."
+msgstr ""
+"Ne izbirajte ključa za tega prejemnika.<br/><br/>Prejemnik bo prejel "
+"šifrirano e-pošto, ki jo je mogoče dešifrirati z drugimi ključiizbranimi v "
+"tem pogovornem oknu."
+
+#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#, kde-format
+msgid "Certifying User-IDs"
+msgstr "Potrjevanje ID-jev uporabnikov"
+
+#: utils/formatting.cpp:423
+#, kde-format
+msgid "All User-IDs are certified."
+msgstr "Vsi ID-ji uporabnikov so preverjeni."
+
+#: utils/formatting.cpp:429
+#, kde-format
+msgid "One User-ID is not certified."
+msgid_plural "%1 User-IDs are not certified."
+msgstr[0] "%1 ID uporabnika ni potrjen."
+msgstr[1] "%1 ID uporabnikov nista potrjena."
+msgstr[2] "%1 ID uporabnikov niso potrjeni."
+msgstr[3] "%1 ID uporabnikov ni potrjenih."
+
+#: utils/formatting.cpp:454
+#, kde-format
+msgid "User-ID"
+msgstr "ID uporabnika"
+
+#: utils/formatting.cpp:501
+#, kde-format
+msgid "Subkey"
+msgstr "Podključ"
+
+#: utils/formatting.cpp:848
+#, kde-format
+msgctxt "as in good/valid signature"
+msgid "good"
+msgstr "dobro"
+
+#: utils/formatting.cpp:1397
+#, kde-format
+msgid "Unknown"
+msgstr "Neznano"
+
+#: utils/formatting.cpp:1474
+#, kde-format
+msgctxt "@info"
+msgid "Unknown algorithm"
+msgstr "Neznan algoritem"
 
 #~ msgid "Certificate Manager and Unified Crypto GUI"
 #~ msgstr "Upravljalnik potrdil in enotni uporabniški kripto vmesnik"
