@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2014-09-13 09:20+0200\n"
+"POT-Creation-Date: 2025-05-27 10:21+0200\n"
 "PO-Revision-Date: 2010-09-13 05:42+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -17,1265 +17,149 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#. +> future stable
-#: backends/chiasmus/chiasmusbackend.cpp:286
-msgid "General"
-msgstr "Allgemeen"
-
-#. +> future stable
-#: backends/chiasmus/chiasmusbackend.cpp:341
-#: backends/chiasmus/chiasmusbackend.cpp:440
-msgid "Chiasmus"
-msgstr "Chiasmus"
-
-#. +> future stable
-#: backends/chiasmus/chiasmusbackend.cpp:386
-msgid "Chiasmus command line tool"
-msgstr "Chiasmus-Befehlsreegwarktüüch"
-
-#. +> future stable
-#: backends/chiasmus/chiasmusbackend.cpp:460
-#: backends/chiasmus/chiasmusbackend.cpp:466
-#: backends/chiasmus/chiasmusbackend.cpp:495
-#: backends/qgpgme/qgpgmebackend.cpp:380
-#, kde-format
-msgid "Unsupported protocol \"%1\""
-msgstr "Nich ünnerstütt Protokoll: \"%1\""
-
-#. +> future stable
-#: backends/chiasmus/chiasmusbackend.cpp:482
-#, kde-format
-msgid "File \"%1\" does not exist or is not executable."
-msgstr "Dat gifft de Datei \"%1\" nich, oder se is nich utföhrbor."
-
-#. +> future stable
-#: backends/chiasmus/chiasmusjob.cpp:165
-msgid "Output from chiasmus"
-msgstr "Chiasmus-Utgaav"
-
-#. +> future stable
-#: backends/chiasmus/chiasmusjob.cpp:207 ui/messagebox.cpp:260
-#, kde-format
-msgid "Encryption failed: %1"
-msgstr "Verslöteln fehlslaan: %1"
-
-#. +> future stable
-#: backends/chiasmus/chiasmusjob.cpp:208
-#, kde-format
-msgid "Decryption failed: %1"
-msgstr "Opslöteln fehlslaan: %1"
-
-#. +> future stable
-#: backends/chiasmus/chiasmusjob.cpp:210
-#, kde-format
-msgid ""
-"The following was received on stderr:\n"
-"%1"
-msgstr ""
-"Dat Nakamen keem över de Standard-Fehlerutgaav (\"stderr\"):\n"
-"%1"
-
-#. +> future stable
-#: backends/chiasmus/chiasmuslibrary.cpp:74
-#: backends/chiasmus/chiasmuslibrary.cpp:85
-#, kde-format
-msgid "Failed to load %1: %2"
-msgstr "Fehler bi't Laden vun %1: %2"
-
-#. +> future stable
-#: backends/chiasmus/chiasmuslibrary.cpp:86
-msgid "Library does not contain the symbol \"Chiasmus\"."
-msgstr "Bibliotheek bargt dat Symbool \"Chiasmus\" nich."
-
-#. +> future stable
-#: backends/chiasmus/obtainkeysjob.cpp:95
-#, kde-format
-msgid "Scanning directory %1..."
-msgstr "Orner %1 warrt dörkeken..."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmebackend.cpp:89 ui/keyselectiondialog.cpp:257
-#: ui/keyselectiondialog.cpp:259 ui/keyselectiondialog.cpp:266
-#: ui/keyselectiondialog.cpp:268 ui/keyselectiondialog.cpp:269
-msgid "unknown"
-msgstr "nich begäng"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmebackend.cpp:330
-msgid "GpgME"
-msgstr "GpgME"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmebackend.cpp:354
-#, kde-format
-msgid "GPGME was compiled without support for %1."
-msgstr "GpgME wöör ahn Ünnerstütten för %1 kompileert."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmebackend.cpp:356
-#, kde-format
-msgid "Engine %1 is not installed properly."
-msgstr "Moduul %1 is nich richtig installeert."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmebackend.cpp:358
-#, kde-format
-msgid "Engine %1 version %2 installed, but at least version %3 is required."
-msgstr ""
-"Moduul %1 is in Verschoon %2 installeert, man tominnst Verschoon %3 warrt "
-"bruukt."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmebackend.cpp:362
-#, kde-format
-msgid "Unknown problem with engine for protocol %1."
-msgstr "Nich begäng Problem mit dat Moduul för't Protokoll %1"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmecryptoconfig.cpp:110
-msgid "program terminated unexpectedly"
-msgstr "Programm hett sik unvermodens beendt"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmecryptoconfig.cpp:112
-msgid "program not found or cannot be started"
-msgstr "Programm lett sik nich finnen oder nich opropen"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmecryptoconfig.cpp:115
-#: backends/qgpgme/qgpgmenewcryptoconfig.cpp:98
-#, kde-format
-msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-msgstr "<qt>Utföhren vun \"gpgconf\" fehlslaan:<p>%1</p></qt>"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmecryptoconfig.cpp:364
-msgid ""
-"Could not start gpgconf.\n"
-"Check that gpgconf is in the PATH and that it can be started."
-msgstr ""
-"\"gpgconf\" lett sik nich opropen.\n"
-"Prööv bitte, wat sik \"gpgconf\" över Dien PATH-Variabel finnen un sik "
-"starten lett."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmecryptoconfig.cpp:370
-#: backends/qgpgme/qgpgmenewcryptoconfig.cpp:209
-#, kde-format
-msgid "Error from gpgconf while saving configuration: %1"
-msgstr "Fehler binnen \"gpgconf\" bi't Sekern vun de Instellen: %1"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmekeylistjob.cpp:151
-#: backends/qgpgme/qgpgmelistallkeysjob.cpp:152 ui/keyrequester.cpp:228
-#: ui/keyselectiondialog.cpp:611
-#, kde-format
-msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
-msgstr ""
-"<qt><p>Bi't Halen vun de Slötels vun dat Hölp-Programm geev dat disse "
-"Problemen:</p><p><b>%1</b></p></qt>"
-
-#. +> future stable
-#: backends/qgpgme/qgpgmeprogresstokenmapper.cpp:51
-msgid "Generating DSA key..."
-msgstr "DSA-Slötel warrt opstellt..."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmeprogresstokenmapper.cpp:55
-msgid "Generating ElGamal key..."
-msgstr "ElGamal-Slötel warrt opstellt..."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmeprogresstokenmapper.cpp:60
-msgid "Searching for a large prime number..."
-msgstr "Grote Primtall warrt söcht..."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmeprogresstokenmapper.cpp:64
-msgid ""
-"Waiting for new entropy from random number generator (you might want to "
-"exercise the harddisks or move the mouse)..."
-msgstr ""
-"Bi to töven op niege Entropie vun den Tofall-Tallenmaker (Dat geiht gauer, "
-"wenn Du de Muus beweegst oder wat op de Fastplaat maakst)..."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmeprogresstokenmapper.cpp:68
-msgid "Please wait..."
-msgstr "Tööv bitte..."
-
-#. +> future stable
-#: backends/qgpgme/qgpgmeprogresstokenmapper.cpp:72
-msgid ""
-"Starting gpg-agent (you should consider starting a global instance "
-"instead)..."
-msgstr ""
-"\"gpg-agent\" warrt start (Överlegg Di doch maal, wat Du nich en globale "
-"Utgaav starten wullt)..."
-
-#. +> future stable
-#: kleo/checksumdefinition.cpp:105
+#: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
 msgstr "Fehler in Pröövsummdefinitschoon %1: %2"
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:150
+#: kleo/checksumdefinition.cpp:144
 #, kde-format
 msgid "Cannot use both %f and | in '%1'"
 msgstr "\"%f \"un \"|\" tohoop laat sik nich in \"%1\" bruken."
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:158
+#: kleo/checksumdefinition.cpp:156
 #, kde-format
 msgid "Quoting error in '%1' entry"
 msgstr "Indrag \"%1\" bargt Zitaatfehler."
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:160
+#: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
 msgstr "\"%1\" to vigeliensch (Konsool deit noot)"
 
-#. +> future stable
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
 msgid "'%1' entry is empty/missing"
 msgstr "Indrag \"%1\" is leddig oder fehlt."
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:170
+#: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
 msgstr "\"%1\" is leddig oder lett sik nich finnen."
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:206
+#: kleo/checksumdefinition.cpp:211
+#, kde-format
 msgid "'id' entry is empty/missing"
 msgstr "Indrag \"id\" is leddig oder fehlt."
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:208
+#: kleo/checksumdefinition.cpp:214
+#, kde-format
 msgid "'output-file' entry is empty/missing"
 msgstr "Indrag \"output-file\" is leddig oder fehlt."
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:210
+#: kleo/checksumdefinition.cpp:217
+#, kde-format
 msgid "'file-patterns' entry is empty/missing"
 msgstr "Indrag \"file-patterns\" is leddig oder fehlt."
 
-#. +> future stable
-#: kleo/checksumdefinition.cpp:356
+#: kleo/checksumdefinition.cpp:400
 #, kde-format
 msgid "Caught unknown exception in group %1"
 msgstr "Nich begäng Utnahm binnen Koppel \"%1\" affungen"
 
-#. +> future stable
-#: kleo/cryptobackendfactory.cpp:171
-#, kde-format
-msgid "While scanning for %1 support in backend %2:"
-msgstr "Bi't Kieken na Ünnerstütten för %1 binnen dat Hölp-Programm %2:"
-
-#. +> future stable
-#: kleo/dn.cpp:458
+#: kleo/dn.cpp:517
 msgid "Common name"
 msgstr "Allgemeen Naam"
 
-#. +> future stable
-#: kleo/dn.cpp:459
+#: kleo/dn.cpp:518
 msgid "Surname"
 msgstr "Familiennaam"
 
-#. +> future stable
-#: kleo/dn.cpp:460
+#: kleo/dn.cpp:519
 msgid "Given name"
 msgstr "Vörnaam"
 
-#. +> future stable
-#: kleo/dn.cpp:461
+#: kleo/dn.cpp:520
 msgid "Location"
 msgstr "Oort"
 
-#. +> future stable
-#: kleo/dn.cpp:462
+#: kleo/dn.cpp:521
 msgid "Title"
 msgstr "Titel"
 
-#. +> future stable
-#: kleo/dn.cpp:463
+#: kleo/dn.cpp:522
 msgid "Organizational unit"
 msgstr "Afdelen"
 
-#. +> future stable
-#: kleo/dn.cpp:464
+#: kleo/dn.cpp:523
 msgid "Organization"
 msgstr "Organisatschoon"
 
-#. +> future stable
-#: kleo/dn.cpp:465
+#: kleo/dn.cpp:524
 msgid "Postal code"
 msgstr "Postleddtall"
 
-#. +> future stable
-#: kleo/dn.cpp:466
+#: kleo/dn.cpp:525
 msgid "Country code"
 msgstr "Landkode"
 
-#. +> future stable
-#: kleo/dn.cpp:467
+#: kleo/dn.cpp:526
 msgid "State or province"
 msgstr "Bundsland oder Provinz"
 
-#. +> future stable
-#: kleo/dn.cpp:468
+#: kleo/dn.cpp:527
 msgid "Domain component"
 msgstr "Domäänkomponent"
 
-#. +> future stable
-#: kleo/dn.cpp:469
+#: kleo/dn.cpp:528
 msgid "Business category"
 msgstr "Warf-Kategorie"
 
-#. +> future stable
-#: kleo/dn.cpp:470
+#: kleo/dn.cpp:529
 msgid "Email address"
 msgstr "Nettpostadress"
 
-#. +> future stable
-#: kleo/dn.cpp:471
+#: kleo/dn.cpp:530
 msgid "Mail address"
 msgstr "Postadress"
 
-#. +> future stable
-#: kleo/dn.cpp:472
+#: kleo/dn.cpp:531
 msgid "Mobile phone number"
 msgstr "Mobilnummer"
 
-#. +> future stable
-#: kleo/dn.cpp:473
+#: kleo/dn.cpp:532
 msgid "Telephone number"
 msgstr "Telefoonnummer"
 
-#. +> future stable
-#: kleo/dn.cpp:474
+#: kleo/dn.cpp:533
 msgid "Fax number"
 msgstr "Faxnummer"
 
-#. +> future stable
-#: kleo/dn.cpp:475
+#: kleo/dn.cpp:534
 msgid "Street address"
 msgstr "Straat"
 
-#. +> future stable
-#: kleo/dn.cpp:476
+#: kleo/dn.cpp:535
 msgid "Unique ID"
 msgstr "Eensoortet ID"
 
-#. +> future stable
-#: kleo/enum.cpp:45
+#: kleo/enum.cpp:35
 msgid "Inline OpenPGP (deprecated)"
 msgstr "Inbett OpenPGP (överhaalt)"
 
-#. +> future stable
-#: kleo/enum.cpp:48
+#: kleo/enum.cpp:36
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#. +> future stable
-#: kleo/enum.cpp:51
+#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:308
+#, kde-format
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#. +> future stable
-#: kleo/enum.cpp:54
+#: kleo/enum.cpp:38
 msgid "S/MIME Opaque"
 msgstr "S/MIME kodeert"
-
-#. +> future stable
-#: kleo/enum.cpp:79
-msgid "Any"
-msgstr "Jichtenseen"
-
-#. +> future stable
-#: kleo/enum.cpp:141
-msgid "Never Encrypt"
-msgstr "Nienich verslöteln"
-
-#. +> future stable
-#: kleo/enum.cpp:143
-msgid "Always Encrypt"
-msgstr "Jümmers verslöteln"
-
-#. +> future stable
-#: kleo/enum.cpp:145
-msgid "Always Encrypt If Possible"
-msgstr "Jümmers verslöteln, wenn mööglich"
-
-#. +> future stable
-#: kleo/enum.cpp:147 kleo/enum.cpp:199
-msgid "Ask"
-msgstr "Nafragen"
-
-#. +> future stable
-#: kleo/enum.cpp:149 kleo/enum.cpp:201
-msgid "Ask Whenever Possible"
-msgstr "Jümmers nafragen, wenn mööglich"
-
-#. +> future stable
-#: kleo/enum.cpp:193
-msgid "Never Sign"
-msgstr "Nienich ünnerschrieven"
-
-#. +> future stable
-#: kleo/enum.cpp:195
-msgid "Always Sign"
-msgstr "Jümmers ünnerschrieven"
-
-#. +> future stable
-#: kleo/enum.cpp:197
-msgid "Always Sign If Possible"
-msgstr "Jümmers ünnerschrieven, wenn mööglich"
-
-#. +> future stable
-#: kleo/enum.cpp:203
-msgctxt "no specific preference"
-msgid "<none>"
-msgstr "<keen>"
-
-#. +> stable
-#: kleo/enum.cpp:152
-msgctxt "no specific preference"
-msgid "<placeholder>none</placeholder>"
-msgstr "<placeholder>keen</placeholder>"
-
-#. +> future stable
-#: kleo/hierarchicalkeylistjob.cpp:130 kleo/multideletejob.cpp:91
-#, kde-format
-msgctxt "progress info: \"%1 of %2\""
-msgid "%1/%2"
-msgstr "%1/%2"
-
-#. +> future stable
-#: kleo/keyfiltermanager.cpp:81
-msgid "All Certificates"
-msgstr "All Zertifikaten"
-
-#. +> future stable
-#: kleo/keyfiltermanager.cpp:95
-msgid "My Certificates"
-msgstr "Egen Zertifikaten"
-
-#. +> future stable
-#: kleo/keyfiltermanager.cpp:112
-msgid "Trusted Certificates"
-msgstr "Troot Zertifikaten"
-
-#. +> future stable
-#: kleo/keyfiltermanager.cpp:128
-msgid "Other Certificates"
-msgstr "Anner Zertifikaten"
-
-#. +> future stable
-#: ui/cryptoconfigdialog.cpp:44
-msgid "Configure GnuPG Backend"
-msgstr "GnuPG-Hülpprogramm instellen"
-
-#. +> future stable
-#: ui/cryptoconfigdialog.cpp:57
-msgid "&Reset"
-msgstr "To&rüchsetten"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:153
-msgid "GpgConf Error"
-msgstr "GpgConf-Fehler"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:206
-#, kde-format
-msgid ""
-"The gpgconf tool used to provide the information for this dialog does not "
-"seem to be installed properly. It did not return any components. Try running "
-"\"%1\" on the command line for more information."
-msgstr ""
-"As't lett is dat Programm \"gpgconf\", dat de Informatschonen för dissen "
-"Dialoog praatstellt, nich propper installeert; dat hett keeneen Komponent "
-"torüchgeven. Versöök dat un föhr \"%1\" op de Konsool ut, wenn Du mehr weten "
-"wullt."
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:468
-msgctxt ""
-"Translate this to 'yes' or 'no' (use the English words!) depending on "
-"whether your language uses Sentence style capitalisation in GUI labels (yes) "
-"or not (no). Context: We get some backend strings in that have the wrong "
-"capitalizaion (in English, at least) so we need to force the first character "
-"to upper-case. It is this behaviour you can control for your language with "
-"this translation."
-msgid "yes"
-msgstr "yes"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:517
-msgid "0 - None (no debugging at all)"
-msgstr "0 - Keen (gor keen Fehlersöök)"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:518
-msgid "1 - Basic (some basic debug messages)"
-msgstr "1 - Eenfach (bloots wichtig Fehlersöök-Mellen)"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:519
-msgid "2 - Advanced (more verbose debug messages)"
-msgstr "2 - Verwiedert (snackhaftig Fehlersöök)"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:520
-msgid "3 - Expert (even more detailed messages)"
-msgstr "3 - Fachlüüd (vele Enkelheiten)"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:521
-msgid "4 - Guru (all of the debug messages you can get)"
-msgstr "4 - Dokter (all Fehlersöök-Mellen)"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:530
-msgid "Set the debugging level to"
-msgstr "Fehlersöök-Stoop fastleggen op"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:855
-msgid "Show..."
-msgstr "Wiesen..."
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:855 ui/cryptoconfigmodule.cpp:924
-msgid "Edit..."
-msgstr "Bewerken..."
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:887
-msgid "Configure LDAP Servers"
-msgstr "LDAP-Servers instellen"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:909
-msgid "No server configured yet"
-msgstr "Noch keen Server inricht"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:911
-#, kde-format
-msgid "1 server configured"
-msgid_plural "%1 servers configured"
-msgstr[0] "1 Server inricht"
-msgstr[1] "%1 Servers inricht"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:928
-msgid "Use keyserver at"
-msgstr "Dissen Slötelserver bruken:"
-
-#. +> future stable
-#: ui/cryptoconfigmodule.cpp:1004
-msgid "Configure Keyservers"
-msgstr "Slötelservers instellen"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:64
-msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-msgid "server"
-msgstr "server"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:85
-msgid "hkp"
-msgstr "hkp"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:86
-msgid "http"
-msgstr "http"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:87
-msgid "https"
-msgstr "https"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:88
-msgid "ftp"
-msgstr "ftp"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:89
-msgid "ftps"
-msgstr "ftps"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:90
-msgid "ldap"
-msgstr "ldap"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:91
-msgid "ldaps"
-msgstr "ldaps"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:507
-msgctxt "New X.509 Directory Server"
-msgid "X.509"
-msgstr "X.509"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:508
-msgctxt "New OpenPGP Directory Server"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:627
-msgid "Scheme"
-msgstr "Protokoll"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:628
-msgid "Server Name"
-msgstr "Servernaam"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:629
-msgid "Server Port"
-msgstr "Server-Port"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:630
-msgid "Base DN"
-msgstr "Wörtel-DN"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:631
-msgid "User Name"
-msgstr "Brukernaam"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:632
-msgid "Password"
-msgstr "Passwoort"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:633
-msgid "X.509"
-msgstr "X.509"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:634
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:653
-msgid "(read-only)"
-msgstr "(bloots-leesbor)"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:655
-#, kde-format
-msgctxt "amended tooltip; %1: original tooltip"
-msgid "%1 (read-only)"
-msgstr "%1 (bloots-leesbor)"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:837
-msgid ""
-"Select the access protocol (scheme) that the directory service is available "
-"through."
-msgstr "Dat Protokoll för't Togriepen op den Vertekendeenst fastleggen"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:839
-msgid ""
-"Enter the name or IP address of the server hosting the directory service."
-msgstr ""
-"Den Naam oder de IP-Adress vun den Server ingeven, de den Vertekendeenst "
-"praatstellt"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:841
-msgid ""
-"<b>(Optional, the default is fine in most cases)</b> Pick the port number "
-"the directory service is listening on."
-msgstr ""
-"<b>(Wahlwies, de Standardinstellen lett sik meist jümmers bruken)</b> De "
-"Port utsöken, achter de de Vertekendeenst luustert"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:844
-msgid ""
-"<b>(Only for LDAP)</b> Enter the base DN for this LDAP server to limit "
-"searches to only that subtree of the directory."
-msgstr ""
-"<b>(Bloots bi LDAP)</b> Den Wörtel-DN för dissen LDAP-Server angeven, grenzt "
-"dat Söken op dissen Ünnerboom vun dat Verteken in."
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:847
-msgid "<b>(Optional)</b> Enter your user name here, if needed."
-msgstr "<b>(Wahlwies)</b> Dien Brukernaam angeven, wenn nödig."
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:849
-msgid ""
-"<b>(Optional, not recommended)</b> Enter your password here, if needed. Note "
-"that the password will be saved in the clear in a config file in your home "
-"directory."
-msgstr ""
-"<b>(Wahlwies, nich anraadt)</b> Dien Passwoort ingeven, wenn nödig. Beacht, "
-"dat Passwoort warrt as Kloortext na en Instellendatei binnen Dien "
-"Tohuusorner schreven."
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:853
-msgid ""
-"Check this column if this directory service is providing S/MIME (X.509) "
-"certificates."
-msgstr ""
-"Maak dissen Striep an, wenn de Vertekendeenst S/MIME-(X.509-)Zertifikaten "
-"praatstellt"
-
-#. +> future stable
-#: ui/directoryserviceswidget.cpp:855
-msgid ""
-"Check this column if this directory service is providing OpenPGP "
-"certificates."
-msgstr ""
-"Maak dissen Striep an, wenn de Vertekendeenst OpenPGP-Zertifikaten "
-"praatstellt"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, DirectoryServicesWidget)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:14
-msgid "Directory Services Configuration"
-msgstr "Vertekendeensten instellen"
-
-#. i18n: ectx: property (text), widget (QLabel, x500LA)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:26
-msgid "Directory services:"
-msgstr "Vertekendeensten:"
-
-#. i18n: ectx: property (whatsThis), widget (QTreeView, treeView)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:35
-msgid ""
-"This is a list of all directory services that are configured for use with "
-"X.509 and OpenPGP."
-msgstr ""
-"Disse List wiest de Vertekendeensten, de för't Bruken mit X.509 un OpenPGP "
-"instellt sünd."
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, newTB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:62
-msgid "Click to add a service"
-msgstr "Klick hier, wenn Du en Deenst tofögen wullt"
-
-#. i18n: ectx: property (whatsThis), widget (QToolButton, newTB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:65
-msgid ""
-"Click this button to create a new directory service entry as a clone of the "
-"currently selected one (or with default values, if no other is selected). "
-"You can then configure details in the table on the left hand."
-msgstr ""
-"Klick op dissen Knoop, wenn Du en nieg Vertekendeenst as en Kopie vun den "
-"opstunns utsöchten opstellen wullt (oder mit de Standardweerten, wenn keen "
-"utsöcht is). Du kannst de Enkelheiten denn binnen de Tabell linkerhand "
-"instellen."
-
-#. i18n: ectx: property (text), widget (QToolButton, newTB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:68
-msgid "New"
-msgstr "Nieg"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, deleteTB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:90
-msgid "Click to remove the currently selected service"
-msgstr "Klick hier, wenn Du den opstunns utsöchten Deenst wegmaken wullt"
-
-#. i18n: ectx: property (whatsThis), widget (QToolButton, deleteTB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:93
-msgid ""
-"Click this button to remove the currently selected directory service. The "
-"change will only take effect once you acknowledge the main configuration "
-"dialog."
-msgstr ""
-"Klick op dissen Knoop, wenn Du de den opstunns utsöchten Vertekendeenst "
-"wegmaken wullt. De Ännern warrt eerst bruukt, wenn Du den Hööft-"
-"Instellendialoog beglöven deist."
-
-#. i18n: ectx: property (text), widget (QToolButton, deleteTB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:96
-msgid "Delete"
-msgstr "Wegdoon"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, showUserAndPasswordCB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:126
-msgid ""
-"Use this option to switch display of username and password information on or "
-"off in the above table."
-msgstr ""
-"Mit disse Optschoon kannst Du dat Wiesen vun Brukernaam un Passwoort binnen "
-"de Tabell baven an- un utmaken."
-
-#. i18n: ectx: property (text), widget (QCheckBox, showUserAndPasswordCB)
-#. +> future stable
-#: ui/directoryserviceswidget.ui:129
-msgid "Show user and password information"
-msgstr "Bruker- un Passwoortinformatschonen wiesen"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:73
-msgid "Description"
-msgstr "Beschrieven"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:92
-msgid "Available attributes:"
-msgstr "Verföögbor Attributen:"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:93
-msgid "Current attribute order:"
-msgstr "Aktuelle Attributreeg:"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:116
-msgid "All others"
-msgstr "All anner"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:133
-msgid "Move to top"
-msgstr "Heel na baven"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:134
-msgid "Move one up"
-msgstr "Na baven"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:135
-msgid "Remove from current attribute order"
-msgstr "Ut aktuelle Attributreeg wegmaken"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:136
-msgid "Add to current attribute order"
-msgstr "Na aktuelle Attributreeg tofögen"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:137
-msgid "Move one down"
-msgstr "Na nerrn"
-
-#. +> future stable
-#: ui/dnattributeorderconfigwidget.cpp:138
-msgid "Move to bottom"
-msgstr "Heel na nerrn"
-
-#. +> stable
-#: ui/keyapprovaldialog.cpp:85
-msgid "<placeholder>none</placeholder>"
-msgstr "<placeholder>keen</placeholder>"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:87
-msgid "Never Encrypt with This Key"
-msgstr "Nienich mit dissen Slötel verslöteln"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:88
-msgid "Always Encrypt with This Key"
-msgstr "Jümmers mit dissen Slötel verslöteln"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:89
-msgid "Encrypt Whenever Encryption is Possible"
-msgstr "Jümmers verslöteln, wenn dat mööglich is"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:90
-msgid "Always Ask"
-msgstr "Jümmers nafragen"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:91
-msgid "Ask Whenever Encryption is Possible"
-msgstr "Jümmers nafragen, wenn Verslöteln mööglich is"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:112
-msgid "Encryption Key Approval"
-msgstr "Verslötel-Slötel beglöven"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:131
-msgid "The following keys will be used for encryption:"
-msgstr "Mit disse Slötels warrt verslötelt:"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:149
-msgid "Your keys:"
-msgstr "Dien Slötels:"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:161
-msgid "Recipient:"
-msgstr "Adressaat:"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:166
-msgid "Encryption keys:"
-msgstr "Verslötel-Slötels:"
-
-#. +> future stable
-#: ui/keyapprovaldialog.cpp:173
-msgid "Encryption preference:"
-msgstr "Verslötel-Instellen:"
-
-#. +> future stable
-#: ui/keyrequester.cpp:120
-msgid "Clear"
-msgstr "Leddig maken"
-
-#. +> future stable
-#: ui/keyrequester.cpp:123
-msgid "Change..."
-msgstr "Ännern..."
-
-#. +> stable
-#: ui/keyrequester.cpp:219 ui/keyselectiondialog.cpp:228
-msgid "<placeholder>unknown</placeholder>"
-msgstr "<placeholder>nich begäng</placeholder>"
-
-#. +> future stable
-#: ui/keyrequester.cpp:233 ui/keyrequester.cpp:262 ui/keyrequester.cpp:286
-#: ui/keyselectiondialog.cpp:583 ui/keyselectiondialog.cpp:616
-msgid "Key Listing Failed"
-msgstr "Oplisten vun de Slötels fehlslaan"
-
-#. +> future stable
-#: ui/keyrequester.cpp:260
-msgid ""
-"The OpenPGP backend does not support listing keys. Check your installation."
-msgstr ""
-"Dat Hölp-Programm för OpenPGP ünnerstütt dat Oplisten vun Slötels nich. "
-"Prööv bitte Dien Installatschoon."
-
-#. +> future stable
-#: ui/keyrequester.cpp:284
-msgid ""
-"The S/MIME backend does not support listing keys. Check your installation."
-msgstr ""
-"Dat Hölp-Programm för S/MIME ünnerstütt dat Oplisten vun Slötels nich. Prööv "
-"bitte Dien Installatschoon."
-
-#. +> future stable
-#: ui/keyrequester.cpp:395
-msgid "OpenPGP Key Selection"
-msgstr "OpenPGP-Slötel utsöken"
-
-#. +> future stable
-#: ui/keyrequester.cpp:396
-msgid "Please select an OpenPGP key to use."
-msgstr "Söök bitte en OpenPGP-Slötel ut"
-
-#. +> future stable
-#: ui/keyrequester.cpp:398
-msgid "S/MIME Key Selection"
-msgstr "S/MIME-Slötel utsöken"
-
-#. +> future stable
-#: ui/keyrequester.cpp:399
-msgid "Please select an S/MIME key to use."
-msgstr "Söök bitte en S/MIME-Slötel ut"
-
-#. +> future stable
-#: ui/keyrequester.cpp:401
-msgid "Key Selection"
-msgstr "Slötel utsöken"
-
-#. +> future stable
-#: ui/keyrequester.cpp:402
-msgid "Please select an (OpenPGP or S/MIME) key to use."
-msgstr "Söök bitte en (OpenPGP- oder S/MIME-) Slötel ut"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:205
-msgid "Key ID"
-msgstr "Slötel-ID"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:206
-msgid "User ID"
-msgstr "Bruker-ID"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:250
-msgid "never"
-msgstr "nienich"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:253
-#, kde-format
-msgid ""
-"OpenPGP key for %1\n"
-"Created: %2\n"
-"Expiry: %3\n"
-"Fingerprint: %4"
-msgstr ""
-"OpenPGP-Slötel för %1\n"
-"Opstellt: %2\n"
-"Löppt af: %3\n"
-"Fingerafdruck: %4"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:261
-#, kde-format
-msgid ""
-"S/MIME key for %1\n"
-"Created: %2\n"
-"Expiry: %3\n"
-"Fingerprint: %4\n"
-"Issuer: %5"
-msgstr ""
-"S/MIME-Slötel för %1\n"
-"Opstellt: %2\n"
-"Löppt af: %3\n"
-"Fingerafdruck: %4\n"
-"Rutgever: %5"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:415
-msgid "Search for &External Certificates"
-msgstr "Na &extern Zertifikaten söken"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:431
-msgid "&Search for:"
-msgstr "&Söken na:"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:455
-msgid "&Remember choice"
-msgstr "Köör woh&ren"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:458
-msgid ""
-"<qt><p>If you check this box your choice will be stored and you will not be "
-"asked again.</p></qt>"
-msgstr ""
-"<qt><p>Wenn Du dit ankrüüzt, warrt Dien Köör wohrt un Du warrst nich "
-"nochmaal fraagt.</p></qt>"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:475
-msgid "&Reread Keys"
-msgstr "Slötels nie&g lesen"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:476
-msgid "&Start Certificate Manager"
-msgstr "&Zertifikaatpleger opropen"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:581
-msgid "No backends found for listing keys. Check your installation."
-msgstr ""
-"Keen Hölp-Programmen för't Oplisten vun Slötels funnen. Prööv bitte Dien "
-"Installatschoon."
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:600
-msgid "Could not start certificate manager; please check your installation."
-msgstr ""
-"De Zertifikaatpleger lett sik nich starten, bitte prööv Dien Installatschoon."
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:602
-msgid "Certificate Manager Error"
-msgstr "Zertifikaatpleger-Fehler"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:652
-msgid "Checking selected keys..."
-msgstr "Utsöcht Slötels warrt pröövt..."
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:652
-msgid "Fetching keys..."
-msgstr "Slötels warrt haalt..."
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:677
-#, kde-format
-msgid ""
-"<qt>One backend returned truncated output.<p>Not all available keys are "
-"shown</p></qt>"
-msgid_plural ""
-"<qt>%1 backends returned truncated output.<p>Not all available keys are "
-"shown</p></qt>"
-msgstr[0] ""
-"<qt>Een Hülpprogramm hett en afsneden Utgaav levert.<p>Nich all verföögbor "
-"Slötels warrt wiest.</p></qt>"
-msgstr[1] ""
-"<qt>%1 Hülpprogrammen hebbt en afsneden Utgaav levert.<p>Nch all verföögbore "
-"Sltels warrt wiest.</p></qt>"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:682
-msgid "Key List Result"
-msgstr "Resultaat vun't Slötel-Oplisten"
-
-#. +> future stable
-#: ui/keyselectiondialog.cpp:789
-msgid "Recheck Key"
-msgstr "Slötel nieg pröven"
-
-#. +> future stable
-#: ui/messagebox.cpp:70
-msgid "&Save to Disk..."
-msgstr "Op Fastplaat &sekern..."
-
-#. +> future stable
-#: ui/messagebox.cpp:76
-msgid "&Copy to Clipboard"
-msgstr "Na Twischenaflaag &koperen"
-
-#. +> future stable
-#: ui/messagebox.cpp:76
-msgid "Copy Audit Log to Clipboard"
-msgstr "Pröövlogbook na Twischenaflaag koperen"
-
-#. +> future stable
-#: ui/messagebox.cpp:81
-msgid "&Show Audit Log"
-msgstr "Pröövlogbook &wiesen"
-
-#. +> future stable
-#: ui/messagebox.cpp:91
-msgid "View GnuPG Audit Log"
-msgstr "GnuPG-Pröövlogbook ankieken"
-
-#. +> future stable
-#: ui/messagebox.cpp:139 ui/messagebox.cpp:141
-msgid "Choose File to Save GnuPG Audit Log to"
-msgstr "GnuPG-Pröövlogbook sekern"
-
-#. +> future stable
-#: ui/messagebox.cpp:164
-#, kde-format
-msgid "Could not save to file \"%1\": %2"
-msgstr "Datei lett sik nich as \"%1\" sekern: %2"
-
-#. +> future stable
-#: ui/messagebox.cpp:166
-msgid "File Save Error"
-msgstr "Fehler bi't Sekern"
-
-#. +> future stable
-#: ui/messagebox.cpp:204
-msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr "Dien Systeem ünnerstütt GnuPG-Pröövlogböker nich"
-
-#. +> future stable
-#: ui/messagebox.cpp:205
-msgid "System Error"
-msgstr "Systeemfehler"
-
-#. +> future stable
-#: ui/messagebox.cpp:212
-#, kde-format
-msgid ""
-"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
-"%1"
-msgstr ""
-"Dat geev en Fehler bi't Halen vun GnuPG sien Pröövlogbook:\n"
-"%1"
-
-#. +> future stable
-#: ui/messagebox.cpp:214
-msgid "GnuPG Audit Log Error"
-msgstr "GnuPG-Pröövlogbook-Fehler"
-
-#. +> future stable
-#: ui/messagebox.cpp:221
-msgid "No GnuPG Audit Log available for this operation."
-msgstr "För disse Akschoon is keen GnuPG-Pröövlogbook verföögbor"
-
-#. +> future stable
-#: ui/messagebox.cpp:222
-msgid "No GnuPG Audit Log"
-msgstr "Keen GnuPG-Pröövlogbook"
-
-#. +> future stable
-#: ui/messagebox.cpp:240 ui/messagebox.cpp:245
-msgid "GnuPG Audit Log Viewer"
-msgstr "Kieker för GnuPG-Pröövlogböker"
-
-#. +> future stable
-#: ui/messagebox.cpp:250
-#, kde-format
-msgid "Signing failed: %1"
-msgstr "Ünnerschrieven fehlslaan: %1"
-
-#. +> future stable
-#: ui/messagebox.cpp:251
-msgid "Signing successful"
-msgstr "Mit Spood ünnerschreven"
-
-#. +> future stable
-#: ui/messagebox.cpp:261
-msgid "Encryption successful"
-msgstr "Mit Spood verslötelt"
-
-#. +> future stable
-#: ui/messagebox.cpp:278
-msgid "Signing Result"
-msgstr "Ünnerschriev-Resultaat"
-
-#. +> future stable
-#: ui/messagebox.cpp:288
-msgid "Signing Error"
-msgstr "Fehler bi't Ünnerschrieven"
-
-#. +> future stable
-#: ui/messagebox.cpp:298 ui/messagebox.cpp:318
-msgid "Encryption Result"
-msgstr "Verslötel-Resultaat"
-
-#. +> future stable
-#: ui/messagebox.cpp:308 ui/messagebox.cpp:328
-msgid "Encryption Error"
-msgstr "Fehler bi't Verslöteln"
-
-#. +> future stable
-#: ui/progressdialog.cpp:89
-#, kde-format
-msgid "%1: %2"
-msgstr "%1: %2"
 
 #: kleo/enum.cpp:39
 #, fuzzy
@@ -1289,10 +173,67 @@ msgstr "S/MIME"
 msgid "Any OpenPGP"
 msgstr "OpenPGP"
 
+#: kleo/enum.cpp:72
+#, kde-format
+msgid "Any"
+msgstr "Jichtenseen"
+
+#: kleo/enum.cpp:147
+#, kde-format
+msgid "Never Encrypt"
+msgstr "Nienich verslöteln"
+
+#: kleo/enum.cpp:149
+#, kde-format
+msgid "Always Encrypt"
+msgstr "Jümmers verslöteln"
+
+#: kleo/enum.cpp:151
+#, kde-format
+msgid "Always Encrypt If Possible"
+msgstr "Jümmers verslöteln, wenn mööglich"
+
+#: kleo/enum.cpp:153 kleo/enum.cpp:210
+#, kde-format
+msgid "Ask"
+msgstr "Nafragen"
+
+#: kleo/enum.cpp:155 kleo/enum.cpp:212
+#, kde-format
+msgid "Ask Whenever Possible"
+msgstr "Jümmers nafragen, wenn mööglich"
+
+#: kleo/enum.cpp:157
+#, kde-kuit-format
+msgctxt "no specific preference"
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>keen</placeholder>"
+
+#: kleo/enum.cpp:204
+#, kde-format
+msgid "Never Sign"
+msgstr "Nienich ünnerschrieven"
+
+#: kleo/enum.cpp:206
+#, kde-format
+msgid "Always Sign"
+msgstr "Jümmers ünnerschrieven"
+
+#: kleo/enum.cpp:208
+#, kde-format
+msgid "Always Sign If Possible"
+msgstr "Jümmers ünnerschrieven, wenn mööglich"
+
+#: kleo/enum.cpp:214
+#, kde-format
+msgctxt "no specific preference"
+msgid "<none>"
+msgstr "<keen>"
+
 #: kleo/expirychecker.cpp:78
 #, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
 msgstr ""
 
 #: kleo/expirychecker.cpp:86
@@ -1738,110 +679,205 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: kleo/keyfiltermanager.cpp:121
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Fully Trusted Certificates"
-msgstr "Troot Zertifikaten"
+#: kleo/keyfiltermanager.cpp:92
+#, kde-format
+msgctxt "All Certificates"
+msgid "All"
+msgstr ""
 
-#: kleo/keyfiltermanager.cpp:153
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Certified Certificates"
-msgstr "Troot Zertifikaten"
+#: kleo/keyfiltermanager.cpp:93
+#, kde-format
+msgid "All certificates (except disabled ones)"
+msgstr ""
 
-#: kleo/keyfiltermanager.cpp:176
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
-msgid "Not Validated Certificates"
-msgstr "Troot Zertifikaten"
+#: kleo/keyfiltermanager.cpp:110
+#, kde-format
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr ""
 
-#: models/keylistmodel.cpp:319 models/useridlistmodel.cpp:105
+#: kleo/keyfiltermanager.cpp:111
+#, kde-format
+msgid "My own certificates (except disabled ones)"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:129
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "All Zertifikaten"
+
+#: kleo/keyfiltermanager.cpp:130
+#, kde-format
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "All Zertifikaten"
+
+#: kleo/keyfiltermanager.cpp:149
+#, kde-format
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:164
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "All Zertifikaten"
+
+#: kleo/keyfiltermanager.cpp:165
+#, kde-format
+msgid ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself (except disabled ones)"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:193
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "All Zertifikaten"
+
+#: kleo/keyfiltermanager.cpp:194
+#, kde-format
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
+msgstr ""
+
+#: kleo/keyfiltermanager.cpp:218
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "All Zertifikaten"
+
+#: kleo/keyfiltermanager.cpp:219
+#, kde-format
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
+msgstr ""
+
+#: models/keylistmodel.cpp:324
 #, fuzzy, kde-format
 #| msgid "User Name"
+msgctxt "@title:column"
 msgid "Name"
 msgstr "Brukernaam"
 
-#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
+#: models/keylistmodel.cpp:326
 #, kde-format
+msgctxt "@title:column"
 msgid "E-Mail"
 msgstr ""
 
-#: models/keylistmodel.cpp:323
-#, fuzzy, kde-format
-#| msgid "User ID"
-msgid "User-IDs"
-msgstr "Bruker-ID"
-
-#: models/keylistmodel.cpp:325 models/subkeylistmodel.cpp:159
-#: models/useridlistmodel.cpp:107
+#: models/keylistmodel.cpp:328
 #, kde-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr ""
+
+#: models/keylistmodel.cpp:330
+#, kde-format
+msgctxt "@title:column"
 msgid "Valid From"
 msgstr ""
 
-#: models/keylistmodel.cpp:327 models/subkeylistmodel.cpp:161
-#: models/useridlistmodel.cpp:108
+#: models/keylistmodel.cpp:332
 #, kde-format
+msgctxt "@title:column"
 msgid "Valid Until"
 msgstr ""
 
-#: models/keylistmodel.cpp:329
+#: models/keylistmodel.cpp:334
 #, fuzzy, kde-format
 #| msgid "(Unknown Protocol)"
+msgctxt "@title:column"
 msgid "Protocol"
 msgstr "(Nich begäng Protokoll)"
 
-#: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
-#: utils/formatting.cpp:478
-#, kde-format
-msgid "Key-ID"
-msgstr ""
+#: models/keylistmodel.cpp:336 models/keylistmodel.cpp:338
+#, fuzzy, kde-format
+#| msgid "Key ID"
+msgctxt "@title:column"
+msgid "Key ID"
+msgstr "Slötel-ID"
 
-#: models/keylistmodel.cpp:335 utils/formatting.cpp:481
+#: models/keylistmodel.cpp:340
 #, kde-format
+msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr ""
 
-#: models/keylistmodel.cpp:337 utils/formatting.cpp:448
+#: models/keylistmodel.cpp:342
 #, kde-format
+msgctxt "@title:column"
 msgid "Issuer"
 msgstr ""
 
-#: models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:344
 #, fuzzy, kde-format
 #| msgid "Fax number"
+msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Faxnummer"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:346
 #, kde-format
+msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:348
 #, kde-format
+msgctxt "@title:column"
 msgid "Last Update"
 msgstr ""
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:350
 #, fuzzy, kde-format
 #| msgid "My Certificates"
+msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Egen Zertifikaten"
 
-#: models/keylistmodel.cpp:347 models/useridlistmodel.cpp:111
+#: models/keylistmodel.cpp:352
 #, kde-format
+msgctxt "@title:column"
 msgid "Tags"
 msgstr ""
 
-#: models/keylistmodel.cpp:395 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:354
+#, kde-format
+msgctxt "@title:column"
+msgid "Algorithm"
+msgstr ""
+
+#: models/keylistmodel.cpp:356
+#, kde-format
+msgctxt "@title:column"
+msgid "Keygrip"
+msgstr ""
+
+#: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:69
 #, fuzzy, kde-format
 #| msgid "Given name"
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "Vörnaam"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:411 models/useridlistmodel.cpp:70
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -1849,13 +885,13 @@ msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "s_dibbern@web.de"
 
-#: models/keylistmodel.cpp:464
+#: models/keylistmodel.cpp:482
 #, fuzzy, kde-format
 #| msgid "Fetching keys..."
 msgid "Loading..."
 msgstr "Slötels warrt haalt..."
 
-#: models/keylistmodel.cpp:542
+#: models/keylistmodel.cpp:568
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1866,14 +902,24 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
-#: utils/formatting.cpp:516
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:493
+#: utils/formatting.cpp:536
 #, kde-format
 msgid "Type"
 msgstr ""
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:503 utils/formatting.cpp:505
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:109
+#, kde-format
+msgid "Valid From"
+msgstr ""
+
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
+#, kde-format
+msgid "Valid Until"
+msgstr ""
+
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
+#: utils/formatting.cpp:523 utils/formatting.cpp:525
 #, kde-format
 msgid "Status"
 msgstr ""
@@ -1883,13 +929,13 @@ msgstr ""
 msgid "Strength"
 msgstr ""
 
-#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
-#: utils/formatting.cpp:519
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:496
+#: utils/formatting.cpp:539
 #, kde-format
 msgid "Usage"
 msgstr ""
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1903,7 +949,7 @@ msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "yes"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -1922,24 +968,47 @@ msgstr "<keen>"
 msgid "not applicable"
 msgstr ""
 
+#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
+#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
+#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
+#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
+#: ui/keyselectiondialog.cpp:197 utils/formatting.cpp:471
+#: utils/formatting.cpp:481
+#, kde-format
+msgid "User ID"
+msgstr "Bruker-ID"
+
 #: models/useridlistmodel.cpp:104
 #, kde-format
 msgid "User ID / Certification Key ID"
 msgstr ""
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:105
+#, fuzzy, kde-format
+#| msgid "User Name"
+msgid "Name"
+msgstr "Brukernaam"
+
+#: models/useridlistmodel.cpp:106
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Email"
+msgstr "s_dibbern@web.de"
+
+#: models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Exportable"
+msgstr ""
+
+#: models/useridlistmodel.cpp:111
+#, kde-format
+msgid "Tags"
 msgstr ""
 
 #: models/useridlistmodel.cpp:112
 #, kde-format
 msgid "Trust Signature For"
-msgstr ""
-
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:891
-#, kde-format
-msgid "class %1"
 msgstr ""
 
 #: ui/auditlogviewer.cpp:52
@@ -1949,13 +1018,89 @@ msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "GnuPG-Pröövlogbook ankieken"
 
+#: ui/auditlogviewer.cpp:55
+#, kde-format
+msgid "&Copy to Clipboard"
+msgstr "Na Twischenaflaag &koperen"
+
+#: ui/auditlogviewer.cpp:60
+#, kde-format
+msgid "&Save to Disk..."
+msgstr "Op Fastplaat &sekern..."
+
+#: ui/auditlogviewer.cpp:102
+#, kde-format
+msgid "Your system does not have support for GnuPG Audit Logs"
+msgstr "Dien Systeem ünnerstütt GnuPG-Pröövlogböker nich"
+
+#: ui/auditlogviewer.cpp:102
+#, kde-format
+msgid "System Error"
+msgstr "Systeemfehler"
+
+#: ui/auditlogviewer.cpp:107
+#, kde-format
+msgid ""
+"An error occurred while trying to retrieve the GnuPG Audit Log:\n"
+"%1"
+msgstr ""
+"Dat geev en Fehler bi't Halen vun GnuPG sien Pröövlogbook:\n"
+"%1"
+
+#: ui/auditlogviewer.cpp:108
+#, kde-format
+msgid "GnuPG Audit Log Error"
+msgstr "GnuPG-Pröövlogbook-Fehler"
+
+#: ui/auditlogviewer.cpp:112
+#, kde-format
+msgid "No GnuPG Audit Log available for this operation."
+msgstr "För disse Akschoon is keen GnuPG-Pröövlogbook verföögbor"
+
+#: ui/auditlogviewer.cpp:112
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Keen GnuPG-Pröövlogbook"
+
+#: ui/auditlogviewer.cpp:118
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "Kieker för GnuPG-Pröövlogböker"
+
+#: ui/auditlogviewer.cpp:133
+#, kde-format
+msgid "Choose File to Save GnuPG Audit Log to"
+msgstr "GnuPG-Pröövlogbook sekern"
+
+#: ui/auditlogviewer.cpp:152
+#, kde-format
+msgid "Could not save to file \"%1\": %2"
+msgstr "Datei lett sik nich as \"%1\" sekern: %2"
+
+#: ui/auditlogviewer.cpp:152
+#, kde-format
+msgid "File Save Error"
+msgstr "Fehler bi't Sekern"
+
 #: ui/cryptoconfigentryreaderport.cpp:45
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:651
+#: ui/cryptoconfigmodule.cpp:108
+#, kde-format
+msgid ""
+"The gpgconf tool used to provide the information for this dialog does not "
+"seem to be installed properly. It did not return any components. Try running "
+"\"%1\" on the command line for more information."
+msgstr ""
+"As't lett is dat Programm \"gpgconf\", dat de Informatschonen för dissen "
+"Dialoog praatstellt, nich propper installeert; dat hett keeneen Komponent "
+"torüchgeven. Versöök dat un föhr \"%1\" op de Konsool ut, wenn Du mehr weten "
+"wullt."
+
+#: ui/cryptoconfigmodule.cpp:539
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1975,50 +1120,72 @@ msgctxt ""
 msgid "yes"
 msgstr "yes"
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:593
 msgid "0 - None"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:594
 msgid "1 - Basic"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:595
 msgid "2 - Verbose"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:596
 msgid "3 - More Verbose"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:709
+#: ui/cryptoconfigmodule.cpp:597
 msgid "4 - All"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:997
+#: ui/cryptoconfigmodule.cpp:609
+#, kde-format
+msgid "Set the debugging level to"
+msgstr "Fehlersöök-Stoop fastleggen op"
+
+#: ui/cryptoconfigmodule.cpp:832
+#, kde-format
+msgid "Show..."
+msgstr "Wiesen..."
+
+#: ui/cryptoconfigmodule.cpp:832
+#, kde-format
+msgid "Edit..."
+msgstr "Bewerken..."
+
+#: ui/cryptoconfigmodule.cpp:885
 #, kde-format
 msgid ""
 "Configuration of directory services is not possible because the used gpgme "
 "libraries are too old."
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:999
+#: ui/cryptoconfigmodule.cpp:887
 #, kde-format
 msgid "Sorry"
 msgstr ""
 
-#: ui/cryptoconfigmodule.cpp:1006
+#: ui/cryptoconfigmodule.cpp:894
 #, fuzzy, kde-format
 #| msgid "Add or Change Directory Service"
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Vertekendeenst tofögen oder ännern"
 
-#: ui/cryptoconfigmodule.cpp:1035
+#: ui/cryptoconfigmodule.cpp:923
 #, fuzzy, kde-format
 #| msgid "No server configured yet"
 msgid "None configured"
 msgstr "Noch keen Server inricht"
+
+#: ui/cryptoconfigmodule.cpp:925
+#, kde-format
+msgid "1 server configured"
+msgid_plural "%1 servers configured"
+msgstr[0] "1 Server inricht"
+msgstr[1] "%1 Servers inricht"
 
 #: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
 #, kde-format
@@ -2114,6 +1281,11 @@ msgstr ""
 "wegmaken wullt. De Ännern warrt eerst bruukt, wenn Du den Hööft-"
 "Instellendialoog beglöven deist."
 
+#: ui/directoryserviceswidget.cpp:224
+#, kde-format
+msgid "Delete"
+msgstr "Wegdoon"
+
 #: ui/directoryserviceswidget.cpp:225
 #, fuzzy, kde-format
 #| msgid "Click to remove the currently selected service"
@@ -2143,64 +1315,109 @@ msgctxt "@title:window"
 msgid "LDAP Directory Service"
 msgstr "Vertekendeensten:"
 
-#: ui/dnattributeorderconfigwidget.cpp:98
+#: ui/dnattributeorderconfigwidget.cpp:75
+#, kde-format
+msgid "Description"
+msgstr "Beschrieven"
+
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgid "Available attributes:"
+msgstr "Verföögbor Attributen:"
+
+#: ui/dnattributeorderconfigwidget.cpp:92
+#, kde-format
+msgid "Current attribute order:"
+msgstr "Aktuelle Attributreeg:"
+
+#: ui/dnattributeorderconfigwidget.cpp:100
 #, fuzzy, kde-format
 #| msgid "Available attributes:"
 msgid "available attributes"
 msgstr "Verföögbor Attributen:"
 
-#: ui/dnattributeorderconfigwidget.cpp:118
+#: ui/dnattributeorderconfigwidget.cpp:107
+#: ui/dnattributeorderconfigwidget.cpp:108
+#, kde-format
+msgid "All others"
+msgstr "All anner"
+
+#: ui/dnattributeorderconfigwidget.cpp:120
 msgctxt "@action:button"
 msgid "Add"
 msgstr ""
 
-#: ui/dnattributeorderconfigwidget.cpp:125
+#: ui/dnattributeorderconfigwidget.cpp:121
+msgid "Add to current attribute order"
+msgstr "Na aktuelle Attributreeg tofögen"
+
+#: ui/dnattributeorderconfigwidget.cpp:127
 #, fuzzy
 #| msgid "&Remove Service"
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Deenst &wegmaken"
 
-#: ui/dnattributeorderconfigwidget.cpp:132
+#: ui/dnattributeorderconfigwidget.cpp:128
+msgid "Remove from current attribute order"
+msgstr "Ut aktuelle Attributreeg wegmaken"
+
+#: ui/dnattributeorderconfigwidget.cpp:134
 #, fuzzy
 #| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Heel na baven"
 
-#: ui/dnattributeorderconfigwidget.cpp:139
+#: ui/dnattributeorderconfigwidget.cpp:135
+msgid "Move to top"
+msgstr "Heel na baven"
+
+#: ui/dnattributeorderconfigwidget.cpp:141
 #, fuzzy
 #| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "Heel na baven"
 
-#: ui/dnattributeorderconfigwidget.cpp:146
+#: ui/dnattributeorderconfigwidget.cpp:142
+msgid "Move one up"
+msgstr "Na baven"
+
+#: ui/dnattributeorderconfigwidget.cpp:148
 #, fuzzy
 #| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Na nerrn"
 
-#: ui/dnattributeorderconfigwidget.cpp:153
+#: ui/dnattributeorderconfigwidget.cpp:149
+msgid "Move one down"
+msgstr "Na nerrn"
+
+#: ui/dnattributeorderconfigwidget.cpp:155
 #, fuzzy
 #| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Heel na nerrn"
 
-#: ui/dnattributeorderconfigwidget.cpp:184
+#: ui/dnattributeorderconfigwidget.cpp:156
+msgid "Move to bottom"
+msgstr "Heel na nerrn"
+
+#: ui/dnattributeorderconfigwidget.cpp:186
 #, fuzzy, kde-format
 #| msgid "Current attribute order:"
 msgid "current attribute order"
 msgstr "Aktuelle Attributreeg:"
 
-#: ui/editdirectoryservicedialog.cpp:99
+#: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgid "Host:"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:100
+#: ui/editdirectoryservicedialog.cpp:104
 #, fuzzy, kde-format
 #| msgid ""
 #| "Enter the name or IP address of the server hosting the directory service."
@@ -2211,13 +1428,19 @@ msgstr ""
 "Den Naam oder de IP-Adress vun den Server ingeven, de den Vertekendeenst "
 "praatstellt"
 
-#: ui/editdirectoryservicedialog.cpp:104
+#: ui/editdirectoryservicedialog.cpp:113
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr ""
+
+#: ui/editdirectoryservicedialog.cpp:117
 #, fuzzy, kde-format
 #| msgid "&Port:"
 msgid "Port:"
 msgstr "&Port:"
 
-#: ui/editdirectoryservicedialog.cpp:107
+#: ui/editdirectoryservicedialog.cpp:120
 #, fuzzy, kde-format
 #| msgid ""
 #| "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
@@ -2230,39 +1453,39 @@ msgstr ""
 "<b>(Wahlwies, de Standardinstellen lett sik meist jümmers bruken)</b> De "
 "Port utsöken, achter de de Vertekendeenst luustert"
 
-#: ui/editdirectoryservicedialog.cpp:110
+#: ui/editdirectoryservicedialog.cpp:123
 #, kde-format
 msgid "Use default"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:116
+#: ui/editdirectoryservicedialog.cpp:129
 #, fuzzy, kde-format
 #| msgid "Other Certificates"
 msgid "Authentication"
 msgstr "Anner Zertifikaten"
 
-#: ui/editdirectoryservicedialog.cpp:120
+#: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgid "Anonymous"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:121
+#: ui/editdirectoryservicedialog.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:127
+#: ui/editdirectoryservicedialog.cpp:140
 #, kde-format
 msgid "Authenticate via Active Directory"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:129
+#: ui/editdirectoryservicedialog.cpp:142
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:132
+#: ui/editdirectoryservicedialog.cpp:145
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2270,37 +1493,37 @@ msgid ""
 "the current user."
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:137
+#: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgid "Authenticate with user and password"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:138
+#: ui/editdirectoryservicedialog.cpp:151
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:148
+#: ui/editdirectoryservicedialog.cpp:161
 #, fuzzy, kde-format
 #| msgid "User ID"
 msgid "User:"
 msgstr "Bruker-ID"
 
-#: ui/editdirectoryservicedialog.cpp:149
+#: ui/editdirectoryservicedialog.cpp:162
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:153
+#: ui/editdirectoryservicedialog.cpp:166
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Password:"
 msgstr "Passwoort"
 
-#: ui/editdirectoryservicedialog.cpp:155
+#: ui/editdirectoryservicedialog.cpp:168
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "<b>(Optional, not recommended)</b> Enter your password here, if needed. "
@@ -2316,22 +1539,22 @@ msgstr ""
 "dat Passwoort warrt as Kloortext na en Instellendatei binnen Dien "
 "Tohuusorner schreven."
 
-#: ui/editdirectoryservicedialog.cpp:165
+#: ui/editdirectoryservicedialog.cpp:178
 #, kde-format
 msgid "Connection Security"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:167
+#: ui/editdirectoryservicedialog.cpp:180
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:172
+#: ui/editdirectoryservicedialog.cpp:185
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:174
+#: ui/editdirectoryservicedialog.cpp:187
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2339,12 +1562,12 @@ msgid ""
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:182
+#: ui/editdirectoryservicedialog.cpp:195
 #, kde-format
 msgid "Do not use a TLS secured connection"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:184
+#: ui/editdirectoryservicedialog.cpp:197
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2352,12 +1575,12 @@ msgid ""
 "<b>(Not recommended)</b>"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:190
+#: ui/editdirectoryservicedialog.cpp:203
 #, kde-format
 msgid "Use TLS secured connection"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:192
+#: ui/editdirectoryservicedialog.cpp:205
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2365,12 +1588,12 @@ msgid ""
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:199
+#: ui/editdirectoryservicedialog.cpp:212
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:201
+#: ui/editdirectoryservicedialog.cpp:214
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2378,18 +1601,18 @@ msgid ""
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:210
+#: ui/editdirectoryservicedialog.cpp:223
 #, kde-format
 msgid "Advanced Settings"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:215
+#: ui/editdirectoryservicedialog.cpp:228
 #, fuzzy, kde-format
 #| msgid "&Base DN:"
 msgid "Base DN:"
 msgstr "&Wörtel-DN:"
 
-#: ui/editdirectoryservicedialog.cpp:217
+#: ui/editdirectoryservicedialog.cpp:230
 #, fuzzy, kde-format
 #| msgid ""
 #| "<b>(Only for LDAP)</b> Enter the base DN for this LDAP server to limit "
@@ -2402,12 +1625,12 @@ msgstr ""
 "<b>(Bloots bi LDAP)</b> Den Wörtel-DN för dissen LDAP-Server angeven, grenzt "
 "dat Söken op dissen Ünnerboom vun dat Verteken in."
 
-#: ui/editdirectoryservicedialog.cpp:223
+#: ui/editdirectoryservicedialog.cpp:236
 #, kde-format
 msgid "Additional flags:"
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:225
+#: ui/editdirectoryservicedialog.cpp:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2416,7 +1639,7 @@ msgid ""
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
 
-#: ui/editdirectoryservicedialog.cpp:395
+#: ui/editdirectoryservicedialog.cpp:411
 #, fuzzy, kde-format
 #| msgid "Directory services:"
 msgctxt "@title:window"
@@ -2428,6 +1651,36 @@ msgstr "Vertekendeensten:"
 msgid "Open file dialog"
 msgstr ""
 
+#: ui/keyapprovaldialog.cpp:76
+#, kde-kuit-format
+msgid "<placeholder>none</placeholder>"
+msgstr "<placeholder>keen</placeholder>"
+
+#: ui/keyapprovaldialog.cpp:77
+#, kde-format
+msgid "Never Encrypt with This Key"
+msgstr "Nienich mit dissen Slötel verslöteln"
+
+#: ui/keyapprovaldialog.cpp:78
+#, kde-format
+msgid "Always Encrypt with This Key"
+msgstr "Jümmers mit dissen Slötel verslöteln"
+
+#: ui/keyapprovaldialog.cpp:79
+#, kde-format
+msgid "Encrypt Whenever Encryption is Possible"
+msgstr "Jümmers verslöteln, wenn dat mööglich is"
+
+#: ui/keyapprovaldialog.cpp:80
+#, kde-format
+msgid "Always Ask"
+msgstr "Jümmers nafragen"
+
+#: ui/keyapprovaldialog.cpp:81
+#, kde-format
+msgid "Ask Whenever Encryption is Possible"
+msgstr "Jümmers nafragen, wenn Verslöteln mööglich is"
+
 #: ui/keyapprovaldialog.cpp:102
 #, fuzzy, kde-format
 #| msgid "Encryption Key Approval"
@@ -2435,25 +1688,126 @@ msgctxt "@title:window"
 msgid "Encryption Key Approval"
 msgstr "Verslötel-Slötel beglöven"
 
-#: ui/keyselectioncombo.cpp:85
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgid "The following keys will be used for encryption:"
+msgstr "Mit disse Slötels warrt verslötelt:"
+
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgid "Your keys:"
+msgstr "Dien Slötels:"
+
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgid "Recipient:"
+msgstr "Adressaat:"
+
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgid "Encryption keys:"
+msgstr "Verslötel-Slötels:"
+
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgid "Encryption preference:"
+msgstr "Verslötel-Instellen:"
+
+#: ui/keyrequester.cpp:89
+#, kde-format
+msgid "Clear"
+msgstr "Leddig maken"
+
+#: ui/keyrequester.cpp:92
+#, kde-format
+msgid "Change..."
+msgstr "Ännern..."
+
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#, kde-kuit-format
+msgid "<placeholder>unknown</placeholder>"
+msgstr "<placeholder>nich begäng</placeholder>"
+
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#, kde-format
+msgid ""
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
+msgstr ""
+"<qt><p>Bi't Halen vun de Slötels vun dat Hölp-Programm geev dat disse "
+"Problemen:</p><p><b>%1</b></p></qt>"
+
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#, kde-format
+msgid "Key Listing Failed"
+msgstr "Oplisten vun de Slötels fehlslaan"
+
+#: ui/keyrequester.cpp:270
+#, kde-format
+msgid ""
+"The OpenPGP backend does not support listing keys. Check your installation."
+msgstr ""
+"Dat Hölp-Programm för OpenPGP ünnerstütt dat Oplisten vun Slötels nich. "
+"Prööv bitte Dien Installatschoon."
+
+#: ui/keyrequester.cpp:292
+#, kde-format
+msgid ""
+"The S/MIME backend does not support listing keys. Check your installation."
+msgstr ""
+"Dat Hölp-Programm för S/MIME ünnerstütt dat Oplisten vun Slötels nich. Prööv "
+"bitte Dien Installatschoon."
+
+#: ui/keyrequester.cpp:412
+#, kde-format
+msgid "OpenPGP Key Selection"
+msgstr "OpenPGP-Slötel utsöken"
+
+#: ui/keyrequester.cpp:413
+#, kde-format
+msgid "Please select an OpenPGP key to use."
+msgstr "Söök bitte en OpenPGP-Slötel ut"
+
+#: ui/keyrequester.cpp:415
+#, kde-format
+msgid "S/MIME Key Selection"
+msgstr "S/MIME-Slötel utsöken"
+
+#: ui/keyrequester.cpp:416
+#, kde-format
+msgid "Please select an S/MIME key to use."
+msgstr "Söök bitte en S/MIME-Slötel ut"
+
+#: ui/keyrequester.cpp:418
+#, kde-format
+msgid "Key Selection"
+msgstr "Slötel utsöken"
+
+#: ui/keyrequester.cpp:419
+#, kde-format
+msgid "Please select an (OpenPGP or S/MIME) key to use."
+msgstr "Söök bitte en (OpenPGP- oder S/MIME-) Slötel ut"
+
+#: ui/keyselectioncombo.cpp:86 ui/useridselectioncombo.cpp:93
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:176
+#: ui/keyselectioncombo.cpp:177 ui/useridselectioncombo.cpp:175
 #, kde-format
 msgctxt "Name <email> (validity, created: date)"
 msgid "%1 (%2, created: %3)"
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:182
+#: ui/keyselectioncombo.cpp:183 ui/useridselectioncombo.cpp:181
 #, kde-format
 msgctxt "Name <email> (validity, type, created: date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr ""
 
-#: ui/keyselectioncombo.cpp:671
+#: ui/keyselectioncombo.cpp:922 ui/useridselectioncombo.cpp:713
 #, fuzzy, kde-format
 #| msgid "Fetching keys..."
 msgid "Loading keys ..."
@@ -2515,6 +1869,17 @@ msgstr ""
 msgid "The key is not trusted enough."
 msgstr ""
 
+#: ui/keyselectiondialog.cpp:195 utils/formatting.cpp:499
+#, kde-format
+msgid "Key ID"
+msgstr "Slötel-ID"
+
+#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#, kde-format
+msgid "unknown"
+msgstr "nich begäng"
+
 #: ui/keyselectiondialog.cpp:269
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
@@ -2525,14 +1890,14 @@ msgstr ""
 msgid "S/MIME key for <b>%1</b>"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:465
-#: utils/formatting.cpp:508
+#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:485
+#: utils/formatting.cpp:528
 #, kde-format
 msgid "Valid from"
 msgstr ""
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:468
-#: utils/formatting.cpp:511
+#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:488
+#: utils/formatting.cpp:531
 #, kde-format
 msgid "Valid until"
 msgstr ""
@@ -2560,6 +1925,93 @@ msgstr ""
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr ""
+
+#: ui/keyselectiondialog.cpp:426
+#, kde-format
+msgid "Search for &External Certificates"
+msgstr "Na &extern Zertifikaten söken"
+
+#: ui/keyselectiondialog.cpp:440
+#, kde-format
+msgid "&Search for:"
+msgstr "&Söken na:"
+
+#: ui/keyselectiondialog.cpp:465
+#, kde-format
+msgid "&Remember choice"
+msgstr "Köör woh&ren"
+
+#: ui/keyselectiondialog.cpp:468
+#, kde-format
+msgid ""
+"<qt><p>If you check this box your choice will be stored and you will not be "
+"asked again.</p></qt>"
+msgstr ""
+"<qt><p>Wenn Du dit ankrüüzt, warrt Dien Köör wohrt un Du warrst nich "
+"nochmaal fraagt.</p></qt>"
+
+#: ui/keyselectiondialog.cpp:482
+#, kde-format
+msgid "&Reread Keys"
+msgstr "Slötels nie&g lesen"
+
+#: ui/keyselectiondialog.cpp:487
+#, kde-format
+msgid "&Start Certificate Manager"
+msgstr "&Zertifikaatpleger opropen"
+
+#: ui/keyselectiondialog.cpp:647
+#, kde-format
+msgid "No backends found for listing keys. Check your installation."
+msgstr ""
+"Keen Hölp-Programmen för't Oplisten vun Slötels funnen. Prööv bitte Dien "
+"Installatschoon."
+
+#: ui/keyselectiondialog.cpp:665
+#, kde-format
+msgid "Could not start certificate manager; please check your installation."
+msgstr ""
+"De Zertifikaatpleger lett sik nich starten, bitte prööv Dien Installatschoon."
+
+#: ui/keyselectiondialog.cpp:667
+#, kde-format
+msgid "Certificate Manager Error"
+msgstr "Zertifikaatpleger-Fehler"
+
+#: ui/keyselectiondialog.cpp:724
+#, kde-format
+msgid "Checking selected keys..."
+msgstr "Utsöcht Slötels warrt pröövt..."
+
+#: ui/keyselectiondialog.cpp:724
+#, kde-format
+msgid "Fetching keys..."
+msgstr "Slötels warrt haalt..."
+
+#: ui/keyselectiondialog.cpp:756
+#, kde-format
+msgid ""
+"<qt>One backend returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgid_plural ""
+"<qt>%1 backends returned truncated output.<p>Not all available keys are "
+"shown</p></qt>"
+msgstr[0] ""
+"<qt>Een Hülpprogramm hett en afsneden Utgaav levert.<p>Nich all verföögbor "
+"Slötels warrt wiest.</p></qt>"
+msgstr[1] ""
+"<qt>%1 Hülpprogrammen hebbt en afsneden Utgaav levert.<p>Nch all verföögbore "
+"Sltels warrt wiest.</p></qt>"
+
+#: ui/keyselectiondialog.cpp:761
+#, kde-format
+msgid "Key List Result"
+msgstr "Resultaat vun't Slötel-Oplisten"
+
+#: ui/keyselectiondialog.cpp:883
+#, kde-format
+msgid "Recheck Key"
+msgstr "Slötel nieg pröven"
 
 #: ui/messagebox.cpp:69
 #, fuzzy, kde-format
@@ -2615,8 +2067,8 @@ msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
 msgid ""
-"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
-"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"Generate a new key using your email address.<br/><br/>The key is necessary "
+"to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
@@ -2626,6 +2078,12 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Verslötel-Slötel beglöven"
+
+#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
+#: utils/formatting.cpp:818
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, fuzzy, kde-format
@@ -2658,13 +2116,13 @@ msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
-msgid "Don't confirm identity and integrity"
+msgid "Do not sign this email"
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
-msgid "The E-Mail will not be cryptographically signed."
+msgid "The email will not be cryptographically signed."
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:577
@@ -2683,7 +2141,7 @@ msgstr ""
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
-"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
 
@@ -2729,6 +2187,25 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr ""
 
+#: ui/treeview.cpp:69 ui/treewidget.cpp:172
+#, kde-format
+msgctxt "@title:menu"
+msgid "View Columns"
+msgstr ""
+
+#: ui/useridselectioncombo.cpp:542
+#, fuzzy, kde-format
+#| msgid "My Certificates"
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr "Egen Zertifikaten"
+
+#: ui/useridselectioncombo.cpp:543
+#, fuzzy, kde-format
+#| msgid "My Certificates"
+msgid "Show certificate list"
+msgstr "Egen Zertifikaten"
+
 #: utils/compliance.cpp:160
 #, fuzzy, kde-format
 #| msgid "All Certificates"
@@ -2741,52 +2218,42 @@ msgstr "All Zertifikaten"
 msgid "Not VS-NfD compliant"
 msgstr "All Zertifikaten"
 
-#: utils/formatting.cpp:325
+#: utils/formatting.cpp:329
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
 msgstr ""
 
-#: utils/formatting.cpp:327 utils/formatting.cpp:338
+#: utils/formatting.cpp:331 utils/formatting.cpp:342
 #, kde-format
 msgid "%1-bit %2"
 msgstr ""
 
-#: utils/formatting.cpp:346 utils/formatting.cpp:368
+#: utils/formatting.cpp:350 utils/formatting.cpp:372
 #, fuzzy, kde-format
 #| msgid "Signing failed: %1"
 msgid "Signing (Qualified)"
 msgstr "Ünnerschrieven fehlslaan: %1"
 
-#: utils/formatting.cpp:348 utils/formatting.cpp:370
+#: utils/formatting.cpp:352 utils/formatting.cpp:374
 #, fuzzy, kde-format
 #| msgid "Signing Error"
 msgid "Signing"
 msgstr "Fehler bi't Ünnerschrieven"
 
-#: utils/formatting.cpp:352 utils/formatting.cpp:374
+#: utils/formatting.cpp:356 utils/formatting.cpp:378
 #, fuzzy, kde-format
 #| msgid "Encryption keys:"
 msgid "Encryption"
 msgstr "Verslötel-Slötels:"
 
-#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#: utils/formatting.cpp:359 utils/formatting.cpp:381
 #, kde-format
-msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr ""
 
-#: utils/formatting.cpp:358 utils/formatting.cpp:380
+#: utils/formatting.cpp:362 utils/formatting.cpp:384
 #, kde-format
 msgid "SSH Authentication"
-msgstr ""
-
-#: utils/formatting.cpp:410 utils/formatting.cpp:503
-#, kde-format
-msgid "Revoked"
-msgstr ""
-
-#: utils/formatting.cpp:412 utils/formatting.cpp:505
-#, kde-format
-msgid "Expired"
 msgstr ""
 
 #: utils/formatting.cpp:414
@@ -2794,57 +2261,83 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
-#: utils/formatting.cpp:423
+#: utils/formatting.cpp:416 utils/formatting.cpp:523
 #, kde-format
-msgid "All User-IDs are certified."
+msgid "Revoked"
 msgstr ""
 
-#: utils/formatting.cpp:429
+#: utils/formatting.cpp:418 utils/formatting.cpp:525
 #, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
-msgstr[0] ""
-msgstr[1] ""
+msgid "Expired"
+msgstr ""
 
-#: utils/formatting.cpp:432 utils/formatting.cpp:435
+#: utils/formatting.cpp:422
+#, kde-format
+msgid "User ID is certified."
+msgstr ""
+
+#: utils/formatting.cpp:428
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid "User ID is not certified."
+msgstr "All Zertifikaten"
+
+#: utils/formatting.cpp:438
+#, kde-format
+msgid "All User IDs are certified."
+msgstr ""
+
+#: utils/formatting.cpp:444
+#, fuzzy, kde-format
+#| msgid "All Certificates"
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
+msgstr[0] "All Zertifikaten"
+msgstr[1] "All Zertifikaten"
+
+#: utils/formatting.cpp:448 utils/formatting.cpp:451
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr ""
 
-#: utils/formatting.cpp:445
+#: utils/formatting.cpp:461
 #, fuzzy, kde-format
 #| msgid "Fax number"
 msgid "Serial number"
 msgstr "Faxnummer"
 
-#: utils/formatting.cpp:454
+#: utils/formatting.cpp:464
+#, kde-format
+msgid "Issuer"
+msgstr ""
+
+#: utils/formatting.cpp:471 utils/formatting.cpp:481
 #, kde-format
 msgid "Subject"
 msgstr ""
 
-#: utils/formatting.cpp:454
-#, fuzzy, kde-format
-#| msgid "User ID"
-msgid "User-ID"
-msgstr "Bruker-ID"
-
-#: utils/formatting.cpp:459
+#: utils/formatting.cpp:476
 #, kde-format
 msgid "a.k.a."
 msgstr ""
 
-#: utils/formatting.cpp:485
+#: utils/formatting.cpp:502
+#, kde-format
+msgid "Fingerprint"
+msgstr ""
+
+#: utils/formatting.cpp:506
 #, fuzzy, kde-format
 #| msgid "My Certificates"
 msgid "Certification trust"
 msgstr "Egen Zertifikaten"
 
-#: utils/formatting.cpp:487
+#: utils/formatting.cpp:508
 #, kde-format
 msgid "Trusted issuer?"
 msgstr ""
 
-#: utils/formatting.cpp:487
+#: utils/formatting.cpp:508
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -2857,66 +2350,74 @@ msgstr ""
 msgid "Yes"
 msgstr "yes"
 
-#: utils/formatting.cpp:487
+#: utils/formatting.cpp:508
 #, kde-format
 msgid "No"
 msgstr ""
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:495 utils/formatting.cpp:523
-#: utils/formatting.cpp:525
+#: utils/formatting.cpp:513 utils/formatting.cpp:515 utils/formatting.cpp:543
+#: utils/formatting.cpp:545
 #, kde-format
 msgid "Stored"
 msgstr ""
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:523
+#: utils/formatting.cpp:513 utils/formatting.cpp:543
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr ""
 
-#: utils/formatting.cpp:495 utils/formatting.cpp:525
+#: utils/formatting.cpp:515 utils/formatting.cpp:545
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr ""
 
-#: utils/formatting.cpp:501
+#: utils/formatting.cpp:521
 #, kde-format
 msgid "Subkey"
 msgstr ""
 
-#: utils/formatting.cpp:549
+#: utils/formatting.cpp:574
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
 
-#: utils/formatting.cpp:553
+#: utils/formatting.cpp:578
 #, kde-format
 msgid "All keys are certified."
 msgstr ""
 
-#: utils/formatting.cpp:555
+#: utils/formatting.cpp:580
 #, kde-format
 msgid "Some keys are not certified."
 msgstr ""
 
-#: utils/formatting.cpp:559
+#: utils/formatting.cpp:584
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr ""
 
-#: utils/formatting.cpp:573
+#: utils/formatting.cpp:598
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr ""
 
-#: utils/formatting.cpp:593
+#: utils/formatting.cpp:604
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Some of the certificates in this group cannot be used for encryption. Using "
+"this group can lead to unexpected results."
+msgstr ""
+
+#: utils/formatting.cpp:624
 #, kde-format
 msgid "Keys:"
 msgstr ""
 
-#: utils/formatting.cpp:601
+#: utils/formatting.cpp:632
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
@@ -2924,7 +2425,7 @@ msgid_plural "and %1 more keys"
 msgstr[0] ""
 msgstr[1] ""
 
-#: utils/formatting.cpp:629
+#: utils/formatting.cpp:665
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2932,277 +2433,283 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr ""
 
-#: utils/formatting.cpp:675 utils/formatting.cpp:710
+#: utils/formatting.cpp:711 utils/formatting.cpp:746
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "nich begäng"
 
-#: utils/formatting.cpp:717 utils/formatting.cpp:726
+#: utils/formatting.cpp:753 utils/formatting.cpp:762
 #, kde-format
 msgid "unlimited"
 msgstr ""
 
-#: utils/formatting.cpp:779
+#: utils/formatting.cpp:815
 #, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:784
+#: utils/formatting.cpp:820
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "nich begäng"
 
-#: utils/formatting.cpp:800
+#: utils/formatting.cpp:836
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr ""
 
-#: utils/formatting.cpp:816 utils/formatting.cpp:861
+#: utils/formatting.cpp:852 utils/formatting.cpp:897
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "nich begäng"
 
-#: utils/formatting.cpp:818 utils/formatting.cpp:865
+#: utils/formatting.cpp:854 utils/formatting.cpp:901
 #, kde-format
 msgid "untrusted"
 msgstr ""
 
-#: utils/formatting.cpp:820 utils/formatting.cpp:867
+#: utils/formatting.cpp:856 utils/formatting.cpp:903
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr ""
 
-#: utils/formatting.cpp:822 utils/formatting.cpp:869
+#: utils/formatting.cpp:858 utils/formatting.cpp:905
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr ""
 
-#: utils/formatting.cpp:824 utils/formatting.cpp:871
+#: utils/formatting.cpp:860 utils/formatting.cpp:907
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr ""
 
-#: utils/formatting.cpp:826 utils/formatting.cpp:863
+#: utils/formatting.cpp:862 utils/formatting.cpp:899
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr ""
 
-#: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
-#: utils/formatting.cpp:1298 utils/formatting.cpp:1326
-#, kde-format
-msgid "revoked"
-msgstr ""
-
-#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1295
-#: utils/formatting.cpp:1323
-#, kde-format
-msgid "expired"
-msgstr ""
-
-#: utils/formatting.cpp:843 utils/formatting.cpp:1301 utils/formatting.cpp:1329
+#: utils/formatting.cpp:873 utils/formatting.cpp:1343 utils/formatting.cpp:1368
 #, kde-format
 msgid "disabled"
 msgstr ""
 
-#: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
-#: utils/formatting.cpp:1304 utils/formatting.cpp:1332
+#: utils/formatting.cpp:876 utils/formatting.cpp:890 utils/formatting.cpp:925
+#: utils/formatting.cpp:1346 utils/formatting.cpp:1371
+#, kde-format
+msgid "revoked"
+msgstr ""
+
+#: utils/formatting.cpp:879 utils/formatting.cpp:935 utils/formatting.cpp:1349
+#: utils/formatting.cpp:1374
+#, kde-format
+msgid "expired"
+msgstr ""
+
+#: utils/formatting.cpp:882 utils/formatting.cpp:893 utils/formatting.cpp:933
+#: utils/formatting.cpp:1352 utils/formatting.cpp:1377
 #, kde-format
 msgid "invalid"
 msgstr ""
 
-#: utils/formatting.cpp:848
-#, kde-format
-msgctxt "as in good/valid signature"
-msgid "good"
-msgstr ""
+#: utils/formatting.cpp:884
+#, fuzzy, kde-format
+#| msgid "&OK"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "&OK"
 
-#: utils/formatting.cpp:887
+#: utils/formatting.cpp:923
 #, kde-format
 msgid "valid"
 msgstr ""
 
-#: utils/formatting.cpp:901
+#: utils/formatting.cpp:927
+#, kde-format
+msgid "class %1"
+msgstr ""
+
+#: utils/formatting.cpp:937
 #, kde-format
 msgid "certificate expired"
 msgstr ""
 
-#: utils/formatting.cpp:903
+#: utils/formatting.cpp:939
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr ""
 
-#: utils/formatting.cpp:909
+#: utils/formatting.cpp:945
 #, kde-format
 msgid "no public key"
 msgstr ""
 
-#: utils/formatting.cpp:911
-#, kde-format
-msgid "key expired"
-msgstr ""
-
-#: utils/formatting.cpp:913
-#, kde-format
-msgid "key revoked"
-msgstr ""
-
-#: utils/formatting.cpp:915
+#: utils/formatting.cpp:947
 #, kde-format
 msgid "key disabled"
 msgstr ""
 
-#: utils/formatting.cpp:971
+#: utils/formatting.cpp:949
+#, kde-format
+msgid "key revoked"
+msgstr ""
+
+#: utils/formatting.cpp:951
+#, kde-format
+msgid "key expired"
+msgstr ""
+
+#: utils/formatting.cpp:1007
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr ""
 
-#: utils/formatting.cpp:1029
+#: utils/formatting.cpp:1065
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1031
+#: utils/formatting.cpp:1067
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1034
+#: utils/formatting.cpp:1070
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1040
+#: utils/formatting.cpp:1076
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr ""
 
-#: utils/formatting.cpp:1042
+#: utils/formatting.cpp:1078
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr ""
 
-#: utils/formatting.cpp:1045
+#: utils/formatting.cpp:1081
 #, kde-format
 msgid "Good signature by %1."
 msgstr ""
 
-#: utils/formatting.cpp:1050
+#: utils/formatting.cpp:1086
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1052
+#: utils/formatting.cpp:1088
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1055
+#: utils/formatting.cpp:1091
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr ""
 
-#: utils/formatting.cpp:1069
+#: utils/formatting.cpp:1105
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr ""
 
-#: utils/formatting.cpp:1080
+#: utils/formatting.cpp:1116
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr ""
 
-#: utils/formatting.cpp:1083
+#: utils/formatting.cpp:1119
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1088
+#: utils/formatting.cpp:1124
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 
-#: utils/formatting.cpp:1089
+#: utils/formatting.cpp:1125
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr ""
 
-#: utils/formatting.cpp:1094
+#: utils/formatting.cpp:1130
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr ""
 
-#: utils/formatting.cpp:1097
+#: utils/formatting.cpp:1133
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr ""
 
-#: utils/formatting.cpp:1100
+#: utils/formatting.cpp:1136
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr ""
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1139
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 
-#: utils/formatting.cpp:1119
+#: utils/formatting.cpp:1155
 #, kde-format
 msgid "Certify"
 msgstr ""
 
-#: utils/formatting.cpp:1122
+#: utils/formatting.cpp:1158
 #, kde-format
 msgid "Sign"
 msgstr ""
 
-#: utils/formatting.cpp:1125
+#: utils/formatting.cpp:1161
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt"
 msgstr "Nienich verslöteln"
 
-#: utils/formatting.cpp:1128
+#: utils/formatting.cpp:1164
 #, fuzzy, kde-format
 #| msgid "Other Certificates"
 msgid "Authenticate"
 msgstr "Anner Zertifikaten"
 
-#: utils/formatting.cpp:1131
+#: utils/formatting.cpp:1167
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
 msgstr ""
 
-#: utils/formatting.cpp:1139
+#: utils/formatting.cpp:1175
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr ""
 
-#: utils/formatting.cpp:1150
+#: utils/formatting.cpp:1186
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr ""
 
-#: utils/formatting.cpp:1162
+#: utils/formatting.cpp:1198
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -3210,7 +2717,7 @@ msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: utils/formatting.cpp:1169
+#: utils/formatting.cpp:1205
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -3218,7 +2725,7 @@ msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: utils/formatting.cpp:1176
+#: utils/formatting.cpp:1212
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -3226,203 +2733,251 @@ msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: utils/formatting.cpp:1197
+#: utils/formatting.cpp:1233
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr ""
 
-#: utils/formatting.cpp:1199
+#: utils/formatting.cpp:1235
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr ""
 
-#: utils/formatting.cpp:1201
+#: utils/formatting.cpp:1237
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
 
-#: utils/formatting.cpp:1203
+#: utils/formatting.cpp:1239
 #, kde-format
 msgid "This certificate should not be used."
 msgstr ""
 
-#: utils/formatting.cpp:1207
+#: utils/formatting.cpp:1243
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
 
-#: utils/formatting.cpp:1219
+#: utils/formatting.cpp:1255
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr ""
 
-#: utils/formatting.cpp:1279
+#: utils/formatting.cpp:1315 utils/formatting.cpp:1327
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "nich begäng"
 
-#: utils/formatting.cpp:1292
+#: utils/formatting.cpp:1340
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "All Zertifikaten"
 
-#: utils/formatting.cpp:1307
+#: utils/formatting.cpp:1355
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "All Zertifikaten"
 
-#: utils/formatting.cpp:1310
+#: utils/formatting.cpp:1358
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr ""
 
-#: utils/formatting.cpp:1320
+#: utils/formatting.cpp:1380
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr ""
 
-#: utils/formatting.cpp:1335
+#: utils/formatting.cpp:1383
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr ""
 
-#: utils/formatting.cpp:1338
+#: utils/formatting.cpp:1386
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr ""
 
-#: utils/formatting.cpp:1347
+#: utils/formatting.cpp:1395
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "All Zertifikaten"
 
-#: utils/formatting.cpp:1350
+#: utils/formatting.cpp:1398
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "All Zertifikaten"
 
-#: utils/formatting.cpp:1383
+#: utils/formatting.cpp:1431
 #, fuzzy, kde-format
 #| msgctxt "default server name, keep it a valid domain name, ie. no spaces"
 #| msgid "server"
 msgid "Keyserver"
 msgstr "server"
 
-#: utils/formatting.cpp:1391
+#: utils/formatting.cpp:1439
 #, kde-format
 msgid "File import"
 msgstr ""
 
-#: utils/formatting.cpp:1393
+#: utils/formatting.cpp:1441
 #, fuzzy, kde-format
 #| msgid "General"
 msgid "Generated"
 msgstr "Allgemeen"
 
-#: utils/formatting.cpp:1397
-#, fuzzy, kde-format
-#| msgid "unknown"
-msgid "Unknown"
-msgstr "nich begäng"
-
-#: utils/formatting.cpp:1433
+#: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1437
+#: utils/formatting.cpp:1485
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr ""
 
-#: utils/formatting.cpp:1461
+#: utils/formatting.cpp:1523
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1462
+#: utils/formatting.cpp:1524
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1463
+#: utils/formatting.cpp:1525
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr ""
 
-#: utils/formatting.cpp:1464
+#: utils/formatting.cpp:1526
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1465
+#: utils/formatting.cpp:1527
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr ""
 
-#: utils/formatting.cpp:1466
+#: utils/formatting.cpp:1528
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed25519)"
+msgstr ""
+
+#: utils/formatting.cpp:1529
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed448)"
+msgstr ""
+
+#: utils/formatting.cpp:1530
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv25519)"
+msgstr ""
+
+#: utils/formatting.cpp:1531
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv448)"
+msgstr ""
+
+#: utils/formatting.cpp:1532
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1467
+#: utils/formatting.cpp:1533
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1468
+#: utils/formatting.cpp:1534
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr ""
 
-#: utils/formatting.cpp:1469
+#: utils/formatting.cpp:1535
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1470
+#: utils/formatting.cpp:1536
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr ""
 
-#: utils/formatting.cpp:1471
+#: utils/formatting.cpp:1537
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr ""
 
-#: utils/formatting.cpp:1474
+#: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "@info"
-msgid "Unknown algorithm"
+msgid "DSA 1024"
+msgstr ""
+
+#: utils/formatting.cpp:1539
+#, kde-format
+msgctxt "@info"
+msgid "DSA 2048"
+msgstr ""
+
+#: utils/formatting.cpp:1540
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 1024"
+msgstr ""
+
+#: utils/formatting.cpp:1541
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 2048"
+msgstr ""
+
+#: utils/formatting.cpp:1542
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 3072"
+msgstr ""
+
+#: utils/formatting.cpp:1543
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 4096"
 msgstr ""
 
 #: utils/hex.cpp:35
@@ -3434,257 +2989,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Zertifikaatpleger-Fehler"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "All Zertifikaten"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "All Zertifikaten"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Heel na nerrn"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP-Slötel utsöken"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "GnuPG-Hülpprogramm instellen"
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Slötelservers instellen"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Adressaat:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "All Zertifikaten"
-
-#, fuzzy
-#~| msgid ""
-#~| "Select the access protocol (scheme) that the directory service is "
-#~| "available through."
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr "Dat Protokoll för't Togriepen op den Vertekendeenst fastleggen"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Servernaam:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "Br&ukernaam:"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Pass&woort:"
-
-#~ msgid "&OK"
-#~ msgstr "&OK"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Afbreken"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Sönke Dibbern"
-
-#~ msgid "failed"
-#~ msgstr "fehlslaan"
-
-#~ msgctxt ""
-#~ "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#~ "implementation name)"
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
-
-#~ msgid "Available Backends"
-#~ msgstr "Verföögbor Hölp-Programmen"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "&Instellen..."
-
-#~ msgid "Rescan"
-#~ msgstr "Nieg kieken"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Dat geev bi't Kieken disse Problemen:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Dörkiek-Resultaat"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Fehler bi't Torechtmaken vun dat Plugin \"%1\""
-
-#~ msgid "Can't start decrypt job"
-#~ msgstr "Opslötelopgaav lett sik nich starten"
-
-#~ msgid "Can't start combined decrypt/verify operation"
-#~ msgstr "Tosamensett Opslötel-/Pröövakschoon lett sik nich starten"
-
-#~ msgid "Can't start encrypt job"
-#~ msgstr "Verslötelopgaav lett sik nich starten"
-
-#~ msgid "Error adding signer %1."
-#~ msgstr "Fehler bi't Tofögen vun Ünnerschriever \"%1\""
-
-#~ msgid ""
-#~ "You need a passphrase to unlock the secret key for user:<br/> %1 (retry)"
-#~ msgstr ""
-#~ "Du bruukst en Slötelsatz, wenn Du den Privaatslötel vun den nakamen "
-#~ "Bruker opsluten wullt:<br/> %1 (nochmaal versöken)"
-
-#~ msgid "You need a passphrase to unlock the secret key for user:<br/> %1"
-#~ msgstr ""
-#~ "Du bruukst en Slötelsatz, wenn Du den Privaatslötel vun den nakamen "
-#~ "Bruker opsluten wullt:<br/> %1 "
-
-#~ msgid ""
-#~ "This dialog will reappear every time the passphrase is needed. For a more "
-#~ "secure solution that also allows caching the passphrase, use gpg-agent."
-#~ msgstr ""
-#~ "Disse Dialoog warrt jümmers wedder opduken, wenn de Slötelsatz bruukt "
-#~ "warrt. En sekrere Lösen, mit de Du den Slötelsatz ok twischenspiekern "
-#~ "kannst, is \"gpg-agent\"."
-
-#~ msgid "gpg-agent was found in %1, but does not appear to be running."
-#~ msgstr ""
-#~ "\"gpg-agent\" wöör binnen %1 funnen, man as dat lett löppt dat nich."
-
-#~ msgid "gpg-agent is part of gnupg-%1, which you can download from %2"
-#~ msgstr ""
-#~ "\"gpg-agent\" is en Deel vun \"gnupg-%1\". Dat kannst Du vun %2 daalladen."
-
-#~ msgid "For information on how to set up gpg-agent, see %1"
-#~ msgstr ""
-#~ "Wenn Du weten wullt, wodennig gpg-agent inricht warrt, kiek ünner %1"
-
-#~ msgid "Enter passphrase:"
-#~ msgstr "Slötelsatz ingeven:"
-
-#~ msgid "Passphrase Dialog"
-#~ msgstr "Slötelsatz-Dialoog"
-
-#~ msgid "Can't start combined sign-encrypt job"
-#~ msgstr "Tosamensett Ünnerschriev- un Verslötelopgaav lett sik nich starten"
-
-#~ msgid "Can't start sign job"
-#~ msgstr "Ünnerschrievopgaav lett sik nich starten"
-
-#~ msgid "Can't start detached signature verification"
-#~ msgstr "Pröven vun de aflööst Ünnertschrift lett sik nich starten"
-
-#~ msgid "Can't start opaque signature verification"
-#~ msgstr "Pröven vun överdeckt Ünnerschrift lett sik nich starten"
-
-#~ msgid "Configure"
-#~ msgstr "Instellen"
-
-#~ msgid "Select Directory Services to Use Here"
-#~ msgstr "Vertekendeensten utsöken"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>X.500 Directory Services</h1>\n"
-#~ "You can use X.500 directory services to retrieve certificates and "
-#~ "certificate revocation lists that are not saved locally. Ask your local "
-#~ "administrator if you want to make use of this feature and are unsure "
-#~ "which directory service you can use.\n"
-#~ "<p>\n"
-#~ "If you do not use a directory service, you can still use local "
-#~ "certificates.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>X.500-Vertekendeensten</h1>\n"
-#~ "Du kannst X.500-Vertekendeensten bruken, wenn Du Zertifikaten un "
-#~ "Zertifikaat-Torüchrooplisten (ZTLen) bruken wullt, de opstunns lokaal "
-#~ "nich verföögbor sünd. Fraag Dien Systeempleger, wenn Du disse Funkschoon "
-#~ "bruken wullt un nich weetst, welk Deensten Du dorför bruken kannst.\n"
-#~ "<p>\n"
-#~ "Du kannst lokale Zertifikaten ok bruken, wenn Du keen Vertekendeenst "
-#~ "bruukst.\n"
-#~ "</qt>"
-
-#~ msgid "Port"
-#~ msgstr "Port"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Add a Directory Service</h1>\n"
-#~ "By clicking this button, you can select a new directory service to be "
-#~ "used for retrieving certificates and CRLs. You will be asked for the "
-#~ "server name and an optional description.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>En Vertekendeenst tofögen</h1>\n"
-#~ "Wenn Du op dissen Knoop klickst, kannst Du en niegen Vertekendeenst för't "
-#~ "Halen vun Zertifikaten un ZTLen utsöken. Du warrst na den Servernaam un "
-#~ "en Beschrieven (keen Plicht) fraagt.\n"
-#~ "</qt>"
-
-#~ msgid "&Add Service..."
-#~ msgstr "Deenst &tofögen..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Remove Directory Service</h1>\n"
-#~ "By clicking this button, you can remove the currently selected directory "
-#~ "service in the list above. You will have a chance to rethink your "
-#~ "decision before the entry is deleted from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Vertekendeenst wegmaken</h1>\n"
-#~ "Wenn Du op dissen Knoop klickst, kannst Du den opstunns utsöchten "
-#~ "Vertekendeenst vun de List baven wegmaken. Du warrst nochmaal fraagt, ehr "
-#~ "de Indrag vun de List wegmaakt warrt.\n"
-#~ "</qt>"
-
-#~ msgid "<placeholder>unnamed</placeholder>"
-#~ msgstr "<placeholder>ahn Naam</placeholder>"
