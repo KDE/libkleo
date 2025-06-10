@@ -573,7 +573,7 @@ QVariant AbstractKeyListModel::data(const KeyGroup &group, int column, int role)
                                 return Kleo::canBeUsedForEncryption(key);
                             })
             ? QIcon::fromTheme(QStringLiteral("group"))
-            : QIcon::fromTheme(QStringLiteral("emblem-warning"));
+            : QIcon::fromTheme(QStringLiteral("data-warning"));
     } else if (role == Qt::BackgroundRole) {
     } else if (role == Qt::ForegroundRole) {
     } else if (role == GroupRole) {

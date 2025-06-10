@@ -109,17 +109,17 @@ QIcon Formatting::IconProvider::icon(const KeyGroup &group) const
 
 QIcon Formatting::successIcon()
 {
-    return QIcon::fromTheme(QStringLiteral("emblem-success"));
+    return QIcon::fromTheme(QStringLiteral("data-success"));
 }
 
 QIcon Formatting::infoIcon()
 {
-    return QIcon::fromTheme(QStringLiteral("emblem-information"));
+    return QIcon::fromTheme(QStringLiteral("data-information"));
 }
 
 QIcon Formatting::questionIcon()
 {
-    return QIcon::fromTheme(QStringLiteral("emblem-question"));
+    return QIcon::fromTheme(QStringLiteral("dialog-question"));
 }
 
 QIcon Formatting::unavailableIcon()
@@ -129,12 +129,12 @@ QIcon Formatting::unavailableIcon()
 
 QIcon Formatting::warningIcon()
 {
-    return QIcon::fromTheme(QStringLiteral("emblem-warning"));
+    return QIcon::fromTheme(QStringLiteral("data-warning"));
 }
 
 QIcon Formatting::errorIcon()
 {
-    return QIcon::fromTheme(QStringLiteral("emblem-error"));
+    return QIcon::fromTheme(QStringLiteral("data-error"));
 }
 
 //
