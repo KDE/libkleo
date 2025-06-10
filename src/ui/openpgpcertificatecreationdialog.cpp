@@ -16,6 +16,7 @@
 #include "openpgpcertificatecreationconfig.h"
 #include "utils/compat.h"
 #include "utils/compliance.h"
+#include "utils/cryptoconfig.h"
 #include "utils/expiration.h"
 #include "utils/gnupg.h"
 #include "utils/keyparameters.h"
@@ -38,14 +39,82 @@
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
 
+#include <gpgme++/key.h>
+
 #include "libkleo_debug.h"
 
 using namespace Kleo;
+using namespace GpgME;
 using namespace Qt::Literals::StringLiterals;
 
 static bool unlimitedValidityIsAllowed()
 {
     return !Kleo::Expiration::maximumExpirationDate().isValid();
+}
+
+// Extract the algo information from default_pubkey_algo format
+//
+// and put it into the return values size, algo and curve.
+//
+// Values look like:
+// RSA-2048
+// rsa2048/cert,sign+rsa2048/enc
+// brainpoolP256r1+brainpoolP256r1
+static QString defaultGnuPGKeyType()
+{
+    const auto conf = QGpgME::cryptoConfig();
+    if (!conf) {
+        qCWarning(LIBKLEO_LOG) << "Failed to obtain cryptoConfig.";
+        return {};
+    }
+    const auto entry = getCryptoConfigEntry(conf, "gpg", "default_pubkey_algo");
+    if (!entry) {
+        qCDebug(LIBKLEO_LOG) << "GnuPG does not have default key type. Fallback to RSA";
+        return u"rsa"_s;
+    }
+
+    // Format is <primarytype>[/usage]+<subkeytype>[/usage]
+    const auto split = entry->stringValue().split(QLatin1Char('+'))[0].split(QLatin1Char('/'));
+    bool isEncrypt = split.size() == 2 && split[1].contains(QLatin1String("enc"));
+
+    // Normalize
+    const auto lowered = split[0].toLower().remove(QLatin1Char('-'));
+
+    if (lowered.startsWith(QLatin1String("dsa")) || lowered.startsWith(QLatin1String("elg"))) {
+        return {};
+    }
+
+    if (lowered.startsWith(QLatin1String("rsa"))) {
+        bool ok;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        auto size = lowered.rightRef(lowered.size() - 3).toInt(&ok);
+#else
+        auto size = QStringView(lowered).right(lowered.size() - 3).toInt(&ok);
+#endif
+        if (!ok) {
+            qCWarning(LIBKLEO_LOG) << "Could not extract size from: " << lowered;
+            size = 3072;
+        }
+        return u"rsa"_s + QString::number(size);
+    }
+
+    // Now the ECC Algorithms
+    if (lowered.startsWith(QLatin1String("ed25519"))) {
+        // Special handling for this as technically
+        // this is a cv25519 curve used for EDDSA
+        return u"curve25519"_s;
+    }
+
+    if (lowered.startsWith(QLatin1String("cv25519"))) {
+        return u"curve25519"_s;
+    }
+
+    if (lowered.startsWith(QLatin1String("nist")) || lowered.startsWith(QLatin1String("brainpool")) || lowered.startsWith(QLatin1String("secp"))) {
+        return split[0];
+    }
+
+    qCWarning(LIBKLEO_LOG) << "Failed to parse default_pubkey_algo:" << entry;
+    return {};
 }
 
 class OpenPGPCertificateCreationDialog::Private
@@ -241,6 +310,34 @@ public:
         connect(ui.expander, &AnimatedExpander::startExpanding, q, [this]() {
             q->resize(std::max(q->sizeHint().width(), ui.expander->contentWidth()) + 20, q->sizeHint().height() + ui.expander->contentHeight() + 20);
         });
+
+        KConfigGroup config(KSharedConfig::openConfig(u"kleopatrarc"_s), u"CertificateCreationWizard"_s);
+        // This is a legacy config option. "RSA" and any unknown value set the algorithm to RSA; all other options are no longer supported by kleo (dsa, elg).
+        // So we just have to check whether the value is set to *anything*.
+        if (config.hasKey("PGPKeyType")) {
+            auto type = u"rsa"_s;
+            if (config.readEntry("PGPKeyType").isEmpty()) {
+                type = defaultGnuPGKeyType();
+            }
+            for (auto i = 0; i < ui.keyAlgoCB->count(); ++i) {
+                if (ui.keyAlgoCB->itemData(i).toString().startsWith(type)) {
+                    ui.keyAlgoCB->setCurrentIndex(i);
+                    break;
+                }
+            }
+        }
+
+        if (config.hasKey("RSAKeySizes")) {
+            for (const auto size : config.readEntry("RSAKeySizes", QList<int>())) {
+                if (size < 0) {
+                    auto index = ui.keyAlgoCB->findData(u"rsa%1"_s.arg(std::abs(size)));
+                    if (index != -1) {
+                        ui.keyAlgoCB->setCurrentIndex(index);
+                    }
+                    break;
+                }
+            }
+        }
     }
 
 private:

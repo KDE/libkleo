@@ -25,12 +25,15 @@
 #include <libkleo_debug.h>
 
 #include <KColorScheme>
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QPushButton>
 
 #include <gpgme++/key.h>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace Kleo;
 
 bool Kleo::DeVSCompliance::isActive()
@@ -116,16 +119,26 @@ const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms()
         return Kleo::availableAlgorithms();
     }
     if (compliantAlgos.empty()) {
-        compliantAlgos.reserve(7);
-        compliantAlgos = {
-            "brainpoolP256r1",
-            "brainpoolP384r1",
-            "brainpoolP512r1",
-            "rsa3072",
-            "rsa4096",
-        };
+        KConfigGroup config(KSharedConfig::openConfig(u"kleopatrarc"_s), u"CertificateCreationWizard"_s);
+
+        if (!config.isEntryImmutable("PGPKeyType")) {
+            compliantAlgos.reserve(7);
+            compliantAlgos = {
+                "brainpoolP256r1",
+                "brainpoolP384r1",
+                "brainpoolP512r1",
+            };
+        }
+
+        for (const auto size : config.readEntry("RSAKeySizes", QList<int>() << -3072 << 4096)) {
+            const auto abs = std::abs(size);
+            if (abs == 3072 || abs == 4096) {
+                compliantAlgos.push_back("rsa" + std::to_string(abs));
+            }
+        }
+
 #if GPGMEPP_SUPPORTS_KYBER
-        if (engineIsVersion(2, 5, 2)) {
+        if (engineIsVersion(2, 5, 2) && !config.isEntryImmutable("PGPKeyType")) {
             compliantAlgos.insert(compliantAlgos.end(),
                                   {
                                       "ky768_bp256",

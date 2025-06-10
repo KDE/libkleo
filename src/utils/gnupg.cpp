@@ -26,7 +26,9 @@
 #include <libkleo_debug.h>
 
 #include <KAboutComponent>
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
@@ -56,6 +58,7 @@
 #include <algorithm>
 #include <array>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace GpgME;
 
 QString Kleo::gnupgHomeDirectory()
@@ -628,23 +631,32 @@ const std::vector<std::string> &Kleo::availableAlgorithms()
 {
     static std::vector<std::string> algos;
     if (algos.empty()) {
-        algos.reserve(13);
-        algos = {
-            "brainpoolP256r1",
-            "brainpoolP384r1",
-            "brainpoolP512r1",
-            "curve25519",
-            "curve448",
-            "nistp256",
-            "nistp384",
-            "nistp521",
-            "rsa2048",
-            "rsa3072",
-            "rsa4096",
-            // "secp256k1", // Curve secp256k1 is explicitly ignored
-        };
+        KConfigGroup config(KSharedConfig::openConfig(u"kleopatrarc"_s), u"CertificateCreationWizard"_s);
+
+        if (!config.isEntryImmutable("PGPKeyType")) {
+            algos.reserve(13);
+            algos = {
+                "brainpoolP256r1",
+                "brainpoolP384r1",
+                "brainpoolP512r1",
+                "curve25519",
+                "curve448",
+                "nistp256",
+                "nistp384",
+                "nistp521",
+                // "secp256k1", // Curve secp256k1 is explicitly ignored
+            };
+        }
+
+        for (const auto size : config.readEntry("RSAKeySizes", QList<int>() << 2048 << -3072 << 4096)) {
+            const auto abs = std::abs(size);
+            if (abs == 2048 || abs == 3072 || abs == 4096) {
+                algos.push_back("rsa" + std::to_string(abs));
+            }
+        }
+
 #if GPGMEPP_SUPPORTS_KYBER
-        if (engineIsVersion(2, 5, 2)) {
+        if (engineIsVersion(2, 5, 2) && !config.isEntryImmutable("PGPKeyType")) {
             algos.insert(algos.end(),
                          {
                              "ky768_bp256",
