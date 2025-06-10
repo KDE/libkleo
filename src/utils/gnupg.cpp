@@ -25,7 +25,9 @@
 
 #include <libkleo_debug.h>
 
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
@@ -603,20 +605,56 @@ void Kleo::restartGpgAgent()
 
 const std::vector<std::string> &Kleo::availableAlgorithms()
 {
-    static const std::vector<std::string> algos = {
-        "brainpoolP256r1",
-        "brainpoolP384r1",
-        "brainpoolP512r1",
-        "curve25519",
-        "curve448",
-        "nistp256",
-        "nistp384",
-        "nistp521",
-        "rsa2048",
-        "rsa3072",
-        "rsa4096",
-        // "secp256k1", // Curve secp256k1 is explicitly ignored
-    };
+    static std::vector<std::string> algos;
+
+    if (algos.empty()) {
+        KConfigGroup config(KSharedConfig::openConfig(QStringLiteral("kleopatrarc")), QStringLiteral("CertificateCreationWizard"));
+
+        if (config.isEntryImmutable("PGPKeyType")) {
+            QString defaultAlgo;
+            if (QGpgME::cryptoConfig()) {
+                if (auto pubkeyEntry = getCryptoConfigEntry(QGpgME::cryptoConfig(), "gpg", "default_pubkey_algo")) {
+                    defaultAlgo = pubkeyEntry->stringValue().split(QLatin1Char('/'))[0];
+                    if (defaultAlgo == QStringLiteral("ed25519")) {
+                        defaultAlgo = QStringLiteral("curve25519");
+                    } else if (defaultAlgo == QStringLiteral("ed448")) {
+                        defaultAlgo = QStringLiteral("curve448");
+                    }
+                }
+            }
+            if (config.readEntry("PGPKeyType", QString()).isEmpty() && !defaultAlgo.isEmpty()) {
+                algos = {defaultAlgo.toStdString()};
+            } else {
+                for (const auto size : config.readEntry("RSAKeySizes", QList<int>() << 2048 << -3072 << 4096)) {
+                    const auto abs = std::abs(size);
+                    if (abs == 2048 || abs == 3072 || abs == 4096) {
+                        algos.push_back("rsa" + std::to_string(abs));
+                    }
+                }
+            }
+        } else {
+            algos.reserve(13);
+            algos = {
+                "brainpoolP256r1",
+                "brainpoolP384r1",
+                "brainpoolP512r1",
+                "curve25519",
+                "curve448",
+                "nistp256",
+                "nistp384",
+                "nistp521",
+                // "secp256k1", // Curve secp256k1 is explicitly ignored
+            };
+
+            for (const auto size : config.readEntry("RSAKeySizes", QList<int>() << 2048 << -3072 << 4096)) {
+                const auto abs = std::abs(size);
+                if (abs == 2048 || abs == 3072 || abs == 4096) {
+                    algos.push_back("rsa" + std::to_string(abs));
+                }
+            }
+        }
+    }
+
     return algos;
 }
 

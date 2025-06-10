@@ -18,6 +18,7 @@
 #include "keyhelpers.h"
 #include "stringutils.h"
 #include "systeminfo.h"
+#include "utils/compat.h"
 
 #include <libkleo/debug.h>
 #include <libkleo/keyfiltermanager.h>
@@ -25,9 +26,14 @@
 #include <libkleo_debug.h>
 
 #include <KColorScheme>
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QPushButton>
+
+#include <QGpgME/CryptoConfig>
+#include <QGpgME/Protocol>
 
 #include <gpgme++/key.h>
 
@@ -98,15 +104,25 @@ bool Kleo::DeVSCompliance::keyIsCompliant(const GpgME::Key &key)
         && allSubkeysAreCompliant(key);
 }
 
+static const QList<std::string> allCompliantAlgos = {
+    "brainpoolP256r1",
+    "brainpoolP384r1",
+    "brainpoolP512r1",
+    "rsa3072",
+    "rsa4096",
+};
+
 const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms()
 {
-    static const std::vector<std::string> compliantAlgos = {
-        "brainpoolP256r1",
-        "brainpoolP384r1",
-        "brainpoolP512r1",
-        "rsa3072",
-        "rsa4096",
-    };
+    static std::vector<std::string> compliantAlgos;
+    if (compliantAlgos.empty()) {
+        const auto availableAlgorithms = Kleo::availableAlgorithms();
+        std::set_intersection(allCompliantAlgos.begin(),
+                              allCompliantAlgos.end(),
+                              availableAlgorithms.begin(),
+                              availableAlgorithms.end(),
+                              std::back_inserter(compliantAlgos));
+    }
     return isActive() ? compliantAlgos : Kleo::availableAlgorithms();
 }
 
