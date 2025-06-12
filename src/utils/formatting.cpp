@@ -119,7 +119,7 @@ QIcon Formatting::infoIcon()
 
 QIcon Formatting::questionIcon()
 {
-    return QIcon::fromTheme(QStringLiteral("dialog-question"));
+    return QIcon::fromTheme(QStringLiteral("data-question"), QIcon::fromTheme(QStringLiteral("dialog-question")));
 }
 
 QIcon Formatting::unavailableIcon()
