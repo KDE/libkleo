@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-16 00:43+0000\n"
-"PO-Revision-Date: 2025-06-24 06:56+0300\n"
+"PO-Revision-Date: 2025-06-30 10:25+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -255,6 +255,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>תוקף מפתח ה־OpenPGP עבור</p><p align=center>%1</p><p>פג לפני פחות מיום.</"
+"p>"
 
 #: kleo/expirychecker.cpp:98
 #, kde-format
@@ -298,17 +300,19 @@ msgstr[3] ""
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>תוקף מפתח ה־OpenPGP</p><p align=center>%1</p><p>שמשמש לחתימה פג היום.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>תוקף מפתח ה־OpenPGP</p><p align=center>%1</p><p>שמשמש להצפנה פג היום.</p>"
 
 #: kleo/expirychecker.cpp:117
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>תוקף מפתח ה־OpenPGP עבור</p><p align=center>%1</p><p>פג היום.</p>"
 
 #: kleo/expirychecker.cpp:123
 #, kde-format
@@ -428,6 +432,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>תוקף אישור הביניים של רשות האישורים</p><p align=center><b>%2</b></"
+"p><p>לאישור החתימה שלך מסוג S/MIME</p><p align=center>%1</p><p>פג לפני פחות "
+"מיום.</p>"
 
 #: kleo/expirychecker.cpp:205
 #, kde-format
@@ -1087,23 +1094,23 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
-msgstr ""
+msgstr "אין יומן פיקוח GnuPG"
 
 #: ui/auditlogviewer.cpp:109
 #, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
-msgstr ""
+msgstr "מציג יומני פיקוח GnuPG"
 
 #: ui/auditlogviewer.cpp:124
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
-msgstr ""
+msgstr "נא לבחור קובץ אליו לשמור יומן פיקוח GnuPG"
 
 #: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
-msgstr ""
+msgstr "לא ניתן לשמור את הקובץ „%1”: %2"
 
 #: ui/auditlogviewer.cpp:145
 #, kde-format
@@ -1124,6 +1131,8 @@ msgid ""
 "seem to be installed properly. It did not return any components. Try running "
 "\"%1\" on the command line for more information."
 msgstr ""
+"כנראה שכלי ה־gpgconf שמשמש לספק מידע לחלונית הזאת לא מותקן כראוי. הוא לא "
+"החזיר רכיבים. כדאי לנסות להריץ את „%1” בשורת הפקודות כדי לקבל פרטים נוספים."
 
 #: ui/cryptoconfigmodule.cpp:538
 #, kde-format
@@ -1225,18 +1234,18 @@ msgstr "שרת LDAP"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
-msgstr ""
+msgstr "יש ללחוץ כדי להוסיף שירות ספרייה שמסופק על ידי שרת LDAP."
 
 #: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "הוספה"
 
 #: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr ""
+msgstr "יש ללחוץ כדי להוסיף שירות ספרייה."
 
 #: ui/directoryserviceswidget.cpp:212
 #, kde-format
@@ -1245,18 +1254,20 @@ msgid ""
 "Click this button to add a directory service to the list of services. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
+"יש ללחוץ על הכפתור הזה כדי להוסיף שירות ספרייה לרשימת השירותים. השינוי יחול "
+"רק לאחר אישור חלונית ההגדרות."
 
 #: ui/directoryserviceswidget.cpp:220
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
-msgstr ""
+msgstr "עריכה"
 
 #: ui/directoryserviceswidget.cpp:221
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
-msgstr ""
+msgstr "יש ללחוץ כדי לערוך את השירות הנבחר."
 
 #: ui/directoryserviceswidget.cpp:223
 #, kde-format
@@ -1266,18 +1277,20 @@ msgid ""
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
+"יש ללחוץ על הכפתור הזה כדי לערוך את הגדרות שירות הספרייה הנבחר. השינויים "
+"יחולו רק לאחר אישור חלונית ההגדרות."
 
 #: ui/directoryserviceswidget.cpp:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr ""
+msgstr "מחיקה"
 
 #: ui/directoryserviceswidget.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
-msgstr ""
+msgstr "יש ללחוץ כדי להסיר את השירות הנבחר."
 
 #: ui/directoryserviceswidget.cpp:231
 #, kde-format
@@ -1286,122 +1299,124 @@ msgid ""
 "Click this button to remove the currently selected directory service. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
+"יש ללחוץ על הכפתור הזה כדי להסיר את שירות התיקיות שנבחר כרגע. השינויים יחולו "
+"רק לאחר אישור חלונית ההגדרות."
 
 #: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
-msgstr ""
+msgstr "שירות ספרייה LDAP"
 
 #: ui/dnattributeorderconfigwidget.cpp:75
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "תיאור"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
-msgstr ""
+msgstr "מאפיינים זמינים:"
 
 #: ui/dnattributeorderconfigwidget.cpp:92
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
-msgstr ""
+msgstr "סדר המאפיינים הנוכחי:"
 
 #: ui/dnattributeorderconfigwidget.cpp:100
 #, kde-format
 msgid "available attributes"
-msgstr ""
+msgstr "מאפיינים זמינים"
 
 #: ui/dnattributeorderconfigwidget.cpp:107
 #: ui/dnattributeorderconfigwidget.cpp:108
 #, kde-format
 msgid "All others"
-msgstr ""
+msgstr "כל האחרים"
 
 #: ui/dnattributeorderconfigwidget.cpp:120
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "הוספה"
 
 #: ui/dnattributeorderconfigwidget.cpp:121
 msgid "Add to current attribute order"
-msgstr ""
+msgstr "הוספה לסדר המאפיינים הנוכחי"
 
 #: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "הסרה"
 
 #: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Remove from current attribute order"
-msgstr ""
+msgstr "הסרה מסדר המאפיינים הנוכחי"
 
 #: ui/dnattributeorderconfigwidget.cpp:134
 msgctxt "@action:button"
 msgid "Move to Top"
-msgstr ""
+msgstr "העברה לראש"
 
 #: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Move to top"
-msgstr ""
+msgstr "העברה לראש"
 
 #: ui/dnattributeorderconfigwidget.cpp:141
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr ""
+msgstr "העלאה למעלה"
 
 #: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move one up"
-msgstr ""
+msgstr "העלאה למעלה באחד"
 
 #: ui/dnattributeorderconfigwidget.cpp:148
 msgctxt "@action:button"
 msgid "Move Down"
-msgstr ""
+msgstr "הורדה למטה"
 
 #: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one down"
-msgstr ""
+msgstr "הורדה למטה באחד"
 
 #: ui/dnattributeorderconfigwidget.cpp:155
 msgctxt "@action:button"
 msgid "Move to Bottom"
-msgstr ""
+msgstr "העברה לתחתית"
 
 #: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move to bottom"
-msgstr ""
+msgstr "העברה לתחתית"
 
 #: ui/dnattributeorderconfigwidget.cpp:186
 #, kde-format
 msgid "current attribute order"
-msgstr ""
+msgstr "סדר המאפיינים הנוכחי"
 
 #: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
-msgstr ""
+msgstr "מארח:"
 
 #: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
-msgstr ""
+msgstr "נא למלא את השם או כתובת ה־IP של השרת שמארח את שירותי הספרייה."
 
 #: ui/editdirectoryservicedialog.cpp:112
 #, kde-format
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
-msgstr ""
+msgstr "שגיאה: נא למלא שם מארח בתבנית הנכונה, כגון ldap.example.com."
 
 #: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
 msgid "Port:"
-msgstr ""
+msgstr "פתחה:"
 
 #: ui/editdirectoryservicedialog.cpp:119
 #, kde-format
@@ -1414,33 +1429,33 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
-msgstr ""
+msgstr "להשתמש בברירת מחדל"
 
 #: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
 msgid "Authentication"
-msgstr ""
+msgstr "אימות"
 
 #: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
-msgstr ""
+msgstr "אלמוני"
 
 #: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
+msgstr "להשתמש בשרת LDAP אלמוני שלא דורש אימות."
 
 #: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
-msgstr ""
+msgstr "אימות דרך Active Directory"
 
 #: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "אימות דרך Active Directory (דורש את GnuPG 2.2.28 ומעלה)"
 
 #: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
@@ -1449,22 +1464,23 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
+"ב־Windows, לבצע אימות מול שרת ה־LDAP דרך ה־Active Directory עם המשתמש הנוכחי."
 
 #: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr ""
+msgstr "אימות עם שם משתמש וסיסמה"
 
 #: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
-msgstr ""
+msgstr "אימות מול שרת ה־LDAP עם פרטי הגישה שלך מה־LDAP."
 
 #: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
 msgid "User:"
-msgstr ""
+msgstr "משתמש:"
 
 #: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
@@ -1476,7 +1492,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "סיסמה:"
 
 #: ui/editdirectoryservicedialog.cpp:167
 #, kde-kuit-format
@@ -1490,17 +1506,17 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
-msgstr ""
+msgstr "אבטחת חיבור"
 
 #: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "אבטחת חיבור (דורשת את GnuPG 2.2.28 ומעלה)"
 
 #: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
-msgstr ""
+msgstr "להשתמש בחיבור ברירת המחדל (כנראה לא מאובטח עם TLS)"
 
 #: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
@@ -1513,7 +1529,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
-msgstr ""
+msgstr "לא להשתמש בחיבור בלי אבטחת TLS"
 
 #: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
@@ -1526,7 +1542,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
-msgstr ""
+msgstr "להשתמש בחיבור עם אבטחת TLS"
 
 #: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
@@ -1539,7 +1555,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "לתעל את LDAP דרך חיבור TLS"
 
 #: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
@@ -1552,7 +1568,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
-msgstr ""
+msgstr "הגדרות מתקדמות"
 
 #: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
@@ -1570,7 +1586,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
-msgstr ""
+msgstr "דגלונים נוספים:"
 
 #: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
@@ -1585,40 +1601,40 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
-msgstr ""
+msgstr "עריכת שירות ספרייה"
 
 #: ui/filenamerequester.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
-msgstr ""
+msgstr "חלונית פתיחת קבצים"
 
 #: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
-msgstr ""
+msgstr "חלונית פתיחת קבצים"
 
 #: ui/formtextinput.cpp:25
 #, kde-format
 msgid "Error: Enter a value."
-msgstr ""
+msgstr "שגיאה: נא למלא ערך."
 
 #: ui/formtextinput.cpp:30
 #, kde-format
 msgid "Error: Enter a value in the correct format."
-msgstr ""
+msgstr "שגיאה: נא למלא ערך בתבנית הנכונה."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (חובה)"
 
 #: ui/formtextinput.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr ""
+msgstr "שגיאה: %1"
 
 #: ui/formtextinput.cpp:230
 #, kde-format
@@ -1626,90 +1642,90 @@ msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr ""
+msgstr "רשומה שגויה"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
 msgid "<placeholder>none</placeholder>"
-msgstr ""
+msgstr "<placeholder>אין</placeholder>"
 
 #: ui/keyapprovaldialog.cpp:77
 #, kde-format
 msgid "Never Encrypt with This Key"
-msgstr ""
+msgstr "אף פעם לא להצפין עם המפתח הזה"
 
 #: ui/keyapprovaldialog.cpp:78
 #, kde-format
 msgid "Always Encrypt with This Key"
-msgstr ""
+msgstr "תמיד להצפין עם המפתח הזה"
 
 #: ui/keyapprovaldialog.cpp:79
 #, kde-format
 msgid "Encrypt Whenever Encryption is Possible"
-msgstr ""
+msgstr "להצפין מתי שאפשר להצפין"
 
 #: ui/keyapprovaldialog.cpp:80
 #, kde-format
 msgid "Always Ask"
-msgstr ""
+msgstr "תמיד לשאול"
 
 #: ui/keyapprovaldialog.cpp:81
 #, kde-format
 msgid "Ask Whenever Encryption is Possible"
-msgstr ""
+msgstr "תמיד לשאול כשאפשר להצפין"
 
 #: ui/keyapprovaldialog.cpp:102
 #, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
-msgstr ""
+msgstr "הסכמה על מפתח הצפנה"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
-msgstr ""
+msgstr "המפתחות הבאים ישמשו להצפנה:"
 
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
-msgstr ""
+msgstr "המפתחות שלך:"
 
 #: ui/keyapprovaldialog.cpp:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
-msgstr ""
+msgstr "נמען:"
 
 #: ui/keyapprovaldialog.cpp:151
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
-msgstr ""
+msgstr "מפתחות הצפנה:"
 
 #: ui/keyapprovaldialog.cpp:158
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
-msgstr ""
+msgstr "העדפת הצפנה:"
 
 #: ui/keyrequester.cpp:88
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
-msgstr ""
+msgstr "פינוי"
 
 #: ui/keyrequester.cpp:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Change..."
-msgstr ""
+msgstr "החלפה…"
 
 #: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
-msgstr ""
+msgstr "<placeholder>לא ידוע</placeholder>"
 
 #: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
 #, kde-format
@@ -1723,95 +1739,95 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
-msgstr ""
+msgstr "הצגת מפתחות נכשלה"
 
 #: ui/keyrequester.cpp:270
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
-msgstr ""
+msgstr "מנגנון ה־OpenPGP לא תומך בהצגת מפתחות. נא לבדוק שההתקנה שלך תקינה."
 
 #: ui/keyrequester.cpp:292
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
-msgstr ""
+msgstr "מנגנון ה־S/MIME לא תומך בהצגת מפתחות. נא לבדוק שההתקנה שלך תקינה."
 
 #: ui/keyrequester.cpp:412
 #, kde-format
 msgid "OpenPGP Key Selection"
-msgstr ""
+msgstr "בחירת מפתח OpenPGP"
 
 #: ui/keyrequester.cpp:413
 #, kde-format
 msgid "Please select an OpenPGP key to use."
-msgstr ""
+msgstr "נא לבחור מפתח OpenPGP לשימוש."
 
 #: ui/keyrequester.cpp:415
 #, kde-format
 msgid "S/MIME Key Selection"
-msgstr ""
+msgstr "בחירת מפתח S/MIME"
 
 #: ui/keyrequester.cpp:416
 #, kde-format
 msgid "Please select an S/MIME key to use."
-msgstr ""
+msgstr "נא לבחור מפתח S/MIME לשימוש."
 
 #: ui/keyrequester.cpp:418
 #, kde-format
 msgid "Key Selection"
-msgstr ""
+msgstr "בחירת מפתח"
 
 #: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
-msgstr ""
+msgstr "נא לבחור מפתח (OpenPGP או S/MIME) לשימוש."
 
 #: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
-msgstr ""
+msgstr "%1 <%2>"
 
 #: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
 #, kde-format
 msgid "Loading keys ..."
-msgstr ""
+msgstr "המפתחות נטענים…"
 
 #: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
-msgstr ""
+msgstr "המפתח שגוי."
 
 #: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
-msgstr ""
+msgstr "תוקף המפתח פג."
 
 #: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
-msgstr ""
+msgstr "המפתח נשלל."
 
 #: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
-msgstr ""
+msgstr "המפתח מושבת."
 
 #: ui/keyselectiondialog.cpp:94
 #, kde-format
 msgid "The key is not designated for encryption."
-msgstr ""
+msgstr "המפתח לא מיועד להצפנה."
 
 #: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
-msgstr ""
+msgstr "המפתח לא מיועד לחתימה."
 
 #: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
-msgstr ""
+msgstr "המפתח לא מיועד להסכ."
 
 #: ui/keyselectiondialog.cpp:109
 #, kde-format
@@ -1821,72 +1837,72 @@ msgstr ""
 #: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
-msgstr ""
+msgstr "המפתח אינו סוד."
 
 #: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
-msgstr ""
+msgstr "אפשר להשתמש במפתח."
 
 #: ui/keyselectiondialog.cpp:131
 #, kde-format
 msgid "The key is not trusted enough."
-msgstr ""
+msgstr "המפתח לא אמין מספיק."
 
 #: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:478
 #, kde-format
 msgid "Key ID"
-msgstr ""
+msgstr "מזהה מפתח"
 
 #: ui/keyselectiondialog.cpp:263 ui/keyselectiondialog.cpp:265
 #: ui/keyselectiondialog.cpp:274 ui/keyselectiondialog.cpp:276
 #, kde-format
 msgid "unknown"
-msgstr ""
+msgstr "לא ידוע"
 
 #: ui/keyselectiondialog.cpp:263
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
-msgstr ""
+msgstr "מפתח OpenPGP עבור <b>%1</b>"
 
 #: ui/keyselectiondialog.cpp:265
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
-msgstr ""
+msgstr "מפתח S/MIME עבור <b>%1</b>"
 
 #: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:464
 #, kde-format
 msgid "Valid from"
-msgstr ""
+msgstr "תקף מ־"
 
 #: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:467
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "תקף עד"
 
 #: ui/keyselectiondialog.cpp:274
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
-msgstr ""
+msgstr "טביעת אצבע"
 
 #: ui/keyselectiondialog.cpp:276
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
-msgstr ""
+msgstr "מנפיק"
 
 #: ui/keyselectiondialog.cpp:278
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
-msgstr ""
+msgstr "מצב"
 
 #: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "תאימות"
 
 #: ui/keyselectiondialog.cpp:420
 #, kde-format
@@ -1898,7 +1914,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
-msgstr ""
+msgstr "&חיפוש אחר:"
 
 #: ui/keyselectiondialog.cpp:459
 #, kde-format
@@ -1917,39 +1933,39 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
-msgstr ""
+msgstr "לקרוא מפתחות מ&חדש"
 
 #: ui/keyselectiondialog.cpp:481
 #, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
-msgstr ""
+msgstr "הפעלת מ&נהל אישורים"
 
 #: ui/keyselectiondialog.cpp:641
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
-msgstr ""
+msgstr "לא נמצאו מנגנונים להצגת מפתחות. נא לבדוק שההתקנה שלך תקינה."
 
 #: ui/keyselectiondialog.cpp:659
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
-msgstr ""
+msgstr "לא ניתן להפעיל את מנהל האישורים, נא לבדוק שההתקנה שלך תקינה."
 
 #: ui/keyselectiondialog.cpp:661
 #, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
-msgstr ""
+msgstr "שגיאת מנהל אישורים"
 
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
-msgstr ""
+msgstr "המפתחות הנבחרים נבדקים…"
 
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
-msgstr ""
+msgstr "המפתחות מתקבלים…"
 
 #: ui/keyselectiondialog.cpp:750
 #, kde-format
@@ -1967,64 +1983,64 @@ msgstr[3] ""
 #: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid "Key List Result"
-msgstr ""
+msgstr "תוצאת הצגת מפתחות"
 
 #: ui/keyselectiondialog.cpp:877
 #, kde-format
 msgid "Recheck Key"
-msgstr ""
+msgstr "בדיקת מפתח מחדש"
 
 #: ui/messagebox.cpp:69
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr ""
+msgstr "הצגת יומן פיקוח"
 
 #: ui/messagebox.cpp:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr ""
+msgstr "פרטים"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
 #, kde-format
 msgctxt "@label"
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "נא למלא שם."
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
 #, kde-format
 msgctxt "@label"
 msgid "Email address"
-msgstr ""
+msgstr "כתובת דוא״ל"
 
 #: ui/nameandemailwidget.cpp:76
 #, kde-format
 msgid "Enter an email address."
-msgstr ""
+msgstr "נא למלא כתובת דוא״ל."
 
 #: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "השם לא יכול להכיל <, > ו־ @."
 
 #: ui/nameandemailwidget.cpp:95
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "השם לא יכול להכיל את הסימנים: קטן מאשר, גדול מאשר וכרוכית."
 
 #: ui/nameandemailwidget.cpp:98
 #, kde-format
@@ -3129,13 +3145,13 @@ msgstr ""
 #: utils/formatting.cpp:1514
 #, kde-format
 msgid "Unknown certificate"
-msgstr ""
+msgstr "אישור לא ידוע"
 
 #: utils/formatting.cpp:1518
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1534
 #, kde-format
@@ -3166,7 +3182,7 @@ msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr ""
+msgstr "החתימה היא %1"
 
 #: utils/formatting.cpp:1553
 #, kde-format
@@ -3174,37 +3190,37 @@ msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr ""
+msgstr "החתימה <b>אינה</b> %1."
 
 #: utils/formatting.cpp:1563
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "שגיאה: החתימה לא אומתה"
 
 #: utils/formatting.cpp:1565
 #, kde-format
 msgid "Good signature"
-msgstr ""
+msgstr "חתימה טובה"
 
 #: utils/formatting.cpp:1567
 #, kde-format
 msgid "Signing certificate was revoked"
-msgstr ""
+msgstr "אישור החתימה נשלל"
 
 #: utils/formatting.cpp:1569
 #, kde-format
 msgid "Signing certificate is expired"
-msgstr ""
+msgstr "תוקף אישור החתימה פג"
 
 #: utils/formatting.cpp:1571
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "האישור לא זמין"
 
 #: utils/formatting.cpp:1573
 #, kde-format
 msgid "Signature expired"
-msgstr ""
+msgstr "תוקף החתימה פג"
 
 #: utils/formatting.cpp:1575
 #, kde-format
@@ -3219,27 +3235,27 @@ msgstr ""
 #: utils/formatting.cpp:1579
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "מדיניות גרועה"
 
 #: utils/formatting.cpp:1581
 #, kde-format
 msgid "System error"
-msgstr ""
+msgstr "שגיאת מערכת"
 
 #: utils/formatting.cpp:1583
 #, kde-format
 msgid "Bad signature"
-msgstr ""
+msgstr "חתימה גרועה"
 
 #: utils/formatting.cpp:1659 utils/formatting.cpp:1682
 #, kde-format
 msgid "The signature is invalid: %1"
-msgstr ""
+msgstr "החתימה שגויה: %1"
 
 #: utils/formatting.cpp:1668
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
-msgstr ""
+msgstr "אפשר לחפש את האישור בשרת מפתחות או לייבא אותו מקובץ."
 
 #: utils/formatting.cpp:1677
 #, kde-format
@@ -3257,13 +3273,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "‏GnuPG מספק תמיכה ב־OpenPGP/LibrePGP וב־S/MIME."
 
 #: utils/gnupg.cpp:495
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "Libgcrypt היא ספרייה קריפטוגרפים לשימוש כללי."
 
 #: utils/hex.cpp:35
 #, kde-format
