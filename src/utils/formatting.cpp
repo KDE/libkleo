@@ -1004,7 +1004,7 @@ QString Formatting::formatForComboBox(const GpgME::Key &key)
     if (!mail.isEmpty()) {
         mail = QLatin1Char('<') + mail + QLatin1Char('>');
     }
-    return i18nc("name, email, key id", "%1 %2 (%3)", name, mail, QLatin1String(key.shortKeyID())).simplified();
+    return i18nc("name, email, key id", "%1 %2 (%3)", name, mail, Formatting::prettyID(key.keyID())).simplified();
 }
 
 QString Formatting::nameAndEmailForSummaryLine(const UserID &id)
