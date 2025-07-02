@@ -499,7 +499,7 @@ static QString toolTipInternal(const GpgME::Key &key, const GpgME::UserID &userI
         result += format_row(i18n("Key ID"), QString::fromLatin1(key.shortKeyID()));
     }
     if (flags & Formatting::Fingerprint) {
-        result += format_row(i18n("Fingerprint"), key.primaryFingerprint());
+        result += format_row(i18n("Fingerprint"), Formatting::prettyID(key.primaryFingerprint()));
     }
     if (flags & Formatting::OwnerTrust) {
         if (key.protocol() == GpgME::OpenPGP) {
