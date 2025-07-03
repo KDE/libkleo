@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:43+0000\n"
+"POT-Creation-Date: 2025-07-03 06:57+0000\n"
 "PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3222,53 +3222,85 @@ msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "एल्गमल 4096"
 
-#: utils/formatting.cpp:1491
+#: utils/formatting.cpp:1479
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Curve25519)"
+msgctxt "@info"
+msgid "Kyber 768 (Curve25519)"
+msgstr "ईसीसी (वक्र25519) 1.1."
+
+#: utils/formatting.cpp:1480
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-256)"
+msgctxt "@info"
+msgid "Kyber 768 (Brainpool P-256)"
+msgstr "ईसीसी (ब्रेनपूल पी-256) 1.1."
+
+#: utils/formatting.cpp:1481
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-384)"
+msgctxt "@info"
+msgid "Kyber 1024 (Brainpool P-384)"
+msgstr "ईसीसी (ब्रेनपूल पी-384) 1.1."
+
+#: utils/formatting.cpp:1482
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Curve448)"
+msgctxt "@info"
+msgid "Kyber 1024 (Curve448)"
+msgstr "ईसीसी (वक्र४४८)"
+
+#: utils/formatting.cpp:1495
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr "हस्ताक्षरं वैधं भवति परन्तु प्रमाणपत्रस्य वैधतायां विश्वासः केवलं सीमान्तः एव भवति।"
 
-#: utils/formatting.cpp:1493
+#: utils/formatting.cpp:1497
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr "हस्ताक्षरं वैधं प्रमाणपत्रस्य वैधता च पूर्णतया विश्वसिति।"
 
-#: utils/formatting.cpp:1495
+#: utils/formatting.cpp:1499
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr "हस्ताक्षरं वैधं भवति तथा च प्रमाणपत्रस्य वैधता अन्ते विश्वसिति।"
 
-#: utils/formatting.cpp:1497
+#: utils/formatting.cpp:1501
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता <em>विश्वसनीयं नास्ति</em> ."
 
-#: utils/formatting.cpp:1499
+#: utils/formatting.cpp:1503
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता अज्ञाता अस्ति।"
 
-#: utils/formatting.cpp:1502
+#: utils/formatting.cpp:1506
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता अपरिभाषिता अस्ति ।"
 
-#: utils/formatting.cpp:1514
+#: utils/formatting.cpp:1518
 #, kde-format
 msgid "Unknown certificate"
 msgstr "अज्ञात प्रमाण पत्र"
 
-#: utils/formatting.cpp:1518
+#: utils/formatting.cpp:1522
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1534
+#: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
@@ -3276,23 +3308,23 @@ msgid ""
 msgstr ""
 "%1 इत्यत्र अङ्गुलिचिह्नस्य %2 इत्यनेन सह अज्ञातप्रमाणपत्रस्य उपयोगेन निर्मितः हस्ताक्षरः"
 
-#: utils/formatting.cpp:1538
+#: utils/formatting.cpp:1542
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "%1 अङ्गुलिचिह्नसहितं अज्ञातप्रमाणपत्रस्य उपयोगेन निर्मितं हस्ताक्षरम्"
 
-#: utils/formatting.cpp:1542
+#: utils/formatting.cpp:1546
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "प्रमाणपत्रेण सह %1 इत्यत्र निर्मितं हस्ताक्षरम्: %2"
 
-#: utils/formatting.cpp:1544
+#: utils/formatting.cpp:1548
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "प्रमाणपत्रेण सह निर्मितः हस्ताक्षरः: %1"
 
-#: utils/formatting.cpp:1550
+#: utils/formatting.cpp:1554
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3300,7 +3332,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "हस्ताक्षरं %1 अस्ति"
 
-#: utils/formatting.cpp:1553
+#: utils/formatting.cpp:1557
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3308,77 +3340,77 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "हस्ताक्षरं %1 <b>नास्ति</b> ।"
 
-#: utils/formatting.cpp:1563
+#: utils/formatting.cpp:1567
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "त्रुटिः : हस्ताक्षरं सत्यापितं न"
 
-#: utils/formatting.cpp:1565
+#: utils/formatting.cpp:1569
 #, kde-format
 msgid "Good signature"
 msgstr "उत्तमहस्ताक्षरम्"
 
-#: utils/formatting.cpp:1567
+#: utils/formatting.cpp:1571
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "हस्ताक्षरप्रमाणपत्रं निरस्तं जातम्"
 
-#: utils/formatting.cpp:1569
+#: utils/formatting.cpp:1573
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "हस्ताक्षरप्रमाणपत्रस्य अवधिः समाप्तः अस्ति"
 
-#: utils/formatting.cpp:1571
+#: utils/formatting.cpp:1575
 #, kde-format
 msgid "Certificate is not available"
 msgstr "प्रमाणपत्रं न प्राप्यते"
 
-#: utils/formatting.cpp:1573
+#: utils/formatting.cpp:1577
 #, kde-format
 msgid "Signature expired"
 msgstr "हस्ताक्षरस्य अवधिः समाप्तः"
 
-#: utils/formatting.cpp:1575
+#: utils/formatting.cpp:1579
 #, kde-format
 msgid "CRL missing"
 msgstr "सीआरएल अनुपलब्ध"
 
-#: utils/formatting.cpp:1577
+#: utils/formatting.cpp:1581
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL अतीव पुरातनम्"
 
-#: utils/formatting.cpp:1579
+#: utils/formatting.cpp:1583
 #, kde-format
 msgid "Bad policy"
 msgstr "दुर्नीतिः"
 
-#: utils/formatting.cpp:1581
+#: utils/formatting.cpp:1585
 #, kde-format
 msgid "System error"
 msgstr "प्रणालीदोषः"
 
-#: utils/formatting.cpp:1583
+#: utils/formatting.cpp:1587
 #, kde-format
 msgid "Bad signature"
 msgstr "दुष्टहस्ताक्षरम्"
 
-#: utils/formatting.cpp:1659 utils/formatting.cpp:1682
+#: utils/formatting.cpp:1663 utils/formatting.cpp:1686
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "हस्ताक्षरम् अमान्यम् अस्ति: %1"
 
-#: utils/formatting.cpp:1668
+#: utils/formatting.cpp:1672
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "भवान् प्रमाणपत्रं कीसर्वर् इत्यत्र अन्वेष्टुं वा सञ्चिकातः आयातयितुं वा शक्नोति ।"
 
-#: utils/formatting.cpp:1677
+#: utils/formatting.cpp:1681
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr "प्रयुक्ता कुञ्जी भवता वा केनापि विश्वसनीयेन व्यक्तिना प्रमाणीकृता नास्ति।"
 
-#: utils/formatting.cpp:1678
+#: utils/formatting.cpp:1682
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "

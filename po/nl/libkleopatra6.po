@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:43+0000\n"
+"POT-Creation-Date: 2025-07-03 06:57+0000\n"
 "PO-Revision-Date: 2024-11-15 13:11+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3291,7 +3291,39 @@ msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
-#: utils/formatting.cpp:1491
+#: utils/formatting.cpp:1479
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Curve25519)"
+msgctxt "@info"
+msgid "Kyber 768 (Curve25519)"
+msgstr "ECC (Curve25519)"
+
+#: utils/formatting.cpp:1480
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-256)"
+msgctxt "@info"
+msgid "Kyber 768 (Brainpool P-256)"
+msgstr "ECC (Brainpool P-256)"
+
+#: utils/formatting.cpp:1481
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-384)"
+msgctxt "@info"
+msgid "Kyber 1024 (Brainpool P-384)"
+msgstr "ECC (Brainpool P-384)"
+
+#: utils/formatting.cpp:1482
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Curve448)"
+msgctxt "@info"
+msgid "Kyber 1024 (Curve448)"
+msgstr "ECC (Curve448)"
+
+#: utils/formatting.cpp:1495
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
@@ -3300,14 +3332,14 @@ msgstr ""
 "De ondertekening is geldig maar het vertrouwen in de geldigheid van het "
 "certificaat is marginaal."
 
-#: utils/formatting.cpp:1493
+#: utils/formatting.cpp:1497
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
 "De ondertekening is geldig en de geldigheid van het certificaat is volledig "
 "vertrouwd."
 
-#: utils/formatting.cpp:1495
+#: utils/formatting.cpp:1499
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
@@ -3315,7 +3347,7 @@ msgstr ""
 "De ondertekening is geldig en de geldigheid van het certificaat is ultiem "
 "vertrouwd."
 
-#: utils/formatting.cpp:1497
+#: utils/formatting.cpp:1501
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
@@ -3324,32 +3356,32 @@ msgstr ""
 "De ondertekening is geldig maar de geldigheid van het certificaat is "
 "<em>niet vertrouwd</em>."
 
-#: utils/formatting.cpp:1499
+#: utils/formatting.cpp:1503
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr ""
 "De ondertekening is geldig maar de geldigheid van het certificaat is "
 "onbekend."
 
-#: utils/formatting.cpp:1502
+#: utils/formatting.cpp:1506
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 "De ondertekening is geldig maar de geldigheid van het certificaat is "
 "ongedefinieerd."
 
-#: utils/formatting.cpp:1514
+#: utils/formatting.cpp:1518
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Onbekende certificaat"
 
-#: utils/formatting.cpp:1518
+#: utils/formatting.cpp:1522
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1534
+#: utils/formatting.cpp:1538
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
@@ -3357,23 +3389,23 @@ msgid ""
 msgstr ""
 "Ondertekening aangemaakt op %1 met onbekend certificaat met vingerafdruk %2"
 
-#: utils/formatting.cpp:1538
+#: utils/formatting.cpp:1542
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "Ondertekening aangemaakt met onbekend certificaat met vingerafdruk %1"
 
-#: utils/formatting.cpp:1542
+#: utils/formatting.cpp:1546
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "Ondertekening aangemaakt op %1 met certificaat: %2"
 
-#: utils/formatting.cpp:1544
+#: utils/formatting.cpp:1548
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Ondertekening aangemaakt met certificaat: %1"
 
-#: utils/formatting.cpp:1550
+#: utils/formatting.cpp:1554
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3381,7 +3413,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "De ondertekening is %1"
 
-#: utils/formatting.cpp:1553
+#: utils/formatting.cpp:1557
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3389,80 +3421,80 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "De ondertekening <b>is niet</b> %1."
 
-#: utils/formatting.cpp:1563
+#: utils/formatting.cpp:1567
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Fout: ondertekening is niet geverifieerd"
 
-#: utils/formatting.cpp:1565
+#: utils/formatting.cpp:1569
 #, kde-format
 msgid "Good signature"
 msgstr "Correcte ondertekening"
 
-#: utils/formatting.cpp:1567
+#: utils/formatting.cpp:1571
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "Ondertekeningscertificaat is ingetrokken"
 
-#: utils/formatting.cpp:1569
+#: utils/formatting.cpp:1573
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "Ondertekeningscertificaat is verlopen"
 
-#: utils/formatting.cpp:1571
+#: utils/formatting.cpp:1575
 #, kde-format
 msgid "Certificate is not available"
 msgstr "Certificaat is niet beschikbaar"
 
-#: utils/formatting.cpp:1573
+#: utils/formatting.cpp:1577
 #, kde-format
 msgid "Signature expired"
 msgstr "Handtekening verlopen"
 
-#: utils/formatting.cpp:1575
+#: utils/formatting.cpp:1579
 #, kde-format
 msgid "CRL missing"
 msgstr "CRL ontbreekt"
 
-#: utils/formatting.cpp:1577
+#: utils/formatting.cpp:1581
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL te oud"
 
-#: utils/formatting.cpp:1579
+#: utils/formatting.cpp:1583
 #, kde-format
 msgid "Bad policy"
 msgstr "Slecht beleid"
 
-#: utils/formatting.cpp:1581
+#: utils/formatting.cpp:1585
 #, kde-format
 msgid "System error"
 msgstr "Systeemfout"
 
-#: utils/formatting.cpp:1583
+#: utils/formatting.cpp:1587
 #, kde-format
 msgid "Bad signature"
 msgstr "Foute ondertekening"
 
-#: utils/formatting.cpp:1659 utils/formatting.cpp:1682
+#: utils/formatting.cpp:1663 utils/formatting.cpp:1686
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Handtekening is ongeldig: %1"
 
-#: utils/formatting.cpp:1668
+#: utils/formatting.cpp:1672
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "U kunt het certificaat zoeken op een sleutelserver of importeren uit een "
 "bestand."
 
-#: utils/formatting.cpp:1677
+#: utils/formatting.cpp:1681
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "De gebruikte sleutel is niet door u gecertificeerd of een vertrouwd persoon."
 
-#: utils/formatting.cpp:1678
+#: utils/formatting.cpp:1682
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
