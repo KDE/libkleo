@@ -1,23 +1,25 @@
-# Translation of libkleopatra to Spanish
+# Spanish translations for libkleopatra6.po package.
+# Copyright (C) 2004-2025 This file is copyright:
+# This file is distributed under the same license as the libkleo package.
 #
 # SPDX-FileCopyrightText: 2004, 2005 Juan Manuel Garcia Molina <juanma@superiodico.net>
 # SPDX-FileCopyrightText: 2007 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
-# SPDX-FileCopyrightText: 2008, 2009, 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2008, 2009, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2008, 2009 Franco Mariluis <fmariluis@gmail.com>
 # SPDX-FileCopyrightText: 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Javier Viñal <fjvinal@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: libkleopatra\n"
+"Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-03 06:57+0000\n"
-"PO-Revision-Date: 2024-11-15 20:11+0100\n"
+"PO-Revision-Date: 2025-07-03 12:29+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -1020,7 +1022,7 @@ msgstr "sin correo electrónico"
 #: models/keylistmodel.cpp:474
 #, kde-format
 msgid "Loading..."
-msgstr "Cargando..."
+msgstr "Cargando…"
 
 #: models/keylistmodel.cpp:557
 #, kde-format
@@ -1142,7 +1144,7 @@ msgstr "&Copiar en el portapapeles"
 #, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
-msgstr "&Guardar a disco..."
+msgstr "&Guardar a disco…"
 
 #: ui/auditlogviewer.cpp:93
 #, kde-format
@@ -1261,12 +1263,12 @@ msgstr "Configurar el nivel de depuración a"
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
-msgstr "Mostrar..."
+msgstr "Mostrar…"
 
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
-msgstr "Editar..."
+msgstr "Editar…"
 
 #: ui/cryptoconfigmodule.cpp:885
 #, kde-format
@@ -1839,7 +1841,7 @@ msgstr "Borrar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Change..."
-msgstr "Cambiar..."
+msgstr "Cambiar…"
 
 #: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
@@ -1915,7 +1917,7 @@ msgstr "%1 <%2>"
 #: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
 #, kde-format
 msgid "Loading keys ..."
-msgstr "Cargando claves..."
+msgstr "Cargando claves…"
 
 #: ui/keyselectiondialog.cpp:71
 #, kde-format
@@ -2087,12 +2089,12 @@ msgstr "Error del gestor de certificados"
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
-msgstr "Verificando las claves seleccionadas..."
+msgstr "Verificando las claves seleccionadas…"
 
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
-msgstr "Obteniendo las claves..."
+msgstr "Obteniendo las claves…"
 
 #: ui/keyselectiondialog.cpp:750
 #, kde-format
@@ -2284,7 +2286,7 @@ msgstr "S/MIME"
 #: ui/newkeyapprovaldialog.cpp:403
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr "Generando clave para '%1'..."
+msgstr "Generando clave para '%1'…"
 
 #: ui/newkeyapprovaldialog.cpp:403
 #, kde-format
@@ -3266,36 +3268,28 @@ msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
 #: utils/formatting.cpp:1479
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve25519)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
-msgstr "ECC (Curve25519)"
+msgstr "Kyber 768 (Curve25519)"
 
 #: utils/formatting.cpp:1480
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-256)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
-msgstr "ECC (Brainpool P-256)"
+msgstr "Kyber 768 (Brainpool P-256)"
 
 #: utils/formatting.cpp:1481
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
-msgstr "ECC (Brainpool P-384)"
+msgstr "Kyber 1024 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1482
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve448)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
-msgstr "ECC (Curve448)"
+msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1495
 #, kde-format
@@ -3495,302 +3489,3 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Se ha encontrado un final prematuro de carácter codificado en hexadecimal en "
 "el flujo de entrada"
-
-#~ msgid "Subkey"
-#~ msgstr "Subclave"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, creado: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, creado: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Algoritmo desconocido"
-
-#~ msgid "All certificates"
-#~ msgstr "Todos los certificados"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "La configuración de los servicios de directorio no es posible porque las "
-#~ "bibliotecas gpgme usadas son demasiado antiguas."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Lo sentimos"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Firma creada el %1 con certificado no disponible: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Firma creada con certificado no disponible: %1"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Con certificado: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "Correo"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "buena"
-
-#~ msgid "Unknown"
-#~ msgstr "Desconocido"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "ID de usuarios"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Certificados totalmente confiables"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Certificados sin certificar"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Certificados no validados"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "ID de los usuarios"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "ID de la clave"
-
-#~ msgid "User-ID"
-#~ msgstr "ID de usuario"
-
-#~ msgid "Key-ID"
-#~ msgstr "ID de la clave"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "No confirmar identidad e integridad"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "Error de GpgConf"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Gestor de certificados e interfaz gráfica criptográfica unificada"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Fallo al firmar: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Firmado exitoso"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Fallo al cifrar: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Cifrado exitoso"
-
-#~ msgid "Signing Result"
-#~ msgstr "Resultados de la firma"
-
-#~ msgid "Signing Error"
-#~ msgstr "Error de firmado"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Resultado del cifrado"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Error de cifrado"
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "La comunicación %1 es posible."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "La comunicación %1 no es posible."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "Se puede usar para la comunicación %1."
-
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "<b>No</b> se puede usar para la comunicación %1."
-
-#~ msgid "never"
-#~ msgstr "nunca"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Creado"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Expirar"
-
-#~ msgid "Created"
-#~ msgstr "Creado"
-
-#~ msgid "Expires"
-#~ msgstr "Expira"
-
-#, fuzzy
-#~| msgid "Add"
-#~ msgctxt "@action:button accessible name for 'Add to list'"
-#~ msgid "add"
-#~ msgstr "Añadir"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Mover a la base"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Custom entry"
-#~ msgstr "Entrada personalizada"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "servidor"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Nombre del servidor"
-
-#~ msgid "Server Port"
-#~ msgstr "Puerto del servidor"
-
-#~ msgid "User Name"
-#~ msgstr "Nombre de usuario"
-
-#~ msgctxt "Flags to enable/disable certain features"
-#~ msgid "Flags"
-#~ msgstr "Indicadores"
-
-#~ msgid "(read-only)"
-#~ msgstr "(solo lectura)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (solo lectura)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr ""
-#~ "<b>(Opcional)</b> Introduzca aquí su nombre de usuario, si fuera "
-#~ "necesario."
-
-#~ msgid ""
-#~ "<b>(Optional)</b> Enter 'ldaps' to specify that a TLS connection shall be "
-#~ "used."
-#~ msgstr ""
-#~ "<b>(Opcional)</b> Introduzca «ldaps» para indicar que se debe usar una "
-#~ "conexión TLS."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Configuración de servicios de directorio"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "Servidor de claves OpenPGP:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Pulse este botón para crear una nueva entrada de servicio de directorio "
-#~ "como un clon de la actualmente seleccionada (o con valores "
-#~ "predeterminados, si ninguna entrada está seleccionada). A continuación "
-#~ "podrá configurar los detalles en la tabla situada a la izquierda."
-
-#~ msgid "New"
-#~ msgstr "Nuevo"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Use esta opción para conmutar la visualización del nombre de usuario y "
-#~ "contraseña en la tabla de arriba."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Mostrar información de usuario y contraseña"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Configurar el motor GnuPG"
-
-#~ msgid "&Reset"
-#~ msgstr "&Reiniciar"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Usar servidor de claves en"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Configurar los servidores de claves"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "No se han encontrado claves para la dirección '%1':"
-
-#~ msgid "Add Filter"
-#~ msgstr "Añadir filtro"
-
-#~ msgctxt "name of group of keys (n key(s), read ...)"
-#~ msgid "%2 (1 key, read from gpg.conf)"
-#~ msgid_plural "%2 (%1 keys, read from gpg.conf)"
-#~ msgstr[0] "%2 (1 clave, leída de gpg.conf)"
-#~ msgstr[1] "%2 (%1 claves, leídas de gpg.conf)"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "No Key"
-#~ msgstr "Sin clave"
-
-#~ msgid "Ignore recipient"
-#~ msgstr "Ignorar destinatario"
-
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Certificados VS-NfD-compatibles"

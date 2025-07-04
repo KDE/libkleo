@@ -1,17 +1,17 @@
 # Translation of libkleopatra6.po to Catalan
-# Copyright (C) 2004-2024 This_file_is_part_of_KDE
+# Copyright (C) 2004-2025 This_file_is_part_of_KDE
 #
-# SPDX-FileCopyrightText: 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Albert Astals Cid <aacid@kde.org>, 2004, 2005.
 # Sebastià Pla i Sanz <sps@sastia.com>, 2004.
 # Manuel Tortosa Moreno <manutortosa@gmail.com>, 2009, 2010.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2013, 2014, 2016, 2017, 2018, 2019, 2020, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-03 06:57+0000\n"
-"PO-Revision-Date: 2024-11-15 12:58+0100\n"
+"PO-Revision-Date: 2025-07-03 16:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3298,36 +3298,28 @@ msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
 #: utils/formatting.cpp:1479
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve25519)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
-msgstr "ECC (Curve25519)"
+msgstr "Kyber 768 (Curve25519)"
 
 #: utils/formatting.cpp:1480
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-256)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
-msgstr "ECC (Brainpool P-256)"
+msgstr "Kyber 768 (Brainpool P-256)"
 
 #: utils/formatting.cpp:1481
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
-msgstr "ECC (Brainpool P-384)"
+msgstr "Kyber 1024 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1482
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve448)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
-msgstr "ECC (Curve448)"
+msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1495
 #, kde-format
@@ -3529,82 +3521,3 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
-
-#~ msgid "Subkey"
-#~ msgstr "Subclau"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, creada: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3 creada: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Algorisme desconegut"
-
-#~ msgid "All certificates"
-#~ msgstr "Tots els certificats"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "No és possible la configuració dels serveis de directori perquè les "
-#~ "biblioteques «gpgme» són massa antigues."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Ho sento"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Signatura creada el %1 amb certificat no disponible: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Signatura creada amb certificat no disponible: %1"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Amb certificat: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "Correu electrònic"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "correcta"
-
-#~ msgid "Unknown"
-#~ msgstr "Desconegut"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "ID de l'usuari"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Certificats completament fiables"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Cap certificat sense certificar"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Certificats sense validar"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "ID d'usuari"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "ID de la clau"
-
-#~ msgid "User-ID"
-#~ msgstr "ID de l'usuari"
-
-#~ msgid "Key-ID"
-#~ msgstr "ID de la clau"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "No confirmis la identitat i la integritat"
