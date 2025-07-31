@@ -165,13 +165,10 @@ QString Kleo::gpg4winInstallPath()
 QString Kleo::gnupgInstallPath()
 {
 #ifdef Q_OS_WIN
-    // QApplication::applicationDirPath is only used as a fallback
-    // to support the case where Kleopatra is not installed from
-    // Gpg4win but Gpg4win is also installed.
-    char *instDir = read_w32_registry_string("HKEY_LOCAL_MACHINE", "Software\\GnuPG", "Install Directory");
+    char *instDir = read_w32_registry_string("HKEY_LOCAL_MACHINE", "Software\\GnuPG", GNUPG_INSTALL_DIR_REGISTRY_KEY);
     if (!instDir) {
         // Fallback to HKCU
-        instDir = read_w32_registry_string("HKEY_CURRENT_USER", "Software\\GnuPG", "Install Directory");
+        instDir = read_w32_registry_string("HKEY_CURRENT_USER", "Software\\GnuPG", GNUPG_INSTALL_DIR_REGISTRY_KEY);
     }
     if (instDir) {
         QString ret = QString::fromLocal8Bit(instDir) + QStringLiteral("/bin");
