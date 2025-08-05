@@ -111,6 +111,8 @@ private Q_SLOTS:
             QVERIFY(!key.isNull());
             QCOMPARE(std::string_view{key.primaryFingerprint()}, key_v5_curve_448_fpr);
             keyCurve448 = key;
+        } else {
+            QSKIP("Unsupported engine");
         }
     }
 
