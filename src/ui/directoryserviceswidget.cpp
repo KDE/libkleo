@@ -173,7 +173,7 @@ class DirectoryServicesWidget::Private
     bool readOnly = false;
 
 public:
-    Private(DirectoryServicesWidget *qq)
+    explicit Private(DirectoryServicesWidget *qq)
         : q(qq)
     {
         auto mainLayout = new QVBoxLayout{q};

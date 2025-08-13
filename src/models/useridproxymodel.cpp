@@ -24,7 +24,7 @@ using namespace Kleo;
 class UserIDProxyModel::Private
 {
 public:
-    Private(UserIDProxyModel *qq);
+    explicit Private(UserIDProxyModel *qq);
     void loadUserIDs();
     QList<std::variant<GpgME::UserID, KeyGroup>> mIds;
     UserIDProxyModel *q;

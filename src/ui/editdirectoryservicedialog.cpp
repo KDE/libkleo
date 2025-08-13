@@ -65,7 +65,7 @@ class EditDirectoryServiceDialog::Private
         QDialogButtonBox *buttonBox = nullptr;
         QLabel *invalidHostLabel = nullptr;
 
-        Ui(QWidget *parent)
+        explicit Ui(QWidget *parent)
             : hostEdit{new QLineEdit{parent}}
             , portSpinBox{new QSpinBox{parent}}
             , useDefaultPortCheckBox{new QCheckBox{parent}}
@@ -318,7 +318,7 @@ class EditDirectoryServiceDialog::Private
     }
 
 public:
-    Private(EditDirectoryServiceDialog *q)
+    explicit Private(EditDirectoryServiceDialog *q)
         : q{q}
         , ui{q}
     {

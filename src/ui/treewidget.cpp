@@ -38,7 +38,7 @@ public:
     QString mStateGroupName;
     std::vector<bool> mColumnForcedHidden;
 
-    Private(TreeWidget *qq)
+    explicit Private(TreeWidget *qq)
         : q(qq)
     {
     }

@@ -21,11 +21,11 @@ class KLEO_EXPORT ReaderPortSelection : public QWidget
 {
     Q_OBJECT
 public:
-    ReaderPortSelection(QWidget *parent = nullptr);
+    explicit ReaderPortSelection(QWidget *parent = nullptr);
     ~ReaderPortSelection() override;
 
     void setValue(const QString &value);
-    QString value() const;
+    [[nodiscard]] QString value() const;
 
 Q_SIGNALS:
     void valueChanged(const QString &newValue);

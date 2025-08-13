@@ -91,7 +91,7 @@ class KLEO_EXPORT KeyFilterModel : public QSortFilterProxyModel
     Q_OBJECT
 
 public:
-    KeyFilterModel(QObject *parent = nullptr);
+    explicit KeyFilterModel(QObject *parent = nullptr);
     ~KeyFilterModel() override;
 
     bool isCustomFilter(int row) const;

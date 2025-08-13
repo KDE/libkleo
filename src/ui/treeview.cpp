@@ -37,7 +37,7 @@ public:
     QList<QAction *> mColumnActions;
     QString mStateGroupName;
 
-    Private(TreeView *qq)
+    explicit Private(TreeView *qq)
         : q(qq)
     {
     }

@@ -40,7 +40,7 @@ class KLEO_EXPORT TreeView : public QTreeView
 {
     Q_OBJECT
 public:
-    TreeView(QWidget *parent = nullptr);
+    explicit TreeView(QWidget *parent = nullptr);
     ~TreeView() override;
 
     /**

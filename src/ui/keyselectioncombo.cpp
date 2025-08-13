@@ -93,7 +93,7 @@ class SortAndFormatCertificatesProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 
 public:
-    SortAndFormatCertificatesProxyModel(KeyUsage::Flags usageFlags, QObject *parent = nullptr)
+    explicit SortAndFormatCertificatesProxyModel(KeyUsage::Flags usageFlags, QObject *parent = nullptr)
         : QSortFilterProxyModel{parent}
         , mIconProvider{usageFlags}
     {
@@ -204,7 +204,7 @@ private:
     };
 
 public:
-    CustomItemsProxyModel(QObject *parent = nullptr)
+    explicit CustomItemsProxyModel(QObject *parent = nullptr)
         : QAbstractProxyModel(parent)
     {
     }

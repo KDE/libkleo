@@ -47,7 +47,7 @@ class SignalRecipient : public QObject
 {
     Q_OBJECT
 public:
-    SignalRecipient(KeyResolver *res)
+    explicit SignalRecipient(KeyResolver *res)
         : resolver(res)
     {
     }

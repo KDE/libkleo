@@ -154,7 +154,7 @@ namespace
 class ColumnStrategy : public KeyListView::ColumnStrategy
 {
 public:
-    ColumnStrategy(unsigned int keyUsage);
+    explicit ColumnStrategy(unsigned int keyUsage);
 
     QString title(int col) const override;
     int width(int col, const QFontMetrics &fm) const override;

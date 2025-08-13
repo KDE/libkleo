@@ -54,7 +54,7 @@ public:
         InvalidEntry // the validator doesn't accept the entry
     };
 
-    Private(FormTextInputBase *q)
+    explicit Private(FormTextInputBase *q)
         : q{q}
         , mValueRequiredErrorMessage{defaultValueRequiredErrorMessage()}
         , mInvalidEntryErrorMessage{defaultInvalidEntryErrorMessage()}

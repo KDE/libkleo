@@ -18,7 +18,7 @@ class KLEO_EXPORT UserIDListProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 
 public:
-    UserIDListProxyModel(QObject *parent = nullptr);
+    explicit UserIDListProxyModel(QObject *parent = nullptr);
     ~UserIDListProxyModel() override;
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;

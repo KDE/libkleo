@@ -33,7 +33,7 @@ using namespace Kleo;
 class ReaderPortSelection::Private
 {
 public:
-    Private(ReaderPortSelection *q);
+    explicit Private(ReaderPortSelection *q);
 
     void setValue(const QString &value);
     QString value() const;
