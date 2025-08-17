@@ -251,7 +251,7 @@ install(TARGETS
 )
 
 target_include_directories(KPim6Libkleo INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/KPim6/Libkleo>")
-target_include_directories(KPim6Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src;${libkleo_BINARY_DIR}/src>")
+target_include_directories(KPim6Libkleo PUBLIC "$<BUILD_INTERFACE:${libkleo_SOURCE_DIR}/src>")
 
 ecm_generate_headers(libkleo_CamelCase_HEADERS
     HEADER_NAMES
