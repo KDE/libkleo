@@ -105,6 +105,7 @@ private Q_SLOTS:
 
         QTest::newRow("known extension") << u"XXXXXX.sig"_s << u"XXXXXX"_s;
         QTest::newRow("unknown extension") << u"XXXXXX.unknown"_s << u"XXXXXX.unknown.out"_s;
+        QTest::newRow("upper-case extension") << u"XXXXXX.GPG"_s << u"XXXXXX"_s;
     }
 
     void test_outputFileName()

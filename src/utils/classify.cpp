@@ -304,7 +304,7 @@ static QString stripOutlookAttachmentNumbering(const QString &s)
 QString Kleo::outputFileName(const QString &inputFileName)
 {
     const QFileInfo fi(inputFileName);
-    const QString suffix = fi.suffix();
+    const QString suffix = fi.suffix().toLower();
 
     if (classifications.find(suffix) == std::cend(classifications)) {
         return inputFileName + QLatin1StringView(".out");
