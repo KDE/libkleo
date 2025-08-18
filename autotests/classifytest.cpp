@@ -98,22 +98,21 @@ private Q_SLOTS:
         QCOMPARE(fi.baseName() + QStringLiteral(".sig"), signatures[0]);
     }
 
-    void findOutputFileNameNotFoundTest()
+    void test_outputFileName_data()
     {
-        QTemporaryFile unknown;
-        unknown.setFileTemplate("XXXXXX.unknown");
-        QVERIFY(unknown.open());
+        QTest::addColumn<QString>("fileName");
+        QTest::addColumn<QString>("result");
 
-        QCOMPARE(unknown.fileName() + QStringLiteral(".out"), Kleo::outputFileName(unknown.fileName()));
+        QTest::newRow("known extension") << u"XXXXXX.sig"_s << u"XXXXXX"_s;
+        QTest::newRow("unknown extension") << u"XXXXXX.unknown"_s << u"XXXXXX.unknown.out"_s;
     }
 
-    void findOutputFileNameTest()
+    void test_outputFileName()
     {
-        QTemporaryFile sig;
-        sig.setFileTemplate("XXXXXX.sig");
-        QVERIFY(sig.open());
+        QFETCH(QString, fileName);
+        QFETCH(QString, result);
 
-        QCOMPARE(sig.fileName().chopped(4), Kleo::outputFileName(sig.fileName()));
+        QCOMPARE(Kleo::outputFileName(fileName), result);
     }
 
     void test_outputFileExtension()
