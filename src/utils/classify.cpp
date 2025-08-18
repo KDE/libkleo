@@ -154,7 +154,8 @@ static bool isMailFile(const QFileInfo &fi)
     {
         Kleo::ClassifyConfig classifyConfig;
 
-        if (classifyConfig.p7mWithoutExtensionAreEmail() && fileName.endsWith(QStringLiteral(".p7m")) && fi.completeSuffix() == fi.suffix()) {
+        if (classifyConfig.p7mWithoutExtensionAreEmail() && fileName.endsWith(QStringLiteral(".p7m"), Qt::CaseInsensitive)
+            && fi.completeSuffix() == fi.suffix()) {
             // match "myfile.p7m" but not "myfile.pdf.p7m"
             return true;
         }

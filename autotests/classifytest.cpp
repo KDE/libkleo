@@ -52,6 +52,7 @@ private Q_SLOTS:
         QTest::newRow("*.mbox") << u"XXXXXX.mbox"_s << true;
         QTest::newRow("*.eml") << u"XXXXXX.eml"_s << true;
         QTest::newRow("*.p7m") << u"XXXXXX.p7m"_s << true;
+        QTest::newRow("*.P7M") << u"XXXXXX.P7M"_s << true;
         QTest::newRow("*.pdf.p7m") << u"XXXXXX.pdf.p7m"_s << false;
     }
 
