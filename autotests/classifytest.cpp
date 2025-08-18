@@ -44,37 +44,40 @@ private Q_SLOTS:
         QVERIFY(Kleo::isMimeFile(fileName1));
     }
 
-    void identifyMimeFileExtensionTest()
+    void test_mayBeMimeFile_fileName_data()
     {
-        {
-            QTemporaryFile mbox;
-            mbox.setFileTemplate("XXXXXX.mbox");
-            QVERIFY(mbox.open());
-            QVERIFY(Kleo::mayBeMimeFile(Kleo::classify(mbox.fileName())));
-        }
+        QTest::addColumn<QString>("fileName");
+        QTest::addColumn<bool>("result");
 
-        {
-            QTemporaryFile eml;
-            eml.setFileTemplate("XXXXXX.eml");
-            QVERIFY(eml.open());
-            QVERIFY(Kleo::mayBeMimeFile(eml.fileName()));
+        QTest::newRow("*.mbox") << u"XXXXXX.mbox"_s << true;
+        QTest::newRow("*.eml") << u"XXXXXX.eml"_s << true;
+        QTest::newRow("*.p7m") << u"XXXXXX.p7m"_s << true;
+        QTest::newRow("*.pdf.p7m") << u"XXXXXX.pdf.p7m"_s << false;
+    }
 
-            QCOMPARE(QStringLiteral("Ascii, MimeFile"), Kleo::printableClassification(Kleo::classify(eml.fileName())));
-        }
+    void test_mayBeMimeFile_fileName()
+    {
+        QFETCH(QString, fileName);
+        QFETCH(bool, result);
 
-        {
-            QTemporaryFile myFile;
-            myFile.setFileTemplate("XXXXXX.p7m");
-            QVERIFY(myFile.open());
-            QVERIFY(Kleo::mayBeMimeFile(myFile.fileName()));
-        }
+        QTemporaryFile tempfile;
+        tempfile.setFileTemplate(fileName);
+        QVERIFY(tempfile.open());
+        QCOMPARE(Kleo::mayBeMimeFile(tempfile.fileName()), result);
+    }
 
-        {
-            QTemporaryFile myPdfFile;
-            myPdfFile.setFileTemplate("XXXXXX.pdf.p7m");
-            QVERIFY(myPdfFile.open());
-            QVERIFY(!Kleo::mayBeMimeFile(myPdfFile.fileName()));
-        }
+    void test_mayBeMimeFile_classification()
+    {
+        QVERIFY(Kleo::mayBeMimeFile(Kleo::Class::MimeFile | Kleo::Class::Ascii));
+    }
+
+    void test_printableClassification()
+    {
+        QTemporaryFile eml;
+        eml.setFileTemplate("XXXXXX.eml");
+        QVERIFY(eml.open());
+
+        QCOMPARE(QStringLiteral("Ascii, MimeFile"), Kleo::printableClassification(Kleo::classify(eml.fileName())));
     }
 
     void identifyCertificateStoreExtensionTest()
