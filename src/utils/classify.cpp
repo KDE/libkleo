@@ -168,7 +168,7 @@ static bool isMailFile(const QFileInfo &fi)
 
 static unsigned int classifyExtension(const QFileInfo &fi)
 {
-    return classifications.value(fi.suffix(), defaultClassification);
+    return classifications.value(fi.suffix().toLower(), defaultClassification);
 }
 
 unsigned int Kleo::classify(const QString &filename)

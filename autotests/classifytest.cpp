@@ -26,6 +26,25 @@ private Q_SLOTS:
     {
     }
 
+    void test_classify_data()
+    {
+        QTest::addColumn<QString>("fileName");
+        QTest::addColumn<unsigned int>("result");
+
+        QTest::newRow("*.sig") << u"XXXXXX.sig"_s << unsigned(Kleo::Class::OpenPGP | Kleo::Class::AnyFormat | Kleo::Class::DetachedSignature);
+        QTest::newRow("*.SIG") << u"XXXXXX.SIG"_s << unsigned(Kleo::Class::OpenPGP | Kleo::Class::AnyFormat | Kleo::Class::DetachedSignature);
+    }
+
+    void test_classify()
+    {
+        QFETCH(QString, fileName);
+        QFETCH(unsigned int, result);
+
+        QTemporaryFile tempfile{fileName};
+        QVERIFY(tempfile.open());
+        QCOMPARE(Kleo::classify(tempfile.fileName()), result);
+    }
+
     void identifyFileName()
     {
         QTemporaryDir dir;
