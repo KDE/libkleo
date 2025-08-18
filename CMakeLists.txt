@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(PIM_VERSION "6.5.40")
+set(PIM_VERSION "6.5.41")
 
 # GNUPG_INSTALL_DIR_REGISTRY_KEY is used to find the right GnuPG installation on Windows
 if (GNUPG_INSTALL_DIR_REGISTRY_KEY)
