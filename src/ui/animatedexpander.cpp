@@ -6,7 +6,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "animatedexpander_p.h"
+#include "animatedexpander.h"
 
 #include <utils/applicationpalettewatcher.h>
 
@@ -158,4 +158,4 @@ int AnimatedExpander::contentWidth() const
     return d->contentArea.layout()->sizeHint().width();
 }
 
-#include "moc_animatedexpander_p.cpp"
+#include "moc_animatedexpander.cpp"

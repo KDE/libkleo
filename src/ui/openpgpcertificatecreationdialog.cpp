@@ -11,7 +11,7 @@
 
 #include "openpgpcertificatecreationdialog.h"
 
-#include "animatedexpander_p.h"
+#include "animatedexpander.h"
 #include "nameandemailwidget.h"
 #include "openpgpcertificatecreationconfig.h"
 #include "utils/compat.h"

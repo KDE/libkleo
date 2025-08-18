@@ -142,7 +142,7 @@ ecm_qt_declare_logging_category(KPim6Libkleo HEADER libkleo_debug.h IDENTIFIER L
 
 target_sources(KPim6Libkleo PRIVATE
     ui/animatedexpander.cpp
-    ui/animatedexpander_p.h
+    ui/animatedexpander.h
     ui/auditlogviewer.cpp
     ui/auditlogviewer.h
     ui/cryptoconfigentryreaderport.cpp
@@ -333,6 +333,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
 
 ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
     HEADER_NAMES
+    AnimatedExpander
     AuditLogViewer
     CryptoConfigModule
     DNAttributeOrderConfigWidget

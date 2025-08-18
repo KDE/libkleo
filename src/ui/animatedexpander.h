@@ -8,13 +8,17 @@
 
 #pragma once
 
+#include "kleo_export.h"
+
 #include <QWidget>
+
+#include <memory>
 
 class QLayout;
 class QString;
 
 // based on code from StackOverflow
-class AnimatedExpander : public QWidget
+class KLEO_EXPORT AnimatedExpander : public QWidget
 {
     Q_OBJECT
 public:
