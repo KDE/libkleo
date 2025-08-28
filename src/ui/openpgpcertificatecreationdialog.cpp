@@ -453,4 +453,9 @@ bool OpenPGPCertificateCreationDialog::protectKeyWithPassword() const
     return d->ui.withPassCheckBox->isChecked();
 }
 
+void OpenPGPCertificateCreationDialog::setInfoText(const QString &text)
+{
+    d->ui.infoLabel->setText(text);
+}
+
 #include "moc_openpgpcertificatecreationdialog.cpp"

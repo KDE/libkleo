@@ -44,6 +44,8 @@ public:
     void setProtectKeyWithPassword(bool protectKey);
     bool protectKeyWithPassword() const;
 
+    void setInfoText(const QString &text);
+
 private:
     class Private;
     const std::unique_ptr<Private> d;
