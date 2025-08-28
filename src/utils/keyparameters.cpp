@@ -356,6 +356,9 @@ QString serialize(KeyUsage keyUsage)
     if (keyUsage.canCertify()) {
         usages << QStringLiteral("cert");
     }
+    if (keyUsage.isGroupKey()) {
+        usages << QStringLiteral("group");
+    }
     return usages.join(QLatin1Char{' '});
 }
 

@@ -26,6 +26,7 @@ public:
         Sign = 2,
         Encrypt = 4,
         Authenticate = 8,
+        Group = 16,
     };
     Q_DECLARE_FLAGS(Flags, Flag)
 
@@ -81,6 +82,15 @@ public:
     bool canSign() const
     {
         return mFlags.testFlag(Sign);
+    }
+
+    void setIsGroupKey(bool isGroupKey)
+    {
+        mFlags.setFlag(Group, isGroupKey);
+    }
+    bool isGroupKey() const
+    {
+        return mFlags.testFlag(Group);
     }
 
 private:
