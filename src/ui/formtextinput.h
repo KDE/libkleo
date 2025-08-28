@@ -7,6 +7,8 @@
 */
 #pragma once
 
+#include "kleo_export.h"
+
 #include <QString>
 
 #include <memory>
@@ -22,7 +24,7 @@ class ErrorLabel;
 
 namespace _detail
 {
-class FormTextInputBase
+class KLEO_EXPORT FormTextInputBase
 {
 protected:
     FormTextInputBase();
@@ -228,12 +230,12 @@ private:
 };
 
 template<>
-bool FormTextInput<QLineEdit>::hasValue() const;
+KLEO_EXPORT bool FormTextInput<QLineEdit>::hasValue() const;
 
 template<>
-bool FormTextInput<QLineEdit>::hasAcceptableInput() const;
+KLEO_EXPORT bool FormTextInput<QLineEdit>::hasAcceptableInput() const;
 
 template<>
-void FormTextInput<QLineEdit>::connectWidget();
+KLEO_EXPORT void FormTextInput<QLineEdit>::connectWidget();
 
 }

@@ -161,7 +161,7 @@ target_sources(KPim6Libkleo PRIVATE
     ui/filenamerequester.cpp
     ui/filenamerequester.h
     ui/formtextinput.cpp
-    ui/formtextinput_p.h
+    ui/formtextinput.h
     ui/messagebox.cpp
     ui/messagebox.h
     ui/nameandemailwidget.cpp
@@ -340,6 +340,7 @@ ecm_generate_headers(libkleo_CamelCase_ui_HEADERS
     DirectoryServicesWidget
     EditDirectoryServiceDialog
     ErrorLabel
+    FormTextInput
     FileNameRequester
     KeyApprovalDialog
     KeyListView

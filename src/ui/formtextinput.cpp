@@ -6,7 +6,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "formtextinput_p.h"
+#include "formtextinput.h"
 
 #include "ui/errorlabel.h"
 

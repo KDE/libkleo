@@ -11,7 +11,7 @@
 
 #include "nameandemailwidget.h"
 
-#include "formtextinput_p.h"
+#include "formtextinput.h"
 
 #include "ui/errorlabel.h"
 #include "utils/validation.h"
