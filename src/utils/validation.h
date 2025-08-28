@@ -13,10 +13,11 @@
 
 #include "kleo_export.h"
 
+#include <QValidator>
+
 #include <memory>
 
 class QString;
-class QValidator;
 
 namespace Kleo
 {
@@ -27,6 +28,12 @@ enum Flags {
     Optional,
     Required,
 };
+
+/**
+ * Creates a validator with restrictions imposed by the regular expression \p regExp.
+ * If \p flags is \c Optional then empty values are also accepted.
+ */
+KLEO_EXPORT std::shared_ptr<QValidator> regularExpressionValidator(const QString &regExp, Flags flags = Required);
 
 /**
  * Creates a validator for the email part of an OpenPGP key.
@@ -57,5 +64,33 @@ KLEO_EXPORT std::shared_ptr<QValidator> pgpName(const QString &additionalRegExp,
  */
 KLEO_EXPORT std::shared_ptr<QValidator> simpleName(const QString &additionalRegExp, Flags flags = Required);
 
+template<class Validator>
+class TrimmingValidator : public Validator
+{
+public:
+    using Validator::Validator;
+
+    QValidator::State validate(QString &str, int &pos) const override
+    {
+        auto trimmed = str.trimmed();
+        auto posCopy = pos;
+        return Validator::validate(trimmed, posCopy);
+    }
+};
+
+template<class Validator>
+class EmptyIsAcceptableValidator : public Validator
+{
+public:
+    using Validator::Validator;
+
+    QValidator::State validate(QString &str, int &pos) const override
+    {
+        if (str.isEmpty()) {
+            return QValidator::Acceptable;
+        }
+        return Validator::validate(str, pos);
+    }
+};
 }
 }

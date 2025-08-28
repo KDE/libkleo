@@ -12,8 +12,6 @@
 #include "multivalidator_p.h"
 #include <libkleo_debug.h>
 
-#include <QValidator>
-
 #include <KEmailAddress>
 
 #include <QRegularExpression>
@@ -22,35 +20,6 @@ using namespace Kleo;
 
 namespace
 {
-
-template<class Validator>
-class TrimmingValidator : public Validator
-{
-public:
-    using Validator::Validator;
-
-    QValidator::State validate(QString &str, int &pos) const override
-    {
-        auto trimmed = str.trimmed();
-        auto posCopy = pos;
-        return Validator::validate(trimmed, posCopy);
-    }
-};
-
-template<class Validator>
-class EmptyIsAcceptableValidator : public Validator
-{
-public:
-    using Validator::Validator;
-
-    QValidator::State validate(QString &str, int &pos) const override
-    {
-        if (str.isEmpty()) {
-            return QValidator::Acceptable;
-        }
-        return Validator::validate(str, pos);
-    }
-};
 
 class EMailValidator : public QValidator
 {
@@ -70,15 +39,15 @@ public:
     }
 };
 
-std::shared_ptr<QValidator> regularExpressionValidator(Validation::Flags flags, const QString &regexp)
+}
+
+std::shared_ptr<QValidator> Validation::regularExpressionValidator(const QString &regexp, Flags flags)
 {
     if (flags & Validation::Required) {
         return std::make_shared<TrimmingValidator<QRegularExpressionValidator>>(QRegularExpression{regexp});
     } else {
         return std::make_shared<TrimmingValidator<EmptyIsAcceptableValidator<QRegularExpressionValidator>>>(QRegularExpression{regexp});
     }
-}
-
 }
 
 std::shared_ptr<QValidator> Validation::email(Flags flags)
@@ -92,28 +61,28 @@ std::shared_ptr<QValidator> Validation::email(Flags flags)
 
 std::shared_ptr<QValidator> Validation::email(const QString &addRX, Flags flags)
 {
-    return MultiValidator::create({email(flags), regularExpressionValidator(flags, addRX)});
+    return MultiValidator::create({email(flags), regularExpressionValidator(addRX, flags)});
 }
 
 std::shared_ptr<QValidator> Validation::pgpName(Flags flags)
 {
     // this regular expression is modeled after gnupg/g10/keygen.c:ask_user_id:
     static const QString name_rx{QLatin1StringView{"[^0-9<>][^<>@]{4,}"}};
-    return regularExpressionValidator(flags, name_rx);
+    return regularExpressionValidator(name_rx, flags);
 }
 
 std::shared_ptr<QValidator> Validation::pgpName(const QString &addRX, Flags flags)
 {
-    return MultiValidator::create({pgpName(flags), regularExpressionValidator(flags, addRX)});
+    return MultiValidator::create({pgpName(flags), regularExpressionValidator(addRX, flags)});
 }
 
 std::shared_ptr<QValidator> Validation::simpleName(Flags flags)
 {
     static const QString name_rx{QLatin1StringView{"[^<>@]*"}};
-    return std::shared_ptr<QValidator>{regularExpressionValidator(flags, name_rx)};
+    return std::shared_ptr<QValidator>{regularExpressionValidator(name_rx, flags)};
 }
 
 std::shared_ptr<QValidator> Validation::simpleName(const QString &additionalRegExp, Flags flags)
 {
-    return MultiValidator::create({simpleName(flags), regularExpressionValidator(flags, additionalRegExp)});
+    return MultiValidator::create({simpleName(flags), regularExpressionValidator(additionalRegExp, flags)});
 }
