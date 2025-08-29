@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 12:50+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1542,13 +1542,16 @@ msgid "Open file dialog"
 msgstr "Aperi dialogo de file"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Inserta un nomine."
 
 #: ui/formtextinput.cpp:30
 #, kde-format
-msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr ""
 
 #: ui/formtextinput.cpp:92
@@ -2179,12 +2182,12 @@ msgstr ""
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Il ha un problema."

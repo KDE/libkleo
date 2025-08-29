@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-13 23:16+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1742,13 +1742,17 @@ msgid "Open file dialog"
 msgstr "Avaa tiedostoikkuna"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "Virhe: Anna arvo."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Anna nimi."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "Virhe: Anna arvo oikeassa muodossa."
 
 #: ui/formtextinput.cpp:92
@@ -2398,12 +2402,12 @@ msgstr "Anna varmenteessa käytettävä nimi ja sähköpostiosoite."
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Anna varmenteessa käytettävä nimi tai sähköpostiosoite tai kumpikin."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Anna nimi tai sähköpostiosoite."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Havaittiin ongelma."
@@ -3476,6 +3480,9 @@ msgstr "Syötevirrassa virheellinen heksamerkki ”%1”."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Syötevirrassa ennenaikainen heksakoodatun merkin loppu"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "Virhe: Anna arvo."
 
 #~ msgid "Subkey"
 #~ msgstr "Aliavain"

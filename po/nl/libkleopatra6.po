@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-03 13:53+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1758,13 +1758,17 @@ msgid "Open file dialog"
 msgstr "Bestandsdialoog openen"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "Fout: voer een waarde in."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Een naam invoeren."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "Fout: voer een waarde in in het juiste formaat."
 
 #: ui/formtextinput.cpp:92
@@ -2424,12 +2428,12 @@ msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
 "Voer een naam en/of e-mailadres in om te gebruiken voor het certificaat."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Voer een naam of een e-mailadres in."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Er is een probleem."
@@ -3516,6 +3520,9 @@ msgstr "Ongeldig hexadecimaal teken '%1' in invoerstroom."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Voortijdig einde van hexadecimaal gecodeerd karakter in invoerstroom"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "Fout: voer een waarde in."
 
 #~ msgid "Subkey"
 #~ msgstr "Subsleutel"

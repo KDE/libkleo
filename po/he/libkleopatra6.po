@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-15 15:31+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -1838,13 +1838,17 @@ msgid "Open file dialog"
 msgstr "חלונית פתיחת קבצים"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "שגיאה: נא למלא ערך."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "נא למלא שם."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "שגיאה: נא למלא ערך בתבנית הנכונה."
 
 #: ui/formtextinput.cpp:92
@@ -2489,12 +2493,12 @@ msgstr "נא למלא שם וכתובת דוא״ל לשימוש עבור האי�
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "נא למלא שם ו/או כתובת דוא״ל לשימוש עבור האישור."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "נא למלא שם או כתובת דוא״ל."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "יש בעיה."
@@ -3558,3 +3562,6 @@ msgstr "תו הקסדצימלי שגוי ‚%1’ בתזרים הקלט."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "סיומת בטרם עת של תו בקידוד הקסדצימלי בתזרים הקלט"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "שגיאה: נא למלא ערך."

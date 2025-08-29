@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-07 22:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1755,13 +1755,17 @@ msgid "Open file dialog"
 msgstr "Ireki fitxategien elkarrizketa-koadroa"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "Errorea: Sartu balio bat."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Sartu izen bat."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "Errorea: Sartu balio bat formatu egokian."
 
 #: ui/formtextinput.cpp:92
@@ -2423,12 +2427,12 @@ msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
 "Sartu ziurtagiriarekin erabiltzeko izen bat eta/edo e-posta helbide bat."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Sartu izen bat edo e-posta helbide bat."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Arazo bat dago."
@@ -3509,6 +3513,9 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Sarrerako korrontean, hamaseitarrean kodetutako karakterearen amaiera "
 "goiztiarra"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "Errorea: Sartu balio bat."
 
 #~ msgid "Subkey"
 #~ msgstr "Azpigakoa"

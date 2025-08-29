@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-08 22:59+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1735,13 +1735,17 @@ msgid "Open file dialog"
 msgstr "Fájlmegnyitási párbeszédablak"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "Hiba: adjon meg egy értéket."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Adjon meg egy nevet."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "Hiba: adja meg az értéket helyes formátumban."
 
 #: ui/formtextinput.cpp:92
@@ -2399,12 +2403,12 @@ msgstr "Adjon meg egy nevet és egy e-mail-címet a tanúsítványhoz."
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Adjon meg egy nevet és/vagy egy e-mail-címet a tanúsítványhoz."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Adjon meg egy nevet és egy e-mail-címet."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Van egy kis probléma."
@@ -3482,6 +3486,9 @@ msgstr "Érvénytelen hexadecimális karakter („%1”) a bemenetben."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Túl korán végződő hexadecimálisan kódolt karakter a bemenetben"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "Hiba: adjon meg egy értéket."
 
 #~ msgid "Subkey"
 #~ msgstr "Alkulcs"

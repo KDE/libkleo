@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-04 12:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1947,13 +1947,17 @@ msgid "Open file dialog"
 msgstr "Вікно відкриття файла"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "Помилка: вкажіть значення."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Введіть ім'я."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "Помилка: вкажіть значення у правильному форматі."
 
 #: ui/formtextinput.cpp:92
@@ -2628,12 +2632,12 @@ msgstr ""
 "Введіть ім'я і/або адресу електронної пошти, яким слід скористатися для "
 "цього сертифіката."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Вкажіть ім'я або адресу електронної пошти."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Маємо проблему."
@@ -3718,6 +3722,9 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Передчасне завершення закодованого у шістнадцяткове число символу у потоці "
 "вхідних даних."
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "Помилка: вкажіть значення."
 
 #~ msgid "Subkey"
 #~ msgstr "Підключ"

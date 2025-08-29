@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-01-14 10:04+0900\n"
 "Last-Translator: NIIBE Yutaka <gniibe@fsij.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1647,13 +1647,17 @@ msgid "Open file dialog"
 msgstr "ファイル選択ダイアログを開く"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "エラー: 値を入力してください。"
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "名前を入力してください。"
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "エラー: 正しいフォーマットで値を入力してください。"
 
 #: ui/formtextinput.cpp:92
@@ -2308,12 +2312,12 @@ msgstr "証明書に使う名前とメールアドレスを入力してくださ
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "証明書に使う名前かつ/またはメールアドレスを入力してください。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "名前かメールアドレスを入力してください。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "問題があります。"
@@ -3377,6 +3381,9 @@ msgstr "入力ストリームで無効な16進文字 '%1'"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "入力ストリームで16進エンコードの文字が途中で終了しました"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "エラー: 値を入力してください。"
 
 #~ msgid "Subkey"
 #~ msgstr "副鍵"

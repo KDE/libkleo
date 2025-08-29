@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1720,13 +1720,17 @@ msgid "Open file dialog"
 msgstr "सञ्चिकासंवादं उद्घाटयन्तु"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "त्रुटिः - मूल्यं प्रविशतु ।"
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "एकं नाम प्रविशतु।"
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "त्रुटिः : समीचीनस्वरूपेण मूल्यं प्रविशन्तु ।"
 
 #: ui/formtextinput.cpp:92
@@ -2371,12 +2375,12 @@ msgstr "प्रमाणपत्रस्य कृते उपयोक्�
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "प्रमाणपत्रस्य कृते उपयोक्तुं नाम तथा/वा ईमेल-सङ्केतं प्रविशन्तु ।"
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "नाम वा ईमेल-सङ्केतं वा प्रविशतु।"
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "समस्या अस्ति।"
@@ -3440,6 +3444,9 @@ msgstr "निवेशप्रवाहे अमान्यः हेक्�
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "इनपुट् स्ट्रीमे हेक्स-एन्कोडेड् char इत्यस्य अकालः अन्तः"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "त्रुटिः - मूल्यं प्रविशतु ।"
 
 #~ msgid "Subkey"
 #~ msgstr "उपकुंजी"

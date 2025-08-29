@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1579,13 +1579,17 @@ msgid "Open file dialog"
 msgstr "打开文件对话框"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "错误：输入一个值。"
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "输入名称。"
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "错误：请输入正确格式的值。"
 
 #: ui/formtextinput.cpp:92
@@ -2219,12 +2223,12 @@ msgstr "输入用于证书的名称和电子邮件地址。"
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "输入要用于证书的名称和/或电子邮件地址。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "输入姓名或电子邮件地址。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "存在问题。"
@@ -3270,3 +3274,6 @@ msgstr "输入流中的十六进制字符“%1”无效。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "输入流中有过早出现的十六进制结束字符"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "错误：输入一个值。"

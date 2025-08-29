@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-28 09:53-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1749,13 +1749,17 @@ msgid "Open file dialog"
 msgstr "Janela de abertura de arquivo"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "Erro: Digite um valor."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Digite um nome."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "Erro: Digite um valor no formato correto."
 
 #: ui/formtextinput.cpp:92
@@ -2416,12 +2420,12 @@ msgstr "Digite um nome e endereço de e-mail a ser usado no certificado."
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Digite o nome e/ou endereço de e-mail para usar no certificado."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Insira um nome ou endereço de e-mail."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Ocorreu um problema."
@@ -3499,6 +3503,9 @@ msgstr "Caractere hexadecimal inválido '%1' no fluxo de entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fim prematuro do caractere hexadecimal codificado no fluxo de entrada"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "Erro: Digite um valor."
 
 #~ msgid "Subkey"
 #~ msgstr "Subchave"

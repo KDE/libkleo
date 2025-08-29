@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-07-03 14:45+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1755,13 +1755,17 @@ msgid "Open file dialog"
 msgstr "ფაილის გახსნის დიალოგი"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "შეცდომა: შეიყვანეთ მნიშვნელობა."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "შეიყვანეთ სახელი."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "შეცდომა: შეიყვანეთ მნიშვნელობა სწორ ფორმატში."
 
 #: ui/formtextinput.cpp:92
@@ -2416,12 +2420,12 @@ msgstr "შეიყვანეთ სახელი და ელფოსტ
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "შეიყვანეთ სახელი ან/და ელფოსტის მისამართი სერტიფიკატისთვის."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "შეიყვანეთ სახელი ან ელფოსტის მისამართი."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "აღმოჩენილია პრობლემა."
@@ -3488,6 +3492,9 @@ msgstr "არასწორი სიმბოლო '%1' შემოტა�
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "შეყვანის ნაკადში თექვსმეტობითში კოდირებული სიმბოლოს მოულოდნელი დასასრული"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "შეცდომა: შეიყვანეთ მნიშვნელობა."
 
 #~ msgid "Subkey"
 #~ msgstr "ქვეგასაღები"

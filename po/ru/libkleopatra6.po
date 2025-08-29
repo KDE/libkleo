@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-01 00:44+0000\n"
+"POT-Creation-Date: 2025-08-29 00:44+0000\n"
 "PO-Revision-Date: 2025-04-02 15:59+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1944,13 +1944,17 @@ msgid "Open file dialog"
 msgstr "Выбор файла или папки"
 
 #: ui/formtextinput.cpp:25
-#, kde-format
-msgid "Error: Enter a value."
-msgstr "Ошибка: введите значение."
+#, fuzzy, kde-format
+#| msgid "Enter a name."
+msgctxt "@info Used as error message for a required text input"
+msgid "Enter a value."
+msgstr "Введите имя."
 
 #: ui/formtextinput.cpp:30
-#, kde-format
-msgid "Error: Enter a value in the correct format."
+#, fuzzy, kde-format
+#| msgid "Error: Enter a value in the correct format."
+msgctxt "@info Used as generic error message for a text input"
+msgid "Enter a value in the correct format."
 msgstr "Ошибка: введите значение в корректном формате."
 
 #: ui/formtextinput.cpp:92
@@ -2616,12 +2620,12 @@ msgstr ""
 "Введите имя и/или адрес электронной почты, которые будут использованы для "
 "сертификата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:336
+#: ui/openpgpcertificatecreationdialog.cpp:338
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Введите имя или адрес электронной почты."
 
-#: ui/openpgpcertificatecreationdialog.cpp:350
+#: ui/openpgpcertificatecreationdialog.cpp:352
 #, kde-format
 msgid "There is a problem."
 msgstr "Имеется проблема."
@@ -3718,6 +3722,9 @@ msgstr "Недопустимый символ (шестнадцатеричны�
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Неожиданное окончание во входящем шифрованном шестнадцатеричном потоке"
+
+#~ msgid "Error: Enter a value."
+#~ msgstr "Ошибка: введите значение."
 
 #~ msgid "Subkey"
 #~ msgstr "Часть ключа"
