@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-29 00:44+0000\n"
-"PO-Revision-Date: 2025-07-23 23:22+0200\n"
+"PO-Revision-Date: 2025-08-29 09:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -1216,7 +1216,7 @@ msgstr "Visor del registre d'auditoria de GnuPG"
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr ""
-"Seleccioneu el fitxer en el qual es guardarà el registre d'auditoria de GnuPG"
+"Trieu el fitxer en el qual es guardarà el registre d'auditoria de GnuPG"
 
 #: ui/auditlogviewer.cpp:144
 #, kde-format
@@ -1548,7 +1548,7 @@ msgid ""
 "the directory service is listening on."
 msgstr ""
 "<b>(Opcional, en la majoria dels casos el predeterminat és correcte)</b> "
-"Seleccioneu el número de port on el servei de directori està escoltant."
+"Trieu el número de port on el servei de directori està escoltant."
 
 #: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
@@ -1761,18 +1761,16 @@ msgid "Open file dialog"
 msgstr "Diàleg d'obrir fitxers"
 
 #: ui/formtextinput.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enter a name."
+#, kde-format
 msgctxt "@info Used as error message for a required text input"
 msgid "Enter a value."
-msgstr "Introduïu un nom."
+msgstr "Introduïu un valor."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgid "Error: Enter a value in the correct format."
+#, kde-format
 msgctxt "@info Used as generic error message for a text input"
 msgid "Enter a value in the correct format."
-msgstr "S'ha produït un error: Introduïu un valor en el format correcte."
+msgstr "Introduïu un valor en el format correcte."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
@@ -1910,32 +1908,32 @@ msgstr ""
 #: ui/keyrequester.cpp:412
 #, kde-format
 msgid "OpenPGP Key Selection"
-msgstr "Seleccioneu la clau OpenPGP"
+msgstr "Trieu la clau OpenPGP"
 
 #: ui/keyrequester.cpp:413
 #, kde-format
 msgid "Please select an OpenPGP key to use."
-msgstr "Seleccioneu una clau OpenPGP que s'utilitzarà."
+msgstr "Trieu una clau OpenPGP que s'utilitzarà."
 
 #: ui/keyrequester.cpp:415
 #, kde-format
 msgid "S/MIME Key Selection"
-msgstr "Seleccioneu la clau S/MIME"
+msgstr "Trieu la clau S/MIME"
 
 #: ui/keyrequester.cpp:416
 #, kde-format
 msgid "Please select an S/MIME key to use."
-msgstr "Seleccioneu una clau S/MIME que s'utilitzarà."
+msgstr "Trieu una clau S/MIME que s'utilitzarà."
 
 #: ui/keyrequester.cpp:418
 #, kde-format
 msgid "Key Selection"
-msgstr "Seleccioneu la clau"
+msgstr "Trieu la clau"
 
 #: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
-msgstr "Seleccioneu una clau (OpenPGP o S/MIME) que s'utilitzarà."
+msgstr "Trieu una clau (OpenPGP o S/MIME) que s'utilitzarà."
 
 #: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
 #, kde-format
@@ -2228,7 +2226,7 @@ msgstr ""
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr ""
 "Introduïu una adreça de correu electrònic en el format correcte, com "
-"nom@example.com."
+"nom@exemple.cat."
 
 #: ui/nameandemailwidget.cpp:113
 #, kde-format
@@ -2461,11 +2459,11 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
-"<para>Seleccioneu el lector de targetes intel·ligents que hauria d'utilitzar "
-"GnuPG.<list><item>El primer element farà que GnuPG utilitze el primer lector "
-"que es trobe.</item><item>L'últim element permet que introduïu un ID de "
-"lector personalitzat o un número de port de lector.</item><item>Tots els "
-"altres elements representen lectors que ha trobat GnuPG.</item></list></para>"
+"<para>Trieu el lector de targetes intel·ligents que hauria d'utilitzar GnuPG."
+"<list><item>El primer element farà que GnuPG utilitze el primer lector que "
+"es trobe.</item><item>L'últim element permet que introduïu un ID de lector "
+"personalitzat o un número de port de lector.</item><item>Tots els altres "
+"elements representen lectors que ha trobat GnuPG.</item></list></para>"
 
 #: ui/readerportselection.cpp:114
 #, kde-format
@@ -3522,6 +3520,3 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "S'ha produït un error: Introduïu un valor."
