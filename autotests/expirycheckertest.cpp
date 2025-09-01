@@ -80,7 +80,7 @@ private Q_SLOTS:
     void cleanupTestCase()
     {
         // verify that nobody else holds a reference to the key cache
-        QVERIFY(mKeyCache.use_count() == 1);
+        QCOMPARE(mKeyCache.use_count(), 1);
         mKeyCache.reset();
 
         (void)QProcess::execute(QStringLiteral("gpgconf"), {"--kill", "all"});

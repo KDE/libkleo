@@ -106,10 +106,10 @@ private Q_SLOTS:
             QGpgME::QByteArrayDataProvider dp(key_v5_curve_448);
             Data data(&dp);
             const auto keys = data.toKeys();
-            QVERIFY(keys.size() == 1);
+            QCOMPARE(keys.size(), 1);
             const auto key = keys[0];
             QVERIFY(!key.isNull());
-            QVERIFY(std::string_view{key.primaryFingerprint()} == key_v5_curve_448_fpr);
+            QCOMPARE(std::string_view{key.primaryFingerprint()}, key_v5_curve_448_fpr);
             keyCurve448 = key;
         }
     }
@@ -128,7 +128,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.numSignatures(), 1);
         const Key key = keyCache->findSigner(result.signature(0));
-        QVERIFY(std::string_view{key.primaryFingerprint()} == key_v5_curve_448_fpr);
+        QCOMPARE(std::string_view{key.primaryFingerprint()}, key_v5_curve_448_fpr);
     }
 
     void test_findSigners_v5_primary_key()
@@ -145,7 +145,7 @@ private Q_SLOTS:
 
         const auto keys = keyCache->findSigners(result);
         QCOMPARE(keys.size(), 1);
-        QVERIFY(std::string_view{keys.front().primaryFingerprint()} == key_v5_curve_448_fpr);
+        QCOMPARE(std::string_view{keys.front().primaryFingerprint()}, key_v5_curve_448_fpr);
     }
 
     void test_findSigner_v5_subkey_key()
@@ -162,7 +162,7 @@ private Q_SLOTS:
 
         QCOMPARE(result.numSignatures(), 1);
         const Key key = keyCache->findSigner(result.signature(0));
-        QVERIFY(std::string_view{key.primaryFingerprint()} == key_v5_curve_448_fpr);
+        QCOMPARE(std::string_view{key.primaryFingerprint()}, key_v5_curve_448_fpr);
     }
 
     void test_findSigners_v5_subkey_key()
@@ -179,7 +179,7 @@ private Q_SLOTS:
 
         const auto keys = keyCache->findSigners(result);
         QCOMPARE(keys.size(), 1);
-        QVERIFY(std::string_view{keys.front().primaryFingerprint()} == key_v5_curve_448_fpr);
+        QCOMPARE(std::string_view{keys.front().primaryFingerprint()}, key_v5_curve_448_fpr);
     }
 
 private:
