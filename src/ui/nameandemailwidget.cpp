@@ -164,7 +164,7 @@ void NameAndEmailWidget::setNameLabel(const QString &label)
 
 QString NameAndEmailWidget::nameLabel() const
 {
-    return d->ui.nameInput->label()->text();
+    return d->ui.nameInput->labelText();
 }
 
 void NameAndEmailWidget::setNameHint(const QString &hint)
@@ -174,7 +174,7 @@ void NameAndEmailWidget::setNameHint(const QString &hint)
 
 QString NameAndEmailWidget::nameHint() const
 {
-    return d->ui.nameInput->hintLabel()->text();
+    return d->ui.nameInput->hint();
 }
 
 void NameAndEmailWidget::setNamePattern(const QString &pattern)
@@ -218,7 +218,7 @@ void NameAndEmailWidget::setEmailLabel(const QString &label)
 
 QString NameAndEmailWidget::emailLabel() const
 {
-    return d->ui.emailInput->label()->text();
+    return d->ui.emailInput->labelText();
 }
 
 void NameAndEmailWidget::setEmailHint(const QString &hint)
@@ -228,7 +228,7 @@ void NameAndEmailWidget::setEmailHint(const QString &hint)
 
 QString NameAndEmailWidget::emailHint() const
 {
-    return d->ui.emailInput->hintLabel()->text();
+    return d->ui.emailInput->hint();
 }
 
 void NameAndEmailWidget::setEmailPattern(const QString &pattern)
