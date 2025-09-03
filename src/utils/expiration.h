@@ -61,7 +61,7 @@ KLEO_EXPORT QDate maximumExpirationDate();
  */
 KLEO_EXPORT DateRange expirationDateRange();
 
-enum class KLEO_EXPORT ExpirationOnUnlimitedValidity {
+enum class ExpirationOnUnlimitedValidity {
     NoExpiration,
     InternalDefaultExpiration,
 };
