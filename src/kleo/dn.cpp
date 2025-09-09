@@ -127,7 +127,9 @@ static const unsigned char *parse_dn_part(DnPair *array, const unsigned char *st
     }
     p = (char *)malloc(n + 1);
 
+    // cppcheck-suppress nullPointerOutOfMemory
     memcpy(p, string, n);
+    // cppcheck-suppress nullPointerOutOfMemory
     p[n] = 0;
     trim_trailing_spaces((char *)p);
     // map OIDs to their names:
