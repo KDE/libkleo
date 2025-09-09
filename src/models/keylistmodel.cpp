@@ -1186,7 +1186,7 @@ namespace
 
 // based on https://www.boost.org/doc/libs/1_77_0/libs/graph/doc/file_dependency_example.html#sec:cycles
 struct cycle_detector : public boost::dfs_visitor<> {
-    cycle_detector(bool &has_cycle)
+    explicit cycle_detector(bool &has_cycle)
         : _has_cycle{has_cycle}
     {
     }

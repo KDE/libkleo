@@ -24,7 +24,7 @@ class KeyGenerator : public QDialog
 {
     Q_OBJECT
 public:
-    KeyGenerator(QWidget *parent = nullptr);
+    explicit KeyGenerator(QWidget *parent = nullptr);
     ~KeyGenerator() override;
 
 public Q_SLOTS:

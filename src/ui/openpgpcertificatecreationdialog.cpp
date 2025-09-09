@@ -68,7 +68,7 @@ class OpenPGPCertificateCreationDialog::Private
         QLabel *keyAlgoLabel;
         AnimatedExpander *expander;
 
-        UI(QWidget *dialog)
+        explicit UI(QWidget *dialog)
         {
             auto mainLayout = new QVBoxLayout{dialog};
 
