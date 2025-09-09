@@ -159,6 +159,8 @@ private:
 
 class DirectoryServicesWidget::Private
 {
+    Q_DISABLE_COPY(Private)
+
     DirectoryServicesWidget *const q;
 
     struct {

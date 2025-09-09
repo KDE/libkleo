@@ -236,6 +236,8 @@ Key findfirstKeyOfType(const std::vector<Key> &keys, GpgME::Protocol protocol)
 
 class NewKeyApprovalDialog::Private
 {
+    Q_DISABLE_COPY(Private)
+
 private:
     enum Action {
         Unset,

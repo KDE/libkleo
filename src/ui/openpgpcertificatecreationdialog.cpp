@@ -54,6 +54,8 @@ class OpenPGPCertificateCreationDialog::Private
     OpenPGPCertificateCreationDialog *const q;
 
     struct UI {
+        Q_DISABLE_COPY(UI)
+
         QLabel *infoLabel;
         KAdjustingScrollArea *scrollArea;
         NameAndEmailWidget *nameAndEmail;
