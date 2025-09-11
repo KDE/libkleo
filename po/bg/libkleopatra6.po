@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-29 00:44+0000\n"
+"POT-Creation-Date: 2025-09-11 00:43+0000\n"
 "PO-Revision-Date: 2025-09-03 19:51+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -1283,12 +1283,12 @@ msgid_plural "%1 servers configured"
 msgstr[0] "1 сървър е конфигуриран"
 msgstr[1] " %1 сървъра са конфигуриран"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:197
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
 #, kde-format
 msgid "Active Directory"
 msgstr "Активна директория"
 
-#: ui/directoryserviceswidget.cpp:191
+#: ui/directoryserviceswidget.cpp:193
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1298,7 +1298,7 @@ msgstr ""
 "Това е списък на всички директории, които са конфигурирани за използване с "
 "X.509."
 
-#: ui/directoryserviceswidget.cpp:201
+#: ui/directoryserviceswidget.cpp:203
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1309,12 +1309,12 @@ msgstr ""
 "Directory. Това работи само на Windows и изисква версия на GnuPG 2.2.28 или "
 "по-нова."
 
-#: ui/directoryserviceswidget.cpp:204
+#: ui/directoryserviceswidget.cpp:206
 #, kde-format
 msgid "LDAP Server"
 msgstr "LDAP сървър"
 
-#: ui/directoryserviceswidget.cpp:207
+#: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
@@ -1322,18 +1322,18 @@ msgstr ""
 "Натиснете, за да добавите услуга за директории, предоставена от сървър на "
 "LDAP."
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:211
 #, kde-format
 msgid "Add"
 msgstr "Добавяне"
 
-#: ui/directoryserviceswidget.cpp:210
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Натиснете, за да добавите услуга за директории."
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:214
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1344,19 +1344,19 @@ msgstr ""
 "услуги. Промяната ще влезе в сила само след като приемете диалоговия "
 "прозорец."
 
-#: ui/directoryserviceswidget.cpp:220
+#: ui/directoryserviceswidget.cpp:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Редактиране"
 
-#: ui/directoryserviceswidget.cpp:221
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Кликнете, за да редактирате избраната услуга."
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:225
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1368,19 +1368,19 @@ msgstr ""
 "директория. Промените ще влязат в сила само след като приемете диалоговия "
 "прозорец."
 
-#: ui/directoryserviceswidget.cpp:228
+#: ui/directoryserviceswidget.cpp:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Изтриване"
 
-#: ui/directoryserviceswidget.cpp:229
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Кликнете, за да премахнете избраната услуга."
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:233
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1390,7 +1390,7 @@ msgstr ""
 "Натиснете този бутон, за да премахнете текущо избраната директория. "
 "Промяната ще влезе в сила само след като приемете диалоговия прозорец."
 
-#: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
+#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
@@ -2228,7 +2228,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Показване на всички ключове"
 
-#: ui/newkeyapprovaldialog.cpp:274
+#: ui/newkeyapprovaldialog.cpp:276
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2243,86 +2243,86 @@ msgstr ""
 "помолени за парола за защита на този ключ и защитеният ключ ще бъде "
 "съхраняван във вашата домашна директория."
 
-#: ui/newkeyapprovaldialog.cpp:299
+#: ui/newkeyapprovaldialog.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Одобрение на сигурността"
 
-#: ui/newkeyapprovaldialog.cpp:306
+#: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:307
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:311
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:310
+#: ui/newkeyapprovaldialog.cpp:312
 #, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:403
+#: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Генериране на ключ за: %1"
 
-#: ui/newkeyapprovaldialog.cpp:403
+#: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Това може да отнеме няколко минути."
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:407
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Генериране на ключ"
 
-#: ui/newkeyapprovaldialog.cpp:448
+#: ui/newkeyapprovaldialog.cpp:450
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Операцията е неуспешна"
 
-#: ui/newkeyapprovaldialog.cpp:563 ui/newkeyapprovaldialog.cpp:659
+#: ui/newkeyapprovaldialog.cpp:565 ui/newkeyapprovaldialog.cpp:661
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Генериране на нова двойка ключове"
 
-#: ui/newkeyapprovaldialog.cpp:566
+#: ui/newkeyapprovaldialog.cpp:568
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Този имейл да не се подписва"
 
-#: ui/newkeyapprovaldialog.cpp:568
+#: ui/newkeyapprovaldialog.cpp:570
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Имейлът няма да бъде криптографски подписан."
 
-#: ui/newkeyapprovaldialog.cpp:586
+#: ui/newkeyapprovaldialog.cpp:588
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Потвърждаване на самоличността „%1“:"
 
-#: ui/newkeyapprovaldialog.cpp:663
+#: ui/newkeyapprovaldialog.cpp:665
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Няма ключ. Получателят няма да може да дешифрира."
 
-#: ui/newkeyapprovaldialog.cpp:666
+#: ui/newkeyapprovaldialog.cpp:668
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2334,28 +2334,28 @@ msgstr ""
 "криптирания имейл, но той може да бъде декриптиран само с останалите "
 "ключове, избрани в този диалогов прозорец."
 
-#: ui/newkeyapprovaldialog.cpp:783
+#: ui/newkeyapprovaldialog.cpp:785
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Шифроване за себе си (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:800
+#: ui/newkeyapprovaldialog.cpp:802
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Шифроване за други:"
 
-#: ui/newkeyapprovaldialog.cpp:838
+#: ui/newkeyapprovaldialog.cpp:840
 #, kde-format
 msgid "Generate"
 msgstr "Генериране"
 
-#: ui/openpgpcertificatecreationdialog.cpp:94
+#: ui/openpgpcertificatecreationdialog.cpp:96
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "Защита на генерирания ключ с парола."
 
-#: ui/openpgpcertificatecreationdialog.cpp:96
+#: ui/openpgpcertificatecreationdialog.cpp:98
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
@@ -2364,39 +2364,39 @@ msgstr ""
 "Криптира тайния ключ с невъзможна за възстановяване парола. По време на "
 "генерирането на ключа ще ви бъде поискана паролата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:99
+#: ui/openpgpcertificatecreationdialog.cpp:101
 #, kde-format
 msgid "Advanced options"
 msgstr "Разширени настройки"
 
-#: ui/openpgpcertificatecreationdialog.cpp:106
+#: ui/openpgpcertificatecreationdialog.cpp:108
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr "Основен материал"
 
-#: ui/openpgpcertificatecreationdialog.cpp:150
+#: ui/openpgpcertificatecreationdialog.cpp:152
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Създаване на OpenPGP сертификати"
 
-#: ui/openpgpcertificatecreationdialog.cpp:158
+#: ui/openpgpcertificatecreationdialog.cpp:160
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr "Въведете име и имейл адрес, които да използвате за сертификата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:159
+#: ui/openpgpcertificatecreationdialog.cpp:161
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Въведете име и/или имейл адрес, които да използвате за сертификата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:338
+#: ui/openpgpcertificatecreationdialog.cpp:340
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Enter a name or an email address."
 
-#: ui/openpgpcertificatecreationdialog.cpp:352
+#: ui/openpgpcertificatecreationdialog.cpp:354
 #, kde-format
 msgid "There is a problem."
 msgstr "Има проблем."

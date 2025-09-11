@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-29 00:44+0000\n"
+"POT-Creation-Date: 2025-09-11 00:43+0000\n"
 "PO-Revision-Date: 2005-09-17 12:47+0500\n"
 "Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
 "Language-Team: Tajik\n"
@@ -1146,12 +1146,12 @@ msgid_plural "%1 servers configured"
 msgstr[0] "Танзими %1 сервери"
 msgstr[1] "Танзими %1 серверҳо"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:197
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
 #, kde-format
 msgid "Active Directory"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:191
+#: ui/directoryserviceswidget.cpp:193
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1159,7 +1159,7 @@ msgid ""
 "X.509."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:201
+#: ui/directoryserviceswidget.cpp:203
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1167,30 +1167,30 @@ msgid ""
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:204
+#: ui/directoryserviceswidget.cpp:206
 #, fuzzy, kde-format
 #| msgid "Configure LDAP Servers"
 msgid "LDAP Server"
 msgstr "Танзимоти сервери LDAP"
 
-#: ui/directoryserviceswidget.cpp:207
+#: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:211
 #, kde-format
 msgid "Add"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:210
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:214
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1198,20 +1198,20 @@ msgid ""
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:220
+#: ui/directoryserviceswidget.cpp:222
 #, fuzzy, kde-format
 #| msgid "Edit..."
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Таъғир додан..."
 
-#: ui/directoryserviceswidget.cpp:221
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:225
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1220,19 +1220,19 @@ msgid ""
 "configuration dialog."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:228
+#: ui/directoryserviceswidget.cpp:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:229
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:233
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1240,7 +1240,7 @@ msgid ""
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
+#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
@@ -2078,7 +2078,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:274
+#: ui/newkeyapprovaldialog.cpp:276
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2089,93 +2089,93 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:299
+#: ui/newkeyapprovaldialog.cpp:301
 #, fuzzy, kde-format
 #| msgid "Encryption Key Approval"
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Таҳсини калиди рамзгузорӣ"
 
-#: ui/newkeyapprovaldialog.cpp:306
+#: ui/newkeyapprovaldialog.cpp:308
 #, fuzzy, kde-format
 #| msgid "OpenPGP"
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "S/MIME"
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:309
 #, fuzzy, kde-format
+#| msgid "S/MIME"
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:311
+#, fuzzy, kde-format
 #| msgid "OpenPGP"
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:310
+#: ui/newkeyapprovaldialog.cpp:312
 #, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:403
+#: ui/newkeyapprovaldialog.cpp:405
 #, fuzzy, kde-format
 #| msgid "Generating DSA key..."
 msgid "Generating key for '%1'..."
 msgstr "Эҷоди калиди DSA..."
 
-#: ui/newkeyapprovaldialog.cpp:403
+#: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgid "This can take several minutes."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:407
 #, fuzzy, kde-format
 #| msgid "Key Selection"
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Интихоби калид "
 
-#: ui/newkeyapprovaldialog.cpp:448
+#: ui/newkeyapprovaldialog.cpp:450
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Хатои рамзгузорӣ: %1"
 
-#: ui/newkeyapprovaldialog.cpp:563 ui/newkeyapprovaldialog.cpp:659
+#: ui/newkeyapprovaldialog.cpp:565 ui/newkeyapprovaldialog.cpp:661
 #, kde-format
 msgid "Generate a new key pair"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:566
+#: ui/newkeyapprovaldialog.cpp:568
 #, kde-format
 msgid "Do not sign this email"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:568
+#: ui/newkeyapprovaldialog.cpp:570
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:586
+#: ui/newkeyapprovaldialog.cpp:588
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:663
+#: ui/newkeyapprovaldialog.cpp:665
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:666
+#: ui/newkeyapprovaldialog.cpp:668
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2184,70 +2184,70 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:783
+#: ui/newkeyapprovaldialog.cpp:785
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Ҳеҷ гоҳ рамзгузорӣ накунед"
 
-#: ui/newkeyapprovaldialog.cpp:800
+#: ui/newkeyapprovaldialog.cpp:802
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt to others:"
 msgstr "Ҳеҷ гоҳ рамзгузорӣ накунед"
 
-#: ui/newkeyapprovaldialog.cpp:838
+#: ui/newkeyapprovaldialog.cpp:840
 #, fuzzy, kde-format
 msgid "Generate"
 msgstr "Хатои умумӣ."
 
-#: ui/openpgpcertificatecreationdialog.cpp:94
+#: ui/openpgpcertificatecreationdialog.cpp:96
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:96
+#: ui/openpgpcertificatecreationdialog.cpp:98
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:99
+#: ui/openpgpcertificatecreationdialog.cpp:101
 #, kde-format
 msgid "Advanced options"
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:106
+#: ui/openpgpcertificatecreationdialog.cpp:108
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:150
+#: ui/openpgpcertificatecreationdialog.cpp:152
 #, fuzzy, kde-format
 #| msgid "Inline OpenPGP (deprecated)"
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Inline OpenPGP (deprecated)"
 
-#: ui/openpgpcertificatecreationdialog.cpp:158
+#: ui/openpgpcertificatecreationdialog.cpp:160
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:159
+#: ui/openpgpcertificatecreationdialog.cpp:161
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:338
+#: ui/openpgpcertificatecreationdialog.cpp:340
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:352
+#: ui/openpgpcertificatecreationdialog.cpp:354
 #, kde-format
 msgid "There is a problem."
 msgstr ""

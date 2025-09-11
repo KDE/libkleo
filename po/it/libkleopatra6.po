@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-29 00:44+0000\n"
+"POT-Creation-Date: 2025-09-11 00:43+0000\n"
 "PO-Revision-Date: 2025-08-29 23:54+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1305,12 +1305,12 @@ msgid_plural "%1 servers configured"
 msgstr[0] "1 server configurato"
 msgstr[1] "%1 server configurati"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:197
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
 #, kde-format
 msgid "Active Directory"
 msgstr "Active Directory"
 
-#: ui/directoryserviceswidget.cpp:191
+#: ui/directoryserviceswidget.cpp:193
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1320,7 +1320,7 @@ msgstr ""
 "Questo è l'elenco di tutti i servizi di directory configurati per essere "
 "utilizzati con X.509."
 
-#: ui/directoryserviceswidget.cpp:201
+#: ui/directoryserviceswidget.cpp:203
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1330,30 +1330,30 @@ msgstr ""
 "Fai clic per utilizzare un servizio di directory in esecuzione su Active "
 "Directory. Funziona solo su Windows e richiede GnuPG 2.2.28 o successivo."
 
-#: ui/directoryserviceswidget.cpp:204
+#: ui/directoryserviceswidget.cpp:206
 #, kde-format
 msgid "LDAP Server"
 msgstr "Server LDAP"
 
-#: ui/directoryserviceswidget.cpp:207
+#: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
 "Fai clic per aggiungere un servizio di directory fornito da un server LDAP."
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:211
 #, kde-format
 msgid "Add"
 msgstr "Aggiungi"
 
-#: ui/directoryserviceswidget.cpp:210
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Fai clic per aggiungere un servizio di directory."
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:214
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1364,19 +1364,19 @@ msgstr ""
 "all'elenco dei servizi. La modifica avrà effetto solo dopo la tua conferma "
 "dalla finestra di configurazione."
 
-#: ui/directoryserviceswidget.cpp:220
+#: ui/directoryserviceswidget.cpp:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Modifica"
 
-#: ui/directoryserviceswidget.cpp:221
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Fai clic per modificare il servizio selezionato."
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:225
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1388,19 +1388,19 @@ msgstr ""
 "attualmente selezionato. Le modifiche avranno effetto solo dopo la tua "
 "conferma dalla finestra di configurazione."
 
-#: ui/directoryserviceswidget.cpp:228
+#: ui/directoryserviceswidget.cpp:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Elimina"
 
-#: ui/directoryserviceswidget.cpp:229
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Fai clic per rimuovere il servizio selezionato."
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:233
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1411,7 +1411,7 @@ msgstr ""
 "attualmente selezionato. Le modifiche avranno effetto solo dopo la tua "
 "conferma dalla finestra di configurazione."
 
-#: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
+#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
@@ -2260,7 +2260,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Mostra tutte le chiavi"
 
-#: ui/newkeyapprovaldialog.cpp:274
+#: ui/newkeyapprovaldialog.cpp:276
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2275,86 +2275,86 @@ msgstr ""
 "verrà chiesta una frase segreta (passphrase) per proteggere questa chiave "
 "che, così protetta, sarà memorizzata nella tua cartella home."
 
-#: ui/newkeyapprovaldialog.cpp:299
+#: ui/newkeyapprovaldialog.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Approvazione sicurezza"
 
-#: ui/newkeyapprovaldialog.cpp:306
+#: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:307
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:311
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:310
+#: ui/newkeyapprovaldialog.cpp:312
 #, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:403
+#: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Generazione chiave per «%1» in corso..."
 
-#: ui/newkeyapprovaldialog.cpp:403
+#: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Potrebbe richiedere alcuni minuti."
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:407
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Generazione chiave"
 
-#: ui/newkeyapprovaldialog.cpp:448
+#: ui/newkeyapprovaldialog.cpp:450
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operazione non riuscita"
 
-#: ui/newkeyapprovaldialog.cpp:563 ui/newkeyapprovaldialog.cpp:659
+#: ui/newkeyapprovaldialog.cpp:565 ui/newkeyapprovaldialog.cpp:661
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Genera una nuova coppia di chiavi"
 
-#: ui/newkeyapprovaldialog.cpp:566
+#: ui/newkeyapprovaldialog.cpp:568
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Non firmare questo messaggio di posta"
 
-#: ui/newkeyapprovaldialog.cpp:568
+#: ui/newkeyapprovaldialog.cpp:570
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Il messaggio di posta non verrà firmato crittograficamente."
 
-#: ui/newkeyapprovaldialog.cpp:586
+#: ui/newkeyapprovaldialog.cpp:588
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Conferma l'identità «%1» come:"
 
-#: ui/newkeyapprovaldialog.cpp:663
+#: ui/newkeyapprovaldialog.cpp:665
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Nessuna chiave. Il destinatario non potrà decifrare."
 
-#: ui/newkeyapprovaldialog.cpp:666
+#: ui/newkeyapprovaldialog.cpp:668
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2366,28 +2366,28 @@ msgstr ""
 "riceverà il messaggio di posta cifrato, ma questo potrà essere decifrato con "
 "le altre chiave selezionate in questa finestra."
 
-#: ui/newkeyapprovaldialog.cpp:783
+#: ui/newkeyapprovaldialog.cpp:785
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Cifra a per sé stesso (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:800
+#: ui/newkeyapprovaldialog.cpp:802
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Cifra per gli altri:"
 
-#: ui/newkeyapprovaldialog.cpp:838
+#: ui/newkeyapprovaldialog.cpp:840
 #, kde-format
 msgid "Generate"
 msgstr "Genera"
 
-#: ui/openpgpcertificatecreationdialog.cpp:94
+#: ui/openpgpcertificatecreationdialog.cpp:96
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "Proteggi la chiave generata con una frase segreta."
 
-#: ui/openpgpcertificatecreationdialog.cpp:96
+#: ui/openpgpcertificatecreationdialog.cpp:98
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
@@ -2396,41 +2396,41 @@ msgstr ""
 "Cifra la chiave segreta con una frase segreta non recuperabile. Ti sarà "
 "chiesta la frase segreta durante la generazione della chiave."
 
-#: ui/openpgpcertificatecreationdialog.cpp:99
+#: ui/openpgpcertificatecreationdialog.cpp:101
 #, kde-format
 msgid "Advanced options"
 msgstr "Opzioni avanzate"
 
-#: ui/openpgpcertificatecreationdialog.cpp:106
+#: ui/openpgpcertificatecreationdialog.cpp:108
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr "Materiale chiavi"
 
-#: ui/openpgpcertificatecreationdialog.cpp:150
+#: ui/openpgpcertificatecreationdialog.cpp:152
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Crea certificato OpenPGP"
 
-#: ui/openpgpcertificatecreationdialog.cpp:158
+#: ui/openpgpcertificatecreationdialog.cpp:160
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
 "Digita un nome e un indirizzo di posta da utilizzare per il certificato."
 
-#: ui/openpgpcertificatecreationdialog.cpp:159
+#: ui/openpgpcertificatecreationdialog.cpp:161
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
 "Digita un nome e/o un indirizzo di posta da utilizzare per il certificato."
 
-#: ui/openpgpcertificatecreationdialog.cpp:338
+#: ui/openpgpcertificatecreationdialog.cpp:340
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Digita un nome o un indirizzo di posta elettronica."
 
-#: ui/openpgpcertificatecreationdialog.cpp:352
+#: ui/openpgpcertificatecreationdialog.cpp:354
 #, kde-format
 msgid "There is a problem."
 msgstr "Si è verificato un problema."
