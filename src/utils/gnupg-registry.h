@@ -28,9 +28,6 @@ HRESULT w32_shgetfolderpath(HWND a, int b, HANDLE c, DWORD d, LPSTR e);
    for HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE in turn.  */
 char *read_w32_registry_string(const char *root, const char *dir, const char *name);
 
-/* Retrieve the default home directory.  */
-char *default_homedir(void);
-
 #ifdef __cplusplus
 #if 0
 {
