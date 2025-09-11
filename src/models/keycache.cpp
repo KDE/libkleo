@@ -68,6 +68,14 @@ static const unsigned int hours2ms = 1000 * 60 * 60;
 //
 //
 
+static auto emptyStringsRemoved(const std::vector<std::string> &strings)
+{
+    std::vector<std::string> result;
+    result.reserve(strings.size());
+    std::ranges::remove_copy_if(strings, std::back_inserter(result), std::mem_fn(&std::string::empty));
+    return result;
+}
+
 namespace
 {
 
@@ -666,11 +674,7 @@ const Key &KeyCache::findByKeyIDOrFingerprint(const std::string &id) const
 
 std::vector<Key> KeyCache::findByKeyIDOrFingerprint(const std::vector<std::string> &ids) const
 {
-    std::vector<std::string> keyids;
-    std::remove_copy_if(ids.begin(), ids.end(), std::back_inserter(keyids), [](const std::string &str) {
-        return !str.c_str() || !*str.c_str();
-    });
-
+    std::vector<std::string> keyids = emptyStringsRemoved(ids);
     // this is just case-insensitive string search:
     std::sort(keyids.begin(), keyids.end(), _detail::ByFingerprint<std::less>());
 
@@ -752,12 +756,7 @@ std::vector<GpgME::Subkey> Kleo::KeyCache::findSubkeysByKeyGrip(const std::strin
 
 std::vector<Subkey> KeyCache::findSubkeysByKeyID(const std::vector<std::string> &ids) const
 {
-    std::vector<std::string> sorted;
-    sorted.reserve(ids.size());
-    std::remove_copy_if(ids.begin(), ids.end(), std::back_inserter(sorted), [](const std::string &str) {
-        return !str.c_str() || !*str.c_str();
-    });
-
+    std::vector<std::string> sorted = emptyStringsRemoved(ids);
     std::sort(sorted.begin(), sorted.end(), _detail::ByKeyID<std::less>());
 
     std::vector<Subkey> result;
