@@ -560,7 +560,7 @@ auto startGpgConf(const QStringList &arguments, Function1 onSuccess, Function2 o
 
 static void launchGpgAgentWithEventLoop()
 {
-    static thread_local QProcess *process = nullptr;
+    static thread_local const QProcess *process = nullptr;
     static thread_local qint64 mSecsSinceEpochOfLastLaunch = 0;
     static thread_local int numberOfFailedLaunches = 0;
 

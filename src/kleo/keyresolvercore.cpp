@@ -492,7 +492,7 @@ auto getBestEncryptionKeys(const QMap<QString, QMap<Protocol, std::vector<Key>>>
 
     for (auto it = encryptionKeys.begin(); it != encryptionKeys.end(); ++it) {
         const QString &address = it.key();
-        auto &protocolKeysMap = it.value();
+        const auto &protocolKeysMap = it.value();
         const std::vector<Key> &overrideKeys = protocolKeysMap[UnknownProtocol];
         if (!overrideKeys.empty()) {
             result.insert(address, overrideKeys);

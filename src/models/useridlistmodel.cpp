@@ -263,7 +263,7 @@ void UserIDListModel::setKey(const Key &key)
 int UserIDListModel::columnCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
-        return static_cast<UIDModelItem *>(parent.internalPointer())->columnCount();
+        return static_cast<const UIDModelItem *>(parent.internalPointer())->columnCount();
     }
 
     if (!mRootItem) {
@@ -279,7 +279,7 @@ int UserIDListModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    const UIDModelItem *const parentItem = !parent.isValid() ? mRootItem.get() : static_cast<UIDModelItem *>(parent.internalPointer());
+    const UIDModelItem *const parentItem = !parent.isValid() ? mRootItem.get() : static_cast<const UIDModelItem *>(parent.internalPointer());
     return parentItem->childCount();
 }
 
@@ -289,7 +289,7 @@ QModelIndex UserIDListModel::index(int row, int column, const QModelIndex &paren
         return {};
     }
 
-    const UIDModelItem *const parentItem = !parent.isValid() ? mRootItem.get() : static_cast<UIDModelItem *>(parent.internalPointer());
+    const UIDModelItem *const parentItem = !parent.isValid() ? mRootItem.get() : static_cast<const UIDModelItem *>(parent.internalPointer());
     UIDModelItem *const childItem = parentItem->child(row);
     if (childItem) {
         return createIndex(row, column, childItem);
@@ -303,7 +303,7 @@ QModelIndex UserIDListModel::parent(const QModelIndex &index) const
     if (!index.isValid()) {
         return {};
     }
-    auto childItem = static_cast<UIDModelItem *>(index.internalPointer());
+    auto childItem = static_cast<const UIDModelItem *>(index.internalPointer());
     UIDModelItem *parentItem = childItem->parentItem();
 
     if (parentItem == mRootItem.get()) {
@@ -331,7 +331,7 @@ QVariant UserIDListModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    auto item = static_cast<UIDModelItem *>(index.internalPointer());
+    auto item = static_cast<const UIDModelItem *>(index.internalPointer());
 
     switch (role) {
     case Qt::DisplayRole:
@@ -356,7 +356,7 @@ UserID UserIDListModel::userID(const QModelIndex &index) const
     if (!index.isValid()) {
         return UserID();
     }
-    UIDModelItem *item = static_cast<UIDModelItem *>(index.internalPointer());
+    auto item = static_cast<const UIDModelItem *>(index.internalPointer());
     return item->uid();
 }
 
@@ -367,7 +367,7 @@ QList<UserID> UserIDListModel::userIDs(const QModelIndexList &indexes) const
         if (!idx.isValid()) {
             continue;
         }
-        auto item = static_cast<UIDModelItem *>(idx.internalPointer());
+        auto item = static_cast<const UIDModelItem *>(idx.internalPointer());
         if (!item->uid().isNull()) {
             ret << item->uid();
         }
@@ -380,7 +380,7 @@ UserID::Signature UserIDListModel::signature(const QModelIndex &index) const
     if (!index.isValid()) {
         return UserID::Signature();
     }
-    UIDModelItem *item = static_cast<UIDModelItem *>(index.internalPointer());
+    auto item = static_cast<const UIDModelItem *>(index.internalPointer());
     return item->signature();
 }
 
@@ -391,7 +391,7 @@ QList<UserID::Signature> UserIDListModel::signatures(const QModelIndexList &inde
         if (!idx.isValid()) {
             continue;
         }
-        auto item = static_cast<UIDModelItem *>(idx.internalPointer());
+        auto item = static_cast<const UIDModelItem *>(idx.internalPointer());
         if (!item->signature().isNull()) {
             ret << item->signature();
         }

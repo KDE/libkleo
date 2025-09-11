@@ -863,7 +863,7 @@ void prepareURLCfgDialog(QDialog *dialog, DirectoryServicesWidget *dirserv, bool
         buttonBox->addButton(QDialogButtonBox::Cancel);
         buttonBox->addButton(QDialogButtonBox::RestoreDefaults);
 
-        QPushButton *defaultsBtn = buttonBox->button(QDialogButtonBox::RestoreDefaults);
+        const QPushButton *defaultsBtn = buttonBox->button(QDialogButtonBox::RestoreDefaults);
 
         QObject::connect(defaultsBtn, &QPushButton::clicked, dirserv, &DirectoryServicesWidget::clear);
         QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);

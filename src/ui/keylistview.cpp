@@ -118,7 +118,7 @@ KeyListView::~KeyListView()
 void KeyListView::takeItem(QTreeWidgetItem *qlvi)
 {
     // qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListView::takeItem(" << qlvi <<" )";
-    if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
+    if (auto item = lvi_cast<const KeyListViewItem>(qlvi)) {
         deregisterItem(item);
     }
     takeTopLevelItem(indexOfTopLevelItem(qlvi));
@@ -441,7 +441,7 @@ bool KeyListViewItem::operator<(const QTreeWidgetItem &other) const
 void KeyListViewItem::takeItem(QTreeWidgetItem *qlvi)
 {
     // qCDebug(KLEO_UI_LOG) <<"Kleo::KeyListViewItem::takeItem(" << qlvi <<" )";
-    if (auto *item = lvi_cast<KeyListViewItem>(qlvi)) {
+    if (auto item = lvi_cast<const KeyListViewItem>(qlvi)) {
         listView()->deregisterItem(item);
     }
     takeChild(indexOfChild(qlvi));
