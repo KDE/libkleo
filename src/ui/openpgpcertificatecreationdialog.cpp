@@ -255,7 +255,9 @@ private:
         auto subkeyType = GpgME::Subkey::AlgoUnknown;
         auto algoString = ui.keyAlgoCB->currentData().toString();
         if (algoString.startsWith(QStringLiteral("rsa"))) {
+            // cppcheck-suppress redundantInitialization
             keyType = GpgME::Subkey::AlgoRSA;
+            // cppcheck-suppress redundantInitialization
             subkeyType = GpgME::Subkey::AlgoRSA;
             const auto strength = algoString.mid(3).toInt();
             technicalParameters.setKeyLength(strength);
