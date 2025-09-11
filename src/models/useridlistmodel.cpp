@@ -121,7 +121,7 @@ public:
 
     void appendChild(UIDModelItem *child)
     {
-        mChildItems << child;
+        mChildItems.push_back(child);
     }
 
     UIDModelItem *child(int row) const
