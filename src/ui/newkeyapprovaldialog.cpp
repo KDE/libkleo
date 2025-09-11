@@ -266,7 +266,7 @@ public:
         , q{qq}
     {
         Q_ASSERT(forcedProtocol == GpgME::UnknownProtocol || presetProtocol == GpgME::UnknownProtocol || presetProtocol == forcedProtocol);
-        Q_ASSERT(!allowMixed || (allowMixed && forcedProtocol == GpgME::UnknownProtocol));
+        Q_ASSERT(!allowMixed || forcedProtocol == GpgME::UnknownProtocol);
         Q_ASSERT(!(!allowMixed && presetProtocol == GpgME::UnknownProtocol));
 
         // We do the translation here to avoid having the same string multiple times.
