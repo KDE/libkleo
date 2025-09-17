@@ -38,6 +38,9 @@ public:
     void setEmail(const QString &email);
     QString email() const;
 
+    void setNameLabel(const QString &nameLabel);
+    void setEmailLabel(const QString &emailLabel);
+
     void setKeyParameters(const KeyParameters &parameters);
     KeyParameters keyParameters() const;
 

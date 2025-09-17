@@ -462,4 +462,14 @@ void OpenPGPCertificateCreationDialog::setInfoText(const QString &text)
     d->ui.infoLabel->setText(text);
 }
 
+void OpenPGPCertificateCreationDialog::setNameLabel(const QString &nameLabel)
+{
+    d->ui.nameAndEmail->setNameLabel(nameLabel);
+}
+
+void OpenPGPCertificateCreationDialog::setEmailLabel(const QString &emailLabel)
+{
+    d->ui.nameAndEmail->setEmailLabel(emailLabel);
+}
+
 #include "moc_openpgpcertificatecreationdialog.cpp"
