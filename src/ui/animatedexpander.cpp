@@ -29,7 +29,6 @@ public:
     ApplicationPaletteWatcher appPaletteWatcher;
     QGridLayout mainLayout;
     QToolButton toggleButton;
-    QFrame headerLine;
     QParallelAnimationGroup toggleAnimation;
     QWidget contentArea;
 
@@ -91,10 +90,6 @@ AnimatedExpander::AnimatedExpander(const QString &title, const QString &accessib
     d->toggleButton.setChecked(false);
     updateToggleButton(&d->toggleButton);
 
-    d->headerLine.setFrameShape(QFrame::HLine);
-    d->headerLine.setFrameShadow(QFrame::Sunken);
-    d->headerLine.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
-
     d->contentArea.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     // start out collapsed
@@ -111,7 +106,6 @@ AnimatedExpander::AnimatedExpander(const QString &title, const QString &accessib
     d->mainLayout.setContentsMargins(0, 0, 0, 0);
     int row = 0;
     d->mainLayout.addWidget(&d->toggleButton, row, 0, 1, 1, Qt::AlignLeft);
-    d->mainLayout.addWidget(&d->headerLine, row, 2, 1, 1);
     row++;
     d->mainLayout.addWidget(&d->contentArea, row, 0, 1, 3);
     setLayout(&d->mainLayout);
