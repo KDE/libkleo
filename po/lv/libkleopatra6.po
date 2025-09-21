@@ -5,71 +5,72 @@
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
 # Maris Nartiss <maris.kde@gmail.com>, 2009.
+# SPDX-FileCopyrightText: 2025 Toms Trasūns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-12 00:44+0000\n"
-"PO-Revision-Date: 2009-08-18 11:04+0300\n"
-"Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2025-09-16 12:57+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
-msgstr ""
+msgstr "Kļūda kontrolsummas definīcijā „%1“: %2"
 
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
 msgid "Cannot use both %f and | in '%1'"
-msgstr ""
+msgstr "Ar „%1“ nevar reizē izmantot %f un |"
 
 #: kleo/checksumdefinition.cpp:156
 #, kde-format
 msgid "Quoting error in '%1' entry"
-msgstr ""
+msgstr "Citēšanas kļūda „%1“ ierakstā"
 
 #: kleo/checksumdefinition.cpp:159
 #, kde-format
 msgid "'%1' too complex (would need shell)"
-msgstr ""
+msgstr "„%1“ ir pārāk sarežģīta komanda (tai būtu vajadzīga čaula)"
 
 #: kleo/checksumdefinition.cpp:163
 #, kde-format
 msgid "'%1' entry is empty/missing"
-msgstr ""
+msgstr "„%1“ ieraksts ir tukšs/iztrūkstošs"
 
 #: kleo/checksumdefinition.cpp:172
 #, kde-format
 msgid "'%1' empty or not found"
-msgstr ""
+msgstr "„%1“ ir tukšs vai nav atrasts"
 
 #: kleo/checksumdefinition.cpp:211
 #, kde-format
 msgid "'id' entry is empty/missing"
-msgstr ""
+msgstr "„ID“ ieraksts ir tukšs/iztrūkstošs"
 
 #: kleo/checksumdefinition.cpp:214
 #, kde-format
 msgid "'output-file' entry is empty/missing"
-msgstr ""
+msgstr "„output-file“ ieraksts ir tukšs/iztrūkstošs"
 
 #: kleo/checksumdefinition.cpp:217
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
-msgstr ""
+msgstr "„file-patterns“ ieraksts ir tukšs/iztrūkstošs"
 
 #: kleo/checksumdefinition.cpp:400
 #, kde-format
 msgid "Caught unknown exception in group %1"
-msgstr ""
+msgstr "Notverts nezināms izņēmums grupā „%1“"
 
 #: kleo/dnattributes.cpp:61
 msgid "Common name"
@@ -164,16 +165,12 @@ msgid "S/MIME Opaque"
 msgstr "S/MIME Opaque"
 
 #: kleo/enum.cpp:39
-#, fuzzy
-#| msgid "S/MIME"
 msgid "Any S/MIME"
-msgstr "S/MIME"
+msgstr "Jebkāds S/MIME"
 
 #: kleo/enum.cpp:40
-#, fuzzy
-#| msgid "OpenPGP"
 msgid "Any OpenPGP"
-msgstr "OpenPGP"
+msgstr "Jebkāds „OpenPGP“"
 
 #: kleo/enum.cpp:72
 #, kde-format
@@ -236,7 +233,7 @@ msgstr "<nav>"
 #, kde-format
 msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
 msgid "<b>%1</b> (Key ID 0x%2)"
-msgstr ""
+msgstr "<b>%1</b> (Atslēgas ID 0x%2)"
 
 #: kleo/expirychecker.cpp:88
 #, kde-format
@@ -244,6 +241,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%1</p><p>termiņš "
+"beidzās pirms mazāk nekā vienas dienas.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -251,6 +250,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%1</p><p>termiņš "
+"beidzās pirms mazāk nekā vienas dienas.</p>"
 
 #: kleo/expirychecker.cpp:92
 #, kde-format
@@ -258,6 +259,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%1</p><p>termiņš beidzās "
+"pirms mazāk nekā vienas dienas.</p>"
 
 #: kleo/expirychecker.cpp:98
 #, kde-format
@@ -268,8 +271,14 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%2</p><p>termiņš "
+"beidzās pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%2</p><p>termiņš "
+"beidzās pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%2</p><p>termiņš "
+"beidzās pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:101
 #, kde-format
@@ -280,8 +289,14 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%2</p><p>termiņš "
+"beidzās pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%2</p><p>termiņš "
+"beidzās pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%2</p><p>termiņš "
+"beidzās pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:104
 #, kde-format
@@ -290,25 +305,37 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%2</p><p>termiņš beidzās "
+"pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%2</p><p>termiņš beidzās "
+"pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%2</p><p>termiņš beidzās "
+"pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%1</p><p>termiņš "
+"beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:115
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%1</p><p>termiņš "
+"beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:117
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%1</p><p>derīguma termiņš "
+"beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:123
 #, kde-format
@@ -318,8 +345,14 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu „OpenPGP“ parakstīšanas atslēgas</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:126
 #, kde-format
@@ -330,8 +363,14 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu „OpenPGP“ šifrēšanas atslēgas</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:129
 #, kde-format
@@ -340,15 +379,21 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>„OpenPGP“ atslēgas priekš</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:141
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr ""
+msgstr "<b>%1</b> (sērijas numurs %2)"
 
 #: kleo/expirychecker.cpp:152
 #, kde-format
@@ -357,6 +402,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>Saknes sertifikāta</p><p align=center><b>%2</b></p><p>jūsu S/MIME "
+"parakstīšanas sertifikātam</p><p align=center>%1</p><p>derīguma termiņš "
+"beidzās pirms mazāk nekā vienas dienas.</p>"
 
 #: kleo/expirychecker.cpp:157
 #, kde-format
@@ -365,6 +413,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Saknes sertifikāta</p><p align=center><b>%2</b></p><p>jūsu S/MIME "
+"šifrēšanas sertifikātam</p><p align=center>%1</p><p>derīguma termiņš beidzās "
+"pirms mazāk nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:162
 #, kde-format
@@ -372,6 +423,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>Saknes sertifikāta</p><p align=center><b>%2</b></p><p>S/MIME "
+"sertifikātam</p><p align=center>%1</p><p>derīguma termiņš beidzas pēc mazāk "
+"nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:171
 #, kde-format
@@ -382,8 +436,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>jūsu S/MIME "
+"parakstīšanas sertifikātam</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>jūsu S/MIME "
+"parakstīšanas sertifikātam</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>jūsu S/MIME "
+"parakstīšanas sertifikātam</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:179
 #, kde-format
@@ -394,8 +457,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>jūsu S/MIME "
+"šifrēšanas sertifikātam</p><p align=center>%2</p><p>derīguma termiņš beidzas "
+"pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>jūsu S/MIME "
+"šifrēšanas sertifikātam</p><p align=center>%2</p><p>derīguma termiņš beidzas "
+"pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>jūsu S/MIME "
+"šifrēšanas sertifikātam</p><p align=center>%2</p><p>derīguma termiņš beidzas "
+"pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:187
 #, kde-format
@@ -406,8 +478,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/MIME "
+"sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzās pirms %1 "
+"dienas.</p>"
 msgstr[1] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/MIME "
+"sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzās pirms %1 "
+"dienām.</p>"
 msgstr[2] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/MIME "
+"sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzās pirms %1 "
+"dienām.</p>"
 
 #: kleo/expirychecker.cpp:200
 #, kde-format
@@ -416,6 +497,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%2</b></p><p>jūsu S/MIME "
+"parakstīšanas sertifikātam</p><p align=center>%1</p><p>derīguma termiņš "
+"beidzās pirms mazāk nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:205
 #, kde-format
@@ -424,6 +508,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%2</b></p><p>jūsu S/MIME "
+"šifrēšanas sertifikātam</p><p align=center>%1</p><p>derīguma termiņš beidzās "
+"pirms mazāk nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:210
 #, kde-format
@@ -431,6 +518,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%2</b></p><p>jūsu S/MIME "
+"sertifikātam</p><p align=center>%1</p><p>derīguma termiņš beidzās pirms "
+"mazāk nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:219
 #, kde-format
@@ -443,8 +533,17 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:227
 #, kde-format
@@ -457,8 +556,17 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzās pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzās pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzās pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:235
 #, kde-format
@@ -469,8 +577,17 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/"
+"MIME sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzās pirms "
+"%1 dienas.</p>"
 msgstr[1] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/"
+"MIME sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzās pirms "
+"%1 dienām.</p>"
 msgstr[2] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/"
+"MIME sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzās pirms "
+"%1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -478,6 +595,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta</p><p align=center>%1</"
+"p><p>derīguma termiņš beidzās pirms mazāk nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -485,6 +604,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%1</p><p>derīguma "
+"termiņš beidzās pirms mazāk nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:252
 #, kde-format
@@ -492,6 +613,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>S/MIME sertifikāta priekš</p><p align=center>%1</p><p>derīguma termiņš "
+"beidzās pirms mazāk nekā dienas.</p>"
 
 #: kleo/expirychecker.cpp:258
 #, kde-format
@@ -502,8 +625,14 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzās pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzās pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzās pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:261
 #, kde-format
@@ -514,8 +643,14 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:264
 #, kde-format
@@ -526,8 +661,14 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Jūsu S/MIME sertifikāta priekš</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu S/MIME sertifikāta priekš</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu S/MIME sertifikāta priekš</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzās pirms %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:277
 #, kde-format
@@ -535,6 +676,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:282
 #, kde-format
@@ -542,6 +686,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas "
+"šodien.</p>"
 
 #: kleo/expirychecker.cpp:287
 #, kde-format
@@ -549,6 +696,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/MIME "
+"sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:296
 #, kde-format
@@ -559,8 +708,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:304
 #, kde-format
@@ -571,8 +729,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas "
+"pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas "
+"pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu S/MIME "
+"šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas "
+"pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:312
 #, kde-format
@@ -583,8 +750,17 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/MIME "
+"sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas pēc %1 "
+"dienas.</p>"
 msgstr[1] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/MIME "
+"sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas pēc %1 "
+"dienām.</p>"
 msgstr[2] ""
+"<p>Saknes sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/MIME "
+"sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas pēc %1 "
+"dienām.</p>"
 
 #: kleo/expirychecker.cpp:325
 #, kde-format
@@ -593,6 +769,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:330
 #, kde-format
@@ -601,6 +780,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:335
 #, kde-format
@@ -608,6 +790,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/"
+"MIME sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas šodien."
+"</p>"
 
 #: kleo/expirychecker.cpp:343
 #, kde-format
@@ -620,8 +805,17 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME parakstīšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:351
 #, kde-format
@@ -634,8 +828,17 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš jūsu "
+"S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:359
 #, kde-format
@@ -646,8 +849,17 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/"
+"MIME sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas pēc %1 "
+"dienas.</p>"
 msgstr[1] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/"
+"MIME sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas pēc %1 "
+"dienām.</p>"
 msgstr[2] ""
+"<p>Starpnieka CA sertifikāta</p><p align=center><b>%3</b></p><p>priekš S/"
+"MIME sertifikāta</p><p align=center>%2</p><p>derīguma termiņš beidzas pēc %1 "
+"dienām.</p>"
 
 #: kleo/expirychecker.cpp:371
 #, kde-format
@@ -655,6 +867,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta </p><p align=center>%2</"
+"p><p>derīguma termiņš beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:373
 #, kde-format
@@ -662,12 +876,16 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:375
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>S/MIME sertifikāta priekš</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas šodien.</p>"
 
 #: kleo/expirychecker.cpp:382
 #, kde-format
@@ -678,8 +896,14 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu S/MIME parakstīšanas sertifikāta</p><p align=center>%2</"
+"p><p>derīguma termiņš beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:388
 #, kde-format
@@ -690,8 +914,14 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>Jūsu S/MIME šifrēšanas sertifikāta</p><p align=center>%2</p><p>derīguma "
+"termiņš beidzas pēc %1 dienām.</p>"
 
 #: kleo/expirychecker.cpp:394
 #, kde-format
@@ -702,68 +932,71 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>S/MIME sertifikāta priekš</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienas.</p>"
 msgstr[1] ""
+"<p>S/MIME sertifikāta priekš</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 msgstr[2] ""
+"<p>S/MIME sertifikāta priekš</p><p align=center>%2</p><p>derīguma termiņš "
+"beidzas pēc %1 dienām.</p>"
 
 #: kleo/keyfiltermanager.cpp:90
 #, kde-format
 msgctxt "All Certificates"
 msgid "All"
-msgstr ""
+msgstr "Visi"
 
 #: kleo/keyfiltermanager.cpp:91
 #, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr ""
+msgstr "Visi sertifikāti (izņemot izslēgtos)"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
-msgstr ""
+msgstr "Mani"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "Mani sertifikāti"
+msgstr "Mani sertifikāti (izņemot izslēgtos)"
 
 #: kleo/keyfiltermanager.cpp:127
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
-msgstr "Visi sertifikāti"
+msgstr "Sertificēti"
 
 #: kleo/keyfiltermanager.cpp:128
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "Visi sertifikāti"
+msgstr ""
+"Sertifikāti, kuriem primārais lietotāja ID ir sertificēts (izņemot izslēgtos)"
 
 #: kleo/keyfiltermanager.cpp:146
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
-msgstr "Visi sertifikāti"
+msgstr "Nav sertificēts"
 
 #: kleo/keyfiltermanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "Visi sertifikāti"
+msgstr ""
+"Sertifikāti, kuriem primārais lietotāja ID nav sertificēts (izņemot "
+"izslēgtos sertifikātus)"
 
 #: kleo/keyfiltermanager.cpp:162
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
-msgstr "Visi sertifikāti"
+msgstr "Sertificēšanai"
 
 #: kleo/keyfiltermanager.cpp:163
 #, kde-format
@@ -771,76 +1004,75 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
+"Sertifikāti, kas nav pilnībā sertificēti un kurus jūs varētu gribēt "
+"sertificēt saviem spēkiem (izņemot izslēgtos sertifikātus)"
 
 #: kleo/keyfiltermanager.cpp:191
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
-msgstr "Visi sertifikāti"
+msgstr "Nav pilnībā sertificēts"
 
 #: kleo/keyfiltermanager.cpp:192
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "Visi sertifikāti"
+msgstr ""
+"Sertifikāti, kuriem ne visi lietotāja ID ir sertificēti (izņemot izslēgtos "
+"sertifikātus)"
 
 #: kleo/keyfiltermanager.cpp:216
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
-msgstr "Visi sertifikāti"
+msgstr "Pilnībā sertificēts"
 
 #: kleo/keyfiltermanager.cpp:217
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "Visi sertifikāti"
+msgstr ""
+"Sertifikāti, kuriem visi lietotāja ID ir sertificēti (izņemot izslēgtos "
+"sertifikātus)"
 
 #: models/keylistmodel.cpp:326
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
-msgstr "Lietotāja vārds"
+msgstr "Vārds"
 
 #: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
-msgstr ""
+msgstr "E-pasts"
 
 #: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
-msgstr ""
+msgstr "Statuss"
 
 #: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
-msgstr ""
+msgstr "Derīgs no"
 
 #: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr ""
+msgstr "Derīgs līdz"
 
 #: models/keylistmodel.cpp:336
-#, fuzzy, kde-format
-#| msgid "(Unknown Protocol)"
+#, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
-msgstr "(Nezināms protokols)"
+msgstr "Protokols"
 
 #: models/keylistmodel.cpp:338
-#, fuzzy, kde-format
-#| msgid "Key ID"
+#, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Atslēgas ID"
@@ -849,152 +1081,136 @@ msgstr "Atslēgas ID"
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
-msgstr ""
+msgstr "Digitālais nospiedums"
 
 #: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
-msgstr ""
+msgstr "Izdevējs"
 
 #: models/keylistmodel.cpp:344
-#, fuzzy, kde-format
-#| msgid "Fax number"
+#, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
-msgstr "Fakss"
+msgstr "Sērijas numurs"
 
 #: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
-msgstr ""
+msgstr "Izcelsme"
 
 #: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
-msgstr ""
+msgstr "Pēdējais atjauninājums"
 
 #: models/keylistmodel.cpp:350
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
-msgstr "Mani sertifikāti"
+msgstr "Sertifikāta uzticamība"
 
 #: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
-msgstr ""
+msgstr "Birkas"
 
 #: models/keylistmodel.cpp:354
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritms"
 
 #: models/keylistmodel.cpp:356
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
-msgstr ""
+msgstr "Atslēgas satvere"
 
 #: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:69
-#, fuzzy, kde-format
-#| msgid "Given name"
+#, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
-msgstr "Vārds"
+msgstr "bez vārda"
 
 #: models/keylistmodel.cpp:411 models/useridlistmodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
+#, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
-msgstr "viesturs.zarins@mii.lu.lv"
+msgstr "bez e-pasta adreses"
 
 #: models/keylistmodel.cpp:474
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading..."
-msgstr "Ielādē atslēgas..."
+msgstr "Ielādē..."
 
 #: models/keylistmodel.cpp:557
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
-msgstr ""
+msgstr "nav piemērojams"
 
 #: models/subkeylistmodel.cpp:155
 #, kde-format
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
 #, kde-format
 msgid "Type"
-msgstr ""
+msgstr "Tips"
 
 #: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:108
 #, kde-format
 msgid "Valid From"
-msgstr ""
+msgstr "Derīgs no"
 
 #: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:109
 #, kde-format
 msgid "Valid Until"
-msgstr ""
+msgstr "Derīgs līdz"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "Statuss"
 
 #: models/subkeylistmodel.cpp:165
 #, kde-format
 msgid "Strength"
-msgstr ""
+msgstr "Stiprums"
 
 #: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
 #, kde-format
 msgid "Usage"
-msgstr ""
+msgstr "Lietojums"
 
 #: models/useridlistmodel.cpp:72
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
-msgstr "yes"
+msgstr "jā"
 
 #: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
-msgstr ""
+msgstr "nē"
 
 #: models/useridlistmodel.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "no specific preference"
-#| msgid "<none>"
+#, kde-format
 msgctxt "accessible text for empty list of tags"
 msgid "none"
-msgstr "<nav>"
+msgstr "nav"
 
 #: models/useridlistmodel.cpp:76
 #, kde-format
 msgid "not applicable"
-msgstr ""
+msgstr "nav piemērojams"
 
 #: models/useridlistmodel.cpp:86 models/useridlistmodel.cpp:87
 #: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
@@ -1009,65 +1225,58 @@ msgstr "Lietotāja ID"
 #: models/useridlistmodel.cpp:103
 #, kde-format
 msgid "User ID / Certification Key ID"
-msgstr ""
+msgstr "Lietotāja ID / sertifikācijas atslēga ID"
 
 #: models/useridlistmodel.cpp:104
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgid "Name"
-msgstr "Lietotāja vārds"
+msgstr "Vārds"
 
 #: models/useridlistmodel.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
+#, kde-format
 msgid "Email"
-msgstr "viesturs.zarins@mii.lu.lv"
+msgstr "E-pasta adrese"
 
 #: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Exportable"
-msgstr ""
+msgstr "Eksportējams"
 
 #: models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "Birkas"
 
 #: models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Trust Signature For"
-msgstr ""
+msgstr "Uzticamības paraksts priekš"
 
 #: ui/auditlogviewer.cpp:43
-#, fuzzy, kde-format
-#| msgid "View GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
-msgstr "Apskatīt GnuPG pārbaudes žurnālu"
+msgstr "Skatīt „GnuPG“ audita žurnālu"
 
 #: ui/auditlogviewer.cpp:46
-#, fuzzy, kde-format
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
-msgstr "&Kopēt uz starpliktuvi"
+msgstr "&Kopēt starpliktuvē"
 
 #: ui/auditlogviewer.cpp:51
-#, fuzzy, kde-format
-#| msgid "&Save to Disk..."
+#, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
-msgstr "&Saglabāt uz diska..."
+msgstr "&Saglabāt diskā..."
 
 #: ui/auditlogviewer.cpp:93
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr "Jūsu sistēma neatbalsta GnuPG pārbaudes žurnālus"
+msgstr "Jūsu sistēma neatbalsta „GnuPG“ audita žurnālus"
 
 #: ui/auditlogviewer.cpp:93
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistēmas kļūda"
@@ -1078,55 +1287,52 @@ msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
 "%1"
 msgstr ""
-"Gadījās kļūda mēģinot iegūt GnuPG pārbaudes žurnālu:\n"
+"Gadījās kļūda, mēģinot iegūt „GnuPG“ audita žurnālu:\n"
 "%1"
 
 #: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid "GnuPG Audit Log Error"
-msgstr "GnuPG pārbaudes žurnāla kļūda"
+msgstr "„GnuPG“ audita žurnāla kļūda"
 
 #: ui/auditlogviewer.cpp:103
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
-msgstr "Šai darbībai nav pieejams GnuPG pārbaudes žurnāls"
+msgstr "Šai darbībai nav pieejams „GnuPG“ audita žurnāls"
 
 #: ui/auditlogviewer.cpp:103
-#, fuzzy, kde-format
-#| msgid "No GnuPG Audit Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
-msgstr "Nav GnuPG pārbaudes žurnāla"
+msgstr "Nav „GnuPG“ audita žurnāla"
 
 #: ui/auditlogviewer.cpp:109
-#, fuzzy, kde-format
-#| msgid "GnuPG Audit Log Viewer"
+#, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
-msgstr "GnuPG pārbaudes žurnāla skatītājs"
+msgstr "„GnuPG“ audita žurnāla skatītājs"
 
 #: ui/auditlogviewer.cpp:124
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
-msgstr "Izvēlies failu, kurā saglabāt GnuPG pārbaudes žurnālu"
+msgstr "Izvēlieties datni, kurā saglabāt „GnuPG“ audita datni"
 
 #: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
-msgstr "Neizdevās saglabāt failā \"%1\": %2"
+msgstr "Neizdevās saglabāt datnē „%1“: %2"
 
 #: ui/auditlogviewer.cpp:145
-#, fuzzy, kde-format
-#| msgid "File Save Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"
-msgstr "Failā saglabāšanas kļūda"
+msgstr "Datnes saglabāšanas kļūda"
 
 #: ui/cryptoconfigentryreaderport.cpp:45
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
-msgstr ""
+msgstr "Lasītājs, pie kura pievienot"
 
 #: ui/cryptoconfigmodule.cpp:107
 #, kde-format
@@ -1135,20 +1341,12 @@ msgid ""
 "seem to be installed properly. It did not return any components. Try running "
 "\"%1\" on the command line for more information."
 msgstr ""
-"Gpgconf rīks, ko izmanto šī loga informācijas iegūšanai izskatās ka nav "
-"korekti instalēts. Tas neatgrieza nevienu komponenti. Mēģiniet palaist "
-"komandrindā \"%1\", lai iegūtu vairāk informācijas."
+"Izskatās, ka „gpgconf“ rīks, ko izmanto šī loga informācijas iegūšanai, nav "
+"korekti instalēts. Tas neatgrieza nevienu komponenti. Lai iegūtu vairāk "
+"informācijas, mēģiniet komandrindā palaist „%1“."
 
 #: ui/cryptoconfigmodule.cpp:538
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
 "whether your language uses Sentence style capitalization in GUI labels (yes) "
@@ -1157,31 +1355,30 @@ msgctxt ""
 "character to upper-case. It is this behaviour you can control for your "
 "language with this translation."
 msgid "yes"
-msgstr "yes"
+msgstr "jā"
 
 #: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
-msgstr ""
+msgstr "0 — nekas"
 
 #: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
-msgstr ""
+msgstr "1 — pamata"
 
 #: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
-msgstr ""
+msgstr "2 — informatīvs"
 
 #: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
-msgstr ""
+msgstr "3 — vēl informatīvāks"
 
 #: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
-msgstr ""
+msgstr "4 — viss"
 
 #: ui/cryptoconfigmodule.cpp:608
-#, fuzzy, kde-format
-#| msgid "Set the debugging level to"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Iestatīt atkļūdošanas līmeni uz"
@@ -1197,17 +1394,15 @@ msgid "Edit..."
 msgstr "Rediģēt..."
 
 #: ui/cryptoconfigmodule.cpp:885
-#, fuzzy, kde-format
-#| msgid "Add or Change Directory Service"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
-msgstr "Pievienot vai mainīt direktorija pakalpojumu"
+msgstr "Konfigurēt direktorija servisu"
 
 #: ui/cryptoconfigmodule.cpp:914
-#, fuzzy, kde-format
-#| msgid "No server configured yet"
+#, kde-format
 msgid "None configured"
-msgstr "Nav konfigurēts neviens serveris"
+msgstr "Nekad nav konfigurēts"
 
 #: ui/cryptoconfigmodule.cpp:916
 #, kde-format
@@ -1215,25 +1410,22 @@ msgid "1 server configured"
 msgid_plural "%1 servers configured"
 msgstr[0] "konfigurēts %1 serveris"
 msgstr[1] "konfigurēti %1 serveri"
-msgstr[2] "konfigurēti %1 serveru"
+msgstr[2] "konfigurēts %1 serveru"
 
 #: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
 #, kde-format
 msgid "Active Directory"
-msgstr ""
+msgstr "„Active Directory“"
 
 #: ui/directoryserviceswidget.cpp:193
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a list of all directory services that are configured for use with "
-#| "X.509 and OpenPGP."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "This is a list of all directory services that are configured for use with "
 "X.509."
 msgstr ""
-"Šis ir visu direktorija pakalpojumu saraksts, kas ir konfigurēti "
-"izmantošanai ar X.509 un OpenPGP."
+"Šis ir visu direktoriju pakalpojumu saraksts, kas ir konfigurēti "
+"izmantošanai ar X.509 un „OpenPGP“."
 
 #: ui/directoryserviceswidget.cpp:203
 #, kde-format
@@ -1242,108 +1434,94 @@ msgid ""
 "Click to use a directory service running on your Active Directory. This "
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
+"Klikšķiniet, lai izmantotu direktoriju pakalpojumu, kas darbojas ar jūsu "
+"„Active Directory“. Tas darbojas tikai ar „Windows“ operētājsistēmu un tā "
+"darbībai nepieciešama „GnuPG“ 2.2.28. versija vai jaunāka."
 
 #: ui/directoryserviceswidget.cpp:206
-#, fuzzy, kde-format
-#| msgid "Configure LDAP Servers"
+#, kde-format
 msgid "LDAP Server"
-msgstr "Konfigurēt LDAP serverus"
+msgstr "LDAP serveris"
 
 #: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
+"Klikšķiniet, lai pievienotu direktoriju pakalpojumu, ko nodrošina LDAP "
+"serveris."
 
 #: ui/directoryserviceswidget.cpp:211
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "Pievienot"
 
 #: ui/directoryserviceswidget.cpp:212
-#, fuzzy, kde-format
-#| msgid "Click to add a service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr "Spiediet, lai pievienotu pakalpojumu"
+msgstr "Klikšķiniet, lai pievienotu direktoriju pakalpojumu."
 
 #: ui/directoryserviceswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to add a directory service to the list of services. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
-"Spiediet šo pogu, lai izņemtu izvēlēto direktorija servisu. Izmaiņas stāsies "
-"spēkā tikai kad apstiprināsiet galveno konfigurācijas logu."
+"Klikšķiniet, lai servisu sarakstam pievienotu direktoriju servisu. Izmaiņas "
+"stāsies spēkā tikai pēc konfigurācijas loga apstiprināšanas."
 
 #: ui/directoryserviceswidget.cpp:222
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
-msgstr "Rediģēt..."
+msgstr "Rediģēt"
 
 #: ui/directoryserviceswidget.cpp:223
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
-msgstr "Spiediet, lai izņemtu izvēlēto servisu"
+msgstr "Klikšķiniet, lai rediģēto atlasīto pakalpojumu."
 
 #: ui/directoryserviceswidget.cpp:225
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to edit the settings of the currently selected directory "
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
-"Spiediet šo pogu, lai izņemtu izvēlēto direktorija servisu. Izmaiņas stāsies "
-"spēkā tikai kad apstiprināsiet galveno konfigurācijas logu."
+"Klikšķiniet šo pogu, lai rediģētu pašreiz atlasīta direktorija pakalpojumu. "
+"Izmaiņas stāsies spēkā tikai pēc konfigurācijas lodziņa apstiprināšanas."
 
 #: ui/directoryserviceswidget.cpp:230
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Dzēst"
 
 #: ui/directoryserviceswidget.cpp:231
-#, fuzzy, kde-format
-#| msgid "Click to remove the currently selected service"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
-msgstr "Spiediet, lai izņemtu izvēlēto servisu"
+msgstr "Klikšķiniet, lai noņemtu atlasīto pakalpojumu."
 
 #: ui/directoryserviceswidget.cpp:233
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click this button to remove the currently selected directory service. The "
-#| "change will only take effect once you acknowledge the main configuration "
-#| "dialog."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Click this button to remove the currently selected directory service. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
-"Spiediet šo pogu, lai izņemtu izvēlēto direktorija servisu. Izmaiņas stāsies "
-"spēkā tikai kad apstiprināsiet galveno konfigurācijas logu."
+"Klikšķiniet, lai noņemtu atlasīto direktoriju pakalpojumu. Izmaiņas stāsies "
+"spēkā tikai pēc konfigurācijas lodziņa apstiprināšanas."
 
 #: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
-msgstr "Direktorija pakalpojumi:"
+msgstr "LDAP direktoriju pakalpojums"
 
 #: ui/dnattributeorderconfigwidget.cpp:75
 #, kde-format
@@ -1351,22 +1529,19 @@ msgid "Description"
 msgstr "Apraksts"
 
 #: ui/dnattributeorderconfigwidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Pieejamie atribūti:"
 
 #: ui/dnattributeorderconfigwidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Pašreizējā atribūtu kārtība:"
 
 #: ui/dnattributeorderconfigwidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Available attributes:"
+#, kde-format
 msgid "available attributes"
 msgstr "Pieejamie atribūti:"
 
@@ -1374,146 +1549,136 @@ msgstr "Pieejamie atribūti:"
 #: ui/dnattributeorderconfigwidget.cpp:108
 #, kde-format
 msgid "All others"
-msgstr "Visi citi"
+msgstr "Visi pārējie"
 
 #: ui/dnattributeorderconfigwidget.cpp:120
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Pievienot"
 
 #: ui/dnattributeorderconfigwidget.cpp:121
 msgid "Add to current attribute order"
-msgstr "Pievienot atribūtu kārtībai"
+msgstr "Pievienot pašreizējai atribūtu kārtībai"
 
 #: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Noņemt"
 
 #: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Remove from current attribute order"
-msgstr "Izņemt no atribūtu kārtības"
+msgstr "Noņemt no atribūtu kārtības"
 
 #: ui/dnattributeorderconfigwidget.cpp:134
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move to Top"
-msgstr "Pārvietot uz augšējo"
+msgstr "Pārvietot uz augšu"
 
 #: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Move to top"
-msgstr "Pārvietot uz augšējo"
+msgstr "Pārvietot uz augšu"
 
 #: ui/dnattributeorderconfigwidget.cpp:141
-#, fuzzy
-#| msgid "Move to top"
 msgctxt "@action:button"
 msgid "Move Up"
-msgstr "Pārvietot uz augšējo"
+msgstr "Pārvietot augšup"
 
 #: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move one up"
-msgstr "Pārvietot augšup"
+msgstr "Pārvietot augšup pa vienu"
 
 #: ui/dnattributeorderconfigwidget.cpp:148
-#, fuzzy
-#| msgid "Move one down"
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Pārvietot lejup"
 
 #: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one down"
-msgstr "Pārvietot lejup"
+msgstr "Pārvietot lejup pa vienu"
 
 #: ui/dnattributeorderconfigwidget.cpp:155
-#, fuzzy
-#| msgid "Move to bottom"
 msgctxt "@action:button"
 msgid "Move to Bottom"
-msgstr "Pārvietot uz apakšējo"
+msgstr "Pārvietot uz apakšu"
 
 #: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move to bottom"
-msgstr "Pārvietot uz apakšējo"
+msgstr "Pārvietot uz apakšu"
 
 #: ui/dnattributeorderconfigwidget.cpp:186
-#, fuzzy, kde-format
-#| msgid "Current attribute order:"
+#, kde-format
 msgid "current attribute order"
-msgstr "Pašreizējā atribūtu kārtība:"
+msgstr "pašreizējā atribūtu kartība"
 
 #: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
-msgstr ""
+msgstr "Resursdators:"
 
 #: ui/editdirectoryservicedialog.cpp:103
-#, fuzzy, kde-format
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
-msgstr "Ievadiet direktorija servera nosaukumu vai IP adresi."
+msgstr ""
+"Ievadiet servera, kurā mitinās direktoriju pakalpojums, nosaukumu vai IP "
+"adresi."
 
 #: ui/editdirectoryservicedialog.cpp:112
 #, kde-format
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
+"Kļūda: ievadiet datora nosaukumu korektā formātā, piemēram, „ldap.example."
+"com“."
 
 #: ui/editdirectoryservicedialog.cpp:116
-#, fuzzy, kde-format
-#| msgid "&Port:"
+#, kde-format
 msgid "Port:"
-msgstr "&Ports:"
+msgstr "Ports:"
 
 #: ui/editdirectoryservicedialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
-#| "the directory service is listening on."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
 "the directory service is listening on."
 msgstr ""
-"<b>(Neobligāts, parasti der noklusētais)</b> Norādiet direktorija servisa "
-"porta numuru."
+"<b>(Neobligāts, parasti der noklusējuma)</b> Norādiet direktorija "
+"pakalpojuma porta numuru."
 
 #: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
-msgstr ""
+msgstr "Izmantot noklusējumu"
 
 #: ui/editdirectoryservicedialog.cpp:128
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authentication"
-msgstr "Citi sertifikāti"
+msgstr "Autentifikācija"
 
 #: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonīms"
 
 #: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
+msgstr "Izmantojiet anonīmu LDAP serveri, kas nepieprasa autentifikāciju."
 
 #: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
-msgstr ""
+msgstr "Autentificēties caur „Active Directory“"
 
 #: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr ""
+"Autentificēties caur „Active Directory“ (nepieciešama „GnuPG“ 2.2.28. "
+"versija vai jaunāka)"
 
 #: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
@@ -1522,23 +1687,24 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
+"Ja izmantojat „Windows“, autentificējieties LDAP serverī, izmantojot „Active "
+"Directory“ ar pašreizējo lietotāju."
 
 #: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr ""
+msgstr "Autentificēties ar lietotāju un paroli"
 
 #: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
-msgstr ""
+msgstr "Autentificēties LDAP serverī ar jūsu  LDAP pierakstīšanās datiem."
 
 #: ui/editdirectoryservicedialog.cpp:160
-#, fuzzy, kde-format
-#| msgid "User ID"
+#, kde-format
 msgid "User:"
-msgstr "Lietotāja ID"
+msgstr "Lietotājs:"
 
 #: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
@@ -1546,43 +1712,38 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
+"Norādiet savu LDAP lietotāju. Sasaistiet DN autentifikācijai ar LDAP serveri."
 
 #: ui/editdirectoryservicedialog.cpp:165
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Password:"
-msgstr "Parole"
+msgstr "Parole:"
 
 #: ui/editdirectoryservicedialog.cpp:167
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<b>(Optional, not recommended)</b> Enter your password here, if needed. "
-#| "Note that the password will be saved in the clear in a config file in "
-#| "your home directory."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your password for authenticating to the LDAP server.<nl/><warning>The "
 "password will be saved in the clear in a configuration file in your home "
 "directory.</warning>"
 msgstr ""
-"<b>(Neobligāts, nav ieteicams)</b> Šeit ievadiet paroli, ja nepieciešams. "
-"Ņemiet vēra ka parole tiks saglabāta atklātā formā konfigurācijas failā jūsu "
-"mājas mapē."
+"Norādiet savu paroli autentifikācijai LDAP serverī.<nl/><warning>Parole tiks "
+"saglabāta viegli lasāmā veidā konfigurācijas datnē jūsu mājas mapē.</warning>"
 
 #: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
-msgstr ""
+msgstr "Savienojuma drošība"
 
 #: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "Savienojuma drošība (nepieciešama „GnuPG“ 2.2.28. versija vai jaunāka)"
 
 #: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
-msgstr ""
+msgstr "Lietot noklusējuma konfigurāciju (iespējams bez droša TLS)"
 
 #: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
@@ -1591,11 +1752,14 @@ msgid ""
 "Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
+"Izmantoto „GnuPG“ noklusējumu, lai pievienotos LDAP serverim. Pēc "
+"noklusējuma „GnuPG“ 2.3 un agrāki izmanto vienkārša teksta (ne ar TLS "
+"nodrošinātu) savienojumu. <b>(Nav ieteicams</b>"
 
 #: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
-msgstr ""
+msgstr "Neizmantot TLS nodrošinātu savienojumu"
 
 #: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
@@ -1604,11 +1768,13 @@ msgid ""
 "Use a plain, not TLS secured connection to connect to the LDAP server. "
 "<b>(Not recommended)</b>"
 msgstr ""
+"Savienojumam ar LDAP serveri izmantot vienkārša teksta, ne TLS nodrošinātu "
+"savienojumu. <b>(Nav ieteicams)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
-msgstr ""
+msgstr "Izmantot ar TLS nodrošinātu savienojumu"
 
 #: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
@@ -1617,11 +1783,13 @@ msgid ""
 "Use a standard TLS secured connection (initiated with STARTTLS) to connect "
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr ""
+"Izmantot ar TLS nodrošinātu savienojumu (uzsākts ar STARTTLS), lai "
+"savienotos ar LDAP serveri. <b>Ieteiceams</b>"
 
 #: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "Tunelēt LDAP caur TLS savienojumu"
 
 #: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
@@ -1630,35 +1798,33 @@ msgid ""
 "Use a TLS secured connection through which the connection to the LDAP server "
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
+"Izmantot ar TLS nodrošinātu savienojumu, caur kuru tiek tunelēts savienojums "
+"ar LDAP serveri. <b>(Nav ieteicams)</b>"
 
 #: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Papildu iestatījumi"
 
 #: ui/editdirectoryservicedialog.cpp:227
-#, fuzzy, kde-format
-#| msgid "&Base DN:"
+#, kde-format
 msgid "Base DN:"
-msgstr "&Bāzes DN:"
+msgstr "Pamata DN:"
 
 #: ui/editdirectoryservicedialog.cpp:229
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>(Only for LDAP)</b> Enter the base DN for this LDAP server to limit "
-#| "searches to only that subtree of the directory."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
-"<b>(Tikai priekš LDAP)</b>Ievadiet Šī LDAP servera bāzes DN, lai ierobežotu "
-"meklēšanu tikai šajā direktorijā."
+"<b>(Neobligāts, var atstāt tukšu)</b> Norādiet pamata DN šim LDAP serveris, "
+"lai ierobežotu meklēšanu tikai līdz attiecīgajam direktorija apakškokam."
 
 #: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
-msgstr ""
+msgstr "Papildu karogi:"
 
 #: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
@@ -1668,49 +1834,50 @@ msgid ""
 "supported by Kleopatra. For example, older versions of GnuPG use "
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
+"Te varat norādīt papildu karogus, ko „Kleopatra“ vēl (vai vairs) neatbalsta. "
+"Piemēram, vecākas „GnuPG“ versijas izmanto <code>ldaps</code>, lai "
+"pieprasītu ar TLS nodrošinātu savienojumu."
 
 #: ui/editdirectoryservicedialog.cpp:410
-#, fuzzy, kde-format
-#| msgid "Directory services:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
-msgstr "Direktorija pakalpojumi:"
+msgstr "Rediģēt direktoriju pakalpojumu"
 
 #: ui/filenamerequester.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
-msgstr ""
+msgstr "Atvērt datnes lodziņu"
 
 #: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
-msgstr ""
+msgstr "Atvērt datnes lodziņu"
 
 #: ui/formtextinput.cpp:25
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@info Used as error message for a required text input"
 msgid "Enter a value."
-msgstr "E-pasta adrese"
+msgstr "Ievadiet vērtību."
 
 #: ui/formtextinput.cpp:30
 #, kde-format
 msgctxt "@info Used as generic error message for a text input"
 msgid "Enter a value in the correct format."
-msgstr ""
+msgstr "Norādiet vērtību pareizā formātā."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
 msgctxt "@label label text (required)"
 msgid "%1 (required)"
-msgstr ""
+msgstr "%1 (nepieciešams)"
 
 #: ui/formtextinput.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
-msgstr ""
+msgstr "Kļūda: %1"
 
 #: ui/formtextinput.cpp:230
 #, kde-format
@@ -1718,7 +1885,7 @@ msgctxt ""
 "text for screen readers to indicate that the associated object, such as a "
 "form field, has an error"
 msgid "invalid entry"
-msgstr ""
+msgstr "nederīga ievade"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1748,60 +1915,52 @@ msgstr "Vienmēr vaicāt"
 #: ui/keyapprovaldialog.cpp:81
 #, kde-format
 msgid "Ask Whenever Encryption is Possible"
-msgstr "Vaicāt kad vien iespējams šifrēt"
+msgstr "Vaicāt vienmēr, kad šifrēšana ir iespējama"
 
 #: ui/keyapprovaldialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Encryption Key Approval"
-msgstr "Šifrēšanas atslēgu apstiprināšana"
+msgstr "Šifrēšanas atslēgas apstiprināšana"
 
 #: ui/keyapprovaldialog.cpp:118
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
-msgstr "Šīs atslēgtas tiks izmantotas šifrēšanai:"
+msgstr "Šifrēšanai tiks izmantotas šīs atslēgas:"
 
 #: ui/keyapprovaldialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Your keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Jūsu atslēgas:"
 
 #: ui/keyapprovaldialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "Recipient:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Saņēmējs:"
 
 #: ui/keyapprovaldialog.cpp:151
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Šifrēšanas atslēgas:"
 
 #: ui/keyapprovaldialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Encryption preference:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Encryption preference:"
-msgstr "Šifrēšanas iestatījums:"
+msgstr "Šifrēšanas priekšroka:"
 
 #: ui/keyrequester.cpp:88
-#, fuzzy, kde-format
-#| msgid "Clear"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Notīrīt"
 
 #: ui/keyrequester.cpp:91
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Mainīt..."
@@ -1809,7 +1968,7 @@ msgstr "Mainīt..."
 #: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
-msgstr "<placeholder>neiznāma</placeholder>"
+msgstr "<placeholder>nezināms</placeholder>"
 
 #: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
 #, kde-format
@@ -1817,13 +1976,12 @@ msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
 "%1</b></p></qt>"
 msgstr ""
-"<qt><p>Gadījās kļūda mēģinot no aizmugures ielādēt atslēgas:</p><p><b>%1</"
-"b></p></qt>"
+"<qt><p>Gadījās kļūda, mēģinot no aizmugursistēmas ielādēt atslēgas:</p><p><b>"
+"%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
-#, fuzzy, kde-format
-#| msgid "Key Listing Failed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Neizdevās uzskaitīt atslēgas"
@@ -1833,7 +1991,7 @@ msgstr "Neizdevās uzskaitīt atslēgas"
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
-"OpenPGP aizmugure neatbalsta atslēgu uzskaitīšanu. Pārbaudiet savu "
+"„OpenPGP“ aizmugursistēma neatbalsta atslēgu uzskaitīšanu. Pārbaudiet savu "
 "instalāciju."
 
 #: ui/keyrequester.cpp:292
@@ -1841,106 +1999,104 @@ msgstr ""
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr ""
-"S/MIME aizmugure neatbalsta atslēgu uzskaitīšanu. Pārbaudiet savu "
+"S/MIME aizmugursistēma neatbalsta atslēgu uzskaitīšanu. Pārbaudiet "
 "instalāciju."
 
 #: ui/keyrequester.cpp:412
 #, kde-format
 msgid "OpenPGP Key Selection"
-msgstr "OpenPGP atslēgas izvēle"
+msgstr "„OpenPGP“ atslēgas atlasīšana"
 
 #: ui/keyrequester.cpp:413
 #, kde-format
 msgid "Please select an OpenPGP key to use."
-msgstr "Lūdzu norādiet izmantojamo OpenPGP atslēgu."
+msgstr "Atlasiet izmantojamo „OpenPGP“ atslēgu."
 
 #: ui/keyrequester.cpp:415
 #, kde-format
 msgid "S/MIME Key Selection"
-msgstr "OpenPGP atslēgas izvēle"
+msgstr "„OpenPGP“ atslēgas atlasīšana"
 
 #: ui/keyrequester.cpp:416
 #, kde-format
 msgid "Please select an S/MIME key to use."
-msgstr "Lūdzu norādiet izmantojamo S/MIME atslēgu."
+msgstr "Atlasiet izmantojamo S/MIME atslēgu."
 
 #: ui/keyrequester.cpp:418
 #, kde-format
 msgid "Key Selection"
-msgstr "Atslēgas izvēle"
+msgstr "Atslēgas atlasīšana"
 
 #: ui/keyrequester.cpp:419
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
-msgstr "Lūdzu norādiet izmantojamo (OpenPGP vai S/MIME) atslēgu."
+msgstr "Atlasiet izmantojamo („OpenPGP“ vai S/MIME) atslēgu."
 
 #: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
-msgstr ""
+msgstr "%1 <%2>"
 
 #: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
-#, fuzzy, kde-format
-#| msgid "Fetching keys..."
+#, kde-format
 msgid "Loading keys ..."
 msgstr "Ielādē atslēgas..."
 
 #: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
-msgstr ""
+msgstr "Atslēga nav derīga."
 
 #: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
-msgstr ""
+msgstr "Atslēgas derīgums ir beidzies"
 
 #: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
-msgstr ""
+msgstr "Atslēga ir atsaukta."
 
 #: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
-msgstr ""
+msgstr "Atslēga ir izslēgta."
 
 #: ui/keyselectiondialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "The following keys will be used for encryption:"
+#, kde-format
 msgid "The key is not designated for encryption."
-msgstr "Šīs atslēgtas tiks izmantotas šifrēšanai:"
+msgstr "Atslēga nav paredzēta šifrēšanai."
 
 #: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
-msgstr ""
+msgstr "Atslēga nav paredzēta parakstīšanai."
 
 #: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
-msgstr ""
+msgstr "Atslēga nav paredzēta sertificēšanai."
 
 #: ui/keyselectiondialog.cpp:109
 #, kde-format
 msgid "The key is not designated for authentication."
-msgstr ""
+msgstr "Atslēga nav paredzēta autentifikācijai."
 
 #: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
-msgstr ""
+msgstr "Atslēga nav noslēpums."
 
 #: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
-msgstr ""
+msgstr "Atslēgu iespējams izmantot."
 
 #: ui/keyselectiondialog.cpp:131
 #, kde-format
 msgid "The key is not trusted enough."
-msgstr ""
+msgstr "Atslēga nav pietiekami uzticama."
 
 #: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:478
 #, kde-format
@@ -1956,64 +2112,61 @@ msgstr "nezināma"
 #: ui/keyselectiondialog.cpp:263
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
-msgstr ""
+msgstr "„OpenPGP“ atslēga priekš <b>%1</b>"
 
 #: ui/keyselectiondialog.cpp:265
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
-msgstr ""
+msgstr "S/MIME atslēga priekš <b>%1</b>"
 
 #: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:464
 #, kde-format
 msgid "Valid from"
-msgstr ""
+msgstr "Derīgs no"
 
 #: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:467
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "Derīgs līdz"
 
 #: ui/keyselectiondialog.cpp:274
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
-msgstr ""
+msgstr "Digitālais nospiedums"
 
 #: ui/keyselectiondialog.cpp:276
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
-msgstr ""
+msgstr "Izdevējs"
 
 #: ui/keyselectiondialog.cpp:278
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
-msgstr ""
+msgstr "Statuss"
 
 #: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "Saderība"
 
 #: ui/keyselectiondialog.cpp:420
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search for &External Certificates"
-msgstr "Citi sertifikāti"
+msgstr "Meklēt ā&rējos sertifikātus"
 
 #: ui/keyselectiondialog.cpp:434
-#, fuzzy, kde-format
-#| msgid "&Search for:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Meklēt:"
 
 #: ui/keyselectiondialog.cpp:459
-#, fuzzy, kde-format
-#| msgid "&Remember choice"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Atcerēties izvēli"
@@ -2028,15 +2181,13 @@ msgstr ""
 "</p></qt>"
 
 #: ui/keyselectiondialog.cpp:476
-#, fuzzy, kde-format
-#| msgid "&Reread Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Reread Keys"
-msgstr "Pā&rielasīt atslēgas"
+msgstr "&No jauna nolasīt atslēgas"
 
 #: ui/keyselectiondialog.cpp:481
-#, fuzzy, kde-format
-#| msgid "&Start Certificate Manager"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Palaist &sertifikātu pārvaldnieku"
@@ -2045,19 +2196,16 @@ msgstr "Palaist &sertifikātu pārvaldnieku"
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr ""
-"Nav atrasta neveina atslēgas uzskaitoša aizmugure. Pārbaudiet savu "
-"intalāciju."
+"Nav atrasta neviena atslēgas uzskaitoša aizmugursistēma. Pārbaudiet "
+"instalāciju."
 
 #: ui/keyselectiondialog.cpp:659
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
-msgstr ""
-"Neizdevās palaist sertifikātu pārvaldnieku. Lūdzu pārbaudiet savu "
-"instalāciju."
+msgstr "Neizdevās palaist sertifikātu pārvaldnieku. Pārbaudiet -instalāciju."
 
 #: ui/keyselectiondialog.cpp:661
-#, fuzzy, kde-format
-#| msgid "Certificate Manager Error"
+#, kde-format
 msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Sertifikātu pārvaldnieka kļūda"
@@ -2065,7 +2213,7 @@ msgstr "Sertifikātu pārvaldnieka kļūda"
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
-msgstr "Pārbauda izvēlētās atslēgas..."
+msgstr "Pārbauda atlasītās atslēgas..."
 
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
@@ -2081,14 +2229,14 @@ msgid_plural ""
 "<qt>%1 backends returned truncated output.<p>Not all available keys are "
 "shown</p></qt>"
 msgstr[0] ""
-"<qt>%1 aizmugure atgrieza aprautu izvadu.<p>Ne visas pieejamās atslēgas ir "
-"parādītas</p></qt>"
+"<qt>%1 aizmugursistēma atgrieza aprautu izvadu.<p>Ne visas pieejamās "
+"atslēgas ir parādītas</p></qt>"
 msgstr[1] ""
-"<qt>%1 aizmugures atgrieza aprautu izvadu.<p>Ne visas pieejamās atslēgas ir "
-"parādītas</p></qt>"
+"<qt>%1 aizmugursistēmas atgrieza aprautu izvadu.<p>Ne visas pieejamās "
+"atslēgas ir parādītas</p></qt>"
 msgstr[2] ""
-"<qt>%1 aizmugures atgrieza aprautu izvadu.<p>Ne visas pieejamās atslēgas ir "
-"parādītas</p></qt>"
+"<qt>%1 aizmugursistēmas atgrieza aprautu izvadu.<p>Ne visas pieejamās "
+"atslēgas ir parādītas</p></qt>"
 
 #: ui/keyselectiondialog.cpp:755
 #, kde-format
@@ -2101,61 +2249,56 @@ msgid "Recheck Key"
 msgstr "Pārbaudīt atslēgu"
 
 #: ui/messagebox.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Show Audit Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Audit Log"
-msgstr "&Rādīt pārbaudes žurnālu"
+msgstr "Rādīt audita žurnālu"
 
 #: ui/messagebox.cpp:91
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgctxt "@title:window"
 msgid "Information"
-msgstr "Vieta"
+msgstr "Informācija"
 
 #: ui/messagebox.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "Kļūda"
 
 #: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
-#, fuzzy, kde-format
-#| msgid "User Name"
+#, kde-format
 msgctxt "@label"
 msgid "Name"
-msgstr "Lietotāja vārds"
+msgstr "Nosaukums"
 
 #: ui/nameandemailwidget.cpp:60
 #, kde-format
 msgid "Enter a name."
-msgstr ""
+msgstr "Ierakstiet nosaukumu."
 
 #: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgctxt "@label"
 msgid "Email address"
 msgstr "E-pasta adrese"
 
 #: ui/nameandemailwidget.cpp:76
-#, fuzzy, kde-format
-#| msgid "Email address"
+#, kde-format
 msgid "Enter an email address."
-msgstr "E-pasta adrese"
+msgstr "Ierakstiet e-pasta adresi"
 
 #: ui/nameandemailwidget.cpp:94
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Nosaukums nedrīkst saturēt <, > un @."
 
 #: ui/nameandemailwidget.cpp:95
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "Nosaukums nevar saturēt „mazāks par“, „lielāks par“ zīmi un „et“ zīmi."
 
 #: ui/nameandemailwidget.cpp:98
 #, kde-format
@@ -2163,6 +2306,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Nosaukumam jābūt formātā, ko atpazīst jūsu organizācija, un tas nedrīkst "
+"saturēt <, > un @."
 
 #: ui/nameandemailwidget.cpp:101
 #, kde-format
@@ -2171,47 +2316,50 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Nosaukumam jābūt formātā, ko atpazīst jūsu organizācija, un tas nedrīkst "
+"saturēt „mazāks par“, „lielāks par“ zīmi un „et“ zīmi."
 
 #: ui/nameandemailwidget.cpp:110
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
-msgstr ""
+msgstr "Norādiet e-pasta adresi korektā formātā, piemēram, vārds@piemērs.lv."
 
 #: ui/nameandemailwidget.cpp:113
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Ierakstiet e-pasta adresi pareizā formātā, kā to nosaka jūsu organizācija."
 
 #: ui/newkeyapprovaldialog.cpp:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
-msgstr ""
+msgstr "Rādīt informāciju"
 
 #: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
-msgstr ""
+msgstr "Rādīt sakrītošās atslēgas"
 
 #: ui/newkeyapprovaldialog.cpp:187
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
-msgstr ""
+msgstr "Rādīt atslēgas, kas sakrīt ar e-pasta adresi"
 
 #: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
-msgstr ""
+msgstr "Rādīt visas"
 
 #: ui/newkeyapprovaldialog.cpp:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
-msgstr ""
+msgstr "Rādīt visas atslēgas"
 
 #: ui/newkeyapprovaldialog.cpp:276
 #, kde-format
@@ -2223,93 +2371,89 @@ msgid ""
 "to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
+"Ģenerēt jaunu atslēgu, izmantojot e-pasta adresi.<br/><br/>Atslēga ir "
+"nepieciešama, lai atšifrētu un parakstītu e-pasta vēstules. Jums lūgs "
+"ierakstīt paroli, kas aizsargās šo atslēgu, bet aizsargātā atslēga tiks "
+"glabāta jūsu mājas mapē."
 
 #: ui/newkeyapprovaldialog.cpp:301
-#, fuzzy, kde-format
-#| msgid "Encryption Key Approval"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
-msgstr "Šifrēšanas atslēgu apstiprināšana"
+msgstr "Drošības apstiprinājums"
 
 #: ui/newkeyapprovaldialog.cpp:308
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:309
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "OpenPGP"
+#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:312
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "Generating DSA key..."
+#, kde-format
 msgid "Generating key for '%1'..."
-msgstr "Ģenerē DSA atslēgu..."
+msgstr "Ģenerē atslēgu priekš „%1“..."
 
 #: ui/newkeyapprovaldialog.cpp:405
 #, kde-format
 msgid "This can take several minutes."
-msgstr ""
+msgstr "Tas var aizņemt vairākas minūtes."
 
 #: ui/newkeyapprovaldialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "Key Selection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
-msgstr "Atslēgas izvēle"
+msgstr "Atslēgas ģenerēšana"
 
 #: ui/newkeyapprovaldialog.cpp:450
-#, fuzzy, kde-format
-#| msgid "Decryption failed: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
-msgstr "Neizdevās atšifrēt: %1"
+msgstr "Darbība neizdevās"
 
 #: ui/newkeyapprovaldialog.cpp:565 ui/newkeyapprovaldialog.cpp:661
 #, kde-format
 msgid "Generate a new key pair"
-msgstr ""
+msgstr "Ģenerēt jaunu atslēgas pāri"
 
 #: ui/newkeyapprovaldialog.cpp:568
 #, kde-format
 msgid "Do not sign this email"
-msgstr ""
+msgstr "Neparakstīt šo e-pasta vēstuli"
 
 #: ui/newkeyapprovaldialog.cpp:570
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
-msgstr ""
+msgstr "Šī e-pasta vēstule netiks kriptogrāfiski parakstīta."
 
 #: ui/newkeyapprovaldialog.cpp:588
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
-msgstr ""
+msgstr "Apstiprināt identitāti „%1“ kā:"
 
 #: ui/newkeyapprovaldialog.cpp:665
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
+msgstr "Nav atslēgas. Saņēmējs nevarēs atšifrēt."
 
 #: ui/newkeyapprovaldialog.cpp:668
 #, kde-format
@@ -2319,30 +2463,30 @@ msgid ""
 "the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
+"Neatlasīt atslēgu šim saņēmējam.<br/><br/>Saņēmējs saņems šifrētu e-pasta "
+"vēstuli, bet to varēs atšifrēt tikai ar citām atslēgām, kas ir atlasītas "
+"šajā lodziņā."
 
 #: ui/newkeyapprovaldialog.cpp:785
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr "Nekad šifrēt"
+msgstr "Šifrēt sev (%1):"
 
 #: ui/newkeyapprovaldialog.cpp:802
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt to others:"
-msgstr "Nekad šifrēt"
+msgstr "Šifrēt citiem:"
 
 #: ui/newkeyapprovaldialog.cpp:840
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generate"
-msgstr "Pamata"
+msgstr "Ģenerēt"
 
 #: ui/openpgpcertificatecreationdialog.cpp:96
 #, kde-format
 msgid "Protect the generated key with a passphrase."
-msgstr ""
+msgstr "Aizsargāt ģenerēto atslēgu ar paroli."
 
 #: ui/openpgpcertificatecreationdialog.cpp:98
 #, kde-format
@@ -2350,52 +2494,51 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Šifrē slepeno atslēgu ar neatgūstamu paroli. Atslēgas ģenerēšanas laikā lūgs "
+"paroli ievadīt."
 
 #: ui/openpgpcertificatecreationdialog.cpp:101
 #, kde-format
 msgid "Advanced options"
-msgstr ""
+msgstr "Papildu iestatījumi"
 
 #: ui/openpgpcertificatecreationdialog.cpp:108
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "Atslēgas materiāls"
 
 #: ui/openpgpcertificatecreationdialog.cpp:152
-#, fuzzy, kde-format
-#| msgid "Trusted Certificates"
+#, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
-msgstr "Uzticamie sertifikāti"
+msgstr "„OpenPGP“ sertifikāta izveidošana"
 
 #: ui/openpgpcertificatecreationdialog.cpp:160
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
-msgstr ""
+msgstr "Ierakstiet vārdu un e-pasta adresi, ko izmantot šim sertifikātam."
 
 #: ui/openpgpcertificatecreationdialog.cpp:161
-#, fuzzy, kde-format
-#| msgid ""
-#| "Enter the name or IP address of the server hosting the directory service."
+#, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
-msgstr "Ievadiet direktorija servera nosaukumu vai IP adresi."
+msgstr "Norādiet vārdu un/vai e-pasta adresi, ko izmanto šim sertifikātam."
 
 #: ui/openpgpcertificatecreationdialog.cpp:342
 #, kde-format
 msgid "Enter a name or an email address."
-msgstr ""
+msgstr "Ierakstiet vārdu vai e-pasta adresi."
 
 #: ui/openpgpcertificatecreationdialog.cpp:356
 #, kde-format
 msgid "There is a problem."
-msgstr ""
+msgstr "Atklājusies problēma."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Default reader"
-msgstr ""
+msgstr "Noklusējuma lasītājs"
 
 #: ui/readerportselection.cpp:73
 #, kde-kuit-format
@@ -2407,278 +2550,260 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
+"<para>Atlasiet viedkaršu lasītāju, ko „GnuPG“ izmantot.<list><item>Pirmais "
+"vienums liks „GnuPG“ izmantot pirmo atrasto lasītāju.</item><item>Pēdējais "
+"vienums ļauj norādīt pielāgotu lasītāja ID vai lasītāja pieslēgvietas numuru."
+"</item><item>Visi pārējie vienumi ir „GnuPG“ atrastie lasītāji.</item></"
+"list></para>"
 
 #: ui/readerportselection.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "Pielāgots lasītāja ID vai pieslēgvietas numurs"
 
 #: ui/treeview.cpp:69 ui/treewidget.cpp:172
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
-msgstr ""
+msgstr "Skatīt kolonnas"
 
 #: ui/useridselectioncombo.cpp:529
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show certificate list"
-msgstr "Mani sertifikāti"
+msgstr "Rādīt sertifikātu sarakstu"
 
 #: ui/useridselectioncombo.cpp:530
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Show certificate list"
-msgstr "Mani sertifikāti"
+msgstr "Rādīt sertifikātu sarakstu"
 
 #: utils/compliance.cpp:185
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "VS-NfD compliant"
-msgstr "Visi sertifikāti"
+msgstr "Ar „VS-NfD“ saderīgs"
 
 #: utils/compliance.cpp:185
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "Not VS-NfD compliant"
-msgstr "Visi sertifikāti"
+msgstr "Ar „VS-NfD“ nesaderīgs"
 
 #: utils/compliance.cpp:194
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
-msgstr "%1 (%2)"
+msgstr "%1 (beta)"
 
 #: utils/expiration.cpp:102
 #, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr ""
+msgstr "Derīgs līdz (%1):"
 
 #: utils/expiration.cpp:105
 #, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr ""
+msgstr "Derīgs līdz (starp %1 un %2):"
 
 #: utils/expiration.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "The date cannot be changed."
-msgstr ""
+msgstr "Datumu mainīt nevar."
 
 #: utils/expiration.cpp:119 utils/expiration.cpp:125
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr ""
+msgstr "Ievadiet datumu no %1 līdz %2."
 
 #: utils/expiration.cpp:147
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Three years from now"
-msgstr ""
+msgstr "Trīs gadi no šī brīža"
 
 #: utils/expiration.cpp:148
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Two years from now"
-msgstr ""
+msgstr "Divi gadi no šī brīža"
 
 #: utils/expiration.cpp:149
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "One year from now"
-msgstr ""
+msgstr "Viens gads no šī brīža"
 
 #: utils/formatting.cpp:340
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
-msgstr ""
+msgstr "%1 bitu %2 (pieejama slepenā atslēga)"
 
 #: utils/formatting.cpp:342
 #, kde-format
 msgid "%1-bit %2"
-msgstr ""
+msgstr "%1 bitu %2"
 
 #: utils/formatting.cpp:351
-#, fuzzy, kde-format
-#| msgid "Signing failed: %1"
+#, kde-format
 msgid "Signing (Qualified)"
-msgstr "Neizdevās parakstīt: %1"
+msgstr "Parakstīšana (kvalificēts)"
 
 #: utils/formatting.cpp:353
-#, fuzzy, kde-format
-#| msgid "Signing Error"
+#, kde-format
 msgid "Signing"
-msgstr "Parakstīšanas kļūda"
+msgstr "Parakstīšana"
 
 #: utils/formatting.cpp:357
-#, fuzzy, kde-format
-#| msgid "Encryption keys:"
+#, kde-format
 msgid "Encryption"
-msgstr "Šifrēšanas atslēgas:"
+msgstr "Šifrēšana"
 
 #: utils/formatting.cpp:360
 #, kde-format
 msgid "Certifying User IDs"
-msgstr ""
+msgstr "Apliecinošā lietotāja ID"
 
 #: utils/formatting.cpp:363
 #, kde-format
 msgid "SSH Authentication"
-msgstr ""
+msgstr "SSH autentifikācija"
 
 #: utils/formatting.cpp:393
 #, kde-format
 msgid "Disabled"
-msgstr ""
+msgstr "Izslēgts"
 
 #: utils/formatting.cpp:395
 #, kde-format
 msgid "Revoked"
-msgstr ""
+msgstr "Atsaukts"
 
 #: utils/formatting.cpp:397
 #, kde-format
 msgid "Expired"
-msgstr ""
+msgstr "Beidzies termiņš"
 
 #: utils/formatting.cpp:401
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "User ID is certified."
-msgstr "Visi sertifikāti"
+msgstr "Lietotāja ID ir apliecināts."
 
 #: utils/formatting.cpp:407
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "User ID is not certified."
-msgstr "Visi sertifikāti"
+msgstr "Lietotāja ID nav sertificēts."
 
 #: utils/formatting.cpp:417
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "All User IDs are certified."
-msgstr "Visi sertifikāti"
+msgstr "Visi lietotāja ID ir sertificēti."
 
 #: utils/formatting.cpp:423
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
-msgstr[0] "Visi sertifikāti"
-msgstr[1] "Visi sertifikāti"
-msgstr[2] "Visi sertifikāti"
+msgstr[0] "%1 lietotāja ID nav sertificēts."
+msgstr[1] "%1 lietotāja ID nav sertificēti."
+msgstr[2] "%1 lietotāja ID nav sertificēti."
 
 #: utils/formatting.cpp:427 utils/formatting.cpp:430
 #, kde-format
 msgid "The validity cannot be checked at the moment."
-msgstr ""
+msgstr "Derīgumu šobrīd pārbaudīt nav iespējams."
 
 #: utils/formatting.cpp:440
-#, fuzzy, kde-format
-#| msgid "Fax number"
+#, kde-format
 msgid "Serial number"
-msgstr "Fakss"
+msgstr "Sērijas numurs"
 
 #: utils/formatting.cpp:443
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "Izdevējs"
 
 #: utils/formatting.cpp:450 utils/formatting.cpp:460
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "Temats"
 
 #: utils/formatting.cpp:455
 #, kde-format
 msgid "a.k.a."
-msgstr ""
+msgstr "arī saukts"
 
 #: utils/formatting.cpp:481
 #, kde-format
 msgid "Fingerprint"
-msgstr ""
+msgstr "Digitālais nospiedums"
 
 #: utils/formatting.cpp:485
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Certification trust"
-msgstr "Mani sertifikāti"
+msgstr "Sertifikāta uzticamība"
 
 #: utils/formatting.cpp:487
 #, kde-format
 msgid "Trusted issuer?"
-msgstr ""
+msgstr "Vai uzticams izdevējs?"
 
 #: utils/formatting.cpp:487
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this to 'yes' or 'no' (use the English words!) depending on "
-#| "whether your language uses Sentence style capitalisation in GUI labels "
-#| "(yes) or not (no). Context: We get some backend strings in that have the "
-#| "wrong capitalizaion (in English, at least) so we need to force the first "
-#| "character to upper-case. It is this behaviour you can control for your "
-#| "language with this translation."
-#| msgid "yes"
+#, kde-format
 msgid "Yes"
-msgstr "yes"
+msgstr "Jā"
 
 #: utils/formatting.cpp:487
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "Nē"
 
 #: utils/formatting.cpp:492 utils/formatting.cpp:494
 #, kde-format
 msgid "Stored"
-msgstr ""
+msgstr "Glabāts"
 
 #: utils/formatting.cpp:492
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
-msgstr ""
+msgstr "Viedkartē ar sērijas nr. %1"
 
 #: utils/formatting.cpp:494
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
-msgstr ""
+msgstr "šajā datorā"
 
 #: utils/formatting.cpp:521
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
+"Dažas atslēgas ir atsauktas, ir beidzies to derīgums, tās ir izslēgtas vai "
+"nederīgas."
 
 #: utils/formatting.cpp:525
 #, kde-format
 msgid "All keys are certified."
-msgstr ""
+msgstr "Visas atslēgas ir sertificētas."
 
 #: utils/formatting.cpp:527
 #, kde-format
 msgid "Some keys are not certified."
-msgstr ""
+msgstr "Dažas atslēgas nav sertificētas."
 
 #: utils/formatting.cpp:531
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
+msgstr "Atslēgu derīgumu šobrīd pārbaudīt nav iespējams."
 
 #: utils/formatting.cpp:545
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "Šī grupa nesatur nevienu atslēgu."
 
 #: utils/formatting.cpp:551
 #, kde-format
@@ -2687,20 +2812,22 @@ msgid ""
 "Some of the certificates in this group cannot be used for encryption. Using "
 "this group can lead to unexpected results."
 msgstr ""
+"Dažus no sertifikātiem šajā grupā nevar izmantot šifrēšanai. Šīs grupas "
+"izmantošana var nest neatbilstošus rezultātus."
 
 #: utils/formatting.cpp:571
 #, kde-format
 msgid "Keys:"
-msgstr ""
+msgstr "Atslēgas:"
 
 #: utils/formatting.cpp:580
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "un vēl %1 atslēga"
+msgstr[1] "un vēl %1 atslēgas"
+msgstr[2] "un vēl %1 atslēgu"
 
 #: utils/formatting.cpp:613
 #, kde-format
@@ -2708,23 +2835,21 @@ msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
 "leading zero, MMMM: localized month name, yyyy: year as a four digit number"
 msgid "MMMM d, yyyy"
-msgstr ""
+msgstr "yyyy. gada d. MMMM"
 
 #: utils/formatting.cpp:659 utils/formatting.cpp:694
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
-msgstr "nezināma"
+msgstr "nezināms"
 
 #: utils/formatting.cpp:701 utils/formatting.cpp:710
 #, kde-format
 msgid "unlimited"
-msgstr ""
+msgstr "neierobežots"
 
 #: utils/formatting.cpp:763
-#, fuzzy, kde-format
-#| msgid "S/MIME"
+#, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -2735,298 +2860,297 @@ msgid "OpenPGP"
 msgstr "OpenPGP"
 
 #: utils/formatting.cpp:768
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
-msgstr "nezināma"
+msgstr "Nezināms"
 
 #: utils/formatting.cpp:784
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
-msgstr ""
+msgstr "Grupa"
 
 #: utils/formatting.cpp:800 utils/formatting.cpp:845
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
-msgstr "nezināma"
+msgstr "nezināms"
 
 #: utils/formatting.cpp:802 utils/formatting.cpp:849
 #, kde-format
 msgid "untrusted"
-msgstr ""
+msgstr "neuzticams"
 
 #: utils/formatting.cpp:804 utils/formatting.cpp:851
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
-msgstr ""
+msgstr "minimāla"
 
 #: utils/formatting.cpp:806 utils/formatting.cpp:853
 #, kde-format
 msgctxt "full trust"
 msgid "full"
-msgstr ""
+msgstr "pilna"
 
 #: utils/formatting.cpp:808 utils/formatting.cpp:855
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
-msgstr ""
+msgstr "neierobežota"
 
 #: utils/formatting.cpp:810 utils/formatting.cpp:847
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
-msgstr ""
+msgstr "nedefinēta"
 
 #: utils/formatting.cpp:821 utils/formatting.cpp:1272 utils/formatting.cpp:1297
 #, kde-format
 msgid "disabled"
-msgstr ""
+msgstr "izslēgts"
 
 #: utils/formatting.cpp:824 utils/formatting.cpp:838 utils/formatting.cpp:873
 #: utils/formatting.cpp:1275 utils/formatting.cpp:1300
 #, kde-format
 msgid "revoked"
-msgstr ""
+msgstr "atsaukts"
 
 #: utils/formatting.cpp:827 utils/formatting.cpp:883 utils/formatting.cpp:1278
 #: utils/formatting.cpp:1303
 #, kde-format
 msgid "expired"
-msgstr ""
+msgstr "beidzies termiņš"
 
 #: utils/formatting.cpp:830 utils/formatting.cpp:841 utils/formatting.cpp:881
 #: utils/formatting.cpp:1281 utils/formatting.cpp:1306
 #, kde-format
 msgid "invalid"
-msgstr ""
+msgstr "nederīgs"
 
 #: utils/formatting.cpp:832
-#, fuzzy, kde-format
-#| msgid "&OK"
+#, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
-msgstr "&Labi"
+msgstr "Laba"
 
 #: utils/formatting.cpp:871
 #, kde-format
 msgid "valid"
-msgstr ""
+msgstr "derīgs"
 
 #: utils/formatting.cpp:875
 #, kde-format
 msgid "class %1"
-msgstr ""
+msgstr "%1. klase"
 
 #: utils/formatting.cpp:885
 #, kde-format
 msgid "certificate expired"
-msgstr ""
+msgstr "sertifikāta derīgums ir beidzies"
 
 #: utils/formatting.cpp:887
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
-msgstr ""
+msgstr "slikts"
 
 #: utils/formatting.cpp:893
 #, kde-format
 msgid "no public key"
-msgstr ""
+msgstr "nav publiskās atslēgas"
 
 #: utils/formatting.cpp:895
 #, kde-format
 msgid "key disabled"
-msgstr ""
+msgstr "atslēga ir izslēgta"
 
 #: utils/formatting.cpp:897
 #, kde-format
 msgid "key revoked"
-msgstr ""
+msgstr "atslēga ir atsaukta"
 
 #: utils/formatting.cpp:899
 #, kde-format
 msgid "key expired"
-msgstr ""
+msgstr "atslēgas derīgums ir beidzies"
 
 #: utils/formatting.cpp:955
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
-msgstr ""
+msgstr "%1 %2 (%3)"
 
 #: utils/formatting.cpp:1013
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "Nederīgs paraksts no nezināma sertifikāta %1: %2"
 
 #: utils/formatting.cpp:1015
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
-msgstr ""
+msgstr "Slikts paraksts no nezināma sertifikāta: %1"
 
 #: utils/formatting.cpp:1018
 #, kde-format
 msgid "Bad signature by %1: %2"
-msgstr ""
+msgstr "Slikts paraksts no %1: %2"
 
 #: utils/formatting.cpp:1024
 #, kde-format
 msgid "Good signature by unknown certificate %1."
-msgstr ""
+msgstr "Labs paraksts no nezināma sertifikāta %1."
 
 #: utils/formatting.cpp:1026
 #, kde-format
 msgid "Good signature by an unknown certificate."
-msgstr ""
+msgstr "Labs paraksts no nezināma sertifikāta."
 
 #: utils/formatting.cpp:1029
 #, kde-format
 msgid "Good signature by %1."
-msgstr ""
+msgstr "Labas paraksts no %1."
 
 #: utils/formatting.cpp:1034
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
-msgstr ""
+msgstr "Nederīgs paraksts no nederīga sertifikāta %1: %2"
 
 #: utils/formatting.cpp:1036
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
-msgstr ""
+msgstr "Nederīgs paraksts no nezināma sertifikāta: %1"
 
 #: utils/formatting.cpp:1039
 #, kde-format
 msgid "Invalid signature by %1: %2"
-msgstr ""
+msgstr "Nederīgs paraksts no %1: %2"
 
 #: utils/formatting.cpp:1053
 #, kde-format
 msgid "This certificate was imported from the following sources:"
-msgstr ""
+msgstr "Šis sertifikāts ir importēts no šādiem avotiem:"
 
 #: utils/formatting.cpp:1064
 #, kde-format
 msgid "The import of this certificate was canceled."
-msgstr ""
+msgstr "Šī sertifikāta importēšana ir atcelta."
 
 #: utils/formatting.cpp:1067
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
-msgstr ""
+msgstr "Kļūda, importējot šo sertifikātu: %1"
 
 #: utils/formatting.cpp:1072
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
+"Šis sertifikāts ir jauns jūsu atslēgu glabātavā. Slepenā atslēga ir pieejama."
 
 #: utils/formatting.cpp:1073
 #, kde-format
 msgid "This certificate is new to your keystore."
-msgstr ""
+msgstr "Šis sertifikāts ir jauns jūsu atslēgu glabātavā."
 
 #: utils/formatting.cpp:1078
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr ""
+"Šim sertifikātam caur importēšanas darbību ir pievienoti jauni lietotāja ID."
 
 #: utils/formatting.cpp:1081
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
-msgstr ""
+msgstr "Šim sertifikātam caur importēšanu ir pievienoti jauni paraksti."
 
 #: utils/formatting.cpp:1084
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
-msgstr ""
+msgstr "Šim sertifikātam caur importēšanu ir pievienotas jaunas apakšatslēgas."
 
 #: utils/formatting.cpp:1087
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
+"Imports nesaturēja nekādus jaunus datus šim sertifikātam. Tas ir palicis bez "
+"izmaiņām."
 
 #: utils/formatting.cpp:1094
 #, kde-format
 msgid "Certify"
-msgstr ""
+msgstr "Sertificēt"
 
 #: utils/formatting.cpp:1097
 #, kde-format
 msgid "Sign"
-msgstr ""
+msgstr "Parakstīt"
 
 #: utils/formatting.cpp:1100
-#, fuzzy, kde-format
-#| msgid "Never Encrypt"
+#, kde-format
 msgid "Encrypt"
-msgstr "Nekad šifrēt"
+msgstr "Šifrēt"
 
 #: utils/formatting.cpp:1103
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Authenticate"
-msgstr "Citi sertifikāti"
+msgstr "Autentificēt"
 
 #: utils/formatting.cpp:1106
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
-msgstr ""
+msgstr "ADSK"
 
 #: utils/formatting.cpp:1114
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
-msgstr ""
+msgstr "%1 (%2, %3, izveidots: %4)"
 
 #: utils/formatting.cpp:1125
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
-msgstr ""
+msgstr "(%1, %2, izveidots: %3)"
 
 #: utils/formatting.cpp:1137
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
 msgid_plural "%2 (%1 keys, %3)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 (%1 atslēga, %3)"
+msgstr[1] "%2 (%1 atslēgas, %3)"
+msgstr[2] "%2 (%1 atslēgu, %3)"
 
 #: utils/formatting.cpp:1144
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 (%1 atslēga, %3, birka)"
+msgstr[1] "%2 (%1 atslēgas, %3, birka)"
+msgstr[2] "%2 (%1 atslēgu, %3, birka)"
 
 #: utils/formatting.cpp:1151
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 (%1 atslēga, %3, nezināma izcelsme)"
+msgstr[1] "%2 (%1 atslēgas, %3, nezināma izcelsme)"
+msgstr[2] "%2 (%1 atslēgu, %3, nezināma izcelsme)"
 
 #: utils/formatting.cpp:1172
 #, kde-format
 msgid "The certificate is marked as your own."
-msgstr ""
+msgstr "Sertifikāts ir atzīmēts kā jūsu pašu."
 
 #: utils/formatting.cpp:1174
 #, kde-format
 msgid "The certificate belongs to this recipient."
-msgstr ""
+msgstr "Sertifikāts pieder šim saņēmējam."
 
 #: utils/formatting.cpp:1176
 #, kde-format
@@ -3034,343 +3158,332 @@ msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
+"Uzticamības modelis netieši norāda, ka sertifikāts pieder šim saņēmējām."
 
 #: utils/formatting.cpp:1178
 #, kde-format
 msgid "This certificate should not be used."
-msgstr ""
+msgstr "Sertifikātu izmantot nevajadzētu."
 
 #: utils/formatting.cpp:1182
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
-msgstr ""
+msgstr "Nav nekādu pazīmju, ka šis sertifikāts piederētu šim saņēmējam."
 
 #: utils/formatting.cpp:1194
 #, kde-format
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "Šī grupa nesatur nevienu atslēgu."
 
 #: utils/formatting.cpp:1244 utils/formatting.cpp:1256
-#, fuzzy, kde-format
-#| msgid "unknown"
+#, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "nezināma"
 
 #: utils/formatting.cpp:1269
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
-msgstr "Visi sertifikāti"
+msgstr "sertificēts"
 
 #: utils/formatting.cpp:1284
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
-msgstr "Visi sertifikāti"
+msgstr "nav sertificēts"
 
 #: utils/formatting.cpp:1287
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "nav pārbaudīts"
 
 #: utils/formatting.cpp:1309
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
-msgstr ""
+msgstr "sertificēts"
 
 #: utils/formatting.cpp:1312
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
-msgstr ""
+msgstr "nav sertificēts"
 
 #: utils/formatting.cpp:1315
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
-msgstr ""
+msgstr "nav pārbaudīts"
 
 #: utils/formatting.cpp:1324
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
-msgstr "Visi sertifikāti"
+msgstr "visas ir sertificētas"
 
 #: utils/formatting.cpp:1327
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
-msgstr "Visi sertifikāti"
+msgstr "ne visas ir sertificētas"
 
 #: utils/formatting.cpp:1371
-#, fuzzy, kde-format
-#| msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#| msgid "server"
+#, kde-format
 msgid "Keyserver"
-msgstr "serveris"
+msgstr "Atslēgu serveris"
 
 #: utils/formatting.cpp:1379
 #, kde-format
 msgid "File import"
-msgstr ""
+msgstr "Datnes importēšana"
 
 #: utils/formatting.cpp:1381
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "Generated"
-msgstr "Pamata"
+msgstr "Ģenerēts"
 
 #: utils/formatting.cpp:1416
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
-msgstr ""
+msgstr "Apliecina šo atslēgu kā daļēji uzticamu iepazīstinātāju domēnam „%1“."
 
 #: utils/formatting.cpp:1420
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
-msgstr ""
+msgstr "Apliecina šo atslēgu kā pilnībā uzticamu iepazīstinātāju domēnam „%1“."
 
 #: utils/formatting.cpp:1457
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
-msgstr ""
+msgstr "ECC (Brainpool P-256)"
 
 #: utils/formatting.cpp:1458
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
-msgstr ""
+msgstr "ECC (Brainpool P-384)"
 
 #: utils/formatting.cpp:1459
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
-msgstr ""
+msgstr "ECC (Brainpool P-512)"
 
 #: utils/formatting.cpp:1460
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
-msgstr ""
+msgstr "ECC (Curve25519)"
 
 #: utils/formatting.cpp:1461
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
-msgstr ""
+msgstr "ECC (Curve448)"
 
 #: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
-msgstr ""
+msgstr "ECC (Ed25519)"
 
 #: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
-msgstr ""
+msgstr "ECC (Ed448)"
 
 #: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
-msgstr ""
+msgstr "ECC (Cv25519)"
 
 #: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
-msgstr ""
+msgstr "ECC (Cv448)"
 
 #: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
-msgstr ""
+msgstr "ECC (NIST P-256)"
 
 #: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
-msgstr ""
+msgstr "ECC (NIST P-384)"
 
 #: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
-msgstr ""
+msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
-msgstr ""
+msgstr "RSA 1024"
 
 #: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
-msgstr ""
+msgstr "RSA 2048"
 
 #: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
-msgstr ""
+msgstr "RSA 3072"
 
 #: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
-msgstr ""
+msgstr "RSA 4096"
 
 #: utils/formatting.cpp:1473
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
-msgstr ""
+msgstr "DSA 1024"
 
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
-msgstr ""
+msgstr "DSA 2048"
 
 #: utils/formatting.cpp:1475
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
-msgstr ""
+msgstr "Elgamal 1024"
 
 #: utils/formatting.cpp:1476
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
-msgstr ""
+msgstr "Elgamal 2048"
 
 #: utils/formatting.cpp:1477
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
-msgstr ""
+msgstr "Elgamal 3072"
 
 #: utils/formatting.cpp:1478
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
-msgstr ""
+msgstr "Elgamal 4096"
 
 #: utils/formatting.cpp:1479
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
-msgstr ""
+msgstr "Kyber 768 (Curve25519)"
 
 #: utils/formatting.cpp:1480
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
-msgstr ""
+msgstr "Kyber 768 (Brainpool P-256)"
 
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
-msgstr ""
+msgstr "Kyber 1024 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1482
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
-msgstr ""
+msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1495
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
-msgstr ""
+msgstr "Paraksts ir derīgs, bet uzticamība sertifikāta derīgumā ir minimāla."
 
 #: utils/formatting.cpp:1497
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
-msgstr ""
+msgstr "Paraksts ir derīgs un sertifikāts ir pilnībā uzticams."
 
 #: utils/formatting.cpp:1499
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
-msgstr ""
+msgstr "Paraksts ir derīgs un sertifikāts ir pavisam un pilnībā uzticams."
 
 #: utils/formatting.cpp:1501
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
-msgstr ""
+msgstr "Paraksts ir derīgs, bet sertifikāta derīgums <em>nav uzticams</em>."
 
 #: utils/formatting.cpp:1503
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr ""
+msgstr "Paraksts r derīgs, bet sertifikāta derīgums nav zināms."
 
 #: utils/formatting.cpp:1506
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "Paraksts ir derīgs, bet sertifikāta derīgums nav definēts."
 
 #: utils/formatting.cpp:1518
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "Mani sertifikāti"
+msgstr "Nezināms sertifikāts"
 
 #: utils/formatting.cpp:1522
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
-#| "implementation name)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1538
-#, fuzzy, kde-format
-#| msgid "All Certificates"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "Visi sertifikāti"
+msgstr ""
+"Paraksts ir izveidots %1, izmantojot nezināmu sertifikātu ar digitālo "
+"nospiedumu %2"
 
 #: utils/formatting.cpp:1542
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "Citi sertifikāti"
+msgstr ""
+"Paraksts ir izveidots, izmantojot nezināmu sertifikātu ar digitālo "
+"nospiedumu %1"
 
 #: utils/formatting.cpp:1546
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr ""
+msgstr "Paraksts ir izveidots %1 ar sertifikātu: %2"
 
 #: utils/formatting.cpp:1548
-#, fuzzy, kde-format
-#| msgid "Other Certificates"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "Citi sertifikāti"
+msgstr "Paraksts ir izveidots ar sertifikātu: %1"
 
 #: utils/formatting.cpp:1554
 #, kde-format
@@ -3378,7 +3491,7 @@ msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr ""
+msgstr "Paraksts ir %1"
 
 #: utils/formatting.cpp:1557
 #, kde-format
@@ -3386,79 +3499,77 @@ msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr ""
+msgstr "Paraksts <b>nav</b> %1."
 
 #: utils/formatting.cpp:1567
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "Kļūda: paraksts nav verificēts"
 
 #: utils/formatting.cpp:1569
 #, kde-format
 msgid "Good signature"
-msgstr ""
+msgstr "Labs paraksts"
 
 #: utils/formatting.cpp:1571
 #, kde-format
 msgid "Signing certificate was revoked"
-msgstr ""
+msgstr "Parakstīšanas sertifikāts ir atsaukts"
 
 #: utils/formatting.cpp:1573
-#, fuzzy, kde-format
-#| msgid "My Certificates"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "Mani sertifikāti"
+msgstr "Parakstīšanas sertifikāta derīguma termiņš ir iztecējis"
 
 #: utils/formatting.cpp:1575
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "Sertifikāts nav pieejams"
 
 #: utils/formatting.cpp:1577
 #, kde-format
 msgid "Signature expired"
-msgstr ""
+msgstr "Paraksta derīguma termiņš ir iztecējis"
 
 #: utils/formatting.cpp:1579
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "CRL trūkst"
 
 #: utils/formatting.cpp:1581
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "CRl ir par vecu"
 
 #: utils/formatting.cpp:1583
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "Nederīga politika"
 
 #: utils/formatting.cpp:1585
-#, fuzzy, kde-format
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "Sistēmas kļūda"
 
 #: utils/formatting.cpp:1587
 #, kde-format
 msgid "Bad signature"
-msgstr ""
+msgstr "Nederīgs paraksts"
 
 #: utils/formatting.cpp:1663 utils/formatting.cpp:1686
 #, kde-format
 msgid "The signature is invalid: %1"
-msgstr ""
+msgstr "Paraksts ir nederīgs: %1"
 
 #: utils/formatting.cpp:1672
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
-msgstr ""
+msgstr "Varat meklēt sertifikātu atslēgu serverī vai to importēt no datnes."
 
 #: utils/formatting.cpp:1681
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
+msgstr "Izmantoto atslēgu nesertificējāt jūs vai cita uzticama persona."
 
 #: utils/formatting.cpp:1682
 #, kde-format
@@ -3466,28 +3577,30 @@ msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
 msgstr ""
+"Izmantoto sertifikātu nav sertificējusi uzticama sertifikācijas iestāde vai "
+"šī sertifikācijas iestāde nav zināma."
 
 #: utils/gnupg.cpp:483
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "„GnuPG“ atbalsta „OpenPGP“/„LibrePGP“ un S/MIME."
 
 #: utils/gnupg.cpp:492
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "„Libgcrypt“ ir kriptogrāfijas bibliotēka vispārīgam lietojumam."
 
 #: utils/hex.cpp:35
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr ""
+msgstr "Ievades plūsma satur nederīgu heksadecimālu rakstzīmi „%1“."
 
 #: utils/hex.cpp:47 utils/hex.cpp:52
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
-msgstr ""
+msgstr "Pirmslaicīgas beigas ievades plūsmas heksadecimālā rakstzīmē"
 
 #, fuzzy
 #~| msgid "All Certificates"
