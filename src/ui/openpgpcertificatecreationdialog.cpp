@@ -26,7 +26,6 @@
 #include <KDateComboBox>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KSeparator>
 #include <KSharedConfig>
 
 #include <QCheckBox>
@@ -75,8 +74,6 @@ class OpenPGPCertificateCreationDialog::Private
             infoLabel = new QLabel{dialog};
             infoLabel->setWordWrap(true);
             mainLayout->addWidget(infoLabel);
-
-            mainLayout->addWidget(new KSeparator{Qt::Horizontal, dialog});
 
             scrollArea = new KAdjustingScrollArea{dialog};
             scrollArea->setFocusPolicy(Qt::NoFocus);
@@ -134,8 +131,6 @@ class OpenPGPCertificateCreationDialog::Private
             scrollAreaLayout->addStretch(1);
 
             mainLayout->addWidget(scrollArea);
-
-            mainLayout->addWidget(new KSeparator{Qt::Horizontal, dialog});
 
             buttonBox = new QDialogButtonBox{QDialogButtonBox::Ok | QDialogButtonBox::Cancel, dialog};
 
