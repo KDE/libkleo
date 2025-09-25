@@ -5,13 +5,13 @@
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007, 2008.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
 # Franklin Weng <franklin@mail.everfocus.com.tw>, 2010, 2015.
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-03 06:57+0000\n"
-"PO-Revision-Date: 2024-08-25 03:08+0900\n"
+"PO-Revision-Date: 2025-09-25 02:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -722,10 +722,9 @@ msgid "All"
 msgstr "全部"
 
 #: kleo/keyfiltermanager.cpp:91
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "憑證已過期"
+msgstr "所有憑證（除了已停用的以外）"
 
 #: kleo/keyfiltermanager.cpp:108
 #, kde-format
@@ -734,10 +733,9 @@ msgid "My Own"
 msgstr "自己的"
 
 #: kleo/keyfiltermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr "我自己的憑證"
+msgstr "我自己的憑證（除了已停用的以外）"
 
 #: kleo/keyfiltermanager.cpp:127
 #, kde-format
@@ -746,12 +744,11 @@ msgid "Certified"
 msgstr "已保證"
 
 #: kleo/keyfiltermanager.cpp:128
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
-msgstr "主使用者 ID 已保證的憑證"
+msgstr "主使用者 ID 已保證的憑證（除了已停用的以外）"
 
 #: kleo/keyfiltermanager.cpp:146
 #, kde-format
@@ -760,12 +757,11 @@ msgid "Not Certified"
 msgstr "未保證"
 
 #: kleo/keyfiltermanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "Certificates for which the primary user ID is not certified"
+#, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
-msgstr "主使用者 ID 尚未保證的憑證"
+msgstr "主使用者 ID 尚未保證的憑證（除了已停用的以外）"
 
 #: kleo/keyfiltermanager.cpp:162
 #, kde-format
@@ -774,14 +770,11 @@ msgid "To Certify"
 msgstr "要保證的"
 
 #: kleo/keyfiltermanager.cpp:163
-#, fuzzy, kde-format
-#| msgid ""
-#| "Certificates that are not fully certified and that you may want to "
-#| "certify yourself"
+#, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
-msgstr "未完全保證而您可能會想要自己保證的憑證"
+msgstr "未完全保證而您可能會想要自己保證的憑證（除了已停用的以外）"
 
 #: kleo/keyfiltermanager.cpp:191
 #, kde-format
@@ -790,11 +783,10 @@ msgid "Not Fully Certified"
 msgstr "未完全保證"
 
 #: kleo/keyfiltermanager.cpp:192
-#, fuzzy, kde-format
-#| msgid "Certificates for which not all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
-msgstr "不是所有使用者 ID 都已保證的憑證"
+msgstr "不是所有使用者 ID 都已保證的憑證（除了已停用的以外）"
 
 #: kleo/keyfiltermanager.cpp:216
 #, kde-format
@@ -803,11 +795,10 @@ msgid "Fully Certified"
 msgstr "已完全保證"
 
 #: kleo/keyfiltermanager.cpp:217
-#, fuzzy, kde-format
-#| msgid "Certificates for which all user IDs are certified"
+#, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
-msgstr "所有使用者 ID 皆已保證的憑證"
+msgstr "所有使用者 ID 皆已保證的憑證（除了已停用的以外）"
 
 #: models/keylistmodel.cpp:326
 #, kde-format
@@ -2232,7 +2223,7 @@ msgstr "進階選項"
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
-msgstr ""
+msgstr "金鑰型式"
 
 #: ui/openpgpcertificatecreationdialog.cpp:150
 #, kde-format
@@ -3041,12 +3032,10 @@ msgid "ECC (NIST P-521)"
 msgstr "ECC (NIST P-521)"
 
 #: utils/formatting.cpp:1469
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "DSA 1024"
+#, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
-msgstr "DSA 1024"
+msgstr "RSA 1024"
 
 #: utils/formatting.cpp:1470
 #, kde-format
@@ -3103,129 +3092,113 @@ msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
 #: utils/formatting.cpp:1479
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve25519)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
-msgstr "ECC (Curve25519)"
+msgstr "Kyber 768 (Curve25519)"
 
 #: utils/formatting.cpp:1480
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-256)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
-msgstr "ECC (Brainpool P-256)"
+msgstr "Kyber 768 (Brainpool P-256)"
 
 #: utils/formatting.cpp:1481
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
-msgstr "ECC (Brainpool P-384)"
+msgstr "Kyber 1024 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1482
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve448)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
-msgstr "ECC (Curve448)"
+msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1495
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
-msgstr ""
+msgstr "簽章有效，但是憑證並非可信任。"
 
 #: utils/formatting.cpp:1497
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
-msgstr ""
+msgstr "簽章有效，並且憑證可信任。"
 
 #: utils/formatting.cpp:1499
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
-msgstr ""
+msgstr "簽章有效，並且憑證可完全信任。"
 
 #: utils/formatting.cpp:1501
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
-msgstr ""
+msgstr "簽章有效，但是憑證<em>不可信任</em>。"
 
 #: utils/formatting.cpp:1503
-#, fuzzy, kde-format
-#| msgid "New signatures were added to this certificate by the import."
+#, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "匯入時新增了新的簽章到這個憑證裡。"
+msgstr "簽章有效，但是憑證信任度未知。"
 
 #: utils/formatting.cpp:1506
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "簽章有效，但是憑證信任度未定義。"
 
 #: utils/formatting.cpp:1518
-#, fuzzy, kde-format
-#| msgid "My own certificates"
+#, kde-format
 msgid "Unknown certificate"
-msgstr "我自己的憑證"
+msgstr "未知的憑證"
 
 #: utils/formatting.cpp:1522
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1538
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr "來自未知憑證的不正確簽章：%1"
+msgstr "在 %1 以未知憑證建立，指紋為 %2 的簽章：%2"
 
 #: utils/formatting.cpp:1542
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr "來自未知憑證的不正確簽章：%1"
+msgstr "以未知憑證建立，指紋為 %1 的簽章"
 
 #: utils/formatting.cpp:1546
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr "來自未知憑證的不正確簽章：%1"
+msgstr "在 %1 以此憑證建立的簽章：%2"
 
 #: utils/formatting.cpp:1548
-#, fuzzy, kde-format
-#| msgid "Bad signature by an unknown certificate: %1"
+#, kde-format
 msgid "Signature created with certificate: %1"
-msgstr "來自未知憑證的不正確簽章：%1"
+msgstr "以此憑證建立的簽章：%1"
 
 #: utils/formatting.cpp:1554
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1"
-msgstr "來自 %1 的正確簽章。"
+msgstr "此簽章%1"
 
 #: utils/formatting.cpp:1557
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr "來自 %1 的正確簽章。"
+msgstr "此簽章<b>不</b>%1。"
 
 #: utils/formatting.cpp:1567
 #, kde-format
@@ -3233,84 +3206,76 @@ msgid "Error: Signature not verified"
 msgstr ""
 
 #: utils/formatting.cpp:1569
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgid "Good signature"
-msgstr "來自 %1 的正確簽章。"
+msgstr "正確簽章"
 
 #: utils/formatting.cpp:1571
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate was revoked"
-msgstr "憑證已過期"
+msgstr "簽署用的憑證已被撤銷"
 
 #: utils/formatting.cpp:1573
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signing certificate is expired"
-msgstr "憑證已過期"
+msgstr "簽署用的憑證已過期"
 
 #: utils/formatting.cpp:1575
 #, kde-format
 msgid "Certificate is not available"
-msgstr ""
+msgstr "憑證不可用"
 
 #: utils/formatting.cpp:1577
-#, fuzzy, kde-format
-#| msgid "certificate expired"
+#, kde-format
 msgid "Signature expired"
-msgstr "憑證已過期"
+msgstr "簽章過期"
 
 #: utils/formatting.cpp:1579
 #, kde-format
 msgid "CRL missing"
-msgstr ""
+msgstr "缺乏憑證撤銷清冊"
 
 #: utils/formatting.cpp:1581
 #, kde-format
 msgid "CRL too old"
-msgstr ""
+msgstr "憑證撤銷清冊太舊了"
 
 #: utils/formatting.cpp:1583
 #, kde-format
 msgid "Bad policy"
-msgstr ""
+msgstr "錯誤的政策"
 
 #: utils/formatting.cpp:1585
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "System Error"
+#, kde-format
 msgid "System error"
 msgstr "系統錯誤"
 
 #: utils/formatting.cpp:1587
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgid "Bad signature"
-msgstr "來自 %1 的不正確簽章：%2"
+msgstr "不正確的簽章"
 
 #: utils/formatting.cpp:1663 utils/formatting.cpp:1686
-#, fuzzy, kde-format
-#| msgid "The key is not valid."
+#, kde-format
 msgid "The signature is invalid: %1"
-msgstr "此金鑰無效。"
+msgstr "此簽章不正確：%1"
 
 #: utils/formatting.cpp:1672
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
-msgstr ""
+msgstr "您可以在金鑰伺服器上搜尋憑證，或是從一個檔案匯入它。"
 
 #: utils/formatting.cpp:1681
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
+msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
 
 #: utils/formatting.cpp:1682
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
 "or the Certificate Authority is unknown."
-msgstr ""
+msgstr "使用的憑證未被可信的憑證頒發機構 (CA) 認證，或該 CA 未知。"
 
 #: utils/gnupg.cpp:486
 #, kde-format
