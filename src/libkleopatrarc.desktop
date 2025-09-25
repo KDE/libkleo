@@ -44,7 +44,7 @@ Name[sv]=TAR (fungerar med PGP®)
 Name[tr]=TAR (PGP® uyumlu)
 Name[uk]=TAR (сумісні з PGP®)
 Name[zh_CN]=TAR(PGP® 兼容)
-Name[zh_TW]=TAR (相容 PGP®)
+Name[zh_TW]=TAR (與 PGP® 相容)
 pack-command-openpgp=0|tar cf - --null -T-
 pack-command-cms=0|tar cfz - --null -T-
 unpack-command-openpgp=tar xf -
@@ -403,6 +403,7 @@ Description[sv]=Certifikat som är ogiltiga eftersom de har gått ut (utom inakt
 Description[tr]=Süreleri dolduğu için geçersiz olan sertifikalar (devre dışı olanlar dışında)
 Description[uk]=Сертифікати, які є некоректними, оскільки їхній строк дії вичерпано (окрім вимкнених)
 Description[zh_CN]=因过期而无效的证书（已禁用的证书除外）
+Description[zh_TW]=因為已過期而無效的憑證（除了已停用的以外）
 
 [Key Filter #2]
 is-revoked=true
@@ -468,6 +469,7 @@ Description[sv]=Certifikat som är ogiltiga eftersom de har återkallats (utom i
 Description[tr]=Yürürlükten kaldırıldıkları için geçersiz olan sertifikalar (devre dışı olanlar dışında)
 Description[uk]=Сертифікати, які є некоректними, оскільки їх відкликано (окрім вимкнених)
 Description[zh_CN]=因已被撤销而无效的证书（已禁用的证书除外）
+Description[zh_TW]=因為已撤銷而無效的憑證（除了已停用的以外）
 
 [Key Filter #3]
 was-validated=true
@@ -741,6 +743,7 @@ Description[sv]=Certifikat lagrade på smartkort (utom inaktiverade)
 Description[tr]=Akıllı kartlarda depolanan sertifikalar (devre dışı olanlar dışında)
 Description[uk]=Сертифікати, які зберігаються на картках пам'яті (окрім вимкнених)
 Description[zh_CN]=存储在智能卡上的证书（已禁用的证书除外）
+Description[zh_TW]=儲存於智慧卡上的憑證（除了已停用的以外）
 icon=smartcard
 
 [Key Filter #8]
@@ -808,6 +811,7 @@ Description[sv]=OpenPGP-certifikat (utom inaktiverade)
 Description[tr]=OpenPGP sertifikaları (devre dışı olanlar dışında)
 Description[uk]=Сертифікати OpenPGP (окрім вимкнених)
 Description[zh_CN]=OpenPGP 证书（已禁用的证书除外）
+Description[zh_TW]=OpenPGP 憑證（除了已停用的以外）
 
 [Key Filter #9]
 is-openpgp-key=false
@@ -949,6 +953,7 @@ Description[sv]=Certifikat som följer VS-NfD (utom inaktiverade)
 Description[tr]=VS-NfD uyumlu sertifikalar (devre dışı olanlar dışında)
 Description[uk]=Сертифікати, які сумісні з VS-NfD (окрім вимкнених)
 Description[zh_CN]=符合 VS-NfD 标准的证书（已禁用的证书除外）
+Description[zh_TW]=合乎 VS-NfD 規範的憑證（除了已停用的以外）
 foreground-color=0,0,0
 background-color=213,250,226
 
@@ -1022,6 +1027,7 @@ Description[sv]=Certifikat som inte följer VS-NfD (utom inaktiverade)
 Description[tr]=VS-NfD uyumlu olmayan sertifikalar (devre dışı olanlar dışında)
 Description[uk]=Сертифікати, які не сумісні з VS-NfD (окрім вимкнених)
 Description[zh_CN]=不符合 VS-NfD 标准的证书（已禁用的证书除外）
+Description[zh_TW]=不合 VS-NfD 規範的憑證（除了已停用的以外）
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -1095,6 +1101,7 @@ Description[sv]=Utgångna certifikat (om läge kompatibelt med VS-NfD är aktivt
 Description[tr]=Süresi dolmuş sertifikalar (VS-NfD uyumluluk kipi etkinse, devre dışı olanlar dışında)
 Description[uk]=Сертифікати з вичерпаним строком дії (якщо активним є режим сумісності з VS-NfD, окрім вимкнених)
 Description[zh_CN]=过期的证书（如果 VS-NfD 遵从模式处于活动状态，禁用的证书除外）
+Description[zh_TW]=已過期的憑證（VS-NfD 規範格式啟用時，除了已停用的以外）
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -1167,6 +1174,7 @@ Description[sv]=Återkallade certifikat (om läge kompatibelt med VS-NfD är akt
 Description[tr]=Yürürlükten kaldırılmış sertifikalar (VS-NfD uyumluluk kipi etkinse, devre dışı olanlar dışında)
 Description[uk]=Відкликані сертифікати (якщо активним є режим сумісності з VS-NfD, окрім вимкнених)
 Description[zh_CN]=撤销的证书（如果 VS-NfD 遵从模式处于活动状态，禁用的证书除外）
+Description[zh_TW]=已撤銷的憑證（VS-NfD 規範格式啟用時，除了已停用的以外）
 foreground-color=0,0,0
 background-color=250,233,235
 
@@ -1200,6 +1208,7 @@ Name[sv]=Inaktiverade
 Name[tr]=Devre dışı
 Name[uk]=Вимкнено
 Name[zh_CN]=已禁用
+Name[zh_TW]=已停用
 Description=Certificates that are disabled
 Description[ar]=الشهادات المعطلة
 Description[bg]=Сертификати, които са деактивирани
@@ -1267,6 +1276,7 @@ Name[sv]=Mina egna
 Name[tr]=Kendiminkiler
 Name[uk]=Власні
 Name[zh_CN]=我的
+Name[zh_TW]=自己的
 Description=My own certificates
 Description[ar]=شهاداتي
 Description[bg]=Моите собствени сертификати
@@ -1297,6 +1307,7 @@ Description[sv]=Mina egna certifikat
 Description[tr]=Kendi sertifikalarım
 Description[uk]=Власні сертифікати
 Description[zh_CN]=我的证书
+Description[zh_TW]=我自己的憑證
 match-contexts=appearance
 font-bold=true
 has-secret-key=true
