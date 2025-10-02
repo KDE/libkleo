@@ -49,6 +49,9 @@ public:
 
     void setInfoText(const QString &text);
 
+    bool isTeamKey() const;
+    void showTeamKeyOption(bool show);
+
 private:
     class Private;
     const std::unique_ptr<Private> d;

@@ -66,6 +66,7 @@ class OpenPGPCertificateCreationDialog::Private
         QComboBox *keyAlgoCB;
         QLabel *keyAlgoLabel;
         AnimatedExpander *expander;
+        QCheckBox *teamCheckBox;
 
         explicit UI(QWidget *dialog)
         {
@@ -127,6 +128,10 @@ class OpenPGPCertificateCreationDialog::Private
 
                 advancedLayout->addLayout(hbox);
             }
+
+            teamCheckBox = new QCheckBox(i18nc("@label", "Set up this key for shared usage in teams"));
+            teamCheckBox->setVisible(false);
+            advancedLayout->addWidget(teamCheckBox);
 
             scrollAreaLayout->addStretch(1);
 
@@ -426,6 +431,8 @@ void Kleo::OpenPGPCertificateCreationDialog::setKeyParameters(const Kleo::KeyPar
     if (!emails.empty()) {
         setEmail(emails.front());
     }
+
+    d->ui.teamCheckBox->setChecked(parameters.keyUsage().isGroupKey());
     d->setTechnicalParameters(parameters);
 }
 
@@ -439,6 +446,12 @@ KeyParameters OpenPGPCertificateCreationDialog::keyParameters() const
     if (!email().isEmpty()) {
         parameters.setEmail(email());
     }
+
+    auto usage = parameters.keyUsage();
+    usage.setIsGroupKey(d->ui.teamCheckBox->isChecked());
+    usage.setCanSign(!d->ui.teamCheckBox->isChecked());
+    parameters.setKeyUsage(usage);
+
     return parameters;
 }
 
@@ -465,6 +478,16 @@ void OpenPGPCertificateCreationDialog::setNameLabel(const QString &nameLabel)
 void OpenPGPCertificateCreationDialog::setEmailLabel(const QString &emailLabel)
 {
     d->ui.nameAndEmail->setEmailLabel(emailLabel);
+}
+
+bool OpenPGPCertificateCreationDialog::isTeamKey() const
+{
+    return d->ui.teamCheckBox->isChecked();
+}
+
+void OpenPGPCertificateCreationDialog::showTeamKeyOption(bool show)
+{
+    d->ui.teamCheckBox->setVisible(show);
 }
 
 #include "moc_openpgpcertificatecreationdialog.cpp"
