@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-03 06:57+0000\n"
-"PO-Revision-Date: 2025-09-25 02:40+0900\n"
+"PO-Revision-Date: 2025-10-01 22:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -1535,7 +1535,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "讓 LDAP 透過 TLS 加密通道進行連線"
 
 #: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
@@ -1544,6 +1544,7 @@ msgid ""
 "Use a TLS secured connection through which the connection to the LDAP server "
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
+"透過以 TLS 保障安全的通道 (tunnel) 連線到 LDAP 伺服器。<b>（不建議使用）</b>"
 
 #: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
@@ -2306,28 +2307,22 @@ msgid "Not VS-NfD compliant"
 msgstr "不合 VS-NfD 規範"
 
 #: utils/compliance.cpp:194
-#, fuzzy, kde-format
-#| msgctxt "amended tooltip; %1: original tooltip"
-#| msgid "%1 (read-only)"
+#, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
-msgstr "%1（唯讀）"
+msgstr "%1 (beta)"
 
 #: utils/expiration.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Valid until:"
+#, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "有效期限："
+msgstr "有效期限（%1）："
 
 #: utils/expiration.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@info ... between <a date> and <another date>."
-#| msgid "Enter a date between %1 and %2."
+#, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr "輸入在 %1 和 %2 之間的日期。"
+msgstr "有效期限（在 %1 與 %2 之間）："
 
 #: utils/expiration.cpp:116
 #, kde-format
@@ -2861,7 +2856,7 @@ msgstr "憑證屬於此收件者。"
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
-msgstr ""
+msgstr "信任模型對於此憑證僅能最低限度證明其屬於此收件者。"
 
 #: utils/formatting.cpp:1178
 #, kde-format
@@ -2951,13 +2946,13 @@ msgstr "已產生"
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
-msgstr ""
+msgstr "保證這個金鑰是 '%1' 的部分信任介紹者。"
 
 #: utils/formatting.cpp:1420
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
-msgstr ""
+msgstr "保證這個金鑰是 '%1' 的完全信任介紹者。"
 
 #: utils/formatting.cpp:1457
 #, kde-format
@@ -3203,7 +3198,7 @@ msgstr "此簽章<b>不</b>%1。"
 #: utils/formatting.cpp:1567
 #, kde-format
 msgid "Error: Signature not verified"
-msgstr ""
+msgstr "錯誤： 簽章未驗證"
 
 #: utils/formatting.cpp:1569
 #, kde-format
@@ -3281,13 +3276,13 @@ msgstr "使用的憑證未被可信的憑證頒發機構 (CA) 認證，或該 CA
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "GnuPG 提供對於 OpenPGP/LibrePGP 與 S/MIME 的支援。"
 
 #: utils/gnupg.cpp:495
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "Libgcrypt 是一個通用的密碼學函式庫。"
 
 #: utils/hex.cpp:35
 #, kde-format
