@@ -185,7 +185,7 @@ public:
         gridLayout->setRowStretch(1, 1);
 
         keyserverModel = new KeyserverModel{q};
-        ui.keyserverList = new QListView();
+        ui.keyserverList = new QListView{q};
         ui.keyserverList->setAccessibleName(i18nc("@label", "Directory services"));
         ui.keyserverList->setModel(keyserverModel);
         ui.keyserverList->setModelColumn(0);
@@ -220,7 +220,7 @@ public:
         ui.newButton->setMenu(menu);
         groupsButtonLayout->addWidget(ui.newButton);
 
-        ui.editButton = new QPushButton(i18nc("@action:button", "Edit"));
+        ui.editButton = new QPushButton(i18nc("@action:button", "Edit"), q);
         ui.editButton->setToolTip(i18nc("@info:tooltip", "Click to edit the selected service."));
         ui.editButton->setWhatsThis(i18nc("@info:whatsthis",
                                           "Click this button to edit the settings of the currently selected directory service. "
@@ -228,7 +228,7 @@ public:
         ui.editButton->setEnabled(false);
         groupsButtonLayout->addWidget(ui.editButton);
 
-        ui.deleteButton = new QPushButton(i18nc("@action:button", "Delete"));
+        ui.deleteButton = new QPushButton(i18nc("@action:button", "Delete"), q);
         ui.deleteButton->setToolTip(i18nc("@info:tooltip", "Click to remove the selected service."));
         ui.deleteButton->setWhatsThis(i18nc("@info:whatsthis",
                                             "Click this button to remove the currently selected directory service. "
