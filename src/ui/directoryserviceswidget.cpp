@@ -180,6 +180,7 @@ public:
 
         keyserverModel = new KeyserverModel{q};
         ui.keyserverList = new QListView();
+        ui.keyserverList->setAccessibleName(i18nc("@label", "Directory services"));
         ui.keyserverList->setModel(keyserverModel);
         ui.keyserverList->setModelColumn(0);
         ui.keyserverList->setSelectionBehavior(QAbstractItemView::SelectRows);
