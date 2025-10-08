@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-26 00:43+0000\n"
+"POT-Creation-Date: 2025-10-08 00:44+0000\n"
 "PO-Revision-Date: 2024-12-16 01:08+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1312,12 +1312,20 @@ msgid_plural "%1 servers configured"
 msgstr[0] "configurouse un servidor"
 msgstr[1] "Configuráronse %1 servidores"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:200
 #, kde-format
 msgid "Active Directory"
 msgstr "Directorio activo"
 
-#: ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:189
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "LDAP Directory Service"
+msgctxt "@label"
+msgid "Directory services"
+msgstr "Servizos de directorios de LDAP"
+
+#: ui/directoryserviceswidget.cpp:194
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1327,7 +1335,7 @@ msgstr ""
 "Esta é unha lista de todos os servizos de directorio configurados para usar "
 "con X.509."
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1337,12 +1345,12 @@ msgstr ""
 "Prema para usar un servizo de directorios no seu directorio activo. Isto só "
 "funciona en Windows e require GnuPG 2.2.28 ou superior."
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgid "LDAP Server"
 msgstr "Servidor de LDAP"
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
@@ -1350,18 +1358,18 @@ msgstr ""
 "Prema para engadir un servizo de directorios fornecido por un servidor de "
 "LDAP."
 
-#: ui/directoryserviceswidget.cpp:211
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgid "Add"
 msgstr "Engadir"
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Prema para engadir un servizo de directorios."
 
-#: ui/directoryserviceswidget.cpp:214
+#: ui/directoryserviceswidget.cpp:215
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1371,19 +1379,19 @@ msgstr ""
 "Prema este botón para engadir un servizo de directorios á lista de servizos. "
 "O cambio só será efectivo cando confirme o diálogo de configuración."
 
-#: ui/directoryserviceswidget.cpp:222
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Editar"
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:224
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Prema para editar o servizo seleccionado."
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:226
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1395,19 +1403,19 @@ msgstr ""
 "seleccionado actualmente. Os cambios só serán efectivos cando confirme o "
 "diálogo de configuración."
 
-#: ui/directoryserviceswidget.cpp:230
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Prema para retirar o servizo seleccionado."
 
-#: ui/directoryserviceswidget.cpp:233
+#: ui/directoryserviceswidget.cpp:234
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1417,7 +1425,7 @@ msgstr ""
 "Prema este botón para retirar o servizo de directorio agora escollido. O "
 "cambio só será efectivo cando confirme o diálogo de configuración."
 
-#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
+#: ui/directoryserviceswidget.cpp:359 ui/directoryserviceswidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"

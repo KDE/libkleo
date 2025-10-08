@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-26 00:43+0000\n"
+"POT-Creation-Date: 2025-10-08 00:44+0000\n"
 "PO-Revision-Date: 2025-04-02 15:59+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1502,12 +1502,20 @@ msgstr[1] "Настроено %1 сервера"
 msgstr[2] "Настроено %1 серверов"
 msgstr[3] "Настроен 1 сервер"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:200
 #, kde-format
 msgid "Active Directory"
 msgstr "Active Directory"
 
-#: ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:189
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "LDAP Directory Service"
+msgctxt "@label"
+msgid "Directory services"
+msgstr "Служба каталогов LDAP"
+
+#: ui/directoryserviceswidget.cpp:194
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1515,7 +1523,7 @@ msgid ""
 "X.509."
 msgstr "Список служб каталогов, настроенных для работы с X.509."
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1525,29 +1533,29 @@ msgstr ""
 "Нажмите для использования службы каталогов в Active Directory. Это работает "
 "только в ОС Windows и требует GnuPG версии 2.2.28 или выше."
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgid "LDAP Server"
 msgstr "Сервер LDAP"
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr "Нажмите для добавления службы каталогов, предоставленной сервером LDAP"
 
-#: ui/directoryserviceswidget.cpp:211
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgid "Add"
 msgstr "Добавить"
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Нажмите для добавления службы каталогов"
 
-#: ui/directoryserviceswidget.cpp:214
+#: ui/directoryserviceswidget.cpp:215
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1558,19 +1566,19 @@ msgstr ""
 "Изменение вступит силу только после подтверждения действия в диалоге "
 "настройки."
 
-#: ui/directoryserviceswidget.cpp:222
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Изменить"
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:224
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Нажмите для изменения выбранной службы"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:226
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1582,19 +1590,19 @@ msgstr ""
 "Изменения вступят в силу тольео после подтвеждения действия в диалоге "
 "настройки."
 
-#: ui/directoryserviceswidget.cpp:230
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Удалить"
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Нажмите для удаления выбранной службы"
 
-#: ui/directoryserviceswidget.cpp:233
+#: ui/directoryserviceswidget.cpp:234
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1604,7 +1612,7 @@ msgstr ""
 "Нажмите на эту кнопку для удаления выбранной службы каталогов. Изменение "
 "вступит в силу только после подтверждения действия в диалоге настройки."
 
-#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
+#: ui/directoryserviceswidget.cpp:359 ui/directoryserviceswidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"

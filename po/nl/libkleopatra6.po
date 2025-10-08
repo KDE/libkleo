@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-26 00:43+0000\n"
+"POT-Creation-Date: 2025-10-08 00:44+0000\n"
 "PO-Revision-Date: 2025-08-29 19:05+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1312,12 +1312,20 @@ msgid_plural "%1 servers configured"
 msgstr[0] "1 server ingesteld"
 msgstr[1] "%1 servers ingesteld"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:200
 #, kde-format
 msgid "Active Directory"
 msgstr "Active Directory"
 
-#: ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:189
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "LDAP Directory Service"
+msgctxt "@label"
+msgid "Directory services"
+msgstr "LDAP directory service"
+
+#: ui/directoryserviceswidget.cpp:194
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1327,7 +1335,7 @@ msgstr ""
 "Dit is een lijst van alle directory services die zijn ingesteld voor gebruik "
 "met X.509."
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1337,30 +1345,30 @@ msgstr ""
 "Klik om een directory service te gebruiken die draait op uw Active "
 "Directory. Dit werkt alleen op Windows en vereist GnuPG 2.2.28 of later."
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgid "LDAP Server"
 msgstr "LDAP-server"
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
 "Klik om een directory service geleverd door een LDAP-server toe te voegen."
 
-#: ui/directoryserviceswidget.cpp:211
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgid "Add"
 msgstr "Toevoegen"
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Klik om een directory service toe te voegen."
 
-#: ui/directoryserviceswidget.cpp:214
+#: ui/directoryserviceswidget.cpp:215
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1371,19 +1379,19 @@ msgstr ""
 "voegen. De wijziging heeft pas effect als u uw wijzigingen bevestigt in de "
 "configuratiedialoog."
 
-#: ui/directoryserviceswidget.cpp:222
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:224
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Klik om de geselecteerde service te bewerken."
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:226
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1395,19 +1403,19 @@ msgstr ""
 "service te bewerken. De wijzigingen hebben pas effect als u uw wijzigingen "
 "bevestigt in de configuratiedialoog."
 
-#: ui/directoryserviceswidget.cpp:230
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Klik om de geselecteerde service te verwijderen"
 
-#: ui/directoryserviceswidget.cpp:233
+#: ui/directoryserviceswidget.cpp:234
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1418,7 +1426,7 @@ msgstr ""
 "wijziging heeft pas effect als u uw wijzigingen bevestigt in de "
 "configuratiedialoog."
 
-#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
+#: ui/directoryserviceswidget.cpp:359 ui/directoryserviceswidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"

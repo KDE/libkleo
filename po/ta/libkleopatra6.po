@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-26 00:43+0000\n"
+"POT-Creation-Date: 2025-10-08 00:44+0000\n"
 "PO-Revision-Date: 2005-03-21 04:03-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -1148,12 +1148,18 @@ msgid_plural "%1 servers configured"
 msgstr[0] " 1 சேவையகம் கட்டமைக்கப்பட்டுள்ளது"
 msgstr[1] "%1 சேவையகங்கள் கட்டமைக்கப்பட்டுள்ளது"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:200
 #, kde-format
 msgid "Active Directory"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:189
+#, fuzzy, kde-format
+msgctxt "@label"
+msgid "Directory services"
+msgstr "X.&500 அடைவு சேவைகள்:"
+
+#: ui/directoryserviceswidget.cpp:194
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1161,7 +1167,7 @@ msgid ""
 "X.509."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1169,31 +1175,31 @@ msgid ""
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:207
 #, fuzzy, kde-format
 #| msgid "Configure LDAP Servers"
 msgid "LDAP Server"
 msgstr "LDAP சேவையகத்தை கட்டமை"
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:211
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgid "Add"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:213
 #, fuzzy, kde-format
 #| msgid "Click to add a service"
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "ஒரு சேவையை சேர்க்க க்ளிக் செய்யவும்"
 
-#: ui/directoryserviceswidget.cpp:214
+#: ui/directoryserviceswidget.cpp:215
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1201,21 +1207,21 @@ msgid ""
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:222
+#: ui/directoryserviceswidget.cpp:223
 #, fuzzy, kde-format
 #| msgid "Edit..."
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "தொகு..."
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:224
 #, fuzzy, kde-format
 #| msgid "Click to remove the currently selected service"
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "தற்போது தேர்ந்தெடுக்கப்பட்ட சேவையை நீக்க க்ளிக் செய்யவும்"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:226
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1224,20 +1230,20 @@ msgid ""
 "configuration dialog."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:230
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:232
 #, fuzzy, kde-format
 #| msgid "Click to remove the currently selected service"
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "தற்போது தேர்ந்தெடுக்கப்பட்ட சேவையை நீக்க க்ளிக் செய்யவும்"
 
-#: ui/directoryserviceswidget.cpp:233
+#: ui/directoryserviceswidget.cpp:234
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1245,7 +1251,7 @@ msgid ""
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
+#: ui/directoryserviceswidget.cpp:359 ui/directoryserviceswidget.cpp:376
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"

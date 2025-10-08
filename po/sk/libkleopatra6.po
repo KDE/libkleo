@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-26 00:43+0000\n"
+"POT-Creation-Date: 2025-10-08 00:44+0000\n"
 "PO-Revision-Date: 2021-01-26 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -1212,12 +1212,19 @@ msgstr[0] "Nastavený %1 server"
 msgstr[1] "Nastavené %1 servery"
 msgstr[2] "Nastavených %1 serverov"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:200
 #, kde-format
 msgid "Active Directory"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:189
+#, fuzzy, kde-format
+#| msgid "X509 Directory services:"
+msgctxt "@label"
+msgid "Directory services"
+msgstr "Adresárové služby X509:"
+
+#: ui/directoryserviceswidget.cpp:194
 #, fuzzy, kde-format
 #| msgid ""
 #| "This is a list of all directory services that are configured for use with "
@@ -1230,7 +1237,7 @@ msgstr ""
 "Toto je zoznam všetkých adresárových služieb, ktoré sú nastavené pre "
 "použitie s X.509."
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1238,32 +1245,32 @@ msgid ""
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:207
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure LDAP Servers"
 msgid "LDAP Server"
 msgstr "Nastaviť servery LDAP"
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:211
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgid "Add"
 msgstr ""
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:213
 #, fuzzy, kde-format
 #| msgid "Click to add a service"
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Kliknutím pridajte službu"
 
-#: ui/directoryserviceswidget.cpp:214
+#: ui/directoryserviceswidget.cpp:215
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click this button to remove the currently selected directory service. The "
@@ -1277,21 +1284,21 @@ msgstr ""
 "Kliknite na toto tlačidlo pre odstránenie aktuálne vybranej adresárovej "
 "služby. Zmena sa prejaví len čo potvrdíte hlavný konfiguračný dialóg."
 
-#: ui/directoryserviceswidget.cpp:222
+#: ui/directoryserviceswidget.cpp:223
 #, fuzzy, kde-format
 #| msgid "Edit..."
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Upraviť..."
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:224
 #, fuzzy, kde-format
 #| msgid "Click to remove the currently selected service"
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Kliknutím odstránite momentálne označenú službu"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:226
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click this button to remove the currently selected directory service. The "
@@ -1306,21 +1313,21 @@ msgstr ""
 "Kliknite na toto tlačidlo pre odstránenie aktuálne vybranej adresárovej "
 "služby. Zmena sa prejaví len čo potvrdíte hlavný konfiguračný dialóg."
 
-#: ui/directoryserviceswidget.cpp:230
+#: ui/directoryserviceswidget.cpp:231
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Odstrániť"
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:232
 #, fuzzy, kde-format
 #| msgid "Click to remove the currently selected service"
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Kliknutím odstránite momentálne označenú službu"
 
-#: ui/directoryserviceswidget.cpp:233
+#: ui/directoryserviceswidget.cpp:234
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click this button to remove the currently selected directory service. The "
@@ -1334,7 +1341,7 @@ msgstr ""
 "Kliknite na toto tlačidlo pre odstránenie aktuálne vybranej adresárovej "
 "služby. Zmena sa prejaví len čo potvrdíte hlavný konfiguračný dialóg."
 
-#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
+#: ui/directoryserviceswidget.cpp:359 ui/directoryserviceswidget.cpp:376
 #, fuzzy, kde-format
 #| msgid "X509 Directory services:"
 msgctxt "@title:window"

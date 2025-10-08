@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-26 00:43+0000\n"
+"POT-Creation-Date: 2025-10-08 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1164,12 +1164,20 @@ msgid "1 server configured"
 msgid_plural "%1 servers configured"
 msgstr[0] "已配置 %1 个服务器"
 
-#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:199
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:200
 #, kde-format
 msgid "Active Directory"
 msgstr "Active Directory"
 
-#: ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:189
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "LDAP Directory Service"
+msgctxt "@label"
+msgid "Directory services"
+msgstr "LDAP 目录服务"
+
+#: ui/directoryserviceswidget.cpp:194
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1177,7 +1185,7 @@ msgid ""
 "X.509."
 msgstr "这是已配置为 X.509 和 OpenPGP 使用的所有目录服务列表。"
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1187,29 +1195,29 @@ msgstr ""
 "点击在 Active Directory 上运行目录服务，此项仅可用于 Windows 并需要 2.2.28 及"
 "更高版本的 GnuPG。"
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgid "LDAP Server"
 msgstr "LDAP 服务器"
 
-#: ui/directoryserviceswidget.cpp:209
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr "点击添加由 LDAP 服务器提供的目录服务。"
 
-#: ui/directoryserviceswidget.cpp:211
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgid "Add"
 msgstr "添加"
 
-#: ui/directoryserviceswidget.cpp:212
+#: ui/directoryserviceswidget.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "点击添加目录服务。"
 
-#: ui/directoryserviceswidget.cpp:214
+#: ui/directoryserviceswidget.cpp:215
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1218,19 +1226,19 @@ msgid ""
 msgstr ""
 "点击此按钮可将目录服务添加到服务列表，此更改只会在确认配置对话框后生效。"
 
-#: ui/directoryserviceswidget.cpp:222
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "编辑"
 
-#: ui/directoryserviceswidget.cpp:223
+#: ui/directoryserviceswidget.cpp:224
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "点击编辑选中的服务。"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:226
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1239,19 +1247,19 @@ msgid ""
 "configuration dialog."
 msgstr "点击此按钮可编辑当前所选的目录服务，此更改只会在确认配置对话框后生效。"
 
-#: ui/directoryserviceswidget.cpp:230
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "删除"
 
-#: ui/directoryserviceswidget.cpp:231
+#: ui/directoryserviceswidget.cpp:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "点击删除所选的服务"
 
-#: ui/directoryserviceswidget.cpp:233
+#: ui/directoryserviceswidget.cpp:234
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1259,7 +1267,7 @@ msgid ""
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr "点击此按钮可删除当前所选的服务，此更改只会在确认配置对话框后生效。"
 
-#: ui/directoryserviceswidget.cpp:358 ui/directoryserviceswidget.cpp:375
+#: ui/directoryserviceswidget.cpp:359 ui/directoryserviceswidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
