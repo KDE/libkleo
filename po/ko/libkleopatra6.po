@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-08 00:44+0000\n"
+"POT-Creation-Date: 2025-10-09 09:55+0000\n"
 "PO-Revision-Date: 2025-10-09 01:07+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2251,12 +2251,12 @@ msgstr "다른 사람에게 암호화:"
 msgid "Generate"
 msgstr "생성"
 
-#: ui/openpgpcertificatecreationdialog.cpp:93
+#: ui/openpgpcertificatecreationdialog.cpp:94
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "생성한 키를 암구호로 보호합니다."
 
-#: ui/openpgpcertificatecreationdialog.cpp:95
+#: ui/openpgpcertificatecreationdialog.cpp:96
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
@@ -2265,39 +2265,45 @@ msgstr ""
 "비밀 키를 다시 찾을 수 없는 암구호로 보호합니다. 키를 생성할 때 해당 암구호"
 "를 물어 봅니다."
 
-#: ui/openpgpcertificatecreationdialog.cpp:98
+#: ui/openpgpcertificatecreationdialog.cpp:99
 #, kde-format
 msgid "Advanced options"
 msgstr "고급 옵션"
 
-#: ui/openpgpcertificatecreationdialog.cpp:105
+#: ui/openpgpcertificatecreationdialog.cpp:106
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr "키 구성"
 
-#: ui/openpgpcertificatecreationdialog.cpp:147
+#: ui/openpgpcertificatecreationdialog.cpp:132
+#, kde-format
+msgctxt "@label"
+msgid "Set up this key for shared usage in teams"
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:152
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "OpenPGP 인증서 생성"
 
-#: ui/openpgpcertificatecreationdialog.cpp:155
+#: ui/openpgpcertificatecreationdialog.cpp:160
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr "인증서에 사용할 이름과 이메일 주소를 입력하십시오."
 
-#: ui/openpgpcertificatecreationdialog.cpp:156
+#: ui/openpgpcertificatecreationdialog.cpp:161
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "인증서에 사용할 이름 그리고/또는 이메일 주소를 입력하십시오."
 
-#: ui/openpgpcertificatecreationdialog.cpp:337
+#: ui/openpgpcertificatecreationdialog.cpp:342
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "이름이나 이메일 주소를 입력하십시오."
 
-#: ui/openpgpcertificatecreationdialog.cpp:351
+#: ui/openpgpcertificatecreationdialog.cpp:356
 #, kde-format
 msgid "There is a problem."
 msgstr "문제가 발생했습니다."

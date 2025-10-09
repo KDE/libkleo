@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-08 00:44+0000\n"
+"POT-Creation-Date: 2025-10-09 09:55+0000\n"
 "PO-Revision-Date: 2020-02-12 22:57+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -2334,54 +2334,60 @@ msgstr "Krüptimine saajale:"
 msgid "Generate"
 msgstr "Genereeri"
 
-#: ui/openpgpcertificatecreationdialog.cpp:93
+#: ui/openpgpcertificatecreationdialog.cpp:94
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:95
+#: ui/openpgpcertificatecreationdialog.cpp:96
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:98
+#: ui/openpgpcertificatecreationdialog.cpp:99
 #, kde-format
 msgid "Advanced options"
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:105
+#: ui/openpgpcertificatecreationdialog.cpp:106
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:147
+#: ui/openpgpcertificatecreationdialog.cpp:132
+#, kde-format
+msgctxt "@label"
+msgid "Set up this key for shared usage in teams"
+msgstr ""
+
+#: ui/openpgpcertificatecreationdialog.cpp:152
 #, fuzzy, kde-format
 #| msgid "Trusted Certificates"
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Usaldusväärsed sertifikaadid"
 
-#: ui/openpgpcertificatecreationdialog.cpp:155
+#: ui/openpgpcertificatecreationdialog.cpp:160
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:156
+#: ui/openpgpcertificatecreationdialog.cpp:161
 #, fuzzy, kde-format
 #| msgid ""
 #| "Enter the name or IP address of the server hosting the directory service."
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Sisesta kataloogiteenust majutava serveri nimi või IP-aadress."
 
-#: ui/openpgpcertificatecreationdialog.cpp:337
+#: ui/openpgpcertificatecreationdialog.cpp:342
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:351
+#: ui/openpgpcertificatecreationdialog.cpp:356
 #, fuzzy, kde-format
 #| msgid "The key is disabled."
 msgid "There is a problem."
