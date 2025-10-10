@@ -52,6 +52,8 @@ public:
     bool isTeamKey() const;
     void showTeamKeyOption(bool show);
 
+    QString algoString() const;
+
 private:
     class Private;
     const std::unique_ptr<Private> d;

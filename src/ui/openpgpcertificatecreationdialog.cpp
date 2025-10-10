@@ -490,4 +490,9 @@ void OpenPGPCertificateCreationDialog::showTeamKeyOption(bool show)
     d->ui.teamCheckBox->setVisible(show);
 }
 
+QString OpenPGPCertificateCreationDialog::algoString() const
+{
+    return d->ui.keyAlgoCB->currentData().toString();
+}
+
 #include "moc_openpgpcertificatecreationdialog.cpp"
