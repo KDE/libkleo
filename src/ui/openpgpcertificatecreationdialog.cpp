@@ -129,7 +129,7 @@ class OpenPGPCertificateCreationDialog::Private
                 advancedLayout->addLayout(hbox);
             }
 
-            teamCheckBox = new QCheckBox(i18nc("@label", "Set up this key for shared usage in teams"));
+            teamCheckBox = new QCheckBox(i18nc("@option:check", "Set up this key for shared usage in teams"));
             teamCheckBox->setVisible(false);
             advancedLayout->addWidget(teamCheckBox);
 
