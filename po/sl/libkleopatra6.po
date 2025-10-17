@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1720050 2025-10-10 01:22:59Z scripty $
+# $Id: libkleopatra6.po 1720536 2025-10-17 01:23:34Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-09 09:55+0000\n"
+"POT-Creation-Date: 2025-10-17 00:43+0000\n"
 "PO-Revision-Date: 2025-10-10 01:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2536,8 +2536,10 @@ msgid "Key Material"
 msgstr "Ključni material"
 
 #: ui/openpgpcertificatecreationdialog.cpp:132
-#, kde-format
-msgctxt "@label"
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Set up this key for shared usage in teams"
+msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
 msgstr "Nastavi ta ključ za skupno uporabo v ekipah"
 
