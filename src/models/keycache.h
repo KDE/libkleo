@@ -67,6 +67,11 @@ public:
         Authenticate,
     };
 
+    enum Notifications {
+        NoNotifications, //< suppress emission of signals when the cache was changed
+        SendNotifications, //< emit signals when the cache was changed
+    };
+
     enum ReloadOption {
         Reload, //< if a reload is already in progress then ignore the reload request
         ForceReload, //< if a reload is already in progress then cancel it and start another reload
@@ -87,8 +92,8 @@ public:
     void refresh(const std::vector<GpgME::Key> &keys);
     bool update(const KeyGroup &group);
 
-    void remove(const GpgME::Key &key);
-    void remove(const std::vector<GpgME::Key> &keys);
+    void remove(const GpgME::Key &key, Notifications notify = SendNotifications);
+    void remove(const std::vector<GpgME::Key> &keys, Notifications notify = SendNotifications);
     bool remove(const KeyGroup &group);
 
     void addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &watcher);
