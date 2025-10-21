@@ -1037,7 +1037,7 @@ static std::vector<std::string> emails(const Key &key)
     return emails;
 }
 
-void KeyCache::remove(const Key &key)
+void KeyCache::remove(const Key &key, Notifications notify)
 {
     if (key.isNull()) {
         return;
@@ -1100,12 +1100,24 @@ void KeyCache::remove(const Key &key)
             d->by.keygrip.erase(it, range.second);
         }
     }
+
+    if (notify == SendNotifications) {
+        Q_EMIT keysMayHaveChanged();
+    }
 }
 
-void KeyCache::remove(const std::vector<Key> &keys)
+void KeyCache::remove(const std::vector<Key> &keys, Notifications notify)
 {
+    if (keys.empty()) {
+        return;
+    }
+
     for (const Key &key : keys) {
-        remove(key);
+        remove(key, NoNotifications);
+    }
+
+    if (notify == SendNotifications) {
+        Q_EMIT keysMayHaveChanged();
     }
 }
 
@@ -1275,7 +1287,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     });
 
     // this is sub-optimal, but makes implementation from here on much easier
-    remove(sorted);
+    remove(sorted, NoNotifications);
 
     // 2. sort by fingerprint:
     std::sort(sorted.begin(), sorted.end(), _detail::ByFingerprint<std::less>());
@@ -1554,7 +1566,7 @@ void KeyCache::RefreshKeysJob::Private::updateKeyCache()
                         m_keys.end(),
                         std::back_inserter(keysToRemove),
                         _detail::ByFingerprint<std::less>());
-    m_cache->remove(keysToRemove);
+    m_cache->remove(keysToRemove, NoNotifications);
     m_cache->refresh(m_keys);
 }
 
