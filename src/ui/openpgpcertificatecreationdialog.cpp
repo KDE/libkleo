@@ -264,7 +264,6 @@ private:
                 parameters.setKeyCurve(QStringLiteral("ed448"));
                 parameters.setSubkeyCurve(QStringLiteral("cv448"));
             }
-#if GPGMEPP_SUPPORTS_KYBER
         } else if (algoString == "ky768_bp256"_L1) {
             keyType = GpgME::Subkey::AlgoECDSA;
             subkeyType = GpgME::Subkey::AlgoKyber;
@@ -277,7 +276,6 @@ private:
             parameters.setKeyCurve(u"brainpoolP384r1"_s);
             parameters.setSubkeyCurve(u"brainpoolP384r1"_s);
             parameters.setSubkeyLength(1024);
-#endif
         } else {
             keyType = GpgME::Subkey::AlgoECDSA;
             subkeyType = GpgME::Subkey::AlgoECDH;
@@ -320,7 +318,6 @@ private:
             index = ui.keyAlgoCB->findData(QStringLiteral("curve25519"));
         } else if (parameters.keyCurve() == QLatin1StringView("ed448")) {
             index = ui.keyAlgoCB->findData(QStringLiteral("curve448"));
-#if GPGMEPP_SUPPORTS_KYBER
         } else if (parameters.subkeyType() == GpgME::Subkey::AlgoKyber) {
             if (parameters.subkeyLength() == 768 && parameters.keyCurve() == "brainpoolP256r1"_L1) {
                 index = ui.keyAlgoCB->findData("ky768_bp256"_L1);
@@ -329,7 +326,6 @@ private:
             } else {
                 qCDebug(LIBKLEO_LOG) << __func__ << "Unsupported Kyber parameters" << parameters.subkeyLength() << parameters.keyCurve();
             }
-#endif
         } else {
             index = ui.keyAlgoCB->findData(parameters.keyCurve());
         }

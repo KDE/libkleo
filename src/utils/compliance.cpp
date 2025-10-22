@@ -124,7 +124,6 @@ const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms()
             "rsa3072",
             "rsa4096",
         };
-#if GPGMEPP_SUPPORTS_KYBER
         if (engineIsVersion(2, 5, 2)) {
             compliantAlgos.insert(compliantAlgos.end(),
                                   {
@@ -132,7 +131,6 @@ const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms()
                                       "ky1024_bp384",
                                   });
         }
-#endif
     };
     return compliantAlgos;
 }

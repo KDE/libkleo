@@ -595,7 +595,6 @@ const std::vector<std::string> &Kleo::availableAlgorithms()
             "rsa4096",
             // "secp256k1", // Curve secp256k1 is explicitly ignored
         };
-#if GPGMEPP_SUPPORTS_KYBER
         if (engineIsVersion(2, 5, 2)) {
             algos.insert(algos.end(),
                          {
@@ -603,7 +602,6 @@ const std::vector<std::string> &Kleo::availableAlgorithms()
                              "ky1024_bp384",
                          });
         }
-#endif
     };
     return algos;
 }
