@@ -7,6 +7,8 @@
 #include "keycache.h"
 #include "useridlistmodel.h"
 
+#include <QtVersionChecks>
+
 #include <gpgme++/key.h>
 
 using namespace Kleo;
@@ -37,8 +39,14 @@ bool UserIDListProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &so
 
 void UserIDListProxyModel::setShowOnlyOwnCertifications(bool showOnlyOwnCertifications)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+    beginFilterChange();
+    d->showOnlyOwnCertifications = showOnlyOwnCertifications;
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
     d->showOnlyOwnCertifications = showOnlyOwnCertifications;
     invalidateFilter();
+#endif
 }
 
 GpgME::UserID::Signature UserIDListProxyModel::signature(const QModelIndex &index) const
