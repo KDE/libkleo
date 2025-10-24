@@ -1364,6 +1364,11 @@ QString Formatting::accessibleHexID(const char *id)
     return ret;
 }
 
+QString Formatting::prettyIDWithColons(QByteArrayView id)
+{
+    return QString::fromLatin1(QByteArray::fromHex(id.toByteArray()).toHex(':').toUpper());
+}
+
 QString Formatting::origin(int o)
 {
     switch (o) {

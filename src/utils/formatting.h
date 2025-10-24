@@ -84,6 +84,17 @@ KLEO_EXPORT QString prettyID(const char *id);
 KLEO_EXPORT QString accessibleHexID(const char *id);
 
 /**
+ * formats a fingerprint into AA:BB:CC types
+ *
+ * @param id the fingerprint to format
+ *
+ * @note if \ref id contains non-hex characters [0-9a-fA-F] or contains
+ *       an odd number of characters, the result is implementation defined
+ *       and can change without notice.
+ */
+KLEO_EXPORT QString prettyIDWithColons(QByteArrayView id);
+
+/**
  * Formats a signature from a VerificationResult.
  *
  * @param signature The signature to display.
