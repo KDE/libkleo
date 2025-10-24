@@ -239,6 +239,35 @@ private Q_SLOTS:
         QCOMPARE(Formatting::accessibleHexID(id.constData()), expected);
     }
 
+    void test_prettyIDWithColons()
+    {
+        QFETCH(QByteArray, fingerprint);
+        QFETCH(QString, expectedResult);
+        auto result = Formatting::prettyIDWithColons(fingerprint);
+        QCOMPARE(result, expectedResult);
+    };
+
+    void test_prettyIDWithColons_data()
+    {
+        QTest::addColumn<QByteArray>("fingerprint");
+        QTest::addColumn<QString>("expectedResult");
+
+        // The following data pieces is expected behaviour with expected data
+        QTest::addRow("0 bytes") << QByteArray() << QString();
+        QTest::addRow("2 bytes") << QByteArray("aa") << QStringLiteral("AA");
+        QTest::addRow("4 bytes") << QByteArray("aaaa") << QStringLiteral("AA:AA");
+        QTest::addRow("4 bytes, some upper") << QByteArray("aaAA") << QStringLiteral("AA:AA");
+        QTest::addRow("some fingeprint") << QByteArray("776AFA15CD86BF306269C3961633F135180B9198")
+                                         << QStringLiteral("77:6A:FA:15:CD:86:BF:30:62:69:C3:96:16:33:F1:35:18:0B:91:98");
+
+        // These is to ensure we don't crash or other unexpected undefined behavior
+        // on weird input data and it is perfectly fine to change these expectations
+        // in later iterations
+        QTest::addRow("1 byte") << QByteArray("a") << QStringLiteral("0A");
+        QTest::addRow("3 bytes") << QByteArray("aaa") << QString("0A:AA");
+        QTest::addRow("non-hex") << QByteArray("axqa") << QString("AA");
+    }
+
     void test_prettySignature_known_key()
     {
         if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() < "2.4.0") {
