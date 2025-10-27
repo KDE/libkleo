@@ -91,6 +91,10 @@ public:
 
     void addFileSystemWatcher(const std::shared_ptr<FileSystemWatcher> &watcher);
 
+    /**
+     * Enables/disables the file system watcher(s) added/installed with @ref addFileSystemWatcher
+     * @param enable to enable/disable the watchers
+     */
     void enableFileSystemWatcher(bool enable);
 
     void setRefreshInterval(int hours);

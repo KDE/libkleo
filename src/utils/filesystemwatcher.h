@@ -19,6 +19,20 @@ class QString;
 namespace Kleo
 {
 
+/**
+ * FileSystemWatcher for gnupg folders
+ *
+ * Example use:
+ *
+ *  auto wacher = std::make_shared<FileSystemWatcher>();
+ *  watcher->whitelistFiles(gnupgFileWhitelist());
+ *  watcher->addPaths(gnupgFolderWhitelist());
+ *  watcher->setDelay(1000);
+ *  keyCache->addFileSystemWatcher(watcher);
+ *
+ *  while also including libkleo/gnupg.h
+ *
+ */
 class KLEO_EXPORT FileSystemWatcher : public QObject
 {
     Q_OBJECT
