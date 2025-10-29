@@ -19,15 +19,16 @@
 #include <libkleo/formatting.h>
 #include <libkleo/keyhelpers.h>
 
-#include <functional>
+#include <algorithm>
 
 using namespace GpgME;
 using namespace Kleo;
 
 static bool is_card_key(const Key &key)
 {
-    const std::vector<Subkey> sks = key.subkeys();
-    return std::find_if(sks.begin(), sks.end(), std::mem_fn(&Subkey::isCardKey)) != sks.end();
+    return std::ranges::any_of(key.subkeys(), [](const auto &subkey) {
+        return subkey.isCardKey() && !subkey.canRenc();
+    });
 }
 
 class DefaultKeyFilter::Private
