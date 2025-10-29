@@ -1399,7 +1399,7 @@ void KeyCache::insert(const std::vector<Key> &keys)
     d->m_cards.clear();
     for (const auto &key : keys) {
         for (const auto &subkey : key.subkeys()) {
-            if (!subkey.isSecret() || !d->m_cards[QByteArray(subkey.keyGrip())].empty()) {
+            if (!subkey.isSecret() || subkeyUsesCombinedAlgorithms(subkey) || !d->m_cards[QByteArray(subkey.keyGrip())].empty()) {
                 continue;
             }
             const auto data = readSecretKeyFile(QString::fromLatin1(subkey.keyGrip()));
@@ -1822,6 +1822,8 @@ void KeyCache::setGroups(const std::vector<KeyGroup> &groups)
 
 std::vector<CardKeyStorageInfo> KeyCache::cardsForSubkey(const GpgME::Subkey &subkey) const
 {
+    // no special-casing of subkeys with combined algorithms (with multiple keygrips) needed
+    // because m_cards never contains those
     return d->m_cards[QByteArray(subkey.keyGrip())];
 }
 

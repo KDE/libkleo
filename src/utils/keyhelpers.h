@@ -208,4 +208,12 @@ KeysByProtocol partitionKeysByProtocol(const KeyContainer &keys)
     });
     return result;
 }
+
+inline bool subkeyUsesCombinedAlgorithms(const GpgME::Subkey &subkey)
+{
+    if (const char *keygrip = subkey.keyGrip()) {
+        return std::string_view{keygrip}.find(',') != std::string_view::npos;
+    }
+    return false;
+}
 }
