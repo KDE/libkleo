@@ -8,13 +8,16 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include <Libkleo/MessageBox>
+#include <Libkleo/AuditLogEntry>
+#include <Libkleo/AuditLogViewer>
 
 #include <KAboutData>
 #include <KLocalizedString>
 
 #include <QApplication>
 #include <QCommandLineParser>
+
+#include <gpgme++/error.h>
 
 // clang-format off
 const char * auditlog =
@@ -72,7 +75,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    Kleo::MessageBox::auditLog(nullptr, QString::fromLatin1(auditlog), QStringLiteral("Test"));
+    Kleo::AuditLogViewer::showAuditLog(nullptr, Kleo::AuditLogEntry{QString::fromLatin1(auditlog), GpgME::Error{}}, QStringLiteral("Test"));
 
     return app.exec();
 }

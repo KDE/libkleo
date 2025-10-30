@@ -95,8 +95,3 @@ void MessageBox::error(QWidget *parent, const QString &text, const Kleo::AuditLo
 {
     showMessageBox(parent, QMessageBox::Critical, text, auditLog, title.isEmpty() ? i18nc("@title:window", "Error") : title, options);
 }
-
-void MessageBox::auditLog(QWidget *parent, const QString &log, const QString &title)
-{
-    AuditLogViewer::showAuditLog(parent, AuditLogEntry{log, Error{}}, title);
-}

@@ -38,10 +38,5 @@ void error(QWidget *parent,
            const Kleo::AuditLogEntry &auditLog,
            const QString &title = {},
            KMessageBox::Options options = KMessageBox::Notify);
-
-KLEO_EXPORT
-KLEO_DEPRECATED_VERSION(5, 23, "Use AuditLogViewer::showAuditLog()")
-void auditLog(QWidget *parent, const QString &log, const QString &title = {});
-
 }
 }
