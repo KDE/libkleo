@@ -456,16 +456,15 @@ std::shared_ptr<const KeyCache> KeyCache::instance()
 std::shared_ptr<KeyCache> KeyCache::mutableInstance()
 {
     static std::weak_ptr<KeyCache> self;
-    try {
-        return std::shared_ptr<KeyCache>(self);
-    } catch (const std::bad_weak_ptr &) {
-        const std::shared_ptr<KeyCache> s(new KeyCache);
-        self = s;
-        return s;
+    auto lockedSelf = self.lock();
+    if (!lockedSelf) {
+        lockedSelf = std::make_shared<KeyCache>();
+        self = lockedSelf;
     }
+    return lockedSelf;
 }
 
-KeyCache::KeyCache()
+KeyCache::KeyCache(PrivateTag)
     : QObject()
     , d(new Private(this))
 {

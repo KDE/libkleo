@@ -47,9 +47,9 @@ struct CardKeyStorageInfo {
 class KLEO_EXPORT KeyCache : public QObject
 {
     Q_OBJECT
-
-protected:
-    explicit KeyCache();
+    class PrivateTag
+    {
+    };
 
 public:
     enum class KeyUsage {
@@ -73,6 +73,11 @@ public:
     static std::shared_ptr<const KeyCache> instance();
     static std::shared_ptr<KeyCache> mutableInstance();
 
+    /**
+     * Please use @ref instance or @ref mutableInstance to get the singleton provided
+     * rather than creating your own
+     */
+    explicit KeyCache(PrivateTag = {});
     ~KeyCache() override;
 
     void setGroupsEnabled(bool enabled);
