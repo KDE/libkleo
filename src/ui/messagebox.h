@@ -33,10 +33,24 @@ void information(QWidget *parent,
                  KMessageBox::Options options = KMessageBox::Notify);
 
 KLEO_EXPORT
+void informationWId(WId parentId,
+                    const QString &text,
+                    const Kleo::AuditLogEntry &auditLog,
+                    const QString &title = {},
+                    KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
 void error(QWidget *parent,
            const QString &text,
            const Kleo::AuditLogEntry &auditLog,
            const QString &title = {},
            KMessageBox::Options options = KMessageBox::Notify);
+
+KLEO_EXPORT
+void errorWId(WId parentId,
+              const QString &text,
+              const Kleo::AuditLogEntry &auditLog,
+              const QString &title = {},
+              KMessageBox::Options options = KMessageBox::Notify);
 }
 }
