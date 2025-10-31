@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1720584 2025-10-18 01:23:51Z scripty $
+# $Id: libkleopatra6.po 1721731 2025-10-31 01:24:35Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-17 00:43+0000\n"
+"POT-Creation-Date: 2025-10-31 00:43+0000\n"
 "PO-Revision-Date: 2025-10-17 06:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2276,19 +2276,28 @@ msgstr "Rezultati izpisovanja ključev"
 msgid "Recheck Key"
 msgstr "Znova preveri ključ"
 
-#: ui/messagebox.cpp:69
+#: ui/messagebox.cpp:100
 #, kde-format
 msgctxt "@action:button"
+msgid "Diagnostics"
+msgstr ""
+
+#: ui/messagebox.cpp:101
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Audit Log"
+msgctxt ""
+"@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr "Pokaži dnevnik presoje"
 
-#: ui/messagebox.cpp:91
+#: ui/messagebox.cpp:127 ui/messagebox.cpp:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Informacije"
 
-#: ui/messagebox.cpp:96
+#: ui/messagebox.cpp:155 ui/messagebox.cpp:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"

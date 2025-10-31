@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-17 00:43+0000\n"
+"POT-Creation-Date: 2025-10-31 00:43+0000\n"
 "PO-Revision-Date: 2024-09-20 15:54+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1961,19 +1961,28 @@ msgstr "Výsledek výpisu klíčů"
 msgid "Recheck Key"
 msgstr "Znovu zkontrolovat klíč"
 
-#: ui/messagebox.cpp:69
+#: ui/messagebox.cpp:100
 #, kde-format
 msgctxt "@action:button"
+msgid "Diagnostics"
+msgstr ""
+
+#: ui/messagebox.cpp:101
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Audit Log"
+msgctxt ""
+"@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr "Zobrazit záznam Auditu"
 
-#: ui/messagebox.cpp:91
+#: ui/messagebox.cpp:127 ui/messagebox.cpp:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Informace"
 
-#: ui/messagebox.cpp:96
+#: ui/messagebox.cpp:155 ui/messagebox.cpp:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
