@@ -12,6 +12,8 @@
 
 #include "kleo_export.h"
 
+#include <QByteArray>
+
 #include <memory>
 #include <string>
 #include <vector>
@@ -33,6 +35,9 @@ namespace Assuan
 
 /** Checks if the GnuPG agent is running and accepts connections. */
 KLEO_EXPORT bool agentIsRunning();
+
+/*! Escapes \a value for usage as value in a SETATTR call. */
+KLEO_EXPORT QByteArray escapeAttributeValue(QByteArrayView value);
 
 /** Sends the Assuan @p command using the @p transaction and the @p assuanContext
  *  to the GnuPG agent and waits for the result. The returned transaction can be used

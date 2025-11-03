@@ -68,6 +68,33 @@ bool Kleo::Assuan::agentIsRunning()
     return !err;
 }
 
+QByteArray Kleo::Assuan::escapeAttributeValue(QByteArrayView value)
+{
+    static const char *HexChars = "0123456789ABCDEF";
+    const int numberToPercentEscape = std::ranges::count_if(value, [](unsigned char ch) {
+        return (ch < ' ') || (ch == '+');
+    });
+    QByteArray result{value.size() + 2 * numberToPercentEscape, Qt::Uninitialized};
+    auto resultIt = result.begin();
+    std::ranges::for_each(value, [&resultIt](unsigned char ch) {
+        if ((ch < ' ') || (ch == '+')) {
+            *resultIt = '%';
+            resultIt++;
+            *resultIt = HexChars[ch >> 4];
+            resultIt++;
+            *resultIt = HexChars[ch & 0x0F];
+            resultIt++;
+        } else if (ch == ' ') {
+            *resultIt = '+';
+            resultIt++;
+        } else {
+            *resultIt = ch;
+            resultIt++;
+        }
+    });
+    return result;
+}
+
 std::unique_ptr<GpgME::AssuanTransaction> Kleo::Assuan::sendCommand(std::shared_ptr<GpgME::Context> &context,
                                                                     const std::string &command,
                                                                     std::unique_ptr<GpgME::AssuanTransaction> transaction,
