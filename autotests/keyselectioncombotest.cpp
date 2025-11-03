@@ -23,6 +23,7 @@
 #include <memory>
 
 using namespace Kleo;
+using namespace Qt::StringLiterals;
 
 namespace
 {
@@ -142,9 +143,9 @@ private Q_SLOTS:
     {
         const auto combo = std::make_unique<KeySelectionCombo>();
         waitForKeySelectionComboBeingInitialized(combo.get());
-        QCOMPARE(combo->itemText(0).left(combo->itemText(0).indexOf(" (")), "Full Trust <prefer-openpgp@example.net>");
-        QCOMPARE(combo->itemText(1).left(combo->itemText(1).indexOf(" (")), "Marginal Validity <marginal-openpgp@example.net>");
-        QCOMPARE(combo->itemText(2).left(combo->itemText(2).indexOf(" (")), "Trusted S/MIME <prefer-smime@example.net>");
+        QCOMPARE(combo->itemText(0).left(combo->itemText(0).indexOf(u" ("_s)), u"Full Trust <prefer-openpgp@example.net>"_s);
+        QCOMPARE(combo->itemText(1).left(combo->itemText(1).indexOf(u" ("_s)), u"Marginal Validity <marginal-openpgp@example.net>"_s);
+        QCOMPARE(combo->itemText(2).left(combo->itemText(2).indexOf(u" ("_s)), u"Trusted S/MIME <prefer-smime@example.net>"_s);
         // we don't check the order of the two "sender@example.net" keys
     }
 

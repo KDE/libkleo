@@ -15,6 +15,7 @@
 #include <QUrl>
 
 using namespace Kleo;
+using namespace Qt::StringLiterals;
 
 namespace QTest
 {
@@ -271,7 +272,7 @@ private Q_SLOTS:
         auto config = KeyserverConfig::fromUrl(url);
         QCOMPARE(config.authentication(), KeyserverAuthentication::ActiveDirectory);
         QCOMPARE(config.connection(), KeyserverConnection::UseSTARTTLS);
-        const QStringList expectedFlags{"flag1", "flag2", "flag 3"};
+        const QStringList expectedFlags{u"flag1"_s, u"flag2"_s, u"flag 3"_s};
         QCOMPARE(config.additionalFlags(), expectedFlags);
 
         const auto createdUrl = config.toUrl();

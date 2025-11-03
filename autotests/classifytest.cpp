@@ -94,7 +94,7 @@ private Q_SLOTS:
     void test_printableClassification()
     {
         QTemporaryFile eml;
-        eml.setFileTemplate("XXXXXX.eml");
+        eml.setFileTemplate(u"XXXXXX.eml"_s);
         QVERIFY(eml.open());
 
         QCOMPARE(QStringLiteral("Ascii, MimeFile"), Kleo::printableClassification(Kleo::classify(eml.fileName())));
@@ -103,7 +103,7 @@ private Q_SLOTS:
     void identifyCertificateStoreExtensionTest()
     {
         QTemporaryFile crl;
-        crl.setFileTemplate("XXXXXX.crl");
+        crl.setFileTemplate(u"XXXXXX.crl"_s);
         QVERIFY(crl.open());
         QVERIFY(Kleo::isCertificateRevocationList(crl.fileName()));
     }
@@ -111,7 +111,7 @@ private Q_SLOTS:
     void findSignaturesTest()
     {
         QTemporaryFile sig;
-        sig.setFileTemplate("XXXXXX.sig");
+        sig.setFileTemplate(u"XXXXXX.sig"_s);
         QVERIFY(sig.open());
 
         QFileInfo fi(sig.fileName());

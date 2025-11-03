@@ -8,6 +8,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "testhelpers.h"
+
 #include <Libkleo/Formatting>
 #include <Libkleo/GnuPG>
 #include <Libkleo/KeyCache>
@@ -87,13 +89,14 @@ inline bool qCompare(GpgME::Protocol const &t1, GpgME::Protocol const &t2, const
 
 namespace
 {
-KeyGroup createGroup(const QString &name,
+KeyGroup createGroup(const char *groupName,
                      const std::vector<Key> &keys = std::vector<Key>(),
                      KeyGroup::Source source = KeyGroup::ApplicationConfig,
-                     const QString &configName = QString())
+                     const char *configName = nullptr)
 {
+    const QString name = QString::fromLatin1(groupName);
     const KeyGroup::Id groupId = ((source == KeyGroup::ApplicationConfig) //
-                                      ? (configName.isEmpty() ? name : configName)
+                                      ? ((!configName || !*configName) ? name : QString::fromLatin1(configName))
                                       : name);
     KeyGroup g(groupId, name, keys, source);
     return g;
@@ -145,7 +148,7 @@ private Q_SLOTS:
         mKeyCache.reset();
 
         // kill all running gpg daemons
-        (void)QProcess::execute(QStringLiteral("gpgconf"), {"--kill", "all"});
+        (void)QProcess::execute(QStringLiteral("gpgconf"), {u"--kill"_s, u"all"_s});
 
         mGnupgHome.reset();
         qunsetenv("GNUPGHOME");
@@ -225,15 +228,15 @@ private Q_SLOTS:
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.alternative.protocol, CMS);
         QCOMPARE(result.alternative.signingKeys.size(), 1);
         QCOMPARE(result.alternative.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", CMS).primaryFingerprint());
         QCOMPARE(result.alternative.encryptionKeys.size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
     }
 
@@ -252,15 +255,15 @@ private Q_SLOTS:
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.alternative.protocol, CMS);
         QCOMPARE(result.alternative.signingKeys.size(), 1);
         QCOMPARE(result.alternative.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", CMS).primaryFingerprint());
         QCOMPARE(result.alternative.encryptionKeys.size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
     }
 
@@ -279,15 +282,15 @@ private Q_SLOTS:
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", CMS).primaryFingerprint());
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
         QCOMPARE(result.alternative.protocol, OpenPGP);
         QCOMPARE(result.alternative.signingKeys.size(), 1);
         QCOMPARE(result.alternative.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.alternative.encryptionKeys.size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
     }
 
@@ -304,8 +307,8 @@ private Q_SLOTS:
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         // no alternative solution is proposed
         QCOMPARE(result.alternative.protocol, UnknownProtocol);
@@ -326,8 +329,8 @@ private Q_SLOTS:
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
         // no alternative solution is proposed
         QCOMPARE(result.alternative.protocol, UnknownProtocol);
@@ -348,8 +351,8 @@ private Q_SLOTS:
         QCOMPARE(result.solution.signingKeys.size(), 1);
         QCOMPARE(result.solution.signingKeys[0].primaryFingerprint(), testKey("sender-mixed@example.net", CMS).primaryFingerprint());
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", CMS).primaryFingerprint());
         // no alternative solution is proposed
         QCOMPARE(result.alternative.protocol, UnknownProtocol);
@@ -359,7 +362,8 @@ private Q_SLOTS:
     void test_in_mixed_mode_keys_with_higher_validity_are_preferred_if_both_protocols_are_needed()
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
-        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net", "prefer-openpgp@example.net", "prefer-smime@example.net"});
+        resolver.setRecipients(
+            {u"sender-openpgp@example.net"_s, u"sender-smime@example.net"_s, u"prefer-openpgp@example.net"_s, u"prefer-smime@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -367,13 +371,13 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
         QCOMPARE(result.solution.protocol, UnknownProtocol);
         QCOMPARE(result.solution.encryptionKeys.size(), 4);
-        QVERIFY(result.solution.encryptionKeys.contains("sender-openpgp@example.net"));
-        QVERIFY(result.solution.encryptionKeys.contains("sender-smime@example.net"));
-        QCOMPARE(result.solution.encryptionKeys.value("prefer-openpgp@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint(),
+        QVERIFY(result.solution.encryptionKeys.contains(u"sender-openpgp@example.net"_s));
+        QVERIFY(result.solution.encryptionKeys.contains(u"sender-smime@example.net"_s));
+        QCOMPARE(result.solution.encryptionKeys.value(u"prefer-openpgp@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"prefer-openpgp@example.net"_s)[0].primaryFingerprint(),
                  testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
-        QCOMPARE(result.solution.encryptionKeys.value("prefer-smime@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"prefer-smime@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"prefer-smime@example.net"_s)[0].primaryFingerprint(),
                  testKey("prefer-smime@example.net", CMS).primaryFingerprint());
         // no alternative solution is proposed
         QCOMPARE(result.alternative.protocol, UnknownProtocol);
@@ -383,20 +387,20 @@ private Q_SLOTS:
     void test_reports_unresolved_addresses_if_both_protocols_are_allowed_but_no_keys_are_found_for_an_address()
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
-        resolver.setRecipients({"unknown@example.net"});
+        resolver.setRecipients({u"unknown@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::SomeUnresolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
-        QCOMPARE(result.solution.encryptionKeys.value("unknown@example.net").size(), 0);
+        QCOMPARE(result.solution.encryptionKeys.value(u"unknown@example.net"_s).size(), 0);
     }
 
     void test_reports_unresolved_addresses_if_openpgp_is_requested_and_no_openpgp_keys_are_found_for_an_address()
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false, OpenPGP);
-        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+        resolver.setRecipients({u"sender-openpgp@example.net"_s, u"sender-smime@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -404,15 +408,15 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.size(), 2);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 0);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s).size(), 0);
         QCOMPARE(result.alternative.encryptionKeys.size(), 0);
     }
 
     void test_reports_unresolved_addresses_if_smime_is_requested_and_no_smime_keys_are_found_for_an_address()
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false, CMS);
-        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+        resolver.setRecipients({u"sender-openpgp@example.net"_s, u"sender-smime@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -420,8 +424,8 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
         QCOMPARE(result.solution.protocol, CMS);
         QCOMPARE(result.solution.encryptionKeys.size(), 2);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 0);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s).size(), 0);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s).size(), 1);
         QCOMPARE(result.alternative.encryptionKeys.size(), 0);
     }
 
@@ -429,7 +433,7 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
         resolver.setAllowMixedProtocols(false);
-        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+        resolver.setRecipients({u"sender-openpgp@example.net"_s, u"sender-smime@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -437,131 +441,131 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.size(), 2);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 0);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s).size(), 0);
         QCOMPARE(result.alternative.encryptionKeys.size(), 2);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-openpgp@example.net").size(), 0);
-        QCOMPARE(result.alternative.encryptionKeys.value("sender-smime@example.net").size(), 1);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-openpgp@example.net"_s).size(), 0);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"sender-smime@example.net"_s).size(), 1);
     }
 
     void test_openpgp_overrides_are_used_if_both_protocols_are_allowed()
     {
-        const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setAllowMixedProtocols(false);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"full-validity@example.net"});
+        resolver.setRecipients({u"full-validity@example.net"_s});
         resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("Needs to be normalized <full-validity@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(), override);
-        QCOMPARE(result.alternative.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(), override);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(),
                  testKey("full-validity@example.net", CMS).primaryFingerprint());
     }
 
     void test_openpgp_overrides_are_used_if_openpgp_only_is_requested()
     {
-        const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true, OpenPGP);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"full-validity@example.net"});
+        resolver.setRecipients({u"full-validity@example.net"_s});
         resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("Needs to be normalized <full-validity@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(), override);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(), override);
         QCOMPARE(result.alternative.encryptionKeys.size(), 0);
     }
 
     void test_openpgp_overrides_are_ignored_if_smime_only_is_requested()
     {
-        const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true, CMS);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"full-validity@example.net"});
+        resolver.setRecipients({u"full-validity@example.net"_s});
         resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("Needs to be normalized <full-validity@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(),
                  testKey("full-validity@example.net", CMS).primaryFingerprint());
         QCOMPARE(result.alternative.encryptionKeys.size(), 0);
     }
 
     void test_smime_overrides_are_used_if_both_protocols_are_allowed_and_smime_is_preferred()
     {
-        const QString override = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setAllowMixedProtocols(false);
         resolver.setPreferredProtocol(CMS);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"full-validity@example.net"});
+        resolver.setRecipients({u"full-validity@example.net"_s});
         resolver.setOverrideKeys({{CMS, {{QStringLiteral("Needs to be normalized <full-validity@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(), override);
-        QCOMPARE(result.alternative.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.alternative.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(), override);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.alternative.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(),
                  testKey("full-validity@example.net", OpenPGP).primaryFingerprint());
     }
 
     void test_smime_overrides_are_used_if_smime_only_is_requested()
     {
-        const QString override = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true, CMS);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"full-validity@example.net"});
+        resolver.setRecipients({u"full-validity@example.net"_s});
         resolver.setOverrideKeys({{CMS, {{QStringLiteral("Needs to be normalized <full-validity@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(), override);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(), override);
         QCOMPARE(result.alternative.encryptionKeys.size(), 0);
     }
 
     void test_smime_overrides_are_ignored_if_openpgp_only_is_requested()
     {
-        const QString override = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true, OpenPGP);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"full-validity@example.net"});
+        resolver.setRecipients({u"full-validity@example.net"_s});
         resolver.setOverrideKeys({{CMS, {{QStringLiteral("Needs to be normalized <full-validity@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("full-validity@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"full-validity@example.net"_s)[0].primaryFingerprint(),
                  testKey("full-validity@example.net", OpenPGP).primaryFingerprint());
         QCOMPARE(result.alternative.encryptionKeys.size(), 0);
     }
 
     void test_overrides_for_wrong_protocol_are_ignored()
     {
-        const QString override1 = testKey("full-validity@example.net", CMS).primaryFingerprint();
-        const QString override2 = testKey("full-validity@example.net", OpenPGP).primaryFingerprint();
+        const QString override1 = QString::fromLatin1(testKey("full-validity@example.net", CMS).primaryFingerprint());
+        const QString override2 = QString::fromLatin1(testKey("full-validity@example.net", OpenPGP).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+        resolver.setRecipients({u"sender-openpgp@example.net"_s, u"sender-smime@example.net"_s});
         resolver.setOverrideKeys({{OpenPGP, {{QStringLiteral("Needs to be normalized <sender-openpgp@example.net>"), {override1}}}}});
         resolver.setOverrideKeys({{CMS, {{QStringLiteral("Needs to be normalized <sender-smime@example.net>"), {override2}}}}});
 
@@ -569,50 +573,50 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-smime@example.net", CMS).primaryFingerprint());
     }
 
     void test_openpgp_only_common_overrides_are_used_for_openpgp()
     {
-        const QString override = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"sender-openpgp@example.net"});
+        resolver.setRecipients({u"sender-openpgp@example.net"_s});
         resolver.setOverrideKeys({{UnknownProtocol, {{QStringLiteral("Needs to be normalized <sender-openpgp@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net")[0].primaryFingerprint(), override);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s)[0].primaryFingerprint(), override);
     }
 
     void test_smime_only_common_overrides_are_used_for_smime()
     {
-        const QString override = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
+        const QString override = QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"sender-smime@example.net"});
+        resolver.setRecipients({u"sender-smime@example.net"_s});
         resolver.setOverrideKeys({{UnknownProtocol, {{QStringLiteral("Needs to be normalized <sender-smime@example.net>"), {override}}}}});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net")[0].primaryFingerprint(), override);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s)[0].primaryFingerprint(), override);
     }
 
     void test_mixed_protocol_common_overrides_override_protocol_specific_resolution()
     {
-        const QString override1 = testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint();
-        const QString override2 = testKey("prefer-smime@example.net", CMS).primaryFingerprint();
+        const QString override1 = QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
+        const QString override2 = QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
         resolver.setOverrideKeys({{UnknownProtocol, {{QStringLiteral("sender-mixed@example.net"), {override1, override2}}}}});
@@ -621,29 +625,29 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 2);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(), override1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[1].primaryFingerprint(), override2);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 2);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(), override1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[1].primaryFingerprint(), override2);
     }
 
     void test_common_overrides_override_protocol_specific_overrides()
     {
-        const QString override1 = testKey("full-validity@example.net", OpenPGP).primaryFingerprint();
-        const QString override2 = testKey("full-validity@example.net", CMS).primaryFingerprint();
+        const QString override1 = QString::fromLatin1(testKey("full-validity@example.net", OpenPGP).primaryFingerprint());
+        const QString override2 = QString::fromLatin1(testKey("full-validity@example.net", CMS).primaryFingerprint());
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
-        resolver.setRecipients({"sender-openpgp@example.net", "sender-smime@example.net"});
+        resolver.setRecipients({u"sender-openpgp@example.net"_s, u"sender-smime@example.net"_s});
         resolver.setOverrideKeys({
             {
                 OpenPGP,
                 {
-                    {QStringLiteral("sender-openpgp@example.net"), {testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()}},
+                    {QStringLiteral("sender-openpgp@example.net"), {QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint())}},
                 },
             },
             {
                 CMS,
                 {
-                    {QStringLiteral("sender-smime@example.net"), {testKey("prefer-smime@example.net", CMS).primaryFingerprint()}},
+                    {QStringLiteral("sender-smime@example.net"), {QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint())}},
                 },
             },
             {
@@ -659,19 +663,19 @@ private Q_SLOTS:
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-openpgp@example.net")[0].primaryFingerprint(), override1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-smime@example.net")[0].primaryFingerprint(), override2);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-openpgp@example.net"_s)[0].primaryFingerprint(), override1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-smime@example.net"_s)[0].primaryFingerprint(), override2);
     }
 
     void test_reports_failure_if_openpgp_is_requested_but_common_overrides_require_smime()
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false, OpenPGP);
-        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setRecipients({u"sender-mixed@example.net"_s});
         resolver.setOverrideKeys({{
             UnknownProtocol,
-            {{QStringLiteral("sender-mixed@example.net"), {testKey("prefer-smime@example.net", CMS).primaryFingerprint()}}},
+            {{QStringLiteral("sender-mixed@example.net"), {QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint())}}},
         }});
 
         const auto result = resolver.resolve();
@@ -682,10 +686,10 @@ private Q_SLOTS:
     void test_reports_failure_if_smime_is_requested_but_common_overrides_require_openpgp()
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false, CMS);
-        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setRecipients({u"sender-mixed@example.net"_s});
         resolver.setOverrideKeys({{
             UnknownProtocol,
-            {{QStringLiteral("sender-mixed@example.net"), {testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()}}},
+            {{QStringLiteral("sender-mixed@example.net"), {QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint())}}},
         }});
 
         const auto result = resolver.resolve();
@@ -697,13 +701,13 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
         resolver.setAllowMixedProtocols(false);
-        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setRecipients({u"sender-mixed@example.net"_s});
         resolver.setOverrideKeys({{
             UnknownProtocol,
             {{QStringLiteral("sender-mixed@example.net"),
               {
-                  testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint(),
-                  testKey("prefer-smime@example.net", CMS).primaryFingerprint(),
+                  QString::fromLatin1(testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint()),
+                  QString::fromLatin1(testKey("prefer-smime@example.net", CMS).primaryFingerprint()),
               }}},
         }});
 
@@ -731,15 +735,15 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false, OpenPGP);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s)[0].primaryFingerprint(),
                  testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
     }
 
@@ -762,15 +766,15 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false, CMS);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
         QCOMPARE(result.solution.protocol, CMS);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s)[0].primaryFingerprint(),
                  testKey("prefer-smime@example.net", CMS).primaryFingerprint());
     }
 
@@ -786,15 +790,15 @@ private Q_SLOTS:
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
         resolver.setAllowMixedProtocols(false);
-        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setRecipients({u"sender-mixed@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint());
     }
 
@@ -817,15 +821,15 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s)[0].primaryFingerprint(),
                  testKey("prefer-openpgp@example.net", OpenPGP).primaryFingerprint());
     }
 
@@ -844,14 +848,14 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-openpgp@example.net", OpenPGP).primaryFingerprint());
     }
 
@@ -870,14 +874,14 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::CMSOnly);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net")[0].primaryFingerprint(),
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 1);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s)[0].primaryFingerprint(),
                  testKey("sender-smime@example.net", CMS).primaryFingerprint());
     }
 
@@ -892,14 +896,14 @@ private Q_SLOTS:
         };
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
-        resolver.setRecipients({"sender-mixed@example.net"});
+        resolver.setRecipients({u"sender-mixed@example.net"_s});
 
         const auto result = resolver.resolve();
 
         QCOMPARE(result.flags & KeyResolverCore::ResolvedMask, KeyResolverCore::AllResolved);
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::MixedProtocols);
         QCOMPARE(result.solution.protocol, UnknownProtocol);
-        QCOMPARE(result.solution.encryptionKeys.value("sender-mixed@example.net").size(), 2);
+        QCOMPARE(result.solution.encryptionKeys.value(u"sender-mixed@example.net"_s).size(), 2);
     }
 
     void test_reports_unresolved_addresses_if_both_protocols_are_allowed_but_no_signing_keys_are_found_for_an_address()
@@ -945,7 +949,7 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-openpgp@example.net"));
-        resolver.setRecipients({"smime-only@example.net"});
+        resolver.setRecipients({u"smime-only@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -960,7 +964,7 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-smime@example.net"));
-        resolver.setRecipients({"openpgp-only@example.net"});
+        resolver.setRecipients({u"openpgp-only@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -1293,7 +1297,7 @@ private Q_SLOTS:
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
         resolver.setPreferredProtocol(OpenPGP);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -1301,7 +1305,7 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 2);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 2);
     }
 
     void test_groups__group_with_marginally_valid_key_is_ignored_if_full_validity_required()
@@ -1317,7 +1321,7 @@ private Q_SLOTS:
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
         resolver.setMinimumValidity(UserID::Full);
         resolver.setPreferredProtocol(OpenPGP);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         const auto result = resolver.resolve();
 
@@ -1325,7 +1329,7 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 0);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 0);
     }
 
     void test_groups__group_with_marginally_valid_key_is_ignored_in_de_vs_mode()
@@ -1340,7 +1344,7 @@ private Q_SLOTS:
         KeyCache::mutableInstance()->setGroups(groups);
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
         resolver.setPreferredProtocol(OpenPGP);
-        resolver.setRecipients({"group@example.net"});
+        resolver.setRecipients({u"group@example.net"_s});
 
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("de-vs")};
         Tests::FakeCryptoConfigIntValue fakeDeVsCompliance{"gpg", "compliance_de_vs", 1};
@@ -1350,13 +1354,13 @@ private Q_SLOTS:
         QCOMPARE(result.flags & KeyResolverCore::ProtocolsMask, KeyResolverCore::OpenPGPOnly);
         QCOMPARE(result.solution.protocol, OpenPGP);
         QCOMPARE(result.solution.encryptionKeys.size(), 1);
-        QCOMPARE(result.solution.encryptionKeys.value("group@example.net").size(), 0);
+        QCOMPARE(result.solution.encryptionKeys.value(u"group@example.net"_s).size(), 0);
     }
 
     void test_sender_is_set__encrypt_only_mode()
     {
         KeyResolverCore resolver(/*encrypt=*/true, /*sign=*/false);
-        resolver.setRecipients({"prefer-openpgp@example.net", "prefer-smime@example.net"});
+        resolver.setRecipients({u"prefer-openpgp@example.net"_s, u"prefer-smime@example.net"_s});
         resolver.setSender(QStringLiteral("sender-mixed@example.net"));
 
         const auto result = resolver.resolve();
@@ -1368,8 +1372,8 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/false, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-openpgp@example.net"));
-        resolver.setSigningKeys(
-            {testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint(), testKey("sender-mixed@example.net", CMS).primaryFingerprint()});
+        resolver.setSigningKeys({QString::fromLatin1(testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint()),
+                                 QString::fromLatin1(testKey("sender-mixed@example.net", CMS).primaryFingerprint())});
 
         const auto result = resolver.resolve();
 
@@ -1384,8 +1388,8 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/false, /*sign=*/true);
         resolver.setSender(QStringLiteral("sender-smime@example.net"));
-        resolver.setSigningKeys(
-            {testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint(), testKey("sender-mixed@example.net", CMS).primaryFingerprint()});
+        resolver.setSigningKeys({QString::fromLatin1(testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint()),
+                                 QString::fromLatin1(testKey("sender-mixed@example.net", CMS).primaryFingerprint())});
         resolver.setPreferredProtocol(CMS);
 
         const auto result = resolver.resolve();
@@ -1401,7 +1405,7 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/false, /*sign=*/true, OpenPGP);
         resolver.setSender(QStringLiteral("sender-openpgp@example.net"));
-        resolver.setSigningKeys({testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint()});
+        resolver.setSigningKeys({QString::fromLatin1(testKey("sender-mixed@example.net", OpenPGP).primaryFingerprint())});
 
         const auto result = resolver.resolve();
 
@@ -1416,7 +1420,7 @@ private Q_SLOTS:
     {
         KeyResolverCore resolver(/*encrypt=*/false, /*sign=*/true, CMS);
         resolver.setSender(QStringLiteral("sender-smime@example.net"));
-        resolver.setSigningKeys({testKey("sender-mixed@example.net", CMS).primaryFingerprint()});
+        resolver.setSigningKeys({QString::fromLatin1(testKey("sender-mixed@example.net", CMS).primaryFingerprint())});
         resolver.setPreferredProtocol(CMS);
 
         const auto result = resolver.resolve();

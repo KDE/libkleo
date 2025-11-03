@@ -18,6 +18,16 @@
 namespace QTest
 {
 
+// allow comparing QString to const char * and vice versa
+inline bool qCompare(QString const &t1, const char *t2, const char *actual, const char *expected, const char *file, int line)
+{
+    return qCompare(t1, QString::fromLatin1(t2), actual, expected, file, line);
+}
+inline bool qCompare(const char *t1, QString const &t2, const char *actual, const char *expected, const char *file, int line)
+{
+    return qCompare(QString::fromLatin1(t1), t2, actual, expected, file, line);
+}
+
 inline bool qCompare(const GpgME::Key &key1, const GpgME::Key &key2, const char *actual, const char *expected, const char *file, int line)
 {
     return qCompare(key1.primaryFingerprint(), key2.primaryFingerprint(), actual, expected, file, line);

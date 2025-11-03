@@ -8,6 +8,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "testhelpers.h"
+
 #include <Libkleo/EditDirectoryServiceDialog>
 #include <Libkleo/KeyserverConfig>
 
@@ -27,6 +29,7 @@
 #include <memory>
 
 using namespace Kleo;
+using namespace Qt::StringLiterals;
 
 namespace QTest
 {
@@ -432,10 +435,10 @@ private Q_SLOTS:
 
         ASSERT_OK_BUTTON_IS_DISABLED();
 
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", "ldap.example.com");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", u"ldap.example.com"_s);
         ASSERT_OK_BUTTON_IS_ENABLED();
 
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", "");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", u""_s);
         ASSERT_OK_BUTTON_IS_DISABLED();
     }
 
@@ -463,7 +466,7 @@ private Q_SLOTS:
     void test__user_changes_authentication()
     {
         dialog->show();
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", "ldap.example.com");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", u"ldap.example.com"_s);
 
         ASSERT_AUTHENTICATION_IS(KeyserverAuthentication::Anonymous);
         ASSERT_WIDGET_IS_DISABLED("userEdit");
@@ -489,23 +492,23 @@ private Q_SLOTS:
     void test__user_changes_user_and_password()
     {
         dialog->show();
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", "ldap.example.com");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", u"ldap.example.com"_s);
         WHEN_USER_SELECTS_AUTHENTICATION(KeyserverAuthentication::Password);
 
         ASSERT_WIDGET_IS_ENABLED("userEdit");
         ASSERT_WIDGET_IS_ENABLED("passwordEdit");
         ASSERT_OK_BUTTON_IS_DISABLED();
 
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", "user");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", u"user"_s);
         ASSERT_OK_BUTTON_IS_DISABLED();
 
-        WHEN_USER_SETS_PASSWORD_TO("passwordEdit", "abc123");
+        WHEN_USER_SETS_PASSWORD_TO("passwordEdit", u"abc123"_s);
         ASSERT_OK_BUTTON_IS_ENABLED();
 
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", "");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", u""_s);
         ASSERT_OK_BUTTON_IS_DISABLED();
 
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", "user");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", u"user"_s);
         ASSERT_OK_BUTTON_IS_ENABLED();
     }
 
@@ -548,7 +551,7 @@ private Q_SLOTS:
     {
         dialog->show();
 
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", "  ldap.example.com  ");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("hostEdit", u"  ldap.example.com  "_s);
         QCOMPARE(dialog->keyserver().host(), "ldap.example.com");
 
         QCOMPARE(dialog->keyserver().port(), -1);
@@ -565,11 +568,11 @@ private Q_SLOTS:
         QCOMPARE(dialog->keyserver().authentication(), KeyserverAuthentication::Password);
 
         QCOMPARE(dialog->keyserver().user(), "");
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", "  user  ");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("userEdit", u"  user  "_s);
         QCOMPARE(dialog->keyserver().user(), "user");
 
         QCOMPARE(dialog->keyserver().password(), "");
-        WHEN_USER_SETS_PASSWORD_TO("passwordEdit", "  abc123  ");
+        WHEN_USER_SETS_PASSWORD_TO("passwordEdit", u"  abc123  "_s);
         QCOMPARE(dialog->keyserver().password(), "  abc123  "); // the entered password is not trimmed
 
         WHEN_USER_SELECTS_CONNECTION(KeyserverConnection::Default);
@@ -582,12 +585,12 @@ private Q_SLOTS:
         QCOMPARE(dialog->keyserver().connection(), KeyserverConnection::TunnelThroughTLS);
 
         QCOMPARE(dialog->keyserver().ldapBaseDn(), "");
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("baseDnEdit", "  o=Organization,c=DE  ");
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("baseDnEdit", u"  o=Organization,c=DE  "_s);
         QCOMPARE(dialog->keyserver().ldapBaseDn(), "o=Organization,c=DE");
 
         QCOMPARE(dialog->keyserver().additionalFlags(), {});
-        WHEN_USER_SETS_LINEEDIT_VALUE_TO("additionalFlagsEdit", "  flag1  ,  flag 2  ");
-        const QStringList expectedFlags{"flag1", "flag 2"};
+        WHEN_USER_SETS_LINEEDIT_VALUE_TO("additionalFlagsEdit", u"  flag1  ,  flag 2  "_s);
+        const QStringList expectedFlags{u"flag1"_s, u"flag 2"_s};
         QCOMPARE(dialog->keyserver().additionalFlags(), expectedFlags);
     }
 };

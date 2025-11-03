@@ -8,6 +8,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "testhelpers.h"
+
 #include <Libkleo/Compliance>
 #include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
@@ -33,6 +35,7 @@
 #include <set>
 
 using namespace Kleo;
+using namespace Qt::StringLiterals;
 
 namespace QTest
 {
@@ -374,14 +377,14 @@ private Q_SLOTS:
         // encryption key widgets for other recipients follow (visible for OpenPGP, hidden for S/MIME)
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-openpgp@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.hidden[1]->property("address").toString(), "prefer-openpgp@example.net");
         QVERIFY(encryptionKeyWidgets.hidden[1]->defaultKey(GpgME::CMS).isEmpty());
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
         QVERIFY(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::OpenPGP).isEmpty());
         QCOMPARE(encryptionKeyWidgets.hidden[2]->property("address").toString(), "prefer-smime@example.net");
         QCOMPARE(encryptionKeyWidgets.hidden[2]->defaultKey(GpgME::CMS),
-                 alternativeSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+                 alternativeSolution.encryptionKeys.value(u"prefer-smime@example.net"_s)[0].primaryFingerprint());
     }
 
     void test__both_protocols_allowed__mixed_not_allowed__smime_preferred()
@@ -434,10 +437,10 @@ private Q_SLOTS:
         QVERIFY(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::CMS).isEmpty());
         QCOMPARE(encryptionKeyWidgets.hidden[1]->property("address").toString(), "prefer-openpgp@example.net");
         QCOMPARE(encryptionKeyWidgets.hidden[1]->defaultKey(GpgME::OpenPGP),
-                 alternativeSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+                 alternativeSolution.encryptionKeys.value(u"prefer-openpgp@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::CMS),
-                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-smime@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.hidden[2]->property("address").toString(), "prefer-smime@example.net");
         QVERIFY(encryptionKeyWidgets.hidden[2]->defaultKey(GpgME::OpenPGP).isEmpty());
     }
@@ -479,7 +482,7 @@ private Q_SLOTS:
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::OpenPGP),
-                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-openpgp@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
         QVERIFY(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::OpenPGP).isEmpty());
     }
@@ -523,7 +526,7 @@ private Q_SLOTS:
         QVERIFY(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::CMS).isEmpty());
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-smime@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::CMS),
-                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-smime@example.net"_s)[0].primaryFingerprint());
     }
 
     void test__both_protocols_allowed__mixed_allowed()
@@ -568,10 +571,10 @@ private Q_SLOTS:
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-openpgp@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::UnknownProtocol),
-                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-openpgp@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[3]->property("address").toString(), "prefer-smime@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[3]->defaultKey(GpgME::UnknownProtocol),
-                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-smime@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[4]->property("address").toString(), "unknown@example.net");
         QVERIFY(encryptionKeyWidgets.visible[4]->defaultKey(GpgME::UnknownProtocol).isEmpty());
     }
@@ -617,7 +620,7 @@ private Q_SLOTS:
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-openpgp@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::UnknownProtocol),
-                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-openpgp@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "unknown@example.net");
         QVERIFY(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::UnknownProtocol).isEmpty());
     }
@@ -663,7 +666,7 @@ private Q_SLOTS:
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[1]->property("address").toString(), "prefer-smime@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[1]->defaultKey(GpgME::UnknownProtocol),
-                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-smime@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "unknown@example.net");
         QVERIFY(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::UnknownProtocol).isEmpty());
     }
@@ -703,10 +706,10 @@ private Q_SLOTS:
         // encryption key widgets for other recipients follow
         QCOMPARE(encryptionKeyWidgets.visible[2]->property("address").toString(), "prefer-openpgp@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[2]->defaultKey(GpgME::UnknownProtocol),
-                 preferredSolution.encryptionKeys.value("prefer-openpgp@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-openpgp@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[3]->property("address").toString(), "prefer-smime@example.net");
         QCOMPARE(encryptionKeyWidgets.visible[3]->defaultKey(GpgME::UnknownProtocol),
-                 preferredSolution.encryptionKeys.value("prefer-smime@example.net")[0].primaryFingerprint());
+                 preferredSolution.encryptionKeys.value(u"prefer-smime@example.net"_s)[0].primaryFingerprint());
         QCOMPARE(encryptionKeyWidgets.visible[4]->property("address").toString(), "unknown@example.net");
         QVERIFY(encryptionKeyWidgets.visible[4]->defaultKey(GpgME::UnknownProtocol).isEmpty());
     }
@@ -758,7 +761,7 @@ private Q_SLOTS:
 
         const auto okButton = dialog->findChild<QPushButton *>("ok button");
         QVERIFY(okButton);
-        QVERIFY(okButton->text() != "Generate");
+        QVERIFY(okButton->text() != u"Generate"_s);
 
         {
             // get the first signing key combo which is the OpenPGP one
@@ -770,7 +773,7 @@ private Q_SLOTS:
             signingKeyCombo->setCurrentIndex(generateIndex);
             QCOMPARE(okButton->text(), "Generate");
             signingKeyCombo->setCurrentIndex(originalIndex);
-            QVERIFY(okButton->text() != "Generate");
+            QVERIFY(okButton->text() != u"Generate"_s);
         }
         {
             // get the first encryption key combo which is the OpenPGP one for the sender
@@ -804,7 +807,7 @@ private Q_SLOTS:
 
         const auto okButton = dialog->findChild<QPushButton *>("ok button");
         QVERIFY(okButton);
-        QVERIFY(okButton->text() != "Generate");
+        QVERIFY(okButton->text() != u"Generate"_s);
 
         {
             // get the first signing key combo which is the OpenPGP one

@@ -24,6 +24,7 @@
 
 using namespace Kleo;
 using namespace GpgME;
+using namespace Qt::StringLiterals;
 
 Q_DECLARE_METATYPE(GpgME::Key)
 
@@ -83,7 +84,7 @@ private Q_SLOTS:
         QCOMPARE(mKeyCache.use_count(), 1);
         mKeyCache.reset();
 
-        (void)QProcess::execute(QStringLiteral("gpgconf"), {"--kill", "all"});
+        (void)QProcess::execute(QStringLiteral("gpgconf"), {u"--kill"_s, u"all"_s});
 
         mGnupgHome.reset();
         qunsetenv("GNUPGHOME");
