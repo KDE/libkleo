@@ -34,6 +34,7 @@
 #include <gpgme++/error.h>
 
 using namespace Kleo;
+using namespace Qt::Literals::StringLiterals;
 
 AuditLogViewer::AuditLogViewer(const QString &log, QWidget *parent)
     : QDialog(parent)
@@ -121,7 +122,15 @@ void AuditLogViewer::setAuditLog(const QString &log)
 
 void AuditLogViewer::slotSaveAs()
 {
-    const QString fileName = QFileDialog::getSaveFileName(this, i18n("Choose File to Save GnuPG Audit Log to"));
+    QString fileName = QFileDialog::getSaveFileName(this,
+                                                    i18n("Choose File to Save GnuPG Audit Log to"),
+                                                    QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator()
+                                                        + u"gnupg-audit-log-%1.html"_s.arg(QDateTime::currentDateTime().toString(u"yyyy-MM-dd-HHmmss"_s)),
+                                                    i18n("HTML files (*.html)"));
+    if (!fileName.endsWith(u".html"_s)) {
+        fileName.append(u".html"_s);
+    }
+
     if (fileName.isEmpty()) {
         return;
     }
