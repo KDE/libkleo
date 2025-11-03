@@ -68,16 +68,19 @@ bool Kleo::Assuan::agentIsRunning()
     return !err;
 }
 
+static inline bool needsToBePercentEscaped(unsigned char ch)
+{
+    return (ch < ' ') || (ch == '%') || (ch == '+');
+}
+
 QByteArray Kleo::Assuan::escapeAttributeValue(QByteArrayView value)
 {
     static const char *HexChars = "0123456789ABCDEF";
-    const int numberToPercentEscape = std::ranges::count_if(value, [](unsigned char ch) {
-        return (ch < ' ') || (ch == '+');
-    });
+    const int numberToPercentEscape = std::ranges::count_if(value, needsToBePercentEscaped);
     QByteArray result{value.size() + 2 * numberToPercentEscape, Qt::Uninitialized};
     auto resultIt = result.begin();
     std::ranges::for_each(value, [&resultIt](unsigned char ch) {
-        if ((ch < ' ') || (ch == '+')) {
+        if (needsToBePercentEscaped(ch)) {
             *resultIt = '%';
             resultIt++;
             *resultIt = HexChars[ch >> 4];
