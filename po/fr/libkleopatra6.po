@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-31 00:43+0000\n"
-"PO-Revision-Date: 2025-08-30 20:25+0200\n"
+"PO-Revision-Date: 2025-11-01 13:16+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 "X-Text-Markup: kde4\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -1264,7 +1264,7 @@ msgid ""
 "seem to be installed properly. It did not return any components. Try running "
 "\"%1\" on the command line for more information."
 msgstr ""
-"L'outil « GpgConf » utilisé pour fournir les informations à cette boîte de "
+"L'outil « GpgConf » utilisé pour fournir les informations à cette boite de "
 "dialogue ne semble pas installé correctement. Il n'a trouvé aucun composant. "
 "Essayez d'exécuter la commande « %1 » dans un terminal pour obtenir plus "
 "d'informations."
@@ -1341,12 +1341,10 @@ msgid "Active Directory"
 msgstr "Active Directory"
 
 #: ui/directoryserviceswidget.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "LDAP Directory Service"
+#, kde-format
 msgctxt "@label"
 msgid "Directory services"
-msgstr "Services d'annuaire LDAP"
+msgstr "Services d'annuaire"
 
 #: ui/directoryserviceswidget.cpp:194
 #, kde-format
@@ -1401,7 +1399,7 @@ msgid ""
 msgstr ""
 "Cliquez sur ce bouton pour ajouter un service d'annuaire à la liste de "
 "services. La modification ne sera effective que lorsque vous aurez validé la "
-"boîte de dialogue de configuration."
+"boite de dialogue de configuration."
 
 #: ui/directoryserviceswidget.cpp:223
 #, kde-format
@@ -1425,7 +1423,7 @@ msgid ""
 msgstr ""
 "Cliquez sur ce bouton pour modifier le service d'annuaire actuellement "
 "sélectionné. Les modifications ne seront effectives que lorsque vous aurez "
-"validé la boîte de dialogue de configuration."
+"validé la boite de dialogue de configuration."
 
 #: ui/directoryserviceswidget.cpp:231
 #, kde-format
@@ -1448,7 +1446,7 @@ msgid ""
 msgstr ""
 "Cliquez sur ce bouton pour supprimer le service d'annuaire actuellement "
 "sélectionné. La modification ne sera effective que lorsque vous aurez validé "
-"la boîte de dialogue de configuration."
+"la boite de dialogue de configuration."
 
 #: ui/directoryserviceswidget.cpp:359 ui/directoryserviceswidget.cpp:376
 #, kde-format
@@ -1786,12 +1784,12 @@ msgstr "Modifier le service d'annuaire"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open file dialog"
-msgstr "Ouvrir la boîte de dialogue de fichiers"
+msgstr "Ouvrir la boite de dialogue de fichiers"
 
 #: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
-msgstr "Ouvrir la boîte de dialogue pour les fichiers"
+msgstr "Ouvrir la boite de dialogue pour les fichiers"
 
 #: ui/formtextinput.cpp:25
 #, kde-format
@@ -2189,12 +2187,10 @@ msgstr "Vérifier la clé à nouveau"
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostics"
 
 #: ui/messagebox.cpp:101
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Audit Log"
+#, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
@@ -2414,7 +2410,7 @@ msgid ""
 msgstr ""
 "Ne pas sélectionner de clé pour ce destinataire.<br/> <br/> Le destinataire "
 "recevra le courriel chiffré, mais il pourra uniquement être déchiffré à "
-"l'aide des autres clés sélectionnées dans cette boîte de dialogue."
+"l'aide des autres clés sélectionnées dans cette boite de dialogue."
 
 #: ui/newkeyapprovaldialog.cpp:785
 #, kde-format
@@ -2461,7 +2457,7 @@ msgstr "Éléments de clé"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
-msgstr ""
+msgstr "Configurer cette clé pour une utilisation partagée avec des équipes"
 
 #: ui/openpgpcertificatecreationdialog.cpp:152
 #, kde-format
