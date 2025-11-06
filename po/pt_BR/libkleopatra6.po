@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 00:43+0000\n"
+"POT-Creation-Date: 2025-11-06 08:06+0000\n"
 "PO-Revision-Date: 2025-10-31 07:14-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1146,36 +1146,36 @@ msgstr "Etiquetas"
 msgid "Trust Signature For"
 msgstr "Confiar na assinatura para"
 
-#: ui/auditlogviewer.cpp:43
+#: ui/auditlogviewer.cpp:44
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Exibir registro de auditoria do GnuPG"
 
-#: ui/auditlogviewer.cpp:46
+#: ui/auditlogviewer.cpp:47
 #, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "&Copiar para a área de transferência"
 
-#: ui/auditlogviewer.cpp:51
+#: ui/auditlogviewer.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "&Salvar para o disco..."
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "O seu sistema não tem suporte para registros de auditoria do GnuPG"
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Erro de sistema"
 
-#: ui/auditlogviewer.cpp:98
+#: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -1184,39 +1184,44 @@ msgstr ""
 "Ocorreu um erro na tentativa de obter o log de auditoria do GnuPG:\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:99
+#: ui/auditlogviewer.cpp:100
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "Erro no log de auditoria do GnuPG"
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "Não há registro de auditoria do GnuPG disponível para esta operação."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Não há registro de auditoria do GnuPG"
 
-#: ui/auditlogviewer.cpp:109
+#: ui/auditlogviewer.cpp:110
 #, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "Visualizador de registro de auditoria do GnuPG"
 
-#: ui/auditlogviewer.cpp:124
+#: ui/auditlogviewer.cpp:126
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Escolher o arquivo onde salvar o registro de auditoria do GnuPG"
 
-#: ui/auditlogviewer.cpp:144
+#: ui/auditlogviewer.cpp:129
+#, kde-format
+msgid "HTML files (*.html)"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:153
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Não foi possível salvar o arquivo \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:145
+#: ui/auditlogviewer.cpp:154
 #, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"

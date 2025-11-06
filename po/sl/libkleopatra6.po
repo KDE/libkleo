@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1721798 2025-11-01 01:28:52Z scripty $
+# $Id: libkleopatra6.po 1722130 2025-11-06 08:45:53Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 00:43+0000\n"
+"POT-Creation-Date: 2025-11-06 08:06+0000\n"
 "PO-Revision-Date: 2025-10-31 06:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1280,36 +1280,36 @@ msgstr "Značke"
 msgid "Trust Signature For"
 msgstr "Zaupaj podpisu za"
 
-#: ui/auditlogviewer.cpp:43
+#: ui/auditlogviewer.cpp:44
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Ogled dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:46
+#: ui/auditlogviewer.cpp:47
 #, kde-format
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "Kopiraj na odložišče"
 
-#: ui/auditlogviewer.cpp:51
+#: ui/auditlogviewer.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "&Shrani na disk..."
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Vaš sistem ne podpira dnevnikov presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Sistemska napaka"
 
-#: ui/auditlogviewer.cpp:98
+#: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -1318,39 +1318,44 @@ msgstr ""
 "Med pridobivanjem dnevnika presoje varnosti GnuPG je prišlo do napake:\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:99
+#: ui/auditlogviewer.cpp:100
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "Napaka dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "Za to dejanje ni na voljo dnevnika presoje varnosti GnuPG."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, kde-format
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Ni dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:109
+#: ui/auditlogviewer.cpp:110
 #, kde-format
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "Pregledovalnik dnevnika presoje GnuPG"
 
-#: ui/auditlogviewer.cpp:124
+#: ui/auditlogviewer.cpp:126
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Izberite datoteko za shranitev dnevnika presoje varnosti GnuPG"
 
-#: ui/auditlogviewer.cpp:144
+#: ui/auditlogviewer.cpp:129
+#, kde-format
+msgid "HTML files (*.html)"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:153
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Ni bilo mogoče shraniti v datoteko \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:145
+#: ui/auditlogviewer.cpp:154
 #, kde-format
 msgctxt "@title:window"
 msgid "File Save Error"

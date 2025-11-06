@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 00:43+0000\n"
+"POT-Creation-Date: 2025-11-06 08:06+0000\n"
 "PO-Revision-Date: 2020-08-02 17:42+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -1020,39 +1020,39 @@ msgstr "Mærker"
 msgid "Trust Signature For"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:43
+#: ui/auditlogviewer.cpp:44
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Se GnuPG-auditlog"
 
-#: ui/auditlogviewer.cpp:46
+#: ui/auditlogviewer.cpp:47
 #, fuzzy, kde-format
 #| msgid "&Copy to Clipboard"
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "&Kopiér til udklipsholderen"
 
-#: ui/auditlogviewer.cpp:51
+#: ui/auditlogviewer.cpp:52
 #, fuzzy, kde-format
 #| msgid "&Save to Disk..."
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "&Gem til disk..."
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Dit system understøtter ikke GnuPG-auditlogge"
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, fuzzy, kde-format
 #| msgid "System Error"
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Systemfejl"
 
-#: ui/auditlogviewer.cpp:98
+#: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -1061,41 +1061,46 @@ msgstr ""
 "En fejl opstod under forsøg på at hente GnuPG audit-log:\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:99
+#: ui/auditlogviewer.cpp:100
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "GnuPG auditlog-fejl"
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "Ingen GnuPG-audit-log tilgængelig for denne handling"
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, fuzzy, kde-format
 #| msgid "No GnuPG Audit Log"
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Ingen GnuPG-audit-log"
 
-#: ui/auditlogviewer.cpp:109
+#: ui/auditlogviewer.cpp:110
 #, fuzzy, kde-format
 #| msgid "GnuPG Audit Log Viewer"
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "GnuPG-auditlog-fremviser"
 
-#: ui/auditlogviewer.cpp:124
+#: ui/auditlogviewer.cpp:126
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Vælg fil, som GnuPG-auditlog skal gemmes til"
 
-#: ui/auditlogviewer.cpp:144
+#: ui/auditlogviewer.cpp:129
+#, kde-format
+msgid "HTML files (*.html)"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:153
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Kunne ikke gemme til filen \"%1\": %2"
 
-#: ui/auditlogviewer.cpp:145
+#: ui/auditlogviewer.cpp:154
 #, fuzzy, kde-format
 #| msgid "File Save Error"
 msgctxt "@title:window"

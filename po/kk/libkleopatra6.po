@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 00:43+0000\n"
+"POT-Creation-Date: 2025-11-06 08:06+0000\n"
 "PO-Revision-Date: 2011-08-28 06:43+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -987,40 +987,40 @@ msgstr ""
 msgid "Trust Signature For"
 msgstr ""
 
-#: ui/auditlogviewer.cpp:43
+#: ui/auditlogviewer.cpp:44
 #, fuzzy, kde-format
 #| msgid "View GnuPG Audit Log"
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "GnuPG аудит журналын көру"
 
-#: ui/auditlogviewer.cpp:46
+#: ui/auditlogviewer.cpp:47
 #, fuzzy, kde-format
 #| msgid "&Copy to Clipboard"
 msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "Алма&су буферіне көшіріп алу"
 
-#: ui/auditlogviewer.cpp:51
+#: ui/auditlogviewer.cpp:52
 #, fuzzy, kde-format
 #| msgid "&Save to Disk..."
 msgctxt "@action:button"
 msgid "&Save to Disk..."
 msgstr "Дискіне &сақтау..."
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Жүйеңіз GnuPG аудит журналыдарын жургізу дегенді білмейді."
 
-#: ui/auditlogviewer.cpp:93
+#: ui/auditlogviewer.cpp:94
 #, fuzzy, kde-format
 #| msgid "System Error"
 msgctxt "@title:window"
 msgid "System Error"
 msgstr "Жүйелік қате"
 
-#: ui/auditlogviewer.cpp:98
+#: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -1029,41 +1029,46 @@ msgstr ""
 "GnuPG аудит журналын көру әрекеті кезінде бір қате орын алды:\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:99
+#: ui/auditlogviewer.cpp:100
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "GnuPG аудит журнал қатесі"
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "Бұндай әрекет істетін GnuPG аудит журналы жоқ."
 
-#: ui/auditlogviewer.cpp:103
+#: ui/auditlogviewer.cpp:104
 #, fuzzy, kde-format
 #| msgid "No GnuPG Audit Log"
 msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "GnuPG аудит журналы жоқ"
 
-#: ui/auditlogviewer.cpp:109
+#: ui/auditlogviewer.cpp:110
 #, fuzzy, kde-format
 #| msgid "GnuPG Audit Log Viewer"
 msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "GnuPG аудит журналын қарау"
 
-#: ui/auditlogviewer.cpp:124
+#: ui/auditlogviewer.cpp:126
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "GnuPG аудит журналын сақтайтын файлын таңдау"
 
-#: ui/auditlogviewer.cpp:144
+#: ui/auditlogviewer.cpp:129
+#, kde-format
+msgid "HTML files (*.html)"
+msgstr ""
+
+#: ui/auditlogviewer.cpp:153
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "\"%1\" файлына сақтау болмайды: %2"
 
-#: ui/auditlogviewer.cpp:145
+#: ui/auditlogviewer.cpp:154
 #, fuzzy, kde-format
 #| msgid "File Save Error"
 msgctxt "@title:window"
