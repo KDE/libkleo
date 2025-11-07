@@ -155,7 +155,7 @@ void MessageBox::error(QWidget *parent, const QString &text, const Kleo::AuditLo
                                          title.isEmpty() ? i18nc("@title:window", "Error") : title,
                                          options);
     } else {
-        KMessageBox::error(parent, text, title, {}, options);
+        KMessageBox::error(parent, text, title, options);
     }
 }
 
