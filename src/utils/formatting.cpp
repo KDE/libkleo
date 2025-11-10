@@ -19,6 +19,7 @@
 #include "cryptoconfig.h"
 #include "gnupg.h"
 #include "keyhelpers.h"
+#include "systeminfo.h"
 
 #include <libkleo/dnattributes.h>
 #include <libkleo/keycache.h>
@@ -373,7 +374,11 @@ static QString time_t2string(time_t t)
 
 static QString make_red(const QString &txt)
 {
-    return QLatin1StringView("<font color=\"red\">") + txt.toHtmlEscaped() + QLatin1StringView("</font>");
+    if (SystemInfo::isHighContrastColorSchemeInUse()) {
+        return "<strong>"_L1 + txt.toHtmlEscaped() + "</strong>"_L1;
+    } else {
+        return "<font color=\"red\">"_L1 + txt.toHtmlEscaped() + "</font>"_L1;
+    }
 }
 
 }
