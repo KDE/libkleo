@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-06 08:06+0000\n"
+"POT-Creation-Date: 2025-11-11 00:43+0000\n"
 "PO-Revision-Date: 2025-10-15 19:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1055,7 +1055,7 @@ msgstr "ei käytettävissä"
 msgid "ID"
 msgstr "Tunniste"
 
-#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
+#: models/subkeylistmodel.cpp:157 utils/formatting.cpp:477
 #, kde-format
 msgid "Type"
 msgstr "Tyyppi"
@@ -1080,7 +1080,7 @@ msgstr "Tila"
 msgid "Strength"
 msgstr "Vahvuus"
 
-#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
+#: models/subkeylistmodel.cpp:167 utils/formatting.cpp:480
 #, kde-format
 msgid "Usage"
 msgstr "Käyttö"
@@ -1112,8 +1112,8 @@ msgstr "ei käytettävissä"
 #: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
 #: models/useridlistmodel.cpp:90 models/useridlistmodel.cpp:91
 #: models/useridlistmodel.cpp:92 models/useridlistmodel.cpp:93
-#: ui/keyselectiondialog.cpp:191 utils/formatting.cpp:450
-#: utils/formatting.cpp:460
+#: ui/keyselectiondialog.cpp:191 utils/formatting.cpp:455
+#: utils/formatting.cpp:465
 #, kde-format
 msgid "User ID"
 msgstr "Käyttäjätunnus"
@@ -1990,7 +1990,7 @@ msgstr "Avainta voi käyttää."
 msgid "The key is not trusted enough."
 msgstr "Avain ei ole tarpeeksi luotettava."
 
-#: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:478
+#: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:483
 #, kde-format
 msgid "Key ID"
 msgstr "Avaintunniste"
@@ -2011,12 +2011,12 @@ msgstr "Henkilön <b>%1</b> OpenPGP-avain"
 msgid "S/MIME key for <b>%1</b>"
 msgstr "Henkilön <b>%1</b> S/MIME-avain"
 
-#: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:464
+#: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:469
 #, kde-format
 msgid "Valid from"
 msgstr "Voimassa alkaen"
 
-#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:467
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:472
 #, kde-format
 msgid "Valid until"
 msgstr "Kelpoisuus päättyy"
@@ -2539,173 +2539,173 @@ msgctxt "@item:inlistbox"
 msgid "One year from now"
 msgstr "Vuosi tästä"
 
-#: utils/formatting.cpp:340
+#: utils/formatting.cpp:341
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
 msgstr "%1-bittinen %2 (salainen avain saatavissa)"
 
-#: utils/formatting.cpp:342
+#: utils/formatting.cpp:343
 #, kde-format
 msgid "%1-bit %2"
 msgstr "%1-bittinen %2"
 
-#: utils/formatting.cpp:351
+#: utils/formatting.cpp:352
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "Allekirjoittaminen (tarkennettu)"
 
-#: utils/formatting.cpp:353
+#: utils/formatting.cpp:354
 #, kde-format
 msgid "Signing"
 msgstr "Allekirjoitus"
 
-#: utils/formatting.cpp:357
+#: utils/formatting.cpp:358
 #, kde-format
 msgid "Encryption"
 msgstr "Salaus"
 
-#: utils/formatting.cpp:360
+#: utils/formatting.cpp:361
 #, kde-format
 msgid "Certifying User IDs"
 msgstr "Varmennetaan käyttäjätunnuksia"
 
-#: utils/formatting.cpp:363
+#: utils/formatting.cpp:364
 #, kde-format
 msgid "SSH Authentication"
 msgstr "SSH-tunnistautuminen"
 
-#: utils/formatting.cpp:393
+#: utils/formatting.cpp:398
 #, kde-format
 msgid "Disabled"
 msgstr "Poistettu käytöstä"
 
-#: utils/formatting.cpp:395
+#: utils/formatting.cpp:400
 #, kde-format
 msgid "Revoked"
 msgstr "Mitätöity"
 
-#: utils/formatting.cpp:397
+#: utils/formatting.cpp:402
 #, kde-format
 msgid "Expired"
 msgstr "Vanhentunut"
 
-#: utils/formatting.cpp:401
+#: utils/formatting.cpp:406
 #, kde-format
 msgid "User ID is certified."
 msgstr "Käyttäjätunniste on varmennettu."
 
-#: utils/formatting.cpp:407
+#: utils/formatting.cpp:412
 #, kde-format
 msgid "User ID is not certified."
 msgstr "Käyttäjätunnistetta ei ole varmennettu."
 
-#: utils/formatting.cpp:417
+#: utils/formatting.cpp:422
 #, kde-format
 msgid "All User IDs are certified."
 msgstr "Kaikki käyttäjätunnisteet on varmennettu."
 
-#: utils/formatting.cpp:423
+#: utils/formatting.cpp:428
 #, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
 msgstr[0] "Yhtä käyttäjätunnistetta ei varmennettu."
 msgstr[1] "%1 käyttäjätunnusta ei varmennettu."
 
-#: utils/formatting.cpp:427 utils/formatting.cpp:430
+#: utils/formatting.cpp:432 utils/formatting.cpp:435
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "Kelvollisuutta ei juuri nyt voi tarkistaa."
 
-#: utils/formatting.cpp:440
+#: utils/formatting.cpp:445
 #, kde-format
 msgid "Serial number"
 msgstr "Sarjanumero"
 
-#: utils/formatting.cpp:443
+#: utils/formatting.cpp:448
 #, kde-format
 msgid "Issuer"
 msgstr "Myöntäjä"
 
-#: utils/formatting.cpp:450 utils/formatting.cpp:460
+#: utils/formatting.cpp:455 utils/formatting.cpp:465
 #, kde-format
 msgid "Subject"
 msgstr "Aihe"
 
-#: utils/formatting.cpp:455
+#: utils/formatting.cpp:460
 #, kde-format
 msgid "a.k.a."
 msgstr "eli"
 
-#: utils/formatting.cpp:481
+#: utils/formatting.cpp:486
 #, kde-format
 msgid "Fingerprint"
 msgstr "Sormenjälki"
 
-#: utils/formatting.cpp:485
+#: utils/formatting.cpp:490
 #, kde-format
 msgid "Certification trust"
 msgstr "Varmenteen luottamus"
 
-#: utils/formatting.cpp:487
+#: utils/formatting.cpp:492
 #, kde-format
 msgid "Trusted issuer?"
 msgstr "Onko myöntäjä luotettu?"
 
-#: utils/formatting.cpp:487
+#: utils/formatting.cpp:492
 #, kde-format
 msgid "Yes"
 msgstr "Kyllä"
 
-#: utils/formatting.cpp:487
+#: utils/formatting.cpp:492
 #, kde-format
 msgid "No"
 msgstr "Ei"
 
-#: utils/formatting.cpp:492 utils/formatting.cpp:494
+#: utils/formatting.cpp:497 utils/formatting.cpp:499
 #, kde-format
 msgid "Stored"
 msgstr "Varastoitu"
 
-#: utils/formatting.cpp:492
+#: utils/formatting.cpp:497
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "SmartCardiin, jonka sarjanumero on %1"
 
-#: utils/formatting.cpp:494
+#: utils/formatting.cpp:499
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "tälle tietokoneelle"
 
-#: utils/formatting.cpp:521
+#: utils/formatting.cpp:526
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
 "Avaimissa on mitätöityjä, vanhentuneita, käytöstä poistettu tai virheellisiä."
 
-#: utils/formatting.cpp:525
+#: utils/formatting.cpp:530
 #, kde-format
 msgid "All keys are certified."
 msgstr "Kaikki avaimet on varmennettu."
 
-#: utils/formatting.cpp:527
+#: utils/formatting.cpp:532
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "Joitakin avaimia ei ole varmennettu."
 
-#: utils/formatting.cpp:531
+#: utils/formatting.cpp:536
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "Avainten kelvollisuutta ei juuri nyt voi tarkistaa."
 
-#: utils/formatting.cpp:545
+#: utils/formatting.cpp:550
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "Tässä ryhmässä ei ole avaimia."
 
-#: utils/formatting.cpp:551
+#: utils/formatting.cpp:556
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2715,12 +2715,12 @@ msgstr ""
 "Joitakin ryhmän varmenteista ei voi käyttää salaukseen. Ryhmän käyttö voi "
 "johtaa odottamattomiin seurauksiin."
 
-#: utils/formatting.cpp:571
+#: utils/formatting.cpp:576
 #, kde-format
 msgid "Keys:"
 msgstr "Avaimet:"
 
-#: utils/formatting.cpp:580
+#: utils/formatting.cpp:585
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
@@ -2728,7 +2728,7 @@ msgid_plural "and %1 more keys"
 msgstr[0] "ja vielä 1 avain"
 msgstr[1] "ja vielä %1 avainta"
 
-#: utils/formatting.cpp:613
+#: utils/formatting.cpp:618
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2736,282 +2736,282 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "d. MMMM yyyy"
 
-#: utils/formatting.cpp:659 utils/formatting.cpp:694
+#: utils/formatting.cpp:664 utils/formatting.cpp:699
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "tuntematon"
 
-#: utils/formatting.cpp:701 utils/formatting.cpp:710
+#: utils/formatting.cpp:706 utils/formatting.cpp:715
 #, kde-format
 msgid "unlimited"
 msgstr "ei rajoitettu"
 
-#: utils/formatting.cpp:763
+#: utils/formatting.cpp:768
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:766
+#: utils/formatting.cpp:771
 #, kde-format
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: utils/formatting.cpp:768
+#: utils/formatting.cpp:773
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: utils/formatting.cpp:784
+#: utils/formatting.cpp:789
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "Ryhmä"
 
-#: utils/formatting.cpp:800 utils/formatting.cpp:845
+#: utils/formatting.cpp:805 utils/formatting.cpp:850
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "tuntematon"
 
-#: utils/formatting.cpp:802 utils/formatting.cpp:849
+#: utils/formatting.cpp:807 utils/formatting.cpp:854
 #, kde-format
 msgid "untrusted"
 msgstr "ei-luotettu"
 
-#: utils/formatting.cpp:804 utils/formatting.cpp:851
+#: utils/formatting.cpp:809 utils/formatting.cpp:856
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr "ehdollinen"
 
-#: utils/formatting.cpp:806 utils/formatting.cpp:853
+#: utils/formatting.cpp:811 utils/formatting.cpp:858
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "täysi"
 
-#: utils/formatting.cpp:808 utils/formatting.cpp:855
+#: utils/formatting.cpp:813 utils/formatting.cpp:860
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "äärimmäinen"
 
-#: utils/formatting.cpp:810 utils/formatting.cpp:847
+#: utils/formatting.cpp:815 utils/formatting.cpp:852
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "epämääräinen"
 
-#: utils/formatting.cpp:821 utils/formatting.cpp:1272 utils/formatting.cpp:1297
+#: utils/formatting.cpp:826 utils/formatting.cpp:1277 utils/formatting.cpp:1302
 #, kde-format
 msgid "disabled"
 msgstr "käytöstä poistettu"
 
-#: utils/formatting.cpp:824 utils/formatting.cpp:838 utils/formatting.cpp:873
-#: utils/formatting.cpp:1275 utils/formatting.cpp:1300
+#: utils/formatting.cpp:829 utils/formatting.cpp:843 utils/formatting.cpp:878
+#: utils/formatting.cpp:1280 utils/formatting.cpp:1305
 #, kde-format
 msgid "revoked"
 msgstr "mitätöity"
 
-#: utils/formatting.cpp:827 utils/formatting.cpp:883 utils/formatting.cpp:1278
-#: utils/formatting.cpp:1303
+#: utils/formatting.cpp:832 utils/formatting.cpp:888 utils/formatting.cpp:1283
+#: utils/formatting.cpp:1308
 #, kde-format
 msgid "expired"
 msgstr "vanhentunut"
 
-#: utils/formatting.cpp:830 utils/formatting.cpp:841 utils/formatting.cpp:881
-#: utils/formatting.cpp:1281 utils/formatting.cpp:1306
+#: utils/formatting.cpp:835 utils/formatting.cpp:846 utils/formatting.cpp:886
+#: utils/formatting.cpp:1286 utils/formatting.cpp:1311
 #, kde-format
 msgid "invalid"
 msgstr "virheellinen"
 
-#: utils/formatting.cpp:832
+#: utils/formatting.cpp:837
 #, kde-format
 msgctxt "as in 'this subkey is ok'"
 msgid "OK"
 msgstr "OK"
 
-#: utils/formatting.cpp:871
+#: utils/formatting.cpp:876
 #, kde-format
 msgid "valid"
 msgstr "kelvollinen"
 
-#: utils/formatting.cpp:875
+#: utils/formatting.cpp:880
 #, kde-format
 msgid "class %1"
 msgstr "luokka %1"
 
-#: utils/formatting.cpp:885
+#: utils/formatting.cpp:890
 #, kde-format
 msgid "certificate expired"
 msgstr "varmenne on vanhentunut"
 
-#: utils/formatting.cpp:887
+#: utils/formatting.cpp:892
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "kelvoton"
 
-#: utils/formatting.cpp:893
+#: utils/formatting.cpp:898
 #, kde-format
 msgid "no public key"
 msgstr "ei julkista avainta"
 
-#: utils/formatting.cpp:895
+#: utils/formatting.cpp:900
 #, kde-format
 msgid "key disabled"
 msgstr "avain on poistettu käytöstä"
 
-#: utils/formatting.cpp:897
+#: utils/formatting.cpp:902
 #, kde-format
 msgid "key revoked"
 msgstr "avain mitätöity"
 
-#: utils/formatting.cpp:899
+#: utils/formatting.cpp:904
 #, kde-format
 msgid "key expired"
 msgstr "avain on vanhentunut"
 
-#: utils/formatting.cpp:955
+#: utils/formatting.cpp:960
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:1013
+#: utils/formatting.cpp:1018
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta %1: %2"
 
-#: utils/formatting.cpp:1015
+#: utils/formatting.cpp:1020
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta: %1"
 
-#: utils/formatting.cpp:1018
+#: utils/formatting.cpp:1023
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "Kelvoton allekirjoitus varmenteelta %1: %2"
 
-#: utils/formatting.cpp:1024
+#: utils/formatting.cpp:1029
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "Kelvollinen allekirjoitus tuntemattomalta varmenteelta %1."
 
-#: utils/formatting.cpp:1026
+#: utils/formatting.cpp:1031
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "Kelvollinen allekirjoitius tuntemattomalta varmenteelta."
 
-#: utils/formatting.cpp:1029
+#: utils/formatting.cpp:1034
 #, kde-format
 msgid "Good signature by %1."
 msgstr "Hyvä allekirjoitus varmenteelta %1."
 
-#: utils/formatting.cpp:1034
+#: utils/formatting.cpp:1039
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta %1: %2"
 
-#: utils/formatting.cpp:1036
+#: utils/formatting.cpp:1041
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "Kelvoton allekirjoitus tuntemattomalta varmenteelta: %1"
 
-#: utils/formatting.cpp:1039
+#: utils/formatting.cpp:1044
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "Kelvoton allekirjoitus varmenteelta %1: %2"
 
-#: utils/formatting.cpp:1053
+#: utils/formatting.cpp:1058
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "Tämä varmenne on tuotu seuraavista lähteistä:"
 
-#: utils/formatting.cpp:1064
+#: utils/formatting.cpp:1069
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "Tämän varmenteen tuonti peruttiin."
 
-#: utils/formatting.cpp:1067
+#: utils/formatting.cpp:1072
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "Sattui virhe tuotaessa tätä varmennetta: %1"
 
-#: utils/formatting.cpp:1072
+#: utils/formatting.cpp:1077
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "Tämä varmenne oli avainvarastollesi uusi. Salainen avain on saatavissa."
 
-#: utils/formatting.cpp:1073
+#: utils/formatting.cpp:1078
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "Tämä varmenne on avainvarastollesi uusi."
 
-#: utils/formatting.cpp:1078
+#: utils/formatting.cpp:1083
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr "Tuonti toi varmenteeseen uusi käyttäjätunnuksia."
 
-#: utils/formatting.cpp:1081
+#: utils/formatting.cpp:1086
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "Tuonti toi varmenteeseen uusia allekirjoituksia."
 
-#: utils/formatting.cpp:1084
+#: utils/formatting.cpp:1089
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "Tuonti toi varmenteeseen uusia aliavaimia."
 
-#: utils/formatting.cpp:1087
+#: utils/formatting.cpp:1092
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr "Tuonti ei tuonut varmenteeseen uutta tietoa. Varmennetta ei muutettu."
 
-#: utils/formatting.cpp:1094
+#: utils/formatting.cpp:1099
 #, kde-format
 msgid "Certify"
 msgstr "Varmenna"
 
-#: utils/formatting.cpp:1097
+#: utils/formatting.cpp:1102
 #, kde-format
 msgid "Sign"
 msgstr "Allekirjoita"
 
-#: utils/formatting.cpp:1100
+#: utils/formatting.cpp:1105
 #, kde-format
 msgid "Encrypt"
 msgstr "Salaa"
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1108
 #, kde-format
 msgid "Authenticate"
 msgstr "Tunnistaudu"
 
-#: utils/formatting.cpp:1106
+#: utils/formatting.cpp:1111
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
 msgstr "ADSK"
 
-#: utils/formatting.cpp:1114
+#: utils/formatting.cpp:1119
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, luotu: %4)"
 
-#: utils/formatting.cpp:1125
+#: utils/formatting.cpp:1130
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1, %2, luotu: %3)"
 
-#: utils/formatting.cpp:1137
+#: utils/formatting.cpp:1142
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -3019,7 +3019,7 @@ msgid_plural "%2 (%1 keys, %3)"
 msgstr[0] "%2 (1 avain, %3)"
 msgstr[1] "%2 (%1 avainta, %3)"
 
-#: utils/formatting.cpp:1144
+#: utils/formatting.cpp:1149
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -3027,7 +3027,7 @@ msgid_plural "%2 (%1 keys, %3, tag)"
 msgstr[0] "%2 (1 avain, %3, luokitus)"
 msgstr[1] "%2 (%1 avainta, %3, luokitus)"
 
-#: utils/formatting.cpp:1151
+#: utils/formatting.cpp:1156
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -3035,17 +3035,17 @@ msgid_plural "%2 (%1 keys, %3, unknown origin)"
 msgstr[0] "%2 (1 avain, %3, alkuperä tuntematon)"
 msgstr[1] "%2 (%1 avainta, %3, alkuperä tuntematon)"
 
-#: utils/formatting.cpp:1172
+#: utils/formatting.cpp:1177
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "Varmenne on merkitty omaksesi."
 
-#: utils/formatting.cpp:1174
+#: utils/formatting.cpp:1179
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "Varmenne kuuluu tälle vastaanottajalle."
 
-#: utils/formatting.cpp:1176
+#: utils/formatting.cpp:1181
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
@@ -3054,260 +3054,260 @@ msgstr ""
 "Luottamusmalli osoittaa varmenteen ehdollisesti kuuluvan tälle "
 "vastaanottajalle."
 
-#: utils/formatting.cpp:1178
+#: utils/formatting.cpp:1183
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "Tätä varmennetta ei tulisi käyttää."
 
-#: utils/formatting.cpp:1182
+#: utils/formatting.cpp:1187
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
 "Ei ole merkkiä siitä, että tämä varmenne kuuluisi tälle vastaanottajalle."
 
-#: utils/formatting.cpp:1194
+#: utils/formatting.cpp:1199
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "Tässä ryhmässä ei ole avaimia."
 
-#: utils/formatting.cpp:1244 utils/formatting.cpp:1256
+#: utils/formatting.cpp:1249 utils/formatting.cpp:1261
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "tuntematon"
 
-#: utils/formatting.cpp:1269
+#: utils/formatting.cpp:1274
 #, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "varmennettu"
 
-#: utils/formatting.cpp:1284
+#: utils/formatting.cpp:1289
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "ei varmennettu"
 
-#: utils/formatting.cpp:1287
+#: utils/formatting.cpp:1292
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "ei tarkistettu"
 
-#: utils/formatting.cpp:1309
+#: utils/formatting.cpp:1314
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "varmennettu"
 
-#: utils/formatting.cpp:1312
+#: utils/formatting.cpp:1317
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "ei varmennettu"
 
-#: utils/formatting.cpp:1315
+#: utils/formatting.cpp:1320
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "ei tarkistettu"
 
-#: utils/formatting.cpp:1324
+#: utils/formatting.cpp:1329
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "kaikki varmennettu"
 
-#: utils/formatting.cpp:1327
+#: utils/formatting.cpp:1332
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "kaikkia ei varmennettu"
 
-#: utils/formatting.cpp:1371
+#: utils/formatting.cpp:1376
 #, kde-format
 msgid "Keyserver"
 msgstr "Avainpalvelin"
 
-#: utils/formatting.cpp:1379
+#: utils/formatting.cpp:1384
 #, kde-format
 msgid "File import"
 msgstr "Tiedoston tuonti"
 
-#: utils/formatting.cpp:1381
+#: utils/formatting.cpp:1386
 #, kde-format
 msgid "Generated"
 msgstr "Luotu"
 
-#: utils/formatting.cpp:1416
+#: utils/formatting.cpp:1421
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Varmentaa tämän avaimen nimen ”%1” osin luotetuksi esittelijäksi."
 
-#: utils/formatting.cpp:1420
+#: utils/formatting.cpp:1425
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "Varmentaa tämän avaimen nimen ”%1” täysin luotetuksi esittelijäksi."
 
-#: utils/formatting.cpp:1457
+#: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr "ECC (Brainpool P-256)"
 
-#: utils/formatting.cpp:1458
+#: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr "ECC (Brainpool P-384)"
 
-#: utils/formatting.cpp:1459
+#: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr "ECC (Brainpool P-512)"
 
-#: utils/formatting.cpp:1460
+#: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr "ECC (Curve25519)"
 
-#: utils/formatting.cpp:1461
+#: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr "ECC (Curve448)"
 
-#: utils/formatting.cpp:1462
+#: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
 msgstr "ECC (Ed25519)"
 
-#: utils/formatting.cpp:1463
+#: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
 msgstr "ECC (Ed448)"
 
-#: utils/formatting.cpp:1464
+#: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
 msgstr "ECC (Cv25519)"
 
-#: utils/formatting.cpp:1465
+#: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
 msgstr "ECC (Cv448)"
 
-#: utils/formatting.cpp:1466
+#: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr "ECC (NIST P-256)"
 
-#: utils/formatting.cpp:1467
+#: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr "ECC (NIST P-384)"
 
-#: utils/formatting.cpp:1468
+#: utils/formatting.cpp:1473
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr "ECC (NIST P-521)"
 
-#: utils/formatting.cpp:1469
+#: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
 msgstr "RSA 1024"
 
-#: utils/formatting.cpp:1470
+#: utils/formatting.cpp:1475
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr "RSA 2048"
 
-#: utils/formatting.cpp:1471
+#: utils/formatting.cpp:1476
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "RSA 3072"
 
-#: utils/formatting.cpp:1472
+#: utils/formatting.cpp:1477
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "RSA 4096"
 
-#: utils/formatting.cpp:1473
+#: utils/formatting.cpp:1478
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr "DSA"
 
-#: utils/formatting.cpp:1474
+#: utils/formatting.cpp:1479
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr "DSA 2048"
 
-#: utils/formatting.cpp:1475
+#: utils/formatting.cpp:1480
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr "Elgamal 1024"
 
-#: utils/formatting.cpp:1476
+#: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr "Elgamal 2048"
 
-#: utils/formatting.cpp:1477
+#: utils/formatting.cpp:1482
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr "Elgamal 3072"
 
-#: utils/formatting.cpp:1478
+#: utils/formatting.cpp:1483
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
-#: utils/formatting.cpp:1479
+#: utils/formatting.cpp:1484
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
 msgstr "Kyber 768 (Curve25519)"
 
-#: utils/formatting.cpp:1480
+#: utils/formatting.cpp:1485
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
 msgstr "Kyber 768 (Brainpool P-256)"
 
-#: utils/formatting.cpp:1481
+#: utils/formatting.cpp:1486
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
 msgstr "Kyber 1024 (Brainpool P-384)"
 
-#: utils/formatting.cpp:1482
+#: utils/formatting.cpp:1487
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
 msgstr "Kyber 1024 (Curve448)"
 
-#: utils/formatting.cpp:1495
+#: utils/formatting.cpp:1500
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
@@ -3316,13 +3316,13 @@ msgstr ""
 "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuuteen luotetaan vain "
 "ehdollisesti."
 
-#: utils/formatting.cpp:1497
+#: utils/formatting.cpp:1502
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
 "Allekirjoitus on kelvollinen ja varmenteen kelpoisuuteen luotetaan täysin."
 
-#: utils/formatting.cpp:1499
+#: utils/formatting.cpp:1504
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
@@ -3330,7 +3330,7 @@ msgstr ""
 "Allekirjoitus on kelvollinen ja varmenteen kelpoisuuteen luotetaan "
 "ehdottomasti."
 
-#: utils/formatting.cpp:1501
+#: utils/formatting.cpp:1506
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
@@ -3339,29 +3339,29 @@ msgstr ""
 "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuuteen <em>ei luoteta</"
 "em>."
 
-#: utils/formatting.cpp:1503
+#: utils/formatting.cpp:1508
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr ""
 "Allekirjoitus on kelvollinen mutta varmenteen kelvollisuutta ei tunneta."
 
-#: utils/formatting.cpp:1506
+#: utils/formatting.cpp:1511
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
 
-#: utils/formatting.cpp:1518
+#: utils/formatting.cpp:1523
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Tuntematon varmenne"
 
-#: utils/formatting.cpp:1522
+#: utils/formatting.cpp:1527
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1538
+#: utils/formatting.cpp:1543
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
@@ -3370,24 +3370,24 @@ msgstr ""
 "Allekirjoitus on luotu %1 tuntemattomalla varmenteella, jonka sormenjälki on "
 "%2"
 
-#: utils/formatting.cpp:1542
+#: utils/formatting.cpp:1547
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr ""
 "Allekirjoitus on luotu tuntemattomalla varmenteella, jonka sormenjälki on %1"
 
-#: utils/formatting.cpp:1546
+#: utils/formatting.cpp:1551
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "Allekirjoitus on luotu %1 varmenteella: %2"
 
-#: utils/formatting.cpp:1548
+#: utils/formatting.cpp:1553
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Allekirjoitus on luotu varmenteella: %1"
 
-#: utils/formatting.cpp:1554
+#: utils/formatting.cpp:1559
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3395,7 +3395,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "Allekirjoitus on %1"
 
-#: utils/formatting.cpp:1557
+#: utils/formatting.cpp:1562
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3403,78 +3403,78 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "Allekirjoitus <b>ei ole</b> %1."
 
-#: utils/formatting.cpp:1567
+#: utils/formatting.cpp:1572
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Virhe: Allekirjoitusta ei todennettu"
 
-#: utils/formatting.cpp:1569
+#: utils/formatting.cpp:1574
 #, kde-format
 msgid "Good signature"
 msgstr "Hyvä allekirjoitus"
 
-#: utils/formatting.cpp:1571
+#: utils/formatting.cpp:1576
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "Allekirjoitusvarmenne on mitätöity"
 
-#: utils/formatting.cpp:1573
+#: utils/formatting.cpp:1578
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "Allekirjoitusvarmenne on vanhentunut"
 
-#: utils/formatting.cpp:1575
+#: utils/formatting.cpp:1580
 #, kde-format
 msgid "Certificate is not available"
 msgstr "Varmenne ei ole saatavilla"
 
-#: utils/formatting.cpp:1577
+#: utils/formatting.cpp:1582
 #, kde-format
 msgid "Signature expired"
 msgstr "Allekirjoitus on vanhentunut"
 
-#: utils/formatting.cpp:1579
+#: utils/formatting.cpp:1584
 #, kde-format
 msgid "CRL missing"
 msgstr "CRL puuttuu"
 
-#: utils/formatting.cpp:1581
+#: utils/formatting.cpp:1586
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL liian vanha"
 
-#: utils/formatting.cpp:1583
+#: utils/formatting.cpp:1588
 #, kde-format
 msgid "Bad policy"
 msgstr "Kelvoton käytänne"
 
-#: utils/formatting.cpp:1585
+#: utils/formatting.cpp:1590
 #, kde-format
 msgid "System error"
 msgstr "Järjestelmävirhe"
 
-#: utils/formatting.cpp:1587
+#: utils/formatting.cpp:1592
 #, kde-format
 msgid "Bad signature"
 msgstr "Kelvoton allekirjoitus"
 
-#: utils/formatting.cpp:1663 utils/formatting.cpp:1686
+#: utils/formatting.cpp:1668 utils/formatting.cpp:1691
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Allekirjoitus on virheellinen: %1"
 
-#: utils/formatting.cpp:1672
+#: utils/formatting.cpp:1677
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "Varmennetta voi etsiä avainpalvelimelta tai tuoda sen tiedostosta."
 
-#: utils/formatting.cpp:1681
+#: utils/formatting.cpp:1686
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
 
-#: utils/formatting.cpp:1682
+#: utils/formatting.cpp:1687
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
