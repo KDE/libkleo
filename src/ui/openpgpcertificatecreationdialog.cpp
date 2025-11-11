@@ -147,7 +147,6 @@ public:
     explicit Private(OpenPGPCertificateCreationDialog *qq)
         : q{qq}
         , ui{qq}
-        , technicalParameters{KeyParameters::OpenPGP}
     {
         q->setWindowTitle(i18nc("title:window", "Create OpenPGP Certificate"));
 
@@ -231,15 +230,7 @@ public:
             if (checked && !ui.expiryDE->isValid()) {
                 setExpiryDate(defaultExpirationDate(Kleo::Expiration::ExpirationOnUnlimitedValidity::InternalDefaultExpiration));
             }
-            updateTechnicalParameters();
         });
-        connect(ui.expiryDE, &KDateComboBox::dateChanged, q, [this]() {
-            updateTechnicalParameters();
-        });
-        connect(ui.keyAlgoCB, &QComboBox::currentIndexChanged, q, [this]() {
-            updateTechnicalParameters();
-        });
-        updateTechnicalParameters(); // set key parameters to default values for OpenPGP
         connect(ui.expander, &AnimatedExpander::startExpanding, q, [this]() {
             const auto sh = q->sizeHint();
             const auto margins = q->layout()->contentsMargins();
@@ -248,9 +239,10 @@ public:
     }
 
 private:
-    void updateTechnicalParameters()
+    KeyParameters keyParameters()
     {
-        technicalParameters = KeyParameters{KeyParameters::OpenPGP};
+        KeyParameters parameters{KeyParameters::OpenPGP};
+
         auto keyType = GpgME::Subkey::AlgoUnknown;
         auto subkeyType = GpgME::Subkey::AlgoUnknown;
         auto algoString = ui.keyAlgoCB->currentData().toString();
@@ -260,46 +252,58 @@ private:
             // cppcheck-suppress redundantInitialization
             subkeyType = GpgME::Subkey::AlgoRSA;
             const auto strength = algoString.mid(3).toInt();
-            technicalParameters.setKeyLength(strength);
-            technicalParameters.setSubkeyLength(strength);
+            parameters.setKeyLength(strength);
+            parameters.setSubkeyLength(strength);
         } else if (algoString == QLatin1StringView("curve25519") || algoString == QLatin1StringView("curve448")) {
             keyType = GpgME::Subkey::AlgoEDDSA;
             subkeyType = GpgME::Subkey::AlgoECDH;
             if (algoString.endsWith(QStringLiteral("25519"))) {
-                technicalParameters.setKeyCurve(QStringLiteral("ed25519"));
-                technicalParameters.setSubkeyCurve(QStringLiteral("cv25519"));
+                parameters.setKeyCurve(QStringLiteral("ed25519"));
+                parameters.setSubkeyCurve(QStringLiteral("cv25519"));
             } else {
-                technicalParameters.setKeyCurve(QStringLiteral("ed448"));
-                technicalParameters.setSubkeyCurve(QStringLiteral("cv448"));
+                parameters.setKeyCurve(QStringLiteral("ed448"));
+                parameters.setSubkeyCurve(QStringLiteral("cv448"));
             }
 #if GPGMEPP_SUPPORTS_KYBER
         } else if (algoString == "ky768_bp256"_L1) {
             keyType = GpgME::Subkey::AlgoECDSA;
             subkeyType = GpgME::Subkey::AlgoKyber;
-            technicalParameters.setKeyCurve(u"brainpoolP256r1"_s);
-            technicalParameters.setSubkeyCurve(u"brainpoolP256r1"_s);
-            technicalParameters.setSubkeyLength(768);
+            parameters.setKeyCurve(u"brainpoolP256r1"_s);
+            parameters.setSubkeyCurve(u"brainpoolP256r1"_s);
+            parameters.setSubkeyLength(768);
         } else if (algoString == "ky1024_bp384"_L1) {
             keyType = GpgME::Subkey::AlgoECDSA;
             subkeyType = GpgME::Subkey::AlgoKyber;
-            technicalParameters.setKeyCurve(u"brainpoolP384r1"_s);
-            technicalParameters.setSubkeyCurve(u"brainpoolP384r1"_s);
-            technicalParameters.setSubkeyLength(1024);
+            parameters.setKeyCurve(u"brainpoolP384r1"_s);
+            parameters.setSubkeyCurve(u"brainpoolP384r1"_s);
+            parameters.setSubkeyLength(1024);
 #endif
         } else {
             keyType = GpgME::Subkey::AlgoECDSA;
             subkeyType = GpgME::Subkey::AlgoECDH;
-            technicalParameters.setKeyCurve(algoString);
-            technicalParameters.setSubkeyCurve(algoString);
+            parameters.setKeyCurve(algoString);
+            parameters.setSubkeyCurve(algoString);
         }
-        technicalParameters.setKeyType(keyType);
-        technicalParameters.setSubkeyType(subkeyType);
+        parameters.setKeyType(keyType);
+        parameters.setSubkeyType(subkeyType);
 
-        technicalParameters.setKeyUsage(KeyUsage(KeyUsage::Certify | KeyUsage::Sign));
-        technicalParameters.setSubkeyUsage(KeyUsage(KeyUsage::Encrypt));
+        if (ui.teamCheckBox->isChecked()) {
+            parameters.setKeyUsage(KeyUsage(KeyUsage::Certify | KeyUsage::Group));
+        } else {
+            parameters.setKeyUsage(KeyUsage(KeyUsage::Certify | KeyUsage::Sign));
+        }
+        parameters.setSubkeyUsage(KeyUsage(KeyUsage::Encrypt));
 
-        technicalParameters.setExpirationDate(expiryDate());
-        // name and email are set later
+        parameters.setExpirationDate(expiryDate());
+
+        if (const QString name = q->name(); !name.isEmpty()) {
+            parameters.setName(name);
+        }
+        if (const QString email = q->email(); !email.isEmpty()) {
+            parameters.setEmail(email);
+        }
+
+        return parameters;
     }
 
     QDate expiryDate() const
@@ -307,7 +311,7 @@ private:
         return ui.expiryCB->isChecked() ? ui.expiryDE->date() : QDate{};
     }
 
-    void setTechnicalParameters(const KeyParameters &parameters)
+    void setKeyParameters(const KeyParameters &parameters)
     {
         int index = -1;
         if (parameters.keyType() == GpgME::Subkey::AlgoRSA) {
@@ -333,6 +337,13 @@ private:
             ui.keyAlgoCB->setCurrentIndex(index);
         }
         setExpiryDate(parameters.expirationDate());
+        q->setName(parameters.name());
+        const auto emails = parameters.emails();
+        if (!emails.empty()) {
+            q->setEmail(emails.front());
+        }
+
+        ui.teamCheckBox->setChecked(parameters.keyUsage().isGroupKey());
     }
 
     void checkAccept()
@@ -388,9 +399,6 @@ private:
             ui.expiryCB->setChecked(ui.expiryDE->isValid());
         }
     }
-
-private:
-    KeyParameters technicalParameters;
 };
 
 OpenPGPCertificateCreationDialog::OpenPGPCertificateCreationDialog(QWidget *parent, Qt::WindowFlags f)
@@ -426,33 +434,12 @@ QString OpenPGPCertificateCreationDialog::email() const
 
 void Kleo::OpenPGPCertificateCreationDialog::setKeyParameters(const Kleo::KeyParameters &parameters)
 {
-    setName(parameters.name());
-    const auto emails = parameters.emails();
-    if (!emails.empty()) {
-        setEmail(emails.front());
-    }
-
-    d->ui.teamCheckBox->setChecked(parameters.keyUsage().isGroupKey());
-    d->setTechnicalParameters(parameters);
+    d->setKeyParameters(parameters);
 }
 
 KeyParameters OpenPGPCertificateCreationDialog::keyParameters() const
 {
-    // set name and email on a copy of the technical parameters
-    auto parameters = d->technicalParameters;
-    if (!name().isEmpty()) {
-        parameters.setName(name());
-    }
-    if (!email().isEmpty()) {
-        parameters.setEmail(email());
-    }
-
-    auto usage = parameters.keyUsage();
-    usage.setIsGroupKey(d->ui.teamCheckBox->isChecked());
-    usage.setCanSign(!d->ui.teamCheckBox->isChecked());
-    parameters.setKeyUsage(usage);
-
-    return parameters;
+    return d->keyParameters();
 }
 
 void Kleo::OpenPGPCertificateCreationDialog::setProtectKeyWithPassword(bool protectKey)
