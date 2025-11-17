@@ -19,10 +19,6 @@ extern "C" {
 #endif
 #endif
 
-/* This is a helper function to load a Windows function from either of
-   one DLLs. */
-HRESULT w32_shgetfolderpath(HWND a, int b, HANDLE c, DWORD d, LPSTR e);
-
 /* Return a string from the Win32 Registry or NULL in case of error.
    Caller must release the return value.  A NULL for root is an alias
    for HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE in turn.  */

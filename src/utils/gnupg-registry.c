@@ -28,44 +28,6 @@
 
 #include "gnupg-registry.h"
 
-/* This is a helper function to load a Windows function from either of
-   one DLLs. */
-HRESULT
-w32_shgetfolderpath(HWND a, int b, HANDLE c, DWORD d, LPSTR e)
-{
-    static int initialized;
-    typedef HRESULT(WINAPI * SHGetFolderPathAType)(HWND, int, HANDLE, DWORD, LPSTR);
-    static SHGetFolderPathAType func;
-
-    if (!initialized) {
-        static const char *dllnames[] = {"shell32.dll", "shfolder.dll", NULL};
-        void *handle;
-        int i;
-
-        initialized = 1;
-
-        for (i = 0, handle = NULL; !handle && dllnames[i]; i++) {
-            handle = LoadLibraryA(dllnames[i]);
-            if (handle) {
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wcast-function-type"
-                func = (SHGetFolderPathAType)GetProcAddress(handle, "SHGetFolderPathA");
-#pragma GCC diagnostic pop
-                if (!func) {
-                    FreeLibrary(handle);
-                    handle = NULL;
-                }
-            }
-        }
-    }
-
-    if (func) {
-        return func(a, b, c, d, e);
-    } else {
-        return -1;
-    }
-}
-
 /* Helper for read_w32_registry_string(). */
 static HKEY get_root_key(const char *root)
 {
