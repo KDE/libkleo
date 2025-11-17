@@ -52,5 +52,24 @@ void errorWId(WId parentId,
               const Kleo::AuditLogEntry &auditLog,
               const QString &title = {},
               KMessageBox::Options options = KMessageBox::Notify);
+
+/*!
+ * Creates and shows a message dialog with a button to show the audit log.
+ *
+ * You must connect to the finished() signal to know when the dialog is closed.
+ * The result of the finished() signal is the button code (QDialogButtonBox::StandardButton)
+ * of the clicked button.
+ *
+ * The button to show the audit log is only shown if an audit log is available
+ * and not empty.
+ */
+KLEO_EXPORT
+QDialog *create(QWidget *parent,
+                QDialogButtonBox::StandardButtons buttons,
+                QMessageBox::Icon icon,
+                const QString &text,
+                const Kleo::AuditLogEntry &auditLog,
+                const QString &title = {},
+                KMessageBox::Options options = KMessageBox::Notify);
 }
 }
