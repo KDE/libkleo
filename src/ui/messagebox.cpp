@@ -130,7 +130,7 @@ MessageBoxDialog::MessageBoxDialog(QWidget *parent,
     }
 
     // explicitly request a modeless dialog so that the audit log viewer isn't blocked
-    options |= static_cast<KMessageBox::Options>(~KMessageBox::WindowModal);
+    options &= static_cast<KMessageBox::Options>(~KMessageBox::WindowModal);
     // don't exec() the dialog (which would make it application modal)
     options |= KMessageBox::NoExec;
 
