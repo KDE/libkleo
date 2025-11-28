@@ -943,7 +943,7 @@ void NewKeyApprovalDialog::handleKeyGenResult()
     if (d->mRunningJobs.empty()) {
         qCWarning(LIBKLEO_LOG) << __func__ << "No running job";
     }
-    const auto job = d->mRunningJobs.front();
+    const auto job = d->mRunningJobs.constFirst();
     const auto result = QGpgME::Job::context(job)->keyGenerationResult();
     const auto combo = d->findVisibleKeySelectionComboWithGenerateKey();
     d->handleKeyGenResult(result, job, combo);
