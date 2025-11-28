@@ -217,7 +217,7 @@ public Q_SLOTS:
     {
         reload(proto);
     }
-    void reload(GpgME::Protocol proto = GpgME::UnknownProtocol, ReloadOption option = Reload);
+    void reload(GpgME::Protocol proto = GpgME::UnknownProtocol, Kleo::KeyCache::ReloadOption option = Reload);
     void cancelKeyListing();
 
 Q_SIGNALS:
