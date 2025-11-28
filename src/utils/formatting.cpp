@@ -1594,7 +1594,7 @@ static QString signatureSummaryToString(GpgME::Signature::Summary summary)
     return QString();
 }
 
-static QLatin1StringView stripAngleBrackets(const QLatin1StringView &str)
+static QLatin1StringView stripAngleBrackets(QLatin1StringView str)
 {
     if (str.isEmpty()) {
         return str;
