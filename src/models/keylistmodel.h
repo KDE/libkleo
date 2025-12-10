@@ -19,6 +19,7 @@
 
 #include <QAbstractItemModel>
 
+#include <memory>
 #include <vector>
 
 namespace GpgME

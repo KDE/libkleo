@@ -13,6 +13,7 @@
 
 #include <QAbstractTableModel>
 
+#include <memory>
 #include <vector>
 
 namespace GpgME
