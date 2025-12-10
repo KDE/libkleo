@@ -1506,14 +1506,11 @@ void KeyCache::RefreshKeysJob::Private::emitDone(const KeyListResult &res)
 
 KeyCache::RefreshKeysJob::RefreshKeysJob(KeyCache *cache, QObject *parent)
     : QObject(parent)
-    , d(new Private(cache, this))
+    , d{std::make_unique<Private>(cache, this)}
 {
 }
 
-KeyCache::RefreshKeysJob::~RefreshKeysJob()
-{
-    delete d;
-}
+KeyCache::RefreshKeysJob::~RefreshKeysJob() = default;
 
 void KeyCache::RefreshKeysJob::start()
 {

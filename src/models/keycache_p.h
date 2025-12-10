@@ -36,7 +36,7 @@ Q_SIGNALS:
 private:
     class Private;
     friend class Private;
-    Private *const d;
+    std::unique_ptr<Private> const d;
     Q_PRIVATE_SLOT(d, void listAllKeysJobDone(GpgME::KeyListResult, std::vector<GpgME::Key>))
 };
 }
