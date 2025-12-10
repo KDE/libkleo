@@ -65,7 +65,7 @@ public:
 
 private:
     class Private;
-    QScopedPointer<Private> const d;
+    std::unique_ptr<Private> const d;
 };
 
 }
