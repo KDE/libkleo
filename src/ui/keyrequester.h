@@ -84,14 +84,8 @@ public:
     unsigned int allowedKeys() const;
     void setAllowedKeys(unsigned int allowed);
 
-    void setInitialQuery(const QString &s)
-    {
-        mInitialQuery = s;
-    }
-    const QString &initialQuery() const
-    {
-        return mInitialQuery;
-    }
+    void setInitialQuery(const QString &s);
+    const QString &initialQuery() const;
 
 Q_SIGNALS:
     void changed();
@@ -108,25 +102,8 @@ private Q_SLOTS:
     void slotEraseButtonClicked();
 
 private:
-    const QGpgME::Protocol *mOpenPGPBackend = nullptr;
-    const QGpgME::Protocol *mSMIMEBackend = nullptr;
-    QLabel *mComplianceIcon = nullptr;
-    QLabel *mLabel = nullptr;
-    QPushButton *mEraseButton = nullptr;
-    QPushButton *mDialogButton = nullptr;
-    QString mDialogCaption, mDialogMessage, mInitialQuery;
-    bool mMulti;
-    unsigned int mKeyUsage;
-    int mJobs;
-    std::vector<GpgME::Key> mKeys;
-    std::vector<GpgME::Key> mTmpKeys;
-
-private:
     class Private;
-    Private *const d;
-
-protected:
-    virtual void virtual_hook(int, void *);
+    std::unique_ptr<Private> const d;
 };
 
 class KLEO_EXPORT EncryptionKeyRequester : public KeyRequester
@@ -153,10 +130,7 @@ public:
 
 private:
     class Private;
-    Private *const d;
-
-protected:
-    void virtual_hook(int, void *) override;
+    std::unique_ptr<Private> const d;
 };
 
 class KLEO_EXPORT SigningKeyRequester : public KeyRequester
@@ -195,10 +169,7 @@ public:
 
 private:
     class Private;
-    Private *const d;
-
-protected:
-    void virtual_hook(int, void *) override;
+    std::unique_ptr<Private> const d;
 };
 
 }
