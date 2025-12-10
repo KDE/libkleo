@@ -57,7 +57,7 @@ public:
 
 private:
     class Private;
-    std::unique_ptr<Private> d;
+    std::unique_ptr<Private> const d;
 };
 
 } // namespace Kleo

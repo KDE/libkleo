@@ -76,7 +76,7 @@ private Q_SLOTS:
 
 private:
     class Private;
-    std::unique_ptr<Private> d;
+    std::unique_ptr<Private> const d;
 };
 
 } // namespace kleo

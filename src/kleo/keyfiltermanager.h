@@ -82,7 +82,7 @@ Q_SIGNALS:
     void alwaysFilterByProtocolChanged(GpgME::Protocol protocol);
 
 private:
-    std::unique_ptr<Private> d;
+    std::unique_ptr<Private> const d;
     static KeyFilterManager *mSelf;
 };
 
@@ -110,6 +110,6 @@ public:
 
 private:
     class Private;
-    const std::unique_ptr<Private> d;
+    std::unique_ptr<Private> const d;
 };
 }
