@@ -165,59 +165,11 @@ QString Kleo::gpg4winInstallPath()
 
 QString Kleo::gnupgInstallPath()
 {
-#ifdef Q_OS_WIN
-    // QApplication::applicationDirPath is only used as a fallback
-    // to support the case where Kleopatra is not installed from
-    // Gpg4win but Gpg4win is also installed.
-    char *instDir = read_w32_registry_string("HKEY_LOCAL_MACHINE", "Software\\GnuPG", "Install Directory");
-    if (!instDir) {
-        // Fallback to HKCU
-        instDir = read_w32_registry_string("HKEY_CURRENT_USER", "Software\\GnuPG", "Install Directory");
+    static const QString gnupgBinDir = QString::fromUtf8(GpgME::dirInfo("bindir"));
+    if (gnupgBinDir.isEmpty()) {
+        qCWarning(LIBKLEO_LOG) << __func__ << "Error: GnuPG not found.";
     }
-    if (instDir) {
-        QString ret = QString::fromLocal8Bit(instDir) + QStringLiteral("/bin");
-        free(instDir);
-        return ret;
-    }
-    qCDebug(LIBKLEO_LOG) << "GnuPG not found. Falling back to gpgconf list dir.";
-#endif
-    return gpgConfListDir("bindir");
-}
-
-QString Kleo::gpgConfListDir(const char *which)
-{
-    if (!which || !*which) {
-        return QString();
-    }
-    const QString gpgConfPath = Kleo::gpgConfPath();
-    if (gpgConfPath.isEmpty()) {
-        return QString();
-    }
-    QProcess gpgConf;
-    qCDebug(LIBKLEO_LOG) << "gpgConfListDir: starting " << qPrintable(gpgConfPath) << " --list-dirs";
-    gpgConf.start(gpgConfPath, QStringList() << QStringLiteral("--list-dirs"));
-    if (!gpgConf.waitForFinished()) {
-        qCDebug(LIBKLEO_LOG) << "gpgConfListDir(): failed to execute gpgconf: " << qPrintable(gpgConf.errorString());
-        qCDebug(LIBKLEO_LOG) << "output was:\n" << gpgConf.readAllStandardError().constData();
-        return QString();
-    }
-    const QList<QByteArray> lines = gpgConf.readAllStandardOutput().split('\n');
-    for (const QByteArray &line : lines) {
-        if (line.startsWith(which) && line[qstrlen(which)] == ':') {
-            const int begin = qstrlen(which) + 1;
-            int end = line.size();
-            while (end && (line[end - 1] == '\n' || line[end - 1] == '\r')) {
-                --end;
-            }
-            const QString result = QDir::fromNativeSeparators(QFile::decodeName(hexdecode(line.mid(begin, end - begin))));
-            qCDebug(LIBKLEO_LOG) << "gpgConfListDir: found " << qPrintable(result) << " for '" << which << "'entry";
-            return result;
-        }
-    }
-    qCDebug(LIBKLEO_LOG) << "gpgConfListDir(): didn't find '" << which << "'"
-                         << "entry in output:\n"
-                         << gpgConf.readAllStandardError().constData();
-    return QString();
+    return gnupgBinDir;
 }
 
 static std::array<int, 3> getVersionFromString(const char *actual, bool &ok)
