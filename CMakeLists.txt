@@ -3,15 +3,6 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 set(PIM_VERSION "6.6.41")
 
-# GNUPG_INSTALL_DIR_REGISTRY_KEY is used to find the right GnuPG installation on Windows
-if (GNUPG_INSTALL_DIR_REGISTRY_KEY)
-    # Gpg4win plus-escapes spaces in the passed value for reasons
-    string(REPLACE "+" " " GNUPG_INSTALL_DIR_REGISTRY_KEY "${GNUPG_INSTALL_DIR_REGISTRY_KEY}")
-    message(STATUS "Using GNUPG_INSTALL_DIR_REGISTRY_KEY '${GNUPG_INSTALL_DIR_REGISTRY_KEY}'")
-else()
-    set(GNUPG_INSTALL_DIR_REGISTRY_KEY "Install Directory")
-endif()
-
 project(libkleo VERSION ${PIM_VERSION})
 
 set(KF_MIN_VERSION "6.20.0")

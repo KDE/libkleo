@@ -32,7 +32,6 @@ KLEO_EXPORT QString gpgConfPath();
 KLEO_EXPORT QString gpgSmPath();
 KLEO_EXPORT QString gpgPath();
 
-KLEO_EXPORT QString gpgConfListDir(const char *which);
 KLEO_EXPORT QString gpg4winInstallPath();
 KLEO_EXPORT QString gnupgInstallPath();
 KLEO_EXPORT const QString &paperKeyInstallPath();
