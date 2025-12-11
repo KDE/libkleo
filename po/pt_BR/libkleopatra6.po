@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-18 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:45+0000\n"
 "PO-Revision-Date: 2025-11-06 07:04-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1857,24 +1857,24 @@ msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Preferências da criptografia:"
 
-#: ui/keyrequester.cpp:88
+#: ui/keyrequester.cpp:90
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Limpar"
 
-#: ui/keyrequester.cpp:91
+#: ui/keyrequester.cpp:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Alterar..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
+#: ui/keyrequester.cpp:221 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>desconhecido</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
+#: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1883,14 +1883,14 @@ msgstr ""
 "<qt><p>Ocorreu um erro ao obter as chaves da infraestrutura:</p><p><b>%1</"
 "b></p></qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Falha na listagem das chaves"
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:280
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
@@ -1898,7 +1898,7 @@ msgstr ""
 "A infraestrutura do OpenPGP não suporta a listagem de chaves. Verifique a "
 "sua instalação."
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:302
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
@@ -1906,32 +1906,32 @@ msgstr ""
 "A infraestrutura do S/MIME não suporta a listagem de chaves. Verifique a sua "
 "instalação."
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:424
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "Seleção da chave do OpenPGP"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:425
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Selecione uma chave do OpenPGP para usar."
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:427
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "Seleção da chave S/MIME"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:428
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Selecione uma chave S/MIME para usar."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:430
 #, kde-format
 msgid "Key Selection"
 msgstr "Seleção da chave"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:431
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Selecione uma chave (OpenPGP ou S/MIME) para usar."

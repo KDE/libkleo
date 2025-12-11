@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-18 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:45+0000\n"
 "PO-Revision-Date: 2025-11-06 10:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1869,24 +1869,24 @@ msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Preferències de l'encriptatge:"
 
-#: ui/keyrequester.cpp:88
+#: ui/keyrequester.cpp:90
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Neteja"
 
-#: ui/keyrequester.cpp:91
+#: ui/keyrequester.cpp:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Canvia..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
+#: ui/keyrequester.cpp:221 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>desconegut</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
+#: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1895,53 +1895,53 @@ msgstr ""
 "<qt><p>S'ha produït un error en obtenir les claus des del dorsal:</p><p><b>"
 "%1</b></p></qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "El llistat de claus ha fallat"
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:280
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr ""
 "El dorsal OpenPGP no permet el llistat de claus. Comproveu la instal·lació."
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:302
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr ""
 "El dorsal S/MIME no permet el llistat de claus. Comproveu la instal·lació."
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:424
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "Selecció de la clau OpenPGP"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:425
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Si us plau, seleccioneu una clau OpenPGP a usar."
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:427
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "Selecció de la clau S/MIME"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:428
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Si us plau, seleccioneu una clau S/MIME a usar."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:430
 #, kde-format
 msgid "Key Selection"
 msgstr "Selecció de la clau"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:431
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Si us plau, seleccioneu una clau (OpenPGP o S/MIME) a usar."

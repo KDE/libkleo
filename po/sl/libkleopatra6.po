@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1723132 2025-11-18 01:27:31Z scripty $
+# $Id: libkleopatra6.po 1724699 2025-12-11 01:27:38Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-18 00:44+0000\n"
+"POT-Creation-Date: 2025-12-11 00:45+0000\n"
 "PO-Revision-Date: 2025-11-07 10:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1989,24 +1989,24 @@ msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Možnosti šifriranja:"
 
-#: ui/keyrequester.cpp:88
+#: ui/keyrequester.cpp:90
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Počisti"
 
-#: ui/keyrequester.cpp:91
+#: ui/keyrequester.cpp:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Change..."
 msgstr "Zamenjaj..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
+#: ui/keyrequester.cpp:221 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>neznano</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
+#: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -2015,51 +2015,51 @@ msgstr ""
 "<qt><p>Med pridobivanjem ključev z zaledja je prišlo do napake:</p><p><b>%1</"
 "b></p></qt>"
 
-#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
 #, kde-format
 msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Izpisovanje ključev ni uspelo"
 
-#: ui/keyrequester.cpp:270
+#: ui/keyrequester.cpp:280
 #, kde-format
 msgid ""
 "The OpenPGP backend does not support listing keys. Check your installation."
 msgstr "Zaledje OpenPGP ne podpira izpisovanja ključev. Preverite namestitev."
 
-#: ui/keyrequester.cpp:292
+#: ui/keyrequester.cpp:302
 #, kde-format
 msgid ""
 "The S/MIME backend does not support listing keys. Check your installation."
 msgstr "Zaledje S/MIME ne podpira izpisovanja ključev. Preverite namestitev."
 
-#: ui/keyrequester.cpp:412
+#: ui/keyrequester.cpp:424
 #, kde-format
 msgid "OpenPGP Key Selection"
 msgstr "Izbira ključa OpenPGP"
 
-#: ui/keyrequester.cpp:413
+#: ui/keyrequester.cpp:425
 #, kde-format
 msgid "Please select an OpenPGP key to use."
 msgstr "Izberite ključ OpenPGP, ki naj se uporablja."
 
-#: ui/keyrequester.cpp:415
+#: ui/keyrequester.cpp:427
 #, kde-format
 msgid "S/MIME Key Selection"
 msgstr "Izbira ključa S/MIME"
 
-#: ui/keyrequester.cpp:416
+#: ui/keyrequester.cpp:428
 #, kde-format
 msgid "Please select an S/MIME key to use."
 msgstr "Izberite ključ S/MIME, ki naj se uporablja."
 
-#: ui/keyrequester.cpp:418
+#: ui/keyrequester.cpp:430
 #, kde-format
 msgid "Key Selection"
 msgstr "Izbira ključev"
 
-#: ui/keyrequester.cpp:419
+#: ui/keyrequester.cpp:431
 #, kde-format
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Izberite ključ (OpenPGP ali S/MIME), ki naj se uporablja."
