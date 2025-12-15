@@ -106,10 +106,6 @@ QStringList Kleo::DNAttributes::names()
 
 QString Kleo::DNAttributes::nameToLabel(const QString &name)
 {
-    const QString key{name.trimmed().toUpper()};
-    if (DNAttributes::names().contains(key)) {
-        return attributeNamesAndLabels.value(key).toString();
-    }
-    qCWarning(LIBKLEO_LOG) << "Attribute " << key << " doesn't exit. Bug ?";
-    return {};
+    const KLazyLocalizedString label = attributeNamesAndLabels.value(name.trimmed().toUpper());
+    return label.isEmpty() ? QString() : label.toString();
 }
