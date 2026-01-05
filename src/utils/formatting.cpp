@@ -242,6 +242,12 @@ QString Formatting::prettyNameAndEMail(const Key &key)
     return prettyNameAndEMail(key.userID(0));
 }
 
+QString Formatting::prettyNameOrEMail(const Key &key)
+{
+    QString result = prettyName(key);
+    return result.isEmpty() ? prettyEMail(key) : result;
+}
+
 QString Formatting::prettyName(const Key &key)
 {
     return prettyName(key.userID(0));

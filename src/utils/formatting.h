@@ -64,6 +64,11 @@ KLEO_EXPORT QString prettyNameAndEMail(int proto, const QString &id, const QStri
 KLEO_EXPORT QString prettyNameAndEMail(const GpgME::Key &key);
 KLEO_EXPORT QString prettyNameAndEMail(const GpgME::UserID &key);
 
+/*!
+ * Returns the name or, if name is empty, the email address of the primary user ID of \a key.
+ */
+KLEO_EXPORT QString prettyNameOrEMail(const GpgME::Key &key);
+
 KLEO_EXPORT QString prettyUserID(const GpgME::UserID &uid);
 KLEO_EXPORT QString prettyKeyID(const char *id);
 
