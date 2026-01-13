@@ -131,6 +131,7 @@ target_sources(KPim6Libkleo PRIVATE
     utils/test.h
     utils/validation.cpp
     utils/validation.h
+    utils/verification.h
     utils/multivalidator_p.h
     utils/multivalidator.cpp
 )
@@ -326,6 +327,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
     SystemInfo
     Test
     Validation
+    Verification
     REQUIRED_HEADERS libkleo_utils_HEADERS
     PREFIX Libkleo
     RELATIVE utils
