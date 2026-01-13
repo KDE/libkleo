@@ -122,6 +122,7 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
     utils/test.h
     utils/uniquelock.cpp
     utils/uniquelock.h
+    utils/verification.h
 )
 ecm_qt_declare_logging_category(KPim${KF_MAJOR_VERSION}Libkleo HEADER libkleo_debug.h IDENTIFIER LIBKLEO_LOG CATEGORY_NAME org.kde.pim.libkleo
     DESCRIPTION "libkleo (kleo_core)"
@@ -314,6 +315,7 @@ ecm_generate_headers(libkleo_CamelCase_utils_HEADERS
     SystemInfo
     Test
     UniqueLock
+    Verification
     REQUIRED_HEADERS libkleo_utils_HEADERS
     PREFIX Libkleo
     RELATIVE utils
