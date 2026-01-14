@@ -147,8 +147,6 @@ OutputIterator transform(InputRange &&range, OutputIterator result, UnaryOperati
 template<typename InputRange, typename OutputIterator, typename UnaryOperation, typename UnaryPredicate>
 OutputIterator transform_if(InputRange &&range, OutputIterator result, UnaryOperation op, UnaryPredicate p)
 {
-    auto first = std::begin(range);
-    auto last = std::end(range);
     for (auto first = std::begin(range), last = std::end(range); first != last; ++first, (void)++result) {
         if (std::invoke(p, *first)) {
             *result = std::invoke(op, *first);
