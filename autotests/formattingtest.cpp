@@ -268,7 +268,8 @@ private Q_SLOTS:
                  "<a href=\"key:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D\">"
                  "Curve 448 &lt;curve448@example.net&gt; (1DE1 960C 29F9 7E67)"
                  "</a><br/>"
-                 "The used key is not certified by you or any trusted person."_s);
+                 "The signature is valid but the used key is not certified by you or any trusted person.<br>"
+                 "<strong>Warning:</strong> There is no indication that the signature belongs to the owner."_s);
     }
 
     void test_prettySignature_unknown_key()
