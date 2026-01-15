@@ -1643,7 +1643,7 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
     const QString text = formatSigningInformation(sig, key) + QLatin1StringView("<br/>");
 
     // Green
-    if (sig.summary() & GpgME::Signature::Valid) {
+    if ((sig.summary() & GpgME::Signature::Valid)) {
         GpgME::UserID id = findUserIDByMailbox(key, sender);
         if (id.isNull()) {
             for (int i = 0, count = key.userIDs().size(); i < count; i++) {
@@ -1671,14 +1671,63 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
         return text + i18n("You can search the certificate on a keyserver or import it from a file.");
     }
 
-    // Yellow
-    if ((sig.validity() & GpgME::Signature::Validity::Undefined) //
-        || (sig.validity() & GpgME::Signature::Validity::Unknown) //
-        || (sig.summary() == GpgME::Signature::Summary::None)) {
-        return text
-            + (key.protocol() == GpgME::OpenPGP
-                   ? i18n("The used key is not certified by you or any trusted person.")
-                   : i18n("The used certificate is not certified by a trustworthy Certificate Authority or the Certificate Authority is unknown."));
+    // Good signature with some caveats
+    if (sig.status().code() == GPG_ERR_NO_ERROR) {
+        if ((sig.validity() == GpgME::Signature::Validity::Undefined) //
+            || (sig.validity() == GpgME::Signature::Validity::Unknown)) {
+            return text
+                + (key.protocol() == GpgME::OpenPGP //
+                       ? i18nc("@info", "The signature is valid but the used key is not certified by you or any trusted person.")
+                       : i18nc("@info",
+                               "The signature is valid but the used certificate is not certified by a trustworthy Certificate "
+                               "Authority or the Certificate Authority is unknown."))
+                + "<br>"_L1 //
+                + i18nc("@info", "<strong>Warning:</strong> There is no indication that the signature belongs to the owner.");
+        }
+        // validity must be marginal; "never" results in bad signature, and "full" and "ultimate" result in Valid summary
+        Q_ASSERT(sig.validity() == GpgME::Signature::Validity::Marginal);
+        // marginal validity only occurs for OpenPGP
+        return text + i18nc("@info", "The signature is valid but the used key is not certified by you or any trusted person.") + "<br>"_L1
+            + i18nc("@info", "<strong>Warning:</strong> It is not certain that the signature belongs to the owner.");
+    }
+
+    // Expired signature (only occurs for OpenPGP)
+    if (sig.status().code() == GPG_ERR_SIG_EXPIRED) {
+        switch (sig.validity()) {
+        case GpgME::Signature::Validity::Ultimate:
+        case GpgME::Signature::Validity::Full:
+            return text + i18nc("@info", "The signature is valid but it has expired.");
+        case GpgME::Signature::Validity::Marginal:
+            return text + i18nc("@info", "The signature is valid but it has expired and the used key is not certified by you or any trusted person.")
+                + "<br>"_L1 //
+                + i18nc("@info", "<strong>Warning:</strong> It is not certain that the signature belongs to the owner.");
+        case GpgME::Signature::Validity::Unknown:
+            return text + i18nc("@info", "The signature is valid but it has expired and the used key is not certified by you or any trusted person.")
+                + "<br>"_L1 //
+                + i18nc("@info", "<strong>Warning:</strong> There is no indication that the signature belongs to the owner.");
+        case GpgME::Signature::Validity::Undefined: // never set by GpgME
+        case GpgME::Signature::Validity::Never: // means bad signature
+            ;
+        }
+    }
+
+    // Good signature but expired signing key
+    if (sig.status().code() == GPG_ERR_KEY_EXPIRED) {
+        return text + i18nc("@info", "The signature is valid but the used key has expired.");
+        // don't print information about the key's validity; gpg also doesn't do this and since the key is expired it makes little sense
+    }
+
+    // Good signature but revoked signing key
+    if (sig.status().code() == GPG_ERR_CERT_REVOKED) {
+        return text + i18nc("@info", "The signature is valid but the used key has been revoked.") + "<br>"_L1 //
+            + i18nc("@info", "<strong>Warning:</strong> This could mean that the signature is forged.") + "<br>"_L1 //
+            + (key.protocol() == GpgME::OpenPGP //
+                   ? i18nc("@info", "The used key is not certified by you or any trusted person.")
+                   : i18nc("@info",
+                           "The signature is valid but the used certificate is not certified by a trustworthy Certificate "
+                           "Authority or the Certificate Authority is unknown."))
+            + "<br>"_L1 //
+            + i18nc("@info", "<strong>Warning:</strong> There is no indication that the signature belongs to the owner.");
     }
 
     // Catch all fall through
