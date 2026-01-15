@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:44+0000\n"
+"POT-Creation-Date: 2026-01-15 00:44+0000\n"
 "PO-Revision-Date: 2023-05-22 17:53+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -2304,39 +2304,39 @@ msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:144
+#: ui/newkeyapprovaldialog.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "Mostrar os Detalhes"
 
-#: ui/newkeyapprovaldialog.cpp:186
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "Mostrar as Chaves Correspondentes"
 
-#: ui/newkeyapprovaldialog.cpp:187
+#: ui/newkeyapprovaldialog.cpp:186
 #, fuzzy, kde-format
 #| msgid "Show keys matching the email address"
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Mostrar as chaves correspondentes ao endereço de e-mail"
 
-#: ui/newkeyapprovaldialog.cpp:190
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "Mostrar Todas"
 
-#: ui/newkeyapprovaldialog.cpp:191
+#: ui/newkeyapprovaldialog.cpp:190
 #, fuzzy, kde-format
 #| msgid "Show all keys"
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Mostrar todas as chaves"
 
-#: ui/newkeyapprovaldialog.cpp:276
+#: ui/newkeyapprovaldialog.cpp:275
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
@@ -2359,74 +2359,74 @@ msgstr ""
 "senha para proteger esta chave e a chave protegida ficará guardada na sua "
 "pasta pessoal."
 
-#: ui/newkeyapprovaldialog.cpp:301
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Aprovação da segurança"
 
-#: ui/newkeyapprovaldialog.cpp:308
+#: ui/newkeyapprovaldialog.cpp:307
 #, fuzzy, kde-format
 #| msgid "OpenPGP"
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:309
+#: ui/newkeyapprovaldialog.cpp:308
 #, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:310
+#, fuzzy, kde-format
+#| msgid "OpenPGP"
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:311
 #, fuzzy, kde-format
-#| msgid "OpenPGP"
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:312
-#, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "A gerar a chave de '%1'..."
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Isto poderá demorar vários minutos."
 
-#: ui/newkeyapprovaldialog.cpp:407
+#: ui/newkeyapprovaldialog.cpp:406
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Geração da chave"
 
-#: ui/newkeyapprovaldialog.cpp:450
+#: ui/newkeyapprovaldialog.cpp:445
 #, fuzzy, kde-format
 #| msgid "Operation Failed"
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operação Sem Sucesso"
 
-#: ui/newkeyapprovaldialog.cpp:565 ui/newkeyapprovaldialog.cpp:661
+#: ui/newkeyapprovaldialog.cpp:560 ui/newkeyapprovaldialog.cpp:656
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Gerar um novo par de chaves"
 
-#: ui/newkeyapprovaldialog.cpp:568
+#: ui/newkeyapprovaldialog.cpp:563
 #, kde-format
 msgid "Do not sign this email"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:570
+#: ui/newkeyapprovaldialog.cpp:565
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip for not selecting a key for signing."
 #| msgid "The E-Mail will not be cryptographically signed."
@@ -2434,18 +2434,18 @@ msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "O e-mail não será assinado criptograficamente."
 
-#: ui/newkeyapprovaldialog.cpp:588
+#: ui/newkeyapprovaldialog.cpp:583
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Confirmar a identidade '%1' como:"
 
-#: ui/newkeyapprovaldialog.cpp:665
+#: ui/newkeyapprovaldialog.cpp:660
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Não existe a chave. O destinatário não conseguirá descodificar."
 
-#: ui/newkeyapprovaldialog.cpp:668
+#: ui/newkeyapprovaldialog.cpp:663
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip for No Key selected for a specific recipient."
 #| msgid ""
@@ -2462,18 +2462,18 @@ msgstr ""
 "receber o e-mail encriptado, mas o mesmo só poderá ser descodificado com as "
 "outras chaves seleccionadas nesta janela."
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:780
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Encriptar para o próprio (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:802
+#: ui/newkeyapprovaldialog.cpp:797
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Encriptar para os outros:"
 
-#: ui/newkeyapprovaldialog.cpp:840
+#: ui/newkeyapprovaldialog.cpp:835
 #, kde-format
 msgid "Generate"
 msgstr "Gerar"
@@ -2530,12 +2530,12 @@ msgstr ""
 "Indique o nome ou o endereço IP do servidor que aloja o serviço de "
 "directório."
 
-#: ui/openpgpcertificatecreationdialog.cpp:353
+#: ui/openpgpcertificatecreationdialog.cpp:349
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:367
+#: ui/openpgpcertificatecreationdialog.cpp:363
 #, fuzzy, kde-format
 #| msgid "The key is disabled."
 msgid "There is a problem."
@@ -2588,17 +2588,17 @@ msgstr "Os Meus Certificados"
 msgid "Show certificate list"
 msgstr "Os Meus Certificados"
 
-#: utils/compliance.cpp:185
+#: utils/compliance.cpp:183
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "Compatível com o VS-NfD"
 
-#: utils/compliance.cpp:185
+#: utils/compliance.cpp:183
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Incompatível com o VS-NfD"
 
-#: utils/compliance.cpp:194
+#: utils/compliance.cpp:192
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3280,212 +3280,212 @@ msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "Certifica esta chave como uma introdução de confiança total de '%1'."
 
-#: utils/formatting.cpp:1468
+#: utils/formatting.cpp:1456
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1469
+#: utils/formatting.cpp:1457
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1470
+#: utils/formatting.cpp:1458
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr ""
 
-#: utils/formatting.cpp:1471
+#: utils/formatting.cpp:1459
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1472
+#: utils/formatting.cpp:1460
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr ""
 
-#: utils/formatting.cpp:1473
+#: utils/formatting.cpp:1461
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1474
+#: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
 msgstr ""
 
-#: utils/formatting.cpp:1475
+#: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1476
+#: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
 msgstr ""
 
-#: utils/formatting.cpp:1477
+#: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1478
+#: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1479
+#: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr ""
 
-#: utils/formatting.cpp:1480
+#: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
 msgstr ""
 
-#: utils/formatting.cpp:1481
+#: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1482
+#: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr ""
 
-#: utils/formatting.cpp:1483
+#: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr ""
 
-#: utils/formatting.cpp:1484
+#: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr ""
 
-#: utils/formatting.cpp:1485
+#: utils/formatting.cpp:1473
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1486
+#: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr ""
 
-#: utils/formatting.cpp:1487
+#: utils/formatting.cpp:1475
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr ""
 
-#: utils/formatting.cpp:1488
+#: utils/formatting.cpp:1476
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr ""
 
-#: utils/formatting.cpp:1489
+#: utils/formatting.cpp:1477
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr ""
 
-#: utils/formatting.cpp:1490
+#: utils/formatting.cpp:1478
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
 msgstr ""
 
-#: utils/formatting.cpp:1491
+#: utils/formatting.cpp:1479
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
 msgstr ""
 
-#: utils/formatting.cpp:1492
+#: utils/formatting.cpp:1480
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
 msgstr ""
 
-#: utils/formatting.cpp:1493
+#: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
 msgstr ""
 
-#: utils/formatting.cpp:1506
+#: utils/formatting.cpp:1494
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
 
-#: utils/formatting.cpp:1508
+#: utils/formatting.cpp:1496
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
 
-#: utils/formatting.cpp:1510
+#: utils/formatting.cpp:1498
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
 
-#: utils/formatting.cpp:1512
+#: utils/formatting.cpp:1500
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
 
-#: utils/formatting.cpp:1514
+#: utils/formatting.cpp:1502
 #, fuzzy, kde-format
 #| msgid "New signatures were added to this certificate by the import."
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr ""
 "Foram adicionadas novas assinaturas a este certificado pela importação."
 
-#: utils/formatting.cpp:1517
+#: utils/formatting.cpp:1505
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
-#: utils/formatting.cpp:1529
+#: utils/formatting.cpp:1517
 #, fuzzy, kde-format
 #| msgid "My Certificates"
 msgid "Unknown certificate"
 msgstr "Os Meus Certificados"
 
-#: utils/formatting.cpp:1533
+#: utils/formatting.cpp:1521
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr ""
 
-#: utils/formatting.cpp:1549
+#: utils/formatting.cpp:1537
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgctxt "1 is a date"
@@ -3493,26 +3493,26 @@ msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
 msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
 
-#: utils/formatting.cpp:1553
+#: utils/formatting.cpp:1541
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
 
-#: utils/formatting.cpp:1557
+#: utils/formatting.cpp:1545
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
 
-#: utils/formatting.cpp:1559
+#: utils/formatting.cpp:1547
 #, fuzzy, kde-format
 #| msgid "Bad signature by an unknown certificate: %1"
 msgid "Signature created with certificate: %1"
 msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
 
-#: utils/formatting.cpp:1565
+#: utils/formatting.cpp:1553
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgctxt ""
@@ -3521,7 +3521,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "Assinatura válida por %1."
 
-#: utils/formatting.cpp:1568
+#: utils/formatting.cpp:1556
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgctxt ""
@@ -3530,84 +3530,84 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "Assinatura válida por %1."
 
-#: utils/formatting.cpp:1578
+#: utils/formatting.cpp:1566
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr ""
 
-#: utils/formatting.cpp:1580
+#: utils/formatting.cpp:1568
 #, fuzzy, kde-format
 #| msgid "Good signature by %1."
 msgid "Good signature"
 msgstr "Assinatura válida por %1."
 
-#: utils/formatting.cpp:1582
+#: utils/formatting.cpp:1570
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signing certificate was revoked"
 msgstr "certificado expirado"
 
-#: utils/formatting.cpp:1584
+#: utils/formatting.cpp:1572
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signing certificate is expired"
 msgstr "certificado expirado"
 
-#: utils/formatting.cpp:1586
+#: utils/formatting.cpp:1574
 #, kde-format
 msgid "Certificate is not available"
 msgstr ""
 
-#: utils/formatting.cpp:1588
+#: utils/formatting.cpp:1576
 #, fuzzy, kde-format
 #| msgid "certificate expired"
 msgid "Signature expired"
 msgstr "certificado expirado"
 
-#: utils/formatting.cpp:1590
+#: utils/formatting.cpp:1578
 #, kde-format
 msgid "CRL missing"
 msgstr ""
 
-#: utils/formatting.cpp:1592
+#: utils/formatting.cpp:1580
 #, kde-format
 msgid "CRL too old"
 msgstr ""
 
-#: utils/formatting.cpp:1594
+#: utils/formatting.cpp:1582
 #, kde-format
 msgid "Bad policy"
 msgstr ""
 
-#: utils/formatting.cpp:1596
+#: utils/formatting.cpp:1584
 #, fuzzy, kde-format
 #| msgid "System Error"
 msgid "System error"
 msgstr "Erro do Sistema"
 
-#: utils/formatting.cpp:1598
+#: utils/formatting.cpp:1586
 #, fuzzy, kde-format
 #| msgid "Bad signature by %1: %2"
 msgid "Bad signature"
 msgstr "Assinatura incorrecta por %1: %2"
 
-#: utils/formatting.cpp:1674 utils/formatting.cpp:1697
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1685
 #, fuzzy, kde-format
 #| msgid "The key is not valid."
 msgid "The signature is invalid: %1"
 msgstr "A chave não é válida."
 
-#: utils/formatting.cpp:1683
+#: utils/formatting.cpp:1671
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 
-#: utils/formatting.cpp:1692
+#: utils/formatting.cpp:1680
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 
-#: utils/formatting.cpp:1693
+#: utils/formatting.cpp:1681
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "

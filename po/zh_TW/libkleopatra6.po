@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:44+0000\n"
+"POT-Creation-Date: 2026-01-15 00:44+0000\n"
 "PO-Revision-Date: 2025-11-24 17:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2074,37 +2074,37 @@ msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr "請輸入符合您組織的格式要求的電子郵件地址。"
 
-#: ui/newkeyapprovaldialog.cpp:144
+#: ui/newkeyapprovaldialog.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "顯示詳情"
 
-#: ui/newkeyapprovaldialog.cpp:186
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "顯示符合金鑰"
 
-#: ui/newkeyapprovaldialog.cpp:187
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "顯示符合電子郵件地址的金鑰"
 
-#: ui/newkeyapprovaldialog.cpp:190
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "顯示全部"
 
-#: ui/newkeyapprovaldialog.cpp:191
+#: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "顯示所有金鑰"
 
-#: ui/newkeyapprovaldialog.cpp:276
+#: ui/newkeyapprovaldialog.cpp:275
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2117,86 +2117,86 @@ msgstr ""
 "用您的電子郵件地址產生一個新的金鑰。<br/><br/>需要金鑰才能解密或簽署郵件。將"
 "會請您設定密碼來保護此金鑰，而保護好的金鑰會儲存在您的家目錄中。"
 
-#: ui/newkeyapprovaldialog.cpp:301
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "安全性確認"
 
-#: ui/newkeyapprovaldialog.cpp:308
+#: ui/newkeyapprovaldialog.cpp:307
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:309
+#: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-format
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
 
 #: ui/newkeyapprovaldialog.cpp:311
 #, kde-format
 msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:312
-#, kde-format
-msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "正在為 '%1' 產生金鑰..."
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgid "This can take several minutes."
 msgstr "這可能會花幾分鐘。"
 
-#: ui/newkeyapprovaldialog.cpp:407
+#: ui/newkeyapprovaldialog.cpp:406
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "金鑰產生"
 
-#: ui/newkeyapprovaldialog.cpp:450
+#: ui/newkeyapprovaldialog.cpp:445
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "操作失敗"
 
-#: ui/newkeyapprovaldialog.cpp:565 ui/newkeyapprovaldialog.cpp:661
+#: ui/newkeyapprovaldialog.cpp:560 ui/newkeyapprovaldialog.cpp:656
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "產生新的金鑰對"
 
-#: ui/newkeyapprovaldialog.cpp:568
+#: ui/newkeyapprovaldialog.cpp:563
 #, kde-format
 msgid "Do not sign this email"
 msgstr "不要簽署此郵件"
 
-#: ui/newkeyapprovaldialog.cpp:570
+#: ui/newkeyapprovaldialog.cpp:565
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "郵件將不會用密碼學簽署。"
 
-#: ui/newkeyapprovaldialog.cpp:588
+#: ui/newkeyapprovaldialog.cpp:583
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "確認身份「%1」："
 
-#: ui/newkeyapprovaldialog.cpp:665
+#: ui/newkeyapprovaldialog.cpp:660
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "無金鑰。收件人將會無法解密。"
 
-#: ui/newkeyapprovaldialog.cpp:668
+#: ui/newkeyapprovaldialog.cpp:663
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2207,18 +2207,18 @@ msgstr ""
 "不為此收件人選取金鑰。<br/><br/>收件人會收到加密信件，但只能使用此對話框所選"
 "的其他金鑰才能解密。"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:780
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "加密給自己 (%1)："
 
-#: ui/newkeyapprovaldialog.cpp:802
+#: ui/newkeyapprovaldialog.cpp:797
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "加密給別人："
 
-#: ui/newkeyapprovaldialog.cpp:840
+#: ui/newkeyapprovaldialog.cpp:835
 #, kde-format
 msgid "Generate"
 msgstr "產生"
@@ -2268,12 +2268,12 @@ msgstr "輸入憑證用的名稱及電子郵件地址。"
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "輸入憑證用的名稱或電子郵件地址。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:353
+#: ui/openpgpcertificatecreationdialog.cpp:349
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "輸入名稱或是電子郵件地址。"
 
-#: ui/openpgpcertificatecreationdialog.cpp:367
+#: ui/openpgpcertificatecreationdialog.cpp:363
 #, kde-format
 msgid "There is a problem."
 msgstr "有問題。"
@@ -2322,17 +2322,17 @@ msgstr "顯示憑證列表"
 msgid "Show certificate list"
 msgstr "顯示憑證列表"
 
-#: utils/compliance.cpp:185
+#: utils/compliance.cpp:183
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "合乎 VS-NfD 規範"
 
-#: utils/compliance.cpp:185
+#: utils/compliance.cpp:183
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "不合 VS-NfD 規範"
 
-#: utils/compliance.cpp:194
+#: utils/compliance.cpp:192
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -2980,232 +2980,232 @@ msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "保證這個金鑰是 '%1' 的完全信任介紹者。"
 
-#: utils/formatting.cpp:1468
+#: utils/formatting.cpp:1456
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr "ECC (Brainpool P-256)"
 
-#: utils/formatting.cpp:1469
+#: utils/formatting.cpp:1457
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr "ECC (Brainpool P-384)"
 
-#: utils/formatting.cpp:1470
+#: utils/formatting.cpp:1458
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr "ECC (Brainpool P-512)"
 
-#: utils/formatting.cpp:1471
+#: utils/formatting.cpp:1459
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr "ECC (Curve25519)"
 
-#: utils/formatting.cpp:1472
+#: utils/formatting.cpp:1460
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr "ECC (Curve448)"
 
-#: utils/formatting.cpp:1473
+#: utils/formatting.cpp:1461
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
 msgstr "ECC (Ed25519)"
 
-#: utils/formatting.cpp:1474
+#: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
 msgstr "ECC (Ed448)"
 
-#: utils/formatting.cpp:1475
+#: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
 msgstr "ECC (Cv25519)"
 
-#: utils/formatting.cpp:1476
+#: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
 msgstr "ECC (Cv448)"
 
-#: utils/formatting.cpp:1477
+#: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr "ECC (NIST P-256)"
 
-#: utils/formatting.cpp:1478
+#: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr "ECC (NIST P-384)"
 
-#: utils/formatting.cpp:1479
+#: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr "ECC (NIST P-521)"
 
-#: utils/formatting.cpp:1480
+#: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
 msgstr "RSA 1024"
 
-#: utils/formatting.cpp:1481
+#: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr "RSA 2048"
 
-#: utils/formatting.cpp:1482
+#: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "RSA 3072"
 
-#: utils/formatting.cpp:1483
+#: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "RSA 4096"
 
-#: utils/formatting.cpp:1484
+#: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr "DSA 1024"
 
-#: utils/formatting.cpp:1485
+#: utils/formatting.cpp:1473
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr "DSA 2048"
 
-#: utils/formatting.cpp:1486
+#: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr "Elgamal 1024"
 
-#: utils/formatting.cpp:1487
+#: utils/formatting.cpp:1475
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr "Elgamal 2048"
 
-#: utils/formatting.cpp:1488
+#: utils/formatting.cpp:1476
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr "Elgamal 3072"
 
-#: utils/formatting.cpp:1489
+#: utils/formatting.cpp:1477
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
-#: utils/formatting.cpp:1490
+#: utils/formatting.cpp:1478
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
 msgstr "Kyber 768 (Curve25519)"
 
-#: utils/formatting.cpp:1491
+#: utils/formatting.cpp:1479
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
 msgstr "Kyber 768 (Brainpool P-256)"
 
-#: utils/formatting.cpp:1492
+#: utils/formatting.cpp:1480
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
 msgstr "Kyber 1024 (Brainpool P-384)"
 
-#: utils/formatting.cpp:1493
+#: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
 msgstr "Kyber 1024 (Curve448)"
 
-#: utils/formatting.cpp:1506
+#: utils/formatting.cpp:1494
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr "簽章有效，但是憑證並非可信任。"
 
-#: utils/formatting.cpp:1508
+#: utils/formatting.cpp:1496
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr "簽章有效，並且憑證可信任。"
 
-#: utils/formatting.cpp:1510
+#: utils/formatting.cpp:1498
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr "簽章有效，並且憑證可完全信任。"
 
-#: utils/formatting.cpp:1512
+#: utils/formatting.cpp:1500
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr "簽章有效，但是憑證<em>不可信任</em>。"
 
-#: utils/formatting.cpp:1514
+#: utils/formatting.cpp:1502
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr "簽章有效，但是憑證信任度未知。"
 
-#: utils/formatting.cpp:1517
+#: utils/formatting.cpp:1505
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "簽章有效，但是憑證信任度未定義。"
 
-#: utils/formatting.cpp:1529
+#: utils/formatting.cpp:1517
 #, kde-format
 msgid "Unknown certificate"
 msgstr "未知的憑證"
 
-#: utils/formatting.cpp:1533
+#: utils/formatting.cpp:1521
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1549
+#: utils/formatting.cpp:1537
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
 msgstr "在 %1 以未知憑證建立，指紋為 %2 的簽章：%2"
 
-#: utils/formatting.cpp:1553
+#: utils/formatting.cpp:1541
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "以未知憑證建立，指紋為 %1 的簽章"
 
-#: utils/formatting.cpp:1557
+#: utils/formatting.cpp:1545
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "在 %1 以此憑證建立的簽章：%2"
 
-#: utils/formatting.cpp:1559
+#: utils/formatting.cpp:1547
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "以此憑證建立的簽章：%1"
 
-#: utils/formatting.cpp:1565
+#: utils/formatting.cpp:1553
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3213,7 +3213,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "此簽章%1"
 
-#: utils/formatting.cpp:1568
+#: utils/formatting.cpp:1556
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3221,77 +3221,77 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "此簽章<b>不</b>%1。"
 
-#: utils/formatting.cpp:1578
+#: utils/formatting.cpp:1566
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "錯誤： 簽章未驗證"
 
-#: utils/formatting.cpp:1580
+#: utils/formatting.cpp:1568
 #, kde-format
 msgid "Good signature"
 msgstr "正確簽章"
 
-#: utils/formatting.cpp:1582
+#: utils/formatting.cpp:1570
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "簽署用的憑證已被撤銷"
 
-#: utils/formatting.cpp:1584
+#: utils/formatting.cpp:1572
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "簽署用的憑證已過期"
 
-#: utils/formatting.cpp:1586
+#: utils/formatting.cpp:1574
 #, kde-format
 msgid "Certificate is not available"
 msgstr "憑證不可用"
 
-#: utils/formatting.cpp:1588
+#: utils/formatting.cpp:1576
 #, kde-format
 msgid "Signature expired"
 msgstr "簽章過期"
 
-#: utils/formatting.cpp:1590
+#: utils/formatting.cpp:1578
 #, kde-format
 msgid "CRL missing"
 msgstr "缺乏憑證撤銷清冊"
 
-#: utils/formatting.cpp:1592
+#: utils/formatting.cpp:1580
 #, kde-format
 msgid "CRL too old"
 msgstr "憑證撤銷清冊太舊了"
 
-#: utils/formatting.cpp:1594
+#: utils/formatting.cpp:1582
 #, kde-format
 msgid "Bad policy"
 msgstr "錯誤的政策"
 
-#: utils/formatting.cpp:1596
+#: utils/formatting.cpp:1584
 #, kde-format
 msgid "System error"
 msgstr "系統錯誤"
 
-#: utils/formatting.cpp:1598
+#: utils/formatting.cpp:1586
 #, kde-format
 msgid "Bad signature"
 msgstr "不正確的簽章"
 
-#: utils/formatting.cpp:1674 utils/formatting.cpp:1697
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1685
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "此簽章不正確：%1"
 
-#: utils/formatting.cpp:1683
+#: utils/formatting.cpp:1671
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "您可以在金鑰伺服器上搜尋憑證，或是從一個檔案匯入它。"
 
-#: utils/formatting.cpp:1692
+#: utils/formatting.cpp:1680
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
 
-#: utils/formatting.cpp:1693
+#: utils/formatting.cpp:1681
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "

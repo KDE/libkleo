@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:44+0000\n"
+"POT-Creation-Date: 2026-01-15 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2206,37 +2206,37 @@ msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr "भवतः संस्थायाः अपेक्षिते समीचीनरूपेण ईमेल-सङ्केतं प्रविशन्तु ।"
 
-#: ui/newkeyapprovaldialog.cpp:144
+#: ui/newkeyapprovaldialog.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Details"
 msgstr "विवरणं दर्शयतु"
 
-#: ui/newkeyapprovaldialog.cpp:186
+#: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Matching Keys"
 msgstr "मेल कुञ्जी दर्शयतु"
 
-#: ui/newkeyapprovaldialog.cpp:187
+#: ui/newkeyapprovaldialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "ईमेल-सङ्केतेन सह मेलनं कुर्वन्तः कीलानि दर्शयन्तु"
 
-#: ui/newkeyapprovaldialog.cpp:190
+#: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
 msgctxt "@action:button short for 'Show all keys'"
 msgid "Show All"
 msgstr "सर्वाणि दर्शयतु"
 
-#: ui/newkeyapprovaldialog.cpp:191
+#: ui/newkeyapprovaldialog.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "सर्वाणि कीलानि दर्शयतु"
 
-#: ui/newkeyapprovaldialog.cpp:276
+#: ui/newkeyapprovaldialog.cpp:275
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2250,86 +2250,86 @@ msgstr ""
 "कर्तुं कुञ्जी आवश्यकी अस्ति । एतस्य कीलस्य रक्षणार्थं भवन्तः गुप्तवाक्यं याचयिष्यन्ति तथा च "
 "रक्षितं कीलं भवतः गृहनिर्देशिकायां संगृहीतं भविष्यति ।"
 
-#: ui/newkeyapprovaldialog.cpp:301
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "सुरक्षा अनुमोदनम्"
 
-#: ui/newkeyapprovaldialog.cpp:308
+#: ui/newkeyapprovaldialog.cpp:307
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "ओपनपीजीपी"
 
-#: ui/newkeyapprovaldialog.cpp:309
+#: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:check"
 msgid "S/MIME"
 msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-format
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "ओपनपीजीपी"
 
 #: ui/newkeyapprovaldialog.cpp:311
 #, kde-format
 msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "ओपनपीजीपी"
-
-#: ui/newkeyapprovaldialog.cpp:312
-#, kde-format
-msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1' कृते कुञ्जी जनयति..."
 
-#: ui/newkeyapprovaldialog.cpp:405
+#: ui/newkeyapprovaldialog.cpp:404
 #, kde-format
 msgid "This can take several minutes."
 msgstr "एतेन कतिपयानि निमेषाणि यावत् समयः भवितुं शक्नोति ।"
 
-#: ui/newkeyapprovaldialog.cpp:407
+#: ui/newkeyapprovaldialog.cpp:406
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "कीज जनरेशन"
 
-#: ui/newkeyapprovaldialog.cpp:450
+#: ui/newkeyapprovaldialog.cpp:445
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "संचालनं विफलम्"
 
-#: ui/newkeyapprovaldialog.cpp:565 ui/newkeyapprovaldialog.cpp:661
+#: ui/newkeyapprovaldialog.cpp:560 ui/newkeyapprovaldialog.cpp:656
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "नूतनं कीलयुग्मं जनयन्तु"
 
-#: ui/newkeyapprovaldialog.cpp:568
+#: ui/newkeyapprovaldialog.cpp:563
 #, kde-format
 msgid "Do not sign this email"
 msgstr "अस्मिन् ईमेलपत्रे हस्ताक्षरं न कुर्वन्तु"
 
-#: ui/newkeyapprovaldialog.cpp:570
+#: ui/newkeyapprovaldialog.cpp:565
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "ईमेल क्रिप्टोग्राफिकरूपेण हस्ताक्षरं न भविष्यति।"
 
-#: ui/newkeyapprovaldialog.cpp:588
+#: ui/newkeyapprovaldialog.cpp:583
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "'%1' इति परिचयं पुष्टयन्तु यथा:"
 
-#: ui/newkeyapprovaldialog.cpp:665
+#: ui/newkeyapprovaldialog.cpp:660
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "न कुञ्जी। प्राप्तकर्ता विगुप्तीकरणं कर्तुं असमर्थः भविष्यति।"
 
-#: ui/newkeyapprovaldialog.cpp:668
+#: ui/newkeyapprovaldialog.cpp:663
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2340,18 +2340,18 @@ msgstr ""
 "अस्य प्राप्तकर्तायाः कृते कीलं न चिनोतु ।<br/><br/> ग्राहकः एन्क्रिप्टेड् ईमेल प्राप्स्यति, "
 "परन्तु अस्मिन् संवादे चयनितैः अन्यैः कीलैः सह एव तस्य विगुप्तीकरणं कर्तुं शक्यते ।"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:780
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "स्वयमेव (%1) एन्क्रिप्ट् कुर्वन्तु:"
 
-#: ui/newkeyapprovaldialog.cpp:802
+#: ui/newkeyapprovaldialog.cpp:797
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "अन्येभ्यः एन्क्रिप्ट् कुर्वन्तु :"
 
-#: ui/newkeyapprovaldialog.cpp:840
+#: ui/newkeyapprovaldialog.cpp:835
 #, kde-format
 msgid "Generate"
 msgstr "उद्- पद्"
@@ -2403,12 +2403,12 @@ msgstr "प्रमाणपत्रस्य कृते उपयोक्�
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "प्रमाणपत्रस्य कृते उपयोक्तुं नाम तथा/वा ईमेल-सङ्केतं प्रविशन्तु ।"
 
-#: ui/openpgpcertificatecreationdialog.cpp:353
+#: ui/openpgpcertificatecreationdialog.cpp:349
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "नाम वा ईमेल-सङ्केतं वा प्रविशतु।"
 
-#: ui/openpgpcertificatecreationdialog.cpp:367
+#: ui/openpgpcertificatecreationdialog.cpp:363
 #, kde-format
 msgid "There is a problem."
 msgstr "समस्या अस्ति।"
@@ -2457,17 +2457,17 @@ msgstr "प्रमाणपत्रसूचीं दर्शयतु"
 msgid "Show certificate list"
 msgstr "प्रमाणपत्रसूचीं दर्शयतु"
 
-#: utils/compliance.cpp:185
+#: utils/compliance.cpp:183
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "VS-NfD अनुरूप"
 
-#: utils/compliance.cpp:185
+#: utils/compliance.cpp:183
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "न VS-NfD अनुरूपम्"
 
-#: utils/compliance.cpp:194
+#: utils/compliance.cpp:192
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3122,139 +3122,139 @@ msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "'%1' कृते पूर्णतया विश्वसनीयप्रवर्तकत्वेन एतत् कुञ्जी प्रमाणयति ।"
 
-#: utils/formatting.cpp:1468
+#: utils/formatting.cpp:1456
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr "ईसीसी (ब्रेनपूल पी-256) 1.1."
 
-#: utils/formatting.cpp:1469
+#: utils/formatting.cpp:1457
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr "ईसीसी (ब्रेनपूल पी-384) 1.1."
 
-#: utils/formatting.cpp:1470
+#: utils/formatting.cpp:1458
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr "ईसीसी (ब्रेनपूल पी-५१२)"
 
-#: utils/formatting.cpp:1471
+#: utils/formatting.cpp:1459
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr "ईसीसी (वक्र25519) 1.1."
 
-#: utils/formatting.cpp:1472
+#: utils/formatting.cpp:1460
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr "ईसीसी (वक्र४४८)"
 
-#: utils/formatting.cpp:1473
+#: utils/formatting.cpp:1461
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed25519)"
 msgstr "ईसीसी (Ed25519) 1.1."
 
-#: utils/formatting.cpp:1474
+#: utils/formatting.cpp:1462
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Ed448)"
 msgstr "ईसीसी (Ed448) 1.1."
 
-#: utils/formatting.cpp:1475
+#: utils/formatting.cpp:1463
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv25519)"
 msgstr "ईसीसी (Cv25519) 1.1."
 
-#: utils/formatting.cpp:1476
+#: utils/formatting.cpp:1464
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Cv448)"
 msgstr "ईसीसी (Cv448) 1.1."
 
-#: utils/formatting.cpp:1477
+#: utils/formatting.cpp:1465
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-256)"
 msgstr "ईसीसी (एनआईएसटी पी-256) 1.1."
 
-#: utils/formatting.cpp:1478
+#: utils/formatting.cpp:1466
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-384)"
 msgstr "ईसीसी (एनआईएसटी पी-384) 1.1."
 
-#: utils/formatting.cpp:1479
+#: utils/formatting.cpp:1467
 #, kde-format
 msgctxt "@info"
 msgid "ECC (NIST P-521)"
 msgstr "ईसीसी (NIST P-521) 1.1."
 
-#: utils/formatting.cpp:1480
+#: utils/formatting.cpp:1468
 #, kde-format
 msgctxt "@info"
 msgid "RSA 1024"
 msgstr "आर एस ए 1024"
 
-#: utils/formatting.cpp:1481
+#: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
 msgid "RSA 2048"
 msgstr "आर एस ए 2048"
 
-#: utils/formatting.cpp:1482
+#: utils/formatting.cpp:1470
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "आर एस ए 3072"
 
-#: utils/formatting.cpp:1483
+#: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "आर एस ए 4096"
 
-#: utils/formatting.cpp:1484
+#: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "DSA 1024"
 msgstr "डीएसए १०२४"
 
-#: utils/formatting.cpp:1485
+#: utils/formatting.cpp:1473
 #, kde-format
 msgctxt "@info"
 msgid "DSA 2048"
 msgstr "डीएसए २०४८"
 
-#: utils/formatting.cpp:1486
+#: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 1024"
 msgstr "एल्गमल १०२४"
 
-#: utils/formatting.cpp:1487
+#: utils/formatting.cpp:1475
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 2048"
 msgstr "एल्गमल २०४८"
 
-#: utils/formatting.cpp:1488
+#: utils/formatting.cpp:1476
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 3072"
 msgstr "एल्गमाल ३०७२"
 
-#: utils/formatting.cpp:1489
+#: utils/formatting.cpp:1477
 #, kde-format
 msgctxt "@info"
 msgid "Elgamal 4096"
 msgstr "एल्गमल 4096"
 
-#: utils/formatting.cpp:1490
+#: utils/formatting.cpp:1478
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "ECC (Curve25519)"
@@ -3262,7 +3262,7 @@ msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
 msgstr "ईसीसी (वक्र25519) 1.1."
 
-#: utils/formatting.cpp:1491
+#: utils/formatting.cpp:1479
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "ECC (Brainpool P-256)"
@@ -3270,7 +3270,7 @@ msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
 msgstr "ईसीसी (ब्रेनपूल पी-256) 1.1."
 
-#: utils/formatting.cpp:1492
+#: utils/formatting.cpp:1480
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "ECC (Brainpool P-384)"
@@ -3278,7 +3278,7 @@ msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
 msgstr "ईसीसी (ब्रेनपूल पी-384) 1.1."
 
-#: utils/formatting.cpp:1493
+#: utils/formatting.cpp:1481
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "ECC (Curve448)"
@@ -3286,53 +3286,53 @@ msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
 msgstr "ईसीसी (वक्र४४८)"
 
-#: utils/formatting.cpp:1506
+#: utils/formatting.cpp:1494
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr "हस्ताक्षरं वैधं भवति परन्तु प्रमाणपत्रस्य वैधतायां विश्वासः केवलं सीमान्तः एव भवति।"
 
-#: utils/formatting.cpp:1508
+#: utils/formatting.cpp:1496
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr "हस्ताक्षरं वैधं प्रमाणपत्रस्य वैधता च पूर्णतया विश्वसिति।"
 
-#: utils/formatting.cpp:1510
+#: utils/formatting.cpp:1498
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr "हस्ताक्षरं वैधं भवति तथा च प्रमाणपत्रस्य वैधता अन्ते विश्वसिति।"
 
-#: utils/formatting.cpp:1512
+#: utils/formatting.cpp:1500
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता <em>विश्वसनीयं नास्ति</em> ."
 
-#: utils/formatting.cpp:1514
+#: utils/formatting.cpp:1502
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
 msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता अज्ञाता अस्ति।"
 
-#: utils/formatting.cpp:1517
+#: utils/formatting.cpp:1505
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता अपरिभाषिता अस्ति ।"
 
-#: utils/formatting.cpp:1529
+#: utils/formatting.cpp:1517
 #, kde-format
 msgid "Unknown certificate"
 msgstr "अज्ञात प्रमाण पत्र"
 
-#: utils/formatting.cpp:1533
+#: utils/formatting.cpp:1521
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1549
+#: utils/formatting.cpp:1537
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
@@ -3340,23 +3340,23 @@ msgid ""
 msgstr ""
 "%1 इत्यत्र अङ्गुलिचिह्नस्य %2 इत्यनेन सह अज्ञातप्रमाणपत्रस्य उपयोगेन निर्मितः हस्ताक्षरः"
 
-#: utils/formatting.cpp:1553
+#: utils/formatting.cpp:1541
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr "%1 अङ्गुलिचिह्नसहितं अज्ञातप्रमाणपत्रस्य उपयोगेन निर्मितं हस्ताक्षरम्"
 
-#: utils/formatting.cpp:1557
+#: utils/formatting.cpp:1545
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "प्रमाणपत्रेण सह %1 इत्यत्र निर्मितं हस्ताक्षरम्: %2"
 
-#: utils/formatting.cpp:1559
+#: utils/formatting.cpp:1547
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "प्रमाणपत्रेण सह निर्मितः हस्ताक्षरः: %1"
 
-#: utils/formatting.cpp:1565
+#: utils/formatting.cpp:1553
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3364,7 +3364,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "हस्ताक्षरं %1 अस्ति"
 
-#: utils/formatting.cpp:1568
+#: utils/formatting.cpp:1556
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3372,77 +3372,77 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "हस्ताक्षरं %1 <b>नास्ति</b> ।"
 
-#: utils/formatting.cpp:1578
+#: utils/formatting.cpp:1566
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "त्रुटिः : हस्ताक्षरं सत्यापितं न"
 
-#: utils/formatting.cpp:1580
+#: utils/formatting.cpp:1568
 #, kde-format
 msgid "Good signature"
 msgstr "उत्तमहस्ताक्षरम्"
 
-#: utils/formatting.cpp:1582
+#: utils/formatting.cpp:1570
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "हस्ताक्षरप्रमाणपत्रं निरस्तं जातम्"
 
-#: utils/formatting.cpp:1584
+#: utils/formatting.cpp:1572
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "हस्ताक्षरप्रमाणपत्रस्य अवधिः समाप्तः अस्ति"
 
-#: utils/formatting.cpp:1586
+#: utils/formatting.cpp:1574
 #, kde-format
 msgid "Certificate is not available"
 msgstr "प्रमाणपत्रं न प्राप्यते"
 
-#: utils/formatting.cpp:1588
+#: utils/formatting.cpp:1576
 #, kde-format
 msgid "Signature expired"
 msgstr "हस्ताक्षरस्य अवधिः समाप्तः"
 
-#: utils/formatting.cpp:1590
+#: utils/formatting.cpp:1578
 #, kde-format
 msgid "CRL missing"
 msgstr "सीआरएल अनुपलब्ध"
 
-#: utils/formatting.cpp:1592
+#: utils/formatting.cpp:1580
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL अतीव पुरातनम्"
 
-#: utils/formatting.cpp:1594
+#: utils/formatting.cpp:1582
 #, kde-format
 msgid "Bad policy"
 msgstr "दुर्नीतिः"
 
-#: utils/formatting.cpp:1596
+#: utils/formatting.cpp:1584
 #, kde-format
 msgid "System error"
 msgstr "प्रणालीदोषः"
 
-#: utils/formatting.cpp:1598
+#: utils/formatting.cpp:1586
 #, kde-format
 msgid "Bad signature"
 msgstr "दुष्टहस्ताक्षरम्"
 
-#: utils/formatting.cpp:1674 utils/formatting.cpp:1697
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1685
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "हस्ताक्षरम् अमान्यम् अस्ति: %1"
 
-#: utils/formatting.cpp:1683
+#: utils/formatting.cpp:1671
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "भवान् प्रमाणपत्रं कीसर्वर् इत्यत्र अन्वेष्टुं वा सञ्चिकातः आयातयितुं वा शक्नोति ।"
 
-#: utils/formatting.cpp:1692
+#: utils/formatting.cpp:1680
 #, kde-format
 msgid "The used key is not certified by you or any trusted person."
 msgstr "प्रयुक्ता कुञ्जी भवता वा केनापि विश्वसनीयेन व्यक्तिना प्रमाणीकृता नास्ति।"
 
-#: utils/formatting.cpp:1693
+#: utils/formatting.cpp:1681
 #, kde-format
 msgid ""
 "The used certificate is not certified by a trustworthy Certificate Authority "
