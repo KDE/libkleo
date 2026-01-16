@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:44+0000\n"
+"POT-Creation-Date: 2026-01-16 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3427,7 +3427,7 @@ msgstr "प्रणालीदोषः"
 msgid "Bad signature"
 msgstr "दुष्टहस्ताक्षरम्"
 
-#: utils/formatting.cpp:1662 utils/formatting.cpp:1685
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1734
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "हस्ताक्षरम् अमान्यम् अस्ति: %1"
@@ -3437,19 +3437,89 @@ msgstr "हस्ताक्षरम् अमान्यम् अस्त�
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "भवान् प्रमाणपत्रं कीसर्वर् इत्यत्र अन्वेष्टुं वा सञ्चिकातः आयातयितुं वा शक्नोति ।"
 
-#: utils/formatting.cpp:1680
-#, kde-format
-msgid "The used key is not certified by you or any trusted person."
+#: utils/formatting.cpp:1680 utils/formatting.cpp:1690
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid ""
+"The signature is valid but the used key is not certified by you or any "
+"trusted person."
 msgstr "प्रयुक्ता कुञ्जी भवता वा केनापि विश्वसनीयेन व्यक्तिना प्रमाणीकृता नास्ति।"
 
-#: utils/formatting.cpp:1681
-#, kde-format
+#: utils/formatting.cpp:1682 utils/formatting.cpp:1727
+#, fuzzy, kde-format
+#| msgid ""
+#| "The used certificate is not certified by a trustworthy Certificate "
+#| "Authority or the Certificate Authority is unknown."
+msgctxt "@info"
 msgid ""
-"The used certificate is not certified by a trustworthy Certificate Authority "
-"or the Certificate Authority is unknown."
+"The signature is valid but the used certificate is not certified by a "
+"trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
 "प्रयुक्तं प्रमाणपत्रं विश्वसनीयेन प्रमाणपत्रप्राधिकरणेन प्रमाणितं नास्ति अथवा "
 "प्रमाणपत्रप्राधिकरणं अज्ञातम् अस्ति।"
+
+#: utils/formatting.cpp:1685 utils/formatting.cpp:1707
+#: utils/formatting.cpp:1730
+#, fuzzy, kde-format
+#| msgid ""
+#| "There is no indication that this certificate belongs to this recipient."
+msgctxt "@info"
+msgid ""
+"<strong>Warning:</strong> There is no indication that the signature belongs "
+"to the owner."
+msgstr "एतत् प्रमाणपत्रम् अस्य प्राप्तकस्य अस्ति इति कोऽपि संकेतः नास्ति ।"
+
+#: utils/formatting.cpp:1691 utils/formatting.cpp:1703
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<strong>Warning:</strong> It is not certain that the signature belongs to "
+"the owner."
+msgstr ""
+
+#: utils/formatting.cpp:1699
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but it has expired."
+msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता अपरिभाषिता अस्ति ।"
+
+#: utils/formatting.cpp:1701 utils/formatting.cpp:1705
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid ""
+"The signature is valid but it has expired and the used key is not certified "
+"by you or any trusted person."
+msgstr "प्रयुक्ता कुञ्जी भवता वा केनापि विश्वसनीयेन व्यक्तिना प्रमाणीकृता नास्ति।"
+
+#: utils/formatting.cpp:1716
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but the used key has expired."
+msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता अपरिभाषिता अस्ति ।"
+
+#: utils/formatting.cpp:1722
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but the used key has been revoked."
+msgstr "हस्ताक्षरं वैधं किन्तु प्रमाणपत्रस्य वैधता अपरिभाषिता अस्ति ।"
+
+#: utils/formatting.cpp:1723
+#, kde-format
+msgctxt "@info"
+msgid "<strong>Warning:</strong> This could mean that the signature is forged."
+msgstr ""
+
+#: utils/formatting.cpp:1725
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid "The used key is not certified by you or any trusted person."
+msgstr "प्रयुक्ता कुञ्जी भवता वा केनापि विश्वसनीयेन व्यक्तिना प्रमाणीकृता नास्ति।"
 
 #: utils/gnupg.cpp:438
 #, kde-format

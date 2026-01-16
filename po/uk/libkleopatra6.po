@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:44+0000\n"
+"POT-Creation-Date: 2026-01-16 00:44+0000\n"
 "PO-Revision-Date: 2025-11-06 15:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -3694,7 +3694,7 @@ msgstr "Системна помилка"
 msgid "Bad signature"
 msgstr "Непридатний підпис"
 
-#: utils/formatting.cpp:1662 utils/formatting.cpp:1685
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1734
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Підпис є некоректним: %1"
@@ -3705,21 +3705,96 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Ви можете пошукати сертифікат на сервері ключів або імпортувати його з файла."
 
-#: utils/formatting.cpp:1680
-#, kde-format
-msgid "The used key is not certified by you or any trusted person."
+#: utils/formatting.cpp:1680 utils/formatting.cpp:1690
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid ""
+"The signature is valid but the used key is not certified by you or any "
+"trusted person."
 msgstr ""
 "Використаний сертифікат не посвідчено ні вами, ні якоюсь іншою надійною "
 "особою."
 
-#: utils/formatting.cpp:1681
-#, kde-format
+#: utils/formatting.cpp:1682 utils/formatting.cpp:1727
+#, fuzzy, kde-format
+#| msgid ""
+#| "The used certificate is not certified by a trustworthy Certificate "
+#| "Authority or the Certificate Authority is unknown."
+msgctxt "@info"
 msgid ""
-"The used certificate is not certified by a trustworthy Certificate Authority "
-"or the Certificate Authority is unknown."
+"The signature is valid but the used certificate is not certified by a "
+"trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
 "Використаний сертифікат не посвідчено гідною довіри службою сертифікації або "
 "служба сертифікації є невідомою."
+
+#: utils/formatting.cpp:1685 utils/formatting.cpp:1707
+#: utils/formatting.cpp:1730
+#, fuzzy, kde-format
+#| msgid ""
+#| "There is no indication that this certificate belongs to this recipient."
+msgctxt "@info"
+msgid ""
+"<strong>Warning:</strong> There is no indication that the signature belongs "
+"to the owner."
+msgstr ""
+"Немає ніяких свідчень того, що цей сертифікат належить цьому отримувачу."
+
+#: utils/formatting.cpp:1691 utils/formatting.cpp:1703
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<strong>Warning:</strong> It is not certain that the signature belongs to "
+"the owner."
+msgstr ""
+
+#: utils/formatting.cpp:1699
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but it has expired."
+msgstr "Підпис є чинним, але надійність сертифіката не визначено."
+
+#: utils/formatting.cpp:1701 utils/formatting.cpp:1705
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid ""
+"The signature is valid but it has expired and the used key is not certified "
+"by you or any trusted person."
+msgstr ""
+"Використаний сертифікат не посвідчено ні вами, ні якоюсь іншою надійною "
+"особою."
+
+#: utils/formatting.cpp:1716
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but the used key has expired."
+msgstr "Підпис є чинним, але надійність сертифіката не визначено."
+
+#: utils/formatting.cpp:1722
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but the used key has been revoked."
+msgstr "Підпис є чинним, але надійність сертифіката не визначено."
+
+#: utils/formatting.cpp:1723
+#, kde-format
+msgctxt "@info"
+msgid "<strong>Warning:</strong> This could mean that the signature is forged."
+msgstr ""
+
+#: utils/formatting.cpp:1725
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid "The used key is not certified by you or any trusted person."
+msgstr ""
+"Використаний сертифікат не посвідчено ні вами, ні якоюсь іншою надійною "
+"особою."
 
 #: utils/gnupg.cpp:438
 #, kde-format

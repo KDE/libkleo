@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:44+0000\n"
+"POT-Creation-Date: 2026-01-16 00:44+0000\n"
 "PO-Revision-Date: 2025-11-24 17:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3276,7 +3276,7 @@ msgstr "系統錯誤"
 msgid "Bad signature"
 msgstr "不正確的簽章"
 
-#: utils/formatting.cpp:1662 utils/formatting.cpp:1685
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1734
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "此簽章不正確：%1"
@@ -3286,17 +3286,87 @@ msgstr "此簽章不正確：%1"
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "您可以在金鑰伺服器上搜尋憑證，或是從一個檔案匯入它。"
 
-#: utils/formatting.cpp:1680
-#, kde-format
-msgid "The used key is not certified by you or any trusted person."
+#: utils/formatting.cpp:1680 utils/formatting.cpp:1690
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid ""
+"The signature is valid but the used key is not certified by you or any "
+"trusted person."
 msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
 
-#: utils/formatting.cpp:1681
-#, kde-format
+#: utils/formatting.cpp:1682 utils/formatting.cpp:1727
+#, fuzzy, kde-format
+#| msgid ""
+#| "The used certificate is not certified by a trustworthy Certificate "
+#| "Authority or the Certificate Authority is unknown."
+msgctxt "@info"
 msgid ""
-"The used certificate is not certified by a trustworthy Certificate Authority "
-"or the Certificate Authority is unknown."
+"The signature is valid but the used certificate is not certified by a "
+"trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr "使用的憑證未被可信的憑證頒發機構 (CA) 認證，或該 CA 未知。"
+
+#: utils/formatting.cpp:1685 utils/formatting.cpp:1707
+#: utils/formatting.cpp:1730
+#, fuzzy, kde-format
+#| msgid ""
+#| "There is no indication that this certificate belongs to this recipient."
+msgctxt "@info"
+msgid ""
+"<strong>Warning:</strong> There is no indication that the signature belongs "
+"to the owner."
+msgstr "沒有證據顯示此憑證屬於此收件者。"
+
+#: utils/formatting.cpp:1691 utils/formatting.cpp:1703
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<strong>Warning:</strong> It is not certain that the signature belongs to "
+"the owner."
+msgstr ""
+
+#: utils/formatting.cpp:1699
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but it has expired."
+msgstr "簽章有效，但是憑證信任度未定義。"
+
+#: utils/formatting.cpp:1701 utils/formatting.cpp:1705
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid ""
+"The signature is valid but it has expired and the used key is not certified "
+"by you or any trusted person."
+msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
+
+#: utils/formatting.cpp:1716
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but the used key has expired."
+msgstr "簽章有效，但是憑證信任度未定義。"
+
+#: utils/formatting.cpp:1722
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature is valid but the used key has been revoked."
+msgstr "簽章有效，但是憑證信任度未定義。"
+
+#: utils/formatting.cpp:1723
+#, kde-format
+msgctxt "@info"
+msgid "<strong>Warning:</strong> This could mean that the signature is forged."
+msgstr ""
+
+#: utils/formatting.cpp:1725
+#, fuzzy, kde-format
+#| msgid "The used key is not certified by you or any trusted person."
+msgctxt "@info"
+msgid "The used key is not certified by you or any trusted person."
+msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
 
 #: utils/gnupg.cpp:438
 #, kde-format
