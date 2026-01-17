@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2025-11-06 20:34+0100\n"
+"PO-Revision-Date: 2026-01-16 05:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3478,38 +3478,35 @@ msgstr ""
 "შემოიტანოთ."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"გამოყენებული გასაღები თქვენ ან სანდო პიროვნების მიერ სერტიფიცირებული არაა."
+"ხელმოწერა სწორია, მაგრამ გამოყენებული გასაღები თქვენს ან სანდო პიროვნების "
+"მიერ სერტიფიცირებული არაა."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"გამოყენებული სერტიფიკატი არაა სერტიფიცირებული სანდო სერტიფიკატის ავტორიტეტის "
-"მიერ ან სერტიფიკატის ავტორიტეტი უცნობია."
+"სერტიფიკატი სწორია, მაგრამ გამოყენებული სერტიფიკატი არაა სერტიფიცირებული "
+"სანდო სერტიფიკატის ავტორიტეტის მიერ ან სერტიფიკატის ავტორიტეტი უცნობია."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "ნიშანი, რომ სერტიფიკატი ამ მიმღებს ეკუთვნის, არ არსებობს."
+msgstr ""
+"<strong>გაფრთხილება:</strong>ნიშანი, რომ სერტიფიკატი ამ მიმღებს ეკუთვნის, არ "
+"არსებობს."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3518,51 +3515,50 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>გაფრთხილება:</strong> ის, რომ სერტიფიკატი მფლობელს ეკუთვნის, "
+"გარკვეული არაა."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "ხელმოწერა სწორია, მაგრამ გასაღების სისწორე აღწერილი არაა."
+msgstr "ხელმოწერა სწორია, მაგრამ მისი ვადა ამოწურულია."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"გამოყენებული გასაღები თქვენ ან სანდო პიროვნების მიერ სერტიფიცირებული არაა."
+"ხელმოწერა სწორია, მაგრამ მისი ვადა ამოწურულია და გამოყენებული გასაღები "
+"თქვენს ან სანდო პიროვნების მიერ სერტიფიცირებული არაა."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "ხელმოწერა სწორია, მაგრამ გასაღების სისწორე აღწერილი არაა."
+msgstr "ხელმოწერა სწორია, მაგრამ გამოყენებული გასაღების ვადა ამოწურულია."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "ხელმოწერა სწორია, მაგრამ გასაღების სისწორე აღწერილი არაა."
+msgstr "ხელმოწერა სწორია, მაგრამ გამოყენებული გასაღები გაუქმდა."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>გაფრთხილება:</strong> ეს შეიძლება ნიშნავდეს, რომ ხელმოწერა ყალბია."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
-"გამოყენებული გასაღები თქვენ ან სანდო პიროვნების მიერ სერტიფიცირებული არაა."
+"გამოყენებული გასაღები თქვენს ან სანდო პიროვნების მიერ სერტიფიცირებული არაა."
 
 #: utils/gnupg.cpp:438
 #, kde-format

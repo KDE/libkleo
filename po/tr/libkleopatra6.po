@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Türkçe
 # translation of libkleopatra.po to Turkish
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 # Görkem Çetin <gorkem@gorkemcetin.com>, 2004.
 # Yaşar ŞENTÜRK <yasar@kde.org.tr>, 2005.
 # Serdar Soytetir <tulliana@gmail.com>, 2008, 2009.
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2025-11-07 19:57+0300\n"
+"PO-Revision-Date: 2026-01-16 22:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -3465,39 +3465,34 @@ msgstr ""
 "aktarabilirsiniz."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Kullanılan anahtar siz veya başka bir güvenilir kişi tarafından "
-"sertifikalanmamış."
+"İmza geçerli; ancak kullanılan anahtar siz veya güvenilen başka bir kişi "
+"tarafından sertifikalanmamış."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Kullanılan sertifika güvenilir bir Sertifika Otoritesi tarafından "
-"sertifikalanmamış veya Sertifika Otoritesi bilinmiyor."
+"İmza geçerli; ancak kullanılan sertifika güvenilir bir sertifika otoritesi "
+"tarafından sertifikalanmamış veya bilinmeyen sertifika otoritesi."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "Bu sertifikanın bu alıcıya ait olduğuna dair bir gösterge yok."
+msgstr ""
+"<strong>Uyarı:</strong> İmzanın sahibine ait olduğuna dair bir belirti yok."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3505,53 +3500,49 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>Uyarı:</strong> İmzanın sahibine ait olduğu kesin değil."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "İmza geçerli; ancak sertifikanın geçerliliği tanımlanmamış."
+msgstr "İmza geçerli; ancak süresi dolmuş."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Kullanılan anahtar siz veya başka bir güvenilir kişi tarafından "
-"sertifikalanmamış."
+"İmza geçerli; ancak süresi dolmuş ve kullanılan anahtar siz veya güvenilen "
+"başka bir kişi tarafından sertifikalanmamış."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "İmza geçerli; ancak sertifikanın geçerliliği tanımlanmamış."
+msgstr "İmza geçerli; ancak kullanılan anahtarın süresi dolmuş."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "İmza geçerli; ancak sertifikanın geçerliliği tanımlanmamış."
+msgstr "İmza geçerli; ancak kullanılan anahtar yürürlükten kaldırılmış."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Uyarı:</strong> Bu, imzanın düzmece olabileceği anlamına gelir."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
-"Kullanılan anahtar siz veya başka bir güvenilir kişi tarafından "
+"Kullanılan anahtar siz veya güvenilen başka bir kişi tarafından "
 "sertifikalanmamış."
 
 #: utils/gnupg.cpp:438
