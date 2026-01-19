@@ -94,7 +94,7 @@ void FileSystemWatcher::Private::onFileChanged(const QString &path)
     if (!is_whitelisted(fi.fileName(), m_whitelist)) {
         return;
     }
-    qCDebug(LIBKLEO_LOG) << path;
+    qCDebug(LIBKLEO_LOG) << q << "- file changed:" << path;
     if (fi.exists()) {
         m_seenPaths.insert(path);
     } else {
@@ -141,7 +141,9 @@ void FileSystemWatcher::Private::onDirectoryChanged(const QString &path)
         return;
     }
 
-    qCDebug(LIBKLEO_LOG) << "newFiles" << newFiles;
+    for (const auto &path : newFiles) {
+        qCDebug(LIBKLEO_LOG) << q << "- found new file" << path;
+    }
 
     m_cachedFiles.insert(newFiles.begin(), newFiles.end());
     q->addPaths(newFiles);
@@ -218,6 +220,13 @@ void FileSystemWatcher::setEnabled(bool enable)
         d->m_watcher = new QFileSystemWatcher;
         if (!d->m_paths.empty()) {
             d->m_watcher->addPaths(d->m_paths);
+            // check if new files occurred while the watcher was disabled
+            for (const auto &path : std::as_const(d->m_paths)) {
+                if (QFileInfo{path}.isDir()) {
+                    qCDebug(LIBKLEO_LOG) << this << "- checking for new files in" << path;
+                    d->onDirectoryChanged(path);
+                }
+            }
         }
         d->connectWatcher();
     } else {
@@ -293,8 +302,8 @@ void FileSystemWatcher::addPaths(const QStringList &paths)
         return;
     }
     const QStringList newPaths = paths + resolve(paths, d->m_blacklist, d->m_whitelist);
-    if (!newPaths.empty()) {
-        qCDebug(LIBKLEO_LOG) << "adding\n " << newPaths.join(QLatin1StringView("\n ")) << "\n/end";
+    for (const auto &path : newPaths) {
+        qCDebug(LIBKLEO_LOG) << this << "- watching" << path;
     }
     d->m_paths += newPaths;
     d->m_seenPaths.insert(newPaths.begin(), newPaths.end());
