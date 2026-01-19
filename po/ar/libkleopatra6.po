@@ -1,12 +1,12 @@
 # translation of libkleopatra.po to
-# SPDX-FileCopyrightText: 2021, 2022, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2025-11-12 18:53+0400\n"
+"PO-Revision-Date: 2026-01-18 18:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3719,37 +3719,34 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "يمكنك البحث عن الشهادة في خادم مفاتيح أو استيرادها من ملف."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "المفتاح المستخدم لم يوثق من قبلك أو من قبل أي شخص موثوق."
+msgstr ""
+"التوقيع صالح ولكن المفتاح المستخدم غير معتمد من قبلك أو من قبل أي شخص موثوق "
+"به."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"الشهادة المستخدمة لم توثق من قبل جهة توثيق موثوق بها أو أن جهة التوثيق غير "
-"معروفة."
+"التوقيع صالح ولكن الشهادة المستخدمة غير معتمدة من قبل سلطة تصديق موثوقة أو "
+"أن سلطة التصديق غير معروفة."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "لا يوجد ما يشير إلى أن هذه الشهادة تخص هذا المستلم."
+msgstr ""
+"<strong>تحذير:</strong> لا يوجد ما يشير إلى أن التوقيع ينتمي إلى المالك."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3757,47 +3754,44 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>تحذير:</strong> ليس من المؤكد أن التوقيع يعود إلى المالك."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "التوقيع صالح لكن صلاحية الشهادة غير معرّفة."
+msgstr "التوقيع صالح ولكنه انتهت صلاحيته."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr "المفتاح المستخدم لم يوثق من قبلك أو من قبل أي شخص موثوق."
+msgstr ""
+"التوقيع صالح ولكنه انتهت صلاحيته والمفتاح المستخدم غير معتمد من قبلك أو من "
+"قبل أي شخص موثوق به."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "التوقيع صالح لكن صلاحية الشهادة غير معرّفة."
+msgstr "التوقيع صالح ولكن المفتاح المستخدم قد انتهت صلاحيته."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "التوقيع صالح لكن صلاحية الشهادة غير معرّفة."
+msgstr "التوقيع صالح ولكن المفتاح المستخدم مُلغى."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
-msgstr ""
+msgstr "<strong>تحذير:</strong> قد يعني هذا أن التوقيع مزور."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "المفتاح المستخدم لم يوثق من قبلك أو من قبل أي شخص موثوق."
