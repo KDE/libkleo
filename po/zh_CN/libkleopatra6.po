@@ -1178,7 +1178,7 @@ msgstr "Active Directory"
 #, kde-format
 msgctxt "@label"
 msgid "Directory services"
-msgstr ""
+msgstr "目录服务"
 
 #: ui/directoryserviceswidget.cpp:194
 #, kde-format
@@ -1593,13 +1593,13 @@ msgstr "打开文件对话框"
 #, kde-format
 msgctxt "@info Used as error message for a required text input"
 msgid "Enter a value."
-msgstr ""
+msgstr "输入一个值。"
 
 #: ui/formtextinput.cpp:30
 #, kde-format
 msgctxt "@info Used as generic error message for a text input"
 msgid "Enter a value in the correct format."
-msgstr ""
+msgstr "以正确的格式输入一个值。"
 
 #: ui/formtextinput.cpp:92
 #, kde-format
@@ -1969,14 +1969,14 @@ msgstr "重新检查密钥"
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
-msgstr ""
+msgstr "诊断"
 
 #: ui/messagebox.cpp:128 ui/messagebox.cpp:165
 #, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
-msgstr ""
+msgstr "显示审核日志"
 
 #: ui/messagebox.cpp:191 ui/messagebox.cpp:205
 #, kde-format
@@ -2227,7 +2227,7 @@ msgstr "密钥材料"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
-msgstr ""
+msgstr "设置此密钥以供团队共享使用"
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
 #, kde-format
@@ -3093,25 +3093,25 @@ msgstr "Elgamal 4096"
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
-msgstr ""
+msgstr "Kyber 768 (Curve25519)"
 
 #: utils/formatting.cpp:1479
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
-msgstr ""
+msgstr "Kyber 768 (Brainpool P-256)"
 
 #: utils/formatting.cpp:1480
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
-msgstr ""
+msgstr "Kyber 1024 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1481
 #, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
-msgstr ""
+msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1494
 #, kde-format
@@ -3269,7 +3269,7 @@ msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr ""
+msgstr "签名有效，但所使用的密钥未经您或任何受信任的人认证。"
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
 #, kde-format
@@ -3278,6 +3278,7 @@ msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
+"签名有效，但使用的证书未经值得信赖的证书颁发机构认证，或者证书颁发机构未知。"
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
@@ -3286,7 +3287,7 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr ""
+msgstr "<strong>警告：</strong> 无法确认该签名属于密钥所有者。"
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3294,13 +3295,13 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>警告：</strong> 无法确定签名是否属于所有者。"
 
 #: utils/formatting.cpp:1699
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr ""
+msgstr "签名有效，但已过期。"
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
 #, kde-format
@@ -3308,31 +3309,31 @@ msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr ""
+msgstr "签名有效，但已过期，使用的密钥未经您或任何受信任的人认证。"
 
 #: utils/formatting.cpp:1716
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr ""
+msgstr "签名有效，但使用的密钥已过期。"
 
 #: utils/formatting.cpp:1722
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr ""
+msgstr "签名有效，但使用的密钥已被吊销。"
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
-msgstr ""
+msgstr "<strong>警告：</strong> 这可能意味着签名是伪造的。"
 
 #: utils/formatting.cpp:1725
 #, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
+msgstr "使用的密钥未经您或任何受信任的人认证。"
 
 #: utils/gnupg.cpp:438
 #, kde-format
