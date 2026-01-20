@@ -344,6 +344,7 @@ create-command=0|xargs -0 md5sum --
 verify-command=md5sum -c --
 
 [Key Filter #1]
+id=expired
 is-expired=true
 is-revoked=false
 is-disabled=false
@@ -409,6 +410,7 @@ Description[x-test]=xxCertificates that are invalid because they have expired (e
 Description[zh_CN]=因过期而无效的证书（已禁用的证书除外）
 
 [Key Filter #2]
+id=revoked
 is-revoked=true
 is-disabled=false
 Name=Revoked
