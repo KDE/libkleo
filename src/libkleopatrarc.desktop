@@ -344,6 +344,7 @@ create-command=0|xargs -0 md5sum --
 verify-command=md5sum -c --
 
 [Key Filter #1]
+id=expired
 is-expired=true
 is-revoked=false
 is-disabled=false
@@ -414,6 +415,7 @@ Description[zh_CN]=因过期而无效的证书（已禁用的证书除外）
 Description[zh_TW]=因為已過期而無效的憑證（除了已停用的以外）
 
 [Key Filter #2]
+id=revoked
 is-revoked=true
 is-disabled=false
 Name=Revoked
