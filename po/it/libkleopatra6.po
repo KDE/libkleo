@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to Italian
-# SPDX-FileCopyrightText: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Luigi Toscano <luigi.toscano@tiscali.it>
+# SPDX-FileCopyrightText: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # Alessandro Pasotti <ale.pas@tiscalinet.it>, 2004, 2005.
 # Alessandro Astarita <aleast@capri.it>, 2004.
 # Andrea Rizzi <rizzi@kde.org>, 2004.
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2025-11-09 23:36+0100\n"
+"PO-Revision-Date: 2026-01-16 14:38+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -3488,40 +3488,35 @@ msgstr ""
 "Puoi cercare il certificato su un server di chiavi o importarlo da un file."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"La chiave usata non è certificata da te o da alcuna persona attendibile."
+"La firma è valida ma la chiave usata non è certificata da te o da alcuna "
+"persona attendibile."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Il certificato usato non è certificato da un'autorità di certificazione "
-"attendibile o l'autorità di certificazione è sconosciuta."
+"La firma è valida ma il certificato usato non è certificato da un'autorità "
+"di certificazione attendibile o l'autorità di certificazione è sconosciuta."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
 msgstr ""
-"Non ci sono indicazioni che questo certificato appartenga a questo "
-"destinatario."
+"<strong>Attenzione:</strong> non ci sono indicazioni la firma appartenga "
+"effettivamente al proprietario."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3530,47 +3525,47 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>Attenzione:</strong> non è certo c he la firma appartenga "
+"effettivamente al proprietario."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "La firma è valida ma la validità del certificato non è definita."
+msgstr "La firma è valida ma è scaduta."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"La chiave usata non è certificata da te o da alcuna persona attendibile."
+"La firma è valida ma è scaduta e la chiave usata non è certificata da te o "
+"da alcuna persona attendibile."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "La firma è valida ma la validità del certificato non è definita."
+msgstr "La firma è valida ma la chiave usata è scaduta."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "La firma è valida ma la validità del certificato non è definita."
+msgstr "La firma è valida ma la chiave usata è stata revocata."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Attenzione:</strong> questo potrebbe voler dire che la firma è "
+"contraffatta."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""

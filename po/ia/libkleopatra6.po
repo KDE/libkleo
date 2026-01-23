@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2011, 2013, 2020, 2021, 2022, 2023, 2024, 2025 g.sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2011, 2013, 2020, 2021, 2022, 2023, 2024, 2025, 2026 g.sora <g.sora@tiscali.it>
 # giovanni <g.sora@tiscali.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2025-09-02 17:35+0200\n"
+"PO-Revision-Date: 2026-01-22 15:33+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1050,7 +1050,7 @@ msgstr ""
 #: ui/auditlogviewer.cpp:129
 #, kde-format
 msgid "HTML files (*.html)"
-msgstr ""
+msgstr "Files HTML (*html)"
 
 #: ui/auditlogviewer.cpp:153
 #, kde-format
@@ -1149,12 +1149,10 @@ msgid "Active Directory"
 msgstr ""
 
 #: ui/directoryserviceswidget.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "LDAP Directory Service"
+#, kde-format
 msgctxt "@label"
 msgid "Directory services"
-msgstr "Servicio de directorio LDAP"
+msgstr "Servicios de directorio"
 
 #: ui/directoryserviceswidget.cpp:194
 #, kde-format
@@ -1936,12 +1934,10 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostica"
 
 #: ui/messagebox.cpp:128 ui/messagebox.cpp:165
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Audit Log"
+#, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
@@ -3233,13 +3229,14 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "Le signatura es valide, ma le validitate del certificato es incognite."
+msgstr ""
+"Le signatura es valide, ma le clave usate non es certificate per te o ulle "
+"altere personas digne de fiducia."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
 #, kde-format
@@ -3267,11 +3264,10 @@ msgid ""
 msgstr ""
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is invalid: %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Le signatura es invalide: %1"
+msgstr "Le signatura es valide ma illo ha expirate."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
 #, kde-format
@@ -3282,18 +3278,16 @@ msgid ""
 msgstr ""
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is unknown."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Le signatura es valide, ma le validitate del certificato es incognite."
+msgstr "Le signatura es valide, ma le clave usate ha expirate."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is unknown."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Le signatura es valide, ma le validitate del certificato es incognite."
+msgstr "Le signatura es valide, ma le clave usate ha essite revocate."
 
 #: utils/formatting.cpp:1723
 #, kde-format
