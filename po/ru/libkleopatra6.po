@@ -7,7 +7,7 @@
 # Alexander Potashev <aspotashev@gmail.com>, 2010, 2011, 2015, 2017, 2019.
 # Julia Dronova <juliette.tux@gmail.com>, 2012.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
-# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2023, 2024 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2023, 2024, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Edwin Veber <edwin0307@gmail.com>, 2011.
 # Мария Шикунова <translation-team@basealt.ru>, 2022, 2023.
 # SPDX-FileCopyrightText: 2024, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2025-04-02 15:59+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2026-01-28 22:06+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.1\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -1409,7 +1409,7 @@ msgstr "Выбор файла для сохранения журнала ауд�
 #: ui/auditlogviewer.cpp:129
 #, kde-format
 msgid "HTML files (*.html)"
-msgstr ""
+msgstr "Документы HTML (*.html)"
 
 #: ui/auditlogviewer.cpp:153
 #, kde-format
@@ -1513,12 +1513,10 @@ msgid "Active Directory"
 msgstr "Active Directory"
 
 #: ui/directoryserviceswidget.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "LDAP Directory Service"
+#, kde-format
 msgctxt "@label"
 msgid "Directory services"
-msgstr "Служба каталогов LDAP"
+msgstr "Службы каталогов"
 
 #: ui/directoryserviceswidget.cpp:194
 #, kde-format
@@ -1957,18 +1955,16 @@ msgid "Open file dialog"
 msgstr "Выбор файла или папки"
 
 #: ui/formtextinput.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enter a name."
+#, kde-format
 msgctxt "@info Used as error message for a required text input"
 msgid "Enter a value."
-msgstr "Введите имя."
+msgstr "Введите значение."
 
 #: ui/formtextinput.cpp:30
-#, fuzzy, kde-format
-#| msgid "Error: Enter a value in the correct format."
+#, kde-format
 msgctxt "@info Used as generic error message for a text input"
 msgid "Enter a value in the correct format."
-msgstr "Ошибка: введите значение в корректном формате."
+msgstr "Введите значение в корректном формате."
 
 #: ui/formtextinput.cpp:92
 #, kde-format
@@ -2354,16 +2350,14 @@ msgstr "Перепроверить ключ"
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
-msgstr ""
+msgstr "Диагностика"
 
 #: ui/messagebox.cpp:128 ui/messagebox.cpp:165
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Audit Log"
+#, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
-msgstr "Показать журнал аудита"
+msgstr "Журнал аудита"
 
 #: ui/messagebox.cpp:191 ui/messagebox.cpp:205
 #, kde-format
@@ -2626,7 +2620,7 @@ msgstr "Материал ключа"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
-msgstr ""
+msgstr "Использовать этот ключ для совместного использования в командах"
 
 #: ui/openpgpcertificatecreationdialog.cpp:151
 #, kde-format
@@ -3523,36 +3517,28 @@ msgid "Elgamal 4096"
 msgstr "Elgamal 4096"
 
 #: utils/formatting.cpp:1478
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve25519)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Curve25519)"
-msgstr "ECC (Curve25519)"
+msgstr "Kyber 768 (Curve25519)"
 
 #: utils/formatting.cpp:1479
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-256)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 768 (Brainpool P-256)"
-msgstr "ECC (Brainpool P-256)"
+msgstr "Kyber 768 (Brainpool P-256)"
 
 #: utils/formatting.cpp:1480
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Brainpool P-384)"
-msgstr "ECC (Brainpool P-384)"
+msgstr "Kyber 1024 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1481
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Curve448)"
+#, kde-format
 msgctxt "@info"
 msgid "Kyber 1024 (Curve448)"
-msgstr "ECC (Curve448)"
+msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1494
 #, kde-format
