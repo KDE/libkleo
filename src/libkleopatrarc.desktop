@@ -1286,3 +1286,13 @@ font-bold=true
 has-secret-key=true
 # UINT_MAX - 2
 specificity=4294967293
+
+[Key Filter #16]
+id=valid
+match-contexts=any
+is-disabled=false
+is-expired=false
+is-revoked=false
+was-validated=true
+Name=Valid
+Description=Certificates that are neither expired nor revoked (except disabled ones)
