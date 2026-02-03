@@ -163,6 +163,7 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
     }
     SET(Revoked, "is-revoked");
     SET(Expired, "is-expired");
+    SET(Invalid, "is-invalid");
     SET(Disabled, "is-disabled");
     SET(Root, "is-root-certificate");
     SET(CanEncrypt, "can-encrypt");
