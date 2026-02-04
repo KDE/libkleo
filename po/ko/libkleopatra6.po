@@ -1,7 +1,7 @@
 # Translation of libkleopatra.po to Korean.
 #
 #
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 # Kyuhyong Yoo <master@aerobuster.com>, 2004.
 # Kyungho Lee <leedos@hanmail.net>, 2004.
 # JungHee Lee <daemul72@gmail.com>, 2019, 2021.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2025-10-12 12:14+0200\n"
+"PO-Revision-Date: 2026-02-03 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -1114,7 +1114,7 @@ msgstr "GnuPG 감사 기록을 저장할 파일 선택"
 #: ui/auditlogviewer.cpp:129
 #, kde-format
 msgid "HTML files (*.html)"
-msgstr ""
+msgstr "HTML 파일 (*.html)"
 
 #: ui/auditlogviewer.cpp:153
 #, kde-format
@@ -2028,12 +2028,10 @@ msgstr "키 다시 확인"
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
-msgstr ""
+msgstr "진단"
 
 #: ui/messagebox.cpp:128 ui/messagebox.cpp:165
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Audit Log"
+#, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
@@ -2291,9 +2289,7 @@ msgid "Key Material"
 msgstr "키 구성"
 
 #: ui/openpgpcertificatecreationdialog.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Set up this key for shared usage in teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
 msgstr "이 키를 팀에서 공유할 수 있도록 설정"
@@ -3338,37 +3334,32 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "인증서를 키 서버에서 찾거나 파일에서 가져올 수 있습니다."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "사용한 키를 귀하나 신뢰 가능한 사람이 인증하지 않았습니다."
+msgstr ""
+"서명이 올바르지만 사용한 키를 귀하나 신뢰 가능한 사람이 인증하지 않았습니다."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"사용한 인증서를 신뢰할 수 있는 인증 기관에서 인증하지 않았거나 인증 기관을 "
-"알 수 없습니다."
+"서명이 올바르지만 사용한 인증서를 신뢰할 수 있는 인증 기관에서 인증하지 않았"
+"거나 인증 기관을 알 수 없습니다."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "이 인증서가 이 수신자의 것이라는 표시가 없습니다."
+msgstr "<strong>경고:</strong> 이 서명이 소유자의 것이라는 표시가 없습니다."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3376,47 +3367,44 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>경고:</strong> 서명이 소유자의 것인지를 확신할 수 없습니다."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "서명이 올바르지만 인증서 유효성이 정의되지 않았습니다."
+msgstr "서명이 올바르지만 만료되었습니다."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr "사용한 키를 귀하나 신뢰 가능한 사람이 인증하지 않았습니다."
+msgstr ""
+"서명이 올바르지만 만료되었으며, 사용한 키를 귀하나 신뢰 가능한 사람이 인증하"
+"지 않았습니다."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "서명이 올바르지만 인증서 유효성이 정의되지 않았습니다."
+msgstr "서명이 올바르지만 사용된 키가 만료되었습니다."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "서명이 올바르지만 인증서 유효성이 정의되지 않았습니다."
+msgstr "서명이 올바르지만 사용된 키가 철회되었습니다."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
-msgstr ""
+msgstr "<strong>경고:</strong> 서명이 위조되었을 수도 있습니다."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "사용한 키를 귀하나 신뢰 가능한 사람이 인증하지 않았습니다."
