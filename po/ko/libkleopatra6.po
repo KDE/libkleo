@@ -1,7 +1,7 @@
 # Translation of libkleopatra.po to Korean.
 #
 #
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 # Kyuhyong Yoo <master@aerobuster.com>, 2004.
 # Kyungho Lee <leedos@hanmail.net>, 2004.
 # JungHee Lee <daemul72@gmail.com>, 2019, 2021.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:41+0000\n"
-"PO-Revision-Date: 2025-10-12 12:14+0200\n"
+"PO-Revision-Date: 2026-02-03 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -1114,7 +1114,7 @@ msgstr "GnuPG 감사 기록을 저장할 파일 선택"
 #: ui/auditlogviewer.cpp:129
 #, kde-format
 msgid "HTML files (*.html)"
-msgstr ""
+msgstr "HTML 파일 (*.html)"
 
 #: ui/auditlogviewer.cpp:153
 #, kde-format
@@ -2028,12 +2028,10 @@ msgstr "키 다시 확인"
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
-msgstr ""
+msgstr "진단"
 
 #: ui/messagebox.cpp:101
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Audit Log"
+#, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
@@ -2291,9 +2289,7 @@ msgid "Key Material"
 msgstr "키 구성"
 
 #: ui/openpgpcertificatecreationdialog.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Set up this key for shared usage in teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
 msgstr "이 키를 팀에서 공유할 수 있도록 설정"
