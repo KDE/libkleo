@@ -47,6 +47,83 @@ static bool unlimitedValidityIsAllowed()
     return !Kleo::Expiration::maximumExpirationDate().isValid();
 }
 
+static QStringList initCompliantAlgorithms()
+{
+    const auto &compliantAlgorithms = DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP);
+    QStringList result;
+    result.reserve(compliantAlgorithms.size());
+    std::ranges::transform(compliantAlgorithms, std::back_inserter(result), &QString::fromStdString);
+    return result;
+}
+
+namespace
+{
+struct AlgorithmsAndDefault {
+    QStringList algorithms;
+    QString defaultAlgorithm;
+};
+}
+
+static AlgorithmsAndDefault readAlgorithms(const KConfigGroup &config)
+{
+    static const QStringList compliantAlgorithms{initCompliantAlgorithms()};
+
+    AlgorithmsAndDefault result;
+
+    // legacy setting PGPKeyType
+    const auto customKeyType = config.readEntry("PGPKeyType", QString{}).toLower();
+    if (!customKeyType.isEmpty() && customKeyType != "rsa"_L1) {
+        qCWarning(LIBKLEO_LOG) << "Ignoring unsupported PGPKeyType" << config.readEntry("PGPKeyType", QString{});
+    }
+    // legacy setting RSAKeySizes; if not set, but PGPKeyType is "RSA" then use standard sizes
+    const auto customRsaKeySizes = config.readEntry("RSAKeySizes", (customKeyType == "rsa"_L1) ? QList<int>{2048, -3072, 4096} : QList<int>{});
+    if (!customRsaKeySizes.empty()) {
+        for (int keySize : customRsaKeySizes) {
+            const QString algorithm = u"rsa"_s + QString::number(std::abs(keySize));
+            if (compliantAlgorithms.contains(algorithm)) {
+                result.algorithms.push_back(algorithm);
+                if (keySize < 0) {
+                    result.defaultAlgorithm = algorithm;
+                }
+            } else {
+                qCWarning(LIBKLEO_LOG) << "Ignoring non-compliant RSA key size" << std::abs(keySize);
+            }
+        }
+        if (result.algorithms.empty()) {
+            qCWarning(LIBKLEO_LOG) << "Using default algorithms";
+            result.algorithms = compliantAlgorithms;
+        } else if (result.defaultAlgorithm.isEmpty()) {
+            // choose a sensible default RSA algorithm
+            for (const auto &algo : std::vector<QString>{u"rsa3072"_s, u"rsa2048"_s, u"rsa4096"_s}) {
+                if (result.algorithms.contains(algo)) {
+                    result.defaultAlgorithm = algo;
+                    break;
+                }
+            }
+        }
+    } else {
+        result.algorithms = compliantAlgorithms;
+    }
+    if (result.defaultAlgorithm.isEmpty()) {
+        if (const auto pubkeyEntry = QGpgME::cryptoConfig()->entry(u"gpg"_s, u"default_pubkey_algo"_s)) {
+            // default_pubkey_algo values for gpg look like "ed25519/cert,sign+cv25519/encr"
+            auto defaultAlgo = pubkeyEntry->stringValue().split(u'/')[0];
+            if (defaultAlgo == "ed25519"_L1) {
+                defaultAlgo = u"curve25519"_s;
+            } else if (defaultAlgo == "ed448"_L1) {
+                defaultAlgo = u"curve448"_s;
+            }
+            if (result.algorithms.contains(defaultAlgo)) {
+                result.defaultAlgorithm = defaultAlgo;
+            } else {
+                qCWarning(LIBKLEO_LOG) << "Failed to find gpg's default algorithm" << defaultAlgo << "in algorithm selection";
+            }
+        }
+    }
+
+    return result;
+}
+
 class OpenPGPCertificateCreationDialog::Private
 {
     friend class ::Kleo::OpenPGPCertificateCreationDialog;
@@ -111,6 +188,12 @@ class OpenPGPCertificateCreationDialog::Private
 
             keyAlgoCB = new QComboBox(dialog);
             keyAlgoLabel->setBuddy(keyAlgoCB);
+            const auto algos = readAlgorithms(KConfigGroup{KSharedConfig::openConfig(), QStringLiteral("CertificateCreationWizard")});
+            keyAlgoCB->addItems(algos.algorithms);
+            if (!algos.defaultAlgorithm.isEmpty()) {
+                keyAlgoCB->setCurrentText(algos.defaultAlgorithm);
+            }
+
             advancedLayout->addWidget(keyAlgoCB);
 
             {
@@ -187,32 +270,6 @@ public:
             checkAccept();
         });
         connect(ui.buttonBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
-
-        for (const auto &algorithm : DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP)) {
-            ui.keyAlgoCB->addItem(QString::fromStdString(algorithm), QString::fromStdString(algorithm));
-        }
-        auto cryptoConfig = QGpgME::cryptoConfig();
-        if (cryptoConfig) {
-            auto pubkeyEntry = getCryptoConfigEntry(QGpgME::cryptoConfig(), "gpg", "default_pubkey_algo");
-            if (pubkeyEntry) {
-                auto algo = pubkeyEntry->stringValue().split(QLatin1Char('/'))[0];
-                if (algo == QLatin1StringView("ed25519")) {
-                    algo = QStringLiteral("curve25519");
-                } else if (algo == QLatin1StringView("ed448")) {
-                    algo = QStringLiteral("curve448");
-                }
-                auto index = ui.keyAlgoCB->findData(algo);
-                if (index != -1) {
-                    ui.keyAlgoCB->setCurrentIndex(index);
-                } else {
-                    ui.keyAlgoCB->setCurrentIndex(0);
-                }
-            } else {
-                ui.keyAlgoCB->setCurrentIndex(0);
-            }
-        } else {
-            ui.keyAlgoCB->setCurrentIndex(0);
-        }
 
         Kleo::Expiration::setUpExpirationDateComboBox(ui.expiryDE);
         ui.expiryCB->setEnabled(true);
