@@ -12,6 +12,8 @@
 
 #include "kleo_export.h"
 
+#include <gpgme++/global.h>
+
 #include <string>
 #include <string_view>
 #include <vector>
@@ -83,14 +85,19 @@ KLEO_EXPORT bool userIDIsCompliant(const GpgME::UserID &id);
 KLEO_EXPORT bool keyIsCompliant(const GpgME::Key &key);
 
 /**
- * Returns a static list of the available compliant algorithms.
+ * Returns a static list of the available compliant algorithms for protocol \a protocol.
+ *
+ * \a protocol must be \c GpgME::OpenPGP or \c GpgME::CMS.
  */
-KLEO_EXPORT const std::vector<std::string> &compliantAlgorithms();
+KLEO_EXPORT const std::vector<std::string> &compliantAlgorithms(GpgME::Protocol protocol);
 
 /**
  * Returns a static list of the preferred compliant algorithms with decreasing
  * preference.
  * Can be used to determine the default algorithm for generating new keys.
+ *
+ * \note This list may contain algorithms that are not available for a protocol.
+ *       You have to intersect the list with the available algorithms.
  */
 KLEO_EXPORT const std::vector<std::string> &preferredCompliantAlgorithms();
 

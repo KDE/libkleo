@@ -37,7 +37,8 @@ private Q_SLOTS:
         QVERIFY(DeVSCompliance::keyIsCompliant(GpgME::Key{}));
 
         // all available algorithms are considered compliant
-        QCOMPARE(DeVSCompliance::compliantAlgorithms(), Kleo::availableAlgorithms());
+        QCOMPARE(DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP), Kleo::availableAlgorithms(GpgME::OpenPGP));
+        QCOMPARE(DeVSCompliance::compliantAlgorithms(GpgME::CMS), Kleo::availableAlgorithms(GpgME::CMS));
 
         QCOMPARE(DeVSCompliance::name(), QString{});
         QCOMPARE(DeVSCompliance::name(true), QString{});
@@ -55,7 +56,8 @@ private Q_SLOTS:
         QVERIFY(!DeVSCompliance::algorithmIsCompliant("rsa2048"));
         QVERIFY(DeVSCompliance::algorithmIsCompliant("rsa3072"));
 
-        QVERIFY(DeVSCompliance::compliantAlgorithms() != Kleo::availableAlgorithms());
+        QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP) != Kleo::availableAlgorithms(GpgME::OpenPGP));
+        QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::CMS) != Kleo::availableAlgorithms(GpgME::CMS));
 
         QCOMPARE(DeVSCompliance::name(), u"Not VS-NfD compliant"_s);
         QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant"_s);
@@ -73,7 +75,8 @@ private Q_SLOTS:
         QVERIFY(!DeVSCompliance::algorithmIsCompliant("rsa2048"));
         QVERIFY(DeVSCompliance::algorithmIsCompliant("rsa3072"));
 
-        QVERIFY(DeVSCompliance::compliantAlgorithms() != Kleo::availableAlgorithms());
+        QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP) != Kleo::availableAlgorithms(GpgME::OpenPGP));
+        QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::CMS) != Kleo::availableAlgorithms(GpgME::CMS));
 
         QCOMPARE(DeVSCompliance::name(), u"VS-NfD compliant"_s);
         QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant"_s);

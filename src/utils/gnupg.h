@@ -142,12 +142,17 @@ KLEO_EXPORT void launchGpgAgent(LaunchGpgAgentOptions options = CheckForRunningA
 KLEO_EXPORT void restartGpgAgent();
 
 /**
- * Returns a static list of the available algorithms.
+ * Returns a static list of the available algorithms for protocol \a protocol.
+ *
+ * \a protocol must be \c GpgME::OpenPGP or \c GpgME::CMS.
  */
-KLEO_EXPORT const std::vector<std::string> &availableAlgorithms();
+KLEO_EXPORT const std::vector<std::string> &availableAlgorithms(GpgME::Protocol protocol);
 
 /**
  * Returns a static list of the preferred algorithms with decreasing preference.
+ *
+ * \note This list may contain algorithms that are not available or not allowed (compliant).
+ *       You have to intersect the list with the available/allowed algorithms.
  */
 KLEO_EXPORT const std::vector<std::string> &preferredAlgorithms();
 

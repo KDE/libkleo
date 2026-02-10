@@ -33,6 +33,22 @@
 
 using namespace Kleo;
 
+// May include algorithms that are not available, i.e. you must match the list
+// against the list of available algorithms.
+static const std::vector<std::string> &allCompliantAlgorithms()
+{
+    static const std::vector<std::string> algos = {
+        "brainpoolP256r1",
+        "brainpoolP384r1",
+        "brainpoolP512r1",
+        "rsa3072",
+        "rsa4096",
+        "ky768_bp256",
+        "ky1024_bp384",
+    };
+    return algos;
+}
+
 bool Kleo::DeVSCompliance::isActive()
 {
     return getCryptoConfigStringValue("gpg", "compliance") == QLatin1StringView{"de-vs"};
@@ -66,7 +82,10 @@ bool Kleo::DeVSCompliance::isBetaCompliance()
 
 bool Kleo::DeVSCompliance::algorithmIsCompliant(std::string_view algo)
 {
-    return !isActive() || Kleo::contains(compliantAlgorithms(), algo);
+    // check algo against the list of all compliant algorithms which is a superset
+    // of the compliant algorithms for OpenPGP and CMS; we assume that this function
+    // is only used for checking algorithms that are actually supported by a protocol
+    return !isActive() || Kleo::contains(allCompliantAlgorithms(), algo);
 }
 
 bool Kleo::DeVSCompliance::allSubkeysAreCompliant(const GpgME::Key &key)
@@ -109,30 +128,43 @@ bool Kleo::DeVSCompliance::keyIsCompliant(const GpgME::Key &key)
         && allSubkeysAreCompliant(key);
 }
 
-const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms()
+static const std::vector<std::string> initCompliantAlgorithms(GpgME::Protocol protocol)
+{
+    std::vector<std::string> result;
+    result.reserve(allCompliantAlgorithms().size());
+    const auto &availableAlgorithms = Kleo::availableAlgorithms(protocol);
+    const auto isAvailable = [&availableAlgorithms](const std::string &algo) {
+        return Kleo::contains(availableAlgorithms, algo);
+    };
+    std::ranges::copy_if(allCompliantAlgorithms(), std::back_inserter(result), isAvailable);
+    return result;
+}
+
+template<GpgME::Protocol _Protocol>
+static const auto &compliantAlgorithmsT()
 {
     static std::vector<std::string> compliantAlgos;
-    if (!isActive()) {
-        return Kleo::availableAlgorithms();
-    }
     if (compliantAlgos.empty()) {
-        compliantAlgos.reserve(7);
-        compliantAlgos = {
-            "brainpoolP256r1",
-            "brainpoolP384r1",
-            "brainpoolP512r1",
-            "rsa3072",
-            "rsa4096",
-        };
-        if (engineIsVersion(2, 5, 2)) {
-            compliantAlgos.insert(compliantAlgos.end(),
-                                  {
-                                      "ky768_bp256",
-                                      "ky1024_bp384",
-                                  });
-        }
-    };
+        compliantAlgos = initCompliantAlgorithms(_Protocol);
+    }
     return compliantAlgos;
+}
+
+const std::vector<std::string> &Kleo::DeVSCompliance::compliantAlgorithms(GpgME::Protocol protocol)
+{
+    if (!isActive()) {
+        return Kleo::availableAlgorithms(protocol);
+    }
+    static const std::vector<std::string> empty;
+    switch (protocol) {
+    case GpgME::OpenPGP:
+        return compliantAlgorithmsT<GpgME::OpenPGP>();
+    case GpgME::CMS:
+        return compliantAlgorithmsT<GpgME::CMS>();
+    default:
+        Q_ASSERT(!"protocol must be either GpgME::OpenPGP or GpgME::CMS");
+        return empty;
+    }
 }
 
 const std::vector<std::string> &Kleo::DeVSCompliance::preferredCompliantAlgorithms()

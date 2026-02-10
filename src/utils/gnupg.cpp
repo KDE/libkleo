@@ -576,7 +576,7 @@ void Kleo::restartGpgAgent()
     process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")}, startAgent, startAgent);
 }
 
-const std::vector<std::string> &Kleo::availableAlgorithms()
+static const std::vector<std::string> &availableAlgorithmsOpenPGP()
 {
     static std::vector<std::string> algos;
     if (algos.empty()) {
@@ -595,15 +595,42 @@ const std::vector<std::string> &Kleo::availableAlgorithms()
             "rsa4096",
             // "secp256k1", // Curve secp256k1 is explicitly ignored
         };
-        if (engineIsVersion(2, 5, 2)) {
+        if (Kleo::engineIsVersion(2, 5, 2)) {
             algos.insert(algos.end(),
                          {
                              "ky768_bp256",
                              "ky1024_bp384",
                          });
         }
-    };
+    }
     return algos;
+}
+
+static const std::vector<std::string> &availableAlgorithmsCMS()
+{
+    static std::vector<std::string> algos;
+    if (algos.empty()) {
+        algos = {
+            "rsa2048",
+            "rsa3072",
+            "rsa4096",
+        };
+    }
+    return algos;
+}
+
+const std::vector<std::string> &Kleo::availableAlgorithms(GpgME::Protocol protocol)
+{
+    static const std::vector<std::string> empty;
+    switch (protocol) {
+    case GpgME::OpenPGP:
+        return availableAlgorithmsOpenPGP();
+    case GpgME::CMS:
+        return availableAlgorithmsCMS();
+    default:
+        Q_ASSERT(!"protocol must be either GpgME::OpenPGP or GpgME::CMS");
+        return empty;
+    }
 }
 
 const std::vector<std::string> &Kleo::preferredAlgorithms()

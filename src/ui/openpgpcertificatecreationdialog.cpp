@@ -188,7 +188,7 @@ public:
         });
         connect(ui.buttonBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
 
-        for (const auto &algorithm : DeVSCompliance::isActive() ? DeVSCompliance::compliantAlgorithms() : availableAlgorithms()) {
+        for (const auto &algorithm : DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP)) {
             ui.keyAlgoCB->addItem(QString::fromStdString(algorithm), QString::fromStdString(algorithm));
         }
         auto cryptoConfig = QGpgME::cryptoConfig();
