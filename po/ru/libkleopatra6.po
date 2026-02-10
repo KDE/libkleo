@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2026-01-28 22:06+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-02-09 20:59+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -3701,38 +3701,35 @@ msgstr ""
 "из файла."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Использовавшийся ключ не удостоверен вами или каким-либо доверенным лицом."
+"Подпись действительна, но использованный для её создания ключ не удостоверен "
+"вами или каким-либо доверенным лицом."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Использовавшийся сертификат не удостоверен доверенным центром сертификации "
-"или центр сертификации неизвестен."
+"Подпись действительна, но использованный сертификат не удостоверен "
+"доверенным центром сертификации или центр сертификации неизвестен."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "Признаки того, что сертификат принадлежит получателю, отсутствуют."
+msgstr ""
+"<strong>Предупреждение:</strong> Отсутствуют признаки того, что подпись "
+"принадлежит владельцу."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3741,30 +3738,30 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>Предупреждение:</strong> Нет уверенности, что подпись принадлежит "
+"владельцу."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Подпись действительна, но не определена действительность сертификата."
+msgstr "Подпись действительна, но срок её действия истёк."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Использовавшийся ключ не удостоверен вами или каким-либо доверенным лицом."
+"Подпись действительна, но срок её действия истёк, а использованный для её "
+"создания ключ не удостоверен вами или каким-либо доверенным лицом."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Подпись действительна, но не определена действительность сертификата."
+msgstr "Подпись действительна, но срок действия ключа, использованного  "
 
 #: utils/formatting.cpp:1722
 #, fuzzy, kde-format
