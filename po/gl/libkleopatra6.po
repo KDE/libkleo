@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:44+0000\n"
+"POT-Creation-Date: 2026-02-11 00:46+0000\n"
 "PO-Revision-Date: 2024-12-16 01:08+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -2412,12 +2412,12 @@ msgstr "Cifrar para outras persoas:"
 msgid "Generate"
 msgstr "Xerar"
 
-#: ui/openpgpcertificatecreationdialog.cpp:94
+#: ui/openpgpcertificatecreationdialog.cpp:171
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "Protexa a chave xerada cunha frase de paso."
 
-#: ui/openpgpcertificatecreationdialog.cpp:96
+#: ui/openpgpcertificatecreationdialog.cpp:173
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
@@ -2426,49 +2426,49 @@ msgstr ""
 "Cifra a chave secreta cunha frase de paso que irrecuperábel. Pediráselle a "
 "frase de paso durante a xeración da chave."
 
-#: ui/openpgpcertificatecreationdialog.cpp:99
+#: ui/openpgpcertificatecreationdialog.cpp:176
 #, kde-format
 msgid "Advanced options"
 msgstr "Opcións avanzadas"
 
-#: ui/openpgpcertificatecreationdialog.cpp:106
+#: ui/openpgpcertificatecreationdialog.cpp:183
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr "Material da chave"
 
-#: ui/openpgpcertificatecreationdialog.cpp:132
+#: ui/openpgpcertificatecreationdialog.cpp:215
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
 msgstr ""
 
-#: ui/openpgpcertificatecreationdialog.cpp:151
+#: ui/openpgpcertificatecreationdialog.cpp:234
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Crear un certificado de OpenPGP"
 
-#: ui/openpgpcertificatecreationdialog.cpp:159
+#: ui/openpgpcertificatecreationdialog.cpp:242
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
 "Escriba un nome e un enderezo de correo electrónico para usar para o "
 "certificado."
 
-#: ui/openpgpcertificatecreationdialog.cpp:160
+#: ui/openpgpcertificatecreationdialog.cpp:243
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
 "Escriba un nome e/ou un enderezo de correo electrónico para usar para o "
 "certificado."
 
-#: ui/openpgpcertificatecreationdialog.cpp:349
+#: ui/openpgpcertificatecreationdialog.cpp:406
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Escriba un nome ou un enderezo de correo electrónico."
 
-#: ui/openpgpcertificatecreationdialog.cpp:363
+#: ui/openpgpcertificatecreationdialog.cpp:420
 #, kde-format
 msgid "There is a problem."
 msgstr "Hai un problema."
@@ -2518,17 +2518,17 @@ msgstr "Amosar a lista de certificados."
 msgid "Show certificate list"
 msgstr "Amosar a lista de certificados"
 
-#: utils/compliance.cpp:183
+#: utils/compliance.cpp:215
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "Cumpre con VS-NfD"
 
-#: utils/compliance.cpp:183
+#: utils/compliance.cpp:215
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Non cumpre con VS-NfD"
 
-#: utils/compliance.cpp:192
+#: utils/compliance.cpp:224
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"

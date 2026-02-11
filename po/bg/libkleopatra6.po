@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:44+0000\n"
+"POT-Creation-Date: 2026-02-11 00:46+0000\n"
 "PO-Revision-Date: 2025-11-07 18:25+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2368,12 +2368,12 @@ msgstr "Шифроване за други:"
 msgid "Generate"
 msgstr "Генериране"
 
-#: ui/openpgpcertificatecreationdialog.cpp:94
+#: ui/openpgpcertificatecreationdialog.cpp:171
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "Защита на генерирания ключ с парола."
 
-#: ui/openpgpcertificatecreationdialog.cpp:96
+#: ui/openpgpcertificatecreationdialog.cpp:173
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
@@ -2382,45 +2382,45 @@ msgstr ""
 "Криптира тайния ключ с невъзможна за възстановяване парола. По време на "
 "генерирането на ключа ще ви бъде поискана паролата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:99
+#: ui/openpgpcertificatecreationdialog.cpp:176
 #, kde-format
 msgid "Advanced options"
 msgstr "Разширени настройки"
 
-#: ui/openpgpcertificatecreationdialog.cpp:106
+#: ui/openpgpcertificatecreationdialog.cpp:183
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr "Основен материал"
 
-#: ui/openpgpcertificatecreationdialog.cpp:132
+#: ui/openpgpcertificatecreationdialog.cpp:215
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
 msgstr "Настройване на ключа за споделена употреба в екипи"
 
-#: ui/openpgpcertificatecreationdialog.cpp:151
+#: ui/openpgpcertificatecreationdialog.cpp:234
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Създаване на OpenPGP сертификати"
 
-#: ui/openpgpcertificatecreationdialog.cpp:159
+#: ui/openpgpcertificatecreationdialog.cpp:242
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr "Въведете име и имейл адрес, които да използвате за сертификата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:160
+#: ui/openpgpcertificatecreationdialog.cpp:243
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr "Въведете име и/или имейл адрес, които да използвате за сертификата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:349
+#: ui/openpgpcertificatecreationdialog.cpp:406
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Enter a name or an email address."
 
-#: ui/openpgpcertificatecreationdialog.cpp:363
+#: ui/openpgpcertificatecreationdialog.cpp:420
 #, kde-format
 msgid "There is a problem."
 msgstr "Има проблем."
@@ -2470,17 +2470,17 @@ msgstr "Показване на списък със сертификати"
 msgid "Show certificate list"
 msgstr "Показване на списък със сертификати"
 
-#: utils/compliance.cpp:183
+#: utils/compliance.cpp:215
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "VS-NfD съвместим"
 
-#: utils/compliance.cpp:183
+#: utils/compliance.cpp:215
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "VS-NfD несъвместим"
 
-#: utils/compliance.cpp:192
+#: utils/compliance.cpp:224
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"

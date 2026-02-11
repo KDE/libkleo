@@ -15,15 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:44+0000\n"
-"PO-Revision-Date: 2026-02-09 20:59+0300\n"
+"POT-Creation-Date: 2026-02-11 00:46+0000\n"
+"PO-Revision-Date: 2026-02-10 19:46+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -2591,12 +2591,12 @@ msgstr "Зашифровать для других:"
 msgid "Generate"
 msgstr "Создать"
 
-#: ui/openpgpcertificatecreationdialog.cpp:94
+#: ui/openpgpcertificatecreationdialog.cpp:171
 #, kde-format
 msgid "Protect the generated key with a passphrase."
 msgstr "Защитить созданный ключ паролем."
 
-#: ui/openpgpcertificatecreationdialog.cpp:96
+#: ui/openpgpcertificatecreationdialog.cpp:173
 #, kde-format
 msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
@@ -2605,49 +2605,49 @@ msgstr ""
 "Шифрует закрытый ключ с помощью пароля. Во время создания ключа будет "
 "предложено задать пароль."
 
-#: ui/openpgpcertificatecreationdialog.cpp:99
+#: ui/openpgpcertificatecreationdialog.cpp:176
 #, kde-format
 msgid "Advanced options"
 msgstr "Дополнительные параметры"
 
-#: ui/openpgpcertificatecreationdialog.cpp:106
+#: ui/openpgpcertificatecreationdialog.cpp:183
 #, kde-format
 msgctxt "The algorithm and strength of encryption key"
 msgid "Key Material"
 msgstr "Материал ключа"
 
-#: ui/openpgpcertificatecreationdialog.cpp:132
+#: ui/openpgpcertificatecreationdialog.cpp:215
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
 msgstr "Использовать этот ключ для совместного использования в командах"
 
-#: ui/openpgpcertificatecreationdialog.cpp:151
+#: ui/openpgpcertificatecreationdialog.cpp:234
 #, kde-format
 msgctxt "title:window"
 msgid "Create OpenPGP Certificate"
 msgstr "Создание сертификата OpenPGP"
 
-#: ui/openpgpcertificatecreationdialog.cpp:159
+#: ui/openpgpcertificatecreationdialog.cpp:242
 #, kde-format
 msgid "Enter a name and an email address to use for the certificate."
 msgstr ""
 "Введите имя и адрес электронной почты, которые будут использованы для "
 "сертификата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:160
+#: ui/openpgpcertificatecreationdialog.cpp:243
 #, kde-format
 msgid "Enter a name and/or an email address to use for the certificate."
 msgstr ""
 "Введите имя и/или адрес электронной почты, которые будут использованы для "
 "сертификата."
 
-#: ui/openpgpcertificatecreationdialog.cpp:349
+#: ui/openpgpcertificatecreationdialog.cpp:406
 #, kde-format
 msgid "Enter a name or an email address."
 msgstr "Введите имя или адрес электронной почты."
 
-#: ui/openpgpcertificatecreationdialog.cpp:363
+#: ui/openpgpcertificatecreationdialog.cpp:420
 #, kde-format
 msgid "There is a problem."
 msgstr "Имеется проблема."
@@ -2698,20 +2698,20 @@ msgstr "Показать список сертификатов"
 msgid "Show certificate list"
 msgstr "Показать список сертификатов"
 
-#: utils/compliance.cpp:183
+#: utils/compliance.cpp:215
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr ""
 "Соответствует уровню «VS-NfD» (секретно — только для служебного пользования)"
 
-#: utils/compliance.cpp:183
+#: utils/compliance.cpp:215
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr ""
 "Не соответствует уровню «VS-NfD» (секретно — только для служебного "
 "пользования)"
 
-#: utils/compliance.cpp:192
+#: utils/compliance.cpp:224
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3761,24 +3761,26 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Подпись действительна, но срок действия ключа, использованного  "
+msgstr ""
+"Подпись действительна, но истёк срок действия ключа, использованного для её "
+"создания."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Подпись действительна, но не определена действительность сертификата."
+msgstr ""
+"Подпись действительна, ключ, использованный для её создания, был отозван."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Предупреждение:</strong> Это может означать, что подпись подделана."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
