@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-11 00:46+0000\n"
-"PO-Revision-Date: 2026-01-20 08:30+0100\n"
+"PO-Revision-Date: 2026-02-10 14:13+0100\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
 "Language: de\n"
@@ -3511,8 +3511,8 @@ msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Die Signatur ist technisch korrekt, aber der verwendete Schlüssel wurde "
-"weder von Ihnen noch einer anderen vertrauenswürdigen Person beglaubigt."
+"Die Signatur ist gültig, aber der verwendete Schlüssel wurde weder von Ihnen "
+"noch einer anderen vertrauenswürdigen Person beglaubigt."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
 #, kde-format
@@ -3521,9 +3521,9 @@ msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Die Signatur ist technisch korrekt, aber das verwendete Zertifikat wurde "
-"nicht von einer vertrauenswürdigen Zertifizierungsstelle beglaubigt. Oder "
-"die Zertifizierungsstelle ist nicht importiert."
+"Die Signatur ist gültig, aber das verwendete Zertifikat wurde nicht von "
+"einer vertrauenswürdigen Zertifizierungsstelle beglaubigt. Oder die "
+"Zertifizierungsstelle ist nicht importiert."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
@@ -3550,8 +3550,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr ""
-"Die Signatur ist technisch korrekt, aber das  Zertifikats ist abgelaufen."
+msgstr "Die Signatur ist gültig, aber sie ist abgelaufen."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
 #, kde-format
@@ -3560,25 +3559,22 @@ msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Die Signatur ist technisch korrekt, aber der verwendete Schlüssel ist "
-"abgelaufen und wurde weder von Ihnen noch von einer anderen "
-"vertrauenswürdigen Person beglaubigt."
+"Die Signatur ist gültig, aber sie ist abgelaufen und der verwendete "
+"Schlüssel wurde weder von Ihnen noch von einer anderen vertrauenswürdigen "
+"Person beglaubigt."
 
 #: utils/formatting.cpp:1716
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr ""
-"Die Signatur ist technisch korrekt, aber der verwendete Schlüssel ist "
-"abgelaufen."
+msgstr "Die Signatur ist gültig, aber der verwendete Schlüssel ist abgelaufen."
 
 #: utils/formatting.cpp:1722
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr ""
-"Die Signatur ist technisch korrekt, aber der verwendete Schlüssel wurde "
-"widerrufen."
+"Die Signatur ist gültig, aber der verwendete Schlüssel wurde widerrufen."
 
 #: utils/formatting.cpp:1723
 #, kde-format
