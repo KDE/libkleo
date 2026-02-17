@@ -59,6 +59,9 @@ public:
      */
     void saveColumnLayout(const QString &stateGroupName);
     void resizeToContentsLimited();
+
+    QMenu *columnVisibilityMenu();
+
 Q_SIGNALS:
     void columnEnabled(int column);
     void columnDisabled(int column);

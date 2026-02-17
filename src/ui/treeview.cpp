@@ -24,7 +24,11 @@
 #include <QHeaderView>
 #include <QMenu>
 
+#include <libkleo_debug.h>
+
 using namespace Kleo;
+
+using namespace Qt::Literals::StringLiterals;
 
 static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
 
@@ -33,8 +37,6 @@ class TreeView::Private
     TreeView *q;
 
 public:
-    QMenu *mHeaderPopup = nullptr;
-    QList<QAction *> mColumnActions;
     QString mStateGroupName;
 
     explicit Private(TreeView *qq)
@@ -47,7 +49,70 @@ public:
         saveColumnLayout();
     }
     void saveColumnLayout();
+
+    QMenu *columnVisibilityMenu();
+
+private:
+    void columnVisibilityActionTriggered(QAction *action);
+
+    QMenu *mColumnVisibilityMenu = nullptr;
 };
+
+QMenu *TreeView::Private::columnVisibilityMenu()
+{
+    if (!mColumnVisibilityMenu) {
+        mColumnVisibilityMenu = new QMenu(q);
+        mColumnVisibilityMenu->setTitle(i18nc("@title:menu", "View Columns"));
+        for (int i = 0; i < q->model()->columnCount(); ++i) {
+            auto action = mColumnVisibilityMenu->addAction(q->model()->headerData(i, Qt::Horizontal).toString());
+            action->setData(i);
+            action->setCheckable(true);
+            connect(action, &QAction::triggered, q, [action, this]() {
+                columnVisibilityActionTriggered(action);
+            });
+        }
+
+        connect(q, &TreeView::columnDisabled, q, [this](int column) {
+            mColumnVisibilityMenu->actions()[column]->setChecked(false);
+        });
+        connect(q, &TreeView::columnEnabled, q, [this](int column) {
+            mColumnVisibilityMenu->actions()[column]->setChecked(true);
+        });
+    }
+
+    const auto actions = mColumnVisibilityMenu->actions();
+    for (QAction *action : std::as_const(actions)) {
+        const int column = action->data().toInt();
+        action->setChecked(!q->isColumnHidden(column));
+    }
+    const auto numVisibleColumns = std::ranges::count_if(actions, std::mem_fn(&QAction::isChecked));
+    for (auto action : std::as_const(actions)) {
+        action->setEnabled(numVisibleColumns != 1 || !action->isChecked());
+    }
+
+    return mColumnVisibilityMenu;
+}
+
+void TreeView::Private::columnVisibilityActionTriggered(QAction *action)
+{
+    const int column = action->data().toInt();
+    if (action->isChecked()) {
+        q->showColumn(column);
+        if (q->columnWidth(column) == 0 || q->columnWidth(column) == q->header()->defaultSectionSize()) {
+            q->resizeColumnToContents(column);
+            q->setColumnWidth(column, std::min(q->columnWidth(column), MAX_AUTOMATIC_COLUMN_WIDTH));
+        }
+    } else {
+        q->hideColumn(column);
+    }
+
+    if (action->isChecked()) {
+        Q_EMIT q->columnEnabled(column);
+    } else {
+        Q_EMIT q->columnDisabled(column);
+    }
+    saveColumnLayout();
+}
 
 TreeView::TreeView(QWidget *parent)
     : QTreeView::QTreeView(parent)
@@ -63,52 +128,8 @@ bool TreeView::eventFilter(QObject *watched, QEvent *event)
     Q_UNUSED(watched)
     if (event->type() == QEvent::ContextMenu) {
         auto e = static_cast<QContextMenuEvent *>(event);
+        d->columnVisibilityMenu()->popup(mapToGlobal(e->pos()));
 
-        if (!d->mHeaderPopup) {
-            d->mHeaderPopup = new QMenu(this);
-            d->mHeaderPopup->setTitle(i18nc("@title:menu", "View Columns"));
-            for (int i = 0; i < model()->columnCount(); ++i) {
-                QAction *tmp = d->mHeaderPopup->addAction(model()->headerData(i, Qt::Horizontal).toString());
-                tmp->setData(QVariant(i));
-                tmp->setCheckable(true);
-                d->mColumnActions << tmp;
-            }
-
-            connect(d->mHeaderPopup, &QMenu::triggered, this, [this](QAction *action) {
-                const int col = action->data().toInt();
-                if (action->isChecked()) {
-                    showColumn(col);
-                    if (columnWidth(col) == 0 || columnWidth(col) == header()->defaultSectionSize()) {
-                        resizeColumnToContents(col);
-                        setColumnWidth(col, std::min(columnWidth(col), MAX_AUTOMATIC_COLUMN_WIDTH));
-                    }
-                } else {
-                    hideColumn(col);
-                }
-
-                if (action->isChecked()) {
-                    Q_EMIT columnEnabled(col);
-                } else {
-                    Q_EMIT columnDisabled(col);
-                }
-                d->saveColumnLayout();
-            });
-        }
-
-        for (QAction *action : std::as_const(d->mColumnActions)) {
-            const int column = action->data().toInt();
-            action->setChecked(!isColumnHidden(column));
-        }
-
-        auto numVisibleColumns = std::count_if(d->mColumnActions.cbegin(), d->mColumnActions.cend(), [](const auto &action) {
-            return action->isChecked();
-        });
-
-        for (auto action : std::as_const(d->mColumnActions)) {
-            action->setEnabled(numVisibleColumns != 1 || !action->isChecked());
-        }
-
-        d->mHeaderPopup->popup(mapToGlobal(e->pos()));
         return true;
     }
 
@@ -277,6 +298,11 @@ void TreeView::resizeToContentsLimited()
         resizeColumnToContents(i);
         setColumnWidth(i, std::min(columnWidth(i), MAX_AUTOMATIC_COLUMN_WIDTH));
     }
+}
+
+QMenu *TreeView::columnVisibilityMenu()
+{
+    return d->columnVisibilityMenu();
 }
 
 #include "moc_treeview.cpp"
