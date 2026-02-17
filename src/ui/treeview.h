@@ -61,6 +61,7 @@ public:
     void resizeToContentsLimited();
 
     QMenu *columnVisibilityMenu();
+    QMenu *columnSortingMenu();
 
 Q_SIGNALS:
     void columnEnabled(int column);
