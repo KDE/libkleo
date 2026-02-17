@@ -19,6 +19,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
+#include <QActionGroup>
 #include <QClipboard>
 #include <QContextMenuEvent>
 #include <QGuiApplication>
@@ -40,6 +41,8 @@ public:
 
     Private(TreeView *qq)
         : q(qq)
+        , mSortColumnActionGroup{nullptr}
+        , mSortDirectionActionGroup{nullptr}
     {
     }
 
@@ -50,11 +53,15 @@ public:
     void saveColumnLayout();
 
     QMenu *columnVisibilityMenu();
+    QMenu *columnSortingMenu();
 
 private:
     void columnVisibilityActionTriggered(QAction *action);
 
     QMenu *mColumnVisibilityMenu = nullptr;
+    QMenu *mColumnSortingMenu = nullptr;
+    QActionGroup mSortColumnActionGroup;
+    QActionGroup mSortDirectionActionGroup;
 };
 
 QMenu *TreeView::Private::columnVisibilityMenu()
@@ -90,6 +97,66 @@ QMenu *TreeView::Private::columnVisibilityMenu()
     }
 
     return mColumnVisibilityMenu;
+}
+
+QMenu *TreeView::Private::columnSortingMenu()
+{
+    if (!mColumnSortingMenu) {
+        mColumnSortingMenu = new QMenu(q);
+        mColumnSortingMenu->addSection(i18nc("@title:menu title for a list of table columns to choose for sorting", "Sort by"));
+        for (int i = 0; i < q->model()->columnCount(); ++i) {
+            auto action = mColumnSortingMenu->addAction(q->model()->headerData(i, Qt::Horizontal).toString());
+            action->setData(i);
+            action->setCheckable(true);
+            mSortColumnActionGroup.addAction(action);
+            connect(action, &QAction::triggered, q, [action, this](bool checked) {
+                if (checked) {
+                    const int column = action->data().toInt();
+                    q->header()->setSortIndicator(column, q->header()->sortIndicatorOrder());
+                }
+            });
+        }
+
+        mColumnSortingMenu->addSection(i18nc("@title:menu", "Sort Direction"));
+        auto ascendingAction = mColumnSortingMenu->addAction(i18nc("@action:inmenu", "Ascending"));
+        ascendingAction->setCheckable(true);
+        mSortDirectionActionGroup.addAction(ascendingAction);
+        connect(ascendingAction, &QAction::triggered, q, [this](bool checked) {
+            if (checked) {
+                q->header()->setSortIndicator(q->header()->sortIndicatorSection(), Qt::AscendingOrder);
+            }
+        });
+        auto descendingAction = mColumnSortingMenu->addAction(i18nc("@action:inmenu", "Descending"));
+        descendingAction->setCheckable(true);
+        mSortDirectionActionGroup.addAction(descendingAction);
+        connect(descendingAction, &QAction::triggered, q, [this](bool checked) {
+            if (checked) {
+                q->header()->setSortIndicator(q->header()->sortIndicatorSection(), Qt::DescendingOrder);
+            }
+        });
+
+        connect(q, &TreeView::columnDisabled, q, [this](int column) {
+            mSortColumnActionGroup.actions()[column]->setVisible(false);
+        });
+        connect(q, &TreeView::columnEnabled, q, [this](int column) {
+            mSortColumnActionGroup.actions()[column]->setVisible(true);
+        });
+        connect(q->header(), &QHeaderView::sectionClicked, q, [this](int index) {
+            mSortColumnActionGroup.actions()[index]->setChecked(true);
+            mSortDirectionActionGroup.actions()[q->header()->sortIndicatorOrder()]->setChecked(true);
+        });
+    }
+
+    auto sortColumnActions = mSortColumnActionGroup.actions();
+    for (QAction *action : std::as_const(sortColumnActions)) {
+        const int column = action->data().toInt();
+        action->setVisible(!q->isColumnHidden(column));
+    }
+
+    sortColumnActions[q->header()->sortIndicatorSection()]->setChecked(true);
+    mSortDirectionActionGroup.actions()[q->header()->sortIndicatorOrder()]->setChecked(true);
+
+    return mColumnSortingMenu;
 }
 
 void TreeView::Private::columnVisibilityActionTriggered(QAction *action)
@@ -302,6 +369,11 @@ void TreeView::resizeToContentsLimited()
 QMenu *TreeView::columnVisibilityMenu()
 {
     return d->columnVisibilityMenu();
+}
+
+QMenu *TreeView::columnSortingMenu()
+{
+    return d->columnSortingMenu();
 }
 
 #include "moc_treeview.cpp"
