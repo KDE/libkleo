@@ -57,6 +57,7 @@ public:
     QMenu *columnSortingMenu();
 
 private:
+    void updateColumnVisibilityActions();
     void columnVisibilityActionTriggered(QAction *action);
 
     QMenu *mColumnVisibilityMenu = nullptr;
@@ -79,14 +80,21 @@ QMenu *TreeView::Private::columnVisibilityMenu()
             });
         }
 
-        connect(q, &TreeView::columnDisabled, q, [this](int column) {
-            mColumnVisibilityMenu->actions()[column]->setChecked(false);
+        connect(q, &TreeView::columnDisabled, q, [this]() {
+            updateColumnVisibilityActions();
         });
-        connect(q, &TreeView::columnEnabled, q, [this](int column) {
-            mColumnVisibilityMenu->actions()[column]->setChecked(true);
+        connect(q, &TreeView::columnEnabled, q, [this]() {
+            updateColumnVisibilityActions();
         });
     }
 
+    updateColumnVisibilityActions();
+
+    return mColumnVisibilityMenu;
+}
+
+void TreeView::Private::updateColumnVisibilityActions()
+{
     const auto actions = mColumnVisibilityMenu->actions();
     for (QAction *action : std::as_const(actions)) {
         const int column = action->data().toInt();
@@ -96,8 +104,6 @@ QMenu *TreeView::Private::columnVisibilityMenu()
     for (auto action : std::as_const(actions)) {
         action->setEnabled(numVisibleColumns != 1 || !action->isChecked());
     }
-
-    return mColumnVisibilityMenu;
 }
 
 QMenu *TreeView::Private::columnSortingMenu()
