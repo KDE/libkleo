@@ -20,7 +20,7 @@ class TreeViewPrivate
     QTreeView *q;
 
 public:
-    static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
+    static constexpr int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
 
     explicit TreeViewPrivate(QTreeView *q);
     ~TreeViewPrivate();
