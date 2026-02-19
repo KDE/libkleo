@@ -12,191 +12,36 @@
 
 #include "treewidget.h"
 
-#include <models/keylist.h>
+#include "treeview_p.h"
 
-#include <KConfigGroup>
-#include <KLocalizedString>
-#include <KSharedConfig>
-
-#include <QClipboard>
-#include <QContextMenuEvent>
-#include <QGuiApplication>
 #include <QHeaderView>
-#include <QMenu>
+#include <QKeyEvent>
 
 using namespace Kleo;
 
-static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
-
-class TreeWidget::Private
+class Kleo::TreeWidgetPrivate : public TreeViewPrivate
 {
-    TreeWidget *q;
-
 public:
-    QMenu *mHeaderPopup = nullptr;
-    QList<QAction *> mColumnActions;
-    QString mStateGroupName;
-
-    Private(TreeWidget *qq)
-        : q(qq)
-    {
-    }
-
-    ~Private()
-    {
-        saveColumnLayout();
-    }
-    void saveColumnLayout();
+    using TreeViewPrivate::TreeViewPrivate;
 };
 
 TreeWidget::TreeWidget(QWidget *parent)
     : QTreeWidget::QTreeWidget(parent)
-    , d{new Private(this)}
+    , d{new TreeWidgetPrivate(this)}
 {
     header()->installEventFilter(this);
 }
 
 TreeWidget::~TreeWidget() = default;
 
-void TreeWidget::Private::saveColumnLayout()
-{
-    if (mStateGroupName.isEmpty()) {
-        return;
-    }
-    auto config = KConfigGroup(KSharedConfig::openStateConfig(), mStateGroupName);
-    auto header = q->header();
-
-    QVariantList columnVisibility;
-    QVariantList columnOrder;
-    QVariantList columnWidths;
-    const int headerCount = header->count();
-    columnVisibility.reserve(headerCount);
-    columnWidths.reserve(headerCount);
-    columnOrder.reserve(headerCount);
-    for (int i = 0; i < headerCount; ++i) {
-        columnVisibility << QVariant(!q->isColumnHidden(i));
-        columnWidths << QVariant(header->sectionSize(i));
-        columnOrder << QVariant(header->visualIndex(i));
-    }
-
-    config.writeEntry("ColumnVisibility", columnVisibility);
-    config.writeEntry("ColumnOrder", columnOrder);
-    config.writeEntry("ColumnWidths", columnWidths);
-
-    config.writeEntry("SortAscending", (int)header->sortIndicatorOrder());
-    if (header->isSortIndicatorShown()) {
-        config.writeEntry("SortColumn", header->sortIndicatorSection());
-    } else {
-        config.writeEntry("SortColumn", -1);
-    }
-    config.sync();
-}
-
 bool TreeWidget::restoreColumnLayout(const QString &stateGroupName)
 {
-    if (stateGroupName.isEmpty()) {
-        return false;
-    }
-    d->mStateGroupName = stateGroupName;
-    auto config = KConfigGroup(KSharedConfig::openStateConfig(), d->mStateGroupName);
-    auto header = this->header();
-
-    QVariantList columnVisibility = config.readEntry("ColumnVisibility", QVariantList());
-    QVariantList columnOrder = config.readEntry("ColumnOrder", QVariantList());
-    QVariantList columnWidths = config.readEntry("ColumnWidths", QVariantList());
-
-    if (!columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty()) {
-        for (int i = 0; i < header->count(); ++i) {
-            if (i >= columnOrder.size() || i >= columnWidths.size() || i >= columnVisibility.size()) {
-                // An additional column that was not around last time we saved.
-                // We default to hidden.
-                hideColumn(i);
-                continue;
-            }
-            bool visible = columnVisibility[i].toBool();
-            int width = columnWidths[i].toInt();
-            int order = columnOrder[i].toInt();
-
-            header->resizeSection(i, width ? width : header->defaultSectionSize());
-            header->moveSection(header->visualIndex(i), order);
-
-            if (!visible) {
-                hideColumn(i);
-            }
-        }
-    }
-
-    int sortOrder = config.readEntry("SortAscending", (int)Qt::AscendingOrder);
-    int sortColumn = config.readEntry("SortColumn", isSortingEnabled() ? 0 : -1);
-    if (sortColumn >= 0) {
-        sortByColumn(sortColumn, (Qt::SortOrder)sortOrder);
-    }
-    connect(header, &QHeaderView::sectionResized, this, [this]() {
-        d->saveColumnLayout();
-    });
-    connect(header, &QHeaderView::sectionMoved, this, [this]() {
-        d->saveColumnLayout();
-    });
-    connect(header, &QHeaderView::sortIndicatorChanged, this, [this]() {
-        d->saveColumnLayout();
-    });
-    return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
+    return d->restoreColumnLayout(stateGroupName);
 }
 
 bool TreeWidget::eventFilter(QObject *watched, QEvent *event)
 {
-    if ((watched == header()) && (event->type() == QEvent::ContextMenu)) {
-        auto e = static_cast<QContextMenuEvent *>(event);
-
-        if (!d->mHeaderPopup) {
-            d->mHeaderPopup = new QMenu(this);
-            d->mHeaderPopup->setTitle(i18nc("@title:menu", "View Columns"));
-            for (int i = 0; i < model()->columnCount(); ++i) {
-                QAction *tmp = d->mHeaderPopup->addAction(model()->headerData(i, Qt::Horizontal).toString());
-                tmp->setData(QVariant(i));
-                tmp->setCheckable(true);
-                d->mColumnActions << tmp;
-            }
-
-            connect(d->mHeaderPopup, &QMenu::triggered, this, [this](QAction *action) {
-                const int col = action->data().toInt();
-                if (action->isChecked()) {
-                    showColumn(col);
-                    if (columnWidth(col) == 0 || columnWidth(col) == header()->defaultSectionSize()) {
-                        resizeColumnToContents(col);
-                        setColumnWidth(col, std::min(columnWidth(col), MAX_AUTOMATIC_COLUMN_WIDTH));
-                    }
-                } else {
-                    hideColumn(col);
-                }
-
-                if (action->isChecked()) {
-                    Q_EMIT columnEnabled(col);
-                } else {
-                    Q_EMIT columnDisabled(col);
-                }
-                d->saveColumnLayout();
-            });
-        }
-
-        for (QAction *action : std::as_const(d->mColumnActions)) {
-            const int column = action->data().toInt();
-            action->setChecked(!isColumnHidden(column));
-        }
-
-        auto numVisibleColumns = std::count_if(d->mColumnActions.cbegin(), d->mColumnActions.cend(), [](const auto &action) {
-            return action->isChecked();
-        });
-
-        for (auto action : std::as_const(d->mColumnActions)) {
-            action->setEnabled(numVisibleColumns != 1 || !action->isChecked());
-        }
-
-        d->mHeaderPopup->popup(mapToGlobal(e->pos()));
-        return true;
-    }
-
-    return QTreeWidget::eventFilter(watched, event);
+    return d->eventFilter(watched, event);
 }
 
 void TreeWidget::focusInEvent(QFocusEvent *event)
@@ -221,18 +66,8 @@ void TreeWidget::focusInEvent(QFocusEvent *event)
 
 void TreeWidget::keyPressEvent(QKeyEvent *event)
 {
-    if (event == QKeySequence::Copy) {
-        const QModelIndex index = currentIndex();
-        if (index.isValid() && model()) {
-            QVariant variant = model()->data(index, Kleo::ClipboardRole);
-            if (!variant.isValid()) {
-                variant = model()->data(index, Qt::DisplayRole);
-            }
-            if (variant.canConvert<QString>()) {
-                QGuiApplication::clipboard()->setText(variant.toString());
-            }
-        }
-        event->accept();
+    d->keyPressEvent(event);
+    if (event->isAccepted()) {
         return;
     }
 
@@ -263,12 +98,24 @@ QModelIndex TreeWidget::moveCursor(QAbstractItemView::CursorAction cursorAction,
     return result;
 }
 
+void TreeWidget::saveColumnLayout(const QString &stateGroupName)
+{
+    d->saveColumnLayout(stateGroupName);
+}
+
 void TreeWidget::resizeToContentsLimited()
 {
-    for (int i = 0; i < model()->columnCount(); i++) {
-        resizeColumnToContents(i);
-        setColumnWidth(i, std::min(columnWidth(i), MAX_AUTOMATIC_COLUMN_WIDTH));
-    }
+    d->resizeToContentsLimited();
+}
+
+QMenu *TreeWidget::columnVisibilityMenu()
+{
+    return d->columnVisibilityMenu();
+}
+
+QMenu *TreeWidget::columnSortingMenu()
+{
+    return d->columnSortingMenu();
 }
 
 #include "moc_treewidget.cpp"

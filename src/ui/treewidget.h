@@ -17,6 +17,8 @@
 namespace Kleo
 {
 
+class TreeWidgetPrivate;
+
 /**
  * A tree widget that allows accessible column by column keyboard navigation
  * and that has customizable columns through a context menu in the header.
@@ -43,10 +45,17 @@ public:
      * apply the default configuration.
      */
     bool restoreColumnLayout(const QString &stateGroupName);
+
+    /**
+     * Set the state config group name to use for saving the state. Only needs
+     * to be done if the state should be saved, but was not previously loaded
+     * using TreeView::restoreColumnLayout.
+     */
+    void saveColumnLayout(const QString &stateGroupName);
     void resizeToContentsLimited();
-Q_SIGNALS:
-    void columnEnabled(int column);
-    void columnDisabled(int column);
+
+    QMenu *columnVisibilityMenu();
+    QMenu *columnSortingMenu();
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
@@ -57,8 +66,6 @@ protected:
     QModelIndex moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
 
 private:
-    class Private;
-    const std::unique_ptr<Private> d;
+    std::unique_ptr<TreeWidgetPrivate> const d;
 };
-
 }
