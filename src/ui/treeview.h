@@ -63,10 +63,6 @@ public:
     QMenu *columnVisibilityMenu();
     QMenu *columnSortingMenu();
 
-Q_SIGNALS:
-    void columnEnabled(int column);
-    void columnDisabled(int column);
-
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
