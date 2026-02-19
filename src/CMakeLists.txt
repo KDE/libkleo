@@ -171,6 +171,8 @@ target_sources(KPim6Libkleo PRIVATE
     ui/openpgpcertificatecreationdialog.h
     ui/treeview.cpp
     ui/treeview.h
+    ui/treeview_p.cpp
+    ui/treeview_p.h
     ui/treewidget.cpp
     ui/treewidget.h
     ui/progressbar.cpp
