@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:46+0000\n"
+"POT-Creation-Date: 2026-02-19 00:48+0000\n"
 "PO-Revision-Date: 2026-01-16 12:25+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2497,11 +2497,36 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "ID del lector o número de port personalitzat"
 
-#: ui/treeview.cpp:69 ui/treewidget.cpp:172
+#: ui/treeview.cpp:73 ui/treewidget.cpp:172
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "Mostra les columnes"
+
+#: ui/treeview.cpp:113
+#, kde-format
+msgctxt "@title:menu title for a list of table columns to choose for sorting"
+msgid "Sort by"
+msgstr ""
+
+#: ui/treeview.cpp:127
+#, fuzzy, kde-format
+#| msgid "Active Directory"
+msgctxt "@title:menu"
+msgid "Sort Direction"
+msgstr "«Active Directory»"
+
+#: ui/treeview.cpp:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Ascending"
+msgstr ""
+
+#: ui/treeview.cpp:136
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Descending"
+msgstr ""
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format

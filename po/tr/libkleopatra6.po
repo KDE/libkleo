@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:46+0000\n"
+"POT-Creation-Date: 2026-02-19 00:48+0000\n"
 "PO-Revision-Date: 2026-01-16 22:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2465,11 +2465,36 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Özel okuyucu kimliği veya kapı numarası"
 
-#: ui/treeview.cpp:69 ui/treewidget.cpp:172
+#: ui/treeview.cpp:73 ui/treewidget.cpp:172
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "Görünüm Sütunları"
+
+#: ui/treeview.cpp:113
+#, kde-format
+msgctxt "@title:menu title for a list of table columns to choose for sorting"
+msgid "Sort by"
+msgstr ""
+
+#: ui/treeview.cpp:127
+#, fuzzy, kde-format
+#| msgid "Active Directory"
+msgctxt "@title:menu"
+msgid "Sort Direction"
+msgstr "Active Directory"
+
+#: ui/treeview.cpp:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Ascending"
+msgstr ""
+
+#: ui/treeview.cpp:136
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Descending"
+msgstr ""
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
