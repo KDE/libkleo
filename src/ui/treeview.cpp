@@ -29,14 +29,12 @@ using namespace Kleo;
 
 using namespace Qt::Literals::StringLiterals;
 
-static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
-
 class TreeView::Private
 {
     QTreeView *q;
 
 public:
-    QString mStateGroupName;
+    static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
 
     explicit Private(QTreeView *qq)
         : q(qq)
@@ -49,15 +47,22 @@ public:
     {
         saveColumnLayout();
     }
-    void saveColumnLayout();
+
+    bool eventFilter(QObject *watched, QEvent *event);
+    void saveColumnLayout(const QString &stateGroupName = {});
+    bool restoreColumnLayout(const QString &stateGroupName);
 
     QMenu *columnVisibilityMenu();
     QMenu *columnSortingMenu();
+
+    void keyPressEvent(QKeyEvent *event);
+    void resizeToContentsLimited();
 
 private:
     void updateColumnVisibilityActions();
     void columnVisibilityActionTriggered(QAction *action);
 
+    QString mStateGroupName;
     QMenu *mColumnVisibilityMenu = nullptr;
     QMenu *mColumnSortingMenu = nullptr;
     QActionGroup mSortColumnActionGroup;
@@ -183,10 +188,15 @@ TreeView::~TreeView() = default;
 
 bool TreeView::eventFilter(QObject *watched, QEvent *event)
 {
+    return d->eventFilter(watched, event);
+}
+
+bool TreeView::Private::eventFilter(QObject *watched, QEvent *event)
+{
     Q_UNUSED(watched)
     if (event->type() == QEvent::ContextMenu) {
         auto e = static_cast<QContextMenuEvent *>(event);
-        d->columnVisibilityMenu()->popup(mapToGlobal(e->pos()));
+        columnVisibilityMenu()->popup(q->mapToGlobal(e->pos()));
 
         return true;
     }
@@ -194,8 +204,11 @@ bool TreeView::eventFilter(QObject *watched, QEvent *event)
     return false;
 }
 
-void TreeView::Private::saveColumnLayout()
+void TreeView::Private::saveColumnLayout(const QString &stateGroupName)
 {
+    if (!stateGroupName.isEmpty()) {
+        mStateGroupName = stateGroupName;
+    }
     if (mStateGroupName.isEmpty()) {
         return;
     }
@@ -230,12 +243,17 @@ void TreeView::Private::saveColumnLayout()
 
 bool TreeView::restoreColumnLayout(const QString &stateGroupName)
 {
+    return d->restoreColumnLayout(stateGroupName);
+}
+
+bool TreeView::Private::restoreColumnLayout(const QString &stateGroupName)
+{
     if (stateGroupName.isEmpty()) {
         return false;
     }
-    d->mStateGroupName = stateGroupName;
-    auto config = KConfigGroup(KSharedConfig::openStateConfig(), d->mStateGroupName);
-    auto header = this->header();
+    mStateGroupName = stateGroupName;
+    auto config = KConfigGroup(KSharedConfig::openStateConfig(), mStateGroupName);
+    auto header = q->header();
 
     QVariantList columnVisibility = config.readEntry("ColumnVisibility", QVariantList());
     QVariantList columnOrder = config.readEntry("ColumnOrder", QVariantList());
@@ -246,7 +264,7 @@ bool TreeView::restoreColumnLayout(const QString &stateGroupName)
             if (i >= columnOrder.size() || i >= columnWidths.size() || i >= columnVisibility.size()) {
                 // An additional column that was not around last time we saved.
                 // We default to hidden.
-                hideColumn(i);
+                q->hideColumn(i);
                 continue;
             }
             bool visible = columnVisibility[i].toBool();
@@ -257,25 +275,25 @@ bool TreeView::restoreColumnLayout(const QString &stateGroupName)
             header->moveSection(header->visualIndex(i), order);
 
             if (!visible) {
-                hideColumn(i);
+                q->hideColumn(i);
             }
         }
     }
 
     int sortOrder = config.readEntry("SortAscending", (int)Qt::AscendingOrder);
-    int sortColumn = config.readEntry("SortColumn", isSortingEnabled() ? 0 : -1);
+    int sortColumn = config.readEntry("SortColumn", q->isSortingEnabled() ? 0 : -1);
     if (sortColumn >= 0) {
-        sortByColumn(sortColumn, (Qt::SortOrder)sortOrder);
+        q->sortByColumn(sortColumn, (Qt::SortOrder)sortOrder);
     }
 
-    connect(header, &QHeaderView::sectionResized, this, [this]() {
-        d->saveColumnLayout();
+    connect(header, &QHeaderView::sectionResized, q, [this]() {
+        saveColumnLayout();
     });
-    connect(header, &QHeaderView::sectionMoved, this, [this]() {
-        d->saveColumnLayout();
+    connect(header, &QHeaderView::sectionMoved, q, [this]() {
+        saveColumnLayout();
     });
-    connect(header, &QHeaderView::sortIndicatorChanged, this, [this]() {
-        d->saveColumnLayout();
+    connect(header, &QHeaderView::sortIndicatorChanged, q, [this]() {
+        saveColumnLayout();
     });
     return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
 }
@@ -300,20 +318,28 @@ void TreeView::focusInEvent(QFocusEvent *event)
     QMetaObject::invokeMethod(this, forceAccessibleFocusEventForCurrentItem, Qt::QueuedConnection);
 }
 
-void TreeView::keyPressEvent(QKeyEvent *event)
+void TreeView::Private::keyPressEvent(QKeyEvent *event)
 {
     if (event == QKeySequence::Copy) {
-        const QModelIndex index = currentIndex();
-        if (index.isValid() && model()) {
-            QVariant variant = model()->data(index, Kleo::ClipboardRole);
+        const QModelIndex index = q->currentIndex();
+        if (index.isValid() && q->model()) {
+            QVariant variant = q->model()->data(index, Kleo::ClipboardRole);
             if (!variant.isValid()) {
-                variant = model()->data(index, Qt::DisplayRole);
+                variant = q->model()->data(index, Qt::DisplayRole);
             }
             if (variant.canConvert<QString>()) {
                 QGuiApplication::clipboard()->setText(variant.toString());
             }
         }
         event->accept();
+        return;
+    }
+}
+
+void TreeView::keyPressEvent(QKeyEvent *event)
+{
+    d->keyPressEvent(event);
+    if (event->isAccepted()) {
         return;
     }
 
@@ -346,15 +372,19 @@ QModelIndex TreeView::moveCursor(QAbstractItemView::CursorAction cursorAction, Q
 
 void TreeView::saveColumnLayout(const QString &stateGroupName)
 {
-    d->mStateGroupName = stateGroupName;
-    d->saveColumnLayout();
+    d->saveColumnLayout(stateGroupName);
 }
 
 void TreeView::resizeToContentsLimited()
 {
-    for (int i = 0; i < model()->columnCount(); i++) {
-        resizeColumnToContents(i);
-        setColumnWidth(i, std::min(columnWidth(i), MAX_AUTOMATIC_COLUMN_WIDTH));
+    d->resizeToContentsLimited();
+}
+
+void TreeView::Private::resizeToContentsLimited()
+{
+    for (int i = 0; i < q->model()->columnCount(); i++) {
+        q->resizeColumnToContents(i);
+        q->setColumnWidth(i, std::min(q->columnWidth(i), MAX_AUTOMATIC_COLUMN_WIDTH));
     }
 }
 
