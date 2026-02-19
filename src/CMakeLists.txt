@@ -152,6 +152,8 @@ target_sources(KPim${KF_MAJOR_VERSION}Libkleo PRIVATE
     ui/messagebox.h
     ui/treeview.cpp
     ui/treeview.h
+    ui/treeview_p.cpp
+    ui/treeview_p.h
     ui/treewidget.cpp
     ui/treewidget.h
     ui/progressbar.cpp

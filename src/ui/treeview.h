@@ -17,6 +17,8 @@
 namespace Kleo
 {
 
+class TreeViewPrivate;
+
 /**
  * A tree view that allows accessible column by column keyboard navigation
  * and that has customizable columns through a context menu in the header.
@@ -72,7 +74,6 @@ protected:
     QModelIndex moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
 
 private:
-    class Private;
-    const std::unique_ptr<Private> d;
+    std::unique_ptr<TreeViewPrivate> const d;
 };
 }
