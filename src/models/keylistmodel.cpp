@@ -1,6 +1,4 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
-    models/keylistmodel.cpp
-
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
     SPDX-FileCopyrightText: 2021 g10 Code GmbH

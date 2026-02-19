@@ -1,6 +1,4 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
-    utils/keyparameters.cpp
-
     This file is part of Libkleo
     SPDX-FileCopyrightText: 2008 Klarälvdalens Datakonsult AB
 

@@ -1,6 +1,4 @@
 /*
-    ui/directoryserviceswidget.h
-
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2001, 2002, 2004 Klarälvdalens Datakonsult AB
     SPDX-FileCopyrightText: 2021 g10 Code GmbH

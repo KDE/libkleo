@@ -1,6 +1,4 @@
 /*
-    kleo/enum.h
-
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2004 Klarälvdalens Datakonsult AB
 

@@ -1,6 +1,4 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
-    models/useridlistmodel.h
-
     This file is part of Kleopatra, the KDE keymanager
     SPDX-FileCopyrightText: 2007 Klarälvdalens Datakonsult AB
     SPDX-FileCopyrightText: 2016 Andre Heinecke <aheinecke@gnupg.org>

@@ -1,6 +1,4 @@
 /* -*- mode: c++; c-basic-offset:4 -*-
-    utils/expiration.h
-
     This file is part of Libkleo
     SPDX-FileCopyrightText: 2023 g10 Code GmbH
     SPDX-FileContributor: Ingo Klöcker <dev@ingo-kloecker.de>

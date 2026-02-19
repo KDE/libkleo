@@ -1,6 +1,4 @@
 /*
-    kleo/docaction.cpp
-
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2022 g10 Code GmbH
     SPDX-FileContributor: Andre Heinecke <aheinecke@g10code.com>

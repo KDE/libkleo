@@ -1,6 +1,4 @@
 /*  -*- c++ -*-
-    kleo/keyresolvercore.h
-
     This file is part of libkleopatra, the KDE keymanagement library
     SPDX-FileCopyrightText: 2018 Intevation GmbH
     SPDX-FileCopyrightText: 2021 g10 Code GmbH
