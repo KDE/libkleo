@@ -33,12 +33,12 @@ static const int MAX_AUTOMATIC_COLUMN_WIDTH = 400;
 
 class TreeView::Private
 {
-    TreeView *q;
+    QTreeView *q;
 
 public:
     QString mStateGroupName;
 
-    explicit Private(TreeView *qq)
+    explicit Private(QTreeView *qq)
         : q(qq)
         , mSortColumnActionGroup{nullptr}
         , mSortDirectionActionGroup{nullptr}
@@ -77,13 +77,6 @@ QMenu *TreeView::Private::columnVisibilityMenu()
                 columnVisibilityActionTriggered(action);
             });
         }
-
-        connect(q, &TreeView::columnDisabled, q, [this]() {
-            updateColumnVisibilityActions();
-        });
-        connect(q, &TreeView::columnEnabled, q, [this]() {
-            updateColumnVisibilityActions();
-        });
     }
 
     updateColumnVisibilityActions();
@@ -140,12 +133,6 @@ QMenu *TreeView::Private::columnSortingMenu()
             }
         });
 
-        connect(q, &TreeView::columnDisabled, q, [this](int column) {
-            mSortColumnActionGroup.actions()[column]->setVisible(false);
-        });
-        connect(q, &TreeView::columnEnabled, q, [this](int column) {
-            mSortColumnActionGroup.actions()[column]->setVisible(true);
-        });
         connect(q->header(), &QHeaderView::sectionClicked, q, [this](int index) {
             mSortColumnActionGroup.actions()[index]->setChecked(true);
             mSortDirectionActionGroup.actions()[q->header()->sortIndicatorOrder()]->setChecked(true);
@@ -177,11 +164,11 @@ void TreeView::Private::columnVisibilityActionTriggered(QAction *action)
         q->hideColumn(column);
     }
 
-    if (action->isChecked()) {
-        Q_EMIT q->columnEnabled(column);
-    } else {
-        Q_EMIT q->columnDisabled(column);
+    updateColumnVisibilityActions();
+    if (mColumnSortingMenu) {
+        mSortColumnActionGroup.actions()[column]->setVisible(!q->isColumnHidden(column));
     }
+
     saveColumnLayout();
 }
 
