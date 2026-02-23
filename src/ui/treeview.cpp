@@ -58,8 +58,7 @@ void TreeView::focusInEvent(QFocusEvent *event)
 
 void TreeView::keyPressEvent(QKeyEvent *event)
 {
-    d->keyPressEvent(event);
-    if (event->isAccepted()) {
+    if (d->keyPressEvent(event)) {
         return;
     }
 

@@ -32,7 +32,7 @@ public:
     QMenu *columnVisibilityMenu();
     QMenu *columnSortingMenu();
 
-    void keyPressEvent(QKeyEvent *event);
+    bool keyPressEvent(QKeyEvent *event);
     void resizeToContentsLimited();
 
 private:
