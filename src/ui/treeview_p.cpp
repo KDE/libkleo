@@ -246,7 +246,7 @@ bool TreeViewPrivate::restoreColumnLayout(const QString &stateGroupName)
     return !columnVisibility.isEmpty() && !columnOrder.isEmpty() && !columnWidths.isEmpty();
 }
 
-void TreeViewPrivate::keyPressEvent(QKeyEvent *event)
+bool TreeViewPrivate::keyPressEvent(QKeyEvent *event)
 {
     if (event == QKeySequence::Copy) {
         const QModelIndex index = q->currentIndex();
@@ -260,8 +260,10 @@ void TreeViewPrivate::keyPressEvent(QKeyEvent *event)
             }
         }
         event->accept();
-        return;
+        return true;
     }
+
+    return false;
 }
 
 void TreeViewPrivate::resizeToContentsLimited()

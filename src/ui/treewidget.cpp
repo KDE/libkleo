@@ -66,8 +66,7 @@ void TreeWidget::focusInEvent(QFocusEvent *event)
 
 void TreeWidget::keyPressEvent(QKeyEvent *event)
 {
-    d->keyPressEvent(event);
-    if (event->isAccepted()) {
+    if (d->keyPressEvent(event)) {
         return;
     }
 
