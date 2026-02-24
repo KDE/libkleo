@@ -184,16 +184,15 @@ auto testKey(const char *address, GpgME::Protocol protocol = GpgME::UnknownProto
     return GpgME::Key();
 }
 
-void waitForKeySelectionCombosBeingInitialized(const QDialog *dialog)
-{
-    QVERIFY(dialog);
-    auto combo = dialog->findChild<KeySelectionCombo *>();
-    QVERIFY(combo);
-
-    const auto spy = std::make_unique<QSignalSpy>(combo, &KeySelectionCombo::keyListingFinished);
-    QVERIFY(spy->isValid());
-    QVERIFY(spy->wait(10));
-}
+#define waitForKeySelectionCombosBeingInitialized(dialog)                                                                                                      \
+    do {                                                                                                                                                       \
+        QVERIFY(dialog);                                                                                                                                       \
+        auto combo = dialog->findChild<KeySelectionCombo *>();                                                                                                 \
+        QVERIFY(combo);                                                                                                                                        \
+        const auto spy = std::make_unique<QSignalSpy>(combo, &KeySelectionCombo::keyListingFinished);                                                          \
+        QVERIFY(spy->isValid());                                                                                                                               \
+        QVERIFY(spy->wait(10));                                                                                                                                \
+    } while (false)
 
 template<typename T>
 struct Widgets {
@@ -223,54 +222,49 @@ enum CheckedState {
     IsChecked,
 };
 
-template<typename T>
-void verifyProtocolButton(const T *button, Visibility expectedVisibility, CheckedState expectedCheckedState)
-{
-    QVERIFY(button);
-    QCOMPARE(button->isVisible(), expectedVisibility == IsVisible);
-    QCOMPARE(button->isChecked(), expectedCheckedState == IsChecked);
-}
+#define verifyProtocolButton(button, expectedVisibility, expectedCheckedState)                                                                                 \
+    do {                                                                                                                                                       \
+        QVERIFY(button);                                                                                                                                       \
+        QCOMPARE(button->isVisible(), expectedVisibility == IsVisible);                                                                                        \
+        QCOMPARE(button->isChecked(), expectedCheckedState == IsChecked);                                                                                      \
+    } while (false)
 
-template<typename T>
-void verifyWidgetVisibility(const T *widget, Visibility expectedVisibility)
-{
-    QVERIFY(widget);
-    QCOMPARE(widget->isVisible(), expectedVisibility == IsVisible);
-}
+#define verifyWidgetVisibility(widget, expectedVisibility)                                                                                                     \
+    do {                                                                                                                                                       \
+        QVERIFY(widget);                                                                                                                                       \
+        QCOMPARE(widget->isVisible(), expectedVisibility == IsVisible);                                                                                        \
+    } while (false)
 
-template<typename T>
-void verifyWidgetsVisibility(const QList<T> &widgets, Visibility expectedVisibility)
-{
-    for (auto w : widgets) {
-        verifyWidgetVisibility(w, expectedVisibility);
-    }
-}
+#define verifyWidgetsVisibility(widgets, expectedVisibility)                                                                                                   \
+    do {                                                                                                                                                       \
+        for (auto w : widgets) {                                                                                                                               \
+            verifyWidgetVisibility(w, expectedVisibility);                                                                                                     \
+        }                                                                                                                                                      \
+    } while (false)
 
-void verifyProtocolLabels(const QList<QLabel *> &labels, int expectedNumber, Visibility expectedVisibility)
-{
-    QCOMPARE(labels.size(), expectedNumber);
-    verifyWidgetsVisibility(labels, expectedVisibility);
-}
+#define verifyProtocolLabels(labels, expectedNumber, expectedVisibility)                                                                                       \
+    do {                                                                                                                                                       \
+        QCOMPARE(labels.size(), expectedNumber);                                                                                                               \
+        verifyWidgetsVisibility(labels, expectedVisibility);                                                                                                   \
+    } while (false)
 
-bool listsOfKeysAreEqual(const std::vector<GpgME::Key> &l1, const std::vector<GpgME::Key> &l2)
+static bool listsOfKeysAreEqual(const std::vector<GpgME::Key> &l1, const std::vector<GpgME::Key> &l2)
 {
     return std::equal(std::begin(l1), std::end(l1), std::begin(l2), std::end(l2), ByFingerprint<std::equal_to>());
 }
 
-void verifySolution(const KeyResolver::Solution &actual, const KeyResolver::Solution &expected)
-{
-    QCOMPARE(actual.protocol, expected.protocol);
-
-    QVERIFY(listsOfKeysAreEqual(actual.signingKeys, expected.signingKeys));
-
-    QVERIFY(std::equal(actual.encryptionKeys.constKeyValueBegin(),
-                       actual.encryptionKeys.constKeyValueEnd(),
-                       expected.encryptionKeys.constKeyValueBegin(),
-                       expected.encryptionKeys.constKeyValueEnd(),
-                       [](const auto &kv1, const auto &kv2) {
-                           return kv1.first == kv2.first && listsOfKeysAreEqual(kv1.second, kv2.second);
-                       }));
-}
+#define verifySolution(actual, expected)                                                                                                                       \
+    do {                                                                                                                                                       \
+        QCOMPARE(actual.protocol, expected.protocol);                                                                                                          \
+        QVERIFY(listsOfKeysAreEqual(actual.signingKeys, expected.signingKeys));                                                                                \
+        QVERIFY(std::equal(actual.encryptionKeys.constKeyValueBegin(),                                                                                         \
+                           actual.encryptionKeys.constKeyValueEnd(),                                                                                           \
+                           expected.encryptionKeys.constKeyValueBegin(),                                                                                       \
+                           expected.encryptionKeys.constKeyValueEnd(),                                                                                         \
+                           [](const auto &kv1, const auto &kv2) {                                                                                              \
+                               return kv1.first == kv2.first && listsOfKeysAreEqual(kv1.second, kv2.second);                                                   \
+                           }));                                                                                                                                \
+    } while (false)
 
 void switchKeySelectionCombosFromGenerateKeyToIgnoreKey(const QList<KeySelectionCombo *> &combos)
 {
@@ -1012,13 +1006,14 @@ private Q_SLOTS:
         okButton->click();
 
         QCOMPARE(dialogAcceptedSpy.count(), 1);
-        verifySolution(dialog->result(),
-                       {GpgME::UnknownProtocol,
-                        {},
-                        {
-                            {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-                            {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
-                        }});
+        const KeyResolver::Solution expectedSolution = {
+            GpgME::UnknownProtocol,
+            {},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+            }};
+        verifySolution(dialog->result(), expectedSolution);
     }
 
     void test__result_has_keys_for_both_protocols_if_both_are_needed()
@@ -1089,13 +1084,14 @@ private Q_SLOTS:
         okButton->click();
 
         QCOMPARE(dialogAcceptedSpy.count(), 1);
-        verifySolution(dialog->result(),
-                       {GpgME::OpenPGP,
-                        {testKey("sender@example.net", GpgME::OpenPGP)},
-                        {
-                            {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
-                            {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}},
-                        }});
+        const KeyResolver::Solution expectedSolution = {
+            GpgME::OpenPGP,
+            {testKey("sender@example.net", GpgME::OpenPGP)},
+            {
+                {QStringLiteral("prefer-openpgp@example.net"), {testKey("Full Trust <prefer-openpgp@example.net>", GpgME::OpenPGP)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::OpenPGP)}},
+            }};
+        verifySolution(dialog->result(), expectedSolution);
     }
 
     void test__result_has_only_smime_keys_if_smime_protocol_selected()
@@ -1133,13 +1129,14 @@ private Q_SLOTS:
         okButton->click();
 
         QCOMPARE(dialogAcceptedSpy.count(), 1);
-        verifySolution(dialog->result(),
-                       {GpgME::CMS,
-                        {testKey("sender@example.net", GpgME::CMS)},
-                        {
-                            {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
-                            {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}},
-                        }});
+        const KeyResolver::Solution expectedSolution = {
+            GpgME::CMS,
+            {testKey("sender@example.net", GpgME::CMS)},
+            {
+                {QStringLiteral("prefer-smime@example.net"), {testKey("Trusted S/MIME <prefer-smime@example.net>", GpgME::CMS)}},
+                {QStringLiteral("sender@example.net"), {testKey("sender@example.net", GpgME::CMS)}},
+            }};
+        verifySolution(dialog->result(), expectedSolution);
     }
 
 private:
