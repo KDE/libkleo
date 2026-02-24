@@ -15,12 +15,16 @@
 #include <QString>
 #include <QUrl>
 
+#include <set>
+
 using namespace Kleo;
 
 class KeyserverConfig::Private
 {
 public:
-    explicit Private();
+    Private();
+
+    bool operator==(const KeyserverConfig::Private &) const = default;
 
     QString host;
     int port = -1; // -1 == use default port
@@ -29,7 +33,7 @@ public:
     QString password;
     KeyserverConnection connection = KeyserverConnection::Default;
     QString baseDn;
-    QStringList additionalFlags;
+    std::set<QString> additionalFlags;
 };
 
 KeyserverConfig::Private::Private()
@@ -83,7 +87,7 @@ KeyserverConfig KeyserverConfig::fromUrl(const QUrl &url)
             } else if (flag == QLatin1StringView{"ntds"}) {
                 config.d->authentication = KeyserverAuthentication::ActiveDirectory;
             } else {
-                config.d->additionalFlags.push_back(flag);
+                config.d->additionalFlags.insert(flag);
             }
         }
     }
@@ -130,7 +134,7 @@ QUrl KeyserverConfig::toUrl() const
     if (d->authentication == KeyserverAuthentication::ActiveDirectory) {
         flags.push_back(QStringLiteral("ntds"));
     }
-    std::copy(std::cbegin(d->additionalFlags), std::cend(d->additionalFlags), std::back_inserter(flags));
+    std::ranges::copy(std::as_const(d->additionalFlags), std::back_inserter(flags));
     if (!flags.isEmpty()) {
         url.setFragment(flags.join(QLatin1Char{','}));
     }
@@ -210,10 +214,18 @@ void KeyserverConfig::setLdapBaseDn(const QString &baseDn)
 
 QStringList KeyserverConfig::additionalFlags() const
 {
-    return d->additionalFlags;
+    return QStringList(d->additionalFlags.cbegin(), d->additionalFlags.cend());
 }
 
 void KeyserverConfig::setAdditionalFlags(const QStringList &flags)
 {
-    d->additionalFlags = flags;
+    d->additionalFlags = std::set(flags.cbegin(), flags.cend());
+}
+
+namespace Kleo
+{
+bool operator==(const KeyserverConfig &lhs, const KeyserverConfig &rhs)
+{
+    return *(lhs.d) == *(rhs.d);
+}
 }

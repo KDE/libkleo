@@ -270,14 +270,52 @@ private Q_SLOTS:
         auto config = KeyserverConfig::fromUrl(url);
         QCOMPARE(config.authentication(), KeyserverAuthentication::ActiveDirectory);
         QCOMPARE(config.connection(), KeyserverConnection::UseSTARTTLS);
-        const QStringList expectedFlags{u"flag1"_s, u"flag2"_s, u"flag 3"_s};
+        const QStringList expectedFlags{u"flag 3"_s, u"flag1"_s, u"flag2"_s}; // sorted list of flags
         QCOMPARE(config.additionalFlags(), expectedFlags);
 
         const auto createdUrl = config.toUrl();
-        const auto expectedUrl = QUrl{QStringLiteral("ldap://ldap.example.net#starttls,ntds,flag1,flag2,flag 3")};
+        const auto expectedUrl = QUrl{QStringLiteral("ldap://ldap.example.net#starttls,ntds,flag 3,flag1,flag2")};
         QCOMPARE(createdUrl, expectedUrl);
         QVERIFY(!createdUrl.hasQuery());
         QVERIFY(createdUrl.hasFragment());
+    }
+
+    void test_comparison()
+    {
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#flag1,StartTLS, Flag2 ,NTDS,flag 3"_s})
+                == KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#flag1,StartTLS, Flag2 ,NTDS,flag 3"_s}));
+
+        // the order of additional flags doesn't matter
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://ldap.example.net#flag1,flag2,flag3"_s})
+                == KeyserverConfig::fromUrl(QUrl{u"ldap://ldap.example.net#flag2,flag3,flag1"_s}));
+        // the case of the flags doesn't matter
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://ldap.example.net#starttls,ntds,flag1,flag2,flag3"_s})
+                == KeyserverConfig::fromUrl(QUrl{u"ldap://ldap.example.net#StartTLS,NTDS,Flag1,FLAG2,fLag3"_s}));
+
+        // user matters
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://otherUser:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s}));
+        // password matters
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://user:otherPassword@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s}));
+        // host matters
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@other.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s}));
+        // port matters
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:2424?base_dn#starttls,ntds,additionalFlag"_s}));
+        // base DN matters
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?other_base_dn#starttls,ntds,additionalFlag"_s}));
+        // connection matters
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#plain,additionalFlag"_s}));
+        // authentication matters
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,additionalFlag"_s}));
+        // additional flags matter
+        QVERIFY(KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,additionalFlag"_s})
+                != KeyserverConfig::fromUrl(QUrl{u"ldap://user:password@ldap.example.net:4242?base_dn#starttls,ntds,otherAdditionalFlag"_s}));
     }
 };
 

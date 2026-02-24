@@ -72,6 +72,12 @@ public:
     QStringList additionalFlags() const;
     void setAdditionalFlags(const QStringList &flags);
 
+    friend KLEO_EXPORT bool operator==(const KeyserverConfig &lhs, const KeyserverConfig &rhs);
+    inline friend bool operator!=(const KeyserverConfig &lhs, const KeyserverConfig &rhs)
+    {
+        return !(lhs == rhs);
+    }
+
 private:
     class Private;
     std::unique_ptr<Private> d;
