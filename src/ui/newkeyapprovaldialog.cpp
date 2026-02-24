@@ -280,9 +280,7 @@ public:
 
         QDialogButtonBox *btnBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
         mOkButton = btnBox->button(QDialogButtonBox::Ok);
-#ifndef NDEBUG
         mOkButton->setObjectName(QLatin1StringView("ok button"));
-#endif
         QObject::connect(btnBox, &QDialogButtonBox::accepted, q, [this]() {
             accepted();
         });
@@ -310,10 +308,8 @@ public:
             pgpBtn = new QRadioButton(i18nc("@option:radio", "OpenPGP"));
             smimeBtn = new QRadioButton(i18nc("@option:radio", "S/MIME"));
         }
-#ifndef NDEBUG
         pgpBtn->setObjectName(QLatin1StringView("openpgp button"));
         smimeBtn->setObjectName(QLatin1StringView("smime button"));
-#endif
         mFormatBtns->addButton(pgpBtn, OpenPGPButtonId);
         mFormatBtns->addButton(smimeBtn, SMIMEButtonId);
         mFormatBtns->setExclusive(!mAllowMixed);
@@ -352,9 +348,7 @@ public:
 
         mComplianceLbl = new QLabel;
         mComplianceLbl->setVisible(false);
-#ifndef NDEBUG
         mComplianceLbl->setObjectName(QLatin1StringView("compliance label"));
-#endif
 
         auto btnLayout = new QHBoxLayout;
         btnLayout->addWidget(mComplianceLbl);
@@ -541,9 +535,7 @@ public:
 
         auto combo = new KeySelectionCombo{true, KeyUsage::Sign};
         auto comboWidget = new ComboWidget(combo);
-#ifndef NDEBUG
         combo->setObjectName(QLatin1StringView("signing key"));
-#endif
         if (protocol == GpgME::OpenPGP) {
             combo->setKeyFilter(s_pgpSignFilter);
         } else if (protocol == GpgME::CMS) {
@@ -634,9 +626,7 @@ public:
     {
         auto combo = new KeySelectionCombo{false, KeyUsage::Encrypt};
         auto comboWidget = new ComboWidget(combo);
-#ifndef NDEBUG
         combo->setObjectName(QLatin1StringView("encryption key"));
-#endif
         if (fixedProtocol == GpgME::OpenPGP) {
             combo->setKeyFilter(s_pgpEncryptFilter);
         } else if (fixedProtocol == GpgME::CMS) {
@@ -778,9 +768,7 @@ public:
     {
         {
             auto group = new QGroupBox(i18nc("Encrypt to self (email address):", "Encrypt to self (%1):", mSender));
-#ifndef NDEBUG
             group->setObjectName(QLatin1StringView("encrypt-to-self box"));
-#endif
             group->setAlignment(Qt::AlignLeft);
             auto encGrid = new QGridLayout(group);
 
@@ -795,9 +783,7 @@ public:
         });
         if (hasOtherRecipients) {
             auto group = new QGroupBox(i18n("Encrypt to others:"));
-#ifndef NDEBUG
             group->setObjectName(QLatin1StringView("encrypt-to-others box"));
-#endif
             group->setAlignment(Qt::AlignLeft);
             auto encGrid = new QGridLayout{group};
 
