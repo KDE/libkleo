@@ -424,7 +424,7 @@ private Q_SLOTS:
         dialog->show();
 
         ASSERT_ADVANCED_SETTINGS_ARE_EXPANDED();
-        ASSERT_ADDITONAL_FLAGS_ARE("ldaps,foo");
+        ASSERT_ADDITONAL_FLAGS_ARE("foo,ldaps"); // sorted list of flags
     }
 
     void test__user_sets_or_clears_host()
@@ -588,7 +588,7 @@ private Q_SLOTS:
 
         QCOMPARE(dialog->keyserver().additionalFlags(), {});
         WHEN_USER_SETS_LINEEDIT_VALUE_TO("additionalFlagsEdit", u"  flag1  ,  flag 2  "_s);
-        const QStringList expectedFlags{u"flag1"_s, u"flag 2"_s};
+        const QStringList expectedFlags{u"flag 2"_s, u"flag1"_s}; // sorted list of flags
         QCOMPARE(dialog->keyserver().additionalFlags(), expectedFlags);
     }
 };
