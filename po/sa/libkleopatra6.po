@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:47+0000\n"
+"POT-Creation-Date: 2026-02-25 00:48+0000\n"
 "PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2250,86 +2250,86 @@ msgstr ""
 "कर्तुं कुञ्जी आवश्यकी अस्ति । एतस्य कीलस्य रक्षणार्थं भवन्तः गुप्तवाक्यं याचयिष्यन्ति तथा च "
 "रक्षितं कीलं भवतः गृहनिर्देशिकायां संगृहीतं भविष्यति ।"
 
-#: ui/newkeyapprovaldialog.cpp:300
+#: ui/newkeyapprovaldialog.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "सुरक्षा अनुमोदनम्"
 
-#: ui/newkeyapprovaldialog.cpp:307
+#: ui/newkeyapprovaldialog.cpp:305
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "ओपनपीजीपी"
+
+#: ui/newkeyapprovaldialog.cpp:306
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
-
-#: ui/newkeyapprovaldialog.cpp:310
-#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "ओपनपीजीपी"
 
-#: ui/newkeyapprovaldialog.cpp:311
+#: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1' कृते कुञ्जी जनयति..."
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "This can take several minutes."
 msgstr "एतेन कतिपयानि निमेषाणि यावत् समयः भवितुं शक्नोति ।"
 
-#: ui/newkeyapprovaldialog.cpp:406
+#: ui/newkeyapprovaldialog.cpp:400
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "कीज जनरेशन"
 
-#: ui/newkeyapprovaldialog.cpp:445
+#: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "संचालनं विफलम्"
 
-#: ui/newkeyapprovaldialog.cpp:560 ui/newkeyapprovaldialog.cpp:656
+#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "नूतनं कीलयुग्मं जनयन्तु"
 
-#: ui/newkeyapprovaldialog.cpp:563
+#: ui/newkeyapprovaldialog.cpp:555
 #, kde-format
 msgid "Do not sign this email"
 msgstr "अस्मिन् ईमेलपत्रे हस्ताक्षरं न कुर्वन्तु"
 
-#: ui/newkeyapprovaldialog.cpp:565
+#: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "ईमेल क्रिप्टोग्राफिकरूपेण हस्ताक्षरं न भविष्यति।"
 
-#: ui/newkeyapprovaldialog.cpp:583
+#: ui/newkeyapprovaldialog.cpp:575
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "'%1' इति परिचयं पुष्टयन्तु यथा:"
 
-#: ui/newkeyapprovaldialog.cpp:660
+#: ui/newkeyapprovaldialog.cpp:650
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "न कुञ्जी। प्राप्तकर्ता विगुप्तीकरणं कर्तुं असमर्थः भविष्यति।"
 
-#: ui/newkeyapprovaldialog.cpp:663
+#: ui/newkeyapprovaldialog.cpp:653
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2340,18 +2340,18 @@ msgstr ""
 "अस्य प्राप्तकर्तायाः कृते कीलं न चिनोतु ।<br/><br/> ग्राहकः एन्क्रिप्टेड् ईमेल प्राप्स्यति, "
 "परन्तु अस्मिन् संवादे चयनितैः अन्यैः कीलैः सह एव तस्य विगुप्तीकरणं कर्तुं शक्यते ।"
 
-#: ui/newkeyapprovaldialog.cpp:780
+#: ui/newkeyapprovaldialog.cpp:770
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "स्वयमेव (%1) एन्क्रिप्ट् कुर्वन्तु:"
 
-#: ui/newkeyapprovaldialog.cpp:797
+#: ui/newkeyapprovaldialog.cpp:785
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "अन्येभ्यः एन्क्रिप्ट् कुर्वन्तु :"
 
-#: ui/newkeyapprovaldialog.cpp:835
+#: ui/newkeyapprovaldialog.cpp:821
 #, kde-format
 msgid "Generate"
 msgstr "उद्- पद्"

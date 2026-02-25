@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:47+0000\n"
+"POT-Creation-Date: 2026-02-25 00:48+0000\n"
 "PO-Revision-Date: 2025-12-06 21:14+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2294,86 +2294,86 @@ msgstr ""
 "pasahitz bat eskatuko zaizu, eta babestutako gakoa zure etxeko direktorioan "
 "gordeko da."
 
-#: ui/newkeyapprovaldialog.cpp:300
+#: ui/newkeyapprovaldialog.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Segurtasun onarpena"
 
-#: ui/newkeyapprovaldialog.cpp:307
+#: ui/newkeyapprovaldialog.cpp:305
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:306
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
-
-#: ui/newkeyapprovaldialog.cpp:310
-#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:311
+#: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1'(e)rako gakoa sortzen..."
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Horrek hainbat minutu har litzake."
 
-#: ui/newkeyapprovaldialog.cpp:406
+#: ui/newkeyapprovaldialog.cpp:400
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Gako sorrera"
 
-#: ui/newkeyapprovaldialog.cpp:445
+#: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Eragiketak huts egin du"
 
-#: ui/newkeyapprovaldialog.cpp:560 ui/newkeyapprovaldialog.cpp:656
+#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Sortu gako-pare berri bat"
 
-#: ui/newkeyapprovaldialog.cpp:563
+#: ui/newkeyapprovaldialog.cpp:555
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Ez sinatu e-posta hau"
 
-#: ui/newkeyapprovaldialog.cpp:565
+#: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "E-posta ez da kriptografikoki sinatuko."
 
-#: ui/newkeyapprovaldialog.cpp:583
+#: ui/newkeyapprovaldialog.cpp:575
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Berretsi '%1' nortasuna honela:"
 
-#: ui/newkeyapprovaldialog.cpp:660
+#: ui/newkeyapprovaldialog.cpp:650
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Gakorik gabe. Hartzailea ez da deszifratzeko gai izango."
 
-#: ui/newkeyapprovaldialog.cpp:663
+#: ui/newkeyapprovaldialog.cpp:653
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2385,18 +2385,18 @@ msgstr ""
 "posta jasoko du, baina elkarrizketa honetan hautatutako beste gakoekin "
 "bakarrik deszifratu daiteke."
 
-#: ui/newkeyapprovaldialog.cpp:780
+#: ui/newkeyapprovaldialog.cpp:770
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Zifratu norberarentzat (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:797
+#: ui/newkeyapprovaldialog.cpp:785
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Zifratu beste batzuentzat:"
 
-#: ui/newkeyapprovaldialog.cpp:835
+#: ui/newkeyapprovaldialog.cpp:821
 #, kde-format
 msgid "Generate"
 msgstr "Sortu"

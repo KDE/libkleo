@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:47+0000\n"
+"POT-Creation-Date: 2026-02-25 00:48+0000\n"
 "PO-Revision-Date: 2025-11-10 21:35+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2271,86 +2271,86 @@ msgstr ""
 "szükség van az e-mailek visszafejtéséhez és aláírásához. Meg kell adnia egy "
 "jelszót a kulcs védelméhez, a védett kulcs a saját könyvtárában lesz tárolva."
 
-#: ui/newkeyapprovaldialog.cpp:300
+#: ui/newkeyapprovaldialog.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Biztonsági jóváhagyás"
 
-#: ui/newkeyapprovaldialog.cpp:307
+#: ui/newkeyapprovaldialog.cpp:305
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:306
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
-
-#: ui/newkeyapprovaldialog.cpp:310
-#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:311
+#: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Kulcs előállítása ehhez: „%1”…"
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Ez néhány percig is eltarthat."
 
-#: ui/newkeyapprovaldialog.cpp:406
+#: ui/newkeyapprovaldialog.cpp:400
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Kulcselőállítás"
 
-#: ui/newkeyapprovaldialog.cpp:445
+#: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Sikertelen művelet"
 
-#: ui/newkeyapprovaldialog.cpp:560 ui/newkeyapprovaldialog.cpp:656
+#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Új kulcspár előállítása"
 
-#: ui/newkeyapprovaldialog.cpp:563
+#: ui/newkeyapprovaldialog.cpp:555
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Ne írja alá ezt az e-mailt"
 
-#: ui/newkeyapprovaldialog.cpp:565
+#: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Az e-mail nem lesz kriptográfiailag aláírva."
 
-#: ui/newkeyapprovaldialog.cpp:583
+#: ui/newkeyapprovaldialog.cpp:575
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "A(z) „%1” azonosító megerősítése mint:"
 
-#: ui/newkeyapprovaldialog.cpp:660
+#: ui/newkeyapprovaldialog.cpp:650
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Nincs kulcs. A címzett nem tudja visszafejteni."
 
-#: ui/newkeyapprovaldialog.cpp:663
+#: ui/newkeyapprovaldialog.cpp:653
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2362,18 +2362,18 @@ msgstr ""
 "titkosított e-mailt, de azt csak a többi kiválasztott kulccsal lehet "
 "visszafejteni."
 
-#: ui/newkeyapprovaldialog.cpp:780
+#: ui/newkeyapprovaldialog.cpp:770
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Titkosítás önmagának (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:797
+#: ui/newkeyapprovaldialog.cpp:785
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Titkosítás másoknak:"
 
-#: ui/newkeyapprovaldialog.cpp:835
+#: ui/newkeyapprovaldialog.cpp:821
 #, kde-format
 msgid "Generate"
 msgstr "Előállítás"

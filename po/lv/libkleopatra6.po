@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:47+0000\n"
+"POT-Creation-Date: 2026-02-25 00:48+0000\n"
 "PO-Revision-Date: 2025-11-11 18:53+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2394,86 +2394,86 @@ msgstr ""
 "ierakstīt paroli, kas aizsargās šo atslēgu, bet aizsargātā atslēga tiks "
 "glabāta jūsu mājas mapē."
 
-#: ui/newkeyapprovaldialog.cpp:300
+#: ui/newkeyapprovaldialog.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Drošības apstiprinājums"
 
-#: ui/newkeyapprovaldialog.cpp:307
+#: ui/newkeyapprovaldialog.cpp:305
 #, kde-format
 msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:306
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
-
-#: ui/newkeyapprovaldialog.cpp:310
-#, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:311
+#: ui/newkeyapprovaldialog.cpp:309
 #, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Ģenerē atslēgu priekš „%1“..."
 
-#: ui/newkeyapprovaldialog.cpp:404
+#: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Tas var aizņemt vairākas minūtes."
 
-#: ui/newkeyapprovaldialog.cpp:406
+#: ui/newkeyapprovaldialog.cpp:400
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Atslēgas ģenerēšana"
 
-#: ui/newkeyapprovaldialog.cpp:445
+#: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Darbība neizdevās"
 
-#: ui/newkeyapprovaldialog.cpp:560 ui/newkeyapprovaldialog.cpp:656
+#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Ģenerēt jaunu atslēgas pāri"
 
-#: ui/newkeyapprovaldialog.cpp:563
+#: ui/newkeyapprovaldialog.cpp:555
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Neparakstīt šo e-pasta vēstuli"
 
-#: ui/newkeyapprovaldialog.cpp:565
+#: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Šī e-pasta vēstule netiks kriptogrāfiski parakstīta."
 
-#: ui/newkeyapprovaldialog.cpp:583
+#: ui/newkeyapprovaldialog.cpp:575
 #, kde-format
 msgctxt "Caption for signing key selection"
 msgid "Confirm identity '%1' as:"
 msgstr "Apstiprināt identitāti „%1“ kā:"
 
-#: ui/newkeyapprovaldialog.cpp:660
+#: ui/newkeyapprovaldialog.cpp:650
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Nav atslēgas. Saņēmējs nevarēs atšifrēt."
 
-#: ui/newkeyapprovaldialog.cpp:663
+#: ui/newkeyapprovaldialog.cpp:653
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2485,18 +2485,18 @@ msgstr ""
 "vēstuli, bet to varēs atšifrēt tikai ar citām atslēgām, kas ir atlasītas "
 "šajā lodziņā."
 
-#: ui/newkeyapprovaldialog.cpp:780
+#: ui/newkeyapprovaldialog.cpp:770
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Šifrēt sev (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:797
+#: ui/newkeyapprovaldialog.cpp:785
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Šifrēt citiem:"
 
-#: ui/newkeyapprovaldialog.cpp:835
+#: ui/newkeyapprovaldialog.cpp:821
 #, kde-format
 msgid "Generate"
 msgstr "Ģenerēt"
