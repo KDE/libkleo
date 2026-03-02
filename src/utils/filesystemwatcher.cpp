@@ -220,8 +220,10 @@ void FileSystemWatcher::setEnabled(bool enable)
         d->m_watcher = new QFileSystemWatcher;
         if (!d->m_paths.empty()) {
             d->m_watcher->addPaths(d->m_paths);
-            // check if new files occurred while the watcher was disabled
-            for (const auto &path : std::as_const(d->m_paths)) {
+            // check if new files occurred while the watcher was disabled;
+            // take a copy of m_paths because it might be changed in the for-loop
+            const QStringList paths = d->m_paths;
+            for (const auto &path : paths) {
                 if (QFileInfo{path}.isDir()) {
                     qCDebug(LIBKLEO_LOG) << this << "- checking for new files in" << path;
                     d->onDirectoryChanged(path);
