@@ -5,13 +5,13 @@
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007, 2008.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
 # Franklin Weng <franklin@mail.everfocus.com.tw>, 2010, 2015.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 00:48+0000\n"
-"PO-Revision-Date: 2025-11-24 17:35+0900\n"
+"PO-Revision-Date: 2026-03-02 05:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2315,26 +2315,25 @@ msgstr "檢視欄位"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "排序方式"
 
 #: ui/treeview_p.cpp:89
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Active Directory"
+msgstr "排序方向："
 
 #: ui/treeview_p.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "遞增"
 
 #: ui/treeview_p.cpp:98
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "遞減"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -3312,35 +3311,30 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "您可以在金鑰伺服器上搜尋憑證，或是從一個檔案匯入它。"
 
 #: utils/formatting.cpp:1678 utils/formatting.cpp:1688
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
+msgstr "簽章有效，但是使用的金鑰未被您或任何已信任的人進行保證。"
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
-msgstr "使用的憑證未被可信的憑證頒發機構 (CA) 認證，或該 CA 未知。"
+msgstr ""
+"簽章有效，但是使用的憑證未被可信的憑證頒發機構 (CA) 認證，或是該 CA 未知。"
 
 #: utils/formatting.cpp:1683 utils/formatting.cpp:1705
 #: utils/formatting.cpp:1728
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "沒有證據顯示此憑證屬於此收件者。"
+msgstr "<strong>警告：</strong>沒有證據顯示此簽章屬於此持有者。"
 
 #: utils/formatting.cpp:1689 utils/formatting.cpp:1701
 #, kde-format
@@ -3348,47 +3342,42 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>警告：</strong>不確定這份簽章屬於它宣稱的持有者。"
 
 #: utils/formatting.cpp:1697
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "簽章有效，但是憑證信任度未定義。"
+msgstr "簽章有效，但是它已過期。"
 
 #: utils/formatting.cpp:1699 utils/formatting.cpp:1703
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
+msgstr "簽章有效，但是它已過期，且使用的金鑰未被您或任何已信任的人進行保證。"
 
 #: utils/formatting.cpp:1714
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "簽章有效，但是憑證信任度未定義。"
+msgstr "簽章有效，但是使用的金鑰已過期。"
 
 #: utils/formatting.cpp:1720
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "簽章有效，但是憑證信任度未定義。"
+msgstr "簽章有效，但是使用的金鑰已被撤銷。"
 
 #: utils/formatting.cpp:1721
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
-msgstr ""
+msgstr "<strong>警告：</strong>這可能代表簽章是僞造的。"
 
 #: utils/formatting.cpp:1723
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
