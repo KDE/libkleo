@@ -302,7 +302,7 @@ private:
 
         auto keyType = GpgME::Subkey::AlgoUnknown;
         auto subkeyType = GpgME::Subkey::AlgoUnknown;
-        auto algoString = ui.keyAlgoCB->currentData().toString();
+        auto algoString = ui.keyAlgoCB->currentText();
         if (algoString.startsWith(QStringLiteral("rsa"))) {
             // cppcheck-suppress redundantInitialization
             keyType = GpgME::Subkey::AlgoRSA;
@@ -532,7 +532,7 @@ void OpenPGPCertificateCreationDialog::showTeamKeyOption(bool show)
 
 QString OpenPGPCertificateCreationDialog::algoString() const
 {
-    return d->ui.keyAlgoCB->currentData().toString();
+    return d->ui.keyAlgoCB->currentText();
 }
 
 #include "moc_openpgpcertificatecreationdialog.cpp"
