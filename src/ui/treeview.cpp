@@ -109,4 +109,9 @@ QMenu *TreeView::columnSortingMenu()
     return d->columnSortingMenu();
 }
 
+QAction *TreeView::copyCellContentsAction()
+{
+    return d->copyCellContentsAction();
+}
+
 #include "moc_treeview.cpp"

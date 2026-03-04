@@ -115,4 +115,9 @@ QMenu *TreeWidget::columnSortingMenu()
     return d->columnSortingMenu();
 }
 
+QAction *TreeWidget::copyCellContentsAction()
+{
+    return d->copyCellContentsAction();
+}
+
 #include "moc_treewidget.cpp"

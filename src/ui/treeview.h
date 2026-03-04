@@ -62,6 +62,7 @@ public:
 
     QMenu *columnVisibilityMenu();
     QMenu *columnSortingMenu();
+    QAction *copyCellContentsAction();
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;

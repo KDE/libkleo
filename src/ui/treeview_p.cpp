@@ -13,6 +13,7 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KStandardActions>
 
 #include <QClipboard>
 #include <QContextMenuEvent>
@@ -248,16 +249,7 @@ bool TreeViewPrivate::restoreColumnLayout(const QString &stateGroupName)
 bool TreeViewPrivate::keyPressEvent(QKeyEvent *event)
 {
     if (event == QKeySequence::Copy) {
-        const QModelIndex index = q->currentIndex();
-        if (index.isValid() && q->model()) {
-            QVariant variant = q->model()->data(index, Kleo::ClipboardRole);
-            if (!variant.isValid()) {
-                variant = q->model()->data(index, Qt::DisplayRole);
-            }
-            if (variant.canConvert<QString>()) {
-                QGuiApplication::clipboard()->setText(variant.toString());
-            }
-        }
+        copyCurrentCellContents();
         event->accept();
         return true;
     }
@@ -271,4 +263,31 @@ void TreeViewPrivate::resizeToContentsLimited()
         q->resizeColumnToContents(i);
         q->setColumnWidth(i, std::min(q->columnWidth(i), MAX_AUTOMATIC_COLUMN_WIDTH));
     }
+}
+
+void TreeViewPrivate::copyCurrentCellContents()
+{
+    const QModelIndex index = q->currentIndex();
+    if (!index.isValid()) {
+        return;
+    }
+    QString value = index.data(Kleo::ClipboardRole).toString();
+    if (value.isEmpty()) {
+        value = index.data(Qt::DisplayRole).toString();
+    }
+    if (!value.isEmpty()) {
+        QGuiApplication::clipboard()->setText(value);
+    }
+}
+
+QAction *TreeViewPrivate::copyCellContentsAction()
+{
+    QAction *action = KStandardActions::copy(
+        q,
+        [this]() {
+            copyCurrentCellContents();
+        },
+        q);
+    action->setToolTip(i18nc("@info:tooltip", "Copy cell contents to clipboard"));
+    return action;
 }

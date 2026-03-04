@@ -31,6 +31,7 @@ public:
 
     QMenu *columnVisibilityMenu();
     QMenu *columnSortingMenu();
+    QAction *copyCellContentsAction();
 
     bool keyPressEvent(QKeyEvent *event);
     void resizeToContentsLimited();
@@ -38,6 +39,7 @@ public:
 private:
     void updateColumnVisibilityActions();
     void columnVisibilityActionTriggered(QAction *action);
+    void copyCurrentCellContents();
 
     QString mStateGroupName;
     QMenu *mColumnVisibilityMenu = nullptr;
