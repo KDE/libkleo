@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:48+0000\n"
+"POT-Creation-Date: 2026-03-05 00:45+0000\n"
 "PO-Revision-Date: 2026-03-02 05:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2305,35 +2305,43 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "自訂讀卡機 ID 或讀卡機連結埠編號"
 
-#: ui/treeview_p.cpp:42
+#: ui/treeview_p.cpp:43
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "檢視欄位"
 
-#: ui/treeview_p.cpp:75
+#: ui/treeview_p.cpp:76
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
 msgstr "排序方式"
 
-#: ui/treeview_p.cpp:89
+#: ui/treeview_p.cpp:90
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
 msgstr "排序方向："
 
-#: ui/treeview_p.cpp:90
+#: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
 msgstr "遞增"
 
-#: ui/treeview_p.cpp:98
+#: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
 msgstr "遞減"
+
+#: ui/treeview_p.cpp:291
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "&Copy to Clipboard"
+msgctxt "@info:tooltip"
+msgid "Copy cell contents to clipboard"
+msgstr "複製到剪貼簿(&C)"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format

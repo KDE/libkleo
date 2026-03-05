@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1730694 $
+# Version: $Revision: 1731487 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:48+0000\n"
+"POT-Creation-Date: 2026-03-05 00:45+0000\n"
 "PO-Revision-Date: 2025-11-08 09:18+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -2558,36 +2558,43 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "ID własnego czytnika lub numer portu"
 
-#: ui/treeview_p.cpp:42
+#: ui/treeview_p.cpp:43
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "Obejrzyj kolumny"
 
-#: ui/treeview_p.cpp:75
+#: ui/treeview_p.cpp:76
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
 msgstr ""
 
-#: ui/treeview_p.cpp:89
+#: ui/treeview_p.cpp:90
 #, fuzzy, kde-format
 #| msgid "Active Directory"
 msgctxt "@title:menu"
 msgid "Sort Direction"
 msgstr "Aktywny Katalog"
 
-#: ui/treeview_p.cpp:90
+#: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
 msgstr ""
 
-#: ui/treeview_p.cpp:98
+#: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
 msgstr ""
+
+#: ui/treeview_p.cpp:291
+#, fuzzy, kde-format
+#| msgid "Copy Audit Log to Clipboard"
+msgctxt "@info:tooltip"
+msgid "Copy cell contents to clipboard"
+msgstr "Kopiuj dziennik do schowka"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -4169,9 +4176,6 @@ msgstr ""
 #~ "Wygasa: %3\n"
 #~ "Odcisk klucza: %4\n"
 #~ "Wystawca: %5"
-
-#~ msgid "Copy Audit Log to Clipboard"
-#~ msgstr "Kopiuj dziennik do schowka"
 
 #~ msgid "&Server name:"
 #~ msgstr "Nazwa &serwera:"

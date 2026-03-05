@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1730694 2026-02-25 01:31:51Z scripty $
+# $Id: libkleopatra6.po 1731496 2026-03-05 01:28:34Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:48+0000\n"
+"POT-Creation-Date: 2026-03-05 00:45+0000\n"
 "PO-Revision-Date: 2026-02-19 07:05+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2608,35 +2608,42 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "ID bralnika po meri ali številka vrat"
 
-#: ui/treeview_p.cpp:42
+#: ui/treeview_p.cpp:43
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "Pogled stolpcev"
 
-#: ui/treeview_p.cpp:75
+#: ui/treeview_p.cpp:76
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
 msgstr "Razvrsti po"
 
-#: ui/treeview_p.cpp:89
+#: ui/treeview_p.cpp:90
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
 msgstr "Smer razvrščanja"
 
-#: ui/treeview_p.cpp:90
+#: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
 msgstr "Naraščajoče"
 
-#: ui/treeview_p.cpp:98
+#: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
 msgstr "Padajoče"
+
+#: ui/treeview_p.cpp:291
+#, fuzzy, kde-format
+#| msgid "Copy Audit Log to Clipboard"
+msgctxt "@info:tooltip"
+msgid "Copy cell contents to clipboard"
+msgstr "Dnevnik presoje varnosti kopiraj v odložišče"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -4217,9 +4224,6 @@ msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
 #~ "Preteče: %3\n"
 #~ "Prstni odtis: %4\n"
 #~ "Izdajatelj: %5"
-
-#~ msgid "Copy Audit Log to Clipboard"
-#~ msgstr "Dnevnik presoje varnosti kopiraj v odložišče"
 
 #~ msgid "&Server name:"
 #~ msgstr "Ime &strežnika:"

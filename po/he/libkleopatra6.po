@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:48+0000\n"
+"POT-Creation-Date: 2026-03-05 00:45+0000\n"
 "PO-Revision-Date: 2026-02-19 09:40+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2552,35 +2552,43 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "מזהה קורא משלך או מספר פתחה"
 
-#: ui/treeview_p.cpp:42
+#: ui/treeview_p.cpp:43
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "הצגת עמודות"
 
-#: ui/treeview_p.cpp:75
+#: ui/treeview_p.cpp:76
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
 msgstr "מיון לפי"
 
-#: ui/treeview_p.cpp:89
+#: ui/treeview_p.cpp:90
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
 msgstr "כיוון המיון"
 
-#: ui/treeview_p.cpp:90
+#: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
 msgstr "עולה"
 
-#: ui/treeview_p.cpp:98
+#: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
 msgstr "יורד"
+
+#: ui/treeview_p.cpp:291
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "&Copy to Clipboard"
+msgctxt "@info:tooltip"
+msgid "Copy cell contents to clipboard"
+msgstr "העתקה ללוח ה&גזירים"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format

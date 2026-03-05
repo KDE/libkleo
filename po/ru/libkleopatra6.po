@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:48+0000\n"
+"POT-Creation-Date: 2026-03-05 00:45+0000\n"
 "PO-Revision-Date: 2026-02-19 19:44+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -2681,35 +2681,42 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Идентификатор или номер порта пользовательского устройства чтения"
 
-#: ui/treeview_p.cpp:42
+#: ui/treeview_p.cpp:43
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "Просмотр столбцов"
 
-#: ui/treeview_p.cpp:75
+#: ui/treeview_p.cpp:76
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
 msgstr "Сортировка по"
 
-#: ui/treeview_p.cpp:89
+#: ui/treeview_p.cpp:90
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
 msgstr "Порядок сортировки"
 
-#: ui/treeview_p.cpp:90
+#: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
 msgstr "По возрастанию"
 
-#: ui/treeview_p.cpp:98
+#: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
 msgstr "По убыванию"
+
+#: ui/treeview_p.cpp:291
+#, fuzzy, kde-format
+#| msgid "Copy Audit Log to Clipboard"
+msgctxt "@info:tooltip"
+msgid "Copy cell contents to clipboard"
+msgstr "Скопировать журнал аудита в буфер обмена"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -4289,9 +4296,6 @@ msgstr "Неожиданное окончание во входящем шифр
 #~ "Действителен до: %3\n"
 #~ "Отпечаток: %4\n"
 #~ "Владелец: %5"
-
-#~ msgid "Copy Audit Log to Clipboard"
-#~ msgstr "Скопировать журнал аудита в буфер обмена"
 
 #~ msgid "&Server name:"
 #~ msgstr "&Сервер:"

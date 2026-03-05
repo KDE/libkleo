@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:48+0000\n"
+"POT-Creation-Date: 2026-03-05 00:45+0000\n"
 "PO-Revision-Date: 2026-02-21 17:27+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2710,35 +2710,43 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "معرّف قارئ مخصص أو رقم منفذ"
 
-#: ui/treeview_p.cpp:42
+#: ui/treeview_p.cpp:43
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "اعرض الأعمدة"
 
-#: ui/treeview_p.cpp:75
+#: ui/treeview_p.cpp:76
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
 msgstr "افرز حسب"
 
-#: ui/treeview_p.cpp:89
+#: ui/treeview_p.cpp:90
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
 msgstr "اتّجاه الفرز"
 
-#: ui/treeview_p.cpp:90
+#: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
 msgstr "تصاعديًّا"
 
-#: ui/treeview_p.cpp:98
+#: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
 msgstr "تنازليًّا"
+
+#: ui/treeview_p.cpp:291
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "&Copy to Clipboard"
+msgctxt "@info:tooltip"
+msgid "Copy cell contents to clipboard"
+msgstr "ا&نسخ إلى الحافظة"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
