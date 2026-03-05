@@ -25,6 +25,7 @@
 
 #include <QDialog>
 #include <QDialogButtonBox>
+#include <QPointer>
 #include <QPushButton>
 #include <QWindow>
 
@@ -173,11 +174,13 @@ static void showMessageBoxWithAuditLogButton(QDialog *dialog,
     }
     dialog->setModal(true);
 
+    // KMessageBox::createKMessageBox deletes the dialog; we need to get its parent widget beforehand
+    QPointer<QWidget> dialogParentGuard = dialog->parentWidget();
     // Flag as Dangerous to make the Ok button the default button
     const auto choice = KMessageBox::createKMessageBox(dialog, box, icon, text, QStringList{}, QString{}, nullptr, options | KMessageBox::Dangerous);
     if (choice == QDialogButtonBox::Yes) {
         // FIXME: handle WId case???
-        AuditLogViewer::showAuditLog(dialog->parentWidget(), auditLog);
+        AuditLogViewer::showAuditLog(dialogParentGuard, auditLog);
     }
 }
 
