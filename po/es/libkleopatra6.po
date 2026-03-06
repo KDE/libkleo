@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:48+0000\n"
+"POT-Creation-Date: 2026-03-06 00:45+0000\n"
 "PO-Revision-Date: 2026-02-19 10:31+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2134,26 +2134,26 @@ msgstr "Resultado de la lista de claves"
 msgid "Recheck Key"
 msgstr "Volver a comprobar la clave"
 
-#: ui/messagebox.cpp:127 ui/messagebox.cpp:164
+#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr "Diagnósticos"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
 #, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr "Mostrar registro de auditoría"
 
-#: ui/messagebox.cpp:191 ui/messagebox.cpp:205
+#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Información"
 
-#: ui/messagebox.cpp:219 ui/messagebox.cpp:233
+#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2470,35 +2470,43 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "ID de lector personalizado o número de puerto"
 
-#: ui/treeview_p.cpp:42
+#: ui/treeview_p.cpp:43
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
 msgstr "Ver columnas"
 
-#: ui/treeview_p.cpp:75
+#: ui/treeview_p.cpp:76
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
 msgstr "Ordenar por"
 
-#: ui/treeview_p.cpp:89
+#: ui/treeview_p.cpp:90
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
 msgstr "Dirección de ordenación"
 
-#: ui/treeview_p.cpp:90
+#: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: ui/treeview_p.cpp:98
+#: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
 msgstr "Descendente"
+
+#: ui/treeview_p.cpp:291
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "&Copy to Clipboard"
+msgctxt "@info:tooltip"
+msgid "Copy cell contents to clipboard"
+msgstr "&Copiar en el portapapeles"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
