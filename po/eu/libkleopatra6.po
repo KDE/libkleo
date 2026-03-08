@@ -1,32 +1,32 @@
 # Translation fo libkleopatra.po to Euskara/Basque (eu)
-# Copyright (C) 2005-2025 This file is copyright:
+# Copyright (C) 2005-2026 This file is copyright:
 # This file is distributed under the same license as the original file.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2005.
 # Ion Gaztañaga <ion_g_m@hotmail.com>, 2005.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024, 2025.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-06 00:45+0000\n"
-"PO-Revision-Date: 2025-12-06 21:14+0100\n"
+"PO-Revision-Date: 2026-03-07 21:19+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
 msgid "Error in checksum definition %1: %2"
-msgstr "Errorea %1 egiaztapen baturaren definizioan: %2"
+msgstr "Errorea %1 egiaztapen-baturaren definizioan: %2"
 
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
@@ -2498,34 +2498,31 @@ msgstr "Ikusi zutabeak"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Ordenatu honekiko"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Direktorio Aktiboa"
+msgstr "Ordenaren norabidea"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Goranzkoa"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Beheranzkoa"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "&Kopiatu arbelean"
+msgstr "Kopiatu gelaxkaren edukia arbelera"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -3531,39 +3528,33 @@ msgstr ""
 "dezakezu."
 
 #: utils/formatting.cpp:1678 utils/formatting.cpp:1688
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
+"Sinadura balioduna da, baina erabilitako gakoa ez duzu zuk, ez konfiantzazko "
+"inork ziurtatu."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Erabilitako ziurtagiria ez dago ziurtagiri agintaritza fidagarri batek "
-"ziurtatuta edo ziurtagiri agintaritza ezezaguna da."
+"Sinadura balioduna da, baina erabilitako ziurtagiria ez du ziurtagiri "
+"agintaritza fidagarri batek ziurtatu edo ziurtagiri agintaritza ezezaguna da."
 
 #: utils/formatting.cpp:1683 utils/formatting.cpp:1705
 #: utils/formatting.cpp:1728
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr ""
-"Ez dago, ziurtagiri hori hartzaile horrena denik adierazten duen zantzurik."
+msgstr "<strong>Abisua:</strong> Ez dago zantzurik sinadura jabearena denik."
 
 #: utils/formatting.cpp:1689 utils/formatting.cpp:1701
 #, kde-format
@@ -3571,55 +3562,49 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>Abisua:</strong> Ez da ziurra sinadura jabearena denik."
 
 #: utils/formatting.cpp:1697
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr ""
-"Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
+msgstr "Sinadura balioduna da, baina iraungita dago."
 
 #: utils/formatting.cpp:1699 utils/formatting.cpp:1703
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
+"Sinadura balioduna da, baina iraungita dago eta erabilitako gakoa ez duzu "
+"zuk, ez konfiantzazko inork ziurtatu."
 
 #: utils/formatting.cpp:1714
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr ""
-"Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
+msgstr "Sinadura balioduna da, baina erabilitako gakoa iraungita dago."
 
 #: utils/formatting.cpp:1720
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr ""
-"Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
+msgstr "Sinadura balioduna da, baina erabilitako gakoa baliogabetuta dago."
 
 #: utils/formatting.cpp:1721
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Abisua:</strong> Horrek sinadura faltsutua izan dela esan nahi "
+"dezake."
 
 #: utils/formatting.cpp:1723
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
-"Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
+msgstr "Erabilitako gakoa ez duzu zuk, ez konfiantzazko inork ziurtatu."
 
 #: utils/gnupg.cpp:436
 #, kde-format
