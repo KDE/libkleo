@@ -240,13 +240,13 @@ void MessageBox::errorWId(WId parentId, const QString &text, const Kleo::AuditLo
     }
 }
 
-QDialog *MessageBox::create(QWidget *parent,
-                            QDialogButtonBox::StandardButtons buttons,
-                            QMessageBox::Icon icon,
-                            const QString &text,
-                            const AuditLogEntry &auditLog,
-                            const QString &title,
-                            KMessageBox::Options options)
+QDialog *MessageBox::createAndShow(QWidget *parent,
+                                   QDialogButtonBox::StandardButtons buttons,
+                                   QMessageBox::Icon icon,
+                                   const QString &text,
+                                   const AuditLogEntry &auditLog,
+                                   const QString &title,
+                                   KMessageBox::Options options)
 {
     auto dialog = new MessageBoxDialog{parent, buttons, icon, text, auditLog, title, options};
 
