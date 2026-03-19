@@ -54,6 +54,22 @@ void errorWId(WId parentId,
               KMessageBox::Options options = KMessageBox::Notify);
 
 /*!
+ * Creates a message dialog with an additional action button.
+ *
+ * You can show or exec the dialog. The result of the dialog is QDialogButtonBox::ActionRole
+ * if the additional action button was clicked or the button code (QDialogButtonBox::StandardButton)
+ * of the clicked standard button.
+ */
+KLEO_EXPORT
+QDialog *create(QWidget *parent,
+                QDialogButtonBox::StandardButtons buttons,
+                QMessageBox::Icon icon,
+                const QString &text,
+                const KGuiItem &actionButton,
+                const QString &title = {},
+                KMessageBox::Options options = KMessageBox::Notify);
+
+/*!
  * Creates and shows a message dialog with a button to show the audit log.
  *
  * You must connect to the finished() signal to know when the dialog is closed.

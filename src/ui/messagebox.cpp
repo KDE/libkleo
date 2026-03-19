@@ -100,34 +100,32 @@ public:
                      QDialogButtonBox::StandardButtons buttons,
                      QMessageBox::Icon icon,
                      const QString &text,
-                     const AuditLogEntry &auditLog,
+                     const KGuiItem &actionButton,
                      const QString &title,
                      KMessageBox::Options options);
 
+    virtual void actionButtonClicked();
+
 private:
     QDialogButtonBox *mButtons = nullptr;
-    QPushButton *mAuditLogButton = nullptr;
-    AuditLogEntry mAuditLog;
+    QPushButton *mActionButton = nullptr;
 };
 
 MessageBoxDialog::MessageBoxDialog(QWidget *parent,
                                    QDialogButtonBox::StandardButtons buttons,
                                    QMessageBox::Icon icon,
                                    const QString &text,
-                                   const AuditLogEntry &auditLog,
+                                   const KGuiItem &actionButton,
                                    const QString &title,
                                    KMessageBox::Options options)
     : QDialog{parent}
-    , mAuditLog{auditLog}
 {
     setWindowTitle(title);
 
     mButtons = new QDialogButtonBox(buttons, this);
-    if (showAuditLogButton(mAuditLog)) {
-        const QString auditLogButtonText = (icon == QMessageBox::Critical //
-                                                ? i18nc("@action:button", "Diagnostics") //
-                                                : i18nc("@action:button The Audit Log is a detailed error log from the gnupg backend", "Show Audit Log"));
-        mAuditLogButton = mButtons->addButton(auditLogButtonText, QDialogButtonBox::ActionRole);
+    if (!actionButton.text().isEmpty()) {
+        mActionButton = mButtons->addButton(actionButton.text(), QDialogButtonBox::ActionRole);
+        KGuiItem::assign(mActionButton, actionButton);
     }
 
     // explicitly request a modeless dialog so that the audit log viewer isn't blocked
@@ -137,12 +135,12 @@ MessageBoxDialog::MessageBoxDialog(QWidget *parent,
 
     (void)KMessageBox::createKMessageBox(this, mButtons, icon, text, QStringList{}, QString{}, nullptr, options);
 
-    if (showAuditLogButton(mAuditLog)) {
-        // disconnect the internal click handler to intercept a click of the audit log button
+    if (mActionButton) {
+        // disconnect the internal click handler to intercept a click of the action button
         disconnect(mButtons, &QDialogButtonBox::clicked, nullptr, nullptr);
         connect(mButtons, &QDialogButtonBox::clicked, this, [this](QAbstractButton *button) {
-            if (button == mAuditLogButton) {
-                AuditLogViewer::showAuditLog(parentWidget(), mAuditLog);
+            if (button == mActionButton) {
+                actionButtonClicked();
             } else {
                 QDialogButtonBox::StandardButton code = mButtons->standardButton(button);
                 if (code != QDialogButtonBox::NoButton) {
@@ -151,6 +149,56 @@ MessageBoxDialog::MessageBoxDialog(QWidget *parent,
             }
         });
     }
+}
+
+void MessageBoxDialog::actionButtonClicked()
+{
+    done(QDialogButtonBox::ActionRole);
+}
+
+class MessageBoxWithAuditLogDialog : public MessageBoxDialog
+{
+    Q_OBJECT
+public:
+    MessageBoxWithAuditLogDialog(QWidget *parent,
+                                 QDialogButtonBox::StandardButtons buttons,
+                                 QMessageBox::Icon icon,
+                                 const QString &text,
+                                 const AuditLogEntry &auditLog,
+                                 const QString &title,
+                                 KMessageBox::Options options);
+
+    void actionButtonClicked() override;
+
+private:
+    AuditLogEntry mAuditLog;
+};
+
+MessageBoxWithAuditLogDialog::MessageBoxWithAuditLogDialog(QWidget *parent,
+                                                           QDialogButtonBox::StandardButtons buttons,
+                                                           QMessageBox::Icon icon,
+                                                           const QString &text,
+                                                           const AuditLogEntry &auditLog,
+                                                           const QString &title,
+                                                           KMessageBox::Options options)
+    : MessageBoxDialog{parent,
+                       buttons,
+                       icon,
+                       text,
+                       showAuditLogButton(auditLog)
+                           ? KGuiItem{icon == QMessageBox::Critical //
+                                          ? i18nc("@action:button", "Diagnostics") //
+                                          : i18nc("@action:button The Audit Log is a detailed error log from the gnupg backend", "Show Audit Log")}
+                           : KGuiItem{},
+                       title,
+                       options}
+    , mAuditLog{auditLog}
+{
+}
+
+void MessageBoxWithAuditLogDialog::actionButtonClicked()
+{
+    AuditLogViewer::showAuditLog(parentWidget(), mAuditLog);
 }
 }
 
@@ -240,6 +288,17 @@ void MessageBox::errorWId(WId parentId, const QString &text, const Kleo::AuditLo
     }
 }
 
+QDialog *MessageBox::create(QWidget *parent,
+                            QDialogButtonBox::StandardButtons buttons,
+                            QMessageBox::Icon icon,
+                            const QString &text,
+                            const KGuiItem &actionButton,
+                            const QString &title,
+                            KMessageBox::Options options)
+{
+    return new MessageBoxDialog{parent, buttons, icon, text, actionButton, title, options};
+}
+
 QDialog *MessageBox::createAndShow(QWidget *parent,
                                    QDialogButtonBox::StandardButtons buttons,
                                    QMessageBox::Icon icon,
@@ -248,7 +307,7 @@ QDialog *MessageBox::createAndShow(QWidget *parent,
                                    const QString &title,
                                    KMessageBox::Options options)
 {
-    auto dialog = new MessageBoxDialog{parent, buttons, icon, text, auditLog, title, options};
+    auto dialog = new MessageBoxWithAuditLogDialog{parent, buttons, icon, text, auditLog, title, options};
 
     dialog->show();
     dialog->raise();
