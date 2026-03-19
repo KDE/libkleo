@@ -152,21 +152,21 @@ class EditDirectoryServiceDialog::Private
 
                 auto credentialsWidget = new QWidget{parent};
                 {
-                    auto layout = new QGridLayout{credentialsWidget};
-                    layout->setColumnStretch(1, 1);
+                    auto grid = new QGridLayout{credentialsWidget};
+                    grid->setColumnStretch(1, 1);
                     int row = 0;
-                    layout->addWidget(new QLabel{i18n("User:")}, row, 0);
+                    grid->addWidget(new QLabel{i18n("User:")}, row, 0);
                     userEdit->setToolTip(i18nc("@info:tooltip", "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."));
                     userEdit->setClearButtonEnabled(true);
-                    layout->addWidget(userEdit, row, 1);
+                    grid->addWidget(userEdit, row, 1);
                     ++row;
-                    layout->addWidget(new QLabel{i18n("Password:")}, row, 0);
+                    grid->addWidget(new QLabel{i18n("Password:")}, row, 0);
                     passwordEdit->setToolTip(xi18nc("@info:tooltip",
                                                     "Enter your password for authenticating to the LDAP server.<nl/>"
                                                     "<warning>The password will be saved in the clear "
                                                     "in a configuration file in your home directory.</warning>"));
                     passwordEdit->setClearButtonEnabled(true);
-                    layout->addWidget(passwordEdit, row, 1);
+                    grid->addWidget(passwordEdit, row, 1);
                 }
                 layout->addWidget(credentialsWidget);
             }

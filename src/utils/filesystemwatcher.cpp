@@ -141,8 +141,8 @@ void FileSystemWatcher::Private::onDirectoryChanged(const QString &path)
         return;
     }
 
-    for (const auto &path : newFiles) {
-        qCDebug(LIBKLEO_LOG) << q << "- found new file" << path;
+    for (const auto &newFile : newFiles) {
+        qCDebug(LIBKLEO_LOG) << q << "- found new file" << newFile;
     }
 
     m_cachedFiles.insert(newFiles.begin(), newFiles.end());
