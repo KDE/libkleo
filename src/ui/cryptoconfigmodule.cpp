@@ -891,15 +891,14 @@ void Kleo::CryptoConfigEntryLDAPURL::slotOpenDialog()
     dirserv->setReadOnly(mEntry->isReadOnly());
 
     std::vector<KeyserverConfig> servers;
-    std::transform(std::cbegin(mURLList), std::cend(mURLList), std::back_inserter(servers), [](const auto &url) {
+    std::ranges::transform(std::as_const(mURLList), std::back_inserter(servers), [](const auto &url) {
         return KeyserverConfig::fromUrl(url);
     });
     dirserv->setKeyservers(servers);
 
     if (dialog.exec()) {
         QList<QUrl> urls;
-        const auto servers = dirserv->keyservers();
-        std::transform(std::begin(servers), std::end(servers), std::back_inserter(urls), [](const auto &server) {
+        std::ranges::transform(dirserv->keyservers(), std::back_inserter(urls), [](const auto &server) {
             return server.toUrl();
         });
         setURLList(urls);
