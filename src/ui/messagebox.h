@@ -64,12 +64,12 @@ void errorWId(WId parentId,
  * and not empty.
  */
 KLEO_EXPORT
-QDialog *create(QWidget *parent,
-                QDialogButtonBox::StandardButtons buttons,
-                QMessageBox::Icon icon,
-                const QString &text,
-                const Kleo::AuditLogEntry &auditLog,
-                const QString &title = {},
-                KMessageBox::Options options = KMessageBox::Notify);
+QDialog *createAndShow(QWidget *parent,
+                       QDialogButtonBox::StandardButtons buttons,
+                       QMessageBox::Icon icon,
+                       const QString &text,
+                       const Kleo::AuditLogEntry &auditLog,
+                       const QString &title = {},
+                       KMessageBox::Options options = KMessageBox::Notify);
 }
 }
