@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
-# target_include_directories does not handle empty include paths
-include_directories(
-    ${GPGME_INCLUDES}
-)
+
+# If GPGME_INCLUDES is specified on the command-line then add to include path.
+if(GPGME_INCLUDES)
+    include_directories(${GPGME_INCLUDES})
+endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"libkleopatra6\")
 
 #add_definitions(-DQT_NO_CAST_FROM_ASCII)
