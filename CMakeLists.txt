@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
 cmake_minimum_required(VERSION 3.29)
-set(PIM_VERSION "6.7.41")
+set(PIM_VERSION "6.7.42")
 
 project(libkleo VERSION ${PIM_VERSION})
 
@@ -92,7 +92,7 @@ add_definitions(-DQT_NO_EMIT)
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim6Libkleo")
 
 set(FIND_MODULES_INSTALL_DIR ${KDE_INSTALL_DATAROOTDIR}/KPim6Libkleo/find-modules/)
-
+set(TEST_MODULES_INSTALL_DIR ${KDE_INSTALL_DATAROOTDIR}/KPim6Libkleo/modules/)
 
 install(FILES
    ${CMAKE_CURRENT_BINARY_DIR}/libkleo_version.h
@@ -140,6 +140,7 @@ configure_package_config_file(
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
   PATH_VARS
       FIND_MODULES_INSTALL_DIR
+      TEST_MODULES_INSTALL_DIR
 )
 
 install(FILES
@@ -154,11 +155,16 @@ install(EXPORT KPim6LibkleoTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE
 file(GLOB installFindModuleFiles ${CMAKE_SOURCE_DIR}/cmake/modules/Find*.cmake)
 install(FILES ${installFindModuleFiles} DESTINATION ${FIND_MODULES_INSTALL_DIR})
 
+install(FILES
+  "${CMAKE_SOURCE_DIR}/cmake/modules/KleoAddGpgCryptoTest.cmake"
+  "${CMAKE_SOURCE_DIR}/cmake/modules/KleoGenerateCryptoTestWrapper.cmake"
+  DESTINATION ${TEST_MODULES_INSTALL_DIR})
+
 ecm_feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 # add clang-format target for all our real source files
-file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES 
-src/*.cpp src/*.h 
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES
+src/*.cpp src/*.h
 tests/*.cpp tests/*.h
 autotests/*.cpp autotests/*.h
 )
