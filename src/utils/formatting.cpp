@@ -1619,44 +1619,22 @@ QString Formatting::email(const GpgME::UserID &uid)
     return {};
 }
 
-static GpgME::UserID findUserIDByMailbox(const GpgME::Key &key, const QString &email)
-{
-    const auto userIDs{key.userIDs()};
-    for (const GpgME::UserID &id : userIDs) {
-        if (Formatting::email(id).compare(email, Qt::CaseInsensitive)) {
-            return id;
-        }
-    }
-    return {};
-}
-
-QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QString &sender)
+QString Formatting::prettySignatureByUserID(const GpgME::Signature &sig, const GpgME::UserID &id)
 {
     if (sig.isNull()) {
         return QString();
     }
 
     const GpgME::Key key = Kleo::KeyCache::instance()->findSigner(sig);
-
     const QString text = formatSigningInformation(sig, key) + QLatin1StringView("<br/>");
 
     // Green
-    if ((sig.summary() & GpgME::Signature::Valid)) {
-        GpgME::UserID id = findUserIDByMailbox(key, sender);
-        if (id.isNull()) {
-            for (int i = 0, count = key.userIDs().size(); i < count; i++) {
-                id = key.userID(i);
-                if (!id.isNull()) {
-                    break;
-                }
-            }
-        }
-
-        return text + formatValidSignatureWithTrustLevel(!id.isNull() ? id : key.userID(0));
+    if ((sig.summary() & GpgME::Signature::Valid) && (id.validity() >= GpgME::UserID::Full)) {
+        return text + formatValidSignatureWithTrustLevel(id);
     }
 
     // Red
-    if ((sig.summary() & GpgME::Signature::Red)) {
+    if ((sig.summary() & GpgME::Signature::Red) || (id.validity() == GpgME::UserID::Never)) {
         const QString ret = text + i18n("The signature is invalid: %1", signatureSummaryToString(sig.summary()));
         if (sig.summary() & GpgME::Signature::SysError) {
             return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sig.status()));
@@ -1671,19 +1649,20 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
 
     // Good signature with some caveats
     if (sig.status().code() == GPG_ERR_NO_ERROR) {
-        if ((sig.validity() == GpgME::Signature::Validity::Undefined) //
-            || (sig.validity() == GpgME::Signature::Validity::Unknown)) {
+        if ((id.validity() == GpgME::UserID::Validity::Undefined) //
+            || (id.validity() == GpgME::UserID::Validity::Unknown)) {
             return text
                 + (key.protocol() == GpgME::OpenPGP //
-                       ? i18nc("@info", "The signature is valid but the used key is not certified by you or any trusted person.")
+                       ? i18nc("@info", "The signature is valid but the key owner's identity is not certified by you or any trusted person.")
                        : i18nc("@info",
                                "The signature is valid but the used certificate is not certified by a trustworthy Certificate "
                                "Authority or the Certificate Authority is unknown."))
                 + "<br>"_L1 //
                 + i18nc("@info", "<strong>Warning:</strong> There is no indication that the signature belongs to the owner.");
         }
+
         // validity must be marginal; "never" results in bad signature, and "full" and "ultimate" result in Valid summary
-        Q_ASSERT(sig.validity() == GpgME::Signature::Validity::Marginal);
+        Q_ASSERT(id.validity() == GpgME::UserID::Validity::Marginal);
         // marginal validity only occurs for OpenPGP
         return text + i18nc("@info", "The signature is valid but the used key is not certified by you or any trusted person.") + "<br>"_L1
             + i18nc("@info", "<strong>Warning:</strong> It is not certain that the signature belongs to the owner.");
@@ -1691,7 +1670,7 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
 
     // Expired signature (only occurs for OpenPGP)
     if (sig.status().code() == GPG_ERR_SIG_EXPIRED) {
-        switch (sig.validity()) {
+        switch (id.validity()) {
         case GpgME::Signature::Validity::Ultimate:
         case GpgME::Signature::Validity::Full:
             return text + i18nc("@info", "The signature is valid but it has expired.");
@@ -1734,4 +1713,15 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
         return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sig.status()));
     }
     return ret;
+}
+
+QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QString &sender)
+{
+    if (sig.isNull()) {
+        return QString();
+    }
+
+    const GpgME::Key key = Kleo::KeyCache::instance()->findSigner(sig);
+    auto ids = Kleo::findUserIDsByMailbox(key, {sender});
+    return prettySignatureByUserID(sig, mostValidUserID(ids.empty() ? key.userIDs() : ids));
 }

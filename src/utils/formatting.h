@@ -91,11 +91,24 @@ KLEO_EXPORT QString accessibleHexID(const char *id);
  *
  * @param signature The signature to display.
  * @param sender The sender of the signature, if multiple UserIds are found, this will be the displayed one otherwise the first non empty UserID will be
- * displayed.
+ * displayed. @note: Contrary to prettySignatureFromUID(), the validity information will be based on UID with the highest trust for this key, even if that
+ * UID does not match the sender. This may be misleading for e-mails.
  *
  * @note The resulting string will contains links to the key in the following format "key:<fingerprint>".
  */
 KLEO_EXPORT QString prettySignature(const GpgME::Signature &signature, const QString &sender);
+
+/**
+ * @see prettySignature(). Contrary to that function, validity information will be based specifically on the trust
+ * level of the given UserID, which might not be the most trusted UID associated with the given key. This matters if
+ * there is a mismatch between sender and signer, i.e. if there is a certain trust in (some UIDs of) a key, but less
+ * or no trust that the key actually belongs to the purported sender.
+ *
+ * @param signature The signature to display.
+ * @param uid The uid to base the description on
+ *
+ */
+KLEO_EXPORT QString prettySignatureByUserID(const GpgME::Signature &signature, const GpgME::UserID &uid);
 
 // clang-format off
 enum ToolTipOption {

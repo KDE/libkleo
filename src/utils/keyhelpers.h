@@ -195,6 +195,18 @@ struct KLEO_EXPORT KeysByProtocol {
 };
 
 /**
+ * Given a list of candidates, returns the user ID with the highest validity.
+ */
+KLEO_EXPORT GpgME::UserID mostValidUserID(const std::vector<GpgME::UserID> &candidates);
+
+/**
+ * Given a key and a list of sender email addresses, returns all user ids in the
+ * key matching any of the sender addresses. The returned list may include invalid (e.g. revoked)
+ * user ids. It may return several (or no) user ids for each specified sender.
+ */
+KLEO_EXPORT std::vector<GpgME::UserID> findUserIDsByMailbox(const GpgME::Key &key, const QStringList &senders);
+
+/**
  * Partitions the keys \p keys into OpenPGP keys and CMS certificates.
  */
 template<typename KeyContainer>

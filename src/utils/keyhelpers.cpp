@@ -12,9 +12,12 @@
 
 #include <libkleo/algorithm.h>
 #include <libkleo/compat.h>
+#include <libkleo/formatting.h>
 #include <libkleo/keycache.h>
 
 #include <libkleo_debug.h>
+
+#include <KEmailAddress>
 
 #include <QDate>
 
@@ -287,4 +290,40 @@ bool Kleo::userIDIsCertifiedByUser(const GpgME::UserID &userId)
         }
     }
     return false;
+}
+
+static bool hasBetterValidity(const GpgME::UserID &id, const GpgME::UserID &other)
+{
+    if (id.validity() == GpgME::UserID::Never) {
+        return false;
+    }
+    if (other.validity() == GpgME::UserID::Never) {
+        return true;
+    }
+    return (id.validity() >= other.validity());
+}
+
+GpgME::UserID Kleo::mostValidUserID(const std::vector<GpgME::UserID> &candidates)
+{
+    GpgME::UserID bestID;
+    for (const auto &id : candidates) {
+        if (!id.isNull() && hasBetterValidity(id, bestID)) {
+            bestID = id;
+        }
+    }
+    return bestID;
+}
+
+std::vector<GpgME::UserID> Kleo::findUserIDsByMailbox(const GpgME::Key &key, const QStringList &senders)
+{
+    std::vector<GpgME::UserID> ret;
+    const auto userIDs{key.userIDs()};
+    for (const GpgME::UserID &id : userIDs) {
+        for (const auto &sender : senders) {
+            if (KEmailAddress::compareEmail(sender.toLower(), QString::fromUtf8(id.email()).toLower(), false /* do not compare name portion */)) {
+                ret.push_back(id);
+            }
+        }
+    }
+    return ret;
 }
