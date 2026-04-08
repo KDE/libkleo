@@ -35,10 +35,8 @@
 
 #include <gpgme++/key.h>
 
-#ifndef Q_MOC_RUN // QTBUG-22829
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/topological_sort.hpp>
-#endif
 
 #include <algorithm>
 #include <iterator>
