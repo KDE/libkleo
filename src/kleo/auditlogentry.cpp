@@ -16,7 +16,6 @@
 
 #include <QGpgME/Job>
 
-#include <QUrl>
 #include <QUrlQuery>
 
 #include <gpgme++/error.h>
