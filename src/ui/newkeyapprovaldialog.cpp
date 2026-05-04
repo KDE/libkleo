@@ -245,11 +245,6 @@ private:
     };
 
 public:
-    enum {
-        OpenPGPButtonId = 1,
-        SMIMEButtonId = 2,
-    };
-
     Private(NewKeyApprovalDialog *qq,
             bool encrypt,
             bool sign,
@@ -297,51 +292,53 @@ public:
 
         q->setWindowTitle(i18nc("@title:window", "Security approval"));
 
-        auto fmtLayout = new QHBoxLayout;
-        mFormatBtns = new QButtonGroup(qq);
-        QAbstractButton *pgpBtn;
-        QAbstractButton *smimeBtn;
-        if (mAllowMixed) {
-            pgpBtn = new QCheckBox(i18nc("@option:check", "OpenPGP"));
-            smimeBtn = new QCheckBox(i18nc("@option:check", "S/MIME"));
-        } else {
-            pgpBtn = new QRadioButton(i18nc("@option:radio", "OpenPGP"));
-            smimeBtn = new QRadioButton(i18nc("@option:radio", "S/MIME"));
-        }
-        pgpBtn->setObjectName(QLatin1StringView("openpgp button"));
-        smimeBtn->setObjectName(QLatin1StringView("smime button"));
-        mFormatBtns->addButton(pgpBtn, OpenPGPButtonId);
-        mFormatBtns->addButton(smimeBtn, SMIMEButtonId);
-        mFormatBtns->setExclusive(!mAllowMixed);
+        mFormatGroup = new QButtonGroup(q);
+        auto formatBox = new QGroupBox(i18nc("@title:group", "Crypto Protocol:"));
 
-        connect(mFormatBtns, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), q, [this]() {
+        auto formatLayout = new QHBoxLayout(formatBox);
+        if (forcedProtocol == GpgME::UnknownProtocol || forcedProtocol == GpgME::OpenPGP) {
+            auto button = new QRadioButton(i18nc("@option:radio", "OpenPGP"));
+            button->setObjectName("openpgp button");
+            button->setToolTip(
+                xi18nc("@info:tooltip", "Compose the message in OpenPGP format. This implies that only OpenPGP encryption keys can be selected."));
+            formatLayout->addWidget(button);
+            mFormatGroup->addButton(button, static_cast<int>(GpgME::OpenPGP));
+        }
+        if (forcedProtocol == GpgME::UnknownProtocol || forcedProtocol == GpgME::CMS) {
+            auto button = new QRadioButton(i18nc("@option:radio", "S/MIME"));
+            button->setObjectName("smime button");
+            button->setToolTip(xi18nc("@info:tooltip", "Compose the message in S/MIME format. This implies that only S/MIME encryption keys can be selected."));
+            formatLayout->addWidget(button);
+            mFormatGroup->addButton(button, static_cast<int>(GpgME::CMS));
+        }
+        if (mAllowMixed) {
+            auto button = new QRadioButton(i18nc("@option:radio", "Both OpenPGP and S/MIME"));
+            button->setObjectName("both protocols button");
+            button->setToolTip(xi18nc("@info:tooltip",
+                                      "Compose two separate messages, one encrypted for recipients with OpenPGP keys, and another for "
+                                      "recipients with S/MIME keys. This allows to mix both types of keys, but may make it more difficult for recipients "
+                                      "to reply to all addressees."));
+            formatLayout->addWidget(button);
+            mFormatGroup->addButton(button, static_cast<int>(GpgME::UnknownProtocol));
+        }
+
+        mMainLay->addWidget(formatBox);
+
+        if (mForcedProtocol != GpgME::UnknownProtocol) {
+            mFormatGroup->button(static_cast<int>(mForcedProtocol))->setChecked(true);
+            formatBox->setVisible(false);
+            mMainLay->addWidget(new QLabel((mForcedProtocol == GpgME::OpenPGP) ? i18nc("@info", "The message will be composed in OpenPGP format.")
+                                                                               : i18nc("@info", "The message will be composed in S/MIME format.")));
+        } else {
+            mFormatGroup->button(static_cast<int>(presetProtocol))->setChecked(true);
+        }
+
+        connect(mFormatGroup, &QButtonGroup::idToggled, q, [this]() {
+            updateWidgets();
             updateOkButton();
         });
         connect(&appPaletteWatcher, &ApplicationPaletteWatcher::paletteChanged, q, [this]() {
             updateOkButton();
-        });
-
-        fmtLayout->addStretch(-1);
-        fmtLayout->addWidget(pgpBtn);
-        fmtLayout->addWidget(smimeBtn);
-        mMainLay->addLayout(fmtLayout);
-
-        if (mForcedProtocol != GpgME::UnknownProtocol) {
-            pgpBtn->setChecked(mForcedProtocol == GpgME::OpenPGP);
-            smimeBtn->setChecked(mForcedProtocol == GpgME::CMS);
-            pgpBtn->setVisible(false);
-            smimeBtn->setVisible(false);
-        } else {
-            pgpBtn->setChecked(presetProtocol == GpgME::OpenPGP || presetProtocol == GpgME::UnknownProtocol);
-            smimeBtn->setChecked(presetProtocol == GpgME::CMS || presetProtocol == GpgME::UnknownProtocol);
-        }
-
-        QObject::connect(mFormatBtns, &QButtonGroup::idClicked, q, [this](int buttonId) {
-            // ensure that at least one protocol button is checked
-            if (mAllowMixed && !mFormatBtns->button(OpenPGPButtonId)->isChecked() && !mFormatBtns->button(SMIMEButtonId)->isChecked()) {
-                mFormatBtns->button(buttonId == OpenPGPButtonId ? SMIMEButtonId : OpenPGPButtonId)->setChecked(true);
-            }
-            updateWidgets();
         });
 
         mMainLay->addWidget(mScrollArea);
@@ -362,21 +359,7 @@ public:
 
     GpgME::Protocol currentProtocol()
     {
-        const bool openPGPButtonChecked = mFormatBtns->button(OpenPGPButtonId)->isChecked();
-        const bool smimeButtonChecked = mFormatBtns->button(SMIMEButtonId)->isChecked();
-        if (mAllowMixed) {
-            if (openPGPButtonChecked && !smimeButtonChecked) {
-                return GpgME::OpenPGP;
-            }
-            if (!openPGPButtonChecked && smimeButtonChecked) {
-                return GpgME::CMS;
-            }
-        } else if (openPGPButtonChecked) {
-            return GpgME::OpenPGP;
-        } else if (smimeButtonChecked) {
-            return GpgME::CMS;
-        }
-        return GpgME::UnknownProtocol;
+        return static_cast<GpgME::Protocol>(mFormatGroup->checkedId());
     }
 
     auto findVisibleKeySelectionComboWithGenerateKey()
@@ -572,7 +555,8 @@ public:
 
     void setSigningKeys(const std::vector<GpgME::Key> &preferredKeys, const std::vector<GpgME::Key> &alternativeKeys)
     {
-        auto group = new QGroupBox(i18nc("Caption for signing key selection", "Confirm identity '%1' as:", mSender));
+        auto group = new QGroupBox(i18nc("@title:group", "Sign as:"));
+        group->setToolTip(i18nc("@info:tooltip", "Signing your message provides crypthographic confirmation that you really are the sender of this message."));
         group->setAlignment(Qt::AlignLeft);
         auto sigLayout = new QVBoxLayout(group);
 
@@ -870,7 +854,7 @@ public:
     QVBoxLayout *mScrollLayout;
     QPushButton *mOkButton;
     QVBoxLayout *mMainLay;
-    QButtonGroup *mFormatBtns;
+    QButtonGroup *mFormatGroup;
     QString mSender;
     bool mSign;
     bool mEncrypt;

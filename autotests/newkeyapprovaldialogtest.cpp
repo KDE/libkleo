@@ -222,11 +222,11 @@ enum CheckedState {
     IsChecked,
 };
 
-#define verifyProtocolButton(button, expectedVisibility, expectedCheckedState)                                                                                 \
+#define verifyProtocolButton(buttonExpression, expectedVisibility, expectedCheckedState)                                                                       \
     do {                                                                                                                                                       \
-        QVERIFY(button);                                                                                                                                       \
-        QCOMPARE(button->isVisible(), expectedVisibility == IsVisible);                                                                                        \
-        QCOMPARE(button->isChecked(), expectedCheckedState == IsChecked);                                                                                      \
+        auto button = buttonExpression;                                                                                                                        \
+        QCOMPARE(button && button->isVisible(), expectedVisibility == IsVisible);                                                                              \
+        QCOMPARE(button && button->isChecked(), expectedCheckedState == IsChecked);                                                                            \
     } while (false)
 
 #define verifyWidgetVisibility(widget, expectedVisibility)                                                                                                     \
@@ -350,6 +350,7 @@ private Q_SLOTS:
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsVisible, IsChecked);
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("smime button")), IsVisible, IsUnchecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("both protocols button")), IsHidden, IsUnchecked);
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 1);
@@ -408,6 +409,7 @@ private Q_SLOTS:
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsVisible, IsUnchecked);
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("smime button")), IsVisible, IsChecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("both protocols button")), IsHidden, IsUnchecked);
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 1);
@@ -458,6 +460,7 @@ private Q_SLOTS:
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsHidden, IsChecked);
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("smime button")), IsHidden, IsUnchecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("both protocols button")), IsHidden, IsUnchecked);
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 0);
@@ -500,6 +503,7 @@ private Q_SLOTS:
 
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsHidden, IsUnchecked);
         verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("smime button")), IsHidden, IsChecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("both protocols button")), IsHidden, IsUnchecked);
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
         QCOMPARE(signingKeyWidgets.hidden.size(), 0);
@@ -541,8 +545,9 @@ private Q_SLOTS:
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
-        verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("openpgp button")), IsVisible, IsChecked);
-        verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("smime button")), IsVisible, IsChecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsVisible, IsUnchecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("smime button")), IsVisible, IsUnchecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("both protocols button")), IsVisible, IsChecked);
         verifyProtocolLabels(dialog->findChildren<QLabel *>(QStringLiteral("protocol label")), 4, IsVisible);
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 2);
@@ -590,8 +595,9 @@ private Q_SLOTS:
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
-        verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("openpgp button")), IsVisible, IsChecked);
-        verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("smime button")), IsVisible, IsUnchecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsVisible, IsChecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("smime button")), IsVisible, IsUnchecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("both protocols button")), IsVisible, IsUnchecked);
         verifyProtocolLabels(dialog->findChildren<QLabel *>(QStringLiteral("protocol label")), 4, IsHidden);
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
@@ -636,8 +642,9 @@ private Q_SLOTS:
         const auto dialog = std::make_unique<NewKeyApprovalDialog>(true, true, sender, preferredSolution, alternativeSolution, allowMixed, forcedProtocol);
         dialog->show();
 
-        verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("openpgp button")), IsVisible, IsUnchecked);
-        verifyProtocolButton(dialog->findChild<QCheckBox *>(QStringLiteral("smime button")), IsVisible, IsChecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button")), IsVisible, IsUnchecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("smime button")), IsVisible, IsChecked);
+        verifyProtocolButton(dialog->findChild<QRadioButton *>(QStringLiteral("both protocols button")), IsVisible, IsUnchecked);
         verifyProtocolLabels(dialog->findChildren<QLabel *>(QStringLiteral("protocol label")), 4, IsHidden);
         const auto signingKeyWidgets = visibleAndHiddenWidgets(dialog->findChildren<KeySelectionCombo *>(QStringLiteral("signing key")));
         QCOMPARE(signingKeyWidgets.visible.size(), 1);
@@ -1070,10 +1077,11 @@ private Q_SLOTS:
         waitForKeySelectionCombosBeingInitialized(dialog.get());
         switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
 
-        const auto smimeButton = dialog->findChild<QCheckBox *>(QStringLiteral("smime button"));
-        QVERIFY(smimeButton);
-        smimeButton->click();
-        QVERIFY(!smimeButton->isChecked());
+        const auto openPGPButton = dialog->findChild<QRadioButton *>(QStringLiteral("openpgp button"));
+        QVERIFY(openPGPButton);
+        QVERIFY(!openPGPButton->isChecked());
+        openPGPButton->click();
+        QVERIFY(openPGPButton->isChecked());
 
         const QSignalSpy dialogAcceptedSpy{dialog.get(), &QDialog::accepted};
         QVERIFY(dialogAcceptedSpy.isValid());
@@ -1115,10 +1123,11 @@ private Q_SLOTS:
         waitForKeySelectionCombosBeingInitialized(dialog.get());
         switchKeySelectionCombosFromGenerateKeyToIgnoreKey(dialog->findChildren<KeySelectionCombo *>());
 
-        const auto openPGPButton = dialog->findChild<QCheckBox *>(QStringLiteral("openpgp button"));
-        QVERIFY(openPGPButton);
-        openPGPButton->click();
-        QVERIFY(!openPGPButton->isChecked());
+        const auto smimeButton = dialog->findChild<QRadioButton *>(QStringLiteral("smime button"));
+        QVERIFY(smimeButton);
+        QVERIFY(!smimeButton->isChecked());
+        smimeButton->click();
+        QVERIFY(smimeButton->isChecked());
 
         const QSignalSpy dialogAcceptedSpy{dialog.get(), &QDialog::accepted};
         QVERIFY(dialogAcceptedSpy.isValid());
