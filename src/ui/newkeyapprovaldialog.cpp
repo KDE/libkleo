@@ -556,7 +556,7 @@ public:
     void setSigningKeys(const std::vector<GpgME::Key> &preferredKeys, const std::vector<GpgME::Key> &alternativeKeys)
     {
         auto group = new QGroupBox(i18nc("@title:group", "Sign as:"));
-        group->setToolTip(i18nc("@info:tooltip", "Signing your message provides crypthographic confirmation that you really are the sender of this message."));
+        group->setToolTip(i18nc("@info:tooltip", "Signing your message provides cryptographic confirmation that you really are the sender of this message."));
         group->setAlignment(Qt::AlignLeft);
         auto sigLayout = new QVBoxLayout(group);
 
