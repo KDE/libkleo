@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:45+0000\n"
+"POT-Creation-Date: 2026-05-09 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2101,12 +2101,10 @@ msgid "Security approval"
 msgstr "安全批准"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "协议"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2137,11 +2135,10 @@ msgid ""
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2204,18 +2201,17 @@ msgid "The email will not be cryptographically signed."
 msgstr "该电子邮件不会被加密签名。"
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "签名"
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
-"Signing your message provides crypthographic confirmation that you really "
-"are the sender of this message."
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
 msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:634
@@ -3436,15 +3432,3 @@ msgstr "输入流中的十六进制字符“%1”无效。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "输入流中有过早出现的十六进制结束字符"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "确认身份“%1”为："

@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1736367 2026-05-08 01:28:25Z scripty $
+# $Id: libkleopatra6.po 1736512 2026-05-09 01:28:43Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-03-05 10:11+0100\n"
+"POT-Creation-Date: 2026-05-09 00:45+0000\n"
+"PO-Revision-Date: 2026-05-08 06:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2422,12 +2422,10 @@ msgid "Security approval"
 msgstr "Varnostna odobritev"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokol"
+msgstr "Kripto protokol:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2442,6 +2440,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Sestavi sporočilo v formatu OpenPGP. To pomeni, da je mogoče izbrati samo "
+"šifrirne ključe OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2456,13 +2456,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Sestavi sporočilo v formatu S/MIME. To pomeni, da je mogoče izbrati samo "
+"šifrirne ključe S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Oboje OpenPGP in S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2473,23 +2474,26 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Sestavi dve ločeni sporočili, eno šifrirano za prejemnike s ključi OpenPGP "
+"in drugo za prejemnike s ključi S/MIME. To omogoča mešanje obeh vrst "
+"ključev, vendar lahko prejemnikom oteži odgovor vsem naslovnikom."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Sporočilo bo sestavljeno v formatu OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Sporočilo bo sestavljeno v formatu S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr "Ustvarjanje ključa za »%1« …"
+msgstr "Ustvarjanje ključa za '%1'..."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2525,19 +2529,24 @@ msgid "The email will not be cryptographically signed."
 msgstr "E-pošta ne bo kriptografsko podpisana."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Podpiši"
+msgstr "Podpiši kot:"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Signing your message provides crypthographic confirmation that you really "
+#| "are the sender of this message."
 msgctxt "@info:tooltip"
 msgid ""
-"Signing your message provides crypthographic confirmation that you really "
-"are the sender of this message."
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
 msgstr ""
+"Podpisovanje sporočila zagotavlja kriptografsko potrditev, da ste res "
+"pošiljatelj tega sporočila."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format

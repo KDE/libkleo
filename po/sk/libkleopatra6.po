@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:45+0000\n"
+"POT-Creation-Date: 2026-05-09 00:45+0000\n"
 "PO-Revision-Date: 2021-01-26 11:37+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -2337,12 +2337,10 @@ msgid "Security approval"
 msgstr "Bezpečnostné schválenie"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokol"
+msgstr "Kryptografický protokol:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2357,6 +2355,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Zostaviť správu vo formáte OpenPGP. To znamená, že je možné vybrať iba "
+"šifrovacie kľúče OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2371,13 +2371,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Zostaviť správu vo formáte S/MIME. To znamená, že je možné vybrať iba "
+"šifrovacie kľúče S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "OpenPGP aj S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2388,18 +2389,21 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Zostaviť dve samostatné správy – jednu šifrovanú pre príjemcov s kľúčmi "
+"OpenPGP a druhú pre príjemcov s kľúčmi S/MIME. To umožňuje kombinovať oba "
+"typy kľúčov, môže však príjemcom sťažiť odpoveď všetkým adresátom."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Správa bude zostavená vo formáte OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Správa bude zostavená vo formáte S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2440,19 +2444,24 @@ msgid "The email will not be cryptographically signed."
 msgstr "E-mail nebude kryptograficky podpísaný."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Podpis"
+msgstr "Podpísať ako:"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Signing your message provides crypthographic confirmation that you really "
+#| "are the sender of this message."
 msgctxt "@info:tooltip"
 msgid ""
-"Signing your message provides crypthographic confirmation that you really "
-"are the sender of this message."
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
 msgstr ""
+"Podpísaním správy kryptograficky potvrdíte, že ste skutočne odosielateľom "
+"tejto správy."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format

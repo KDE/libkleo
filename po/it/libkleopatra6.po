@@ -1,5 +1,5 @@
 # translation of libkleopatra.po to Italian
-# SPDX-FileCopyrightText: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Luigi Toscano <luigi.toscano@tiscali.it>
+# SPDX-FileCopyrightText: 2016-2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # Alessandro Pasotti <ale.pas@tiscalinet.it>, 2004, 2005.
 # Alessandro Astarita <aleast@capri.it>, 2004.
 # Andrea Rizzi <rizzi@kde.org>, 2004.
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-03-08 14:41+0100\n"
+"POT-Creation-Date: 2026-05-09 00:45+0000\n"
+"PO-Revision-Date: 2026-05-08 12:01+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2300,12 +2300,10 @@ msgid "Security approval"
 msgstr "Approvazione sicurezza"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protocollo"
+msgstr "Protocollo crittografico:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2320,6 +2318,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Componi il messaggio in formato OpenPGP. Questo implica che potranno essere "
+"selezionate solo chiavi di cifratura OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2334,13 +2334,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Componi il messaggio in formato S/MIME. Questo implica che potranno essere "
+"selezionate solo chiavi di cifratura S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Sia OpenPGP sia S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2351,18 +2352,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Compone due messaggi separati, uno cifrato per destinatari con chiavi "
+"OpenPGP, ed un altro per destinatari con chiavi S/MIME. Questo permette di "
+"mescolare entrambi le tipologie di chiavi, ma per i destinatari potrebbe "
+"essere più difficile rispondere a tutti gli indirizzi."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Il messaggio sarà composto in formato OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Il messaggio sarà composto in formato S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2403,19 +2408,24 @@ msgid "The email will not be cryptographically signed."
 msgstr "Il messaggio di posta non verrà firmato crittograficamente."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Firma"
+msgstr "Firma come:"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Signing your message provides crypthographic confirmation that you really "
+#| "are the sender of this message."
 msgctxt "@info:tooltip"
 msgid ""
-"Signing your message provides crypthographic confirmation that you really "
-"are the sender of this message."
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
 msgstr ""
+"Firmare il messaggio fornisce la conferma crittografica che sei "
+"effettivamente il mittente di questo messaggio."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format

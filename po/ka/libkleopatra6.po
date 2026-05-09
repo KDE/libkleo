@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:45+0000\n"
-"PO-Revision-Date: 2026-03-05 04:00+0100\n"
+"POT-Creation-Date: 2026-05-09 00:45+0000\n"
+"PO-Revision-Date: 2026-05-08 05:24+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2295,12 +2295,10 @@ msgid "Security approval"
 msgstr "უსაფრთხოების დადასტურება"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "პროტოკოლი"
+msgstr "კრიპტოგრაფიის პროტოკოლი:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2315,6 +2313,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"შეტყობინების აგება OpenPGP-ის ფორმატში. ეს გულისხმობს, რომ შესაძლებელია, "
+"მხოლოდ, OpenPGP-ის დაშიფვრის გასაღებების არჩევა."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2329,13 +2329,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"შეტყობინების აგება S/MIME-ის ფორმატში. ეს გულისხმობს, რომ შესაძლებელია, "
+"მხოლოდ, S/MIME-ის დაშიფვრის გასაღებების არჩევა."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "ორივე: OpenPGP და S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2346,18 +2347,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"მოხდება ორი ცალ-ცალკე შეტყობინების შედგენა. ერთი დაიშიფრება მიმღებებისთვის, "
+"რომლებსაც აქვთ OpenPGP გასაღებები, მეორე კი S/MIME. ეს საშუალებას გაძლევთ, "
+"ორივე ტიპის გასაღები ერთდროულად გამოიყენოთ, მაგრამ ართულებს მიმღებებისთვის "
+"ყველა მისამართზე პასუხს."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "ამ შეტყობინების აგება OpenPGP ფორმატში მოხდება."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "ამ შეტყობინების აგება S/MIME ფორმატში მოხდება."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2398,19 +2403,24 @@ msgid "The email will not be cryptographically signed."
 msgstr "ელფოსტა კრიპტოგრაფიულად ხელმოწერილი არ იქნება."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "ხელმოწერა"
+msgstr "ხელმოწერა, როგორც:"
 
 #: ui/newkeyapprovaldialog.cpp:559
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Signing your message provides crypthographic confirmation that you really "
+#| "are the sender of this message."
 msgctxt "@info:tooltip"
 msgid ""
-"Signing your message provides crypthographic confirmation that you really "
-"are the sender of this message."
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
 msgstr ""
+"თქვენი შეტყობინების ხელმოწერა იძლევა კრიპტოგრაფიულ დასტურს, რომ ეს "
+"შეტყობინება ნამდვილად თქვენ გააგზავნეთ."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
