@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-09 00:45+0000\n"
-"PO-Revision-Date: 2026-03-06 16:31+0100\n"
+"PO-Revision-Date: 2026-05-08 15:18+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
 "Language: de\n"
@@ -2300,12 +2300,10 @@ msgid "Security approval"
 msgstr "Sicherheitsbestätigung"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokoll"
+msgstr "Krypto-Protokoll:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2320,6 +2318,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Die Nachricht im OpenPGP-Format verfassen. Daraus folgt, dass nur OpenPGP-"
+"Zertifikate ausgewählt werden können."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2334,13 +2334,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Die Nachricht im S/MIME-Format verfassen. Daraus folgt, dass nur S/MIME-"
+"Zertifikate ausgewählt werden können."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Sowohl OpenPGP als auch S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2351,18 +2352,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Zwei separate verschlüsselte Nachrichten verfassen: je eine für Empfänger "
+"mit OpenPGP-Schlüsseln und eine für Empfänger mit S/MIME-Schlüsseln. Auf "
+"diese Weise können beide Protokolle kombiniert werden. Dies kann es für die "
+"Empfänger jedoch erschweren, allen Adressaten zu antworten."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Die Nachricht wird im OpenPGP-Format verfasst."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Die Nachricht wird im S/MIME-Format verfasst."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2403,11 +2408,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Die E-Mail wird nicht kryptographisch signiert."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Signieren"
+msgstr "Signieren als:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format

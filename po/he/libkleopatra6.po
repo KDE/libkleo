@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the libkleo package.
 #
-# SPDX-FileCopyrightText: 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-09 00:45+0000\n"
-"PO-Revision-Date: 2026-03-05 06:54+0200\n"
+"PO-Revision-Date: 2026-05-09 07:23+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2369,12 +2369,10 @@ msgid "Security approval"
 msgstr "אישור אבטחה"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "פרוטוקול"
+msgstr "פרוטוקול קריפטוגרפי:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2389,6 +2387,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"כתיבת ההודעה בתסדיר OpenPGP. המצב הזה מרמז שאפשר לבחור רק מפתחות הצפנה מסוג "
+"OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2403,13 +2403,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"כתיבת ההודעה בתסדיר S/MIME. המצב הזה מרמז שאפשר לבחור רק מפתחות הצפנה מסוג S/"
+"MIME."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "גם OpenPGP וגם S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2420,18 +2421,21 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"כתיבת שתי הודעות נפרדות, אחת מוצפנת לנמענים עם מפתחות OpenPGP ואחת נוספת עם "
+"מפתחות S/MIME. התצורה הזאת מאפשר לערבב שני סוגים של מפתחות, אך היא מקשה על "
+"נמענים להגיב לכל הכתובות."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "ההודעה תיכתב בתסדיר OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "ההודעה תיכתב בתסדיר S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2472,11 +2476,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "הודעות הדוא״ל הזאת לא תהיה חתומה קריפטוגרפית."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "חתימה"
+msgstr "חתימה בתור:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2485,6 +2488,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"החתימה על ההודעה מספקת אישור קריפטוגרפי שהגוף ששלח את ההודעה הוא אכן את או "
+"אתה."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
