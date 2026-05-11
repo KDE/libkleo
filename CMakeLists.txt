@@ -105,6 +105,10 @@ if(USE_UNITY_CMAKE_SUPPORT)
     set(UNITY_BUILD ON)
 endif()
 
+if (LIBKLEO_FEATURE_DEVS_COMPLIANCE)
+    # This feature is used by certified distributions of Kleopatra
+    set(LIBKLEO_FEATURE_DEVS_COMPLIANCE 1)
+endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-libkleo.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-libkleo.h)
 
 add_subdirectory(src)

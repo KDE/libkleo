@@ -49,7 +49,11 @@ static const std::vector<std::string> &allCompliantAlgorithms()
 
 bool Kleo::DeVSCompliance::isActive()
 {
+#if LIBKLEO_FEATURE_DEVS_COMPLIANCE
     return getCryptoConfigStringValue("gpg", "compliance") == QLatin1StringView{"de-vs"};
+#else
+    return false;
+#endif
 }
 
 bool Kleo::DeVSCompliance::isCompliant()
