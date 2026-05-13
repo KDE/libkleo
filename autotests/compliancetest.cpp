@@ -6,6 +6,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include <Libkleo/Compliance>
 #include <Libkleo/GnuPG>
 #include <Libkleo/Test>
@@ -21,6 +23,13 @@ class ComplianceTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void initTestCase()
+    {
+#if !LIBKLEO_FEATURE_DEVS_COMPLIANCE
+        QSKIP("Test requires the de-vs compliance feature.");
+#endif
+    }
+
     void test_no_compliance_active()
     {
         Tests::FakeCryptoConfigStringValue fakeCompliance{"gpg", "compliance", QStringLiteral("")};
