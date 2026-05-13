@@ -42,7 +42,7 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 
 set(LIBKLEO_LIB_VERSION ${PIM_VERSION})
 set(QT_REQUIRED_VERSION "6.7.0")
-set(GPGME_REQUIRED_VERSION "2.0.0")
+set(GPGME_REQUIRED_VERSION "1.24.2")
 set(GPG_ERROR_REQUIRED_VERSION "1.47")
 
 find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets)
