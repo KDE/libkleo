@@ -6,6 +6,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "testhelpers.h"
 
 #include <Libkleo/Formatting>
@@ -1332,6 +1334,9 @@ private Q_SLOTS:
 
     void test_groups__group_with_marginally_valid_key_is_ignored_in_de_vs_mode()
     {
+#if !LIBKLEO_FEATURE_DEVS_COMPLIANCE
+        QSKIP("Test requires the de-vs compliance feature.");
+#endif
         const std::vector<KeyGroup> groups = {
             createGroup("group@example.net",
                         {

@@ -6,6 +6,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include <config-libkleo.h>
+
 #include "testhelpers.h"
 
 #include <Libkleo/Compliance>
@@ -865,6 +867,9 @@ private Q_SLOTS:
 
     void test__vs_de_compliance__all_keys_fully_valid()
     {
+#if !LIBKLEO_FEATURE_DEVS_COMPLIANCE
+        QSKIP("Test requires the de-vs compliance feature.");
+#endif
         const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
         const bool allowMixed = true;
         const QString sender = QStringLiteral("sender@example.net");
@@ -892,6 +897,9 @@ private Q_SLOTS:
 
     void test__vs_de_compliance__not_all_keys_fully_valid()
     {
+#if !LIBKLEO_FEATURE_DEVS_COMPLIANCE
+        QSKIP("Test requires the de-vs compliance feature.");
+#endif
         const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
         const bool allowMixed = true;
         const QString sender = QStringLiteral("sender@example.net");
@@ -918,6 +926,9 @@ private Q_SLOTS:
 
     void test__vs_de_compliance__null_keys_are_ignored()
     {
+#if !LIBKLEO_FEATURE_DEVS_COMPLIANCE
+        QSKIP("Test requires the de-vs compliance feature.");
+#endif
         const GpgME::Protocol forcedProtocol = GpgME::UnknownProtocol;
         const bool allowMixed = true;
         const QString sender = QStringLiteral("sender@example.net");
