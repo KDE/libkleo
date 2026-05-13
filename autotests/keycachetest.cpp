@@ -13,6 +13,7 @@
 #include <QGpgME/VerifyOpaqueJob>
 
 #include <QObject>
+#include <QProcess>
 #include <QTest>
 
 #include <gpgme++/data.h>
@@ -25,6 +26,7 @@
 
 using namespace Kleo;
 using namespace GpgME;
+using namespace Qt::Literals::StringLiterals;
 
 // Curve 448 test key with signing subkey (this key has V5 fingerprints)
 // pub   ed448 2024-09-23 [SC]
@@ -101,6 +103,9 @@ class KeyCacheTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        mGnupgHome = std::make_unique<QTemporaryDir>();
+        qputenv("GNUPGHOME", mGnupgHome->path().toLocal8Bit());
+
         GpgME::initializeLibrary();
         if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() >= "2.4.0") {
             QGpgME::QByteArrayDataProvider dp(key_v5_curve_448);
@@ -114,6 +119,14 @@ private Q_SLOTS:
         } else {
             QSKIP("Unsupported engine");
         }
+    }
+
+    void cleanupTestCase()
+    {
+        (void)QProcess::execute(QStringLiteral("gpgconf"), {u"--kill"_s, u"all"_s});
+
+        mGnupgHome.reset();
+        qunsetenv("GNUPGHOME");
     }
 
     void test_findSigner_v5_primary_key()
@@ -185,6 +198,7 @@ private Q_SLOTS:
     }
 
 private:
+    std::unique_ptr<QTemporaryDir> mGnupgHome;
     GpgME::Key keyCurve448;
 };
 
