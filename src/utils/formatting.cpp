@@ -1623,7 +1623,7 @@ static GpgME::UserID findUserIDByMailbox(const GpgME::Key &key, const QString &e
 {
     const auto userIDs{key.userIDs()};
     for (const GpgME::UserID &id : userIDs) {
-        if (Formatting::email(id).compare(email, Qt::CaseInsensitive)) {
+        if (!Formatting::email(id).compare(email, Qt::CaseInsensitive)) {
             return id;
         }
     }
