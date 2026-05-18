@@ -77,8 +77,10 @@ set_property(TEST compliancetest PROPERTY
     SKIP_REGULAR_EXPRESSION "SKIP.*::initTestCase()"
 )
 
-ecm_add_tests(
+ecm_add_test(
     formattingtest.cpp
+    formattingtest.qrc
+    TEST_NAME formattingtest
     LINK_LIBRARIES KPim6::Libkleo Qt::Test
 )
 
