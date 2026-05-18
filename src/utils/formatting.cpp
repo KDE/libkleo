@@ -1509,17 +1509,17 @@ static QString renderKeyLink(const QString &fpr, const QString &text)
     return QStringLiteral("<a href=\"key:%1\">%2</a>").arg(fpr, text.toHtmlEscaped());
 }
 
-static QString renderKey(const GpgME::Key &key)
+static QString renderKey(const GpgME::Key &key, const GpgME::UserID &uid)
 {
     if (key.isNull()) {
         return i18n("Unknown certificate");
     }
-
+    const QString uidString = uid.isNull() ? Formatting::prettyNameAndEMail(key) : Formatting::prettyNameAndEMail(uid);
     return renderKeyLink(QLatin1StringView(key.primaryFingerprint()),
-                         i18nc("User ID (Key ID)", "%1 (%2)", Formatting::prettyNameAndEMail(key), Formatting::prettyID(key.subkey(0).keyID())));
+                         i18nc("User ID (Key ID)", "%1 (%2)", uidString, Formatting::prettyID(key.subkey(0).keyID())));
 }
 
-static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key)
+static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key, const GpgME::UserID &uid)
 {
     if (sig.isNull()) {
         return QString();
@@ -1540,9 +1540,9 @@ static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME
     }
 
     if (dt.isValid()) {
-        text += i18nc("1 is a date", "Signature created on %1 with certificate: %2", QLocale().toString(dt, QLocale::ShortFormat), renderKey(key));
+        text += i18nc("1 is a date", "Signature created on %1 with certificate: %2", QLocale().toString(dt, QLocale::ShortFormat), renderKey(key, uid));
     } else {
-        text += i18n("Signature created with certificate: %1", renderKey(key));
+        text += i18n("Signature created with certificate: %1", renderKey(key, uid));
     }
 
     if (Kleo::DeVSCompliance::isCompliant() && ((sig.summary() & GpgME::Signature::Valid) || (sig.summary() & GpgME::Signature::Green))) {
@@ -1638,21 +1638,23 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
 
     const GpgME::Key key = Kleo::KeyCache::instance()->findSigner(sig);
 
-    const QString text = formatSigningInformation(sig, key) + QLatin1StringView("<br/>");
+    GpgME::UserID senderUid;
+    if (!sender.isEmpty()) {
+        senderUid = findUserIDByMailbox(key, sender);
+    }
+    if (senderUid.isNull()) {
+        for (int i = 0, count = key.userIDs().size(); i < count; i++) {
+            senderUid = key.userID(i);
+            if (!senderUid.isNull()) {
+                break;
+            }
+        }
+    }
+    const QString text = formatSigningInformation(sig, key, senderUid) + QLatin1StringView("<br/>");
 
     // Green
     if ((sig.summary() & GpgME::Signature::Valid)) {
-        GpgME::UserID id = findUserIDByMailbox(key, sender);
-        if (id.isNull()) {
-            for (int i = 0, count = key.userIDs().size(); i < count; i++) {
-                id = key.userID(i);
-                if (!id.isNull()) {
-                    break;
-                }
-            }
-        }
-
-        return text + formatValidSignatureWithTrustLevel(!id.isNull() ? id : key.userID(0));
+        return text + formatValidSignatureWithTrustLevel(!senderUid.isNull() ? senderUid : key.userID(0));
     }
 
     // Red
