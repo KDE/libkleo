@@ -11,6 +11,8 @@
 
 #include <QGpgME/ImportJob>
 #include <QGpgME/Protocol>
+#include <QGpgME/SignJob>
+#include <QGpgME/VerifyDetachedJob>
 #include <QGpgME/VerifyOpaqueJob>
 
 #include <QProcess>
@@ -18,6 +20,7 @@
 
 #include <gpgme++/engineinfo.h>
 #include <gpgme++/importresult.h>
+#include <gpgme++/signingresult.h>
 #include <gpgme++/verificationresult.h>
 
 using namespace Kleo;
@@ -125,12 +128,38 @@ private:
     QString mOldValue;
 };
 
-class TemporaryGnuPGHome
+class CustomGnuPGHome
+{
+public:
+    CustomGnuPGHome(const QString &path)
+    {
+        init(path);
+    }
+
+    CustomGnuPGHome()
+    {
+    }
+
+    ~CustomGnuPGHome()
+    {
+        QProcess::execute(u"gpgconf"_s, {u"--kill"_s, u"all"_s});
+    }
+
+    void init(const QString &path)
+    {
+        mGnupgHomeEnvVar.set("GNUPGHOME", path.toUtf8());
+    }
+
+private:
+    EnvironmentVariableOverride mGnupgHomeEnvVar;
+};
+
+class TemporaryGnuPGHome : public CustomGnuPGHome
 {
 public:
     TemporaryGnuPGHome()
     {
-        mGnupgHomeEnvVar.set("GNUPGHOME", mGnupgHome.path().toUtf8());
+        init(mGnupgHome.path());
     }
 
     ~TemporaryGnuPGHome()
@@ -149,7 +178,6 @@ public:
     }
 
 private:
-    EnvironmentVariableOverride mGnupgHomeEnvVar;
     QTemporaryDir mGnupgHome;
 };
 
@@ -297,6 +325,44 @@ private Q_SLOTS:
                  "<a href='certificate:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D'>1DE19 60C29 F97E6 762C4 EA341 820DA AC045 57992 1E0F3 "
                  "05673</a><br/>"
                  "You can search the certificate on a keyserver or import it from a file."_s);
+    }
+
+    void test_prettySignature_multiple_uids()
+    {
+        const auto temporaryDir = QTest::qExtractTestData(QStringLiteral("/fixtures/formattingtest"));
+        const auto gnupgHome = CustomGnuPGHome(temporaryDir->path());
+        const auto keyCache = KeyCache::instance();
+        QVERIFY(!keyCache->keys().empty());
+
+        const auto firstUID = u"uid_a@example.net"_s;
+        const auto secondUID = u"uid_b@example.net"_s;
+        const auto bogusUID = u"bogusuid@example.net"_s;
+        const auto keys = keyCache->findByEMailAddress(firstUID.toLatin1().constData());
+        QVERIFY(keys.size() == 1);
+        const auto key = keys.at(0);
+        QVERIFY(keyCache->findByEMailAddress(secondUID.toLatin1().constData()).size() == 1);
+        QVERIFY(keyCache->findByEMailAddress(bogusUID.toLatin1().constData()).size() == 0);
+
+        const auto signedData = "signed data"_ba;
+        QByteArray signature;
+        auto signJob{QGpgME::openpgp()->signJob(true, true)};
+        auto signResult = signJob->exec({key}, signedData, GpgME::Detached, signature);
+        QVERIFY(!signResult.error());
+
+        auto verifyJob{QGpgME::openpgp()->verifyDetachedJob(true)};
+        const VerificationResult verificationResult = verifyJob->exec(signature, signedData);
+        QVERIFY(!verificationResult.error());
+        QCOMPARE(verificationResult.numSignatures(), 1);
+
+        const auto formatPrimaryUID = Formatting::prettySignature(verificationResult.signature(0), firstUID);
+        QVERIFY(formatPrimaryUID.contains(firstUID));
+        const auto formatSecondaryUID = Formatting::prettySignature(verificationResult.signature(0), secondUID);
+        QVERIFY(formatSecondaryUID.contains(secondUID));
+        const auto formatBogusUID = Formatting::prettySignature(verificationResult.signature(0), bogusUID);
+        QVERIFY(!formatBogusUID.contains(bogusUID));
+        QVERIFY(formatBogusUID.contains(secondUID));
+        const auto formatAnyUID = Formatting::prettySignature(verificationResult.signature(0), QString());
+        QVERIFY(formatAnyUID.contains(secondUID));
     }
 };
 
