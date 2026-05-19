@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2010-09-13 05:42+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -772,115 +772,115 @@ msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "All Zertifikaten"
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, fuzzy, kde-format
 #| msgid "User Name"
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Brukernaam"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr ""
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr ""
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr ""
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr ""
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, fuzzy, kde-format
 #| msgid "(Unknown Protocol)"
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "(Nich begäng Protokoll)"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, fuzzy, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Slötel-ID"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr ""
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr ""
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, fuzzy, kde-format
 #| msgid "Fax number"
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Faxnummer"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr ""
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, fuzzy, kde-format
 #| msgid "My Certificates"
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Egen Zertifikaten"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr ""
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr ""
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr ""
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, fuzzy, kde-format
 #| msgid "Given name"
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "Vörnaam"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -888,13 +888,13 @@ msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "s_dibbern@web.de"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "Fetching keys..."
 msgid "Loading..."
 msgstr "Slötels warrt haalt..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1181,13 +1181,13 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Vertekendeenst tofögen oder ännern"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, fuzzy, kde-format
 #| msgid "No server configured yet"
 msgid "None configured"
 msgstr "Noch keen Server inricht"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1805,8 +1805,8 @@ msgstr "<placeholder>nich begäng</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Bi't Halen vun de Slötels vun dat Hölp-Programm geev dat disse "
 "Problemen:</p><p><b>%1</b></p></qt>"
@@ -2087,13 +2087,13 @@ msgstr "Resultaat vun't Slötel-Oplisten"
 msgid "Recheck Key"
 msgstr "Slötel nieg pröven"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr ""
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, fuzzy, kde-format
 #| msgid "&Show Audit Log"
 msgctxt ""
@@ -2101,14 +2101,14 @@ msgctxt ""
 msgid "Show Audit Log"
 msgstr "Pröövlogbook &wiesen"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, fuzzy, kde-format
 #| msgid "Location"
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Oort"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2208,7 +2208,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2219,94 +2219,140 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, fuzzy, kde-format
 #| msgid "Encryption Key Approval"
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Verslötel-Slötel beglöven"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgid "(Unknown Protocol)"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "(Nich begäng Protokoll)"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, fuzzy, kde-format
 #| msgid "OpenPGP"
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "S/MIME"
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, fuzzy, kde-format
-#| msgid "OpenPGP"
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, fuzzy, kde-format
 #| msgid "Generating DSA key..."
 msgid "Generating key for '%1'..."
 msgstr "DSA-Slötel warrt opstellt..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, fuzzy, kde-format
 #| msgid "Key Selection"
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Slötel utsöken"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, fuzzy, kde-format
 #| msgid "Decryption failed: %1"
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Opslöteln fehlslaan: %1"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:575
+#: ui/newkeyapprovaldialog.cpp:558
 #, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
+msgctxt "@title:group"
+msgid "Sign as:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2315,20 +2361,20 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Nienich verslöteln"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt to others:"
 msgstr "Nienich verslöteln"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, fuzzy, kde-format
 #| msgid "General"
 msgid "Generate"
@@ -2467,19 +2513,19 @@ msgstr "Egen Zertifikaten"
 msgid "Show certificate list"
 msgstr "Egen Zertifikaten"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgid "VS-NfD compliant"
 msgstr "All Zertifikaten"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgid "Not VS-NfD compliant"
 msgstr "All Zertifikaten"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
@@ -3576,563 +3622,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "All certificates"
-#~ msgstr "All Zertifikaten"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "All Zertifikaten"
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknown"
-#~ msgstr "nich begäng"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Bruker-ID"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Troot Zertifikaten"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Troot Zertifikaten"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Troot Zertifikaten"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Bruker-ID"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "Bruker-ID"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConf-Fehler"
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Zertifikaatpleger-Fehler"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Ünnerschrieven fehlslaan: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Mit Spood ünnerschreven"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Verslöteln fehlslaan: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Mit Spood verslötelt"
-
-#~ msgid "Signing Result"
-#~ msgstr "Ünnerschriev-Resultaat"
-
-#~ msgid "Signing Error"
-#~ msgstr "Fehler bi't Ünnerschrieven"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Verslötel-Resultaat"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Fehler bi't Verslöteln"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "All Zertifikaten"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "All Zertifikaten"
-
-#~ msgid "never"
-#~ msgstr "nienich"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Heel na nerrn"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "server"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Servernaam"
-
-#~ msgid "Server Port"
-#~ msgstr "Server-Port"
-
-#~ msgid "Base DN"
-#~ msgstr "Wörtel-DN"
-
-#~ msgid "User Name"
-#~ msgstr "Brukernaam"
-
-#~ msgid "(read-only)"
-#~ msgstr "(bloots-leesbor)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (bloots-leesbor)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Wahlwies)</b> Dien Brukernaam angeven, wenn nödig."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Vertekendeensten instellen"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP-Slötel utsöken"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Klick op dissen Knoop, wenn Du en nieg Vertekendeenst as en Kopie vun den "
-#~ "opstunns utsöchten opstellen wullt (oder mit de Standardweerten, wenn "
-#~ "keen utsöcht is). Du kannst de Enkelheiten denn binnen de Tabell "
-#~ "linkerhand instellen."
-
-#~ msgid "New"
-#~ msgstr "Nieg"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Mit disse Optschoon kannst Du dat Wiesen vun Brukernaam un Passwoort "
-#~ "binnen de Tabell baven an- un utmaken."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Bruker- un Passwoortinformatschonen wiesen"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "GnuPG-Hülpprogramm instellen"
-
-#~ msgid "&Reset"
-#~ msgstr "To&rüchsetten"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Dissen Slötelserver bruken:"
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Slötelservers instellen"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Adressaat:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "All Zertifikaten"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Protokoll"
-
-#, fuzzy
-#~| msgid ""
-#~| "Select the access protocol (scheme) that the directory service is "
-#~| "available through."
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr "Dat Protokoll för't Togriepen op den Vertekendeenst fastleggen"
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Maak dissen Striep an, wenn de Vertekendeenst S/MIME-(X.509-)Zertifikaten "
-#~ "praatstellt"
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Maak dissen Striep an, wenn de Vertekendeenst OpenPGP-Zertifikaten "
-#~ "praatstellt"
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0 - Keen (gor keen Fehlersöök)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1 - Eenfach (bloots wichtig Fehlersöök-Mellen)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2 - Verwiedert (snackhaftig Fehlersöök)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 - Fachlüüd (vele Enkelheiten)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 - Dokter (all Fehlersöök-Mellen)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus-Befehlsreegwarktüüch"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Nich ünnerstütt Protokoll: \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Dat gifft de Datei \"%1\" nich, oder se is nich utföhrbor."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Chiasmus-Utgaav"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Dat Nakamen keem över de Standard-Fehlerutgaav (\"stderr\"):\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Fehler bi't Laden vun %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Bibliotheek bargt dat Symbool \"Chiasmus\" nich."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Orner %1 warrt dörkeken..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GpgME wöör ahn Ünnerstütten för %1 kompileert."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Moduul %1 is nich richtig installeert."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Moduul %1 is in Verschoon %2 installeert, man tominnst Verschoon %3 warrt "
-#~ "bruukt."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Nich begäng Problem mit dat Moduul för't Protokoll %1"
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "Programm hett sik unvermodens beendt"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "Programm lett sik nich finnen oder nich opropen"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Utföhren vun \"gpgconf\" fehlslaan:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "\"gpgconf\" lett sik nich opropen.\n"
-#~ "Prööv bitte, wat sik \"gpgconf\" över Dien PATH-Variabel finnen un sik "
-#~ "starten lett."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Fehler binnen \"gpgconf\" bi't Sekern vun de Instellen: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "ElGamal-Slötel warrt opstellt..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Grote Primtall warrt söcht..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Bi to töven op niege Entropie vun den Tofall-Tallenmaker (Dat geiht "
-#~ "gauer, wenn Du de Muus beweegst oder wat op de Fastplaat maakst)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Tööv bitte..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "\"gpg-agent\" warrt start (Överlegg Di doch maal, wat Du nich en globale "
-#~ "Utgaav starten wullt)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Bi't Kieken na Ünnerstütten för %1 binnen dat Hölp-Programm %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "OpenPGP-Slötel för %1\n"
-#~ "Opstellt: %2\n"
-#~ "Löppt af: %3\n"
-#~ "Fingerafdruck: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "S/MIME-Slötel för %1\n"
-#~ "Opstellt: %2\n"
-#~ "Löppt af: %3\n"
-#~ "Fingerafdruck: %4\n"
-#~ "Rutgever: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Servernaam:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "Br&ukernaam:"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Pass&woort:"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Afbreken"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Sönke Dibbern"
-
-#~ msgid "failed"
-#~ msgstr "fehlslaan"
-
-#~ msgid "Available Backends"
-#~ msgstr "Verföögbor Hölp-Programmen"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "&Instellen..."
-
-#~ msgid "Rescan"
-#~ msgstr "Nieg kieken"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Dat geev bi't Kieken disse Problemen:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Dörkiek-Resultaat"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Fehler bi't Torechtmaken vun dat Plugin \"%1\""
-
-#~ msgid "Can't start decrypt job"
-#~ msgstr "Opslötelopgaav lett sik nich starten"
-
-#~ msgid "Can't start combined decrypt/verify operation"
-#~ msgstr "Tosamensett Opslötel-/Pröövakschoon lett sik nich starten"
-
-#~ msgid "Can't start encrypt job"
-#~ msgstr "Verslötelopgaav lett sik nich starten"
-
-#~ msgid "Error adding signer %1."
-#~ msgstr "Fehler bi't Tofögen vun Ünnerschriever \"%1\""
-
-#~ msgid ""
-#~ "You need a passphrase to unlock the secret key for user:<br/> %1 (retry)"
-#~ msgstr ""
-#~ "Du bruukst en Slötelsatz, wenn Du den Privaatslötel vun den nakamen "
-#~ "Bruker opsluten wullt:<br/> %1 (nochmaal versöken)"
-
-#~ msgid "You need a passphrase to unlock the secret key for user:<br/> %1"
-#~ msgstr ""
-#~ "Du bruukst en Slötelsatz, wenn Du den Privaatslötel vun den nakamen "
-#~ "Bruker opsluten wullt:<br/> %1 "
-
-#~ msgid ""
-#~ "This dialog will reappear every time the passphrase is needed. For a more "
-#~ "secure solution that also allows caching the passphrase, use gpg-agent."
-#~ msgstr ""
-#~ "Disse Dialoog warrt jümmers wedder opduken, wenn de Slötelsatz bruukt "
-#~ "warrt. En sekrere Lösen, mit de Du den Slötelsatz ok twischenspiekern "
-#~ "kannst, is \"gpg-agent\"."
-
-#~ msgid "gpg-agent was found in %1, but does not appear to be running."
-#~ msgstr ""
-#~ "\"gpg-agent\" wöör binnen %1 funnen, man as dat lett löppt dat nich."
-
-#~ msgid "gpg-agent is part of gnupg-%1, which you can download from %2"
-#~ msgstr ""
-#~ "\"gpg-agent\" is en Deel vun \"gnupg-%1\". Dat kannst Du vun %2 daalladen."
-
-#~ msgid "For information on how to set up gpg-agent, see %1"
-#~ msgstr ""
-#~ "Wenn Du weten wullt, wodennig gpg-agent inricht warrt, kiek ünner %1"
-
-#~ msgid "Passphrase Dialog"
-#~ msgstr "Slötelsatz-Dialoog"
-
-#~ msgid "Can't start combined sign-encrypt job"
-#~ msgstr "Tosamensett Ünnerschriev- un Verslötelopgaav lett sik nich starten"
-
-#~ msgid "Can't start sign job"
-#~ msgstr "Ünnerschrievopgaav lett sik nich starten"
-
-#~ msgid "Can't start detached signature verification"
-#~ msgstr "Pröven vun de aflööst Ünnertschrift lett sik nich starten"
-
-#~ msgid "Can't start opaque signature verification"
-#~ msgstr "Pröven vun överdeckt Ünnerschrift lett sik nich starten"
-
-#~ msgid "Configure"
-#~ msgstr "Instellen"
-
-#~ msgid "Select Directory Services to Use Here"
-#~ msgstr "Vertekendeensten utsöken"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>X.500 Directory Services</h1>\n"
-#~ "You can use X.500 directory services to retrieve certificates and "
-#~ "certificate revocation lists that are not saved locally. Ask your local "
-#~ "administrator if you want to make use of this feature and are unsure "
-#~ "which directory service you can use.\n"
-#~ "<p>\n"
-#~ "If you do not use a directory service, you can still use local "
-#~ "certificates.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>X.500-Vertekendeensten</h1>\n"
-#~ "Du kannst X.500-Vertekendeensten bruken, wenn Du Zertifikaten un "
-#~ "Zertifikaat-Torüchrooplisten (ZTLen) bruken wullt, de opstunns lokaal "
-#~ "nich verföögbor sünd. Fraag Dien Systeempleger, wenn Du disse Funkschoon "
-#~ "bruken wullt un nich weetst, welk Deensten Du dorför bruken kannst.\n"
-#~ "<p>\n"
-#~ "Du kannst lokale Zertifikaten ok bruken, wenn Du keen Vertekendeenst "
-#~ "bruukst.\n"
-#~ "</qt>"
-
-#~ msgid "Port"
-#~ msgstr "Port"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Add a Directory Service</h1>\n"
-#~ "By clicking this button, you can select a new directory service to be "
-#~ "used for retrieving certificates and CRLs. You will be asked for the "
-#~ "server name and an optional description.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>En Vertekendeenst tofögen</h1>\n"
-#~ "Wenn Du op dissen Knoop klickst, kannst Du en niegen Vertekendeenst för't "
-#~ "Halen vun Zertifikaten un ZTLen utsöken. Du warrst na den Servernaam un "
-#~ "en Beschrieven (keen Plicht) fraagt.\n"
-#~ "</qt>"
-
-#~ msgid "&Add Service..."
-#~ msgstr "Deenst &tofögen..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Remove Directory Service</h1>\n"
-#~ "By clicking this button, you can remove the currently selected directory "
-#~ "service in the list above. You will have a chance to rethink your "
-#~ "decision before the entry is deleted from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Vertekendeenst wegmaken</h1>\n"
-#~ "Wenn Du op dissen Knoop klickst, kannst Du den opstunns utsöchten "
-#~ "Vertekendeenst vun de List baven wegmaken. Du warrst nochmaal fraagt, ehr "
-#~ "de Indrag vun de List wegmaakt warrt.\n"
-#~ "</qt>"
-
-#~ msgid "<placeholder>unnamed</placeholder>"
-#~ msgstr "<placeholder>ahn Naam</placeholder>"

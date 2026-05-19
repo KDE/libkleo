@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2024-12-27 22:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -916,120 +916,120 @@ msgid ""
 msgstr ""
 "Atestiloj por kiuj ĉiuj uzantidentigiloj estas atestitaj (krom malŝaltitaj)"
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nomo"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "Retpoŝto"
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Statuso"
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Valida Ekde"
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Valida Ĝis"
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protokolo"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Ŝlosila ID"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Fingrospuro"
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Eldonanto"
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Seria Numero"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Origino"
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Lasta Ĝisdatigo"
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Atestado-Fido"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Etikedoj"
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "Algoritmo"
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "Keygrip"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "neniu nomo"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "neniu retpoŝto"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
 msgstr "Ŝargante..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1285,12 +1285,12 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Agordi Dosierujajn Servojn"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, kde-format
 msgid "None configured"
 msgstr "Neniu agordita"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1861,8 +1861,8 @@ msgstr "<placeholder>nekonata</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Okazis eraro dum venigado de la ŝlosiloj el la backend:</p><p><b>%1</"
 "b></p></qt>"
@@ -2129,13 +2129,13 @@ msgstr "Ŝlosila Listo Rezulto"
 msgid "Recheck Key"
 msgstr "Rekontroli Ŝlosilon"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr ""
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Audit Log"
@@ -2144,13 +2144,13 @@ msgctxt ""
 msgid "Show Audit Log"
 msgstr "Montri Revizian Protokolon"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Informoj"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2251,7 +2251,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Montri ĉiujn ŝlosilojn"
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2264,86 +2264,136 @@ msgstr ""
 "@info:tooltip por ago 'Generi novan ŝlosilparon' en kombokesto kiam uzanto "
 "ankoraŭ ne havas OpenPGP aŭ S/MIME-ŝlosilon"
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Sekureca aprobo"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Protocol"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "Protokolo"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, kde-format
-msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Generante ŝlosilon por '%1'..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Ĉi tio povas daŭri plurajn minutojn."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Ŝlosila genero"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Operacio Malsukcesis"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Generi novan ŝlosilparon"
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Ne subskribi ĉi retpoŝton"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "La retpoŝto ne estos kriptografie subskribita."
 
-#: ui/newkeyapprovaldialog.cpp:575
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "Konfirmi identecon '%1' kiel:"
+#: ui/newkeyapprovaldialog.cpp:558
+#, fuzzy, kde-format
+#| msgid "Sign"
+msgctxt "@title:group"
+msgid "Sign as:"
+msgstr "Subskribi"
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Neniu ŝlosilo. Ricevanto ne povos deĉifri."
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2355,18 +2405,18 @@ msgstr ""
 "ĉifritan retpoŝton, sed ĝi povas esti malĉifrita nur per la aliaj ŝlosiloj "
 "elektitaj en ĉi tiu dialogo."
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Ĉifri al si (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Ĉifri al aliaj:"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
 msgid "Generate"
 msgstr "Generi"
@@ -2507,17 +2557,17 @@ msgstr "Montri atestilan liston"
 msgid "Show certificate list"
 msgstr "Montri atestilan liston"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "VS-NfD konforma"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Ne konforma al VS-NfD"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3596,17 +3646,3 @@ msgstr "Nevalida deksesum-signo '%1' en eniga fluo."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Tro frua fino de deksesum-kodita signo en eniga fluo"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Eraro: Enigu valoron."
-
-#~ msgid "Subkey"
-#~ msgstr "Subŝlosilo"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, kreita: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, kreita: %4)"

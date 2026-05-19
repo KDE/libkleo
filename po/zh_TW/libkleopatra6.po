@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2026-03-16 16:53+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -368,8 +368,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
-"<p>S/MIME 憑證</p><p align=center>%1</p><p>的根憑證</p><p align=center><b>"
-"%2</b></p><p>已於一日內之前過期。</p>"
+"<p>S/MIME 憑證</p><p align=center>%1</p><p>的根憑證</p><p "
+"align=center><b>%2</b></p><p>已於一日內之前過期。</p>"
 
 #: kleo/expirychecker.cpp:171
 #, kde-format
@@ -404,8 +404,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
-"%3</b></p><p>已於 %1 天前過期。</p>"
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>已於 %1 天前過期。</p>"
 
 #: kleo/expirychecker.cpp:200
 #, kde-format
@@ -555,8 +555,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
-"%3</b></p><p>將在今天過期。</p>"
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>將在今天過期。</p>"
 
 #: kleo/expirychecker.cpp:296
 #, kde-format
@@ -591,8 +591,8 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p align=center><b>"
-"%3</b></p><p>將於 %1 天後過期。</p>"
+"<p>S/MIME 憑證</p><p align=center>%2</p><p>的根憑證</p><p "
+"align=center><b>%3</b></p><p>將於 %1 天後過期。</p>"
 
 #: kleo/expirychecker.cpp:325
 #, kde-format
@@ -800,120 +800,120 @@ msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "所有使用者 ID 皆已保證的憑證（除了已停用的以外）"
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "名稱"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "電子郵件"
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "狀態"
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "有效自"
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "有效期限"
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "協定"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "金鑰 ID"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "指紋"
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "配發者"
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "序號"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "來源"
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "上次更新"
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "憑證信賴"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "標籤"
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "演算法"
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "金鑰鑰柄"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "未命名"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "無電子郵件"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
 msgstr "載入中..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1168,12 +1168,12 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "設定目錄服務"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, kde-format
 msgid "None configured"
 msgstr "未設定"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1728,8 +1728,8 @@ msgstr "<placeholder>未知</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr "<qt><p>從後端介面 <b>%1</b> 抓取金鑰時發生錯誤。</p></qt>"
 
 #: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
@@ -1987,26 +1987,26 @@ msgstr "列出金鑰結果"
 msgid "Recheck Key"
 msgstr "重新檢查金鑰"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr "診斷"
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr "顯示稽核紀錄"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "資訊"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2104,7 +2104,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "顯示所有金鑰"
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2117,86 +2117,136 @@ msgstr ""
 "用您的電子郵件地址產生一個新的金鑰。<br/><br/>需要金鑰才能解密或簽署郵件。將"
 "會請您設定密碼來保護此金鑰，而保護好的金鑰會儲存在您的家目錄中。"
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "安全性確認"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Protocol"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "協定"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, kde-format
-msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "正在為 '%1' 產生金鑰..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr "這可能會花幾分鐘。"
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "金鑰產生"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "操作失敗"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "產生新的金鑰對"
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr "不要簽署此郵件"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "郵件將不會用密碼學簽署。"
 
-#: ui/newkeyapprovaldialog.cpp:575
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "確認身份「%1」："
+#: ui/newkeyapprovaldialog.cpp:558
+#, fuzzy, kde-format
+#| msgid "Sign"
+msgctxt "@title:group"
+msgid "Sign as:"
+msgstr "簽署"
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "無金鑰。收件人將會無法解密。"
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2207,18 +2257,18 @@ msgstr ""
 "不為此收件人選取金鑰。<br/><br/>收件人會收到加密信件，但只能使用此對話框所選"
 "的其他金鑰才能解密。"
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "加密給自己 (%1)："
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "加密給別人："
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
 msgid "Generate"
 msgstr "產生"
@@ -2352,17 +2402,17 @@ msgstr "顯示憑證列表"
 msgid "Show certificate list"
 msgstr "顯示憑證列表"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "合乎 VS-NfD 規範"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "不合 VS-NfD 規範"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3409,244 +3459,3 @@ msgstr "輸入串流中有無效的十六進位字元 '%1'。"
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "輸入串流中的十六進位字元在途中結束"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "錯誤：請輸入值。"
-
-#~ msgid "Subkey"
-#~ msgstr "子金鑰"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, 建立: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, 建立: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "未知演算法"
-
-#~ msgid "All certificates"
-#~ msgstr "所有憑證"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr "使用的 gpgme 函式庫太舊了，因此無法設定目錄服務。"
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "抱歉"
-
-#, fuzzy
-#~| msgid "All certificates"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "所有憑證"
-
-#, fuzzy
-#~| msgid "All certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "所有憑證"
-
-#, fuzzy
-#~| msgid "Other Certificates"
-#~ msgid "With certificate: %1"
-#~ msgstr "其他憑證"
-
-#~ msgid "E-Mail"
-#~ msgstr "電子郵件"
-
-#, fuzzy
-#~| msgctxt "as in good/valid signature"
-#~| msgid "good"
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "正確"
-
-#~ msgid "Unknown"
-#~ msgstr "未知"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "使用者 ID"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "完全信任的憑證"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "不信任的憑證"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "未檢查的憑證"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "使用者 ID"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "金鑰 ID"
-
-#~ msgid "User-ID"
-#~ msgstr "使用者 ID"
-
-#~ msgid "Key-ID"
-#~ msgstr "金鑰 ID"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "不要確認身份及完整性"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConf 錯誤"
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "憑證管理員錯誤"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1：%2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "簽署失敗：%1"
-
-#~ msgid "Signing successful"
-#~ msgstr "簽署成功"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "加密失敗：%1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "加密成功"
-
-#~ msgid "Signing Result"
-#~ msgstr "簽署結果"
-
-#~ msgid "Signing Error"
-#~ msgstr "簽署錯誤"
-
-#~ msgid "Encryption Result"
-#~ msgstr "加密結果"
-
-#~ msgid "Encryption Error"
-#~ msgstr "加密錯誤"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "所有憑證"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "所有憑證"
-
-#~ msgid "never"
-#~ msgstr "絕不"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "移到最下面"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "server"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "伺服器名稱"
-
-#~ msgid "Server Port"
-#~ msgstr "伺服器連接埠"
-
-#~ msgid "User Name"
-#~ msgstr "使用者名稱"
-
-#~ msgid "(read-only)"
-#~ msgstr "（唯讀）"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>（選擇性的）</b>輸入您的使用者名稱。"
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "目錄服務設定"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "選擇 OpenPGP 金鑰"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "點擊此按鍵來複製目前選取的目錄服務，建立新的目錄服務項目。若未選取任何項目"
-#~ "則使用預設值。接下來您可以在左手邊的表格中設定詳情。"
-
-#~ msgid "New"
-#~ msgstr "新增"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr "使用此選項來切換是否要在上列的表格中顯示使用者名稱與密碼的資訊。"
-
-#~ msgid "Show user and password information"
-#~ msgstr "顯示使用者帳號與密碼資訊"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "設定 GnuPG 後端介面"
-
-#~ msgid "&Reset"
-#~ msgstr "重設(&R)"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "使用金鑰伺服器："
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "設定金鑰伺服器"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"

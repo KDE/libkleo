@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2007-02-28 14:29+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -789,114 +789,114 @@ msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, fuzzy, kde-format
 #| msgid "User Name"
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Корисничко име"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr ""
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr ""
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr ""
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr ""
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, fuzzy, kde-format
 #| msgid "(Unknown Protocol)"
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "(Непознат протокол)"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, fuzzy, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Ид. на клуч"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr ""
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr ""
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, fuzzy, kde-format
 #| msgid "Fax number"
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Број на факс"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr ""
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr ""
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr ""
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr ""
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr ""
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, fuzzy, kde-format
 #| msgid "Given name"
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "Име"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -904,13 +904,13 @@ msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "jovan@lugola.net"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "Fetching keys..."
 msgid "Loading..."
 msgstr "Земам клучеви..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1166,13 +1166,13 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Додај или промени сервис за директориум"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, fuzzy, kde-format
 #| msgid "No server configured yet"
 msgid "None configured"
 msgstr "Сеуште нема конфигуриран сервер"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1741,11 +1741,11 @@ msgstr ""
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>Се појави грешка при земањето на клучевите од задниот крај:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>Се појави грешка при земањето на клучевите од задниот крај:</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
@@ -2027,27 +2027,27 @@ msgstr "Резултат од листањето на клучеви"
 msgid "Recheck Key"
 msgstr "Повторно провери го клучот"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr ""
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr ""
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, fuzzy, kde-format
 #| msgid "Location"
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Локација"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2147,7 +2147,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2158,94 +2158,140 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, fuzzy, kde-format
 #| msgid "Encryption Key Approval"
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Оважување на криптирачкиот клуч"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgid "(Unknown Protocol)"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "(Непознат протокол)"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, fuzzy, kde-format
 #| msgid "OpenPGP"
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "S/MIME"
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, fuzzy, kde-format
-#| msgid "OpenPGP"
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, fuzzy, kde-format
 #| msgid "Generating DSA key..."
 msgid "Generating key for '%1'..."
 msgstr "Создавам DSA клуч..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, fuzzy, kde-format
 #| msgid "Key Selection"
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Избор на клуч"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, fuzzy, kde-format
 #| msgid "Decryption failed: %1"
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Декриптирањето не успеа: %1"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:575
+#: ui/newkeyapprovaldialog.cpp:558
 #, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
+msgctxt "@title:group"
+msgid "Sign as:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2254,20 +2300,20 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Не нкриптирај никогаш"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt to others:"
 msgstr "Не нкриптирај никогаш"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, fuzzy, kde-format
 #| msgid "General"
 msgid "Generate"
@@ -2399,17 +2445,17 @@ msgstr ""
 msgid "Show certificate list"
 msgstr ""
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr ""
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr ""
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
@@ -3485,411 +3531,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknown"
-#~ msgstr "непознато"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Ид. на корисник"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Ид. на корисник"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "Ид. на корисник"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "GpgConf Error"
-#~ msgstr "Клучеви за криптирање:"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Потпишувањето не успеа: %1"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Криптирањето не успеа:%1"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption successful"
-#~ msgstr "Клучеви за криптирање:"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgid "Signing Result"
-#~ msgstr "Резултати од скенирањето"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Result"
-#~ msgstr "Клучеви за криптирање:"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Error"
-#~ msgstr "Клучеви за криптирање:"
-
-#~ msgid "never"
-#~ msgstr "никогаш"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Придвижи се до дното"
-
-#, fuzzy
-#~| msgid "never"
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "никогаш"
-
-#~ msgid "Server Name"
-#~ msgstr "Име на сервер"
-
-#, fuzzy
-#~| msgid "Server Name"
-#~ msgid "Server Port"
-#~ msgstr "Име на сервер"
-
-#~ msgid "Base DN"
-#~ msgstr "Основно DN"
-
-#~ msgid "User Name"
-#~ msgstr "Корисничко име"
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Конфигурација на сервисот на директориуми"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP-избор на клуч"
-
-#~ msgid "&Reset"
-#~ msgstr "&Врати на почеток"
-
-#, fuzzy
-#~| msgid "Configure LDAP Servers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Конфигурирај LDAP сервери"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Примач:"
-
-#, fuzzy
-#~| msgid "OpenPGP"
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus алатка од командната линија"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Неподдржан протокол \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Датотеката \"%1\" не постои или не може да се изврши."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Излез од chiasmus"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Следнаво беше примено на stderr:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Не можам да вчитам %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Библиотеката не го содржи симболот \"Chiasmus\"."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Скенирам директориум %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME се искомпајлира без поддршка за %1."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Машината %1 не е инсталирана правилно"
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Машината %1 верзија %2 е инсталирана, но барем верзијата %3 е потребна."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Непознат проблем со моторот за протоколот %1."
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "програмата не може да биде извршена"
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program not found or cannot be started"
-#~ msgstr "програмата не може да биде извршена"
-
-#, fuzzy
-#~| msgid "<qt>Failed to execute gpgconf:<br>%1</qt>"
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Не можам да го извршам gpgconf:<br>%1</qt>"
-
-#, fuzzy
-#~| msgid ""
-#~| "Could not start gpgconf\n"
-#~| "Check that gpgconf is in the PATH and that it can be started"
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Не можам да го започнам gpgconf\n"
-#~ "Провери дали gpgconf е во PATH и дека може да биде извршена"
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Грешка од gpgconf при зачувувањето на конфигурацијата: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Создавам ElGamal клуч..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Барам голем прост број..."
-
-#, fuzzy
-#~| msgid ""
-#~| "Waiting for new entropy from random number generator (you might want to "
-#~| "excercise the harddisks or move the mouse)..."
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Чекам нова ентропија од создавач на произволни броеви (можеби сакате да "
-#~ "ги вежбате тврдите дискови или да го движите глувчето)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Почекајте..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Подигам gpg-agent (треба да размислите за стартување на глобална инстанца "
-#~ "во спротивно)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "При скенирањето за %1 поддршка во задниот крај %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1 од %2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "OpenPGP-клуч за %1\n"
-#~ "Создадено:%2\n"
-#~ "Истекува:%3\n"
-#~ "Отпечаток:%4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "S/MIME-клуч за %1\n"
-#~ "Создадено:%2\n"
-#~ "Истекува:%3\n"
-#~ "Отпечаток:%4 Издавач: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Име на сервер:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Име на корисник (незадолжително):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Лози&нка (незадолжително):"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Јован Наумовски"
-
-#~ msgid "failed"
-#~ msgstr "не успеа"
-
-#~ msgid "Available Backends"
-#~ msgstr "Достапни задни краеви"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "Конфи&гурирај..."
-
-#~ msgid "Rescan"
-#~ msgstr "Скенирај одново"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Следниве проблеми произлегоа при скенирањето"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Резултати од скенирањето"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Грешка при иницијализацијата на приклучокот \"%1\""
-
-#~ msgid ""
-#~ "You need a passphrase to unlock the secret key for user:<br/> %1 (retry)"
-#~ msgstr ""
-#~ "Ви треба реченица за премин за да го отклучите тајниот клуч за корисникот:"
-#~ "<br/> %1 (retry)"
-
-#~ msgid "You need a passphrase to unlock the secret key for user:<br/> %1"
-#~ msgstr ""
-#~ "Ви треба реченица за премин за да го отклучите тајниот клуч за корисникот:"
-#~ "<br/> %1"
-
-#~ msgid ""
-#~ "This dialog will reappear every time the passphrase is needed. For a more "
-#~ "secure solution that also allows caching the passphrase, use gpg-agent."
-#~ msgstr ""
-#~ "Овој диалог ќе се појавува секој пат кога реченицата за премин е "
-#~ "потребна. За побезбедно решение кое исто така дозволува кеширање на "
-#~ "реченицата за премин, користете gpg-agent."
-
-#~ msgid "gpg-agent was found in %1, but does not appear to be running."
-#~ msgstr "gpg-agent беше пронајден во %1, но изгледа не се извршува."
-
-#~ msgid "gpg-agent is part of gnupg-%1, which you can download from %2"
-#~ msgstr "gpg-agent е дел оф gnupg-%1, кој можете да го симнете од %2"
-
-#~ msgid "For information on how to set up gpg-agent, see %1"
-#~ msgstr "За информации како да го поставитге gpg-agent, видете на %1"
-
-#~ msgid "Passphrase Dialog"
-#~ msgstr "Диалог на реченица за премин"
-
-#, fuzzy
-#~ msgid "Configure"
-#~ msgstr "Конфи&гурирај..."
-
-#~ msgid "Select Directory Services to Use Here"
-#~ msgstr "Одбери сервиси за директориуми за употреба овде"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>X.500 Directory Services</h1>\n"
-#~ "You can use X.500 directory services to retrieve certificates and "
-#~ "certificate revocation lists that are not saved locally. Ask your local "
-#~ "administrator if you want to make use of this feature and are unsure "
-#~ "which directory service you can use.\n"
-#~ "<p>\n"
-#~ "If you do not use a directory service, you can still use local "
-#~ "certificates.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>X.500 сервиси за директориуми</h1>\n"
-#~ "Можете да користите X.500 сервиси за директориуми за да земете "
-#~ "сертификати и листа за ревокација на сертификатите што не се зачувани "
-#~ "локално. Прашајте го Вашиот локален администратор ако сакате да ја "
-#~ "употребите оваа погодност или не сте сигурни кои сервиси за директориуми "
-#~ "да ги користите\n"
-#~ "<p>\n"
-#~ "Ако не користите сервис за директориуми, можете се уште да ги користите "
-#~ "локалните сертификати.\n"
-#~ "</qt>"
-
-#~ msgid "Port"
-#~ msgstr "Порта"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Add a Directory Service</h1>\n"
-#~ "By clicking this button, you can select a new directory service to be "
-#~ "used for retrieving certificates and CRLs. You will be asked for the "
-#~ "server name and an optional description.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Додај сервис за директориуми</h1>\n"
-#~ "Со кликнување на ова копче, можете да изберете нов сервис за директориуми "
-#~ "што ќе биде употребен за добивање на сертификати и CRL. Ќе бидете прашани "
-#~ "за име на серверот и незадолжителен опис.\n"
-#~ "</qt>"
-
-#~ msgid "&Add Service..."
-#~ msgstr "&Додај сервис..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Remove Directory Service</h1>\n"
-#~ "By clicking this button, you can remove the currently selected directory "
-#~ "service in the list above. You will have a chance to rethink your "
-#~ "decision before the entry is deleted from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Оддалечен сервис за директориуми</h1>\n"
-#~ "Со кликнување на ова копче, можете да го отстраните тековно избраниот "
-#~ "сервис за директориуми од листата погоре. Ќе имате шанса за повторно да "
-#~ "размислите за вашата одлука пред записот да е избришен од листата.\n"
-#~ "</qt>"
-
-#~ msgid "<unnamed>"
-#~ msgstr "<неименувано>"
-
-#~ msgid "<unknown>"
-#~ msgstr "<непознати>"
-
-#~ msgid "Kpgp/gpg"
-#~ msgstr "Kpgp/gpg"
-
-#~ msgid "Kpgp/pgp v2"
-#~ msgstr "Kpgp/pgp v2"
-
-#~ msgid "Kpgp/pgp v5"
-#~ msgstr "Kpgp/pgp v5"
-
-#~ msgid "Kpgp/pgp v6"
-#~ msgstr "Kpgp/pgp v6"
-
-#~ msgid "This backend does not support S/MIME"
-#~ msgstr "Задниот крај не поддржува S/MIME"
-
-#~ msgid "Please enter your passphrase:"
-#~ msgstr "Внесете ја Вашата реченица за премин:"

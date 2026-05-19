@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2026-01-23 20:58+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -901,120 +901,120 @@ msgid ""
 msgstr ""
 "Certifikat där alla användaridentiteter har certifierats (utom inaktiverade)"
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Namn"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "E-post"
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Status"
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Giltigt från"
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Giltigt till"
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protokoll"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Nyckelidentifikation"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Fingeravtryck"
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Utfärdare"
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Serienummer"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Ursprung"
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Senaste uppdatering"
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Certifikatens pålitlighet"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Etiketter"
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "Algoritm"
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "Nyckelgrepp"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "inget namn"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "ingen e-postadress"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
 msgstr "Läser in..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1270,12 +1270,12 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Anpassa katalogtjänster"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, kde-format
 msgid "None configured"
 msgstr "Ingen inställd"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1852,11 +1852,11 @@ msgstr "<placeholder>okänd</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>Ett fel uppstod när nycklarna hämtades från gränssnittet:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>Ett fel uppstod när nycklarna hämtades från gränssnittet:</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
@@ -2123,26 +2123,26 @@ msgstr "Resultat av nyckellistning"
 msgid "Recheck Key"
 msgstr "Kontrollera nyckel igen"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr "Diagnostik"
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr "Visa övervakningslogg"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Information"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2243,7 +2243,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Visa alla nycklar"
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2258,86 +2258,136 @@ msgstr ""
 "lösenordsfras för att skydda nyckeln, och den skyddade nyckeln lagras i din  "
 "hemkatalog."
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Säkerhetsgodkännande"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Protocol"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "Protokoll"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, kde-format
-msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Skapar nyckel för '%1'..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Det kan ta flera minuter."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Nyckelgenerering"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Åtgärd misslyckades"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Skapa ett nytt nyckelpar"
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Signera inte brevet"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Brevet kommer inte att signeras kryptografiskt."
 
-#: ui/newkeyapprovaldialog.cpp:575
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "Bekräfta identiteten '%1' som:"
+#: ui/newkeyapprovaldialog.cpp:558
+#, fuzzy, kde-format
+#| msgid "Sign"
+msgctxt "@title:group"
+msgid "Sign as:"
+msgstr "Signera"
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Ingen nyckel. Mottagare kommer inte kunna avkryptera."
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2349,18 +2399,18 @@ msgstr ""
 "ta emot det krypterade brevet, men det kan bara avkodas med de andra "
 "nycklarna valda i den här dialogrutan."
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Kryptera till mig själv (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Kryptera till andra:"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
 msgid "Generate"
 msgstr "Generera"
@@ -2499,17 +2549,17 @@ msgstr "Visa certifikatlista"
 msgid "Show certificate list"
 msgstr "Visa certifikatlista"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "VS-NfD-kompatibel"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Inte VS-NfD-kompatibel"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3585,547 +3635,3 @@ msgstr "Felaktigt hexadecimalt tecken '%1' i indataström."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "För tidigt slut för hexadecimalt kodat tecken i indataström"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Fel: Ange ett värde."
-
-#~ msgid "Subkey"
-#~ msgstr "Delnyckel"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, skapad: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, skapad: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Okänd algoritm"
-
-#~ msgid "All certificates"
-#~ msgstr "Alla certifikat"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Inställning av katalogtjänster är inte möjlig på grund av att de använda "
-#~ "gpgme-biblioteken är för gamla."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Tyvärr"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Signatur skapad %1 med otillgängligt certifikat: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Signatur skapad med otillgängligt certifikat: %1"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Med certifikat: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-post"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "god"
-
-#~ msgid "Unknown"
-#~ msgstr "Okänd"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Användaridentifikationer"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Helt pålitliga certifikat"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Ej validerade certifikat"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Ej validerade certifikat"
-
-#, fuzzy
-#~| msgid "User-IDs"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Användaridentiteter"
-
-#, fuzzy
-#~| msgid "Key-ID"
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Nyckel-Id"
-
-#~ msgid "User-ID"
-#~ msgstr "Användar-id"
-
-#~ msgid "Key-ID"
-#~ msgstr "Nyckel-Id"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Bekräfta inte identitet och integritet"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "Fel i Gpgconf"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr ""
-#~ "Certifikathantering och gemensamt grafiskt användargränssnitt för "
-#~ "kryptering"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Signering misslyckades: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Signering lyckades"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Kryptering misslyckades: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Kryptering lyckades"
-
-#~ msgid "Signing Result"
-#~ msgstr "Signeringsresultat"
-
-#~ msgid "Signing Error"
-#~ msgstr "Signeringsfel"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Krypteringsresultat"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Krypteringsfel"
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "%1 kommunikation är möjlig."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "%1 kommunikation är inte möjlig."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "Kan användas för %1 kommunikation."
-
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "Kan <b>inte</b> användas för %1 kommunikation."
-
-#~ msgid "never"
-#~ msgstr "aldrig"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Skapad"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Utgår"
-
-#~ msgid "Created"
-#~ msgstr "Skapad"
-
-#~ msgid "Expires"
-#~ msgstr "Utgår"
-
-#, fuzzy
-#~| msgid "Add"
-#~ msgctxt "@action:button accessible name for 'Add to list'"
-#~ msgid "add"
-#~ msgstr "Lägg till"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Flytta längst ner"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Custom entry"
-#~ msgstr "Egen post"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "server"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Servernamn"
-
-#~ msgid "Server Port"
-#~ msgstr "Serverport"
-
-#~ msgid "Base DN"
-#~ msgstr "Basdomännamn"
-
-#~ msgid "User Name"
-#~ msgstr "Användar-id"
-
-#~ msgid "(read-only)"
-#~ msgstr "(skrivskyddat)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (skrivskyddat)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Valfri)</b> Skriv in användarnamn här, om det behövs."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Inställning av katalogtjänster"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP-nyckelserver:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Klicka på knappen för att skapa en ny post med en katalogtjänst som är en "
-#~ "kopia av den som för närvarande är markerad (eller med standardvärden, om "
-#~ "ingen annan är markerad). Därefter kan du ställa in detaljinformation i "
-#~ "tabellen till vänster."
-
-#~ msgid "New"
-#~ msgstr "Ny"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Använd alternativet för att stänga av eller sätta på visning av "
-#~ "användarnamn och lösenord i tabellen ovan."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Visa användare och lösenordsinformation"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Anpassa GnuPG-gränssnitt"
-
-#~ msgid "&Reset"
-#~ msgstr "Åte&rställ"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Använd nyckelserver på"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Anpassa nyckelservrar"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "Ingen nyckel hittades för adressen '%1':"
-
-#~ msgid "Add Filter"
-#~ msgstr "Lägg till filter"
-
-#~ msgctxt "name of group of keys (n key(s), read ...)"
-#~ msgid "%2 (1 key, read from gpg.conf)"
-#~ msgid_plural "%2 (%1 keys, read from gpg.conf)"
-#~ msgstr[0] "%2 (1 nyckel, läst från gpg.conf)"
-#~ msgstr[1] "%2 (%1 nycklar, lästa från gpg.conf)"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "No Key"
-#~ msgstr "Ingen nyckel"
-
-#~ msgid "Ignore recipient"
-#~ msgstr "Ignorera mottagare"
-
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "VS-NfD-kompatibla certifikat"
-
-#~ msgctxt "good/valid signature"
-#~ msgid "good"
-#~ msgstr "god"
-
-#~ msgid "Identity"
-#~ msgstr "Identitet"
-
-#~ msgid "EMail"
-#~ msgstr "E-post"
-
-#~ msgid "<tr><th>%1:</th><td>%2</td></tr>"
-#~ msgstr "<tr><th>%1:</th><td>%2</td></tr>"
-
-#~ msgid "Ownertrust"
-#~ msgstr "Pålitlighet hos användaren"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Scheme"
-
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr "Välj åtkomstmetod (scheme) som katalogtjänsten är tillgänglig via."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Markera kolumnen om katalogtjänsten tillhandahåller S/MIME (X.509)-"
-#~ "certifikat."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Markera kolumnen om katalogtjänsten tillhandahåller OpenPGP-certifikat."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0 - Ingen (ingen felsökning alls)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1 - Grundläggande (vissa grundläggande felsökningsmeddelanden)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2 - Avancerat (mer ordrika felsökningsmeddelanden)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 - Expert (ännu mer detaljerade meddelanden)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 - Guru (alla felsökningsmeddelanden du kan)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus-kommandoradsverktyg"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Protokoll som inte stöds \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Filen \"%1\" finns inte eller kan inte köras."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Utmatning från chiasmus"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Följande emottogs på standardfelutmatningen:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Misslyckades ladda %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Biblioteket innehåller inte symbolen  \"Chiasmus\"."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Söker i katalogen %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME kompilerades utan stöd för %1."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Gränssnittet %1 är inte riktigt installerad."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Gränssnittet %1 version %2 är installerad, men åtminstone version %3 "
-#~ "krävs."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Okänt fel med protokollgränssnitt %1."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "programmet avslutades oväntat"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "programmet hittades inte eller kunde inte startas"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Misslyckades köra gpgconf:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Kunde inte starta gpgconf.\n"
-#~ "Kontrollera att gpgconf finns i sökvägen och att det kan startas."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Fel från gpgconf när inställningarna sparades: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Skapar ElGamal-nyckel..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Söker efter ett stort primtal..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Väntar på ny entropi från slumptalsgeneratorn (du bör kanske använda "
-#~ "hårddiskarna eller flytta musen)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Vänta..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Starta gpg-agenten (du bör fundera på att starta en allmän instans "
-#~ "istället)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Vid sökning efter stöd för %1 i gränssnittet %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "OpenPGP-nyckel för %1\n"
-#~ "Skapad: %2\n"
-#~ "Utgår: %3\n"
-#~ "Fingeravtryck: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "S/MIME-nyckel för %1\n"
-#~ "Skapad: %2\n"
-#~ "Utgår: %3\n"
-#~ "Fingeravtryck: %4\n"
-#~ "Utfärdare: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Servernamn:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "An&vändarnamn (valfritt):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Lösen&ord (valfritt):"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Avbryt"
-
-#~ msgid "'%1' not found in filesystem"
-#~ msgstr "'%1' hittades inte i filsystemet"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Stefan Asserhäll"
-
-#~ msgid "'create-command' entry is empty/missing"
-#~ msgstr "Posten 'create-command' är tom eller saknas"
-
-#~ msgid "Cannot use both %f and | in verify-command"
-#~ msgstr "Kan inte använda både %f och | i kommandot verifiera"
-
-#~ msgid "Quoting error in 'verify-command' entry"
-#~ msgstr "Citeringsfel i posten 'verify-command'"
-
-#~ msgid "'verify-command' too complex (would need shell)"
-#~ msgstr "'verify-command' för komplicerat (skulle kräva skal)"
-
-#~ msgid "'verify-command' entry is empty/missing"
-#~ msgstr "Posten 'verify-command' är tom eller saknas"
-
-#~ msgid "'verify-command' not found in filesystem"
-#~ msgstr "Hittade inte 'verify-command' i filsystemet"
-
-#~ msgid "'verify-command' empty or not found"
-#~ msgstr "'verify-command' tomt eller hittades inte"
-
-#~ msgid "failed"
-#~ msgstr "misslyckades"
-
-#~ msgid "Available Backends"
-#~ msgstr "Tillgängliga gränssnitt"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "A&npassa..."
-
-#~ msgid "Rescan"
-#~ msgstr "Avsök igen"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Följande problem stöttes på under sökningen:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Sökresultat"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Fel vid initiering av insticksprogram \"%1\""

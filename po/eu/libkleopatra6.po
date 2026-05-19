@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
-"PO-Revision-Date: 2026-03-07 20:37+0100\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
+"PO-Revision-Date: 2026-03-07 21:19+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -929,120 +929,120 @@ msgid ""
 msgstr ""
 "Erabiltzaile-ID guztiak ziurtatuta dauden ziurtagiriak (ezgaitutakoak salbu)"
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Izena"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "E-posta"
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Egoera"
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Noiztik balioduna"
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Noiz arte balioduna"
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protokoloa"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Gako ID"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Hatz-marka"
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Jaulkitzailea"
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Serie-zenbakia"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Jatorria"
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Azken eguneratzea"
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Ziurtagiriaren konfiantza"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Etiketak"
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "Algoritmoa"
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "Gako-kontrola"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "izenik gabe"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "e-postarik gabe"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
 msgstr "Zamatzen..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1299,12 +1299,12 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Konfiguratu direktorio zerbitzuak"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, kde-format
 msgid "None configured"
 msgstr "Bat ere ez dago konfiguratuta"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1883,11 +1883,11 @@ msgstr "<placeholder>ezezaguna</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>Errore bat gertatu da gakoak bizkarraldekotik eskuratzean:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>Errore bat gertatu da gakoak bizkarraldekotik eskuratzean:</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
@@ -2157,26 +2157,26 @@ msgstr "Gako zerrendaren emaitza"
 msgid "Recheck Key"
 msgstr "Berregiaztatu gakoa"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr "Diagnostikoa"
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr "Erakutsi auditoretza egunkaria"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Informazioa"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2279,7 +2279,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Erakutsi gako guztiak"
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2294,86 +2294,136 @@ msgstr ""
 "pasahitz bat eskatuko zaizu, eta babestutako gakoa zure etxeko direktorioan "
 "gordeko da."
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Segurtasun onarpena"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Protocol"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "Protokoloa"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, kde-format
-msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1'(e)rako gakoa sortzen..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Horrek hainbat minutu har litzake."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Gako sorrera"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Eragiketak huts egin du"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Sortu gako-pare berri bat"
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Ez sinatu e-posta hau"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "E-posta ez da kriptografikoki sinatuko."
 
-#: ui/newkeyapprovaldialog.cpp:575
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "Berretsi '%1' nortasuna honela:"
+#: ui/newkeyapprovaldialog.cpp:558
+#, fuzzy, kde-format
+#| msgid "Sign"
+msgctxt "@title:group"
+msgid "Sign as:"
+msgstr "Sinatu"
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Gakorik gabe. Hartzailea ez da deszifratzeko gai izango."
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2385,18 +2435,18 @@ msgstr ""
 "posta jasoko du, baina elkarrizketa honetan hautatutako beste gakoekin "
 "bakarrik deszifratu daiteke."
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Zifratu norberarentzat (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Zifratu beste batzuentzat:"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
 msgid "Generate"
 msgstr "Sortu"
@@ -2498,34 +2548,31 @@ msgstr "Ikusi zutabeak"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Ordenatu honekiko"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Direktorio Aktiboa"
+msgstr "Ordenaren norabidea"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Goranzkoa"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Beheranzkoa"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "&Kopiatu arbelean"
+msgstr "Kopiatu gelaxkaren edukia arbelera"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -2538,17 +2585,17 @@ msgstr "Erakutsi ziurtagiri-zerrenda"
 msgid "Show certificate list"
 msgstr "Erakutsi ziurtagiri-zerrenda"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "«VS-NfD»rekin manakorra"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "«VS-NfD»rekin ez manakorra"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3531,39 +3578,33 @@ msgstr ""
 "dezakezu."
 
 #: utils/formatting.cpp:1678 utils/formatting.cpp:1688
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
+"Sinadura balioduna da, baina erabilitako gakoa ez duzu zuk, ez konfiantzazko "
+"inork ziurtatu."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Erabilitako ziurtagiria ez dago ziurtagiri agintaritza fidagarri batek "
-"ziurtatuta edo ziurtagiri agintaritza ezezaguna da."
+"Sinadura balioduna da, baina erabilitako ziurtagiria ez du ziurtagiri "
+"agintaritza fidagarri batek ziurtatu edo ziurtagiri agintaritza ezezaguna da."
 
 #: utils/formatting.cpp:1683 utils/formatting.cpp:1705
 #: utils/formatting.cpp:1728
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr ""
-"Ez dago, ziurtagiri hori hartzaile horrena denik adierazten duen zantzurik."
+msgstr "<strong>Abisua:</strong> Ez dago zantzurik sinadura jabearena denik."
 
 #: utils/formatting.cpp:1689 utils/formatting.cpp:1701
 #, kde-format
@@ -3571,55 +3612,49 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>Abisua:</strong> Ez da ziurra sinadura jabearena denik."
 
 #: utils/formatting.cpp:1697
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr ""
-"Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
+msgstr "Sinadura balioduna da, baina iraungita dago."
 
 #: utils/formatting.cpp:1699 utils/formatting.cpp:1703
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
+"Sinadura balioduna da, baina iraungita dago eta erabilitako gakoa ez duzu "
+"zuk, ez konfiantzazko inork ziurtatu."
 
 #: utils/formatting.cpp:1714
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr ""
-"Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
+msgstr "Sinadura balioduna da, baina erabilitako gakoa iraungita dago."
 
 #: utils/formatting.cpp:1720
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr ""
-"Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
+msgstr "Sinadura balioduna da, baina erabilitako gakoa baliogabetuta dago."
 
 #: utils/formatting.cpp:1721
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Abisua:</strong> Horrek sinadura faltsutua izan dela esan nahi "
+"dezake."
 
 #: utils/formatting.cpp:1723
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
-"Erabilitako gakoa ez dago zu edo konfiantzazko pertsona batek ziurtatuta."
+msgstr "Erabilitako gakoa ez duzu zuk, ez konfiantzazko inork ziurtatu."
 
 #: utils/gnupg.cpp:436
 #, kde-format
@@ -3644,355 +3679,3 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Sarrerako korrontean, hamaseitarrean kodetutako karakterearen amaiera "
 "goiztiarra"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Errorea: Sartu balio bat."
-
-#~ msgid "Subkey"
-#~ msgstr "Azpigakoa"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, sorrera: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, sorrera: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Algoritmo ezezaguna"
-
-#~ msgid "All certificates"
-#~ msgstr "Ziurtagiri denak"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Direktorio zerbitzuak ezin dira konfiguratu erabilitako «gpgme» "
-#~ "liburutegiak zaharregiak direlako."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Barkatu"
-
-#, fuzzy
-#~| msgid "With unavailable certificate:"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Erabilgarri ez dagoen ziurtagiriarekin:"
-
-#, fuzzy
-#~| msgid "With unavailable certificate:"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Erabilgarri ez dagoen ziurtagiriarekin:"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Ziurtagiriarekin: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-posta"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "ona"
-
-#~ msgid "Unknown"
-#~ msgstr "Ezezaguna"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Erabiltzaile IDak"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Erabateko konfiantzadun ziurtagiriak"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Ziurtatu gabeko ziurtagiriak"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Baliozkotu gabeko ziurtagiriak"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Erabiltzaile-IDak"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Gako-ID"
-
-#~ msgid "User-ID"
-#~ msgstr "Erabiltzaile-ID"
-
-#~ msgid "Key-ID"
-#~ msgstr "Gako-ID"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Ez baieztatu nortasuna eta osotasuna"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "«GpgConf» errorea"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Ziurtagiri kudeatzailea eta zifratzeko GUI bateratua"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Sinadurak huts egin du: %1"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Errorea enkriptatzean: %1"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption successful"
-#~ msgstr "Entriptatzeko gakoak:"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgid "Signing Result"
-#~ msgstr "Eskaneatzearen emaitzak"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Result"
-#~ msgstr "Entriptatzeko gakoak:"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Error"
-#~ msgstr "Entriptatzeko gakoak:"
-
-#~ msgid "never"
-#~ msgstr "inoiz ez"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Mugitu behera"
-
-#, fuzzy
-#~| msgid "never"
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "inoiz ez"
-
-#~ msgid "Server Name"
-#~ msgstr "Zerbitzariaren izena"
-
-#, fuzzy
-#~| msgid "Server Name"
-#~ msgid "Server Port"
-#~ msgstr "Zerbitzariaren izena"
-
-#~ msgid "Base DN"
-#~ msgstr "Baseko DN-a"
-
-#~ msgid "User Name"
-#~ msgstr "Erabiltzaile izena"
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Direktorio zerbitzuen konfigurazioa"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP gako hautapena"
-
-#~ msgid "&Reset"
-#~ msgstr "&Berrezarri"
-
-#, fuzzy
-#~| msgid "Configure LDAP Servers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Konfiguratu LDAP zerbitzariak"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Hartzailea:"
-
-#, fuzzy
-#~| msgid "OpenPGP"
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus komando-lerroko tresna"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Euskarririk gabeko \"%1\" protokoloa"
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "\"%1\" fitxategia ez da existitzen edo ez da exekutagarria."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Chiasmus-en irteera"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Ondorengoa jaso da stderr-en:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Errorea %1 kargatzean: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Liburutegiak ez du \"Chiasmus\" sinbolorik."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "%1 direktorioa eskaneatzen..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME %1 euskarri gabe konpilatu da."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "%1 euskarria ez dago ongi instalatuta."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "%1 euskarria, %2 bertsioa instalatuta dago, baina gutxienez %3 bertsioa "
-#~ "behar da."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Arazo ezezaguna euskarrian %1 protokoloarekin."
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "programa ezin da exekutatu"
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program not found or cannot be started"
-#~ msgstr "programa ezin da exekutatu"
-
-#, fuzzy
-#~| msgid "<qt>Failed to execute gpgconf:<br>%1</qt>"
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Errorea gpgconf exekutatzean:<br>%1</qt>"
-
-#, fuzzy
-#~| msgid ""
-#~| "Could not start gpgconf\n"
-#~| "Check that gpgconf is in the PATH and that it can be started"
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Ezin da gpgconf abiatu\n"
-#~ "Egiaztatu gpgconf PATH aldagaiaren bidean dagoela eta abiatu daitekeela"
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Errore gpg conf-en konfigurazioa gordetzean: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "ElGamal gakoa sortzen..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Zenbaki bakun handi bat bilatzen..."
-
-#, fuzzy
-#~| msgid ""
-#~| "Waiting for new entropy from random number generator (you might want to "
-#~| "excercise the harddisks or move the mouse)..."
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Ausazko zenbaki sortzaile batetik entropia berri bat itxaroten (diska "
-#~ "gogorra lanean jarri edo arratoia mugi dezakezu)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Itxaron mesedez..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "\"gpg-agent\" abiatzen (instantzia global bat abiatzea kontsidera "
-#~ "zenezake)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "%2 euskarrian %1 ahalmenen bila eskaneatzean:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "%1-(r)en OpenPGP gakoa\n"
-#~ "Sortua: %2\n"
-#~ "Iraungipen-data: %3\n"
-#~ "Hatz-marka: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "%1-(r)en S/MIME gakoa\n"
-#~ "Sortua: %2\n"
-#~ "Iraungipen-data: %3\n"
-#~ "Hatz-marka: %4 Jaulkitzailea: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Zerbitzariaren izena:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Erabiltzaile izena (aukerakoa):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Pasa&hitza (aukerakoa):"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Ion Gaztañaga"
-
-#~ msgid "failed"
-#~ msgstr "errorea"
-
-#~ msgid "Available Backends"
-#~ msgstr "Euskarri eskuragarriak"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "Konfi&guratu..."
-
-#~ msgid "Rescan"
-#~ msgstr "Berreskaneatu"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Ondorengo arazoak aurkitu dira eskaneatzean:"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Eskaneatzearen emaitzak"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Errorea \"%1\" plugin-a hasieratzean"

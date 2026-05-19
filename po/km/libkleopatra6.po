@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2012-07-09 10:59+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -747,126 +747,126 @@ msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, fuzzy, kde-format
 #| msgid "User Name"
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ឈ្មោះ​អ្នក​ប្រើ"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr ""
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr ""
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr ""
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr ""
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr ""
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, fuzzy, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "លេខ​សម្គាល់​កូនសោ"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr ""
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr ""
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, fuzzy, kde-format
 #| msgid "Fax number"
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "លេខ​ទូរសារ"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr ""
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, fuzzy, kde-format
 #| msgid "My Certificates"
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "វិញ្ញាបនបត្រ​របស់​ខ្ញុំ"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr ""
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr ""
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr ""
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, fuzzy, kde-format
 #| msgid "Given name"
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "នាមខ្លួន"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr ""
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "Fetching keys..."
 msgid "Loading..."
 msgstr "កំពុង​ទៅ​យកសោ​..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1149,13 +1149,13 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "បន្ថែម​ ឬ​ផ្លាស់​ប្តូរ​សេវា​ថត​"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, fuzzy, kde-format
 #| msgid "No server configured yet"
 msgid "None configured"
 msgstr "គ្មាន​ម៉ាស៊ីន​បម្រើ​ដែល​បាន​កំណត់​រចនា​សម្ព័ន្ធ​នៅឡើយ​ទេ"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1763,8 +1763,8 @@ msgstr "<placeholder>មិនស្គាល់</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>កំហុស​មួយ​បាន​កើតឡើង​នៅពេល​ទៅ​យក​សោ​ពី​កម្មវិធី​ខាងក្រោយ ៖</p><p><b>%1</b></p></qt>"
 
@@ -2034,13 +2034,13 @@ msgstr "លទ្ធផ​ល​នៃ​បញ្ជី​កូនសោ"
 msgid "Recheck Key"
 msgstr "ពិនិត្យ​​កូនសោ​ឡើង​វិញ"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr ""
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, fuzzy, kde-format
 #| msgid "&Show Audit Log"
 msgctxt ""
@@ -2048,14 +2048,14 @@ msgctxt ""
 msgid "Show Audit Log"
 msgstr "បង្ហាញ​កំណត់ហេតុ​ត្រួតពិនិត្យ"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, fuzzy, kde-format
 #| msgid "Location"
 msgctxt "@title:window"
 msgid "Information"
 msgstr "ទីតាំង"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2154,7 +2154,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2165,94 +2165,139 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, fuzzy, kde-format
 #| msgid "Encryption Key Approval"
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "ការ​អនុញ្ញាត​កូនសោ​អ៊ិនគ្រីប​"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, kde-format
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, fuzzy, kde-format
 #| msgid "OpenPGP"
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "S/MIME"
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, fuzzy, kde-format
-#| msgid "OpenPGP"
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, fuzzy, kde-format
 #| msgid "Generating DSA key..."
 msgid "Generating key for '%1'..."
 msgstr "កំពុង​បង្កើត​កូនសោ DSA..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, fuzzy, kde-format
 #| msgid "Key Selection"
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "ជម្រើស​កូនសោ"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, fuzzy, kde-format
 #| msgid "Decryption failed: %1"
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "ការ​ឌិគ្រីប​បាន​បរាជ័យ ៖ %1"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:575
+#: ui/newkeyapprovaldialog.cpp:558
 #, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
+msgctxt "@title:group"
+msgid "Sign as:"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2261,20 +2306,20 @@ msgid ""
 "selected in this dialog."
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "កុំ​អ៊ិនគ្រីប"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, fuzzy, kde-format
 #| msgid "Never Encrypt"
 msgid "Encrypt to others:"
 msgstr "កុំ​អ៊ិនគ្រីប"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, fuzzy, kde-format
 #| msgid "General"
 msgid "Generate"
@@ -2411,19 +2456,19 @@ msgstr "វិញ្ញាបនបត្រ​របស់​ខ្ញុំ"
 msgid "Show certificate list"
 msgstr "វិញ្ញាបនបត្រ​របស់​ខ្ញុំ"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgid "VS-NfD compliant"
 msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, fuzzy, kde-format
 #| msgid "All Certificates"
 msgid "Not VS-NfD compliant"
 msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, fuzzy, kde-format
 #| msgctxt "amended tooltip; %1: original tooltip"
 #| msgid "%1 (read-only)"
@@ -3509,394 +3554,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "All certificates"
-#~ msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknown"
-#~ msgstr "​មិន​ស្គាល់"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "លេខ​សម្គាល់​អ្នក​ប្រើ"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "​វិញ្ញាបនបត្រ​ដែល​ទុកចិត្ត"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Certified Certificates"
-#~ msgstr "​វិញ្ញាបនបត្រ​ដែល​ទុកចិត្ត"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Validated Certificates"
-#~ msgstr "​វិញ្ញាបនបត្រ​ដែល​ទុកចិត្ត"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "លេខ​សម្គាល់​អ្នក​ប្រើ"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "លេខ​សម្គាល់​អ្នក​ប្រើ"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "កំហុស GpgConf"
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "កំហុស​កម្មវិធី​គ្រប់គ្រង​វិញ្ញាបនបត្រ"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1 ៖ %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "ការ​ចុះហត្ថលេខា​បាន​បរាជ័យ ៖ %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "ចុះហត្ថលេខា​ដោយ​ជោគជ័យ"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "ការ​អ៊ិនគ្រីប​បាន​បរាជ័យ ៖ %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "អ៊ិគ្រីប​ដោយ​ជោគជ័យ"
-
-#~ msgid "Signing Result"
-#~ msgstr "ចុះហត្ថលេខា​លទ្ធផល"
-
-#~ msgid "Signing Error"
-#~ msgstr "កំហុស​ក្នុងកា​រចុះហត្ថលេខា"
-
-#~ msgid "Encryption Result"
-#~ msgstr "​លទ្ធផល​អ៊ិនគ្រីប"
-
-#~ msgid "Encryption Error"
-#~ msgstr "កំហុស​អ៊ិនគ្រីប"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
-
-#~ msgid "never"
-#~ msgstr "កុំ​"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "ផ្លាស់ទី​ទៅ​បាត​"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "ម៉ាស៊ីន​បម្រើ"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "ឈ្មោះ​ម៉ាស៊ីន​បម្រើ"
-
-#~ msgid "Server Port"
-#~ msgstr "ច្រក​ម៉ាស៊ីន​បម្រើ"
-
-#~ msgid "Base DN"
-#~ msgstr "គោល​ DN"
-
-#~ msgid "User Name"
-#~ msgstr "ឈ្មោះ​អ្នក​ប្រើ"
-
-#~ msgid "(read-only)"
-#~ msgstr "(បាន​តែ​អាន)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(ស្រេចចិត្ត)</b> បញ្ចូល​ឈ្មោះ​អ្នកប្រើ​របស់​អ្នក ប្រសិន​បើ​ត្រូវការ ។"
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "ការកំណត់​រចនាសម្ព័ន្ធ​សេវា​ថត​"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "ជម្រើស​កូនសោ OpenPGP"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "ចុច​ប៊ូតុង​នេះ ដើម្បី​បង្កើត​ធាតុ​សេវា​ថត​ថ្មី​ជា​ក្លូន​នៃ​ធាតុ​មួយ​ដែល​បាន​ជ្រើស​បច្ចុប្បន្ន (ឬ​មាន​តម្លៃ​"
-#~ "លំនាំដើម ប្រសិន​បើ​មិនបាន​ជ្រើស​ធាតុ​ផ្សេងទៀត). បន្ទាប់​មក​អ្នក​អាច​កំណត់​រចនាសម្ព័ន្ធ​សេចក្ដី​លម្អិត​នៅ​ក្នុង​"
-#~ "តារាង​នៅ​ខាង​ឆ្វេង​ដៃ ។"
-
-#~ msgid "New"
-#~ msgstr "ថ្មី"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "ប្រើ​ជម្រើស​នេះ​ដើម្បី​បិទ/បើក​បង្ហាញ​ព័ត៌មាន​​ឈ្មោះ​អ្នកប្រើ និង​​ពាក្យសម្ងាត់​នៅ​ក្នុង​តារាង​ខាង​លើ ។"
-
-#~ msgid "Show user and password information"
-#~ msgstr "បង្ហាញ​ព័ត៌មាន​អ្នកប្រើ និង​ពាក្យ​សម្ងាត់"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "កំណត់​រចនាសម្ព័ន្ធ​ផ្នែក​ខាង​ក្រោយ​របស់ GnuPG"
-
-#~ msgid "&Reset"
-#~ msgstr "កំណត់​ឡើង​វិញ"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "ប្រើ​ម៉ាស៊ីន​បម្រើ​សោ​នៅ"
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "កំណត់​រចនាសម្ព័ន្ធ Keyservers"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "អ្នកទទួល ៖"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "វិញ្ញាបនបត្រ​ទាំងអស់"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "គ្រោងការណ៍"
-
-#, fuzzy
-#~| msgid ""
-#~| "Select the access protocol (scheme) that the directory service is "
-#~| "available through."
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr "ជ្រើស​ពិធីការ​ចូលដំណើរការ (គ្រោងការណ៍) ដែល​សេវា​ថត​មាន​សម្រាប់​វា ។"
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr "ពិនិត្យ​ជួរឈរ​នេះ ថាតើ​សេវា​ថត​នេះ​ផ្ដល់​វិញ្ញាបនបត្រ S/MIME (X.509) ឬ​អត់ ។"
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr "ពិនិត្យ​មើល​ជួរ​ឈរ​នេះ ថាតើ​សេវា​ថត​ផ្ដល់​វិញ្ញាបនបត្រ OpenPGP ឬ​អត់​ ។"
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "០ - គ្មាន (គ្មាន​ការ​បំបាត់​កំហុស​​ទាល់តែ​សោះ)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "១ - មូលដ្ឋាន (សារ​បំបាត់​កំហុស​មូលដ្ឋាន​មួយ​ចំនួន)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "២ - កម្រិត​ខ្ពស់ (សារ​បំបាត់​កំហុស​ដែល​មាន​ការ​បរិយាយ​ច្រើន)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "៣​ - ជំនាញ (សារ​ដែល​មាន​សេចក្ដី​លម្អិត)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "៤ - Guru (សារ​បំបាត់​កំហុស​ទាំងអស់​ដែល​អ្នក​អាច​យក​បាន)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "ឧបករណ៍​បន្ទាត់​ពាក្យ​បញ្ជា Chiasmus"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "ពិធីការ \"%1\" ដែលមិន​បាន​គាំទ្រ"
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "មិនមាន​ឯកសារ \"%1\" ឬ​មិន​អាច​ប្រតិបត្តិ​វា​បាន ។"
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "លទ្ធផល​ពី chiasmus"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "ខាងក្រោម​គឺ​ត្រូវបាន​ទទួល​នៅលើ stderr ៖\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "បរាជ័យ​ក្នុងការ​ផ្ទុក %1 ៖ %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "បណ្ណាល័យ​មិនមាន​និមិត្ត​សញ្ញា \"Chiasmus\" ទេ ។"
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "កំពុង​វិភាគ​ថត %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME ត្រូវបាន​ចងក្រង​ដោយ​មិន​មានការគាំទ្រ​សម្រាប់ %1 ទេ ។"
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "ម៉ាស៊ីន %1 គឺ​មិនបាន​ដំឡើង​ត្រឹមត្រូវ​ទេ ។"
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr "បាន​ដំឡើង​ម៉ាស៊ីន​ %1 កំណែ %2 ប៉ុន្តែ​វា​ត្រូវការ​យ៉ាងហោចណាស់​ក៏​កំណែ %3 ។"
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "មិនស្គាល់​បញ្ហា​ជាមួយ​ម៉ាស៊ីន​សម្រាប់​ពិធីការ %1 ទេ ។"
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "កម្មវិធី​បាន​បញ្ចប់​ដោយ​មិនបាន​​រំពឹង​ទុក"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "រកមិនឃើញ​កម្មវិធី ឬ​មិន​អាច​ចាប់ផ្ដើម​បាន​ទេ"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>បាន​បរាជ័យ​ក្នុង​ការ​ប្រតិបត្តិ gpgconf ៖<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "មិន​អាច​ចាប់ផ្ដើម gpgconf ។\n"
-#~ "ពិនិត្យ​មើលថា gpgconf នៅ​ក្នុង​ផ្លូវ និង​វា​អាច​ត្រូវ​បាន​ចាប់ផ្ដើម ។"
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "មាន​កំហុស​ពី gpgconf នៅពេល​ដែល​រក្សាទុក​ការ​កំណត់​រចនា​សម្ព័ន្ធ ៖ %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "កំពុង​បង្កើត​កូនសោ ElGamal..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "កំពុង​ស្វែង​រក​ចំនួន​ធំដំបូង​..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr "កំពុង​រង់ចាំធាតុ​ថ្មី​ពី​កម្មវិធី​បង្កើត​លេខ​ចៃដន្យ (អ្នក​អាច​ចង់​ហាត់​ប្រើ​ថាស​រឹង ឬ​ផ្លាស់ទី​កណ្ដុរ)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "សូម​រង់ចាំ​..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr "កំពុង​ចាប់​ផ្ដើម​ភ្នាក់ងារ gpg (អ្នក​គួរតែ​ចាត់ទុក​ការចាប់​ផ្ដើម​វត្ថុ​ជាសកល​ជំនួសវិញ)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "នៅពេល​កំពុង​វិភាគ​រកការ​គាំទ្រ %1 នៅក្នុង​ផ្ទៃ​ខាងក្រោយ %2 ៖"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "កូនសោ​ OpenPGP សម្រាប់​ %1\n"
-#~ "បានបង្កើត​ ៖ %2\n"
-#~ "ផុត​កំណត់​ ៖ %3\n"
-#~ "ស្នាម​ផ្ដិត​ម្រាមដៃ​ ៖​ %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "កូនសោ S/MIME សម្រាប់​ %1\n"
-#~ "បាន​បង្កើត​ ៖ %2\n"
-#~ "ផុត​កំណត់​ ៖​ %3\n"
-#~ "ស្នាម​ផ្ដិត​ម្រាម​ដៃ ៖ %4\n"
-#~ "អ្នក​ចេញ​ផ្សាយ​ ៖​ %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "ឈ្មោះ​ម៉ាស៊ីន​បម្រើ ៖"
-
-#~ msgid "389"
-#~ msgstr "៣៨៩"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "ឈ្មោះ​អ្នក​ប្រើ​​ (ជា​ជម្រើស​) ៖​"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "ពាក្យ​សម្ងាត់​ (ជា​ជម្រើស​​) ៖​"
-
-#~ msgid "&Cancel"
-#~ msgstr "បោះបង់"

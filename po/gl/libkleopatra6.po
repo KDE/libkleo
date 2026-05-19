@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2024-12-16 01:08+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -936,120 +936,120 @@ msgstr ""
 "Certificados nos que se certificaron todos os identificadores de persoa "
 "usuaria (activados)."
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nome"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "Enderezo de correo electrónico"
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Estado"
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Validez desde"
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Validez ata"
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protocolo"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Identificador de chave"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Pegada"
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Expedición"
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Número de serie"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Orixe"
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Última actualización"
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Confianza na certificación"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "Algoritmo"
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "Identificador de clave pública"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "sen nome"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "sen enderezo de correo electrónico"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
 msgstr "Cargando…"
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1305,12 +1305,12 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Configurar os servizos de directorios"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, kde-format
 msgid "None configured"
 msgstr "Ningún configurado"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1889,8 +1889,8 @@ msgstr "<placeholder>descoñecido</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Produciuse un erro ao obter as chaves da infraestrutura:</p><p><b>%1</"
 "b></p></qt>"
@@ -2162,13 +2162,13 @@ msgstr "Resultado de listar as chaves"
 msgid "Recheck Key"
 msgstr "Volver comprobar a chave"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr ""
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Audit Log"
@@ -2177,13 +2177,13 @@ msgctxt ""
 msgid "Show Audit Log"
 msgstr "Amosar o rexistro de auditoría"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Información"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2289,7 +2289,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Amosar todas as chaves"
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2304,87 +2304,137 @@ msgstr ""
 "Solicitaráselle unha frase de paso para protexer a chave e a chave protexida "
 "almacenarase no seu directorio persoal."
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Aprobación de seguridade"
 
-#: ui/newkeyapprovaldialog.cpp:305
-#, kde-format
-msgctxt "@option:check"
-msgid "OpenPGP"
-msgstr "OpenPGP."
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Protocol"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "Protocolo"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME."
-
-#: ui/newkeyapprovaldialog.cpp:308
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
 msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:309
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Xerando unha chave para «%1»…"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Isto pode tardar varios minutos…"
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Xeración de chaves"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "A operación fallou"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Xerar unha nova parella de chaves"
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Non asinar esta mensaxe"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr ""
 "A mensaxe de correo electrónico non se asinará de maneira criptográfica."
 
-#: ui/newkeyapprovaldialog.cpp:575
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "Confirmar a identidade «%1» como:"
+#: ui/newkeyapprovaldialog.cpp:558
+#, fuzzy, kde-format
+#| msgid "Sign"
+msgctxt "@title:group"
+msgid "Sign as:"
+msgstr "Asinar"
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Non ha chave. A persoa destinataria non poderá descifrar."
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2396,18 +2446,18 @@ msgstr ""
 "recibirá a mensaxe de correo electrónico cifrada, pero só pode descifrarse "
 "co resto de chaves seleccionadas neste diálogo."
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Cifrar para min (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Cifrar para outras persoas:"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
 msgid "Generate"
 msgstr "Xerar"
@@ -2550,17 +2600,17 @@ msgstr "Amosar a lista de certificados."
 msgid "Show certificate list"
 msgstr "Amosar a lista de certificados"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "Cumpre con VS-NfD"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Non cumpre con VS-NfD"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3653,493 +3703,3 @@ msgstr "O carácter hexadecimal «%1» é incorrecto no fluxo de entrada."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Remate prematuro de carácter codificado en hexadecimal no fluxo de entrada"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Erro: insira un valor."
-
-#~ msgid "Subkey"
-#~ msgstr "Subchave"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, creado: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, creado: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Descoñécese o algoritmo"
-
-#~ msgid "All certificates"
-#~ msgstr "Todos os certificados"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Non é posíbel configurar os servizos de directorios porque as bibliotecas "
-#~ "gpgme que usa son demasiado vellas."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Desculpe"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Sinatura creada en %1 co certificado non dispoñíbel: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Sinatura creada co certificado non dispoñíbel: %1"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Co certificado: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "Correo electrónico"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "boa"
-
-#~ msgid "Unknown"
-#~ msgstr "Descoñecido"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Identificadores de persoas usuarias"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Certificados de confianza absoluta"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Certificados sen certificar"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Certificados sen validar"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Identificadores de persoas usuarias"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Identificador de chave"
-
-#~ msgid "User-ID"
-#~ msgstr "Identificador de usuario"
-
-#~ msgid "Key-ID"
-#~ msgstr "ID da chave"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Non confirmar a identidade e a integridade"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "Erro de GpgConf"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr ""
-#~ "Xestor de certificados e interface gráfica unificada de criptografía"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Fallou a sinatura: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Asinouse sen problemas"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Fallou o cifrado: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Completouse o cifrado"
-
-#~ msgid "Signing Result"
-#~ msgstr "Resultado da sinatura"
-
-#~ msgid "Signing Error"
-#~ msgstr "Produciuse un erro de sinatura"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Resultado do cifrado"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Produciuse un erro de cifrado"
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD-conforming is a German standard for restricted documents for "
-#~| "which special restrictions about algorithms apply.  The string states "
-#~| "that all cryptographic operations necessary for the communication are "
-#~| "compliant with that."
-#~| msgid "VS-NfD-compliant communication possible."
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "Pódese usar unha comunicación que cumpra con VS-NfD."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD-conforming is a German standard for restricted documents for "
-#~| "which special restrictions about algorithms apply.  The string states "
-#~| "that all cryptographic operations necessary for the communication are "
-#~| "compliant with that."
-#~| msgid "VS-NfD-compliant communication not possible."
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "Non se pode usar unha comunicación que cumpra con VS-NfD."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD conforming is a German standard for restricted documents. For "
-#~| "which special restrictions about algorithms apply. The string describes "
-#~| "if a key is compliant with that.."
-#~| msgid "May be used for VS-NfD-compliant communication."
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "Poderíase usar unha comunicación que cumpra con VS-NfD."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD-conforming is a German standard for restricted documents. For "
-#~| "which special restrictions about algorithms apply. The string describes "
-#~| "if a key is compliant to that.."
-#~| msgid "May <b>not</b> be used for VS-NfD-compliant communication."
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "<b>Non</b> se podería usar unha comunicación que cumpra con VS-NfD."
-
-#~ msgid "never"
-#~ msgstr "nunca"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Creado"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Caducidade"
-
-#~ msgid "Created"
-#~ msgstr "Creado"
-
-#~ msgid "Expires"
-#~ msgstr "Caduca"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Mover á fin"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "servidor"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Nome do servidor"
-
-#~ msgid "Server Port"
-#~ msgstr "Porto do servidor"
-
-#~ msgid "Base DN"
-#~ msgstr "DN base"
-
-#~ msgid "User Name"
-#~ msgstr "Nome de usuario"
-
-#~ msgid "(read-only)"
-#~ msgstr "(só lectura)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (só lectura)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Opcional)</b> Insira aquí o seu nome de usuario, se o precisa."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Configuración de servizos de directorio"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "Servidor de chaves de OpenPGP:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Prema este botón para crear unha nova entrada de servizo de directorio "
-#~ "como clon do escollido actualmente (ou con valores predeterminados, se "
-#~ "non escolle ningún). A continuación poderá configurar os detalles na "
-#~ "táboa da esquerda."
-
-#~ msgid "New"
-#~ msgstr "Novo"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Use esta opción para alternar entre que se mostre ou non a información de "
-#~ "nome de usuario e contrasinal na táboa de enriba."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Mostrar a información sobre o usuario e o contrasinal"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Configurar a infraestrutura de GnuPG"
-
-#~ msgid "&Reset"
-#~ msgstr "&Restaurar"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Usar o servidor de chaves en"
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Configurar os servidores de chaves"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "Non se atopou ningunha chave para o enderezo «%1»:"
-
-#~ msgid "Add Filter"
-#~ msgstr "Engadir un filtro"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "No Key"
-#~ msgstr "Sen chave"
-
-#~ msgid "Ignore recipient"
-#~ msgstr "Ignorar o destinatario"
-
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Certificados que cumpren con VS-NfD"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Esquema"
-
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Escolla o esquema de acceso (esquema) a través do cal está dispoñíbel o "
-#~ "servizo de directorio."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Escolla esta columna se este servizo de directorio fornece certificados S/"
-#~ "MIME (X.509)."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Escolla esta columna se este servizo de directorio fornece certificados "
-#~ "OpenPGP (X.509)."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0 - Ningunha (sen depurar nada)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1 - Básica (mensaxes de depuración básicas)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2 - Avanzada (mensaxes de depuración máis explicativas)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 - Experta (mensaxes de depuración aínda máis detalladas)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 - Gurú (todas as mensaxes de depuración que se poidan obter)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Utilidade da liña de comandos Chiasmus"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Non se recoñece o protocolo «%1»"
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "O ficheiro «%1» non existe ou non é executábel."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Saída de chiasmus"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Recibiuse o seguinte en stderr:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Fallou a carga de %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "A biblioteca non contén o símbolo «Chiasmus»."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Estase a examinar o directorio %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "Compilouse GPGME sen soporte para %1."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "O motor %1 non está instalado axeitadamente."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Ten a versión %2 do motor %1 instalada, pero requírese polo menos a "
-#~ "versión %3."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Aconteceu un problema descoñecido co motor para o protocolo %1."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "o programa rematou inesperadamente"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "non foi posíbel atopar ou iniciar o programa"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Fallou a execución de gpgconf:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Non foi posíbel iniciar gpgconf\n"
-#~ "Comprobe que gpgconf está na súa PATH e que se pode iniciar."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Recibiuse un erro desde gpgconf ao gravar a configuración: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Estase a xerar a chave ElGamal..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Estase a procurar un número primo grande..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Estase a agardar pola nova entropía do xerador de números aleatorias "
-#~ "(pode mover o rato ou facer traballar o disco duro para isto)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Agarde..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Estase a iniciar o gpg-agent (debería considerar iniciar unha instancia "
-#~ "global no canto)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Mentres se procuraba soporte para %1 no mecanismo %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "Chave OpenPGP para %1\n"
-#~ "Creada: %2\n"
-#~ "Caduca: %3\n"
-#~ "Pegada dixital: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "Chave S/MIME para %1\n"
-#~ "Creada: %2\n"
-#~ "Caduca: %3\n"
-#~ "Pegada dixital: %4\n"
-#~ "Expendedor: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "Nome do &servidor:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "Nome de &usuario (opcional):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Contras&inal (opcional):"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Cancelar"

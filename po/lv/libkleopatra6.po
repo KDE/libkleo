@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2025-11-11 18:53+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -1035,120 +1035,120 @@ msgstr ""
 "Sertifikāti, kuriem visi lietotāja ID ir sertificēti (izņemot izslēgtos "
 "sertifikātus)"
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Vārds"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "E-pasts"
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, kde-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Statuss"
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Derīgs no"
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Derīgs līdz"
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, kde-format
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protokols"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, kde-format
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Atslēgas ID"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, kde-format
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Digitālais nospiedums"
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, kde-format
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Izdevējs"
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, kde-format
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Sērijas numurs"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, kde-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Izcelsme"
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, kde-format
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Pēdējais atjauninājums"
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Sertifikāta uzticamība"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, kde-format
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Birkas"
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr "Algoritms"
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr "Atslēgas satvere"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "bez vārda"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "bez e-pasta adreses"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
 msgstr "Ielādē..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1404,12 +1404,12 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Konfigurēt direktorija servisu"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, kde-format
 msgid "None configured"
 msgstr "Nekad nav konfigurēts"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1640,8 +1640,8 @@ msgstr ""
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
-"Kļūda: ievadiet datora nosaukumu korektā formātā, piemēram, „ldap.example."
-"com“."
+"Kļūda: ievadiet datora nosaukumu korektā formātā, piemēram, "
+"„ldap.example.com“."
 
 #: ui/editdirectoryservicedialog.cpp:114
 #, kde-format
@@ -1984,11 +1984,11 @@ msgstr "<placeholder>nezināms</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>Gadījās kļūda, mēģinot no aizmugursistēmas ielādēt atslēgas:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>Gadījās kļūda, mēģinot no aizmugursistēmas ielādēt atslēgas:</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp:249 ui/keyrequester.cpp:282 ui/keyrequester.cpp:304
 #: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
@@ -2259,26 +2259,26 @@ msgstr "Atslēgu uzskaitīšanas rezultāts"
 msgid "Recheck Key"
 msgstr "Pārbaudīt atslēgu"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr "Diagnostika"
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, kde-format
 msgctxt ""
 "@action:button The Audit Log is a detailed error log from the gnupg backend"
 msgid "Show Audit Log"
 msgstr "Rādīt audita žurnālu"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, kde-format
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Informācija"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2379,7 +2379,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Rādīt visas atslēgas"
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, kde-format
 msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
@@ -2394,86 +2394,136 @@ msgstr ""
 "ierakstīt paroli, kas aizsargās šo atslēgu, bet aizsargātā atslēga tiks "
 "glabāta jūsu mājas mapē."
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Drošības apstiprinājums"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Protocol"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "Protokols"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, kde-format
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
 msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, kde-format
-msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "Ģenerē atslēgu priekš „%1“..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Tas var aizņemt vairākas minūtes."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Atslēgas ģenerēšana"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, kde-format
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Darbība neizdevās"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Ģenerēt jaunu atslēgas pāri"
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr "Neparakstīt šo e-pasta vēstuli"
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "Šī e-pasta vēstule netiks kriptogrāfiski parakstīta."
 
-#: ui/newkeyapprovaldialog.cpp:575
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "Apstiprināt identitāti „%1“ kā:"
+#: ui/newkeyapprovaldialog.cpp:558
+#, fuzzy, kde-format
+#| msgid "Sign"
+msgctxt "@title:group"
+msgid "Sign as:"
+msgstr "Parakstīt"
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Nav atslēgas. Saņēmējs nevarēs atšifrēt."
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
@@ -2485,18 +2535,18 @@ msgstr ""
 "vēstuli, bet to varēs atšifrēt tikai ar citām atslēgām, kas ir atlasītas "
 "šajā lodziņā."
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Šifrēt sev (%1):"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, kde-format
 msgid "Encrypt to others:"
 msgstr "Šifrēt citiem:"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
 msgid "Generate"
 msgstr "Ģenerēt"
@@ -2635,17 +2685,17 @@ msgstr "Rādīt sertifikātu sarakstu"
 msgid "Show certificate list"
 msgstr "Rādīt sertifikātu sarakstu"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "Ar „VS-NfD“ saderīgs"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Ar „VS-NfD“ nesaderīgs"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3727,446 +3777,3 @@ msgstr "Ievades plūsma satur nederīgu heksadecimālu rakstzīmi „%1“."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Pirmslaicīgas beigas ievades plūsmas heksadecimālā rakstzīmē"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "All certificates"
-#~ msgstr "Visi sertifikāti"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Visi sertifikāti"
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknown"
-#~ msgstr "nezināma"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Lietotāja ID"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Uzticamie sertifikāti"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Uzticamie sertifikāti"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Uzticamie sertifikāti"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Lietotāja ID"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "Lietotāja ID"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConf kļūda"
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Sertifikātu pārvaldnieka kļūda"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Neizdevās parakstīt: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Parakstīšana veiksmīga"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Niezdevās šifrēt: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Šifrēšana veiksmīga"
-
-#~ msgid "Signing Result"
-#~ msgstr "Parakstīšanas rezultāts"
-
-#~ msgid "Signing Error"
-#~ msgstr "Parakstīšanas kļūda"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Šifrēšanas rezultāts"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Šifrēšanas kļūda"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "Visi sertifikāti"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "Visi sertifikāti"
-
-#~ msgid "never"
-#~ msgstr "nekad"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Pārvietot uz apakšējo"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "serveris"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldap"
-
-#~ msgid "Server Name"
-#~ msgstr "Servera nosaukums"
-
-#~ msgid "Server Port"
-#~ msgstr "Servera ports"
-
-#~ msgid "Base DN"
-#~ msgstr "Bāzes DN"
-
-#~ msgid "User Name"
-#~ msgstr "Lietotāja vārds"
-
-#~ msgid "(read-only)"
-#~ msgstr "(tikai lasāms)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (tikai lasāms)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Neobligāts)</b> Šeit ievadiet lietotājvārdu, ja nepieciešams."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Direktoija pakalpojumu konfigurācija"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP atslēgas izvēle"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Spiediet šo pogu, lai izveidotu jaunu direktorija servisa ierakstu kā "
-#~ "izvēlētā kopiju (vai ar noklusētajām vērtībam, ja nekas nav izvēlēts). "
-#~ "Jūs varat konfigurēt detaļas kreisās puses tabulā."
-
-#~ msgid "New"
-#~ msgstr "Jauns"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Izmantojiet šo iespēju, lai pārslēgtu lietotājvārda un paroles rādīšanu "
-#~ "tabulā."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Rādīt lietotājvārdu un paroli"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Konfigurēt GnuPG aizmuguri"
-
-#~ msgid "&Reset"
-#~ msgstr "&Atstatīt"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Lietot atlsēgu serveri no"
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Konfigurēt atslēgas serverus"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Saņēmējs:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Visi sertifikāti"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Shēma"
-
-#, fuzzy
-#~| msgid ""
-#~| "Select the access protocol (scheme) that the directory service is "
-#~| "available through."
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Izvēlieties piekļuves protokolu (shēmu), ar kuru ir pieejams šis "
-#~ "direktorija serviss."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Atzīmējiet šo kolonu, ja šis direktorija serviss piedāvā S/MIME (X.509) "
-#~ "sertifikātus."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Atzīmējiet šo kolonu, ja šis direktorija serviss piedāvā OpenPGP "
-#~ "sertifikātus."
-
-#, fuzzy
-#~| msgid "None (no debugging at all)"
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "Nav (nekādas atkļūdošanas)"
-
-#, fuzzy
-#~| msgid "Basic (some basic debug messages)"
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "Pamata (daži pamata atkļūdošanas paziņojumi)"
-
-#, fuzzy
-#~| msgid "Advanced (more verbose debug messages)"
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "Paplašināta (vairāk atkļūdošanas paziņojumu)"
-
-#, fuzzy
-#~| msgid "Expert (even more detailed messages)"
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "Eksperta (vēl detalizētāki paziņojumi)"
-
-#, fuzzy
-#~| msgid "Guru (all of the debug messages you can get)"
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "Guru (visi pieejamie atkļūdošanas paziņojumi)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus komandrindas rīks"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Neatbalstīts protokols \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Fails \"%1\" nepastāv vai nav izpildāms."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Chiasmus izvads"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Šis tika saņemts uz stderr:\n"
-#~ " %1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Neizdevās ielādēt %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Bibliotēka nesatur simbolu \"Chiasmus\"."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Skenē mapi %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME tika kompilēts bez %1 atbalsta."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Dzinējs %1 nav korekti instalēts."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Ir instalēa %1 dzinēja versija %2, bet nepieciešama vismaz %3 versija."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Neiznāma problēma ar dzinēju %1 protokolam."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "programma negaidīti izgāja"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "programma nav atrasta vai to nevar palaist"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Neizdevās izpildīt gpgconf:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Neizdevās palaist gpgconf.\n"
-#~ " Pārbaudiet ka gpgconf ir jūsu PATH un ka to var palaist."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Kļūda no gpgconf, mēģinot saglabāt konfigurāciju: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Ģenerē EIGamal atslēgu..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Meklē lielu pirmskaitli..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Gaida vēl entropiju no nejaušo skaitļu ģeneratora (varat padarbināt "
-#~ "diskus vai pakustināt peli)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Lūdzu, uzgaidiet..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Palaiž gpg-agent (jums vajadzētu padomāt par globālas instances "
-#~ "darbināšanu)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Skenējot %1 atbalstu %2 aizmugurē :"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "OpenPGP atslēga priekš %1\n"
-#~ " Izveidota: %2\n"
-#~ " Derīga līdz: %3\n"
-#~ " Pirkstu nosp.: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "S/MIME atslēga priekš %1\n"
-#~ " Izveidota: %2\n"
-#~ " Derīga līdz: %3\n"
-#~ " Pirkstu nosp.: %4\n"
-#~ " Izdevis: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Servera nosaukums:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Lietotāja vārds (neobligāts):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "&Parole (neobligāta):"
-
-#~ msgid "&Cancel"
-#~ msgstr "At&celt"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Viesturs Zariņš"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Kļūda inicializējot spraudni \"%1\""
-
-#~ msgid "failed"
-#~ msgstr "neizdevās"
-
-#~ msgid "Available Backends"
-#~ msgstr "Pieejamās aizmugures"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "Konfi&gurēt..."
-
-#~ msgid "Rescan"
-#~ msgstr "Pārskenēt"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Skenēšanas procesā tika sastaptas šādas problēmas:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Skenēšanas rezultāti"

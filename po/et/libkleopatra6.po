@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-19 11:05+0200\n"
 "PO-Revision-Date: 2020-02-12 22:57+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -774,124 +774,124 @@ msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr "Kõik kasutaja ID-d on sertifitseeritud."
 
-#: models/keylistmodel.cpp:324
+#: models/keylistmodel.cpp:322
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nimi"
 
-#: models/keylistmodel.cpp:326
+#: models/keylistmodel.cpp:324
 #, fuzzy, kde-format
 #| msgid "E-Mail"
 msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "E-post"
 
-#: models/keylistmodel.cpp:328
+#: models/keylistmodel.cpp:326
 #, fuzzy, kde-format
 #| msgid "Status"
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Olek"
 
-#: models/keylistmodel.cpp:330
+#: models/keylistmodel.cpp:328
 #, fuzzy, kde-format
 #| msgid "Valid From"
 msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Kehtiv alates"
 
-#: models/keylistmodel.cpp:332
+#: models/keylistmodel.cpp:330
 #, fuzzy, kde-format
 #| msgid "Valid Until"
 msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Kehtiv kuni"
 
-#: models/keylistmodel.cpp:334
+#: models/keylistmodel.cpp:332
 #, fuzzy, kde-format
 #| msgid "Protocol"
 msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Protokoll"
 
-#: models/keylistmodel.cpp:336
+#: models/keylistmodel.cpp:334
 #, fuzzy, kde-format
 #| msgid "Key ID"
 msgctxt "@title:column"
 msgid "Key ID"
 msgstr "Võtme ID"
 
-#: models/keylistmodel.cpp:338
+#: models/keylistmodel.cpp:336
 #, fuzzy, kde-format
 #| msgid "Fingerprint"
 msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Sõrmejälg"
 
-#: models/keylistmodel.cpp:340
+#: models/keylistmodel.cpp:338
 #, fuzzy, kde-format
 #| msgid "Issuer"
 msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Väljaandja"
 
-#: models/keylistmodel.cpp:342
+#: models/keylistmodel.cpp:340
 #, fuzzy, kde-format
 #| msgid "Serial Number"
 msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Seerianumber"
 
-#: models/keylistmodel.cpp:344
+#: models/keylistmodel.cpp:342
 #, fuzzy, kde-format
 #| msgid "Origin"
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Algupära"
 
-#: models/keylistmodel.cpp:346
+#: models/keylistmodel.cpp:344
 #, fuzzy, kde-format
 #| msgid "Last Update"
 msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Viimane uuendus"
 
-#: models/keylistmodel.cpp:348
+#: models/keylistmodel.cpp:346
 #, fuzzy, kde-format
 #| msgid "Certification Trust"
 msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Sertifikaadi usaldusväärsus"
 
-#: models/keylistmodel.cpp:350
+#: models/keylistmodel.cpp:348
 #, fuzzy, kde-format
 #| msgid "Tags"
 msgctxt "@title:column"
 msgid "Tags"
 msgstr "Sildid"
 
-#: models/keylistmodel.cpp:352
+#: models/keylistmodel.cpp:350
 #, kde-format
 msgctxt "@title:column"
 msgid "Algorithm"
 msgstr ""
 
-#: models/keylistmodel.cpp:354
+#: models/keylistmodel.cpp:352
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
 msgstr ""
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:67
+#: models/keylistmodel.cpp:400 models/useridlistmodel.cpp:67
 #, fuzzy, kde-format
 #| msgid "Given name"
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "Eesnimi"
 
-#: models/keylistmodel.cpp:409 models/useridlistmodel.cpp:68
+#: models/keylistmodel.cpp:407 models/useridlistmodel.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -899,12 +899,12 @@ msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "bald@starman.ee"
 
-#: models/keylistmodel.cpp:472
+#: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
 msgstr "Laadimine ..."
 
-#: models/keylistmodel.cpp:555
+#: models/keylistmodel.cpp:553
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1180,12 +1180,12 @@ msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Kataloogi teenuse lisamine või muutmine"
 
-#: ui/cryptoconfigmodule.cpp:914
+#: ui/cryptoconfigmodule.cpp:913
 #, kde-format
 msgid "None configured"
 msgstr "Midagi pole seadistatud"
 
-#: ui/cryptoconfigmodule.cpp:916
+#: ui/cryptoconfigmodule.cpp:915
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1805,8 +1805,8 @@ msgstr "<placeholder>tundmatu</placeholder>"
 #: ui/keyrequester.cpp:244 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Tekkis viga võtmete hankimisel taustaprogrammilt:</p><p><b>%1</b></"
 "p></qt>"
@@ -2082,13 +2082,13 @@ msgstr "Võtmete hankimise tulemus"
 msgid "Recheck Key"
 msgstr "Võtmete uus kontroll"
 
-#: ui/messagebox.cpp:128 ui/messagebox.cpp:165
+#: ui/messagebox.cpp:190 ui/messagebox.cpp:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Diagnostics"
 msgstr ""
 
-#: ui/messagebox.cpp:129 ui/messagebox.cpp:166
+#: ui/messagebox.cpp:191 ui/messagebox.cpp:214
 #, fuzzy, kde-format
 #| msgid "&Show Audit Log"
 msgctxt ""
@@ -2096,14 +2096,14 @@ msgctxt ""
 msgid "Show Audit Log"
 msgstr "&Näita auditi logi"
 
-#: ui/messagebox.cpp:194 ui/messagebox.cpp:208
+#: ui/messagebox.cpp:242 ui/messagebox.cpp:256
 #, fuzzy, kde-format
 #| msgid "Location"
 msgctxt "@title:window"
 msgid "Information"
 msgstr "Asukoht"
 
-#: ui/messagebox.cpp:222 ui/messagebox.cpp:236
+#: ui/messagebox.cpp:270 ui/messagebox.cpp:284
 #, kde-format
 msgctxt "@title:window"
 msgid "Error"
@@ -2203,7 +2203,7 @@ msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:275
+#: ui/newkeyapprovaldialog.cpp:270
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@info:tooltip for a 'Generate new key pair' action in a combobox when a "
@@ -2226,74 +2226,112 @@ msgstr ""
 "paroolifraasi võtme kaitsmiseks ning kaitstud võti salvestatakse sinu "
 "kodukataloogi."
 
-#: ui/newkeyapprovaldialog.cpp:298
+#: ui/newkeyapprovaldialog.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Turvalisuse kinnitus"
 
-#: ui/newkeyapprovaldialog.cpp:305
+#: ui/newkeyapprovaldialog.cpp:296
+#, fuzzy, kde-format
+#| msgid "Protocol"
+msgctxt "@title:group"
+msgid "Crypto Protocol:"
+msgstr "Protokoll"
+
+#: ui/newkeyapprovaldialog.cpp:300
 #, fuzzy, kde-format
 #| msgid "OpenPGP"
-msgctxt "@option:check"
+msgctxt "@option:radio"
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
-#: ui/newkeyapprovaldialog.cpp:306
-#, fuzzy, kde-format
-#| msgid "S/MIME"
-msgctxt "@option:check"
-msgid "S/MIME"
-msgstr "S/MIME"
+#: ui/newkeyapprovaldialog.cpp:303
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in OpenPGP format. This implies that only OpenPGP "
+"encryption keys can be selected."
+msgstr ""
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, fuzzy, kde-format
-#| msgid "OpenPGP"
-msgctxt "@option:radio"
-msgid "OpenPGP"
-msgstr "OpenPGP"
-
-#: ui/newkeyapprovaldialog.cpp:309
-#, fuzzy, kde-format
 #| msgid "S/MIME"
 msgctxt "@option:radio"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:310
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose the message in S/MIME format. This implies that only S/MIME "
+"encryption keys can be selected."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:315
+#, fuzzy, kde-format
+#| msgid "OpenPGP/MIME"
+msgctxt "@option:radio"
+msgid "Both OpenPGP and S/MIME"
+msgstr "OpenPGP/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:318
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Compose two separate messages, one encrypted for recipients with OpenPGP "
+"keys, and another for recipients with S/MIME keys. This allows to mix both "
+"types of keys, but may make it more difficult for recipients to reply to all "
+"addressees."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in OpenPGP format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:331
+#, kde-format
+msgctxt "@info"
+msgid "The message will be composed in S/MIME format."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
 msgstr "'%1' võtme genereerimine..."
 
-#: ui/newkeyapprovaldialog.cpp:398
+#: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "This can take several minutes."
 msgstr "Sellele võib kuluda mitu minutit."
 
-#: ui/newkeyapprovaldialog.cpp:400
+#: ui/newkeyapprovaldialog.cpp:383
 #, kde-format
 msgctxt "@title:window"
 msgid "Key generation"
 msgstr "Võtme genereerimine"
 
-#: ui/newkeyapprovaldialog.cpp:439
+#: ui/newkeyapprovaldialog.cpp:422
 #, fuzzy, kde-format
 #| msgid "Operation Failed"
 msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Toiming nurjus"
 
-#: ui/newkeyapprovaldialog.cpp:552 ui/newkeyapprovaldialog.cpp:646
+#: ui/newkeyapprovaldialog.cpp:535 ui/newkeyapprovaldialog.cpp:630
 #, kde-format
 msgid "Generate a new key pair"
 msgstr "Uue võtmepaari genereerimine"
 
-#: ui/newkeyapprovaldialog.cpp:555
+#: ui/newkeyapprovaldialog.cpp:538
 #, kde-format
 msgid "Do not sign this email"
 msgstr ""
 
-#: ui/newkeyapprovaldialog.cpp:557
+#: ui/newkeyapprovaldialog.cpp:540
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip for not selecting a key for signing."
 #| msgid "The E-Mail will not be cryptographically signed."
@@ -2301,18 +2339,27 @@ msgctxt "@info:tooltip for not selecting a key for signing."
 msgid "The email will not be cryptographically signed."
 msgstr "E-posti krüptograafiliselt ei allkirjastata."
 
-#: ui/newkeyapprovaldialog.cpp:575
-#, kde-format
-msgctxt "Caption for signing key selection"
-msgid "Confirm identity '%1' as:"
-msgstr "Identiteedi '%1' kinnitamine:"
+#: ui/newkeyapprovaldialog.cpp:558
+#, fuzzy, kde-format
+#| msgid "Sign"
+msgctxt "@title:group"
+msgid "Sign as:"
+msgstr "Allkirjastamine"
 
-#: ui/newkeyapprovaldialog.cpp:650
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Signing your message provides cryptographic confirmation that you really are "
+"the sender of this message."
+msgstr ""
+
+#: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
 msgstr "Võti puudub. Saajal pole võimalik lahti krüptida."
 
-#: ui/newkeyapprovaldialog.cpp:653
+#: ui/newkeyapprovaldialog.cpp:637
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip for No Key selected for a specific recipient."
 #| msgid ""
@@ -2328,20 +2375,20 @@ msgstr ""
 "Sellele saajale võtit ei valida.<br/><br/>Saaja saab krüptitud e-kirja, kuid "
 "saab seda lahti krüptida ainult teiste selles dialoogis valitud võtmetega."
 
-#: ui/newkeyapprovaldialog.cpp:770
+#: ui/newkeyapprovaldialog.cpp:754
 #, fuzzy, kde-format
 #| msgid "Encrypt to:"
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
 msgstr "Krüptimine saajale:"
 
-#: ui/newkeyapprovaldialog.cpp:785
+#: ui/newkeyapprovaldialog.cpp:769
 #, fuzzy, kde-format
 #| msgid "Encrypt to:"
 msgid "Encrypt to others:"
 msgstr "Krüptimine saajale:"
 
-#: ui/newkeyapprovaldialog.cpp:821
+#: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
 msgid "Generate"
 msgstr "Genereeri"
@@ -2478,7 +2525,7 @@ msgstr "Minu sertifikaadid"
 msgid "Show certificate list"
 msgstr "Minu sertifikaadid"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "VS-NfD-conforming is a German standard for restricted documents for which "
@@ -2488,7 +2535,7 @@ msgstr "Minu sertifikaadid"
 msgid "VS-NfD compliant"
 msgstr "VS-NfD ühilduv"
 
-#: utils/compliance.cpp:213
+#: utils/compliance.cpp:217
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "VS-NfD-conforming is a German standard for restricted documents for which "
@@ -2498,7 +2545,7 @@ msgstr "VS-NfD ühilduv"
 msgid "Not VS-NfD compliant"
 msgstr "VS-NfD ühilduv"
 
-#: utils/compliance.cpp:222
+#: utils/compliance.cpp:226
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Items in Kleo::BackendConfigWidget listview (1: protocol; 2: "
@@ -3614,575 +3661,3 @@ msgstr "Vigane 16ndkoodis märk '%1' sisendvoos."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "16ndkoodis märgi enneaegne lõpp sisendvoos"
-
-#~ msgid "Subkey"
-#~ msgstr "Alamvõti"
-
-#, fuzzy
-#~| msgctxt "(validity, protocol, creation date)"
-#~| msgid "(%1, %2, created: %3)"
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "(%1, %2, loodud: %3)"
-
-#, fuzzy
-#~| msgctxt "Name <email> (validity, type, created: date)"
-#~| msgid "%1 (%2, %3 created: %4)"
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3 loodud: %4)"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "All certificates"
-#~ msgstr "Kõik sertifikaadid"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Kõik sertifikaadid"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Kõik sertifikaadid"
-
-#, fuzzy
-#~| msgid "Other Certificates"
-#~ msgid "With certificate: %1"
-#~ msgstr "Muud sertifikaadid"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-post"
-
-#, fuzzy
-#~| msgctxt "as in good/valid signature"
-#~| msgid "good"
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "hea"
-
-#~ msgid "Unknown"
-#~ msgstr "Teadmata"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Kasutaja ID"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Täieliku usaldusväärsega sertifikaadid"
-
-#, fuzzy
-#~| msgid "Not validated Certificates"
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Valideerimata sertifikaadid"
-
-#, fuzzy
-#~| msgid "Not validated Certificates"
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Valideerimata sertifikaadid"
-
-#, fuzzy
-#~| msgid "User-IDs"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Kasutaja ID"
-
-#, fuzzy
-#~| msgid "Key-ID"
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Võtme ID"
-
-#~ msgid "User-ID"
-#~ msgstr "Kasutaja ID"
-
-#~ msgid "Key-ID"
-#~ msgstr "Võtme ID"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Identiteeti ja terviklikkust ei kinnitata"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConfi viga"
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Sertifikaadihalduri viga"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Signeerimine nurjus: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Signeerimine oli edukas"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Krüptimine nurjus: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Krüptimine oli edukas"
-
-#~ msgid "Signing Result"
-#~ msgstr "Signeerimise tulemused"
-
-#~ msgid "Signing Error"
-#~ msgstr "Signeerimise viga"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Krüptimise tulemus"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Krüptimise viga"
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD-conforming is a German standard for restricted documents for "
-#~| "which special restrictions about algorithms apply.  The string states "
-#~| "that all cryptographic operations necessary for the communication are "
-#~| "compliant with that."
-#~| msgid "VS-NfD-compliant communication possible."
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "VS-NfD ühilduv suhtlus on võimalik."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD-conforming is a German standard for restricted documents for "
-#~| "which special restrictions about algorithms apply.  The string states "
-#~| "that all cryptographic operations necessary for the communication are "
-#~| "compliant with that."
-#~| msgid "VS-NfD-compliant communication not possible."
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "VS-NfD ühilduv suhtlus ei ole võimalik."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD conforming is a German standard for restricted documents. For "
-#~| "which special restrictions about algorithms apply. The string describes "
-#~| "if a key is compliant with that.."
-#~| msgid "May be used for VS-NfD-compliant communication."
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "Saab tarvitada VS-NfD ühilduvaks suhtluseks."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "VS-NfD-conforming is a German standard for restricted documents. For "
-#~| "which special restrictions about algorithms apply. The string describes "
-#~| "if a key is compliant to that.."
-#~| msgid "May <b>not</b> be used for VS-NfD-compliant communication."
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "<b>Ei saa</b> kasutada VS-NfD ühilduvaks suhtluseks."
-
-#~ msgid "never"
-#~ msgstr "mitte kunagi"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Loomise aeg"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Aegumisaeg"
-
-#~ msgid "Created"
-#~ msgstr "Loodud"
-
-#~ msgid "Expires"
-#~ msgstr "Aegub"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Liiguta viimaseks"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "server"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Serveri nimi"
-
-#~ msgid "Server Port"
-#~ msgstr "Serveri port"
-
-#~ msgid "Base DN"
-#~ msgstr "Baas DN"
-
-#~ msgid "User Name"
-#~ msgstr "Kasutajanimi"
-
-#~ msgid "(read-only)"
-#~ msgstr "(kirjutuskaitstud)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (kirjutuskaitstud)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Lisavõimalus)</b> Sisesta vajaduse korral kasutajanimi."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Kataloogi teenuse seadistamine"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP võtmeserver:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Sellele nupule klõpsates luuakse uus kataloogiteenuse kirje, mis on "
-#~ "parajasti valitud kirje koopia (või vaikeväärtustega, kui midagi pole "
-#~ "valitud). Seejärel saab vasakul asuvas tabelis seadistada selle üksikasju."
-
-#~ msgid "New"
-#~ msgstr "Uus"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Selle abil saab lülitada kasutajanime ja parooli näitamise sisse ja välja."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Näita kasutaja ja parooli teavet"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "GnuPG taustaprogrammi seadistamine"
-
-#~ msgid "&Reset"
-#~ msgstr "Lä&htesta"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Kasutatakse võtmeserverit"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Võtmeserverite seadistamine"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "Aadressile '%1' võtit ei leitud:"
-
-#~ msgid "Add Filter"
-#~ msgstr "Lisa filter"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "No Key"
-#~ msgstr "Võti puudub"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Vastuvõtja:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Kõik sertifikaadid"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Skeem"
-
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr "Vali juurdepääsuskeem, mille kaudu on kataloogiteenus kättesaadav."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Märgista veerg, kui kataloogiteenus pakub S/MIME (X.509) sertifikaate."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr "Märgista veerg, kui kataloogiteenus pakub OpenPGP sertifikaate."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0 - puudub (midagi ei siluta)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1 - lihtne (teatud põhilised silumisteated)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2 - põhjalikum (teaberohkemad silumisteated)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 - ekspert (veel üksikasjalikumad silumisteated)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 - guru (kõik vähegi võimalikud silumisteated)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmuse käsureatööriist"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Toetamata protokoll \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Faili \"%1\" ei ole olemas või pole see käivitatav."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Chiasmuse väljund"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Standardväljundisse saabus järgmine teade:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "%1 laadimine nurjus: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Teek ei sisalda sümbolit \"Chiasmus\"."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Kataloogi %1 uurimine..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GpgME on kompileeritud ilma %1 toetuseta."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Mootor %1 ei ole korrektselt paigaldatud."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Paigaldatud on mootori %1 versioon %2, kuid vajalik on vähemalt versioon "
-#~ "%3."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Tundmatu probleem protokolli %1 mootoriga."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "programmi lõpetas ootamatult töö"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "programmi ei leitud või selle käivitamine nurjus"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Programmi gpgconf käivitamine nurjus:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Programmi gpgconf käivitamine nurjus.\n"
-#~ "Kontrolli, kas gpgconf asub otsinguteel (PATH) ja on käivitatav."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Programmi gpgconf viga konfiguratsiooni salvestamisel: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "ElGamal võtme genereerimine..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Suure algarvu otsimine..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Oodatakse uut entroopiat juhuarvude generaatorilt (võiksid proovida "
-#~ "kõvakettal midagi teha või liigutada hiirt)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Palun oota..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Käivitatakse gpg-agent (võiksid parem käivitada selle globaalselt)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "%1 toetuse otsimisel taustaprogrammis %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "%1 OpenPGP võti\n"
-#~ "Loodud: %2\n"
-#~ "Aegub: %3\n"
-#~ "Sõrmejälg: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "%1 S/MIME võti\n"
-#~ "Loodud: %2\n"
-#~ "Aegub: %3\n"
-#~ "Sõrmejälg: %4\n"
-#~ "Väljaandja: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Serveri nimi:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "Kas&utajanimi (pole kohustuslik):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Pa&rool (pole kohustuslik):"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Loobu"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Marek Laane"
-
-#~ msgid "failed"
-#~ msgstr "nurjus"
-
-#~ msgid "Available Backends"
-#~ msgstr "Saadaolevad taustarakendused"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "&Seadista..."
-
-#~ msgid "Rescan"
-#~ msgstr "Uuri uuesti"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Uurimisel ilmnesid järgmised probleemid:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Uurimise tulemused"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Viga plugina \"%1\" initsialiseerimisel"
-
-#~ msgid "Can't start decrypt job"
-#~ msgstr "Lahtikrüptimise alustamine nurjus"
-
-#~ msgid "Can't start combined decrypt/verify operation"
-#~ msgstr "Lahtikrüptimise ja verifitseerimise alustamine nurjus"
-
-#~ msgid "Can't start encrypt job"
-#~ msgstr "Krüptimise alustamine nurjus"
-
-#~ msgid "Error adding signer %1."
-#~ msgstr "Viga signeerija %1 lisamisel."
-
-#~ msgid ""
-#~ "You need a passphrase to unlock the secret key for user:<br/> %1 (retry)"
-#~ msgstr ""
-#~ "Vaja läheb paroolifraasi kasutaja salajase võtme avamiseks:<br/> %1 "
-#~ "(uuesti proovimine)"
-
-#~ msgid "You need a passphrase to unlock the secret key for user:<br/> %1"
-#~ msgstr "Vaja läheb paroolifraasi kasutaja salajase võtme avamiseks:<br/> %1"
-
-#~ msgid ""
-#~ "This dialog will reappear every time the passphrase is needed. For a more "
-#~ "secure solution that also allows caching the passphrase, use gpg-agent."
-#~ msgstr ""
-#~ "See dialoog ilmub alati, kui läheb vaja paroolifraasi. Turvalisema "
-#~ "lahenduse kasutamiseks, mis võimaldab ka paroolifraasi puhverdada, "
-#~ "paigalda gpg-agent. "
-
-#~ msgid "gpg-agent was found in %1, but does not appear to be running."
-#~ msgstr "gpg-agent leiti asukohas %1, kuid see ei paista töötavat."
-
-#~ msgid "gpg-agent is part of gnupg-%1, which you can download from %2"
-#~ msgstr ""
-#~ "gpg-agent kuulub gnupg-%1 koosseisu, mille saab alla laadida aadressilt %2"
-
-#~ msgid "For information on how to set up gpg-agent, see %1"
-#~ msgstr "Rohkem infot gpg-agendi töölepanemise kohta annab %1"
-
-#~ msgid "Passphrase Dialog"
-#~ msgstr "Paroolifraasi dialoog"
-
-#~ msgid "Can't start combined sign-encrypt job"
-#~ msgstr "Signeerimise ja krüptimise alustamine nurjus"
-
-#~ msgid "Can't start sign job"
-#~ msgstr "Signeerimise alustamine nurjus"
-
-#~ msgid "Can't start detached signature verification"
-#~ msgstr "Eraldiseisva signatuuri verifitseerimise alustamine nurjus"
-
-#~ msgid "Can't start opaque signature verification"
-#~ msgstr "Läbipaistmatu signatuuri verifitseerimise alustamine nurjus"
