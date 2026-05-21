@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-14 00:44+0000\n"
+"POT-Creation-Date: 2026-05-21 00:45+0000\n"
 "PO-Revision-Date: 2026-05-18 11:39+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
@@ -3578,19 +3578,19 @@ msgstr "Systemfehler"
 msgid "Bad signature"
 msgstr "Fehlerhafte Signatur"
 
-#: utils/formatting.cpp:1660 utils/formatting.cpp:1732
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1734
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Die Signatur ist ungültig: %1"
 
-#: utils/formatting.cpp:1669
+#: utils/formatting.cpp:1671
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Sie können das Zertifikat auf einem Schlüsselserver suchen oder es aus einer "
 "Datei importieren."
 
-#: utils/formatting.cpp:1678 utils/formatting.cpp:1688
+#: utils/formatting.cpp:1680 utils/formatting.cpp:1690
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3600,7 +3600,7 @@ msgstr ""
 "Die Signatur ist gültig, aber der verwendete Schlüssel wurde weder von Ihnen "
 "noch einer anderen vertrauenswürdigen Person beglaubigt."
 
-#: utils/formatting.cpp:1680 utils/formatting.cpp:1725
+#: utils/formatting.cpp:1682 utils/formatting.cpp:1727
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3611,8 +3611,8 @@ msgstr ""
 "einer vertrauenswürdigen Zertifizierungsstelle beglaubigt. Oder die "
 "Zertifizierungsstelle ist nicht importiert."
 
-#: utils/formatting.cpp:1683 utils/formatting.cpp:1705
-#: utils/formatting.cpp:1728
+#: utils/formatting.cpp:1685 utils/formatting.cpp:1707
+#: utils/formatting.cpp:1730
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3622,7 +3622,7 @@ msgstr ""
 "<strong>Warnung:</strong> Es gibt keinen Hinweis darauf, dass diese Signatur "
 "von der Person ist, die sie vorgibt zu sein."
 
-#: utils/formatting.cpp:1689 utils/formatting.cpp:1701
+#: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3632,13 +3632,13 @@ msgstr ""
 "<strong>Warnung:</strong> Es ist nicht sicher, dass diese Signatur von der "
 "Person ist, die sie vorgibt zu sein."
 
-#: utils/formatting.cpp:1697
+#: utils/formatting.cpp:1699
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
 msgstr "Die Signatur ist gültig, aber sie ist abgelaufen."
 
-#: utils/formatting.cpp:1699 utils/formatting.cpp:1703
+#: utils/formatting.cpp:1701 utils/formatting.cpp:1705
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3649,20 +3649,20 @@ msgstr ""
 "Schlüssel wurde weder von Ihnen noch von einer anderen vertrauenswürdigen "
 "Person beglaubigt."
 
-#: utils/formatting.cpp:1714
+#: utils/formatting.cpp:1716
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
 msgstr "Die Signatur ist gültig, aber der verwendete Schlüssel ist abgelaufen."
 
-#: utils/formatting.cpp:1720
+#: utils/formatting.cpp:1722
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr ""
 "Die Signatur ist gültig, aber der verwendete Schlüssel wurde widerrufen."
 
-#: utils/formatting.cpp:1721
+#: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
@@ -3670,7 +3670,7 @@ msgstr ""
 "<strong>Warnung:</strong> Dies könnte bedeuten, dass die Signatur gefälscht "
 "ist."
 
-#: utils/formatting.cpp:1723
+#: utils/formatting.cpp:1725
 #, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."

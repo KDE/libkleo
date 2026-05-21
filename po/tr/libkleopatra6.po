@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-14 00:44+0000\n"
+"POT-Creation-Date: 2026-05-21 00:45+0000\n"
 "PO-Revision-Date: 2026-05-10 12:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3538,19 +3538,19 @@ msgstr "Sistem hatası"
 msgid "Bad signature"
 msgstr "İmza kötü"
 
-#: utils/formatting.cpp:1660 utils/formatting.cpp:1732
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1734
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "İmza geçersiz: %1"
 
-#: utils/formatting.cpp:1669
+#: utils/formatting.cpp:1671
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Sertifikayı bir anahtar sunucusunda arayabilir veya bir dosyadan içe "
 "aktarabilirsiniz."
 
-#: utils/formatting.cpp:1678 utils/formatting.cpp:1688
+#: utils/formatting.cpp:1680 utils/formatting.cpp:1690
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3560,7 +3560,7 @@ msgstr ""
 "İmza geçerli; ancak kullanılan anahtar siz veya güvenilen başka bir kişi "
 "tarafından sertifikalanmamış."
 
-#: utils/formatting.cpp:1680 utils/formatting.cpp:1725
+#: utils/formatting.cpp:1682 utils/formatting.cpp:1727
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3570,8 +3570,8 @@ msgstr ""
 "İmza geçerli; ancak kullanılan sertifika güvenilir bir sertifika otoritesi "
 "tarafından sertifikalanmamış veya bilinmeyen sertifika otoritesi."
 
-#: utils/formatting.cpp:1683 utils/formatting.cpp:1705
-#: utils/formatting.cpp:1728
+#: utils/formatting.cpp:1685 utils/formatting.cpp:1707
+#: utils/formatting.cpp:1730
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3580,7 +3580,7 @@ msgid ""
 msgstr ""
 "<strong>Uyarı:</strong> İmzanın sahibine ait olduğuna dair bir belirti yok."
 
-#: utils/formatting.cpp:1689 utils/formatting.cpp:1701
+#: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3588,13 +3588,13 @@ msgid ""
 "the owner."
 msgstr "<strong>Uyarı:</strong> İmzanın sahibine ait olduğu kesin değil."
 
-#: utils/formatting.cpp:1697
+#: utils/formatting.cpp:1699
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
 msgstr "İmza geçerli; ancak süresi dolmuş."
 
-#: utils/formatting.cpp:1699 utils/formatting.cpp:1703
+#: utils/formatting.cpp:1701 utils/formatting.cpp:1705
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3604,26 +3604,26 @@ msgstr ""
 "İmza geçerli; ancak süresi dolmuş ve kullanılan anahtar siz veya güvenilen "
 "başka bir kişi tarafından sertifikalanmamış."
 
-#: utils/formatting.cpp:1714
+#: utils/formatting.cpp:1716
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
 msgstr "İmza geçerli; ancak kullanılan anahtarın süresi dolmuş."
 
-#: utils/formatting.cpp:1720
+#: utils/formatting.cpp:1722
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr "İmza geçerli; ancak kullanılan anahtar yürürlükten kaldırılmış."
 
-#: utils/formatting.cpp:1721
+#: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
 "<strong>Uyarı:</strong> Bu, imzanın düzmece olabileceği anlamına gelir."
 
-#: utils/formatting.cpp:1723
+#: utils/formatting.cpp:1725
 #, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."

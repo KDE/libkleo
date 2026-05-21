@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-14 00:44+0000\n"
+"POT-Creation-Date: 2026-05-21 00:45+0000\n"
 "PO-Revision-Date: 2026-03-06 14:07+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -3768,19 +3768,19 @@ msgstr "Ошибка системы"
 msgid "Bad signature"
 msgstr "Некорректная подпись"
 
-#: utils/formatting.cpp:1660 utils/formatting.cpp:1732
+#: utils/formatting.cpp:1662 utils/formatting.cpp:1734
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Подпись недействительна: %1"
 
-#: utils/formatting.cpp:1669
+#: utils/formatting.cpp:1671
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Возможно выполнить поиск сертификата на сервере ключей или импортировать его "
 "из файла."
 
-#: utils/formatting.cpp:1678 utils/formatting.cpp:1688
+#: utils/formatting.cpp:1680 utils/formatting.cpp:1690
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3790,7 +3790,7 @@ msgstr ""
 "Подпись действительна, но использованный для её создания ключ не удостоверен "
 "вами или каким-либо доверенным лицом."
 
-#: utils/formatting.cpp:1680 utils/formatting.cpp:1725
+#: utils/formatting.cpp:1682 utils/formatting.cpp:1727
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3800,8 +3800,8 @@ msgstr ""
 "Подпись действительна, но использованный сертификат не удостоверен "
 "доверенным центром сертификации или центр сертификации неизвестен."
 
-#: utils/formatting.cpp:1683 utils/formatting.cpp:1705
-#: utils/formatting.cpp:1728
+#: utils/formatting.cpp:1685 utils/formatting.cpp:1707
+#: utils/formatting.cpp:1730
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3811,7 +3811,7 @@ msgstr ""
 "<strong>Предупреждение:</strong> Отсутствуют признаки того, что подпись "
 "принадлежит владельцу."
 
-#: utils/formatting.cpp:1689 utils/formatting.cpp:1701
+#: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3821,13 +3821,13 @@ msgstr ""
 "<strong>Предупреждение:</strong> Нет уверенности, что подпись принадлежит "
 "владельцу."
 
-#: utils/formatting.cpp:1697
+#: utils/formatting.cpp:1699
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
 msgstr "Подпись действительна, но срок её действия истёк."
 
-#: utils/formatting.cpp:1699 utils/formatting.cpp:1703
+#: utils/formatting.cpp:1701 utils/formatting.cpp:1705
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3837,7 +3837,7 @@ msgstr ""
 "Подпись действительна, но срок её действия истёк, а использованный для её "
 "создания ключ не удостоверен вами или каким-либо доверенным лицом."
 
-#: utils/formatting.cpp:1714
+#: utils/formatting.cpp:1716
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
@@ -3845,21 +3845,21 @@ msgstr ""
 "Подпись действительна, но истёк срок действия ключа, использованного для её "
 "создания."
 
-#: utils/formatting.cpp:1720
+#: utils/formatting.cpp:1722
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr ""
 "Подпись действительна, ключ, использованный для её создания, был отозван."
 
-#: utils/formatting.cpp:1721
+#: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
 "<strong>Предупреждение:</strong> Это может означать, что подпись подделана."
 
-#: utils/formatting.cpp:1723
+#: utils/formatting.cpp:1725
 #, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
