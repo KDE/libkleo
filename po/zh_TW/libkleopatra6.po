@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-21 00:45+0000\n"
-"PO-Revision-Date: 2026-03-16 16:53+0900\n"
+"PO-Revision-Date: 2026-05-21 22:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2124,12 +2124,10 @@ msgid "Security approval"
 msgstr "安全性確認"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "協定"
+msgstr "加密協定："
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2143,7 +2141,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
-msgstr ""
+msgstr "用 OpenPGP 格式撰寫訊息。這代表只能選取 OpenPGP 加密金鑰。"
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2157,14 +2155,13 @@ msgctxt "@info:tooltip"
 msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
-msgstr ""
+msgstr "用 S/MIME 格式撰寫訊息。這代表只能選取 S/MIME 加密金鑰。"
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "OpenPGP 和 S/MIME 兩者"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2175,18 +2172,20 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"撰寫兩個訊息，一個為使用 OpenPGP 金鑰的收件者加密，另一個則為 S/MIME 加密。這"
+"讓兩種金鑰可以混用，但可能會使收件者比較難以回覆給所有郵件地址。"
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "訊息會以 OpenPGP 格式撰寫。"
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "訊息會以 S/MIME 格式撰寫。"
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2227,11 +2226,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "郵件將不會用密碼學簽署。"
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "簽署"
+msgstr "簽署名義："
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2239,7 +2237,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
-msgstr ""
+msgstr "簽署訊息會提供加密學資訊來證明您真的是這個信件的寄件者。"
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
