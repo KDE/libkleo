@@ -27,6 +27,7 @@ class Key;
 class UserID;
 }
 
+class KConfigGroup;
 class QModelIndex;
 class QFont;
 class QColor;
@@ -51,6 +52,15 @@ protected:
 
 public:
     static KeyFilterManager *instance();
+
+    /*!
+     * Returns the "Key Filter #NNN" config groups stored in libkleopatrarc
+     * sorted by decreasing specificity and by their config group number NNN.
+     *
+     * Filters for keys not matching the protocol \a protocol are not included
+     * in the return value.
+     */
+    static std::vector<KConfigGroup> loadKeyFilterConfigGroups(GpgME::Protocol protocol);
 
     /**
      * Adds the rule that keys must match @p protocol to all filters.

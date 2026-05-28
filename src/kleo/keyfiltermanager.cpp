@@ -35,11 +35,14 @@
 #include <QStringList>
 
 #include <algorithm>
+#include <map>
+#include <utility>
+
 #include <climits>
-#include <functional>
 
 using namespace Kleo;
 using namespace GpgME;
+using namespace std::literals;
 
 Q_DECLARE_METATYPE(std::shared_ptr<KeyFilter>)
 
@@ -332,25 +335,70 @@ static const auto byDecreasingSpecificity = [](const std::shared_ptr<KeyFilter> 
 };
 }
 
+static inline QDebug operator<<(QDebug debug, const KConfigGroup &configGroup)
+{
+    return debug << configGroup.name();
+}
+
+// static
+std::vector<KConfigGroup> KeyFilterManager::loadKeyFilterConfigGroups(GpgME::Protocol protocol)
+{
+    KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
+    const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
+
+    // read the config groups into a map sorted by their number
+    std::map<int, KConfigGroup> groupsByNumber;
+    std::ranges::transform(groups, std::inserter(groupsByNumber, groupsByNumber.end()), [&config](const QString &group) {
+        static constexpr auto numStart = "Key Filter #"sv.size();
+        const int groupNumber = QStringView{group}.mid(numStart).toInt();
+        return std::make_pair(groupNumber, KConfigGroup(config, group));
+    });
+
+    // remove config groups that are only relevant if de-vs compliance is given
+    if (!DeVSCompliance::isCompliant()) {
+        std::erase_if(groupsByNumber, [](const auto &item) {
+            const auto &[number, group] = item;
+            return group.hasKey("is-de-vs");
+        });
+    }
+
+    // remove config groups that don't match the given protocol
+    if (protocol != GpgME::UnknownProtocol) {
+        const bool expectedIsOpenPGPKeyValue = protocol == GpgME::OpenPGP;
+        std::erase_if(groupsByNumber, [expectedIsOpenPGPKeyValue](const auto &item) {
+            const auto &[number, group] = item;
+            return group.readEntry("is-openpgp-key", expectedIsOpenPGPKeyValue) != expectedIsOpenPGPKeyValue;
+        });
+    }
+
+    // read the config groups into a vector to stable-sort them by their specificity (in decreasing order)
+    std::vector<std::pair<unsigned int, KConfigGroup>> groupsBySpecificity;
+    groupsBySpecificity.reserve(groupsByNumber.size());
+    std::ranges::transform(groupsByNumber, std::back_inserter(groupsBySpecificity), [](const auto &item) {
+        const auto &[number, group] = item;
+        const KConfigBasedKeyFilter temp{group};
+        const unsigned int specificity = temp.specificity();
+        return std::make_pair(specificity, group);
+    });
+    std::ranges::stable_sort(groupsBySpecificity, std::ranges::greater(), &std::pair<unsigned int, KConfigGroup>::first);
+
+    std::vector<KConfigGroup> result;
+    result.reserve(groupsBySpecificity.size());
+    std::ranges::transform(groupsBySpecificity, std::back_inserter(result), [](const auto &pair) {
+        return pair.second;
+    });
+    qCDebug(LIBKLEO_LOG) << __func__ << "result:" << result;
+    return result;
+}
+
 void KeyFilterManager::reload()
 {
     d->clear();
 
     d->filters = defaultFilters();
-    KSharedConfigPtr config = KSharedConfig::openConfig(QStringLiteral("libkleopatrarc"));
-
-    const QStringList groups = config->groupList().filter(QRegularExpression(QStringLiteral("^Key Filter #\\d+$")));
-    const bool ignoreDeVs = !DeVSCompliance::isCompliant();
-    for (QStringList::const_iterator it = groups.begin(); it != groups.end(); ++it) {
-        const KConfigGroup cfg(config, *it);
-        if (cfg.hasKey("is-de-vs") && ignoreDeVs) {
-            /* Don't show de-vs filters in other compliance modes */
-            continue;
-        }
-        d->filters.push_back(std::shared_ptr<KeyFilter>(new KConfigBasedKeyFilter(cfg)));
+    for (const auto &cfg : loadKeyFilterConfigGroups(d->protocol)) {
+        d->filters.push_back(std::make_shared<KConfigBasedKeyFilter>(cfg));
     }
-    std::stable_sort(d->filters.begin(), d->filters.end(), byDecreasingSpecificity);
-
     adjustFilters(d->filters, d->protocol);
     qCDebug(LIBKLEO_LOG) << "KeyFilterManager::" << __func__ << "final filter count is" << d->filters.size();
 }
