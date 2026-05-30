@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-29 00:44+0000\n"
-"PO-Revision-Date: 2026-05-28 22:59+0200\n"
+"PO-Revision-Date: 2026-05-29 12:12+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -2302,6 +2302,8 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Съставете съобщението в формат S/MIME. Това означава, че може да бъдат "
+"избрани само S/MIME криптографски ключове."
 
 #: ui/newkeyapprovaldialog.cpp:315
 #, kde-format
@@ -2318,18 +2320,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Съставяне на две отделни съобщения: едно, криптирано за получатели с OpenPGP "
+"ключове, и друго, за получатели с S/MIME ключове. Това позволява да "
+"комбинирате двата типа ключове, но може да усложни отговорът на получателите "
+"към всички адреси."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Съобщението ще бъде в OpenPGP формат."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Съобщението ще бъде в S/MIME формат."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2370,11 +2376,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Имейлът няма да бъде криптографски подписан."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Подписване"
+msgstr "Подписване като:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2383,6 +2388,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Подписването на съобщението ви осигурява криптографско потвърждение, че "
+"наистина сте изпращачът на това съобщение."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
