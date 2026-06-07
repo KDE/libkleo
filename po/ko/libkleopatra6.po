@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-29 00:44+0000\n"
-"PO-Revision-Date: 2026-02-03 23:51+0100\n"
+"PO-Revision-Date: 2026-05-26 23:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2164,12 +2164,10 @@ msgid "Security approval"
 msgstr "보안 승인"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "프로토콜"
+msgstr "암호화 프로토콜:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2184,6 +2182,7 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"OpenPGP 형식으로 메시지를 작성합니다. OpenPGP 암호화 키만 선택할 수 있습니다."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2198,13 +2197,13 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"S/MIME 형식으로 메시지를 작성합니다. S/MIME 암호화 키만 선택할 수 있습니다."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "OpenPGP와 S/MIME 둘 다"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2215,18 +2214,21 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"OpenPGP 키가 있는 수신자와 S/MIME 키가 있는 수신자를 위해서 별개의 메시지를 "
+"작성합니다. 두 형식의 키를 모두 사용할 수 있지만, 메시지의 수신자가 모두에게 "
+"답장을 쓸 때 문제가 발생할 수 있습니다."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "메시지를 OpenPGP 형식으로 작성합니다."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "메시지를 S/MIME 형식으로 작성합니다."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2267,11 +2269,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "이메일에 암호학적 서명을 추가하지 않습니다."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "서명"
+msgstr "다음으로 서명:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2280,6 +2281,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"메시지에 서명하면 메시지를 전송한 사람이 본인임을 검증할 수 있는 암호학적 정"
+"보를 제공합니다."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
@@ -2407,33 +2410,31 @@ msgstr "열 보기"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "정렬 기준"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Active Directory"
+msgstr "정렬 순서"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "오름차순"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "내림차순"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "감사 기록을 클립보드에 복사"
+msgstr "클립보드에 셀 내용 복사"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
