@@ -778,6 +778,17 @@ const GpgME::Subkey &KeyCache::findSubkeyByFingerprint(const std::string &fpr) c
     return null;
 }
 
+const GpgME::Subkey &KeyCache::findSubkeyByKeyID(const std::string &id) const
+{
+    static const Subkey null;
+
+    const auto it = d->find_subkeyid(id.c_str());
+    if (it != d->by.subkeyid.end()) {
+        return *it;
+    }
+    return null;
+}
+
 std::vector<Key> KeyCache::findRecipients(const DecryptionResult &res) const
 {
     std::vector<std::string> keyids;
@@ -805,15 +816,20 @@ GpgME::Key KeyCache::findSigner(const GpgME::Signature &signature) const
 
     GpgME::Key key = signature.key();
     if (key.isNull() && signature.fingerprint()) {
-        key = findByFingerprint(signature.fingerprint());
+        // fingerprint() could actually be a keyid
+        key = findByKeyIDOrFingerprint(signature.fingerprint());
     }
     if (key.isNull() && signature.fingerprint()) {
         // try to find a subkey that was used for signing
-        const auto subkey = findSubkeyByFingerprint(signature.fingerprint());
+        auto subkey = findSubkeyByFingerprint(signature.fingerprint());
+        if (subkey.isNull()) {
+            subkey = findSubkeyByKeyID(signature.fingerprint());
+        }
         if (!subkey.isNull()) {
             key = subkey.parent();
         }
     }
+
     return key;
 }
 
