@@ -55,6 +55,7 @@
 #include <array>
 
 using namespace GpgME;
+using namespace Qt::StringLiterals;
 
 QString Kleo::gnupgHomeDirectory()
 {
@@ -572,6 +573,11 @@ void Kleo::restartGpgAgent()
         Kleo::launchGpgAgent(SkipCheckForRunningAgent);
     };
     process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")}, startAgent, startAgent);
+}
+
+void Kleo::launchDirmngr()
+{
+    startGpgConfDetached({u"--launch"_s, u"dirmngr"_s});
 }
 
 static const std::vector<std::string> &availableAlgorithmsOpenPGP()

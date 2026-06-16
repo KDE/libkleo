@@ -139,6 +139,9 @@ KLEO_EXPORT void launchGpgAgent(LaunchGpgAgentOptions options = CheckForRunningA
 /** Shut down all GnuPG daemons and restart the GnuPG agent. */
 KLEO_EXPORT void restartGpgAgent();
 
+/** Starts the dirmngr daemon if it's not already running. */
+KLEO_EXPORT void launchDirmngr();
+
 /**
  * Returns a static list of the available algorithms for protocol \a protocol.
  *
