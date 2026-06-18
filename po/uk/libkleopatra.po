@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 00:42+0000\n"
-"PO-Revision-Date: 2024-01-09 21:16+0200\n"
+"POT-Creation-Date: 2025-03-25 00:42+0000\n"
+"PO-Revision-Date: 2024-11-15 17:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
@@ -72,79 +72,79 @@ msgstr "запис «file-patterns» є порожнім або його вза�
 msgid "Caught unknown exception in group %1"
 msgstr "Виявлено невідоме виключення у групі %1"
 
-#: kleo/dn.cpp:517
+#: kleo/dnattributes.cpp:61
 msgid "Common name"
 msgstr "П. І. Б."
 
-#: kleo/dn.cpp:518
+#: kleo/dnattributes.cpp:62
 msgid "Surname"
 msgstr "Прізвище"
 
-#: kleo/dn.cpp:519
+#: kleo/dnattributes.cpp:63
 msgid "Given name"
 msgstr "Ім'я"
 
-#: kleo/dn.cpp:520
+#: kleo/dnattributes.cpp:64
 msgid "Location"
 msgstr "Адреса"
 
-#: kleo/dn.cpp:521
+#: kleo/dnattributes.cpp:65
 msgid "Title"
 msgstr "Титул"
 
-#: kleo/dn.cpp:522
+#: kleo/dnattributes.cpp:66
 msgid "Organizational unit"
 msgstr "Відділ організації"
 
-#: kleo/dn.cpp:523
+#: kleo/dnattributes.cpp:67
 msgid "Organization"
 msgstr "Організація"
 
-#: kleo/dn.cpp:524
+#: kleo/dnattributes.cpp:68
 msgid "Postal code"
 msgstr "Поштовий код"
 
-#: kleo/dn.cpp:525
+#: kleo/dnattributes.cpp:69
 msgid "Country code"
 msgstr "Код країни"
 
-#: kleo/dn.cpp:526
+#: kleo/dnattributes.cpp:70
 msgid "State or province"
 msgstr "Область або регіон"
 
-#: kleo/dn.cpp:527
+#: kleo/dnattributes.cpp:71
 msgid "Domain component"
 msgstr "Компонент домену"
 
-#: kleo/dn.cpp:528
+#: kleo/dnattributes.cpp:72
 msgid "Business category"
 msgstr "Категорія бізнесу"
 
-#: kleo/dn.cpp:529
+#: kleo/dnattributes.cpp:73
 msgid "Email address"
 msgstr "Поштова адреса"
 
-#: kleo/dn.cpp:530
+#: kleo/dnattributes.cpp:74
 msgid "Mail address"
 msgstr "Поштова адреса"
 
-#: kleo/dn.cpp:531
+#: kleo/dnattributes.cpp:75
 msgid "Mobile phone number"
 msgstr "Номер мобільного телефону"
 
-#: kleo/dn.cpp:532
+#: kleo/dnattributes.cpp:76
 msgid "Telephone number"
 msgstr "Номер телефону"
 
-#: kleo/dn.cpp:533
+#: kleo/dnattributes.cpp:77
 msgid "Fax number"
 msgstr "Номер факсу"
 
-#: kleo/dn.cpp:534
+#: kleo/dnattributes.cpp:78
 msgid "Street address"
 msgstr "Вулиця і будинок"
 
-#: kleo/dn.cpp:535
+#: kleo/dnattributes.cpp:79
 msgid "Unique ID"
 msgstr "Унікальний ІД"
 
@@ -156,9 +156,7 @@ msgstr "Вбудований OpenPGP (застаріле)"
 msgid "OpenPGP/MIME"
 msgstr "OpenPGP/MIME"
 
-#: kleo/enum.cpp:37 ui/newkeyapprovaldialog.cpp:305
-#: ui/newkeyapprovaldialog.cpp:308
-#, kde-format
+#: kleo/enum.cpp:37
 msgid "S/MIME"
 msgstr "S/MIME"
 
@@ -231,13 +229,13 @@ msgctxt "no specific preference"
 msgid "<none>"
 msgstr "<немає>"
 
-#: kleo/expirychecker.cpp:78
+#: kleo/expirychecker.cpp:80
 #, kde-format
-msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
-msgid "<b>%1</b> (KeyID 0x%2)"
-msgstr "<b>%1</b> (Ід. ключа 0x%2)"
+msgctxt "<b>User ID of key</b> (Key ID key ID of key in hex notation)"
+msgid "<b>%1</b> (Key ID 0x%2)"
+msgstr "<b>%1</b> (ід. ключа 0x%2)"
 
-#: kleo/expirychecker.cpp:86
+#: kleo/expirychecker.cpp:88
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
@@ -246,7 +244,7 @@ msgstr ""
 "<p>Строк дії вашого ключа OpenPGP для підписування</p><p align=\"center\">"
 "%1</p><p>вичерпано менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:88
+#: kleo/expirychecker.cpp:90
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
@@ -255,7 +253,7 @@ msgstr ""
 "<p>Строк дії вашого ключа OpenPGP</p><p align=\"center\">%1</p><p>вичерпано "
 "менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:90
+#: kleo/expirychecker.cpp:92
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
@@ -264,7 +262,7 @@ msgstr ""
 "<p>Строк дії ключа OpenPGP для</p><p align=\"center\">%1</p><p>вичерпано "
 "менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:96
+#: kleo/expirychecker.cpp:98
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired yesterday.</"
@@ -285,7 +283,7 @@ msgstr[3] ""
 "<p>Строк дії вашого ключа OpenPGP для підписування</p><p align=\"center\">"
 "%2</p><p>вичерпано день тому.</p>"
 
-#: kleo/expirychecker.cpp:99
+#: kleo/expirychecker.cpp:101
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired yesterday."
@@ -306,7 +304,7 @@ msgstr[3] ""
 "<p>Строк дії вашого ключа OpenPGP</p><p align=\"center\">%2</p><p>вичерпано "
 "день тому.</p>"
 
-#: kleo/expirychecker.cpp:102
+#: kleo/expirychecker.cpp:104
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
@@ -325,7 +323,7 @@ msgstr[3] ""
 "<p>Строк дії ключа OpenPGP для</p><p align=\"center\">%2</p><p>вичерпано "
 "день тому.</p>"
 
-#: kleo/expirychecker.cpp:111
+#: kleo/expirychecker.cpp:113
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
@@ -333,7 +331,7 @@ msgstr ""
 "<p>Строк дії вашого ключа OpenPGP для підписування</p><p align=\"center\">"
 "%1</p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:113
+#: kleo/expirychecker.cpp:115
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
@@ -341,14 +339,14 @@ msgstr ""
 "<p>Строк дії вашого ключа OpenPGP</p><p align=\"center\">%1</p><p>буде "
 "вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:115
+#: kleo/expirychecker.cpp:117
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
 "<p>Строк дії ключа OpenPGP для</p><p align=\"center\">%1</p><p>буде "
 "вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:121
+#: kleo/expirychecker.cpp:123
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -368,7 +366,7 @@ msgstr[3] ""
 "<p>Строк дії вашого ключа OpenPGP для підписування</p><p align=\"center\">"
 "%2</p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:124
+#: kleo/expirychecker.cpp:126
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires tomorrow."
@@ -389,7 +387,7 @@ msgstr[3] ""
 "<p>Строк дії вашого ключа OpenPGP</p><p align=\"center\">%2</p><p>буде "
 "вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:127
+#: kleo/expirychecker.cpp:129
 #, kde-format
 msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
@@ -408,14 +406,14 @@ msgstr[3] ""
 "<p>Строк дії ключа OpenPGP для</p><p align=\"center\">%2</p><p>буде "
 "вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:139
+#: kleo/expirychecker.cpp:141
 #, kde-format
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
 msgstr "<b>%1</b> (серійний номер %2)"
 
-#: kleo/expirychecker.cpp:150
+#: kleo/expirychecker.cpp:152
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -426,7 +424,7 @@ msgstr ""
 "p><p>для вашого сертифіката S/MIME для підписування</p><p align=\"center\">"
 "%1</p><p>вичерпано менше, ніж %1 день тому.</p>"
 
-#: kleo/expirychecker.cpp:155
+#: kleo/expirychecker.cpp:157
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for your S/MIME "
@@ -437,7 +435,7 @@ msgstr ""
 "p><p>для вашого сертифіката S/MIME для шифрування</p><p align=\"center\">%1</"
 "p><p>вичерпано менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:160
+#: kleo/expirychecker.cpp:162
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
@@ -447,7 +445,7 @@ msgstr ""
 "p><p>для сертифіката S/MIME</p><p align=\"center\">%1</p><p>вичерпано менше, "
 "ніж %1 день тому.</p>"
 
-#: kleo/expirychecker.cpp:169
+#: kleo/expirychecker.cpp:171
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -472,7 +470,7 @@ msgstr[3] ""
 "p><p>для вашого сертифіката S/MIME для підписування</p><p align=\"center\">"
 "%2</p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:177
+#: kleo/expirychecker.cpp:179
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -497,7 +495,7 @@ msgstr[3] ""
 "p><p>для вашого сертифіката S/MIME для шифрування</p><p align=\"center\">%2</"
 "p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:185
+#: kleo/expirychecker.cpp:187
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -522,7 +520,7 @@ msgstr[3] ""
 "p><p>для сертифіката S/MIME</p><p align=\"center\">%2</p><p>вичерпано вчора."
 "</p>"
 
-#: kleo/expirychecker.cpp:198
+#: kleo/expirychecker.cpp:200
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -533,7 +531,7 @@ msgstr ""
 "\"center\"><b>%2</b></p><p>вашого сертифіката S/MIME для підписування</p><p "
 "align=\"center\">%1</p><p>вичерпано менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:203
+#: kleo/expirychecker.cpp:205
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for "
@@ -544,7 +542,7 @@ msgstr ""
 "\"center\"><b>%2</b></p><p>вашого сертифіката S/MIME для шифрування</p><p "
 "align=\"center\">%1</p><p>вичерпано менше, ріж день тому.</p>"
 
-#: kleo/expirychecker.cpp:208
+#: kleo/expirychecker.cpp:210
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
@@ -554,7 +552,7 @@ msgstr ""
 "\"center\"><b>%2</b></p><p>сертифіката S/MIME</p><p align=\"center\">%1</"
 "p><p>вичерпано менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:217
+#: kleo/expirychecker.cpp:219
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -581,7 +579,7 @@ msgstr[3] ""
 "\"center\"><b>%3</b></p><p>вашого сертифіката S/MIME для підписування</p><p "
 "align=\"center\">%2</p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:225
+#: kleo/expirychecker.cpp:227
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -608,7 +606,7 @@ msgstr[3] ""
 "\"center\"><b>%3</b></p><p>вашого сертифіката S/MIME для шифрування</p><p "
 "align=\"center\">%2</p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:233
+#: kleo/expirychecker.cpp:235
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -633,7 +631,7 @@ msgstr[3] ""
 "\"center\"><b>%3</b></p><p>сертифіката S/MIME</p><p align=\"center\">%2</"
 "p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:246
+#: kleo/expirychecker.cpp:248
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
@@ -642,7 +640,7 @@ msgstr ""
 "<p>Строк дії сертифіката S/MIME для підписування</p><p align=\"center\">%1</"
 "p><p>вичерпано менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:248
+#: kleo/expirychecker.cpp:250
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
@@ -651,7 +649,7 @@ msgstr ""
 "<p>Строк дії вашого сертифіката S/MIME для шифрування</p><p align=\"center\">"
 "%1</p><p>вичерпано менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:250
+#: kleo/expirychecker.cpp:252
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
@@ -660,7 +658,7 @@ msgstr ""
 "<p>Строк дії сертифіката S/MIME для</p><p align=\"center\">%1</"
 "p><p>вичерпано менше, ніж день тому.</p>"
 
-#: kleo/expirychecker.cpp:256
+#: kleo/expirychecker.cpp:258
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired "
@@ -681,7 +679,7 @@ msgstr[3] ""
 "<p>Строк дії сертифіката S/MIME для підписування</p><p align=\"center\">%2</"
 "p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:259
+#: kleo/expirychecker.cpp:261
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired "
@@ -702,7 +700,7 @@ msgstr[3] ""
 "<p>Строк дії вашого сертифіката S/MIME для шифрування</p><p align=\"center\">"
 "%2</p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:262
+#: kleo/expirychecker.cpp:264
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired yesterday."
@@ -723,7 +721,7 @@ msgstr[3] ""
 "<p>Строк дії сертифіката S/MIME для</p><p align=\"center\">%2</"
 "p><p>вичерпано вчора.</p>"
 
-#: kleo/expirychecker.cpp:275
+#: kleo/expirychecker.cpp:277
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -733,7 +731,7 @@ msgstr ""
 "p><p>для вашого сертифіката S/MIME для підписування</p><p align=\"center\">"
 "%2</p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:280
+#: kleo/expirychecker.cpp:282
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -743,7 +741,7 @@ msgstr ""
 "p><p>для вашого сертифіката S/MIME для шифрування</p><p align=\"center\">%2</"
 "p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:285
+#: kleo/expirychecker.cpp:287
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -753,7 +751,7 @@ msgstr ""
 "p><p>для сертифіката S/MIME</p><p align=\"center\">%2</p><p>буде вичерпано "
 "сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:294
+#: kleo/expirychecker.cpp:296
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -778,7 +776,7 @@ msgstr[3] ""
 "p><p>для вашого сертифіката S/MIME для підписування</p><p align=\"center\">"
 "%2</p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:302
+#: kleo/expirychecker.cpp:304
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
@@ -803,7 +801,7 @@ msgstr[3] ""
 "p><p>для вашого сертифіката S/MIME для шифрування</p><p align=\"center\">%2</"
 "p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:310
+#: kleo/expirychecker.cpp:312
 #, kde-format
 msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
@@ -828,7 +826,7 @@ msgstr[3] ""
 "p><p>для сертифіката S/MIME</p><p align=\"center\">%2</p><p>буде вичерпано "
 "завтра.</p>"
 
-#: kleo/expirychecker.cpp:323
+#: kleo/expirychecker.cpp:325
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -839,7 +837,7 @@ msgstr ""
 "\"center\"><b>%3</b></p><p>вашого сертифіката S/MIME для підписування</p><p "
 "align=\"center\">%2</p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:328
+#: kleo/expirychecker.cpp:330
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -850,7 +848,7 @@ msgstr ""
 "\"center\"><b>%3</b></p><p>вашого сертифіката S/MIME для шифрування</p><p "
 "align=\"center\">%2</p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:333
+#: kleo/expirychecker.cpp:335
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -860,7 +858,7 @@ msgstr ""
 "\"center\"><b>%3</b></p><p>сертифіката S/MIME</p><p align=\"center\">%2</"
 "p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:341
+#: kleo/expirychecker.cpp:343
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -887,7 +885,7 @@ msgstr[3] ""
 "\"center\"><b>%3</b></p><p>вашого сертифіката S/MIME для підписування</p><p "
 "align=\"center\">%2</p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:349
+#: kleo/expirychecker.cpp:351
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for "
@@ -914,7 +912,7 @@ msgstr[3] ""
 "\"center\"><b>%3</b></p><p>вашого сертифіката S/MIME для шифрування</p><p "
 "align=\"center\">%2</p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:357
+#: kleo/expirychecker.cpp:359
 #, kde-format
 msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
@@ -939,7 +937,7 @@ msgstr[3] ""
 "\"center\"><b>%3</b></p><p>сертифіката S/MIME</p><p align=\"center\">%2</"
 "p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:369
+#: kleo/expirychecker.cpp:371
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
@@ -948,7 +946,7 @@ msgstr ""
 "<p>Строк дії сертифіката S/MIME для підписування</p><p align=\"center\">%2</"
 "p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:371
+#: kleo/expirychecker.cpp:373
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
@@ -957,7 +955,7 @@ msgstr ""
 "<p>Строк дії вашого сертифіката S/MIME для шифрування</p><p align=\"center\">"
 "%2</p><p>буде вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:373
+#: kleo/expirychecker.cpp:375
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
@@ -965,7 +963,7 @@ msgstr ""
 "<p>Строк дії сертифіката S/MIME для</p><p align=\"center\">%2</p><p>буде "
 "вичерпано сьогодні.</p>"
 
-#: kleo/expirychecker.cpp:380
+#: kleo/expirychecker.cpp:382
 #, kde-format
 msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires "
@@ -986,7 +984,7 @@ msgstr[3] ""
 "<p>Строк дії сертифіката S/MIME для підписування</p><p align=\"center\">%2</"
 "p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:386
+#: kleo/expirychecker.cpp:388
 #, kde-format
 msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
@@ -1007,7 +1005,7 @@ msgstr[3] ""
 "<p>Строк дії вашого сертифіката S/MIME для шифрування</p><p align=\"center\">"
 "%2</p><p>буде вичерпано завтра.</p>"
 
-#: kleo/expirychecker.cpp:392
+#: kleo/expirychecker.cpp:394
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires tomorrow.</"
@@ -1028,132 +1026,215 @@ msgstr[3] ""
 "<p>Строк дії сертифіката S/MIME для</p><p align=\"center\">%2</p><p>буде "
 "вичерпано завтра.</p>"
 
-#: kleo/keyfiltermanager.cpp:71
+#: kleo/keyfiltermanager.cpp:90
 #, kde-format
-msgid "All Certificates"
-msgstr "Всі сертифікати"
+msgctxt "All Certificates"
+msgid "All"
+msgstr "Усі"
 
-#: kleo/keyfiltermanager.cpp:86
+#: kleo/keyfiltermanager.cpp:91
 #, kde-format
-msgid "My Certificates"
-msgstr "Мої сертифікати"
+msgid "All certificates (except disabled ones)"
+msgstr "Усі сертифікати (окрім вимкнених)"
 
-#: kleo/keyfiltermanager.cpp:104
+#: kleo/keyfiltermanager.cpp:108
 #, kde-format
-msgid "Trusted Certificates"
-msgstr "Сертифікати з довірою"
+msgctxt "My own Certificates"
+msgid "My Own"
+msgstr "Власні"
 
-#: kleo/keyfiltermanager.cpp:121
+#: kleo/keyfiltermanager.cpp:109
 #, kde-format
-msgid "Fully Trusted Certificates"
-msgstr "Сертифікати з повною довірою"
+msgid "My own certificates (except disabled ones)"
+msgstr "Ваші власні сертифікати (окрім вимкнених)"
 
-#: kleo/keyfiltermanager.cpp:138
+#: kleo/keyfiltermanager.cpp:127
 #, kde-format
-msgid "Other Certificates"
-msgstr "Інші сертифікати"
+msgctxt "Certified Certificates"
+msgid "Certified"
+msgstr "Сертифіковані"
 
-#: kleo/keyfiltermanager.cpp:153
+#: kleo/keyfiltermanager.cpp:128
 #, kde-format
-msgid "Not Certified Certificates"
-msgstr "Несертифіковані сертифікати"
+msgid ""
+"Certificates for which the primary user ID is certified (except disabled "
+"ones)"
+msgstr ""
+"Сертифікати, ідентифікатор основного користувача яких сертифіковано (окрім "
+"вимкнених)"
 
-#: kleo/keyfiltermanager.cpp:176
+#: kleo/keyfiltermanager.cpp:146
 #, kde-format
-msgid "Not Validated Certificates"
-msgstr "Неперевірені сертифікати"
+msgctxt "Not Certified Certificates"
+msgid "Not Certified"
+msgstr "Несертифіковані"
 
-#: models/keylistmodel.cpp:319 models/useridlistmodel.cpp:105
+#: kleo/keyfiltermanager.cpp:147
 #, kde-format
+msgid ""
+"Certificates for which the primary user ID is not certified (except disabled "
+"ones)"
+msgstr ""
+"Сертифікати, ідентифікатор основного користувача яких не сертифіковано "
+"(окрім вимкнених)"
+
+#: kleo/keyfiltermanager.cpp:162
+#, kde-format
+msgctxt "Certificates to certify by the user"
+msgid "To Certify"
+msgstr "Слід сертифікувати"
+
+#: kleo/keyfiltermanager.cpp:163
+#, kde-format
+msgid ""
+"Certificates that are not fully certified and that you may want to certify "
+"yourself (except disabled ones)"
+msgstr ""
+"Сертифікати, які сертифіковано не повністю, і які, можливо, ви захочете "
+"сертифікувати власноруч (окрім вимкнених)"
+
+#: kleo/keyfiltermanager.cpp:191
+#, kde-format
+msgctxt "Not Fully Certified Certificates"
+msgid "Not Fully Certified"
+msgstr "Не повністю сертифіковано"
+
+#: kleo/keyfiltermanager.cpp:192
+#, kde-format
+msgid ""
+"Certificates for which not all user IDs are certified (except disabled ones)"
+msgstr ""
+"Сертифікати, для яких сертифіковано не усі ідентифікатори користувачів "
+"(окрім вимкнених)"
+
+#: kleo/keyfiltermanager.cpp:216
+#, kde-format
+msgctxt "Fully Certified Certificates"
+msgid "Fully Certified"
+msgstr "Повністю сертифіковано"
+
+#: kleo/keyfiltermanager.cpp:217
+#, kde-format
+msgid ""
+"Certificates for which all user IDs are certified (except disabled ones)"
+msgstr ""
+"Сертифікати, для яких сертифіковано усі ідентифікатори користувачів (окрім "
+"вимкнених)"
+
+#: models/keylistmodel.cpp:326
+#, kde-format
+msgctxt "@title:column"
 msgid "Name"
-msgstr "Ім'я"
+msgstr "Назва"
 
-#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
+#: models/keylistmodel.cpp:328
 #, kde-format
+msgctxt "@title:column"
 msgid "E-Mail"
 msgstr "Ел. пошта"
 
-#: models/keylistmodel.cpp:323
+#: models/keylistmodel.cpp:330
 #, kde-format
-msgid "User-IDs"
-msgstr "Ід. користувачів"
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Стан"
 
-#: models/keylistmodel.cpp:325 models/subkeylistmodel.cpp:159
-#: models/useridlistmodel.cpp:107
+#: models/keylistmodel.cpp:332
 #, kde-format
+msgctxt "@title:column"
 msgid "Valid From"
 msgstr "Чинний з"
 
-#: models/keylistmodel.cpp:327 models/subkeylistmodel.cpp:161
-#: models/useridlistmodel.cpp:108
+#: models/keylistmodel.cpp:334
 #, kde-format
+msgctxt "@title:column"
 msgid "Valid Until"
 msgstr "Чинний до"
 
-#: models/keylistmodel.cpp:329
+#: models/keylistmodel.cpp:336
 #, kde-format
+msgctxt "@title:column"
 msgid "Protocol"
 msgstr "Протокол"
 
-#: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
-#: utils/formatting.cpp:478
+#: models/keylistmodel.cpp:338
 #, kde-format
-msgid "Key-ID"
+msgctxt "@title:column"
+msgid "Key ID"
 msgstr "Ід. ключа"
 
-#: models/keylistmodel.cpp:335 utils/formatting.cpp:481
+#: models/keylistmodel.cpp:340
 #, kde-format
+msgctxt "@title:column"
 msgid "Fingerprint"
 msgstr "Відбиток"
 
-#: models/keylistmodel.cpp:337 utils/formatting.cpp:448
+#: models/keylistmodel.cpp:342
 #, kde-format
+msgctxt "@title:column"
 msgid "Issuer"
 msgstr "Видавець"
 
-#: models/keylistmodel.cpp:339
+#: models/keylistmodel.cpp:344
 #, kde-format
+msgctxt "@title:column"
 msgid "Serial Number"
 msgstr "Серійний номер"
 
-#: models/keylistmodel.cpp:341
+#: models/keylistmodel.cpp:346
 #, kde-format
+msgctxt "@title:column"
 msgid "Origin"
 msgstr "Походження"
 
-#: models/keylistmodel.cpp:343
+#: models/keylistmodel.cpp:348
 #, kde-format
+msgctxt "@title:column"
 msgid "Last Update"
 msgstr "Останнє оновлення"
 
-#: models/keylistmodel.cpp:345
+#: models/keylistmodel.cpp:350
 #, kde-format
+msgctxt "@title:column"
 msgid "Certification Trust"
 msgstr "Довіра до сертифікації"
 
-#: models/keylistmodel.cpp:347 models/useridlistmodel.cpp:111
+#: models/keylistmodel.cpp:352
 #, kde-format
+msgctxt "@title:column"
 msgid "Tags"
 msgstr "Мітки"
 
-#: models/keylistmodel.cpp:395 models/useridlistmodel.cpp:69
+#: models/keylistmodel.cpp:354
+#, kde-format
+msgctxt "@title:column"
+msgid "Algorithm"
+msgstr "Алгоритм"
+
+#: models/keylistmodel.cpp:356
+#, kde-format
+msgctxt "@title:column"
+msgid "Keygrip"
+msgstr "Keygrip"
+
+#: models/keylistmodel.cpp:404 models/useridlistmodel.cpp:69
 #, kde-format
 msgctxt "text for screen readers for an empty name"
 msgid "no name"
 msgstr "без назви"
 
-#: models/keylistmodel.cpp:402 models/useridlistmodel.cpp:70
+#: models/keylistmodel.cpp:411 models/useridlistmodel.cpp:70
 #, kde-format
 msgctxt "text for screen readers for an empty email address"
 msgid "no email"
 msgstr "без ел. пошти"
 
-#: models/keylistmodel.cpp:464
+#: models/keylistmodel.cpp:474
 #, kde-format
 msgid "Loading..."
 msgstr "Завантаження…"
 
-#: models/keylistmodel.cpp:542
+#: models/keylistmodel.cpp:557
 #, kde-format
 msgctxt "text for screen readers"
 msgid "not applicable"
@@ -1165,13 +1246,21 @@ msgid "ID"
 msgstr "Ід."
 
 #: models/subkeylistmodel.cpp:157 utils/formatting.cpp:472
-#: utils/formatting.cpp:516
 #, kde-format
 msgid "Type"
 msgstr "Тип"
 
-#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:109
-#: utils/formatting.cpp:503 utils/formatting.cpp:505
+#: models/subkeylistmodel.cpp:159 models/useridlistmodel.cpp:108
+#, kde-format
+msgid "Valid From"
+msgstr "Чинний з"
+
+#: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:109
+#, kde-format
+msgid "Valid Until"
+msgstr "Чинний до"
+
+#: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:106
 #, kde-format
 msgid "Status"
 msgstr "Стан"
@@ -1182,18 +1271,17 @@ msgid "Strength"
 msgstr "Міцність"
 
 #: models/subkeylistmodel.cpp:167 utils/formatting.cpp:475
-#: utils/formatting.cpp:519
 #, kde-format
 msgid "Usage"
 msgstr "Використання"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "yes, is exportable"
 msgid "yes"
 msgstr "yes"
 
-#: models/useridlistmodel.cpp:74
+#: models/useridlistmodel.cpp:72
 #, kde-format
 msgctxt "no, is not exportable"
 msgid "no"
@@ -1210,62 +1298,76 @@ msgstr "немає"
 msgid "not applicable"
 msgstr "не є застосовним"
 
-#: models/useridlistmodel.cpp:89 models/useridlistmodel.cpp:90
-#: models/useridlistmodel.cpp:91 models/useridlistmodel.cpp:92
-#: models/useridlistmodel.cpp:93 models/useridlistmodel.cpp:94
-#: models/useridlistmodel.cpp:95 models/useridlistmodel.cpp:96
-#: ui/keyselectiondialog.cpp:197
+#: models/useridlistmodel.cpp:86 models/useridlistmodel.cpp:87
+#: models/useridlistmodel.cpp:88 models/useridlistmodel.cpp:89
+#: models/useridlistmodel.cpp:90 models/useridlistmodel.cpp:91
+#: models/useridlistmodel.cpp:92 models/useridlistmodel.cpp:93
+#: ui/keyselectiondialog.cpp:191 utils/formatting.cpp:450
+#: utils/formatting.cpp:460
 #, kde-format
 msgid "User ID"
 msgstr "ІД користувача"
 
-#: models/useridlistmodel.cpp:104
+#: models/useridlistmodel.cpp:103
 #, kde-format
 msgid "User ID / Certification Key ID"
 msgstr "Ідентифікатор користувача/Ідентифікатор ключа сертифікації"
 
-#: models/useridlistmodel.cpp:110
+#: models/useridlistmodel.cpp:104
+#, kde-format
+msgid "Name"
+msgstr "Ім'я"
+
+#: models/useridlistmodel.cpp:105
+#, kde-format
+msgid "Email"
+msgstr "Ел. пошта"
+
+#: models/useridlistmodel.cpp:107
 #, kde-format
 msgid "Exportable"
 msgstr "Експортований"
 
-#: models/useridlistmodel.cpp:112
+#: models/useridlistmodel.cpp:110
+#, kde-format
+msgid "Tags"
+msgstr "Мітки"
+
+#: models/useridlistmodel.cpp:111
 #, kde-format
 msgid "Trust Signature For"
 msgstr "Довірений підпис"
 
-#: models/useridlistmodel.cpp:167 utils/formatting.cpp:891
-#, kde-format
-msgid "class %1"
-msgstr "клас %1"
-
-#: ui/auditlogviewer.cpp:52
+#: ui/auditlogviewer.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
 msgstr "Перегляд журналу перевірки GnuPG"
 
-#: ui/auditlogviewer.cpp:55
+#: ui/auditlogviewer.cpp:46
 #, kde-format
+msgctxt "@action:button"
 msgid "&Copy to Clipboard"
 msgstr "&Копіювати до буфера"
 
-#: ui/auditlogviewer.cpp:60
+#: ui/auditlogviewer.cpp:51
 #, kde-format
+msgctxt "@action:button"
 msgid "&Save to Disk..."
-msgstr "&Зберегти на диск..."
+msgstr "&Зберегти на диск…"
 
-#: ui/auditlogviewer.cpp:102
+#: ui/auditlogviewer.cpp:93
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
 msgstr "Здається, ваша система не підтримує журнали перевірки GnuPG"
 
-#: ui/auditlogviewer.cpp:102
+#: ui/auditlogviewer.cpp:93
 #, kde-format
+msgctxt "@title:window"
 msgid "System Error"
 msgstr "Системна помилка"
 
-#: ui/auditlogviewer.cpp:107
+#: ui/auditlogviewer.cpp:98
 #, kde-format
 msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
@@ -1274,38 +1376,41 @@ msgstr ""
 "Під час спроби отримання журналу перевірки GnuPG сталася помилка:\n"
 "%1"
 
-#: ui/auditlogviewer.cpp:108
+#: ui/auditlogviewer.cpp:99
 #, kde-format
 msgid "GnuPG Audit Log Error"
 msgstr "Помилка у журналі перевірки GnuPG"
 
-#: ui/auditlogviewer.cpp:112
+#: ui/auditlogviewer.cpp:103
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
 msgstr "Для цієї дії журнал перевірки GnuPG недоступний."
 
-#: ui/auditlogviewer.cpp:112
+#: ui/auditlogviewer.cpp:103
 #, kde-format
+msgctxt "@title:window"
 msgid "No GnuPG Audit Log"
 msgstr "Немає журналу перевірки GnuPG"
 
-#: ui/auditlogviewer.cpp:118
+#: ui/auditlogviewer.cpp:109
 #, kde-format
+msgctxt "@title:window"
 msgid "GnuPG Audit Log Viewer"
 msgstr "Переглядач журналу перевірки GnuPG"
 
-#: ui/auditlogviewer.cpp:133
+#: ui/auditlogviewer.cpp:124
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
 msgstr "Виберіть файл для збереження журналу перевірки GnuPG"
 
-#: ui/auditlogviewer.cpp:152
+#: ui/auditlogviewer.cpp:144
 #, kde-format
 msgid "Could not save to file \"%1\": %2"
 msgstr "Не вдалося зберегти до файла «%1»: %2"
 
-#: ui/auditlogviewer.cpp:152
+#: ui/auditlogviewer.cpp:145
 #, kde-format
+msgctxt "@title:window"
 msgid "File Save Error"
 msgstr "Помилка під час збереження файла"
 
@@ -1315,12 +1420,7 @@ msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
 msgstr "Зчитувач, з яким слід з'єднатися"
 
-#: ui/cryptoconfigmodule.cpp:165
-#, kde-format
-msgid "GpgConf Error"
-msgstr "Помилка GpgConf"
-
-#: ui/cryptoconfigmodule.cpp:222
+#: ui/cryptoconfigmodule.cpp:107
 #, kde-format
 msgid ""
 "The gpgconf tool used to provide the information for this dialog does not "
@@ -1332,7 +1432,7 @@ msgstr ""
 "Запит до нього не повернув жодних компонентів. Докладніші відомості можна "
 "отримати з даних, які виводить команда «%1»."
 
-#: ui/cryptoconfigmodule.cpp:651
+#: ui/cryptoconfigmodule.cpp:538
 #, kde-format
 msgctxt ""
 "Translate this to 'yes' or 'no' (use the English words!) depending on "
@@ -1344,67 +1444,54 @@ msgctxt ""
 msgid "yes"
 msgstr "yes"
 
-#: ui/cryptoconfigmodule.cpp:705
+#: ui/cryptoconfigmodule.cpp:592
 msgid "0 - None"
 msgstr "0 — немає"
 
-#: ui/cryptoconfigmodule.cpp:706
+#: ui/cryptoconfigmodule.cpp:593
 msgid "1 - Basic"
 msgstr "1 — базові"
 
-#: ui/cryptoconfigmodule.cpp:707
+#: ui/cryptoconfigmodule.cpp:594
 msgid "2 - Verbose"
 msgstr "2 — докладно"
 
-#: ui/cryptoconfigmodule.cpp:708
+#: ui/cryptoconfigmodule.cpp:595
 msgid "3 - More Verbose"
 msgstr "3 — докладніше"
 
-#: ui/cryptoconfigmodule.cpp:709
+#: ui/cryptoconfigmodule.cpp:596
 msgid "4 - All"
 msgstr "4 — усі"
 
-#: ui/cryptoconfigmodule.cpp:721
+#: ui/cryptoconfigmodule.cpp:608
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Set the debugging level to"
 msgstr "Встановити рівень налагоджування"
 
-#: ui/cryptoconfigmodule.cpp:944
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
 msgstr "Показати..."
 
-#: ui/cryptoconfigmodule.cpp:944
+#: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
 msgstr "Редагувати..."
 
-#: ui/cryptoconfigmodule.cpp:997
-#, kde-format
-msgid ""
-"Configuration of directory services is not possible because the used gpgme "
-"libraries are too old."
-msgstr ""
-"Налаштовування служб каталогу є неможливим, оскільки використані бібліотеки "
-"gpgme є надто застарілими."
-
-#: ui/cryptoconfigmodule.cpp:999
-#, kde-format
-msgid "Sorry"
-msgstr "Вибачте"
-
-#: ui/cryptoconfigmodule.cpp:1006
+#: ui/cryptoconfigmodule.cpp:885
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
 msgstr "Налаштовування служб каталогів"
 
-#: ui/cryptoconfigmodule.cpp:1035
+#: ui/cryptoconfigmodule.cpp:914
 #, kde-format
 msgid "None configured"
 msgstr "Не налаштовано"
 
-#: ui/cryptoconfigmodule.cpp:1037
+#: ui/cryptoconfigmodule.cpp:916
 #, kde-format
 msgid "1 server configured"
 msgid_plural "%1 servers configured"
@@ -1413,12 +1500,12 @@ msgstr[1] "%1 сервери налаштовано"
 msgstr[2] "%1 серверів налаштовано"
 msgstr[3] "%1 сервер налаштовано"
 
-#: ui/directoryserviceswidget.cpp:136 ui/directoryserviceswidget.cpp:193
+#: ui/directoryserviceswidget.cpp:140 ui/directoryserviceswidget.cpp:197
 #, kde-format
 msgid "Active Directory"
 msgstr "Active Directory"
 
-#: ui/directoryserviceswidget.cpp:187
+#: ui/directoryserviceswidget.cpp:191
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1427,7 +1514,7 @@ msgid ""
 msgstr ""
 "Це список всіх служб каталогу, які налаштовано на використання з X.509."
 
-#: ui/directoryserviceswidget.cpp:197
+#: ui/directoryserviceswidget.cpp:201
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1438,29 +1525,29 @@ msgstr ""
 "Active Directory. Це працює лише у Windows і потребує GnuPG 2.2.28 або "
 "новішої версії."
 
-#: ui/directoryserviceswidget.cpp:200
+#: ui/directoryserviceswidget.cpp:204
 #, kde-format
 msgid "LDAP Server"
 msgstr "Сервер LDAP"
 
-#: ui/directoryserviceswidget.cpp:203
+#: ui/directoryserviceswidget.cpp:207
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
 msgstr "Натисніть, щоб додати службу каталогів, яка надається сервером LDAP."
 
-#: ui/directoryserviceswidget.cpp:205
+#: ui/directoryserviceswidget.cpp:209
 #, kde-format
 msgid "Add"
 msgstr "Додати"
 
-#: ui/directoryserviceswidget.cpp:206
+#: ui/directoryserviceswidget.cpp:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
 msgstr "Натисніть, щоб додати службу каталогів."
 
-#: ui/directoryserviceswidget.cpp:208
+#: ui/directoryserviceswidget.cpp:212
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1470,18 +1557,19 @@ msgstr ""
 "Натисніть цю кнопку, щоб додати службу каталогів до списку серверів. Зміни "
 "набудуть чинності, тільки-но ви підтвердите їх у вікні налаштовування пошти."
 
-#: ui/directoryserviceswidget.cpp:216
+#: ui/directoryserviceswidget.cpp:220
 #, kde-format
+msgctxt "@action:button"
 msgid "Edit"
 msgstr "Змінити"
 
-#: ui/directoryserviceswidget.cpp:217
+#: ui/directoryserviceswidget.cpp:221
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
 msgstr "Натисніть, щоб почати редагувати позначену службу."
 
-#: ui/directoryserviceswidget.cpp:219
+#: ui/directoryserviceswidget.cpp:223
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1493,18 +1581,19 @@ msgstr ""
 "каталогів. Зміни набудуть чинності, тільки-но ви підтвердите їх у вікні "
 "налаштування пошти."
 
-#: ui/directoryserviceswidget.cpp:224
+#: ui/directoryserviceswidget.cpp:228
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete"
 msgstr "Вилучити"
 
-#: ui/directoryserviceswidget.cpp:225
+#: ui/directoryserviceswidget.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
 msgstr "Натисніть, щоб вилучити позначену службу."
 
-#: ui/directoryserviceswidget.cpp:227
+#: ui/directoryserviceswidget.cpp:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1514,103 +1603,105 @@ msgstr ""
 "Натисніть цю кнопку, щоб вилучити поточну вибрану службу каталогу. Зміни "
 "набудуть чинності, тільки-но ви підтвердите їх у вікні налаштовування пошти."
 
-#: ui/directoryserviceswidget.cpp:352 ui/directoryserviceswidget.cpp:369
+#: ui/directoryserviceswidget.cpp:356 ui/directoryserviceswidget.cpp:373
 #, kde-format
 msgctxt "@title:window"
 msgid "LDAP Directory Service"
 msgstr "Служба каталогу LDAP"
 
-#: ui/dnattributeorderconfigwidget.cpp:73
+#: ui/dnattributeorderconfigwidget.cpp:75
 #, kde-format
 msgid "Description"
 msgstr "Опис"
 
-#: ui/dnattributeorderconfigwidget.cpp:88
+#: ui/dnattributeorderconfigwidget.cpp:90
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Наявні атрибути:"
 
-#: ui/dnattributeorderconfigwidget.cpp:90
+#: ui/dnattributeorderconfigwidget.cpp:92
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Поточний порядок атрибутів:"
 
-#: ui/dnattributeorderconfigwidget.cpp:98
+#: ui/dnattributeorderconfigwidget.cpp:100
 #, kde-format
 msgid "available attributes"
 msgstr "доступні атрибути"
 
-#: ui/dnattributeorderconfigwidget.cpp:105
-#: ui/dnattributeorderconfigwidget.cpp:106
+#: ui/dnattributeorderconfigwidget.cpp:107
+#: ui/dnattributeorderconfigwidget.cpp:108
 #, kde-format
 msgid "All others"
 msgstr "Всі інші"
 
-#: ui/dnattributeorderconfigwidget.cpp:118
+#: ui/dnattributeorderconfigwidget.cpp:120
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Додати"
 
-#: ui/dnattributeorderconfigwidget.cpp:119
+#: ui/dnattributeorderconfigwidget.cpp:121
 msgid "Add to current attribute order"
 msgstr "Додати до поточного порядку атрибутів"
 
-#: ui/dnattributeorderconfigwidget.cpp:125
+#: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: ui/dnattributeorderconfigwidget.cpp:126
+#: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Remove from current attribute order"
 msgstr "Вилучити з поточного порядку атрибутів"
 
-#: ui/dnattributeorderconfigwidget.cpp:132
+#: ui/dnattributeorderconfigwidget.cpp:134
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Пересунути на початок"
 
-#: ui/dnattributeorderconfigwidget.cpp:133
+#: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Move to top"
 msgstr "Пересунути вверх"
 
-#: ui/dnattributeorderconfigwidget.cpp:139
+#: ui/dnattributeorderconfigwidget.cpp:141
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "Пересунути вище"
 
-#: ui/dnattributeorderconfigwidget.cpp:140
+#: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move one up"
 msgstr "Пересунути вверх на один"
 
-#: ui/dnattributeorderconfigwidget.cpp:146
+#: ui/dnattributeorderconfigwidget.cpp:148
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Пересунути нижче"
 
-#: ui/dnattributeorderconfigwidget.cpp:147
+#: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one down"
 msgstr "Пересунути вниз на один"
 
-#: ui/dnattributeorderconfigwidget.cpp:153
+#: ui/dnattributeorderconfigwidget.cpp:155
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Пересунути у кінець"
 
-#: ui/dnattributeorderconfigwidget.cpp:154
+#: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move to bottom"
 msgstr "Пересунути вниз"
 
-#: ui/dnattributeorderconfigwidget.cpp:184
+#: ui/dnattributeorderconfigwidget.cpp:186
 #, kde-format
 msgid "current attribute order"
 msgstr "поточний порядок атрибутів"
 
-#: ui/editdirectoryservicedialog.cpp:99
+#: ui/editdirectoryservicedialog.cpp:102
 #, kde-format
 msgid "Host:"
 msgstr "Вузол:"
 
-#: ui/editdirectoryservicedialog.cpp:100
+#: ui/editdirectoryservicedialog.cpp:103
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1618,12 +1709,20 @@ msgid ""
 msgstr ""
 "Введіть назву або IP-адресу сервера, на якому знаходиться служба каталогу."
 
-#: ui/editdirectoryservicedialog.cpp:104
+#: ui/editdirectoryservicedialog.cpp:112
+#, kde-format
+msgctxt "@info:label"
+msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
+msgstr ""
+"Помилка: введіть назву вузла у правильному форматі, наприклад, ldap.example."
+"com."
+
+#: ui/editdirectoryservicedialog.cpp:116
 #, kde-format
 msgid "Port:"
 msgstr "Порт:"
 
-#: ui/editdirectoryservicedialog.cpp:107
+#: ui/editdirectoryservicedialog.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1633,40 +1732,40 @@ msgstr ""
 "<b>(Необов’язкове, типового значення, здебільшого, достатньо)</b> Виберіть "
 "номер порту, на якому очікуватиме на з’єднання служба каталогу."
 
-#: ui/editdirectoryservicedialog.cpp:110
+#: ui/editdirectoryservicedialog.cpp:122
 #, kde-format
 msgid "Use default"
 msgstr "Типовий"
 
-#: ui/editdirectoryservicedialog.cpp:116
+#: ui/editdirectoryservicedialog.cpp:128
 #, kde-format
 msgid "Authentication"
 msgstr "Розпізнавання"
 
-#: ui/editdirectoryservicedialog.cpp:120
+#: ui/editdirectoryservicedialog.cpp:132
 #, kde-format
 msgid "Anonymous"
 msgstr "Анонімне"
 
-#: ui/editdirectoryservicedialog.cpp:121
+#: ui/editdirectoryservicedialog.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr "Скористатися анонімним сервером LDAP, який не потребує розпізнавання."
 
-#: ui/editdirectoryservicedialog.cpp:127
+#: ui/editdirectoryservicedialog.cpp:139
 #, kde-format
 msgid "Authenticate via Active Directory"
 msgstr "Розпізнавання за допомогою Active Directory"
 
-#: ui/editdirectoryservicedialog.cpp:129
+#: ui/editdirectoryservicedialog.cpp:141
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr ""
 "Розпізнавання за допомогою Active Directory (потребує GnuPG 2.2.28 або "
 "новішої версії)"
 
-#: ui/editdirectoryservicedialog.cpp:132
+#: ui/editdirectoryservicedialog.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1676,12 +1775,12 @@ msgstr ""
 "У Windows пройти розпізнавання на сервері LDAP за допомогою Active Directory "
 "і даних поточного користувача."
 
-#: ui/editdirectoryservicedialog.cpp:137
+#: ui/editdirectoryservicedialog.cpp:149
 #, kde-format
 msgid "Authenticate with user and password"
 msgstr "Розпізнавання за користувачем і паролем"
 
-#: ui/editdirectoryservicedialog.cpp:138
+#: ui/editdirectoryservicedialog.cpp:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
@@ -1689,12 +1788,12 @@ msgstr ""
 "Пройти розпізнавання на сервері LDAP з використанням ваших реєстраційних "
 "даних LDAP."
 
-#: ui/editdirectoryservicedialog.cpp:148
+#: ui/editdirectoryservicedialog.cpp:160
 #, kde-format
 msgid "User:"
 msgstr "Користувач:"
 
-#: ui/editdirectoryservicedialog.cpp:149
+#: ui/editdirectoryservicedialog.cpp:161
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1703,12 +1802,12 @@ msgstr ""
 "Введіть ваш DN прив'язки відносно користувача у LDAP для того, щоб пройти "
 "розпізнавання на сервері LDAP."
 
-#: ui/editdirectoryservicedialog.cpp:153
+#: ui/editdirectoryservicedialog.cpp:165
 #, kde-format
 msgid "Password:"
 msgstr "Пароль:"
 
-#: ui/editdirectoryservicedialog.cpp:155
+#: ui/editdirectoryservicedialog.cpp:167
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1720,22 +1819,22 @@ msgstr ""
 "буде збережено у вигляді простого тексту у файлі налаштувань вашого "
 "домашнього каталогу.</warning>"
 
-#: ui/editdirectoryservicedialog.cpp:165
+#: ui/editdirectoryservicedialog.cpp:177
 #, kde-format
 msgid "Connection Security"
 msgstr "Захист з'єднання"
 
-#: ui/editdirectoryservicedialog.cpp:167
+#: ui/editdirectoryservicedialog.cpp:179
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
 msgstr "Захист з'єднання (потребує GnuPG 2.2.28 або новішої версії)"
 
-#: ui/editdirectoryservicedialog.cpp:172
+#: ui/editdirectoryservicedialog.cpp:184
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
 msgstr "Скористатися типовим з'єднанням (ймовірно, без захисту TLS)"
 
-#: ui/editdirectoryservicedialog.cpp:174
+#: ui/editdirectoryservicedialog.cpp:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1746,12 +1845,12 @@ msgstr ""
 "Типово, у GnuPG 2.3 і старіших версіях використано звичайне, не захищене TLS "
 "з'єднання. <b>(Не рекомендуємо)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:182
+#: ui/editdirectoryservicedialog.cpp:194
 #, kde-format
 msgid "Do not use a TLS secured connection"
 msgstr "Не використовувати захищеного TLS з'єднання"
 
-#: ui/editdirectoryservicedialog.cpp:184
+#: ui/editdirectoryservicedialog.cpp:196
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1761,12 +1860,12 @@ msgstr ""
 "Скористатися звичайним, не захищеним TLS з'єднанням для обміну даними з "
 "сервером LDAP. <b>(Не рекомендуємо)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:190
+#: ui/editdirectoryservicedialog.cpp:202
 #, kde-format
 msgid "Use TLS secured connection"
 msgstr "Скористатися захищеним TLS з'єднанням"
 
-#: ui/editdirectoryservicedialog.cpp:192
+#: ui/editdirectoryservicedialog.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1777,12 +1876,12 @@ msgstr ""
 "допомогою STARTTLS) для встановлення з'єднання із сервером LDAP. "
 "<b>(Рекомендуємо)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:199
+#: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
 msgstr "Тунелювати LDAP крізь з'єднання TLS"
 
-#: ui/editdirectoryservicedialog.cpp:201
+#: ui/editdirectoryservicedialog.cpp:213
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1792,17 +1891,17 @@ msgstr ""
 "Скористатися захищеним з'єднанням TLS, крізь яке виконати тунелювання "
 "з'єднання із сервером LDAP. <b>(Не рекомендуємо)</b>"
 
-#: ui/editdirectoryservicedialog.cpp:210
+#: ui/editdirectoryservicedialog.cpp:222
 #, kde-format
 msgid "Advanced Settings"
 msgstr "Додаткові параметри"
 
-#: ui/editdirectoryservicedialog.cpp:215
+#: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
 msgid "Base DN:"
 msgstr "Кореневий DN:"
 
-#: ui/editdirectoryservicedialog.cpp:217
+#: ui/editdirectoryservicedialog.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1813,12 +1912,12 @@ msgstr ""
 "цього сервера LDAP, щоб обмежити пошук лише ієрархією цього піддерева "
 "каталогу."
 
-#: ui/editdirectoryservicedialog.cpp:223
+#: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
 msgid "Additional flags:"
 msgstr "Додаткові прапорці:"
 
-#: ui/editdirectoryservicedialog.cpp:225
+#: ui/editdirectoryservicedialog.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1830,16 +1929,52 @@ msgstr ""
 "реалізовано у Kleopatra. Наприклад, у застарілих версіях GnuPG використано "
 "<code>ldaps</code> для надсилання запиту щодо захищеного TLS з'єднання."
 
-#: ui/editdirectoryservicedialog.cpp:395
+#: ui/editdirectoryservicedialog.cpp:410
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
 msgstr "Редагування служби каталогів"
 
-#: ui/filenamerequester.cpp:81 ui/filenamerequester.cpp:82
+#: ui/filenamerequester.cpp:81
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open file dialog"
+msgstr "Вікно відкриття файла"
+
+#: ui/filenamerequester.cpp:82
 #, kde-format
 msgid "Open file dialog"
 msgstr "Вікно відкриття файла"
+
+#: ui/formtextinput.cpp:25
+#, kde-format
+msgid "Error: Enter a value."
+msgstr "Помилка: вкажіть значення."
+
+#: ui/formtextinput.cpp:30
+#, kde-format
+msgid "Error: Enter a value in the correct format."
+msgstr "Помилка: вкажіть значення у правильному форматі."
+
+#: ui/formtextinput.cpp:92
+#, kde-format
+msgctxt "@label label text (required)"
+msgid "%1 (required)"
+msgstr "%1 (обов'язкове)"
+
+#: ui/formtextinput.cpp:126
+#, kde-format
+msgctxt "@info"
+msgid "Error: %1"
+msgstr "Помилка: %1"
+
+#: ui/formtextinput.cpp:230
+#, kde-format
+msgctxt ""
+"text for screen readers to indicate that the associated object, such as a "
+"form field, has an error"
+msgid "invalid entry"
+msgstr "некоректний запис"
 
 #: ui/keyapprovaldialog.cpp:76
 #, kde-kuit-format
@@ -1879,45 +2014,52 @@ msgstr "Схвалення ключа шифрування"
 
 #: ui/keyapprovaldialog.cpp:118
 #, kde-format
+msgctxt "@label:textbox"
 msgid "The following keys will be used for encryption:"
 msgstr "Наступні ключі будуть використані для шифрування:"
 
 #: ui/keyapprovaldialog.cpp:134
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Your keys:"
 msgstr "Ваші ключі:"
 
 #: ui/keyapprovaldialog.cpp:146
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Recipient:"
 msgstr "Адресат:"
 
 #: ui/keyapprovaldialog.cpp:151
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Encryption keys:"
 msgstr "Ключі шифрування:"
 
 #: ui/keyapprovaldialog.cpp:158
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Encryption preference:"
 msgstr "Пріоритет засобів шифрування:"
 
-#: ui/keyrequester.cpp:89
+#: ui/keyrequester.cpp:88
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Clear"
 msgstr "Очистити"
 
-#: ui/keyrequester.cpp:92
+#: ui/keyrequester.cpp:91
 #, kde-format
+msgctxt "@action:button"
 msgid "Change..."
 msgstr "Змінити..."
 
-#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:223
+#: ui/keyrequester.cpp:211 ui/keyselectiondialog.cpp:217
 #, kde-kuit-format
 msgid "<placeholder>unknown</placeholder>"
 msgstr "<placeholder>невідомо</placeholder>"
 
-#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:680
+#: ui/keyrequester.cpp:234 ui/keyselectiondialog.cpp:674
 #, kde-format
 msgid ""
 "<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
@@ -1927,8 +2069,9 @@ msgstr ""
 "qt>"
 
 #: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
-#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#: ui/keyselectiondialog.cpp:643 ui/keyselectiondialog.cpp:679
 #, kde-format
+msgctxt "@title:window"
 msgid "Key Listing Failed"
 msgstr "Помилка отримання переліку ключів"
 
@@ -1978,157 +2121,146 @@ msgstr "Вибір ключа"
 msgid "Please select an (OpenPGP or S/MIME) key to use."
 msgstr "Виберіть, будь ласка, ключ (OpenPGP або S/MIME)."
 
-#: ui/keyselectioncombo.cpp:85
+#: ui/keyselectioncombo.cpp:88 ui/useridselectioncombo.cpp:94
 #, kde-format
 msgctxt "Name <email>"
 msgid "%1 <%2>"
 msgstr "%1 <%2>"
 
-#: ui/keyselectioncombo.cpp:176
-#, kde-format
-msgctxt "Name <email> (validity, created: date)"
-msgid "%1 (%2, created: %3)"
-msgstr "%1 (%2, створено: %3)"
-
-#: ui/keyselectioncombo.cpp:182
-#, kde-format
-msgctxt "Name <email> (validity, type, created: date)"
-msgid "%1 (%2, %3, created: %4)"
-msgstr "%1 (%2, %3, створено: %4)"
-
-#: ui/keyselectioncombo.cpp:671
+#: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
 #, kde-format
 msgid "Loading keys ..."
 msgstr "Завантажуємо ключі…"
 
-#: ui/keyselectiondialog.cpp:72
+#: ui/keyselectiondialog.cpp:71
 #, kde-format
 msgid "The key is not valid."
 msgstr "Ключ не є чинним."
 
-#: ui/keyselectiondialog.cpp:80
+#: ui/keyselectiondialog.cpp:79
 #, kde-format
 msgid "The key is expired."
 msgstr "Строк дії ключа вичерпано."
 
-#: ui/keyselectiondialog.cpp:84
+#: ui/keyselectiondialog.cpp:83
 #, kde-format
 msgid "The key is revoked."
 msgstr "Ключ відкликано."
 
-#: ui/keyselectiondialog.cpp:88
+#: ui/keyselectiondialog.cpp:87
 #, kde-format
 msgid "The key is disabled."
 msgstr "Ключ було скасовано."
 
-#: ui/keyselectiondialog.cpp:95
+#: ui/keyselectiondialog.cpp:94
 #, kde-format
 msgid "The key is not designated for encryption."
 msgstr "Ключ не призначено для шифрування."
 
-#: ui/keyselectiondialog.cpp:100
+#: ui/keyselectiondialog.cpp:99
 #, kde-format
 msgid "The key is not designated for signing."
 msgstr "Ключ не призначено для підписування."
 
-#: ui/keyselectiondialog.cpp:105
+#: ui/keyselectiondialog.cpp:104
 #, kde-format
 msgid "The key is not designated for certifying."
 msgstr "Ключ не призначено для сертифікації."
 
-#: ui/keyselectiondialog.cpp:110
+#: ui/keyselectiondialog.cpp:109
 #, kde-format
 msgid "The key is not designated for authentication."
 msgstr "Ключ не призначено для розпізнавання."
 
-#: ui/keyselectiondialog.cpp:116
+#: ui/keyselectiondialog.cpp:115
 #, kde-format
 msgid "The key is not secret."
 msgstr "Ключ не є закритим."
 
-#: ui/keyselectiondialog.cpp:127 ui/keyselectiondialog.cpp:138
+#: ui/keyselectiondialog.cpp:126 ui/keyselectiondialog.cpp:137
 #, kde-format
 msgid "The key can be used."
 msgstr "Ключ не можна використовувати."
 
-#: ui/keyselectiondialog.cpp:132
+#: ui/keyselectiondialog.cpp:131
 #, kde-format
 msgid "The key is not trusted enough."
 msgstr "Ключ є недостатньо надійним."
 
-#: ui/keyselectiondialog.cpp:195
+#: ui/keyselectiondialog.cpp:189 utils/formatting.cpp:478
 #, kde-format
 msgid "Key ID"
 msgstr "ІД ключа"
 
-#: ui/keyselectiondialog.cpp:269 ui/keyselectiondialog.cpp:271
-#: ui/keyselectiondialog.cpp:280 ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:263 ui/keyselectiondialog.cpp:265
+#: ui/keyselectiondialog.cpp:274 ui/keyselectiondialog.cpp:276
 #, kde-format
 msgid "unknown"
 msgstr "невідомий"
 
-#: ui/keyselectiondialog.cpp:269
+#: ui/keyselectiondialog.cpp:263
 #, kde-format
 msgid "OpenPGP key for <b>%1</b>"
 msgstr "Ключ OpenPGP для <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:271
+#: ui/keyselectiondialog.cpp:265
 #, kde-format
 msgid "S/MIME key for <b>%1</b>"
 msgstr "Ключ S/MIME для <b>%1</b>"
 
-#: ui/keyselectiondialog.cpp:278 utils/formatting.cpp:465
-#: utils/formatting.cpp:508
+#: ui/keyselectiondialog.cpp:272 utils/formatting.cpp:464
 #, kde-format
 msgid "Valid from"
 msgstr "Чинний з"
 
-#: ui/keyselectiondialog.cpp:279 utils/formatting.cpp:468
-#: utils/formatting.cpp:511
+#: ui/keyselectiondialog.cpp:273 utils/formatting.cpp:467
 #, kde-format
 msgid "Valid until"
 msgstr "Чинний до"
 
-#: ui/keyselectiondialog.cpp:280
+#: ui/keyselectiondialog.cpp:274
 #, kde-format
 msgctxt "Key fingerprint"
 msgid "Fingerprint"
 msgstr "Відбиток"
 
-#: ui/keyselectiondialog.cpp:282
+#: ui/keyselectiondialog.cpp:276
 #, kde-format
 msgctxt "Key issuer"
 msgid "Issuer"
 msgstr "Видавець"
 
-#: ui/keyselectiondialog.cpp:284
+#: ui/keyselectiondialog.cpp:278
 #, kde-format
 msgctxt "Key status"
 msgid "Status"
 msgstr "Стан"
 
-#: ui/keyselectiondialog.cpp:286
+#: ui/keyselectiondialog.cpp:280
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
 msgstr "Сумісність"
 
-#: ui/keyselectiondialog.cpp:426
+#: ui/keyselectiondialog.cpp:420
 #, kde-format
+msgctxt "@action:button"
 msgid "Search for &External Certificates"
 msgstr "Шукати &зовнішні сертифікати"
 
-#: ui/keyselectiondialog.cpp:440
+#: ui/keyselectiondialog.cpp:434
 #, kde-format
+msgctxt "@label:textbox"
 msgid "&Search for:"
 msgstr "&Шукати за:"
 
-#: ui/keyselectiondialog.cpp:465
+#: ui/keyselectiondialog.cpp:459
 #, kde-format
+msgctxt "@option:check"
 msgid "&Remember choice"
 msgstr "&Запам'ятати вибір"
 
-#: ui/keyselectiondialog.cpp:468
+#: ui/keyselectiondialog.cpp:462
 #, kde-format
 msgid ""
 "<qt><p>If you check this box your choice will be stored and you will not be "
@@ -2137,46 +2269,49 @@ msgstr ""
 "<qt><p>Якщо цей параметр ввімкнено, ваш вибір буде збережено та вас більше "
 "не будуть турбувати цим питанням знову.</p></qt>"
 
-#: ui/keyselectiondialog.cpp:482
+#: ui/keyselectiondialog.cpp:476
 #, kde-format
+msgctxt "@action:button"
 msgid "&Reread Keys"
 msgstr "&Перечитати ключі"
 
-#: ui/keyselectiondialog.cpp:487
+#: ui/keyselectiondialog.cpp:481
 #, kde-format
+msgctxt "@action:button"
 msgid "&Start Certificate Manager"
 msgstr "Зап&устити менеджер сертифікатів"
 
-#: ui/keyselectiondialog.cpp:647
+#: ui/keyselectiondialog.cpp:641
 #, kde-format
 msgid "No backends found for listing keys. Check your installation."
 msgstr ""
 "Не знайдено серверів для отримання переліку ключів. Перевірте, чи належним "
 "чином встановлено програму."
 
-#: ui/keyselectiondialog.cpp:665
+#: ui/keyselectiondialog.cpp:659
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
 msgstr ""
 "Не вдається запустити менеджер сертифікатів. Будь ласка, перевірте чи все "
 "встановлено правильно."
 
-#: ui/keyselectiondialog.cpp:667
+#: ui/keyselectiondialog.cpp:661
 #, kde-format
+msgctxt "@title:window"
 msgid "Certificate Manager Error"
 msgstr "Помилка менеджера сертифікатів"
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
 msgstr "Перевіряються вибрані ключі..."
 
-#: ui/keyselectiondialog.cpp:724
+#: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
 msgstr "Йде отримання ключів..."
 
-#: ui/keyselectiondialog.cpp:756
+#: ui/keyselectiondialog.cpp:750
 #, kde-format
 msgid ""
 "<qt>One backend returned truncated output.<p>Not all available keys are "
@@ -2197,12 +2332,12 @@ msgstr[3] ""
 "<qt>%1 сервер повернув зрізаний вивід.<p>Не всі наявні ключі будуть "
 "показані</p></qt>"
 
-#: ui/keyselectiondialog.cpp:761
+#: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid "Key List Result"
 msgstr "Результат переліку ключів"
 
-#: ui/keyselectiondialog.cpp:883
+#: ui/keyselectiondialog.cpp:877
 #, kde-format
 msgid "Recheck Key"
 msgstr "Ще раз перевірити ключ"
@@ -2225,6 +2360,76 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Помилка"
 
+#: ui/nameandemailwidget.cpp:59 ui/nameandemailwidget.cpp:159
+#, kde-format
+msgctxt "@label"
+msgid "Name"
+msgstr "Ім'я"
+
+#: ui/nameandemailwidget.cpp:60
+#, kde-format
+msgid "Enter a name."
+msgstr "Введіть ім'я."
+
+#: ui/nameandemailwidget.cpp:75 ui/nameandemailwidget.cpp:213
+#, kde-format
+msgctxt "@label"
+msgid "Email address"
+msgstr "Поштова адреса"
+
+#: ui/nameandemailwidget.cpp:76
+#, kde-format
+msgid "Enter an email address."
+msgstr "Введіть адресу електронної пошти."
+
+#: ui/nameandemailwidget.cpp:94
+#, kde-format
+msgid "The name must not include <, >, and @."
+msgstr "В імені не повинно бути <, > і @."
+
+#: ui/nameandemailwidget.cpp:95
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must not include less-than sign, greater-than sign, and at sign."
+msgstr ""
+"У імені не повинно бути символів знаку «менше», «більше» та символів "
+"комерційного «at»."
+
+#: ui/nameandemailwidget.cpp:98
+#, kde-format
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include <, >, and @."
+msgstr ""
+"Ім'я має бути записано у форматі, що відповідає вимогам вашої організації; у "
+"записі не повинно бути символів <, > і @."
+
+#: ui/nameandemailwidget.cpp:101
+#, kde-format
+msgctxt "text for screen readers"
+msgid ""
+"The name must be in the format required by your organization and it must not "
+"include less-than sign, greater-than sign, and at sign."
+msgstr ""
+"Ім'я має бути форматовано за вимогами вашої організації. У записі не повинно "
+"бути символів <, > і @."
+
+#: ui/nameandemailwidget.cpp:110
+#, kde-format
+msgid "Enter an email address in the correct format, like name@example.com."
+msgstr ""
+"Вкажіть адресу електронної пошти у правильному форматі, приклад: "
+"назва@приклад.com."
+
+#: ui/nameandemailwidget.cpp:113
+#, kde-format
+msgid ""
+"Enter an email address in the correct format required by your organization."
+msgstr ""
+"Вкажіть адресу електронної пошти у правильному форматі, що відповідає "
+"вимогам вашої організації."
+
 #: ui/newkeyapprovaldialog.cpp:142
 #, kde-format
 msgctxt "@action:button"
@@ -2239,6 +2444,7 @@ msgstr "Показати відповідні ключі"
 
 #: ui/newkeyapprovaldialog.cpp:185
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show keys matching the email address"
 msgstr "Показати ключі, що відповідають адресі електронної пошти"
 
@@ -2250,6 +2456,7 @@ msgstr "Показати усі"
 
 #: ui/newkeyapprovaldialog.cpp:189
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Show all keys"
 msgstr "Показати усі ключі"
 
@@ -2259,8 +2466,8 @@ msgctxt ""
 "@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
 "does not yet have an OpenPGP or S/MIME key."
 msgid ""
-"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
-"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"Generate a new key using your email address.<br/><br/>The key is necessary "
+"to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 "Створити ключ на основі адреси вашої електронної пошти.<br/><br/>Ключ "
@@ -2275,11 +2482,29 @@ msgctxt "@title:window"
 msgid "Security approval"
 msgstr "Схвалення захисту"
 
-#: ui/newkeyapprovaldialog.cpp:304 ui/newkeyapprovaldialog.cpp:307
-#: utils/formatting.cpp:782
+#: ui/newkeyapprovaldialog.cpp:304
 #, kde-format
+msgctxt "@option:check"
 msgid "OpenPGP"
 msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:305
+#, kde-format
+msgctxt "@option:check"
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: ui/newkeyapprovaldialog.cpp:307
+#, kde-format
+msgctxt "@option:radio"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ui/newkeyapprovaldialog.cpp:308
+#, kde-format
+msgctxt "@option:radio"
+msgid "S/MIME"
+msgstr "S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:398
 #, kde-format
@@ -2299,6 +2524,7 @@ msgstr "Створення ключа"
 
 #: ui/newkeyapprovaldialog.cpp:439
 #, kde-format
+msgctxt "@title:window"
 msgid "Operation Failed"
 msgstr "Не вдалося виконати"
 
@@ -2309,13 +2535,13 @@ msgstr "Створити пару ключів"
 
 #: ui/newkeyapprovaldialog.cpp:557
 #, kde-format
-msgid "Don't confirm identity and integrity"
-msgstr "Не підтверджувати профіль і цілісність"
+msgid "Do not sign this email"
+msgstr "Не підписувати це повідомлення"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
 msgctxt "@info:tooltip for not selecting a key for signing."
-msgid "The E-Mail will not be cryptographically signed."
+msgid "The email will not be cryptographically signed."
 msgstr "Поштове повідомлення не буде криптографічно підписано."
 
 #: ui/newkeyapprovaldialog.cpp:577
@@ -2334,7 +2560,7 @@ msgstr "Немає ключа. Отримувач не зможе розшифр
 msgctxt "@info:tooltip for No Key selected for a specific recipient."
 msgid ""
 "Do not select a key for this recipient.<br/><br/>The recipient will receive "
-"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
 "Не вибирати ключа для цього отримувача.<br/><br/>Отримувач дістане "
@@ -2356,6 +2582,61 @@ msgstr "Зашифрувати для інших:"
 #, kde-format
 msgid "Generate"
 msgstr "Створити"
+
+#: ui/openpgpcertificatecreationdialog.cpp:94
+#, kde-format
+msgid "Protect the generated key with a passphrase."
+msgstr "Захистити створений ключ паролем."
+
+#: ui/openpgpcertificatecreationdialog.cpp:96
+#, kde-format
+msgid ""
+"Encrypts the secret key with an unrecoverable passphrase. You will be asked "
+"for the passphrase during key generation."
+msgstr ""
+"Шифрує закритий ключ з використанням невідновлюваного пароля. Програма "
+"попросить вас ввести цей пароль під час створення ключа."
+
+#: ui/openpgpcertificatecreationdialog.cpp:99
+#, kde-format
+msgid "Advanced options"
+msgstr "Додаткові параметри"
+
+#: ui/openpgpcertificatecreationdialog.cpp:106
+#, kde-format
+msgctxt "The algorithm and strength of encryption key"
+msgid "Key Material"
+msgstr "Матеріал ключа"
+
+#: ui/openpgpcertificatecreationdialog.cpp:150
+#, kde-format
+msgctxt "title:window"
+msgid "Create OpenPGP Certificate"
+msgstr "Створення сертифіката OpenPGP"
+
+#: ui/openpgpcertificatecreationdialog.cpp:158
+#, kde-format
+msgid "Enter a name and an email address to use for the certificate."
+msgstr ""
+"Введіть ім'я і адресу електронної пошти, яким слід скористатися для цього "
+"сертифіката."
+
+#: ui/openpgpcertificatecreationdialog.cpp:159
+#, kde-format
+msgid "Enter a name and/or an email address to use for the certificate."
+msgstr ""
+"Введіть ім'я і/або адресу електронної пошти, яким слід скористатися для "
+"цього сертифіката."
+
+#: ui/openpgpcertificatecreationdialog.cpp:336
+#, kde-format
+msgid "Enter a name or an email address."
+msgstr "Вкажіть ім'я або адресу електронної пошти."
+
+#: ui/openpgpcertificatecreationdialog.cpp:350
+#, kde-format
+msgid "There is a problem."
+msgstr "Маємо проблему."
 
 #: ui/readerportselection.cpp:58
 #, kde-format
@@ -2386,104 +2667,184 @@ msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
 msgstr "Нетиповий ідентифікатор або номер порту зчитувача"
 
-#: utils/compliance.cpp:160
+#: ui/treeview.cpp:69 ui/treewidget.cpp:172
+#, kde-format
+msgctxt "@title:menu"
+msgid "View Columns"
+msgstr "Показувати стовпці"
+
+#: ui/useridselectioncombo.cpp:529
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show certificate list"
+msgstr "Показати список сертифікатів"
+
+#: ui/useridselectioncombo.cpp:530
+#, kde-format
+msgid "Show certificate list"
+msgstr "Показати список сертифікатів"
+
+#: utils/compliance.cpp:187
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "Сумісний із VS-NfD"
 
-#: utils/compliance.cpp:160
+#: utils/compliance.cpp:187
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Несумісний із VS-NfD"
 
-#: utils/formatting.cpp:325
+#: utils/compliance.cpp:196
+#, kde-format
+msgctxt "@info append beta-marker to compliance"
+msgid "%1 (beta)"
+msgstr "%1 (beta)"
+
+#: utils/expiration.cpp:102
+#, kde-format
+msgctxt "@label Valid until (<a date>):"
+msgid "Valid until (%1):"
+msgstr "Строк дії (%1):"
+
+#: utils/expiration.cpp:105
+#, kde-format
+msgctxt "@label ... (between <a date> and <another date>):"
+msgid "Valid until (between %1 and %2):"
+msgstr "Строк дії (від %1 до %2):"
+
+#: utils/expiration.cpp:116
+#, kde-format
+msgctxt "@info"
+msgid "The date cannot be changed."
+msgstr "Дату не можна змінювати."
+
+#: utils/expiration.cpp:119 utils/expiration.cpp:125
+#, kde-format
+msgctxt "@info ... between <a date> and <another date>."
+msgid "Enter a date between %1 and %2."
+msgstr "Введіть дату від %1 до %2."
+
+#: utils/expiration.cpp:147
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Three years from now"
+msgstr "Три роки від сьогодні"
+
+#: utils/expiration.cpp:148
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Two years from now"
+msgstr "Два роки від сьогодні"
+
+#: utils/expiration.cpp:149
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "One year from now"
+msgstr "Один рік від сьогодні"
+
+#: utils/formatting.cpp:340
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
 msgstr "%1-бітове %2 (доступний закритий ключ)"
 
-#: utils/formatting.cpp:327 utils/formatting.cpp:338
+#: utils/formatting.cpp:342
 #, kde-format
 msgid "%1-bit %2"
 msgstr "%1-бітове %2"
 
-#: utils/formatting.cpp:346 utils/formatting.cpp:368
+#: utils/formatting.cpp:351
 #, kde-format
 msgid "Signing (Qualified)"
 msgstr "Підписування (Обмежене)"
 
-#: utils/formatting.cpp:348 utils/formatting.cpp:370
+#: utils/formatting.cpp:353
 #, kde-format
 msgid "Signing"
 msgstr "Підписування"
 
-#: utils/formatting.cpp:352 utils/formatting.cpp:374
+#: utils/formatting.cpp:357
 #, kde-format
 msgid "Encryption"
 msgstr "Шифрування"
 
-#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#: utils/formatting.cpp:360
 #, kde-format
-msgid "Certifying User-IDs"
+msgid "Certifying User IDs"
 msgstr "Сертифікуємо ідентифікатори користувачів"
 
-#: utils/formatting.cpp:358 utils/formatting.cpp:380
+#: utils/formatting.cpp:363
 #, kde-format
 msgid "SSH Authentication"
 msgstr "Розпізнавання за допомогою SSH"
 
-#: utils/formatting.cpp:410 utils/formatting.cpp:503
-#, kde-format
-msgid "Revoked"
-msgstr "Анульований"
-
-#: utils/formatting.cpp:412 utils/formatting.cpp:505
-#, kde-format
-msgid "Expired"
-msgstr "Застарілий"
-
-#: utils/formatting.cpp:414
+#: utils/formatting.cpp:393
 #, kde-format
 msgid "Disabled"
 msgstr "Вимкнено"
 
-#: utils/formatting.cpp:423
+#: utils/formatting.cpp:395
 #, kde-format
-msgid "All User-IDs are certified."
+msgid "Revoked"
+msgstr "Анульований"
+
+#: utils/formatting.cpp:397
+#, kde-format
+msgid "Expired"
+msgstr "Застарілий"
+
+#: utils/formatting.cpp:401
+#, kde-format
+msgid "User ID is certified."
+msgstr "Ідентифікатор користувача сертифіковано."
+
+#: utils/formatting.cpp:407
+#, kde-format
+msgid "User ID is not certified."
+msgstr "Ідентифікатор користувача не сертифіковано."
+
+#: utils/formatting.cpp:417
+#, kde-format
+msgid "All User IDs are certified."
 msgstr "Усі ідентифікатори користувачів сертифіковано."
 
-#: utils/formatting.cpp:429
+#: utils/formatting.cpp:423
 #, kde-format
-msgid "One User-ID is not certified."
-msgid_plural "%1 User-IDs are not certified."
+msgid "One User ID is not certified."
+msgid_plural "%1 User IDs are not certified."
 msgstr[0] "%1 ідентифікатор користувача не сертифіковано."
 msgstr[1] "%1 ідентифікатори користувачів не сертифіковано."
 msgstr[2] "%1 ідентифікаторів користувачів не сертифіковано."
 msgstr[3] "Один ідентифікатор користувача не сертифіковано."
 
-#: utils/formatting.cpp:432 utils/formatting.cpp:435
+#: utils/formatting.cpp:427 utils/formatting.cpp:430
 #, kde-format
 msgid "The validity cannot be checked at the moment."
 msgstr "Зараз чинність перевірити не можна."
 
-#: utils/formatting.cpp:445
+#: utils/formatting.cpp:440
 #, kde-format
 msgid "Serial number"
 msgstr "Серійний номер"
 
-#: utils/formatting.cpp:454
+#: utils/formatting.cpp:443
+#, kde-format
+msgid "Issuer"
+msgstr "Видавець"
+
+#: utils/formatting.cpp:450 utils/formatting.cpp:460
 #, kde-format
 msgid "Subject"
 msgstr "Призначення"
 
-#: utils/formatting.cpp:454
-#, kde-format
-msgid "User-ID"
-msgstr "Ід. користувача"
-
-#: utils/formatting.cpp:459
+#: utils/formatting.cpp:455
 #, kde-format
 msgid "a.k.a."
 msgstr "Псевдонім"
+
+#: utils/formatting.cpp:481
+#, kde-format
+msgid "Fingerprint"
+msgstr "Відбиток"
 
 #: utils/formatting.cpp:485
 #, kde-format
@@ -2505,63 +2866,67 @@ msgstr "Так"
 msgid "No"
 msgstr "Ні"
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:495 utils/formatting.cpp:523
-#: utils/formatting.cpp:525
+#: utils/formatting.cpp:492 utils/formatting.cpp:494
 #, kde-format
 msgid "Stored"
 msgstr "Збережено"
 
-#: utils/formatting.cpp:493 utils/formatting.cpp:523
+#: utils/formatting.cpp:492
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
 msgstr "на картці пам’яті з серійним номером %1"
 
-#: utils/formatting.cpp:495 utils/formatting.cpp:525
+#: utils/formatting.cpp:494
 #, kde-format
 msgctxt "stored..."
 msgid "on this computer"
 msgstr "на цьому комп'ютері"
 
-#: utils/formatting.cpp:501
-#, kde-format
-msgid "Subkey"
-msgstr "Підключ"
-
-#: utils/formatting.cpp:549
+#: utils/formatting.cpp:521
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
 "Деякі ключі відкликано, вимкнено, строк дії деяких ключів завершився або ці "
 "ключі є некоректними."
 
-#: utils/formatting.cpp:553
+#: utils/formatting.cpp:525
 #, kde-format
 msgid "All keys are certified."
 msgstr "Усі ключі сертифіковано."
 
-#: utils/formatting.cpp:555
+#: utils/formatting.cpp:527
 #, kde-format
 msgid "Some keys are not certified."
 msgstr "Деякі ключі не сертифіковано."
 
-#: utils/formatting.cpp:559
+#: utils/formatting.cpp:531
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
 msgstr "Зараз чинність ключів перевірити не можна."
 
-#: utils/formatting.cpp:573
+#: utils/formatting.cpp:545
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
 msgstr "У цій групі немає жодного ключа."
 
-#: utils/formatting.cpp:593
+#: utils/formatting.cpp:551
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Some of the certificates in this group cannot be used for encryption. Using "
+"this group can lead to unexpected results."
+msgstr ""
+"Деякими сертифікатами з цієї групи не можна скористатися для шифрування. "
+"Використання цієї групи може призвести до неочікуваних результатів."
+
+#: utils/formatting.cpp:571
 #, kde-format
 msgid "Keys:"
 msgstr "Ключі:"
 
-#: utils/formatting.cpp:601
+#: utils/formatting.cpp:580
 #, kde-format
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
@@ -2571,7 +2936,7 @@ msgstr[1] "і ще %1 ключі"
 msgstr[2] "і ще %1 ключів"
 msgstr[3] "і ще один ключ"
 
-#: utils/formatting.cpp:629
+#: utils/formatting.cpp:613
 #, kde-format
 msgctxt ""
 "date format suitable for screen readers; d: day as a number without a "
@@ -2579,276 +2944,286 @@ msgctxt ""
 msgid "MMMM d, yyyy"
 msgstr "dd.MM.yyyy"
 
-#: utils/formatting.cpp:675 utils/formatting.cpp:710
+#: utils/formatting.cpp:659 utils/formatting.cpp:694
 #, kde-format
 msgctxt "@info the expiration date of the key is unknown"
 msgid "unknown"
 msgstr "невідома"
 
-#: utils/formatting.cpp:717 utils/formatting.cpp:726
+#: utils/formatting.cpp:701 utils/formatting.cpp:710
 #, kde-format
 msgid "unlimited"
 msgstr "без обмежень"
 
-#: utils/formatting.cpp:779
+#: utils/formatting.cpp:763
 #, kde-format
 msgctxt "X.509/CMS encryption standard"
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#: utils/formatting.cpp:784
+#: utils/formatting.cpp:766
+#, kde-format
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: utils/formatting.cpp:768
 #, kde-format
 msgctxt "Unknown encryption protocol"
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: utils/formatting.cpp:800
+#: utils/formatting.cpp:784
 #, kde-format
 msgctxt "a group of keys/certificates"
 msgid "Group"
 msgstr "Група"
 
-#: utils/formatting.cpp:816 utils/formatting.cpp:861
+#: utils/formatting.cpp:800 utils/formatting.cpp:845
 #, kde-format
 msgctxt "unknown trust level"
 msgid "unknown"
 msgstr "невідомий"
 
-#: utils/formatting.cpp:818 utils/formatting.cpp:865
+#: utils/formatting.cpp:802 utils/formatting.cpp:849
 #, kde-format
 msgid "untrusted"
 msgstr "ненадійний"
 
-#: utils/formatting.cpp:820 utils/formatting.cpp:867
+#: utils/formatting.cpp:804 utils/formatting.cpp:851
 #, kde-format
 msgctxt "marginal trust"
 msgid "marginal"
 msgstr "з неповною довірою"
 
-#: utils/formatting.cpp:822 utils/formatting.cpp:869
+#: utils/formatting.cpp:806 utils/formatting.cpp:853
 #, kde-format
 msgctxt "full trust"
 msgid "full"
 msgstr "повний"
 
-#: utils/formatting.cpp:824 utils/formatting.cpp:871
+#: utils/formatting.cpp:808 utils/formatting.cpp:855
 #, kde-format
 msgctxt "ultimate trust"
 msgid "ultimate"
 msgstr "необмежений"
 
-#: utils/formatting.cpp:826 utils/formatting.cpp:863
+#: utils/formatting.cpp:810 utils/formatting.cpp:847
 #, kde-format
 msgctxt "undefined trust"
 msgid "undefined"
 msgstr "невизначений"
 
-#: utils/formatting.cpp:837 utils/formatting.cpp:854 utils/formatting.cpp:889
-#: utils/formatting.cpp:1298 utils/formatting.cpp:1326
-#, kde-format
-msgid "revoked"
-msgstr "відкликаний"
-
-#: utils/formatting.cpp:840 utils/formatting.cpp:899 utils/formatting.cpp:1295
-#: utils/formatting.cpp:1323
-#, kde-format
-msgid "expired"
-msgstr "застарілий"
-
-#: utils/formatting.cpp:843 utils/formatting.cpp:1301 utils/formatting.cpp:1329
+#: utils/formatting.cpp:821 utils/formatting.cpp:1272 utils/formatting.cpp:1297
 #, kde-format
 msgid "disabled"
 msgstr "вимкнений"
 
-#: utils/formatting.cpp:846 utils/formatting.cpp:857 utils/formatting.cpp:897
-#: utils/formatting.cpp:1304 utils/formatting.cpp:1332
+#: utils/formatting.cpp:824 utils/formatting.cpp:838 utils/formatting.cpp:873
+#: utils/formatting.cpp:1275 utils/formatting.cpp:1300
+#, kde-format
+msgid "revoked"
+msgstr "відкликаний"
+
+#: utils/formatting.cpp:827 utils/formatting.cpp:883 utils/formatting.cpp:1278
+#: utils/formatting.cpp:1303
+#, kde-format
+msgid "expired"
+msgstr "застарілий"
+
+#: utils/formatting.cpp:830 utils/formatting.cpp:841 utils/formatting.cpp:881
+#: utils/formatting.cpp:1281 utils/formatting.cpp:1306
 #, kde-format
 msgid "invalid"
 msgstr "некоректний"
 
-#: utils/formatting.cpp:848
+#: utils/formatting.cpp:832
 #, kde-format
-msgctxt "as in good/valid signature"
-msgid "good"
-msgstr "добрий"
+msgctxt "as in 'this subkey is ok'"
+msgid "OK"
+msgstr "Добрий"
 
-#: utils/formatting.cpp:887
+#: utils/formatting.cpp:871
 #, kde-format
 msgid "valid"
 msgstr "чинний"
 
-#: utils/formatting.cpp:901
+#: utils/formatting.cpp:875
+#, kde-format
+msgid "class %1"
+msgstr "клас %1"
+
+#: utils/formatting.cpp:885
 #, kde-format
 msgid "certificate expired"
 msgstr "строк дії сертифіката минув"
 
-#: utils/formatting.cpp:903
+#: utils/formatting.cpp:887
 #, kde-format
 msgctxt "fake/invalid signature"
 msgid "bad"
 msgstr "поганий"
 
-#: utils/formatting.cpp:909
+#: utils/formatting.cpp:893
 #, kde-format
 msgid "no public key"
 msgstr "немає відкритого ключа"
 
-#: utils/formatting.cpp:911
-#, kde-format
-msgid "key expired"
-msgstr "строк дію ключа вичерпано"
-
-#: utils/formatting.cpp:913
-#, kde-format
-msgid "key revoked"
-msgstr "ключ відкликано"
-
-#: utils/formatting.cpp:915
+#: utils/formatting.cpp:895
 #, kde-format
 msgid "key disabled"
 msgstr "ключ вимкнено"
 
-#: utils/formatting.cpp:971
+#: utils/formatting.cpp:897
+#, kde-format
+msgid "key revoked"
+msgstr "ключ відкликано"
+
+#: utils/formatting.cpp:899
+#, kde-format
+msgid "key expired"
+msgstr "строк дію ключа вичерпано"
+
+#: utils/formatting.cpp:955
 #, kde-format
 msgctxt "name, email, key id"
 msgid "%1 %2 (%3)"
 msgstr "%1 %2 (%3)"
 
-#: utils/formatting.cpp:1029
+#: utils/formatting.cpp:1013
 #, kde-format
 msgid "Bad signature by unknown certificate %1: %2"
 msgstr "Неякісне підписування невідомим сертифікатом %1: %2"
 
-#: utils/formatting.cpp:1031
+#: utils/formatting.cpp:1015
 #, kde-format
 msgid "Bad signature by an unknown certificate: %1"
 msgstr "Неякісне підписування невідомим сертифікатом: %1"
 
-#: utils/formatting.cpp:1034
+#: utils/formatting.cpp:1018
 #, kde-format
 msgid "Bad signature by %1: %2"
 msgstr "Неякісне підписування %1: %2"
 
-#: utils/formatting.cpp:1040
+#: utils/formatting.cpp:1024
 #, kde-format
 msgid "Good signature by unknown certificate %1."
 msgstr "Якісне підписування невідомим сертифікатом %1."
 
-#: utils/formatting.cpp:1042
+#: utils/formatting.cpp:1026
 #, kde-format
 msgid "Good signature by an unknown certificate."
 msgstr "Якісне підписування невідомим сертифікатом."
 
-#: utils/formatting.cpp:1045
+#: utils/formatting.cpp:1029
 #, kde-format
 msgid "Good signature by %1."
 msgstr "Якісне підписування %1."
 
-#: utils/formatting.cpp:1050
+#: utils/formatting.cpp:1034
 #, kde-format
 msgid "Invalid signature by unknown certificate %1: %2"
 msgstr "Некоректне підписування невідомим сертифікатом %1: %2"
 
-#: utils/formatting.cpp:1052
+#: utils/formatting.cpp:1036
 #, kde-format
 msgid "Invalid signature by an unknown certificate: %1"
 msgstr "Некоректне підписування невідомим сертифікатом: %1"
 
-#: utils/formatting.cpp:1055
+#: utils/formatting.cpp:1039
 #, kde-format
 msgid "Invalid signature by %1: %2"
 msgstr "Некоректне підписування %1: %2"
 
-#: utils/formatting.cpp:1069
+#: utils/formatting.cpp:1053
 #, kde-format
 msgid "This certificate was imported from the following sources:"
 msgstr "Цей сертифікат було імпортовано з таких джерел:"
 
-#: utils/formatting.cpp:1080
+#: utils/formatting.cpp:1064
 #, kde-format
 msgid "The import of this certificate was canceled."
 msgstr "Імпортування цього сертифіката було скасовано."
 
-#: utils/formatting.cpp:1083
+#: utils/formatting.cpp:1067
 #, kde-format
 msgid "An error occurred importing this certificate: %1"
 msgstr "Під час імпортування цього сертифіката сталася помилка: %1"
 
-#: utils/formatting.cpp:1088
+#: utils/formatting.cpp:1072
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
 "Цей сертифікат є новим у вашому сховищі ключів. Доступний закритий ключ."
 
-#: utils/formatting.cpp:1089
+#: utils/formatting.cpp:1073
 #, kde-format
 msgid "This certificate is new to your keystore."
 msgstr "Цей сертифікат є новим у вашому сховищі ключів."
 
-#: utils/formatting.cpp:1094
+#: utils/formatting.cpp:1078
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
 msgstr ""
 "До цього сертифіката під час імпортування було додано нові ідентифікатори "
 "користувачів."
 
-#: utils/formatting.cpp:1097
+#: utils/formatting.cpp:1081
 #, kde-format
 msgid "New signatures were added to this certificate by the import."
 msgstr "До цього сертифіката під час імпортування було додано нові підписи."
 
-#: utils/formatting.cpp:1100
+#: utils/formatting.cpp:1084
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
 msgstr "До цього сертифіката під час імпортування було додано нові підключі."
 
-#: utils/formatting.cpp:1103
+#: utils/formatting.cpp:1087
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
 "Імпортовані дані не містили нічого нового щодо цього сертифіката. Він "
 "лишився незмінним."
 
-#: utils/formatting.cpp:1119
+#: utils/formatting.cpp:1094
 #, kde-format
 msgid "Certify"
 msgstr "Сертифікувати"
 
-#: utils/formatting.cpp:1122
+#: utils/formatting.cpp:1097
 #, kde-format
 msgid "Sign"
 msgstr "Підписати"
 
-#: utils/formatting.cpp:1125
+#: utils/formatting.cpp:1100
 #, kde-format
 msgid "Encrypt"
 msgstr "Зашифрувати"
 
-#: utils/formatting.cpp:1128
+#: utils/formatting.cpp:1103
 #, kde-format
 msgid "Authenticate"
 msgstr "Розпізнати"
 
-#: utils/formatting.cpp:1131
+#: utils/formatting.cpp:1106
 #, kde-format
 msgctxt ""
 "Means 'Additional Decryption Subkey'; Don't try translating that, though."
 msgid "ADSK"
 msgstr "ADSK"
 
-#: utils/formatting.cpp:1139
+#: utils/formatting.cpp:1114
 #, kde-format
 msgctxt "name <email> (validity, protocol, creation date)"
 msgid "%1 (%2, %3, created: %4)"
 msgstr "%1 (%2, %3, створено: %4)"
 
-#: utils/formatting.cpp:1150
+#: utils/formatting.cpp:1125
 #, kde-format
 msgctxt "(validity, protocol, creation date)"
 msgid "(%1, %2, created: %3)"
 msgstr "(%1, %2, створено: %3)"
 
-#: utils/formatting.cpp:1162
+#: utils/formatting.cpp:1137
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity)"
 msgid "%2 (1 key, %3)"
@@ -2858,7 +3233,7 @@ msgstr[1] "%2 (%1 ключі, %3)"
 msgstr[2] "%2 (%1 ключів, %3)"
 msgstr[3] "%2 (1 ключ, %3)"
 
-#: utils/formatting.cpp:1169
+#: utils/formatting.cpp:1144
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
@@ -2868,7 +3243,7 @@ msgstr[1] "%2 (%1 ключі, %3, мітка)"
 msgstr[2] "%2 (%1 ключів, %3, мітка)"
 msgstr[3] "%2 (1 ключ, %3, мітка)"
 
-#: utils/formatting.cpp:1176
+#: utils/formatting.cpp:1151
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
@@ -2878,17 +3253,17 @@ msgstr[1] "%2 (%1 ключі, %3, невідоме походження)"
 msgstr[2] "%2 (%1 ключів, %3, невідоме походження)"
 msgstr[3] "%2 (1 ключ, %3, невідоме походження)"
 
-#: utils/formatting.cpp:1197
+#: utils/formatting.cpp:1172
 #, kde-format
 msgid "The certificate is marked as your own."
 msgstr "Сертифікат позначено як ваш власний."
 
-#: utils/formatting.cpp:1199
+#: utils/formatting.cpp:1174
 #, kde-format
 msgid "The certificate belongs to this recipient."
 msgstr "Сертифікат належить цьому отримувачу."
 
-#: utils/formatting.cpp:1201
+#: utils/formatting.cpp:1176
 #, kde-format
 msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
@@ -2897,137 +3272,156 @@ msgstr ""
 "Модель довіри опосередковано визначає, що цей сертифікат належить цьому "
 "отримувачу."
 
-#: utils/formatting.cpp:1203
+#: utils/formatting.cpp:1178
 #, kde-format
 msgid "This certificate should not be used."
 msgstr "Цим сертифікатом не варто користуватися."
 
-#: utils/formatting.cpp:1207
+#: utils/formatting.cpp:1182
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
 "Немає ніяких свідчень того, що цей сертифікат належить цьому отримувачу."
 
-#: utils/formatting.cpp:1219
+#: utils/formatting.cpp:1194
 #, kde-format
 msgid "This group does not contain any keys."
 msgstr "У цій групі немає жодного ключа."
 
-#: utils/formatting.cpp:1279
+#: utils/formatting.cpp:1244 utils/formatting.cpp:1256
 #, kde-format
 msgctxt "@info the compliance of the key with certain requirements is unknown"
 msgid "unknown"
 msgstr "невідома"
 
-#: utils/formatting.cpp:1292
+#: utils/formatting.cpp:1269
 #, kde-format
 msgctxt "As in 'this user ID is valid.'"
 msgid "certified"
 msgstr "сертифіковано"
 
-#: utils/formatting.cpp:1307
+#: utils/formatting.cpp:1284
 #, kde-format
 msgctxt "As in 'this user ID is not certified'"
 msgid "not certified"
 msgstr "не сертифіковано"
 
-#: utils/formatting.cpp:1310
+#: utils/formatting.cpp:1287
 #, kde-format
 msgctxt "The validity of this user ID has not been/could not be checked"
 msgid "not checked"
 msgstr "не перевірено"
 
-#: utils/formatting.cpp:1320
+#: utils/formatting.cpp:1309
 #, kde-format
 msgctxt "As in all user IDs are valid."
 msgid "certified"
 msgstr "сертифіковано"
 
-#: utils/formatting.cpp:1335
+#: utils/formatting.cpp:1312
 #, kde-format
 msgctxt "As in not all user IDs are valid."
 msgid "not certified"
 msgstr "не сертифіковано"
 
-#: utils/formatting.cpp:1338
+#: utils/formatting.cpp:1315
 #, kde-format
 msgctxt "The validity of the user IDs has not been/could not be checked"
 msgid "not checked"
 msgstr "не перевірено"
 
-#: utils/formatting.cpp:1347
+#: utils/formatting.cpp:1324
 #, kde-format
 msgctxt "As in all keys are valid."
 msgid "all certified"
 msgstr "усі сертифіковано"
 
-#: utils/formatting.cpp:1350
+#: utils/formatting.cpp:1327
 #, kde-format
 msgctxt "As in not all keys are valid."
 msgid "not all certified"
 msgstr "не усі сертифіковано"
 
-#: utils/formatting.cpp:1383
+#: utils/formatting.cpp:1371
 #, kde-format
 msgid "Keyserver"
 msgstr "Сервер ключів"
 
-#: utils/formatting.cpp:1391
+#: utils/formatting.cpp:1379
 #, kde-format
 msgid "File import"
 msgstr "Імпортування файлів"
 
-#: utils/formatting.cpp:1393
+#: utils/formatting.cpp:1381
 #, kde-format
 msgid "Generated"
 msgstr "Створено"
 
-#: utils/formatting.cpp:1397
-#, kde-format
-msgid "Unknown"
-msgstr "Невідомо"
-
-#: utils/formatting.cpp:1433
+#: utils/formatting.cpp:1416
 #, kde-format
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr "Сертифікує цей ключ як частково довірений впроваджувач для «%1»."
 
-#: utils/formatting.cpp:1437
+#: utils/formatting.cpp:1420
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr "Сертифікує цей ключ як повністю довірений впроваджувач для «%1»."
 
-#: utils/formatting.cpp:1461
+#: utils/formatting.cpp:1457
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-256)"
 msgstr "ECC (Brainpool P-256)"
 
-#: utils/formatting.cpp:1462
+#: utils/formatting.cpp:1458
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-384)"
 msgstr "ECC (Brainpool P-384)"
 
-#: utils/formatting.cpp:1463
+#: utils/formatting.cpp:1459
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Brainpool P-512)"
 msgstr "ECC (Brainpool P-512)"
 
-#: utils/formatting.cpp:1464
+#: utils/formatting.cpp:1460
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve25519)"
 msgstr "ECC (Curve25519)"
 
-#: utils/formatting.cpp:1465
+#: utils/formatting.cpp:1461
 #, kde-format
 msgctxt "@info"
 msgid "ECC (Curve448)"
 msgstr "ECC (Curve448)"
+
+#: utils/formatting.cpp:1462
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed25519)"
+msgstr "ECC (Ed25519)"
+
+#: utils/formatting.cpp:1463
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Ed448)"
+msgstr "ECC (Ed448)"
+
+#: utils/formatting.cpp:1464
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv25519)"
+msgstr "ECC (Cv25519)"
+
+#: utils/formatting.cpp:1465
+#, kde-format
+msgctxt "@info"
+msgid "ECC (Cv448)"
+msgstr "ECC (Cv448)"
 
 #: utils/formatting.cpp:1466
 #, kde-format
@@ -3050,26 +3444,244 @@ msgstr "ECC (NIST P-521)"
 #: utils/formatting.cpp:1469
 #, kde-format
 msgctxt "@info"
+msgid "RSA 1024"
+msgstr "RSA 1024"
+
+#: utils/formatting.cpp:1470
+#, kde-format
+msgctxt "@info"
 msgid "RSA 2048"
 msgstr "RSA 2048"
 
-#: utils/formatting.cpp:1470
+#: utils/formatting.cpp:1471
 #, kde-format
 msgctxt "@info"
 msgid "RSA 3072"
 msgstr "RSA 3072"
 
-#: utils/formatting.cpp:1471
+#: utils/formatting.cpp:1472
 #, kde-format
 msgctxt "@info"
 msgid "RSA 4096"
 msgstr "RSA 4096"
 
+#: utils/formatting.cpp:1473
+#, kde-format
+msgctxt "@info"
+msgid "DSA 1024"
+msgstr "DSA 1024"
+
 #: utils/formatting.cpp:1474
 #, kde-format
 msgctxt "@info"
-msgid "Unknown algorithm"
-msgstr "Невідомий алгоритм"
+msgid "DSA 2048"
+msgstr "DSA 2048"
+
+#: utils/formatting.cpp:1475
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 1024"
+msgstr "Elgamal 1024"
+
+#: utils/formatting.cpp:1476
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 2048"
+msgstr "Elgamal 2048"
+
+#: utils/formatting.cpp:1477
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 3072"
+msgstr "Elgamal 3072"
+
+#: utils/formatting.cpp:1478
+#, kde-format
+msgctxt "@info"
+msgid "Elgamal 4096"
+msgstr "Elgamal 4096"
+
+#: utils/formatting.cpp:1491
+#, kde-format
+msgid ""
+"The signature is valid but the trust in the certificate's validity is only "
+"marginal."
+msgstr ""
+"Підпис є дійсний, але впевненість у надійності сертифіката є лише "
+"поверхневою."
+
+#: utils/formatting.cpp:1493
+#, kde-format
+msgid "The signature is valid and the certificate's validity is fully trusted."
+msgstr "Підпис є чинним, а надійності сертифіката можна повністю довіряти."
+
+#: utils/formatting.cpp:1495
+#, kde-format
+msgid ""
+"The signature is valid and the certificate's validity is ultimately trusted."
+msgstr "Підпис є чинним, а надійності сертифіката можна необмежено довіряти."
+
+#: utils/formatting.cpp:1497
+#, kde-format
+msgid ""
+"The signature is valid but the certificate's validity is <em>not trusted</"
+"em>."
+msgstr ""
+"Підпис є чинним, але надійності сертифіката  <em>не можна довіряти</em>."
+
+#: utils/formatting.cpp:1499
+#, kde-format
+msgid "The signature is valid but the certificate's validity is unknown."
+msgstr "Підпис є чинним, але надійність сертифіката є невідомою."
+
+#: utils/formatting.cpp:1502
+#, kde-format
+msgid "The signature is valid but the certificate's validity is undefined."
+msgstr "Підпис є чинним, але надійність сертифіката не визначено."
+
+#: utils/formatting.cpp:1514
+#, kde-format
+msgid "Unknown certificate"
+msgstr "Невідомий сертифікат"
+
+#: utils/formatting.cpp:1518
+#, kde-format
+msgctxt "User ID (Key ID)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp:1534
+#, kde-format
+msgctxt "1 is a date"
+msgid ""
+"Signature created on %1 using an unknown certificate with fingerprint %2"
+msgstr "Підпис створено %1 за допомогою невідомого сертифіката із відбитком %2"
+
+#: utils/formatting.cpp:1538
+#, kde-format
+msgid "Signature created using an unknown certificate with fingerprint %1"
+msgstr "Підпис створено за допомогою невідомого сертифіката із відбитком %1"
+
+#: utils/formatting.cpp:1542
+#, kde-format
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "Підпис створено %1 за допомогою такого сертифіката: %2"
+
+#: utils/formatting.cpp:1544
+#, kde-format
+msgid "Signature created with certificate: %1"
+msgstr "Підпис створено за допомогою такого сертифіката: %1"
+
+#: utils/formatting.cpp:1550
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1"
+msgstr "Підпис є %1"
+
+#: utils/formatting.cpp:1553
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Підпис <b>не є</b> %1."
+
+#: utils/formatting.cpp:1563
+#, kde-format
+msgid "Error: Signature not verified"
+msgstr "Помилка: підпис не перевірено"
+
+#: utils/formatting.cpp:1565
+#, kde-format
+msgid "Good signature"
+msgstr "Придатний підпис"
+
+#: utils/formatting.cpp:1567
+#, kde-format
+msgid "Signing certificate was revoked"
+msgstr "Сертифікат підпису відкликано"
+
+#: utils/formatting.cpp:1569
+#, kde-format
+msgid "Signing certificate is expired"
+msgstr "Строк дії сертифіката підпису збіг"
+
+#: utils/formatting.cpp:1571
+#, kde-format
+msgid "Certificate is not available"
+msgstr "Сертифікат недоступний"
+
+#: utils/formatting.cpp:1573
+#, kde-format
+msgid "Signature expired"
+msgstr "Строк дії підпису збіг"
+
+#: utils/formatting.cpp:1575
+#, kde-format
+msgid "CRL missing"
+msgstr "Немає CRL"
+
+#: utils/formatting.cpp:1577
+#, kde-format
+msgid "CRL too old"
+msgstr "CRL застарий"
+
+#: utils/formatting.cpp:1579
+#, kde-format
+msgid "Bad policy"
+msgstr "Непридатні правила"
+
+#: utils/formatting.cpp:1581
+#, kde-format
+msgid "System error"
+msgstr "Системна помилка"
+
+#: utils/formatting.cpp:1583
+#, kde-format
+msgid "Bad signature"
+msgstr "Непридатний підпис"
+
+#: utils/formatting.cpp:1659 utils/formatting.cpp:1682
+#, kde-format
+msgid "The signature is invalid: %1"
+msgstr "Підпис є некоректним: %1"
+
+#: utils/formatting.cpp:1668
+#, kde-format
+msgid "You can search the certificate on a keyserver or import it from a file."
+msgstr ""
+"Ви можете пошукати сертифікат на сервері ключів або імпортувати його з файла."
+
+#: utils/formatting.cpp:1677
+#, kde-format
+msgid "The used key is not certified by you or any trusted person."
+msgstr ""
+"Використаний сертифікат не посвідчено ні вами, ні якоюсь іншою надійною "
+"особою."
+
+#: utils/formatting.cpp:1678
+#, kde-format
+msgid ""
+"The used certificate is not certified by a trustworthy Certificate Authority "
+"or the Certificate Authority is unknown."
+msgstr ""
+"Використаний сертифікат не посвідчено гідною довіри службою сертифікації або "
+"служба сертифікації є невідомою."
+
+#: utils/gnupg.cpp:486
+#, kde-format
+msgctxt "@info"
+msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
+msgstr "У GnuPG передбачено підтримку OpenPGP/LibrePGP і S/MIME."
+
+#: utils/gnupg.cpp:495
+#, kde-format
+msgctxt "@info"
+msgid "Libgcrypt is a general purpose cryptographic library."
+msgstr "Libgcrypt є криптографічною бібліотеку загального призначення."
 
 #: utils/hex.cpp:35
 #, kde-format
@@ -3082,6 +3694,345 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Передчасне завершення закодованого у шістнадцяткове число символу у потоці "
 "вхідних даних."
+
+#: kleo/expirychecker.cpp:78
+#, kde-format
+msgctxt "<b>User ID of key</b> (KeyID key ID of key in hex notation)"
+msgid "<b>%1</b> (KeyID 0x%2)"
+msgstr "<b>%1</b> (Ід. ключа 0x%2)"
+
+#: kleo/keyfiltermanager.cpp:71
+#, kde-format
+msgid "All Certificates"
+msgstr "Всі сертифікати"
+
+#: kleo/keyfiltermanager.cpp:86
+#, kde-format
+msgid "My Certificates"
+msgstr "Мої сертифікати"
+
+#: kleo/keyfiltermanager.cpp:104
+#, kde-format
+msgid "Trusted Certificates"
+msgstr "Сертифікати з довірою"
+
+#: kleo/keyfiltermanager.cpp:121
+#, kde-format
+msgid "Fully Trusted Certificates"
+msgstr "Сертифікати з повною довірою"
+
+#: kleo/keyfiltermanager.cpp:138
+#, kde-format
+msgid "Other Certificates"
+msgstr "Інші сертифікати"
+
+#: kleo/keyfiltermanager.cpp:153
+#, kde-format
+msgid "Not Certified Certificates"
+msgstr "Несертифіковані сертифікати"
+
+#: kleo/keyfiltermanager.cpp:176
+#, kde-format
+msgid "Not Validated Certificates"
+msgstr "Неперевірені сертифікати"
+
+#: models/keylistmodel.cpp:321 models/useridlistmodel.cpp:106
+#, kde-format
+msgid "E-Mail"
+msgstr "Ел. пошта"
+
+#: models/keylistmodel.cpp:323
+#, kde-format
+msgid "User-IDs"
+msgstr "Ід. користувачів"
+
+#: models/keylistmodel.cpp:329
+#, kde-format
+msgid "Protocol"
+msgstr "Протокол"
+
+#: models/keylistmodel.cpp:331 models/keylistmodel.cpp:333
+#: utils/formatting.cpp:478
+#, kde-format
+msgid "Key-ID"
+msgstr "Ід. ключа"
+
+#: models/keylistmodel.cpp:339
+#, kde-format
+msgid "Serial Number"
+msgstr "Серійний номер"
+
+#: models/keylistmodel.cpp:341
+#, kde-format
+msgid "Origin"
+msgstr "Походження"
+
+#: models/keylistmodel.cpp:343
+#, kde-format
+msgid "Last Update"
+msgstr "Останнє оновлення"
+
+#: models/keylistmodel.cpp:345
+#, kde-format
+msgid "Certification Trust"
+msgstr "Довіра до сертифікації"
+
+#: ui/auditlogviewer.cpp:55
+#, kde-format
+msgid "&Copy to Clipboard"
+msgstr "&Копіювати до буфера"
+
+#: ui/auditlogviewer.cpp:60
+#, kde-format
+msgid "&Save to Disk..."
+msgstr "&Зберегти на диск..."
+
+#: ui/auditlogviewer.cpp:102
+#, kde-format
+msgid "System Error"
+msgstr "Системна помилка"
+
+#: ui/auditlogviewer.cpp:112
+#, kde-format
+msgid "No GnuPG Audit Log"
+msgstr "Немає журналу перевірки GnuPG"
+
+#: ui/auditlogviewer.cpp:118
+#, kde-format
+msgid "GnuPG Audit Log Viewer"
+msgstr "Переглядач журналу перевірки GnuPG"
+
+#: ui/auditlogviewer.cpp:152
+#, kde-format
+msgid "File Save Error"
+msgstr "Помилка під час збереження файла"
+
+#: ui/cryptoconfigmodule.cpp:165
+#, kde-format
+msgid "GpgConf Error"
+msgstr "Помилка GpgConf"
+
+#: ui/cryptoconfigmodule.cpp:721
+#, kde-format
+msgid "Set the debugging level to"
+msgstr "Встановити рівень налагоджування"
+
+#: ui/cryptoconfigmodule.cpp:997
+#, kde-format
+msgid ""
+"Configuration of directory services is not possible because the used gpgme "
+"libraries are too old."
+msgstr ""
+"Налаштовування служб каталогу є неможливим, оскільки використані бібліотеки "
+"gpgme є надто застарілими."
+
+#: ui/cryptoconfigmodule.cpp:999
+#, kde-format
+msgid "Sorry"
+msgstr "Вибачте"
+
+#: ui/directoryserviceswidget.cpp:216
+#, kde-format
+msgid "Edit"
+msgstr "Змінити"
+
+#: ui/directoryserviceswidget.cpp:224
+#, kde-format
+msgid "Delete"
+msgstr "Вилучити"
+
+#: ui/dnattributeorderconfigwidget.cpp:88
+#, kde-format
+msgid "Available attributes:"
+msgstr "Наявні атрибути:"
+
+#: ui/dnattributeorderconfigwidget.cpp:90
+#, kde-format
+msgid "Current attribute order:"
+msgstr "Поточний порядок атрибутів:"
+
+#: ui/keyapprovaldialog.cpp:118
+#, kde-format
+msgid "The following keys will be used for encryption:"
+msgstr "Наступні ключі будуть використані для шифрування:"
+
+#: ui/keyapprovaldialog.cpp:134
+#, kde-format
+msgid "Your keys:"
+msgstr "Ваші ключі:"
+
+#: ui/keyapprovaldialog.cpp:146
+#, kde-format
+msgid "Recipient:"
+msgstr "Адресат:"
+
+#: ui/keyapprovaldialog.cpp:151
+#, kde-format
+msgid "Encryption keys:"
+msgstr "Ключі шифрування:"
+
+#: ui/keyapprovaldialog.cpp:158
+#, kde-format
+msgid "Encryption preference:"
+msgstr "Пріоритет засобів шифрування:"
+
+#: ui/keyrequester.cpp:89
+#, kde-format
+msgid "Clear"
+msgstr "Очистити"
+
+#: ui/keyrequester.cpp:92
+#, kde-format
+msgid "Change..."
+msgstr "Змінити..."
+
+#: ui/keyrequester.cpp:239 ui/keyrequester.cpp:272 ui/keyrequester.cpp:294
+#: ui/keyselectiondialog.cpp:649 ui/keyselectiondialog.cpp:685
+#, kde-format
+msgid "Key Listing Failed"
+msgstr "Помилка отримання переліку ключів"
+
+#: ui/keyselectioncombo.cpp:176
+#, kde-format
+msgctxt "Name <email> (validity, created: date)"
+msgid "%1 (%2, created: %3)"
+msgstr "%1 (%2, створено: %3)"
+
+#: ui/keyselectioncombo.cpp:182
+#, kde-format
+msgctxt "Name <email> (validity, type, created: date)"
+msgid "%1 (%2, %3, created: %4)"
+msgstr "%1 (%2, %3, створено: %4)"
+
+#: ui/keyselectiondialog.cpp:426
+#, kde-format
+msgid "Search for &External Certificates"
+msgstr "Шукати &зовнішні сертифікати"
+
+#: ui/keyselectiondialog.cpp:440
+#, kde-format
+msgid "&Search for:"
+msgstr "&Шукати за:"
+
+#: ui/keyselectiondialog.cpp:465
+#, kde-format
+msgid "&Remember choice"
+msgstr "&Запам'ятати вибір"
+
+#: ui/keyselectiondialog.cpp:482
+#, kde-format
+msgid "&Reread Keys"
+msgstr "&Перечитати ключі"
+
+#: ui/keyselectiondialog.cpp:487
+#, kde-format
+msgid "&Start Certificate Manager"
+msgstr "Зап&устити менеджер сертифікатів"
+
+#: ui/keyselectiondialog.cpp:667
+#, kde-format
+msgid "Certificate Manager Error"
+msgstr "Помилка менеджера сертифікатів"
+
+#: ui/newkeyapprovaldialog.cpp:185
+#, kde-format
+msgid "Show keys matching the email address"
+msgstr "Показати ключі, що відповідають адресі електронної пошти"
+
+#: ui/newkeyapprovaldialog.cpp:189
+#, kde-format
+msgid "Show all keys"
+msgstr "Показати усі ключі"
+
+#: ui/newkeyapprovaldialog.cpp:272
+#, kde-format
+msgctxt ""
+"@info:tooltip for a 'Generate new key pair' action in a combobox when a user "
+"does not yet have an OpenPGP or S/MIME key."
+msgid ""
+"Generate a new key using your E-Mail address.<br/><br/>The key is necessary "
+"to decrypt and sign E-Mails. You will be asked for a passphrase to protect "
+"this key and the protected key will be stored in your home directory."
+msgstr ""
+"Створити ключ на основі адреси вашої електронної пошти.<br/><br/>Ключ "
+"потрібен для розшифрування і підписування повідомлень електронної пошти. "
+"Програма попросить вас вказати пароль для захисту цього ключа. Захищений "
+"ключ буде збережено до домашнього каталогу вашого облікового запису "
+"користувача."
+
+#: ui/newkeyapprovaldialog.cpp:439
+#, kde-format
+msgid "Operation Failed"
+msgstr "Не вдалося виконати"
+
+#: ui/newkeyapprovaldialog.cpp:557
+#, kde-format
+msgid "Don't confirm identity and integrity"
+msgstr "Не підтверджувати профіль і цілісність"
+
+#: ui/newkeyapprovaldialog.cpp:559
+#, kde-format
+msgctxt "@info:tooltip for not selecting a key for signing."
+msgid "The E-Mail will not be cryptographically signed."
+msgstr "Поштове повідомлення не буде криптографічно підписано."
+
+#: ui/newkeyapprovaldialog.cpp:657
+#, kde-format
+msgctxt "@info:tooltip for No Key selected for a specific recipient."
+msgid ""
+"Do not select a key for this recipient.<br/><br/>The recipient will receive "
+"the encrypted E-Mail, but it can only be decrypted with the other keys "
+"selected in this dialog."
+msgstr ""
+"Не вибирати ключа для цього отримувача.<br/><br/>Отримувач дістане "
+"зашифроване повідомлення електронної пошти, але його можна буде розшифрувати "
+"лише за допомогою інших ключів, які вибрано у цьому діалоговому вікні."
+
+#: utils/formatting.cpp:355 utils/formatting.cpp:377
+#, kde-format
+msgid "Certifying User-IDs"
+msgstr "Сертифікуємо ідентифікатори користувачів"
+
+#: utils/formatting.cpp:423
+#, kde-format
+msgid "All User-IDs are certified."
+msgstr "Усі ідентифікатори користувачів сертифіковано."
+
+#: utils/formatting.cpp:429
+#, kde-format
+msgid "One User-ID is not certified."
+msgid_plural "%1 User-IDs are not certified."
+msgstr[0] "%1 ідентифікатор користувача не сертифіковано."
+msgstr[1] "%1 ідентифікатори користувачів не сертифіковано."
+msgstr[2] "%1 ідентифікаторів користувачів не сертифіковано."
+msgstr[3] "Один ідентифікатор користувача не сертифіковано."
+
+#: utils/formatting.cpp:454
+#, kde-format
+msgid "User-ID"
+msgstr "Ід. користувача"
+
+#: utils/formatting.cpp:501
+#, kde-format
+msgid "Subkey"
+msgstr "Підключ"
+
+#: utils/formatting.cpp:848
+#, kde-format
+msgctxt "as in good/valid signature"
+msgid "good"
+msgstr "добрий"
+
+#: utils/formatting.cpp:1397
+#, kde-format
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: utils/formatting.cpp:1474
+#, kde-format
+msgctxt "@info"
+msgid "Unknown algorithm"
+msgstr "Невідомий алгоритм"
 
 #~ msgid "Certificate Manager and Unified Crypto GUI"
 #~ msgstr ""
