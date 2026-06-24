@@ -139,6 +139,12 @@ KLEO_EXPORT void launchGpgAgent(LaunchGpgAgentOptions options = CheckForRunningA
 /** Shut down all GnuPG daemons and restart the GnuPG agent. */
 KLEO_EXPORT void restartGpgAgent();
 
+/** Returns true if dirmngr is disabled for protocol \a protocol.
+ * If \a protocol is GpgME::UnknownProtocol (i.e. the default) then true is returned
+ * if dirmngr is disabled for both protocols.
+ */
+KLEO_EXPORT bool isDirmngrDisabled(GpgME::Protocol protocol = GpgME::UnknownProtocol);
+
 /** Starts the dirmngr daemon if it's not already running. */
 KLEO_EXPORT void launchDirmngr();
 

@@ -575,6 +575,18 @@ void Kleo::restartGpgAgent()
     process = startGpgConf({QStringLiteral("--kill"), QStringLiteral("all")}, startAgent, startAgent);
 }
 
+bool Kleo::isDirmngrDisabled(GpgME::Protocol protocol)
+{
+    switch (protocol) {
+    case GpgME::OpenPGP:
+        return getCryptoConfigBoolValue("gpg", "disable-dirmngr");
+    case GpgME::CMS:
+        return getCryptoConfigBoolValue("gpgsm", "disable-dirmngr");
+    default:
+        return getCryptoConfigBoolValue("gpg", "disable-dirmngr") && getCryptoConfigBoolValue("gpgsm", "disable-dirmngr");
+    }
+}
+
 void Kleo::launchDirmngr()
 {
     startGpgConfDetached({u"--launch"_s, u"dirmngr"_s});
