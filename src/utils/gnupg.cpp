@@ -589,7 +589,9 @@ bool Kleo::isDirmngrDisabled(GpgME::Protocol protocol)
 
 void Kleo::launchDirmngr()
 {
-    startGpgConfDetached({u"--launch"_s, u"dirmngr"_s});
+    if (!isDirmngrDisabled()) {
+        startGpgConfDetached({u"--launch"_s, u"dirmngr"_s});
+    }
 }
 
 static const std::vector<std::string> &availableAlgorithmsOpenPGP()
