@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007, 2009.
-# SPDX-FileCopyrightText: 2022, 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2024-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-19 11:05+0200\n"
-"PO-Revision-Date: 2025-11-07 18:25+0100\n"
+"POT-Creation-Date: 2026-06-29 09:39+0200\n"
+"PO-Revision-Date: 2026-05-29 12:12+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: kleo/checksumdefinition.cpp
 #, kde-format
@@ -2268,12 +2268,10 @@ msgid "Security approval"
 msgstr "Одобрение на сигурността"
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Протокол"
+msgstr "Крипто протокол:"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2288,6 +2286,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Съставяне на съобщението в OpenPGP формат. Това предполага, че могат да "
+"бъдат избрани само криптографски ключове OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2302,13 +2302,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Съставете съобщението в формат S/MIME. Това означава, че може да бъдат "
+"избрани само S/MIME криптографски ключове."
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "И двата OpenPGP/MIME и S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-kuit-format
@@ -2319,18 +2320,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Съставяне на две отделни съобщения: едно, криптирано за получатели с OpenPGP "
+"ключове, и друго, за получатели с S/MIME ключове. Това позволява да "
+"комбинирате двата типа ключове, но може да усложни отговорът на получателите "
+"към всички адреси."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Съобщението ще бъде в OpenPGP формат."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Съобщението ще бъде в S/MIME формат."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2371,11 +2376,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Имейлът няма да бъде криптографски подписан."
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Подписване"
+msgstr "Подписване като:"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2384,6 +2388,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Подписването на съобщението ви осигурява криптографско потвърждение, че "
+"наистина сте изпращачът на това съобщение."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2513,34 +2519,31 @@ msgstr "Преглед на колони"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Сортиране по"
 
 #: ui/treeview_p.cpp
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Активна директория"
+msgstr "Посока на сортиране"
 
 #: ui/treeview_p.cpp
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Възходящ"
 
 #: ui/treeview_p.cpp
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Низходящ"
 
 #: ui/treeview_p.cpp
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Копи&ране в системния буфер"
+msgstr "Копиране на съдържанието на клетката в клипборда"
 
 #: ui/useridselectioncombo.cpp
 #, kde-format
@@ -3542,37 +3545,35 @@ msgstr ""
 "файл."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "Използваният ключ не е сертифициран от вас или от доверено лице."
+msgstr ""
+"Подписът е валиден, но използваният ключ не е сертифициран от вас или от "
+"друго доверено лице."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Използваният сертификат не е сертифициран от надежден сертифициран орган или "
-"сертифициращият орган е неизвестен."
+"Подписът е валиден, но използваният сертификат не е сертифициран от доверен "
+"Удостоверяващ орган (CA) или Удостоверяващият орган е неизвестен."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "Няма данни, че този сертификат принадлежи на този получател."
+msgstr ""
+"<strong>Предупреждение:</strong> Няма индикации, че подписът принадлежи на "
+"собственика."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
@@ -3581,49 +3582,50 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>Предупреждение:</strong> Не е сигурно, че подписът принадлежи на "
+"собственика."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Подписът е валиден, но валидността на сертификата е неопределена."
+msgstr "Подписът е валиден, но е изтекъл."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr "Използваният ключ не е сертифициран от вас или от доверено лице."
+msgstr ""
+"Подписът е валиден, но е изтекъл, а използваният ключ не е сертифициран от "
+"вас или от друго доверено лице."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Подписът е валиден, но валидността на сертификата е неопределена."
+msgstr "Подписът е валиден, но използваният ключ е изтекъл."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Подписът е валиден, но валидността на сертификата е неопределена."
+msgstr "Подписът е валиден, но използваният ключ е оттеглен."
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Предупреждение:</strong> Това може да означава, че подписът е "
+"подправен."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
-msgstr "Използваният ключ не е сертифициран от вас или от доверено лице."
+msgstr "Използваният ключ не е сертифициран от вас или от друго доверено лице."
 
 #: utils/gnupg.cpp
 #, kde-format
