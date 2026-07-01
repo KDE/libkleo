@@ -20,6 +20,7 @@
 
 namespace Kleo
 {
+class KeyUsage;
 
 template<typename KeyContainer>
 QStringList getFingerprints(const KeyContainer &keys)
@@ -214,4 +215,14 @@ inline bool subkeyUsesCombinedAlgorithms(const GpgME::Subkey &subkey)
     }
     return false;
 }
+
+/**
+ * Returns the usage flags of the entire key \p key.
+ */
+KLEO_EXPORT KeyUsage keyUsage(const GpgME::Key &key);
+
+/**
+ * Returns the usage flags of the subkey \p subkey.
+ */
+KLEO_EXPORT KeyUsage keyUsage(const GpgME::Subkey &subkey);
 }
