@@ -13,6 +13,7 @@
 #include <libkleo/algorithm.h>
 #include <libkleo/compat.h>
 #include <libkleo/keycache.h>
+#include <libkleo/keyusage.h>
 
 #include <libkleo_debug.h>
 
@@ -287,4 +288,46 @@ bool Kleo::userIDIsCertifiedByUser(const GpgME::UserID &userId)
         }
     }
     return false;
+}
+
+KeyUsage Kleo::keyUsage(const GpgME::Key &key)
+{
+    KeyUsage keyUsage;
+    if (key.canAuthenticate()) {
+        keyUsage.setCanAuthenticate(true);
+    }
+    if (key.canCertify()) {
+        keyUsage.setCanCertify(true);
+    }
+    if (key.canEncrypt()) {
+        keyUsage.setCanEncrypt(true);
+    }
+    if (key.canSign()) {
+        keyUsage.setCanSign(true);
+    }
+    if (key.subkey(0).isGroupOwned()) {
+        keyUsage.setIsGroupKey(true);
+    }
+    return keyUsage;
+}
+
+KeyUsage Kleo::keyUsage(const GpgME::Subkey &subkey)
+{
+    KeyUsage keyUsage;
+    if (subkey.canAuthenticate()) {
+        keyUsage.setCanAuthenticate(true);
+    }
+    if (subkey.canCertify()) {
+        keyUsage.setCanCertify(true);
+    }
+    if (subkey.canEncrypt()) {
+        keyUsage.setCanEncrypt(true);
+    }
+    if (subkey.canSign()) {
+        keyUsage.setCanSign(true);
+    }
+    if (subkey.isGroupOwned()) {
+        keyUsage.setIsGroupKey(true);
+    }
+    return keyUsage;
 }
