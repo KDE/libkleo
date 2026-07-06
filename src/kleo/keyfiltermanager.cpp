@@ -326,13 +326,6 @@ std::vector<std::shared_ptr<KeyFilter>> KeyFilterManager::filtersMatching(const 
     return result;
 }
 
-namespace
-{
-static const auto byDecreasingSpecificity = [](const std::shared_ptr<KeyFilter> &lhs, const std::shared_ptr<KeyFilter> &rhs) {
-    return lhs->specificity() > rhs->specificity();
-};
-}
-
 static inline QDebug operator<<(QDebug debug, const KConfigGroup &configGroup)
 {
     return debug << configGroup.name();
@@ -434,9 +427,8 @@ QModelIndex KeyFilterManager::toModelIndex(const std::shared_ptr<KeyFilter> &kf)
     if (!kf) {
         return {};
     }
-    const auto pair = std::equal_range(d->filters.cbegin(), d->filters.cend(), kf, byDecreasingSpecificity);
-    const auto it = std::find(pair.first, pair.second, kf);
-    if (it != pair.second) {
+    const auto it = std::ranges::find(d->filters, kf);
+    if (it != d->filters.end()) {
         return d->model.index(it - d->filters.begin());
     } else {
         return QModelIndex();
