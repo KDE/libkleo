@@ -1,19 +1,19 @@
 # translation of libkleopatra.po to Swedish
-# SPDX-FileCopyrightText: 2004, 2007, 2008, 2009, 2010, 2024, 2025, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2004, 2007-2010, 2024-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2005, 2014, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-01-23 20:58+0100\n"
+"PO-Revision-Date: 2026-07-07 10:29+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: kleo/checksumdefinition.cpp:84
@@ -2265,12 +2265,10 @@ msgid "Security approval"
 msgstr "Säkerhetsgodkännande"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokoll"
+msgstr "Kryptoprotokoll:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2285,6 +2283,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Skriv meddelandet i OpenPGP-format. Det innebär att endast OpenPGP-"
+"krypteringsnycklar kan väljas."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2299,13 +2299,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Skriv meddelandet i S/MIME-format. Det innebär att endast S/MIME-"
+"krypteringsnycklar kan väljas."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Både OpenPGP och S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2316,18 +2317,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Skriv två separata meddelanden, ett krypterat för mottagare med OpenPGP-"
+"nycklar och ett annat för mottagare med S/MIME-nycklar. Det gör det möjligt "
+"att blanda båda typerna av nycklar, men kan göra det svårare för mottagare "
+"att svara alla adressater."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Meddelandet skrivs i OpenPGP-format."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Meddelandet skrivs i S/MIME-format."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2368,11 +2373,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Brevet kommer inte att signeras kryptografiskt."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Signera"
+msgstr "Signera som:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2381,6 +2385,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Att signera meddelande ger en kryptografisk bekräftelse på att du verkligen "
+"är avsändaren av meddelandet."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
@@ -2510,33 +2516,31 @@ msgstr "Visa kolumner"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Sortera enligt"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Aktiv katalog"
+msgstr "Sorteringsriktning"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Stigande"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Fallande"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Kopiera ljudlogg till klippbordet"
+msgstr "Kopiera cellinnehåll till klippbordet"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
