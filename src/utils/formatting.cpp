@@ -1653,14 +1653,10 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
     if (!sender.isEmpty()) {
         senderUid = findUserIDByMailbox(key, sender);
     }
-    if (senderUid.isNull()) {
-        for (int i = 0, count = key.userIDs().size(); i < count; i++) {
-            senderUid = key.userID(i);
-            if (!senderUid.isNull()) {
-                break;
-            }
-        }
+    if (senderUid.isNull() && !key.isNull()) {
+        senderUid = key.userID(0);
     }
+
     const QString text = formatSigningInformation(sig, key, senderUid) + QLatin1StringView("<br/>");
 
     // Green
