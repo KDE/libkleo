@@ -195,10 +195,34 @@ public:
         qputenv("TZ", "UTC");
     }
 
+    QString maskDateAndTime(QString text) const
+    {
+        static const QString datePattern = u"[0-9]{1,4}[-/][0-9]{1,2}[-/][0-9]{1,4}"_s;
+        // we use \W (any non-word character) instead of \s for matching trailing AM/PM because \s doesn't match \u202F (Narrow No-Break Space)
+        static const QString timePattern = u"[0-9]{1,2}:[0-9]{2}(?::[0-9]{2})?(?:\\W[AP]M)?"_s;
+        static const QRegularExpression dateTimeRegExp{datePattern + u' ' + timePattern};
+        static const QRegularExpression dateRegExp{datePattern};
+        static const QRegularExpression timeRegExp{timePattern};
+        return text.replace(dateTimeRegExp, u"DATETIME"_s).replace(dateRegExp, u"DATE"_s).replace(timeRegExp, u"TIME"_s);
+    }
+
 private Q_SLOTS:
     void initTestCase()
     {
         GpgME::initializeLibrary();
+    }
+
+    void test_maskDateAndTime()
+    {
+        QCOMPARE(maskDateAndTime(u"07/05/26 05:07"_s), u"DATETIME"_s);
+        QCOMPARE(maskDateAndTime(u"7/5/26"_s), u"DATE"_s);
+        QCOMPARE(maskDateAndTime(u"07/05/2026"_s), u"DATE"_s);
+        QCOMPARE(maskDateAndTime(u"2026-05-07"_s), u"DATE"_s);
+        QCOMPARE(maskDateAndTime(u"5:07"_s), u"TIME"_s);
+        QCOMPARE(maskDateAndTime(u"05:07"_s), u"TIME"_s);
+        QCOMPARE(maskDateAndTime(u"05:07:08"_s), u"TIME"_s);
+        QCOMPARE(maskDateAndTime(u"05:07 AM"_s), u"TIME"_s);
+        QCOMPARE(maskDateAndTime(u"05:07:08 PM"_s), u"TIME"_s);
     }
 
     void test_prettyID_data()
@@ -289,10 +313,9 @@ private Q_SLOTS:
         QVERIFY(!verificationResult.error());
         QCOMPARE(verificationResult.numSignatures(), 1);
 
-        const QString resultWithoutTimestamp = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s)
-                                                   .replace(QRegularExpression{u"on .* with"_s}, u"on TIMESTAMP with"_s);
-        QCOMPARE(resultWithoutTimestamp,
-                 u"Signature created on TIMESTAMP with certificate: "
+        const QString result = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s);
+        QCOMPARE(maskDateAndTime(result),
+                 u"Signature created on DATETIME with certificate: "
                  "<a href=\"key:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D\">"
                  "Curve 448 &lt;curve448@example.net&gt; (1DE1 960C 29F9 7E67)"
                  "</a><br/>"
@@ -318,10 +341,9 @@ private Q_SLOTS:
         QVERIFY(!verificationResult.error());
         QCOMPARE(verificationResult.numSignatures(), 1);
 
-        const QString resultWithoutTimestamp = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s)
-                                                   .replace(QRegularExpression{u"on .* using"_s}, u"on TIMESTAMP using"_s);
-        QCOMPARE(resultWithoutTimestamp,
-                 u"Signature created on TIMESTAMP using an unknown certificate with fingerprint <br/>"
+        const QString result = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s);
+        QCOMPARE(maskDateAndTime(result),
+                 u"Signature created on DATETIME using an unknown certificate with fingerprint <br/>"
                  "<a href='certificate:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D'>1DE19 60C29 F97E6 762C4 EA341 820DA AC045 57992 1E0F3 "
                  "05673</a><br/>"
                  "You can search the certificate on a keyserver or import it from a file."_s);
