@@ -1519,28 +1519,39 @@ static QString renderKey(const GpgME::Key &key, const GpgME::UserID &uid)
                          i18nc("User ID (Key ID)", "%1 (%2)", uidString, Formatting::prettyID(key.subkey(0).keyID())));
 }
 
+static QString renderFingerprintLink(const char *fpr)
+{
+    return u"<a href='certificate:%1'>%2</a>"_s.arg(QString::fromLatin1(fpr), Formatting::prettyID(fpr));
+}
+
+static QDateTime signatureCreationTime(const GpgME::Signature &sig)
+{
+    return sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
+}
+
+static QString renderSignatureCreationTime(const QDateTime &dt)
+{
+    return dt.isValid() ? QLocale().toString(dt, QLocale::ShortFormat) : QString{};
+}
+
 static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key, const GpgME::UserID &uid)
 {
     if (sig.isNull()) {
         return QString();
     }
     QString text;
-    const QDateTime dt = sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
+    const QDateTime dt = signatureCreationTime(sig);
 
     if (key.isNull()) {
-        const auto id =
-            QStringLiteral("<br/><a href='certificate:%1'>%2</a>").arg(QString::fromLatin1(sig.fingerprint()), Formatting::prettyID(sig.fingerprint()));
+        const auto id = "<br/>"_L1 + renderFingerprintLink(sig.fingerprint());
         if (dt.isValid()) {
-            return i18nc("1 is a date",
-                         "Signature created on %1 using an unknown certificate with fingerprint %2",
-                         QLocale().toString(dt, QLocale::ShortFormat),
-                         id);
+            return i18nc("1 is a date", "Signature created on %1 using an unknown certificate with fingerprint %2", renderSignatureCreationTime(dt), id);
         }
         return i18n("Signature created using an unknown certificate with fingerprint %1", id);
     }
 
     if (dt.isValid()) {
-        text += i18nc("1 is a date", "Signature created on %1 with certificate: %2", QLocale().toString(dt, QLocale::ShortFormat), renderKey(key, uid));
+        text += i18nc("1 is a date", "Signature created on %1 with certificate: %2", renderSignatureCreationTime(dt), renderKey(key, uid));
     } else {
         text += i18n("Signature created with certificate: %1", renderKey(key, uid));
     }
