@@ -9,6 +9,7 @@
 #include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
 
+#include <QGpgME/Debug>
 #include <QGpgME/ImportJob>
 #include <QGpgME/Protocol>
 #include <QGpgME/SignJob>
@@ -75,6 +76,28 @@ static const char *clearsigned_using_primary_key_of_curve_448 =
     "zjZxbCyCmyhw8GLUr5KRY7crr6OPhyaJcAYA\n"
     "=1i3o\n"
     "-----END PGP SIGNATURE-----\n";
+
+static const char *opaque_smime_signed_data =
+    "-----BEGIN SIGNED MESSAGE-----\n"
+    "MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0B\n"
+    "BwGggCSABAlTaWduIG1lIQoAAAAAAAAxggLmMIIC4gIBATB+MHgxCzAJBgNVBAYT\n"
+    "AkRFMRYwFAYDVQQKEw1nMTAgQ29kZSBHbWJIMRAwDgYDVQQLEwdUZXN0bGFiMR4w\n"
+    "HAYDVQQDExVnMTAgQ29kZSBURVNUIENBIDIwMTkxHzAdBgkqhkiG9w0BCQEWEGlu\n"
+    "Zm9AZzEwY29kZS5jb20CAhoDMA0GCWCGSAFlAwQCAQUAoIG6MBgGCSqGSIb3DQEJ\n"
+    "AzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDcyMjEyMjMzMlowLwYJ\n"
+    "KoZIhvcNAQkEMSIEIKmQZ0JOVOovrhBksV3YI2d7ilQAdZccUJYySVzZ0+tYME8G\n"
+    "CSqGSIb3DQEJDzFCMEAwCwYJYIZIAWUDBAEuMAsGCWCGSAFlAwQBBjALBglghkgB\n"
+    "ZQMEASowCwYJYIZIAWUDBAECMAoGCCqGSIb3DQMHMA0GCSqGSIb3DQEBAQUABIIB\n"
+    "gJ0L7QAD5cOvgW+qETBWZIUwnyFRwUdQuNMC71X1SCRJdIzRPecr38Tt0i2dGXA2\n"
+    "Y7b6SGy9gOmy+DfqQ7GKPAmDyVqA1+sMOMnsF8CCB3DWdYbOWI18WAoPV49XOdra\n"
+    "vVTdXzKgz91WgXjiMUaG8Rrq7kP0F5Yw3LStUKZzO6yOof/YnJQWL9kYo/04m5Lj\n"
+    "ZkdwGW1o+WmFUcDO1OIEkxNmHWa/6wDlROT4HqH3ptwhXE9rMj8hA53tc7FlyACQ\n"
+    "pqe4U/GSTyoCUmPvdiiKc2SlM7JpiBtujUfIrIGyoPamsYodtQspdEeGzJaoSTwd\n"
+    "H9OJAmCRYIUrkAyE9XKediKkN7I7goQ0bbEUPMLCBuYGlaLmi6mjsdkXgBYDCfdl\n"
+    "Lp5y93zATlDCNfFtFnpaNsdCiGGRiLQKZOGEfsySa3DSMqXy+CUkv51VVkPf2i9D\n"
+    "Qx6gF4XphsJU9W0S+vjSCAFQ6e6zdAKduVLaTRrw29s11uNGdFebcMMPxGlGsNOd\n"
+    "jQAAAAAAAA==\n"
+    "-----END SIGNED MESSAGE-----\n";
 
 namespace
 {
@@ -193,6 +216,17 @@ public:
         // force fixed locale and timezone for predictable text representation of QDateTime
         qputenv("LANG", "en_US");
         qputenv("TZ", "UTC");
+    }
+
+    QByteArray readTestData(const QString &fileName) const
+    {
+        const QString filePath = ":/testdata/formattingtest/"_L1 + fileName;
+        QFile file{filePath};
+        if (!file.open(QFile::ReadOnly)) {
+            qWarning() << "Failed to open test data file:" << filePath;
+            return {};
+        }
+        return file.readAll();
     }
 
     QString maskDateAndTime(QString text) const
@@ -385,6 +419,97 @@ private Q_SLOTS:
         QVERIFY(formatBogusUID.contains(secondUID));
         const auto formatAnyUID = Formatting::prettySignature(verificationResult.signature(0), QString());
         QVERIFY(formatAnyUID.contains(secondUID));
+    }
+
+    void test_prettyDataSignature_data()
+    {
+        QTest::addColumn<Signature::Summary>("sigSummary");
+        QTest::addColumn<gpg_err_code_t>("sigStatus");
+        QTest::addColumn<Signature::Validity>("sigValidity");
+        QTest::addColumn<QString>("expected");
+
+        QTest::newRow("all-good")
+            << static_cast<Signature::Summary>(Signature::Summary::Green | Signature::Summary::Valid) << GPG_ERR_NO_ERROR << Signature::Validity::Full //
+            << u"Signature verification was successful: Data and signature match and the certificate is valid and trusted.<br/>"
+               "Signed by <a href=\"key:27E12CEFBE2E11FAF985106BD24D35D21E3C740D\">Certified Key &lt;certified@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-expired")
+            << Signature::Summary::KeyExpired << GPG_ERR_KEY_EXPIRED << Signature::Validity::Unknown
+            << u"The data cannot be trusted. Reason: The signing certificate has expired.<br/>"
+               "Signed by <a href=\"key:972263BC1577E48958A2AF7A6CFC883EEE0918B1\">Expired Key &lt;expired@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-not-certified")
+            << Signature::Summary::None << GPG_ERR_NO_ERROR << Signature::Validity::Unknown
+            << u"The data cannot be trusted. Reason: It cannot be verified whether the data originates from the stated source.<br/>"
+               "Signed by <a href=\"key:9152100939FC36332EC5954AD7ADC02ACDFA945A\">Not Certified &lt;not-certified@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-revoked")
+            << Signature::Summary::KeyRevoked << GPG_ERR_CERT_REVOKED << Signature::Validity::Unknown
+            << u"The data cannot be trusted. Reason: The signing certificate has been revoked.<br/>"
+               "Signed by <a href=\"key:BA80E58FB5EC794D6396D47ADABA14732513A6D6\">Revoked Key &lt;revoked@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-unknown")
+            << Signature::Summary::KeyMissing << GPG_ERR_NO_PUBKEY << Signature::Validity::Unknown
+            << u"The signature cannot be verified because the corresponding certificate is not available. The data cannot be trusted. The signing "
+               "certificate’s fingerprint is <a href=\"certificate:C8C6053CA0018BCB1C0D3C1AF9F33E35E1C16A17\">"
+               "C8C6 053C A001 8BCB 1C0D  3C1A F9F3 3E35 E1C1 6A17</a>."_s;
+        QTest::newRow("signature-bad")
+            << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown
+            << u"The data cannot be trusted. Reason: Data and signature do not match.<br/>"
+               "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a>."_s;
+        QTest::newRow("signature-expired")
+            << Signature::Summary::SigExpired << GPG_ERR_SIG_EXPIRED << Signature::Validity::Unknown
+            << u"The data cannot be trusted. Reason: The signature has expired.<br/>"
+               "Signed by <a href=\"key:9152100939FC36332EC5954AD7ADC02ACDFA945A\">Not Certified &lt;not-certified@example.net&gt; (DATE)</a> on DATETIME."_s;
+    }
+
+    void test_prettyDataSignature()
+    {
+        QFETCH(Signature::Summary, sigSummary);
+        QFETCH(gpg_err_code_t, sigStatus);
+        QFETCH(Signature::Validity, sigValidity);
+        QFETCH(QString, expected);
+        const auto currentDataTag = QString::fromLatin1(QTest::currentDataTag());
+
+        const auto temporaryDir = QTest::qExtractTestData(QStringLiteral("/fixtures/formattingtest"));
+        const auto gnupgHome = CustomGnuPGHome(temporaryDir->path());
+
+        const auto keyCache = KeyCache::instance();
+        QVERIFY(!keyCache->keys().empty());
+
+        const QString signedDataFile = "openpgp-signature-"_L1 + currentDataTag + ".txt"_L1;
+        const QByteArray signature = readTestData(signedDataFile + ".sig"_L1);
+        const QByteArray signedData = readTestData(signedDataFile);
+        const std::unique_ptr<QGpgME::VerifyDetachedJob> verifyJob{QGpgME::openpgp()->verifyDetachedJob()};
+        QByteArray verified;
+
+        const VerificationResult verificationResult = verifyJob->exec(signature, signedData);
+        // qWarning() << QGpgME::toLogString(verificationResult);
+        QVERIFY(!verificationResult.error());
+        QCOMPARE(verificationResult.numSignatures(), 1);
+        const GpgME::Signature sig = verificationResult.signature(0);
+        QCOMPARE(sig.summary(), sigSummary);
+        QCOMPARE(sig.status().code(), sigStatus);
+        QCOMPARE(sig.validity(), sigValidity);
+
+        const QString result = Formatting::prettyDataSignature(verificationResult.signature(0), {});
+        QCOMPARE(maskDateAndTime(result), expected);
+    }
+
+    void test_prettyDataSignature_unknown_smime_key()
+    {
+        const TemporaryGnuPGHome gnupgHome;
+
+        const auto keyCache = KeyCache::instance();
+        QVERIFY(keyCache->keys().empty());
+
+        const QByteArray signedData{opaque_smime_signed_data};
+        const std::unique_ptr<QGpgME::VerifyOpaqueJob> verifyJob{QGpgME::smime()->verifyOpaqueJob()};
+        QByteArray verified;
+
+        const VerificationResult verificationResult = verifyJob->exec(signedData, verified);
+        QVERIFY(!verificationResult.error());
+        QCOMPARE(verificationResult.numSignatures(), 1);
+
+        const QString result = Formatting::prettyDataSignature(verificationResult.signature(0), {});
+        const auto expected = u"The signature cannot be verified because the corresponding certificate is not available. The data cannot be trusted."_s;
+        QCOMPARE(result, expected);
     }
 };
 

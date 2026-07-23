@@ -1519,9 +1519,24 @@ static QString renderKey(const GpgME::Key &key, const GpgME::UserID &uid)
                          i18nc("User ID (Key ID)", "%1 (%2)", uidString, Formatting::prettyID(key.subkey(0).keyID())));
 }
 
+static QString renderKeyV2(const GpgME::Key &key, const GpgME::UserID &uid)
+{
+    if (key.isNull()) {
+        return i18n("Unknown certificate");
+    }
+    const QString uidString = uid.isNull() ? Formatting::prettyNameAndEMail(key) : Formatting::prettyNameAndEMail(uid);
+    return renderKeyLink(QLatin1StringView(key.primaryFingerprint()),
+                         i18nc("User ID (creation date)", "%1 (%2)", uidString, Formatting::creationDateString(key)));
+}
+
 static QString renderFingerprintLink(const char *fpr)
 {
     return u"<a href='certificate:%1'>%2</a>"_s.arg(QString::fromLatin1(fpr), Formatting::prettyID(fpr));
+}
+
+static QString renderFingerprintLinkV2(const char *fpr)
+{
+    return u"<a href=\"certificate:%1\">%2</a>"_s.arg(QString::fromLatin1(fpr), Formatting::prettyID(fpr));
 }
 
 static QDateTime signatureCreationTime(const GpgME::Signature &sig)
@@ -1532,6 +1547,16 @@ static QDateTime signatureCreationTime(const GpgME::Signature &sig)
 static QString renderSignatureCreationTime(const QDateTime &dt)
 {
     return dt.isValid() ? QLocale().toString(dt, QLocale::ShortFormat) : QString{};
+}
+
+static QString renderSignedByOn(const GpgME::Signature &sig, const GpgME::Key &key, const GpgME::UserID &userID)
+{
+    const QDateTime sigCreationTime = signatureCreationTime(sig);
+    if (sigCreationTime.isValid()) {
+        return i18nc("@info", "Signed by %1 on %2.", renderKeyV2(key, userID), renderSignatureCreationTime(sigCreationTime));
+    } else {
+        return i18nc("@info", "Signed by %1.", renderKeyV2(key, userID));
+    }
 }
 
 static QString formatSigningInformation(const GpgME::Signature &sig, const GpgME::Key &key, const GpgME::UserID &uid)
@@ -1743,4 +1768,84 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
         return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sig.status()));
     }
     return ret;
+}
+
+QString Kleo::Formatting::prettyDataSignature(const GpgME::Signature &sig, const QString &sender)
+{
+    if (sig.isNull()) {
+        return QString();
+    }
+
+    const GpgME::Key key = Kleo::KeyCache::instance()->findSigner(sig);
+
+    GpgME::UserID userID;
+    if (!sender.isEmpty()) {
+        userID = findUserIDByMailbox(key, sender);
+    }
+    if (userID.isNull() && !key.isNull()) {
+        userID = key.userID(0);
+    }
+
+    // Valid (implies Green)
+    if ((sig.summary() & GpgME::Signature::Valid)) {
+        return i18nc("@info", "Signature verification was successful: Data and signature match and the certificate is valid and trusted.") + "<br/>"_L1
+            + renderSignedByOn(sig, key, userID);
+    }
+
+    // Red (means either bad signature or validity "never" for the signing key)
+    if ((sig.summary() & GpgME::Signature::Red)) {
+        const QDateTime sigCreationTime = signatureCreationTime(sig);
+        const QString reason = (sig.status().code() == GPG_ERR_BAD_SIGNATURE) //
+            ? i18nc("@info", "Data and signature do not match.")
+            : i18nc("@info", "The signing certificate must not be trusted."); // happens with TOFU trust model and with failed S/MIME certificate chain auditing
+        QString text = i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1;
+        if (sigCreationTime.isValid()) {
+            text += i18nc("@info", "The signature claims to be from %1 and dated %2.", renderKeyV2(key, userID), renderSignatureCreationTime(sigCreationTime));
+        } else {
+            text += i18nc("@info", "The signature claims to be from %1.", renderKeyV2(key, userID));
+        }
+        return text;
+    }
+
+    // Key missing
+    if ((sig.summary() & GpgME::Signature::KeyMissing)) {
+        QString text = i18nc("@info", "The signature cannot be verified because the corresponding certificate is not available. The data cannot be trusted.");
+        // TODO: Print signing certificate’s issuer and S/N for missing S/MIME certificate once we get this data from gpgsm.
+        if (sig.fingerprint()) {
+            text += u' ';
+            text += i18nc("@info", "The signing certificate’s fingerprint is %1.", renderFingerprintLinkV2(sig.fingerprint()));
+        }
+        return text;
+    }
+
+    // Good signature with some caveats
+    if (sig.status().isSuccess()) {
+        const QString reason = i18nc("@info", "It cannot be verified whether the data originates from the stated source.");
+        return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 + renderSignedByOn(sig, key, userID);
+    }
+
+    // Expired signature (only occurs for OpenPGP)
+    if (sig.status().code() == GPG_ERR_SIG_EXPIRED) {
+        const QString reason = i18nc("@info", "The signature has expired.");
+        return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 + renderSignedByOn(sig, key, userID);
+    }
+
+    // Good signature but expired signing key
+    if (sig.status().code() == GPG_ERR_KEY_EXPIRED) {
+        const QString reason = i18nc("@info", "The signing certificate has expired.");
+        return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 + renderSignedByOn(sig, key, userID);
+    }
+
+    // Good signature but revoked signing key
+    if (sig.status().code() == GPG_ERR_CERT_REVOKED) {
+        const QString reason = i18nc("@info", "The signing certificate has been revoked.");
+        return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 + renderSignedByOn(sig, key, userID);
+    }
+
+    // Catch all fall through
+    QString text = i18n("The signature is invalid: %1", signatureSummaryToString(sig.summary()));
+    if (sig.summary() & GpgME::Signature::SysError) {
+        text += "<br/>"_L1 + i18nc("@info", "Error: %1", Kleo::Formatting::errorAsString(sig.status()));
+    }
+    return text;
 }

@@ -97,6 +97,20 @@ KLEO_EXPORT QString accessibleHexID(const char *id);
  */
 KLEO_EXPORT QString prettySignature(const GpgME::Signature &signature, const QString &sender);
 
+/**
+ * Formats a signature from a VerificationResult.
+ *
+ * The texts are suited for signatures of files or other data, e.g. those made with Kleopatra.
+ * They are less suited for signatures of emails.
+ *
+ * @param signature The signature to display.
+ * @param sender The sender of the signature, if multiple UserIds are found, this will be the displayed one otherwise the first non empty UserID will be
+ * displayed.
+ *
+ * @note The resulting string will contains links to the key in the following format "key:<fingerprint>".
+ */
+KLEO_EXPORT QString prettyDataSignature(const GpgME::Signature &signature, const QString &sender);
+
 // clang-format off
 enum ToolTipOption {
     KeyID            = 0x001,
