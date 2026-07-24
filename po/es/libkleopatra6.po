@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:45+0000\n"
 "PO-Revision-Date: 2026-05-09 17:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3454,7 +3454,7 @@ msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1535
+#: utils/formatting.cpp:1548
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
@@ -3462,24 +3462,24 @@ msgid ""
 msgstr ""
 "Firma creada el %1 usando un certificado desconocido con la huella digital %2"
 
-#: utils/formatting.cpp:1539
+#: utils/formatting.cpp:1550
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr ""
 "Firma creada usando un certificado desconocido con la huella digital %1"
 
-#: utils/formatting.cpp:1543
+#: utils/formatting.cpp:1554
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "Firma creada el %1 con certificado: %2"
 
-#: utils/formatting.cpp:1545
+#: utils/formatting.cpp:1556
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Firma creada con certificado: %1"
 
-#: utils/formatting.cpp:1551
+#: utils/formatting.cpp:1562
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3487,7 +3487,7 @@ msgctxt ""
 msgid "The signature is %1"
 msgstr "La firma es %1"
 
-#: utils/formatting.cpp:1554
+#: utils/formatting.cpp:1565
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3495,74 +3495,74 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr "La firma <b>no es</b> %1."
 
-#: utils/formatting.cpp:1564
+#: utils/formatting.cpp:1575
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Error: firma no verificada"
 
-#: utils/formatting.cpp:1566
+#: utils/formatting.cpp:1577
 #, kde-format
 msgid "Good signature"
 msgstr "Firma buena"
 
-#: utils/formatting.cpp:1568
+#: utils/formatting.cpp:1579
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "El certificado de firma ha sido revocado"
 
-#: utils/formatting.cpp:1570
+#: utils/formatting.cpp:1581
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "El certificado de firma ha caducado"
 
-#: utils/formatting.cpp:1572
+#: utils/formatting.cpp:1583
 #, kde-format
 msgid "Certificate is not available"
 msgstr "El certificado no está disponible"
 
-#: utils/formatting.cpp:1574
+#: utils/formatting.cpp:1585
 #, kde-format
 msgid "Signature expired"
 msgstr "Firma caducada"
 
-#: utils/formatting.cpp:1576
+#: utils/formatting.cpp:1587
 #, kde-format
 msgid "CRL missing"
 msgstr "Falta la CRL"
 
-#: utils/formatting.cpp:1578
+#: utils/formatting.cpp:1589
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL demasiado antigua"
 
-#: utils/formatting.cpp:1580
+#: utils/formatting.cpp:1591
 #, kde-format
 msgid "Bad policy"
 msgstr "Política incorrecta"
 
-#: utils/formatting.cpp:1582
+#: utils/formatting.cpp:1593
 #, kde-format
 msgid "System error"
 msgstr "Error del sistema"
 
-#: utils/formatting.cpp:1584
+#: utils/formatting.cpp:1595
 #, kde-format
 msgid "Bad signature"
 msgstr "Firma mala"
 
-#: utils/formatting.cpp:1662 utils/formatting.cpp:1734
+#: utils/formatting.cpp:1669 utils/formatting.cpp:1741
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "La firma no es válida: %1"
 
-#: utils/formatting.cpp:1671
+#: utils/formatting.cpp:1678
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 "Puede buscar el certificado en un servidor de claves o importarlo de un "
 "archivo."
 
-#: utils/formatting.cpp:1680 utils/formatting.cpp:1690
+#: utils/formatting.cpp:1687 utils/formatting.cpp:1697
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3572,7 +3572,7 @@ msgstr ""
 "La firma es válida, pero la clave usada no está certificada por usted ni por "
 "ninguna persona de confianza."
 
-#: utils/formatting.cpp:1682 utils/formatting.cpp:1727
+#: utils/formatting.cpp:1689 utils/formatting.cpp:1734
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3583,8 +3583,8 @@ msgstr ""
 "ninguna autoridad de certificación de confianza o se desconoce la autoridad "
 "de certificación."
 
-#: utils/formatting.cpp:1685 utils/formatting.cpp:1707
-#: utils/formatting.cpp:1730
+#: utils/formatting.cpp:1692 utils/formatting.cpp:1714
+#: utils/formatting.cpp:1737
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3594,7 +3594,7 @@ msgstr ""
 "<strong>Advertencia:</strong> No hay indicación de que la firma pertenezca "
 "al propietario."
 
-#: utils/formatting.cpp:1691 utils/formatting.cpp:1703
+#: utils/formatting.cpp:1698 utils/formatting.cpp:1710
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3604,13 +3604,13 @@ msgstr ""
 "<strong>Advertencia:</strong> No hay certeza de que la firma pertenezca al "
 "propietario."
 
-#: utils/formatting.cpp:1699
+#: utils/formatting.cpp:1706
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
 msgstr "La firma es válida, pero ha expirado."
 
-#: utils/formatting.cpp:1701 utils/formatting.cpp:1705
+#: utils/formatting.cpp:1708 utils/formatting.cpp:1712
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3620,26 +3620,26 @@ msgstr ""
 "La firma es válida, pero ha expirado y la clave usada no está certificada "
 "por usted ni por ninguna persona de confianza."
 
-#: utils/formatting.cpp:1716
+#: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
 msgstr "La firma es válida, pero la clave usada ha expirado."
 
-#: utils/formatting.cpp:1722
+#: utils/formatting.cpp:1729
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr "La firma es válida, pero la clave usada ha sido revocada."
 
-#: utils/formatting.cpp:1723
+#: utils/formatting.cpp:1730
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
 "<strong>Advertencia:</strong> Esto podría significar que la firma es falsa."
 
-#: utils/formatting.cpp:1725
+#: utils/formatting.cpp:1732
 #, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
