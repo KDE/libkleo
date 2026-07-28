@@ -30,6 +30,17 @@
 #include <gpgme++/key.h>
 
 using namespace Kleo;
+using namespace Qt::StringLiterals;
+
+Q_GLOBAL_STATIC(bool, useComplianceForTests)
+
+namespace Kleo::Tests::DeVSCompliance
+{
+KLEO_EXPORT void forceUsageOfCompliance(bool active)
+{
+    *useComplianceForTests() = active;
+}
+}
 
 // May include algorithms that are not available, i.e. you must match the list
 // against the list of available algorithms.
@@ -52,7 +63,7 @@ bool Kleo::DeVSCompliance::isActive()
 #if LIBKLEO_FEATURE_DEVS_COMPLIANCE
     return getCryptoConfigStringValue("gpg", "compliance") == QLatin1StringView{"de-vs"};
 #else
-    return false;
+    return useComplianceForTests() && (getCryptoConfigStringValue("gpg", "compliance") == QLatin1StringView{"de-vs"});
 #endif
 }
 
@@ -222,8 +233,12 @@ QString Kleo::DeVSCompliance::name(bool compliant)
     if (!isActive()) {
         return {};
     }
-    if (compliant && isBetaCompliance()) {
-        return i18nc("@info append beta-marker to compliance", "%1 (beta)", complianceName(compliant));
-    }
-    return complianceName(compliant);
+    const QString result = (compliant && isBetaCompliance()) //
+        ? i18nc("@info append beta-marker to compliance", "%1 (beta)", complianceName(compliant))
+        : complianceName(compliant);
+#if LIBKLEO_FEATURE_DEVS_COMPLIANCE
+    return result;
+#else
+    return result + " (for tests only)"_L1;
+#endif
 }
