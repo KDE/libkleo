@@ -345,11 +345,11 @@ private Q_SLOTS:
 
         const auto signedData = "signed data"_ba;
         QByteArray signature;
-        auto signJob{QGpgME::openpgp()->signJob(true, true)};
+        const std::unique_ptr<QGpgME::SignJob> signJob{QGpgME::openpgp()->signJob(true, true)};
         auto signResult = signJob->exec({key}, signedData, GpgME::Detached, signature);
         QVERIFY(!signResult.error());
 
-        auto verifyJob{QGpgME::openpgp()->verifyDetachedJob(true)};
+        const std::unique_ptr<QGpgME::VerifyDetachedJob> verifyJob{QGpgME::openpgp()->verifyDetachedJob(true)};
         const VerificationResult verificationResult = verifyJob->exec(signature, signedData);
         QVERIFY(!verificationResult.error());
         QCOMPARE(verificationResult.numSignatures(), 1);
