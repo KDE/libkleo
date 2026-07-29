@@ -130,7 +130,7 @@ public:
 
     void set(const char *varName, QByteArrayView value)
     {
-        if (mVarName.isEmpty()) {
+        if (!mVarName.isEmpty()) {
             reset();
         }
         mWasSet = qEnvironmentVariableIsSet(varName);
@@ -156,7 +156,7 @@ public:
 
 private:
     QByteArray mVarName;
-    bool mWasSet;
+    bool mWasSet = false;
     QString mOldValue;
 };
 
