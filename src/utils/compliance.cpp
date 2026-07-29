@@ -36,9 +36,9 @@ Q_GLOBAL_STATIC(bool, useComplianceForTests)
 
 namespace Kleo::Tests::DeVSCompliance
 {
-KLEO_EXPORT void forceUsageOfCompliance(bool active)
+KLEO_EXPORT void forceUsageOfCompliance(bool useComplianceOption)
 {
-    *useComplianceForTests() = active;
+    *useComplianceForTests() = useComplianceOption;
 }
 }
 

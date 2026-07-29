@@ -34,7 +34,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace Kleo::Tests::DeVSCompliance
 {
-void forceUsageOfCompliance(bool active);
+void forceUsageOfCompliance(bool useComplianceOption);
 }
 
 // Curve 448 test key with signing subkey (this key has V5 fingerprints)
