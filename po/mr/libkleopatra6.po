@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-24 00:45+0000\n"
+"POT-Creation-Date: 2026-07-29 00:47+0000\n"
 "PO-Revision-Date: 2013-03-11 09:58+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -1592,7 +1592,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr ""
 
-#: ui/formtextinput.cpp:126
+#: ui/formtextinput.cpp:126 utils/formatting.cpp:1862
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -2365,17 +2365,17 @@ msgstr ""
 msgid "Show certificate list"
 msgstr ""
 
-#: utils/compliance.cpp:217
+#: utils/compliance.cpp:228
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr ""
 
-#: utils/compliance.cpp:217
+#: utils/compliance.cpp:228
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr ""
 
-#: utils/compliance.cpp:226
+#: utils/compliance.cpp:237
 #, fuzzy, kde-format
 #| msgctxt "amended tooltip; %1: original tooltip"
 #| msgid "%1 (read-only)"
@@ -3238,7 +3238,7 @@ msgstr ""
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
-#: utils/formatting.cpp:1515
+#: utils/formatting.cpp:1515 utils/formatting.cpp:1525
 #, kde-format
 msgid "Unknown certificate"
 msgstr ""
@@ -3249,38 +3249,35 @@ msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr ""
 
-#: utils/formatting.cpp:1548
-#, kde-format
-msgctxt "1 is a date"
-msgid ""
-"Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr ""
-
-#: utils/formatting.cpp:1550
-#, kde-format
-msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr ""
-
-#: utils/formatting.cpp:1554
-#, kde-format
-msgctxt "1 is a date"
-msgid "Signature created on %1 with certificate: %2"
-msgstr ""
+#: utils/formatting.cpp:1529
+#, fuzzy, kde-format
+#| msgctxt "amended tooltip; %1: original tooltip"
+#| msgid "%1 (read-only)"
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (फक्त वाचण्यासाठी)"
 
 #: utils/formatting.cpp:1556
 #, kde-format
-msgid "Signature created with certificate: %1"
+msgctxt "@info"
+msgid "Signed by %1 on %2."
 msgstr ""
 
-#: utils/formatting.cpp:1562
+#: utils/formatting.cpp:1558
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr ""
+
+#: utils/formatting.cpp:1567
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
-msgid "The signature is %1"
+msgid "The signature is %1."
 msgstr ""
 
-#: utils/formatting.cpp:1565
+#: utils/formatting.cpp:1570
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
@@ -3288,73 +3285,97 @@ msgctxt ""
 msgid "The signature <b>is not</b> %1."
 msgstr ""
 
-#: utils/formatting.cpp:1575
-#, kde-format
-msgid "Error: Signature not verified"
-msgstr ""
-
-#: utils/formatting.cpp:1577
-#, kde-format
-msgid "Good signature"
-msgstr ""
-
-#: utils/formatting.cpp:1579
-#, kde-format
-msgid "Signing certificate was revoked"
-msgstr ""
-
-#: utils/formatting.cpp:1581
-#, kde-format
-msgid "Signing certificate is expired"
-msgstr ""
-
-#: utils/formatting.cpp:1583
-#, kde-format
-msgid "Certificate is not available"
-msgstr ""
-
-#: utils/formatting.cpp:1585
-#, kde-format
-msgid "Signature expired"
-msgstr ""
-
 #: utils/formatting.cpp:1587
 #, kde-format
-msgid "CRL missing"
+msgctxt "1 is a date"
+msgid ""
+"Signature created on %1 using an unknown certificate with fingerprint %2"
 msgstr ""
 
 #: utils/formatting.cpp:1589
 #, kde-format
+msgid "Signature created using an unknown certificate with fingerprint %1"
+msgstr ""
+
+#: utils/formatting.cpp:1593
+#, kde-format
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr ""
+
+#: utils/formatting.cpp:1595
+#, kde-format
+msgid "Signature created with certificate: %1"
+msgstr ""
+
+#: utils/formatting.cpp:1606
+#, kde-format
+msgid "Error: Signature not verified"
+msgstr ""
+
+#: utils/formatting.cpp:1608
+#, kde-format
+msgid "Good signature"
+msgstr ""
+
+#: utils/formatting.cpp:1610
+#, kde-format
+msgid "Signing certificate was revoked"
+msgstr ""
+
+#: utils/formatting.cpp:1612
+#, kde-format
+msgid "Signing certificate is expired"
+msgstr ""
+
+#: utils/formatting.cpp:1614
+#, kde-format
+msgid "Certificate is not available"
+msgstr ""
+
+#: utils/formatting.cpp:1616
+#, kde-format
+msgid "Signature expired"
+msgstr ""
+
+#: utils/formatting.cpp:1618
+#, kde-format
+msgid "CRL missing"
+msgstr ""
+
+#: utils/formatting.cpp:1620
+#, kde-format
 msgid "CRL too old"
 msgstr ""
 
-#: utils/formatting.cpp:1591
+#: utils/formatting.cpp:1622
 #, kde-format
 msgid "Bad policy"
 msgstr ""
 
-#: utils/formatting.cpp:1593
+#: utils/formatting.cpp:1624
 #, fuzzy, kde-format
 #| msgid "System Error"
 msgid "System error"
 msgstr "प्रणाली त्रुटी"
 
-#: utils/formatting.cpp:1595
+#: utils/formatting.cpp:1626
 #, kde-format
 msgid "Bad signature"
 msgstr ""
 
-#: utils/formatting.cpp:1669 utils/formatting.cpp:1741
+#: utils/formatting.cpp:1700 utils/formatting.cpp:1772
+#: utils/formatting.cpp:1860
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1678
+#: utils/formatting.cpp:1709
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
 
-#: utils/formatting.cpp:1687 utils/formatting.cpp:1697
+#: utils/formatting.cpp:1718 utils/formatting.cpp:1728
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3362,7 +3383,7 @@ msgid ""
 "trusted person."
 msgstr ""
 
-#: utils/formatting.cpp:1689 utils/formatting.cpp:1734
+#: utils/formatting.cpp:1720 utils/formatting.cpp:1765
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3370,8 +3391,8 @@ msgid ""
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
 
-#: utils/formatting.cpp:1692 utils/formatting.cpp:1714
-#: utils/formatting.cpp:1737
+#: utils/formatting.cpp:1723 utils/formatting.cpp:1745
+#: utils/formatting.cpp:1768
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3379,7 +3400,7 @@ msgid ""
 "to the owner."
 msgstr ""
 
-#: utils/formatting.cpp:1698 utils/formatting.cpp:1710
+#: utils/formatting.cpp:1729 utils/formatting.cpp:1741
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3387,13 +3408,13 @@ msgid ""
 "the owner."
 msgstr ""
 
-#: utils/formatting.cpp:1706
+#: utils/formatting.cpp:1737
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
 msgstr ""
 
-#: utils/formatting.cpp:1708 utils/formatting.cpp:1712
+#: utils/formatting.cpp:1739 utils/formatting.cpp:1743
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3401,28 +3422,107 @@ msgid ""
 "by you or any trusted person."
 msgstr ""
 
-#: utils/formatting.cpp:1723
+#: utils/formatting.cpp:1754
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
 msgstr ""
 
-#: utils/formatting.cpp:1729
+#: utils/formatting.cpp:1760
 #, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr ""
 
-#: utils/formatting.cpp:1730
+#: utils/formatting.cpp:1761
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
 
-#: utils/formatting.cpp:1732
+#: utils/formatting.cpp:1763
 #, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
+msgstr ""
+
+#: utils/formatting.cpp:1797
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp:1806
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp:1807
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr ""
+
+#: utils/formatting.cpp:1808 utils/formatting.cpp:1831
+#: utils/formatting.cpp:1839 utils/formatting.cpp:1847
+#: utils/formatting.cpp:1855
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr ""
+
+#: utils/formatting.cpp:1810
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and dated %2."
+msgstr ""
+
+#: utils/formatting.cpp:1812
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr ""
+
+#: utils/formatting.cpp:1819
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available. The data cannot be trusted."
+msgstr ""
+
+#: utils/formatting.cpp:1823
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr ""
+
+#: utils/formatting.cpp:1830
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp:1838
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr ""
+
+#: utils/formatting.cpp:1846
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr ""
+
+#: utils/formatting.cpp:1854
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
 msgstr ""
 
 #: utils/gnupg.cpp:437

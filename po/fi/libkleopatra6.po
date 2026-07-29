@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-24 00:45+0000\n"
+"POT-Creation-Date: 2026-07-29 00:47+0000\n"
 "PO-Revision-Date: 2025-11-30 15:43+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1770,7 +1770,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (vaaditaan)"
 
-#: ui/formtextinput.cpp:126
+#: ui/formtextinput.cpp:126 utils/formatting.cpp:1862
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -2561,17 +2561,17 @@ msgstr "Näytä varmenneluettelo"
 msgid "Show certificate list"
 msgstr "Näytä varmenneluettelo"
 
-#: utils/compliance.cpp:217
+#: utils/compliance.cpp:228
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "Vs-NfD-yhteensopiva"
 
-#: utils/compliance.cpp:217
+#: utils/compliance.cpp:228
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "Ei Vs-NfD-yhteensopiva"
 
-#: utils/compliance.cpp:226
+#: utils/compliance.cpp:237
 #, kde-format
 msgctxt "@info append beta-marker to compliance"
 msgid "%1 (beta)"
@@ -3430,7 +3430,7 @@ msgstr ""
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
 
-#: utils/formatting.cpp:1515
+#: utils/formatting.cpp:1515 utils/formatting.cpp:1525
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Tuntematon varmenne"
@@ -3441,7 +3441,49 @@ msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: utils/formatting.cpp:1548
+#: utils/formatting.cpp:1529
+#, fuzzy, kde-format
+#| msgctxt "User ID (Key ID)"
+#| msgid "%1 (%2)"
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp:1556
+#, fuzzy, kde-format
+#| msgid "Bad signature by %1: %2"
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Kelvoton allekirjoitus varmenteelta %1: %2"
+
+#: utils/formatting.cpp:1558
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Hyvä allekirjoitus varmenteelta %1."
+
+#: utils/formatting.cpp:1567
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Allekirjoitus on %1"
+
+#: utils/formatting.cpp:1570
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Allekirjoitus <b>ei ole</b> %1."
+
+#: utils/formatting.cpp:1587
 #, kde-format
 msgctxt "1 is a date"
 msgid ""
@@ -3450,105 +3492,90 @@ msgstr ""
 "Allekirjoitus on luotu %1 tuntemattomalla varmenteella, jonka sormenjälki on "
 "%2"
 
-#: utils/formatting.cpp:1550
+#: utils/formatting.cpp:1589
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
 msgstr ""
 "Allekirjoitus on luotu tuntemattomalla varmenteella, jonka sormenjälki on %1"
 
-#: utils/formatting.cpp:1554
+#: utils/formatting.cpp:1593
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
 msgstr "Allekirjoitus on luotu %1 varmenteella: %2"
 
-#: utils/formatting.cpp:1556
+#: utils/formatting.cpp:1595
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Allekirjoitus on luotu varmenteella: %1"
 
-#: utils/formatting.cpp:1562
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Allekirjoitus on %1"
-
-#: utils/formatting.cpp:1565
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Allekirjoitus <b>ei ole</b> %1."
-
-#: utils/formatting.cpp:1575
+#: utils/formatting.cpp:1606
 #, kde-format
 msgid "Error: Signature not verified"
 msgstr "Virhe: Allekirjoitusta ei todennettu"
 
-#: utils/formatting.cpp:1577
+#: utils/formatting.cpp:1608
 #, kde-format
 msgid "Good signature"
 msgstr "Hyvä allekirjoitus"
 
-#: utils/formatting.cpp:1579
+#: utils/formatting.cpp:1610
 #, kde-format
 msgid "Signing certificate was revoked"
 msgstr "Allekirjoitusvarmenne on mitätöity"
 
-#: utils/formatting.cpp:1581
+#: utils/formatting.cpp:1612
 #, kde-format
 msgid "Signing certificate is expired"
 msgstr "Allekirjoitusvarmenne on vanhentunut"
 
-#: utils/formatting.cpp:1583
+#: utils/formatting.cpp:1614
 #, kde-format
 msgid "Certificate is not available"
 msgstr "Varmenne ei ole saatavilla"
 
-#: utils/formatting.cpp:1585
+#: utils/formatting.cpp:1616
 #, kde-format
 msgid "Signature expired"
 msgstr "Allekirjoitus on vanhentunut"
 
-#: utils/formatting.cpp:1587
+#: utils/formatting.cpp:1618
 #, kde-format
 msgid "CRL missing"
 msgstr "CRL puuttuu"
 
-#: utils/formatting.cpp:1589
+#: utils/formatting.cpp:1620
 #, kde-format
 msgid "CRL too old"
 msgstr "CRL liian vanha"
 
-#: utils/formatting.cpp:1591
+#: utils/formatting.cpp:1622
 #, kde-format
 msgid "Bad policy"
 msgstr "Kelvoton käytänne"
 
-#: utils/formatting.cpp:1593
+#: utils/formatting.cpp:1624
 #, kde-format
 msgid "System error"
 msgstr "Järjestelmävirhe"
 
-#: utils/formatting.cpp:1595
+#: utils/formatting.cpp:1626
 #, kde-format
 msgid "Bad signature"
 msgstr "Kelvoton allekirjoitus"
 
-#: utils/formatting.cpp:1669 utils/formatting.cpp:1741
+#: utils/formatting.cpp:1700 utils/formatting.cpp:1772
+#: utils/formatting.cpp:1860
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Allekirjoitus on virheellinen: %1"
 
-#: utils/formatting.cpp:1678
+#: utils/formatting.cpp:1709
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "Varmennetta voi etsiä avainpalvelimelta tai tuoda sen tiedostosta."
 
-#: utils/formatting.cpp:1687 utils/formatting.cpp:1697
+#: utils/formatting.cpp:1718 utils/formatting.cpp:1728
 #, fuzzy, kde-format
 #| msgid "The used key is not certified by you or any trusted person."
 msgctxt "@info"
@@ -3558,7 +3585,7 @@ msgid ""
 msgstr ""
 "Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
 
-#: utils/formatting.cpp:1689 utils/formatting.cpp:1734
+#: utils/formatting.cpp:1720 utils/formatting.cpp:1765
 #, fuzzy, kde-format
 #| msgid ""
 #| "The used certificate is not certified by a trustworthy Certificate "
@@ -3571,8 +3598,8 @@ msgstr ""
 "Käytettyä varmennetta ei ole varmentanut luotettava varmenneauktoriteetti "
 "tai varmenneauktoriteetti on tuntematon."
 
-#: utils/formatting.cpp:1692 utils/formatting.cpp:1714
-#: utils/formatting.cpp:1737
+#: utils/formatting.cpp:1723 utils/formatting.cpp:1745
+#: utils/formatting.cpp:1768
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is no indication that this certificate belongs to this recipient."
@@ -3583,7 +3610,7 @@ msgid ""
 msgstr ""
 "Ei ole merkkiä siitä, että tämä varmenne kuuluisi tälle vastaanottajalle."
 
-#: utils/formatting.cpp:1698 utils/formatting.cpp:1710
+#: utils/formatting.cpp:1729 utils/formatting.cpp:1741
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3591,14 +3618,14 @@ msgid ""
 "the owner."
 msgstr ""
 
-#: utils/formatting.cpp:1706
+#: utils/formatting.cpp:1737
 #, fuzzy, kde-format
 #| msgid "The signature is valid but the certificate's validity is undefined."
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
 msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
 
-#: utils/formatting.cpp:1708 utils/formatting.cpp:1712
+#: utils/formatting.cpp:1739 utils/formatting.cpp:1743
 #, fuzzy, kde-format
 #| msgid "The used key is not certified by you or any trusted person."
 msgctxt "@info"
@@ -3608,33 +3635,124 @@ msgid ""
 msgstr ""
 "Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
 
-#: utils/formatting.cpp:1723
+#: utils/formatting.cpp:1754
 #, fuzzy, kde-format
 #| msgid "The signature is valid but the certificate's validity is undefined."
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
 msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
 
-#: utils/formatting.cpp:1729
+#: utils/formatting.cpp:1760
 #, fuzzy, kde-format
 #| msgid "The signature is valid but the certificate's validity is undefined."
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
 
-#: utils/formatting.cpp:1730
+#: utils/formatting.cpp:1761
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
 
-#: utils/formatting.cpp:1732
+#: utils/formatting.cpp:1763
 #, fuzzy, kde-format
 #| msgid "The used key is not certified by you or any trusted person."
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
+
+#: utils/formatting.cpp:1797
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp:1806
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp:1807
+#, fuzzy, kde-format
+#| msgid "This certificate should not be used."
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Tätä varmennetta ei tulisi käyttää."
+
+#: utils/formatting.cpp:1808 utils/formatting.cpp:1831
+#: utils/formatting.cpp:1839 utils/formatting.cpp:1847
+#: utils/formatting.cpp:1855
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The date cannot be changed."
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Päivämäärää ei voi muuttaa."
+
+#: utils/formatting.cpp:1810
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and dated %2."
+msgstr ""
+
+#: utils/formatting.cpp:1812
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Allekirjoitus on %1"
+
+#: utils/formatting.cpp:1819
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available. The data cannot be trusted."
+msgstr ""
+
+#: utils/formatting.cpp:1823
+#, fuzzy, kde-format
+#| msgid "Signature created using an unknown certificate with fingerprint %1"
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr ""
+"Allekirjoitus on luotu tuntemattomalla varmenteella, jonka sormenjälki on %1"
+
+#: utils/formatting.cpp:1830
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp:1838
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+
+#: utils/formatting.cpp:1846
+#, fuzzy, kde-format
+#| msgid "Signing certificate is expired"
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Allekirjoitusvarmenne on vanhentunut"
+
+#: utils/formatting.cpp:1854
+#, fuzzy, kde-format
+#| msgid "Signing certificate was revoked"
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Allekirjoitusvarmenne on mitätöity"
 
 #: utils/gnupg.cpp:437
 #, kde-format
