@@ -19,15 +19,18 @@
 using namespace Kleo;
 using namespace Qt::Literals::StringLiterals;
 
+namespace Kleo::Tests::DeVSCompliance
+{
+void forceUsageOfCompliance(bool useComplianceOption);
+}
+
 class ComplianceTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
     void initTestCase()
     {
-#if !LIBKLEO_FEATURE_DEVS_COMPLIANCE
-        QSKIP("Test requires the de-vs compliance feature.");
-#endif
+        Tests::DeVSCompliance::forceUsageOfCompliance(true);
     }
 
     void test_no_compliance_active()
@@ -68,9 +71,9 @@ private Q_SLOTS:
         QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP) != Kleo::availableAlgorithms(GpgME::OpenPGP));
         QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::CMS) != Kleo::availableAlgorithms(GpgME::CMS));
 
-        QCOMPARE(DeVSCompliance::name(), u"Not VS-NfD compliant"_s);
-        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant"_s);
-        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant"_s);
+        QCOMPARE(DeVSCompliance::name(), u"Not VS-NfD compliant (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant (for tests only)"_s);
     }
 
     void test_de_vs_compliance_active_and_compliant()
@@ -87,9 +90,9 @@ private Q_SLOTS:
         QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::OpenPGP) != Kleo::availableAlgorithms(GpgME::OpenPGP));
         QVERIFY(DeVSCompliance::compliantAlgorithms(GpgME::CMS) != Kleo::availableAlgorithms(GpgME::CMS));
 
-        QCOMPARE(DeVSCompliance::name(), u"VS-NfD compliant"_s);
-        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant"_s);
-        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant"_s);
+        QCOMPARE(DeVSCompliance::name(), u"VS-NfD compliant (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant (for tests only)"_s);
     }
 
     void test_de_vs_compliance_active_and_compliant_gnupg_2_6()
@@ -101,9 +104,9 @@ private Q_SLOTS:
         QVERIFY(DeVSCompliance::isCompliant());
         QVERIFY(!DeVSCompliance::isBetaCompliance());
 
-        QCOMPARE(DeVSCompliance::name(), u"VS-NfD compliant"_s);
-        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant"_s);
-        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant"_s);
+        QCOMPARE(DeVSCompliance::name(), u"VS-NfD compliant (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant (for tests only)"_s);
     }
 
     void test_de_vs_compliance_active_and_beta_compliant_gnupg_2_6()
@@ -115,9 +118,9 @@ private Q_SLOTS:
         QVERIFY(DeVSCompliance::isCompliant());
         QVERIFY(DeVSCompliance::isBetaCompliance());
 
-        QCOMPARE(DeVSCompliance::name(), u"VS-NfD compliant (beta)"_s);
-        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant (beta)"_s);
-        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant"_s);
+        QCOMPARE(DeVSCompliance::name(), u"VS-NfD compliant (beta) (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(true), u"VS-NfD compliant (beta) (for tests only)"_s);
+        QCOMPARE(DeVSCompliance::name(false), u"Not VS-NfD compliant (for tests only)"_s);
     }
 };
 
