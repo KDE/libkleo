@@ -28,6 +28,8 @@
 #include <gpgme++/signingresult.h>
 #include <gpgme++/verificationresult.h>
 
+#include <gpgme.h>
+
 using namespace Kleo;
 using namespace GpgME;
 using namespace Qt::Literals::StringLiterals;
@@ -458,10 +460,20 @@ private Q_SLOTS:
             << u"The signature cannot be verified because the corresponding certificate is not available. The data cannot be trusted. The signing "
                "certificate’s fingerprint is <a href=\"certificate:C8C6053CA0018BCB1C0D3C1AF9F33E35E1C16A17\">"
                "C8C6 053C A001 8BCB 1C0D  3C1A F9F3 3E35 E1C1 6A17</a>."_s;
-        QTest::newRow("signature-bad")
-            << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown
-            << u"The data cannot be trusted. Reason: Data and signature do not match.<br/>"
-               "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a>."_s;
+#if GPGME_VERSION_NUMBER >= 0x020103
+        if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() >= "2.5.22") {
+            QTest::newRow("signature-bad")
+                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown
+                << u"The data cannot be trusted. Reason: Data and signature do not match.<br/>"
+                   "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a> and dated DATETIME."_s;
+        } else
+#endif
+        {
+            QTest::newRow("signature-bad")
+                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown
+                << u"The data cannot be trusted. Reason: Data and signature do not match.<br/>"
+                   "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a>."_s;
+        }
         QTest::newRow("signature-expired")
             << Signature::Summary::SigExpired << GPG_ERR_SIG_EXPIRED << Signature::Validity::Unknown
             << u"The data cannot be trusted. Reason: The signature has expired.<br/>"
