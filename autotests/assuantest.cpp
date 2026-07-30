@@ -21,7 +21,7 @@ private Q_SLOTS:
         QTest::addColumn<QByteArray>("input");
         QTest::addColumn<QByteArray>("expected");
 
-        QByteArray allCharsExceptControlCharsAndSpaceAndPercentAndPlus{256 - 32 - 1 - 1 - 1, Qt::Uninitialized};
+        QByteArray allCharsExceptControlCharsAndSpaceAndPercentAndPlus(256 - 32 - 1 - 1 - 1, Qt::Uninitialized);
         // initialize the first 4 characters with the characters from '!' to '$' (the one before '%'), i.e. 0x21...0x24
         std::iota(allCharsExceptControlCharsAndSpaceAndPercentAndPlus.begin(), allCharsExceptControlCharsAndSpaceAndPercentAndPlus.begin() + 4, '!');
         // initialize the next 5 characters with the characters from '&' (the one after '%') to '*' (the one before '+'), i.e. 0x26...0x2A
