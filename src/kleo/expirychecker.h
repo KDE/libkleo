@@ -66,12 +66,13 @@ public:
         NoSuitableSubkey,
         InvalidKey,
         InvalidCheckFlags,
+        NoStatus, // special value for initialization; never used for an ExpiryChecker::Result
     };
     Q_ENUM(ExpirationStatus)
 
     struct Expiration {
         GpgME::Key certificate;
-        ExpirationStatus status;
+        ExpirationStatus status = NoStatus;
         // duration is days until expiry if status is ExpiresSoon (i.e. 0
         // if expiry is today, 1 if it's tomorrow, etc.),
         // days since expiry if status is Expired, and
