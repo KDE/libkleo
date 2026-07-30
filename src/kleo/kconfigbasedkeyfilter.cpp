@@ -101,7 +101,7 @@ KeyFilter::FontDescription KeyFilter::FontDescription::resolve(const FontDescrip
 }
 
 static const struct {
-    const char *name;
+    const char *name; // cppcheck-suppress uninitMemberVarNoCtor
     Key::OwnerTrust trust;
     UserID::Validity validity;
 } ownerTrustAndValidityMap[] = {

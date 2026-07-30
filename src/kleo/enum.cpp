@@ -25,9 +25,9 @@
 #include <functional>
 
 static const struct {
-    Kleo::CryptoMessageFormat format;
+    Kleo::CryptoMessageFormat format; // cppcheck-suppress uninitMemberVarNoCtor
     const KLazyLocalizedString displayName;
-    const char *configName;
+    const char *configName; // cppcheck-suppress uninitMemberVarNoCtor
 } cryptoMessageFormats[] = {
     // clang-format off
     {Kleo::InlineOpenPGPFormat, kli18n("Inline OpenPGP (deprecated)"), "inline openpgp"},
