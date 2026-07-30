@@ -108,11 +108,11 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     d->placeHolderItem->setData(0, Qt::AccessibleTextRole, i18n("All others"));
 
     struct NavButtonInfo {
-        const char *icon;
+        const char *icon = nullptr;
         const KLazyLocalizedString accessibleName;
         const KLazyLocalizedString tooltip;
-        void (DNAttributeOrderConfigWidget::*slot)();
-        bool autorepeat;
+        void (DNAttributeOrderConfigWidget::*slot)() = nullptr;
+        bool autorepeat = false;
     };
     static const std::vector<NavButtonInfo> navButtons = {
         {

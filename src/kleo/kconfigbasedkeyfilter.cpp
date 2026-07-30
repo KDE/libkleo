@@ -29,14 +29,16 @@ using namespace GpgME;
 //
 //
 struct KeyFilter::FontDescription::Private {
-    bool bold, italic, strikeOut, fullFont;
+    bool bold = false;
+    bool italic = false;
+    bool strikeOut = false;
+    bool fullFont = false;
     QFont font;
 };
 
 KeyFilter::FontDescription::FontDescription()
     : d(new Private)
 {
-    d->bold = d->italic = d->strikeOut = d->fullFont = false;
 }
 
 KeyFilter::FontDescription::FontDescription(const FontDescription &other)
