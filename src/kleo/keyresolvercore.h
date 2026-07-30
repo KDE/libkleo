@@ -50,7 +50,7 @@ public:
         // clang-format on
     };
     struct Result {
-        SolutionFlags flags;
+        SolutionFlags flags = AllResolved;
         KeyResolver::Solution solution;
         KeyResolver::Solution alternative;
     };
