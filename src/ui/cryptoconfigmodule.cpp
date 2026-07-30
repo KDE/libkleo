@@ -587,7 +587,7 @@ void Kleo::CryptoConfigEntryLineEdit::doLoad()
    traces of plaintext on the disk.  */
 static const struct {
     const KLazyLocalizedString label;
-    const char *name;
+    const char *name; // cppcheck-suppress uninitMemberVarNoCtor
 } debugLevels[] = {
     {kli18n("0 - None"), "none"},
     {kli18n("1 - Basic"), "basic"},
