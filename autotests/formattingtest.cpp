@@ -457,7 +457,7 @@ private Q_SLOTS:
                "Signed by <a href=\"key:BA80E58FB5EC794D6396D47ADABA14732513A6D6\">Revoked Key &lt;revoked@example.net&gt; (DATE)</a> on DATETIME."_s;
         QTest::newRow("key-unknown")
             << Signature::Summary::KeyMissing << GPG_ERR_NO_PUBKEY << Signature::Validity::Unknown
-            << u"The signature cannot be verified because the corresponding certificate is not available. The data cannot be trusted. The signing "
+            << u"The data cannot be trusted. Reason: The signature cannot be verified because the corresponding certificate is not available. The signing "
                "certificate’s fingerprint is <a href=\"certificate:C8C6053CA0018BCB1C0D3C1AF9F33E35E1C16A17\">"
                "C8C6 053C A001 8BCB 1C0D  3C1A F9F3 3E35 E1C1 6A17</a>."_s;
 #if GPGME_VERSION_NUMBER >= 0x020103
@@ -529,7 +529,7 @@ private Q_SLOTS:
         QCOMPARE(verificationResult.numSignatures(), 1);
 
         const QString result = Formatting::prettyDataSignature(verificationResult.signature(0), {});
-        const auto expected = u"The signature cannot be verified because the corresponding certificate is not available. The data cannot be trusted."_s;
+        const auto expected = u"The data cannot be trusted. Reason: The signature cannot be verified because the corresponding certificate is not available."_s;
         QCOMPARE(result, expected);
     }
 

@@ -1817,7 +1817,8 @@ QString Kleo::Formatting::prettyDataSignature(const GpgME::Signature &sig, const
 
     // Key missing
     if ((sig.summary() & GpgME::Signature::KeyMissing)) {
-        QString text = i18nc("@info", "The signature cannot be verified because the corresponding certificate is not available. The data cannot be trusted.");
+        const QString reason = i18nc("@info", "The signature cannot be verified because the corresponding certificate is not available.");
+        QString text = i18nc("@info", "The data cannot be trusted. Reason: %1", reason);
         // TODO: Print signing certificate’s issuer and S/N for missing S/MIME certificate once we get this data from gpgsm.
         if (sig.fingerprint()) {
             text += u' ';
