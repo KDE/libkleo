@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-29 00:47+0000\n"
-"PO-Revision-Date: 2026-05-29 23:23+0200\n"
+"PO-Revision-Date: 2026-07-29 14:43+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -3467,38 +3467,30 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1529
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1556
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "Firma scorretta di %1: %2"
+msgstr "Firmato da %1 il %2."
 
 #: utils/formatting.cpp:1558
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "Firma buona di %1."
+msgstr "Firmato da %1."
 
 #: utils/formatting.cpp:1567
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1."
-msgstr "La firma è %1"
+msgstr "La firma è %1."
 
 #: utils/formatting.cpp:1570
 #, kde-format
@@ -3691,45 +3683,40 @@ msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"La verifica della firma ha funzionato: dati e firma corrispondono e il "
+"certificato è valido ed affidabile."
 
 #: utils/formatting.cpp:1806
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "Dati e firma non coincidono."
 
 #: utils/formatting.cpp:1807
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "Questo certificato non dovrebbe essere usato."
+msgstr "Il certificato di firma non deve essere considerato affidabile."
 
 #: utils/formatting.cpp:1808 utils/formatting.cpp:1831
 #: utils/formatting.cpp:1839 utils/formatting.cpp:1847
 #: utils/formatting.cpp:1855
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "La data non può essere modificata."
+msgstr "I dati non possono essere considerati affidabili. Motivo: %1"
 
 #: utils/formatting.cpp:1810
 #, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and dated %2."
-msgstr ""
+msgstr "La firma dichiara di provenire da %1 con data %2."
 
 #: utils/formatting.cpp:1812
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "La firma è %1"
+msgstr "La firma dichiara di provenire da %1."
 
 #: utils/formatting.cpp:1819
 #, kde-format
@@ -3738,14 +3725,14 @@ msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available. The data cannot be trusted."
 msgstr ""
+"La firma non può essere verificata perché il certificato corrispondente non "
+"è disponibile. Non è possibile considerare affidabili i dati."
 
 #: utils/formatting.cpp:1823
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr ""
-"Firma creata usando un certificato sconosciuto con impronta digitale %1"
+msgstr "L'impronta digitale del certificato di firma è %1."
 
 #: utils/formatting.cpp:1830
 #, kde-format
@@ -3753,28 +3740,25 @@ msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
 msgstr ""
+"Non è possibile verificare se i dati provengano dalla fonte dichiarata."
 
 #: utils/formatting.cpp:1838
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature is valid but it has expired."
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "La firma è valida ma è scaduta."
+msgstr "La firma è scaduta."
 
 #: utils/formatting.cpp:1846
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "Il certificato di firma è scaduto"
+msgstr "Il certificato di firma è scaduto."
 
 #: utils/formatting.cpp:1854
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "Il certificato di firma è stato revocato"
+msgstr "Il certificato di firma è stato revocato."
 
 #: utils/gnupg.cpp:437
 #, kde-format
