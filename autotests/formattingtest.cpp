@@ -465,7 +465,7 @@ private Q_SLOTS:
             QTest::newRow("signature-bad")
                 << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown
                 << u"The data cannot be trusted. Reason: Data and signature do not match.<br/>"
-                   "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a> and dated DATETIME."_s;
+                   "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a> and is dated DATETIME."_s;
         } else
 #endif
         {

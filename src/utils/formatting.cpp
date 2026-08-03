@@ -1807,7 +1807,8 @@ QString Kleo::Formatting::prettyDataSignature(const GpgME::Signature &sig, const
             : i18nc("@info", "The signing certificate must not be trusted."); // happens with TOFU trust model and with failed S/MIME certificate chain auditing
         QString text = i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1;
         if (sigCreationTime.isValid()) {
-            text += i18nc("@info", "The signature claims to be from %1 and dated %2.", renderKeyV2(key, userID), renderSignatureCreationTime(sigCreationTime));
+            text +=
+                i18nc("@info", "The signature claims to be from %1 and is dated %2.", renderKeyV2(key, userID), renderSignatureCreationTime(sigCreationTime));
         } else {
             text += i18nc("@info", "The signature claims to be from %1.", renderKeyV2(key, userID));
         }
