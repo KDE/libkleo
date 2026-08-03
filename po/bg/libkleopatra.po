@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007, 2009.
-# SPDX-FileCopyrightText: 2022, 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2024-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-28 16:09+0200\n"
-"PO-Revision-Date: 2025-11-07 18:25+0100\n"
+"POT-Creation-Date: 2026-08-03 16:09+0200\n"
+"PO-Revision-Date: 2026-05-29 12:12+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -814,35 +814,35 @@ msgstr[0] ""
 msgstr[1] ""
 "<p>S/MIME сертификатът за</p><p align=center>%2</p><p>изтича след %1 дни.</p>"
 
-#: kleo/keyfiltermanager.cpp:92
+#: kleo/keyfiltermanager.cpp:95
 #, kde-format
 msgctxt "All Certificates"
 msgid "All"
 msgstr "Всички"
 
-#: kleo/keyfiltermanager.cpp:93
+#: kleo/keyfiltermanager.cpp:96
 #, kde-format
 msgid "All certificates (except disabled ones)"
 msgstr "Всички сертификати (без деактивирани сертификати)"
 
-#: kleo/keyfiltermanager.cpp:110
+#: kleo/keyfiltermanager.cpp:113
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr "Мои собствени"
 
-#: kleo/keyfiltermanager.cpp:111
+#: kleo/keyfiltermanager.cpp:114
 #, kde-format
 msgid "My own certificates (except disabled ones)"
 msgstr "Моите собствени сертификати (без деактивирани сертификати)"
 
-#: kleo/keyfiltermanager.cpp:129
+#: kleo/keyfiltermanager.cpp:132
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "Сертифицирани"
 
-#: kleo/keyfiltermanager.cpp:130
+#: kleo/keyfiltermanager.cpp:133
 #, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
@@ -851,13 +851,13 @@ msgstr ""
 "Сертификати, за които е сертифициран основният потребителски идентификатор "
 "(без деактивирани сертификати)"
 
-#: kleo/keyfiltermanager.cpp:148
+#: kleo/keyfiltermanager.cpp:151
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "Несертифицирани"
 
-#: kleo/keyfiltermanager.cpp:149
+#: kleo/keyfiltermanager.cpp:152
 #, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
@@ -866,13 +866,13 @@ msgstr ""
 "Сертификати, за които основният потребителски идентификатор не е "
 "сертифициран (без деактивирани сертификати)"
 
-#: kleo/keyfiltermanager.cpp:164
+#: kleo/keyfiltermanager.cpp:167
 #, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "За сертифициране"
 
-#: kleo/keyfiltermanager.cpp:165
+#: kleo/keyfiltermanager.cpp:168
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
@@ -881,13 +881,13 @@ msgstr ""
 "Сертификати, които не са напълно сертифицирани и които може да искате да "
 "сертифицирате сами (без деактивирани сертификати)."
 
-#: kleo/keyfiltermanager.cpp:193
+#: kleo/keyfiltermanager.cpp:196
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "Непълно сертифицирани"
 
-#: kleo/keyfiltermanager.cpp:194
+#: kleo/keyfiltermanager.cpp:197
 #, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
@@ -895,13 +895,13 @@ msgstr ""
 "Сертификати, за които не всички потребителски идентификатори са "
 "сертифицирани (без деактивирани сертификати)"
 
-#: kleo/keyfiltermanager.cpp:218
+#: kleo/keyfiltermanager.cpp:221
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "Не напълно сертифицирани"
 
-#: kleo/keyfiltermanager.cpp:219
+#: kleo/keyfiltermanager.cpp:222
 #, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
@@ -2266,26 +2266,25 @@ msgstr "Преглед на колони"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Сортиране по"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Активна директория"
+msgstr "Посока на сортиране"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Възходящ"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Низходящ"
 
 #: ui/useridselectioncombo.cpp:175
 #, kde-format

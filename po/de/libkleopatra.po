@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2007 Stephan Johach <hunsum@gmx.de>
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010 Thomas Reitelbach <tr@erdfunkstelle.de>
-# SPDX-FileCopyrightText: 2008, 2009, 2013, 2015, 2018, 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2007-2010 Thomas Reitelbach <tr@erdfunkstelle.de>
+# SPDX-FileCopyrightText: 2008-2009, 2013, 2015, 2018-2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2010 Panagiotis Papadopoulos <pano_90@gmx.net>
-# SPDX-FileCopyrightText: 2010, 2016, 2018, 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
-# SPDX-FileCopyrightText: 2017, 2018 Andre Heinecke <andre.heinecke@intevation.de>
-# SPDX-FileCopyrightText: 2018, 2019, 2021, 2022 aheinecke <aheinecke@gnupg.org>
+# SPDX-FileCopyrightText: 2010, 2016, 2018, 2022-2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2017-2018 Andre Heinecke <andre.heinecke@intevation.de>
+# SPDX-FileCopyrightText: 2018-2019, 2021-2022 aheinecke <aheinecke@gnupg.org>
 # SPDX-FileCopyrightText: 2022 Frank Steinmetzger <dev-kde@felsenfleischer.de>
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Eva Bolten <eva.bolten@gnupg.com>
-# Eva Bolten <eva.bolten@gnupg.com>, 2025, 2026.
+# SPDX-FileCopyrightText: 2022-2025 Eva Bolten <eva.bolten@gnupg.com>
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2025-2026 Eva Bolten <eva.bolten@gnupg.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-28 16:09+0200\n"
+"POT-Creation-Date: 2026-08-03 16:09+0200\n"
 "PO-Revision-Date: 2026-05-18 11:39+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
@@ -32,7 +32,7 @@ msgstr "Fehler in der Prüfsummen-Definition %1: %2"
 #: kleo/checksumdefinition.cpp:144
 #, kde-format
 msgid "Cannot use both %f and | in '%1'"
-msgstr "Kann nicht beides, %f und | in '%1' benutzen"
+msgstr "Kann nicht beides, %f und | in '%1' verwenden"
 
 #: kleo/checksumdefinition.cpp:156
 #, kde-format
@@ -834,35 +834,35 @@ msgstr[1] ""
 "<p>Das S/MIME Zertifikat für</p><p align=center>%2</p><p>läuft in %1 Tagen "
 "ab.</p>"
 
-#: kleo/keyfiltermanager.cpp:92
+#: kleo/keyfiltermanager.cpp:95
 #, kde-format
 msgctxt "All Certificates"
 msgid "All"
 msgstr "Alle"
 
-#: kleo/keyfiltermanager.cpp:93
+#: kleo/keyfiltermanager.cpp:96
 #, kde-format
 msgid "All certificates (except disabled ones)"
 msgstr "Alle Zertifikate (außer deaktivierte)"
 
-#: kleo/keyfiltermanager.cpp:110
+#: kleo/keyfiltermanager.cpp:113
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr "Meine Zertifikate"
 
-#: kleo/keyfiltermanager.cpp:111
+#: kleo/keyfiltermanager.cpp:114
 #, kde-format
 msgid "My own certificates (except disabled ones)"
 msgstr "Meine eigenen Zertifikate (außer deaktivierte)"
 
-#: kleo/keyfiltermanager.cpp:129
+#: kleo/keyfiltermanager.cpp:132
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "Beglaubigt"
 
-#: kleo/keyfiltermanager.cpp:130
+#: kleo/keyfiltermanager.cpp:133
 #, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
@@ -870,13 +870,13 @@ msgid ""
 msgstr ""
 "Zertifikate, deren primäre Benutzerkennung beglaubigt ist (ohne deaktivierte)"
 
-#: kleo/keyfiltermanager.cpp:148
+#: kleo/keyfiltermanager.cpp:151
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "Nicht beglaubigt"
 
-#: kleo/keyfiltermanager.cpp:149
+#: kleo/keyfiltermanager.cpp:152
 #, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
@@ -885,13 +885,13 @@ msgstr ""
 "Zertifikate, deren primäre Benutzerkennung nicht beglaubigt ist (ohne "
 "deaktivierte)"
 
-#: kleo/keyfiltermanager.cpp:164
+#: kleo/keyfiltermanager.cpp:167
 #, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "Zu Beglaubigen"
 
-#: kleo/keyfiltermanager.cpp:165
+#: kleo/keyfiltermanager.cpp:168
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
@@ -900,13 +900,13 @@ msgstr ""
 "Zertifikate, die nicht vollständig beglaubigt sind und die Sie vielleicht "
 "selbst beglaubigen möchten (ohne deaktivierte)"
 
-#: kleo/keyfiltermanager.cpp:193
+#: kleo/keyfiltermanager.cpp:196
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "Nicht komplett beglaubigt"
 
-#: kleo/keyfiltermanager.cpp:194
+#: kleo/keyfiltermanager.cpp:197
 #, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
@@ -914,13 +914,13 @@ msgstr ""
 "Zertifikate, deren Benutzer-IDs nicht alle beglaubigt sind (ohne "
 "deaktivierte)"
 
-#: kleo/keyfiltermanager.cpp:218
+#: kleo/keyfiltermanager.cpp:221
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "Komplett beglaubigt"
 
-#: kleo/keyfiltermanager.cpp:219
+#: kleo/keyfiltermanager.cpp:222
 #, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
@@ -1534,7 +1534,7 @@ msgstr ""
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
-"Fehler: Der Rechnername ist im richtigen Format anzugeben (z. B. "
+"Fehler: Der Rechnername ist im richtigen Format anzugeben (z. B. "
 "ldap.example.com)."
 
 #: ui/editdirectoryservicedialog.cpp:117
@@ -1572,7 +1572,7 @@ msgstr "Anonym"
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
 msgstr ""
-"Einen anonymen LDAP-Server benutzen, der keine Authentifizierung benötigt."
+"Einen anonymen LDAP-Server verwenden, der keine Authentifizierung benötigt."
 
 #: ui/editdirectoryservicedialog.cpp:140
 #, kde-format
@@ -2164,7 +2164,7 @@ msgid ""
 "this key and the protected key will be stored in your home directory."
 msgstr ""
 "Generiert einen neuen Schlüssel für Ihre E-Mail-Adresse<br/><br/>Dieser "
-"Schlüssel wird zum Entschlüsseln und Signieren von E-Mails benutzt. Sie "
+"Schlüssel wird zum Entschlüsseln und Signieren von E-Mails verwendet. Sie "
 "werden nach einem Passwort zum Schutz des Schlüssels gefragt und der "
 "Schlüssel wird in Ihrem persönlichen Ordner gespeichert."
 

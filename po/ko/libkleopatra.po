@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-28 16:09+0200\n"
-"PO-Revision-Date: 2026-02-03 23:51+0100\n"
+"POT-Creation-Date: 2026-08-03 16:09+0200\n"
+"PO-Revision-Date: 2026-05-26 23:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -744,61 +744,61 @@ msgstr[0] ""
 "<p>S/MIME 서명 인증서</p><p align=center>%2</p><p>이(가) %1일 안에 만료됩니"
 "다.</p>"
 
-#: kleo/keyfiltermanager.cpp:92
+#: kleo/keyfiltermanager.cpp:95
 #, kde-format
 msgctxt "All Certificates"
 msgid "All"
 msgstr "모두"
 
-#: kleo/keyfiltermanager.cpp:93
+#: kleo/keyfiltermanager.cpp:96
 #, kde-format
 msgid "All certificates (except disabled ones)"
 msgstr "모든 인증서(비활성화된 인증서 제외)"
 
-#: kleo/keyfiltermanager.cpp:110
+#: kleo/keyfiltermanager.cpp:113
 #, kde-format
 msgctxt "My own Certificates"
 msgid "My Own"
 msgstr "내 인증서"
 
-#: kleo/keyfiltermanager.cpp:111
+#: kleo/keyfiltermanager.cpp:114
 #, kde-format
 msgid "My own certificates (except disabled ones)"
 msgstr "내 인증서(비활성화된 인증서 제외)"
 
-#: kleo/keyfiltermanager.cpp:129
+#: kleo/keyfiltermanager.cpp:132
 #, kde-format
 msgctxt "Certified Certificates"
 msgid "Certified"
 msgstr "인증됨"
 
-#: kleo/keyfiltermanager.cpp:130
+#: kleo/keyfiltermanager.cpp:133
 #, kde-format
 msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
 msgstr "주 사용자 ID가 인증된 인증서(비활성화된 인증서 제외)"
 
-#: kleo/keyfiltermanager.cpp:148
+#: kleo/keyfiltermanager.cpp:151
 #, kde-format
 msgctxt "Not Certified Certificates"
 msgid "Not Certified"
 msgstr "인증 안 됨"
 
-#: kleo/keyfiltermanager.cpp:149
+#: kleo/keyfiltermanager.cpp:152
 #, kde-format
 msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
 msgstr "주 사용자 ID가 인증되지 않은 인증서(비활성화된 인증서 제외)"
 
-#: kleo/keyfiltermanager.cpp:164
+#: kleo/keyfiltermanager.cpp:167
 #, kde-format
 msgctxt "Certificates to certify by the user"
 msgid "To Certify"
 msgstr "인증해야 할 인증서"
 
-#: kleo/keyfiltermanager.cpp:165
+#: kleo/keyfiltermanager.cpp:168
 #, kde-format
 msgid ""
 "Certificates that are not fully certified and that you may want to certify "
@@ -807,25 +807,25 @@ msgstr ""
 "완전히 인증하지 않으며 나중에 인증해야 할 수도 있는 인증서(비활성화될 인증서 "
 "제외)"
 
-#: kleo/keyfiltermanager.cpp:193
+#: kleo/keyfiltermanager.cpp:196
 #, kde-format
 msgctxt "Not Fully Certified Certificates"
 msgid "Not Fully Certified"
 msgstr "완전히 인증 안 됨"
 
-#: kleo/keyfiltermanager.cpp:194
+#: kleo/keyfiltermanager.cpp:197
 #, kde-format
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr "모든 사용자 ID가 인증되지는 않은 인증서(비활성화된 인증서 제외)"
 
-#: kleo/keyfiltermanager.cpp:218
+#: kleo/keyfiltermanager.cpp:221
 #, kde-format
 msgctxt "Fully Certified Certificates"
 msgid "Fully Certified"
 msgstr "완전히 인증됨"
 
-#: kleo/keyfiltermanager.cpp:219
+#: kleo/keyfiltermanager.cpp:222
 #, kde-format
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
@@ -2161,26 +2161,25 @@ msgstr "열 보기"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "정렬 기준"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Active Directory"
+msgstr "정렬 순서"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "오름차순"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "내림차순"
 
 #: ui/useridselectioncombo.cpp:175
 #, kde-format
