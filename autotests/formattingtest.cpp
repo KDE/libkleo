@@ -24,6 +24,7 @@
 #include <QTest>
 
 #include <gpgme++/engineinfo.h>
+#include <gpgme++/gpgmepp_version.h>
 #include <gpgme++/importresult.h>
 #include <gpgme++/signingresult.h>
 #include <gpgme++/verificationresult.h>
@@ -529,7 +530,14 @@ private Q_SLOTS:
         QCOMPARE(verificationResult.numSignatures(), 1);
 
         const QString result = Formatting::prettyDataSignature(verificationResult.signature(0), {});
-        const auto expected = u"The data cannot be trusted. Reason: The signature cannot be verified because the corresponding certificate is not available."_s;
+        const auto expected = u"The data cannot be trusted. Reason: The signature cannot be verified because the corresponding certificate is not available."_s
+#if GPGMEPP_VERSION >= QT_VERSION_CHECK(2, 1, 1)
+            + ((GpgME::engineInfo(GpgME::GpgEngine).engineVersion() >= "2.5.22")
+                   ? u" The signing certificate’s serial number and issuer are "
+                     "#1A03/1.2.840.113549.1.9.1=#696E666F40673130636F64652E636F6D,CN=g10 Code TEST CA 2019,OU=Testlab,O=g10 Code GmbH,C=DE."_s
+                   : QString{})
+#endif
+            ;
         QCOMPARE(result, expected);
     }
 
