@@ -38,6 +38,7 @@
 #include <QRegularExpression>
 #include <QString>
 
+#include <gpgme++/gpgmepp_version.h>
 #include <gpgme++/importresult.h>
 #include <gpgme++/key.h>
 
@@ -1539,6 +1540,18 @@ static QString renderFingerprintLinkV2(const char *fpr)
     return u"<a href=\"certificate:%1\">%2</a>"_s.arg(QString::fromLatin1(fpr), Formatting::prettyID(fpr));
 }
 
+#if GPGMEPP_VERSION >= QT_VERSION_CHECK(2, 1, 1)
+// assumes that issuerSerial is hex-encoded serial number and that issuerName is RFC 2253-encoded DN of issuer
+static QString renderSMIMECertificateReference(const char *issuerSerial, const char *issuerName)
+{
+    Q_ASSERT(issuerSerial && issuerName);
+    if (!(issuerSerial && issuerName)) {
+        return {};
+    }
+    return QString::fromLatin1('#' + QByteArrayView{issuerSerial} + '/' + QByteArrayView{issuerName});
+}
+#endif
+
 static QDateTime signatureCreationTime(const GpgME::Signature &sig)
 {
     return sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
@@ -1823,6 +1836,13 @@ QString Kleo::Formatting::prettyDataSignature(const GpgME::Signature &sig, const
         if (sig.fingerprint()) {
             text += u' ';
             text += i18nc("@info", "The signing certificate’s fingerprint is %1.", renderFingerprintLinkV2(sig.fingerprint()));
+#if GPGMEPP_VERSION >= QT_VERSION_CHECK(2, 1, 1)
+        } else if (sig.issuerSerial() && sig.issuerName()) {
+            text += u' ';
+            text += i18nc("@info",
+                          "The signing certificate’s serial number and issuer are %1.",
+                          renderSMIMECertificateReference(sig.issuerSerial(), sig.issuerName()));
+#endif
         }
         return text;
     }
