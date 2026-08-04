@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:47+0000\n"
+"POT-Creation-Date: 2026-08-04 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1607,7 +1607,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (必须)"
 
-#: ui/formtextinput.cpp:126 utils/formatting.cpp:1862
+#: ui/formtextinput.cpp:126 utils/formatting.cpp:1864
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -3348,7 +3348,7 @@ msgid "Bad signature"
 msgstr "糟糕的签名"
 
 #: utils/formatting.cpp:1700 utils/formatting.cpp:1772
-#: utils/formatting.cpp:1860
+#: utils/formatting.cpp:1862
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "签名无效：%1"
@@ -3450,60 +3450,63 @@ msgctxt "@info"
 msgid "The signing certificate must not be trusted."
 msgstr ""
 
-#: utils/formatting.cpp:1808 utils/formatting.cpp:1831
-#: utils/formatting.cpp:1839 utils/formatting.cpp:1847
-#: utils/formatting.cpp:1855
+#: utils/formatting.cpp:1808 utils/formatting.cpp:1821
+#: utils/formatting.cpp:1833 utils/formatting.cpp:1841
+#: utils/formatting.cpp:1849 utils/formatting.cpp:1857
 #, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
 msgstr ""
 
-#: utils/formatting.cpp:1810
+#: utils/formatting.cpp:1811
 #, kde-format
 msgctxt "@info"
-msgid "The signature claims to be from %1 and dated %2."
+msgid "The signature claims to be from %1 and is dated %2."
 msgstr ""
 
-#: utils/formatting.cpp:1812
+#: utils/formatting.cpp:1813
 #, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
 msgstr ""
 
-#: utils/formatting.cpp:1819
-#, kde-format
+#: utils/formatting.cpp:1820
+#, fuzzy, kde-format
+#| msgid ""
+#| "The signature is valid but the trust in the certificate's validity is "
+#| "only marginal."
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
-"not available. The data cannot be trusted."
-msgstr ""
+"not available."
+msgstr "签名有效，但对证书有效性的信任度却很低。"
 
-#: utils/formatting.cpp:1823
+#: utils/formatting.cpp:1825
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
 msgstr ""
 
-#: utils/formatting.cpp:1830
+#: utils/formatting.cpp:1832
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
 msgstr ""
 
-#: utils/formatting.cpp:1838
+#: utils/formatting.cpp:1840
 #, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
 msgstr ""
 
-#: utils/formatting.cpp:1846
+#: utils/formatting.cpp:1848
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
 msgstr ""
 
-#: utils/formatting.cpp:1854
+#: utils/formatting.cpp:1856
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."

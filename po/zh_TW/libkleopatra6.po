@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:47+0000\n"
-"PO-Revision-Date: 2026-05-21 22:17+0900\n"
+"POT-Creation-Date: 2026-08-04 00:46+0000\n"
+"PO-Revision-Date: 2026-08-04 07:22+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -1628,7 +1628,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1（必要）"
 
-#: ui/formtextinput.cpp:126 utils/formatting.cpp:1862
+#: ui/formtextinput.cpp:126 utils/formatting.cpp:1864
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -3261,38 +3261,30 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1529
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1556
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "來自 %1 的不正確簽章：%2"
+msgstr "由 %1 於 %2 簽署。"
 
 #: utils/formatting.cpp:1558
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "來自 %1 的正確簽章。"
+msgstr "由 %1 簽署。"
 
 #: utils/formatting.cpp:1567
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1."
-msgstr "此簽章%1"
+msgstr "此簽章%1。"
 
 #: utils/formatting.cpp:1570
 #, kde-format
@@ -3381,7 +3373,7 @@ msgid "Bad signature"
 msgstr "不正確的簽章"
 
 #: utils/formatting.cpp:1700 utils/formatting.cpp:1772
-#: utils/formatting.cpp:1860
+#: utils/formatting.cpp:1862
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "此簽章不正確：%1"
@@ -3469,90 +3461,84 @@ msgctxt "@info"
 msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
-msgstr ""
+msgstr "簽章驗證成功：資料與簽章符合，且憑證有效並且已信任。"
 
 #: utils/formatting.cpp:1806
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "資料與簽章不相符。"
 
 #: utils/formatting.cpp:1807
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "此憑證不應使用。"
+msgstr "簽署憑證不可信任。"
 
-#: utils/formatting.cpp:1808 utils/formatting.cpp:1831
-#: utils/formatting.cpp:1839 utils/formatting.cpp:1847
-#: utils/formatting.cpp:1855
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#: utils/formatting.cpp:1808 utils/formatting.cpp:1821
+#: utils/formatting.cpp:1833 utils/formatting.cpp:1841
+#: utils/formatting.cpp:1849 utils/formatting.cpp:1857
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "日期無法變更。"
+msgstr "資料不可信任。原因：%1"
 
-#: utils/formatting.cpp:1810
-#, kde-format
-msgctxt "@info"
-msgid "The signature claims to be from %1 and dated %2."
-msgstr ""
-
-#: utils/formatting.cpp:1812
+#: utils/formatting.cpp:1811
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#| msgctxt "@info"
+#| msgid "The signature claims to be from %1 and dated %2."
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "簽章宣稱來自 %1 於 %2。"
+
+#: utils/formatting.cpp:1813
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "此簽章%1"
+msgstr "簽章宣稱來自 %1。"
 
-#: utils/formatting.cpp:1819
-#, kde-format
+#: utils/formatting.cpp:1820
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signature cannot be verified because the corresponding certificate is "
+#| "not available. The data cannot be trusted."
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
-"not available. The data cannot be trusted."
-msgstr ""
+"not available."
+msgstr "簽章無法驗證，因為對應的憑證不可用。資料無法信任。"
 
-#: utils/formatting.cpp:1823
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#: utils/formatting.cpp:1825
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr "以未知憑證建立，指紋為 %1 的簽章"
+msgstr "簽署用的憑證的指紋是 %1。"
 
-#: utils/formatting.cpp:1830
+#: utils/formatting.cpp:1832
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
-msgstr ""
+msgstr "無法驗證資料是否來自宣稱的來源。"
 
-#: utils/formatting.cpp:1838
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature is valid but it has expired."
+#: utils/formatting.cpp:1840
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "簽章有效，但是它已過期。"
+msgstr "簽章已過期。"
 
-#: utils/formatting.cpp:1846
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#: utils/formatting.cpp:1848
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "簽署用的憑證已過期"
+msgstr "簽署用的憑證已過期。"
 
-#: utils/formatting.cpp:1854
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#: utils/formatting.cpp:1856
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "簽署用的憑證已被撤銷"
+msgstr "簽署用的憑證已被撤銷。"
 
 #: utils/gnupg.cpp:437
 #, kde-format

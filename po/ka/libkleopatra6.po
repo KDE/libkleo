@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:47+0000\n"
+"POT-Creation-Date: 2026-08-04 00:46+0000\n"
 "PO-Revision-Date: 2026-07-29 06:58+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1783,7 +1783,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (აუცილებელია)"
 
-#: ui/formtextinput.cpp:126 utils/formatting.cpp:1862
+#: ui/formtextinput.cpp:126 utils/formatting.cpp:1864
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -3570,7 +3570,7 @@ msgid "Bad signature"
 msgstr "არასწორი ხელმოწერა"
 
 #: utils/formatting.cpp:1700 utils/formatting.cpp:1772
-#: utils/formatting.cpp:1860
+#: utils/formatting.cpp:1862
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "ხელმოწერა არასწორია: %1"
@@ -3687,62 +3687,68 @@ msgctxt "@info"
 msgid "The signing certificate must not be trusted."
 msgstr "ხელმოწერის სერტიფიკატი სანდო არ უნდა იყოს."
 
-#: utils/formatting.cpp:1808 utils/formatting.cpp:1831
-#: utils/formatting.cpp:1839 utils/formatting.cpp:1847
-#: utils/formatting.cpp:1855
+#: utils/formatting.cpp:1808 utils/formatting.cpp:1821
+#: utils/formatting.cpp:1833 utils/formatting.cpp:1841
+#: utils/formatting.cpp:1849 utils/formatting.cpp:1857
 #, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
 msgstr "მონაცემების ნდობა შეუძლებელია. მიზეზი: %1"
 
-#: utils/formatting.cpp:1810
-#, kde-format
+#: utils/formatting.cpp:1811
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The signature claims to be from %1 and dated %2."
 msgctxt "@info"
-msgid "The signature claims to be from %1 and dated %2."
+msgid "The signature claims to be from %1 and is dated %2."
 msgstr "ხელმოწერა აცხადებს, რომ არის %1 და მისი თარიღია %2."
 
-#: utils/formatting.cpp:1812
+#: utils/formatting.cpp:1813
 #, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
 msgstr "ხელმოწერა აცხადებს, რომ არის %1-დან."
 
-#: utils/formatting.cpp:1819
-#, kde-format
+#: utils/formatting.cpp:1820
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signature cannot be verified because the corresponding certificate is "
+#| "not available. The data cannot be trusted."
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
-"not available. The data cannot be trusted."
+"not available."
 msgstr ""
 "ხელმოწერის გადამოწმება შეუძლებელია, რადგან შესაბამისი სერტიფიკატი "
 "მიუწვდომელია. მონაცემების ნდობა შეუძლებელია."
 
-#: utils/formatting.cpp:1823
+#: utils/formatting.cpp:1825
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
 msgstr "ხელმოწერის სერტიფიკატის ანაბეჭდია %1."
 
-#: utils/formatting.cpp:1830
+#: utils/formatting.cpp:1832
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
 msgstr "შეუძლებელია გადამოწმება, მოდის, თუ არა მონაცემები მითითებული წყაროდან."
 
-#: utils/formatting.cpp:1838
+#: utils/formatting.cpp:1840
 #, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
 msgstr "ხელმოწერის ვადა ამოწურულია."
 
-#: utils/formatting.cpp:1846
+#: utils/formatting.cpp:1848
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
 msgstr "ხელმოწერის სერტიფიკატი ვადაგასულია."
 
-#: utils/formatting.cpp:1854
+#: utils/formatting.cpp:1856
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
