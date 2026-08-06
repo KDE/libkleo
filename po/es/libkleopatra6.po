@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:47+0000\n"
-"PO-Revision-Date: 2026-07-29 11:37+0100\n"
+"PO-Revision-Date: 2026-08-06 00:22+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3697,12 +3697,10 @@ msgid "The data cannot be trusted. Reason: %1"
 msgstr "No debería confiar en los datos. Motivo: %1"
 
 #: utils/formatting.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature claims to be from %1 and dated %2."
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "La firma declara ser de %1 y estar fechada el %2."
+msgstr "La firma declara ser de %1 y está fechada el %2."
 
 #: utils/formatting.cpp:1826
 #, kde-format
@@ -3711,18 +3709,14 @@ msgid "The signature claims to be from %1."
 msgstr "La firma declara ser de %1."
 
 #: utils/formatting.cpp:1833
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The signature cannot be verified because the corresponding certificate is "
-#| "not available. The data cannot be trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
 msgstr ""
 "No se puede verificar la firma porque el correspondiente certificado no está "
-"disponible. No debería confiar en los datos."
+"disponible."
 
 #: utils/formatting.cpp:1838
 #, kde-format
@@ -3731,12 +3725,10 @@ msgid "The signing certificate’s fingerprint is %1."
 msgstr "La huella digital del certificado de firma es %1."
 
 #: utils/formatting.cpp:1843
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signing certificate’s fingerprint is %1."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "La huella digital del certificado de firma es %1."
+msgstr "El número de serie y el emisor del certificado de firma son %1."
 
 #: utils/formatting.cpp:1852
 #, kde-format
