@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:47+0000\n"
-"PO-Revision-Date: 2026-07-31 14:50+0200\n"
+"PO-Revision-Date: 2026-08-05 12:48+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -3757,9 +3757,7 @@ msgid "The data cannot be trusted. Reason: %1"
 msgstr "Il est impossible d'avoir confiance dans ces données. Raison : %1"
 
 #: utils/formatting.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature claims to be from %1 and dated %2."
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
 msgstr "La signature prétend provenir de %1 et être datée de %2."
@@ -3771,18 +3769,14 @@ msgid "The signature claims to be from %1."
 msgstr "La signature se prétend provenir de %1."
 
 #: utils/formatting.cpp:1833
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The signature cannot be verified because the corresponding certificate is "
-#| "not available. The data cannot be trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
 msgstr ""
 "Il est impossible de vérifier la signature car le certificat correspondant "
-"est indisponible. Il est impossible d'avoir confiance dans les données."
+"est indisponible."
 
 #: utils/formatting.cpp:1838
 #, kde-format
