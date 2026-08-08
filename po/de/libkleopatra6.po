@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:47+0000\n"
-"PO-Revision-Date: 2026-08-03 16:10+0200\n"
+"PO-Revision-Date: 2026-08-07 15:48+0200\n"
 "Last-Translator: Eva Bolten <eva.bolten@gnupg.com>\n"
 "Language-Team: kde-i18n-de@kde.org\n"
 "Language: de\n"
@@ -3730,14 +3730,10 @@ msgid "The data cannot be trusted. Reason: %1"
 msgstr "Den Daten kann nicht vertraut werden. Grund: %1"
 
 #: utils/formatting.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "Die Signatur ist %1."
+msgstr "Die Signatur stammt angeblich von %1 und ist auf den %2 datiert."
 
 #: utils/formatting.cpp:1826
 #, kde-format
@@ -3746,17 +3742,14 @@ msgid "The signature claims to be from %1."
 msgstr "Die Signatur stammt angeblich von %1."
 
 #: utils/formatting.cpp:1833
-#, fuzzy, kde-format
-#| msgid ""
-#| "The signature is valid but the trust in the certificate's validity is "
-#| "only marginal."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
 msgstr ""
-"Die Signatur ist korrekt, aber das Vertrauen in die Gültigkeit des "
-"Zertifikats ist nur marginal."
+"Die Signatur kann nicht überprüft werden, da das zugehörige Zertifikat nicht "
+"vorliegt."
 
 #: utils/formatting.cpp:1838
 #, kde-format
@@ -3765,12 +3758,10 @@ msgid "The signing certificate’s fingerprint is %1."
 msgstr "Der Fingerabdruck des Signaturzertifikats ist %1."
 
 #: utils/formatting.cpp:1843
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signing certificate’s fingerprint is %1."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "Der Fingerabdruck des Signaturzertifikats ist %1."
+msgstr "Die Seriennummer und der Herausgeber des Signaturzertifikats sind %1."
 
 #: utils/formatting.cpp:1852
 #, kde-format
