@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:47+0000\n"
-"PO-Revision-Date: 2026-07-29 14:43+0200\n"
+"PO-Revision-Date: 2026-08-06 15:35+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -3707,12 +3707,10 @@ msgid "The data cannot be trusted. Reason: %1"
 msgstr "I dati non possono essere considerati affidabili. Motivo: %1"
 
 #: utils/formatting.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature claims to be from %1 and dated %2."
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "La firma dichiara di provenire da %1 con data %2."
+msgstr "La firma dichiara di provenire da %1 ed ha data %2."
 
 #: utils/formatting.cpp:1826
 #, kde-format
@@ -3721,18 +3719,14 @@ msgid "The signature claims to be from %1."
 msgstr "La firma dichiara di provenire da %1."
 
 #: utils/formatting.cpp:1833
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The signature cannot be verified because the corresponding certificate is "
-#| "not available. The data cannot be trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
 msgstr ""
 "La firma non può essere verificata perché il certificato corrispondente non "
-"è disponibile. Non è possibile considerare affidabili i dati."
+"è disponibile."
 
 #: utils/formatting.cpp:1838
 #, kde-format
@@ -3741,12 +3735,10 @@ msgid "The signing certificate’s fingerprint is %1."
 msgstr "L'impronta digitale del certificato di firma è %1."
 
 #: utils/formatting.cpp:1843
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signing certificate’s fingerprint is %1."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "L'impronta digitale del certificato di firma è %1."
+msgstr "L'impronta digitale e l'emittente del certificato di firma sono %1."
 
 #: utils/formatting.cpp:1852
 #, kde-format
