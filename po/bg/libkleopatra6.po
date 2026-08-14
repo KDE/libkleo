@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:47+0000\n"
-"PO-Revision-Date: 2026-05-29 12:12+0200\n"
+"PO-Revision-Date: 2026-08-13 09:10+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -3436,38 +3436,30 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1530
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1569
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "Лош подпис от %1: %2"
+msgstr "Подписан от %1 на %2."
 
 #: utils/formatting.cpp:1571
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "Добър подпис от %1."
+msgstr "Подписан от %1."
 
 #: utils/formatting.cpp:1580
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1."
-msgstr "Подписът е %1"
+msgstr "Подписът е %1."
 
 #: utils/formatting.cpp:1583
 #, kde-format
@@ -3661,107 +3653,87 @@ msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Проверката на подписа беше успешна: Данните и подписът съвпадат и "
+"сертификатът е валиден и доверен."
 
 #: utils/formatting.cpp:1819
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "Данните и подписът не съвпадат."
 
 #: utils/formatting.cpp:1820
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "Този сертификат не трябва да се използва."
+msgstr "Подписващият сертификат не трябва да бъде доверен."
 
 #: utils/formatting.cpp:1821 utils/formatting.cpp:1834
 #: utils/formatting.cpp:1853 utils/formatting.cpp:1861
 #: utils/formatting.cpp:1869 utils/formatting.cpp:1877
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "Датата не може да бъде променяна."
+msgstr "Данните не могат да бъдат доверени. Причина: %1"
 
 #: utils/formatting.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "Подписът е %1"
+msgstr "Подписът твърди, че е от %1 и е датиран на %2."
 
 #: utils/formatting.cpp:1826
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "Подписът е %1"
+msgstr "Подписът твърди, че е от %1."
 
 #: utils/formatting.cpp:1833
-#, fuzzy, kde-format
-#| msgid ""
-#| "The signature is valid but the trust in the certificate's validity is "
-#| "only marginal."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
 msgstr ""
-"Подписът е валиден, но доверието в валидността на сертификата е само "
-"маргинално."
+"Подписът не може да бъде проверен, тъй като съответният сертификат не е "
+"наличен."
 
 #: utils/formatting.cpp:1838
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr ""
-"Подпис, създаден с помощта на неизвестен сертификат с пръстов отпечатък %1"
+msgstr "Отпечатъкът на подписващия сертификат е %1."
 
 #: utils/formatting.cpp:1843
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr ""
-"Подпис, създаден с помощта на неизвестен сертификат с пръстов отпечатък %1"
+msgstr "Серийният номер на сертификата за подпис и издателят му са %1."
 
 #: utils/formatting.cpp:1852
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
-msgstr ""
+msgstr "Не може да се потвърди дали данните произлизат от посочения източник."
 
 #: utils/formatting.cpp:1860
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature is valid but it has expired."
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "Подписът е валиден, но е изтекъл."
+msgstr "Подписът е изтекъл."
 
 #: utils/formatting.cpp:1868
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "Сертификатът за подпис е изтекъл"
+msgstr "Сертификатът за подписване е изтекъл."
 
 #: utils/formatting.cpp:1876
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "Сертификатът за подпис беше отнет"
+msgstr "Сертификатът за подписване е отменен."
 
 #: utils/gnupg.cpp:437
 #, kde-format
