@@ -3506,33 +3506,25 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1530
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1569
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "Zlý podpis od %1: %2"
+msgstr "Podpísal %1 dňa %2."
 
 #: utils/formatting.cpp:1571
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "Dobrý podpis od %1."
+msgstr "Podpísal %1."
 
 #: utils/formatting.cpp:1580
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
@@ -3723,105 +3715,85 @@ msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Overenie podpisu bolo úspešné: údaje a podpis sa zhodujú a certifikát je "
+"platný a dôveryhodný."
 
 #: utils/formatting.cpp:1819
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "Údaje a podpis sa nezhodujú."
 
 #: utils/formatting.cpp:1820
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "Tento certifikát by sa nemal používať."
+msgstr "Podpisovému certifikátu sa nesmie dôverovať."
 
 #: utils/formatting.cpp:1821 utils/formatting.cpp:1834
 #: utils/formatting.cpp:1853 utils/formatting.cpp:1861
 #: utils/formatting.cpp:1869 utils/formatting.cpp:1877
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "Kľúč nie je možné použiť."
+msgstr "Údajom nemožno dôverovať. Dôvod: %1"
 
 #: utils/formatting.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "Dobrý podpis od %1."
+msgstr "Podpis sa hlási k %1 a je datovaný %2."
 
 #: utils/formatting.cpp:1826
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "Dobrý podpis od %1."
+msgstr "Podpis sa hlási k %1."
 
 #: utils/formatting.cpp:1833
-#, fuzzy, kde-format
-#| msgid ""
-#| "The signature is valid but the trust in the certificate's validity is "
-#| "only marginal."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
-msgstr ""
-"The signature is valid but the trust in the certificate's validity is only "
-"marginal."
+msgstr "Podpis sa nedá overiť, pretože príslušný certifikát nie je dostupný."
 
 #: utils/formatting.cpp:1838
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr "Zlý podpis neznámym certifikátom: %1"
+msgstr "Odtlačok podpisového certifikátu je %1."
 
 #: utils/formatting.cpp:1843
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "Zlý podpis neznámym certifikátom: %1"
+msgstr "Sériové číslo a vydavateľ podpisového certifikátu sú %1."
 
 #: utils/formatting.cpp:1852
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
-msgstr ""
+msgstr "Nedá sa overiť, či údaje pochádzajú z uvedeného zdroja."
 
 #: utils/formatting.cpp:1860
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature is valid but it has expired."
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "Kľúč nie je platný."
+msgstr "Platnosť podpisu vypršala."
 
 #: utils/formatting.cpp:1868
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "platnosť certifikátu vypršala"
+msgstr "Platnosť podpisového certifikátu vypršala."
 
 #: utils/formatting.cpp:1876
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "platnosť certifikátu vypršala"
+msgstr "Podpisový certifikát bol odvolaný."
 
 #: utils/gnupg.cpp:437
 #, kde-format
