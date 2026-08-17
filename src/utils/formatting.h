@@ -30,6 +30,7 @@ class Import;
 namespace Kleo
 {
 class KeyGroup;
+struct SignatureData;
 
 namespace Formatting
 {
@@ -110,6 +111,11 @@ KLEO_EXPORT QString prettySignature(const GpgME::Signature &signature, const QSt
  * @note The resulting string will contains links to the key in the following format "key:<fingerprint>".
  */
 KLEO_EXPORT QString prettyDataSignature(const GpgME::Signature &signature, const QString &sender);
+
+/*!
+ * This is an overload of prettyDataSignature that takes the result of Kleo::assessSignature().
+ */
+KLEO_EXPORT QString prettyDataSignature(const Kleo::SignatureData &signature);
 
 // clang-format off
 enum ToolTipOption {

@@ -11,6 +11,7 @@
 #include <Libkleo/Formatting>
 #include <Libkleo/KeyCache>
 #include <Libkleo/Test>
+#include <Libkleo/Verification>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Debug>
@@ -438,45 +439,47 @@ private Q_SLOTS:
         QTest::addColumn<Signature::Summary>("sigSummary");
         QTest::addColumn<gpg_err_code_t>("sigStatus");
         QTest::addColumn<Signature::Validity>("sigValidity");
+        QTest::addColumn<Kleo::SignatureStatus>("signatureStatus");
         QTest::addColumn<QString>("expected");
 
         QTest::newRow("all-good")
-            << static_cast<Signature::Summary>(Signature::Summary::Green | Signature::Summary::Valid) << GPG_ERR_NO_ERROR << Signature::Validity::Full //
+            << static_cast<Signature::Summary>(Signature::Summary::Green | Signature::Summary::Valid) << GPG_ERR_NO_ERROR << Signature::Validity::Full
+            << SignatureStatus::ValidAndFullyTrusted
             << u"Signature verification was successful: Data and signature match and the certificate is valid and trusted.<br/>"
                "Signed by <a href=\"key:27E12CEFBE2E11FAF985106BD24D35D21E3C740D\">Certified Key &lt;certified@example.net&gt; (DATE)</a> on DATETIME."_s;
         QTest::newRow("key-expired")
-            << Signature::Summary::KeyExpired << GPG_ERR_KEY_EXPIRED << Signature::Validity::Unknown
+            << Signature::Summary::KeyExpired << GPG_ERR_KEY_EXPIRED << Signature::Validity::Unknown << SignatureStatus::ValidButKeyExpired
             << u"The data cannot be trusted. Reason: The signing certificate has expired.<br/>"
                "Signed by <a href=\"key:972263BC1577E48958A2AF7A6CFC883EEE0918B1\">Expired Key &lt;expired@example.net&gt; (DATE)</a> on DATETIME."_s;
         QTest::newRow("key-not-certified")
-            << Signature::Summary::None << GPG_ERR_NO_ERROR << Signature::Validity::Unknown
+            << Signature::Summary::None << GPG_ERR_NO_ERROR << Signature::Validity::Unknown << SignatureStatus::ValidButNotFullyTrusted
             << u"The data cannot be trusted. Reason: It cannot be verified whether the data originates from the stated source.<br/>"
                "Signed by <a href=\"key:9152100939FC36332EC5954AD7ADC02ACDFA945A\">Not Certified &lt;not-certified@example.net&gt; (DATE)</a> on DATETIME."_s;
         QTest::newRow("key-revoked")
-            << Signature::Summary::KeyRevoked << GPG_ERR_CERT_REVOKED << Signature::Validity::Unknown
+            << Signature::Summary::KeyRevoked << GPG_ERR_CERT_REVOKED << Signature::Validity::Unknown << SignatureStatus::ValidButKeyRevoked
             << u"The data cannot be trusted. Reason: The signing certificate has been revoked.<br/>"
                "Signed by <a href=\"key:BA80E58FB5EC794D6396D47ADABA14732513A6D6\">Revoked Key &lt;revoked@example.net&gt; (DATE)</a> on DATETIME."_s;
         QTest::newRow("key-unknown")
-            << Signature::Summary::KeyMissing << GPG_ERR_NO_PUBKEY << Signature::Validity::Unknown
+            << Signature::Summary::KeyMissing << GPG_ERR_NO_PUBKEY << Signature::Validity::Unknown << SignatureStatus::KeyMissing
             << u"The data cannot be trusted. Reason: The signature cannot be verified because the corresponding certificate is not available. The signing "
                "certificate’s fingerprint is <a href=\"certificate:C8C6053CA0018BCB1C0D3C1AF9F33E35E1C16A17\">"
                "C8C6 053C A001 8BCB 1C0D  3C1A F9F3 3E35 E1C1 6A17</a>."_s;
 #if GPGME_VERSION_NUMBER >= 0x020103
         if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() >= "2.5.22") {
             QTest::newRow("signature-bad")
-                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown
+                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown << SignatureStatus::Invalid
                 << u"The data cannot be trusted. Reason: Data and signature do not match.<br/>"
                    "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a> and is dated DATETIME."_s;
         } else
 #endif
         {
             QTest::newRow("signature-bad")
-                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown
+                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown << SignatureStatus::Invalid
                 << u"The data cannot be trusted. Reason: Data and signature do not match.<br/>"
                    "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a>."_s;
         }
         QTest::newRow("signature-expired")
-            << Signature::Summary::SigExpired << GPG_ERR_SIG_EXPIRED << Signature::Validity::Unknown
+            << Signature::Summary::SigExpired << GPG_ERR_SIG_EXPIRED << Signature::Validity::Unknown << SignatureStatus::ValidButSignatureExpired
             << u"The data cannot be trusted. Reason: The signature has expired.<br/>"
                "Signed by <a href=\"key:9152100939FC36332EC5954AD7ADC02ACDFA945A\">Not Certified &lt;not-certified@example.net&gt; (DATE)</a> on DATETIME."_s;
     }
@@ -486,6 +489,7 @@ private Q_SLOTS:
         QFETCH(Signature::Summary, sigSummary);
         QFETCH(gpg_err_code_t, sigStatus);
         QFETCH(Signature::Validity, sigValidity);
+        QFETCH(Kleo::SignatureStatus, signatureStatus);
         QFETCH(QString, expected);
         const auto currentDataTag = QString::fromLatin1(QTest::currentDataTag());
 
@@ -510,7 +514,9 @@ private Q_SLOTS:
         QCOMPARE(sig.status().code(), sigStatus);
         QCOMPARE(sig.validity(), sigValidity);
 
-        const QString result = Formatting::prettyDataSignature(verificationResult.signature(0), {});
+        const SignatureData sigData = Kleo::assessSignature(verificationResult.signature(0));
+        QCOMPARE(sigData.status, signatureStatus);
+        const QString result = Formatting::prettyDataSignature(sigData);
         QCOMPARE(maskDateAndTime(result), expected);
     }
 
@@ -529,7 +535,9 @@ private Q_SLOTS:
         QVERIFY(!verificationResult.error());
         QCOMPARE(verificationResult.numSignatures(), 1);
 
-        const QString result = Formatting::prettyDataSignature(verificationResult.signature(0), {});
+        const SignatureData sigData = Kleo::assessSignature(verificationResult.signature(0));
+        QCOMPARE(sigData.status, SignatureStatus::KeyMissing);
+        const QString result = Formatting::prettyDataSignature(sigData);
         const auto expected = u"The data cannot be trusted. Reason: The signature cannot be verified because the corresponding certificate is not available."_s
 #if GPGMEPP_VERSION >= QT_VERSION_CHECK(2, 1, 1)
             + ((GpgME::engineInfo(GpgME::GpgEngine).engineVersion() >= "2.5.22")
@@ -610,7 +618,9 @@ private Q_SLOTS:
         QCOMPARE(sig.validity(), sigValidity);
         QCOMPARE(sig.isDeVs(), isDeVs);
 
-        const QString result = Formatting::prettyDataSignature(verificationResult.signature(0), {});
+        const SignatureData sigData = Kleo::assessSignature(verificationResult.signature(0));
+        QCOMPARE(sigData.status, SignatureStatus::ValidAndFullyTrusted);
+        const QString result = Formatting::prettyDataSignature(sigData);
         // replace COMPLIANCE with the actual compliance text which may or may not have a trailing "(beta)"
         expected.replace(u"COMPLIANCE"_s, DeVSCompliance::name(true));
         QCOMPARE(maskDateAndTime(result), expected);
