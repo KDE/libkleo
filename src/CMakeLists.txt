@@ -133,6 +133,7 @@ target_sources(KPim6Libkleo PRIVATE
     utils/test.h
     utils/validation.cpp
     utils/validation.h
+    utils/verification.cpp
     utils/verification.h
     utils/multivalidator_p.h
     utils/multivalidator.cpp

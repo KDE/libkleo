@@ -22,6 +22,7 @@
 #include <libkleo/dnattributes.h>
 #include <libkleo/keycache.h>
 #include <libkleo/keygroup.h>
+#include <libkleo/verification.h>
 
 #include <libkleo_debug.h>
 
@@ -1552,11 +1553,6 @@ static QString renderSMIMECertificateReference(const char *issuerSerial, const c
 }
 #endif
 
-static QDateTime signatureCreationTime(const GpgME::Signature &sig)
-{
-    return sig.creationTime() != 0 ? QDateTime::fromSecsSinceEpoch(quint32(sig.creationTime())) : QDateTime();
-}
-
 static QString renderSignatureCreationTime(const QDateTime &dt)
 {
     return dt.isValid() ? QLocale().toString(dt, QLocale::ShortFormat) : QString{};
@@ -1674,60 +1670,32 @@ QString Formatting::email(const GpgME::UserID &uid)
     return {};
 }
 
-static GpgME::UserID findUserIDByMailbox(const GpgME::Key &key, const QString &email)
-{
-    const auto userIDs{key.userIDs()};
-    for (const GpgME::UserID &id : userIDs) {
-        if (!Formatting::email(id).compare(email, Qt::CaseInsensitive)) {
-            return id;
-        }
-    }
-    return {};
-}
-
 QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QString &sender)
 {
-    if (sig.isNull()) {
-        return QString();
-    }
+    SignatureData sigData = assessSignature(sig, sender);
 
-    const GpgME::Key key = Kleo::KeyCache::instance()->findSigner(sig);
+    const QString text = formatSigningInformation(sigData.sig, sigData.key, sigData.userID) + QLatin1StringView("<br/>");
 
-    GpgME::UserID senderUid;
-    if (!sender.isEmpty()) {
-        senderUid = findUserIDByMailbox(key, sender);
-    }
-    if (senderUid.isNull() && !key.isNull()) {
-        senderUid = key.userID(0);
-    }
-
-    const QString text = formatSigningInformation(sig, key, senderUid) + QLatin1StringView("<br/>");
-
-    // Green
-    if ((sig.summary() & GpgME::Signature::Valid)) {
-        return text + formatValidSignatureWithTrustLevel(!senderUid.isNull() ? senderUid : key.userID(0));
-    }
-
-    // Red
-    if ((sig.summary() & GpgME::Signature::Red)) {
-        const QString ret = text + i18n("The signature is invalid: %1", signatureSummaryToString(sig.summary()));
-        if (sig.summary() & GpgME::Signature::SysError) {
-            return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sig.status()));
+    switch (sigData.status) {
+    case SignatureStatus::NoSignature:
+        return {};
+    case SignatureStatus::ValidAndFullyTrusted:
+        return text + formatValidSignatureWithTrustLevel(sigData.userID);
+    case SignatureStatus::Invalid:
+    case SignatureStatus::ValidButSignerUntrustworthy: {
+        const QString ret = text + i18n("The signature is invalid: %1", signatureSummaryToString(sigData.sig.summary()));
+        if (sigData.sig.summary() & GpgME::Signature::SysError) {
+            return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sigData.sig.status()));
         }
         return ret;
     }
-
-    // Key missing
-    if ((sig.summary() & GpgME::Signature::KeyMissing)) {
+    case SignatureStatus::KeyMissing:
         return text + i18n("You can search the certificate on a keyserver or import it from a file.");
-    }
-
-    // Good signature with some caveats
-    if (sig.status().code() == GPG_ERR_NO_ERROR) {
-        if ((sig.validity() == GpgME::Signature::Validity::Undefined) //
-            || (sig.validity() == GpgME::Signature::Validity::Unknown)) {
+    case SignatureStatus::ValidButNotFullyTrusted: {
+        if ((sigData.sig.validity() == GpgME::Signature::Validity::Undefined) //
+            || (sigData.sig.validity() == GpgME::Signature::Validity::Unknown)) {
             return text
-                + (key.protocol() == GpgME::OpenPGP //
+                + (sigData.key.protocol() == GpgME::OpenPGP //
                        ? i18nc("@info", "The signature is valid but the used key is not certified by you or any trusted person.")
                        : i18nc("@info",
                                "The signature is valid but the used certificate is not certified by a trustworthy Certificate "
@@ -1736,15 +1704,13 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
                 + i18nc("@info", "<strong>Warning:</strong> There is no indication that the signature belongs to the owner.");
         }
         // validity must be marginal; "never" results in bad signature, and "full" and "ultimate" result in Valid summary
-        Q_ASSERT(sig.validity() == GpgME::Signature::Validity::Marginal);
+        Q_ASSERT(sigData.sig.validity() == GpgME::Signature::Validity::Marginal);
         // marginal validity only occurs for OpenPGP
         return text + i18nc("@info", "The signature is valid but the used key is not certified by you or any trusted person.") + "<br>"_L1
             + i18nc("@info", "<strong>Warning:</strong> It is not certain that the signature belongs to the owner.");
     }
-
-    // Expired signature (only occurs for OpenPGP)
-    if (sig.status().code() == GPG_ERR_SIG_EXPIRED) {
-        switch (sig.validity()) {
+    case SignatureStatus::ValidButSignatureExpired: {
+        switch (sigData.sig.validity()) {
         case GpgME::Signature::Validity::Ultimate:
         case GpgME::Signature::Validity::Full:
             return text + i18nc("@info", "The signature is valid but it has expired.");
@@ -1760,128 +1726,113 @@ QString Kleo::Formatting::prettySignature(const GpgME::Signature &sig, const QSt
         case GpgME::Signature::Validity::Never: // means bad signature
             ;
         }
+        break;
     }
-
-    // Good signature but expired signing key
-    if (sig.status().code() == GPG_ERR_KEY_EXPIRED) {
-        return text + i18nc("@info", "The signature is valid but the used key has expired.");
+    case SignatureStatus::ValidButKeyExpired:
         // don't print information about the key's validity; gpg also doesn't do this and since the key is expired it makes little sense
-    }
-
-    // Good signature but revoked signing key
-    if (sig.status().code() == GPG_ERR_CERT_REVOKED) {
+        return text + i18nc("@info", "The signature is valid but the used key has expired.");
+    case SignatureStatus::ValidButKeyRevoked:
         return text + i18nc("@info", "The signature is valid but the used key has been revoked.") + "<br>"_L1 //
             + i18nc("@info", "<strong>Warning:</strong> This could mean that the signature is forged.") + "<br>"_L1 //
-            + (key.protocol() == GpgME::OpenPGP //
+            + (sigData.key.protocol() == GpgME::OpenPGP //
                    ? i18nc("@info", "The used key is not certified by you or any trusted person.")
                    : i18nc("@info",
                            "The signature is valid but the used certificate is not certified by a trustworthy Certificate "
                            "Authority or the Certificate Authority is unknown."))
             + "<br>"_L1 //
             + i18nc("@info", "<strong>Warning:</strong> There is no indication that the signature belongs to the owner.");
+    case SignatureStatus::OtherError:
+        // fall through
+        ;
     }
 
     // Catch all fall through
-    const QString ret = text + i18n("The signature is invalid: %1", signatureSummaryToString(sig.summary()));
-    if (sig.summary() & GpgME::Signature::SysError) {
-        return ret + QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sig.status()));
+    QString ret = text + i18n("The signature is invalid: %1", signatureSummaryToString(sigData.sig.summary()));
+    if (sigData.sig.summary() & GpgME::Signature::SysError) {
+        ret += QStringLiteral(" (%1)").arg(Kleo::Formatting::errorAsString(sigData.sig.status()));
     }
     return ret;
 }
 
 QString Kleo::Formatting::prettyDataSignature(const GpgME::Signature &sig, const QString &sender)
 {
-    if (sig.isNull()) {
-        return QString();
-    }
+    return prettyDataSignature(assessSignature(sig, sender));
+}
 
-    const GpgME::Key key = Kleo::KeyCache::instance()->findSigner(sig);
-
-    GpgME::UserID userID;
-    if (!sender.isEmpty()) {
-        userID = findUserIDByMailbox(key, sender);
-    }
-    if (userID.isNull() && !key.isNull()) {
-        userID = key.userID(0);
-    }
-
-    // Valid (implies Green)
-    if ((sig.summary() & GpgME::Signature::Valid)) {
+QString Kleo::Formatting::prettyDataSignature(const Kleo::SignatureData &sigData)
+{
+    switch (sigData.status) {
+    case SignatureStatus::NoSignature:
+        return {};
+    case SignatureStatus::ValidAndFullyTrusted:
         return i18nc("@info", "Signature verification was successful: Data and signature match and the certificate is valid and trusted.") + "<br/>"_L1
-            + renderSignedByOn(sig, key, userID) //
-            + renderSignatureCompliance(sig);
-    }
-
-    // Red (means either bad signature or validity "never" for the signing key)
-    if ((sig.summary() & GpgME::Signature::Red)) {
-        const QDateTime sigCreationTime = signatureCreationTime(sig);
-        const QString reason = (sig.status().code() == GPG_ERR_BAD_SIGNATURE) //
+            + renderSignedByOn(sigData.sig, sigData.key, sigData.userID) //
+            + renderSignatureCompliance(sigData.sig);
+    case SignatureStatus::Invalid:
+    case SignatureStatus::ValidButSignerUntrustworthy: {
+        const QString reason = (sigData.status == SignatureStatus::Invalid) //
             ? i18nc("@info", "Data and signature do not match.")
             : i18nc("@info", "The signing certificate must not be trusted."); // happens with TOFU trust model and with failed S/MIME certificate chain auditing
         QString text = i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1;
-        if (sigCreationTime.isValid()) {
-            text +=
-                i18nc("@info", "The signature claims to be from %1 and is dated %2.", renderKeyV2(key, userID), renderSignatureCreationTime(sigCreationTime));
+        if (sigData.creationTime.isValid()) {
+            text += i18nc("@info",
+                          "The signature claims to be from %1 and is dated %2.",
+                          renderKeyV2(sigData.key, sigData.userID),
+                          renderSignatureCreationTime(sigData.creationTime));
         } else {
-            text += i18nc("@info", "The signature claims to be from %1.", renderKeyV2(key, userID));
+            text += i18nc("@info", "The signature claims to be from %1.", renderKeyV2(sigData.key, sigData.userID));
         }
         return text;
     }
-
-    // Key missing
-    if ((sig.summary() & GpgME::Signature::KeyMissing)) {
+    case SignatureStatus::KeyMissing: {
         const QString reason = i18nc("@info", "The signature cannot be verified because the corresponding certificate is not available.");
         QString text = i18nc("@info", "The data cannot be trusted. Reason: %1", reason);
         // TODO: Print signing certificate’s issuer and S/N for missing S/MIME certificate once we get this data from gpgsm.
-        if (sig.fingerprint()) {
+        if (sigData.sig.fingerprint()) {
             text += u' ';
-            text += i18nc("@info", "The signing certificate’s fingerprint is %1.", renderFingerprintLinkV2(sig.fingerprint()));
+            text += i18nc("@info", "The signing certificate’s fingerprint is %1.", renderFingerprintLinkV2(sigData.sig.fingerprint()));
 #if GPGMEPP_VERSION >= QT_VERSION_CHECK(2, 1, 1)
-        } else if (sig.issuerSerial() && sig.issuerName()) {
+        } else if (sigData.sig.issuerSerial() && sigData.sig.issuerName()) {
             text += u' ';
             text += i18nc("@info",
                           "The signing certificate’s serial number and issuer are %1.",
-                          renderSMIMECertificateReference(sig.issuerSerial(), sig.issuerName()));
+                          renderSMIMECertificateReference(sigData.sig.issuerSerial(), sigData.sig.issuerName()));
 #endif
         }
         return text;
     }
-
-    // Good signature with some caveats
-    if (sig.status().isSuccess()) {
+    case SignatureStatus::ValidButNotFullyTrusted: {
         const QString reason = i18nc("@info", "It cannot be verified whether the data originates from the stated source.");
         return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 //
-            + renderSignedByOn(sig, key, userID) //
-            + renderSignatureCompliance(sig);
+            + renderSignedByOn(sigData.sig, sigData.key, sigData.userID) //
+            + renderSignatureCompliance(sigData.sig);
     }
-
-    // Expired signature (only occurs for OpenPGP)
-    if (sig.status().code() == GPG_ERR_SIG_EXPIRED) {
+    case SignatureStatus::ValidButSignatureExpired: {
         const QString reason = i18nc("@info", "The signature has expired.");
         return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 //
-            + renderSignedByOn(sig, key, userID) //
-            + renderSignatureCompliance(sig);
+            + renderSignedByOn(sigData.sig, sigData.key, sigData.userID) //
+            + renderSignatureCompliance(sigData.sig);
     }
-
-    // Good signature but expired signing key
-    if (sig.status().code() == GPG_ERR_KEY_EXPIRED) {
+    case SignatureStatus::ValidButKeyExpired: {
         const QString reason = i18nc("@info", "The signing certificate has expired.");
         return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 //
-            + renderSignedByOn(sig, key, userID) //
-            + renderSignatureCompliance(sig);
+            + renderSignedByOn(sigData.sig, sigData.key, sigData.userID) //
+            + renderSignatureCompliance(sigData.sig);
     }
-
-    // Good signature but revoked signing key
-    if (sig.status().code() == GPG_ERR_CERT_REVOKED) {
+    case SignatureStatus::ValidButKeyRevoked: {
         const QString reason = i18nc("@info", "The signing certificate has been revoked.");
         return i18nc("@info", "The data cannot be trusted. Reason: %1", reason) + "<br/>"_L1 //
-            + renderSignedByOn(sig, key, userID);
+            + renderSignedByOn(sigData.sig, sigData.key, sigData.userID);
+    }
+    case SignatureStatus::OtherError:
+        // fall through
+        ;
     }
 
-    // Catch all fall through
-    QString text = i18n("The signature is invalid: %1", signatureSummaryToString(sig.summary()));
-    if (sig.summary() & GpgME::Signature::SysError) {
-        text += "<br/>"_L1 + i18nc("@info", "Error: %1", Kleo::Formatting::errorAsString(sig.status()));
+    // Catch all
+    QString text = i18n("The signature is invalid: %1", signatureSummaryToString(sigData.sig.summary()));
+    if (sigData.sig.summary() & GpgME::Signature::SysError) {
+        text += "<br/>"_L1 + i18nc("@info", "Error: %1", Kleo::Formatting::errorAsString(sigData.sig.status()));
     }
     return text;
 }
