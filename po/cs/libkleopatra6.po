@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-08-17 00:04+0200\n"
+"PO-Revision-Date: 2026-08-17 11:23+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -2458,11 +2458,13 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Podepsání zprávy poskytuje kryptografické potvrzení, že jste skutečně "
+"odesílatelem této zprávy."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
+msgstr "Chybí klíč. Příjemce nebude schopen data dešifrovat."
 
 #: ui/newkeyapprovaldialog.cpp:637
 #, kde-format
@@ -2472,17 +2474,20 @@ msgid ""
 "the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
+"Pro tohoto příjemce nevybírejte žádný klíč.<br/><br/>Příjemce obdrží "
+"zašifrovaný e-mail, který však lze dešifrovat pouze pomocí ostatních klíčů "
+"vybraných v tomto dialogovém okně."
 
 #: ui/newkeyapprovaldialog.cpp:754
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr ""
+msgstr "Zašifrovat pro sebe (%1):"
 
 #: ui/newkeyapprovaldialog.cpp:769
 #, kde-format
 msgid "Encrypt to others:"
-msgstr ""
+msgstr "Zašifrovat pro ostatní:"
 
 #: ui/newkeyapprovaldialog.cpp:805
 #, kde-format
@@ -2500,6 +2505,8 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Zašifruje tajný klíč pomocí hesla, které nelze obnovit. Při generování klíče "
+"budete vyzváni k zadání tohoto hesla."
 
 #: ui/openpgpcertificatecreationdialog.cpp:176
 #, kde-format
@@ -2516,7 +2523,7 @@ msgstr "Typ klíčů"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
-msgstr ""
+msgstr "Nastavte tento klíč pro sdílené použití v týmech"
 
 #: ui/openpgpcertificatecreationdialog.cpp:234
 #, kde-format
@@ -2548,7 +2555,7 @@ msgstr "Vyskytl se problém."
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Default reader"
-msgstr ""
+msgstr "Výchozí čtečka"
 
 #: ui/readerportselection.cpp:71
 #, kde-kuit-format
@@ -2560,12 +2567,17 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
+"<para>Vyberte čtečku čipových karet, kterou má GnuPG používat."
+"<list><item>První položka způsobí, že GnuPG použije první nalezenou čtečku.</"
+"item><item>Poslední položka umožňuje zadat vlastní ID čtečky nebo číslo "
+"portu čtečky.</item><item>Všechny ostatní položky představují čtečky, které "
+"GnuPG našlo.</item></list></para>"
 
 #: ui/readerportselection.cpp:112
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "Vlastní ID čtečky nebo číslo portu"
 
 #: ui/treeview_p.cpp:43
 #, kde-format
@@ -2685,7 +2697,7 @@ msgstr "%1-bit %2"
 #: utils/formatting.cpp:356
 #, kde-format
 msgid "Signing (Qualified)"
-msgstr ""
+msgstr "Podepisování (kvalifikované)"
 
 #: utils/formatting.cpp:358
 #, kde-format
@@ -2804,7 +2816,7 @@ msgstr "Uloženo"
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
-msgstr ""
+msgstr "na čipové kartě se sériovým číslem %1"
 
 #: utils/formatting.cpp:503
 #, kde-format
@@ -2816,27 +2828,29 @@ msgstr "na tomto počítači"
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
+"Některé klíče jsou odvolány, jejich platnost vypršela, jsou deaktivovány "
+"nebo jsou neplatné."
 
 #: utils/formatting.cpp:534
 #, kde-format
 msgid "All keys are certified."
-msgstr ""
+msgstr "Všechny klíče jsou certifikovány."
 
 #: utils/formatting.cpp:536
 #, kde-format
 msgid "Some keys are not certified."
-msgstr ""
+msgstr "Některé klíče nejsou certifikovány."
 
 #: utils/formatting.cpp:540
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
+msgstr "Platnost klíčů nelze v tuto chvíli ověřit."
 
 #: utils/formatting.cpp:554
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "Tato skupina neobsahuje žádné klíče."
 
 #: utils/formatting.cpp:560
 #, kde-format
@@ -2845,6 +2859,8 @@ msgid ""
 "Some of the certificates in this group cannot be used for encryption. Using "
 "this group can lead to unexpected results."
 msgstr ""
+"Některé certifikáty v této skupině nelze použít k šifrování. Použití této "
+"skupiny může vést k neočekávaným výsledkům."
 
 #: utils/formatting.cpp:580
 #, kde-format
@@ -2856,9 +2872,9 @@ msgstr "Klíče:"
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "a ještě 1 klíč"
+msgstr[1] "a ještě %1 klíče"
+msgstr[2] "a ještě %1 klíčů"
 
 #: utils/formatting.cpp:622
 #, kde-format
@@ -3077,16 +3093,17 @@ msgstr "Při importu tohoto certifikátu došlo k chybě: %1"
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
+"Tento certifikát je ve vašem úložišti klíčů nový. Tajný klíč je k dispozici."
 
 #: utils/formatting.cpp:1082
 #, kde-format
 msgid "This certificate is new to your keystore."
-msgstr ""
+msgstr "Tento certifikát je v vašem úložišti klíčů nový."
 
 #: utils/formatting.cpp:1087
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
-msgstr ""
+msgstr "Importem byly do tohoto certifikátu přidány nové uživatelské id."
 
 #: utils/formatting.cpp:1090
 #, kde-format
@@ -3096,12 +3113,13 @@ msgstr "Importem byly do tohoto certifikátu přidány nové podpisy."
 #: utils/formatting.cpp:1093
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
-msgstr ""
+msgstr "Importem byly do tohoto certifikátu přidány nové podklíče."
 
 #: utils/formatting.cpp:1096
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
+"Import neobsahoval žádná nová data pro tento certifikát. Zůstává beze změn."
 
 #: utils/formatting.cpp:1103
 #, kde-format
@@ -3156,18 +3174,18 @@ msgstr[2] "%2 (%1 klíčů, %3)"
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 (1 klíč, %3, značka)"
+msgstr[1] "%2 (%1 klíče, %3, značka)"
+msgstr[2] "%2 (%1 klíčů, %3, značka)"
 
 #: utils/formatting.cpp:1160
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 (1 klíč, %3, neznámý původ)"
+msgstr[1] "%2 (%1 klíče, %3, neznámý původ)"
+msgstr[2] "%2 (%1 klíčů, %3, neznámý původ)"
 
 #: utils/formatting.cpp:1181
 #, kde-format
@@ -3185,6 +3203,8 @@ msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
+"Model důvěryhodnosti naznačuje pouze v omezené míře, že certifikát patří "
+"tomuto příjemci."
 
 #: utils/formatting.cpp:1187
 #, kde-format
@@ -3195,11 +3215,12 @@ msgstr "Tento certifikát by neměl být používán."
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
+"Neexistuje žádný náznak toho, že by tento certifikát patřil tomuto příjemci."
 
 #: utils/formatting.cpp:1203
 #, kde-format
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "Tato skupina neobsahuje žádné klíče."
 
 #: utils/formatting.cpp:1253 utils/formatting.cpp:1265
 #, kde-format
@@ -3275,12 +3296,14 @@ msgstr "Vygenerováno"
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
+"Tento klíč certifikuje jako částečně důvěryhodný zprostředkovatel pro '%1'."
 
 #: utils/formatting.cpp:1429
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr ""
+"Tento klíč certifikuje jako plně důvěryhodný zprostředkovatel pro '%1'."
 
 #: utils/formatting.cpp:1454
 #, kde-format
@@ -3444,34 +3467,35 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"Podpis je platný, ale důvěryhodnost platnosti certifikátu je pouze minimální."
 
 #: utils/formatting.cpp:1494
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
-msgstr ""
+msgstr "Podpis je platný a platnost certifikátu je plně důvěryhodná."
 
 #: utils/formatting.cpp:1496
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
-msgstr ""
+msgstr "Podpis je platný a platnost certifikátu je zcela důvěryhodná."
 
 #: utils/formatting.cpp:1498
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
-msgstr ""
+msgstr "Podpis je platný, ale platnost certifikátu je <em>nedůvěryhodná</em>."
 
 #: utils/formatting.cpp:1500
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Podpis je v pořádku, ale platnost certifikátu je neznámá."
+msgstr "Podpis je platný, ale platnost certifikátu je neznámá."
 
 #: utils/formatting.cpp:1503
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "Podpis je platný, ale platnost certifikátu není definována."
 
 #: utils/formatting.cpp:1515
 #, kde-format
@@ -3489,23 +3513,23 @@ msgstr "%1 (%2)"
 msgctxt "1 is a date"
 msgid ""
 "Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr ""
+msgstr "Podpis byl vytvořen %1 pomocí neznámého certifikátu s otiskem %2"
 
 #: utils/formatting.cpp:1539
 #, kde-format
 msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr ""
+msgstr "Podpis byl vytvořen pomocí neznámého certifikátu s otiskem %1"
 
 #: utils/formatting.cpp:1543
 #, kde-format
 msgctxt "1 is a date"
 msgid "Signature created on %1 with certificate: %2"
-msgstr ""
+msgstr "Podpis vytvořen %1 pomocí certifikátu: %2"
 
 #: utils/formatting.cpp:1545
 #, kde-format
 msgid "Signature created with certificate: %1"
-msgstr ""
+msgstr "Podpis vytvořený pomocí certifikátu: %1"
 
 #: utils/formatting.cpp:1551
 #, kde-format
@@ -3521,7 +3545,7 @@ msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr ""
+msgstr "Podpis <b>není</b> %1."
 
 #: utils/formatting.cpp:1564
 #, kde-format
@@ -3590,26 +3614,24 @@ msgstr ""
 "Certifikát můžete hledat na serveru klíčů, nebo jej importovat ze souboru."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "Použitý klíč není certifikován vámi nebo jinou důvěryhodnou osobou."
+msgstr ""
+"Podpis je platný, ale použitý klíč nebyl certifikován vámi ani žádnou "
+"důvěryhodnou osobou."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Použitý certifikát není podepsán žádnou důvěryhodnou certifikační autoritou "
-"nebo je certifikační autorita neznámá."
+"Podpis je platný, ale použitý certifikát nebyl vydán důvěryhodnou "
+"certifikační autoritou nebo je certifikační autorita neznámá."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
@@ -3619,6 +3641,8 @@ msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
 msgstr ""
+"<strong>Upozornění:</strong> Neexistuje žádný důkaz, že podpis patří "
+"majiteli."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3626,72 +3650,72 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>Upozornění:</strong> Není jisté, zda podpis patří majiteli."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is invalid: %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Podpis není platný: %1"
+msgstr "Podpis je platný, ale jeho platnost již vypršela."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr "Použitý klíč není certifikován vámi nebo jinou důvěryhodnou osobou."
+msgstr ""
+"Podpis je platný, ale jeho platnost již vypršela a použitý klíč nebyl "
+"certifikován ani vámi, ani žádnou důvěryhodnou osobou."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is unknown."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Podpis je v pořádku, ale platnost certifikátu je neznámá."
+msgstr "Podpis je platný, ale platnost použitého klíče vypršela."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is unknown."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Podpis je v pořádku, ale platnost certifikátu je neznámá."
+msgstr "Podpis je platný, ale použitý klíč byl odvolán."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Upozornění:</strong> To by mohlo znamenat, že podpis je padělaný."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
-msgstr "Použitý klíč není certifikován vámi nebo jinou důvěryhodnou osobou."
+msgstr ""
+"Použitý klíč nebyl certifikován ani vámi, ani žádnou důvěryhodnou osobou."
 
 #: utils/gnupg.cpp:437
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "GnuPG podporuje OpenPGP/LibrePGP a S/MIME."
 
 #: utils/gnupg.cpp:446
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "Libgcrypt je univerzální kryptografická knihovna."
 
 #: utils/hex.cpp:33
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr ""
+msgstr "V vstupním streamu se vyskytuje neplatný hexadecimální znak '%1'."
 
 #: utils/hex.cpp:45 utils/hex.cpp:50
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
+"Předčasný konec znaku kódovaného v hexadecimálním formátu ve vstupním streamu"
 
 #~ msgctxt "@option:check"
 #~ msgid "OpenPGP"
