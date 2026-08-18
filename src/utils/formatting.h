@@ -31,6 +31,7 @@ namespace Kleo
 {
 class KeyGroup;
 struct SignatureData;
+enum class SignatureStatus;
 
 namespace Formatting
 {
@@ -116,6 +117,20 @@ KLEO_EXPORT QString prettyDataSignature(const GpgME::Signature &signature, const
  * This is an overload of prettyDataSignature that takes the result of Kleo::assessSignature().
  */
 KLEO_EXPORT QString prettyDataSignature(const Kleo::SignatureData &signature);
+
+/*!
+ * Returns more detailed explanations for a signature that's not fully valid.
+ *
+ * Complements prettyDataSignature.
+ */
+KLEO_EXPORT QStringList explanationsForDataSignature(Kleo::SignatureStatus status);
+
+/*!
+ * Returns some guidance for what could be done in case a signature is not fully valid.
+ *
+ * Complements explanationsForDataSignature and prettyDataSignature.
+ */
+KLEO_EXPORT QString guidanceForDataSignature(Kleo::SignatureStatus status, GpgME::Protocol protocol);
 
 // clang-format off
 enum ToolTipOption {

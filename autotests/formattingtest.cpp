@@ -625,6 +625,113 @@ private Q_SLOTS:
         expected.replace(u"COMPLIANCE"_s, DeVSCompliance::name(true));
         QCOMPARE(maskDateAndTime(result), expected);
     }
+
+    void test_explanationsForDataSignature_data()
+    {
+        QTest::addColumn<Kleo::SignatureStatus>("signatureStatus");
+        QTest::addColumn<QStringList>("expected");
+
+        QTest::newRow("NoSignature") << SignatureStatus::NoSignature << QStringList{};
+        QTest::newRow("KeyMissing") //
+            << SignatureStatus::KeyMissing
+            << QStringList{u"The signing certificate is not present in your certificate list, but it is needed to verify the data."_s};
+        QTest::newRow("ValidAndFullyTrusted") << SignatureStatus::ValidAndFullyTrusted << QStringList{};
+        QTest::newRow("ValidButNotFullyTrusted") //
+            << SignatureStatus::ValidButNotFullyTrusted
+            << QStringList{
+                   u"Technically, signature and data match, but the signing certificate is not marked as trusted. "
+                   "Therefore the data cannot be trusted to originate from the stated source."_s};
+        QTest::newRow("ValidButSignatureExpired") << SignatureStatus::ValidButSignatureExpired << QStringList{};
+        QTest::newRow("ValidButKeyExpired") //
+            << SignatureStatus::ValidButKeyExpired
+            << QStringList{
+                   u"For an expired certificate, it cannot be evaluated whether the certificate can be trusted. "
+                   "Therefore the data cannot be trusted. Technically, signature and data match."_s,
+                   u"If the certificate was valid and trusted when you received the data, the data is likely valid."_s};
+        QTest::newRow("ValidButKeyRevoked") //
+            << SignatureStatus::ValidButKeyRevoked
+            << QStringList{
+                   u"The certificate may have been revoked because it was compromised and it might now be used by a third party. "
+                   "The data can therefore not be trusted. Technically, signature and data match."_s,
+                   u"It is possible that you received the data at a time when the certificate was still valid and trusted. "
+                   "If this is the case, the data may be valid."_s};
+        QTest::newRow("ValidButSignerUntrustworthy") << SignatureStatus::ValidButSignerUntrustworthy << QStringList{};
+        QTest::newRow("Invalid") //
+            << SignatureStatus::Invalid
+            << QStringList{
+                   u"The data or the signature has been altered. This can happen accidentally (e.g. due to a transmission error), "
+                   "unintentionally (e.g. due to a subsequent change to the data, possibly by an email client), or intentionally "
+                   "(deliberate manipulation)."_s};
+        QTest::newRow("OtherError") << SignatureStatus::OtherError << QStringList{};
+    }
+
+    void test_explanationsForDataSignature()
+    {
+        QFETCH(Kleo::SignatureStatus, signatureStatus);
+        QFETCH(QStringList, expected);
+
+        const QStringList result = Formatting::explanationsForDataSignature(signatureStatus);
+        QCOMPARE(result, expected);
+    }
+
+    void test_guidanceForDataSignature_data()
+    {
+        QTest::addColumn<Kleo::SignatureStatus>("signatureStatus");
+        QTest::addColumn<GpgME::Protocol>("protocol");
+        QTest::addColumn<QString>("expected");
+
+        QTest::newRow("NoSignature OpenPGP") << SignatureStatus::NoSignature << GpgME::OpenPGP << QString{};
+        QTest::newRow("KeyMissing OpenPGP") //
+            << SignatureStatus::KeyMissing << GpgME::OpenPGP
+            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the data again."_s;
+        QTest::newRow("ValidAndFullyTrusted OpenPGP") << SignatureStatus::ValidAndFullyTrusted << GpgME::OpenPGP << QString{};
+        QTest::newRow("ValidButNotFullyTrusted OpenPGP") //
+            << SignatureStatus::ValidButNotFullyTrusted << GpgME::OpenPGP
+            << u"Verify the certificate’s fingerprint and certify it. Then verify the data again."_s;
+        QTest::newRow("ValidButSignatureExpired OpenPGP") << SignatureStatus::ValidButSignatureExpired << GpgME::OpenPGP << QString{};
+        QTest::newRow("ValidButKeyExpired OpenPGP") //
+            << SignatureStatus::ValidButKeyExpired << GpgME::OpenPGP
+            << u"You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the data again after importing the certificate."_s;
+        QTest::newRow("ValidButKeyRevoked OpenPGP") //
+            << SignatureStatus::ValidButKeyRevoked << GpgME::OpenPGP
+            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current certificate."_s;
+        QTest::newRow("ValidButSignerUntrustworthy OpenPGP") << SignatureStatus::ValidButSignerUntrustworthy << GpgME::OpenPGP << QString{};
+        QTest::newRow("Invalid OpenPGP") //
+            << SignatureStatus::Invalid << GpgME::OpenPGP //
+            << u"Ask the sender to resend the data."_s;
+        QTest::newRow("OtherError OpenPGP") << SignatureStatus::OtherError << GpgME::OpenPGP << QString{};
+
+        QTest::newRow("NoSignature S/MIME") << SignatureStatus::NoSignature << GpgME::CMS << QString{};
+        QTest::newRow("KeyMissing S/MIME") //
+            << SignatureStatus::KeyMissing << GpgME::CMS
+            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the data again."_s;
+        QTest::newRow("ValidAndFullyTrusted S/MIME") << SignatureStatus::ValidAndFullyTrusted << GpgME::CMS << QString{};
+        QTest::newRow("ValidButNotFullyTrusted S/MIME") //
+            << SignatureStatus::ValidButNotFullyTrusted << GpgME::CMS
+            << u"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the data again."_s;
+        QTest::newRow("ValidButSignatureExpired S/MIME") << SignatureStatus::ValidButSignatureExpired << GpgME::CMS << QString{};
+        QTest::newRow("ValidButKeyExpired S/MIME") //
+            << SignatureStatus::ValidButKeyExpired << GpgME::CMS
+            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data with a current certificate."_s;
+        QTest::newRow("ValidButKeyRevoked S/MIME") //
+            << SignatureStatus::ValidButKeyRevoked << GpgME::CMS
+            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current certificate."_s;
+        QTest::newRow("ValidButSignerUntrustworthy S/MIME") << SignatureStatus::ValidButSignerUntrustworthy << GpgME::CMS << QString{};
+        QTest::newRow("Invalid S/MIME") //
+            << SignatureStatus::Invalid << GpgME::CMS //
+            << u"Ask the sender to resend the data."_s;
+        QTest::newRow("OtherError S/MIME") << SignatureStatus::OtherError << GpgME::CMS << QString{};
+    }
+
+    void test_guidanceForDataSignature()
+    {
+        QFETCH(Kleo::SignatureStatus, signatureStatus);
+        QFETCH(GpgME::Protocol, protocol);
+        QFETCH(QString, expected);
+
+        const QString result = Formatting::guidanceForDataSignature(signatureStatus, protocol);
+        QCOMPARE(result, expected);
+    }
 };
 
 QTEST_MAIN(FormattingTest)

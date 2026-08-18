@@ -1836,3 +1836,83 @@ QString Kleo::Formatting::prettyDataSignature(const Kleo::SignatureData &sigData
     }
     return text;
 }
+
+QStringList Kleo::Formatting::explanationsForDataSignature(Kleo::SignatureStatus status)
+{
+    switch (status) {
+    case SignatureStatus::NoSignature:
+        return {};
+    case SignatureStatus::KeyMissing:
+        return {i18nc("@info", "The signing certificate is not present in your certificate list, but it is needed to verify the data.")};
+    case SignatureStatus::ValidAndFullyTrusted:
+        return {};
+    case SignatureStatus::ValidButNotFullyTrusted:
+        return {i18nc("@info",
+                      "Technically, signature and data match, but the signing certificate is not marked as trusted. "
+                      "Therefore the data cannot be trusted to originate from the stated source.")};
+    case SignatureStatus::ValidButSignatureExpired:
+        return {};
+    case SignatureStatus::ValidButKeyExpired:
+        return {i18nc("@info",
+                      "For an expired certificate, it cannot be evaluated whether the certificate can be trusted. "
+                      "Therefore the data cannot be trusted. Technically, signature and data match."),
+                i18nc("@info", "If the certificate was valid and trusted when you received the data, the data is likely valid.")};
+    case SignatureStatus::ValidButKeyRevoked:
+        return {i18nc("@info",
+                      "The certificate may have been revoked because it was compromised and it might now be used by a third party. "
+                      "The data can therefore not be trusted. Technically, signature and data match."),
+                i18nc("@info",
+                      "It is possible that you received the data at a time when the certificate was still valid and trusted. "
+                      "If this is the case, the data may be valid.")};
+    case SignatureStatus::ValidButSignerUntrustworthy:
+        return {};
+    case SignatureStatus::Invalid:
+        return {i18nc("@info",
+                      "The data or the signature has been altered. This can happen accidentally (e.g. due to a transmission error), "
+                      "unintentionally (e.g. due to a subsequent change to the data, possibly by an email client), or intentionally "
+                      "(deliberate manipulation).")};
+    case SignatureStatus::OtherError:
+        // fall through
+        ;
+    }
+
+    return {};
+}
+
+QString Kleo::Formatting::guidanceForDataSignature(Kleo::SignatureStatus status, GpgME::Protocol protocol)
+{
+    switch (status) {
+    case SignatureStatus::NoSignature:
+        return {};
+    case SignatureStatus::KeyMissing:
+        return i18nc("@info", "Ask the sender for the certificate or import it from a file or a keyserver. Then verify the data again.");
+    case SignatureStatus::ValidAndFullyTrusted:
+        return {};
+    case SignatureStatus::ValidButNotFullyTrusted:
+        return (protocol == GpgME::OpenPGP) //
+            ? i18nc("@info", "Verify the certificate’s fingerprint and certify it. Then verify the data again.")
+            : i18nc("@info", "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the data again.");
+    case SignatureStatus::ValidButSignatureExpired:
+        return {};
+    case SignatureStatus::ValidButKeyExpired:
+        return (protocol == GpgME::OpenPGP) //
+            ? i18nc("@info",
+                    "You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the data again after importing the "
+                    "certificate.")
+            : i18nc("@info",
+                    "If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data with a current certificate.");
+    case SignatureStatus::ValidButKeyRevoked:
+        return i18nc(
+            "@info",
+            "If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current certificate.");
+    case SignatureStatus::ValidButSignerUntrustworthy:
+        return {};
+    case SignatureStatus::Invalid:
+        return i18nc("@info", "Ask the sender to resend the data.");
+    case SignatureStatus::OtherError:
+        // fall through
+        ;
+    }
+
+    return {};
+}
