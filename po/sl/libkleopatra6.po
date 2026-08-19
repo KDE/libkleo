@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1744165 2026-08-19 01:31:10Z scripty $
+# $Id: libkleopatra6.po 1744231 2026-08-19 16:48:52Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-19 00:47+0000\n"
-"PO-Revision-Date: 2026-08-05 06:54+0200\n"
+"PO-Revision-Date: 2026-08-19 07:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3894,6 +3894,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"Potrdilo za podpis ni na seznamu potrdil, vendar je potrebno za preverjanje "
+"podatkov."
 
 #: utils/formatting.cpp:1851
 #, kde-format
@@ -3903,6 +3905,9 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Tehnično gledano se podpis in podatki ujemata, vendar potrdilo za podpis ni "
+"označeno kot zaupanja vredno. Zato ni mogoče zaupati, da podatki izvirajo iz "
+"navedenega vira."
 
 #: utils/formatting.cpp:1857
 #, kde-format
@@ -3912,6 +3917,9 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"Pri pretečenem potrdilu ni mogoče oceniti, ali je potrdilo zaupanja vredno. "
+"Zato podatkom ni mogoče zaupati. Tehnično gledano se podpis in podatki "
+"ujemata."
 
 #: utils/formatting.cpp:1859
 #, kde-format
@@ -3920,6 +3928,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"Če je bilo potrdilo veljavno in zaupanja vredno, ko ste prejeli podatke, so "
+"podatki verjetno veljavni."
 
 #: utils/formatting.cpp:1862
 #, kde-format
@@ -3929,6 +3939,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"Potrdilo je bilo morda preklicano, ker je bilo ogroženo in ga zdaj morda "
+"uporablja tretja oseba. Podatkom zato ni mogoče zaupati. Tehnično gledano se "
+"podpis in podatki ujemata."
 
 #: utils/formatting.cpp:1865
 #, kde-format
@@ -3937,6 +3950,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"Možno je, da ste podatke prejeli v času, ko je bilo potrdilo še veljavno in "
+"zaupanja vredno. Če je temu tako, so podatki morda veljavni."
 
 #: utils/formatting.cpp:1871
 #, kde-format
@@ -3947,6 +3962,10 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"Podatki ali podpis so bili spremenjeni. To se lahko zgodi nenamerno (npr. "
+"zaradi napake pri prenosu), nenamerno (npr. zaradi naknadne spremembe "
+"podatkov, morda s strani e-poštnega odjemalca) ali namerno (namerna "
+"manipulacija)."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3955,6 +3974,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"Pošiljatelja prosite za potrdilo ali ga uvozite iz datoteke ali strežnika "
+"ključev. Nato ponovno preverite podatke."
 
 #: utils/formatting.cpp:1893
 #, kde-format
@@ -3963,6 +3984,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"Preverite prstni odtis potrdila in ga certificirajte. Nato ponovno preverite "
+"podatke."
 
 #: utils/formatting.cpp:1894
 #, kde-format
@@ -3971,6 +3994,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"Preverite prstni odtis potrdila korenskega CA in mu zaupajte. Nato znova "
+"preverite podatke."
 
 #: utils/formatting.cpp:1900
 #, kde-format
@@ -3979,6 +4004,8 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"Posodobljeno potrdilo lahko poiščete na strežniku ključev ali pa zanj "
+"prosite pošiljatelja in nato po uvozu potrdila ponovno preverite podatke."
 
 #: utils/formatting.cpp:1903
 #, kde-format
@@ -3987,6 +4014,8 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data with a current certificate."
 msgstr ""
+"V primeru dvoma se obrnite na podpisnika, da razjasni situacijo, in ga po "
+"potrebi prosite, naj vam podatke ponovno pošlje s trenutnim potrdilom."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -3995,12 +4024,15 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"V primeru dvoma se obrnite na podpisnika, da razjasni situacijo, in ga po "
+"potrebi prosite, naj vam ponovno pošlje podatke, podpisane s trenutnim "
+"potrdilom."
 
 #: utils/formatting.cpp:1911
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "Prosite pošiljatelja, naj ponovno pošlje podatke."
 
 #: utils/gnupg.cpp:437
 #, kde-format
