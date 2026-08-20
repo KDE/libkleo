@@ -30,12 +30,27 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
+#include <QApplication>
 #include <QPushButton>
+#include <QStyle>
+#include <QStyleFactory>
 
 #include <QGpgME/CryptoConfig>
 #include <QGpgME/Protocol>
 
 #include <gpgme++/key.h>
+
+#ifdef Q_OS_WIN
+static QStyle *windowsStyle()
+{
+    static QStyle *style = nullptr;
+    if (!style) {
+        style = QStyleFactory::create(QStringLiteral("windows"));
+        style->setParent(QApplication::instance());
+    }
+    return style;
+}
+#endif
 
 bool Kleo::DeVSCompliance::isActive()
 {
@@ -147,6 +162,16 @@ void Kleo::DeVSCompliance::decorate(QPushButton *button, bool compliant)
     if (!button) {
         return;
     }
+#ifdef Q_OS_WIN
+    // HACK: The usage of a QProxyStyle for KleopatraApplication breaks the coloring of the buttons
+    // because it causes the buttons to be painted with the Windows Vista style that uses a Windows API call
+    // and ignores any custom styling (including colors). Before a QProxyStyle was used for KleopatraApplication
+    // the buttons were painted with the legacy Windows style (which delegates drawing of the buttons to
+    // QCommonStyle). To restore this behavior we explicitly set the legacy Windows style for the buttons.
+    if (!SystemInfo::isHighContrastModeActive() && !button->testAttribute(Qt::WA_SetStyle)) {
+        button->setStyle(windowsStyle());
+    }
+#endif
     if (compliant) {
         button->setIcon(QIcon::fromTheme(QStringLiteral("security-high")));
         if (!SystemInfo::isHighContrastModeActive()) {
