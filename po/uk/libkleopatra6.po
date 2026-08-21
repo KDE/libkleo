@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-19 00:47+0000\n"
-"PO-Revision-Date: 2026-08-05 14:47+0300\n"
+"PO-Revision-Date: 2026-08-19 18:13+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3988,6 +3988,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"Сертифіката підписування немає у вашому списку сертифікатів, але сертифікат "
+"потрібен для перевірки даних."
 
 #: utils/formatting.cpp:1851
 #, kde-format
@@ -3997,6 +3999,9 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Технічно, підпис і дані збігаються, але сертифікат підписування не позначено "
+"як довірений. Тому не можна довіряти тому, що дані походять із зазначеного "
+"джерела."
 
 #: utils/formatting.cpp:1857
 #, kde-format
@@ -4006,6 +4011,9 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"Для сертифіката, термін дії якого минув, неможливо оцінити, чи можна "
+"довіряти сертифікату. Тому даним не можна довіряти. Технічно, підпис і дані "
+"збігаються."
 
 #: utils/formatting.cpp:1859
 #, kde-format
@@ -4014,6 +4022,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"Якщо сертифікат був чинним та довіреним на момент отримання даних, дані, "
+"ймовірно, є коректними."
 
 #: utils/formatting.cpp:1862
 #, kde-format
@@ -4023,6 +4033,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"Сертифікат міг бути відкликаний через його компрометацію, і тепер його може "
+"використовувати стороння особа. Тому даним не можна довіряти. Технічно, "
+"підпис і дані збігаються."
 
 #: utils/formatting.cpp:1865
 #, kde-format
@@ -4031,6 +4044,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"Можливо, ви отримали дані, коли сертифікат був ще чинним і довіреним. Якщо "
+"це так, то дані можуть бути довіреними."
 
 #: utils/formatting.cpp:1871
 #, kde-format
@@ -4041,6 +4056,9 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"Дані або підпис було змінено. Це може статися випадково (наприклад, через "
+"помилку під час передавання), ненавмисно (наприклад, через подальшу зміну "
+"даних, можливо, поштовим клієнтом) або навмисно (навмисна маніпуляція)."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -4049,6 +4067,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"Попросіть у відправника сертифікат або імпортуйте його з файла чи сервера "
+"ключів. Потім ще раз перевірте дані."
 
 #: utils/formatting.cpp:1893
 #, kde-format
@@ -4057,6 +4077,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"Перевірте відбиток сертифіката і сертифікуйте його. Потім ще раз перевірте "
+"дані."
 
 #: utils/formatting.cpp:1894
 #, kde-format
@@ -4065,6 +4087,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"Перевірте відбиток кореневого центру сертифікації (Root-CA) сертифіката і "
+"визначтеся з довірою до нього. Потім ще раз перевірте дані."
 
 #: utils/formatting.cpp:1900
 #, kde-format
@@ -4073,6 +4097,9 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"Ви можете пошукати оновлений сертифікат на сервері ключів або попросити "
+"відправника надіслати сертифікат, а потім повторити спробу перевірити дані "
+"після імпортування сертифіката."
 
 #: utils/formatting.cpp:1903
 #, kde-format
@@ -4081,6 +4108,8 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data with a current certificate."
 msgstr ""
+"Якщо не певні, зверніться до автора підпису, щоб уточнити ситуацію, і за "
+"потреби попросіть повторно надіслати дані з чинним сертифікатом."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -4089,12 +4118,15 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"Якщо не певні, зверніться до автора чи авторки підпису, щоб уточнити "
+"ситуацію, і за потреби попросіть повторно надіслати дані, підписані чинним "
+"сертифікатом."
 
 #: utils/formatting.cpp:1911
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "Попросіть відправника повторно надіслати дані."
 
 #: utils/gnupg.cpp:437
 #, kde-format

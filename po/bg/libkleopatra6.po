@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-19 00:47+0000\n"
-"PO-Revision-Date: 2026-08-13 09:10+0200\n"
+"PO-Revision-Date: 2026-08-20 18:21+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -3742,6 +3742,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"Подписващият сертификат не се намира в списъка с сертификати, но е необходим "
+"за верификация на данните."
 
 #: utils/formatting.cpp:1851
 #, kde-format
@@ -3751,6 +3753,9 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Технически подписът и данните съвпадат, но подписващият сертификат не е "
+"маркиран като доверен. Следователно данните не могат да се считат за "
+"произхождащи от посочения източник."
 
 #: utils/formatting.cpp:1857
 #, kde-format
@@ -3760,6 +3765,9 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"За изтекъл сертификат не е възможно да се изчисли дали сертификата е "
+"доверен. Следователно, данните не могат да бъдат доверени. Технически, "
+"подписът и данните съвпадат."
 
 #: utils/formatting.cpp:1859
 #, kde-format
@@ -3768,6 +3776,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"Ако сертификатът е бил валиден и доверен в момента на получаване на данните, "
+"данните са вероятно валидни."
 
 #: utils/formatting.cpp:1862
 #, kde-format
@@ -3777,6 +3787,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"Сертификатът може да е бил отстранен, защото е компрометиран и може да бъде "
+"използван от трета страна. Данните следователно не могат да бъдат надеждни. "
+"Технически има съответствие между подпис и данни."
 
 #: utils/formatting.cpp:1865
 #, kde-format
@@ -3785,6 +3798,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"Възможно е данните да бъдат получени в момент, когато сертификатът все още е "
+"валиден и доверен. В този случай данните може да са валидни."
 
 #: utils/formatting.cpp:1871
 #, kde-format
@@ -3795,6 +3810,10 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"Данните или подписът са променени. Това може да се случи по погрешка "
+"(например поради грешка при предаването), непреднамерено (например поради "
+"последващо промяна на данните, може би от имейл клиент) или преднамерено "
+"(умишлена манипулация)."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3803,6 +3822,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"Запитване на подателя за сертификата или импортиране от файл или сървър за "
+"ключове. След това повторно потвърждаване на данните."
 
 #: utils/formatting.cpp:1893
 #, kde-format
@@ -3811,6 +3832,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"Проверка на отпечатъка на сертификата и удостоверяване. След това повторна "
+"проверка на данните."
 
 #: utils/formatting.cpp:1894
 #, kde-format
@@ -3819,6 +3842,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"Проверка на отпечатъка на Root-CA на сертификата и задаване като доверен. "
+"След това повторна проверка на данните."
 
 #: utils/formatting.cpp:1900
 #, kde-format
@@ -3827,6 +3852,9 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"Може да потърсите актуализиран сертификат на сървър за ключове или да "
+"запитате изпращача, след което повторно валидиране на данните и импортиране "
+"на сертификата."
 
 #: utils/formatting.cpp:1903
 #, kde-format
@@ -3835,6 +3863,9 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data with a current certificate."
 msgstr ""
+"В случай на съмнение, свържете се с подписващия за уточняване на ситуацията "
+"и, ако е необходимо, помолете за повторно изпращане на данните с актуален "
+"сертификат."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -3843,12 +3874,15 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"При съмнение, свържете се с подписващия за изясняване на ситуацията и, при "
+"необходимост, помолете за препращане на данните, подписани с валиден "
+"сертификат."
 
 #: utils/formatting.cpp:1911
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "Искане за повторно изпращане на данните от изпращача."
 
 #: utils/gnupg.cpp:437
 #, kde-format
