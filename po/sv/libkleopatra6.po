@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-19 00:47+0000\n"
-"PO-Revision-Date: 2026-08-05 15:52+0200\n"
+"PO-Revision-Date: 2026-08-21 19:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -3734,6 +3734,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"Signeringscertifikatet finns inte i certifikatlistan, men det behövs för att "
+"verifiera data."
 
 #: utils/formatting.cpp:1851
 #, kde-format
@@ -3743,6 +3745,9 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Tekniskt sett stämmer signaturen och data, men signeringscertifikatet är "
+"inte markerat som pålitligt. Därför går det inte att lita på att data kommer "
+"från den angivna källan."
 
 #: utils/formatting.cpp:1857
 #, kde-format
@@ -3752,6 +3757,9 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"För ett utgånget certifikat går det inte att utvärdera om certifikatet är "
+"tillförlitligt. Därför går det inte att lita på data. Tekniskt sett stämmer "
+"signatur och data."
 
 #: utils/formatting.cpp:1859
 #, kde-format
@@ -3760,6 +3768,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"Om certifikatet var giltigt och pålitligt när data togs emot, är data "
+"sannolikt giltig."
 
 #: utils/formatting.cpp:1862
 #, kde-format
@@ -3769,6 +3779,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"Certifikatet kan ha återkallats eftersom det var komprometterat och det kan "
+"nu användas av en tredje part. Data går därför inte att lita på. Tekniskt "
+"sett stämmer signatur och data."
 
 #: utils/formatting.cpp:1865
 #, kde-format
@@ -3777,6 +3790,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"Det är möjligt att data har tagits emot vid en tidpunkt då certifikatet "
+"fortfarande var giltigt och pålitligt. Om så är fallet kan data vara giltig."
 
 #: utils/formatting.cpp:1871
 #, kde-format
@@ -3787,6 +3802,10 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"Data eller signaturen har ändrats. Det kan ske av misstag (t.ex. på grund av "
+"ett överföringsfel), oavsiktligt (t.ex. på grund av en senare ändring av "
+"data, eventuellt av en e-postklient) eller avsiktligt (uppsåtlig "
+"manipulation)."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3795,6 +3814,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"Be avsändaren om certifikatet eller importera det från en fil eller en "
+"nyckelserver. Verifiera sedan data igen."
 
 #: utils/formatting.cpp:1893
 #, kde-format
@@ -3803,6 +3824,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"Verifiera certifikatets fingeravtryck och certifiera det. Verifiera sedan "
+"data igen."
 
 #: utils/formatting.cpp:1894
 #, kde-format
@@ -3811,6 +3834,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"Verifiera rot-certifikatutfärdarens fingeravtryck för certifikatet och lita "
+"på det. Verifiera sedan data igen."
 
 #: utils/formatting.cpp:1900
 #, kde-format
@@ -3819,6 +3844,9 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"Det går att leta efter ett uppdaterat certifikat på en nyckelserver, eller "
+"be avsändaren om det, och sedan verifiera data igen efter certifikatet har "
+"importerats."
 
 #: utils/formatting.cpp:1903
 #, kde-format
@@ -3827,6 +3855,8 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data with a current certificate."
 msgstr ""
+"Vid osäkerhet, kontakta den som signerat för att klargöra situationen och be "
+"dem vid behov att skicka data igen med ett aktuellt certifikat."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -3835,12 +3865,14 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"Vid osäkerhet, kontakta den som signerat för att klargöra situationen och be "
+"dem vid behov att skicka data igen signerad med ett aktuellt certifikat."
 
 #: utils/formatting.cpp:1911
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "Be avsändaren att skicka data igen."
 
 #: utils/gnupg.cpp:437
 #, kde-format
