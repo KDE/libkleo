@@ -2,7 +2,7 @@
 #
 # KDE Finnish translation sprint participants:
 # Author: Lliehu
-# SPDX-FileCopyrightText: 2010, 2011, 2013, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2006.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2016.
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2025-11-30 15:43+0200\n"
+"PO-Revision-Date: 2026-03-11 20:18+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1605,12 +1605,15 @@ msgstr "Tunnistaudu LDAP-palvelimeen LDAP-tunnistustiedoin."
 msgid "User:"
 msgstr "Käyttäjätunnus:"
 
+# *** TARKISTA: Tämä voi olla täyttä hömppää. LDAPissa vaikuttaisi olevan BIND-operaatio, mutta mitä ”Bind DN” tai ”resp.” tässä tarkoittavat – ei harmainta hajua.
 #: ui/editdirectoryservicedialog.cpp:159
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
+"Anna LDAP-palvelimeen tunnistautumiseksi sidos-DN:ssä käytettävä LDAP-"
+"käyttäjätunnus."
 
 #: ui/editdirectoryservicedialog.cpp:163
 #, kde-format
@@ -1706,7 +1709,7 @@ msgstr "Lisäasetukset"
 #: ui/editdirectoryservicedialog.cpp:225
 #, kde-format
 msgid "Base DN:"
-msgstr "Perus-DN:"
+msgstr "Pohja-DN:"
 
 #: ui/editdirectoryservicedialog.cpp:227
 #, kde-format
@@ -1715,8 +1718,8 @@ msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
-"<b>(Valinnainen, jätetään yleensä tyhjäksi)</b> Rajaa haut tiettyyn "
-"alipuuhun antamalla LDAP-palvelimen perus-DN."
+"<b>(Valinnainen, voi yleensä jättää tyhjäksi)</b> Rajaa haut tiettyyn "
+"alipuuhun antamalla LDAP-palvelimen pohja-DN."
 
 #: ui/editdirectoryservicedialog.cpp:233
 #, kde-format
@@ -2522,26 +2525,25 @@ msgstr "Näytä sarakkeet"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Lajitteluperuste"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Active Directory"
+msgstr "Lajittelusuunta"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Nouseva"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Laskeva"
 
 #: ui/treeview_p.cpp:291
 #, fuzzy, kde-format
@@ -3549,39 +3551,35 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "Varmennetta voi etsiä avainpalvelimelta tai tuoda sen tiedostosta."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
+"Allekirjoitus on kelvollinen, mutta et sinä eikä luotettava henkilö ole "
+"varmentanut käytettyä avainta."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Käytettyä varmennetta ei ole varmentanut luotettava varmenneauktoriteetti "
-"tai varmenneauktoriteetti on tuntematon."
+"Allekirjoitus on kelvollinen, mutta luotettava varmenneauktoriteetti ei ole "
+"varmentanut käytettyä varmennetta tai varmenneauktoriteetti on tuntematon."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
 msgstr ""
-"Ei ole merkkiä siitä, että tämä varmenne kuuluisi tälle vastaanottajalle."
+"<strong>Varoitus:</strong> Ei ole mitään merkkiä, että allekirjoitus "
+"kuuluisi omistajalle."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3590,51 +3588,50 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>Varoitus:</strong> Allekirjoituksen kuuluminen omistajalle ei ole "
+"varmaa."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+msgstr "Allekirjoitus on kelvollinen mutta vanhentunut."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
+"Allekirjoitus on kelvollinen mutta vanhentunut, etkä sinä tai kukaan "
+"luotettava henkilö ole varmentanut käytettyä avainta."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+msgstr "Allekirjoitus on kelvollinen mutta käytetty avain on vanhentunut."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+msgstr "Allekirjoitus on kelvollinen mutta käytetty avain on mitätöity."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Varoitus:</strong> Tämä voi tarkoittaa, että allekirjoitus on "
+"väärennös."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
-msgstr ""
-"Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
+msgstr "Käytettyä avainta et sinä eikä luotettava henkilö ole varmentanut."
 
 #: utils/gnupg.cpp:437
 #, kde-format
