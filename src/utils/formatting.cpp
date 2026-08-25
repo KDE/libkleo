@@ -1899,8 +1899,9 @@ QString Kleo::Formatting::guidanceForDataSignature(Kleo::SignatureStatus status,
             ? i18nc("@info",
                     "You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the data again after importing the "
                     "certificate.")
-            : i18nc("@info",
-                    "If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data with a current certificate.");
+            : i18nc(
+                  "@info",
+                  "If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current certificate.");
     case SignatureStatus::ValidButKeyRevoked:
         return i18nc(
             "@info",

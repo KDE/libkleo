@@ -712,7 +712,7 @@ private Q_SLOTS:
         QTest::newRow("ValidButSignatureExpired S/MIME") << SignatureStatus::ValidButSignatureExpired << GpgME::CMS << QString{};
         QTest::newRow("ValidButKeyExpired S/MIME") //
             << SignatureStatus::ValidButKeyExpired << GpgME::CMS
-            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data with a current certificate."_s;
+            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current certificate."_s;
         QTest::newRow("ValidButKeyRevoked S/MIME") //
             << SignatureStatus::ValidButKeyRevoked << GpgME::CMS
             << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current certificate."_s;
