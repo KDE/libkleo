@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1744231 2026-08-19 16:48:52Z scripty $
+# $Id: libkleopatra6.po 1744785 2026-08-26 01:34:49Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:47+0000\n"
+"POT-Creation-Date: 2026-08-26 00:49+0000\n"
 "PO-Revision-Date: 2026-08-19 07:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -4007,17 +4007,7 @@ msgstr ""
 "Posodobljeno potrdilo lahko poiščete na strežniku ključev ali pa zanj "
 "prosite pošiljatelja in nato po uvozu potrdila ponovno preverite podatke."
 
-#: utils/formatting.cpp:1903
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If in doubt, contact the signer to clarify the situation and, if necessary, "
-"ask them to resend the data with a current certificate."
-msgstr ""
-"V primeru dvoma se obrnite na podpisnika, da razjasni situacijo, in ga po "
-"potrebi prosite, naj vam podatke ponovno pošlje s trenutnim potrdilom."
-
-#: utils/formatting.cpp:1907
+#: utils/formatting.cpp:1904 utils/formatting.cpp:1908
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4028,7 +4018,7 @@ msgstr ""
 "potrebi prosite, naj vam ponovno pošlje podatke, podpisane s trenutnim "
 "potrdilom."
 
-#: utils/formatting.cpp:1911
+#: utils/formatting.cpp:1912
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
@@ -4055,6 +4045,14 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If in doubt, contact the signer to clarify the situation and, if "
+#~ "necessary, ask them to resend the data with a current certificate."
+#~ msgstr ""
+#~ "V primeru dvoma se obrnite na podpisnika, da razjasni situacijo, in ga po "
+#~ "potrebi prosite, naj vam podatke ponovno pošlje s trenutnim potrdilom."
 
 #~ msgctxt "@option:check"
 #~ msgid "OpenPGP"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:47+0000\n"
+"POT-Creation-Date: 2026-08-26 00:49+0000\n"
 "PO-Revision-Date: 2026-08-21 19:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -3848,17 +3848,7 @@ msgstr ""
 "be avsändaren om det, och sedan verifiera data igen efter certifikatet har "
 "importerats."
 
-#: utils/formatting.cpp:1903
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If in doubt, contact the signer to clarify the situation and, if necessary, "
-"ask them to resend the data with a current certificate."
-msgstr ""
-"Vid osäkerhet, kontakta den som signerat för att klargöra situationen och be "
-"dem vid behov att skicka data igen med ett aktuellt certifikat."
-
-#: utils/formatting.cpp:1907
+#: utils/formatting.cpp:1904 utils/formatting.cpp:1908
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3868,7 +3858,7 @@ msgstr ""
 "Vid osäkerhet, kontakta den som signerat för att klargöra situationen och be "
 "dem vid behov att skicka data igen signerad med ett aktuellt certifikat."
 
-#: utils/formatting.cpp:1911
+#: utils/formatting.cpp:1912
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
@@ -3895,6 +3885,14 @@ msgstr "Felaktigt hexadecimalt tecken '%1' i indataström."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "För tidigt slut för hexadecimalt kodat tecken i indataström"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If in doubt, contact the signer to clarify the situation and, if "
+#~ "necessary, ask them to resend the data with a current certificate."
+#~ msgstr ""
+#~ "Vid osäkerhet, kontakta den som signerat för att klargöra situationen och "
+#~ "be dem vid behov att skicka data igen med ett aktuellt certifikat."
 
 #~ msgctxt "@option:check"
 #~ msgid "OpenPGP"

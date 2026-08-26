@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:47+0000\n"
-"PO-Revision-Date: 2026-08-19 21:14+0200\n"
+"POT-Creation-Date: 2026-08-26 00:49+0000\n"
+"PO-Revision-Date: 2026-08-25 15:31+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2732,7 +2732,7 @@ msgstr "Odvolaný"
 #: utils/formatting.cpp:408
 #, kde-format
 msgid "Expired"
-msgstr "Prošlý"
+msgstr "Prošlé"
 
 #: utils/formatting.cpp:412
 #, kde-format
@@ -3917,18 +3917,7 @@ msgstr ""
 "Můžete vyhledat aktualizovaný certifikát na serveru klíčů nebo o něj požádat "
 "odesílatele a poté po importu certifikátu údaje znovu ověřit."
 
-#: utils/formatting.cpp:1903
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If in doubt, contact the signer to clarify the situation and, if necessary, "
-"ask them to resend the data with a current certificate."
-msgstr ""
-"V případě pochybností se obraťte na podepisujícího, abyste si situaci "
-"vyjasnili, a v případě potřeby ho požádejte, aby data zaslal znovu s platným "
-"certifikátem."
-
-#: utils/formatting.cpp:1907
+#: utils/formatting.cpp:1904 utils/formatting.cpp:1908
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3939,7 +3928,7 @@ msgstr ""
 "vyjasnili, a v případě potřeby ho požádejte, aby vám data podepsaná "
 "aktuálním certifikátem zaslal znovu."
 
-#: utils/formatting.cpp:1911
+#: utils/formatting.cpp:1912
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
@@ -3967,6 +3956,15 @@ msgstr "V vstupním streamu se vyskytuje neplatný hexadecimální znak '%1'."
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Předčasný konec znaku kódovaného v hexadecimálním formátu ve vstupním streamu"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If in doubt, contact the signer to clarify the situation and, if "
+#~ "necessary, ask them to resend the data with a current certificate."
+#~ msgstr ""
+#~ "V případě pochybností se obraťte na podepisujícího, abyste si situaci "
+#~ "vyjasnili, a v případě potřeby ho požádejte, aby data zaslal znovu s "
+#~ "platným certifikátem."
 
 #~ msgctxt "@option:check"
 #~ msgid "OpenPGP"

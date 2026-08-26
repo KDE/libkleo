@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:47+0000\n"
+"POT-Creation-Date: 2026-08-26 00:49+0000\n"
 "PO-Revision-Date: 2026-08-19 18:13+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -4101,17 +4101,7 @@ msgstr ""
 "відправника надіслати сертифікат, а потім повторити спробу перевірити дані "
 "після імпортування сертифіката."
 
-#: utils/formatting.cpp:1903
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If in doubt, contact the signer to clarify the situation and, if necessary, "
-"ask them to resend the data with a current certificate."
-msgstr ""
-"Якщо не певні, зверніться до автора підпису, щоб уточнити ситуацію, і за "
-"потреби попросіть повторно надіслати дані з чинним сертифікатом."
-
-#: utils/formatting.cpp:1907
+#: utils/formatting.cpp:1904 utils/formatting.cpp:1908
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4122,7 +4112,7 @@ msgstr ""
 "ситуацію, і за потреби попросіть повторно надіслати дані, підписані чинним "
 "сертифікатом."
 
-#: utils/formatting.cpp:1911
+#: utils/formatting.cpp:1912
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
@@ -4151,6 +4141,14 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Передчасне завершення закодованого у шістнадцяткове число символу у потоці "
 "вхідних даних."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If in doubt, contact the signer to clarify the situation and, if "
+#~ "necessary, ask them to resend the data with a current certificate."
+#~ msgstr ""
+#~ "Якщо не певні, зверніться до автора підпису, щоб уточнити ситуацію, і за "
+#~ "потреби попросіть повторно надіслати дані з чинним сертифікатом."
 
 #~ msgctxt "@option:check"
 #~ msgid "OpenPGP"
