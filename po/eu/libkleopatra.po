@@ -8,12 +8,19 @@
 # Ion Gaztañaga <ion_g_m@hotmail.com>, 2005.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024, 2025, 2026.
+#
+# Egoera: 2026-08-15ean hasita, fitxategi hau berrikusteko prozesuan dago
+# Proiektu osoaren berrikuspen integrala: UUUU-HH-EE.
+# Azken berrikuspena: UUUU-HH-EE — egoera ondua mantendu da.
+# Terminologia, estiloa, ortotipografia, kohesioa eta koherentzia berrikusi dira.
+# Erreferentzia-gida: —
+# Ikus, halaber: KDE-eu-berrikuspen-integralen-erregistroa.md
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 16:09+0200\n"
-"PO-Revision-Date: 2026-07-21 02:05+0200\n"
+"POT-Creation-Date: 2026-08-26 11:11+0200\n"
+"PO-Revision-Date: 2026-08-17 00:41+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -337,11 +344,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
-"<p>Sinatzeko zureOpenPGP gakoa,</p><p align=center>%2,</p><p>bihar iraungiko "
-"da</p>"
+"<p>Sinatzeko zure OpenPGP gakoa,</p><p align=center>%2,</p><p>bihar "
+"iraungiko da.</p>"
 msgstr[1] ""
 "<p>Sinatzeko zure OpenPGP gakoa,</p><p align=center>%2,</p><p>%1 egun barru "
-"iraungiko da</p>"
+"iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:124
 #, kde-format
@@ -365,7 +372,7 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>gaur iraungiko da</p>"
+"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
 "<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>%1 egun barru iraungiko "
 "da.</p>"
@@ -384,7 +391,7 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erro "
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erroko "
 "ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat baino "
 "gutxiago iraungi da.</p>"
 
@@ -395,9 +402,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat baino "
-"gutxiago iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat "
+"baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:160
 #, kde-format
@@ -405,8 +412,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erro ziurtagiria,</"
-"p><p align=center><b>%2</b>,</p><p>duela egun bat baino gutxiago iraungi zen."
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%2</b>,</p><p>duela egun bat baino gutxiago iraungi da."
 "</p>"
 
 #: kleo/expirychecker.cpp:169
@@ -418,11 +425,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo iraungi zen.</p>"
 msgstr[1] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun iraungi zen.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</"
+"p>"
 
 #: kleo/expirychecker.cpp:177
 #, kde-format
@@ -433,12 +441,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo iraungi "
+"zen.</p>"
 msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</"
-"p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun "
+"iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:185
 #, kde-format
@@ -449,11 +458,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro ziurtagiria,</"
-"p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>atzo iraungi zen.</p>"
 msgstr[1] ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%2</p><p>erro ziurtagiria</p><p "
-"align=center><b>%3</b>,<p>duela %1 egun iraungi zen.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:198
 #, kde-format
@@ -464,7 +473,7 @@ msgid ""
 msgstr ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</"
 "p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela "
-"egun bat baino gutxiago iraungi zen.</p>"
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:203
 #, kde-format
@@ -473,9 +482,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p> "
-"<p>bitarteko CA ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun "
-"bat baino gutxiago iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela "
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:208
 #, kde-format
@@ -483,9 +492,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%1</p><p>bitarteko CA "
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>bitarteko CA "
 "ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat baino "
-"gutxiago iraungi zen.</p>"
+"gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:217
 #, kde-format
@@ -499,12 +508,12 @@ msgid_plural ""
 "ago.</p>"
 msgstr[0] ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi "
-"zen.</p>"
-msgstr[1] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo "
 "iraungi zen.</p>"
+msgstr[1] ""
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 "
+"egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:225
 #, kde-format
@@ -518,12 +527,12 @@ msgid_plural ""
 "days ago.</p>"
 msgstr[0] ""
 "<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi "
-"zen.</p>"
-msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo "
 "iraungi zen.</p>"
+msgstr[1] ""
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 "
+"egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:233
 #, kde-format
@@ -535,10 +544,11 @@ msgid_plural ""
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo iraungi zen.</p>"
 msgstr[1] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun iraungi zen.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</"
+"p>"
 
 #: kleo/expirychecker.cpp:246
 #, kde-format
@@ -547,7 +557,7 @@ msgid ""
 "than a day ago.</p>"
 msgstr ""
 "<p>Sinatzeko zure S/MIME ziurtagiria,</p><p align=center>%1,</p><p>duela "
-"egun bat baino gutxiago iraungi zen.</p>"
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:248
 #, kde-format
@@ -555,8 +565,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p>duela "
-"egun bat baino gutxiago iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiria,</p><p align=center>%1,</p><p>duela "
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:250
 #, kde-format
@@ -564,8 +574,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%1,</p><p>duela egun "
-"bat baino gutxiago iraungi zen.</p>"
+"<p align=center>%1(e)rako</p><p>S/MIME ziurtagiria</p><p>duela egun bat "
+"baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp:256
 #, kde-format
@@ -606,10 +616,10 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>atzo iraungi "
-"zen.</p>"
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>atzo iraungi zen.</"
+"p>"
 msgstr[1] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>duela %1 egun "
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>duela %1 egun "
 "iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp:275
@@ -618,8 +628,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur iraungitzen da.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:280
 #, kde-format
@@ -627,8 +637,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur iraungitzen da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur iraungiko "
+"da.</p>"
 
 #: kleo/expirychecker.cpp:285
 #, kde-format
@@ -636,8 +647,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro ziurtagiria,</"
-"p><p align=center><b>%3</b>,<p>gaur iraungitzen da.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>gaur iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:294
 #, kde-format
@@ -648,11 +659,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun barru iraungiko da."
+"</p>"
 
 #: kleo/expirychecker.cpp:302
 #, kde-format
@@ -663,11 +675,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar iraungiko "
+"da.</p>"
 msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun barru "
+"iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:310
 #, kde-format
@@ -678,11 +692,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro ziurtagiria,</p> <p "
-"align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
-"<p>S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro ziurtagiria,</p> <p "
-"align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>%1 egun barru iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:323
 #, kde-format
@@ -692,7 +706,7 @@ msgid ""
 "p>"
 msgstr ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:328
@@ -703,7 +717,7 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:333
@@ -713,7 +727,7 @@ msgid ""
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur iraungiko da.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:341
 #, kde-format
@@ -727,12 +741,12 @@ msgid_plural ""
 "days.</p>"
 msgstr[0] ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar "
 "iraungiko da.</p>"
 msgstr[1] ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru "
-"iraungiko da.</p>"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun "
+"barru iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:349
 #, kde-format
@@ -745,12 +759,13 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>bitarteko "
-"CA ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar "
+"iraungiko da.</p>"
 msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>bitarteko "
-"CA ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</"
-"p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun "
+"barru iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:357
 #, kde-format
@@ -762,10 +777,11 @@ msgid_plural ""
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun barru iraungiko da."
+"</p>"
 
 #: kleo/expirychecker.cpp:369
 #, kde-format
@@ -773,7 +789,7 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>gaur "
+"<p>Sinatzeko zure S/MIME ziurtagiria,</p><p align=center>%2,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:371
@@ -782,7 +798,7 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>gaur "
+"<p>Zifratzeko zure S/MIME ziurtagiria,</p><p align=center>%2,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp:373
@@ -790,8 +806,8 @@ msgstr ""
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>gaur "
-"iraungiko da.</p>"
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>gaur iraungiko da.</"
+"p>"
 
 #: kleo/expirychecker.cpp:380
 #, kde-format
@@ -832,10 +848,10 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>bihar "
-"iraungiko da.</p>"
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>bihar iraungiko da."
+"</p>"
 msgstr[1] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>%1 egun barru "
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>%1 egun barru "
 "iraungiko da.</p>"
 
 #: kleo/keyfiltermanager.cpp:95
@@ -959,7 +975,7 @@ msgstr "Noiztik balioduna"
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr "Noiz arte balioduna"
+msgstr "Baliotasun-aldiaren amaiera"
 
 #: models/keylistmodel.cpp:334
 #, kde-format
@@ -1069,7 +1085,7 @@ msgstr "Baliozkoa noiztik,"
 #: models/subkeylistmodel.cpp:161 models/useridlistmodel.cpp:110
 #, kde-format
 msgid "Valid Until"
-msgstr "Baliozkoa noiz arte,"
+msgstr "Baliotasun-aldiaren amaiera"
 
 #: models/subkeylistmodel.cpp:163 models/useridlistmodel.cpp:107
 #: utils/formatting.cpp:529 utils/formatting.cpp:531
@@ -1923,7 +1939,7 @@ msgstr "Gakoa iraungita dago."
 #: ui/keyselectiondialog.cpp:84
 #, kde-format
 msgid "The key is revoked."
-msgstr "Gakoa indargabetuta dago."
+msgstr "Gakoa baliogabetuta dago."
 
 #: ui/keyselectiondialog.cpp:88
 #, kde-format
@@ -1996,7 +2012,7 @@ msgstr "Balioduna noiztik"
 #: utils/formatting.cpp:537
 #, kde-format
 msgid "Valid until"
-msgstr "Balioduna noiz arte"
+msgstr "Baliotasun-aldiaren amaiera"
 
 #: ui/keyselectiondialog.cpp:280
 #, kde-format
@@ -2341,12 +2357,12 @@ msgstr "Erakutsi ziurtagiri-zerrenda"
 msgid "Show certificate list"
 msgstr "Erakutsi ziurtagiri-zerrenda"
 
-#: utils/compliance.cpp:176
+#: utils/compliance.cpp:201
 #, kde-format
 msgid "VS-NfD compliant"
 msgstr "«VS-NfD»rekin manakorra"
 
-#: utils/compliance.cpp:176
+#: utils/compliance.cpp:201
 #, kde-format
 msgid "Not VS-NfD compliant"
 msgstr "«VS-NfD»rekin ez manakorra"
@@ -2394,7 +2410,7 @@ msgstr "Ezgaituta"
 #: utils/formatting.cpp:422 utils/formatting.cpp:529
 #, kde-format
 msgid "Revoked"
-msgstr "Indargetuta"
+msgstr "Baliogabetuta"
 
 #: utils/formatting.cpp:424 utils/formatting.cpp:531
 #, kde-format
@@ -2426,7 +2442,7 @@ msgstr[1] "%1 erabiltzaile-ID ez daude ziurtatuta."
 #: utils/formatting.cpp:454 utils/formatting.cpp:457
 #, kde-format
 msgid "The validity cannot be checked at the moment."
-msgstr "Baliozkotasuna ezin da egiaztatu une honetan."
+msgstr "Une honetan baliotasuna ezin da egiaztatu."
 
 #: utils/formatting.cpp:467
 #, kde-format
@@ -2500,7 +2516,8 @@ msgstr "Azpigakoa"
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
-"Gako batzuk indargetuta, iraungita, ezgaituta daude, edo baliogabeak dira."
+"Gako batzuk baliogabetuta, iraungita edo ezgaituta daude, edo baliogabeak "
+"dira."
 
 #: utils/formatting.cpp:584
 #, kde-format
@@ -2515,7 +2532,7 @@ msgstr "Gako batzuk ez daude ziurtatuta."
 #: utils/formatting.cpp:590
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr "Gakoen baliozkotasuna ezin da egiaztatu une honetan."
+msgstr "Une honetan gakoen baliotasuna ezin da egiaztatu."
 
 #: utils/formatting.cpp:604
 #, kde-format
@@ -2627,7 +2644,7 @@ msgstr "ezgaituta"
 #: utils/formatting.cpp:1352 utils/formatting.cpp:1377
 #, kde-format
 msgid "revoked"
-msgstr "indargabetuta"
+msgstr "baliogabetuta"
 
 #: utils/formatting.cpp:885 utils/formatting.cpp:941 utils/formatting.cpp:1355
 #: utils/formatting.cpp:1380
@@ -2650,7 +2667,7 @@ msgstr "Ados"
 #: utils/formatting.cpp:929
 #, kde-format
 msgid "valid"
-msgstr "baliozkoa"
+msgstr "balioduna"
 
 #: utils/formatting.cpp:933
 #, kde-format
@@ -2660,7 +2677,7 @@ msgstr "%1 klasea"
 #: utils/formatting.cpp:943
 #, kde-format
 msgid "certificate expired"
-msgstr "ziurtagiria iraungita"
+msgstr "ziurtagiria iraungita dago"
 
 #: utils/formatting.cpp:945
 #, kde-format
@@ -2681,12 +2698,12 @@ msgstr "gakoa ezgaituta"
 #: utils/formatting.cpp:955
 #, kde-format
 msgid "key revoked"
-msgstr "gakoa indargabetuta"
+msgstr "gakoa baliogabetuta dago"
 
 #: utils/formatting.cpp:957
 #, kde-format
 msgid "key expired"
-msgstr "gakoa iraungita"
+msgstr "gakoa iraungita dago"
 
 #: utils/formatting.cpp:1013
 #, kde-format
