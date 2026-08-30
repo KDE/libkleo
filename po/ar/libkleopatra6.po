@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-26 00:49+0000\n"
-"PO-Revision-Date: 2026-08-10 16:51+0400\n"
+"PO-Revision-Date: 2026-08-29 18:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3991,6 +3991,7 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"شهادة التوقيع غير موجودة في قائمة شهاداتك، لكنها مطلوبة للتحقق من البيانات."
 
 #: utils/formatting.cpp:1851
 #, kde-format
@@ -4000,6 +4001,8 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"تقنيًا، التوقيع والبيانات متطابقان، لكن شهادة التوقيع غير موسومة كموثوقة. "
+"لذلك لا يمكن الوثوق بأن البيانات صادرة من المصدر المذكور."
 
 #: utils/formatting.cpp:1857
 #, kde-format
@@ -4009,6 +4012,8 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"بالنسبة لشهادة منتهية الصلاحية، لا يمكن تقييم ما إذا كانت الشهادة موثوقة. "
+"لذلك لا يمكن الوثوق بالبيانات. تقنيًا، التوقيع والبيانات متطابقان."
 
 #: utils/formatting.cpp:1859
 #, kde-format
@@ -4017,6 +4022,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"إذا كانت الشهادة صالحة وموثوقة عند استلامك للبيانات، فمن المرجح أن البيانات "
+"صالحة."
 
 #: utils/formatting.cpp:1862
 #, kde-format
@@ -4026,6 +4033,8 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"ربما سُحبت الشهادة لأنها اخترقت وقد تُستخدم الآن من طرف ثالث. لذلك لا يمكن "
+"الوثوق بالبيانات. تقنيًا، التوقيع والبيانات متطابقان."
 
 #: utils/formatting.cpp:1865
 #, kde-format
@@ -4034,6 +4043,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"من الممكن أنك استلمت البيانات في وقت كانت فيه الشهادة ما تزال صالحة وموثوقة. "
+"إذا كان الأمر كذلك، فقد تكون البيانات صالحة."
 
 #: utils/formatting.cpp:1871
 #, kde-format
@@ -4044,6 +4055,9 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"عُدّلت البيانات أو التوقيع. يمكن أن يحدث هذا عرضًا (مثل خطأ في الإرسال)، أو دون "
+"قصد (مثل تغيير لاحق للبيانات، ربما بواسطة عميل بريد إلكتروني)، أو عن عمد "
+"(تلاعب متعمد)."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -4052,6 +4066,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"اطلب الشهادة من المرسل أو استوردها من ملف أو من خادم مفاتيح. ثم تحقق من "
+"البيانات مرة أخرى."
 
 #: utils/formatting.cpp:1893
 #, kde-format
@@ -4059,7 +4075,7 @@ msgctxt "@info"
 msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
-msgstr ""
+msgstr "تحقق من بصمة الشهادة وصدّق عليها. ثم تحقق من البيانات مرة أخرى."
 
 #: utils/formatting.cpp:1894
 #, kde-format
@@ -4068,6 +4084,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"تحقق من بصمة المرجع المصدق الجذر للشهادة وثق بها. ثم تحقق من البيانات مرة "
+"أخرى."
 
 #: utils/formatting.cpp:1900
 #, kde-format
@@ -4076,6 +4094,8 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"يمكنك البحث عن شهادة محدثة على خادم مفاتيح، أو طلبها من المرسل، ثم تحقق من "
+"البيانات مرة أخرى بعد استيراد الشهادة."
 
 #: utils/formatting.cpp:1904 utils/formatting.cpp:1908
 #, kde-format
@@ -4084,12 +4104,14 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"في حال الشك، تواصل مع الموقّع لتوضيح الموقف، وإذا لزم الأمر، اطلب منه إعادة "
+"إرسال البيانات موقعة بشهادة حالية."
 
 #: utils/formatting.cpp:1912
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "اطلب من المرسل إعادة إرسال البيانات."
 
 #: utils/gnupg.cpp:437
 #, kde-format
