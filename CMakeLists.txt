@@ -4,6 +4,14 @@ cmake_minimum_required(VERSION 3.29)
 set(PIM_VERSION "6.8.43")
 
 project(libkleo VERSION ${PIM_VERSION})
+
+option(USE_MOLD_LINKER "Use the mold linker when available (much faster link times)" ON)
+if(USE_MOLD_LINKER AND NOT DEFINED CMAKE_LINKER_TYPE)
+    find_program(MOLD_EXECUTABLE mold)
+    if(MOLD_EXECUTABLE)
+        set(CMAKE_LINKER_TYPE MOLD)
+    endif()
+endif()
 # use a different SOVERSION for each minor release because we don't guarantee any ABI stability;
 # bump the SOVERSION with the first development version, i.e. major.minor.40
 if(libkleo_VERSION_PATCH VERSION_GREATER_EQUAL "40")
