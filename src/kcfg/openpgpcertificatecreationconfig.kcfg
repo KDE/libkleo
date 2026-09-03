@@ -8,30 +8,19 @@
      <label>Contains a list of the required attributes (case insensitive): NAME! , EMAIL!</label>
      <default></default>
    </entry>
-   <entry key="CN_placeholder" name="cnPlaceholder" type="String">
-     <label>Placeholder for CN</label>
-     <whatsthis>This text will be used as placeholder text for the common name (CN) field of S/MIME certificates.</whatsthis>
-     <default></default>
-   </entry>
-   <entry key="CN_prefill" name="prefillCN" type="Bool">
-     <label>Prefill CN automatically</label>
-     <whatsthis>If true, then the common name (CN) field of S/MIME certificates will be prefilled with information gathered from the system,
-         e.g., from the email settings of the desktop or, on Windows, from the Active Directory.</whatsthis>
-     <default>true</default>
-   </entry>
    <entry key="EMAIL_placeholder" name="emailPlaceholder" type="String">
      <label>Hint for EMAIL (deprecated use emailHint instead)</label>
-     <whatsthis>This text will be shown above the email address field of OpenPGP certificates and as placeholder in that field for S/MIME certificates.</whatsthis>
+     <whatsthis>This text will be shown above the email address field of OpenPGP certificates and S/MIME certification requests.</whatsthis>
      <default></default>
    </entry>
    <entry key="EMAIL_hint" name="emailHint" type="String">
      <label>Hint for EMAIL</label>
-     <whatsthis>This text will be shown above the email address field of OpenPGP certificates.</whatsthis>
+     <whatsthis>This text will be shown above the email address field of OpenPGP certificates and S/MIME certification requests.</whatsthis>
      <default></default>
    </entry>
    <entry key="EMAIL_label" name="emailLabel" type="String">
      <label>Label for EMAIL</label>
-     <whatsthis>This text will be the label of the email address field of OpenPGP certificates.</whatsthis>
+     <whatsthis>This text will be the label of the email address field of OpenPGP certificates and S/MIME certification requests.</whatsthis>
      <default></default>
    </entry>
    <entry key="EMAIL_prefill" name="prefillEmail" type="Bool">
