@@ -17,8 +17,8 @@
 #include <QFileSystemModel>
 #include <QHBoxLayout>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QString>
-#include <QToolButton>
 
 using namespace Kleo;
 
@@ -43,7 +43,7 @@ private:
 #endif
 
     QLineEdit lineedit;
-    QToolButton button;
+    QPushButton button;
     QHBoxLayout hlay;
 
     QString nameFilter;
@@ -88,7 +88,7 @@ FileNameRequester::FileNameRequesterPrivate::FileNameRequesterPrivate(FileNameRe
     q->setFocusPolicy(lineedit.focusPolicy());
     q->setFocusProxy(&lineedit);
 
-    connect(&button, &QToolButton::clicked, q, [this]() {
+    connect(&button, &QAbstractButton::clicked, q, [this]() {
         slotButtonClicked();
     });
     connect(&lineedit, &QLineEdit::textChanged, q, &FileNameRequester::fileNameChanged);
