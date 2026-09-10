@@ -96,6 +96,9 @@ KLEO_EXPORT QString accessibleHexID(const char *id);
  * displayed.
  *
  * @note The resulting string will contains links to the key in the following format "key:<fingerprint>".
+ * @note This function is provided for compatibility with the existing codebase.
+ *       In new code, consider using prettyDataSignature(), explanationsForDataSignature(), and guidanceForDataSignature()
+ *       or prettyMessageSignature(), explanationsForMessageSignature(), and guidanceForMessageSignature().
  */
 KLEO_EXPORT QString prettySignature(const GpgME::Signature &signature, const QString &sender);
 
@@ -119,6 +122,11 @@ KLEO_EXPORT QString prettyDataSignature(const GpgME::Signature &signature, const
 KLEO_EXPORT QString prettyDataSignature(const Kleo::SignatureData &signature);
 
 /*!
+ * @see prettyDataSignature(), but this function returns texts suited for signatures of emails or messages.
+ */
+KLEO_EXPORT QString prettyMessageSignature(const Kleo::SignatureData &signature);
+
+/*!
  * Returns more detailed explanations for a signature that's not fully valid.
  *
  * Complements prettyDataSignature.
@@ -126,11 +134,21 @@ KLEO_EXPORT QString prettyDataSignature(const Kleo::SignatureData &signature);
 KLEO_EXPORT QStringList explanationsForDataSignature(Kleo::SignatureStatus status);
 
 /*!
+ * @see explanationsForDataSignature(), but this function returns texts suited for signatures of emails or messages.
+ */
+KLEO_EXPORT QStringList explanationsForMessageSignature(Kleo::SignatureStatus status);
+
+/*!
  * Returns some guidance for what could be done in case a signature is not fully valid.
  *
  * Complements explanationsForDataSignature and prettyDataSignature.
  */
 KLEO_EXPORT QString guidanceForDataSignature(Kleo::SignatureStatus status, GpgME::Protocol protocol);
+
+/*!
+ * @see guidanceForDataSignature(), but this function returns texts suited for signatures of emails or messages.
+ */
+KLEO_EXPORT QString guidanceForMessageSignature(Kleo::SignatureStatus status, GpgME::Protocol protocol);
 
 // clang-format off
 enum ToolTipOption {
