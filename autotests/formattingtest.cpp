@@ -520,6 +520,92 @@ private Q_SLOTS:
         QCOMPARE(maskDateAndTime(result), expected);
     }
 
+    void test_prettyMessageSignature_data()
+    {
+        QTest::addColumn<Signature::Summary>("sigSummary");
+        QTest::addColumn<gpg_err_code_t>("sigStatus");
+        QTest::addColumn<Signature::Validity>("sigValidity");
+        QTest::addColumn<Kleo::SignatureStatus>("signatureStatus");
+        QTest::addColumn<QString>("expected");
+
+        QTest::newRow("all-good")
+            << static_cast<Signature::Summary>(Signature::Summary::Green | Signature::Summary::Valid) << GPG_ERR_NO_ERROR << Signature::Validity::Full
+            << SignatureStatus::ValidAndFullyTrusted
+            << u"Signature verification was successful: Message and signature match and the certificate is valid and trusted.<br/>"
+               "Signed by <a href=\"key:27E12CEFBE2E11FAF985106BD24D35D21E3C740D\">Certified Key &lt;certified@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-expired")
+            << Signature::Summary::KeyExpired << GPG_ERR_KEY_EXPIRED << Signature::Validity::Unknown << SignatureStatus::ValidButKeyExpired
+            << u"The message cannot be trusted. Reason: The signing certificate has expired.<br/>"
+               "Signed by <a href=\"key:972263BC1577E48958A2AF7A6CFC883EEE0918B1\">Expired Key &lt;expired@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-not-certified")
+            << Signature::Summary::None << GPG_ERR_NO_ERROR << Signature::Validity::Unknown << SignatureStatus::ValidButNotFullyTrusted
+            << u"The message cannot be trusted. Reason: It cannot be verified whether the message originates from the stated source.<br/>"
+               "Signed by <a href=\"key:9152100939FC36332EC5954AD7ADC02ACDFA945A\">Not Certified &lt;not-certified@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-revoked")
+            << Signature::Summary::KeyRevoked << GPG_ERR_CERT_REVOKED << Signature::Validity::Unknown << SignatureStatus::ValidButKeyRevoked
+            << u"The message cannot be trusted. Reason: The signing certificate has been revoked.<br/>"
+               "Signed by <a href=\"key:BA80E58FB5EC794D6396D47ADABA14732513A6D6\">Revoked Key &lt;revoked@example.net&gt; (DATE)</a> on DATETIME."_s;
+        QTest::newRow("key-unknown")
+            << Signature::Summary::KeyMissing << GPG_ERR_NO_PUBKEY << Signature::Validity::Unknown << SignatureStatus::KeyMissing
+            << u"The message cannot be trusted. Reason: The signature cannot be verified because the corresponding certificate is not available. The signing "
+               "certificate’s fingerprint is <a href=\"certificate:C8C6053CA0018BCB1C0D3C1AF9F33E35E1C16A17\">"
+               "C8C6 053C A001 8BCB 1C0D  3C1A F9F3 3E35 E1C1 6A17</a>."_s;
+#if GPGME_VERSION_NUMBER >= 0x020103
+        if (GpgME::engineInfo(GpgME::GpgEngine).engineVersion() >= "2.5.22") {
+            QTest::newRow("signature-bad")
+                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown << SignatureStatus::Invalid
+                << u"The message cannot be trusted. Reason: Message and signature do not match.<br/>"
+                   "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a> and is dated DATETIME."_s;
+        } else
+#endif
+        {
+            QTest::newRow("signature-bad")
+                << Signature::Summary::Red << GPG_ERR_BAD_SIGNATURE << Signature::Validity::Unknown << SignatureStatus::Invalid
+                << u"The message cannot be trusted. Reason: Message and signature do not match.<br/>"
+                   "The signature claims to be from <a href=\"key:117C22E18017CB18A67FC3D699954415471E4A5F\">Second UID &lt;uid_b@example.net&gt; (DATE)</a>."_s;
+        }
+        QTest::newRow("signature-expired")
+            << Signature::Summary::SigExpired << GPG_ERR_SIG_EXPIRED << Signature::Validity::Unknown << SignatureStatus::ValidButSignatureExpired
+            << u"The message cannot be trusted. Reason: The signature has expired.<br/>"
+               "Signed by <a href=\"key:9152100939FC36332EC5954AD7ADC02ACDFA945A\">Not Certified &lt;not-certified@example.net&gt; (DATE)</a> on DATETIME."_s;
+    }
+
+    void test_prettyMessageSignature()
+    {
+        QFETCH(Signature::Summary, sigSummary);
+        QFETCH(gpg_err_code_t, sigStatus);
+        QFETCH(Signature::Validity, sigValidity);
+        QFETCH(Kleo::SignatureStatus, signatureStatus);
+        QFETCH(QString, expected);
+        const auto currentDataTag = QString::fromLatin1(QTest::currentDataTag());
+
+        const auto temporaryDir = QTest::qExtractTestData(QStringLiteral("/fixtures/formattingtest"));
+        const auto gnupgHome = CustomGnuPGHome(temporaryDir->path());
+
+        const auto keyCache = KeyCache::instance();
+        QVERIFY(!keyCache->keys().empty());
+
+        const QString signedDataFile = "openpgp-signature-"_L1 + currentDataTag + ".txt"_L1;
+        const QByteArray signature = readTestData(signedDataFile + ".sig"_L1);
+        const QByteArray signedData = readTestData(signedDataFile);
+        const std::unique_ptr<QGpgME::VerifyDetachedJob> verifyJob{QGpgME::openpgp()->verifyDetachedJob()};
+        QByteArray verified;
+
+        const VerificationResult verificationResult = verifyJob->exec(signature, signedData);
+        // qWarning() << QGpgME::toLogString(verificationResult);
+        QVERIFY(!verificationResult.error());
+        QCOMPARE(verificationResult.numSignatures(), 1);
+        const GpgME::Signature sig = verificationResult.signature(0);
+        QCOMPARE(sig.summary(), sigSummary);
+        QCOMPARE(sig.status().code(), sigStatus);
+        QCOMPARE(sig.validity(), sigValidity);
+
+        const SignatureData sigData = Kleo::assessSignature(verificationResult.signature(0));
+        QCOMPARE(sigData.status, signatureStatus);
+        const QString result = Formatting::prettyMessageSignature(sigData);
+        QCOMPARE(maskDateAndTime(result), expected);
+    }
+
     void test_prettyDataSignature_unknown_smime_key()
     {
         const TemporaryGnuPGHome gnupgHome;
@@ -674,6 +760,54 @@ private Q_SLOTS:
         QCOMPARE(result, expected);
     }
 
+    void test_explanationsForMessageSignature_data()
+    {
+        QTest::addColumn<Kleo::SignatureStatus>("signatureStatus");
+        QTest::addColumn<QStringList>("expected");
+
+        QTest::newRow("NoSignature") << SignatureStatus::NoSignature << QStringList{};
+        QTest::newRow("KeyMissing") //
+            << SignatureStatus::KeyMissing
+            << QStringList{u"The signing certificate is not present in your certificate list, but it is needed to verify the message."_s};
+        QTest::newRow("ValidAndFullyTrusted") << SignatureStatus::ValidAndFullyTrusted << QStringList{};
+        QTest::newRow("ValidButNotFullyTrusted") //
+            << SignatureStatus::ValidButNotFullyTrusted
+            << QStringList{
+                   u"Technically, signature and message match, but the signing certificate is not marked as trusted. "
+                   "Therefore the message cannot be trusted to originate from the stated source."_s};
+        QTest::newRow("ValidButSignatureExpired") << SignatureStatus::ValidButSignatureExpired << QStringList{};
+        QTest::newRow("ValidButKeyExpired") //
+            << SignatureStatus::ValidButKeyExpired
+            << QStringList{
+                   u"For an expired certificate, it cannot be evaluated whether the certificate can be trusted. "
+                   "Therefore the message cannot be trusted. Technically, signature and message match."_s,
+                   u"If the certificate was valid and trusted when you received the message, the message is likely valid."_s};
+        QTest::newRow("ValidButKeyRevoked") //
+            << SignatureStatus::ValidButKeyRevoked
+            << QStringList{
+                   u"The certificate may have been revoked because it was compromised and it might now be used by a third party. "
+                   "The message can therefore not be trusted. Technically, signature and message match."_s,
+                   u"It is possible that you received the message at a time when the certificate was still valid and trusted. "
+                   "If this is the case, the message may be valid."_s};
+        QTest::newRow("ValidButSignerUntrustworthy") << SignatureStatus::ValidButSignerUntrustworthy << QStringList{};
+        QTest::newRow("Invalid") //
+            << SignatureStatus::Invalid
+            << QStringList{
+                   u"The message or the signature has been altered. This can happen accidentally (e.g. due to a transmission error), "
+                   "unintentionally (e.g. due to a subsequent change to the message, possibly by an email client), or intentionally "
+                   "(deliberate manipulation)."_s};
+        QTest::newRow("OtherError") << SignatureStatus::OtherError << QStringList{};
+    }
+
+    void test_explanationsForMessageSignature()
+    {
+        QFETCH(Kleo::SignatureStatus, signatureStatus);
+        QFETCH(QStringList, expected);
+
+        const QStringList result = Formatting::explanationsForMessageSignature(signatureStatus);
+        QCOMPARE(result, expected);
+    }
+
     void test_guidanceForDataSignature_data()
     {
         QTest::addColumn<Kleo::SignatureStatus>("signatureStatus");
@@ -730,6 +864,65 @@ private Q_SLOTS:
         QFETCH(QString, expected);
 
         const QString result = Formatting::guidanceForDataSignature(signatureStatus, protocol);
+        QCOMPARE(result, expected);
+    }
+
+    void test_guidanceForMessageSignature_data()
+    {
+        QTest::addColumn<Kleo::SignatureStatus>("signatureStatus");
+        QTest::addColumn<GpgME::Protocol>("protocol");
+        QTest::addColumn<QString>("expected");
+
+        QTest::newRow("NoSignature OpenPGP") << SignatureStatus::NoSignature << GpgME::OpenPGP << QString{};
+        QTest::newRow("KeyMissing OpenPGP") //
+            << SignatureStatus::KeyMissing << GpgME::OpenPGP
+            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the message again."_s;
+        QTest::newRow("ValidAndFullyTrusted OpenPGP") << SignatureStatus::ValidAndFullyTrusted << GpgME::OpenPGP << QString{};
+        QTest::newRow("ValidButNotFullyTrusted OpenPGP") //
+            << SignatureStatus::ValidButNotFullyTrusted << GpgME::OpenPGP
+            << u"Verify the certificate’s fingerprint and certify it. Then verify the message again."_s;
+        QTest::newRow("ValidButSignatureExpired OpenPGP") << SignatureStatus::ValidButSignatureExpired << GpgME::OpenPGP << QString{};
+        QTest::newRow("ValidButKeyExpired OpenPGP") //
+            << SignatureStatus::ValidButKeyExpired << GpgME::OpenPGP
+            << u"You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the message again after importing the certificate."_s;
+        QTest::newRow("ValidButKeyRevoked OpenPGP") //
+            << SignatureStatus::ValidButKeyRevoked << GpgME::OpenPGP
+            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the message signed with a current certificate."_s;
+        QTest::newRow("ValidButSignerUntrustworthy OpenPGP") << SignatureStatus::ValidButSignerUntrustworthy << GpgME::OpenPGP << QString{};
+        QTest::newRow("Invalid OpenPGP") //
+            << SignatureStatus::Invalid << GpgME::OpenPGP //
+            << u"Ask the sender to resend the message."_s;
+        QTest::newRow("OtherError OpenPGP") << SignatureStatus::OtherError << GpgME::OpenPGP << QString{};
+
+        QTest::newRow("NoSignature S/MIME") << SignatureStatus::NoSignature << GpgME::CMS << QString{};
+        QTest::newRow("KeyMissing S/MIME") //
+            << SignatureStatus::KeyMissing << GpgME::CMS
+            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the message again."_s;
+        QTest::newRow("ValidAndFullyTrusted S/MIME") << SignatureStatus::ValidAndFullyTrusted << GpgME::CMS << QString{};
+        QTest::newRow("ValidButNotFullyTrusted S/MIME") //
+            << SignatureStatus::ValidButNotFullyTrusted << GpgME::CMS
+            << u"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the message again."_s;
+        QTest::newRow("ValidButSignatureExpired S/MIME") << SignatureStatus::ValidButSignatureExpired << GpgME::CMS << QString{};
+        QTest::newRow("ValidButKeyExpired S/MIME") //
+            << SignatureStatus::ValidButKeyExpired << GpgME::CMS
+            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the message signed with a current certificate."_s;
+        QTest::newRow("ValidButKeyRevoked S/MIME") //
+            << SignatureStatus::ValidButKeyRevoked << GpgME::CMS
+            << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the message signed with a current certificate."_s;
+        QTest::newRow("ValidButSignerUntrustworthy S/MIME") << SignatureStatus::ValidButSignerUntrustworthy << GpgME::CMS << QString{};
+        QTest::newRow("Invalid S/MIME") //
+            << SignatureStatus::Invalid << GpgME::CMS //
+            << u"Ask the sender to resend the message."_s;
+        QTest::newRow("OtherError S/MIME") << SignatureStatus::OtherError << GpgME::CMS << QString{};
+    }
+
+    void test_guidanceForMessageSignature()
+    {
+        QFETCH(Kleo::SignatureStatus, signatureStatus);
+        QFETCH(GpgME::Protocol, protocol);
+        QFETCH(QString, expected);
+
+        const QString result = Formatting::guidanceForMessageSignature(signatureStatus, protocol);
         QCOMPARE(result, expected);
     }
 };
