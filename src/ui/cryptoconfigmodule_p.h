@@ -240,7 +240,11 @@ public:
     void doLoad() override;
 
 private:
-    enum { Int, UInt, ListOfNone } mKind;
+    enum {
+        Int,
+        UInt,
+        ListOfNone
+    } mKind;
     QSpinBox *mNumInput = nullptr;
 };
 

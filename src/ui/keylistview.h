@@ -57,7 +57,9 @@ public:
         return mKey;
     }
 
-    enum { RTTI = QTreeWidgetItem::UserType + 1 };
+    enum {
+        RTTI = QTreeWidgetItem::UserType + 1
+    };
 
     //
     // only boring stuff below:
