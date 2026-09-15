@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1739322 2026-06-18 01:27:26Z scripty $
+# $Id: libkleopatra6.po 1746453 2026-09-15 07:35:06Z matjazjeran $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,16 +13,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-05-09 07:43+0200\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
+"PO-Revision-Date: 2026-09-15 09:33+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
+"n%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.9\n"
 
@@ -1909,7 +1909,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (obvezno)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -2009,8 +2009,8 @@ msgstr "<placeholder>neznano</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Med pridobivanjem ključev z zaledja je prišlo do napake:</p><p><b>%1</"
 "b></p></qt>"
@@ -3584,7 +3584,7 @@ msgstr "Podpis je veljaven, ampak veljavnost potrdila je neznana."
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "Podpis je veljaven, ampak veljavnost potrdila je nedoločena."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Neznano potrdilo"
@@ -3594,6 +3594,40 @@ msgstr "Neznano potrdilo"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Podpisano od %1 na %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Podpisano od %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Podpis je %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Podpis <b>ni</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3618,22 +3652,6 @@ msgstr "Podpis, ustvarjen na %1 s potrdilom: %2"
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Podpis ustvarjen s potrdilom: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Podpis je %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Podpis <b>ni</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3691,6 +3709,7 @@ msgid "Bad signature"
 msgstr "Slab podpis"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Podpis je neveljaven: %1"
@@ -3781,6 +3800,398 @@ msgstr ""
 "Uporabljenega ključa niste potrdili vi ali katera koli druga zaupanja vredna "
 "oseba."
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Preverjanje podpisa je bilo uspešno: sporočilo in podpis se ujemata, "
+"potrdilo je veljavno in zaupanja vredno."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Preverjanje podpisa je bilo uspešno: podatki in podpis se ujemajo, potrdilo "
+"je veljavno in zaupanja vredno."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr "Sporočilo in podpis se ne ujemata."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Potrdilu za podpisovanje ne smete zaupati."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Sporočilu ni mogoče zaupati. Razlog: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Podatki in podpis se ne ujemata."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Podatkom ni mogoče zaupati. Razlog: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Podpis trdi, da naj bi bil od %1 in je datiran z %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Podpis trdi, da je od %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr "Podpisa ni mogoče preveriti, ker ustreznega potrdila ni na voljo."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Prstni odtis potrdila za podpisovanje je %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Serijska številka in izdajatelj podpisnega potrdila sta %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Ni mogoče preveriti, ali sporočilo izvira iz navedenega vira."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr "Ni mogoče preveriti, ali podatki izvirajo iz navedenega vira."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Podpis je potekel."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Potrdilo za podpisovanje je poteklo."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Potrdilo za podpisovanje je bilo preklicano."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"Potrdila za podpis ni na seznamu potrdil, vendar je potrebno za preverjanje "
+"podatkov."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+"Potrdilo za podpis ni na seznamu potrdil, vendar je potrebno za preverjanje "
+"podatkov."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Tehnično gledano se podpis in podatki ujemata, vendar potrdilo za podpis ni "
+"označeno kot zaupanja vredno. Zato sporočilu ni mogoče zaupati, da izvira iz "
+"navedenega vira."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Tehnično gledano se podpis in podatki ujemata, vendar potrdilo za podpis ni "
+"označeno kot zaupanja vredno. Zato ni mogoče zaupati, da podatki izvirajo iz "
+"navedenega vira."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Pri pretečenem potrdilu ni mogoče oceniti, ali je potrdilo zaupanja vredno. "
+"Zato sporočilu ni mogoče zaupati. Tehnično gledano se podpis in sporočilo "
+"ujemata."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Če je bilo potrdilo veljavno in zaupanja vredno, ko ste prejeli sporočilo, "
+"je sporočilo verjetno veljavno."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+"Pri pretečenem potrdilu ni mogoče oceniti, ali je potrdilo zaupanja vredno. "
+"Zato podatkom ni mogoče zaupati. Tehnično gledano se podpis in podatki "
+"ujemata."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+"Če je bilo potrdilo veljavno in zaupanja vredno, ko ste prejeli podatke, so "
+"podatki verjetno veljavni."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Potrdilo je bilo morda preklicano, ker je bilo kompromitirano in ga zdaj "
+"morda uporablja tretja oseba. Sporočilu zato ni mogoče zaupati. Tehnično "
+"gledano se podpis in sporočilo ujemata."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"Možno je, da ste podatke prejeli v času, ko je bilo potrdilo še veljavno in "
+"zaupanja vredno. Če je temu tako, je sporočilo morda veljavno."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+"Potrdilo je bilo morda preklicano, ker je bilo ogroženo in ga zdaj morda "
+"uporablja tretja oseba. Podatkom zato ni mogoče zaupati. Tehnično gledano se "
+"podpis in podatki ujemata."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+"Možno je, da ste podatke prejeli v času, ko je bilo potrdilo še veljavno in "
+"zaupanja vredno. Če je temu tako, so podatki morda veljavni."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Sporočilo ali podpis sta bila spremenjena. To se lahko zgodi nenamerno (npr. "
+"zaradi napake pri prenosu), nenamerno (npr. zaradi naknadne spremembe "
+"podatkov, morda s strani e-poštnega odjemalca) ali namerno (namerna "
+"manipulacija)."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Podatki ali podpis so bili spremenjeni. To se lahko zgodi nenamerno (npr. "
+"zaradi napake pri prenosu), nenamerno (npr. zaradi naknadne spremembe "
+"podatkov, morda s strani e-poštnega odjemalca) ali namerno (namerna "
+"manipulacija)."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Pošiljatelja prosite za potrdilo ali ga uvozite iz datoteke ali strežnika "
+"ključev. Nato sporočilo znova preverite."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+"Pošiljatelja prosite za potrdilo ali ga uvozite iz datoteke ali strežnika "
+"ključev. Nato ponovno preverite podatke."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Preverite prstni odtis potrdila in ga certificirajte. Nato ponovno preverite "
+"sporočilo."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Preverite prstni odtis potrdila korenskega CA in mu zaupajte. Nato znova "
+"preverite sporočilo."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+"Preverite prstni odtis potrdila in ga certificirajte. Nato ponovno preverite "
+"podatke."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+"Preverite prstni odtis potrdila korenskega CA in mu zaupajte. Nato znova "
+"preverite podatke."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Posodobljeno potrdilo lahko poiščete na strežniku ključev ali pa zanj "
+"prosite pošiljatelja in nato po uvozu potrdila sporočilo znova preverite."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"V primeru dvoma se obrnite na podpisnika, da razjasni situacijo, in ga po "
+"potrebi prosite, naj vam sporočilo podpisano s trenutnim potrdilom ponovno "
+"pošlje."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+"Posodobljeno potrdilo lahko poiščete na strežniku ključev ali pa zanj "
+"prosite pošiljatelja in nato po uvozu potrdila ponovno preverite podatke."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+"V primeru dvoma se obrnite na podpisnika, da razjasni situacijo, in ga po "
+"potrebi prosite, naj vam ponovno pošlje podatke, podpisane s trenutnim "
+"potrdilom."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Prosite pošiljatelja, naj ponovno pošlje sporočilo."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr "Prosite pošiljatelja, naj ponovno pošlje podatke."
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3802,506 +4213,3 @@ msgstr "Neveljaven šestnajstiški znak '%1' v vhodnem toku."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Prezgoden konec šestnajstiškega opisa znaka v vhodnem toku"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Potrdite identiteto '%1' kot:"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Napaka: Vnesite vrednost."
-
-#~ msgid "Subkey"
-#~ msgstr "Podključ"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, ustvarjeno: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, ustvarjeno: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Neznani algoritem"
-
-#~ msgid "All certificates"
-#~ msgstr "Vsa potrdila"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Nastavitev imeniških storitev ni mogoča, ker so knjižnice gpgme prestare."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Se opravičujemo"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Podpis ustvarjen na %1 z nerazpoložljivim potrdilom: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Podpis ustvarjen z nerazpoložljivim potrdilom: %1"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "S potrdilom: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-pošta"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "dobro"
-
-#~ msgid "Unknown"
-#~ msgstr "Neznano"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "ID uporabnika"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Potrdila, ki jim polno zaupate"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Še ne potrjena potrdila"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Nepotrjena potrdila"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "ID uporabnikov"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "ID ključa"
-
-#~ msgid "User-ID"
-#~ msgstr "ID uporabnika"
-
-#~ msgid "Key-ID"
-#~ msgstr "ID ključa"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Ne potrjujte identitete in integritete"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "Napaka GpgConf"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Upravljalnik potrdil in enotni uporabniški kripto vmesnik"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Podpisovanje ni uspelo: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Podpisovanje je bilo uspešno"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Šifriranje ni uspelo: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Šifriranje je bilo uspešno"
-
-#~ msgid "Signing Result"
-#~ msgstr "Rezultat podpisovanja"
-
-#~ msgid "Signing Error"
-#~ msgstr "Napaka med podpisovanjem"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Rezultat šifriranja"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Napaka šifriranja"
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "%1 komunikacija je možna."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "%1 komunikacija ni možna."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "Lahko se uporablja za komunikacijo %1."
-
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "<b>Ne sme</b> se uporabljati za komunikacijo %1."
-
-#~ msgid "never"
-#~ msgstr "nikoli"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Ustvarjen"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Preteče"
-
-#~ msgid "Created"
-#~ msgstr "Ustvarjen"
-
-#~ msgid "Expires"
-#~ msgstr "Preteče"
-
-#~| msgid "Add"
-#~ msgctxt "@action:button accessible name for 'Add to list'"
-#~ msgid "add"
-#~ msgstr "dodaj"
-
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "vrh"
-
-#~ msgctxt "@action:button accessible name for 'Move up'"
-#~ msgid "up"
-#~ msgstr "gor"
-
-#~ msgctxt "@action:button accessible name for 'Move down'"
-#~ msgid "down"
-#~ msgstr "dol"
-
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "dno"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Custom entry"
-#~ msgstr "Vnos po meri"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "strežnik"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Ime strežnika"
-
-#~ msgid "Server Port"
-#~ msgstr "Vrata strežnika"
-
-#~ msgid "Base DN"
-#~ msgstr "Osnovni DN"
-
-#~ msgid "User Name"
-#~ msgstr "Uporabniško ime"
-
-#~ msgctxt "Flags to enable/disable certain features"
-#~ msgid "Flags"
-#~ msgstr "Zastavice"
-
-#~ msgid "(read-only)"
-#~ msgstr "(samo za branje)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (samo za branje)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(izbirno)</b> Sem po potrebi vnesite uporabniško ime."
-
-#~ msgid ""
-#~ "<b>(Optional)</b> Enter 'ldaps' to specify that a TLS connection shall be "
-#~ "used."
-#~ msgstr ""
-#~ "<b>(Neobvezno)</b> Vnesite 'ldaps', da določite, da bo uporabljena "
-#~ "povezava TLS."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Nastavitve imeniških storitev"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "Strežnik s ključi OpenPGP:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Kliknite ta gumb, da ustvarite vnos nove imeniške storitve, ki je dvojnik "
-#~ "trenutno izbrane. Če ni izbrana nobena, se uporabijo privzete vrednosti. "
-#~ "Podrobnosti lahko kasneje nastavite v razpredelnici na levi."
-
-#~ msgid "New"
-#~ msgstr "Novo"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Uporabite to možnost za preklop prikaza uporabniških imen in gesel v "
-#~ "gornji razpredelnici."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Prikaži podatke o uporabniku in geslu"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Nastavi zaledje GnuPG"
-
-#~ msgid "&Reset"
-#~ msgstr "Ponastavi"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Uporabi strežnik s ključi na"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Nastavi strežnike s ključi"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "Za naslov '%1' ni bil najden noben ključ:"
-
-#~ msgid "Remove Filter"
-#~ msgstr "Odstrani filter"
-
-#~ msgid "Add Filter"
-#~ msgstr "Dodaj filter"
-
-#~ msgctxt "name of group of keys (n key(s), read ...)"
-#~ msgid "%2 (1 key, read from gpg.conf)"
-#~ msgid_plural "%2 (%1 keys, read from gpg.conf)"
-#~ msgstr[0] "%2 (%1 ključ, beri iz gpg.conf)"
-#~ msgstr[1] "%2 (%1 ključa, beri iz gpg.conf)"
-#~ msgstr[2] "%2 (%1 ključi, beri iz gpg.conf)"
-#~ msgstr[3] "%2 (%1 ključev, beri iz gpg.conf)"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Prejemnik:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Vsa potrdila"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Shema"
-
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Izberite dostopno shemo, preko katere je na voljo imeniška storitev."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Označite ta stolpec, če imeniška storitev zagotavlja potrdila S/MIME "
-#~ "(X.509)."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Označite ta stolpec, če imeniška storitev zagotavlja potrdila OpenPGP."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0 – Brez (brez vsakršnega razhroščevanja)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1 – Osnovno (nekatera osnovna sporočila razhroščevanja)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2 – Napredno (bolj podrobna sporočila razhroščevanja)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 – Strokovnjak (še bolj podrobna sporočila)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 – Guru (vsa sporočila, ki se jih da dobiti pri razhroščevanju)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Orodje Chiasmus za ukazno vrstico"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Nepodprt protokol »%1«"
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Datoteka »%1« ne obstaja ali pa ni izvedljiva."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Izhod ukaza chiasmus"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Na stderr je bilo prejeto naslednje:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Nalaganje %1 ni uspelo: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Knjižnica ne vsebuje simbola »Chiasmus«."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Preiskovanje imenika %1 ..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME je bil preveden brez podpore za %1."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Pogon %1 ni pravilno nameščen."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Pogon %1 različice %2 je nameščen, vendar je zahtevana vsaj različica %3."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Neznana težava s pogonom za protokol %1."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "program se je nepričakovano končal"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "program ni bil najden ali ne more biti zagnan"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Izvajanje gpgconf ni uspelo: <p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Ni bilo mogoče zagnati gpgconf.\n"
-#~ "Preverite, če je gpgconf v spremenljivki PATH in ga je mogoče zagnati."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Napaka programa gpgconf med shranjevanjem nastavitev: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Ustvarjanje ključa ElGamal ..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Iskanje velikega praštevila ..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Čakanje na novo entropijo iz ustvarjalnika naključnih števil (morda boste "
-#~ "želeli pisati/brati iz diskov ali premakniti miško) ..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Počakajte ..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Začenjanje gpg-agent (pomislite o zaganjanju globalnega primerka) ..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Med preiskovanjem podpore za %1 v zaledju %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "Ključ OpenPGP za %1\n"
-#~ "Ustvarjen: %2\n"
-#~ "Preteče: %3\n"
-#~ "Prstni odtis: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "Ključ S/MIME za %1\n"
-#~ "Ustvarjen: %2\n"
-#~ "Preteče: %3\n"
-#~ "Prstni odtis: %4\n"
-#~ "Izdajatelj: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "Ime &strežnika:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Uporabniško ime (ni obvezno):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "&Geslo (ni obvezno):"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Prekliči"

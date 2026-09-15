@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
 "PO-Revision-Date: 2025-11-11 18:53+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -1640,8 +1640,8 @@ msgstr ""
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
-"Kļūda: ievadiet datora nosaukumu korektā formātā, piemēram, „ldap.example."
-"com“."
+"Kļūda: ievadiet datora nosaukumu korektā formātā, piemēram, "
+"„ldap.example.com“."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1884,7 +1884,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (nepieciešams)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1984,11 +1984,11 @@ msgstr "<placeholder>nezināms</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>Gadījās kļūda, mēģinot no aizmugursistēmas ielādēt atslēgas:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>Gadījās kļūda, mēģinot no aizmugursistēmas ielādēt atslēgas:</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp ui/keyrequester.cpp ui/keyrequester.cpp
 #: ui/keyselectiondialog.cpp ui/keyselectiondialog.cpp
@@ -3553,7 +3553,7 @@ msgstr "Paraksts r derīgs, bet sertifikāta derīgums nav zināms."
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "Paraksts ir derīgs, bet sertifikāta derīgums nav definēts."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Nezināms sertifikāts"
@@ -3563,6 +3563,48 @@ msgstr "Nezināms sertifikāts"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "User ID (Key ID)"
+#| msgid "%1 (%2)"
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Bad signature by %1: %2"
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Slikts paraksts no %1: %2"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Labas paraksts no %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Paraksts ir %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Paraksts <b>nav</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3590,22 +3632,6 @@ msgstr "Paraksts ir izveidots %1 ar sertifikātu: %2"
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Paraksts ir izveidots ar sertifikātu: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Paraksts ir %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Paraksts <b>nav</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3663,6 +3689,7 @@ msgid "Bad signature"
 msgstr "Nederīgs paraksts"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Paraksts ir nederīgs: %1"
@@ -3756,6 +3783,359 @@ msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "Izmantoto atslēgu nesertificējāt jūs vai cita uzticama persona."
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "This certificate should not be used."
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Sertifikātu izmantot nevajadzētu."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The date cannot be changed."
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Datumu mainīt nevar."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The date cannot be changed."
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Datumu mainīt nevar."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Paraksts ir %1"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Paraksts ir %1"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid ""
+#| "The signature is valid but the trust in the certificate's validity is "
+#| "only marginal."
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr "Paraksts ir derīgs, bet uzticamība sertifikāta derīgumā ir minimāla."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signature created using an unknown certificate with fingerprint %1"
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr ""
+"Paraksts ir izveidots, izmantojot nezināmu sertifikātu ar digitālo "
+"nospiedumu %1"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signature created using an unknown certificate with fingerprint %1"
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr ""
+"Paraksts ir izveidots, izmantojot nezināmu sertifikātu ar digitālo "
+"nospiedumu %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Paraksts ir derīgs, bet sertifikāta derīgums nav definēts."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signing certificate is expired"
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Parakstīšanas sertifikāta derīguma termiņš ir iztecējis"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signing certificate was revoked"
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Parakstīšanas sertifikāts ir atsaukts"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr ""
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3777,458 +4157,3 @@ msgstr "Ievades plūsma satur nederīgu heksadecimālu rakstzīmi „%1“."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Pirmslaicīgas beigas ievades plūsmas heksadecimālā rakstzīmē"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Apstiprināt identitāti „%1“ kā:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "All certificates"
-#~ msgstr "Visi sertifikāti"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Visi sertifikāti"
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknown"
-#~ msgstr "nezināma"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Lietotāja ID"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Uzticamie sertifikāti"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Uzticamie sertifikāti"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Uzticamie sertifikāti"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Lietotāja ID"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "Lietotāja ID"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConf kļūda"
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Sertifikātu pārvaldnieka kļūda"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Neizdevās parakstīt: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Parakstīšana veiksmīga"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Niezdevās šifrēt: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Šifrēšana veiksmīga"
-
-#~ msgid "Signing Result"
-#~ msgstr "Parakstīšanas rezultāts"
-
-#~ msgid "Signing Error"
-#~ msgstr "Parakstīšanas kļūda"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Šifrēšanas rezultāts"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Šifrēšanas kļūda"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "Visi sertifikāti"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "Visi sertifikāti"
-
-#~ msgid "never"
-#~ msgstr "nekad"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Pārvietot uz apakšējo"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "serveris"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldap"
-
-#~ msgid "Server Name"
-#~ msgstr "Servera nosaukums"
-
-#~ msgid "Server Port"
-#~ msgstr "Servera ports"
-
-#~ msgid "Base DN"
-#~ msgstr "Bāzes DN"
-
-#~ msgid "User Name"
-#~ msgstr "Lietotāja vārds"
-
-#~ msgid "(read-only)"
-#~ msgstr "(tikai lasāms)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (tikai lasāms)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Neobligāts)</b> Šeit ievadiet lietotājvārdu, ja nepieciešams."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Direktoija pakalpojumu konfigurācija"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP atslēgas izvēle"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Spiediet šo pogu, lai izveidotu jaunu direktorija servisa ierakstu kā "
-#~ "izvēlētā kopiju (vai ar noklusētajām vērtībam, ja nekas nav izvēlēts). "
-#~ "Jūs varat konfigurēt detaļas kreisās puses tabulā."
-
-#~ msgid "New"
-#~ msgstr "Jauns"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Izmantojiet šo iespēju, lai pārslēgtu lietotājvārda un paroles rādīšanu "
-#~ "tabulā."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Rādīt lietotājvārdu un paroli"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Konfigurēt GnuPG aizmuguri"
-
-#~ msgid "&Reset"
-#~ msgstr "&Atstatīt"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Lietot atlsēgu serveri no"
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Konfigurēt atslēgas serverus"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Saņēmējs:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Visi sertifikāti"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Shēma"
-
-#, fuzzy
-#~| msgid ""
-#~| "Select the access protocol (scheme) that the directory service is "
-#~| "available through."
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Izvēlieties piekļuves protokolu (shēmu), ar kuru ir pieejams šis "
-#~ "direktorija serviss."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Atzīmējiet šo kolonu, ja šis direktorija serviss piedāvā S/MIME (X.509) "
-#~ "sertifikātus."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Atzīmējiet šo kolonu, ja šis direktorija serviss piedāvā OpenPGP "
-#~ "sertifikātus."
-
-#, fuzzy
-#~| msgid "None (no debugging at all)"
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "Nav (nekādas atkļūdošanas)"
-
-#, fuzzy
-#~| msgid "Basic (some basic debug messages)"
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "Pamata (daži pamata atkļūdošanas paziņojumi)"
-
-#, fuzzy
-#~| msgid "Advanced (more verbose debug messages)"
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "Paplašināta (vairāk atkļūdošanas paziņojumu)"
-
-#, fuzzy
-#~| msgid "Expert (even more detailed messages)"
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "Eksperta (vēl detalizētāki paziņojumi)"
-
-#, fuzzy
-#~| msgid "Guru (all of the debug messages you can get)"
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "Guru (visi pieejamie atkļūdošanas paziņojumi)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus komandrindas rīks"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Neatbalstīts protokols \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Fails \"%1\" nepastāv vai nav izpildāms."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Chiasmus izvads"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Šis tika saņemts uz stderr:\n"
-#~ " %1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Neizdevās ielādēt %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Bibliotēka nesatur simbolu \"Chiasmus\"."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Skenē mapi %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME tika kompilēts bez %1 atbalsta."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Dzinējs %1 nav korekti instalēts."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Ir instalēa %1 dzinēja versija %2, bet nepieciešama vismaz %3 versija."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Neiznāma problēma ar dzinēju %1 protokolam."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "programma negaidīti izgāja"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "programma nav atrasta vai to nevar palaist"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Neizdevās izpildīt gpgconf:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Neizdevās palaist gpgconf.\n"
-#~ " Pārbaudiet ka gpgconf ir jūsu PATH un ka to var palaist."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Kļūda no gpgconf, mēģinot saglabāt konfigurāciju: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Ģenerē EIGamal atslēgu..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Meklē lielu pirmskaitli..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Gaida vēl entropiju no nejaušo skaitļu ģeneratora (varat padarbināt "
-#~ "diskus vai pakustināt peli)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Lūdzu, uzgaidiet..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Palaiž gpg-agent (jums vajadzētu padomāt par globālas instances "
-#~ "darbināšanu)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Skenējot %1 atbalstu %2 aizmugurē :"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "OpenPGP atslēga priekš %1\n"
-#~ " Izveidota: %2\n"
-#~ " Derīga līdz: %3\n"
-#~ " Pirkstu nosp.: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "S/MIME atslēga priekš %1\n"
-#~ " Izveidota: %2\n"
-#~ " Derīga līdz: %3\n"
-#~ " Pirkstu nosp.: %4\n"
-#~ " Izdevis: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Servera nosaukums:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Lietotāja vārds (neobligāts):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "&Parole (neobligāta):"
-
-#~ msgid "&Cancel"
-#~ msgstr "At&celt"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Viesturs Zariņš"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Kļūda inicializējot spraudni \"%1\""
-
-#~ msgid "failed"
-#~ msgstr "neizdevās"
-
-#~ msgid "Available Backends"
-#~ msgstr "Pieejamās aizmugures"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "Konfi&gurēt..."
-
-#~ msgid "Rescan"
-#~ msgstr "Pārskenēt"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Skenēšanas procesā tika sastaptas šādas problēmas:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Skenēšanas rezultāti"

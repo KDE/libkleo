@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
 "PO-Revision-Date: 2013-03-11 09:58+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -1592,7 +1592,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr ""
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1697,8 +1697,8 @@ msgstr "<placeholder>अपरिचीत</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 
 #: ui/keyrequester.cpp ui/keyrequester.cpp ui/keyrequester.cpp
@@ -3238,7 +3238,7 @@ msgstr ""
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr ""
@@ -3247,6 +3247,42 @@ msgstr ""
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "amended tooltip; %1: original tooltip"
+#| msgid "%1 (read-only)"
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (फक्त वाचण्यासाठी)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
 msgstr ""
 
 #: utils/formatting.cpp
@@ -3270,22 +3306,6 @@ msgstr ""
 #: utils/formatting.cpp
 #, kde-format
 msgid "Signature created with certificate: %1"
-msgstr ""
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr ""
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
 msgstr ""
 
 #: utils/formatting.cpp
@@ -3345,6 +3365,7 @@ msgid "Bad signature"
 msgstr ""
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr ""
@@ -3425,6 +3446,334 @@ msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr ""
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3446,84 +3795,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknown"
-#~ msgstr "अपरिचीत"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "वापरकर्ता ID :"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "वापरकर्ता ID :"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "वापरकर्ता ID :"
-
-#~ msgid "never"
-#~ msgstr "कधीही नाही"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "सर्व्हर"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "User Name"
-#~ msgstr "वापरकर्ता नाव"
-
-#~ msgid "(read-only)"
-#~ msgstr "(फक्त वाचण्यासाठी)"
-
-#~ msgid "New"
-#~ msgstr "नवीन"
-
-#~ msgid "&Reset"
-#~ msgstr "पुन्हस्थापित करा (&R)"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "Scheme"
-#~ msgstr "सुत्रयोजना"
-
-#~ msgid "&Cancel"
-#~ msgstr "रद्द करा (&C)"

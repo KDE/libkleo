@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2021-01-26 11:37+0100\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
+"PO-Revision-Date: 2026-09-14 20:10+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -1824,7 +1824,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (skupina)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1924,8 +1924,8 @@ msgstr "<placeholder>neznáme</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Nastala chyba počas získavania kľúčov z backendu:</p><p><b>%1</b></"
 "p></qt>"
@@ -3494,7 +3494,7 @@ msgstr "Importom do tohto certifikátu boli pridané nové podpisy."
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "The signature is valid but the certificate's validity is undefined."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Moje certifikáty"
@@ -3504,6 +3504,40 @@ msgstr "Moje certifikáty"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Podpísal %1 dňa %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Podpísal %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Dobrý podpis od %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Dobrý podpis od %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3528,22 +3562,6 @@ msgstr "Signature created on %1 with certificate: %2"
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Zlý podpis neznámym certifikátom: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Dobrý podpis od %1."
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Dobrý podpis od %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3601,6 +3619,7 @@ msgid "Bad signature"
 msgstr "Bad signature"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "The signature is invalid: %1"
@@ -3689,6 +3708,460 @@ msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "The used key is not certified by you or any trusted person."
 
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Signature verification was successful: Data and signature match and the "
+#| "certificate is valid and trusted."
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Overenie podpisu bolo úspešné: údaje a podpis sa zhodujú a certifikát je "
+"platný a dôveryhodný."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Overenie podpisu bolo úspešné: údaje a podpis sa zhodujú a certifikát je "
+"platný a dôveryhodný."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Data and signature do not match."
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr "Údaje a podpis sa nezhodujú."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Podpisovému certifikátu sa nesmie dôverovať."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The data cannot be trusted. Reason: %1"
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Údajom nemožno dôverovať. Dôvod: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Údaje a podpis sa nezhodujú."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Údajom nemožno dôverovať. Dôvod: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Podpis sa hlási k %1 a je datovaný %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Podpis sa hlási k %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr "Podpis sa nedá overiť, pretože príslušný certifikát nie je dostupný."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Odtlačok podpisového certifikátu je %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Sériové číslo a vydavateľ podpisového certifikátu sú %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It cannot be verified whether the data originates from the stated source."
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Nedá sa overiť, či údaje pochádzajú z uvedeného zdroja."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr "Nedá sa overiť, či údaje pochádzajú z uvedeného zdroja."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Platnosť podpisu vypršala."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Platnosť podpisového certifikátu vypršala."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Podpisový certifikát bol odvolaný."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signing certificate is not present in your certificate list, but it "
+#| "is needed to verify the data."
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"Podpisový certifikát nie je vo vašom zozname certifikátov, no je potrebný na "
+"overenie údajov."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+"Podpisový certifikát nie je vo vašom zozname certifikátov, no je potrebný na "
+"overenie údajov."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Technically, signature and data match, but the signing certificate is not "
+#| "marked as trusted. Therefore the data cannot be trusted to originate from "
+#| "the stated source."
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Technicky sa podpis a údaje zhodujú, ale podpisový certifikát nie je "
+"označený ako dôveryhodný. Preto sa nedá dôverovať tomu, že údaje pochádzajú "
+"z uvedeného zdroja."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Technicky sa podpis a údaje zhodujú, ale podpisový certifikát nie je "
+"označený ako dôveryhodný. Preto sa nedá dôverovať tomu, že údaje pochádzajú "
+"z uvedeného zdroja."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "For an expired certificate, it cannot be evaluated whether the "
+#| "certificate can be trusted. Therefore the data cannot be trusted. "
+#| "Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Pri certifikáte, ktorému vypršala platnosť, sa nedá vyhodnotiť, či mu možno "
+"dôverovať. Preto sa údajom nedá dôverovať. Technicky sa podpis a údaje "
+"zhodujú."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If the certificate was valid and trusted when you received the data, the "
+#| "data is likely valid."
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Ak bol certifikát v čase, keď ste údaje dostali, platný a dôveryhodný, údaje "
+"sú pravdepodobne platné."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+"Pri certifikáte, ktorému vypršala platnosť, sa nedá vyhodnotiť, či mu možno "
+"dôverovať. Preto sa údajom nedá dôverovať. Technicky sa podpis a údaje "
+"zhodujú."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+"Ak bol certifikát v čase, keď ste údaje dostali, platný a dôveryhodný, údaje "
+"sú pravdepodobne platné."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The certificate may have been revoked because it was compromised and it "
+#| "might now be used by a third party. The data can therefore not be "
+#| "trusted. Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Certifikát mohol byť zrušený, pretože bol kompromitovaný, a teraz ho môže "
+"používať tretia strana. Údajom sa preto nedá dôverovať. Technicky sa podpis "
+"a údaje zhodujú."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It is possible that you received the data at a time when the certificate "
+#| "was still valid and trusted. If this is the case, the data may be valid."
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"Je možné, že ste údaje dostali v čase, keď bol certifikát ešte platný a "
+"dôveryhodný. Ak je to tak, údaje môžu byť platné."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+"Certifikát mohol byť zrušený, pretože bol kompromitovaný, a teraz ho môže "
+"používať tretia strana. Údajom sa preto nedá dôverovať. Technicky sa podpis "
+"a údaje zhodujú."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+"Je možné, že ste údaje dostali v čase, keď bol certifikát ešte platný a "
+"dôveryhodný. Ak je to tak, údaje môžu byť platné."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The data or the signature has been altered. This can happen accidentally "
+#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
+#| "subsequent change to the data, possibly by an email client), or "
+#| "intentionally (deliberate manipulation)."
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Údaje alebo podpis boli zmenené. Môže sa to stať náhodne (napr. chybou pri "
+"prenose), neúmyselne (napr. následnou zmenou údajov, možno poštovým "
+"klientom) alebo úmyselne (zámernou manipuláciou)."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Údaje alebo podpis boli zmenené. Môže sa to stať náhodne (napr. chybou pri "
+"prenose), neúmyselne (napr. následnou zmenou údajov, možno poštovým "
+"klientom) alebo úmyselne (zámernou manipuláciou)."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Ask the sender for the certificate or import it from a file or a "
+#| "keyserver. Then verify the data again."
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Požiadajte odosielateľa o certifikát alebo ho importujte zo súboru či zo "
+"servera kľúčov. Potom údaje overte znova."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+"Požiadajte odosielateľa o certifikát alebo ho importujte zo súboru či zo "
+"servera kľúčov. Potom údaje overte znova."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
+#| "again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Overte odtlačok certifikátu a certifikujte ho. Potom údaje overte znova."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
+#| "the data again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Overte odtlačok koreňovej CA certifikátu a dôverujte mu. Potom údaje overte "
+"znova."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+"Overte odtlačok certifikátu a certifikujte ho. Potom údaje overte znova."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+"Overte odtlačok koreňovej CA certifikátu a dôverujte mu. Potom údaje overte "
+"znova."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Aktualizovaný certifikát môžete hľadať na serveri kľúčov alebo oň požiadať "
+"odosielateľa; po importe certifikátu údaje overte znova."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If in doubt, contact the signer to clarify the situation and, if "
+#| "necessary, ask them to resend the data signed with a current certificate."
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"Ak máte pochybnosti, kontaktujte podpisovateľa, aby situáciu objasnil, a "
+"prípadne ho požiadajte, aby údaje znova poslal podpísané aktuálnym "
+"certifikátom."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+"Aktualizovaný certifikát môžete hľadať na serveri kľúčov alebo oň požiadať "
+"odosielateľa; po importe certifikátu údaje overte znova."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+"Ak máte pochybnosti, kontaktujte podpisovateľa, aby situáciu objasnil, a "
+"prípadne ho požiadajte, aby údaje znova poslal podpísané aktuálnym "
+"certifikátom."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Ask the sender to resend the data."
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Požiadajte odosielateľa, aby údaje poslal znova."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr "Požiadajte odosielateľa, aby údaje poslal znova."
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3710,450 +4183,3 @@ msgstr "Invalid hex char '%1' in input stream."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Premature end of hex-encoded char in input stream"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Potvrdenie identity '%1' ako:"
-
-#~ msgid "Subkey"
-#~ msgstr "Podkľúč"
-
-#, fuzzy
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "(%1, %2, vytvorené: %3)"
-
-#, fuzzy
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3 vytvorené: %4)"
-
-#, fuzzy
-#~ msgid "All certificates"
-#~ msgstr "Všetky certifikáty"
-
-#, fuzzy
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Všetky certifikáty"
-
-#, fuzzy
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Všetky certifikáty"
-
-#, fuzzy
-#~ msgid "With certificate: %1"
-#~ msgstr "Ostatné certifikáty"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-mail"
-
-#, fuzzy
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "dobre"
-
-#~ msgid "Unknown"
-#~ msgstr "Neznáme"
-
-#, fuzzy
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "ID užívateľa"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Plne dôveryhodné certifikáty"
-
-#, fuzzy
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Neskontrolované certifikáty"
-
-#, fuzzy
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Neskontrolované certifikáty"
-
-#, fuzzy
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "ID užívateľov"
-
-#, fuzzy
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "ID kľúča"
-
-#~ msgid "User-ID"
-#~ msgstr "ID užívateľa"
-
-#~ msgid "Key-ID"
-#~ msgstr "ID kľúča"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Nepotvrdzovať identitu a integritu"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "Chyba GpgConf"
-
-#, fuzzy
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Chyba manažéra certifikátov"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Podpis zlyhal: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Podpis úspešný"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Šifrovanie zlyhalo: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Šifrovanie úspešné"
-
-#~ msgid "Signing Result"
-#~ msgstr "Výsledok podpisu"
-
-#~ msgid "Signing Error"
-#~ msgstr "Chyba podpisu"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Výsledok šifrovania"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Chyba šifrovania"
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "Možná komunikácia s %1."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "Komunikácia s %1 nie je možná."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "Môže sa použiť na komunikáciu s %1."
-
-#, fuzzy
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "<b>Nemôže</b> sa použiť na komunikáciu kompatibilnú s VS-NfD."
-
-#~ msgid "never"
-#~ msgstr "nikdy"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Vytvorené"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Vypršanie"
-
-#~ msgid "Created"
-#~ msgstr "Vytvorené"
-
-#~ msgid "Expires"
-#~ msgstr "Vyprší"
-
-#, fuzzy
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Presunúť dolu"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "server"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Meno serveru"
-
-#~ msgid "Server Port"
-#~ msgstr "Port servera"
-
-#~ msgid "User Name"
-#~ msgstr "Meno užívateľa"
-
-#~ msgid "(read-only)"
-#~ msgstr "(iba na čítanie)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr ""
-#~ "<b>(Nepovinnél)</b> V prípade potreby tu zadajte vaše používateľské meno."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Nastavenie adresárových služieb"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "Server kľúčov OpenPGP:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Kliknite na toto tlačidlo pre vytvorenie novej adresárovej služby ako "
-#~ "klonu aktuálne vybranej (alebo s predvolenými hodnotami, ak nie je žiadna "
-#~ "vybraná). Podrobnosti môžete potom nastaviť v tabuľke po ľavej ruke.  "
-
-#~ msgid "New"
-#~ msgstr "Nové"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Použiť túto voľbu pre zapnutie alebo vypnutie zobrazovania informácií o "
-#~ "používateľskom mene a hesle vo vyššie uvedenej tabuľke. "
-
-#~ msgid "Show user and password information"
-#~ msgstr "Zobraziť informácie o používateľovi a hesle"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Nastaviť GnuPG Backend"
-
-#~ msgid "&Reset"
-#~ msgstr "&Vrátiť pôvodné"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Použit server kľúčov v"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Nastaviť servery kľúčov"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "Pre adresu '%1' nebol nájdený žiadny kľúč:"
-
-#~ msgid "Add Filter"
-#~ msgstr "Pridať filter"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "No Key"
-#~ msgstr "Žiadny kľúč"
-
-#, fuzzy
-#~ msgid "Ignore recipient"
-#~ msgstr "Adresát:"
-
-#, fuzzy
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Všetky certifikáty"
-
-#~ msgctxt "good/valid signature"
-#~ msgid "good"
-#~ msgstr "dobre"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Schéma"
-
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Vybrať prístupovú schému (schému), cez ktorú je dostupná adresárová "
-#~ "služba."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Zaškrtnúť tento stĺpec, ak táto adresárová služba poskytuje certifikáty S/"
-#~ "MIME (X.509)."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Zaškrtnúť tento stĺpec, ak táto adresárová služba poskytuje certifikáty "
-#~ "OpenPGP."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0 - None (žiadne ladenie)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1 - Basic (niektoré základné ladiace správy)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2 - Advanced (podrobnejšie ladiace správy)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 - Expert (ešte podrobnejšie správy)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 - Guru (všetky ladiace správy, ktoré možete získať)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus nástroj príkazového riadkul"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Nepodporovaný protokol \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Súbor \"%1\" neexistuje alebo sa nedá spustiť."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Výstup z chiasmus"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Na stderr prišlo nasledujúce:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Načítanie zlyhalo %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Knižnica neobsahuje symbol \"Chiasmus\"."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Prehľadáva sa priečinok %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME neobsahuje podporu pre %1."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Nástroj %1 nie je správne nainštalovaný."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Nainštalovaný nástroj %1 verzie %2, ale požadovaná je verzia aspoň %3."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Pre protokol %1 sa vyskytol neznámy problém s nástrojom."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "program neočakávane skončil"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "program sa nanašiel alebo sa ho nepodarilo spustiť"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Zlyhalo spustenie gpgconf:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Nepodarilo sa spustiť gpgconf\n"
-#~ "Overte, či je gpgconf v PATH a či je možné ho spustiť."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Chyba z gpgconf počas ukladania nastavenia: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Generujem kľúč EIGamal..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Hľadanie veľkého prvočísla..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Čakanie na novú entropiu z generátora náhodných čísel (možno budete "
-#~ "chcieť používať pevné disky alebo hýbať myšou)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Prosím, čakajte..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Spúšťam gpg-agent (mali by ste zvážiť spúšťanie globálneho procesu)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Počas hľadania podpory pre %1 v backend %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "Kľúč OpenPGP pre %1\n"
-#~ "Vytvorený: %2\n"
-#~ "Platnosť do: %3\n"
-#~ "Fingerprint: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "Kľúč S/MIME pre %1\n"
-#~ "Vytvorený: %2\n"
-#~ "Platnosť do: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Vydal: %5"

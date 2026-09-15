@@ -3,17 +3,17 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2004, 2005 Albert Astals Cid <aacid@kde.org>
+# SPDX-FileCopyrightText: 2004-2005 Albert Astals Cid <aacid@kde.org>
 # SPDX-FileCopyrightText: 2004 Sebastià Pla i Sanz <sps@sastia.com>
-# SPDX-FileCopyrightText: 2009, 2010 Manuel Tortosa Moreno <manutortosa@gmail.com>
-# SPDX-FileCopyrightText: 2013, 2014, 2016, 2017, 2018, 2019, 2020, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2009-2010 Manuel Tortosa Moreno <manutortosa@gmail.com>
+# SPDX-FileCopyrightText: 2013-2014, 2016-2020, 2022-2023 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2006-2008, 2010-2012, 2014-2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-05-09 12:13+0200\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
+"PO-Revision-Date: 2026-09-15 11:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1546,8 +1546,8 @@ msgstr ""
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
-"Error: Introduïu un nom de servidor en el format correcte, com ldap.example."
-"com."
+"Error: Introduïu un nom de servidor en el format correcte, com "
+"ldap.example.com."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1791,7 +1791,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (requerit)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1891,11 +1891,11 @@ msgstr "<placeholder>desconegut</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>S'ha produït un error en obtenir les claus des del dorsal:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>S'ha produït un error en obtenir les claus des del dorsal:</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp ui/keyrequester.cpp ui/keyrequester.cpp
 #: ui/keyselectiondialog.cpp ui/keyselectiondialog.cpp
@@ -3479,7 +3479,7 @@ msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 "La signatura és vàlida però la validesa del certificat no està definida."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Certificat desconegut"
@@ -3489,6 +3489,40 @@ msgstr "Certificat desconegut"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Signat per %1 el %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Signat per %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "La signatura és %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "La signatura <b>no és</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3516,22 +3550,6 @@ msgstr "Signatura creada el %1 amb certificat: %2"
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Signatura creada amb certificat: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "La signatura és %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "La signatura <b>no és</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3589,6 +3607,7 @@ msgid "Bad signature"
 msgstr "Signatura dolenta"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "La signatura no és vàlida: %1"
@@ -3683,6 +3702,406 @@ msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "La clau emprada no l'heu certificat vós ni cap persona de confiança."
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"La verificació de signatura ha estat correcta: coincidència de missatge i "
+"signatura i el certificat és vàlid i de confiança."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"La verificació de signatura ha estat correcta: coincidència de dades i "
+"signatura i el certificat és vàlid i de confiança."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr "El missatge i la signatura no coincideixen."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "El certificat de signatura no s'hi pot confiar."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "No es pot confiar en el missatge. Motiu: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Les dades i la signatura no coincideixen."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "No es pot confiar en les dades. Motiu: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "La signatura diu ser de %1 i està datada %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "La signatura diu ser de %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+"La signatura no es pot verificar perquè el certificat corresponent no està "
+"disponible."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "L'empremta digital del certificat de signatura és %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "El número de sèrie i l'emissor del certificat de signatura són %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr ""
+"No es pot verificar si el missatge s'origina a partir de la font indicada."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+"No es pot verificar si les dades s'originen a partir de la font indicada."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "La signatura ha vençut."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "El certificat de signatura ha vençut."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "El certificat de signatura s'ha revocat."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"El certificat de signatura no està present a la vostra llista de "
+"certificats, però cal per a verificar el missatge."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+"El certificat de signatura no està present a la vostra llista de "
+"certificats, però cal per a verificar les dades."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Tècnicament, la signatura i el missatge coincideixen, però el certificat de "
+"signatura no està marcat com a fiable. Per tant, no es pot confiar que el "
+"missatge s'origini des de la font indicada."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Tècnicament, la signatura i les dades coincideixen, però el certificat de "
+"signatura no està marcat com a fiable. Per tant, no es pot confiar que les "
+"dades s'originin des de la font indicada."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Per a un certificat caducat, no es pot avaluar si es pot confiar en el "
+"certificat. Per tant, no es pot confiar en el missatge. Tècnicament, la "
+"signatura i el missatge coincideixen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Si el certificat era vàlid i de confiança quan vau rebre el missatge, és "
+"probable que el missatge sigui vàlid."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+"Per a un certificat caducat, no es pot avaluar si es pot confiar en el "
+"certificat. Per tant, no es poden confiar en les dades. Tècnicament, la "
+"signatura i les dades coincideixen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+"Si el certificat era vàlid i de confiança quan vau rebre les dades, és "
+"probable que les dades siguin vàlides."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"El certificat pot haver estat revocat perquè estava compromès i ara podria "
+"utilitzar-se per un tercer. Per tant, no es pot confiar en el missatge. "
+"Tècnicament, la signatura i el missatge coincideixen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"És possible que hàgiu rebut el missatge en un moment en què el certificat "
+"continuava sent vàlid i de confiança. En aquest cas, el missatge podria ser "
+"vàlid."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+"El certificat pot haver estat revocat perquè estava compromès i ara podria "
+"utilitzar-se per un tercer. Per tant, no es pot confiar en les dades. "
+"Tècnicament, la signatura i les dades coincideixen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+"És possible que hàgiu rebut les dades en un moment en què el certificat "
+"continuava sent vàlid i de confiança. En aquest cas, les dades podrien ser "
+"vàlides."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"El missatge o la signatura s'han alterat. Això pot succeir accidentalment "
+"(per exemple, a causa d'un error de transmissió), involuntàriament (per "
+"exemple, a causa d'un canvi posterior al missatge, possiblement per un "
+"client de correu electrònic) o intencionadament (manipulació deliberada)."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Les dades o la signatura s'han alterat. Això pot succeir accidentalment (per "
+"exemple, a causa d'un error de transmissió), involuntàriament (per exemple, "
+"a causa d'un canvi posterior a les dades, possiblement per un client de "
+"correu electrònic) o intencionadament (manipulació deliberada)."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Demaneu al remitent el certificat o importeu-lo des d'un fitxer o un "
+"servidor de claus. Després verifiqueu el missatge de nou."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+"Demaneu al remitent el certificat o importeu-lo des d'un fitxer o un "
+"servidor de claus. Després verifiqueu les dades de nou."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Verifiqueu l'empremta digital del certificat i certifiqueu-la. Després "
+"verifiqueu el missatge de nou."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Verifiqueu l'empremta digital de la Root-CA del certificat i confieu-hi. "
+"Després verifiqueu el missatge de nou."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+"Verifiqueu l'empremta digital del certificat i certifiqueu-la. Després "
+"verifiqueu les dades de nou."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+"Verifiqueu l'empremta digital de la Root-CA del certificat i confieu-hi. "
+"Després verifiqueu les dades de nou."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Podeu cercar un certificat actualitzat en un servidor de claus, o demanar-lo "
+"al remitent, i seguidament tornar a verificar el missatge després d'importar "
+"el certificat."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"En cas de dubte, poseu-vos en contacte amb el signant per aclarir la "
+"situació i, si cal, demanar-li que torni a enviar el missatge signat amb un "
+"certificat actual."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+"Podeu cercar un certificat actualitzat en un servidor de claus, o demanar-lo "
+"al remitent, i seguidament verificar les dades de nou després d'importar el "
+"certificat."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+"En cas de dubte, poseu-vos en contacte amb el signant per aclarir la "
+"situació i, si cal, demanar-li que torni a enviar les dades signades amb un "
+"certificat actual."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Demaneu al remitent que reenviï el missatge."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr "Demaneu al remitent que reenviï les dades."
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3704,18 +4123,3 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Confirma la identitat «%1» com a:"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Error: Introduïu un valor."

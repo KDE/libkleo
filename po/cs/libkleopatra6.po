@@ -3,21 +3,22 @@
 # SPDX-FileCopyrightText: 2010-2011, 2013-2014, 2016-2020, 2024, 2026 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-06-08 10:38+0200\n"
-"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
+"PO-Revision-Date: 2026-08-25 15:31+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #: kleo/checksumdefinition.cpp
 #, kde-format
@@ -32,7 +33,7 @@ msgstr "Nelze použít %f a zároveň | v '%1'"
 #: kleo/checksumdefinition.cpp
 #, kde-format
 msgid "Quoting error in '%1' entry"
-msgstr ""
+msgstr "Chyba v citaci v položce '%1'"
 
 #: kleo/checksumdefinition.cpp
 #, kde-format
@@ -52,17 +53,17 @@ msgstr "'%1' prázdný nebo nenalezen"
 #: kleo/checksumdefinition.cpp
 #, kde-format
 msgid "'id' entry is empty/missing"
-msgstr ""
+msgstr "Položka 'id' je prázdná/chybí"
 
 #: kleo/checksumdefinition.cpp
 #, kde-format
 msgid "'output-file' entry is empty/missing"
-msgstr ""
+msgstr "Položka 'output-file' je prázdná/chybí"
 
 #: kleo/checksumdefinition.cpp
 #, kde-format
 msgid "'file-patterns' entry is empty/missing"
-msgstr ""
+msgstr "Položka 'file-patterns' je prázdná/chybí"
 
 #: kleo/checksumdefinition.cpp
 #, kde-format
@@ -256,6 +257,8 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Klíč OpenPGP pro </p><p align=center>%1</p><p>vypršel před méně než "
+"jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -266,8 +269,13 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expired %1 days ago."
 "</p>"
 msgstr[0] ""
+"<p>Váš podpisový klíč OpenPGP</p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Váš podpisový klíč OpenPGP</p><p align=center>%2</p><p>vypršel před %1 "
+"dny.</p>"
 msgstr[2] ""
+"<p>Váš podpisový klíč OpenPGP</p><p align=center>%2</p><p>vypršel před %1 "
+"dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -278,8 +286,13 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Váš šifrovací klíč OpenPGP</p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Váš šifrovací klíč OpenPGP</p><p align=center>%2</p><p>vypršel před %1 "
+"dny.</p>"
 msgstr[2] ""
+"<p>Váš šifrovací klíč OpenPGP</p><p align=center>%2</p><p>vypršel před %1 "
+"dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -287,26 +300,30 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired yesterday.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expired %1 days ago.</p>"
-msgstr[0] ""
+msgstr[0] "<p>Klíč OpenPGP pro </p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Klíč OpenPGP pro </p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 msgstr[2] ""
+"<p>Klíč OpenPGP pro </p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
 msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Váš podpisový klíč OpenPGP</p><p align=center>%1</p><p>dnes vyprší.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
 msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expires today.</p>"
 msgstr ""
+"<p>Váš šifrovací klíč OpenPGP</p><p align=center>%1</p><p>dnes vyprší.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
 msgid "<p>The OpenPGP key for</p><p align=center>%1</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>Klíč OpenPGP pro </p><p align=center>%1</p><p>dnes vyprší.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -316,8 +333,13 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
+"<p>Váš podpisový klíč OpenPGP</p><p align=center>%2</p><p> zítra vyprší.</p>"
 msgstr[1] ""
+"<p>Váš podpisový klíč OpenPGP</p><p align=center>%2</p><p>vyprší za %1 dny.</"
+"p>"
 msgstr[2] ""
+"<p>Váš podpisový klíč OpenPGP</p><p align=center>%2</p><p>vyprší za %1 dní.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -328,8 +350,13 @@ msgid_plural ""
 "<p>Your OpenPGP encryption key</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Váš šifrovací klíč OpenPGP</p><p align=center>%2</p><p> zítra vyprší.</p>"
 msgstr[1] ""
+"<p>Váš šifrovací klíč OpenPGP</p><p align=center>%2</p><p>vyprší za %1 dny.</"
+"p>"
 msgstr[2] ""
+"<p>Váš šifrovací klíč OpenPGP</p><p align=center>%2</p><p>vyprší za %1 dní.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -337,9 +364,13 @@ msgid ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires tomorrow.</p>"
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
-msgstr[0] ""
+msgstr[0] "<p>Klíč OpenPGP pro </p><p align=center>%2</p><p> zítra vyprší.</p>"
 msgstr[1] ""
+"<p>Platnost klíče OpenPGP pro </p><p align=center>%2</p><p>vyprší za %1 dny."
+"</p>"
 msgstr[2] ""
+"<p>Platnost klíče OpenPGP pro </p><p align=center>%2</p><p>vyprší za %1 dní."
+"</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -355,6 +386,9 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
+"<p>Kořenový certifikát</p><p align=center><b>%2</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%1</p><p>vypršel před méně než jedním "
+"dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -363,6 +397,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
+"<p>Kořenový certifikát</p><p align=center><b>%2</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%1</p><p>vypršel před méně než jedním "
+"dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -370,6 +407,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>Kořenový certifikát</p><p align=center><b>%2</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%1</p><p>vypršel před méně než jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -380,8 +419,14 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 msgstr[2] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -392,8 +437,14 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 msgstr[2] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -404,8 +455,14 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%2</p><p>včera vypršel. </p>"
 msgstr[1] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 msgstr[2] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -414,6 +471,9 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%2</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%1</p><p>vypršel před méně "
+"než jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -422,6 +482,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%2</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%1</p><p>vypršel před méně "
+"než jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -429,6 +492,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%2</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%1</p><p>vypršel před méně než jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -441,8 +506,16 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny."
+"</p>"
 msgstr[2] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny."
+"</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -455,8 +528,16 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny."
+"</p>"
 msgstr[2] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny."
+"</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -467,8 +548,14 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%2</p><p>včera vypršel. </p>"
 msgstr[1] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 msgstr[2] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%2</p><p>vypršel před %1 dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -476,6 +563,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%1</p><p>vypršel před "
+"méně než jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -483,6 +572,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%1</p><p>vypršel před "
+"méně než jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -490,6 +581,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
+"<p>Certifikát S/MIME pro </p><p align=center>%1</p><p>vypršel před méně než "
+"jedním dnem.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -500,8 +593,14 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%2</p><p>včera vypršel."
+"</p>"
 msgstr[1] ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%2</p><p>vypršel před "
+"%1 dny.</p>"
 msgstr[2] ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%2</p><p>vypršel před "
+"%1 dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -512,8 +611,14 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expired %1 "
 "days ago.</p>"
 msgstr[0] ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%2</p><p>včera vypršel."
+"</p>"
 msgstr[1] ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vypršel před "
+"%1 dny.</p>"
 msgstr[2] ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vypršel před "
+"%1 dny.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -524,8 +629,13 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
+"<p>Certifikát S/MIME pro </p><p align=center>%2</p><p>včera vypršel.</p>"
 msgstr[1] ""
+"<p>Certifikát S/MIME pro </p><p align=center>%2</p><p>vypršel před %1 dny.</"
+"p>"
 msgstr[2] ""
+"<p>Certifikát S/MIME pro </p><p align=center>%2</p><p>vypršel před %1 dny.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -533,6 +643,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%2</p><p>dnes vyprší.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -540,6 +652,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%2</p><p>dnes vyprší.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -547,6 +661,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%2</p><p>dnes vyprší. </p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -557,8 +673,14 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%2</p><p>zítra vyprší.</p>"
 msgstr[1] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dny.</p>"
 msgstr[2] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš podpisový "
+"certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -569,8 +691,14 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%2</p><p>zítra vyprší.</p>"
 msgstr[1] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dny.</p>"
 msgstr[2] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro váš šifrovací "
+"certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -581,8 +709,14 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%2</p><p>zítra vyprší.</p>"
 msgstr[1] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%2</p><p>vyprší za %1 dny.</p>"
 msgstr[2] ""
+"<p>Kořenový certifikát</p><p align=center><b>%3</b></p><p>pro certifikát S/"
+"MIME</p><p align=center>%2</p><p>vyprší za %1 dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -591,6 +725,8 @@ msgid ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires today.</"
 "p>"
 msgstr ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%2</p><p>dnes vyprší. </p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -599,6 +735,8 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%2</p><p>dnes vyprší. </p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -606,6 +744,8 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%2</p><p>dnes vyprší. </p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -618,8 +758,14 @@ msgid_plural ""
 "your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%2</p><p>zítra vyprší. </p>"
 msgstr[1] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dny.</p>"
 msgstr[2] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"podpisový certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -632,8 +778,14 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%2</p><p>zítra vyprší. </p>"
 msgstr[1] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dny.</p>"
 msgstr[2] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro váš "
+"šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -644,8 +796,14 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%2</p><p>zítra vyprší. </p>"
 msgstr[1] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%2</p><p>vyprší za %1 dny.</p>"
 msgstr[2] ""
+"<p>Mezilehlý certifikát CA</p><p align=center><b>%3</b></p><p>pro certifikát "
+"S/MIME</p><p align=center>%2</p><p>vyprší za %1 dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -653,6 +811,8 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%2</p><p>dnes vyprší.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -660,12 +820,14 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%2</p><p>dnes vyprší.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
-msgstr ""
+msgstr "<p>Certifikát S/MIME pro</p><p align=center>%2</p><p>dnes vyprší. </p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -676,8 +838,14 @@ msgid_plural ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%2</p><p>zítra vyprší."
+"</p>"
 msgstr[1] ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 "
+"dny.</p>"
 msgstr[2] ""
+"<p>Váš podpisový certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 "
+"dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -688,8 +856,14 @@ msgid_plural ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in "
 "%1 days.</p>"
 msgstr[0] ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%2</p><p>zítra vyprší."
+"</p>"
 msgstr[1] ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 "
+"dny.</p>"
 msgstr[2] ""
+"<p>Váš šifrovací certifikát S/MIME</p><p align=center>%2</p><p>vyprší za %1 "
+"dní.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -700,8 +874,11 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
+"<p>Certifikát S/MIME pro</p><p align=center>%2</p><p>zítra vyprší.</p>"
 msgstr[1] ""
+"<p>Certifikát S/MIME pro</p><p align=center>%2</p><p>vyprší za %1 dny.</p>"
 msgstr[2] ""
+"<p>Certifikát S/MIME pro</p><p align=center>%2</p><p>vyprší za %1 dní.</p>"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -712,7 +889,7 @@ msgstr "Vše"
 #: kleo/keyfiltermanager.cpp
 #, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr ""
+msgstr "Všechny certifikáty (s výjimkou deaktivovaných)"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -723,7 +900,7 @@ msgstr "Moje vlastní"
 #: kleo/keyfiltermanager.cpp
 #, kde-format
 msgid "My own certificates (except disabled ones)"
-msgstr ""
+msgstr "Moje vlastní certifikáty (s výjimkou deaktivovaných)"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -737,6 +914,8 @@ msgid ""
 "Certificates for which the primary user ID is certified (except disabled "
 "ones)"
 msgstr ""
+"Certifikáty, pro které je certifikováno primární uživatelské ID (s výjimkou "
+"deaktivovaných)"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -750,6 +929,8 @@ msgid ""
 "Certificates for which the primary user ID is not certified (except disabled "
 "ones)"
 msgstr ""
+"Certifikáty, pro které není certifikováno primární uživatelské ID (s "
+"výjimkou deaktivovaných)"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -763,6 +944,8 @@ msgid ""
 "Certificates that are not fully certified and that you may want to certify "
 "yourself (except disabled ones)"
 msgstr ""
+"Certifikáty, které nejsou plně certifikovány a které si možná budete chtít "
+"certifikovat sami (s výjimkou deaktivovaných)"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -775,6 +958,8 @@ msgstr "Nebylo plně certifikováno"
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr ""
+"Certifikáty, u nichž nejsou certifikována všechna uživatelská ID (s výjimkou "
+"deaktivovaných)"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -787,6 +972,8 @@ msgstr "Plně certifikováno"
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
+"Certifikáty, u nichž jsou certifikována všechna uživatelská ID (kromě "
+"deaktivovaných)"
 
 #: models/keylistmodel.cpp
 #, kde-format
@@ -798,7 +985,7 @@ msgstr "Název"
 #, kde-format
 msgctxt "@title:column"
 msgid "E-Mail"
-msgstr "E-Mail"
+msgstr "E-mail"
 
 #: models/keylistmodel.cpp
 #, kde-format
@@ -882,7 +1069,7 @@ msgstr "Algoritmus"
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
-msgstr ""
+msgstr "Keygrip"
 
 #: models/keylistmodel.cpp models/useridlistmodel.cpp
 #, kde-format
@@ -1004,13 +1191,13 @@ msgstr "Značky"
 #: models/useridlistmodel.cpp
 #, kde-format
 msgid "Trust Signature For"
-msgstr ""
+msgstr "Důvěryhodný podpis pro"
 
 #: ui/auditlogviewer.cpp
 #, kde-format
 msgctxt "@title:window"
 msgid "View GnuPG Audit Log"
-msgstr ""
+msgstr "Zobrazit záznam auditu GnuPG"
 
 #: ui/auditlogviewer.cpp
 #, kde-format
@@ -1027,7 +1214,7 @@ msgstr "&Uložit na disk..."
 #: ui/auditlogviewer.cpp
 #, kde-format
 msgid "Your system does not have support for GnuPG Audit Logs"
-msgstr ""
+msgstr "Váš systém nepodporuje záznamy auditu GnuPG"
 
 #: ui/auditlogviewer.cpp
 #, kde-format
@@ -1041,16 +1228,18 @@ msgid ""
 "An error occurred while trying to retrieve the GnuPG Audit Log:\n"
 "%1"
 msgstr ""
+"Při pokusu o načtení protokolu auditu GnuPG došlo k chybě:\n"
+"%1"
 
 #: ui/auditlogviewer.cpp
 #, kde-format
 msgid "GnuPG Audit Log Error"
-msgstr ""
+msgstr "Chyba v protokolu auditu GnuPG"
 
 #: ui/auditlogviewer.cpp
 #, kde-format
 msgid "No GnuPG Audit Log available for this operation."
-msgstr ""
+msgstr "Pro tuto operaci není k dispozici žádný auditní protokol GnuPG."
 
 #: ui/auditlogviewer.cpp
 #, kde-format
@@ -1067,7 +1256,7 @@ msgstr "Prohlížeč záznamů auditu GnuPG"
 #: ui/auditlogviewer.cpp
 #, kde-format
 msgid "Choose File to Save GnuPG Audit Log to"
-msgstr ""
+msgstr "Vyberte soubor, do kterého chcete uložit záznam auditu GnuPG"
 
 #: ui/auditlogviewer.cpp
 #, kde-format
@@ -1089,7 +1278,7 @@ msgstr "Chyba ukládání souboru"
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
-msgstr ""
+msgstr "Čtečka pro připojení k"
 
 #: ui/cryptoconfigmodule.cpp
 #, kde-format
@@ -1098,6 +1287,9 @@ msgid ""
 "seem to be installed properly. It did not return any components. Try running "
 "\"%1\" on the command line for more information."
 msgstr ""
+"Zdá se, že nástroj gpgconf, který slouží k poskytování informací pro toto "
+"dialogové okno, není správně nainstalován. Nevrátil žádné komponenty. Zkuste "
+"pro získání dalších informací spustit příkaz \"%1\" v příkazovém řádku."
 
 #: ui/cryptoconfigmodule.cpp
 #, kde-format
@@ -1151,7 +1343,7 @@ msgstr "Upravit..."
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Directory Services"
-msgstr ""
+msgstr "Nastavení adresářových služeb"
 
 #: ui/cryptoconfigmodule.cpp
 #, kde-format
@@ -1194,6 +1386,9 @@ msgid ""
 "Click to use a directory service running on your Active Directory. This "
 "works only on Windows and requires GnuPG 2.2.28 or later."
 msgstr ""
+"Kliknutím můžete využít adresářovou službu běžící ve vašem Active Directory. "
+"Tato funkce je dostupná pouze v systému Windows a vyžaduje GnuPG 2.2.28 nebo "
+"novější."
 
 #: ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1204,7 +1399,7 @@ msgstr "Server LDAP"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service provided by an LDAP server."
-msgstr ""
+msgstr "Kliknutím přidejte adresářovou službu poskytovanou serverem LDAP."
 
 #: ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1215,7 +1410,7 @@ msgstr "Přidat"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to add a directory service."
-msgstr ""
+msgstr "Kliknutím přidejte adresářovou službu."
 
 #: ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1224,6 +1419,8 @@ msgid ""
 "Click this button to add a directory service to the list of services. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
+"Kliknutím na toto tlačítko přidáte adresářovou službu do seznamu služeb. "
+"Změna se projeví až po potvrzení konfiguračního dialogového okna."
 
 #: ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1235,7 +1432,7 @@ msgstr "Úpravy"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to edit the selected service."
-msgstr ""
+msgstr "Kliknutím upravíte vybranou službu."
 
 #: ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1245,6 +1442,8 @@ msgid ""
 "service. The changes will only take effect once you acknowledge the "
 "configuration dialog."
 msgstr ""
+"Kliknutím na toto tlačítko upravíte nastavení aktuálně vybrané adresářové "
+"služby. Změny se projeví až po potvrzení konfiguračního dialogového okna."
 
 #: ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1256,7 +1455,7 @@ msgstr "Smazat"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Click to remove the selected service."
-msgstr ""
+msgstr "Kliknutím odstraníte vybranou službu."
 
 #: ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1265,6 +1464,8 @@ msgid ""
 "Click this button to remove the currently selected directory service. The "
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
+"Kliknutím na toto tlačítko odstraníte aktuálně vybranou adresářovou službu. "
+"Změna se projeví až po potvrzení konfiguračního dialogového okna."
 
 #: ui/directoryserviceswidget.cpp ui/directoryserviceswidget.cpp
 #, kde-format
@@ -1370,12 +1571,15 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter the name or IP address of the server hosting the directory service."
 msgstr ""
+"Zadejte název nebo IP adresu serveru, na kterém běží adresářová služba."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgctxt "@info:label"
 msgid "Error: Enter a hostname in the correct format, like ldap.example.com."
 msgstr ""
+"Chyba: Zadejte název hostitele ve správném formátu, například "
+"ldap.example.com."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1389,6 +1593,8 @@ msgid ""
 "<b>(Optional, the default is fine in most cases)</b> Pick the port number "
 "the directory service is listening on."
 msgstr ""
+"<b>(Volitelné, ve většině případů stačí výchozí nastavení)</b> Zvolte číslo "
+"portu, na kterém adresářová služba naslouchá."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1409,17 +1615,18 @@ msgstr "Anonymní"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr ""
+msgstr "Použijte anonymní server LDAP, který nevyžaduje ověření."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Authenticate via Active Directory"
-msgstr ""
+msgstr "Ověření prostřednictvím Active Directory"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Authenticate via Active Directory (requires GnuPG 2.2.28 or later)"
 msgstr ""
+"Ověření prostřednictvím Active Directory (vyžaduje GnuPG 2.2.28 nebo novější)"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1428,17 +1635,20 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
+"V systému Windows se přihlaste k serveru LDAP pomocí Active Directory pod "
+"aktuálním uživatelem."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr ""
+msgstr "Ověření pomocí uživatelského jména a hesla"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Authenticate to the LDAP server with your LDAP credentials."
 msgstr ""
+"Přihlaste se k serveru LDAP pomocí svých přihlašovacích údajů pro LDAP."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1451,6 +1661,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
+"Zadejte své uživatelské jméno LDAP, resp. Bind DN, pro ověření na serveru "
+"LDAP."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1465,21 +1677,24 @@ msgid ""
 "password will be saved in the clear in a configuration file in your home "
 "directory.</warning>"
 msgstr ""
+"Zadejte heslo pro ověření na serveru LDAP.<nl/><warning>Heslo bude uloženo v "
+"nešifrované podobě v konfiguračním souboru ve vašem domovském adresáři.</"
+"warning>"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Connection Security"
-msgstr "Zabezpečení spojení"
+msgstr "Zabezpečení připojení"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Connection Security (requires GnuPG 2.2.28 or later)"
-msgstr ""
+msgstr "Zabezpečení připojení (vyžaduje GnuPG 2.2.28 nebo novější)"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Use default connection (probably not TLS secured)"
-msgstr ""
+msgstr "Použít výchozí připojení (pravděpodobně nezabezpečené protokolem TLS)"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1488,11 +1703,14 @@ msgid ""
 "Use GnuPG's default to connect to the LDAP server. By default, GnuPG 2.3 and "
 "earlier use a plain, not TLS secured connection. <b>(Not recommended)</b>"
 msgstr ""
+"Pro připojení k serveru LDAP použít výchozí nastavení programu GnuPG. Ve "
+"výchozím nastavení používají GnuPG 2.3 a starší verze nezabezpečené "
+"připojení bez protokolu TLS. <b>(Nedoporučuje se)</b>"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Do not use a TLS secured connection"
-msgstr ""
+msgstr "Nepoužívat připojení zabezpečené protokolem TLS"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1501,11 +1719,13 @@ msgid ""
 "Use a plain, not TLS secured connection to connect to the LDAP server. "
 "<b>(Not recommended)</b>"
 msgstr ""
+"Pro připojení k serveru LDAP použít nezabezpečené připojení, nikoli "
+"připojení zabezpečené protokolem TLS. <b>(Nedoporučuje se)</b>"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Use TLS secured connection"
-msgstr ""
+msgstr "Použít připojení zabezpečené protokolem TLS"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1514,11 +1734,13 @@ msgid ""
 "Use a standard TLS secured connection (initiated with STARTTLS) to connect "
 "to the LDAP server. <b>(Recommended)</b>"
 msgstr ""
+"K připojení k serveru LDAP použít standardní připojení zabezpečené "
+"protokolem TLS (iniciované příkazem STARTTLS). <b>(Doporučeno)</b>"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr ""
+msgstr "Tunelovat LDAP přes připojení TLS"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1527,6 +1749,8 @@ msgid ""
 "Use a TLS secured connection through which the connection to the LDAP server "
 "is tunneled. <b>(Not recommended)</b>"
 msgstr ""
+"Použít připojení zabezpečené protokolem TLS, přes které je tunelováno "
+"připojení k serveru LDAP. <b>(Nedoporučuje se)</b>"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1536,7 +1760,7 @@ msgstr "Pokročilá nastavení"
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Base DN:"
-msgstr ""
+msgstr "Základní DN:"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1545,11 +1769,13 @@ msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
+"<b>(Volitelné, obvykle lze ponechat prázdné)</b> Zadejte základní DN tohoto "
+"serveru LDAP, aby se vyhledávání omezilo pouze na tento podstrom adresáře."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Additional flags:"
-msgstr ""
+msgstr "Další příznaky:"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1559,12 +1785,15 @@ msgid ""
 "supported by Kleopatra. For example, older versions of GnuPG use "
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
+"Zde můžete zadat další příznaky, které Kleopatra zatím (nebo již) "
+"nepodporuje. Například starší verze GnuPG používají <code>ldaps</code> k "
+"vyžádání připojení zabezpečeného protokolem TLS."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Directory Service"
-msgstr ""
+msgstr "Upravit adresářovou službu"
 
 #: ui/filenamerequester.cpp
 #, kde-format
@@ -1587,7 +1816,7 @@ msgstr "Zadat hodnotu."
 #, kde-format
 msgctxt "@info Used as generic error message for a text input"
 msgid "Enter a value in the correct format."
-msgstr ""
+msgstr "Zadejte hodnotu ve správném formátu."
 
 #: ui/formtextinput.cpp
 #, kde-format
@@ -1595,7 +1824,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (požadováno)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1695,8 +1924,8 @@ msgstr "<placeholder>neznámý</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt> <p>Nastala chyba při získávání klíčů z modulu:</p><p><b>%1</b></p></qt>"
 
@@ -1760,7 +1989,7 @@ msgstr "%1 <%2>"
 #: ui/keyselectioncombo.cpp ui/useridselectioncombo.cpp
 #, kde-format
 msgid "Loading keys ..."
-msgstr "Načítám klíče..."
+msgstr "Načítání klíče..."
 
 #: ui/keyselectiondialog.cpp
 #, kde-format
@@ -1870,7 +2099,7 @@ msgstr "Stav"
 #, kde-format
 msgctxt "Compliance of key"
 msgid "Compliance"
-msgstr ""
+msgstr "Shoda"
 
 #: ui/keyselectiondialog.cpp
 #, kde-format
@@ -1931,12 +2160,12 @@ msgstr "Chyba správce certifikátů"
 #: ui/keyselectiondialog.cpp
 #, kde-format
 msgid "Checking selected keys..."
-msgstr "Kontroluji vybrané klíče..."
+msgstr "Kontrola vybraných klíčů..."
 
 #: ui/keyselectiondialog.cpp
 #, kde-format
 msgid "Fetching keys..."
-msgstr "Stahuji klíče..."
+msgstr "Stahování klíče..."
 
 #: ui/keyselectiondialog.cpp
 #, kde-format
@@ -2011,19 +2240,19 @@ msgstr "E-mailová adresa"
 #: ui/nameandemailwidget.cpp
 #, kde-format
 msgid "Enter an email address."
-msgstr "Zadejte e-mailovou adresu"
+msgstr "Zadejte e-mailovou adresu."
 
 #: ui/nameandemailwidget.cpp
 #, kde-format
 msgid "The name must not include <, >, and @."
-msgstr ""
+msgstr "Název nesmí obsahovat znaky <, > a @."
 
 #: ui/nameandemailwidget.cpp
 #, kde-format
 msgctxt "text for screen readers"
 msgid ""
 "The name must not include less-than sign, greater-than sign, and at sign."
-msgstr ""
+msgstr "Název nesmí obsahovat znak menší než, znak větší než ani znak @."
 
 #: ui/nameandemailwidget.cpp
 #, kde-format
@@ -2031,6 +2260,8 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include <, >, and @."
 msgstr ""
+"Název musí mít formát požadovaný vaší organizací a nesmí obsahovat znaky <, "
+"> a @."
 
 #: ui/nameandemailwidget.cpp
 #, kde-format
@@ -2039,17 +2270,22 @@ msgid ""
 "The name must be in the format required by your organization and it must not "
 "include less-than sign, greater-than sign, and at sign."
 msgstr ""
+"Název musí mít formát požadovaný vaší organizací a nesmí obsahovat znaky "
+"menší než, větší než ani znak „@“."
 
 #: ui/nameandemailwidget.cpp
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr ""
+"Zadejte e-mailovou adresu ve správném formátu, například name@example.com."
 
 #: ui/nameandemailwidget.cpp
 #, kde-format
 msgid ""
 "Enter an email address in the correct format required by your organization."
 msgstr ""
+"Zadejte e-mailovou adresu ve správném formátu, který vyžaduje vaše "
+"organizace."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2091,20 +2327,22 @@ msgid ""
 "to decrypt and sign emails. You will be asked for a passphrase to protect "
 "this key and the protected key will be stored in your home directory."
 msgstr ""
+"Vygenerujte nový klíč pomocí své e-mailové adresy.<br/><br/>Tento klíč je "
+"nezbytný k dešifrování a podepisování e-mailů. Budete požádáni o zadání "
+"hesla k ochraně tohoto klíče a chráněný klíč bude uložen ve vašem domovském "
+"adresáři."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "@title:window"
 msgid "Security approval"
-msgstr ""
+msgstr "Bezpečnostní schválení"
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokol"
+msgstr "Kryptografický protokol:"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2119,6 +2357,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Vytvořit zprávu ve formátu OpenPGP. To znamená, že lze vybrat pouze "
+"šifrovací klíče OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2133,13 +2373,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Vytvořit zprávu ve formátu S/MIME. To znamená, že lze vybrat pouze šifrovací "
+"klíče S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Kombinace OpenPGP a S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-kuit-format
@@ -2150,23 +2391,26 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Vytvořit dvě samostatné zprávy – jednu zašifrovanou pro příjemce s klíči "
+"OpenPGP a druhou pro příjemce s klíči S/MIME. To umožňuje kombinovat oba "
+"typy klíčů, může to však příjemcům zkomplikovat odpověď všem adresátům."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Zpráva bude vytvořena ve formátu OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Zpráva bude vytvořena ve formátu S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr "Vytvářím klíč pro '%1'..."
+msgstr "Vytváření klíče pro '%1'..."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2202,11 +2446,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "E-mail nebude kryptograficky podepsán."
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Podepsat"
+msgstr "Podepsat jako:"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2215,11 +2458,13 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Podepsání zprávy poskytuje kryptografické potvrzení, že jste skutečně "
+"odesílatelem této zprávy."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgid "No key. Recipient will be unable to decrypt."
-msgstr ""
+msgstr "Chybí klíč. Příjemce nebude schopen data dešifrovat."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2229,17 +2474,20 @@ msgid ""
 "the encrypted email, but it can only be decrypted with the other keys "
 "selected in this dialog."
 msgstr ""
+"Pro tohoto příjemce nevybírejte žádný klíč.<br/><br/>Příjemce obdrží "
+"zašifrovaný e-mail, který však lze dešifrovat pouze pomocí ostatních klíčů "
+"vybraných v tomto dialogovém okně."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "Encrypt to self (email address):"
 msgid "Encrypt to self (%1):"
-msgstr ""
+msgstr "Zašifrovat pro sebe (%1):"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgid "Encrypt to others:"
-msgstr ""
+msgstr "Zašifrovat pro ostatní:"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2257,6 +2505,8 @@ msgid ""
 "Encrypts the secret key with an unrecoverable passphrase. You will be asked "
 "for the passphrase during key generation."
 msgstr ""
+"Zašifruje tajný klíč pomocí hesla, které nelze obnovit. Při generování klíče "
+"budete vyzváni k zadání tohoto hesla."
 
 #: ui/openpgpcertificatecreationdialog.cpp
 #, kde-format
@@ -2273,7 +2523,7 @@ msgstr "Typ klíčů"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
-msgstr ""
+msgstr "Nastavte tento klíč pro sdílené použití v týmech"
 
 #: ui/openpgpcertificatecreationdialog.cpp
 #, kde-format
@@ -2305,7 +2555,7 @@ msgstr "Vyskytl se problém."
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Default reader"
-msgstr ""
+msgstr "Výchozí čtečka"
 
 #: ui/readerportselection.cpp
 #, kde-kuit-format
@@ -2317,12 +2567,17 @@ msgid ""
 "port number.</item><item>All other items represent readers that were found "
 "by GnuPG.</item></list></para>"
 msgstr ""
+"<para>Vyberte čtečku čipových karet, kterou má GnuPG používat."
+"<list><item>První položka způsobí, že GnuPG použije první nalezenou čtečku.</"
+"item><item>Poslední položka umožňuje zadat vlastní ID čtečky nebo číslo "
+"portu čtečky.</item><item>Všechny ostatní položky představují čtečky, které "
+"GnuPG našlo.</item></list></para>"
 
 #: ui/readerportselection.cpp
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Custom reader ID or port number"
-msgstr ""
+msgstr "Vlastní ID čtečky nebo číslo portu"
 
 #: ui/treeview_p.cpp
 #, kde-format
@@ -2334,13 +2589,13 @@ msgstr "Zobrazit sloupce"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Řadit dle"
 
 #: ui/treeview_p.cpp
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr ""
+msgstr "Směr třídění"
 
 #: ui/treeview_p.cpp
 #, kde-format
@@ -2355,12 +2610,10 @@ msgid "Descending"
 msgstr "Sestupně"
 
 #: ui/treeview_p.cpp
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "&Copy to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Z&kopírovat do schránky"
+msgstr "Zkopírovat obsah buňky do schránky"
 
 #: ui/useridselectioncombo.cpp
 #, kde-format
@@ -2411,7 +2664,7 @@ msgstr "Datum nelze změnit."
 #, kde-format
 msgctxt "@info ... between <a date> and <another date>."
 msgid "Enter a date between %1 and %2."
-msgstr "Zadejte datum mezi %1 a %2"
+msgstr "Zadejte datum mezi %1 a %2."
 
 #: utils/expiration.cpp
 #, kde-format
@@ -2444,7 +2697,7 @@ msgstr "%1-bit %2"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Signing (Qualified)"
-msgstr ""
+msgstr "Podepisování (kvalifikované)"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2459,7 +2712,7 @@ msgstr "Šifrování"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Certifying User IDs"
-msgstr "Certifikuji ID uživatelů"
+msgstr "Certifikace ID uživatelů"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2479,7 +2732,7 @@ msgstr "Odvolaný"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Expired"
-msgstr "Prošlý"
+msgstr "Prošlé"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2542,7 +2795,7 @@ msgstr "Důvěryhodnost certifikace"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Trusted issuer?"
-msgstr "Důvěryhodný vydavatel"
+msgstr "Důvěryhodný vydavatel?"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2557,13 +2810,13 @@ msgstr "Ne"
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Stored"
-msgstr "Uloženo: "
+msgstr "Uloženo"
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "stored..."
 msgid "on SmartCard with serial no. %1"
-msgstr ""
+msgstr "na čipové kartě se sériovým číslem %1"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2575,27 +2828,29 @@ msgstr "na tomto počítači"
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
+"Některé klíče jsou odvolány, jejich platnost vypršela, jsou deaktivovány "
+"nebo jsou neplatné."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "All keys are certified."
-msgstr ""
+msgstr "Všechny klíče jsou certifikovány."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "Some keys are not certified."
-msgstr ""
+msgstr "Některé klíče nejsou certifikovány."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr ""
+msgstr "Platnost klíčů nelze v tuto chvíli ověřit."
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "Tato skupina neobsahuje žádné klíče."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2604,6 +2859,8 @@ msgid ""
 "Some of the certificates in this group cannot be used for encryption. Using "
 "this group can lead to unexpected results."
 msgstr ""
+"Některé certifikáty v této skupině nelze použít k šifrování. Použití této "
+"skupiny může vést k neočekávaným výsledkům."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2615,9 +2872,9 @@ msgstr "Klíče:"
 msgctxt "this follows a list of keys"
 msgid "and 1 more key"
 msgid_plural "and %1 more keys"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "a ještě 1 klíč"
+msgstr[1] "a ještě %1 klíče"
+msgstr[2] "a ještě %1 klíčů"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2790,7 +3047,7 @@ msgstr "Chybný podpis od %1: %2"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Good signature by unknown certificate %1."
-msgstr "Dobrý podpis neznámým certifikátem %1:  "
+msgstr "Dobrý podpis neznámým certifikátem %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2836,16 +3093,17 @@ msgstr "Při importu tohoto certifikátu došlo k chybě: %1"
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
 msgstr ""
+"Tento certifikát je ve vašem úložišti klíčů nový. Tajný klíč je k dispozici."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "This certificate is new to your keystore."
-msgstr ""
+msgstr "Tento certifikát je v vašem úložišti klíčů nový."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "New user-ids were added to this certificate by the import."
-msgstr ""
+msgstr "Importem byly do tohoto certifikátu přidány nové uživatelské id."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2855,12 +3113,13 @@ msgstr "Importem byly do tohoto certifikátu přidány nové podpisy."
 #: utils/formatting.cpp
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
-msgstr ""
+msgstr "Importem byly do tohoto certifikátu přidány nové podklíče."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "The import contained no new data for this certificate. It is unchanged."
 msgstr ""
+"Import neobsahoval žádná nová data pro tento certifikát. Zůstává beze změn."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2915,18 +3174,18 @@ msgstr[2] "%2 (%1 klíčů, %3)"
 msgctxt "name of group of keys (n key(s), validity, tag)"
 msgid "%2 (1 key, %3, tag)"
 msgid_plural "%2 (%1 keys, %3, tag)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 (1 klíč, %3, značka)"
+msgstr[1] "%2 (%1 klíče, %3, značka)"
+msgstr[2] "%2 (%1 klíčů, %3, značka)"
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "name of group of keys (n key(s), validity, group ...)"
 msgid "%2 (1 key, %3, unknown origin)"
 msgid_plural "%2 (%1 keys, %3, unknown origin)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 (1 klíč, %3, neznámý původ)"
+msgstr[1] "%2 (%1 klíče, %3, neznámý původ)"
+msgstr[2] "%2 (%1 klíčů, %3, neznámý původ)"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2944,6 +3203,8 @@ msgid ""
 "The trust model indicates marginally that the certificate belongs to this "
 "recipient."
 msgstr ""
+"Model důvěryhodnosti naznačuje pouze v omezené míře, že certifikát patří "
+"tomuto příjemci."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2954,11 +3215,12 @@ msgstr "Tento certifikát by neměl být používán."
 #, kde-format
 msgid "There is no indication that this certificate belongs to this recipient."
 msgstr ""
+"Neexistuje žádný náznak toho, že by tento certifikát patřil tomuto příjemci."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "This group does not contain any keys."
-msgstr ""
+msgstr "Tato skupina neobsahuje žádné klíče."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
@@ -3034,12 +3296,14 @@ msgstr "Vygenerováno"
 msgctxt "Certifies this key as partially trusted introducer for 'domain name'."
 msgid "Certifies this key as partially trusted introducer for '%1'."
 msgstr ""
+"Tento klíč certifikuje jako částečně důvěryhodný zprostředkovatel pro '%1'."
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "Certifies this key as fully trusted introducer for 'domain name'."
 msgid "Certifies this key as fully trusted introducer for '%1'."
 msgstr ""
+"Tento klíč certifikuje jako plně důvěryhodný zprostředkovatel pro '%1'."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3203,36 +3467,37 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
+"Podpis je platný, ale důvěryhodnost platnosti certifikátu je pouze minimální."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
-msgstr ""
+msgstr "Podpis je platný a platnost certifikátu je plně důvěryhodná."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
-msgstr ""
+msgstr "Podpis je platný a platnost certifikátu je zcela důvěryhodná."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
-msgstr ""
+msgstr "Podpis je platný, ale platnost certifikátu je <em>nedůvěryhodná</em>."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Podpis je v pořádku, ale platnost certifikátu je neznámá."
+msgstr "Podpis je platný, ale platnost certifikátu je neznámá."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "The signature is valid but the certificate's validity is undefined."
-msgstr ""
+msgstr "Podpis je platný, ale platnost certifikátu není definována."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Neznámý certifikát"
@@ -3245,34 +3510,29 @@ msgstr "%1 (%2)"
 
 #: utils/formatting.cpp
 #, kde-format
-msgctxt "1 is a date"
-msgid ""
-"Signature created on %1 using an unknown certificate with fingerprint %2"
-msgstr ""
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: utils/formatting.cpp
 #, kde-format
-msgid "Signature created using an unknown certificate with fingerprint %1"
-msgstr ""
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Podepsáno %1 %2."
 
 #: utils/formatting.cpp
 #, kde-format
-msgctxt "1 is a date"
-msgid "Signature created on %1 with certificate: %2"
-msgstr ""
-
-#: utils/formatting.cpp
-#, kde-format
-msgid "Signature created with certificate: %1"
-msgstr ""
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Podepsáno %1."
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Podpis je %1"
+msgid "The signature is %1."
+msgstr "Podpis je %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3280,7 +3540,30 @@ msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature <b>is not</b> %1."
-msgstr ""
+msgstr "Podpis <b>není</b> %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "1 is a date"
+msgid ""
+"Signature created on %1 using an unknown certificate with fingerprint %2"
+msgstr "Podpis byl vytvořen %1 pomocí neznámého certifikátu s otiskem %2"
+
+#: utils/formatting.cpp
+#, kde-format
+msgid "Signature created using an unknown certificate with fingerprint %1"
+msgstr "Podpis byl vytvořen pomocí neznámého certifikátu s otiskem %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "1 is a date"
+msgid "Signature created on %1 with certificate: %2"
+msgstr "Podpis vytvořen %1 pomocí certifikátu: %2"
+
+#: utils/formatting.cpp
+#, kde-format
+msgid "Signature created with certificate: %1"
+msgstr "Podpis vytvořený pomocí certifikátu: %1"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3338,6 +3621,7 @@ msgid "Bad signature"
 msgstr "Chybný podpis"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Podpis není platný: %1"
@@ -3349,26 +3633,24 @@ msgstr ""
 "Certifikát můžete hledat na serveru klíčů, nebo jej importovat ze souboru."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "Použitý klíč není certifikován vámi nebo jinou důvěryhodnou osobou."
+msgstr ""
+"Podpis je platný, ale použitý klíč nebyl certifikován vámi ani žádnou "
+"důvěryhodnou osobou."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Použitý certifikát není podepsán žádnou důvěryhodnou certifikační autoritou "
-"nebo je certifikační autorita neznámá."
+"Podpis je platný, ale použitý certifikát nebyl vydán důvěryhodnou "
+"certifikační autoritou nebo je certifikační autorita neznámá."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #: utils/formatting.cpp
@@ -3378,6 +3660,8 @@ msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
 msgstr ""
+"<strong>Upozornění:</strong> Neexistuje žádný důkaz, že podpis patří "
+"majiteli."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
@@ -3385,81 +3669,521 @@ msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
-msgstr ""
+msgstr "<strong>Upozornění:</strong> Není jisté, zda podpis patří majiteli."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is invalid: %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Podpis není platný: %1"
+msgstr "Podpis je platný, ale jeho platnost již vypršela."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr "Použitý klíč není certifikován vámi nebo jinou důvěryhodnou osobou."
+msgstr ""
+"Podpis je platný, ale jeho platnost již vypršela a použitý klíč nebyl "
+"certifikován ani vámi, ani žádnou důvěryhodnou osobou."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is unknown."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Podpis je v pořádku, ale platnost certifikátu je neznámá."
+msgstr "Podpis je platný, ale platnost použitého klíče vypršela."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is unknown."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Podpis je v pořádku, ale platnost certifikátu je neznámá."
+msgstr "Podpis je platný, ale použitý klíč byl odvolán."
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Upozornění:</strong> To by mohlo znamenat, že podpis je padělaný."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The used key is not certified by you or any trusted person."
+msgstr ""
+"Použitý klíč nebyl certifikován ani vámi, ani žádnou důvěryhodnou osobou."
 
 #: utils/formatting.cpp
 #, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#| msgctxt "@info"
+#| msgid ""
+#| "Signature verification was successful: Data and signature match and the "
+#| "certificate is valid and trusted."
 msgctxt "@info"
-msgid "The used key is not certified by you or any trusted person."
-msgstr "Použitý klíč není certifikován vámi nebo jinou důvěryhodnou osobou."
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Ověření podpisu proběhlo úspěšně: Data a podpis se shodují a certifikát je "
+"platný a důvěryhodný."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Ověření podpisu proběhlo úspěšně: Data a podpis se shodují a certifikát je "
+"platný a důvěryhodný."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Data and signature do not match."
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr "Údaje a podpis se neshodují."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Podpisovému certifikátu nelze důvěřovat."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The data cannot be trusted. Reason: %1"
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Těmto datům nelze důvěřovat. Důvod: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Údaje a podpis se neshodují."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Těmto datům nelze důvěřovat. Důvod: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Podpis údajně pochází od %1 a je datován %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Podpis údajně pochází od %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr "Podpis nelze ověřit, protože příslušný certifikát není k dispozici."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Otisk certifikátu podpisu je %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Sériové číslo certifikátu podpisu a jeho vydavatel jsou %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It cannot be verified whether the data originates from the stated source."
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Nelze ověřit, zda data pocházejí z uvedeného zdroje."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr "Nelze ověřit, zda data pocházejí z uvedeného zdroje."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Platnost podpisu vypršela."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Platnost podpisového certifikátu vypršela."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Podpisový certifikát byl odvolán."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signing certificate is not present in your certificate list, but it "
+#| "is needed to verify the data."
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"Podpisový certifikát se ve vašem seznamu certifikátů nenachází, je však "
+"potřebný k ověření údajů."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+"Podpisový certifikát se ve vašem seznamu certifikátů nenachází, je však "
+"potřebný k ověření údajů."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Technically, signature and data match, but the signing certificate is not "
+#| "marked as trusted. Therefore the data cannot be trusted to originate from "
+#| "the stated source."
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Technicky vzato se podpis a data shodují, ale podpisový certifikát není "
+"označen jako důvěryhodný. Nelze tedy s jistotou tvrdit, že data pocházejí z "
+"uvedeného zdroje."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Technicky vzato se podpis a data shodují, ale podpisový certifikát není "
+"označen jako důvěryhodný. Nelze tedy s jistotou tvrdit, že data pocházejí z "
+"uvedeného zdroje."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "For an expired certificate, it cannot be evaluated whether the "
+#| "certificate can be trusted. Therefore the data cannot be trusted. "
+#| "Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"U certifikátu, jehož platnost vypršela, nelze posoudit, zda je certifikát "
+"důvěryhodný. Z tohoto důvodu nelze důvěřovat ani údajům. Z technického "
+"hlediska se podpis a údaje shodují."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If the certificate was valid and trusted when you received the data, the "
+#| "data is likely valid."
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Pokud byl certifikát v okamžiku přijetí dat platný a důvěryhodný, jsou data "
+"s největší pravděpodobností platná."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+"U certifikátu, jehož platnost vypršela, nelze posoudit, zda je certifikát "
+"důvěryhodný. Z tohoto důvodu nelze důvěřovat ani údajům. Z technického "
+"hlediska se podpis a údaje shodují."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+"Pokud byl certifikát v okamžiku přijetí dat platný a důvěryhodný, jsou data "
+"s největší pravděpodobností platná."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The certificate may have been revoked because it was compromised and it "
+#| "might now be used by a third party. The data can therefore not be "
+#| "trusted. Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Certifikát mohl být zrušen, protože došlo k jeho zneužití a nyní jej možná "
+"používá třetí strana. Těmto údajům proto nelze důvěřovat. Z technického "
+"hlediska se podpis a údaje shodují."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It is possible that you received the data at a time when the certificate "
+#| "was still valid and trusted. If this is the case, the data may be valid."
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"Je možné, že jste data obdrželi v době, kdy byl certifikát ještě platný a "
+"důvěryhodný. Pokud tomu tak je, mohou být data platná."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+"Certifikát mohl být zrušen, protože došlo k jeho zneužití a nyní jej možná "
+"používá třetí strana. Těmto údajům proto nelze důvěřovat. Z technického "
+"hlediska se podpis a údaje shodují."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+"Je možné, že jste data obdrželi v době, kdy byl certifikát ještě platný a "
+"důvěryhodný. Pokud tomu tak je, mohou být data platná."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The data or the signature has been altered. This can happen accidentally "
+#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
+#| "subsequent change to the data, possibly by an email client), or "
+#| "intentionally (deliberate manipulation)."
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Data nebo podpis byly pozměněny. K tomu může dojít náhodně (např. v důsledku "
+"chyby při přenosu), neúmyslně (např. v důsledku následné změny dat, případně "
+"ze strany e-mailového klienta) nebo úmyslně (záměrná manipulace)."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Data nebo podpis byly pozměněny. K tomu může dojít náhodně (např. v důsledku "
+"chyby při přenosu), neúmyslně (např. v důsledku následné změny dat, případně "
+"ze strany e-mailového klienta) nebo úmyslně (záměrná manipulace)."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Ask the sender for the certificate or import it from a file or a "
+#| "keyserver. Then verify the data again."
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Požádejte odesílatele o certifikát nebo jej načtěte ze souboru či ze serveru "
+"klíčů. Poté údaje znovu ověřte."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+"Požádejte odesílatele o certifikát nebo jej načtěte ze souboru či ze serveru "
+"klíčů. Poté údaje znovu ověřte."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
+#| "again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr "Ověřte otisk certifikátu a potvrďte jej. Poté data znovu ověřte."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
+#| "the data again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Ověřte otisk kořenové certifikační autority (Root-CA) certifikátu a označte "
+"jej jako důvěryhodný. Poté data znovu ověřte."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr "Ověřte otisk certifikátu a potvrďte jej. Poté data znovu ověřte."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+"Ověřte otisk kořenové certifikační autority (Root-CA) certifikátu a označte "
+"jej jako důvěryhodný. Poté data znovu ověřte."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Můžete vyhledat aktualizovaný certifikát na serveru klíčů nebo o něj požádat "
+"odesílatele a poté po importu certifikátu údaje znovu ověřit."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If in doubt, contact the signer to clarify the situation and, if "
+#| "necessary, ask them to resend the data signed with a current certificate."
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"V případě pochybností se obraťte na podepisujícího, abyste si situaci "
+"vyjasnili, a v případě potřeby ho požádejte, aby vám data podepsaná "
+"aktuálním certifikátem zaslal znovu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+"Můžete vyhledat aktualizovaný certifikát na serveru klíčů nebo o něj požádat "
+"odesílatele a poté po importu certifikátu údaje znovu ověřit."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+"V případě pochybností se obraťte na podepisujícího, abyste si situaci "
+"vyjasnili, a v případě potřeby ho požádejte, aby vám data podepsaná "
+"aktuálním certifikátem zaslal znovu."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Ask the sender to resend the data."
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Požádat odesílatele, aby data poslal znovu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr "Požádat odesílatele, aby data poslal znovu."
 
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
 msgid "GnuPG provides support for OpenPGP/LibrePGP and S/MIME."
-msgstr ""
+msgstr "GnuPG podporuje OpenPGP/LibrePGP a S/MIME."
 
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Libgcrypt is a general purpose cryptographic library."
-msgstr ""
+msgstr "Libgcrypt je univerzální kryptografická knihovna."
 
 #: utils/hex.cpp
 #, kde-format
 msgid "Invalid hex char '%1' in input stream."
-msgstr ""
+msgstr "V vstupním streamu se vyskytuje neplatný hexadecimální znak '%1'."
 
 #: utils/hex.cpp utils/hex.cpp
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Potvrdit identitu '%1' jako:"
+"Předčasný konec znaku kódovaného v hexadecimálním formátu ve vstupním streamu"

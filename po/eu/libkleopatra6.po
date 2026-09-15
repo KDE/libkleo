@@ -8,19 +8,26 @@
 # Ion Gaztañaga <ion_g_m@hotmail.com>, 2005.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024, 2025, 2026.
+#
+# Egoera: 2026-08-15ean hasita, fitxategi hau berrikusteko prozesuan dago
+# Proiektu osoaren berrikuspen integrala: UUUU-HH-EE.
+# Azken berrikuspena: 2026-08-26 — egoera ondua mantendu da.
+# Terminologia, estiloa, ortotipografia, kohesioa eta koherentzia berrikusi dira.
+# Erreferentzia-gida: —
+# Ikus, halaber: KDE-eu-berrikuspen-integralen-erregistroa.md
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-07-21 02:05+0200\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
+"PO-Revision-Date: 2026-08-27 01:48+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: kleo/checksumdefinition.cpp
@@ -335,11 +342,11 @@ msgid_plural ""
 "<p>Your OpenPGP signing key</p><p align=center>%2</p><p>expires in %1 days.</"
 "p>"
 msgstr[0] ""
-"<p>Sinatzeko zureOpenPGP gakoa,</p><p align=center>%2,</p><p>bihar iraungiko "
-"da</p>"
+"<p>Sinatzeko zure OpenPGP gakoa,</p><p align=center>%2,</p><p>bihar "
+"iraungiko da.</p>"
 msgstr[1] ""
 "<p>Sinatzeko zure OpenPGP gakoa,</p><p align=center>%2,</p><p>%1 egun barru "
-"iraungiko da</p>"
+"iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -363,7 +370,7 @@ msgid ""
 msgid_plural ""
 "<p>The OpenPGP key for</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>gaur iraungiko da</p>"
+"<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
 "<p align=center>%2(e)rako</p><p>OpenPGP gakoa</p><p>%1 egun barru iraungiko "
 "da.</p>"
@@ -382,7 +389,7 @@ msgid ""
 "signing certificate</p><p align=center>%1</p><p>expired less than a day ago."
 "</p>"
 msgstr ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erro "
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erroko "
 "ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat baino "
 "gutxiago iraungi da.</p>"
 
@@ -393,9 +400,9 @@ msgid ""
 "encryption certificate</p><p align=center>%1</p><p>expired less than a day "
 "ago.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat baino "
-"gutxiago iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat "
+"baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -403,8 +410,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%2</b></p><p>for S/MIME "
 "certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erro ziurtagiria,</"
-"p><p align=center><b>%2</b>,</p><p>duela egun bat baino gutxiago iraungi zen."
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%2</b>,</p><p>duela egun bat baino gutxiago iraungi da."
 "</p>"
 
 #: kleo/expirychecker.cpp
@@ -416,11 +423,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo iraungi zen.</p>"
 msgstr[1] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun iraungi zen.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -431,12 +439,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo iraungi "
+"zen.</p>"
 msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</"
-"p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun "
+"iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -447,11 +456,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro ziurtagiria,</"
-"p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>atzo iraungi zen.</p>"
 msgstr[1] ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%2</p><p>erro ziurtagiria</p><p "
-"align=center><b>%3</b>,<p>duela %1 egun iraungi zen.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -462,7 +471,7 @@ msgid ""
 msgstr ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</"
 "p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela "
-"egun bat baino gutxiago iraungi zen.</p>"
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -471,9 +480,9 @@ msgid ""
 "your S/MIME encryption certificate</p><p align=center>%1</p><p>expired less "
 "than a day ago.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p> "
-"<p>bitarteko CA ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun "
-"bat baino gutxiago iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela "
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -481,9 +490,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%1</p><p>bitarteko CA "
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%1,</p><p>bitarteko CA "
 "ziurtagiria,</p><p align=center><b>%2</b>,</p><p>duela egun bat baino "
-"gutxiago iraungi zen.</p>"
+"gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -497,12 +506,12 @@ msgid_plural ""
 "ago.</p>"
 msgstr[0] ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi "
-"zen.</p>"
-msgstr[1] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo "
 "iraungi zen.</p>"
+msgstr[1] ""
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 "
+"egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -516,12 +525,12 @@ msgid_plural ""
 "days ago.</p>"
 msgstr[0] ""
 "<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi "
-"zen.</p>"
-msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo "
 "iraungi zen.</p>"
+msgstr[1] ""
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 "
+"egun iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -533,10 +542,11 @@ msgid_plural ""
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>atzo iraungi zen.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>atzo iraungi zen.</p>"
 msgstr[1] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>duela %1 egun iraungi zen.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>duela %1 egun iraungi zen.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -545,7 +555,7 @@ msgid ""
 "than a day ago.</p>"
 msgstr ""
 "<p>Sinatzeko zure S/MIME ziurtagiria,</p><p align=center>%1,</p><p>duela "
-"egun bat baino gutxiago iraungi zen.</p>"
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -553,8 +563,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%1,</p>duela "
-"egun bat baino gutxiago iraungi zen.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiria,</p><p align=center>%1,</p><p>duela "
+"egun bat baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -562,8 +572,8 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%1,</p><p>duela egun "
-"bat baino gutxiago iraungi zen.</p>"
+"<p align=center>%1(e)rako</p><p>S/MIME ziurtagiria</p><p>duela egun bat "
+"baino gutxiago iraungi da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -604,10 +614,10 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expired %1 days "
 "ago.</p>"
 msgstr[0] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>atzo iraungi "
-"zen.</p>"
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>atzo iraungi zen.</"
+"p>"
 msgstr[1] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>duela %1 egun "
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>duela %1 egun "
 "iraungi zen.</p>"
 
 #: kleo/expirychecker.cpp
@@ -616,8 +626,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur iraungitzen da.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -625,8 +635,9 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur iraungitzen da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur iraungiko "
+"da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -634,8 +645,8 @@ msgid ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erro ziurtagiria,</"
-"p><p align=center><b>%3</b>,<p>gaur iraungitzen da.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>gaur iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -646,11 +657,12 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "signing certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko "
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun barru iraungiko da."
+"</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -661,11 +673,13 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for your S/MIME "
 "encryption certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar iraungiko "
+"da.</p>"
 msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>erroko ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun barru "
+"iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -676,11 +690,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
-"<p>S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro ziurtagiria,</p> <p "
-"align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
-"<p>S/MIME ziurtagiriaren,<p align=center>%2,</p><p>erro ziurtagiria,</p> <p "
-"align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>erroko ziurtagiria,</"
+"p><p align=center><b>%3</b>,</p><p>%1 egun barru iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -690,7 +704,7 @@ msgid ""
 "p>"
 msgstr ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
@@ -701,7 +715,7 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
@@ -711,7 +725,7 @@ msgid ""
 "MIME certificate</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>gaur iraungiko da.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>gaur iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -725,12 +739,12 @@ msgid_plural ""
 "days.</p>"
 msgstr[0] ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar "
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar "
 "iraungiko da.</p>"
 msgstr[1] ""
 "<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
-"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru "
-"iraungiko da.</p>"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun "
+"barru iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -743,12 +757,13 @@ msgid_plural ""
 "your S/MIME encryption certificate</p><p align=center>%2</p><p>expires in %1 "
 "days.</p>"
 msgstr[0] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>bitarteko "
-"CA ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar "
+"iraungiko da.</p>"
 msgstr[1] ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,<p align=center>%2,</p><p>bitarteko "
-"CA ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</"
-"p>"
+"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</"
+"p><p>bitarteko CA ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun "
+"barru iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -760,10 +775,11 @@ msgid_plural ""
 "MIME certificate</p><p align=center>%2</p><p>expires in %1 days.</p>"
 msgstr[0] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>bihar iraungiko da.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>bihar iraungiko da.</p>"
 msgstr[1] ""
 "<p>S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>bitarteko CA "
-"ziurtagiria,</p><p align=center><b>%3</b>,<p>%1 egun barru iraungiko da.</p>"
+"ziurtagiria,</p><p align=center><b>%3</b>,</p><p>%1 egun barru iraungiko da."
+"</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -771,7 +787,7 @@ msgid ""
 "<p>Your S/MIME signing certificate</p><p align=center>%2</p><p>expires today."
 "</p>"
 msgstr ""
-"<p>Sinatzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>gaur "
+"<p>Sinatzeko zure S/MIME ziurtagiria,</p><p align=center>%2,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
@@ -780,7 +796,7 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
-"<p>Zifratzeko zure S/MIME ziurtagiriaren,</p><p align=center>%2,</p><p>gaur "
+"<p>Zifratzeko zure S/MIME ziurtagiria,</p><p align=center>%2,</p><p>gaur "
 "iraungiko da.</p>"
 
 #: kleo/expirychecker.cpp
@@ -788,8 +804,8 @@ msgstr ""
 msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires today.</p>"
 msgstr ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>gaur "
-"iraungiko da.</p>"
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>gaur iraungiko da.</"
+"p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -830,10 +846,10 @@ msgid_plural ""
 "<p>The S/MIME certificate for</p><p align=center>%2</p><p>expires in %1 days."
 "</p>"
 msgstr[0] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>bihar "
-"iraungiko da.</p>"
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>bihar iraungiko da."
+"</p>"
 msgstr[1] ""
-"<p>Ondokoaren S/MIME ziurtagiria,</p><p align=center>%2,</p><p>%1 egun barru "
+"<p align=center>%2(e)rako</p><p>S/MIME ziurtagiria</p><p>%1 egun barru "
 "iraungiko da.</p>"
 
 #: kleo/keyfiltermanager.cpp
@@ -845,7 +861,7 @@ msgstr "Denak"
 #: kleo/keyfiltermanager.cpp
 #, kde-format
 msgid "All certificates (except disabled ones)"
-msgstr "Ziurtagiria denak (ezgaitutakoak salbu)"
+msgstr "Ziurtagiri guztiak (ezgaitutakoak salbu)"
 
 #: kleo/keyfiltermanager.cpp
 #, kde-format
@@ -913,7 +929,7 @@ msgstr "Guztiz ziurtatu gabe"
 msgid ""
 "Certificates for which not all user IDs are certified (except disabled ones)"
 msgstr ""
-"Erabiltzaile-ID guztiak ziurtatuta ez dauden ziurtagiriak (ezgaitutakoak "
+"Erabiltzaile ID guztiak ziurtatuta ez dituzten ziurtagiriak (ezgaitutakoak "
 "salbu)"
 
 #: kleo/keyfiltermanager.cpp
@@ -927,7 +943,8 @@ msgstr "Guztiz ziurtatuta"
 msgid ""
 "Certificates for which all user IDs are certified (except disabled ones)"
 msgstr ""
-"Erabiltzaile-ID guztiak ziurtatuta dauden ziurtagiriak (ezgaitutakoak salbu)"
+"Erabiltzaile ID guztiak ziurtatuta dituzten ziurtagiriak (ezgaitutakoak "
+"salbu)"
 
 #: models/keylistmodel.cpp
 #, kde-format
@@ -957,7 +974,7 @@ msgstr "Noiztik balioduna"
 #, kde-format
 msgctxt "@title:column"
 msgid "Valid Until"
-msgstr "Noiz arte balioduna"
+msgstr "Baliotasun-aldiaren amaiera"
 
 #: models/keylistmodel.cpp
 #, kde-format
@@ -1005,7 +1022,7 @@ msgstr "Azken eguneratzea"
 #, kde-format
 msgctxt "@title:column"
 msgid "Certification Trust"
-msgstr "Ziurtagiriaren konfiantza"
+msgstr "Ziurtapen-konfiantza"
 
 #: models/keylistmodel.cpp
 #, kde-format
@@ -1023,7 +1040,7 @@ msgstr "Algoritmoa"
 #, kde-format
 msgctxt "@title:column"
 msgid "Keygrip"
-msgstr "Gako-kontrola"
+msgstr "Keygrip"
 
 #: models/keylistmodel.cpp models/useridlistmodel.cpp
 #, kde-format
@@ -1061,12 +1078,12 @@ msgstr "Mota"
 #: models/subkeylistmodel.cpp models/useridlistmodel.cpp
 #, kde-format
 msgid "Valid From"
-msgstr "Baliozkoa noiztik,"
+msgstr "Noiztik balioduna"
 
 #: models/subkeylistmodel.cpp models/useridlistmodel.cpp
 #, kde-format
 msgid "Valid Until"
-msgstr "Baliozkoa noiz arte,"
+msgstr "Baliotasun-aldiaren amaiera"
 
 #: models/subkeylistmodel.cpp models/useridlistmodel.cpp
 #, kde-format
@@ -1144,7 +1161,7 @@ msgstr "Etiketak"
 #: models/useridlistmodel.cpp
 #, kde-format
 msgid "Trust Signature For"
-msgstr "Sinaduran fidatu honetarako,"
+msgstr "Konfiantzazko sinaduraren domeinua"
 
 #: ui/auditlogviewer.cpp
 #, kde-format
@@ -1783,7 +1800,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (beharrezkoa)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1883,11 +1900,11 @@ msgstr "<placeholder>ezezaguna</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>Errore bat gertatu da gakoak bizkarraldekotik eskuratzean:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>Errore bat gertatu da gakoak bizkarraldekotik eskuratzean:</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp ui/keyrequester.cpp ui/keyrequester.cpp
 #: ui/keyselectiondialog.cpp ui/keyselectiondialog.cpp
@@ -1966,7 +1983,7 @@ msgstr "Gakoa iraungita dago."
 #: ui/keyselectiondialog.cpp
 #, kde-format
 msgid "The key is revoked."
-msgstr "Gakoa indargabetuta dago."
+msgstr "Gakoa baliogabetuta dago."
 
 #: ui/keyselectiondialog.cpp
 #, kde-format
@@ -2037,7 +2054,7 @@ msgstr "Balioduna noiztik"
 #: ui/keyselectiondialog.cpp utils/formatting.cpp
 #, kde-format
 msgid "Valid until"
-msgstr "Balioduna noiz arte"
+msgstr "Baliotasun-aldiaren amaiera"
 
 #: ui/keyselectiondialog.cpp
 #, kde-format
@@ -2611,13 +2628,13 @@ msgstr "%1 (beta)"
 #, kde-format
 msgctxt "@label Valid until (<a date>):"
 msgid "Valid until (%1):"
-msgstr "Noiz arte balio du (%1):"
+msgstr "Baliotasun-aldiaren amaiera (%1):"
 
 #: utils/expiration.cpp
 #, kde-format
 msgctxt "@label ... (between <a date> and <another date>):"
 msgid "Valid until (between %1 and %2):"
-msgstr "Noiz arte balio du (%1 eta %2 artean):"
+msgstr "Baliotasun-aldiaren amaiera (%1 eta %2 artean):"
 
 #: utils/expiration.cpp
 #, kde-format
@@ -2692,7 +2709,7 @@ msgstr "Ezgaituta"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Revoked"
-msgstr "Indargetuta"
+msgstr "Baliogabetuta"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2724,7 +2741,7 @@ msgstr[1] "%1 erabiltzaile-ID ez daude ziurtatuta."
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "The validity cannot be checked at the moment."
-msgstr "Baliozkotasuna ezin da egiaztatu une honetan."
+msgstr "Une honetan baliotasuna ezin da egiaztatu."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2754,7 +2771,7 @@ msgstr "Hatz-marka"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Certification trust"
-msgstr "Ziurtapenaren konfiantza"
+msgstr "Ziurtapen-konfiantza"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2792,7 +2809,8 @@ msgstr "ordenagailu honetan"
 #, kde-format
 msgid "Some keys are revoked, expired, disabled, or invalid."
 msgstr ""
-"Gako batzuk indargetuta, iraungita, ezgaituta daude, edo baliogabeak dira."
+"Gako batzuk baliogabetuta, iraungita edo ezgaituta daude, edo baliogabeak "
+"dira."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2807,7 +2825,7 @@ msgstr "Gako batzuk ez daude ziurtatuta."
 #: utils/formatting.cpp
 #, kde-format
 msgid "The validity of the keys cannot be checked at the moment."
-msgstr "Gakoen baliozkotasuna ezin da egiaztatu une honetan."
+msgstr "Une honetan gakoen baliotasuna ezin da egiaztatu."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2924,7 +2942,7 @@ msgstr "ezgaituta"
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "revoked"
-msgstr "indargabetuta"
+msgstr "baliogabetuta"
 
 #: utils/formatting.cpp utils/formatting.cpp utils/formatting.cpp
 #: utils/formatting.cpp
@@ -2947,7 +2965,7 @@ msgstr "Ados"
 #: utils/formatting.cpp
 #, kde-format
 msgid "valid"
-msgstr "baliozkoa"
+msgstr "balioduna"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2957,7 +2975,7 @@ msgstr "%1 klasea"
 #: utils/formatting.cpp
 #, kde-format
 msgid "certificate expired"
-msgstr "ziurtagiria iraungita"
+msgstr "ziurtagiria iraungita dago"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -2978,12 +2996,12 @@ msgstr "gakoa ezgaituta"
 #: utils/formatting.cpp
 #, kde-format
 msgid "key revoked"
-msgstr "gakoa indargabetuta"
+msgstr "gakoa baliogabetuta dago"
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "key expired"
-msgstr "gakoa iraungita"
+msgstr "gakoa iraungita dago"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3429,21 +3447,22 @@ msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
 "marginal."
 msgstr ""
-"Sinadura balioduna da baina ziurtagiriren baliotasunarekiko konfiantza "
+"Sinadura balioduna da, baina ziurtagiriaren baliotasunarekiko konfiantza "
 "bazterrekoa baino ez da."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid "The signature is valid and the certificate's validity is fully trusted."
 msgstr ""
-"Sinadura balioduna da eta ziurtagiriaren baliotasuna erabateko konfiantza du."
+"Sinadura balioduna da, eta ziurtagiriaren baliotasunean konfiantza osoa dago."
 
 #: utils/formatting.cpp
 #, kde-format
 msgid ""
 "The signature is valid and the certificate's validity is ultimately trusted."
 msgstr ""
-"Sinadura baloduna da eta ziurtagiriaren baliotasunak muturreko konfiantza du."
+"Sinadura balioduna da, eta ziurtagiriaren baliotasunean erabateko konfiantza "
+"dago."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3451,7 +3470,7 @@ msgid ""
 "The signature is valid but the certificate's validity is <em>not trusted</"
 "em>."
 msgstr ""
-"Sinadura balioduna da baina ziurtagiriaren baliotasunak <em>ez du "
+"Sinadura balioduna da, baina ziurtagiriaren baliotasunean <em>ez dago "
 "konfiantzarik</em>."
 
 #: utils/formatting.cpp
@@ -3465,7 +3484,7 @@ msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 "Sinadura balioduna da, baina ziurtagiriaren baliotasuna definitu gabe dago."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Ziurtagiri ezezaguna"
@@ -3475,6 +3494,40 @@ msgstr "Ziurtagiri ezezaguna"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "%1(e)k %2(e)an sinatua."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "%1(e)k sinatua."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Sinadura %1 da."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Sinadura <b>ez da</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3502,22 +3555,6 @@ msgstr "Ondoko ziurtagiriarekin sortutako sinadura: %1"
 
 #: utils/formatting.cpp
 #, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Sinadura %1 da"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Sinadura <b>ez da</b> %1."
-
-#: utils/formatting.cpp
-#, kde-format
 msgid "Error: Signature not verified"
 msgstr "Errorea: sinadura ez da egiaztatu"
 
@@ -3529,7 +3566,7 @@ msgstr "Sinadura ona"
 #: utils/formatting.cpp
 #, kde-format
 msgid "Signing certificate was revoked"
-msgstr "Sinatzeko ziurtagiria indargabetu da"
+msgstr "Sinatzeko ziurtagiria baliogabetu da"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3572,6 +3609,7 @@ msgid "Bad signature"
 msgstr "Sinadura txarra"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Sinadura baliogabea da: %1"
@@ -3600,8 +3638,9 @@ msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Sinadura balioduna da, baina erabilitako ziurtagiria ez du ziurtagiri "
-"agintaritza fidagarri batek ziurtatu edo ziurtagiri agintaritza ezezaguna da."
+"Sinadura balioduna da, baina erabilitako ziurtagiria ez du ziurtagiri-"
+"agintaritza fidagarri batek ziurtatu, edo ziurtagiri-agintaritza ezezaguna "
+"da."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #: utils/formatting.cpp
@@ -3662,6 +3701,465 @@ msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "Erabilitako gakoa ez duzu zuk, ez konfiantzazko inork ziurtatu."
 
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Signature verification was successful: Data and signature match and the "
+#| "certificate is valid and trusted."
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Sinadura egiaztatzea ongi burutu da: datuak eta sinadura bat datoz, eta "
+"ziurtagiria balioduna eta konfiantzazkoa da."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Sinadura egiaztatzea ongi burutu da: datuak eta sinadura bat datoz, eta "
+"ziurtagiria balioduna eta konfiantzazkoa da."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Data and signature do not match."
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr "Datuak eta sinadura ez datoz bat."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Sinatzeko ziurtagirian ez da fidatu behar."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The data cannot be trusted. Reason: %1"
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Datuetan ezin da fidatu. Arrazoia: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Datuak eta sinadura ez datoz bat."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Datuetan ezin da fidatu. Arrazoia: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Sinadurak %1(e)rena dela dio, eta %2 data du."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Sinadurak %1(e)rena dela dio."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+"Sinadura ezin da egiaztatu dagokion ziurtagiria erabilgarri ez dagoelako."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Sinatzeko ziurtagiriaren hatz-marka %1 da."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Sinatzeko ziurtagiriaren serie-zenbakia eta igorlea hauek dira: %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It cannot be verified whether the data originates from the stated source."
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Datuak adierazitako sorburutik datozen ala ez ezin da egiaztatu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr "Datuak adierazitako sorburutik datozen ala ez ezin da egiaztatu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Sinadura iraungi da."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Sinatzeko ziurtagiria iraungi da."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Sinatzeko ziurtagiria baliogabetu da."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signing certificate is not present in your certificate list, but it "
+#| "is needed to verify the data."
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"Sinatzeko ziurtagiria ez dago zure ziurtagiri-zerrendan, baina datuak "
+"egiaztatzeko beharrezkoa da."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+"Sinatzeko ziurtagiria ez dago zure ziurtagiri-zerrendan, baina datuak "
+"egiaztatzeko beharrezkoa da."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Technically, signature and data match, but the signing certificate is not "
+#| "marked as trusted. Therefore the data cannot be trusted to originate from "
+#| "the stated source."
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Teknikoki, sinadura eta datuak bat datoz, baina sinatzeko ziurtagiria ez "
+"dago konfiantzazko gisa markatuta. Horregatik, ezin da datuak adierazitako "
+"sorburutik datozela fidagarritzat jo."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Teknikoki, sinadura eta datuak bat datoz, baina sinatzeko ziurtagiria ez "
+"dago konfiantzazko gisa markatuta. Horregatik, ezin da datuak adierazitako "
+"sorburutik datozela fidagarritzat jo."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "For an expired certificate, it cannot be evaluated whether the "
+#| "certificate can be trusted. Therefore the data cannot be trusted. "
+#| "Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Iraungitako ziurtagiri baten kasuan, ezin da ziurtagirian fidatu daitekeen "
+"ala ez ebaluatu. Horregatik, datuetan ezin da fidatu. Teknikoki, sinadura "
+"eta datuak bat datoz."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If the certificate was valid and trusted when you received the data, the "
+#| "data is likely valid."
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Datuak jaso zenituenean ziurtagiria balioduna eta konfiantzazkoa bazen, "
+"litekeena da datuak baliodunak izatea."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+"Iraungitako ziurtagiri baten kasuan, ezin da ziurtagirian fidatu daitekeen "
+"ala ez ebaluatu. Horregatik, datuetan ezin da fidatu. Teknikoki, sinadura "
+"eta datuak bat datoz."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+"Datuak jaso zenituenean ziurtagiria balioduna eta konfiantzazkoa bazen, "
+"litekeena da datuak baliodunak izatea."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The certificate may have been revoked because it was compromised and it "
+#| "might now be used by a third party. The data can therefore not be "
+#| "trusted. Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Baliteke ziurtagiria haren segurtasuna urratu zelako baliogabetu izana, eta "
+"baliteke orain hirugarren batek erabiltzea. Horregatik, datuetan ezin da "
+"fidatu. Teknikoki, sinadura eta datuak bat datoz."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It is possible that you received the data at a time when the certificate "
+#| "was still valid and trusted. If this is the case, the data may be valid."
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"Baliteke datuak ziurtagiria oraindik balioduna eta konfiantzazkoa zen "
+"garaian jaso izana. Hala bada, datuak baliodunak izan daitezke."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+"Baliteke ziurtagiria haren segurtasuna urratu zelako baliogabetu izana, eta "
+"baliteke orain hirugarren batek erabiltzea. Horregatik, datuetan ezin da "
+"fidatu. Teknikoki, sinadura eta datuak bat datoz."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+"Baliteke datuak ziurtagiria oraindik balioduna eta konfiantzazkoa zen "
+"garaian jaso izana. Hala bada, datuak baliodunak izan daitezke."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The data or the signature has been altered. This can happen accidentally "
+#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
+#| "subsequent change to the data, possibly by an email client), or "
+#| "intentionally (deliberate manipulation)."
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Datuak edo sinadura aldatu egin dira. Hori ustekabean (adib., transmisio-"
+"errore baten ondorioz), nahi gabe (adib., datuetan gerora egindako aldaketa "
+"baten ondorioz, agian e-posta bezero batek egina), edo nahita (berariazko "
+"manipulazio baten ondorioz) gerta daiteke."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Datuak edo sinadura aldatu egin dira. Hori ustekabean (adib., transmisio-"
+"errore baten ondorioz), nahi gabe (adib., datuetan gerora egindako aldaketa "
+"baten ondorioz, agian e-posta bezero batek egina), edo nahita (berariazko "
+"manipulazio baten ondorioz) gerta daiteke."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Ask the sender for the certificate or import it from a file or a "
+#| "keyserver. Then verify the data again."
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Ziurtagiria bidaltzaileari eskatu edo fitxategi batetik edo gako-zerbitzari "
+"batetik inportatu. Ondoren, datuak berriz egiaztatu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+"Ziurtagiria bidaltzaileari eskatu edo fitxategi batetik edo gako-zerbitzari "
+"batetik inportatu. Ondoren, datuak berriz egiaztatu."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
+#| "again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Ziurtagiriaren hatz-marka egiaztatu eta ziurtagiria ziurtatu. Ondoren, "
+"datuak berriz egiaztatu."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
+#| "the data again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Ziurtagiriaren erroko ziurtagiri-agintaritzaren hatz-marka egiaztatu eta "
+"hartan fidatu. Ondoren, datuak berriz egiaztatu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+"Ziurtagiriaren hatz-marka egiaztatu eta ziurtagiria ziurtatu. Ondoren, "
+"datuak berriz egiaztatu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+"Ziurtagiriaren erroko ziurtagiri-agintaritzaren hatz-marka egiaztatu eta "
+"hartan fidatu. Ondoren, datuak berriz egiaztatu."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Gako-zerbitzari batean ziurtagiri eguneratu bat bilatu edo bidaltzaileari "
+"eska diezaiokezu; ondoren, ziurtagiria inportatu eta datuak berriz egiaztatu."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If in doubt, contact the signer to clarify the situation and, if "
+#| "necessary, ask them to resend the data signed with a current certificate."
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"Zalantzarik baduzu, sinatzailearekin harremanetan jarri egoera argitzeko "
+"eta, beharrezkoa bada, datuak egungo ziurtagiri batekin sinatuta berriz "
+"bidaltzeko eskatu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+"Gako-zerbitzari batean ziurtagiri eguneratu bat bilatu edo bidaltzaileari "
+"eska diezaiokezu; ondoren, ziurtagiria inportatu eta datuak berriz egiaztatu."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+"Zalantzarik baduzu, sinatzailearekin harremanetan jarri egoera argitzeko "
+"eta, beharrezkoa bada, datuak egungo ziurtagiri batekin sinatuta berriz "
+"bidaltzeko eskatu."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Ask the sender to resend the data."
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Bidaltzaileari datuak berriz bidaltzeko eskatu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr "Bidaltzaileari datuak berriz bidaltzeko eskatu."
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3685,367 +4183,3 @@ msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
 "Sarrerako korrontean, hamaseitarrean kodetutako karakterearen amaiera "
 "goiztiarra"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Berretsi '%1' nortasuna honela:"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Errorea: Sartu balio bat."
-
-#~ msgid "Subkey"
-#~ msgstr "Azpigakoa"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, sorrera: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, sorrera: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Algoritmo ezezaguna"
-
-#~ msgid "All certificates"
-#~ msgstr "Ziurtagiri denak"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Direktorio zerbitzuak ezin dira konfiguratu erabilitako «gpgme» "
-#~ "liburutegiak zaharregiak direlako."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Barkatu"
-
-#, fuzzy
-#~| msgid "With unavailable certificate:"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Erabilgarri ez dagoen ziurtagiriarekin:"
-
-#, fuzzy
-#~| msgid "With unavailable certificate:"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Erabilgarri ez dagoen ziurtagiriarekin:"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Ziurtagiriarekin: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-posta"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "ona"
-
-#~ msgid "Unknown"
-#~ msgstr "Ezezaguna"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Erabiltzaile IDak"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Erabateko konfiantzadun ziurtagiriak"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Ziurtatu gabeko ziurtagiriak"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Baliozkotu gabeko ziurtagiriak"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Erabiltzaile-IDak"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Gako-ID"
-
-#~ msgid "User-ID"
-#~ msgstr "Erabiltzaile-ID"
-
-#~ msgid "Key-ID"
-#~ msgstr "Gako-ID"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Ez baieztatu nortasuna eta osotasuna"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "«GpgConf» errorea"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Ziurtagiri kudeatzailea eta zifratzeko GUI bateratua"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Sinadurak huts egin du: %1"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Errorea enkriptatzean: %1"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption successful"
-#~ msgstr "Entriptatzeko gakoak:"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgid "Signing Result"
-#~ msgstr "Eskaneatzearen emaitzak"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Result"
-#~ msgstr "Entriptatzeko gakoak:"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Error"
-#~ msgstr "Entriptatzeko gakoak:"
-
-#~ msgid "never"
-#~ msgstr "inoiz ez"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Mugitu behera"
-
-#, fuzzy
-#~| msgid "never"
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "inoiz ez"
-
-#~ msgid "Server Name"
-#~ msgstr "Zerbitzariaren izena"
-
-#, fuzzy
-#~| msgid "Server Name"
-#~ msgid "Server Port"
-#~ msgstr "Zerbitzariaren izena"
-
-#~ msgid "Base DN"
-#~ msgstr "Baseko DN-a"
-
-#~ msgid "User Name"
-#~ msgstr "Erabiltzaile izena"
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Direktorio zerbitzuen konfigurazioa"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP gako hautapena"
-
-#~ msgid "&Reset"
-#~ msgstr "&Berrezarri"
-
-#, fuzzy
-#~| msgid "Configure LDAP Servers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Konfiguratu LDAP zerbitzariak"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Hartzailea:"
-
-#, fuzzy
-#~| msgid "OpenPGP"
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus komando-lerroko tresna"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Euskarririk gabeko \"%1\" protokoloa"
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "\"%1\" fitxategia ez da existitzen edo ez da exekutagarria."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Chiasmus-en irteera"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Ondorengoa jaso da stderr-en:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Errorea %1 kargatzean: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Liburutegiak ez du \"Chiasmus\" sinbolorik."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "%1 direktorioa eskaneatzen..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME %1 euskarri gabe konpilatu da."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "%1 euskarria ez dago ongi instalatuta."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "%1 euskarria, %2 bertsioa instalatuta dago, baina gutxienez %3 bertsioa "
-#~ "behar da."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Arazo ezezaguna euskarrian %1 protokoloarekin."
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "programa ezin da exekutatu"
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program not found or cannot be started"
-#~ msgstr "programa ezin da exekutatu"
-
-#, fuzzy
-#~| msgid "<qt>Failed to execute gpgconf:<br>%1</qt>"
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Errorea gpgconf exekutatzean:<br>%1</qt>"
-
-#, fuzzy
-#~| msgid ""
-#~| "Could not start gpgconf\n"
-#~| "Check that gpgconf is in the PATH and that it can be started"
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Ezin da gpgconf abiatu\n"
-#~ "Egiaztatu gpgconf PATH aldagaiaren bidean dagoela eta abiatu daitekeela"
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Errore gpg conf-en konfigurazioa gordetzean: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "ElGamal gakoa sortzen..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Zenbaki bakun handi bat bilatzen..."
-
-#, fuzzy
-#~| msgid ""
-#~| "Waiting for new entropy from random number generator (you might want to "
-#~| "excercise the harddisks or move the mouse)..."
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Ausazko zenbaki sortzaile batetik entropia berri bat itxaroten (diska "
-#~ "gogorra lanean jarri edo arratoia mugi dezakezu)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Itxaron mesedez..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "\"gpg-agent\" abiatzen (instantzia global bat abiatzea kontsidera "
-#~ "zenezake)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "%2 euskarrian %1 ahalmenen bila eskaneatzean:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "%1-(r)en OpenPGP gakoa\n"
-#~ "Sortua: %2\n"
-#~ "Iraungipen-data: %3\n"
-#~ "Hatz-marka: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "%1-(r)en S/MIME gakoa\n"
-#~ "Sortua: %2\n"
-#~ "Iraungipen-data: %3\n"
-#~ "Hatz-marka: %4 Jaulkitzailea: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Zerbitzariaren izena:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Erabiltzaile izena (aukerakoa):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Pasa&hitza (aukerakoa):"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Ion Gaztañaga"
-
-#~ msgid "failed"
-#~ msgstr "errorea"
-
-#~ msgid "Available Backends"
-#~ msgstr "Euskarri eskuragarriak"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "Konfi&guratu..."
-
-#~ msgid "Rescan"
-#~ msgstr "Berreskaneatu"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Ondorengo arazoak aurkitu dira eskaneatzean:"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Eskaneatzearen emaitzak"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Errorea \"%1\" plugin-a hasieratzean"

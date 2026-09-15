@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
 "PO-Revision-Date: 2023-05-22 17:53+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -11,12 +11,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-POFile-Allow: 4\n"
-"X-POFile-SpellExtra: DN CRLs Kpgp gpg agent gpgconf gnupg pgp GpgME ID\n"
+"X-POFile-SpellExtra: MMMM yyyy CA\n"
 "X-POFile-SpellExtra: GPGME DSA ElGamal Chiasmus chiasmus stderr https hkp\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-SpellExtra: ldaps ftps yes GpgConf patterns command id verify\n"
 "X-POFile-SpellExtra: create VS Card Smart NfD mails criptograficamente\n"
-"X-POFile-IgnoreConsistency: Type\n"
+"X-POFile-IgnoreConsistency: Name\n"
 "X-POFile-IgnoreConsistency: Name\n"
 "X-POFile-SpellExtra: conf Directory STARTTLS Kleopatra gpgme smart cards\n"
 "X-POFile-SpellExtra: MMMM yyyy CA\n"
@@ -1823,7 +1823,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr ""
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error"
@@ -1933,8 +1933,8 @@ msgstr "<placeholder>desconhecido</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Ocorreu um erro ao obter as chaves da infra-estrutura:</p><p><b>%1</"
 "b></p></qt>"
@@ -3552,7 +3552,7 @@ msgstr ""
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, fuzzy, kde-format
 #| msgid "My Certificates"
 msgid "Unknown certificate"
@@ -3563,6 +3563,44 @@ msgstr "Os Meus Certificados"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Bad signature by %1: %2"
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Assinatura incorrecta por %1: %2"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Assinatura válida por %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Assinatura válida por %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Assinatura válida por %1."
 
 #: utils/formatting.cpp
 #, fuzzy, kde-format
@@ -3590,24 +3628,6 @@ msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
 #| msgid "Bad signature by an unknown certificate: %1"
 msgid "Signature created with certificate: %1"
 msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
-
-#: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Assinatura válida por %1."
-
-#: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Assinatura válida por %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3671,6 +3691,7 @@ msgid "Bad signature"
 msgstr "Assinatura incorrecta por %1: %2"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, fuzzy, kde-format
 #| msgid "The key is not valid."
 msgid "The signature is invalid: %1"
@@ -3762,6 +3783,344 @@ msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "This certificate should not be used."
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Este certificado não deverá ser usado."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "The key can be used."
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "A chave pode ser usada."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "The key can be used."
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "A chave pode ser usada."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Assinatura válida por %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Assinatura válida por %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Bad signature by an unknown certificate: %1"
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Assinatura incorrecta por um certificado desconhecido: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "The key is not valid."
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "A chave não é válida."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "certificate expired"
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "certificado expirado"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "certificate expired"
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "certificado expirado"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr ""
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3783,122 +4142,3 @@ msgstr "Carácter hexadecimal '%1' inválido na sequência de entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fim prematuro do carácter hexadecimal na sequência de entrada"
-
-#, fuzzy
-#~| msgid "OpenPGP"
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#, fuzzy
-#~| msgid "S/MIME"
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Confirmar a identidade '%1' como:"
-
-#~ msgid "Subkey"
-#~ msgstr "Sub-chave"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, criado a: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, criado a: %4)"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "All certificates"
-#~ msgstr "Todos os Certificados"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "A configuração dos serviços de directório não é possível porque as "
-#~ "bibliotecas do 'gpgme' usadas são demasiado antigas."
-
-#, fuzzy
-#~| msgid "Sorry"
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Desculpe"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Todos os Certificados"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Todos os Certificados"
-
-#, fuzzy
-#~| msgid "Other Certificates"
-#~ msgid "With certificate: %1"
-#~ msgstr "Outros Certificados"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-mail"
-
-#, fuzzy
-#~| msgctxt "as in good/valid signature"
-#~| msgid "good"
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "boa"
-
-#~ msgid "Unknown"
-#~ msgstr "Desconhecido"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "ID do Utilizador"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Certificados de Confiança Total"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Certificados Não Certificados"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Certificados Não Validados"
-
-#, fuzzy
-#~| msgid "User-IDs"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "ID's do Utilizador"
-
-#, fuzzy
-#~| msgid "Key-ID"
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "ID da Chave"
-
-#~ msgid "User-ID"
-#~ msgstr "ID do Utilizador"
-
-#~ msgid "Key-ID"
-#~ msgstr "ID da Chave"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Não confirmar a identidade e integridade"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "Erro do GpgConf"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Gestor de Certificados e GUI Unificada de Criptografia"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
 "PO-Revision-Date: 2026-06-26 21:03+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -24,8 +24,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 26.04.2\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
-"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -1972,7 +1972,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (обязательно)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -2072,8 +2072,8 @@ msgstr "<placeholder>неизвестный</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>При получении ключей от модуля произошла ошибка:</p><p><b>%1</b></p></"
 "qt>"
@@ -2428,8 +2428,8 @@ msgstr ""
 #, kde-format
 msgid "Enter an email address in the correct format, like name@example.com."
 msgstr ""
-"Введите адрес электронной почты в корректном формате. Например, name@example."
-"com."
+"Введите адрес электронной почты в корректном формате. Например, "
+"name@example.com."
 
 #: ui/nameandemailwidget.cpp
 #, kde-format
@@ -3669,7 +3669,7 @@ msgstr "Подпись действительна, но не известна д
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "Подпись действительна, но не определена действительность сертификата."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Неизвестный сертификат"
@@ -3679,6 +3679,48 @@ msgstr "Неизвестный сертификат"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "User ID (Key ID)"
+#| msgid "%1 (%2)"
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Bad signature by %1: %2"
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Некорректная подпись %1: %2"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Корректная подпись %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Подпись удовлетворяет условию «%1»"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Подпись <b>не</b> удовлетворяет условию «%1»."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3702,22 +3744,6 @@ msgstr "Подпись создана %1 с помощью сертификат�
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Подпись создана с помощью сертификата: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Подпись удовлетворяет условию «%1»"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Подпись <b>не</b> удовлетворяет условию «%1»."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3775,6 +3801,7 @@ msgid "Bad signature"
 msgstr "Некорректная подпись"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Подпись недействительна: %1"
@@ -3872,6 +3899,358 @@ msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "Использовавшийся ключ не удостоверен вами или каким-либо доверенным лицом."
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "This certificate should not be used."
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Использование этого сертификата недопустимо."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The date cannot be changed."
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Дату нельзя изменить."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The date cannot be changed."
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Дату нельзя изменить."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Подпись удовлетворяет условию «%1»"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Подпись удовлетворяет условию «%1»"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid ""
+#| "The signature is valid but the trust in the certificate's validity is "
+#| "only marginal."
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+"Подпись действительна, но нет полной уверенности в действительности "
+"сертификата."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signature created using an unknown certificate with fingerprint %1"
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Подпись создана с помощью неизвестного сертификата с отпечатком %1"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signature created using an unknown certificate with fingerprint %1"
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Подпись создана с помощью неизвестного сертификата с отпечатком %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The signature is valid but it has expired."
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Подпись действительна, но срок её действия истёк."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signing certificate is expired"
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Cертификат подписи просрочен"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signing certificate was revoked"
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Сертификат подписи отозван"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr ""
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3893,635 +4272,3 @@ msgstr "Недопустимый символ (шестнадцатеричны�
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Неожиданное окончание во входящем шифрованном шестнадцатеричном потоке"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Подтвердить идентичность «%1» от имени:"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Ошибка: введите значение."
-
-#~ msgid "Subkey"
-#~ msgstr "Часть ключа"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, создан: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, создан: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Неизвестный алгоритм"
-
-#, fuzzy
-#~ msgid "All certificates"
-#~ msgstr "Все сертификаты"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Невозможно настроить службы каталогов, потому что используемые библиотеки "
-#~ "gpgme устарели."
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Ошибка"
-
-#, fuzzy
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Все сертификаты"
-
-#, fuzzy
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Все сертификаты"
-
-#, fuzzy
-#~ msgid "With certificate: %1"
-#~ msgstr "Прочие сертификаты"
-
-#~ msgid "E-Mail"
-#~ msgstr "Адрес эл. почты"
-
-#, fuzzy
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "корректный"
-
-#~ msgid "Unknown"
-#~ msgstr "Неизвестно"
-
-#, fuzzy
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Идентификатор пользователя"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Полностью доверенные сертификаты"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Несертифицированные сертификаты"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Непроверенные сертификаты"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Идентификаторы пользователя"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Идентификатор ключа"
-
-#~ msgid "User-ID"
-#~ msgstr "Идентификатор пользователя"
-
-#~ msgid "Key-ID"
-#~ msgstr "Идентификатор ключа"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Не подтверждать идентичность и целостность"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "Ошибка GpgConf"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Управление сертификатами и криптографией"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Ошибка подписи: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "подпись создана"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Ошибка шифрования: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "зашифровано"
-
-#~ msgid "Signing Result"
-#~ msgstr "Результат подписи"
-
-#~ msgid "Signing Error"
-#~ msgstr "Ошибка подписи"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Результат шифрования"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Ошибка шифрования"
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "Возможно установление связи в соответствии со стандартом %1"
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "Невозможно установить связь в соответствии со стандартом %1."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "Может быть использован для соединений на уровне %1."
-
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "<b>Не может</b> быть использован для соединений на уровне %1."
-
-#~ msgid "never"
-#~ msgstr "никогда"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Дата создания"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Срок годности"
-
-#~ msgid "Created"
-#~ msgstr "Дата создания"
-
-#~ msgid "Expires"
-#~ msgstr "Действителен до"
-
-#, fuzzy
-#~ msgctxt "@action:button accessible name for 'Add to list'"
-#~ msgid "add"
-#~ msgstr "Добавить"
-
-#, fuzzy
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Переместить вниз"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Custom entry"
-#~ msgstr "Другая запись"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "server"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Адрес сервера"
-
-#~ msgid "Server Port"
-#~ msgstr "Порт сервера"
-
-#~ msgid "Base DN"
-#~ msgstr "База поиска"
-
-#~ msgid "User Name"
-#~ msgstr "Имя пользователя"
-
-#~ msgid "(read-only)"
-#~ msgstr "(только для чтения)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (только для чтения)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Необязательно)</b> Укажите имя пользователя, если необходимо."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Настройка служб каталогов"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "Сервер ключей OpenPGP:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Нажмите кнопку для создания копии выбранной службы каталогов (или "
-#~ "создания новой со стандартными значениями, если ничего не выбрано). "
-#~ "Настроить службу можно на панели слева."
-
-#~ msgid "New"
-#~ msgstr "Создать"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Используйте этот параметр, чтобы показать имя пользователя и пароль в "
-#~ "таблице или скрыть их."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Показывать имя пользователя и пароль"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "Настройка модуля GnuPG"
-
-#~ msgid "&Reset"
-#~ msgstr "Сб&рос"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Используемый сервер ключей"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Параметры серверов ключей"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "Отсутствуют ключи, соответствующие адресу «%1»:"
-
-#~ msgid "Add Filter"
-#~ msgstr "Добавить фильтр"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "No Key"
-#~ msgstr "Ключи отсутствуют"
-
-#~ msgid "Ignore recipient"
-#~ msgstr "Игнорировать получателя"
-
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr ""
-#~ "Сертификаты уровня «VS-NfD» (секретно — только для служебного пользования)"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Протокол доступа"
-
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Выберите протокол доступа, который будет использован для служб каталога."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Включите параметр, если служба каталогов предоставляет сертификаты S/MIME "
-#~ "(X.509)."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Включите параметр, если служба каталогов предоставляет сертификаты "
-#~ "OpenPGP."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0. Нет (не вести журнал вообще)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1. Базовый (только основные отладочные сообщения)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2. Расширенный (большинство отладочных сообщений)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3. Экспертный (глубокий уровень детализации)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4. Гуру (все отладочные сообщения)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Программа Chiasmus"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Протокол «%1» не поддерживается"
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Файл «%1» не существует или не является исполняемым."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Вывод программы chiasmus"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Ошибки:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Ошибка загрузки %1:%2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Подключаемая библиотека не содержит функции «Chiasmus»."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Просмотр папки %1..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME был собран без поддержки  %1."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Служба %1 установлена неправильно."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Установлена служба %1 версии %2, но для работы программы необходима "
-#~ "версия не ниже %3."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Неизвестная проблема в службе протокола %1."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "программа завершилась преждевременно"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "программа не найдена и не может быть выполнена"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Невозможно запустить gpgconf:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Невозможно запустить gpgconf\n"
-#~ "Убедитесь, что gpgconf находится в каталоге, указанном в переменной среды "
-#~ "окружения PATH, и он может быть запущен."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Ошибка в gpgconf при сохранении конфигурации: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Создание ключа ElGamal..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Поиск большого простого числа..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Ожидание новой энтропии из генератора случайных чисел (ускорить процесс "
-#~ "можно открывая файлы или перемещая мышь)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Подождите..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Запуск gpg-agent (вместо этого необходимо использовать глобальный "
-#~ "экземпляр)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Проверка поддержки %1 модулем %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1 из %2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "Ключ OpenPGP %1\n"
-#~ "Создан: %2\n"
-#~ "Действителен до: %3\n"
-#~ "Отпечаток: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "Ключ S/MIME %1\n"
-#~ "Создан: %2\n"
-#~ "Действителен до: %3\n"
-#~ "Отпечаток: %4\n"
-#~ "Владелец: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Сервер:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Имя пользователя:"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "&Пароль:"
-
-#~ msgid "&Cancel"
-#~ msgstr "О&тмена"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Олег Баталов,Андрей Черепанов"
-
-#~ msgid "failed"
-#~ msgstr "неудачно"
-
-#~ msgid "Available Backends"
-#~ msgstr "Доступные модули"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "&Настроить..."
-
-#~ msgid "Rescan"
-#~ msgstr "Повторно сканировать"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Во время сканирование возникли следующие проблемы:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Отчёт о сканировании"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Ошибка инициализации модуля \"%1\""
-
-#~ msgid ""
-#~ "You need a passphrase to unlock the secret key for user:<br/> %1 (retry)"
-#~ msgstr ""
-#~ "Необходимо указать секретное слово для использования ключа пользователем:"
-#~ "<br/> %1 (повтор)"
-
-#~ msgid "You need a passphrase to unlock the secret key for user:<br/> %1"
-#~ msgstr ""
-#~ "Необходимо указать секретное слово для использования ключа пользователем:"
-#~ "<br/> %1"
-
-#~ msgid ""
-#~ "This dialog will reappear every time the passphrase is needed. For a more "
-#~ "secure solution that also allows caching the passphrase, use gpg-agent."
-#~ msgstr ""
-#~ "Этот диалог появляется каждый раз, когда необходимо указать секретное "
-#~ "слово. Если вы не хотите вводить его каждый раз, установите gpg-agent."
-
-#~ msgid "gpg-agent was found in %1, but does not appear to be running."
-#~ msgstr "gpg-agent был найден в %1, но он не является исполняемым файлом."
-
-#~ msgid "gpg-agent is part of gnupg-%1, which you can download from %2"
-#~ msgstr ""
-#~ "gpg-agent является частью пакета gnupg-%1, который можно загрузить с %2"
-
-#~ msgid "For information on how to set up gpg-agent, see %1"
-#~ msgstr "Информация о том, как настроить gpg-agent доступна по адресу %1"
-
-#~ msgid "Passphrase Dialog"
-#~ msgstr "Диалог секретного слова"
-
-#, fuzzy
-#~ msgid "Configure"
-#~ msgstr "&Настроить..."
-
-#~ msgid "Select Directory Services to Use Here"
-#~ msgstr "Выберите службу каталога"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>X.500 Directory Services</h1>\n"
-#~ "You can use X.500 directory services to retrieve certificates and "
-#~ "certificate revocation lists that are not saved locally. Ask your local "
-#~ "administrator if you want to make use of this feature and are unsure "
-#~ "which directory service you can use.\n"
-#~ "<p>\n"
-#~ "If you do not use a directory service, you can still use local "
-#~ "certificates.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Служба каталога X.500</h1>\n"
-#~ "Вы можете использовать службу каталога X.500 для получения сертификатов и "
-#~ "информации об их аннулировании. Обратитесь к вашему администратору если "
-#~ "вы хотите использовать эту службу и не знаете какую именно службу "
-#~ "каталогов вы можете использовать.\n"
-#~ "<p>\n"
-#~ "Если вы не используете службу каталога вы можете использовать локальные "
-#~ "сертификаты.\n"
-#~ "</qt>"
-
-#~ msgid "Port"
-#~ msgstr "Порт"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Add a Directory Service</h1>\n"
-#~ "By clicking this button, you can select a new directory service to be "
-#~ "used for retrieving certificates and CRLs. You will be asked for the "
-#~ "server name and an optional description.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Добавить новую службу</h1>\n"
-#~ "При нажатии на эту кнопку вы можете указать данные о новом сервере службы "
-#~ "каталога, которая используется для получения сертификатов. Вам будет "
-#~ "предложено ввести адрес сервера и некоторые дополнительные параметры.\n"
-#~ "</qt>"
-
-#~ msgid "&Add Service..."
-#~ msgstr "&Добавить службу..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Remove Directory Service</h1>\n"
-#~ "By clicking this button, you can remove the currently selected directory "
-#~ "service in the list above. You will have a chance to rethink your "
-#~ "decision before the entry is deleted from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Удалить службу каталога</h1>\n"
-#~ "При нажатии на эту кнопку будет удалена выбранная в списке служба "
-#~ "каталога. Хорошо обдумайте этот шаг, так как данные о службе будут "
-#~ "удалены.\n"
-#~ "</qt>"
-
-#~ msgid "<unnamed>"
-#~ msgstr "<безымянный>"
-
-#~ msgid "<unknown>"
-#~ msgstr "<неизвестно>"
-
-#~ msgid "Kpgp/gpg"
-#~ msgstr "Kpgp/gpg"
-
-#~ msgid "Kpgp/pgp v2"
-#~ msgstr "Kpgp/pgp v2"
-
-#~ msgid "Kpgp/pgp v5"
-#~ msgstr "Kpgp/pgp v5"
-
-#~ msgid "Kpgp/pgp v6"
-#~ msgstr "Kpgp/pgp v6"
-
-#~ msgid "This backend does not support S/MIME"
-#~ msgstr "Этот движок не поддерживает S/MIME"
-
-#~ msgid "Please enter your passphrase:"
-#~ msgstr "Введите секретное слово:"

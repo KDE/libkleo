@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mimos\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
 "PO-Revision-Date: 2005-10-12 04:18+0800\n"
 "Last-Translator: MIMOS <opensource@mimos.my>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -1602,7 +1602,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr ""
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1709,11 +1709,11 @@ msgstr ""
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
-"<qt><p>Ralat berlaku semasa mengutip kekunci dari hujung belakang :</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>Ralat berlaku semasa mengutip kekunci dari hujung belakang :</"
+"p><p><b>%1</b></p></qt>"
 
 #: ui/keyrequester.cpp ui/keyrequester.cpp ui/keyrequester.cpp
 #: ui/keyselectiondialog.cpp ui/keyselectiondialog.cpp
@@ -3268,7 +3268,7 @@ msgstr ""
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr ""
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr ""
@@ -3277,6 +3277,40 @@ msgstr ""
 #, kde-format
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
 msgstr ""
 
 #: utils/formatting.cpp
@@ -3300,22 +3334,6 @@ msgstr ""
 #: utils/formatting.cpp
 #, kde-format
 msgid "Signature created with certificate: %1"
-msgstr ""
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr ""
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
 msgstr ""
 
 #: utils/formatting.cpp
@@ -3374,6 +3392,7 @@ msgid "Bad signature"
 msgstr ""
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr ""
@@ -3454,6 +3473,334 @@ msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr ""
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3475,395 +3822,3 @@ msgstr ""
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr ""
-
-#, fuzzy
-#~| msgid "OpenPGP"
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#, fuzzy
-#~| msgid "S/MIME"
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknown"
-#~ msgstr "tidak diketahui"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "ID pengguna"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "ID pengguna"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "ID pengguna"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "GpgConf Error"
-#~ msgstr "Kekunci penyulitan:"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Tandatangan gagal:%1"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Penyulitan gagal:%1"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption successful"
-#~ msgstr "Kekunci penyulitan:"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgid "Signing Result"
-#~ msgstr "Hasil imbasan"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Result"
-#~ msgstr "Kekunci penyulitan:"
-
-#, fuzzy
-#~| msgid "Encryption keys:"
-#~ msgid "Encryption Error"
-#~ msgstr "Kekunci penyulitan:"
-
-#~ msgid "never"
-#~ msgstr "jangan sekali-kali"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Alih ke paling bawah"
-
-#, fuzzy
-#~| msgid "never"
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "jangan sekali-kali"
-
-#~ msgid "Server Name"
-#~ msgstr "Nama Pelayan"
-
-#, fuzzy
-#~| msgid "Server Name"
-#~ msgid "Server Port"
-#~ msgstr "Nama Pelayan"
-
-#~ msgid "Base DN"
-#~ msgstr "DN dasar"
-
-#~ msgid "User Name"
-#~ msgstr "Nama Pengguna"
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Konfigurasi Servis Direktori"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "Pilihan Kekunci OpenPGP"
-
-#~ msgid "&Reset"
-#~ msgstr "&Set semula"
-
-#, fuzzy
-#~| msgid "Configure LDAP Servers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Konfigurkan pelayan LDAP"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Penerima:"
-
-#, fuzzy
-#~| msgid "OpenPGP"
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME dikompil tanpa sokongan untuk %1."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Enjin %1 tidak dipasang dengan betul."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "Versi %2 Enjin%1 telah dipasang, tetapi  sekurang-kurangnya versi %3 "
-#~ "diperlukan."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Masalah yang tidak diketahui pada enjin untuk protokol %1."
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "program tidak boleh dilaksanakan"
-
-#, fuzzy
-#~| msgid "program cannot be executed"
-#~ msgid "program not found or cannot be started"
-#~ msgstr "program tidak boleh dilaksanakan"
-
-#, fuzzy
-#~| msgid "<qt>Failed to execute gpgconf:<br>%1</qt>"
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>Gagal melaksanakan gpgconf:<br>%1</qt>"
-
-#, fuzzy
-#~| msgid ""
-#~| "Could not start gpgconf\n"
-#~| "Check that gpgconf is in the PATH and that it can be started"
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Tidak dapat memulakan gpgconf\n"
-#~ "Pastikan gpgconf berada dalam PATH dan boleh dimulakan"
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Ralat dari  gpgconf semasa menyimpan konfigurasi: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Menjana kekunci EIGamal..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Mencari nombor prima besar..."
-
-#, fuzzy
-#~| msgid ""
-#~| "Waiting for new entropy from random number generator (you might want to "
-#~| "excercise the harddisks or move the mouse)..."
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Menunggu entropi baru dari penjana nombor rawak (anda boleh berlatih "
-#~ "menggunakan cakera keras atau mengalihkan tetikus)..."
-
-#~ msgid "Please wait..."
-#~ msgstr "Sila tunggu..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Memulakan ejen gpg (fikirkan juga untuk memulakan contoh global )..."
-
-#, fuzzy
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Semasa mengimbas sokongan S/MIME dalam hujung belakang %1:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "Kekunci OpenPGP untuk %1\n"
-#~ "Dicipta: %2\n"
-#~ "Luput: %3\n"
-#~ "Cap jari: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "Kekunci S/MIME untuk %1\n"
-#~ "Dicipta: %2\n"
-#~ "Luput: %3\n"
-#~ "Cap jari: %4\n"
-#~ "Pengeluar: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "Nama &pelayan:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "Nama &pengguna (opsyenal):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "&Kata laluan (opsyenal):"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "MIMOS"
-
-#~ msgid "failed"
-#~ msgstr "Gagal"
-
-#~ msgid "Available Backends"
-#~ msgstr "Hujung Belakang yang Boleh Didapatkan"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "Konfi&gurkan..."
-
-#~ msgid "Rescan"
-#~ msgstr "Imbas semula"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Masalah berikut ditemui semasa mengimbas:"
-
-#, fuzzy
-#~| msgid "Scan Results"
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Hasil imbasan"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Ralat semasa pemulaan plugin \"%1\""
-
-#~ msgid ""
-#~ "You need a passphrase to unlock the secret key for user:<br/> %1 (retry)"
-#~ msgstr ""
-#~ "Frasa laluan diperlukan untuk nyahpasak kekunci rahsia untuk pengguna:<br>"
-#~ "%1(cuba lagi)"
-
-#~ msgid "You need a passphrase to unlock the secret key for user:<br/> %1"
-#~ msgstr ""
-#~ "Frasa laluan diperlukan untuk nyahpasak kekunci rahsia untuk pengguna:<br/"
-#~ "> %1"
-
-#~ msgid ""
-#~ "This dialog will reappear every time the passphrase is needed. For a more "
-#~ "secure solution that also allows caching the passphrase, use gpg-agent."
-#~ msgstr ""
-#~ "Dialog ini akan muncul semula setiap kali frasa laluan diperlukan. Untuk "
-#~ "penyelesaian yang lebih selamat yang juga membenarkan cache frasa laluan, "
-#~ "gunakan ejen gpg."
-
-#~ msgid "gpg-agent was found in %1, but does not appear to be running."
-#~ msgstr "Ejen gpg ditemui dalam %1, tetapi tidak berjalan."
-
-#~ msgid "gpg-agent is part of gnupg-%1, which you can download from %2"
-#~ msgstr ""
-#~ "Ejen gpg adalah sebahagian daripada gnupg-%1, yang boleh dimuat turun "
-#~ "dari %2"
-
-#~ msgid "For information on how to set up gpg-agent, see %1"
-#~ msgstr "Maklumat tentang bagaimana mengeset ejen gpg, lihat %1"
-
-#~ msgid "Passphrase Dialog"
-#~ msgstr "Dialog Frasa Laluan"
-
-#, fuzzy
-#~ msgid "Configure"
-#~ msgstr "Konfi&gurkan..."
-
-#~ msgid "Select Directory Services to Use Here"
-#~ msgstr "Pilih Servis Direktori yang Hendak Digunakan, Di sini"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>X.500 Directory Services</h1>\n"
-#~ "You can use X.500 directory services to retrieve certificates and "
-#~ "certificate revocation lists that are not saved locally. Ask your local "
-#~ "administrator if you want to make use of this feature and are unsure "
-#~ "which directory service you can use.\n"
-#~ "<p>\n"
-#~ "If you do not use a directory service, you can still use local "
-#~ "certificates.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Servis Direktori X.500</h1>\n"
-#~ "Anda boleh gunakan servis direktori  X.500  untuk memperoleh semula sijil "
-#~ "dan senarai pembatalan sijil yang tidak disimpan setempat. Tanya "
-#~ "pentadbir setempat jika anda ingin menggunakan cirian ini dan jika tidak "
-#~ "pasti  servis direktori mana yang boleh digunakan.\n"
-#~ "<p>\n"
-#~ "Jika anda tidak menggunakan servis  direktori, sijil setempat boleh "
-#~ "digunakan.\n"
-#~ "</qt>"
-
-#~ msgid "Port"
-#~ msgstr "Port"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Add a Directory Service</h1>\n"
-#~ "By clicking this button, you can select a new directory service to be "
-#~ "used for retrieving certificates and CRLs. You will be asked for the "
-#~ "server name and an optional description.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Tambah Servis  Direktori</h1>\n"
-#~ "Dengan mengklik butang ini, anda boleh memilih servis direktori baru "
-#~ "untuk memperoleh semula sijil dan CRL. Anda akan diminta memberikan nama "
-#~ "pelayan dan huraian opsyenal.\n"
-#~ "</qt>"
-
-#~ msgid "&Add Service..."
-#~ msgstr "&Tambah servis..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Remove Directory Service</h1>\n"
-#~ "By clicking this button, you can remove the currently selected directory "
-#~ "service in the list above. You will have a chance to rethink your "
-#~ "decision before the entry is deleted from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Buang Servis Direktori</h1>\n"
-#~ "Dengan mengklik butang ini, anda boleh buang servis direktori yang sedang "
-#~ "dipilih  dalam senarai di atas. Anda boleh mengubah fikiran sebelum entri "
-#~ "dihapuskan dari senarai.\n"
-#~ "</qt>"
-
-#~ msgid "<unnamed>"
-#~ msgstr "<tidak dinamakan>"
-
-#~ msgid "<unknown>"
-#~ msgstr "<tidak diketahui>"
-
-#~ msgid "Kpgp/gpg"
-#~ msgstr "Kpgp/gpg"
-
-#~ msgid "Kpgp/pgp v2"
-#~ msgstr "Kpgp/pgp v2"
-
-#~ msgid "Kpgp/pgp v5"
-#~ msgstr "Kpgp/pgp v5"
-
-#~ msgid "Kpgp/pgp v6"
-#~ msgstr "Kpgp/pgp v6"
-
-#~ msgid "This backend does not support S/MIME"
-#~ msgstr "Tepi belakang ini tidak menyokong S/MIME"
-
-#~ msgid "Please enter your passphrase:"
-#~ msgstr "Masukkan frasa laluan anda:"

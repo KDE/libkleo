@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
 "PO-Revision-Date: 2025-11-10 21:35+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -432,11 +432,11 @@ msgid_plural ""
 "<p>The root certificate</p><p align=center><b>%3</b></p><p>for S/MIME "
 "certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
-"%3</b><p>főtanúsítványa tegnap járt le.</p>"
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p "
+"align=center><b>%3</b><p>főtanúsítványa tegnap járt le.</p>"
 msgstr[1] ""
-"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
-"%3</b><p>főtanúsítványa %1 nappal ezelőtt járt le.</p>"
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p "
+"align=center><b>%3</b><p>főtanúsítványa %1 nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -466,9 +466,9 @@ msgid ""
 "<p>The intermediate CA certificate</p><p align=center><b>%2</b></p><p>for S/"
 "MIME certificate</p><p align=center>%1</p><p>expired less than a day ago.</p>"
 msgstr ""
-"<p>A(z)</p><p align=center>%1</p><p>S/MIME tanúsítvány</p><p align=center><b>"
-"%2</b></p><p>köztes hitelesítészolgáltatói tanúsítványa kevesebb, mint egy "
-"napja lejárt.</p>"
+"<p>A(z)</p><p align=center>%1</p><p>S/MIME tanúsítvány</p><p "
+"align=center><b>%2</b></p><p>köztes hitelesítészolgáltatói tanúsítványa "
+"kevesebb, mint egy napja lejárt.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -517,12 +517,13 @@ msgid_plural ""
 "<p>The intermediate CA certificate</p><p align=center><b>%3</b></p><p>for S/"
 "MIME certificate</p><p align=center>%2</p><p>expired %1 days ago.</p>"
 msgstr[0] ""
-"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
-"%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa tegnap járt le.</p>"
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa tegnap "
+"járt le.</p>"
 msgstr[1] ""
-"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p align=center><b>"
-"%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 nappal ezelőtt járt "
-"le.</p>"
+"<p>A(z)</p><p align=center>%2</p><p>S/MIME tanúsítvány</p><p "
+"align=center><b>%3</b><p>köztes hitelesítésszolgáltatói tanúsítványa %1 "
+"nappal ezelőtt járt le.</p>"
 
 #: kleo/expirychecker.cpp
 #, kde-format
@@ -1763,7 +1764,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (szükséges)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1863,8 +1864,8 @@ msgstr "<placeholder>ismeretlen</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Hiba történt a kulcsok letöltése közben:</p><p><b>%1</b></p></qt>"
 
@@ -3435,7 +3436,7 @@ msgstr "Az aláírás érvényes, de a tanúsítvány érvényessége ismeretlen
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "Az aláírás érvényes, de a tanúsítvány érvényessége nem meghatározott."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Ismeretlen tanúsítvány"
@@ -3445,6 +3446,48 @@ msgstr "Ismeretlen tanúsítvány"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "User ID (Key ID)"
+#| msgid "%1 (%2)"
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Bad signature by %1: %2"
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Hibás aláírás %1 által: %2"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Good signature by %1."
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Jó aláírás %1 által."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Az aláírás %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Az aláírás <b>nem</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3470,22 +3513,6 @@ msgstr "Az aláírás készítésének dátuma: %1, ezzel a tanúsítvánnyal: %
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Az aláírás ezzel a tanúsítvánnyal készült: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Az aláírás %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Az aláírás <b>nem</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3543,6 +3570,7 @@ msgid "Bad signature"
 msgstr "Hibás aláírás"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Az aláírás érvénytelen: %1"
@@ -3642,6 +3670,357 @@ msgid "The used key is not certified by you or any trusted person."
 msgstr ""
 "A használt kulcsot sem Ön, sem más megbízható személy nem hitelesítette."
 
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "This certificate should not be used."
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Ezt a tanúsítványt nem szabad használni."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The date cannot be changed."
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "A dátumot nem lehet megváltoztatni."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The date cannot be changed."
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "A dátumot nem lehet megváltoztatni."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Az aláírás %1"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
+#| "RESTRICTED compliant or VS-NfD compliant"
+#| msgid "The signature is %1"
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Az aláírás %1"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid ""
+#| "The signature is valid but the trust in the certificate's validity is "
+#| "only marginal."
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+"Az aláírás érvényes, de a tanúsítvány érvényességébe vetett bizalom csak "
+"marginális."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signature created using an unknown certificate with fingerprint %1"
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Az aláírás a(z) %1 ujjlenyomatú ismeretlen tanúsítvánnyal készült"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signature created using an unknown certificate with fingerprint %1"
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Az aláírás a(z) %1 ujjlenyomatú ismeretlen tanúsítvánnyal készült"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "The signature is valid but the certificate's validity is undefined."
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Az aláírás érvényes, de a tanúsítvány érvényessége nem meghatározott."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signing certificate is expired"
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Az aláírótanúsítvány lejárt"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgid "Signing certificate was revoked"
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Az aláírótanúsítványt visszavonták"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr ""
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3663,499 +4042,3 @@ msgstr "Érvénytelen hexadecimális karakter („%1”) a bemenetben."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Túl korán végződő hexadecimálisan kódolt karakter a bemenetben"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "A(z) „%1” azonosító megerősítése mint:"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Hiba: adjon meg egy értéket."
-
-#~ msgid "Subkey"
-#~ msgstr "Alkulcs"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, létrehozva: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, létrehozva: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Ismeretlen algoritmus"
-
-#~ msgid "All certificates"
-#~ msgstr "Minden tanúsítvány"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "A címtárszolgáltatások beállítása nem lehetséges, mivel a használt gpgme "
-#~ "függvénykönyvtárak túl régik."
-
-#, fuzzy
-#~| msgid "Sorry"
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Sajnáljuk"
-
-#, fuzzy
-#~| msgid "All certificates"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Minden tanúsítvány"
-
-#, fuzzy
-#~| msgid "All certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Minden tanúsítvány"
-
-#, fuzzy
-#~| msgid "Other Certificates"
-#~ msgid "With certificate: %1"
-#~ msgstr "Egyéb tanúsítványok"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-mail"
-
-#, fuzzy
-#~| msgctxt "as in good/valid signature"
-#~| msgid "good"
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "jó"
-
-#~ msgid "Unknown"
-#~ msgstr "Ismeretlen"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Felhasználóazonosító"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Megbízható tanúsítványok"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Megbízható tanúsítványok"
-
-#, fuzzy
-#~| msgid "Trusted Certificates"
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Megbízható tanúsítványok"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Felhasználóazonosító"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgid "User-ID"
-#~ msgstr "Felhasználóazonosító"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConf-hiba"
-
-#, fuzzy
-#~| msgid "Certificate Manager Error"
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Hiba a tanúsítványkezelőben"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Az aláírás nem sikerült: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Az aláírás sikerült"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "A titkosítás nem sikerült: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "A titkosítás sikerült"
-
-#~ msgid "Signing Result"
-#~ msgstr "Az eredmény aláírása"
-
-#~ msgid "Signing Error"
-#~ msgstr "Aláírási hiba"
-
-#~ msgid "Encryption Result"
-#~ msgstr "A titkosítás eredménye"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Titkosítási hiba"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "Minden tanúsítvány"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "Minden tanúsítvány"
-
-#~ msgid "never"
-#~ msgstr "soha"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Mozgatás legalulra"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "kiszolgálónév"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Kiszolgálónév"
-
-#~ msgid "Server Port"
-#~ msgstr "Port"
-
-#~ msgid "Base DN"
-#~ msgstr "Alap DN"
-
-#~ msgid "User Name"
-#~ msgstr "Felhasználónév"
-
-#~ msgid "(read-only)"
-#~ msgstr "(csak olvasható)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (csak olvasható)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr ""
-#~ "<b>(Opcionális)</b> Ha szükséges, írja be itt az elérési felhasználónevet."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "A címtárszolgálatások beállításai"
-
-#, fuzzy
-#~| msgid "OpenPGP Key Selection"
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP kulcsválasztás"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Ha ide kattint, létrejön egy új címtárszolgáltatási bejegyzés a kijelölt "
-#~ "bejegyzés másolataként (vagy az alapértelmezett értékekkel, ha semmi "
-#~ "sincs kijelölve). Az új bejegyzés beállításai a bal oldali táblázatban "
-#~ "módosíthatók."
-
-#~ msgid "New"
-#~ msgstr "Új"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Itt lehet beállítani, hogy a fenti táblázatban látható legyen-e a "
-#~ "felhasználónév és a jelszó."
-
-#~ msgid "Show user and password information"
-#~ msgstr "A felhasználónév és a jelszó megjelenítése"
-
-#, fuzzy
-#~| msgid "Configure GnuPG Backend"
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "A GnuPG modul beállítása"
-
-#~ msgid "&Reset"
-#~ msgstr "&Alapállapotba"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Kulcskiszolgáló használata itt"
-
-#, fuzzy
-#~| msgid "Configure Keyservers"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Kulcskiszolgálók beállítása"
-
-#, fuzzy
-#~| msgid "X.509"
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#, fuzzy
-#~| msgid "Recipient:"
-#~ msgid "Ignore recipient"
-#~ msgstr "Címzett:"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "Minden tanúsítvány"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Séma"
-
-#, fuzzy
-#~| msgid ""
-#~| "Select the access protocol (scheme) that the directory service is "
-#~| "available through."
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Válassza ki, milyen hozzáférési sémát kell használni a címtárszolgáltatás "
-#~ "eléréséhez."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Jelölje be ezt az oszlopot, ha a címtárszolgáltatás S/MIME (X.509) "
-#~ "formátumú tanúsítványokat tud szolgáltatni."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Jelölje be ezt az oszlopot, ha a címtárszolgáltatás OpenPGP formátumú "
-#~ "tanúsítványokat tud szolgáltatni."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0- Nincs (egyáltalán nincs nyomkövetés)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1- Alap (csak az alap nyomkövetési üzenetek)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2- Részletes (részletesebb üzenetek)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 - Szakértői (még részletesebb üzenetek)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 - Guru (minden lehetséges üzenet)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus parancssoros eszköz"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Nem támogatott protokoll: \"%1\""
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Nem létezik \"%1\" nevű fájl vagy nem végrehajtható attribútumú."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Kimenet a chiasmusból"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "A következő lett kiírva az stderr kimenetre:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Nem sikerült betölteni: %1 - %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "A programkönyvtár nem tartalmazza a \"Chiasmus\" szimbólumot."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "A(z) %1 könyvtár feldolgozása folyik..."
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "A GPGME %1-támogatás nélkül lett lefordítva."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "A(z) %1-motor nincs megfelelően telepítve."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr ""
-#~ "A(z) %1-motor (verzió: %2) fel van telepítve, de legalább ilyen verzió "
-#~ "szükséges: %3."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Ismeretlen probléma történt a(z) %1 protokollnál a motorban."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "a program futása váratlanul befejeződött"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "a program nem található vagy nem indítható el"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>A gpgconf-ot nem sikerült elindítani:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "A gpgconf-ot nem sikerült elindítani.\n"
-#~ "Ellenőrizze, hogy a gpgconf szerepel-e az elérési útban (PATH változó) és "
-#~ "végrehajtható-e."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Hiba történt a gpgconf-ban a beállítások mentésekor: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "ElGamal-kulcs generálása történik..."
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Nagy prímszám keresése folyik..."
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Várakozás új entrópiára a véletlenszám-generátortól. A jobb eredmény "
-#~ "érdekében mozgassa meg egy kicsit az egeret vagy végezzen lemezműveletet."
-
-#~ msgid "Please wait..."
-#~ msgstr "Egy kis türelmet kérek..."
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "A gpg-agent indítása (érdemes inkább egy globális példányt indítani)..."
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "%1-támogatás keresése közben (modul: %2) ez történt:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "OpenPGP-kulcs - %1\n"
-#~ "Létrehozási dátum: %2\n"
-#~ "Lejárási dátum: %3\n"
-#~ "Ujjlenyomat: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "S/MIME-kulcs - %1\n"
-#~ "Létrehozási dátum: %2\n"
-#~ "Lejárási dátum: %3\n"
-#~ "Ujjlenyomat: %4\n"
-#~ "Kibocsátó: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "K&iszolgálónév:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Felhasználónév (opcionális):"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "Je&lszó (opcionális):"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Mégsem"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Szántó Tamás"
-
-#~ msgid "failed"
-#~ msgstr "nem sikerült"
-
-#~ msgid "Available Backends"
-#~ msgstr "A rendelkezésre álló modulok"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "B&eállítás..."
-
-#~ msgid "Rescan"
-#~ msgstr "Újraellenőrzés"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Az ellenőrzés során a következő problémák léptek fel:"
-
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Az ellenőrzés eredménye"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Hiba történt a(z) \"%1\" bővítőmodul inicializálása közben"

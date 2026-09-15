@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-08-04 19:07+0300\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
+"PO-Revision-Date: 2026-08-19 13:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1767,7 +1767,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (zorunlu)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1867,8 +1867,8 @@ msgstr "<placeholder>bilinmeyen</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Arka uçtan anahtarlar alınırken bir hata oluştu:</p><p><b>%1</b></p></"
 "qt>"
@@ -3430,7 +3430,7 @@ msgstr "İmza geçerli; ancak sertifikanın geçerliliği bilinmiyor."
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "İmza geçerli; ancak sertifikanın geçerliliği tanımlanmamış."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Bilinmeyen sertifika"
@@ -3440,6 +3440,40 @@ msgstr "Bilinmeyen sertifika"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "%1 tarafından %2 tarihinde imzalandı."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "%1 tarafından imzalandı."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "İmza %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "İmza %1 <b>değil</b>."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3466,22 +3500,6 @@ msgstr "İmza, %1 tarihinde şu sertifikayla oluşturuldu: %2"
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "İmza, şu sertifikayla oluşturuldu: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "İmza %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "İmza %1 <b>değil</b>."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3539,6 +3557,7 @@ msgid "Bad signature"
 msgstr "İmza kötü"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "İmza geçersiz: %1"
@@ -3631,6 +3650,466 @@ msgstr ""
 "Kullanılan anahtar siz veya güvenilen başka bir kişi tarafından "
 "sertifikalanmamış."
 
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Signature verification was successful: Data and signature match and the "
+#| "certificate is valid and trusted."
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"İmza doğrulaması başarılı: Veri ve imza eşleşiyor ve sertifika geçerli ve "
+"güvenilir."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"İmza doğrulaması başarılı: Veri ve imza eşleşiyor ve sertifika geçerli ve "
+"güvenilir."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Data and signature do not match."
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr "İmza ve veri eşleşmiyor."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "İmzalama otoritesi güvenilir olmamalı."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The data cannot be trusted. Reason: %1"
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Veriye güvenilemiyor. Gerekçe: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "İmza ve veri eşleşmiyor."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Veriye güvenilemiyor. Gerekçe: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "İmza, %1 kişisinden ve %2 tarihli olduğunu iddia ediyor."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "İmza, %1 kişisinden olduğunu iddia ediyor."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr "İmza doğrulanamıyor; çünkü ilgili sertifika kullanılabilir değil."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "İmzalama sertifikasının parmak izi %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "İmzalama sertifikasının seri numarası ve vereni %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It cannot be verified whether the data originates from the stated source."
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Verinin belirtilen kaynaktan geldiği doğrulanamıyor."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr "Verinin belirtilen kaynaktan geldiği doğrulanamıyor."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "İmzanın süresi doldu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "İmzalama sertifikasının süresi doldu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "İmzalama sertifikası yürürlükten kaldırıldı."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signing certificate is not present in your certificate list, but it "
+#| "is needed to verify the data."
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"İmzalama sertifikası, sertifika listenizde yok; ancak verileri doğrulamak "
+"için gerekli."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+"İmzalama sertifikası, sertifika listenizde yok; ancak verileri doğrulamak "
+"için gerekli."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Technically, signature and data match, but the signing certificate is not "
+#| "marked as trusted. Therefore the data cannot be trusted to originate from "
+#| "the stated source."
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Teknik olarak imza ve veriler eşleşiyor; ancak imzalama sertifikası "
+"güvenilir olarak işaretlenmiyor. Bu nedenle verilerin belirtilen kaynaktan "
+"geldiğine güvenilemez."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Teknik olarak imza ve veriler eşleşiyor; ancak imzalama sertifikası "
+"güvenilir olarak işaretlenmiyor. Bu nedenle verilerin belirtilen kaynaktan "
+"geldiğine güvenilemez."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "For an expired certificate, it cannot be evaluated whether the "
+#| "certificate can be trusted. Therefore the data cannot be trusted. "
+#| "Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Süresi dolmuş bir sertifika için sertifikaya güvenilip güvenilemeyeceği "
+"değerlendirilemez. Bu nedenle verilere güvenilemez. Teknik olarak imza ve "
+"veriler eşleşiyor."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If the certificate was valid and trusted when you received the data, the "
+#| "data is likely valid."
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Verileri aldığınızda sertifika geçerli ve güvenilirse veriler büyük "
+"olasılıkla geçerlidir."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+"Süresi dolmuş bir sertifika için sertifikaya güvenilip güvenilemeyeceği "
+"değerlendirilemez. Bu nedenle verilere güvenilemez. Teknik olarak imza ve "
+"veriler eşleşiyor."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+"Verileri aldığınızda sertifika geçerli ve güvenilirse veriler büyük "
+"olasılıkla geçerlidir."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The certificate may have been revoked because it was compromised and it "
+#| "might now be used by a third party. The data can therefore not be "
+#| "trusted. Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Sertifika, ele geçirildiği ve artık üçüncü bir tarafça kullanıldığı için "
+"iptal edilmiş olabilir. Bu nedenle verilere güvenilemez. Teknik olarak imza "
+"ve veriler eşleşiyor."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It is possible that you received the data at a time when the certificate "
+#| "was still valid and trusted. If this is the case, the data may be valid."
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"Verileri, sertifikanın hâlâ geçerli ve güvenilir olduğu bir zamanda almış "
+"olmanız mümkündür. Durum böyleyse veriler geçerli olabilir."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+"Sertifika, ele geçirildiği ve artık üçüncü bir tarafça kullanıldığı için "
+"iptal edilmiş olabilir. Bu nedenle verilere güvenilemez. Teknik olarak imza "
+"ve veriler eşleşiyor."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+"Verileri, sertifikanın hâlâ geçerli ve güvenilir olduğu bir zamanda almış "
+"olmanız mümkündür. Durum böyleyse veriler geçerli olabilir."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The data or the signature has been altered. This can happen accidentally "
+#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
+#| "subsequent change to the data, possibly by an email client), or "
+#| "intentionally (deliberate manipulation)."
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Veriler veya imza değiştirildi. Bu, kazara (örneğin bir iletim hatası "
+"nedeniyle), kasıtsız olarak (örneğin, büyük olasılıkla bir e-posta istemcisi "
+"tarafından verilerde sonradan yapılan bir değişiklik nedeniyle) veya kasıtlı "
+"olarak (kasıtlı manipülasyon) gerçekleşebilir."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Veriler veya imza değiştirildi. Bu, kazara (örneğin bir iletim hatası "
+"nedeniyle), kasıtsız olarak (örneğin, büyük olasılıkla bir e-posta istemcisi "
+"tarafından verilerde sonradan yapılan bir değişiklik nedeniyle) veya kasıtlı "
+"olarak (kasıtlı manipülasyon) gerçekleşebilir."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Ask the sender for the certificate or import it from a file or a "
+#| "keyserver. Then verify the data again."
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Gönderenden sertifikayı isteyin veya sertifikayı bir dosyadan ya da anahtar "
+"sunucusundan içe aktarın. Daha sonra verileri yeniden doğrulayın."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+"Gönderenden sertifikayı isteyin veya sertifikayı bir dosyadan ya da anahtar "
+"sunucusundan içe aktarın. Daha sonra verileri yeniden doğrulayın."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
+#| "again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Sertifikanın parmak izini doğrulayın ve sertifikalayın. Daha sonra verileri "
+"yeniden doğrulayın."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
+#| "the data again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Sertifikanın Root-CA parmak izini doğrulayın ve ona güvenin. Daha sonra "
+"verileri yeniden doğrulayın."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+"Sertifikanın parmak izini doğrulayın ve sertifikalayın. Daha sonra verileri "
+"yeniden doğrulayın."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+"Sertifikanın Root-CA parmak izini doğrulayın ve ona güvenin. Daha sonra "
+"verileri yeniden doğrulayın."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Bir anahtar sunucusunda güncellenmiş bir sertifika arayabilir veya "
+"gönderenden bunu isteyebilir, ardından sertifikayı içe aktardıktan sonra "
+"verileri yeniden doğrulayabilirsiniz."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If in doubt, contact the signer to clarify the situation and, if "
+#| "necessary, ask them to resend the data signed with a current certificate."
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"Kuşkunuz varsa durumu netleştirmek için imzalayan kişiyle iletişime geçin ve "
+"gerekirse, güncel bir sertifikayla imzalanmış verileri yeniden "
+"göndermelerini isteyin."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+"Bir anahtar sunucusunda güncellenmiş bir sertifika arayabilir veya "
+"gönderenden bunu isteyebilir, ardından sertifikayı içe aktardıktan sonra "
+"verileri yeniden doğrulayabilirsiniz."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+"Kuşkunuz varsa durumu netleştirmek için imzalayan kişiyle iletişime geçin ve "
+"gerekirse, güncel bir sertifikayla imzalanmış verileri yeniden "
+"göndermelerini isteyin."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Ask the sender to resend the data."
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Göndericiden verileri yeniden göndermesini isteyin."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr "Göndericiden verileri yeniden göndermesini isteyin."
+
 #: utils/gnupg.cpp
 #, kde-format
 msgctxt "@info"
@@ -3652,107 +4131,3 @@ msgstr "Girdi akışında geçersiz onaltılık karakter “%1”."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Girdi akışında onaltılık olarak kodlanan karakterin beklenmedik bitişi"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "“%1” kimliğini farklı onayla:"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Hata: Bir değer girin."
-
-#~ msgid "Subkey"
-#~ msgstr "Alt anahtar"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, oluşturma: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, oluşturma: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Bilinmeyen algoritma"
-
-#~ msgid "All certificates"
-#~ msgstr "Tüm sertifikalar"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Dizin hizmetlerinin yapılandırılması olanaklı değil; çünkü kullanılan "
-#~ "gpgme kitaplıkları pek eski."
-
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Üzgünüm"
-
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr ""
-#~ "İmza, %1 tarihinde şu kullanılabilir olmayan sertifikayla oluşturuldu: %2"
-
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "İmza, şu kullanılabilir olmayan sertifikayla oluşturuldu: %1"
-
-#~ msgid "With certificate: %1"
-#~ msgstr "Sertifikayla: %1"
-
-#~ msgid "E-Mail"
-#~ msgstr "E-posta"
-
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "iyi"
-
-#~ msgid "Unknown"
-#~ msgstr "Bilinmeyen"
-
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Kullanıcı Kimlikleri"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Tamamen Güvenilir Sertifikalar"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Sertifikalanmamış Sertifikalar"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Doğrulanmamış Sertifikalar"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Kullanıcı Kimlikleri"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Anahtar Kimliği"
-
-#~ msgid "User-ID"
-#~ msgstr "Kullanıcı Kimliği"
-
-#~ msgid "Key-ID"
-#~ msgstr "Anahtar Kimliği"
-
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Kimliği ve bütünlüğü onaylama"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConf Hatası"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Sertifika Yöneticisi ve Yekpare Kripto Kullanıcı Arabirimi"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"

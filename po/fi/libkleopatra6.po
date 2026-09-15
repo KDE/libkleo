@@ -2,15 +2,15 @@
 #
 # KDE Finnish translation sprint participants:
 # Author: Lliehu
-# SPDX-FileCopyrightText: 2010, 2011, 2013, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2006.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2025-11-30 15:43+0200\n"
+"POT-Creation-Date: 2026-09-15 15:20+0200\n"
+"PO-Revision-Date: 2026-08-25 15:01+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1605,12 +1605,15 @@ msgstr "Tunnistaudu LDAP-palvelimeen LDAP-tunnistustiedoin."
 msgid "User:"
 msgstr "Käyttäjätunnus:"
 
+# *** TARKISTA: Tämä voi olla täyttä hömppää. LDAPissa vaikuttaisi olevan BIND-operaatio, mutta mitä ”Bind DN” tai ”resp.” tässä tarkoittavat – ei harmainta hajua.
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
+"Anna LDAP-palvelimeen tunnistautumiseksi sidos-DN:ssä käytettävä LDAP-"
+"käyttäjätunnus."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1706,7 +1709,7 @@ msgstr "Lisäasetukset"
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
 msgid "Base DN:"
-msgstr "Perus-DN:"
+msgstr "Pohja-DN:"
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1715,8 +1718,8 @@ msgid ""
 "<b>(Optional, can usually be left empty)</b> Enter the base DN for this LDAP "
 "server to limit searches to only that subtree of the directory."
 msgstr ""
-"<b>(Valinnainen, jätetään yleensä tyhjäksi)</b> Rajaa haut tiettyyn "
-"alipuuhun antamalla LDAP-palvelimen perus-DN."
+"<b>(Valinnainen, voi yleensä jättää tyhjäksi)</b> Rajaa haut tiettyyn "
+"alipuuhun antamalla LDAP-palvelimen pohja-DN."
 
 #: ui/editdirectoryservicedialog.cpp
 #, kde-format
@@ -1770,7 +1773,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (vaaditaan)"
 
-#: ui/formtextinput.cpp
+#: ui/formtextinput.cpp utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -1870,8 +1873,8 @@ msgstr "<placeholder>tuntematon</placeholder>"
 #: ui/keyrequester.cpp ui/keyselectiondialog.cpp
 #, kde-format
 msgid ""
-"<qt><p>An error occurred while fetching the keys from the backend:</p><p><b>"
-"%1</b></p></qt>"
+"<qt><p>An error occurred while fetching the keys from the backend:</"
+"p><p><b>%1</b></p></qt>"
 msgstr ""
 "<qt><p>Tapahtui virhe haettaessa avaimia ajurilta: </p><p><b>%1</b></p></qt>"
 
@@ -2277,12 +2280,10 @@ msgid "Security approval"
 msgstr "Turvallisuushyväksyntä"
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Yhteyskäytäntö"
+msgstr "Salausyhteyskäytäntö:"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2297,6 +2298,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Kirjoita viesti OpenPGP-muodossa. Tämä tarkoittaa, että vain OpenPGP-"
+"salausavaimia voi valita."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2311,13 +2314,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Kirjoita viesti S/MIME-muodossa. Tämä tarkoittaa, että vain S/MIME-"
+"salausavaimia voi valita."
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Sekä OpenPGP että S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-kuit-format
@@ -2328,18 +2332,21 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Luo kaksi erillistä viestiä, toinen OpenPGP-avaimisille ja toinen S/MIME-"
+"avaimisille vastaanottajille. Näin kahta tyyppiä on mahdollista käyttää "
+"yhdessä, mutta vastaanottajien voi olla vaikeampi vastata kaikille."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Viesti luodaan OpenPGP-muodossa."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Viesti luodaan S/MIME-muodossa."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2380,11 +2387,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Sähköpostiviestiä ei kryptografisesti allekirjoiteta."
 
 #: ui/newkeyapprovaldialog.cpp
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Allekirjoita"
+msgstr "Allekirjoita nimellä:"
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2393,6 +2399,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Viestin allekirjoittaminen tarjoaa kryptografisen vahvistuksen siitä, että "
+"viestin kirjoittaja olet todella sinä."
 
 #: ui/newkeyapprovaldialog.cpp
 #, kde-format
@@ -2522,33 +2530,31 @@ msgstr "Näytä sarakkeet"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Lajitteluperuste"
 
 #: ui/treeview_p.cpp
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Active Directory"
+msgstr "Lajittelusuunta"
 
 #: ui/treeview_p.cpp
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Nouseva"
 
 #: ui/treeview_p.cpp
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Laskeva"
 
 #: ui/treeview_p.cpp
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Kopioi loki leikepöydälle"
+msgstr "Kopioi solun sisältö leikepöydälle"
 
 #: ui/useridselectioncombo.cpp
 #, kde-format
@@ -3430,7 +3436,7 @@ msgstr ""
 msgid "The signature is valid but the certificate's validity is undefined."
 msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
 
-#: utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
 msgid "Unknown certificate"
 msgstr "Tuntematon varmenne"
@@ -3440,6 +3446,40 @@ msgstr "Tuntematon varmenne"
 msgctxt "User ID (Key ID)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "User ID (creation date)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1 on %2."
+msgstr "Allekirjoittanut %1 %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Signed by %1."
+msgstr "Allekirjoittanut %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature is %1."
+msgstr "Allekirjoitus on %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt ""
+"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
+"compliant or VS-NfD compliant"
+msgid "The signature <b>is not</b> %1."
+msgstr "Allekirjoitus <b>ei ole</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3466,22 +3506,6 @@ msgstr "Allekirjoitus on luotu %1 varmenteella: %2"
 #, kde-format
 msgid "Signature created with certificate: %1"
 msgstr "Allekirjoitus on luotu varmenteella: %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature is %1"
-msgstr "Allekirjoitus on %1"
-
-#: utils/formatting.cpp
-#, kde-format
-msgctxt ""
-"%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
-"compliant or VS-NfD compliant"
-msgid "The signature <b>is not</b> %1."
-msgstr "Allekirjoitus <b>ei ole</b> %1."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3539,6 +3563,7 @@ msgid "Bad signature"
 msgstr "Kelvoton allekirjoitus"
 
 #: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Allekirjoitus on virheellinen: %1"
@@ -3549,39 +3574,35 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "Varmennetta voi etsiä avainpalvelimelta tai tuoda sen tiedostosta."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
+"Allekirjoitus on kelvollinen, mutta et sinä eikä luotettava henkilö ole "
+"varmentanut käytettyä avainta."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Käytettyä varmennetta ei ole varmentanut luotettava varmenneauktoriteetti "
-"tai varmenneauktoriteetti on tuntematon."
+"Allekirjoitus on kelvollinen, mutta luotettava varmenneauktoriteetti ei ole "
+"varmentanut käytettyä varmennetta tai varmenneauktoriteetti on tuntematon."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
 msgstr ""
-"Ei ole merkkiä siitä, että tämä varmenne kuuluisi tälle vastaanottajalle."
+"<strong>Varoitus:</strong> Ei ole mitään merkkiä, että allekirjoitus "
+"kuuluisi omistajalle."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
@@ -3590,51 +3611,501 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>Varoitus:</strong> Allekirjoituksen kuuluminen omistajalle ei ole "
+"varmaa."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+msgstr "Allekirjoitus on kelvollinen mutta vanhentunut."
 
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
+"Allekirjoitus on kelvollinen mutta vanhentunut, etkä sinä tai kukaan "
+"luotettava henkilö ole varmentanut käytettyä avainta."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+msgstr "Allekirjoitus on kelvollinen mutta käytetty avain on vanhentunut."
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+msgstr "Allekirjoitus on kelvollinen mutta käytetty avain on mitätöity."
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
 msgstr ""
+"<strong>Varoitus:</strong> Tämä voi tarkoittaa, että allekirjoitus on "
+"väärennös."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The used key is not certified by you or any trusted person."
+msgstr "Käytettyä avainta et sinä eikä luotettava henkilö ole varmentanut."
 
 #: utils/formatting.cpp
 #, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#| msgctxt "@info"
+#| msgid ""
+#| "Signature verification was successful: Data and signature match and the "
+#| "certificate is valid and trusted."
 msgctxt "@info"
-msgid "The used key is not certified by you or any trusted person."
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
 msgstr ""
-"Käytettyä avainta et ole varmentanut sinä eikä kukaan luottamasi henkilö."
+"Allekirjoituksen todentaminen onnistui: data ja allekirjoitus täsmäävät ja "
+"varmenne on kelvollinen ja luotettu."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Data and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Allekirjoituksen todentaminen onnistui: data ja allekirjoitus täsmäävät ja "
+"varmenne on kelvollinen ja luotettu."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Data and signature do not match."
+msgctxt "@info"
+msgid "Message and signature do not match."
+msgstr "Data ja allekirjoitus eivät täsmää."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate must not be trusted."
+msgstr "Allekirjoitusvarmenteeseen ei saa luottaa."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The data cannot be trusted. Reason: %1"
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Dataan ei voi luottaa. Syy: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Data ja allekirjoitus eivät täsmää."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The data cannot be trusted. Reason: %1"
+msgstr "Dataan ei voi luottaa. Syy: %1"
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1 and is dated %2."
+msgstr "Allekirjoitus esittää tekijäkseen %1 ja on päivätty %2."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature claims to be from %1."
+msgstr "Allekirjoitus esittää tekijäkseen %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signature cannot be verified because the corresponding certificate is "
+"not available."
+msgstr ""
+"Allekirjoitusta ei voi todentaa, koska vastaava varmenne ei ole saatavilla."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s fingerprint is %1."
+msgstr "Allekirjoitusvarmenteen sormenjälki on %1."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate’s serial number and issuer are %1."
+msgstr "Allekirjoitusvarmenteen sarjanumero ja julkaisija ovat %1."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It cannot be verified whether the data originates from the stated source."
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Ei voida todentaa, tuleeko data todella esitetystä lähteestä."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the data originates from the stated source."
+msgstr "Ei voida todentaa, tuleeko data todella esitetystä lähteestä."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signature has expired."
+msgstr "Allekirjoitus on vanhentunut."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has expired."
+msgstr "Allekirjoitusvarmenne on vanhentunut."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "The signing certificate has been revoked."
+msgstr "Allekirjoitusvarmenne on mitätöity."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signing certificate is not present in your certificate list, but it "
+#| "is needed to verify the data."
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"Allekirjoitusvarmennetta ei ole varmenneluettelossasi, mutta se vaaditaan "
+"datan todentamiseksi."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the data."
+msgstr ""
+"Allekirjoitusvarmennetta ei ole varmenneluettelossasi, mutta se vaaditaan "
+"datan todentamiseksi."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Technically, signature and data match, but the signing certificate is not "
+#| "marked as trusted. Therefore the data cannot be trusted to originate from "
+#| "the stated source."
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Allekirjoitus ja data täsmäävät teknisesti, mutta allekirjoitusvarmennetta "
+"ei ole merkitty luotetuksi. Näin ollen datan ei voi luottaa tulevan "
+"esitetystä lähteestä."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Technically, signature and data match, but the signing certificate is not "
+"marked as trusted. Therefore the data cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Allekirjoitus ja data täsmäävät teknisesti, mutta allekirjoitusvarmennetta "
+"ei ole merkitty luotetuksi. Näin ollen datan ei voi luottaa tulevan "
+"esitetystä lähteestä."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "For an expired certificate, it cannot be evaluated whether the "
+#| "certificate can be trusted. Therefore the data cannot be trusted. "
+#| "Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Vanhentuneesta varmenteesta ei voi arvioida, voiko siihen luottaa. Dataan ei "
+"siis voi luottaa. Teknisesti allekirjoitus ja data täsmäävät."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If the certificate was valid and trusted when you received the data, the "
+#| "data is likely valid."
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Jos varmenne oli kelvollinen ja luotettu vastaanottaessasi datan, se "
+"todennäköisesti on kelvollista."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the data cannot be trusted. Technically, signature "
+"and data match."
+msgstr ""
+"Vanhentuneesta varmenteesta ei voi arvioida, voiko siihen luottaa. Dataan ei "
+"siis voi luottaa. Teknisesti allekirjoitus ja data täsmäävät."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the data, the "
+"data is likely valid."
+msgstr ""
+"Jos varmenne oli kelvollinen ja luotettu vastaanottaessasi datan, se "
+"todennäköisesti on kelvollista."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The certificate may have been revoked because it was compromised and it "
+#| "might now be used by a third party. The data can therefore not be "
+#| "trusted. Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Varmenne on voitu mitätöidä, koska se on vaarantunut ja sitä voi nyt käyttää "
+"kolmas osapuoli. Dataan ei siten voi luottaa. Teknisesti allekirjoitus ja "
+"data täsmäävät."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It is possible that you received the data at a time when the certificate "
+#| "was still valid and trusted. If this is the case, the data may be valid."
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"On mahdollista, että olet vastaanottanut datan varmenteen ollessa yhä "
+"kelvollinen ja luotettu. Jos näin on, data voi olla kelvollista."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The data can therefore not be trusted. "
+"Technically, signature and data match."
+msgstr ""
+"Varmenne on voitu mitätöidä, koska se on vaarantunut ja sitä voi nyt käyttää "
+"kolmas osapuoli. Dataan ei siten voi luottaa. Teknisesti allekirjoitus ja "
+"data täsmäävät."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"It is possible that you received the data at a time when the certificate was "
+"still valid and trusted. If this is the case, the data may be valid."
+msgstr ""
+"On mahdollista, että olet vastaanottanut datan varmenteen ollessa yhä "
+"kelvollinen ja luotettu. Jos näin on, data voi olla kelvollista."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The data or the signature has been altered. This can happen accidentally "
+#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
+#| "subsequent change to the data, possibly by an email client), or "
+#| "intentionally (deliberate manipulation)."
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Dataa tai allekirjoitusta on muutettu. Näin voi käydä vahingossa (esim. "
+"välitysvirheen takia), epähuomiossa (esim. sähköpostin käsitellessä dataa) "
+"tai tarkoituksella (tahallinen vääristely)."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The data or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the data, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Dataa tai allekirjoitusta on muutettu. Näin voi käydä vahingossa (esim. "
+"välitysvirheen takia), epähuomiossa (esim. sähköpostin käsitellessä dataa) "
+"tai tarkoituksella (tahallinen vääristely)."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Ask the sender for the certificate or import it from a file or a "
+#| "keyserver. Then verify the data again."
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Pyydä varmennetta lähettäjältä tai tuo se tiedostosta tai avainpalvelimesta. "
+"Todenna data sitten uudelleen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the data again."
+msgstr ""
+"Pyydä varmennetta lähettäjältä tai tuo se tiedostosta tai avainpalvelimesta. "
+"Todenna data sitten uudelleen."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
+#| "again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Todenna varmenteen sormenjälki ja varmenna se. Todenna sitten data uudelleen."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
+#| "the data again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Todenna varmenteen juuri-CA-sormenjälki ja merkitse se luotetuksi. Todenna "
+"data sitten uudelleen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the data "
+"again."
+msgstr ""
+"Todenna varmenteen sormenjälki ja varmenna se. Todenna sitten data uudelleen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"data again."
+msgstr ""
+"Todenna varmenteen juuri-CA-sormenjälki ja merkitse se luotetuksi. Todenna "
+"data sitten uudelleen."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Päivitettyä varmennetta voi etsiä avainpalvelimesta tai pyytää lähettäjältä; "
+"varmenteen tuonnin jälkeen datan voi todentaa uudelleen."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If in doubt, contact the signer to clarify the situation and, if "
+#| "necessary, ask them to resend the data signed with a current certificate."
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"Jos olet epävarma, kysy tilanteesta allekirjoittajalta ja jos tarpeen pyydä "
+"häntä lähettämään data uudelleen nykyisellä varmenteella allekirjoitettuna."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the data again after importing the certificate."
+msgstr ""
+"Päivitettyä varmennetta voi etsiä avainpalvelimesta tai pyytää lähettäjältä; "
+"varmenteen tuonnin jälkeen datan voi todentaa uudelleen."
+
+#: utils/formatting.cpp utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the data signed with a current certificate."
+msgstr ""
+"Jos olet epävarma, kysy tilanteesta allekirjoittajalta ja jos tarpeen pyydä "
+"häntä lähettämään data uudelleen nykyisellä varmenteella allekirjoitettuna."
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Ask the sender to resend the data."
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Pyydä lähettäjää lähettämään data uudelleen."
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "Ask the sender to resend the data."
+msgstr "Pyydä lähettäjää lähettämään data uudelleen."
 
 #: utils/gnupg.cpp
 #, kde-format
@@ -3657,647 +4128,3 @@ msgstr "Syötevirrassa virheellinen heksamerkki ”%1”."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Syötevirrassa ennenaikainen heksakoodatun merkin loppu"
-
-#~ msgctxt "@option:check"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgctxt "@option:check"
-#~ msgid "S/MIME"
-#~ msgstr "S/MIME"
-
-#~ msgctxt "Caption for signing key selection"
-#~ msgid "Confirm identity '%1' as:"
-#~ msgstr "Vahvista henkilöys ”%1”:"
-
-#~ msgid "Error: Enter a value."
-#~ msgstr "Virhe: Anna arvo."
-
-#~ msgid "Subkey"
-#~ msgstr "Aliavain"
-
-#~ msgctxt "Name <email> (validity, created: date)"
-#~ msgid "%1 (%2, created: %3)"
-#~ msgstr "%1 (%2, luotu: %3)"
-
-#~ msgctxt "Name <email> (validity, type, created: date)"
-#~ msgid "%1 (%2, %3, created: %4)"
-#~ msgstr "%1 (%2, %3, luotu: %4)"
-
-#~ msgctxt "@info"
-#~ msgid "Unknown algorithm"
-#~ msgstr "Tuntematon algoritmi"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "All certificates"
-#~ msgstr "Kaikki varmenteet"
-
-#~ msgid ""
-#~ "Configuration of directory services is not possible because the used "
-#~ "gpgme libraries are too old."
-#~ msgstr ""
-#~ "Hakemistopalvelua ei voi asettaa, koska käytössä olevat gpgme-kirjastot "
-#~ "ovat liian vanhoja."
-
-#, fuzzy
-#~| msgid "Sorry"
-#~ msgctxt "@title:window"
-#~ msgid "Sorry"
-#~ msgstr "Pahoittelut"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgctxt "1 is a date"
-#~ msgid "Signature created on %1 with unavailable certificate: %2"
-#~ msgstr "Kaikki varmenteet"
-
-#, fuzzy
-#~| msgid "All Certificates"
-#~ msgid "Signature created with unavailable certificate: %1"
-#~ msgstr "Kaikki varmenteet"
-
-#, fuzzy
-#~| msgid "Other Certificates"
-#~ msgid "With certificate: %1"
-#~ msgstr "Muut varmenteet"
-
-#~ msgid "E-Mail"
-#~ msgstr "Sähköposti"
-
-#, fuzzy
-#~| msgctxt "as in good/valid signature"
-#~| msgid "good"
-#~ msgctxt "as in good/valid subkey"
-#~ msgid "good"
-#~ msgstr "kelvollinen"
-
-#~ msgid "Unknown"
-#~ msgstr "Tuntematon"
-
-#, fuzzy
-#~| msgid "User ID"
-#~ msgctxt "@title:column"
-#~ msgid "User IDs"
-#~ msgstr "Käyttäjätunnus"
-
-#~ msgid "Fully Trusted Certificates"
-#~ msgstr "Täysit luotetut varmenteet"
-
-#~ msgid "Not Certified Certificates"
-#~ msgstr "Vahvistamattomia varmenteita"
-
-#~ msgid "Not Validated Certificates"
-#~ msgstr "Ei vahvistettuja varmenteita"
-
-#~ msgctxt "@title:column"
-#~ msgid "User-IDs"
-#~ msgstr "Käyttäjätunnukset"
-
-#~ msgctxt "@title:column"
-#~ msgid "Key-ID"
-#~ msgstr "Avaintunniste"
-
-#~ msgid "User-ID"
-#~ msgstr "Käyttäjätunnus"
-
-#~ msgid "Key-ID"
-#~ msgstr "Avaintunniste"
-
-# *** TARKISTA: Vai ”vahvistuta” – onko kyse automaattisesta vahvistamista vai kyselyikkunan näyttämisestä?
-#~ msgid "Don't confirm identity and integrity"
-#~ msgstr "Älä vahvista henkilöyttä ja eheyttä"
-
-#~ msgid "GpgConf Error"
-#~ msgstr "GpgConf-virhe"
-
-#~ msgid "Certificate Manager and Unified Crypto GUI"
-#~ msgstr "Varmenteenhallinta- ja salauskäyttöliittymä"
-
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgid "Signing failed: %1"
-#~ msgstr "Allekirjoittaminen epäonnistui: %1"
-
-#~ msgid "Signing successful"
-#~ msgstr "Allekirjoittaminen onnistui"
-
-#~ msgid "Encryption failed: %1"
-#~ msgstr "Salaus epäonnistui: %1"
-
-#~ msgid "Encryption successful"
-#~ msgstr "Salaus onnistui"
-
-#~ msgid "Signing Result"
-#~ msgstr "Allekirjoittamisen tulos"
-
-#~ msgid "Signing Error"
-#~ msgstr "Allekirjoittamisvirhe"
-
-#~ msgid "Encryption Result"
-#~ msgstr "Salauksen tulos"
-
-#~ msgid "Encryption Error"
-#~ msgstr "Salausvirhe"
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication possible."
-#~ msgstr "%1 viestintä on mahdollista."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "%1 communication not possible."
-#~ msgstr "%1 viestintä ei ole mahdollista."
-
-#~ msgctxt ""
-#~ "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#~ "RESTRICTED compliant or VS-NfD compliant"
-#~ msgid "May be used for %1 communication."
-#~ msgstr "%1 viestintä käytettävissä."
-
-#~ msgctxt ""
-#~ "VS-NfD-conforming is a German standard for restricted documents. For "
-#~ "which special restrictions about algorithms apply. The string describes "
-#~ "if a key is compliant to that.."
-#~ msgid "May <b>not</b> be used for %1 communication."
-#~ msgstr "%1 viestintä <b>ei</b> käytettävissä."
-
-#~ msgid "never"
-#~ msgstr "ei koskaan"
-
-#~ msgctxt "Key creation date"
-#~ msgid "Created"
-#~ msgstr "Luotu"
-
-#~ msgctxt "Key Expiration date"
-#~ msgid "Expiry"
-#~ msgstr "Vanheneminen"
-
-#~ msgid "Created"
-#~ msgstr "Luotu"
-
-#~ msgid "Expires"
-#~ msgstr "Vanhenee"
-
-#, fuzzy
-#~| msgid "Add"
-#~ msgctxt "@action:button accessible name for 'Add to list'"
-#~ msgid "add"
-#~ msgstr "Lisää"
-
-#, fuzzy
-#~| msgid "ftp"
-#~ msgctxt "@action:button accessible name for 'Move to top'"
-#~ msgid "top"
-#~ msgstr "ftp"
-
-#, fuzzy
-#~| msgid "Move to bottom"
-#~ msgctxt "@action:button accessible name for 'Move to bottom'"
-#~ msgid "bottom"
-#~ msgstr "Siirrä alimmaiseksi"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Custom entry"
-#~ msgstr "Mukautettu tietue"
-
-#~ msgctxt "default server name, keep it a valid domain name, ie. no spaces"
-#~ msgid "server"
-#~ msgstr "palvelin"
-
-#~ msgid "hkp"
-#~ msgstr "hkp"
-
-#~ msgid "http"
-#~ msgstr "http"
-
-#~ msgid "https"
-#~ msgstr "https"
-
-#~ msgid "ftps"
-#~ msgstr "ftps"
-
-#~ msgid "ldap"
-#~ msgstr "ldap"
-
-#~ msgid "ldaps"
-#~ msgstr "ldaps"
-
-#~ msgid "Server Name"
-#~ msgstr "Palvelimen nimi"
-
-#~ msgid "Server Port"
-#~ msgstr "Palvelimen portti"
-
-#~ msgid "Base DN"
-#~ msgstr "Perus DN"
-
-#~ msgid "User Name"
-#~ msgstr "Käyttäjätunnus"
-
-#~ msgid "(read-only)"
-#~ msgstr "(vain luku)"
-
-#~ msgctxt "amended tooltip; %1: original tooltip"
-#~ msgid "%1 (read-only)"
-#~ msgstr "%1 (vain luku)"
-
-#~ msgid "<b>(Optional)</b> Enter your user name here, if needed."
-#~ msgstr "<b>(Valinnainen)</b> Syötä käyttäjätunnuksesi tähän, jos tarpeen."
-
-#~ msgid "Directory Services Configuration"
-#~ msgstr "Hakemistopalvelujen asetukset"
-
-#~ msgid "OpenPGP Keyserver:"
-#~ msgstr "OpenPGP-avainpalvelin:"
-
-#~ msgid ""
-#~ "Click this button to create a new directory service entry as a clone of "
-#~ "the currently selected one (or with default values, if no other is "
-#~ "selected). You can then configure details in the table on the left hand."
-#~ msgstr ""
-#~ "Luo uusi hakemistopalvelumerkintä napsauttamalla tätä painiketta. "
-#~ "Määritys alustetaan valitun kopioksi tai oletusarvoin, ellei yhtään "
-#~ "määritystä ole valittu. Tämän jälkeen voi määrittää arvot vasemman puolen "
-#~ "taulukossa."
-
-#~ msgid "New"
-#~ msgstr "Uusi"
-
-#~ msgid ""
-#~ "Use this option to switch display of username and password information on "
-#~ "or off in the above table."
-#~ msgstr ""
-#~ "Tämän valinnan avulla voit asettaa käyttäjätunnus- ja salasanatiedot yllä "
-#~ "olevassa taulukossa näkyville tai piiloon."
-
-#~ msgid "Show user and password information"
-#~ msgstr "Näytä käyttäjä- ja salasanatieto"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure GnuPG Backend"
-#~ msgstr "GnuPG-taustajärjestelmän asetukset"
-
-#~ msgid "&Reset"
-#~ msgstr "&Nollaa"
-
-#~ msgid "Use keyserver at"
-#~ msgstr "Käytä avainpalvelinta"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Keyservers"
-#~ msgstr "Avainpalvelinten asetukset"
-
-#~ msgctxt "Caption for signing key selection, no key found"
-#~ msgid "No key found for the address '%1':"
-#~ msgstr "Osoitteelle ”%1” ei löytynyt avainta:"
-
-#~ msgid "Add Filter"
-#~ msgstr "Lisää suodatin"
-
-#~ msgctxt "X.509/CMS encryption standard"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgid "No Key"
-#~ msgstr "Avain puuttuu"
-
-#~ msgid "Ignore recipient"
-#~ msgstr "Ohita vastaanottaja"
-
-#~ msgid "VS-NfD-compliant Certificates"
-#~ msgstr "VS-NfD-yhteensopivat varmenteet"
-
-#~ msgctxt "good/valid signature"
-#~ msgid "good"
-#~ msgstr "kelvollinen"
-
-#~ msgctxt "New X.509 Directory Server"
-#~ msgid "X.509"
-#~ msgstr "X.509"
-
-#~ msgctxt "New OpenPGP Directory Server"
-#~ msgid "OpenPGP"
-#~ msgstr "OpenPGP"
-
-#~ msgid "Scheme"
-#~ msgstr "Malli"
-
-#~ msgid ""
-#~ "Select the access scheme (scheme) that the directory service is available "
-#~ "through."
-#~ msgstr ""
-#~ "Valitse yhteyskäytäntö (malli), jonka kautta hakemistopalvelu on käytössä."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing S/MIME (X.509) "
-#~ "certificates."
-#~ msgstr ""
-#~ "Tarkista tästä sarakkeesta, tarjoaako hakemistopalvelusi S/MIME- eli "
-#~ "X.509-varmenteita."
-
-#~ msgid ""
-#~ "Check this column if this directory service is providing OpenPGP "
-#~ "certificates."
-#~ msgstr ""
-#~ "Tarkista tästä sarakkeesta, tarjoaako hakemistopalvelusi OpenPGP-"
-#~ "varmenteita."
-
-#~ msgid "0 - None (no debugging at all)"
-#~ msgstr "0 – Ei mitään (ei virheenpaikannusta)"
-
-#~ msgid "1 - Basic (some basic debug messages)"
-#~ msgstr "1 – Perustaso (perustavat virheenpaikannusviestit)"
-
-#~ msgid "2 - Advanced (more verbose debug messages)"
-#~ msgstr "2 – Edistynyt taso (täydemmät virheenpaikannusviestit)"
-
-#~ msgid "3 - Expert (even more detailed messages)"
-#~ msgstr "3 – Asiantuntijataso (vielä yksityiskohtaisemmat viestit)"
-
-#~ msgid "4 - Guru (all of the debug messages you can get)"
-#~ msgstr "4 – Gurutaso (kaikki saatavilla olevat virheenpaikannusviestit)"
-
-#~ msgid "Chiasmus"
-#~ msgstr "Chiasmus"
-
-#~ msgid "Chiasmus command line tool"
-#~ msgstr "Chiasmus-komentorivityökalu"
-
-#~ msgid "Unsupported protocol \"%1\""
-#~ msgstr "Tuntematon yhteyskäytäntö ”%1”"
-
-#~ msgid "File \"%1\" does not exist or is not executable."
-#~ msgstr "Tiedostoa ”%1” ei ole olemassa tai sitä ei voida suorittaa."
-
-#~ msgid "Output from chiasmus"
-#~ msgstr "Chiasmuksen tuloste"
-
-#~ msgid ""
-#~ "The following was received on stderr:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Vakiosyötevirrasta löytyi seuraava:\n"
-#~ "%1"
-
-#~ msgid "Failed to load %1: %2"
-#~ msgstr "Ei voitu ladata %1: %2"
-
-#~ msgid "Library does not contain the symbol \"Chiasmus\"."
-#~ msgstr "Kirjasto ei sisällä symbolia ”Chiasmus”."
-
-#~ msgid "Scanning directory %1..."
-#~ msgstr "Tutkitaan kansiota %1…"
-
-#~ msgid "GpgME"
-#~ msgstr "GpgME"
-
-#~ msgid "GPGME was compiled without support for %1."
-#~ msgstr "GPGME on käännetty ilman %1-tukea."
-
-#~ msgid "Engine %1 is not installed properly."
-#~ msgstr "Ajuria %1 ei ole asetettu oikein."
-
-#~ msgid "Engine %1 version %2 installed, but at least version %3 is required."
-#~ msgstr "Ajurin %1 versio %2 asetettu, mutta versio %3 tarvitaan."
-
-#~ msgid "Unknown problem with engine for protocol %1."
-#~ msgstr "Tuntematon ongelma yhteyskäytännön %1 ajurin kanssa."
-
-#~ msgid "program terminated unexpectedly"
-#~ msgstr "ohjelmaa päättyi odottamattomasti"
-
-#~ msgid "program not found or cannot be started"
-#~ msgstr "ohjelmaa ei löytynyt tai ei voitu suorittaa"
-
-#~ msgid "<qt>Failed to execute gpgconf:<p>%1</p></qt>"
-#~ msgstr "<qt>gpgconfin suorittaminen epäonnistui:<p>%1</p></qt>"
-
-#~ msgid ""
-#~ "Could not start gpgconf.\n"
-#~ "Check that gpgconf is in the PATH and that it can be started."
-#~ msgstr ""
-#~ "Ei voitu käynnistää gpgconfia.\n"
-#~ "Varmista, että se on hakupolussa ja että se voidaan käynnistää."
-
-#~ msgid "Error from gpgconf while saving configuration: %1"
-#~ msgstr "Virhe tallennettaessa gpgconf-asetuksia: %1"
-
-#~ msgid "Generating ElGamal key..."
-#~ msgstr "Luon ElGamal-avainta…"
-
-#~ msgid "Searching for a large prime number..."
-#~ msgstr "Etsitään suurta alkulukua…"
-
-#~ msgid ""
-#~ "Waiting for new entropy from random number generator (you might want to "
-#~ "exercise the harddisks or move the mouse)..."
-#~ msgstr ""
-#~ "Odotetaan lisää entropiaa satunnaislukugeneraattorilta (voit nopeuttaa "
-#~ "toimenpidettä käyttämällä kiintolevyjä tai liikuttamalla hiirtä)…"
-
-#~ msgid "Please wait..."
-#~ msgstr "Odota hetki…"
-
-#~ msgid ""
-#~ "Starting gpg-agent (you should consider starting a global instance "
-#~ "instead)..."
-#~ msgstr ""
-#~ "Käynnistetään GPG-agenttia (mutta sinun kannattaisi käynnistää "
-#~ "järjestelmänlaajuinen instanssi tämän sijaan)…"
-
-#~ msgid "While scanning for %1 support in backend %2:"
-#~ msgstr "Virhe etsittäessä %1-tukea taustaosasta %2:"
-
-#~ msgctxt "progress info: \"%1 of %2\""
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgid ""
-#~ "OpenPGP key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4"
-#~ msgstr ""
-#~ "%1 OpenPGP-avain\n"
-#~ "Luotu: %2\n"
-#~ "Vanhenee: %3\n"
-#~ "Sormenjälki: %4"
-
-#~ msgid ""
-#~ "S/MIME key for %1\n"
-#~ "Created: %2\n"
-#~ "Expiry: %3\n"
-#~ "Fingerprint: %4\n"
-#~ "Issuer: %5"
-#~ msgstr ""
-#~ "S/MIME-avain kohteelle %1\n"
-#~ "Luotu: %2\n"
-#~ "Vanhenee: %3\n"
-#~ "Sormenjälki: %4\n"
-#~ "Myöntäjä: %5"
-
-#~ msgid "&Server name:"
-#~ msgstr "&Palvelimen nimi:"
-
-#~ msgid "389"
-#~ msgstr "389"
-
-#~ msgid "&User name (optional):"
-#~ msgstr "&Käyttäjän nimi (valinnainen)"
-
-#~ msgid "Pass&word (optional):"
-#~ msgstr "&Salasana (valinnainen)"
-
-#~ msgid "&Cancel"
-#~ msgstr "&Peru"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Kim Enkovaara"
-
-#~ msgid "Error while initializing plugin \"%1\""
-#~ msgstr "Virhe alustettaessa liitännäistä ”%1”"
-
-#~ msgid "failed"
-#~ msgstr "epäonnistui"
-
-#~ msgid "Available Backends"
-#~ msgstr "Ajurit"
-
-#~ msgid "Confi&gure..."
-#~ msgstr "&Muokkaa..."
-
-#~ msgid "Rescan"
-#~ msgstr "Etsi uudelleen"
-
-#~ msgid "The following problems where encountered during scanning:"
-#~ msgstr "Etsinnän aikana havaittiin seuraavat ongelmat:"
-
-#~| msgid "Scan Results"
-#~ msgctxt "@title:window Results of the scanning"
-#~ msgid "Scan Results"
-#~ msgstr "Etsinnän tulokset"
-
-#~ msgid ""
-#~ "You need a passphrase to unlock the secret key for user:<br/> %1 (retry)"
-#~ msgstr ""
-#~ "Tarvitset salasanan avataksesi salaisen avaimen käyttäjälle:<br/>%1 "
-#~ "(yritä uudelleen)"
-
-#~ msgid "You need a passphrase to unlock the secret key for user:<br/> %1"
-#~ msgstr "Tarvitset salasanan avataksesi salaisen avaimen käyttäjälle:<br/>%1"
-
-#~ msgid ""
-#~ "This dialog will reappear every time the passphrase is needed. For a more "
-#~ "secure solution that also allows caching the passphrase, use gpg-agent."
-#~ msgstr ""
-#~ "Ikkuna tulee aina esille, kun salasanaa tarvitaan. Turvallisempi ratkaisu "
-#~ "on gpg-agent-ohjelma, joka mahdollistaa myös salasanojen laittamisen "
-#~ "välimuistiin."
-
-#~ msgid "gpg-agent was found in %1, but does not appear to be running."
-#~ msgstr "gpg-agent löytyi polusta %1, mutta ei näytä olevan käynnissä."
-
-#~ msgid "gpg-agent is part of gnupg-%1, which you can download from %2"
-#~ msgstr "gpg-agent on osa gnupg-%1 ohjelmaa, jonka voit hakea osoitteesta %2"
-
-#~ msgid "For information on how to set up gpg-agent, see %1"
-#~ msgstr "Anna tiedot miten gpg-agent asetetaan, katso %1"
-
-#~ msgid "Passphrase Dialog"
-#~ msgstr "Salasanaikkuna"
-
-#, fuzzy
-#~ msgid "Configure"
-#~ msgstr "&Muokkaa..."
-
-#~ msgid "Select Directory Services to Use Here"
-#~ msgstr "Valitse käyttämäsi hakemistopalvelut tässä kohdassa"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>X.500 Directory Services</h1>\n"
-#~ "You can use X.500 directory services to retrieve certificates and "
-#~ "certificate revocation lists that are not saved locally. Ask your local "
-#~ "administrator if you want to make use of this feature and are unsure "
-#~ "which directory service you can use.\n"
-#~ "<p>\n"
-#~ "If you do not use a directory service, you can still use local "
-#~ "certificates.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>X.500 -hakemistopalvelut</h1>\n"
-#~ "Voit käyttää X.500 -hakemistopalveluja noutaaksesi varmenteita ja "
-#~ "varmenteiden sulkulistoja, joita ei ole tallennettu paikallisesti. Kysy "
-#~ "paikalliselta järjestelmän ylläpitäjältä, jos haluat käyttää tätä "
-#~ "ominaisuutta ja epävarma, mitä hakemistopalvelua voit käyttää.\n"
-#~ "<p>\n"
-#~ "Jos et käytä hakemistopalvelua, voit silti käyttää paikallisia "
-#~ "varmenteita.\n"
-#~ "</qt>"
-
-#~ msgid "Port"
-#~ msgstr "Portti"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Add a Directory Service</h1>\n"
-#~ "By clicking this button, you can select a new directory service to be "
-#~ "used for retrieving certificates and CRLs. You will be asked for the "
-#~ "server name and an optional description.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Lisää hakemistopalvelu</h1>\n"
-#~ "Painamalla tätä painiketta voit valita uuden hakemistopalvelun, jota "
-#~ "käytetään varmenteiden ja CRL:ien noutamiseen. Sinulta kysytään "
-#~ "palvelimen nimeä ja valinnaista kuvausta.\n"
-#~ "</qt>"
-
-#~ msgid "&Add Service..."
-#~ msgstr "Lisää p&alvelu..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<h1>Remove Directory Service</h1>\n"
-#~ "By clicking this button, you can remove the currently selected directory "
-#~ "service in the list above. You will have a chance to rethink your "
-#~ "decision before the entry is deleted from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<h1>Poista hakemistopalvelu</h1>\n"
-#~ "Painamalla tätä painiketta voi poistaa valitun hakemistopalvelun alla "
-#~ "olevasta listasta. Sinulla on mahdollisuus harkita päätöstäsi uudelleen "
-#~ "ennen kuin hakemistopalvelu poistetaan listalta.\n"
-#~ "</qt>"
-
-#~ msgid "<unnamed>"
-#~ msgstr "<nimetön>"
-
-#~ msgid "<unknown>"
-#~ msgstr "<tuntematon>"
-
-#~ msgid "Kpgp/gpg"
-#~ msgstr "Kpgp/gpg"
-
-#~ msgid "Kpgp/pgp v2"
-#~ msgstr "Kpgp/pgp v2"
-
-#~ msgid "Kpgp/pgp v5"
-#~ msgstr "Kpgp/pgp v5"
-
-#~ msgid "Kpgp/pgp v6"
-#~ msgstr "Kpgp/pgp v6"
-
-#~ msgid "This backend does not support S/MIME"
-#~ msgstr "Tämä ajuri ei tue S/MIMEyhteyskäytäntöä"
-
-#~ msgid "Please enter your passphrase:"
-#~ msgstr "Anna salasanasi:"
