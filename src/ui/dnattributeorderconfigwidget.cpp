@@ -22,7 +22,7 @@
 #include <QHeaderView>
 #include <QIcon>
 #include <QLabel>
-#include <QToolButton>
+#include <QPushButton>
 #include <QTreeWidget>
 
 namespace
@@ -63,7 +63,7 @@ public:
 
     TreeWidget *availableLV = nullptr;
     TreeWidget *currentLV = nullptr;
-    std::vector<QToolButton *> navTB;
+    std::vector<QPushButton *> navTB;
 
     QTreeWidgetItem *placeHolderItem = nullptr;
 };
@@ -160,13 +160,13 @@ Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidget(QWidget *parent
     };
 
     const auto createToolButton = [this](const NavButtonInfo &navButton) {
-        auto tb = new QToolButton{this};
+        auto tb = new QPushButton{this};
         tb->setIcon(QIcon::fromTheme(QLatin1StringView(navButton.icon)));
         tb->setEnabled(false);
         tb->setAccessibleName(KLocalizedString{navButton.accessibleName}.toString());
         tb->setToolTip(KLocalizedString(navButton.tooltip).toString());
         tb->setAutoRepeat(navButton.autorepeat);
-        connect(tb, &QToolButton::clicked, this, navButton.slot);
+        connect(tb, &QAbstractButton::clicked, this, navButton.slot);
         d->navTB.push_back(tb);
         return tb;
     };

@@ -28,9 +28,9 @@
 
 #include <QHBoxLayout>
 #include <QList>
+#include <QPushButton>
 #include <QSortFilterProxyModel>
 #include <QTimer>
-#include <QToolButton>
 
 #include <gpgme++/key.h>
 
@@ -455,7 +455,7 @@ public:
     SortAndFormatCertificatesProxyModel *sortAndFormatProxy = nullptr;
     CustomItemsProxyModel *proxyModel = nullptr;
     QComboBox *combo = nullptr;
-    QToolButton *button = nullptr;
+    QPushButton *button = nullptr;
     std::shared_ptr<Kleo::KeyCache> cache;
     QMap<GpgME::Protocol, QString> defaultKeys;
     bool wasEnabled = false;
@@ -522,15 +522,15 @@ UserIDSelectionCombo::UserIDSelectionCombo(bool secretOnly, KeyUsage::Flags usag
     layout->setContentsMargins({});
 
     d->combo = new QComboBox(parent);
-    layout->addWidget(d->combo);
+    layout->addWidget(d->combo, 1);
 
-    d->button = new QToolButton(parent);
+    d->button = new QPushButton(parent);
     d->button->setIcon(QIcon::fromTheme(QStringLiteral("resource-group-new")));
     d->button->setToolTip(i18nc("@info:tooltip", "Show certificate list"));
     d->button->setAccessibleName(i18n("Show certificate list"));
     layout->addWidget(d->button);
 
-    connect(d->button, &QToolButton::clicked, this, &UserIDSelectionCombo::certificateSelectionRequested);
+    connect(d->button, &QAbstractButton::clicked, this, &UserIDSelectionCombo::certificateSelectionRequested);
 
     d->combo->setModel(d->proxyModel);
     connect(d->combo, &QComboBox::currentIndexChanged, this, [this](int row) {
