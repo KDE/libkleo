@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:49+0000\n"
+"POT-Creation-Date: 2026-09-15 00:45+0000\n"
 "PO-Revision-Date: 2026-08-19 18:13+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1975,7 +1975,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (обов'язкове)"
 
-#: ui/formtextinput.cpp:126 utils/formatting.cpp:1835
+#: ui/formtextinput.cpp:126 utils/formatting.cpp:1859
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -3799,7 +3799,7 @@ msgid "Bad signature"
 msgstr "Непридатний підпис"
 
 #: utils/formatting.cpp:1686 utils/formatting.cpp:1750
-#: utils/formatting.cpp:1833
+#: utils/formatting.cpp:1857
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Підпис є некоректним: %1"
@@ -3893,7 +3893,21 @@ msgstr ""
 "Використаний сертифікат не посвідчено ні вами, ні якоюсь іншою надійною "
 "особою."
 
-#: utils/formatting.cpp:1768
+#: utils/formatting.cpp:1769
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Signature verification was successful: Data and signature match and the "
+#| "certificate is valid and trusted."
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Перевірку підпису успішно пройдено: дані і підпис є відповідними, а "
+"сертифікат є чинним і надійним."
+
+#: utils/formatting.cpp:1770
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3903,39 +3917,57 @@ msgstr ""
 "Перевірку підпису успішно пройдено: дані і підпис є відповідними, а "
 "сертифікат є чинним і надійним."
 
-#: utils/formatting.cpp:1774
-#, kde-format
+#: utils/formatting.cpp:1779
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Data and signature do not match."
 msgctxt "@info"
-msgid "Data and signature do not match."
+msgid "Message and signature do not match."
 msgstr "Між даними і підписом немає відповідності."
 
-#: utils/formatting.cpp:1775
+#: utils/formatting.cpp:1781 utils/formatting.cpp:1787
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
 msgstr "Не слід довіряти сертифікату підпису."
 
-#: utils/formatting.cpp:1776 utils/formatting.cpp:1789
-#: utils/formatting.cpp:1806 utils/formatting.cpp:1812
-#: utils/formatting.cpp:1818 utils/formatting.cpp:1824
+#: utils/formatting.cpp:1782 utils/formatting.cpp:1802
+#: utils/formatting.cpp:1822 utils/formatting.cpp:1830
+#: utils/formatting.cpp:1838 utils/formatting.cpp:1846
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The data cannot be trusted. Reason: %1"
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Походженню даних не можна довіряти. Причина: %1"
+
+#: utils/formatting.cpp:1785
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Між даними і підписом немає відповідності."
+
+#: utils/formatting.cpp:1788 utils/formatting.cpp:1803
+#: utils/formatting.cpp:1823 utils/formatting.cpp:1831
+#: utils/formatting.cpp:1839 utils/formatting.cpp:1847
 #, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
 msgstr "Походженню даних не можна довіряти. Причина: %1"
 
-#: utils/formatting.cpp:1779
+#: utils/formatting.cpp:1792
 #, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
 msgstr "Дані підпису вказують на його походження від %1 і дату %2."
 
-#: utils/formatting.cpp:1783
+#: utils/formatting.cpp:1796
 #, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
 msgstr "Дані підпису вказують на його походження від %1."
 
-#: utils/formatting.cpp:1788
+#: utils/formatting.cpp:1801
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3944,44 +3976,68 @@ msgid ""
 msgstr ""
 "Підпис не можна перевірити, оскільки відповідний сертифікат недоступний."
 
-#: utils/formatting.cpp:1793
+#: utils/formatting.cpp:1807
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
 msgstr "Відбитком сертифіката підпису є %1."
 
-#: utils/formatting.cpp:1798
+#: utils/formatting.cpp:1812
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
 msgstr "Серійним номером та видавцем сертифіката підписування є %1."
 
-#: utils/formatting.cpp:1805
+#: utils/formatting.cpp:1820
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It cannot be verified whether the data originates from the stated source."
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Не можна перевірити, чи походять дані з вказаного джерела."
+
+#: utils/formatting.cpp:1821
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
 msgstr "Не можна перевірити, чи походять дані з вказаного джерела."
 
-#: utils/formatting.cpp:1811
+#: utils/formatting.cpp:1829
 #, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
 msgstr "Строк дії підпису вичерпано."
 
-#: utils/formatting.cpp:1817
+#: utils/formatting.cpp:1837
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
 msgstr "Строк дії сертифіката підпису вичерпано."
 
-#: utils/formatting.cpp:1823
+#: utils/formatting.cpp:1845
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
 msgstr "Сертифікат підпису було відкликано."
 
-#: utils/formatting.cpp:1846
+#: utils/formatting.cpp:1886
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signing certificate is not present in your certificate list, but it "
+#| "is needed to verify the data."
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"Сертифіката підписування немає у вашому списку сертифікатів, але сертифікат "
+"потрібен для перевірки даних."
+
+#: utils/formatting.cpp:1888
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3991,7 +4047,24 @@ msgstr ""
 "Сертифіката підписування немає у вашому списку сертифікатів, але сертифікат "
 "потрібен для перевірки даних."
 
-#: utils/formatting.cpp:1851
+#: utils/formatting.cpp:1895
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Technically, signature and data match, but the signing certificate is not "
+#| "marked as trusted. Therefore the data cannot be trusted to originate from "
+#| "the stated source."
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Технічно, підпис і дані збігаються, але сертифікат підписування не позначено "
+"як довірений. Тому не можна довіряти тому, що дані походять із зазначеного "
+"джерела."
+
+#: utils/formatting.cpp:1899
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4003,7 +4076,38 @@ msgstr ""
 "як довірений. Тому не можна довіряти тому, що дані походять із зазначеного "
 "джерела."
 
-#: utils/formatting.cpp:1857
+#: utils/formatting.cpp:1907
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "For an expired certificate, it cannot be evaluated whether the "
+#| "certificate can be trusted. Therefore the data cannot be trusted. "
+#| "Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Для сертифіката, термін дії якого минув, неможливо оцінити, чи можна "
+"довіряти сертифікату. Тому даним не можна довіряти. Технічно, підпис і дані "
+"збігаються."
+
+#: utils/formatting.cpp:1909
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If the certificate was valid and trusted when you received the data, the "
+#| "data is likely valid."
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Якщо сертифікат був чинним та довіреним на момент отримання даних, дані, "
+"ймовірно, є коректними."
+
+#: utils/formatting.cpp:1912
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4015,7 +4119,7 @@ msgstr ""
 "довіряти сертифікату. Тому даним не можна довіряти. Технічно, підпис і дані "
 "збігаються."
 
-#: utils/formatting.cpp:1859
+#: utils/formatting.cpp:1914
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4025,7 +4129,38 @@ msgstr ""
 "Якщо сертифікат був чинним та довіреним на момент отримання даних, дані, "
 "ймовірно, є коректними."
 
-#: utils/formatting.cpp:1862
+#: utils/formatting.cpp:1919
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The certificate may have been revoked because it was compromised and it "
+#| "might now be used by a third party. The data can therefore not be "
+#| "trusted. Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Сертифікат міг бути відкликаний через його компрометацію, і тепер його може "
+"використовувати стороння особа. Тому даним не можна довіряти. Технічно, "
+"підпис і дані збігаються."
+
+#: utils/formatting.cpp:1922
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It is possible that you received the data at a time when the certificate "
+#| "was still valid and trusted. If this is the case, the data may be valid."
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"Можливо, ви отримали дані, коли сертифікат був ще чинним і довіреним. Якщо "
+"це так, то дані можуть бути довіреними."
+
+#: utils/formatting.cpp:1926
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4037,7 +4172,7 @@ msgstr ""
 "використовувати стороння особа. Тому даним не можна довіряти. Технічно, "
 "підпис і дані збігаються."
 
-#: utils/formatting.cpp:1865
+#: utils/formatting.cpp:1929
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4047,7 +4182,26 @@ msgstr ""
 "Можливо, ви отримали дані, коли сертифікат був ще чинним і довіреним. Якщо "
 "це так, то дані можуть бути довіреними."
 
-#: utils/formatting.cpp:1871
+#: utils/formatting.cpp:1937
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The data or the signature has been altered. This can happen accidentally "
+#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
+#| "subsequent change to the data, possibly by an email client), or "
+#| "intentionally (deliberate manipulation)."
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Дані або підпис було змінено. Це може статися випадково (наприклад, через "
+"помилку під час передавання), ненавмисно (наприклад, через подальшу зміну "
+"даних, можливо, поштовим клієнтом) або навмисно (навмисна маніпуляція)."
+
+#: utils/formatting.cpp:1942
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4060,7 +4214,21 @@ msgstr ""
 "помилку під час передавання), ненавмисно (наприклад, через подальшу зміну "
 "даних, можливо, поштовим клієнтом) або навмисно (навмисна маніпуляція)."
 
-#: utils/formatting.cpp:1888
+#: utils/formatting.cpp:1971
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Ask the sender for the certificate or import it from a file or a "
+#| "keyserver. Then verify the data again."
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Попросіть у відправника сертифікат або імпортуйте його з файла чи сервера "
+"ключів. Потім ще раз перевірте дані."
+
+#: utils/formatting.cpp:1972
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4070,7 +4238,35 @@ msgstr ""
 "Попросіть у відправника сертифікат або імпортуйте його з файла чи сервера "
 "ключів. Потім ще раз перевірте дані."
 
-#: utils/formatting.cpp:1893
+#: utils/formatting.cpp:1978
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
+#| "again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Перевірте відбиток сертифіката і сертифікуйте його. Потім ще раз перевірте "
+"дані."
+
+#: utils/formatting.cpp:1979
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
+#| "the data again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Перевірте відбиток кореневого центру сертифікації (Root-CA) сертифіката і "
+"визначтеся з довірою до нього. Потім ще раз перевірте дані."
+
+#: utils/formatting.cpp:1982
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4080,7 +4276,7 @@ msgstr ""
 "Перевірте відбиток сертифіката і сертифікуйте його. Потім ще раз перевірте "
 "дані."
 
-#: utils/formatting.cpp:1894
+#: utils/formatting.cpp:1983
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4090,7 +4286,37 @@ msgstr ""
 "Перевірте відбиток кореневого центру сертифікації (Root-CA) сертифіката і "
 "визначтеся з довірою до нього. Потім ще раз перевірте дані."
 
-#: utils/formatting.cpp:1900
+#: utils/formatting.cpp:1991
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Ви можете пошукати оновлений сертифікат на сервері ключів або попросити "
+"відправника надіслати сертифікат, а потім повторити спробу перевірити дані "
+"після імпортування сертифіката."
+
+#: utils/formatting.cpp:1994 utils/formatting.cpp:2008
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If in doubt, contact the signer to clarify the situation and, if "
+#| "necessary, ask them to resend the data signed with a current certificate."
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"Якщо не певні, зверніться до автора чи авторки підпису, щоб уточнити "
+"ситуацію, і за потреби попросіть повторно надіслати дані, підписані чинним "
+"сертифікатом."
+
+#: utils/formatting.cpp:1999
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4101,7 +4327,7 @@ msgstr ""
 "відправника надіслати сертифікат, а потім повторити спробу перевірити дані "
 "після імпортування сертифіката."
 
-#: utils/formatting.cpp:1904 utils/formatting.cpp:1908
+#: utils/formatting.cpp:2002 utils/formatting.cpp:2012
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4112,7 +4338,15 @@ msgstr ""
 "ситуацію, і за потреби попросіть повторно надіслати дані, підписані чинним "
 "сертифікатом."
 
-#: utils/formatting.cpp:1912
+#: utils/formatting.cpp:2016
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Ask the sender to resend the data."
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Попросіть відправника повторно надіслати дані."
+
+#: utils/formatting.cpp:2017
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."

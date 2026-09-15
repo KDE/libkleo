@@ -1,6 +1,6 @@
 # translation of libkleopatra.po to Slovenian
 # Translation of libkleopatra.po to Slovenian
-# $Id: libkleopatra6.po 1744785 2026-08-26 01:34:49Z scripty $
+# $Id: libkleopatra6.po 1746440 2026-09-15 01:28:28Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:49+0000\n"
+"POT-Creation-Date: 2026-09-15 00:45+0000\n"
 "PO-Revision-Date: 2026-08-19 07:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1909,7 +1909,7 @@ msgctxt "@label label text (required)"
 msgid "%1 (required)"
 msgstr "%1 (obvezno)"
 
-#: ui/formtextinput.cpp:126 utils/formatting.cpp:1835
+#: ui/formtextinput.cpp:126 utils/formatting.cpp:1859
 #, kde-format
 msgctxt "@info"
 msgid "Error: %1"
@@ -3709,7 +3709,7 @@ msgid "Bad signature"
 msgstr "Slab podpis"
 
 #: utils/formatting.cpp:1686 utils/formatting.cpp:1750
-#: utils/formatting.cpp:1833
+#: utils/formatting.cpp:1857
 #, kde-format
 msgid "The signature is invalid: %1"
 msgstr "Podpis je neveljaven: %1"
@@ -3800,7 +3800,21 @@ msgstr ""
 "Uporabljenega ključa niste potrdili vi ali katera koli druga zaupanja vredna "
 "oseba."
 
-#: utils/formatting.cpp:1768
+#: utils/formatting.cpp:1769
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Signature verification was successful: Data and signature match and the "
+#| "certificate is valid and trusted."
+msgctxt "@info"
+msgid ""
+"Signature verification was successful: Message and signature match and the "
+"certificate is valid and trusted."
+msgstr ""
+"Preverjanje podpisa je bilo uspešno: podatki in podpis se ujemajo, potrdilo "
+"je veljavno in zaupanja vredno."
+
+#: utils/formatting.cpp:1770
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3810,39 +3824,57 @@ msgstr ""
 "Preverjanje podpisa je bilo uspešno: podatki in podpis se ujemajo, potrdilo "
 "je veljavno in zaupanja vredno."
 
-#: utils/formatting.cpp:1774
-#, kde-format
+#: utils/formatting.cpp:1779
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Data and signature do not match."
 msgctxt "@info"
-msgid "Data and signature do not match."
+msgid "Message and signature do not match."
 msgstr "Podatki in podpis se ne ujemata."
 
-#: utils/formatting.cpp:1775
+#: utils/formatting.cpp:1781 utils/formatting.cpp:1787
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
 msgstr "Potrdilu za podpisovanje ne smete zaupati."
 
-#: utils/formatting.cpp:1776 utils/formatting.cpp:1789
-#: utils/formatting.cpp:1806 utils/formatting.cpp:1812
-#: utils/formatting.cpp:1818 utils/formatting.cpp:1824
+#: utils/formatting.cpp:1782 utils/formatting.cpp:1802
+#: utils/formatting.cpp:1822 utils/formatting.cpp:1830
+#: utils/formatting.cpp:1838 utils/formatting.cpp:1846
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "The data cannot be trusted. Reason: %1"
+msgctxt "@info"
+msgid "The message cannot be trusted. Reason: %1"
+msgstr "Podatkom ni mogoče zaupati. Razlog: %1"
+
+#: utils/formatting.cpp:1785
+#, kde-format
+msgctxt "@info"
+msgid "Data and signature do not match."
+msgstr "Podatki in podpis se ne ujemata."
+
+#: utils/formatting.cpp:1788 utils/formatting.cpp:1803
+#: utils/formatting.cpp:1823 utils/formatting.cpp:1831
+#: utils/formatting.cpp:1839 utils/formatting.cpp:1847
 #, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
 msgstr "Podatkom ni mogoče zaupati. Razlog: %1"
 
-#: utils/formatting.cpp:1779
+#: utils/formatting.cpp:1792
 #, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
 msgstr "Podpis trdi, da naj bi bil od %1 in je datiran z %2."
 
-#: utils/formatting.cpp:1783
+#: utils/formatting.cpp:1796
 #, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
 msgstr "Podpis trdi, da je od %1."
 
-#: utils/formatting.cpp:1788
+#: utils/formatting.cpp:1801
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3850,44 +3882,68 @@ msgid ""
 "not available."
 msgstr "Podpisa ni mogoče preveriti, ker ustreznega potrdila ni na voljo."
 
-#: utils/formatting.cpp:1793
+#: utils/formatting.cpp:1807
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
 msgstr "Prstni odtis potrdila za podpisovanje je %1."
 
-#: utils/formatting.cpp:1798
+#: utils/formatting.cpp:1812
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
 msgstr "Serijska številka in izdajatelj podpisnega potrdila sta %1."
 
-#: utils/formatting.cpp:1805
+#: utils/formatting.cpp:1820
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It cannot be verified whether the data originates from the stated source."
+msgctxt "@info"
+msgid ""
+"It cannot be verified whether the message originates from the stated source."
+msgstr "Ni mogoče preveriti, ali podatki izvirajo iz navedenega vira."
+
+#: utils/formatting.cpp:1821
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
 msgstr "Ni mogoče preveriti, ali podatki izvirajo iz navedenega vira."
 
-#: utils/formatting.cpp:1811
+#: utils/formatting.cpp:1829
 #, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
 msgstr "Podpis je potekel."
 
-#: utils/formatting.cpp:1817
+#: utils/formatting.cpp:1837
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
 msgstr "Potrdilo za podpisovanje je poteklo."
 
-#: utils/formatting.cpp:1823
+#: utils/formatting.cpp:1845
 #, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
 msgstr "Potrdilo za podpisovanje je bilo preklicano."
 
-#: utils/formatting.cpp:1846
+#: utils/formatting.cpp:1886
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The signing certificate is not present in your certificate list, but it "
+#| "is needed to verify the data."
+msgctxt "@info"
+msgid ""
+"The signing certificate is not present in your certificate list, but it is "
+"needed to verify the message."
+msgstr ""
+"Potrdilo za podpis ni na seznamu potrdil, vendar je potrebno za preverjanje "
+"podatkov."
+
+#: utils/formatting.cpp:1888
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3897,7 +3953,24 @@ msgstr ""
 "Potrdilo za podpis ni na seznamu potrdil, vendar je potrebno za preverjanje "
 "podatkov."
 
-#: utils/formatting.cpp:1851
+#: utils/formatting.cpp:1895
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Technically, signature and data match, but the signing certificate is not "
+#| "marked as trusted. Therefore the data cannot be trusted to originate from "
+#| "the stated source."
+msgctxt "@info"
+msgid ""
+"Technically, signature and message match, but the signing certificate is not "
+"marked as trusted. Therefore the message cannot be trusted to originate from "
+"the stated source."
+msgstr ""
+"Tehnično gledano se podpis in podatki ujemata, vendar potrdilo za podpis ni "
+"označeno kot zaupanja vredno. Zato ni mogoče zaupati, da podatki izvirajo iz "
+"navedenega vira."
+
+#: utils/formatting.cpp:1899
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3909,7 +3982,38 @@ msgstr ""
 "označeno kot zaupanja vredno. Zato ni mogoče zaupati, da podatki izvirajo iz "
 "navedenega vira."
 
-#: utils/formatting.cpp:1857
+#: utils/formatting.cpp:1907
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "For an expired certificate, it cannot be evaluated whether the "
+#| "certificate can be trusted. Therefore the data cannot be trusted. "
+#| "Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"For an expired certificate, it cannot be evaluated whether the certificate "
+"can be trusted. Therefore the message cannot be trusted. Technically, "
+"signature and message match."
+msgstr ""
+"Pri pretečenem potrdilu ni mogoče oceniti, ali je potrdilo zaupanja vredno. "
+"Zato podatkom ni mogoče zaupati. Tehnično gledano se podpis in podatki "
+"ujemata."
+
+#: utils/formatting.cpp:1909
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If the certificate was valid and trusted when you received the data, the "
+#| "data is likely valid."
+msgctxt "@info"
+msgid ""
+"If the certificate was valid and trusted when you received the message, the "
+"message is likely valid."
+msgstr ""
+"Če je bilo potrdilo veljavno in zaupanja vredno, ko ste prejeli podatke, so "
+"podatki verjetno veljavni."
+
+#: utils/formatting.cpp:1912
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3921,7 +4025,7 @@ msgstr ""
 "Zato podatkom ni mogoče zaupati. Tehnično gledano se podpis in podatki "
 "ujemata."
 
-#: utils/formatting.cpp:1859
+#: utils/formatting.cpp:1914
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3931,7 +4035,38 @@ msgstr ""
 "Če je bilo potrdilo veljavno in zaupanja vredno, ko ste prejeli podatke, so "
 "podatki verjetno veljavni."
 
-#: utils/formatting.cpp:1862
+#: utils/formatting.cpp:1919
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The certificate may have been revoked because it was compromised and it "
+#| "might now be used by a third party. The data can therefore not be "
+#| "trusted. Technically, signature and data match."
+msgctxt "@info"
+msgid ""
+"The certificate may have been revoked because it was compromised and it "
+"might now be used by a third party. The message can therefore not be "
+"trusted. Technically, signature and message match."
+msgstr ""
+"Potrdilo je bilo morda preklicano, ker je bilo ogroženo in ga zdaj morda "
+"uporablja tretja oseba. Podatkom zato ni mogoče zaupati. Tehnično gledano se "
+"podpis in podatki ujemata."
+
+#: utils/formatting.cpp:1922
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "It is possible that you received the data at a time when the certificate "
+#| "was still valid and trusted. If this is the case, the data may be valid."
+msgctxt "@info"
+msgid ""
+"It is possible that you received the message at a time when the certificate "
+"was still valid and trusted. If this is the case, the message may be valid."
+msgstr ""
+"Možno je, da ste podatke prejeli v času, ko je bilo potrdilo še veljavno in "
+"zaupanja vredno. Če je temu tako, so podatki morda veljavni."
+
+#: utils/formatting.cpp:1926
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3943,7 +4078,7 @@ msgstr ""
 "uporablja tretja oseba. Podatkom zato ni mogoče zaupati. Tehnično gledano se "
 "podpis in podatki ujemata."
 
-#: utils/formatting.cpp:1865
+#: utils/formatting.cpp:1929
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3953,7 +4088,27 @@ msgstr ""
 "Možno je, da ste podatke prejeli v času, ko je bilo potrdilo še veljavno in "
 "zaupanja vredno. Če je temu tako, so podatki morda veljavni."
 
-#: utils/formatting.cpp:1871
+#: utils/formatting.cpp:1937
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The data or the signature has been altered. This can happen accidentally "
+#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
+#| "subsequent change to the data, possibly by an email client), or "
+#| "intentionally (deliberate manipulation)."
+msgctxt "@info"
+msgid ""
+"The message or the signature has been altered. This can happen accidentally "
+"(e.g. due to a transmission error), unintentionally (e.g. due to a "
+"subsequent change to the message, possibly by an email client), or "
+"intentionally (deliberate manipulation)."
+msgstr ""
+"Podatki ali podpis so bili spremenjeni. To se lahko zgodi nenamerno (npr. "
+"zaradi napake pri prenosu), nenamerno (npr. zaradi naknadne spremembe "
+"podatkov, morda s strani e-poštnega odjemalca) ali namerno (namerna "
+"manipulacija)."
+
+#: utils/formatting.cpp:1942
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3967,7 +4122,21 @@ msgstr ""
 "podatkov, morda s strani e-poštnega odjemalca) ali namerno (namerna "
 "manipulacija)."
 
-#: utils/formatting.cpp:1888
+#: utils/formatting.cpp:1971
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Ask the sender for the certificate or import it from a file or a "
+#| "keyserver. Then verify the data again."
+msgctxt "@info"
+msgid ""
+"Ask the sender for the certificate or import it from a file or a keyserver. "
+"Then verify the message again."
+msgstr ""
+"Pošiljatelja prosite za potrdilo ali ga uvozite iz datoteke ali strežnika "
+"ključev. Nato ponovno preverite podatke."
+
+#: utils/formatting.cpp:1972
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3977,7 +4146,35 @@ msgstr ""
 "Pošiljatelja prosite za potrdilo ali ga uvozite iz datoteke ali strežnika "
 "ključev. Nato ponovno preverite podatke."
 
-#: utils/formatting.cpp:1893
+#: utils/formatting.cpp:1978
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
+#| "again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s fingerprint and certify it. Then verify the message "
+"again."
+msgstr ""
+"Preverite prstni odtis potrdila in ga certificirajte. Nato ponovno preverite "
+"podatke."
+
+#: utils/formatting.cpp:1979
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
+#| "the data again."
+msgctxt "@info"
+msgid ""
+"Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
+"message again."
+msgstr ""
+"Preverite prstni odtis potrdila korenskega CA in mu zaupajte. Nato znova "
+"preverite podatke."
+
+#: utils/formatting.cpp:1982
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3987,7 +4184,7 @@ msgstr ""
 "Preverite prstni odtis potrdila in ga certificirajte. Nato ponovno preverite "
 "podatke."
 
-#: utils/formatting.cpp:1894
+#: utils/formatting.cpp:1983
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3997,7 +4194,36 @@ msgstr ""
 "Preverite prstni odtis potrdila korenskega CA in mu zaupajte. Nato znova "
 "preverite podatke."
 
-#: utils/formatting.cpp:1900
+#: utils/formatting.cpp:1991
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
+msgctxt "@info"
+msgid ""
+"You can look for an updated certificate on a keyserver, or ask the sender "
+"for it, then verify the message again after importing the certificate."
+msgstr ""
+"Posodobljeno potrdilo lahko poiščete na strežniku ključev ali pa zanj "
+"prosite pošiljatelja in nato po uvozu potrdila ponovno preverite podatke."
+
+#: utils/formatting.cpp:1994 utils/formatting.cpp:2008
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If in doubt, contact the signer to clarify the situation and, if "
+#| "necessary, ask them to resend the data signed with a current certificate."
+msgctxt "@info"
+msgid ""
+"If in doubt, contact the signer to clarify the situation and, if necessary, "
+"ask them to resend the message signed with a current certificate."
+msgstr ""
+"V primeru dvoma se obrnite na podpisnika, da razjasni situacijo, in ga po "
+"potrebi prosite, naj vam ponovno pošlje podatke, podpisane s trenutnim "
+"potrdilom."
+
+#: utils/formatting.cpp:1999
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4007,7 +4233,7 @@ msgstr ""
 "Posodobljeno potrdilo lahko poiščete na strežniku ključev ali pa zanj "
 "prosite pošiljatelja in nato po uvozu potrdila ponovno preverite podatke."
 
-#: utils/formatting.cpp:1904 utils/formatting.cpp:1908
+#: utils/formatting.cpp:2002 utils/formatting.cpp:2012
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4018,7 +4244,15 @@ msgstr ""
 "potrebi prosite, naj vam ponovno pošlje podatke, podpisane s trenutnim "
 "potrdilom."
 
-#: utils/formatting.cpp:1912
+#: utils/formatting.cpp:2016
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Ask the sender to resend the data."
+msgctxt "@info"
+msgid "Ask the sender to resend the message."
+msgstr "Prosite pošiljatelja, naj ponovno pošlje podatke."
+
+#: utils/formatting.cpp:2017
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
