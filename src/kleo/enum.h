@@ -41,7 +41,14 @@ KLEO_EXPORT QStringList cryptoMessageFormatsToStringList(unsigned int f);
 KLEO_EXPORT CryptoMessageFormat stringToCryptoMessageFormat(const QString &s);
 KLEO_EXPORT unsigned int stringListToCryptoMessageFormats(const QStringList &sl);
 
-enum Action { Conflict, DoIt, DontDoIt, Ask, AskOpportunistic, Impossible };
+enum Action {
+    Conflict,
+    DoIt,
+    DontDoIt,
+    Ask,
+    AskOpportunistic,
+    Impossible
+};
 
 enum EncryptionPreference {
     // clang-format off
@@ -75,7 +82,13 @@ KLEO_EXPORT QString signingPreferenceToLabel(SigningPreference pref);
 KLEO_EXPORT const char *signingPreferenceToString(SigningPreference pref);
 KLEO_EXPORT SigningPreference stringToSigningPreference(const QString &str);
 
-enum TrustLevel { Level0, Level1, Level2, Level3, Level4 };
+enum TrustLevel {
+    Level0,
+    Level1,
+    Level2,
+    Level3,
+    Level4
+};
 
 KLEO_EXPORT TrustLevel trustLevel(const GpgME::Key &key);
 KLEO_EXPORT TrustLevel trustLevel(const GpgME::UserID &uid);

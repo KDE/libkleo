@@ -110,7 +110,11 @@ class KLEO_EXPORT EncryptionKeyRequester : public KeyRequester
 {
     Q_OBJECT
 public:
-    enum { OpenPGP = 1, SMIME = 2, AllProtocols = OpenPGP | SMIME };
+    enum {
+        OpenPGP = 1,
+        SMIME = 2,
+        AllProtocols = OpenPGP | SMIME
+    };
 
     /**
      * Preferred constructor
@@ -137,7 +141,11 @@ class KLEO_EXPORT SigningKeyRequester : public KeyRequester
 {
     Q_OBJECT
 public:
-    enum { OpenPGP = 1, SMIME = 2, AllProtocols = OpenPGP | SMIME };
+    enum {
+        OpenPGP = 1,
+        SMIME = 2,
+        AllProtocols = OpenPGP | SMIME
+    };
 
     /**
      * Preferred constructor

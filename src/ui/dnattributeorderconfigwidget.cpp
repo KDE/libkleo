@@ -59,7 +59,14 @@ protected:
 class Kleo::DNAttributeOrderConfigWidget::DNAttributeOrderConfigWidgetPrivate
 {
 public:
-    enum { Right = 0, Left = 1, UUp = 2, Up = 3, Down = 4, DDown = 5 };
+    enum {
+        Right = 0,
+        Left = 1,
+        UUp = 2,
+        Up = 3,
+        Down = 4,
+        DDown = 5
+    };
 
     TreeWidget *availableLV = nullptr;
     TreeWidget *currentLV = nullptr;
