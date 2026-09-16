@@ -10,16 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:45+0000\n"
-"PO-Revision-Date: 2026-08-19 06:49-0300\n"
+"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"PO-Revision-Date: 2026-09-15 05:56-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -1430,89 +1430,89 @@ msgctxt "@title:window"
 msgid "LDAP Directory Service"
 msgstr "Serviços de diretório LDAP"
 
-#: ui/dnattributeorderconfigwidget.cpp:75
+#: ui/dnattributeorderconfigwidget.cpp:82
 #, kde-format
 msgid "Description"
 msgstr "Descrição"
 
-#: ui/dnattributeorderconfigwidget.cpp:90
+#: ui/dnattributeorderconfigwidget.cpp:97
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "Atributos disponíveis:"
 
-#: ui/dnattributeorderconfigwidget.cpp:92
+#: ui/dnattributeorderconfigwidget.cpp:99
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "Ordem atual de atributos:"
 
-#: ui/dnattributeorderconfigwidget.cpp:100
+#: ui/dnattributeorderconfigwidget.cpp:107
 #, kde-format
 msgid "available attributes"
 msgstr "atributos disponíveis"
 
-#: ui/dnattributeorderconfigwidget.cpp:107
-#: ui/dnattributeorderconfigwidget.cpp:108
+#: ui/dnattributeorderconfigwidget.cpp:114
+#: ui/dnattributeorderconfigwidget.cpp:115
 #, kde-format
 msgid "All others"
 msgstr "Todos os outros"
 
-#: ui/dnattributeorderconfigwidget.cpp:120
+#: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Adicionar"
 
-#: ui/dnattributeorderconfigwidget.cpp:121
+#: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Add to current attribute order"
 msgstr "Adicionar para a ordem atual de atributos"
 
-#: ui/dnattributeorderconfigwidget.cpp:127
+#: ui/dnattributeorderconfigwidget.cpp:134
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Remover"
 
-#: ui/dnattributeorderconfigwidget.cpp:128
+#: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Remove from current attribute order"
 msgstr "Remover da ordem atual de atributos"
 
-#: ui/dnattributeorderconfigwidget.cpp:134
+#: ui/dnattributeorderconfigwidget.cpp:141
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "Mover para o topo"
 
-#: ui/dnattributeorderconfigwidget.cpp:135
+#: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move to top"
 msgstr "Mover para o topo"
 
-#: ui/dnattributeorderconfigwidget.cpp:141
+#: ui/dnattributeorderconfigwidget.cpp:148
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "Mover para cima"
 
-#: ui/dnattributeorderconfigwidget.cpp:142
+#: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one up"
 msgstr "Mover para cima"
 
-#: ui/dnattributeorderconfigwidget.cpp:148
+#: ui/dnattributeorderconfigwidget.cpp:155
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "Mover para baixo"
 
-#: ui/dnattributeorderconfigwidget.cpp:149
+#: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move one down"
 msgstr "Mover para baixo"
 
-#: ui/dnattributeorderconfigwidget.cpp:155
+#: ui/dnattributeorderconfigwidget.cpp:162
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "Mover para o inferior"
 
-#: ui/dnattributeorderconfigwidget.cpp:156
+#: ui/dnattributeorderconfigwidget.cpp:163
 msgid "Move to bottom"
 msgstr "Mover para o inferior"
 
-#: ui/dnattributeorderconfigwidget.cpp:186
+#: ui/dnattributeorderconfigwidget.cpp:193
 #, kde-format
 msgid "current attribute order"
 msgstr "ordem atual de atributos"
@@ -3681,17 +3681,13 @@ msgstr ""
 "A chave usada não foi certificada por você ou por qualquer pessoa confiável."
 
 #: utils/formatting.cpp:1769
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Signature verification was successful: Data and signature match and the "
-#| "certificate is valid and trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
-"A verificação da assinatura foi bem-sucedida: os dados e a assinatura "
+"A verificação da assinatura foi bem-sucedida: a mensagem e a assinatura "
 "coincidem, e o certificado é válido e confiável."
 
 #: utils/formatting.cpp:1770
@@ -3705,12 +3701,10 @@ msgstr ""
 "coincidem, e o certificado é válido e confiável."
 
 #: utils/formatting.cpp:1779
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Data and signature do not match."
+#, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr "Os dados e a assinatura não coincidem."
+msgstr "A mensagem e a assinatura não coincidem."
 
 #: utils/formatting.cpp:1781 utils/formatting.cpp:1787
 #, kde-format
@@ -3721,12 +3715,10 @@ msgstr "O certificado de assinatura não deve ser considerado confiável."
 #: utils/formatting.cpp:1782 utils/formatting.cpp:1802
 #: utils/formatting.cpp:1822 utils/formatting.cpp:1830
 #: utils/formatting.cpp:1838 utils/formatting.cpp:1846
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The data cannot be trusted. Reason: %1"
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "Não se pode confiar nos dados. Motivo: %1"
+msgstr "Não se pode confiar na mensagem. Motivo: %1"
 
 #: utils/formatting.cpp:1785
 #, kde-format
@@ -3777,14 +3769,11 @@ msgid "The signing certificate’s serial number and issuer are %1."
 msgstr "O número de série e o emissor do certificado de assinatura são %1."
 
 #: utils/formatting.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "It cannot be verified whether the data originates from the stated source."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
-msgstr "Não é possível verificar se os dados provêm da fonte declarada."
+msgstr "Não é possível verificar se a mensagem provém da fonte declarada."
 
 #: utils/formatting.cpp:1821
 #, kde-format
@@ -3812,18 +3801,14 @@ msgid "The signing certificate has been revoked."
 msgstr "O certificado da assinatura foi revogado."
 
 #: utils/formatting.cpp:1886
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The signing certificate is not present in your certificate list, but it "
-#| "is needed to verify the data."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
 msgstr ""
 "O certificado de assinatura não está presente na sua lista de certificados, "
-"mas é necessário para verificar os dados."
+"mas é necessário para verificar a mensagem."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3836,21 +3821,16 @@ msgstr ""
 "mas é necessário para verificar os dados."
 
 #: utils/formatting.cpp:1895
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Technically, signature and data match, but the signing certificate is not "
-#| "marked as trusted. Therefore the data cannot be trusted to originate from "
-#| "the stated source."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Technically, signature and message match, but the signing certificate is not "
 "marked as trusted. Therefore the message cannot be trusted to originate from "
 "the stated source."
 msgstr ""
-"Tecnicamente, a assinatura e os dados correspondem, mas o certificado de "
+"Tecnicamente, a assinatura e a mensagem correspondem, mas o certificado de "
 "assinatura não está marcado como confiável. Portanto, não se pode confiar "
-"que os dados provenham da fonte declarada."
+"que a mensagem provenha da fonte declarada."
 
 #: utils/formatting.cpp:1899
 #, kde-format
@@ -3865,12 +3845,7 @@ msgstr ""
 "que os dados provenham da fonte declarada."
 
 #: utils/formatting.cpp:1907
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "For an expired certificate, it cannot be evaluated whether the "
-#| "certificate can be trusted. Therefore the data cannot be trusted. "
-#| "Technically, signature and data match."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "For an expired certificate, it cannot be evaluated whether the certificate "
@@ -3878,22 +3853,18 @@ msgid ""
 "signature and message match."
 msgstr ""
 "No caso de um certificado expirado, não é possível avaliar se ele é "
-"confiável. Portanto, não se pode confiar nos dados. Tecnicamente, a "
-"assinatura e os dados coincidem."
+"confiável. Portanto, não se pode confiar na mensagem. Tecnicamente, a "
+"assinatura e a mensagem coincidem."
 
 #: utils/formatting.cpp:1909
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If the certificate was valid and trusted when you received the data, the "
-#| "data is likely valid."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If the certificate was valid and trusted when you received the message, the "
 "message is likely valid."
 msgstr ""
-"Se o certificado era válido e confiável quando você recebeu os dados, é "
-"provável que os dados sejam válidos."
+"Se o certificado era válido e confiável quando você recebeu a mensagem, é "
+"provável que a mensagem seja válida."
 
 #: utils/formatting.cpp:1912
 #, kde-format
@@ -3918,12 +3889,7 @@ msgstr ""
 "provável que os dados sejam válidos."
 
 #: utils/formatting.cpp:1919
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The certificate may have been revoked because it was compromised and it "
-#| "might now be used by a third party. The data can therefore not be "
-#| "trusted. Technically, signature and data match."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The certificate may have been revoked because it was compromised and it "
@@ -3931,23 +3897,19 @@ msgid ""
 "trusted. Technically, signature and message match."
 msgstr ""
 "O certificado pode ter sido revogado por ter sido comprometido e pode estar "
-"sendo utilizado por terceiros. Portanto, não se pode confiar nos dados. "
-"Tecnicamente, a assinatura e os dados coincidem."
+"sendo utilizado por terceiros. Portanto, não se pode confiar na mensagem. "
+"Tecnicamente, a assinatura e a mensagem coincidem."
 
 #: utils/formatting.cpp:1922
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "It is possible that you received the data at a time when the certificate "
-#| "was still valid and trusted. If this is the case, the data may be valid."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It is possible that you received the message at a time when the certificate "
 "was still valid and trusted. If this is the case, the message may be valid."
 msgstr ""
-"É possível que você tenha recebido os dados em um momento em que o "
-"certificado ainda era válido e confiável. Se for esse o caso, os dados podem "
-"ser válidos."
+"É possível que você tenha recebido a mensagem em um momento em que o "
+"certificado ainda era válido e confiável. Se for esse o caso, a mensagem "
+"pode ser válida."
 
 #: utils/formatting.cpp:1926
 #, kde-format
@@ -3973,13 +3935,7 @@ msgstr ""
 "ser válidos."
 
 #: utils/formatting.cpp:1937
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The data or the signature has been altered. This can happen accidentally "
-#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
-#| "subsequent change to the data, possibly by an email client), or "
-#| "intentionally (deliberate manipulation)."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The message or the signature has been altered. This can happen accidentally "
@@ -3987,9 +3943,9 @@ msgid ""
 "subsequent change to the message, possibly by an email client), or "
 "intentionally (deliberate manipulation)."
 msgstr ""
-"Os dados ou a assinatura foram alterados. Isso pode ocorrer acidentalmente "
+"A mensagem ou a assinatura foi alterada. Isso pode ocorrer acidentalmente "
 "(por exemplo, devido a um erro de transmissão), involuntariamente (por "
-"exemplo, devido a uma alteração posterior nos dados, possivelmente por um "
+"exemplo, devido a uma alteração posterior na mensagem, possivelmente por um "
 "cliente de e-mail) ou intencionalmente (manipulação deliberada)."
 
 #: utils/formatting.cpp:1942
@@ -4007,18 +3963,14 @@ msgstr ""
 "cliente de e-mail) ou intencionalmente (manipulação deliberada)."
 
 #: utils/formatting.cpp:1971
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Ask the sender for the certificate or import it from a file or a "
-#| "keyserver. Then verify the data again."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the message again."
 msgstr ""
 "Solicite o certificado ao remetente ou importe-o de um arquivo ou de um "
-"servidor de chaves. Em seguida, verifique os dados novamente."
+"servidor de chaves. Em seguida, verifique a mensagem novamente."
 
 #: utils/formatting.cpp:1972
 #, kde-format
@@ -4031,32 +3983,24 @@ msgstr ""
 "servidor de chaves. Em seguida, verifique os dados novamente."
 
 #: utils/formatting.cpp:1978
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
-#| "again."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the message "
 "again."
 msgstr ""
 "Verifique a impressão digital do certificado e certifique-o. Em seguida, "
-"verifique os dados novamente."
+"verifique a mensagem novamente."
 
 #: utils/formatting.cpp:1979
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
-#| "the data again."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "message again."
 msgstr ""
 "Verifique a impressão digital da CA raiz do certificado e confie nele. Em "
-"seguida, verifique os dados novamente."
+"seguida, verifique a mensagem novamente."
 
 #: utils/formatting.cpp:1982
 #, kde-format
@@ -4079,33 +4023,25 @@ msgstr ""
 "seguida, verifique os dados novamente."
 
 #: utils/formatting.cpp:1991
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "You can look for an updated certificate on a keyserver, or ask the sender "
-#| "for it, then verify the data again after importing the certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the message again after importing the certificate."
 msgstr ""
 "Você pode procurar um certificado atualizado em um servidor de chaves ou "
-"solicitá-lo ao remetente e, em seguida, verificar os dados novamente após "
+"solicitá-lo ao remetente e, em seguida, verificar a mensagem novamente após "
 "importar o certificado."
 
 #: utils/formatting.cpp:1994 utils/formatting.cpp:2008
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If in doubt, contact the signer to clarify the situation and, if "
-#| "necessary, ask them to resend the data signed with a current certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the message signed with a current certificate."
 msgstr ""
 "Em caso de dúvida, entre em contato com o signatário para esclarecer a "
-"situação e, se necessário, solicite o reenvio dos dados assinados com um "
+"situação e, se necessário, solicite o reenvio da mensagem assinada com um "
 "certificado válido."
 
 #: utils/formatting.cpp:1999
@@ -4131,12 +4067,10 @@ msgstr ""
 "certificado válido."
 
 #: utils/formatting.cpp:2016
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Ask the sender to resend the data."
+#, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr "Peça ao remetente para reenviar os dados."
+msgstr "Peça ao remetente para reenviar a mensagem."
 
 #: utils/formatting.cpp:2017
 #, kde-format

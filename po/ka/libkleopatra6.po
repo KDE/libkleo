@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:45+0000\n"
-"PO-Revision-Date: 2026-08-19 06:15+0200\n"
+"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"PO-Revision-Date: 2026-09-15 05:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1434,89 +1434,89 @@ msgctxt "@title:window"
 msgid "LDAP Directory Service"
 msgstr "LDAP დირექტორიის სერვისი"
 
-#: ui/dnattributeorderconfigwidget.cpp:75
+#: ui/dnattributeorderconfigwidget.cpp:82
 #, kde-format
 msgid "Description"
 msgstr "აღწერა"
 
-#: ui/dnattributeorderconfigwidget.cpp:90
+#: ui/dnattributeorderconfigwidget.cpp:97
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Available attributes:"
 msgstr "ხელმისაწვდომი ატრიბუტები:"
 
-#: ui/dnattributeorderconfigwidget.cpp:92
+#: ui/dnattributeorderconfigwidget.cpp:99
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current attribute order:"
 msgstr "მიმდინარე ატრიბუტების მიმდევრობა:"
 
-#: ui/dnattributeorderconfigwidget.cpp:100
+#: ui/dnattributeorderconfigwidget.cpp:107
 #, kde-format
 msgid "available attributes"
 msgstr "ხელმისაწვდომი ატრიბუტები"
 
-#: ui/dnattributeorderconfigwidget.cpp:107
-#: ui/dnattributeorderconfigwidget.cpp:108
+#: ui/dnattributeorderconfigwidget.cpp:114
+#: ui/dnattributeorderconfigwidget.cpp:115
 #, kde-format
 msgid "All others"
 msgstr "ყველა დანარჩენი"
 
-#: ui/dnattributeorderconfigwidget.cpp:120
+#: ui/dnattributeorderconfigwidget.cpp:127
 msgctxt "@action:button"
 msgid "Add"
 msgstr "დამატება"
 
-#: ui/dnattributeorderconfigwidget.cpp:121
+#: ui/dnattributeorderconfigwidget.cpp:128
 msgid "Add to current attribute order"
 msgstr "მიმდინარე ატრიბუტების მიმდევრობაში ჩამატება"
 
-#: ui/dnattributeorderconfigwidget.cpp:127
+#: ui/dnattributeorderconfigwidget.cpp:134
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: ui/dnattributeorderconfigwidget.cpp:128
+#: ui/dnattributeorderconfigwidget.cpp:135
 msgid "Remove from current attribute order"
 msgstr "მიმდინარე ატრიბუტების მიმდევრობიდან წაშლა"
 
-#: ui/dnattributeorderconfigwidget.cpp:134
+#: ui/dnattributeorderconfigwidget.cpp:141
 msgctxt "@action:button"
 msgid "Move to Top"
 msgstr "თავში ატანა"
 
-#: ui/dnattributeorderconfigwidget.cpp:135
+#: ui/dnattributeorderconfigwidget.cpp:142
 msgid "Move to top"
 msgstr "ზემოთ ატანა"
 
-#: ui/dnattributeorderconfigwidget.cpp:141
+#: ui/dnattributeorderconfigwidget.cpp:148
 msgctxt "@action:button"
 msgid "Move Up"
 msgstr "აწევა"
 
-#: ui/dnattributeorderconfigwidget.cpp:142
+#: ui/dnattributeorderconfigwidget.cpp:149
 msgid "Move one up"
 msgstr "ერთით მაღლა"
 
-#: ui/dnattributeorderconfigwidget.cpp:148
+#: ui/dnattributeorderconfigwidget.cpp:155
 msgctxt "@action:button"
 msgid "Move Down"
 msgstr "ჩამოწევა"
 
-#: ui/dnattributeorderconfigwidget.cpp:149
+#: ui/dnattributeorderconfigwidget.cpp:156
 msgid "Move one down"
 msgstr "ერთით დაბლა"
 
-#: ui/dnattributeorderconfigwidget.cpp:155
+#: ui/dnattributeorderconfigwidget.cpp:162
 msgctxt "@action:button"
 msgid "Move to Bottom"
 msgstr "ბოლოში ჩამოტანა"
 
-#: ui/dnattributeorderconfigwidget.cpp:156
+#: ui/dnattributeorderconfigwidget.cpp:163
 msgid "Move to bottom"
 msgstr "ბოლოში ჩამოტანა"
 
-#: ui/dnattributeorderconfigwidget.cpp:186
+#: ui/dnattributeorderconfigwidget.cpp:193
 #, kde-format
 msgid "current attribute order"
 msgstr "ატრიბუტების მიმდინარე მიმდევრობა"
@@ -3666,17 +3666,13 @@ msgstr ""
 "გამოყენებული გასაღები თქვენს ან სანდო პიროვნების მიერ სერტიფიცირებული არაა."
 
 #: utils/formatting.cpp:1769
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Signature verification was successful: Data and signature match and the "
-#| "certificate is valid and trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
-"ხელმოწერის გადამოწმება წარმატებული აღმოჩნდა: მონაცემები და ხელმოწერა "
+"ხელმოწერის გადამოწმება წარმატებული აღმოჩნდა: შეტყობინება და ხელმოწერა "
 "ემთხვევა, სერტიფიკატი კი სწორია და სანდო."
 
 #: utils/formatting.cpp:1770
@@ -3690,12 +3686,10 @@ msgstr ""
 "ემთხვევა, სერტიფიკატი კი სწორია და სანდო."
 
 #: utils/formatting.cpp:1779
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Data and signature do not match."
+#, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr "მონაცემები და ხელმოწერა არ ემთხვევა."
+msgstr "შეტყობინება და ხელმოწერა არ ემთხვევა."
 
 #: utils/formatting.cpp:1781 utils/formatting.cpp:1787
 #, kde-format
@@ -3706,12 +3700,10 @@ msgstr "ხელმოწერის სერტიფიკატი სა�
 #: utils/formatting.cpp:1782 utils/formatting.cpp:1802
 #: utils/formatting.cpp:1822 utils/formatting.cpp:1830
 #: utils/formatting.cpp:1838 utils/formatting.cpp:1846
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The data cannot be trusted. Reason: %1"
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "მონაცემების ნდობა შეუძლებელია. მიზეზი: %1"
+msgstr "შეტყობინების ნდობა შეუძლებელია. მიზეზი: %1"
 
 #: utils/formatting.cpp:1785
 #, kde-format
@@ -3762,14 +3754,12 @@ msgid "The signing certificate’s serial number and issuer are %1."
 msgstr "ხელმოწერის სერტიფიკატის სერიული ნომერი და გამომცემია %1."
 
 #: utils/formatting.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "It cannot be verified whether the data originates from the stated source."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
-msgstr "შეუძლებელია გადამოწმება, მოდის, თუ არა მონაცემები მითითებული წყაროდან."
+msgstr ""
+"შეუძლებელია გადამოწმება, მოდის, თუ არა შეტყობინება მითითებული წყაროდან."
 
 #: utils/formatting.cpp:1821
 #, kde-format
@@ -3797,18 +3787,14 @@ msgid "The signing certificate has been revoked."
 msgstr "ხელმოწერის სერტიფიკატი გაუქმებულია."
 
 #: utils/formatting.cpp:1886
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The signing certificate is not present in your certificate list, but it "
-#| "is needed to verify the data."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
 msgstr ""
 "თქვენი სერტიფიკატების სიაში ხელმოწერის სერტიფიკატი წარმოდგენილი არაა, მაგრამ "
-"ის საჭიროა მონაცემების გადასამოწმებლად."
+"ის საჭიროა შეტყობინების გადასამოწმებლად."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3821,21 +3807,16 @@ msgstr ""
 "ის საჭიროა მონაცემების გადასამოწმებლად."
 
 #: utils/formatting.cpp:1895
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Technically, signature and data match, but the signing certificate is not "
-#| "marked as trusted. Therefore the data cannot be trusted to originate from "
-#| "the stated source."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Technically, signature and message match, but the signing certificate is not "
 "marked as trusted. Therefore the message cannot be trusted to originate from "
 "the stated source."
 msgstr ""
-"ტექნიკურად ხელმოწერა და მონაცემები ემთხვევა, მაგრამ ხელმოწერის სერტიფიკატი "
-"სანდოდ არაა მონიშნული. ამიტომ მითითებული წყაროდან მიღებული მონაცემების ნდობა "
-"არ შეიძლება."
+"ტექნიკურად ხელმოწერა და შეტყობინება ემთხვევა, მაგრამ ხელმოწერის სერტიფიკატი "
+"სანდოდ არაა მონიშნული. ამიტომ მითითებული წყაროდან მიღებული შეტყობინების "
+"ნდობა არ შეიძლება."
 
 #: utils/formatting.cpp:1899
 #, kde-format
@@ -3850,35 +3831,26 @@ msgstr ""
 "არ შეიძლება."
 
 #: utils/formatting.cpp:1907
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "For an expired certificate, it cannot be evaluated whether the "
-#| "certificate can be trusted. Therefore the data cannot be trusted. "
-#| "Technically, signature and data match."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "For an expired certificate, it cannot be evaluated whether the certificate "
 "can be trusted. Therefore the message cannot be trusted. Technically, "
 "signature and message match."
 msgstr ""
-"ვადაამოწურული სერტიფიკატის გადამოწმება, არის თუ არა ის სანდო, შეუძლებელია. "
-"ამიტომ მონაცემების ნდობაც შეუძლებელია. ტექნიკურად მონაცემები და ხელმოწერა "
-"ემთხვევა."
+"ვადაამოწურული სერტიფიკატისთვის გადამოწმება, არის თუ არა ის სანდო, "
+"შეუძლებელია. ამიტომ შეტყობინების ნდობაც შეუძლებელია. ტექნიკურად მონაცემები "
+"და ხელმოწერა ემთხვევა."
 
 #: utils/formatting.cpp:1909
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If the certificate was valid and trusted when you received the data, the "
-#| "data is likely valid."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If the certificate was valid and trusted when you received the message, the "
 "message is likely valid."
 msgstr ""
-"თუ სერტიფიკატი სწორი და სანდო იყო მაშინ, როცა მონაცემები მიიღეთ, დიდი შანსით "
-"მონაცემები სანდოა."
+"თუ სერტიფიკატი სწორი და სანდო იყო მაშინ, როცა შეტყობინება მიიღეთ, დიდი "
+"შანსით მონაცემები სანდოა."
 
 #: utils/formatting.cpp:1912
 #, kde-format
@@ -3903,12 +3875,7 @@ msgstr ""
 "მონაცემები სანდოა."
 
 #: utils/formatting.cpp:1919
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The certificate may have been revoked because it was compromised and it "
-#| "might now be used by a third party. The data can therefore not be "
-#| "trusted. Technically, signature and data match."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The certificate may have been revoked because it was compromised and it "
@@ -3916,22 +3883,18 @@ msgid ""
 "trusted. Technically, signature and message match."
 msgstr ""
 "სერტიფიკატი, შეიძლება, გაბათილდა, რადგან ის გატყდა და ახლა შეიძლება, მესამე "
-"პირების მიერ გამოიყენება. ამიტომ მონაცემები სანდო არაა. ტექნიკურად ხელმოწერა "
-"და მონაცემები ემთხვევა."
+"პირების მიერ გამოიყენება. ამიტომ შეტყობინება სანდო არაა. ტექნიკურად "
+"ხელმოწერა და შეტყობინება ემთხვევა."
 
 #: utils/formatting.cpp:1922
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "It is possible that you received the data at a time when the certificate "
-#| "was still valid and trusted. If this is the case, the data may be valid."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It is possible that you received the message at a time when the certificate "
 "was still valid and trusted. If this is the case, the message may be valid."
 msgstr ""
-"შესაძლებელია, მონაცემები მაშინ მიიღეთ, როცა სერტიფიკატი ჯერ კიდევ სწორი და "
-"სანდო იყო. თუ ეს ისაა, რაც მოხდა, შეიძლება, მონაცემები სანდო იყოს."
+"შესაძლებელია, შეტყობინება მაშინ მიიღეთ, როცა სერტიფიკატი ჯერ კიდევ სწორი და "
+"სანდო იყო. თუ ეს ისაა, რაც მოხდა, შეიძლება, შეტყობინება სანდო იყოს."
 
 #: utils/formatting.cpp:1926
 #, kde-format
@@ -3956,13 +3919,7 @@ msgstr ""
 "სანდო იყო. თუ ეს ისაა, რაც მოხდა, შეიძლება, მონაცემები სანდო იყოს."
 
 #: utils/formatting.cpp:1937
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The data or the signature has been altered. This can happen accidentally "
-#| "(e.g. due to a transmission error), unintentionally (e.g. due to a "
-#| "subsequent change to the data, possibly by an email client), or "
-#| "intentionally (deliberate manipulation)."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The message or the signature has been altered. This can happen accidentally "
@@ -3970,9 +3927,9 @@ msgid ""
 "subsequent change to the message, possibly by an email client), or "
 "intentionally (deliberate manipulation)."
 msgstr ""
-"მონაცემები, ან ხელმოწერა ვიღაცამ შეცვალა. ეს შეიძლება, შემთხვევით მოხდა "
+"შეტყობინება, ან ხელმოწერა ვიღაცამ შეცვალა. ეს შეიძლება, შემთხვევით მოხდა "
 "(მაგ: შეცდომა გადაცემისას), წინასწარი განზრახვის გარეშე (მაგ: ცვლილებები "
-"ელფოსტაში, შეიძლება, ელფოსტის კლიენტის მიერ), ან წინასწარგანზრახულად "
+"შეტყობინებაში, შეიძლება, ელფოსტის კლიენტის მიერ), ან წინასწარგანზრახულად "
 "(წინასწარგანზრახული მანიპულაცია)."
 
 #: utils/formatting.cpp:1942
@@ -3990,18 +3947,14 @@ msgstr ""
 "(წინასწარგანზრახული მანიპულაცია)."
 
 #: utils/formatting.cpp:1971
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Ask the sender for the certificate or import it from a file or a "
-#| "keyserver. Then verify the data again."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the message again."
 msgstr ""
-"სთხოვეთ გამომგზავნელს სერტიფიკატი, ან შემოიტანეთ ის ფაილიდან, ან გასაღებების "
-"სერვერიდან და გადაამოწმეთ მონაცემები კიდევ ერთხელ."
+"სთხოვეთ გამომგზავნს სერტიფიკატი, ან შემოიტანეთ ის ფაილიდან, ან გასაღებების "
+"სერვერიდან და გადაამოწმეთ შეტყობინება კიდევ ერთხელ."
 
 #: utils/formatting.cpp:1972
 #, kde-format
@@ -4014,31 +3967,23 @@ msgstr ""
 "სერვერიდან და გადაამოწმეთ მონაცემები კიდევ ერთხელ."
 
 #: utils/formatting.cpp:1978
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Verify the certificate’s fingerprint and certify it. Then verify the data "
-#| "again."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the message "
 "again."
 msgstr ""
-"სერტიფიკატის ანაბეჭდის გადამოწმება და მისი სერტიფიცირება, შემდეგ კი "
-"მონაცემების თავიდან გადამოწმება."
+"გადაამოწმეთ სერტიფიკატის ანაბეჭდი და მოახდინეთ მისი სერტიფიკაცია, შემდეგ კი "
+"გადაამოწმეთ შეტყობინება თავიდან."
 
 #: utils/formatting.cpp:1979
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Verify the certificate’s Root-CA fingerprint and trust it. Then verify "
-#| "the data again."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "message again."
 msgstr ""
-"სერტიფიკატის Root-CA ანაბეჭდის გადამოწმება და ნდობა. შემდეგ კი მონაცემების "
+"სერტიფიკატის Root-CA ანაბეჭდის გადამოწმება და ნდობა. შემდეგ კი შეტყობინების "
 "თავიდან გადამოწმება."
 
 #: utils/formatting.cpp:1982
@@ -4062,26 +4007,18 @@ msgstr ""
 "თავიდან გადამოწმება."
 
 #: utils/formatting.cpp:1991
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "You can look for an updated certificate on a keyserver, or ask the sender "
-#| "for it, then verify the data again after importing the certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the message again after importing the certificate."
 msgstr ""
 "შეგიძლიათ, განახლებული სერტიფიკატი გასაღებების სერვერზე მოძებნოთ, ან სთხოვოთ "
-"გამომგზავნს, შემდეგ კი გადაამოწმოთ მონაცემბი კიდევ ერთხელ სერტიფიკატის "
+"გამომგზავნს, შემდეგ კი გადაამოწმოთ შეტყობინება კიდევ ერთხელ სერტიფიკატის "
 "შემოტანის შემდეგ."
 
 #: utils/formatting.cpp:1994 utils/formatting.cpp:2008
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If in doubt, contact the signer to clarify the situation and, if "
-#| "necessary, ask them to resend the data signed with a current certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
@@ -4098,7 +4035,7 @@ msgid ""
 "for it, then verify the data again after importing the certificate."
 msgstr ""
 "შეგიძლიათ, განახლებული სერტიფიკატი გასაღებების სერვერზე მოძებნოთ, ან სთხოვოთ "
-"გამომგზავნს, შემდეგ კი გადაამოწმოთ მონაცემბი კიდევ ერთხელ სერტიფიკატის "
+"გამომგზავნს, შემდეგ კი გადაამოწმოთ მონაცემები კიდევ ერთხელ სერტიფიკატის "
 "შემოტანის შემდეგ."
 
 #: utils/formatting.cpp:2002 utils/formatting.cpp:2012
@@ -4112,12 +4049,10 @@ msgstr ""
 "საჭიროა, სთხოვეთ, მონაცემები ახლანდელი სერტიფიკატით, თავიდან გამოგიგზავნოთ."
 
 #: utils/formatting.cpp:2016
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Ask the sender to resend the data."
+#, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr "გამომგზავნისთვის მონაცემების თავიდან გამოგზავნის თხოვნა."
+msgstr "გამომგზავნისთვის შეტყობინების თავიდან გამოგზავნის თხოვნა."
 
 #: utils/formatting.cpp:2017
 #, kde-format
