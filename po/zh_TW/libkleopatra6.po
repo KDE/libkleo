@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-08-04 07:22+0900\n"
+"PO-Revision-Date: 2026-09-22 01:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -3456,16 +3456,12 @@ msgid "The used key is not certified by you or any trusted person."
 msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
 
 #: utils/formatting.cpp:1769
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Signature verification was successful: Data and signature match and the "
-#| "certificate is valid and trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
-msgstr "簽章驗證成功：資料與簽章符合，且憑證有效並且已信任。"
+msgstr "簽章驗證成功：訊息與簽章符合，且憑證有效並且已信任。"
 
 #: utils/formatting.cpp:1770
 #, kde-format
@@ -3476,12 +3472,10 @@ msgid ""
 msgstr "簽章驗證成功：資料與簽章符合，且憑證有效並且已信任。"
 
 #: utils/formatting.cpp:1779
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Data and signature do not match."
+#, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr "資料與簽章不相符。"
+msgstr "訊息與簽章不相符。"
 
 #: utils/formatting.cpp:1781 utils/formatting.cpp:1787
 #, kde-format
@@ -3492,12 +3486,10 @@ msgstr "簽署憑證不可信任。"
 #: utils/formatting.cpp:1782 utils/formatting.cpp:1802
 #: utils/formatting.cpp:1822 utils/formatting.cpp:1830
 #: utils/formatting.cpp:1838 utils/formatting.cpp:1846
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The data cannot be trusted. Reason: %1"
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "資料不可信任。原因：%1"
+msgstr "訊息不可信任。原因：%1"
 
 #: utils/formatting.cpp:1785
 #, kde-format
@@ -3514,9 +3506,7 @@ msgid "The data cannot be trusted. Reason: %1"
 msgstr "資料不可信任。原因：%1"
 
 #: utils/formatting.cpp:1792
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature claims to be from %1 and dated %2."
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
 msgstr "簽章宣稱來自 %1 於 %2。"
@@ -3528,16 +3518,12 @@ msgid "The signature claims to be from %1."
 msgstr "簽章宣稱來自 %1。"
 
 #: utils/formatting.cpp:1801
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The signature cannot be verified because the corresponding certificate is "
-#| "not available. The data cannot be trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
-msgstr "簽章無法驗證，因為對應的憑證不可用。資料無法信任。"
+msgstr "簽章無法驗證，因為對應的憑證不可用。"
 
 #: utils/formatting.cpp:1807
 #, kde-format
@@ -3546,22 +3532,17 @@ msgid "The signing certificate’s fingerprint is %1."
 msgstr "簽署用的憑證的指紋是 %1。"
 
 #: utils/formatting.cpp:1812
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signing certificate’s fingerprint is %1."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "簽署用的憑證的指紋是 %1。"
+msgstr "簽署用的憑證的序號與配發者是 %1。"
 
 #: utils/formatting.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "It cannot be verified whether the data originates from the stated source."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
-msgstr "無法驗證資料是否來自宣稱的來源。"
+msgstr "無法驗證訊息是否來自宣稱的來源。"
 
 #: utils/formatting.cpp:1821
 #, kde-format
@@ -3594,7 +3575,7 @@ msgctxt "@info"
 msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
-msgstr ""
+msgstr "簽署用的憑證不在您的憑證清單中，但需要有才能驗證訊息。"
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3602,7 +3583,7 @@ msgctxt "@info"
 msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
-msgstr ""
+msgstr "簽署用的憑證不在您的憑證清單中，但需要有才能驗證資料。"
 
 #: utils/formatting.cpp:1895
 #, kde-format
@@ -3794,13 +3775,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr ""
+msgstr "要求寄送者重新傳送訊息。"
 
 #: utils/formatting.cpp:2017
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "要求寄送者重新傳送資料。"
 
 #: utils/gnupg.cpp:437
 #, kde-format
