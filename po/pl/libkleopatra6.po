@@ -1,18 +1,18 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1739322 $
+# Version: $Revision: 1748375 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2004.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2007, 2008.
-# SPDX-FileCopyrightText: 2011, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2011, 2014-2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2025-11-08 09:18+0100\n"
+"PO-Revision-Date: 2026-09-27 21:04+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "Nazwisko"
 
 #: kleo/dnattributes.cpp:63
 msgid "Given name"
-msgstr "Imię"
+msgstr "Nadana nazwa"
 
 #: kleo/dnattributes.cpp:64
 msgid "Location"
@@ -242,8 +242,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
-"<p>Twój klucz podpisujący OpenPGP</p><p align=center>%1</p> wygasł mniej niż "
-"dzień temu.</p>"
+"<p>Twój klucz podpisujący OpenPGP</p><p align=center>%1</p><p>wygasł mniej "
+"niż dzień temu.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -251,8 +251,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>Twój klucz szyfrujący OpenPGP</p><p align=center>%1</p>wygasł mniej niż "
-"dzień temu.</p>"
+"<p>Twój klucz szyfrujący OpenPGP</p><p align=center>%1</p><p>wygasł mniej "
+"niż dzień temu.</p>"
 
 #: kleo/expirychecker.cpp:92
 #, kde-format
@@ -588,8 +588,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
-"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%1</p>wygasł mniej "
-"niż dzień temu.</p>"
+"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%1</p><p>wygasł "
+"mniej niż dzień temu.</p>"
 
 #: kleo/expirychecker.cpp:252
 #, kde-format
@@ -597,7 +597,7 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>Certyfikat S/MIME dla</p><p align=center>%1</p> wygasł mniej niż dzień "
+"<p>Certyfikat S/MIME dla</p><p align=center>%1</p><p>wygasł mniej niż dzień "
 "temu.</p>"
 
 #: kleo/expirychecker.cpp:258
@@ -852,8 +852,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
-"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%2</p>wygasa dzisiaj."
-"</p>"
+"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%2</p><p>wygasa "
+"dzisiaj.</p>"
 
 #: kleo/expirychecker.cpp:375
 #, kde-format
@@ -1121,7 +1121,7 @@ msgstr "bez adresu"
 #: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
-msgstr "Wczytywanie..."
+msgstr "Wczytywanie…"
 
 #: models/keylistmodel.cpp:553
 #, kde-format
@@ -2201,7 +2201,7 @@ msgstr "Sprawdzanie wybranych kluczy..."
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
-msgstr "Pobieranie kluczy..."
+msgstr "Pobieranie kluczy…"
 
 #: ui/keyselectiondialog.cpp:750
 #, kde-format
@@ -2372,12 +2372,10 @@ msgid "Security approval"
 msgstr "Potwierdzenie bezpieczeństwa"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokół"
+msgstr "Protokół kryptograficzny:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2392,6 +2390,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Stwórz wiadomość w postaci OpenPGP. Ograniczy to wybór kluczy szyfrujących "
+"tylko do OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2406,13 +2406,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Stwórz wiadomość w postaci S/MIME. Ograniczy to wybór kluczy szyfrujących "
+"tylko do S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Zarówno OpenPGP jak i S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2423,18 +2424,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Stwórz dwie osobne wiadomości, jedną zaszyfrowaną dla odbiorców, mających "
+"klucze OpenPGP, oraz drugą dla odbiorców, mających klucze S/MIME. Umożliwia "
+"to mieszanie dwóch rodzajów kluczy, lecz utrudnia odbiorcom odpowiadanie "
+"wszystkim adresatom."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Wiadomość zostanie stworzona w postaci OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Wiadomość zostanie stworzona w postaci S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2475,11 +2480,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Wiadomość nie zostanie podpisana kryptograficznie."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Podpisywanie"
+msgstr "Podpisz jako:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2488,6 +2492,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Podpisanie swojej wiadomości dostarcza kryptograficznego potwierdzenia, że "
+"na prawdę jesteś nadawcą tej wiadomości."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
@@ -2618,33 +2624,31 @@ msgstr "Obejrzyj kolumny"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Uszereguj wg"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Aktywny Katalog"
+msgstr "Kierunek szeregowania"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Rosnąco"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Malejąco"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Kopiuj dziennik do schowka"
+msgstr "Skopiuj zawartość komórki do schowka"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -3646,38 +3650,35 @@ msgstr ""
 "Możesz poszukać certyfikatu na serwerze kluczy lub zaimportować go z pliku."
 
 #: utils/formatting.cpp:1680 utils/formatting.cpp:1690
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Ten klucz nie jest certyfikowany ani przez ciebie ani przez zaufaną osobę."
+"Ten podpis jest ważny, lecz użyty klucz nie jest certyfikowany ani przez "
+"ciebie ani przez żadną zaufaną osobę."
 
 #: utils/formatting.cpp:1682 utils/formatting.cpp:1727
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Ten certyfikat nie jest certyfikowany przez godny zaufania urząd "
-"certyfikujący lub urząd certyfikujący jest nieznany."
+"Podpis jest ważny, lecz użyty certyfikat nie jest certyfikowany przez godny "
+"zaufania urząd certyfikujący lub urząd certyfikujący jest nieznany."
 
 #: utils/formatting.cpp:1685 utils/formatting.cpp:1707
 #: utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "Nic nie wskazuje na to, że ten certyfikat należy do tego odbiorcy."
+msgstr ""
+"<strong>Uwaga:</strong> Nic nie wskazuje na to, że ten certyfikat należy do "
+"tego odbiorcy."
 
 #: utils/formatting.cpp:1691 utils/formatting.cpp:1703
 #, kde-format
@@ -3686,47 +3687,45 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>Uwaga:</strong> Istnieją wątpliwości, czy podpis należy do "
+"właściciela."
 
 #: utils/formatting.cpp:1699
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
+msgstr "Podpis jest ważny, ale wygasł."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1705
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Ten klucz nie jest certyfikowany ani przez ciebie ani przez zaufaną osobę."
+"Ten podpis jest ważny, lecz wygasł, a użyty klucz nie jest certyfikowany ani "
+"przez ciebie ani przez żadną zaufaną osobę."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
+msgstr "Podpis jest ważny, ale użyty klucz wygasł."
 
 #: utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
+msgstr "Podpis jest ważny, ale użyty klucz został odwołany."
 
 #: utils/formatting.cpp:1723
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
-msgstr ""
+msgstr "<strong>Uwaga:</strong> To może oznaczać, że podpis został podrobiony."
 
 #: utils/formatting.cpp:1725
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
