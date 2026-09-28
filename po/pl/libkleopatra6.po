@@ -1,18 +1,18 @@
 # translation of libkleopatra.po to
-# Version: $Revision: 1746493 $
+# Version: $Revision: 1748375 $
 # Copyright (C) 2002,2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2004, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2004.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2007, 2008.
-# SPDX-FileCopyrightText: 2011, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2011, 2014-2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2025-11-08 09:18+0100\n"
+"PO-Revision-Date: 2026-09-27 21:04+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "Nazwisko"
 
 #: kleo/dnattributes.cpp:63
 msgid "Given name"
-msgstr "Imię"
+msgstr "Nadana nazwa"
 
 #: kleo/dnattributes.cpp:64
 msgid "Location"
@@ -242,8 +242,8 @@ msgid ""
 "<p>Your OpenPGP signing key</p><p align=center>%1</p><p>expired less than a "
 "day ago.</p>"
 msgstr ""
-"<p>Twój klucz podpisujący OpenPGP</p><p align=center>%1</p> wygasł mniej niż "
-"dzień temu.</p>"
+"<p>Twój klucz podpisujący OpenPGP</p><p align=center>%1</p><p>wygasł mniej "
+"niż dzień temu.</p>"
 
 #: kleo/expirychecker.cpp:90
 #, kde-format
@@ -251,8 +251,8 @@ msgid ""
 "<p>Your OpenPGP encryption key</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>Twój klucz szyfrujący OpenPGP</p><p align=center>%1</p>wygasł mniej niż "
-"dzień temu.</p>"
+"<p>Twój klucz szyfrujący OpenPGP</p><p align=center>%1</p><p>wygasł mniej "
+"niż dzień temu.</p>"
 
 #: kleo/expirychecker.cpp:92
 #, kde-format
@@ -588,8 +588,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%1</p><p>expired "
 "less than a day ago.</p>"
 msgstr ""
-"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%1</p>wygasł mniej "
-"niż dzień temu.</p>"
+"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%1</p><p>wygasł "
+"mniej niż dzień temu.</p>"
 
 #: kleo/expirychecker.cpp:252
 #, kde-format
@@ -597,7 +597,7 @@ msgid ""
 "<p>The S/MIME certificate for</p><p align=center>%1</p><p>expired less than "
 "a day ago.</p>"
 msgstr ""
-"<p>Certyfikat S/MIME dla</p><p align=center>%1</p> wygasł mniej niż dzień "
+"<p>Certyfikat S/MIME dla</p><p align=center>%1</p><p>wygasł mniej niż dzień "
 "temu.</p>"
 
 #: kleo/expirychecker.cpp:258
@@ -852,8 +852,8 @@ msgid ""
 "<p>Your S/MIME encryption certificate</p><p align=center>%2</p><p>expires "
 "today.</p>"
 msgstr ""
-"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%2</p>wygasa dzisiaj."
-"</p>"
+"<p>Twój certyfikat szyfrujący S/MIME</p><p align=center>%2</p><p>wygasa "
+"dzisiaj.</p>"
 
 #: kleo/expirychecker.cpp:375
 #, kde-format
@@ -1121,7 +1121,7 @@ msgstr "bez adresu"
 #: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
-msgstr "Wczytywanie..."
+msgstr "Wczytywanie…"
 
 #: models/keylistmodel.cpp:553
 #, kde-format
@@ -2201,7 +2201,7 @@ msgstr "Sprawdzanie wybranych kluczy..."
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
-msgstr "Pobieranie kluczy..."
+msgstr "Pobieranie kluczy…"
 
 #: ui/keyselectiondialog.cpp:750
 #, kde-format
@@ -2372,12 +2372,10 @@ msgid "Security approval"
 msgstr "Potwierdzenie bezpieczeństwa"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokół"
+msgstr "Protokół kryptograficzny:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2392,6 +2390,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Stwórz wiadomość w postaci OpenPGP. Ograniczy to wybór kluczy szyfrujących "
+"tylko do OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2406,13 +2406,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Stwórz wiadomość w postaci S/MIME. Ograniczy to wybór kluczy szyfrujących "
+"tylko do S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Zarówno OpenPGP jak i S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2423,18 +2424,22 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Stwórz dwie osobne wiadomości, jedną zaszyfrowaną dla odbiorców, mających "
+"klucze OpenPGP, oraz drugą dla odbiorców, mających klucze S/MIME. Umożliwia "
+"to mieszanie dwóch rodzajów kluczy, lecz utrudnia odbiorcom odpowiadanie "
+"wszystkim adresatom."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Wiadomość zostanie stworzona w postaci OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Wiadomość zostanie stworzona w postaci S/MIME."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2475,11 +2480,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Wiadomość nie zostanie podpisana kryptograficznie."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Podpisywanie"
+msgstr "Podpisz jako:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2488,6 +2492,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Podpisanie swojej wiadomości dostarcza kryptograficznego potwierdzenia, że "
+"na prawdę jesteś nadawcą tej wiadomości."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
@@ -2618,33 +2624,31 @@ msgstr "Obejrzyj kolumny"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Uszereguj wg"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "Aktywny Katalog"
+msgstr "Kierunek szeregowania"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Rosnąco"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Malejąco"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Kopiuj dziennik do schowka"
+msgstr "Skopiuj zawartość komórki do schowka"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -3541,38 +3545,30 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1531
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1565
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "Zły podpis przez %1: %2"
+msgstr "Podpisane przez %1 dnia %2."
 
 #: utils/formatting.cpp:1567
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "Dobry podpis przez %1."
+msgstr "Podpisane przez %1."
 
 #: utils/formatting.cpp:1576
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1."
-msgstr "Podpisem jest %1"
+msgstr "Podpis to %1"
 
 #: utils/formatting.cpp:1579
 #, kde-format
@@ -3673,38 +3669,35 @@ msgstr ""
 "Możesz poszukać certyfikatu na serwerze kluczy lub zaimportować go z pliku."
 
 #: utils/formatting.cpp:1699 utils/formatting.cpp:1709
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"Ten klucz nie jest certyfikowany ani przez ciebie ani przez zaufaną osobę."
+"Ten podpis jest ważny, lecz użyty klucz nie jest certyfikowany ani przez "
+"ciebie ani przez żadną zaufaną osobę."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1740
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Ten certyfikat nie jest certyfikowany przez godny zaufania urząd "
-"certyfikujący lub urząd certyfikujący jest nieznany."
+"Podpis jest ważny, lecz użyty certyfikat nie jest certyfikowany przez godny "
+"zaufania urząd certyfikujący lub urząd certyfikujący jest nieznany."
 
 #: utils/formatting.cpp:1704 utils/formatting.cpp:1724
 #: utils/formatting.cpp:1743
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "Nic nie wskazuje na to, że ten certyfikat należy do tego odbiorcy."
+msgstr ""
+"<strong>Uwaga:</strong> Nic nie wskazuje na to, że ten certyfikat należy do "
+"tego odbiorcy."
 
 #: utils/formatting.cpp:1710 utils/formatting.cpp:1720
 #, kde-format
@@ -3713,47 +3706,45 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>Uwaga:</strong> Istnieją wątpliwości, czy podpis należy do "
+"właściciela."
 
 #: utils/formatting.cpp:1716
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
+msgstr "Podpis jest ważny, ale wygasł."
 
 #: utils/formatting.cpp:1718 utils/formatting.cpp:1722
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
 msgstr ""
-"Ten klucz nie jest certyfikowany ani przez ciebie ani przez zaufaną osobę."
+"Ten podpis jest ważny, lecz wygasł, a użyty klucz nie jest certyfikowany ani "
+"przez ciebie ani przez żadną zaufaną osobę."
 
 #: utils/formatting.cpp:1733
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
+msgstr "Podpis jest ważny, ale użyty klucz wygasł."
 
 #: utils/formatting.cpp:1735
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
+msgstr "Podpis jest ważny, ale użyty klucz został odwołany."
 
 #: utils/formatting.cpp:1736
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
-msgstr ""
+msgstr "<strong>Uwaga:</strong> To może oznaczać, że podpis został podrobiony."
 
 #: utils/formatting.cpp:1738
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr ""
@@ -3766,6 +3757,8 @@ msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Pomyślnie sprawdzono podpis: Wiadomość i podpis są zgodne, a certyfikat "
+"ważny i zaufany."
 
 #: utils/formatting.cpp:1770
 #, kde-format
@@ -3774,91 +3767,75 @@ msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Pomyślnie sprawdzono podpis: Dane i podpis są zgodne, a certyfikat ważny i "
+"zaufany."
 
 #: utils/formatting.cpp:1779
 #, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr ""
+msgstr "Wiadomość i podpis nie są zgodne."
 
 #: utils/formatting.cpp:1781 utils/formatting.cpp:1787
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "Nie należy używać tego certyfikatu."
+msgstr "Nie należy ufać temu certyfikatowi podpisującemu."
 
 #: utils/formatting.cpp:1782 utils/formatting.cpp:1802
 #: utils/formatting.cpp:1822 utils/formatting.cpp:1830
 #: utils/formatting.cpp:1838 utils/formatting.cpp:1846
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "Daty nie można zmienić."
+msgstr "Nie można ufać tej wiadomości. Powód: %1"
 
 #: utils/formatting.cpp:1785
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "Data i podpis nie są zgodne."
 
 #: utils/formatting.cpp:1788 utils/formatting.cpp:1803
 #: utils/formatting.cpp:1823 utils/formatting.cpp:1831
 #: utils/formatting.cpp:1839 utils/formatting.cpp:1847
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "Daty nie można zmienić."
+msgstr "Nie można ufać tym danym. Powód: %1"
 
 #: utils/formatting.cpp:1792
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "Podpisem jest %1"
+msgstr "Podpisem twierdzi, że został złożony przez %1 w dniu %2."
 
 #: utils/formatting.cpp:1796
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "Podpisem jest %1"
+msgstr "Podpisem twierdzi, że został złożony przez %1."
 
 #: utils/formatting.cpp:1801
-#, fuzzy, kde-format
-#| msgid ""
-#| "The signature is valid but the trust in the certificate's validity is "
-#| "only marginal."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
 msgstr ""
-"Podpis jest poprawny, ale zaufanie co do ważności certyfikatu jest minimalne."
+"Nie można sprawdzić podpisu, bo odpowiadający mu certyfikat jest niedostępny."
 
 #: utils/formatting.cpp:1807
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr "Podpis utworzono przy użyciu nieznanego certyfikatu o odcisku %1"
+msgstr "Odcisk certyfikatu podpisującego to %1."
 
 #: utils/formatting.cpp:1812
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "Podpis utworzono przy użyciu nieznanego certyfikatu o odcisku %1"
+msgstr "Numer seryjny i wystawca certyfikatu podpisującego to %1."
 
 #: utils/formatting.cpp:1820
 #, kde-format
@@ -3866,6 +3843,8 @@ msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
 msgstr ""
+"Nie można potwierdzić, że wiadomość pochodzi ze źródła, z którego twierdzi, "
+"że pochodzi."
 
 #: utils/formatting.cpp:1821
 #, kde-format
@@ -3873,27 +3852,26 @@ msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
 msgstr ""
+"Nie można potwierdzić, że dane pochodzą ze źródła, z którego twierdzą, że "
+"pochodzą."
 
 #: utils/formatting.cpp:1829
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "Podpis jest ważny, ale ważność certyfikatu jest niezdefiniowana."
+msgstr "Podpis utracił ważność."
 
 #: utils/formatting.cpp:1837
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "Certyfikat podpisujący wygasł"
+msgstr "Certyfikat podpisujący wygasł."
 
 #: utils/formatting.cpp:1845
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "Certyfikat podpisujący został unieważniony"
+msgstr "Certyfikat podpisujący został unieważniony."
 
 #: utils/formatting.cpp:1886
 #, kde-format
@@ -3902,6 +3880,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
 msgstr ""
+"Certyfikat podpisujący jest niedostępny w twoim wykazie certyfikatów, lecz "
+"jest potrzebny, aby sprawdzić wiadomość."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3910,6 +3890,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"Certyfikat podpisujący jest niedostępny w twoim wykazie certyfikatów, lecz "
+"jest potrzebny, aby sprawdzić dane."
 
 #: utils/formatting.cpp:1895
 #, kde-format
@@ -3919,6 +3901,9 @@ msgid ""
 "marked as trusted. Therefore the message cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Technicznie, podpis i wiadomość są zgodne, lecz certyfikat podpisujący nie "
+"jest oznaczony jako zaufany. Z tego powodu nie można ufać, że wiadomość "
+"pochodzi ze źródła, z którego podaje, że pochodzi."
 
 #: utils/formatting.cpp:1899
 #, kde-format
@@ -3928,6 +3913,9 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Technicznie, podpis i dane są zgodne, lecz certyfikat podpisujący nie jest "
+"oznaczony jako zaufany. Z tego powodu nie można ufać, że dane pochodzą ze "
+"źródła, z którego podają, że pochodzą."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -3937,6 +3925,9 @@ msgid ""
 "can be trusted. Therefore the message cannot be trusted. Technically, "
 "signature and message match."
 msgstr ""
+"Dla wygasłego certyfikatu, nie można stwierdzić, czy można mu zaufać. Z tego "
+"powodu nie można zaufać wiadomości. Technicznie, podpis i wiadomość są "
+"zgodne."
 
 #: utils/formatting.cpp:1909
 #, kde-format
@@ -3945,6 +3936,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the message, the "
 "message is likely valid."
 msgstr ""
+"Jeśli certyfikat był ważny i zaufany, gdy otrzymałeś wiadomość, to "
+"prawdopodobnie wszystko jest w porządku z tą wiadomością."
 
 #: utils/formatting.cpp:1912
 #, kde-format
@@ -3954,6 +3947,8 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"Dla wygasłego certyfikatu, nie można stwierdzić, czy można mu zaufać. Z tego "
+"powodu nie można zaufać danym. Technicznie, podpis i dane są zgodne."
 
 #: utils/formatting.cpp:1914
 #, kde-format
@@ -3962,6 +3957,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"Jeśli certyfikat był ważny i zaufany, gdy otrzymałeś dane, to prawdopodobnie "
+"wszystko jest w porządku z tymi danymi."
 
 #: utils/formatting.cpp:1919
 #, kde-format
@@ -3971,6 +3968,9 @@ msgid ""
 "might now be used by a third party. The message can therefore not be "
 "trusted. Technically, signature and message match."
 msgstr ""
+"Certyfikat mógł zostać odwołany, bo został wykradziony i może być teraz "
+"używany przez stronę trzecią. Z tego powodu nie można ufać wiadomości. "
+"Technicznie, podpis i wiadomość są zgodne."
 
 #: utils/formatting.cpp:1922
 #, kde-format
@@ -3979,6 +3979,8 @@ msgid ""
 "It is possible that you received the message at a time when the certificate "
 "was still valid and trusted. If this is the case, the message may be valid."
 msgstr ""
+"Możliwym jest, że otrzymałeś wiadomość w czasie, gdy certyfikat był nadal "
+"ważny i zaufany. W takim przypadku, wiadomość może być w porządku."
 
 #: utils/formatting.cpp:1926
 #, kde-format
@@ -3988,6 +3990,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"Certyfikat mógł zostać odwołany, bo został wykradziony i może być teraz "
+"używany przez stronę trzecią. Z tego powodu nie można ufać danym. "
+"Technicznie, podpis i dane są zgodne."
 
 #: utils/formatting.cpp:1929
 #, kde-format
@@ -3996,6 +4001,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"Możliwym jest, że otrzymałeś dane w czasie, gdy certyfikat był nadal ważny i "
+"zaufany. W takim przypadku, dane mogą być w porządku."
 
 #: utils/formatting.cpp:1937
 #, kde-format
@@ -4006,6 +4013,9 @@ msgid ""
 "subsequent change to the message, possibly by an email client), or "
 "intentionally (deliberate manipulation)."
 msgstr ""
+"Wiadomość lub podpis uległy zmianie. Może to nastąpić przypadkowo (np. ze "
+"względu na błędy na przesyle), niecelowo (np. ze względu na zmianę "
+"wiadomości przez program pocztowy) lub celowo (wyważona manipulacja)."
 
 #: utils/formatting.cpp:1942
 #, kde-format
@@ -4016,6 +4026,9 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"Dane lub podpis uległy zmianie. Może to nastąpić przypadkowo (np. ze względu "
+"na błędy na przesyle), niecelowo (np. ze względu na zmianę danych przez "
+"program pocztowy) lub celowo (wyważona manipulacja)."
 
 #: utils/formatting.cpp:1971
 #, kde-format
@@ -4024,6 +4037,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the message again."
 msgstr ""
+"Poproś nadawcę o certyfikat lub zaimportuj go z pliku lub serwera kluczy. "
+"Następnie sprawdź wiadomość ponownie."
 
 #: utils/formatting.cpp:1972
 #, kde-format
@@ -4032,6 +4047,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"Poproś nadawcę o certyfikat lub zaimportuj go z pliku lub serwera kluczy. "
+"Następnie sprawdź dane ponownie."
 
 #: utils/formatting.cpp:1978
 #, kde-format
@@ -4040,6 +4057,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the message "
 "again."
 msgstr ""
+"Sprawdź odcisk certyfikatu i scertyfikuj go. Następnie sprawdź wiadomość "
+"ponownie."
 
 #: utils/formatting.cpp:1979
 #, kde-format
@@ -4048,6 +4067,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "message again."
 msgstr ""
+"Sprawdź odcisk certyfikatu Root-CA i zaufaj mu. Następnie sprawdź wiadomość "
+"ponownie."
 
 #: utils/formatting.cpp:1982
 #, kde-format
@@ -4056,6 +4077,7 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"Sprawdź odcisk certyfikatu i scertyfikuj go. Następnie sprawdź dane ponownie."
 
 #: utils/formatting.cpp:1983
 #, kde-format
@@ -4064,6 +4086,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"Sprawdź odcisk certyfikatu Root-CA i zaufaj mu. Następnie sprawdź dane "
+"ponownie."
 
 #: utils/formatting.cpp:1991
 #, kde-format
@@ -4072,6 +4096,9 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the message again after importing the certificate."
 msgstr ""
+"Uaktualnionego certyfikatu możesz poszukać na serwerze kluczy lub poprosić "
+"nadawcę o jego przesłanie. Po zaimportowaniu certyfikatu sprawdź wiadomość "
+"ponownie."
 
 #: utils/formatting.cpp:1994 utils/formatting.cpp:2008
 #, kde-format
@@ -4080,6 +4107,9 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the message signed with a current certificate."
 msgstr ""
+"W przypadku wątpliwości, napisz do podpisującego, aby wyjaśnić to zajście i "
+"jeśli potrzeba poproś o ponowne przesłanie wiadomości podpisanej bieżącym "
+"certyfikatem."
 
 #: utils/formatting.cpp:1999
 #, kde-format
@@ -4088,6 +4118,9 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"Uaktualnionego certyfikatu możesz poszukać na serwerze kluczy lub poprosić "
+"nadawcę o jego przesłanie. Po zaimportowaniu certyfikatu sprawdź dane "
+"ponownie."
 
 #: utils/formatting.cpp:2002 utils/formatting.cpp:2012
 #, kde-format
@@ -4096,18 +4129,21 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"W przypadku wątpliwości, napisz do podpisującego, aby wyjaśnić to zajście i "
+"jeśli potrzeba poproś o ponowne przesłanie danych podpisanych bieżącym "
+"certyfikatem."
 
 #: utils/formatting.cpp:2016
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr ""
+msgstr "Poproś nadawcę o ponowne przesłanie wiadomości."
 
 #: utils/formatting.cpp:2017
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "Poproś nadawcę o ponowne przesłanie danych."
 
 #: utils/gnupg.cpp:437
 #, kde-format
