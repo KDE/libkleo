@@ -12,7 +12,7 @@
 #include <QList>
 #include <QWidget>
 
-class KLineEdit;
+class QLineEdit;
 class QSpinBox;
 
 class QPushButton;
@@ -158,7 +158,7 @@ public:
     void doLoad() override;
 
 private:
-    KLineEdit *mLineEdit = nullptr;
+    QLineEdit *mLineEdit = nullptr;
 };
 
 /**

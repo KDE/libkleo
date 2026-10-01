@@ -24,7 +24,6 @@
 #include <kleo_ui_debug.h>
 
 #include <KLazyLocalizedString>
-#include <KLineEdit>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSeparator>
@@ -40,6 +39,7 @@
 #include <QIcon>
 #include <QLabel>
 #include <QLayout>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QRegularExpression>
 #include <QScreen>
@@ -558,7 +558,7 @@ Kleo::CryptoConfigEntryLineEdit::CryptoConfigEntryLineEdit(CryptoConfigModule *m
     : CryptoConfigEntryGUI(module, entry, entryName)
 {
     const int row = glay->rowCount();
-    mLineEdit = new KLineEdit(widget);
+    mLineEdit = new QLineEdit(widget);
     QLabel *label = new QLabel(description(), widget);
     label->setBuddy(mLineEdit);
     glay->addWidget(label, row, 1);
@@ -567,7 +567,7 @@ Kleo::CryptoConfigEntryLineEdit::CryptoConfigEntryLineEdit(CryptoConfigModule *m
         label->setEnabled(false);
         mLineEdit->setEnabled(false);
     } else {
-        connect(mLineEdit, &KLineEdit::textChanged, this, &CryptoConfigEntryLineEdit::slotChanged);
+        connect(mLineEdit, &QLineEdit::textChanged, this, &CryptoConfigEntryLineEdit::slotChanged);
     }
 }
 
