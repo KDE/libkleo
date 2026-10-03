@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-18 00:44+0000\n"
-"PO-Revision-Date: 2026-03-11 20:18+0200\n"
+"PO-Revision-Date: 2026-08-25 15:01+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -2280,12 +2280,10 @@ msgid "Security approval"
 msgstr "Turvallisuushyväksyntä"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Yhteyskäytäntö"
+msgstr "Salausyhteyskäytäntö:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2300,6 +2298,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Kirjoita viesti OpenPGP-muodossa. Tämä tarkoittaa, että vain OpenPGP-"
+"salausavaimia voi valita."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2314,13 +2314,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Kirjoita viesti S/MIME-muodossa. Tämä tarkoittaa, että vain S/MIME-"
+"salausavaimia voi valita."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Sekä OpenPGP että S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2331,18 +2332,21 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Luo kaksi erillistä viestiä, toinen OpenPGP-avaimisille ja toinen S/MIME-"
+"avaimisille vastaanottajille. Näin kahta tyyppiä on mahdollista käyttää "
+"yhdessä, mutta vastaanottajien voi olla vaikeampi vastata kaikille."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Viesti luodaan OpenPGP-muodossa."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Viesti luodaan S/MIME-muodossa."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2383,11 +2387,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Sähköpostiviestiä ei kryptografisesti allekirjoiteta."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Allekirjoita"
+msgstr "Allekirjoita nimellä:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2396,6 +2399,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Viestin allekirjoittaminen tarjoaa kryptografisen vahvistuksen siitä, että "
+"viestin kirjoittaja olet todella sinä."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
@@ -2546,11 +2551,10 @@ msgid "Descending"
 msgstr "Laskeva"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Kopioi loki leikepöydälle"
+msgstr "Kopioi solun sisältö leikepöydälle"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
