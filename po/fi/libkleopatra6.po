@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-03-11 20:18+0200\n"
+"PO-Revision-Date: 2026-08-25 15:01+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -2280,12 +2280,10 @@ msgid "Security approval"
 msgstr "Turvallisuushyväksyntä"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Yhteyskäytäntö"
+msgstr "Salausyhteyskäytäntö:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2300,6 +2298,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Kirjoita viesti OpenPGP-muodossa. Tämä tarkoittaa, että vain OpenPGP-"
+"salausavaimia voi valita."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2314,13 +2314,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Kirjoita viesti S/MIME-muodossa. Tämä tarkoittaa, että vain S/MIME-"
+"salausavaimia voi valita."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Sekä OpenPGP että S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2331,18 +2332,21 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Luo kaksi erillistä viestiä, toinen OpenPGP-avaimisille ja toinen S/MIME-"
+"avaimisille vastaanottajille. Näin kahta tyyppiä on mahdollista käyttää "
+"yhdessä, mutta vastaanottajien voi olla vaikeampi vastata kaikille."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Viesti luodaan OpenPGP-muodossa."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Viesti luodaan S/MIME-muodossa."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2383,11 +2387,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Sähköpostiviestiä ei kryptografisesti allekirjoiteta."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Allekirjoita"
+msgstr "Allekirjoita nimellä:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2396,6 +2399,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Viestin allekirjoittaminen tarjoaa kryptografisen vahvistuksen siitä, että "
+"viestin kirjoittaja olet todella sinä."
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
@@ -2546,11 +2551,10 @@ msgid "Descending"
 msgstr "Laskeva"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Kopioi loki leikepöydälle"
+msgstr "Kopioi solun sisältö leikepöydälle"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -3444,38 +3448,30 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1531
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1565
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "Kelvoton allekirjoitus varmenteelta %1: %2"
+msgstr "Allekirjoittanut %1 %2."
 
 #: utils/formatting.cpp:1567
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "Hyvä allekirjoitus varmenteelta %1."
+msgstr "Allekirjoittanut %1."
 
 #: utils/formatting.cpp:1576
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1."
-msgstr "Allekirjoitus on %1"
+msgstr "Allekirjoitus on %1."
 
 #: utils/formatting.cpp:1579
 #, kde-format
@@ -3675,6 +3671,8 @@ msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Allekirjoituksen todentaminen onnistui: data ja allekirjoitus täsmäävät ja "
+"varmenne on kelvollinen ja luotettu."
 
 #: utils/formatting.cpp:1779
 #, kde-format
@@ -3683,11 +3681,10 @@ msgid "Message and signature do not match."
 msgstr ""
 
 #: utils/formatting.cpp:1781 utils/formatting.cpp:1787
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "Tätä varmennetta ei tulisi käyttää."
+msgstr "Allekirjoitusvarmenteeseen ei saa luottaa."
 
 #: utils/formatting.cpp:1782 utils/formatting.cpp:1802
 #: utils/formatting.cpp:1822 utils/formatting.cpp:1830
@@ -3703,66 +3700,48 @@ msgstr "Päivämäärää ei voi muuttaa."
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "Data ja allekirjoitus eivät täsmää."
 
 #: utils/formatting.cpp:1788 utils/formatting.cpp:1803
 #: utils/formatting.cpp:1823 utils/formatting.cpp:1831
 #: utils/formatting.cpp:1839 utils/formatting.cpp:1847
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "Päivämäärää ei voi muuttaa."
+msgstr "Dataan ei voi luottaa. Syy: %1"
 
 #: utils/formatting.cpp:1792
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "Allekirjoitus on %1"
+msgstr "Allekirjoitus esittää tekijäkseen %1 ja on päivätty %2."
 
 #: utils/formatting.cpp:1796
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "Allekirjoitus on %1"
+msgstr "Allekirjoitus esittää tekijäkseen %1."
 
 #: utils/formatting.cpp:1801
-#, fuzzy, kde-format
-#| msgid ""
-#| "The signature is valid but the trust in the certificate's validity is "
-#| "only marginal."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
 msgstr ""
-"Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuuteen luotetaan vain "
-"ehdollisesti."
+"Allekirjoitusta ei voi todentaa, koska vastaava varmenne ei ole saatavilla."
 
 #: utils/formatting.cpp:1807
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr ""
-"Allekirjoitus on luotu tuntemattomalla varmenteella, jonka sormenjälki on %1"
+msgstr "Allekirjoitusvarmenteen sormenjälki on %1."
 
 #: utils/formatting.cpp:1812
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr ""
-"Allekirjoitus on luotu tuntemattomalla varmenteella, jonka sormenjälki on %1"
+msgstr "Allekirjoitusvarmenteen sarjanumero ja julkaisija ovat %1."
 
 #: utils/formatting.cpp:1820
 #, kde-format
@@ -3776,28 +3755,25 @@ msgstr ""
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
-msgstr ""
+msgstr "Ei voida todentaa, tuleeko data todella esitetystä lähteestä."
 
 #: utils/formatting.cpp:1829
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "Allekirjoitus on kelvollinen, mutta varmenteen kelpoisuus tuntematon."
+msgstr "Allekirjoitus on vanhentunut."
 
 #: utils/formatting.cpp:1837
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "Allekirjoitusvarmenne on vanhentunut"
+msgstr "Allekirjoitusvarmenne on vanhentunut."
 
 #: utils/formatting.cpp:1845
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "Allekirjoitusvarmenne on mitätöity"
+msgstr "Allekirjoitusvarmenne on mitätöity."
 
 #: utils/formatting.cpp:1886
 #, kde-format
@@ -3814,6 +3790,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"Allekirjoitusvarmennetta ei ole varmenneluettelossasi, mutta se vaaditaan "
+"datan todentamiseksi."
 
 #: utils/formatting.cpp:1895
 #, kde-format
@@ -3832,6 +3810,9 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Allekirjoitus ja data täsmäävät teknisesti, mutta allekirjoitusvarmennetta "
+"ei ole merkitty luotetuksi. Näin ollen datan ei voi luottaa tulevan "
+"esitetystä lähteestä."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -3858,6 +3839,8 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"Vanhentuneesta varmenteesta ei voi arvioida, voiko siihen luottaa. Dataan ei "
+"siis voi luottaa. Teknisesti allekirjoitus ja data täsmäävät."
 
 #: utils/formatting.cpp:1914
 #, kde-format
@@ -3866,6 +3849,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"Jos varmenne oli kelvollinen ja luotettu vastaanottaessasi datan, se "
+"todennäköisesti on kelvollista."
 
 #: utils/formatting.cpp:1919
 #, kde-format
@@ -3892,6 +3877,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"Varmenne on voitu mitätöidä, koska se on vaarantunut ja sitä voi nyt käyttää "
+"kolmas osapuoli. Dataan ei siten voi luottaa. Teknisesti allekirjoitus ja "
+"data täsmäävät."
 
 #: utils/formatting.cpp:1929
 #, kde-format
@@ -3900,6 +3888,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"On mahdollista, että olet vastaanottanut datan varmenteen ollessa yhä "
+"kelvollinen ja luotettu. Jos näin on, data voi olla kelvollista."
 
 #: utils/formatting.cpp:1937
 #, kde-format
@@ -3920,6 +3910,9 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"Dataa tai allekirjoitusta on muutettu. Näin voi käydä vahingossa (esim. "
+"välitysvirheen takia), epähuomiossa (esim. sähköpostin käsitellessä dataa) "
+"tai tarkoituksella (tahallinen vääristely)."
 
 #: utils/formatting.cpp:1971
 #, kde-format
@@ -3936,6 +3929,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"Pyydä varmennetta lähettäjältä tai tuo se tiedostosta tai avainpalvelimesta. "
+"Todenna data sitten uudelleen."
 
 #: utils/formatting.cpp:1978
 #, kde-format
@@ -3960,6 +3955,7 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"Todenna varmenteen sormenjälki ja varmenna se. Todenna sitten data uudelleen."
 
 #: utils/formatting.cpp:1983
 #, kde-format
@@ -3968,6 +3964,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"Todenna varmenteen juuri-CA-sormenjälki ja merkitse se luotetuksi. Todenna "
+"data sitten uudelleen."
 
 #: utils/formatting.cpp:1991
 #, kde-format
@@ -3992,6 +3990,8 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"Päivitettyä varmennetta voi etsiä avainpalvelimesta tai pyytää lähettäjältä; "
+"varmenteen tuonnin jälkeen datan voi todentaa uudelleen."
 
 #: utils/formatting.cpp:2002 utils/formatting.cpp:2012
 #, kde-format
@@ -4000,6 +4000,8 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"Jos olet epävarma, kysy tilanteesta allekirjoittajalta ja jos tarpeen pyydä "
+"häntä lähettämään data uudelleen nykyisellä varmenteella allekirjoitettuna."
 
 #: utils/formatting.cpp:2016
 #, kde-format
@@ -4011,7 +4013,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "Pyydä lähettäjää lähettämään data uudelleen."
 
 #: utils/gnupg.cpp:437
 #, kde-format
