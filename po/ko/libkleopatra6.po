@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-05-26 23:17+0200\n"
+"PO-Revision-Date: 2026-10-03 20:40+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -3313,38 +3313,30 @@ msgid "%1 (%2)"
 msgstr "%1(%2)"
 
 #: utils/formatting.cpp:1531
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
 #: utils/formatting.cpp:1565
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "%1에 의한 잘못된 서명: %2"
+msgstr "%1이(가) %2에 서명했습니다."
 
 #: utils/formatting.cpp:1567
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "%1의 서명이 양호합니다."
+msgstr "%1이(가) 서명했습니다."
 
 #: utils/formatting.cpp:1576
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
 msgid "The signature is %1."
-msgstr "서명이 %1입니다"
+msgstr "서명이 %1입니다."
 
 #: utils/formatting.cpp:1579
 #, kde-format
@@ -3450,7 +3442,7 @@ msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
 msgstr ""
-"서명이 올바르지만 사용한 키를 귀하나 신뢰 가능한 사람이 인증하지 않았습니다."
+"서명이 올바르지만 사용한 키를 나 또는 신뢰 가능한 사람이 인증하지 않았습니다."
 
 #: utils/formatting.cpp:1701 utils/formatting.cpp:1740
 #, kde-format
@@ -3526,6 +3518,8 @@ msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"서명 검증에 성공함: 메시지와 서명이 일치하며 인증서가 올바르며 신뢰할 수 있습"
+"니다."
 
 #: utils/formatting.cpp:1770
 #, kde-format
@@ -3534,126 +3528,106 @@ msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"서명 검증에 성공함: 데이터와 서명이 일치하며 인증서가 올바르며 신뢰할 수 있습"
+"니다."
 
 #: utils/formatting.cpp:1779
 #, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr ""
+msgstr "메시지와 서명이 일치하지 않습니다."
 
 #: utils/formatting.cpp:1781 utils/formatting.cpp:1787
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "이 인증서를 사용하면 안 됩니다."
+msgstr "서명한 인증서를 신뢰하지 말아야 합니다."
 
 #: utils/formatting.cpp:1782 utils/formatting.cpp:1802
 #: utils/formatting.cpp:1822 utils/formatting.cpp:1830
 #: utils/formatting.cpp:1838 utils/formatting.cpp:1846
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "날짜를 변경할 수 없습니다."
+msgstr "메시지를 신뢰할 수 없습니다. 이유: %1"
 
 #: utils/formatting.cpp:1785
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "데이터와 서명이 일치하지 않습니다."
 
 #: utils/formatting.cpp:1788 utils/formatting.cpp:1803
 #: utils/formatting.cpp:1823 utils/formatting.cpp:1831
 #: utils/formatting.cpp:1839 utils/formatting.cpp:1847
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "날짜를 변경할 수 없습니다."
+msgstr "데이터를 신뢰할 수 없습니다. 이유: %1"
 
 #: utils/formatting.cpp:1792
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "서명이 %1입니다"
+msgstr "서명이 %1의 소유임을 자칭하고 있으며 날짜는 %2입니다."
 
 #: utils/formatting.cpp:1796
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "서명이 %1입니다"
+msgstr "서명이 %1의 소유임을 자칭하고 있습니다."
 
 #: utils/formatting.cpp:1801
-#, fuzzy, kde-format
-#| msgid ""
-#| "The signature is valid but the trust in the certificate's validity is "
-#| "only marginal."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
-msgstr "서명이 올바르지만 인증서를 그럭저럭 신뢰합니다."
+msgstr "해당하는 인증서를 사용할 수 없어서 서명을 검증할 수 없습니다."
 
 #: utils/formatting.cpp:1807
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr "지문이 %1인 알 수 없는 인증서로 서명이 생성됨"
+msgstr "서명한 인증서의 지문은 %1입니다."
 
 #: utils/formatting.cpp:1812
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "지문이 %1인 알 수 없는 인증서로 서명이 생성됨"
+msgstr "서명한 인증서의 일련 번호와 발급자는 %1입니다."
 
 #: utils/formatting.cpp:1820
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
-msgstr ""
+msgstr "메시지가 지정한 발신인에게서 왔는지를 검증할 수 없습니다."
 
 #: utils/formatting.cpp:1821
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
-msgstr ""
+msgstr "데이터가 지정한 발신인에게서 왔는지를 검증할 수 없습니다."
 
 #: utils/formatting.cpp:1829
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature is valid but it has expired."
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "서명이 올바르지만 만료되었습니다."
+msgstr "서명이 만료되었습니다."
 
 #: utils/formatting.cpp:1837
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "서명한 인증서가 만료됨"
+msgstr "서명한 인증서가 만료되었습니다."
 
 #: utils/formatting.cpp:1845
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "서명한 인증서가 철회됨"
+msgstr "서명한 인증서가 철회되었습니다."
 
 #: utils/formatting.cpp:1886
 #, kde-format
@@ -3662,6 +3636,7 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
 msgstr ""
+"서명한 인증서가 내 인증서 목록에 없으며, 메시지를 검증하려면 필요합니다."
 
 #: utils/formatting.cpp:1888
 #, kde-format
@@ -3670,6 +3645,7 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"서명한 인증서가 내 인증서 목록에 없으며, 데이터를 검증하려면 필요합니다."
 
 #: utils/formatting.cpp:1895
 #, kde-format
@@ -3679,6 +3655,8 @@ msgid ""
 "marked as trusted. Therefore the message cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"기술적으로 서명과 메시지가 일치하지만, 서명한 인증서를 신뢰함으로 표시하지 않"
+"았습니다. 따라서 메시지가 지정한 발신인에게서 왔는지를 신뢰할 수 없습니다."
 
 #: utils/formatting.cpp:1899
 #, kde-format
@@ -3688,6 +3666,8 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"기술적으로 서명과 데이터가 일치하지만, 서명한 인증서를 신뢰함으로 표시하지 않"
+"았습니다. 따라서 데이터가 지정한 발신인에게서 왔는지를 신뢰할 수 없습니다."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -3697,6 +3677,8 @@ msgid ""
 "can be trusted. Therefore the message cannot be trusted. Technically, "
 "signature and message match."
 msgstr ""
+"만료된 인증서에 대해서는 인증서 신뢰 가능 여부를 판단할 수 없습니다. 따라서 "
+"메시지를 신뢰할 수 없습니다. 기술적으로는 서명과 메시지가 일치합니다."
 
 #: utils/formatting.cpp:1909
 #, kde-format
@@ -3705,6 +3687,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the message, the "
 "message is likely valid."
 msgstr ""
+"메시지를 받았을 때 인증서가 유효했고 신뢰할 수 있었다면, 메시지가 여전히 유효"
+"할 수도 있습니다."
 
 #: utils/formatting.cpp:1912
 #, kde-format
@@ -3714,6 +3698,8 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"만료된 인증서에 대해서는 인증서 신뢰 가능 여부를 판단할 수 없습니다. 따라서 "
+"데이터를 신뢰할 수 없습니다. 기술적으로는 서명과 데이터가 일치합니다."
 
 #: utils/formatting.cpp:1914
 #, kde-format
@@ -3722,6 +3708,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"데이터를 받았을 때 인증서가 유효했고 신뢰할 수 있었다면, 데이터가 여전히 유효"
+"할 수도 있습니다."
 
 #: utils/formatting.cpp:1919
 #, kde-format
@@ -3731,6 +3719,9 @@ msgid ""
 "might now be used by a third party. The message can therefore not be "
 "trusted. Technically, signature and message match."
 msgstr ""
+"인증서가 훼손되었기 때문에 취소된 것으로 표시되었으며, 관계 없는 제3자가 사용"
+"하고 있을 수도 있습니다. 따라서 메시지를 신뢰할 수 없습니다. 기술적으로는 서"
+"명과 메시지가 일치합니다."
 
 #: utils/formatting.cpp:1922
 #, kde-format
@@ -3739,6 +3730,8 @@ msgid ""
 "It is possible that you received the message at a time when the certificate "
 "was still valid and trusted. If this is the case, the message may be valid."
 msgstr ""
+"메시지를 받았을 때 인증서가 유효했고 신뢰할 수 있었다면, 메시지가 여전히 유효"
+"할 수도 있습니다."
 
 #: utils/formatting.cpp:1926
 #, kde-format
@@ -3748,6 +3741,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"인증서가 훼손되었기 때문에 취소된 것으로 표시되었으며, 관계 없는 제3자가 사용"
+"하고 있을 수도 있습니다. 따라서 데이터를 신뢰할 수 없습니다. 기술적으로는 서"
+"명과 데이터가 일치합니다."
 
 #: utils/formatting.cpp:1929
 #, kde-format
@@ -3756,6 +3752,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"데이터를 받았을 때 인증서가 유효했고 신뢰할 수 있었다면, 데이터가 여전히 유효"
+"할 수도 있습니다."
 
 #: utils/formatting.cpp:1937
 #, kde-format
@@ -3766,6 +3764,9 @@ msgid ""
 "subsequent change to the message, possibly by an email client), or "
 "intentionally (deliberate manipulation)."
 msgstr ""
+"메시지나 서명이 변조되었습니다. 사고로 인해서 발생했거나(예: 전송 오류), 의도"
+"적이지 않은 변경이거나(예: 메일 클라이언트 등에서 메시지를 변경함), 고의적인 "
+"조작일 수도 있습니다."
 
 #: utils/formatting.cpp:1942
 #, kde-format
@@ -3776,6 +3777,9 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"데이터나 서명이 변조되었습니다. 사고로 인해서 발생했거나(예: 전송 오류), 의도"
+"적이지 않은 변경이거나(예: 메일 클라이언트 등에서 메시지를 변경함), 고의적인 "
+"조작일 수도 있습니다."
 
 #: utils/formatting.cpp:1971
 #, kde-format
@@ -3784,6 +3788,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the message again."
 msgstr ""
+"보낸 사람에게 인증서를 요청하거나, 파일이나 키 서버에서 가져오십시오. 그 다"
+"음 메시지를 다시 검증하십시오."
 
 #: utils/formatting.cpp:1972
 #, kde-format
@@ -3792,6 +3798,8 @@ msgid ""
 "Ask the sender for the certificate or import it from a file or a keyserver. "
 "Then verify the data again."
 msgstr ""
+"보낸 사람에게 인증서를 요청하거나, 파일이나 키 서버에서 가져오십시오. 그 다"
+"음 데이터를 다시 검증하십시오."
 
 #: utils/formatting.cpp:1978
 #, kde-format
@@ -3800,6 +3808,7 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the message "
 "again."
 msgstr ""
+"인증서의 지문을 확인하고 승인하십시오. 그 다음 메시지를 다시 검증하십시오."
 
 #: utils/formatting.cpp:1979
 #, kde-format
@@ -3808,6 +3817,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "message again."
 msgstr ""
+"인증서의 루트 CA 지문을 확인하고 신뢰하십시오. 그 다음 메시지를 다시 검증하십"
+"시오."
 
 #: utils/formatting.cpp:1982
 #, kde-format
@@ -3816,6 +3827,7 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"인증서의 지문을 확인하고 승인하십시오. 그 다음 데이터를 다시 검증하십시오."
 
 #: utils/formatting.cpp:1983
 #, kde-format
@@ -3824,6 +3836,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"인증서의 루트 CA 지문을 확인하고 신뢰하십시오. 그 다음 데이터를 다시 검증하십"
+"시오."
 
 #: utils/formatting.cpp:1991
 #, kde-format
@@ -3832,6 +3846,8 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the message again after importing the certificate."
 msgstr ""
+"키 서버에서 업데이트된 인증서를 확인하거나, 보낸 사람에게 요청한 다음, 해당 "
+"인증서를 다시 가져온 후 메시지를 다시 검증하십시오."
 
 #: utils/formatting.cpp:1994 utils/formatting.cpp:2008
 #, kde-format
@@ -3840,6 +3856,8 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the message signed with a current certificate."
 msgstr ""
+"의심된다면 서명한 사람에게 현재 상황에 대해서 설명하고, 필요한 경우에는 최신 "
+"인증서로 다시 서명하여 메시지 재전송을 요청하십시오."
 
 #: utils/formatting.cpp:1999
 #, kde-format
@@ -3848,6 +3866,8 @@ msgid ""
 "You can look for an updated certificate on a keyserver, or ask the sender "
 "for it, then verify the data again after importing the certificate."
 msgstr ""
+"키 서버에서 업데이트된 인증서를 확인하거나, 보낸 사람에게 요청한 다음, 해당 "
+"인증서를 다시 가져온 후 데이터를 다시 검증하십시오."
 
 #: utils/formatting.cpp:2002 utils/formatting.cpp:2012
 #, kde-format
@@ -3856,18 +3876,20 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"의심된다면 서명한 사람에게 현재 상황에 대해서 설명하고, 필요한 경우에는 최신 "
+"인증서로 다시 서명하여 데이터 재전송을 요청하십시오."
 
 #: utils/formatting.cpp:2016
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr ""
+msgstr "보낸 사람에게 메시지 재전송을 요청하십시오."
 
 #: utils/formatting.cpp:2017
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "보낸 사람에게 데이터 재전송을 요청하십시오."
 
 #: utils/gnupg.cpp:437
 #, kde-format
