@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-09-23 09:38+0200\n"
+"PO-Revision-Date: 2026-10-04 10:09+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -94,7 +94,7 @@ msgstr "Имя"
 
 #: kleo/dnattributes.cpp:64
 msgid "Location"
-msgstr "Расположение"
+msgstr "Населённый пункт"
 
 #: kleo/dnattributes.cpp:65
 msgid "Title"
@@ -126,7 +126,7 @@ msgstr "Компонент домена"
 
 #: kleo/dnattributes.cpp:72
 msgid "Business category"
-msgstr "Категория бизнеса"
+msgstr "Категория деятельности"
 
 #: kleo/dnattributes.cpp:73
 msgid "Email address"
@@ -420,7 +420,7 @@ msgstr[3] ""
 msgctxt ""
 "<b>User ID of certificate</b> (serial number serial no. of certificate)"
 msgid "<b>%1</b> (serial number %2)"
-msgstr "<b>%1</b> (Серийный номер %2)"
+msgstr "<b>%1</b> (серийный номер %2)"
 
 #: kleo/expirychecker.cpp:152
 #, kde-format
@@ -725,7 +725,7 @@ msgstr[2] ""
 "<p>Срок действия сертификата S/MIME для</p><p align=center>%2</p><p>истёк %1 "
 "дней назад.</p>"
 msgstr[3] ""
-"<p>Срок действия сертификата S/MIME для</p><p align=center>%2</p><p>истёк %1 "
+"<p>Срок действия сертификата S/MIME для</p><p align=center>%2</p><p>истёк "
 "вчера.</p>"
 
 #: kleo/expirychecker.cpp:277
@@ -1235,7 +1235,7 @@ msgstr "без эл. почты"
 #: models/keylistmodel.cpp:470
 #, kde-format
 msgid "Loading..."
-msgstr "Загрузка..."
+msgstr "Загрузка…"
 
 #: models/keylistmodel.cpp:553
 #, kde-format
@@ -1426,7 +1426,7 @@ msgstr "Ошибка сохранения"
 #, kde-format
 msgctxt "@label:listbox Reader for smart cards"
 msgid "Reader to connect to"
-msgstr "Средство чтения для подключения"
+msgstr "Считыватель для подключения"
 
 #: ui/cryptoconfigmodule.cpp:107
 #, kde-format
@@ -1480,12 +1480,12 @@ msgstr "Уровень отладки"
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Show..."
-msgstr "Показать..."
+msgstr "Показать…"
 
 #: ui/cryptoconfigmodule.cpp:831
 #, kde-format
 msgid "Edit..."
-msgstr "Изменить..."
+msgstr "Изменить…"
 
 #: ui/cryptoconfigmodule.cpp:885
 #, kde-format
@@ -1566,7 +1566,7 @@ msgid ""
 "change will only take effect once you acknowledge the configuration dialog."
 msgstr ""
 "Нажмите на эту кнопку для добавления службы каталогов в список служб. "
-"Изменение вступит силу только после подтверждения действия в диалоге "
+"Изменение вступит в силу только после подтверждения действия в диалоге "
 "настройки."
 
 #: ui/directoryserviceswidget.cpp:221
@@ -1590,7 +1590,7 @@ msgid ""
 "configuration dialog."
 msgstr ""
 "Нажмите на эту кнопку для изменения параметров выбранной службы каталогов. "
-"Изменения вступят в силу тольео после подтвеждения действия в диалоге "
+"Изменения вступят в силу только после подтверждения действия в диалоге "
 "настройки."
 
 #: ui/directoryserviceswidget.cpp:229
@@ -1762,7 +1762,7 @@ msgstr "Анонимный"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Use an anonymous LDAP server that does not require authentication."
-msgstr "Использовать анонимный сервер LDAP, не требующий аутентификацию"
+msgstr "Использовать анонимный сервер LDAP, не требующий аутентификации"
 
 #: ui/editdirectoryservicedialog.cpp:137
 #, kde-format
@@ -1782,13 +1782,13 @@ msgid ""
 "On Windows, authenticate to the LDAP server using the Active Directory with "
 "the current user."
 msgstr ""
-"В Windows выполните аутентификацию на сервере LDAP с использованием Active "
-"Directory на текущем пользователе"
+"В Windows выполнять аутентификацию на сервере LDAP через Active Directory от "
+"имени текущего пользователя"
 
 #: ui/editdirectoryservicedialog.cpp:147
 #, kde-format
 msgid "Authenticate with user and password"
-msgstr "Аутентификация с помощью пользователя и пароля"
+msgstr "Аутентификация по имени пользователя и паролю"
 
 #: ui/editdirectoryservicedialog.cpp:148
 #, kde-format
@@ -1809,8 +1809,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enter your LDAP user resp. Bind DN for authenticating to the LDAP server."
 msgstr ""
-"Введите свой пароль пользователя LDAP соответственно. Привяжите базу поиска "
-"для аутентификации на сервере LDAP."
+"Введите имя пользователя LDAP или DN для привязки, чтобы пройти "
+"аутентификацию на сервере LDAP."
 
 #: ui/editdirectoryservicedialog.cpp:163
 #, kde-format
@@ -1888,7 +1888,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:209
 #, kde-format
 msgid "Tunnel LDAP through a TLS connection"
-msgstr "Подключиться к LDAP с помощью TLS-соединения"
+msgstr "Туннелировать LDAP через TLS-соединение"
 
 #: ui/editdirectoryservicedialog.cpp:211
 #, kde-format
@@ -1923,7 +1923,7 @@ msgstr ""
 #: ui/editdirectoryservicedialog.cpp:233
 #, kde-format
 msgid "Additional flags:"
-msgstr "Дополнительные флажки:"
+msgstr "Дополнительные флаги:"
 
 #: ui/editdirectoryservicedialog.cpp:235
 #, kde-format
@@ -1933,7 +1933,7 @@ msgid ""
 "supported by Kleopatra. For example, older versions of GnuPG use "
 "<code>ldaps</code> to request a TLS secured connection."
 msgstr ""
-"Здесь возможно добавить флаги, которые ещё (или уже) не поддерживаются "
+"Здесь можно добавить флаги, которые ещё (или уже) не поддерживаются "
 "Kleopatra. Например, более старые версии GnuPG используют <code>ldaps</code> "
 "для запроса соединения, защищённого TLS."
 
@@ -2138,7 +2138,7 @@ msgstr "%1 <%2>"
 #: ui/keyselectioncombo.cpp:910 ui/useridselectioncombo.cpp:700
 #, kde-format
 msgid "Loading keys ..."
-msgstr "Загрузка ключей..."
+msgstr "Загрузка ключей…"
 
 #: ui/keyselectiondialog.cpp:71
 #, kde-format
@@ -2297,7 +2297,7 @@ msgstr "Не найден ни один модуль, перечисляющий
 #: ui/keyselectiondialog.cpp:659
 #, kde-format
 msgid "Could not start certificate manager; please check your installation."
-msgstr "Не запущен ни один диспетчер сертификатов, проверьте установку."
+msgstr "Не удалось запустить диспетчер сертификатов. Проверьте установку."
 
 #: ui/keyselectiondialog.cpp:661
 #, kde-format
@@ -2308,12 +2308,12 @@ msgstr "Ошибка диспетчера сертификатов"
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Checking selected keys..."
-msgstr "Проверка выбранных ключей..."
+msgstr "Проверка выбранных ключей…"
 
 #: ui/keyselectiondialog.cpp:718
 #, kde-format
 msgid "Fetching keys..."
-msgstr "Получение ключей..."
+msgstr "Получение ключей…"
 
 #: ui/keyselectiondialog.cpp:750
 #, kde-format
@@ -2339,7 +2339,7 @@ msgstr[3] ""
 #: ui/keyselectiondialog.cpp:755
 #, kde-format
 msgid "Key List Result"
-msgstr "Результат списка ключей"
+msgstr "Результат получения списка ключей"
 
 #: ui/keyselectiondialog.cpp:877
 #, kde-format
@@ -2509,7 +2509,7 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
-"Создать сообщение в формате OpenPGP. При этом можно выбрать только ключи "
+"Создавать сообщение в формате OpenPGP. При этом можно выбрать только ключи "
 "шифрования OpenPGP."
 
 #: ui/newkeyapprovaldialog.cpp:308
@@ -2563,7 +2563,7 @@ msgstr "Сообщение будет составлено в формате S/M
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
 msgid "Generating key for '%1'..."
-msgstr "Создание ключа «%1»..."
+msgstr "Создание ключа «%1»…"
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2602,7 +2602,7 @@ msgstr "Письмо не будет подписано."
 #, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Подписать &как:"
+msgstr "Подписать как:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2676,7 +2676,7 @@ msgstr "Материал ключа"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set up this key for shared usage in teams"
-msgstr "Использовать этот ключ для совместного использования в командах"
+msgstr "Настроить этот ключ для совместного использования в командах"
 
 #: ui/openpgpcertificatecreationdialog.cpp:234
 #, kde-format
@@ -2706,13 +2706,13 @@ msgstr "Введите имя или адрес электронной почт�
 #: ui/openpgpcertificatecreationdialog.cpp:420
 #, kde-format
 msgid "There is a problem."
-msgstr "Имеется проблема."
+msgstr "Возникла проблема."
 
 #: ui/readerportselection.cpp:56
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Default reader"
-msgstr "Средство чтения по умолчанию"
+msgstr "Считыватель по умолчанию"
 
 #: ui/readerportselection.cpp:71
 #, kde-kuit-format
@@ -2741,7 +2741,7 @@ msgstr "Идентификатор или номер порта пользова
 #, kde-format
 msgctxt "@title:menu"
 msgid "View Columns"
-msgstr "Просмотр столбцов"
+msgstr "Показывать столбцы"
 
 #: ui/treeview_p.cpp:76
 #, kde-format
@@ -2848,7 +2848,7 @@ msgstr "Год с сегодняшнего дня"
 #: utils/formatting.cpp:347
 #, kde-format
 msgid "%1-bit %2 (secret key available)"
-msgstr "%1-битный %2 (доступен секретный ключ)"
+msgstr "%1-битный %2 (доступен закрытый ключ)"
 
 #: utils/formatting.cpp:349
 #, kde-format
@@ -2914,7 +2914,7 @@ msgstr "Все идентификаторы пользователей удос�
 #, kde-format
 msgid "One User ID is not certified."
 msgid_plural "%1 User IDs are not certified."
-msgstr[0] "Не удостоверен %1 идентификатор пользователей."
+msgstr[0] "Не удостоверен %1 идентификатор пользователя."
 msgstr[1] "Не удостоверены %1 идентификатора пользователей."
 msgstr[2] "Не удостоверены %1 идентификаторов пользователей."
 msgstr[3] "Не удостоверен один идентификатор пользователя."
@@ -3168,7 +3168,7 @@ msgstr "некорректная"
 #: utils/formatting.cpp:904
 #, kde-format
 msgid "no public key"
-msgstr "без публичного ключа"
+msgstr "без открытого ключа"
 
 #: utils/formatting.cpp:906
 #, kde-format
@@ -3254,7 +3254,7 @@ msgstr "Во время импорта сертификата произошла
 #: utils/formatting.cpp:1083
 #, kde-format
 msgid "This certificate was new to your keystore. The secret key is available."
-msgstr "Это новый сертификат в хранилище ключей. Доступен секретный ключ."
+msgstr "Это новый сертификат в хранилище ключей. Доступен закрытый ключ."
 
 #: utils/formatting.cpp:1084
 #, kde-format
@@ -3276,7 +3276,7 @@ msgstr "Во время импорта к сертификату были доб
 #: utils/formatting.cpp:1095
 #, kde-format
 msgid "New subkeys were added to this certificate by the import."
-msgstr "Во время импорта к сертификату были добавлены новые части ключа."
+msgstr "Во время импорта к сертификату были добавлены новые подключи."
 
 #: utils/formatting.cpp:1098
 #, kde-format
@@ -3454,7 +3454,7 @@ msgstr "Импорт из файла"
 #: utils/formatting.cpp:1392
 #, kde-format
 msgid "Generated"
-msgstr "Создание"
+msgstr "Создан"
 
 #: utils/formatting.cpp:1427
 #, kde-format
@@ -3662,7 +3662,7 @@ msgstr ""
 #: utils/formatting.cpp:1502
 #, kde-format
 msgid "The signature is valid but the certificate's validity is unknown."
-msgstr "Подпись действительна, но не известна действительность сертификата."
+msgstr "Подпись действительна, но неизвестна действительность сертификата."
 
 #: utils/formatting.cpp:1505
 #, kde-format
@@ -3802,8 +3802,8 @@ msgstr "Подпись недействительна: %1"
 #, kde-format
 msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr ""
-"Возможно выполнить поиск сертификата на сервере ключей или импортировать его "
-"из файла."
+"Можно выполнить поиск сертификата на сервере ключей или импортировать его из "
+"файла."
 
 #: utils/formatting.cpp:1699 utils/formatting.cpp:1709
 #, kde-format
@@ -3875,7 +3875,7 @@ msgstr ""
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
 msgstr ""
-"Подпись действительна, ключ, использованный для её создания, был отозван."
+"Подпись действительна, но ключ, использованный для её создания, был отозван."
 
 #: utils/formatting.cpp:1736
 #, kde-format
@@ -4197,8 +4197,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the message "
 "again."
 msgstr ""
-"Проверьте отпечаток сертификата и заверьте его. Затем проверьте сообщение "
-"ещё раз."
+"Проверьте отпечаток сертификата и удостоверьте его. Затем проверьте "
+"сообщение ещё раз."
 
 #: utils/formatting.cpp:1979
 #, kde-format
@@ -4217,8 +4217,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
-"Проверьте отпечаток сертификата и заверьте его. Затем проверьте данные ещё "
-"раз."
+"Проверьте отпечаток сертификата и удостоверьте его. Затем проверьте данные "
+"ещё раз."
 
 #: utils/formatting.cpp:1983
 #, kde-format
