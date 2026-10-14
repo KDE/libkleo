@@ -817,7 +817,7 @@ private Q_SLOTS:
         QTest::newRow("NoSignature OpenPGP") << SignatureStatus::NoSignature << GpgME::OpenPGP << QString{};
         QTest::newRow("KeyMissing OpenPGP") //
             << SignatureStatus::KeyMissing << GpgME::OpenPGP
-            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the data again."_s;
+            << u"Look for the certificate on a server or ask the sender for it. After importing the certificate, verify the data again."_s;
         QTest::newRow("ValidAndFullyTrusted OpenPGP") << SignatureStatus::ValidAndFullyTrusted << GpgME::OpenPGP << QString{};
         QTest::newRow("ValidButNotFullyTrusted OpenPGP") //
             << SignatureStatus::ValidButNotFullyTrusted << GpgME::OpenPGP
@@ -825,7 +825,7 @@ private Q_SLOTS:
         QTest::newRow("ValidButSignatureExpired OpenPGP") << SignatureStatus::ValidButSignatureExpired << GpgME::OpenPGP << QString{};
         QTest::newRow("ValidButKeyExpired OpenPGP") //
             << SignatureStatus::ValidButKeyExpired << GpgME::OpenPGP
-            << u"You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the data again after importing the certificate."_s;
+            << u"Look for an updated certificate on a server or ask the sender for it. After importing the certificate, verify the data again."_s;
         QTest::newRow("ValidButKeyRevoked OpenPGP") //
             << SignatureStatus::ValidButKeyRevoked << GpgME::OpenPGP
             << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current certificate."_s;
@@ -838,7 +838,7 @@ private Q_SLOTS:
         QTest::newRow("NoSignature S/MIME") << SignatureStatus::NoSignature << GpgME::CMS << QString{};
         QTest::newRow("KeyMissing S/MIME") //
             << SignatureStatus::KeyMissing << GpgME::CMS
-            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the data again."_s;
+            << u"Look for the certificate on a server or ask the sender for it. After importing the certificate, verify the data again."_s;
         QTest::newRow("ValidAndFullyTrusted S/MIME") << SignatureStatus::ValidAndFullyTrusted << GpgME::CMS << QString{};
         QTest::newRow("ValidButNotFullyTrusted S/MIME") //
             << SignatureStatus::ValidButNotFullyTrusted << GpgME::CMS
@@ -876,7 +876,7 @@ private Q_SLOTS:
         QTest::newRow("NoSignature OpenPGP") << SignatureStatus::NoSignature << GpgME::OpenPGP << QString{};
         QTest::newRow("KeyMissing OpenPGP") //
             << SignatureStatus::KeyMissing << GpgME::OpenPGP
-            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the message again."_s;
+            << u"Look for the certificate on a server or ask the sender for it. After importing the certificate, verify the message again."_s;
         QTest::newRow("ValidAndFullyTrusted OpenPGP") << SignatureStatus::ValidAndFullyTrusted << GpgME::OpenPGP << QString{};
         QTest::newRow("ValidButNotFullyTrusted OpenPGP") //
             << SignatureStatus::ValidButNotFullyTrusted << GpgME::OpenPGP
@@ -884,7 +884,7 @@ private Q_SLOTS:
         QTest::newRow("ValidButSignatureExpired OpenPGP") << SignatureStatus::ValidButSignatureExpired << GpgME::OpenPGP << QString{};
         QTest::newRow("ValidButKeyExpired OpenPGP") //
             << SignatureStatus::ValidButKeyExpired << GpgME::OpenPGP
-            << u"You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the message again after importing the certificate."_s;
+            << u"Look for an updated certificate on a server or ask the sender for it. After importing the certificate, verify the message again."_s;
         QTest::newRow("ValidButKeyRevoked OpenPGP") //
             << SignatureStatus::ValidButKeyRevoked << GpgME::OpenPGP
             << u"If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the message signed with a current certificate."_s;
@@ -897,7 +897,7 @@ private Q_SLOTS:
         QTest::newRow("NoSignature S/MIME") << SignatureStatus::NoSignature << GpgME::CMS << QString{};
         QTest::newRow("KeyMissing S/MIME") //
             << SignatureStatus::KeyMissing << GpgME::CMS
-            << u"Ask the sender for the certificate or import it from a file or a keyserver. Then verify the message again."_s;
+            << u"Look for the certificate on a server or ask the sender for it. After importing the certificate, verify the message again."_s;
         QTest::newRow("ValidAndFullyTrusted S/MIME") << SignatureStatus::ValidAndFullyTrusted << GpgME::CMS << QString{};
         QTest::newRow("ValidButNotFullyTrusted S/MIME") //
             << SignatureStatus::ValidButNotFullyTrusted << GpgME::CMS

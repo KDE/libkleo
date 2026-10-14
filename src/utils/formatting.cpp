@@ -1968,8 +1968,8 @@ static QString guidanceForSignature(Kleo::SignatureStatus status, GpgME::Protoco
         return {};
     case SignatureStatus::KeyMissing:
         return (context == SignatureContext::Message)
-            ? i18nc("@info", "Ask the sender for the certificate or import it from a file or a keyserver. Then verify the message again.")
-            : i18nc("@info", "Ask the sender for the certificate or import it from a file or a keyserver. Then verify the data again.");
+            ? i18nc("@info", "Look for the certificate on a server or ask the sender for it. After importing the certificate, verify the message again.")
+            : i18nc("@info", "Look for the certificate on a server or ask the sender for it. After importing the certificate, verify the data again.");
     case SignatureStatus::ValidAndFullyTrusted:
         return {};
     case SignatureStatus::ValidButNotFullyTrusted:
@@ -1988,16 +1988,14 @@ static QString guidanceForSignature(Kleo::SignatureStatus status, GpgME::Protoco
         if (context == SignatureContext::Message) {
             return (protocol == GpgME::OpenPGP) //
                 ? i18nc("@info",
-                        "You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the message again after importing the "
-                        "certificate.")
+                        "Look for an updated certificate on a server or ask the sender for it. After importing the certificate, verify the message again.")
                 : i18nc("@info",
                         "If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the message signed with a current "
                         "certificate.");
         } else {
             return (protocol == GpgME::OpenPGP) //
                 ? i18nc("@info",
-                        "You can look for an updated certificate on a keyserver, or ask the sender for it, then verify the data again after importing the "
-                        "certificate.")
+                        "Look for an updated certificate on a server or ask the sender for it. After importing the certificate, verify the data again.")
                 : i18nc("@info",
                         "If in doubt, contact the signer to clarify the situation and, if necessary, ask them to resend the data signed with a current "
                         "certificate.");
