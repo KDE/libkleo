@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-16 00:49+0000\n"
 "PO-Revision-Date: 2026-09-15 05:56-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -3963,24 +3963,34 @@ msgstr ""
 "cliente de e-mail) ou intencionalmente (manipulação deliberada)."
 
 #: utils/formatting.cpp:1971
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the message again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
-"Solicite o certificado ao remetente ou importe-o de um arquivo ou de um "
-"servidor de chaves. Em seguida, verifique a mensagem novamente."
+"Você pode procurar um certificado atualizado em um servidor de chaves ou "
+"solicitá-lo ao remetente e, em seguida, verificar os dados novamente após "
+"importar o certificado."
 
 #: utils/formatting.cpp:1972
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the data again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
-"Solicite o certificado ao remetente ou importe-o de um arquivo ou de um "
-"servidor de chaves. Em seguida, verifique os dados novamente."
+"Você pode procurar um certificado atualizado em um servidor de chaves ou "
+"solicitá-lo ao remetente e, em seguida, verificar os dados novamente após "
+"importar o certificado."
 
 #: utils/formatting.cpp:1978
 #, kde-format
@@ -4023,17 +4033,21 @@ msgstr ""
 "seguida, verifique os dados novamente."
 
 #: utils/formatting.cpp:1991
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the message again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
 "Você pode procurar um certificado atualizado em um servidor de chaves ou "
-"solicitá-lo ao remetente e, em seguida, verificar a mensagem novamente após "
+"solicitá-lo ao remetente e, em seguida, verificar os dados novamente após "
 "importar o certificado."
 
-#: utils/formatting.cpp:1994 utils/formatting.cpp:2008
+#: utils/formatting.cpp:1993 utils/formatting.cpp:2006
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4044,18 +4058,22 @@ msgstr ""
 "situação e, se necessário, solicite o reenvio da mensagem assinada com um "
 "certificado válido."
 
-#: utils/formatting.cpp:1999
-#, kde-format
+#: utils/formatting.cpp:1998
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the data again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
 "Você pode procurar um certificado atualizado em um servidor de chaves ou "
 "solicitá-lo ao remetente e, em seguida, verificar os dados novamente após "
 "importar o certificado."
 
-#: utils/formatting.cpp:2002 utils/formatting.cpp:2012
+#: utils/formatting.cpp:2000 utils/formatting.cpp:2010
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4066,13 +4084,13 @@ msgstr ""
 "situação e, se necessário, solicite o reenvio dos dados assinados com um "
 "certificado válido."
 
-#: utils/formatting.cpp:2016
+#: utils/formatting.cpp:2014
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
 msgstr "Peça ao remetente para reenviar a mensagem."
 
-#: utils/formatting.cpp:2017
+#: utils/formatting.cpp:2015
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
@@ -4099,6 +4117,31 @@ msgstr "Caractere hexadecimal inválido '%1' no fluxo de entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Fim prematuro do caractere hexadecimal codificado no fluxo de entrada"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Ask the sender for the certificate or import it from a file or a "
+#~ "keyserver. Then verify the message again."
+#~ msgstr ""
+#~ "Solicite o certificado ao remetente ou importe-o de um arquivo ou de um "
+#~ "servidor de chaves. Em seguida, verifique a mensagem novamente."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Ask the sender for the certificate or import it from a file or a "
+#~ "keyserver. Then verify the data again."
+#~ msgstr ""
+#~ "Solicite o certificado ao remetente ou importe-o de um arquivo ou de um "
+#~ "servidor de chaves. Em seguida, verifique os dados novamente."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "You can look for an updated certificate on a keyserver, or ask the sender "
+#~ "for it, then verify the message again after importing the certificate."
+#~ msgstr ""
+#~ "Você pode procurar um certificado atualizado em um servidor de chaves ou "
+#~ "solicitá-lo ao remetente e, em seguida, verificar a mensagem novamente "
+#~ "após importar o certificado."
 
 #~ msgctxt "@info"
 #~ msgid ""

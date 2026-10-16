@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleo\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-16 00:49+0000\n"
 "PO-Revision-Date: 2026-09-15 11:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3985,24 +3985,34 @@ msgstr ""
 "correu electrònic) o intencionadament (manipulació deliberada)."
 
 #: utils/formatting.cpp:1971
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the message again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
-"Demaneu al remitent el certificat o importeu-lo des d'un fitxer o un "
-"servidor de claus. Després verifiqueu el missatge de nou."
+"Podeu buscar un certificat actualitzat en un servidor de claus, o demanar-lo "
+"al remitent, i seguidament verificar les dades de nou després d'importar el "
+"certificat."
 
 #: utils/formatting.cpp:1972
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the data again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
-"Demaneu al remitent el certificat o importeu-lo des d'un fitxer o un "
-"servidor de claus. Després verifiqueu les dades de nou."
+"Podeu buscar un certificat actualitzat en un servidor de claus, o demanar-lo "
+"al remitent, i seguidament verificar les dades de nou després d'importar el "
+"certificat."
 
 #: utils/formatting.cpp:1978
 #, kde-format
@@ -4045,17 +4055,21 @@ msgstr ""
 "Després verifiqueu les dades de nou."
 
 #: utils/formatting.cpp:1991
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the message again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
 "Podeu buscar un certificat actualitzat en un servidor de claus, o demanar-lo "
-"al remitent, i seguidament tornar a verificar el missatge després d'importar "
-"el certificat."
+"al remitent, i seguidament verificar les dades de nou després d'importar el "
+"certificat."
 
-#: utils/formatting.cpp:1994 utils/formatting.cpp:2008
+#: utils/formatting.cpp:1993 utils/formatting.cpp:2006
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4066,18 +4080,22 @@ msgstr ""
 "situació i, si cal, demanar-li que torne a enviar el missatge signat amb un "
 "certificat actual."
 
-#: utils/formatting.cpp:1999
-#, kde-format
+#: utils/formatting.cpp:1998
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the data again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
 "Podeu buscar un certificat actualitzat en un servidor de claus, o demanar-lo "
 "al remitent, i seguidament verificar les dades de nou després d'importar el "
 "certificat."
 
-#: utils/formatting.cpp:2002 utils/formatting.cpp:2012
+#: utils/formatting.cpp:2000 utils/formatting.cpp:2010
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4088,13 +4106,13 @@ msgstr ""
 "situació i, si cal, demanar-li que torne a enviar les dades signades amb un "
 "certificat actual."
 
-#: utils/formatting.cpp:2016
+#: utils/formatting.cpp:2014
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
 msgstr "Demaneu al remitent que reenvie el missatge."
 
-#: utils/formatting.cpp:2017
+#: utils/formatting.cpp:2015
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
@@ -4121,3 +4139,28 @@ msgstr "Caràcter hexadecimal «%1» no vàlid en el flux d'entrada."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "Final prematur del caràcter codificat hexadecimal en el flux d'entrada"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Ask the sender for the certificate or import it from a file or a "
+#~ "keyserver. Then verify the message again."
+#~ msgstr ""
+#~ "Demaneu al remitent el certificat o importeu-lo des d'un fitxer o un "
+#~ "servidor de claus. Després verifiqueu el missatge de nou."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Ask the sender for the certificate or import it from a file or a "
+#~ "keyserver. Then verify the data again."
+#~ msgstr ""
+#~ "Demaneu al remitent el certificat o importeu-lo des d'un fitxer o un "
+#~ "servidor de claus. Després verifiqueu les dades de nou."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "You can look for an updated certificate on a keyserver, or ask the sender "
+#~ "for it, then verify the message again after importing the certificate."
+#~ msgstr ""
+#~ "Podeu buscar un certificat actualitzat en un servidor de claus, o demanar-"
+#~ "lo al remitent, i seguidament tornar a verificar el missatge després "
+#~ "d'importar el certificat."

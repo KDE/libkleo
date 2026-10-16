@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-16 00:49+0000\n"
 "PO-Revision-Date: 2026-10-03 20:40+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3782,24 +3782,32 @@ msgstr ""
 "조작일 수도 있습니다."
 
 #: utils/formatting.cpp:1971
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the message again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
-"보낸 사람에게 인증서를 요청하거나, 파일이나 키 서버에서 가져오십시오. 그 다"
-"음 메시지를 다시 검증하십시오."
+"키 서버에서 업데이트된 인증서를 확인하거나, 보낸 사람에게 요청한 다음, 해당 "
+"인증서를 다시 가져온 후 데이터를 다시 검증하십시오."
 
 #: utils/formatting.cpp:1972
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the data again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
-"보낸 사람에게 인증서를 요청하거나, 파일이나 키 서버에서 가져오십시오. 그 다"
-"음 데이터를 다시 검증하십시오."
+"키 서버에서 업데이트된 인증서를 확인하거나, 보낸 사람에게 요청한 다음, 해당 "
+"인증서를 다시 가져온 후 데이터를 다시 검증하십시오."
 
 #: utils/formatting.cpp:1978
 #, kde-format
@@ -3840,16 +3848,20 @@ msgstr ""
 "시오."
 
 #: utils/formatting.cpp:1991
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the message again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
 "키 서버에서 업데이트된 인증서를 확인하거나, 보낸 사람에게 요청한 다음, 해당 "
-"인증서를 다시 가져온 후 메시지를 다시 검증하십시오."
+"인증서를 다시 가져온 후 데이터를 다시 검증하십시오."
 
-#: utils/formatting.cpp:1994 utils/formatting.cpp:2008
+#: utils/formatting.cpp:1993 utils/formatting.cpp:2006
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3859,17 +3871,21 @@ msgstr ""
 "의심된다면 서명한 사람에게 현재 상황에 대해서 설명하고, 필요한 경우에는 최신 "
 "인증서로 다시 서명하여 메시지 재전송을 요청하십시오."
 
-#: utils/formatting.cpp:1999
-#, kde-format
+#: utils/formatting.cpp:1998
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "You can look for an updated certificate on a keyserver, or ask the sender "
+#| "for it, then verify the data again after importing the certificate."
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the data again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
 "키 서버에서 업데이트된 인증서를 확인하거나, 보낸 사람에게 요청한 다음, 해당 "
 "인증서를 다시 가져온 후 데이터를 다시 검증하십시오."
 
-#: utils/formatting.cpp:2002 utils/formatting.cpp:2012
+#: utils/formatting.cpp:2000 utils/formatting.cpp:2010
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3879,13 +3895,13 @@ msgstr ""
 "의심된다면 서명한 사람에게 현재 상황에 대해서 설명하고, 필요한 경우에는 최신 "
 "인증서로 다시 서명하여 데이터 재전송을 요청하십시오."
 
-#: utils/formatting.cpp:2016
+#: utils/formatting.cpp:2014
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
 msgstr "보낸 사람에게 메시지 재전송을 요청하십시오."
 
-#: utils/formatting.cpp:2017
+#: utils/formatting.cpp:2015
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
@@ -3912,6 +3928,30 @@ msgstr "입력 스트림의 '%1' 16진수 문자가 올바르지 않습니다."
 #, kde-format
 msgid "Premature end of hex-encoded char in input stream"
 msgstr "입력 스트림의 16진수로 인코드된 글자가 예상하지 못하게 종료됨"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Ask the sender for the certificate or import it from a file or a "
+#~ "keyserver. Then verify the message again."
+#~ msgstr ""
+#~ "보낸 사람에게 인증서를 요청하거나, 파일이나 키 서버에서 가져오십시오. 그 "
+#~ "다음 메시지를 다시 검증하십시오."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Ask the sender for the certificate or import it from a file or a "
+#~ "keyserver. Then verify the data again."
+#~ msgstr ""
+#~ "보낸 사람에게 인증서를 요청하거나, 파일이나 키 서버에서 가져오십시오. 그 "
+#~ "다음 데이터를 다시 검증하십시오."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "You can look for an updated certificate on a keyserver, or ask the sender "
+#~ "for it, then verify the message again after importing the certificate."
+#~ msgstr ""
+#~ "키 서버에서 업데이트된 인증서를 확인하거나, 보낸 사람에게 요청한 다음, 해"
+#~ "당 인증서를 다시 가져온 후 메시지를 다시 검증하십시오."
 
 #~ msgctxt "@option:check"
 #~ msgid "OpenPGP"
