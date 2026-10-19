@@ -1468,6 +1468,12 @@ QString Formatting::prettyAlgorithmName(const std::string &algorithm)
         {"ky768_bp256", i18nc("@info", "Kyber 768 (Brainpool P-256)")},
         {"ky1024_bp384", i18nc("@info", "Kyber 1024 (Brainpool P-384)")},
         {"ky1024_cv448", i18nc("@info", "Kyber 1024 (Curve448)")},
+        {"mlk768", i18nc("@info ", "ML-KEM 768 (Curve25519)")},
+        {"mlk768_np384", i18nc("@info", "ML-KEM 768 (NIST P-384)")},
+        {"mlk768_bp384", i18nc("@info", "ML-KEM 768 (Brainpool P-384)")},
+        {"mlk1024", i18nc("@info", "ML-KEM 1024 (Curve448)")},
+        {"mlk1024_np521", i18nc("@info", "ML-KEM 1024 (NIST P-521)")},
+        {"mlk1024_bp512", i18nc("@info", "ML-KEM 1024 (Brainpool P-512)")},
     };
     const auto it = displayNames.find(algorithm);
     return (it != displayNames.end()) ? it->second : QString::fromStdString(algorithm);
