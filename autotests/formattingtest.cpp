@@ -289,9 +289,9 @@ private Q_SLOTS:
         QTest::newRow("V4 fingerprint") //
             << "0000111122223333444455556666777788889999"_ba //
             << u"0000 1111 2222 3333 4444  5555 6666 7777 8888 9999"_s;
-        QTest::newRow("V5 fingerprint") //
+        QTest::newRow("V5/V6 fingerprint") //
             << "0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff"_ba //
-            << u"00001 11122 22333 34444 55556 66677 77888 89999 AAAAB BBBCC"_s;
+            << u"0000 1111 2222 3333 4444 5555 6666 7777 8888 9999 AAAA BBBB CCCC DDDD EEEE FFFF"_s;
         QTest::newRow("string with length != 4*n") //
             << "0123456789abcd"_ba //
             << u"0123 4567 89AB CD"_s;
@@ -322,9 +322,9 @@ private Q_SLOTS:
         QTest::newRow("V4 fingerprint") //
             << "0000111122223333444455556666777788889999"_ba //
             << u"0 0 0 0, 1 1 1 1, 2 2 2 2, 3 3 3 3, 4 4 4 4, 5 5 5 5, 6 6 6 6, 7 7 7 7, 8 8 8 8, 9 9 9 9"_s;
-        QTest::newRow("V5 fingerprint") //
+        QTest::newRow("V5/V6 fingerprint") //
             << "0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff"_ba //
-            << u"0 0 0 0 1, 1 1 1 2 2, 2 2 3 3 3, 3 4 4 4 4, 5 5 5 5 6, 6 6 6 7 7, 7 7 8 8 8, 8 9 9 9 9, a a a a b, b b b c c"_s;
+            << u"0 0 0 0, 1 1 1 1, 2 2 2 2, 3 3 3 3, 4 4 4 4, 5 5 5 5, 6 6 6 6, 7 7 7 7, 8 8 8 8, 9 9 9 9, a a a a, b b b b, c c c c, d d d d, e e e e, f f f f"_s;
         QTest::newRow("string with length != 4*n") //
             << "0123456789abcd"_ba //
             << u"0123456789abcd"_s;
@@ -391,8 +391,8 @@ private Q_SLOTS:
         const QString result = Formatting::prettySignature(verificationResult.signature(0), u"sender@example.net"_s);
         QCOMPARE(maskDateAndTime(result),
                  u"Signature created on DATETIME using an unknown certificate with fingerprint <br/>"
-                 "<a href='certificate:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D'>1DE19 60C29 F97E6 762C4 EA341 820DA AC045 57992 1E0F3 "
-                 "05673</a><br/>"
+                 "<a href='certificate:1DE1960C29F97E6762C4EA341820DAAC045579921E0F30567354CCC69FD42A1D'>"
+                 "1DE1 960C 29F9 7E67 62C4 EA34 1820 DAAC 0455 7992 1E0F 3056 7354 CCC6 9FD4 2A1D</a><br/>"
                  "You can search the certificate on a keyserver or import it from a file."_s);
     }
 
