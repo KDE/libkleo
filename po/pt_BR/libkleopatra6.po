@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 15:20+0200\n"
-"PO-Revision-Date: 2026-09-15 05:56-0300\n"
+"POT-Creation-Date: 2026-10-19 15:37+0200\n"
+"PO-Revision-Date: 2026-10-16 09:25-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: kleo/checksumdefinition.cpp
 #, kde-format
@@ -3416,6 +3416,54 @@ msgid "Kyber 1024 (Curve448)"
 msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Kyber 768 (Curve25519)"
+msgctxt "@info "
+msgid "ML-KEM 768 (Curve25519)"
+msgstr "Kyber 768 (Curve25519)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (NIST P-384)"
+msgctxt "@info"
+msgid "ML-KEM 768 (NIST P-384)"
+msgstr "ECC (NIST P-384)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-384)"
+msgctxt "@info"
+msgid "ML-KEM 768 (Brainpool P-384)"
+msgstr "ECC (Brainpool P-384)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Kyber 1024 (Curve448)"
+msgctxt "@info"
+msgid "ML-KEM 1024 (Curve448)"
+msgstr "Kyber 1024 (Curve448)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (NIST P-521)"
+msgctxt "@info"
+msgid "ML-KEM 1024 (NIST P-521)"
+msgstr "ECC (NIST P-521)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-512)"
+msgctxt "@info"
+msgid "ML-KEM 1024 (Brainpool P-512)"
+msgstr "ECC (Brainpool P-512)"
+
+#: utils/formatting.cpp
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
@@ -3966,21 +4014,21 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the message again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
-"Solicite o certificado ao remetente ou importe-o de um arquivo ou de um "
-"servidor de chaves. Em seguida, verifique a mensagem novamente."
+"Procure o certificado em um servidor ou solicite-o ao remetente. Após "
+"importar o certificado, verifique a mensagem novamente."
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the data again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
-"Solicite o certificado ao remetente ou importe-o de um arquivo ou de um "
-"servidor de chaves. Em seguida, verifique os dados novamente."
+"Procure o certificado em um servidor ou solicite-o ao remetente. Após "
+"importar o certificado, verifique os dados novamente."
 
 #: utils/formatting.cpp
 #, kde-format
@@ -4026,12 +4074,11 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the message again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
-"Você pode procurar um certificado atualizado em um servidor de chaves ou "
-"solicitá-lo ao remetente e, em seguida, verificar a mensagem novamente após "
-"importar o certificado."
+"Procure o certificado atualizado em um servidor ou solicite-o ao remetente. "
+"Após importar o certificado, verifique a mensagem novamente."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
@@ -4048,12 +4095,11 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the data again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
-"Você pode procurar um certificado atualizado em um servidor de chaves ou "
-"solicitá-lo ao remetente e, em seguida, verificar os dados novamente após "
-"importar o certificado."
+"Procure o certificado atualizado em um servidor ou solicite-o ao remetente. "
+"Após importar o certificado, verifique os dados novamente."
 
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format

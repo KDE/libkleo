@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 15:20+0200\n"
-"PO-Revision-Date: 2026-08-04 07:22+0900\n"
+"POT-Creation-Date: 2026-10-19 15:37+0200\n"
+"PO-Revision-Date: 2026-09-22 01:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -3215,6 +3215,54 @@ msgid "Kyber 1024 (Curve448)"
 msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Kyber 768 (Curve25519)"
+msgctxt "@info "
+msgid "ML-KEM 768 (Curve25519)"
+msgstr "Kyber 768 (Curve25519)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (NIST P-384)"
+msgctxt "@info"
+msgid "ML-KEM 768 (NIST P-384)"
+msgstr "ECC (NIST P-384)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-384)"
+msgctxt "@info"
+msgid "ML-KEM 768 (Brainpool P-384)"
+msgstr "ECC (Brainpool P-384)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Kyber 1024 (Curve448)"
+msgctxt "@info"
+msgid "ML-KEM 1024 (Curve448)"
+msgstr "Kyber 1024 (Curve448)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (NIST P-521)"
+msgctxt "@info"
+msgid "ML-KEM 1024 (NIST P-521)"
+msgstr "ECC (NIST P-521)"
+
+#: utils/formatting.cpp
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "ECC (Brainpool P-512)"
+msgctxt "@info"
+msgid "ML-KEM 1024 (Brainpool P-512)"
+msgstr "ECC (Brainpool P-512)"
+
+#: utils/formatting.cpp
 #, kde-format
 msgid ""
 "The signature is valid but the trust in the certificate's validity is only "
@@ -3456,16 +3504,12 @@ msgid "The used key is not certified by you or any trusted person."
 msgstr "使用的金鑰未被您或任何已信任的人進行保證。"
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Signature verification was successful: Data and signature match and the "
-#| "certificate is valid and trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
-msgstr "簽章驗證成功：資料與簽章符合，且憑證有效並且已信任。"
+msgstr "簽章驗證成功：訊息與簽章符合，且憑證有效並且已信任。"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3476,12 +3520,10 @@ msgid ""
 msgstr "簽章驗證成功：資料與簽章符合，且憑證有效並且已信任。"
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Data and signature do not match."
+#, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr "資料與簽章不相符。"
+msgstr "訊息與簽章不相符。"
 
 #: utils/formatting.cpp utils/formatting.cpp
 #, kde-format
@@ -3492,12 +3534,10 @@ msgstr "簽署憑證不可信任。"
 #: utils/formatting.cpp utils/formatting.cpp
 #: utils/formatting.cpp utils/formatting.cpp
 #: utils/formatting.cpp utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The data cannot be trusted. Reason: %1"
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "資料不可信任。原因：%1"
+msgstr "訊息不可信任。原因：%1"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3514,9 +3554,7 @@ msgid "The data cannot be trusted. Reason: %1"
 msgstr "資料不可信任。原因：%1"
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signature claims to be from %1 and dated %2."
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
 msgstr "簽章宣稱來自 %1 於 %2。"
@@ -3528,16 +3566,12 @@ msgid "The signature claims to be from %1."
 msgstr "簽章宣稱來自 %1。"
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The signature cannot be verified because the corresponding certificate is "
-#| "not available. The data cannot be trusted."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
-msgstr "簽章無法驗證，因為對應的憑證不可用。資料無法信任。"
+msgstr "簽章無法驗證，因為對應的憑證不可用。"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3546,22 +3580,17 @@ msgid "The signing certificate’s fingerprint is %1."
 msgstr "簽署用的憑證的指紋是 %1。"
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The signing certificate’s fingerprint is %1."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr "簽署用的憑證的指紋是 %1。"
+msgstr "簽署用的憑證的序號與配發者是 %1。"
 
 #: utils/formatting.cpp
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "It cannot be verified whether the data originates from the stated source."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
-msgstr "無法驗證資料是否來自宣稱的來源。"
+msgstr "無法驗證訊息是否來自宣稱的來源。"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3594,7 +3623,7 @@ msgctxt "@info"
 msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
-msgstr ""
+msgstr "簽署用的憑證不在您的憑證清單中，但需要有才能驗證訊息。"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3602,7 +3631,7 @@ msgctxt "@info"
 msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
-msgstr ""
+msgstr "簽署用的憑證不在您的憑證清單中，但需要有才能驗證資料。"
 
 #: utils/formatting.cpp
 #, kde-format
@@ -3714,16 +3743,16 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the message again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the data again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
 
 #: utils/formatting.cpp
@@ -3762,8 +3791,8 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the message again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
 
 #: utils/formatting.cpp utils/formatting.cpp
@@ -3778,8 +3807,8 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the data again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
 
 #: utils/formatting.cpp utils/formatting.cpp
@@ -3794,13 +3823,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr ""
+msgstr "要求寄送者重新傳送訊息。"
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "要求寄送者重新傳送資料。"
 
 #: utils/gnupg.cpp
 #, kde-format

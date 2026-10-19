@@ -2,21 +2,21 @@
 #
 # Tor Hveem <tor@hveem.no>, 2004.
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2004, 2005.
-# Karl Ove Hufthammer <karl@huftis.org>, 2008, 2013, 2023, 2025.
+# Karl Ove Hufthammer <karl@huftis.org>, 2008, 2013, 2023, 2025, 2026.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 15:20+0200\n"
-"PO-Revision-Date: 2025-05-03 11:35+0200\n"
+"POT-Creation-Date: 2026-10-19 15:37+0200\n"
+"PO-Revision-Date: 2026-10-10 12:35+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -2541,12 +2541,10 @@ msgid "Ascending"
 msgstr "Stigande"
 
 #: ui/treeview_p.cpp
-#, fuzzy, kde-format
-#| msgctxt "@option sort in descreasing order"
-#| msgid "Descending"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr "Synkande"
+msgstr "Fallande"
 
 #: ui/treeview_p.cpp
 #, fuzzy, kde-format
@@ -3446,6 +3444,42 @@ msgid "Kyber 1024 (Curve448)"
 msgstr ""
 
 #: utils/formatting.cpp
+#, kde-format
+msgctxt "@info "
+msgid "ML-KEM 768 (Curve25519)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "ML-KEM 768 (NIST P-384)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "ML-KEM 768 (Brainpool P-384)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "ML-KEM 1024 (Curve448)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "ML-KEM 1024 (NIST P-521)"
+msgstr ""
+
+#: utils/formatting.cpp
+#, kde-format
+msgctxt "@info"
+msgid "ML-KEM 1024 (Brainpool P-512)"
+msgstr ""
+
+#: utils/formatting.cpp
 #, fuzzy, kde-format
 #| msgid ""
 #| "The signature is valid but the trust in the certificate's validity is "
@@ -3983,16 +4017,16 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the message again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
 
 #: utils/formatting.cpp
 #, kde-format
 msgctxt "@info"
 msgid ""
-"Ask the sender for the certificate or import it from a file or a keyserver. "
-"Then verify the data again."
+"Look for the certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
 
 #: utils/formatting.cpp
@@ -4031,8 +4065,8 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the message again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the message again."
 msgstr ""
 
 #: utils/formatting.cpp utils/formatting.cpp
@@ -4047,8 +4081,8 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"You can look for an updated certificate on a keyserver, or ask the sender "
-"for it, then verify the data again after importing the certificate."
+"Look for an updated certificate on a server or ask the sender for it. After "
+"importing the certificate, verify the data again."
 msgstr ""
 
 #: utils/formatting.cpp utils/formatting.cpp
@@ -4060,10 +4094,11 @@ msgid ""
 msgstr ""
 
 #: utils/formatting.cpp
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Phone number to send the message"
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr ""
+msgstr "Telefonnummeret meldinga skal sendast til"
 
 #: utils/formatting.cpp
 #, kde-format
