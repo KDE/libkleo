@@ -1,12 +1,12 @@
 # translation of libkleopatra.po to
-# SPDX-FileCopyrightText: 2021, 2022, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021-2022, 2025-2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-22 00:51+0000\n"
-"PO-Revision-Date: 2026-09-15 17:16+0400\n"
+"PO-Revision-Date: 2026-10-31 20:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -3652,52 +3652,40 @@ msgid "Kyber 1024 (Curve448)"
 msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1473
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Kyber 768 (Curve25519)"
+#, kde-format
 msgctxt "@info "
 msgid "ML-KEM 768 (Curve25519)"
-msgstr "Kyber 768 (Curve25519)"
+msgstr "ML-KEM 768 (Curve25519)"
 
 #: utils/formatting.cpp:1474
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (NIST P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 768 (NIST P-384)"
-msgstr "ECC (NIST P-384)"
+msgstr "ML-KEM 768 (NIST P-384)"
 
 #: utils/formatting.cpp:1475
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 768 (Brainpool P-384)"
-msgstr "ECC (Brainpool P-384)"
+msgstr "ML-KEM 768 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1476
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Kyber 1024 (Curve448)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 1024 (Curve448)"
-msgstr "Kyber 1024 (Curve448)"
+msgstr "ML-KEM 1024 (Curve448)"
 
 #: utils/formatting.cpp:1477
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (NIST P-521)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 1024 (NIST P-521)"
-msgstr "ECC (NIST P-521)"
+msgstr "ML-KEM 1024 (NIST P-521)"
 
 #: utils/formatting.cpp:1478
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-512)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 1024 (Brainpool P-512)"
-msgstr "ECC (Brainpool P-512)"
+msgstr "ML-KEM 1024 (Brainpool P-512)"
 
 #: utils/formatting.cpp:1491
 #, kde-format
@@ -4213,32 +4201,24 @@ msgstr ""
 "(تلاعب متعمد)."
 
 #: utils/formatting.cpp:1968
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "You can look for an updated certificate on a keyserver, or ask the sender "
-#| "for it, then verify the data again after importing the certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Look for the certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the message again."
 msgstr ""
-"يمكنك البحث عن شهادة محدثة على خادم مفاتيح، أو طلبها من المرسل، ثم تحقق من "
-"البيانات مرة أخرى بعد استيراد الشهادة."
+"ابحث عن الشهادة على خادم أو اطلبها من المُرسِل. بعد استيراد الشهادة، تحقّق من "
+"الرسالة مجددًا."
 
 #: utils/formatting.cpp:1969
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "You can look for an updated certificate on a keyserver, or ask the sender "
-#| "for it, then verify the data again after importing the certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Look for the certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the data again."
 msgstr ""
-"يمكنك البحث عن شهادة محدثة على خادم مفاتيح، أو طلبها من المرسل، ثم تحقق من "
-"البيانات مرة أخرى بعد استيراد الشهادة."
+"ابحث عن الشهادة على خادم أو اطلبها من المُرسِل. بعد استيراد الشهادة، تحقّق من "
+"البيانات مجددًا."
 
 #: utils/formatting.cpp:1975
 #, kde-format
@@ -4277,18 +4257,14 @@ msgstr ""
 "أخرى."
 
 #: utils/formatting.cpp:1988
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "You can look for an updated certificate on a keyserver, or ask the sender "
-#| "for it, then verify the data again after importing the certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Look for an updated certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the message again."
 msgstr ""
-"يمكنك البحث عن شهادة محدثة على خادم مفاتيح، أو طلبها من المرسل، ثم تحقق من "
-"البيانات مرة أخرى بعد استيراد الشهادة."
+"ابحث عن شهادة محدّثة على خادم أو اطلبها من المُرسِل. بعد استيراد الشهادة، تحقّق "
+"من الرسالة مجددًا."
 
 #: utils/formatting.cpp:1990 utils/formatting.cpp:2003
 #, kde-format
@@ -4301,18 +4277,14 @@ msgstr ""
 "إرسال الرسالة موقعة بشهادة حالية."
 
 #: utils/formatting.cpp:1995
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "You can look for an updated certificate on a keyserver, or ask the sender "
-#| "for it, then verify the data again after importing the certificate."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Look for an updated certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the data again."
 msgstr ""
-"يمكنك البحث عن شهادة محدثة على خادم مفاتيح، أو طلبها من المرسل، ثم تحقق من "
-"البيانات مرة أخرى بعد استيراد الشهادة."
+"ابحث عن شهادة محدّثة على خادم أو اطلبها من المُرسِل. بعد استيراد الشهادة، تحقّق "
+"من البيانات مجددًا."
 
 #: utils/formatting.cpp:1997 utils/formatting.cpp:2007
 #, kde-format
