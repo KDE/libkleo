@@ -80,7 +80,6 @@ public:
         ~FontDescription();
 
         static FontDescription create(bool bold, bool italic, bool strikeOut);
-        static FontDescription create(const QFont &font, bool bold, bool italic, bool strikeOut);
 
         QFont font(const QFont &base) const;
 

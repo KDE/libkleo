@@ -29,6 +29,7 @@
 
 #include <QAbstractListModel>
 #include <QCoreApplication>
+#include <QFont>
 #include <QIcon>
 #include <QModelIndex>
 #include <QRegularExpression>

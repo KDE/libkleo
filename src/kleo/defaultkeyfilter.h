@@ -16,7 +16,6 @@
 #include "kleo_export.h"
 
 #include <QColor>
-#include <QFont>
 #include <QString>
 
 #include <gpgme++/key.h>
@@ -74,8 +73,6 @@ public:
     void setName(const QString &value);
     QString icon() const override;
     void setIcon(const QString &value);
-    QFont font() const;
-    void setFont(const QFont &value);
     QString description() const override;
     void setDescription(const QString &description);
 
@@ -108,7 +105,6 @@ public:
     bool italic() const;
     bool bold() const;
     bool strikeOut() const;
-    bool useFullFont() const;
 
     void setRevoked(const TriState);
     void setExpired(const TriState);
@@ -146,7 +142,6 @@ public:
     void setItalic(bool value);
     void setBold(bool value);
     void setStrikeOut(bool value);
-    void setUseFullFont(bool value);
 
 private:
     class Private;
