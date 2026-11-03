@@ -15,6 +15,7 @@
 #include <KConfigGroup>
 
 #include <QDebug>
+#include <QFont>
 #include <QRegularExpression>
 
 #include <algorithm>
@@ -32,8 +33,6 @@ struct KeyFilter::FontDescription::Private {
     bool bold = false;
     bool italic = false;
     bool strikeOut = false;
-    bool fullFont = false;
-    QFont font;
 };
 
 KeyFilter::FontDescription::FontDescription()
@@ -57,26 +56,9 @@ KeyFilter::FontDescription KeyFilter::FontDescription::create(bool b, bool i, bo
     return fd;
 }
 
-KeyFilter::FontDescription KeyFilter::FontDescription::create(const QFont &f, bool b, bool i, bool s)
-{
-    FontDescription fd;
-    fd.d->fullFont = true;
-    fd.d->font = f;
-    fd.d->bold = b;
-    fd.d->italic = i;
-    fd.d->strikeOut = s;
-    return fd;
-}
-
 QFont KeyFilter::FontDescription::font(const QFont &base) const
 {
-    QFont font;
-    if (d->fullFont) {
-        font = d->font;
-        font.setPointSize(base.pointSize());
-    } else {
-        font = base;
-    }
+    QFont font = base;
     if (d->bold) {
         font.setBold(true);
     }
@@ -92,10 +74,6 @@ QFont KeyFilter::FontDescription::font(const QFont &base) const
 KeyFilter::FontDescription KeyFilter::FontDescription::resolve(const FontDescription &other) const
 {
     FontDescription fd;
-    fd.d->fullFont = this->d->fullFont || other.d->fullFont;
-    if (fd.d->fullFont) {
-        fd.d->font = this->d->fullFont ? this->d->font : other.d->font;
-    }
     fd.d->bold = this->d->bold || other.d->bold;
     fd.d->italic = this->d->italic || other.d->italic;
     fd.d->strikeOut = this->d->strikeOut || other.d->strikeOut;
@@ -146,14 +124,8 @@ KConfigBasedKeyFilter::KConfigBasedKeyFilter(const KConfigGroup &config)
     setDescription(config.readEntry("Description", QString()));
     setIcon(config.readEntry("icon"));
     setId(config.readEntry("id", config.name()));
-    if (config.hasKey("font")) {
-        setUseFullFont(true);
-        setFont(config.readEntry("font"));
-    } else {
-        setUseFullFont(false);
-        setItalic(config.readEntry("font-italic", false));
-        setBold(config.readEntry("font-bold", false));
-    }
+    setItalic(config.readEntry("font-italic", false));
+    setBold(config.readEntry("font-bold", false));
     setStrikeOut(config.readEntry("font-strikeout", false));
 #ifdef SET
 #undef SET

@@ -49,8 +49,6 @@ public:
     bool mItalic = false;
     bool mBold = false;
     bool mStrikeOut = false;
-    bool mUseFullFont = false;
-    QFont mFont;
 
     TriState mRevoked = DoesNotMatter;
     TriState mExpired = DoesNotMatter;
@@ -328,11 +326,7 @@ bool DefaultKeyFilter::matches(const UserID &userID, MatchContexts contexts) con
 
 KeyFilter::FontDescription DefaultKeyFilter::fontDescription() const
 {
-    if (d->mUseFullFont) {
-        return FontDescription::create(font(), bold(), italic(), strikeOut());
-    } else {
-        return FontDescription::create(bold(), italic(), strikeOut());
-    }
+    return FontDescription::create(bold(), italic(), strikeOut());
 }
 
 void DefaultKeyFilter::setFgColor(const QColor &value)
@@ -383,16 +377,6 @@ void DefaultKeyFilter::setBold(bool value)
 void DefaultKeyFilter::setStrikeOut(bool value)
 {
     d->mStrikeOut = value;
-}
-
-void DefaultKeyFilter::setUseFullFont(bool value)
-{
-    d->mUseFullFont = value;
-}
-
-void DefaultKeyFilter::setFont(const QFont &value)
-{
-    d->mFont = value;
 }
 
 void DefaultKeyFilter::setRevoked(DefaultKeyFilter::TriState value)
@@ -545,11 +529,6 @@ QString DefaultKeyFilter::id() const
     return d->mId;
 }
 
-QFont DefaultKeyFilter::font() const
-{
-    return d->mFont;
-}
-
 KeyFilter::MatchContexts DefaultKeyFilter::availableMatchContexts() const
 {
     return d->mMatchContexts;
@@ -573,11 +552,6 @@ bool DefaultKeyFilter::bold() const
 bool DefaultKeyFilter::strikeOut() const
 {
     return d->mStrikeOut;
-}
-
-bool DefaultKeyFilter::useFullFont() const
-{
-    return d->mUseFullFont;
 }
 
 DefaultKeyFilter::TriState DefaultKeyFilter::revoked() const
