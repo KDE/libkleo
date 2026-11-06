@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:04+0000\n"
-"PO-Revision-Date: 2026-08-25 15:01+0300\n"
+"PO-Revision-Date: 2026-10-06 15:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -3711,6 +3711,8 @@ msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Allekirjoituksen todentaminen onnistui: viesti ja allekirjoitus täsmäävät ja "
+"varmenne on kelvollinen ja luotettu."
 
 #: utils/formatting.cpp:1778
 #, kde-format
@@ -3726,7 +3728,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr ""
+msgstr "Viesti ja allekirjoitus eivät täsmää."
 
 #: utils/formatting.cpp:1789 utils/formatting.cpp:1795
 #, kde-format
@@ -3737,12 +3739,10 @@ msgstr "Allekirjoitusvarmenteeseen ei saa luottaa."
 #: utils/formatting.cpp:1790 utils/formatting.cpp:1810
 #: utils/formatting.cpp:1830 utils/formatting.cpp:1838
 #: utils/formatting.cpp:1846 utils/formatting.cpp:1854
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "Päivämäärää ei voi muuttaa."
+msgstr "Viestiin ei voi luottaa. Syy: %1"
 
 #: utils/formatting.cpp:1793
 #, kde-format
@@ -3796,7 +3796,7 @@ msgstr "Allekirjoitusvarmenteen sarjanumero ja julkaisija ovat %1."
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
-msgstr ""
+msgstr "Ei voida todentaa, tuleeko viesti todella esitetystä lähteestä."
 
 #: utils/formatting.cpp:1829
 #, kde-format
@@ -3830,6 +3830,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
 msgstr ""
+"Allekirjoitusvarmennetta ei ole varmenneluettelossasi, mutta se vaaditaan "
+"viestin todentamiseksi."
 
 #: utils/formatting.cpp:1896
 #, kde-format
@@ -3849,6 +3851,9 @@ msgid ""
 "marked as trusted. Therefore the message cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Allekirjoitus ja viesti täsmäävät teknisesti, mutta allekirjoitusvarmennetta "
+"ei ole merkitty luotetuksi. Näin ollen viestin ei voi luottaa tulevan "
+"esitetystä lähteestä."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -3870,6 +3875,8 @@ msgid ""
 "can be trusted. Therefore the message cannot be trusted. Technically, "
 "signature and message match."
 msgstr ""
+"Vanhentuneesta varmenteesta ei voi arvioida, voiko siihen luottaa. Viestiin "
+"ei siis voi luottaa. Teknisesti allekirjoitus ja viesti täsmäävät."
 
 #: utils/formatting.cpp:1917
 #, kde-format
@@ -3878,6 +3885,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the message, the "
 "message is likely valid."
 msgstr ""
+"Jos varmenne oli kelvollinen ja luotettu vastaanottaessasi viestin, viesti "
+"todennäköisesti on kelvollinen."
 
 #: utils/formatting.cpp:1920
 #, kde-format
@@ -3908,6 +3917,9 @@ msgid ""
 "might now be used by a third party. The message can therefore not be "
 "trusted. Technically, signature and message match."
 msgstr ""
+"Varmenne on voitu mitätöidä, koska se on vaarantunut ja sitä voi nyt käyttää "
+"kolmas osapuoli. Viestiin ei siten voi luottaa. Teknisesti allekirjoitus ja "
+"viesti täsmäävät."
 
 #: utils/formatting.cpp:1930
 #, kde-format
@@ -3916,6 +3928,8 @@ msgid ""
 "It is possible that you received the message at a time when the certificate "
 "was still valid and trusted. If this is the case, the message may be valid."
 msgstr ""
+"On mahdollista, että olet vastaanottanut viestin varmenteen ollessa yhä "
+"kelvollinen ja luotettu. Jos näin on, viesti voi olla kelvollinen."
 
 #: utils/formatting.cpp:1934
 #, kde-format
@@ -3948,6 +3962,9 @@ msgid ""
 "subsequent change to the message, possibly by an email client), or "
 "intentionally (deliberate manipulation)."
 msgstr ""
+"Viestiä tai allekirjoitusta on muutettu. Näin voi käydä vahingossa (esim. "
+"välitysvirheen takia), epähuomiossa (esim. sähköpostin käsitellessä viestiä) "
+"tai tarkoituksella (tahallinen vääristely)."
 
 #: utils/formatting.cpp:1950
 #, kde-format
@@ -3997,6 +4014,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the message "
 "again."
 msgstr ""
+"Todenna varmenteen sormenjälki ja varmenna se. Todenna viesti sitten "
+"uudelleen."
 
 #: utils/formatting.cpp:1987
 #, kde-format
@@ -4005,6 +4024,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "message again."
 msgstr ""
+"Todenna varmenteen juuri-CA-sormenjälki ja merkitse se luotetuksi. Todenna "
+"viesti sitten uudelleen."
 
 #: utils/formatting.cpp:1990
 #, kde-format
@@ -4046,6 +4067,9 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the message signed with a current certificate."
 msgstr ""
+"Jos olet epävarma, kysy tilanteesta allekirjoittajalta, ja jos tarpeen, "
+"pyydä häntä lähettämään viesti uudelleen nykyisellä varmenteella "
+"allekirjoitettuna."
 
 #: utils/formatting.cpp:2006
 #, fuzzy, kde-format
@@ -4075,7 +4099,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr ""
+msgstr "Pyydä lähettäjää lähettämään viesti uudelleen."
 
 #: utils/formatting.cpp:2023
 #, kde-format
