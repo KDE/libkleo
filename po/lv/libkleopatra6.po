@@ -5,14 +5,14 @@
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
 # Maris Nartiss <maris.kde@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2025 Toms Trasūns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2025-2026 Toms Trasūns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkleopatra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 02:59+0000\n"
-"PO-Revision-Date: 2025-11-11 18:53+0200\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2026-11-23 15:12+0200\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: kleo/checksumdefinition.cpp:84
 #, kde-format
@@ -2401,12 +2401,10 @@ msgid "Security approval"
 msgstr "Drošības apstiprinājums"
 
 #: ui/newkeyapprovaldialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Protocol"
+#, kde-format
 msgctxt "@title:group"
 msgid "Crypto Protocol:"
-msgstr "Protokols"
+msgstr "Šifra protokols:"
 
 #: ui/newkeyapprovaldialog.cpp:300
 #, kde-format
@@ -2421,6 +2419,8 @@ msgid ""
 "Compose the message in OpenPGP format. This implies that only OpenPGP "
 "encryption keys can be selected."
 msgstr ""
+"Izveidot vēstuli „OpenPGP“ formātā. Tas nozīmē, ka varēs atlasīt tikai "
+"„OpenPGP“ šifrēšanas atslēgas."
 
 #: ui/newkeyapprovaldialog.cpp:308
 #, kde-format
@@ -2435,13 +2435,14 @@ msgid ""
 "Compose the message in S/MIME format. This implies that only S/MIME "
 "encryption keys can be selected."
 msgstr ""
+"Izveidot vēstuli S/MIME formātā. Tas nozīmē, ka varēs atlasīt tikai S/MIME "
+"šifrēšanas atslēgas."
 
 #: ui/newkeyapprovaldialog.cpp:315
-#, fuzzy, kde-format
-#| msgid "OpenPGP/MIME"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Both OpenPGP and S/MIME"
-msgstr "OpenPGP/MIME"
+msgstr "Gan OpenPGP, gan S/MIME"
 
 #: ui/newkeyapprovaldialog.cpp:318
 #, kde-kuit-format
@@ -2452,18 +2453,21 @@ msgid ""
 "types of keys, but may make it more difficult for recipients to reply to all "
 "addressees."
 msgstr ""
+"Izveidot divas atsevišķas vēstules — vienu šifrētu saņēmējiem ar „OpenPGP“ "
+"atslēgām, bet otru citiem saņēmējiem ar S/MIME atslēgām. Tas ļauj apvienot "
+"abus atslēgu tipus, tomēr apgrūtina saņēmējiem atbildēt visiem adresātiem."
 
 #: ui/newkeyapprovaldialog.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in OpenPGP format."
-msgstr ""
+msgstr "Vēstule tiks izveidota „OpenPGP“ formātā."
 
 #: ui/newkeyapprovaldialog.cpp:331
 #, kde-format
 msgctxt "@info"
 msgid "The message will be composed in S/MIME format."
-msgstr ""
+msgstr "Vēstule tiks izveidota S/MIME formātā."
 
 #: ui/newkeyapprovaldialog.cpp:381
 #, kde-format
@@ -2504,11 +2508,10 @@ msgid "The email will not be cryptographically signed."
 msgstr "Šī e-pasta vēstule netiks kriptogrāfiski parakstīta."
 
 #: ui/newkeyapprovaldialog.cpp:558
-#, fuzzy, kde-format
-#| msgid "Sign"
+#, kde-format
 msgctxt "@title:group"
 msgid "Sign as:"
-msgstr "Parakstīt"
+msgstr "Parakstīt kā:"
 
 #: ui/newkeyapprovaldialog.cpp:559
 #, kde-format
@@ -2517,6 +2520,8 @@ msgid ""
 "Signing your message provides cryptographic confirmation that you really are "
 "the sender of this message."
 msgstr ""
+"Vēstules parakstīšana nodrošina kriptogrāfisku apstiprinājumu, ka tieši jūs "
+"esat vēstules sūtītājs"
 
 #: ui/newkeyapprovaldialog.cpp:634
 #, kde-format
@@ -2646,33 +2651,31 @@ msgstr "Skatīt kolonnas"
 #, kde-format
 msgctxt "@title:menu title for a list of table columns to choose for sorting"
 msgid "Sort by"
-msgstr ""
+msgstr "Kārtot pēc"
 
 #: ui/treeview_p.cpp:90
-#, fuzzy, kde-format
-#| msgid "Active Directory"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Sort Direction"
-msgstr "„Active Directory“"
+msgstr "Kārtošanas virziens"
 
 #: ui/treeview_p.cpp:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ascending"
-msgstr ""
+msgstr "Augoši"
 
 #: ui/treeview_p.cpp:99
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Descending"
-msgstr ""
+msgstr "Dilstoši"
 
 #: ui/treeview_p.cpp:291
-#, fuzzy, kde-format
-#| msgid "Copy Audit Log to Clipboard"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy cell contents to clipboard"
-msgstr "Kopēt pārbaudes žurnālu uz starpliktuvi"
+msgstr "Kopēt šūnas saturus starpliktuvē"
 
 #: ui/useridselectioncombo.cpp:529
 #, kde-format
@@ -3519,52 +3522,40 @@ msgid "Kyber 1024 (Curve448)"
 msgstr "Kyber 1024 (Curve448)"
 
 #: utils/formatting.cpp:1484
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Kyber 768 (Curve25519)"
+#, kde-format
 msgctxt "@info "
 msgid "ML-KEM 768 (Curve25519)"
-msgstr "Kyber 768 (Curve25519)"
+msgstr "ML-KEM 768 (Curve25519)"
 
 #: utils/formatting.cpp:1485
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (NIST P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 768 (NIST P-384)"
-msgstr "ECC (NIST P-384)"
+msgstr "ML-KEM 768 (NIST P-384)"
 
 #: utils/formatting.cpp:1486
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-384)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 768 (Brainpool P-384)"
-msgstr "ECC (Brainpool P-384)"
+msgstr "ML-KEM 768 (Brainpool P-384)"
 
 #: utils/formatting.cpp:1487
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Kyber 1024 (Curve448)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 1024 (Curve448)"
-msgstr "Kyber 1024 (Curve448)"
+msgstr "ML-KEM 1024 (Curve448)"
 
 #: utils/formatting.cpp:1488
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (NIST P-521)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 1024 (NIST P-521)"
-msgstr "ECC (NIST P-521)"
+msgstr "ML-KEM 1024 (NIST P-521)"
 
 #: utils/formatting.cpp:1489
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "ECC (Brainpool P-512)"
+#, kde-format
 msgctxt "@info"
 msgid "ML-KEM 1024 (Brainpool P-512)"
-msgstr "ECC (Brainpool P-512)"
+msgstr "ML-KEM 1024 (Brainpool P-512)"
 
 #: utils/formatting.cpp:1502
 #, kde-format
@@ -3613,33 +3604,25 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1539
-#, fuzzy, kde-format
-#| msgctxt "User ID (Key ID)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "User ID (creation date)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: utils/formatting.cpp:1573
-#, fuzzy, kde-format
-#| msgid "Bad signature by %1: %2"
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1 on %2."
-msgstr "Slikts paraksts no %1: %2"
+msgstr "Parakstīja %1 datumā %2."
 
 #: utils/formatting.cpp:1575
-#, fuzzy, kde-format
-#| msgid "Good signature by %1."
+#, kde-format
 msgctxt "@info"
 msgid "Signed by %1."
-msgstr "Labas paraksts no %1."
+msgstr "Parakstīja %1."
 
 #: utils/formatting.cpp:1584
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt ""
 "%1 is a placeholder for the name of a compliance mode. E.g. NATO RESTRICTED "
 "compliant or VS-NfD compliant"
@@ -3748,37 +3731,36 @@ msgid "You can search the certificate on a keyserver or import it from a file."
 msgstr "Varat meklēt sertifikātu atslēgu serverī vai to importēt no datnes."
 
 #: utils/formatting.cpp:1707 utils/formatting.cpp:1717
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used key is not certified by you or any "
 "trusted person."
-msgstr "Izmantoto atslēgu nesertificējāt jūs vai cita uzticama persona."
+msgstr ""
+"Paraksts ir derīgs, tomēr tajā lietoto atslēgu neesat sertificējis jūs vai "
+"cita uzticama persona."
 
 #: utils/formatting.cpp:1709 utils/formatting.cpp:1748
-#, fuzzy, kde-format
-#| msgid ""
-#| "The used certificate is not certified by a trustworthy Certificate "
-#| "Authority or the Certificate Authority is unknown."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but the used certificate is not certified by a "
 "trustworthy Certificate Authority or the Certificate Authority is unknown."
 msgstr ""
-"Izmantoto sertifikātu nav sertificējusi uzticama sertifikācijas iestāde vai "
-"šī sertifikācijas iestāde nav zināma."
+"Paraksts ir derīgs, tomēr tajā lietoto atslēgu nav sertificējusi "
+"sertificēšanas iestāde, vai arī attiecīgā sertificēšanas iestāde nav "
+"pazīstama."
 
 #: utils/formatting.cpp:1712 utils/formatting.cpp:1732
 #: utils/formatting.cpp:1751
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is no indication that this certificate belongs to this recipient."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "<strong>Warning:</strong> There is no indication that the signature belongs "
 "to the owner."
-msgstr "Nav nekādu pazīmju, ka šis sertifikāts piederētu šim saņēmējam."
+msgstr ""
+"<strong>Uzmanību:</strong> nav nekādu pazīmju, ka šis paraksts tiešām "
+"piederētu norādītajam īpašniekam."
 
 #: utils/formatting.cpp:1718 utils/formatting.cpp:1728
 #, kde-format
@@ -3787,46 +3769,46 @@ msgid ""
 "<strong>Warning:</strong> It is not certain that the signature belongs to "
 "the owner."
 msgstr ""
+"<strong>uzmanību:</strong> Nav zināms, vai paraksts tiešām pieder "
+"norādītajam īpašniekam"
 
 #: utils/formatting.cpp:1724
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but it has expired."
-msgstr "Paraksts ir derīgs, bet sertifikāta derīgums nav definēts."
+msgstr "Paraksts ir derīgs, bet tā derīguma termiņš ir beidzies."
 
 #: utils/formatting.cpp:1726 utils/formatting.cpp:1730
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature is valid but it has expired and the used key is not certified "
 "by you or any trusted person."
-msgstr "Izmantoto atslēgu nesertificējāt jūs vai cita uzticama persona."
+msgstr ""
+"Paraksts ir derīgs, bet tā derīguma termiņš ir beidzies un lietoto atslēgu "
+"neesat sertificējis jūs vai cita uzticama persona."
 
 #: utils/formatting.cpp:1741
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has expired."
-msgstr "Paraksts ir derīgs, bet sertifikāta derīgums nav definēts."
+msgstr ""
+"Paraksts ir derīgs, bet lietotās atslēgas derīguma termiņš ir beidzies."
 
 #: utils/formatting.cpp:1743
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature is valid but the used key has been revoked."
-msgstr "Paraksts ir derīgs, bet sertifikāta derīgums nav definēts."
+msgstr "Paraksts ir derīgs, bet lietotās atslēgas derīgums ir atsaukts."
 
 #: utils/formatting.cpp:1744
 #, kde-format
 msgctxt "@info"
 msgid "<strong>Warning:</strong> This could mean that the signature is forged."
-msgstr ""
+msgstr "<strong>Uzmanību:</strong> tas var nozīmēt, ka paraksts ir viltots."
 
 #: utils/formatting.cpp:1746
-#, fuzzy, kde-format
-#| msgid "The used key is not certified by you or any trusted person."
+#, kde-format
 msgctxt "@info"
 msgid "The used key is not certified by you or any trusted person."
 msgstr "Izmantoto atslēgu nesertificējāt jūs vai cita uzticama persona."
@@ -3838,6 +3820,8 @@ msgid ""
 "Signature verification was successful: Message and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Paraksta verifikācija izdevās: vēstule un paraksts atbilst un sertifikāts ir "
+"derīgs un uzticams."
 
 #: utils/formatting.cpp:1778
 #, kde-format
@@ -3846,129 +3830,106 @@ msgid ""
 "Signature verification was successful: Data and signature match and the "
 "certificate is valid and trusted."
 msgstr ""
+"Paraksta verifikācija izdevās: dati un paraksts atbilst un sertifikāts ir "
+"derīgs un uzticams."
 
 #: utils/formatting.cpp:1787
 #, kde-format
 msgctxt "@info"
 msgid "Message and signature do not match."
-msgstr ""
+msgstr "Vēstule un paraksts neatbilst."
 
 #: utils/formatting.cpp:1789 utils/formatting.cpp:1795
-#, fuzzy, kde-format
-#| msgid "This certificate should not be used."
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate must not be trusted."
-msgstr "Sertifikātu izmantot nevajadzētu."
+msgstr "Parakstīšanas sertifikātam nevar uzticēties."
 
 #: utils/formatting.cpp:1790 utils/formatting.cpp:1810
 #: utils/formatting.cpp:1830 utils/formatting.cpp:1838
 #: utils/formatting.cpp:1846 utils/formatting.cpp:1854
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The message cannot be trusted. Reason: %1"
-msgstr "Datumu mainīt nevar."
+msgstr "Vēstule nav uzticama. Iemesls: %1"
 
 #: utils/formatting.cpp:1793
 #, kde-format
 msgctxt "@info"
 msgid "Data and signature do not match."
-msgstr ""
+msgstr "Datums un paraksts neatbilst."
 
 #: utils/formatting.cpp:1796 utils/formatting.cpp:1811
 #: utils/formatting.cpp:1831 utils/formatting.cpp:1839
 #: utils/formatting.cpp:1847 utils/formatting.cpp:1855
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "The date cannot be changed."
+#, kde-format
 msgctxt "@info"
 msgid "The data cannot be trusted. Reason: %1"
-msgstr "Datumu mainīt nevar."
+msgstr "Datumam nevar uzticēties. Iemesls: %1"
 
 #: utils/formatting.cpp:1800
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1 and is dated %2."
-msgstr "Paraksts ir %1"
+msgstr "Paraksts apgalvo, ka izcelsme ir %1 un datums ir %2."
 
 #: utils/formatting.cpp:1804
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a placeholder for the name of a compliance mode. E.g. NATO "
-#| "RESTRICTED compliant or VS-NfD compliant"
-#| msgid "The signature is %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signature claims to be from %1."
-msgstr "Paraksts ir %1"
+msgstr "Paraksts apgalvo, ka to ir pievienojis %1."
 
 #: utils/formatting.cpp:1809
-#, fuzzy, kde-format
-#| msgid ""
-#| "The signature is valid but the trust in the certificate's validity is "
-#| "only marginal."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The signature cannot be verified because the corresponding certificate is "
 "not available."
-msgstr "Paraksts ir derīgs, bet uzticamība sertifikāta derīgumā ir minimāla."
+msgstr "Parakstu nevar verificēt, jo atbilstošais sertifikāts nav pieejams."
 
 #: utils/formatting.cpp:1815
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s fingerprint is %1."
-msgstr ""
-"Paraksts ir izveidots, izmantojot nezināmu sertifikātu ar digitālo "
-"nospiedumu %1"
+msgstr "Parakstīšanas sertifikāta digitālais nospiedums ir %1."
 
 #: utils/formatting.cpp:1820
-#, fuzzy, kde-format
-#| msgid "Signature created using an unknown certificate with fingerprint %1"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate’s serial number and issuer are %1."
-msgstr ""
-"Paraksts ir izveidots, izmantojot nezināmu sertifikātu ar digitālo "
-"nospiedumu %1"
+msgstr "Parakstīšanas sertifikāta sērijas numurs un izdevējs ir %1."
 
 #: utils/formatting.cpp:1828
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the message originates from the stated source."
-msgstr ""
+msgstr "Nevar verificēt, vai vēstules izcelsme atbilst norādītajam avotam."
 
 #: utils/formatting.cpp:1829
 #, kde-format
 msgctxt "@info"
 msgid ""
 "It cannot be verified whether the data originates from the stated source."
-msgstr ""
+msgstr "Nav iespējams verificēt, vai datu izcelsme ir norādītais avots."
 
 #: utils/formatting.cpp:1837
-#, fuzzy, kde-format
-#| msgid "The signature is valid but the certificate's validity is undefined."
+#, kde-format
 msgctxt "@info"
 msgid "The signature has expired."
-msgstr "Paraksts ir derīgs, bet sertifikāta derīgums nav definēts."
+msgstr "Paraksta derīguma termiņš ir beidzies."
 
 #: utils/formatting.cpp:1845
-#, fuzzy, kde-format
-#| msgid "Signing certificate is expired"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has expired."
-msgstr "Parakstīšanas sertifikāta derīguma termiņš ir iztecējis"
+msgstr "Parakstīšanas sertifikāta derīguma termiņš ir beidzies."
 
 #: utils/formatting.cpp:1853
-#, fuzzy, kde-format
-#| msgid "Signing certificate was revoked"
+#, kde-format
 msgctxt "@info"
 msgid "The signing certificate has been revoked."
-msgstr "Parakstīšanas sertifikāts ir atsaukts"
+msgstr "Parakstīšanas sertifikāta derīgums ir atsaukts"
 
 #: utils/formatting.cpp:1894
 #, kde-format
@@ -3977,6 +3938,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the message."
 msgstr ""
+"Parakstīšanas sertifikāts neatrodas jūsu sertifikātu sarakstā, tomēr tas ir "
+"nepieciešamas vēstules verificēšanai."
 
 #: utils/formatting.cpp:1896
 #, kde-format
@@ -3985,6 +3948,8 @@ msgid ""
 "The signing certificate is not present in your certificate list, but it is "
 "needed to verify the data."
 msgstr ""
+"Parakstīšanas sertifikāts neatrodas jūsu sertifikātu sarakstā, tomēr tas ir "
+"nepieciešams datu verificēšanai."
 
 #: utils/formatting.cpp:1903
 #, kde-format
@@ -3994,6 +3959,9 @@ msgid ""
 "marked as trusted. Therefore the message cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Tehniski paraksts un vēstule atbilst, tomēr parakstīšanas sertifikāts nav "
+"atzīmēts kā uzticams. Līdz ar to nevar uzticēties, ka vēstules izcelsme ir "
+"norādītais avots."
 
 #: utils/formatting.cpp:1907
 #, kde-format
@@ -4003,6 +3971,9 @@ msgid ""
 "marked as trusted. Therefore the data cannot be trusted to originate from "
 "the stated source."
 msgstr ""
+"Tehniski paraksts un dati atbilst, tomēr parakstīšanas sertifikāts nav "
+"atzīmēts kā uzticams. Līdz ar to nevar uzticēties, ka datu izcelsme ir "
+"norādītais avots."
 
 #: utils/formatting.cpp:1915
 #, kde-format
@@ -4012,6 +3983,9 @@ msgid ""
 "can be trusted. Therefore the message cannot be trusted. Technically, "
 "signature and message match."
 msgstr ""
+"Gadījumā, kas sertifikātam ir beidzies derīguma termiņš, nav iespējams "
+"novērtēt, vai sertifikāts ir uzticams. Līdz ar to vēstulei nevar uzticēties. "
+"Tehniski paraksts un vēstule sakrīt."
 
 #: utils/formatting.cpp:1917
 #, kde-format
@@ -4020,6 +3994,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the message, the "
 "message is likely valid."
 msgstr ""
+"Ja sertifikāts bija derīgs un uzticams, kad saņēmāt vēstuli, vēstule "
+"visdrīzāk ir derīga."
 
 #: utils/formatting.cpp:1920
 #, kde-format
@@ -4029,6 +4005,9 @@ msgid ""
 "can be trusted. Therefore the data cannot be trusted. Technically, signature "
 "and data match."
 msgstr ""
+"Gadījumā, kas sertifikātam ir beidzies derīguma termiņš, nav iespējams "
+"novērtēt, vai sertifikāts ir uzticams. Līdz ar to datiem nevar uzticēties. "
+"Tehniski paraksts un dati sakrīt."
 
 #: utils/formatting.cpp:1922
 #, kde-format
@@ -4037,6 +4016,8 @@ msgid ""
 "If the certificate was valid and trusted when you received the data, the "
 "data is likely valid."
 msgstr ""
+"Ja sertifikāts bija derīgs un uzticams, kad saņēmāt datus, vēstule visdrīzāk "
+"ir derīga."
 
 #: utils/formatting.cpp:1927
 #, kde-format
@@ -4046,6 +4027,9 @@ msgid ""
 "might now be used by a third party. The message can therefore not be "
 "trusted. Technically, signature and message match."
 msgstr ""
+"Sertifikāts, iespējams, ir atsaukts, jo tas tika kompromitēts un to, "
+"iespējams, izmanto kāda trešā puse. Līdz ar to vēstulei nevar uzticēties. "
+"Tehniski paraksts un vēstule sakrīt."
 
 #: utils/formatting.cpp:1930
 #, kde-format
@@ -4054,6 +4038,8 @@ msgid ""
 "It is possible that you received the message at a time when the certificate "
 "was still valid and trusted. If this is the case, the message may be valid."
 msgstr ""
+"Iespējams, ka vēstuli saņēmāt laikā, kad sertifikāts joprojām bija derīgs un "
+"uzticams. Tādā gadījumā vēstule var būt derīga."
 
 #: utils/formatting.cpp:1934
 #, kde-format
@@ -4063,6 +4049,9 @@ msgid ""
 "might now be used by a third party. The data can therefore not be trusted. "
 "Technically, signature and data match."
 msgstr ""
+"Sertifikāts, iespējams, ir atsaukts, jo tas tika kompromitēts un to, "
+"iespējams, izmanto kāda trešā puse. Līdz ar to datiem nevar uzticēties. "
+"Tehniski paraksts un dati sakrīt."
 
 #: utils/formatting.cpp:1937
 #, kde-format
@@ -4071,6 +4060,8 @@ msgid ""
 "It is possible that you received the data at a time when the certificate was "
 "still valid and trusted. If this is the case, the data may be valid."
 msgstr ""
+"Iespējams, ka datus saņēmāt laikā, kad sertifikāts joprojām bija derīgs un "
+"uzticams. Tādā gadījumā dati var būt derīgi."
 
 #: utils/formatting.cpp:1945
 #, kde-format
@@ -4081,6 +4072,10 @@ msgid ""
 "subsequent change to the message, possibly by an email client), or "
 "intentionally (deliberate manipulation)."
 msgstr ""
+"Vēstule vai paraksts ir mainīts. Tas var notikt kā negadījums (piemēram, "
+"kļūda sūtīšanas procesā), nejauši (piemēram, vēstule ir nejauši izmainīta "
+"pēc parakstīšanas vai to ir izmainījusi e-pasta programma) vai speciāli "
+"(speciāla manipulācija)."
 
 #: utils/formatting.cpp:1950
 #, kde-format
@@ -4091,6 +4086,10 @@ msgid ""
 "change to the data, possibly by an email client), or intentionally "
 "(deliberate manipulation)."
 msgstr ""
+"Dati vai paraksts ir mainīts. Tas var notikt kā negadījums (piemēram, kļūda "
+"sūtīšanas procesā), nejauši (piemēram, dati ir nejauši izmainīti pēc "
+"parakstīšanas vai to ir izmainījusi e-pasta programma) vai speciāli "
+"(speciāla manipulācija)."
 
 #: utils/formatting.cpp:1979
 #, kde-format
@@ -4099,6 +4098,8 @@ msgid ""
 "Look for the certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the message again."
 msgstr ""
+"Meklējiet sertifikātu serverī vai palūdziet to sūtītājam. Pēc sertifikāta "
+"importēšanas vēstuli atkal pārbaudiet."
 
 #: utils/formatting.cpp:1980
 #, kde-format
@@ -4107,6 +4108,8 @@ msgid ""
 "Look for the certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the data again."
 msgstr ""
+"Meklējiet sertifikātu serverī vai palūdziet to sūtītājam. Pēc sertifikāta "
+"importēšanas datus atkal pārbaudiet."
 
 #: utils/formatting.cpp:1986
 #, kde-format
@@ -4115,6 +4118,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the message "
 "again."
 msgstr ""
+"Verificējiet sertifikāta digitālo nospiedumu un to sertificējiet. Pēc tam "
+"vēlreiz verificējiet vēstuli."
 
 #: utils/formatting.cpp:1987
 #, kde-format
@@ -4123,6 +4128,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "message again."
 msgstr ""
+"Verificējiet vēstules „Root-CA“ digitālo nospiedumu un tam uzticieties. Pēc "
+"tam vēlreiz verificējiet vēstuli."
 
 #: utils/formatting.cpp:1990
 #, kde-format
@@ -4131,6 +4138,8 @@ msgid ""
 "Verify the certificate’s fingerprint and certify it. Then verify the data "
 "again."
 msgstr ""
+"Verificējiet sertifikāta digitālo nospiedumu un to sertificējiet. Pēc tam "
+"vēlreiz verificējiet datus."
 
 #: utils/formatting.cpp:1991
 #, kde-format
@@ -4139,6 +4148,8 @@ msgid ""
 "Verify the certificate’s Root-CA fingerprint and trust it. Then verify the "
 "data again."
 msgstr ""
+"Verificējiet vēstules „Root-CA“ digitālo nospiedumu un tam uzticieties. Pēc "
+"tam vēlreiz verificējiet datus."
 
 #: utils/formatting.cpp:1999
 #, kde-format
@@ -4147,6 +4158,8 @@ msgid ""
 "Look for an updated certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the message again."
 msgstr ""
+"Meklējiet atjauninātu sertifikātu serverī vai palūdziet to sūtītājam. Pēc "
+"sertifikāta importēšanas vēstuli atkal pārbaudiet."
 
 #: utils/formatting.cpp:2001 utils/formatting.cpp:2014
 #, kde-format
@@ -4155,6 +4168,9 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the message signed with a current certificate."
 msgstr ""
+"Ja jums ir šaubas, sazinieties ar parakstītāju, lai noskaidrotu situāciju "
+"un, ja nepieciešams, lūdziet parakstītāju atkārtoti nosūtīt vēstuli, kas "
+"būtu parakstīta ar pašreizējo sertifikātu."
 
 #: utils/formatting.cpp:2006
 #, kde-format
@@ -4163,6 +4179,8 @@ msgid ""
 "Look for an updated certificate on a server or ask the sender for it. After "
 "importing the certificate, verify the data again."
 msgstr ""
+"Meklējiet atjauninātu sertifikātu serverī vai palūdziet to sūtītājam. Pēc "
+"sertifikāta importēšanas datus atkal pārbaudiet."
 
 #: utils/formatting.cpp:2008 utils/formatting.cpp:2018
 #, kde-format
@@ -4171,18 +4189,21 @@ msgid ""
 "If in doubt, contact the signer to clarify the situation and, if necessary, "
 "ask them to resend the data signed with a current certificate."
 msgstr ""
+"Ja jums ir šaubas, sazinieties ar parakstītāju, lai noskaidrotu situāciju "
+"un, ja nepieciešams, lūdziet parakstītāju atkārtoti nosūtīt datus, kas būtu "
+"parakstīti ar pašreizējo sertifikātu."
 
 #: utils/formatting.cpp:2022
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the message."
-msgstr ""
+msgstr "Lūdziet sūtītājam vēstuli nosūtīt no jauna."
 
 #: utils/formatting.cpp:2023
 #, kde-format
 msgctxt "@info"
 msgid "Ask the sender to resend the data."
-msgstr ""
+msgstr "Lūdziet sūtītājam datus nosūtīt no jauna."
 
 #: utils/gnupg.cpp:437
 #, kde-format
