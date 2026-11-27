@@ -94,6 +94,9 @@ ecm_set_disabled_deprecation_versions(QT 6.11.0  KF 6.28.0)
 
 remove_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_EMIT)
+if(ECM_VERSION VERSION_GREATER_EQUAL "6.33.0")
+    add_definitions(-DQT_NO_QPAIR)
+endif()
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim6Libkleo")
 
